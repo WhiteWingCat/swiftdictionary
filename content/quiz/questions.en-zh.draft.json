@@ -3078,8 +3078,8 @@
     {
       "question_id": "quiz-advanced-034",
       "source_lesson_id": "a-idioms",
-      "prompt_learning": "Choose the correct verb: Please ___ a complete backup of all files before the server is replaced.",
-      "prompt_translation": "选择正确的动词：更换服务器前，请确保所有文件都已完整备份。",
+      "prompt_learning": "Before presenting the proposal, we should make sure everyone is on the same page. What does this mean?",
+      "prompt_translation": "在提交提案之前，我们应该确保每个人都在同一认知上。这是什么意思？",
       "options": [
         {
           "id": "a",
@@ -3357,8 +3357,8 @@
     {
       "question_id": "quiz-advanced-043",
       "source_lesson_id": "a-near-synonyms",
-      "prompt_learning": "Choose the correct verb: Please ___ that all files are backed up before the server is replaced.",
-      "prompt_translation": "选择正确的动词：更换服务器前，请___所有文件都已备份。",
+      "prompt_learning": "Choose the correct verb: Please ___ a complete backup of all files before the server is replaced.",
+      "prompt_translation": "选择正确的动词：更换服务器前，请确保所有文件都已完整备份。",
       "options": [
         {
           "id": "a",
