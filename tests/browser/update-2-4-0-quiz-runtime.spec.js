@@ -193,6 +193,11 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
 
+  // Ensure the authenticated preference has settled in the disposable DB before
+  // the Quiz page snapshots its language pair. The selector change above is
+  // also exercised in the UI; this removes a race between the queued upsert and
+  // the next hash navigation in a fast CI browser.
+  await updateTranslationPreference(freeUserId, "zh");
   await page.goto("/#quiz");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
