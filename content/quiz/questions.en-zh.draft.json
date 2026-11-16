@@ -1,0 +1,692 @@
+{
+  "schema_version": 1,
+  "content_pack": "swift-quiz-en-zh-beginner-batch-01",
+  "learning_language_code": "en",
+  "translation_language_code": "zh",
+  "status": "draft",
+  "notes": "Authored SwiftDictionary content. Not imported or approved for learner use. Every item requires human review before approval.",
+  "source_lessons": {
+    "b-verb-combinations": {
+      "topic_id": "everyday-vocabulary",
+      "difficulty": "beginner"
+    },
+    "b-articles": {
+      "topic_id": "nouns-and-articles",
+      "difficulty": "beginner"
+    },
+    "b-countable-nouns": {
+      "topic_id": "nouns-and-quantity",
+      "difficulty": "beginner"
+    },
+    "b-sentence": {
+      "topic_id": "sentence-basics",
+      "difficulty": "beginner"
+    },
+    "b-present": {
+      "topic_id": "verb-tenses",
+      "difficulty": "beginner"
+    },
+    "i-collocations": {
+      "topic_id": "collocations",
+      "difficulty": "intermediate"
+    },
+    "i-conditionals": {
+      "topic_id": "conditional-sentences",
+      "difficulty": "intermediate"
+    },
+    "i-phrasal": {
+      "topic_id": "phrasal-verbs",
+      "difficulty": "intermediate"
+    },
+    "i-perfect": {
+      "topic_id": "verb-tenses",
+      "difficulty": "intermediate"
+    },
+    "i-word-families": {
+      "topic_id": "word-formation",
+      "difficulty": "intermediate"
+    },
+    "a-hedging": {
+      "topic_id": "academic-professional-english",
+      "difficulty": "advanced"
+    },
+    "a-inversion": {
+      "topic_id": "advanced-grammar",
+      "difficulty": "advanced"
+    },
+    "a-mixed-conditionals": {
+      "topic_id": "advanced-grammar",
+      "difficulty": "advanced"
+    },
+    "a-idioms": {
+      "topic_id": "idioms-fixed-expressions",
+      "difficulty": "advanced"
+    },
+    "a-near-synonyms": {
+      "topic_id": "precise-vocabulary",
+      "difficulty": "advanced"
+    }
+  },
+  "questions": [
+    {
+      "question_id": "quiz-beginner-001",
+      "source_lesson_id": "b-verb-combinations",
+      "prompt_learning": "Choose the correct verb: Please ___ a decision before Friday.",
+      "prompt_translation": "选择正确的动词：请在星期五之前___一个决定。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "do",
+          "translation_text": "做"
+        },
+        {
+          "id": "b",
+          "learning_text": "make",
+          "translation_text": "作出"
+        },
+        {
+          "id": "c",
+          "learning_text": "take",
+          "translation_text": "拿"
+        },
+        {
+          "id": "d",
+          "learning_text": "have",
+          "translation_text": "拥有"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The natural expression is “make a decision.”",
+      "explanation_translation": "自然的搭配是“make a decision”（作出决定）。"
+    },
+    {
+      "question_id": "quiz-beginner-002",
+      "source_lesson_id": "b-verb-combinations",
+      "prompt_learning": "Which phrase means to stop working briefly and rest?",
+      "prompt_translation": "哪个短语表示暂时停止工作并休息？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make a break",
+          "translation_text": "制作一个休息"
+        },
+        {
+          "id": "b",
+          "learning_text": "do a break",
+          "translation_text": "做一个休息"
+        },
+        {
+          "id": "c",
+          "learning_text": "take a break",
+          "translation_text": "休息一下"
+        },
+        {
+          "id": "d",
+          "learning_text": "have a breaked",
+          "translation_text": "有一个休息"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Take a break” is the standard expression for resting briefly.",
+      "explanation_translation": "“Take a break”是表示短暂休息的标准表达。"
+    },
+    {
+      "question_id": "quiz-beginner-003",
+      "source_lesson_id": "b-verb-combinations",
+      "prompt_learning": "Choose the natural phrase: I usually ___ breakfast at seven.",
+      "prompt_translation": "选择自然的短语：我通常在七点___早餐。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make breakfast",
+          "translation_text": "制作早餐"
+        },
+        {
+          "id": "b",
+          "learning_text": "have breakfast",
+          "translation_text": "吃早餐"
+        },
+        {
+          "id": "c",
+          "learning_text": "do breakfast",
+          "translation_text": "做早餐"
+        },
+        {
+          "id": "d",
+          "learning_text": "take breakfast",
+          "translation_text": "拿早餐"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "We commonly say “have breakfast” when talking about eating the morning meal.",
+      "explanation_translation": "谈到吃早饭时，英语通常使用“have breakfast”。"
+    },
+    {
+      "question_id": "quiz-beginner-004",
+      "source_lesson_id": "b-verb-combinations",
+      "prompt_learning": "Complete the sentence: I ___ my homework after dinner.",
+      "prompt_translation": "完成句子：我晚饭后___作业。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make",
+          "translation_text": "制作"
+        },
+        {
+          "id": "b",
+          "learning_text": "take",
+          "translation_text": "拿"
+        },
+        {
+          "id": "c",
+          "learning_text": "do",
+          "translation_text": "做"
+        },
+        {
+          "id": "d",
+          "learning_text": "have",
+          "translation_text": "拥有"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Do homework” is the usual verb-noun combination.",
+      "explanation_translation": "“Do homework”是常见的动词与名词搭配。"
+    },
+    {
+      "question_id": "quiz-beginner-005",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct article: She bought ___ umbrella.",
+      "prompt_translation": "选择正确的冠词：她买了一把雨伞。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "a"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "an"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "the"
+        },
+        {
+          "id": "d",
+          "learning_text": "no article",
+          "translation_text": "不加冠词"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Umbrella” begins with a vowel sound, so the singular countable noun takes “an.”",
+      "explanation_translation": "“Umbrella”以元音音素开头，因此单数可数名词前用“an”。"
+    },
+    {
+      "question_id": "quiz-beginner-006",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct article: ___ sun rises in the east.",
+      "prompt_translation": "选择正确的冠词：太阳从东方升起。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "A",
+          "translation_text": "A"
+        },
+        {
+          "id": "b",
+          "learning_text": "An",
+          "translation_text": "An"
+        },
+        {
+          "id": "c",
+          "learning_text": "The",
+          "translation_text": "The"
+        },
+        {
+          "id": "d",
+          "learning_text": "No article",
+          "translation_text": "不加冠词"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "We use “the” for the unique sun in this context.",
+      "explanation_translation": "在这个语境中，太阳是独一无二的，因此使用“the”。"
+    },
+    {
+      "question_id": "quiz-beginner-007",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct article: He studies at ___ university in Kuala Lumpur.",
+      "prompt_translation": "选择正确的冠词：他在吉隆坡的一所大学学习。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "a"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "an"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "the"
+        },
+        {
+          "id": "d",
+          "learning_text": "no article",
+          "translation_text": "不加冠词"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“University” begins with the consonant sound /juː/, so “a” is correct.",
+      "explanation_translation": "“University”以辅音音素 /j/ 开头，因此使用“a”。"
+    },
+    {
+      "question_id": "quiz-beginner-008",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct article: It was ___ honest mistake.",
+      "prompt_translation": "选择正确的冠词：那是一个无心的错误。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "a"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "an"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "the"
+        },
+        {
+          "id": "d",
+          "learning_text": "no article",
+          "translation_text": "不加冠词"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The “h” in “honest” is silent, so the word begins with a vowel sound.",
+      "explanation_translation": "“Honest”中的字母 h 不发音，因此该词以元音音素开头。"
+    },
+    {
+      "question_id": "quiz-beginner-009",
+      "source_lesson_id": "b-countable-nouns",
+      "prompt_learning": "Choose the correct plural form: one child, two ___.",
+      "prompt_translation": "选择正确的复数形式：一个孩子，两个___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "childs",
+          "translation_text": "childs"
+        },
+        {
+          "id": "b",
+          "learning_text": "childes",
+          "translation_text": "childes"
+        },
+        {
+          "id": "c",
+          "learning_text": "children",
+          "translation_text": "children"
+        },
+        {
+          "id": "d",
+          "learning_text": "childrens",
+          "translation_text": "childrens"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Child” has the irregular plural form “children.”",
+      "explanation_translation": "“Child”的不规则复数形式是“children”。"
+    },
+    {
+      "question_id": "quiz-beginner-010",
+      "source_lesson_id": "b-countable-nouns",
+      "prompt_learning": "Which phrase is correct in standard English?",
+      "prompt_translation": "以下哪个短语符合标准英语？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "an advice",
+          "translation_text": "an advice"
+        },
+        {
+          "id": "b",
+          "learning_text": "a piece of advice",
+          "translation_text": "a piece of advice"
+        },
+        {
+          "id": "c",
+          "learning_text": "many advice",
+          "translation_text": "many advice"
+        },
+        {
+          "id": "d",
+          "learning_text": "two advices",
+          "translation_text": "two advices"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Advice” is uncountable in standard English; use “a piece of advice” for one item of advice.",
+      "explanation_translation": "在标准英语中，“advice”是不可数名词；表示一条建议时可说“a piece of advice”。"
+    },
+    {
+      "question_id": "quiz-beginner-011",
+      "source_lesson_id": "b-countable-nouns",
+      "prompt_learning": "Choose the correct word: How ___ apples do we need?",
+      "prompt_translation": "选择正确的词：我们需要多少个苹果？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "much",
+          "translation_text": "多少（不可数）"
+        },
+        {
+          "id": "b",
+          "learning_text": "many",
+          "translation_text": "多少（可数复数）"
+        },
+        {
+          "id": "c",
+          "learning_text": "any",
+          "translation_text": "任何"
+        },
+        {
+          "id": "d",
+          "learning_text": "little",
+          "translation_text": "少量"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Apples” is a plural countable noun, so the question uses “many.”",
+      "explanation_translation": "“Apples”是可数名词复数，因此疑问句使用“many”。"
+    },
+    {
+      "question_id": "quiz-beginner-012",
+      "source_lesson_id": "b-countable-nouns",
+      "prompt_learning": "Choose the correct word: There isn't ___ water in the bottle.",
+      "prompt_translation": "选择正确的词：瓶子里没有多少水。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "many",
+          "translation_text": "许多（可数）"
+        },
+        {
+          "id": "b",
+          "learning_text": "a few",
+          "translation_text": "几个"
+        },
+        {
+          "id": "c",
+          "learning_text": "much",
+          "translation_text": "多少（不可数）"
+        },
+        {
+          "id": "d",
+          "learning_text": "several",
+          "translation_text": "几个"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Water” is uncountable here, so “much” is used in this negative sentence.",
+      "explanation_translation": "这里的“water”是不可数名词，因此否定句中使用“much”。"
+    },
+    {
+      "question_id": "quiz-beginner-013",
+      "source_lesson_id": "b-sentence",
+      "prompt_learning": "Which sentence follows the usual subject–verb–object order?",
+      "prompt_translation": "哪个句子符合常见的主语—动词—宾语语序？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Reads Mia a book.",
+          "translation_text": "读一本书 Mia。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Mia a book reads.",
+          "translation_text": "Mia 一本书 读。"
+        },
+        {
+          "id": "c",
+          "learning_text": "A book Mia reads.",
+          "translation_text": "一本书 Mia 读。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Mia reads a book.",
+          "translation_text": "Mia 读一本书。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "“Mia” is the subject, “reads” is the verb, and “a book” is the object.",
+      "explanation_translation": "“Mia”是主语，“reads”是动词，“a book”是宾语。"
+    },
+    {
+      "question_id": "quiz-beginner-014",
+      "source_lesson_id": "b-sentence",
+      "prompt_learning": "Choose the correct word order.",
+      "prompt_translation": "选择正确的词序。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "They are at home.",
+          "translation_text": "他们在家。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Are they home at.",
+          "translation_text": "在家他们是。"
+        },
+        {
+          "id": "c",
+          "learning_text": "At home are they.",
+          "translation_text": "在家是他们。"
+        },
+        {
+          "id": "d",
+          "learning_text": "They at are home.",
+          "translation_text": "他们在是家。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The usual statement order is subject + verb + place phrase.",
+      "explanation_translation": "常见陈述句语序是主语 + 动词 + 地点短语。"
+    },
+    {
+      "question_id": "quiz-beginner-015",
+      "source_lesson_id": "b-sentence",
+      "prompt_learning": "Choose the correct question.",
+      "prompt_translation": "选择正确的疑问句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Does he works here?",
+          "translation_text": "他在这里工作吗？"
+        },
+        {
+          "id": "b",
+          "learning_text": "Do he work here?",
+          "translation_text": "他在这里工作吗？"
+        },
+        {
+          "id": "c",
+          "learning_text": "Does he work here?",
+          "translation_text": "他在这里工作吗？"
+        },
+        {
+          "id": "d",
+          "learning_text": "He does work here?",
+          "translation_text": "他在这里工作吗？"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "With “does,” the main verb stays in its base form: “work.”",
+      "explanation_translation": "使用“does”时，主要动词保持原形“work”。"
+    },
+    {
+      "question_id": "quiz-beginner-016",
+      "source_lesson_id": "b-sentence",
+      "prompt_learning": "Choose the sentence with the usual adjective position.",
+      "prompt_translation": "选择形容词位置通常正确的句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She has a bag red.",
+          "translation_text": "她有一个包红色的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She has red a bag.",
+          "translation_text": "她有红色一个包。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She has a red bag.",
+          "translation_text": "她有一个红色的包。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Red she has a bag.",
+          "translation_text": "红色她有一个包。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "In this noun phrase, the adjective “red” comes before the noun “bag.”",
+      "explanation_translation": "在这个名词短语中，形容词“red”放在名词“bag”之前。"
+    },
+    {
+      "question_id": "quiz-beginner-017",
+      "source_lesson_id": "b-present",
+      "prompt_learning": "Choose the correct present simple form: My brother ___ to school by bus.",
+      "prompt_translation": "选择正确的一般现在时形式：我哥哥/弟弟乘公共汽车去上学。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "go",
+          "translation_text": "去"
+        },
+        {
+          "id": "b",
+          "learning_text": "goes",
+          "translation_text": "去（第三人称单数）"
+        },
+        {
+          "id": "c",
+          "learning_text": "going",
+          "translation_text": "正在去"
+        },
+        {
+          "id": "d",
+          "learning_text": "gone",
+          "translation_text": "已经去"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "With a third-person singular subject such as “my brother,” the present simple verb takes -s or -es.",
+      "explanation_translation": "主语是“my brother”这样的第三人称单数时，一般现在时动词通常加 -s 或 -es。"
+    },
+    {
+      "question_id": "quiz-beginner-018",
+      "source_lesson_id": "b-present",
+      "prompt_learning": "Choose the correct negative sentence.",
+      "prompt_translation": "选择正确的否定句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "They doesn't like coffee.",
+          "translation_text": "他们不喜欢咖啡。"
+        },
+        {
+          "id": "b",
+          "learning_text": "They not like coffee.",
+          "translation_text": "他们不喜欢咖啡。"
+        },
+        {
+          "id": "c",
+          "learning_text": "They don't likes coffee.",
+          "translation_text": "他们不喜欢咖啡。"
+        },
+        {
+          "id": "d",
+          "learning_text": "They don't like coffee.",
+          "translation_text": "他们不喜欢咖啡。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "With “they,” use “do not/don't” followed by the base form “like.”",
+      "explanation_translation": "主语是“they”时，使用“do not/don't”加动词原形“like”。"
+    },
+    {
+      "question_id": "quiz-beginner-019",
+      "source_lesson_id": "b-present",
+      "prompt_learning": "Choose the correct present simple sentence about a habit.",
+      "prompt_translation": "选择描述习惯的正确一般现在时句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She walks to work every day.",
+          "translation_text": "她每天步行上班。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She walk to work every day.",
+          "translation_text": "她每天步行上班。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She walking to work every day.",
+          "translation_text": "她每天步行上班。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She walked to work every day now.",
+          "translation_text": "她现在每天步行上班。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Every day” describes a regular habit, and “she” takes the verb form “walks.”",
+      "explanation_translation": "“Every day”表示规律习惯；主语“she”对应动词形式“walks”。"
+    },
+    {
+      "question_id": "quiz-beginner-020",
+      "source_lesson_id": "b-present",
+      "prompt_learning": "Complete the sentence: We ___ dinner at home on Fridays.",
+      "prompt_translation": "完成句子：我们星期五在家吃晚饭。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "has",
+          "translation_text": "有/吃（第三人称单数）"
+        },
+        {
+          "id": "b",
+          "learning_text": "having",
+          "translation_text": "正在吃"
+        },
+        {
+          "id": "c",
+          "learning_text": "have",
+          "translation_text": "有/吃"
+        },
+        {
+          "id": "d",
+          "learning_text": "had",
+          "translation_text": "过去吃了"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“We” takes the base present simple form “have.”",
+      "explanation_translation": "主语“We”使用一般现在时动词原形“have”。"
+    }
+  ]
+}
