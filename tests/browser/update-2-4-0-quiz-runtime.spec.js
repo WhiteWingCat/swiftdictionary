@@ -171,13 +171,13 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#lessonCards button").first()).toBeVisible();
   await page.locator("#lessonCards button").first().click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
-  await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
-  await page.locator('input[name="lessonAnswer0"][value="1"]').check();
-  await page.locator("#translationSelect").selectOption("zh");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
-  await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
+  await page.locator('input[name="lessonAnswer0"][value="1"]').check();
   await page.locator("#translationSelect").selectOption("en");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
+  await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
 
   await page.goto("/#quiz");
