@@ -157,7 +157,9 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.goto("/#lessons");
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  // Dismiss the separate Lessons guide before opening a permanent lesson.
   await page.locator("#learningIntroDismiss").click();
+  await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
   await expect(page.locator("#lessonCards button").first()).toBeVisible();
   await page.locator("#lessonCards button").first().click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
