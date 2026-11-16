@@ -45,7 +45,7 @@ Batch 01 has 30 Beginner questions, four mapped to each of five live English per
 
 Every record has an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations. The batch is original SwiftDictionary-authored content, not copied from third-party dictionary corpora, textbooks or commercial quiz banks.
 
-The validator checks stable unique IDs, normalized prompt uniqueness, required bilingual fields, four unique options, answer-key membership, and source lesson/topic/difficulty mapping. Its `--emit-sql` mode emits an insert script that explicitly sets every row to `status='draft'`; it cannot approve questions. The CI workflow tests this generated SQL against disposable PostgreSQL and local Supabase databases, asserting 20 rows, five mapped topics, valid four-option rows and zero approved questions.
+The validator checks stable unique IDs, normalized prompt uniqueness, required bilingual fields, four unique options, answer-key membership, and source lesson/topic/difficulty mapping. Its `--emit-sql` mode emits an insert script that explicitly sets every row to `status='draft'`; it cannot approve questions. The CI workflow tests this generated SQL against disposable PostgreSQL and local Supabase databases, asserting 30 rows, five mapped topics (six per topic), valid four-option rows and zero approved questions.
 
 A separate manual editorial review and separate approval migration are required before content can be approved. Structural validation does not prove that an answer is semantically correct or that distractors are unambiguous.
 
