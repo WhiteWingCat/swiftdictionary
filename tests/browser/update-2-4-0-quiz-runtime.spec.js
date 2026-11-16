@@ -273,6 +273,8 @@ test("Chinese course selection clearly disables English learning content on all 
   await expect(page.locator("#quizHome")).toBeVisible();
 
   await page.goto("/#lessons");
+  await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  await page.locator("#learningIntroDismiss").click();
   await page.locator("#courseSelect").selectOption("zh");
   await expect(page.locator("#lessonsChineseUnavailable")).toBeVisible();
   await expect(page.locator("#lessonLibrary")).toBeHidden();
@@ -281,6 +283,8 @@ test("Chinese course selection clearly disables English learning content on all 
   await expect(page.locator("#lessonLibrary")).toBeVisible();
 
   await page.goto("/#flashcards");
+  await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  await page.locator("#learningIntroDismiss").click();
   await page.locator("#courseSelect").selectOption("zh");
   await expect(page.locator("#flashcardsChineseUnavailable")).toBeVisible();
   await expect(page.locator("#flashcardsPage .coming-card")).toBeHidden();
