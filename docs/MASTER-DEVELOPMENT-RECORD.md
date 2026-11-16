@@ -871,3 +871,17 @@ The Quiz placeholder in `index.html` has been replaced on `feature/update-2-4-0-
 3. Verify signed-out gating, allowance/difficulty states, answer saving and changing, resume after reload, abandonment, submission/scoring, complete review, history, translation snapshot and account switching.
 4. Keep PR #8 draft until automated runtime validation and owner review are complete.
 5. Do not merge, deploy or apply production Quiz schema/content without explicit owner approval.
+
+
+### CI troubleshooting record — Quiz allowance and isolated Auth tests (2026-11-16)
+
+This is a reusable diagnostic for future feature work, especially Update 2.5.0 Flashcards, whenever authenticated browser tests unexpectedly report legacy allowance values or behave inconsistently across retries.
+
+- **Symptom:** Quiz browser tests reported the legacy Free/Premium allowance values (5/12) instead of the approved Quiz limits (1/3), while the separate PostgreSQL foundation workflow passed.
+- **Root cause:** The Local Supabase Auth/RPC CI job built its disposable database from prerequisite migrations but omitted the dedicated Quiz allowance migration `supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`. The browser test therefore observed the synthetic baseline's legacy 5/12 limits. This was a local CI fixture/migration-order problem, not evidence that production Supabase needed repair.
+- **Repair:** Apply the exact feature-specific allowance migration to the disposable local Supabase database in the Auth/RPC workflow before authenticated browser runtime tests. Keep the production database untouched unless a separately approved production migration is genuinely required.
+- **Test isolation lesson:** Create fresh synthetic Free and Premium Auth users for every browser-test attempt/retry, seed their test-only preferences and entitlements, and verify a newly created user has no active session. Do not reuse static account IDs across retries.
+- **Invariant to preserve:** Do not weaken the server-enforced one-active-session-per-user rule to make tests pass. Do not silently change approved Free/Premium allowance policy.
+- **Flashcards reuse checklist:** When building Flashcards CI, inspect every workflow job (especially local Auth/browser jobs) for complete prerequisite migration coverage; verify the intended Flashcard allowance migration is applied to the disposable database; use fresh synthetic accounts per retry; keep test content/account fixtures separate; and assert allowance values through authenticated RPCs rather than assuming a foundation-only SQL test covers the browser workflow.
+- **Validation boundary:** A passing schema/foundation job does not prove the authenticated browser job uses the same migration set. Confirm each job's migration sequence and inspect its own logs. Run security advisors against the disposable local schema after runtime tests. No production migration, main-branch merge, deployment or Mock User preview is implied by this troubleshooting record.
+
