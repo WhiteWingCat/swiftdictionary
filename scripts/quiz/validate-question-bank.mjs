@@ -79,3 +79,32 @@ console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum
 console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
 console.log("Advanced minimum 32 advanced + 8 intermediate + 8 beginner; target 48 + 12 + 12.");
 console.log("All source content remains draft and must receive human approval before import.");
+
+if (process.argv.includes("--emit-sql")) {
+  const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
+  const json = value => lit(JSON.stringify(value)) + "::jsonb";
+  const rows = questions.map(q => {
+    const source = lessons[q.source_lesson_id];
+    return "(" + [
+      lit(q.question_id), "1", lit(raw.learning_language_code),
+      lit(raw.translation_language_code), lit(q.source_lesson_id),
+      lit(source.topic_id), lit(source.difficulty),
+      lit(q.prompt_learning), lit(q.prompt_translation), json(q.options),
+      lit(q.correct_option_id), lit(q.explanation_learning),
+      lit(q.explanation_translation), lit("draft")
+    ].join(", ") + ")";
+  });
+  const sql = [
+    "-- Generated from " + file + ". Drafts only; never auto-approve.",
+    "begin;",
+    "insert into private.quiz_question_bank (",
+    "  question_id, revision, learning_language_code, translation_language_code,",
+    "  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,",
+    "  options, correct_option_id, explanation_learning, explanation_translation, status",
+    ") values",
+    rows.join(",\n"),
+    ";",
+    "commit;"
+  ].join("\n");
+  process.stdout.write(sql + "\n");
+}
