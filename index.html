@@ -18604,6 +18604,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
     function quizTranslationVisible(code){return code === "zh";}
+    function quizEffectiveTranslationCode(snapshot){
+      const learningCode=snapshot?.learning_language_code||"en";
+      const savedTranslation=snapshot?.translation_language_code||"en";
+      // The learning-language text is always present. A different translation
+      // is available only when it matches the frozen session snapshot.
+      if(translationLanguage===learningCode)return learningCode;
+      if(translationLanguage===savedTranslation)return translationLanguage;
+      return savedTranslation;
+    }
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
     function quizReason(reason){
@@ -18676,7 +18685,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizEl("quizQuestionCounter").textContent="Question "+pos+" of "+s.question_count;
       quizEl("quizAnsweredCounter").textContent=answered+" answered";
       quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
-      const showTranslation=quizTranslationVisible(s.translation_language_code);
+      const effectiveTranslation=quizEffectiveTranslationCode(s);
+      const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
       quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(option.learning_text)+'</span>'+(showTranslation?'<small>'+quizEscape(option.translation_text)+'</small>':'')+'</span></button>';
       }).join("")+'</div>';
@@ -18742,7 +18752,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function quizRenderResult(data){
       quizPageState.result=data;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
       const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
-      const showTranslation=quizTranslationVisible(data.translation_language_code);
+      const effectiveTranslation=quizEffectiveTranslationCode(data);
+      const showTranslation=effectiveTranslation!== (data.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
       const questions=data.questions||[];
       quizEl("quizResultsContent").innerHTML='<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
         const opts=(q.options||[]).map((o,i)=>{
@@ -18871,10 +18882,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if(quizPageState.session&&quizEl("quizTranslationNotice")){
         const current=quizPageState.session.translation_language_code||"en";
         const preferred=translationLanguage;
-        const same=current===preferred;
-        quizEl("quizTranslationNotice").textContent=same?"This Quiz uses your selected translation language.":"Your current Quiz keeps the translation language saved when the session started. Your new preference ("+(preferred==="zh"?"简体中文":"English")+") will apply to your next Quiz. Your current answers and progress are unchanged.";
+        const learningCode=quizPageState.session.learning_language_code||"en";
+        const available=preferred===learningCode||preferred===current;
+        quizEl("quizTranslationNotice").textContent=available?(preferred===learningCode?"The current Quiz is now showing its learning-language text, which is already included in this session.":"The current Quiz has refreshed to your selected translation, which is included in this session."):"Your requested translation ("+(preferred==="zh"?"简体中文":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.";
         quizEl("quizTranslationNotice").hidden=false;
       }
+      if(quizPageState.session&&!chinese)quizRenderSession();
+      if(quizPageState.result&&!chinese)quizRenderResult(quizPageState.result);
       quizEl("flashcardsChineseUnavailable").hidden=!chinese;
       const flashComing=quizEl("flashcardsPage").querySelector(".coming-card");
       if(flashComing)flashComing.hidden=chinese;
