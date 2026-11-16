@@ -54,6 +54,7 @@
       learning_activity_log:[],
       lesson_practice_results:[],
       daily_activity_sessions:[],
+      learning_page_introduction_preferences:[],
       quiz_sessions:[]
     };
   }
@@ -122,7 +123,8 @@
 
   const supportedTables = new Set([
     "profiles","user_preferences","user_entitlements","learning_plan_limits","saved_words",
-    "lesson_progress","learning_activity_log","lesson_practice_results","daily_activity_sessions"
+    "lesson_progress","learning_activity_log","lesson_practice_results","daily_activity_sessions",
+    "learning_page_introduction_preferences"
   ]);
   class MockQuery {
     constructor(table) {
