@@ -46,3 +46,23 @@ The new preference record is account-linked personal data even though it stores 
 3. Test Quiz translation changes when the requested language is present and absent in the snapshot; verify answers/session are unchanged and the next session uses the new preference.
 4. Test Chinese/English course switching on all three pages and verify no English learning content leaks into a Chinese-course state.
 5. Keep PR #8 draft. Do not merge, deploy or apply production schema/content without explicit owner approval.
+
+## Second browser validation and recovery
+
+Quiz workflow run #234 (commit b8830b0) passed the PostgreSQL/frontend job. In its disposable local Supabase browser job:
+- Passed: account-scoped independent introductions, Dismiss persistence and help-button reopening.
+- Passed: Chinese/English availability transitions across Lessons, Quiz and Flashcards.
+- Passed: existing Premium Quiz allowance, abandonment and active-session enforcement.
+- Failed: the first Free Quiz test did not render the account's saved Chinese translation; the signed-out route exposed an empty Quiz session panel.
+
+Repairs:
+- Added an explicit signed-in user_preferences read before Quiz initialization so Quiz uses the account's saved learning and translation language.
+- Session and results panels are now hidden unless the corresponding authenticated session/result exists.
+- Added an English-only synthetic Quiz fixture and a dedicated browser test for the unavailable-snapshot fallback: preserve current English snapshot and answers, explain the next-Quiz preference, abandon without allowance use, then start a new session using the saved Chinese preference.
+- Added static validator checks for account preference sync and translation notice updates.
+
+Mock User support:
+- The isolated mock adapter now supports account/page introduction dismissal rows in each simulated user's sessionStorage.
+- Added a Node unit test confirming per-page persistence and account isolation. The 2.3.x workflow run #893 PostgreSQL job passed, including the expanded mock adapter unit suite. Its local Auth/Chromium jobs were still in progress at the last check.
+
+The follow-up Quiz browser suite containing the preference sync and English-only snapshot fallback test is awaiting CI. No production schema or website deployment was changed.
