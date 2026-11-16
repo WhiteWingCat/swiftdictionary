@@ -1001,33 +1001,33 @@
     {
       "question_id": "quiz-intermediate-003",
       "source_lesson_id": "i-collocations",
-      "prompt_learning": "We need to finish the safety checks on time to ___ the deadline.",
-      "prompt_translation": "我们需要按时完成安全检查，以赶上截止日期。",
+      "prompt_learning": "Which verb means to complete work by the required date: ___ the deadline?",
+      "prompt_translation": "哪个动词表示在规定日期前完成工作：___ 截止日期？",
       "options": [
         {
           "id": "a",
-          "learning_text": "reach",
-          "translation_text": "到达"
-        },
-        {
-          "id": "b",
           "learning_text": "meet",
           "translation_text": "达到/满足"
         },
         {
+          "id": "b",
+          "learning_text": "miss",
+          "translation_text": "错过"
+        },
+        {
           "id": "c",
-          "learning_text": "touch",
-          "translation_text": "触碰"
+          "learning_text": "extend",
+          "translation_text": "延长"
         },
         {
           "id": "d",
-          "learning_text": "arrive",
-          "translation_text": "抵达"
+          "learning_text": "cancel",
+          "translation_text": "取消"
         }
       ],
-      "correct_option_id": "b",
-      "explanation_learning": "“Meet a deadline” means to complete something by the required time.",
-      "explanation_translation": "“Meet a deadline”表示在规定时间前完成任务。"
+      "correct_option_id": "a",
+      "explanation_learning": "“Meet the deadline” means to finish the work by the required date.",
+      "explanation_translation": "“Meet the deadline”表示在规定日期前完成工作。"
     },
     {
       "question_id": "quiz-intermediate-004",
@@ -1166,18 +1166,18 @@
         },
         {
           "id": "b",
-          "learning_text": "heavily",
-          "translation_text": "沉重地"
-        },
-        {
-          "id": "c",
-          "learning_text": "widely",
+          "learning_text": "broadly",
           "translation_text": "广泛地"
         },
         {
+          "id": "c",
+          "learning_text": "narrowly",
+          "translation_text": "狭窄地"
+        },
+        {
           "id": "d",
-          "learning_text": "strongly",
-          "translation_text": "强烈地"
+          "learning_text": "loosely",
+          "translation_text": "松散地"
         }
       ],
       "correct_option_id": "a",
