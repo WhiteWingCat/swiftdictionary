@@ -1,83 +1,37 @@
--- Disposable-only approved synthetic content for authenticated Quiz browser tests.
--- This fixture must only run against the local Supabase stack in CI.
+-- Disposable-only approval of the reviewed draft pack for authenticated browser tests.
+-- This file must only run against the local Supabase stack in CI.
+-- It promotes the real 114-question content pack inside the disposable test DB;
+-- no production database or persistent environment is touched.
+
 \set ON_ERROR_STOP on
 
-insert into private.learning_content_catalog(
-  activity_type, content_id, topic_id, difficulty, language_code, is_active
-)
-select
-  'permanent_lesson',
-  d.prefix || '-runtime-lesson-' || n,
-  'quiz-runtime-topic-' || n,
-  d.difficulty,
-  'en',
-  true
-from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
-cross join generate_series(1,10) n
-on conflict (activity_type,content_id,language_code)
-do update set
-  topic_id=excluded.topic_id,
-  difficulty=excluded.difficulty,
-  is_active=true;
+update private.quiz_question_bank
+set status='approved', approved_at=pg_catalog.now()
+where question_id like 'quiz-beginner-%'
+   or question_id like 'quiz-intermediate-%'
+   or question_id like 'quiz-advanced-%';
 
-insert into private.quiz_question_bank(
-  question_id, revision, learning_language_code, translation_language_code,
-  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,
-  options, correct_option_id, explanation_learning, explanation_translation, status
-)
-select
-  d.prefix || '-runtime-' || lpad(n::text,3,'0'),
-  1,
-  'en',
-  'zh',
-  d.prefix || '-runtime-lesson-' || (((n-1)%10)+1),
-  'quiz-runtime-topic-' || (((n-1)%10)+1),
-  d.difficulty,
-  'Runtime test question ' || d.difficulty || ' ' || n || ': choose the correct answer.',
-  '运行测试题' || n || '：请选择正确答案。',
-  jsonb_build_array(
-    jsonb_build_object('id','a','learning_text','Correct answer','translation_text','正确答案'),
-    jsonb_build_object('id','b','learning_text','Incorrect option one','translation_text','错误选项一'),
-    jsonb_build_object('id','c','learning_text','Incorrect option two','translation_text','错误选项二'),
-    jsonb_build_object('id','d','learning_text','Incorrect option three','translation_text','错误选项三')
-  ),
-  'a',
-  'This is synthetic test content; option A is the correct answer.',
-  '这是合成测试内容；选项 A 是正确答案。',
-  'approved'
-from (
-  select 'b' as prefix, 'beginner' as difficulty, n from generate_series(1,60) n
-  union all
-  select 'i', 'intermediate', n from generate_series(1,60) n
-  union all
-  select 'a', 'advanced', n from generate_series(1,60) n
-) d;
+do $assert_runtime_bank$
+declare
+  v_beginner integer;
+  v_intermediate integer;
+  v_advanced integer;
+  v_not_approved integer;
+begin
+  select count(*) filter (where difficulty='beginner')::integer,
+         count(*) filter (where difficulty='intermediate')::integer,
+         count(*) filter (where difficulty='advanced')::integer,
+         count(*) filter (where status<>'approved')::integer
+  into v_beginner,v_intermediate,v_advanced,v_not_approved
+  from private.quiz_question_bank
+  where question_id like 'quiz-beginner-%'
+     or question_id like 'quiz-intermediate-%'
+     or question_id like 'quiz-advanced-%';
 
--- Separate English-translation fixture rows exercise the session-snapshot
--- fallback when a learner changes their preference to Chinese mid-session.
-insert into private.quiz_question_bank(
-  question_id, revision, learning_language_code, translation_language_code,
-  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,
-  options, correct_option_id, explanation_learning, explanation_translation, status
-)
-select
-  'b-runtime-en-' || lpad(n::text,3,'0'),
-  1,
-  'en',
-  'en',
-  'b-runtime-lesson-' || (((n-1)%10)+1),
-  'quiz-runtime-topic-' || (((n-1)%10)+1),
-  'beginner',
-  'English snapshot test question ' || n || ': choose the correct answer.',
-  'English snapshot test question ' || n || ': choose the correct answer.',
-  jsonb_build_array(
-    jsonb_build_object('id','a','learning_text','Correct answer','translation_text','Correct answer'),
-    jsonb_build_object('id','b','learning_text','Incorrect option one','translation_text','Incorrect option one'),
-    jsonb_build_object('id','c','learning_text','Incorrect option two','translation_text','Incorrect option two'),
-    jsonb_build_object('id','d','learning_text','Incorrect option three','translation_text','Incorrect option three')
-  ),
-  'a',
-  'This synthetic English-only snapshot has no Chinese translation.',
-  'This synthetic English-only snapshot has no Chinese translation.',
-  'approved'
-from generate_series(1,30) n;
+  if v_beginner<>30 or v_intermediate<>36 or v_advanced<>48 or v_not_approved<>0 then
+    raise exception 'Disposable runtime bank promotion failed: beginner %, intermediate %, advanced %, unapproved %',
+      v_beginner,v_intermediate,v_advanced,v_not_approved;
+  end if;
+  raise notice 'Disposable runtime bank ready: 114 real bilingual questions approved only in local test database';
+end;
+$assert_runtime_bank$;
