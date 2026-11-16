@@ -45,7 +45,7 @@ The active session stores its learning/translation language pair. The frontend r
 - It guards against direct browser queries to the private Quiz tables.
 - The Quiz database workflow now runs this frontend validation alongside its PostgreSQL and disposable local Supabase jobs.
 
-A separate runtime/browser test with authenticated test sessions is still required before the frontend can be considered fully validated. The static validator is not a substitute for that test or for owner testing.
+Authenticated Chromium runtime tests now pass against disposable local Supabase using fresh synthetic Free and Premium users and a test-only approved question fixture. Coverage includes signed-out gating; Free 1/day and Premium 3/day allowances; answer selection/change and persistence; resume after reload; one-active-session enforcement; abandonment without allowance use; submission, score, full answer/explanation review and history. Supabase security advisors also pass against the disposable local Quiz schema. The static validator remains a separate check and is not a substitute for backend runtime tests or owner review.
 
 ## Release and data boundaries
 
@@ -64,3 +64,11 @@ A separate runtime/browser test with authenticated test sessions is still requir
 3. Verify signed-out gating, Free/Premium allowance presentation, difficulty readiness states, answer persistence/change, resume after reload, abandonment, submit scoring, full review, history, language snapshot and account switching.
 4. Keep PR #8 in draft until the runtime tests and owner review are complete.
 5. Do not merge, deploy or apply the Quiz schema/content to production without explicit approval.
+
+
+## Mock User testing support
+
+- The isolated mock adapter now implements the Quiz UI RPC surface using fictional sessionStorage-only content and state.
+- Test User A is Free (1 Quiz completion/day); Test User B is Premium (3/day). Mock coverage includes start/resume, answer persistence, submit/review/history, abandonment and active-session enforcement.
+- Mock mode remains explicitly opt-in and restricted to exact preview hostnames. It does not simulate Supabase Auth, RLS, backend security, production content readiness or cross-device persistence.
+- The 2.4.0 feature preview must be deployed to its allowlisted Cloudflare Pages preview hostname before owner-facing Mock User testing can begin. Do not use the live production site for Mock User mode.
