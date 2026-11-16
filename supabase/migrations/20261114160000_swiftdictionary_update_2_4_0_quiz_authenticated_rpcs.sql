@@ -353,10 +353,11 @@ begin
   v_advanced_target := v_learning = 'en' and v_a >= 48 and v_i >= 12 and v_b >= 12;
 
   v_beginner_fresh := v_rb >= 10 and v_beginner_topics >= 3;
+  -- Fifteen questions cannot split exactly 50/50. Use the nearest
+  -- intermediate-majority split (8/7) or the approved 80/20 split (12/3).
   v_intermediate_fresh := v_intermediate_topics >= 3 and (
        (v_ri >= 12 and v_rb >= 3)
     or (v_ri >= 8 and v_rb >= 7)
-    or (v_ri >= 7 and v_rb >= 8)
   );
   v_advanced_fresh := v_advanced_topics >= 3 and v_ri >= 4 and (
        (v_ra >= 16)
@@ -578,8 +579,7 @@ begin
     from (
       values
         ('{"beginner":3,"intermediate":12}'::jsonb,v_unseen_i>=12 and v_unseen_b>=3),
-        ('{"beginner":7,"intermediate":8}'::jsonb,v_unseen_i>=8 and v_unseen_b>=7),
-        ('{"beginner":8,"intermediate":7}'::jsonb,v_unseen_i>=7 and v_unseen_b>=8)
+        ('{"beginner":7,"intermediate":8}'::jsonb,v_unseen_i>=8 and v_unseen_b>=7)
     ) as choice(composition,is_feasible)
     where choice.is_feasible
     order by pg_catalog.random()
