@@ -2,21 +2,25 @@ do $draft_import$
 declare
   v_beginner integer;
   v_intermediate integer;
+  v_advanced integer;
   v_approved integer;
   v_bad_mappings integer;
   v_bad_options integer;
 begin
   select count(*) filter (where question_id like 'quiz-beginner-%')::integer,
-         count(*) filter (where question_id like 'quiz-intermediate-%')::integer
-  into v_beginner,v_intermediate
+         count(*) filter (where question_id like 'quiz-intermediate-%')::integer,
+         count(*) filter (where question_id like 'quiz-advanced-%')::integer
+  into v_beginner,v_intermediate,v_advanced
   from private.quiz_question_bank
-  where (question_id like 'quiz-beginner-%' or question_id like 'quiz-intermediate-%')
+  where (question_id like 'quiz-beginner-%'
+      or question_id like 'quiz-intermediate-%'
+      or question_id like 'quiz-advanced-%')
     and learning_language_code='en'
     and translation_language_code='zh';
 
   select count(*) into v_approved
   from private.quiz_question_bank
-  where (question_id like 'quiz-beginner-%' or question_id like 'quiz-intermediate-%')
+  where (question_id like 'quiz-beginner-%' or question_id like 'quiz-intermediate-%' or question_id like 'quiz-advanced-%')
     and status <> 'draft';
 
   select count(*) into v_bad_mappings
@@ -28,12 +32,12 @@ begin
    and c.topic_id=q.topic_id
    and c.difficulty=q.difficulty
    and c.is_active
-  where (q.question_id like 'quiz-beginner-%' or q.question_id like 'quiz-intermediate-%')
+  where (q.question_id like 'quiz-beginner-%' or q.question_id like 'quiz-intermediate-%' or q.question_id like 'quiz-advanced-%')
     and c.content_id is null;
 
   select count(*) into v_bad_options
   from private.quiz_question_bank q
-  where (q.question_id like 'quiz-beginner-%' or q.question_id like 'quiz-intermediate-%')
+  where (q.question_id like 'quiz-beginner-%' or q.question_id like 'quiz-intermediate-%' or q.question_id like 'quiz-advanced-%')
     and (
       jsonb_array_length(q.options)<>4
       or not exists (
@@ -47,6 +51,9 @@ begin
   end if;
   if v_intermediate<>36 then
     raise exception 'Expected 36 Intermediate draft questions; found %',v_intermediate;
+  end if;
+  if v_advanced<>48 then
+    raise exception 'Expected 48 Advanced draft questions; found %',v_advanced;
   end if;
   if v_approved<>0 then
     raise exception 'Draft content importer unexpectedly approved % questions',v_approved;
@@ -80,6 +87,17 @@ begin
   ) then
     raise exception 'Intermediate batch should distribute seven or eight questions per source topic';
   end if;
-  raise notice 'Quiz draft content import passed: 66 rows (30 Beginner, 36 Intermediate), 10 source-topic groups, 0 approved';
+  if (select count(distinct topic_id) from private.quiz_question_bank
+      where question_id like 'quiz-advanced-%')<>4 then
+    raise exception 'Advanced batch should cover four source topics';
+  end if;
+  if exists (
+    select 1 from private.quiz_question_bank
+    where question_id like 'quiz-advanced-%'
+    group by topic_id having count(*) not in (9,10,20)
+  ) then
+    raise exception 'Advanced batch topic distribution is unexpected';
+  end if;
+  raise notice 'Quiz draft content import passed: 114 rows (30 Beginner, 36 Intermediate, 48 Advanced), 14 source-topic groups, 0 approved';
 end;
 $draft_import$;
