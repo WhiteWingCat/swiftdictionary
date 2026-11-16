@@ -2,33 +2,6 @@
 -- This fixture must only run against the local Supabase stack in CI.
 \set ON_ERROR_STOP on
 
-insert into public.user_preferences(user_id, learning_language, translation_language, timezone)
-values
-  (:'free_user_id'::uuid, 'en', 'zh', 'Asia/Kuala_Lumpur'),
-  (:'premium_user_id'::uuid, 'en', 'zh', 'Asia/Kuala_Lumpur')
-on conflict (user_id) do update set
-  learning_language=excluded.learning_language,
-  translation_language=excluded.translation_language,
-  timezone=excluded.timezone;
-
-insert into public.user_entitlements(user_id, plan_code, status)
-values
-  (:'free_user_id'::uuid, 'free', 'active'),
-  (:'premium_user_id'::uuid, 'premium', 'active')
-on conflict (user_id) do update set
-  plan_code=excluded.plan_code,
-  status='active',
-  valid_from=null,
-  valid_until=null;
-
-update public.learning_plan_limits
-set daily_limit=1, is_enabled=true
-where plan_code='free' and activity_type='quiz';
-
-update public.learning_plan_limits
-set daily_limit=3, is_enabled=true
-where plan_code='premium' and activity_type='quiz';
-
 insert into private.learning_content_catalog(
   activity_type, content_id, topic_id, difficulty, language_code, is_active
 )
