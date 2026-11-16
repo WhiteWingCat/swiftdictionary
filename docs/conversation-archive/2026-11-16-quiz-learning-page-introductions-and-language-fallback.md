@@ -95,3 +95,15 @@ Quiz workflow run #262 (commit 67a8254):
 The separate PostgreSQL foundation job failed in the Premium multi-session RPC assertion on the third 15-question session with topic_coverage_unavailable. This exposed insufficient synthetic fixture topic diversity/capacity for repeated sessions. The test-only fixture was expanded to ten topics and sixty questions per difficulty, plus thirty English-only Beginner questions for the translation fallback case (commit f753e40). No production content/schema was changed.
 
 The Quiz browser navigation assertions now allow up to 15 seconds for async answer persistence (commit e9ca861). Both jobs must be rerun on the latest branch head before the CI gate can be considered green.
+
+## Full green Quiz CI run
+
+Quiz workflow run #269 (commit f753e40) completed successfully across both jobs:
+- PostgreSQL 17 foundation, migration, Quiz RPC, draft-content and allowance validation passed.
+- Disposable local Supabase Auth/RPC and authenticated Chromium browser tests passed.
+- Account-scoped introduction preference migration and RLS assertions passed.
+- First-visit dismissal, account isolation, FAQ reopening and Chinese availability tests passed.
+- The unavailable-translation snapshot fallback test passed, including saved answer preservation and applying the new preference to the next Quiz.
+- Supabase security advisors passed.
+
+This is the first complete green CI run for the new learning-page feature set. Run #271 re-runs the suite with extended Playwright navigation timeouts; it was in progress when this note was written. Latest branch-head run #274 was queued after documentation-only updates.
