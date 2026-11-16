@@ -405,6 +405,22 @@
     .quiz-review-explanation p{margin:4px 0}.quiz-results-actions{justify-content:center;margin-top:18px}
     @media(max-width:760px){.quiz-overview-grid,.quiz-difficulty-grid{grid-template-columns:1fr}.quiz-submit-row{align-items:stretch;flex-direction:column}.quiz-submit-row>div{display:flex;gap:8px;flex-wrap:wrap}.quiz-history-row{align-items:flex-start}.quiz-question-actions button{flex:1}.quiz-page-heading{align-items:flex-start}}
 
+  
+    .learning-page-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .learning-page-heading h1{margin:0 0 8px}
+    .learning-help-button{flex:0 0 auto;width:38px;height:38px;border:1px solid var(--border);border-radius:50%;background:var(--panel);color:var(--text);font-size:1.05rem;font-weight:800;cursor:pointer}
+    .learning-course-unavailable{padding:22px;border:1px solid var(--border);border-radius:16px;background:var(--panel-hover);margin:16px 0}
+    .learning-course-unavailable h2{margin:0 0 8px}
+    .learning-course-unavailable p{margin:0;color:var(--muted)}
+    .learning-intro-backdrop{position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.68);display:grid;place-items:center;padding:18px}
+    .learning-intro-backdrop[hidden]{display:none}
+    .learning-intro-dialog{width:min(620px,100%);max-height:min(82vh,760px);overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+    .learning-intro-dialog h2{margin:0 0 10px}
+    .learning-intro-dialog h3{margin:20px 0 8px}
+    .learning-intro-dialog p,.learning-intro-dialog li{color:var(--muted);line-height:1.6}
+    .learning-intro-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;position:sticky;bottom:-24px;background:var(--panel);padding:14px 0 0}
+    .quiz-translation-notice{padding:10px 13px;border:1px solid var(--border);border-radius:10px;margin:10px 0;color:var(--muted)}
+
   </style>
 </head>
 <body>
@@ -476,7 +492,8 @@
     </div>
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
-      <p class="eyebrow">ENGLISH COURSE</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p>
+      <div class="learning-page-heading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div>
+    <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
       <h2 id="dailyLearningHeading">Daily Learning</h2>
@@ -503,7 +520,9 @@
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
-      <div class="quiz-page-heading"><div><span class="eyebrow">Knowledge check</span><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div>
+      <div class="quiz-page-heading"><div><span class="eyebrow">Knowledge check</span><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div style="display:flex;gap:8px;align-items:center"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></div>
+      <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
+      <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
       <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
       <section id="quizHome" hidden>
@@ -526,7 +545,8 @@
       </section>
     </section>
     <section id="flashcardsPage" class="page-panel" hidden aria-labelledby="flashcardsHeading">
-      <h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p>
+      <div class="learning-page-heading"><div><h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p></div><button type="button" class="learning-help-button" data-learning-help="flashcards" aria-label="Flashcards introduction and FAQs" title="Introduction and FAQs">?</button></div>
+      <div id="flashcardsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Flashcards are coming soon</h2><p>There is currently no Chinese learning course available in Flashcards. Switch your learning course to English to continue when Flashcards are released.</p></div>
       <div class="coming-card"><span class="coming-label">Coming Soon</span><h2>Flashcards are being prepared</h2><p class="page-intro" style="margin:0 auto">Flashcard practice will be introduced in a future SwiftDictionary update.</p></div>
     </section>
     <section id="profilePage" class="page-panel" hidden aria-labelledby="profileHeading">
@@ -18773,6 +18793,104 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
+
+    // Update 2.4.0: persistent introductions, contextual FAQs and explicit
+    // Chinese-course availability. Dismissals are scoped to the signed-in
+    // account; local storage is a graceful fallback until the migration is applied.
+    const learningIntroCopy = {
+      lessons:{title:"Welcome to Lessons",intro:"Lessons build English skills through guided explanations, examples and short practice. Choose a difficulty, work at your own pace and return to unfinished learning.",faqs:[
+        ["Do I need to finish a lesson in one sitting?","No. Unfinished lessons can be resumed. There is no timer or time pressure."],
+        ["How is progress saved?","Completed lessons and supported practice progress are saved to your account when signed in."],
+        ["Can I change the translation language?","Yes. Your translation preference is separate from the learning course."],
+        ["Why are Chinese lessons unavailable?","The current Lessons library contains English learning content only. Chinese learning content will be announced when it is ready."]
+      ]},
+      quiz:{title:"Welcome to Quiz",intro:"Quiz offers mixed-topic questions at Beginner, Intermediate and Advanced levels. Sessions are untimed, answers can be changed before submission, and results show a score and percentage without pass or fail.",faqs:[
+        ["Can I pause and resume?","Yes. Your unfinished session and saved answers remain available until you complete or explicitly abandon it."],
+        ["Can I change an answer?","Yes. You can revisit questions and change answers until you submit the Quiz."],
+        ["How does the daily allowance work?","Free accounts have one completed Quiz per day; Premium accounts have three. Only a completed Quiz consumes an allowance."],
+        ["Why does an active Quiz keep its old translation?","The language pair is fixed when a Quiz session starts. A changed preference applies to the next Quiz if the active session does not contain that translation."],
+        ["Is Chinese Quiz available?","Not yet. The current approved Quiz content supports the English learning course only."]
+      ]},
+      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards will provide focused vocabulary recall and review. This learning experience is still being prepared.",faqs:[
+        ["Can I start a Flashcard session now?","Not yet. Flashcards will become available in a future SwiftDictionary update."],
+        ["Will progress be saved?","The planned experience includes saved review progress and allowance integration."],
+        ["Is Chinese Flashcards available?","Not yet. There is currently no Chinese Flashcards learning course."]
+      ]}
+    };
+    let learningIntroCurrentPage = null;
+    let learningIntroDismissed = new Set();
+    function learningIntroStorageKey(userId){return "swiftdictionary-learning-intro-dismissals:"+ (userId||"guest");}
+    function learningIntroRender(page){
+      const data=learningIntroCopy[page];if(!data)return;
+      learningIntroCurrentPage=page;
+      quizEl("learningIntroTitle").textContent=data.title;
+      quizEl("learningIntroContent").innerHTML='<p>'+escapeHTML(data.intro)+'</p><h3>Frequently asked questions</h3>'+data.faqs.map(([q,a])=>'<h3>'+escapeHTML(q)+'</h3><p>'+escapeHTML(a)+'</p>').join("");
+      quizEl("learningIntroBackdrop").hidden=false;
+      quizEl("learningIntroClose").focus();
+    }
+    function learningIntroClose(){quizEl("learningIntroBackdrop").hidden=true;learningIntroCurrentPage=null;}
+    async function learningIntroSaveDismissal(page){
+      const key=page;
+      learningIntroDismissed.add(key);
+      try{localStorage.setItem(learningIntroStorageKey(currentUser?.id||null),JSON.stringify([...learningIntroDismissed]));}catch{}
+      if(currentUser&&supabaseClient){
+        const {error}=await supabaseClient.from("learning_page_introduction_preferences").upsert({user_id:currentUser.id,page_key:page,dismissed_at:new Date().toISOString()},{onConflict:"user_id,page_key"});
+        if(error){quizStatus("Your dismissal is saved on this device, but account sync is unavailable until the learning-introduction preference migration is applied.",true);return;}
+      }
+      learningIntroClose();
+    }
+    async function learningIntroLoadPreferences(){
+      learningIntroDismissed=new Set();
+      try{learningIntroDismissed=new Set(JSON.parse(localStorage.getItem(learningIntroStorageKey(currentUser?.id||null))||"[]"));}catch{}
+      if(currentUser&&supabaseClient){
+        const {data,error}=await supabaseClient.from("learning_page_introduction_preferences").select("page_key").eq("user_id",currentUser.id);
+        if(!error){(data||[]).forEach(row=>learningIntroDismissed.add(row.page_key));}
+      }
+    }
+    function learningIntroMaybeShow(page){
+      if(!learningIntroDismissed.has(page))learningIntroRender(page);
+    }
+    document.querySelectorAll("[data-learning-help]").forEach(button=>button.addEventListener("click",()=>learningIntroRender(button.dataset.learningHelp)));
+    quizEl("learningIntroClose").addEventListener("click",learningIntroClose);
+    quizEl("learningIntroDismiss").addEventListener("click",()=>{if(learningIntroCurrentPage)learningIntroSaveDismissal(learningIntroCurrentPage);});
+    quizEl("learningIntroBackdrop").addEventListener("click",event=>{if(event.target===quizEl("learningIntroBackdrop"))learningIntroClose();});
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!quizEl("learningIntroBackdrop").hidden)learningIntroClose();});
+    function applyLearningCourseAvailability(){
+      const chinese=course==="zh";
+      quizEl("lessonsChineseUnavailable").hidden=!chinese;
+      quizEl("dailyLearningPage").hidden=chinese;
+      quizEl("lessonDifficultyTabs").hidden=chinese;
+      quizEl("lessonCards").hidden=chinese;
+      quizEl("quizChineseUnavailable").hidden=!chinese;
+      quizEl("quizHome").hidden=chinese||!currentUser;
+      quizEl("quizSession").hidden=chinese;
+      quizEl("quizResults").hidden=chinese;
+      quizEl("quizSignedOut").hidden=chinese||!!currentUser;
+      quizEl("quizTranslationNotice").hidden=!quizPageState.session||!chinese;
+      if(quizPageState.session&&quizEl("quizTranslationNotice")){
+        const current=quizPageState.session.translation_language_code||"en";
+        const preferred=translationLanguage;
+        const same=current===preferred;
+        quizEl("quizTranslationNotice").textContent=same?"This Quiz uses your selected translation language.":"Your current Quiz keeps the translation language saved when the session started. Your new preference ("+(preferred==="zh"?"简体中文":"English")+") will apply to your next Quiz. Your current answers and progress are unchanged.";
+        quizEl("quizTranslationNotice").hidden=false;
+      }
+      quizEl("flashcardsChineseUnavailable").hidden=!chinese;
+      const flashComing=quizEl("flashcardsPage").querySelector(".coming-card");
+      if(flashComing)flashComing.hidden=chinese;
+    }
+    const originalRememberCoursePreferences = rememberCoursePreferences;
+    rememberCoursePreferences = function(){originalRememberCoursePreferences();applyLearningCourseAvailability();};
+    const originalShowPage = showPage;
+    showPage = function(page,updateHash=true){
+      originalShowPage(page,updateHash);
+      if(["lessons","quiz","flashcards"].includes(page)){applyLearningCourseAvailability();learningIntroMaybeShow(page);}
+    };
+    window.addEventListener("swift-auth-updated",async()=>{
+      await learningIntroLoadPreferences();
+      if(["lessons","quiz","flashcards"].includes((location.hash||"").slice(1)))learningIntroMaybeShow(location.hash.slice(1));
+    });
+    learningIntroLoadPreferences().then(()=>applyLearningCourseAvailability());
+
     // Resolve the requested route immediately; account initialisation must not
     // redirect signed-out visitors away from public pages such as Quiz.
     showHashPage();
@@ -18782,6 +18900,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       showHashPage();
     });
   </script>
+
+  <div id="learningIntroBackdrop" class="learning-intro-backdrop" hidden>
+    <section class="learning-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="learningIntroTitle">
+      <p class="eyebrow">SWIF TDICTIONARY LEARNING GUIDE</p>
+      <h2 id="learningIntroTitle">Welcome</h2>
+      <div id="learningIntroContent"></div>
+      <div class="learning-intro-actions"><button type="button" class="secondary-button" id="learningIntroClose">Close</button><button type="button" class="primary-button" id="learningIntroDismiss">Dismiss</button></div>
+    </section>
+  </div>
   <script src="daily-learning.js"></script>
 </body>
 </html>
