@@ -15,19 +15,20 @@ The owner approved the Quiz translation fallback rule and confirmed the followin
 Branch: feature/update-2-4-0-quiz. PR #8 remains draft and unmerged.
 
 - index.html now contains a shared first-visit introduction/FAQ dialog, independent dismissal state for Lessons, Quiz and Flashcards, consistently positioned help controls, and explicit Chinese-course-unavailable notices.
-- Dismissal state is keyed independently per account and page in local storage as a fallback; signed-in state is synchronised through public.learning_page_introduction_preferences.
+- Dismissal state is keyed independently per account and page in local storage as a fallback; signed-in state is synchronised through public.learning_page_introduction_preferences. If a guest dismisses a guide before signing in, the guest choice is copied into the signed-in account when the account preference table is available.
 - Quiz FAQ content covers session resume, answer editing, daily allowance and translation snapshot behaviour.
 - Chinese selection hides the English Lessons library and Daily Learning area, hides Quiz session/results and shows a Chinese availability notice, and keeps Flashcards in its Coming Soon state with a Chinese availability notice.
 - Quiz translation display now uses the learning-language text when that is the requested language, uses a non-learning translation only when the frozen snapshot contains it, and otherwise retains the original snapshot translation with a next-Quiz explanation. Quiz start waits for the existing preference write queue.
 - Added migration supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql with a minimal page-key/dismissal timestamp table, account/page primary key, RLS and owner-scoped CRUD policies.
 - Added structural/security assertions in supabase/tests/learning_page_introduction_preferences.sql.
 - Extended scripts/quiz/validate-quiz-frontend.mjs and .github/workflows/quiz-db-foundation.yml to check the new feature and apply/test its migration only in disposable CI databases.
+- Expanded tests/browser/update-2-4-0-quiz-runtime.spec.js to test first-visit dismissal persistence, independent page dismissals, help-button reopening, account isolation, Chinese/English course transitions and immediate Quiz display refresh when the requested language is already in the active snapshot.
 - Updated docs/MASTER-DEVELOPMENT-RECORD.md with owner decisions, implementation, privacy considerations, validation boundary and next gates.
 
 ## Validation and current limits
 
-- Static repository inspection confirmed no duplicate HTML IDs and presence of the required feature hooks and page notices.
-- GitHub Actions was triggered for the implementation commits. At the time of this archive, the newest CI runs were still in progress; do not claim they passed until the exact latest branch-head run completes.
+- Static repository inspection confirmed no duplicate HTML IDs and presence of the required feature hooks and page notices. The test suite now includes dedicated authenticated runtime coverage, but its execution is pending CI.
+- GitHub Actions was triggered for the implementation commits. At the time of this archive, the latest branch-head Quiz workflow run #224 was queued and earlier runs were still in progress; do not claim they passed until the exact latest branch-head run completes.
 - No dedicated browser tests yet cover first visit, dismiss/reopen, cross-device dismissal sync, account isolation, Chinese availability transitions or Quiz translation fallback edge cases.
 - Supabase project discovery returned the production SwiftDictionary project only and no development branches. The new migration remains a draft in the feature branch and has not been applied to production.
 - The 114 Quiz questions remain drafts. No Quiz schema/RPC migration or content was applied to production. No website deployment, merge or production data change occurred.
