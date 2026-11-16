@@ -885,3 +885,24 @@ This is a reusable diagnostic for future feature work, especially Update 2.5.0 F
 - **Flashcards reuse checklist:** When building Flashcards CI, inspect every workflow job (especially local Auth/browser jobs) for complete prerequisite migration coverage; verify the intended Flashcard allowance migration is applied to the disposable database; use fresh synthetic accounts per retry; keep test content/account fixtures separate; and assert allowance values through authenticated RPCs rather than assuming a foundation-only SQL test covers the browser workflow.
 - **Validation boundary:** A passing schema/foundation job does not prove the authenticated browser job uses the same migration set. Confirm each job's migration sequence and inspect its own logs. Run security advisors against the disposable local schema after runtime tests. No production migration, main-branch merge, deployment or Mock User preview is implied by this troubleshooting record.
 
+
+
+### Quiz CI follow-up — resume race, fixture parity and mock adapter (2026-11-16)
+
+This section supersedes the earlier statement above that authenticated runtime validation was still pending. It records the next fixes and validation boundary.
+
+- **Resume UI race:** authenticated Chromium tests showed that a delayed Supabase INITIAL_SESSION notification could reset the Quiz UI after a user resumed an active session. The Quiz page now tracks the current account ID and only resets its page state when the authenticated identity changes. The one-active-session server rule is unchanged.
+- **Saved-word fixture parity:** the disposable Auth/RPC baseline omitted the existing course-aware saved_words.course field and (user_id, course, word) uniqueness key. This produced a cloud-sync error during the browser test. The synthetic baseline now matches the course-aware app schema; no production table was changed.
+- **Verified authenticated runtime:** the corrected run passed Free-user resume after reload, answer navigation/change, submission, score/review/history; Premium allowance 3/day, abandonment without allowance use, and active-session enforcement; and signed-out Quiz restrictions. The local Auth/RPC workflow also passed the Quiz session/allowance integration tests and Supabase security advisors against the disposable local Quiz schema.
+- **Regression validation:** the 2.3.x Chromium signed-out checks and PostgreSQL migration/allowance tests passed on the corrected branch. The mock adapter's existing test suite was expanded to exercise Free 1/day and Premium 3/day Quiz flows, session resume, answer saving, submission, review/history, abandonment and active-session enforcement.
+- **Mock-mode scope:** mock Quiz content and state are fictional and stored in sessionStorage. Mock mode does not exercise Supabase Auth, RLS, real database persistence, production question-bank readiness or cross-device sync. It is for UI/interaction review only; authenticated disposable-Supabase tests remain the source of truth for backend validation.
+- **Preview boundary:** the mock adapter now has an exact allowlisted host for the 2.4.0 Quiz preview and still requires the explicit ?swiftMock=1 opt-in. The feature preview must actually be deployed before an interactive user test link can be provided. No deployment, merge, production migration or production question publication is implied.
+- **Flashcards reuse:** carry forward the delayed-auth-event identity guard, course-aware saved-word baseline parity, complete local migration coverage, and separate synthetic-account vs mock-UI test layers. Keep Mock User tests clearly labelled as frontend-only and never treat them as evidence of backend security or persistence.
+
+### Current Quiz gate
+
+1. The feature-branch authenticated browser/runtime suite has passed against disposable local Supabase.
+2. The Quiz database foundation and RPC lifecycle/allowance tests have passed.
+3. Supabase security advisors have passed against the disposable local Quiz schema.
+4. The 2.3.x regression suite and expanded Mock User unit tests are being rerun on the latest branch tip.
+5. PR #8 remains draft and unmerged. Do not deploy to the live site, apply Quiz schema/content to production, or merge without explicit owner approval.
