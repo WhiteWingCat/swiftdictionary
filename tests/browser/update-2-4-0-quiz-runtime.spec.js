@@ -1,15 +1,9 @@
 const { test, expect, request } = require("@playwright/test");
+const { randomUUID } = require("node:crypto");
 
 const apiUrl = process.env.API_URL;
 const anonKey = process.env.ANON_KEY;
 const serviceRoleKey = process.env.SERVICE_ROLE_KEY;
-const required = [
-  "QUIZ_FREE_EMAIL", "QUIZ_FREE_PASSWORD", "QUIZ_FREE_USER_ID",
-  "QUIZ_PREMIUM_EMAIL", "QUIZ_PREMIUM_PASSWORD", "QUIZ_PREMIUM_USER_ID"
-];
-for (const name of required) {
-  if (!process.env[name]) throw new Error(name + " is required for Quiz runtime browser tests.");
-}
 if (!apiUrl || !anonKey || !serviceRoleKey) {
   throw new Error("API_URL, ANON_KEY and SERVICE_ROLE_KEY are required.");
 }
@@ -17,6 +11,7 @@ if (!apiUrl || !anonKey || !serviceRoleKey) {
 let api;
 let freeSession;
 let premiumSession;
+let freeUserId;
 
 async function signIn(email, password) {
   const response = await api.post(apiUrl + "/auth/v1/token?grant_type=password", {
@@ -31,6 +26,35 @@ async function signIn(email, password) {
     ...body,
     expires_at: Math.floor(Date.now() / 1000) + Number(body.expires_in || 3600)
   };
+}
+
+
+async function createRuntimeUser(label, plan) {
+  const email = `quiz-${label}-${randomUUID()}@example.test`;
+  const password = `Quiz-${randomUUID()}-Aa1!`;
+  const created = await api.post(apiUrl + "/auth/v1/admin/users", {
+    headers: { apikey: serviceRoleKey, Authorization: "Bearer " + serviceRoleKey },
+    data: { email, password, email_confirm: true, user_metadata: { test_role: label } }
+  });
+  const user = await created.json();
+  if (!created.ok() || !user.id) throw new Error("Could not create fresh disposable " + label + " account: " + JSON.stringify(user));
+
+  for (const [table, body] of [
+    ["user_preferences", { user_id: user.id, learning_language: "en", translation_language: "zh", timezone: "Asia/Kuala_Lumpur" }],
+    ["user_entitlements", { user_id: user.id, plan_code: plan, status: "active", valid_from: null, valid_until: null }]
+  ]) {
+    const response = await api.post(apiUrl + "/rest/v1/" + table + "?on_conflict=user_id", {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: "Bearer " + serviceRoleKey,
+        "Content-Type": "application/json",
+        Prefer: "resolution=merge-duplicates,return=minimal"
+      },
+      data: body
+    });
+    if (!response.ok()) throw new Error("Could not seed disposable " + label + " " + table + ": " + await response.text());
+  }
+  return { id: user.id, email, password };
 }
 
 async function installLocalSupabaseConfig(page) {
@@ -49,6 +73,15 @@ async function openQuiz(page, session) {
     localStorage.setItem(key, JSON.stringify(value));
   }, { key: storageKey, value: session });
   await page.goto("/#quiz");
+  const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
+    headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
+    data: {}
+  });
+  const availability = await availabilityResponse.json();
+  if (!availabilityResponse.ok()) throw new Error("Fresh-account availability check failed: " + JSON.stringify(availability));
+  if (availability.active_session_id !== null) {
+    throw new Error("New disposable account unexpectedly has an active Quiz session: " + availability.active_session_id);
+  }
   await expect(page.locator("#quizPage")).toBeVisible({ timeout: 20000 });
   await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
 }
@@ -70,8 +103,18 @@ async function updateTranslationPreference(userId, language) {
 
 test.beforeAll(async () => {
   api = await request.newContext();
-  freeSession = await signIn(process.env.QUIZ_FREE_EMAIL, process.env.QUIZ_FREE_PASSWORD);
-  premiumSession = await signIn(process.env.QUIZ_PREMIUM_EMAIL, process.env.QUIZ_PREMIUM_PASSWORD);
+});
+
+test.beforeEach(async () => {
+  // A new account per attempt prevents Playwright retries from inheriting an
+  // unfinished session created by a failed earlier attempt.
+  const [free, premium] = await Promise.all([
+    createRuntimeUser("free", "free"),
+    createRuntimeUser("premium", "premium")
+  ]);
+  freeUserId = free.id;
+  freeSession = await signIn(free.email, free.password);
+  premiumSession = await signIn(premium.email, premium.password);
 });
 
 test.afterAll(async () => {
@@ -112,7 +155,7 @@ test("Free user can resume, change answers, submit, and review a real authentica
 
   // Change the account preference mid-session. The session's frozen language
   // snapshot must continue to render Chinese until this session is complete.
-  await updateTranslationPreference(process.env.QUIZ_FREE_USER_ID, "en");
+  await updateTranslationPreference(freeUserId, "en");
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
   await page.locator("#quizResume").click();
