@@ -114,6 +114,16 @@ async function openQuiz(page, session) {
   }
 }
 
+async function fetchActiveQuiz(session) {
+  const response = await api.post(apiUrl + "/rest/v1/rpc/get_my_active_quiz", {
+    headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
+    data: {}
+  });
+  const body = await response.json();
+  if (!response.ok() || !body) throw new Error("Could not inspect the active Quiz snapshot: " + JSON.stringify(body));
+  return body;
+}
+
 async function updateTranslationPreference(userId, language) {
   const response = await api.patch(
     apiUrl + "/rest/v1/user_preferences?user_id=eq." + encodeURIComponent(userId),
@@ -183,7 +193,15 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10",{timeout:15000});
-  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).not.toBeEmpty();
+  await expect(page.locator("#quizQuestionArea")).not.toContainText("[Mock]");
+  const beginnerSnapshot=await fetchActiveQuiz(freeSession);
+  expect(beginnerSnapshot.question_count).toBe(10);
+  expect(beginnerSnapshot.translation_language_code).toBe("zh");
+  expect(beginnerSnapshot.questions.every(question=>question.source_difficulty==="beginner")).toBeTruthy();
+  expect(beginnerSnapshot.questions.every(question=>!question.source_lesson_id.includes("mock"))).toBeTruthy();
+  expect(new Set(beginnerSnapshot.questions.map(question=>question.topic_id)).size).toBeGreaterThanOrEqual(3);
+  expect(beginnerSnapshot.questions.every(question=>question.prompt_translation&&question.options.every(option=>option.translation_text))).toBeTruthy();
 
   // The learner can change an answer before submission.
   await page.locator('[data-quiz-option="b"]').click();
@@ -243,8 +261,12 @@ test("Free user can switch translation in an open permanent lesson and complete 
   page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizSubmit").click();
   await expect(page.locator("#quizResults")).toBeVisible();
-  await expect(page.locator("#quizResultsContent .quiz-results-score")).toContainText("100%");
-  await expect(page.locator("#quizResultsContent .quiz-results-score")).toContainText("10 correct out of 10");
+  const scoreLine=await page.locator("#quizResultsContent .quiz-results-score h2").innerText();
+  const correctCount=Number(scoreLine.match(/^(\\d+) correct out of 10$/)?.[1]);
+  expect(Number.isInteger(correctCount)).toBeTruthy();
+  expect(await page.locator("#quizResultsContent .quiz-review-option.correct").count()).toBe(correctCount);
+  const percentage=Number((await page.locator("#quizResultsContent .quiz-results-score strong").innerText()).replace("%",""));
+  expect(percentage).toBe(Math.round(correctCount/10*100));
   await expect(page.locator("#quizResultsContent")).toContainText("There is no pass or fail result.");
   await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
   await expect(page.locator("#quizResultsContent .quiz-review-explanation")).toHaveCount(10);
@@ -353,37 +375,63 @@ test("Chinese course selection clearly disables English learning content on all 
   await expect(page.locator("#flashcardsPage .coming-card")).toBeVisible();
 });
 
-test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
+test("Premium user can start all three real Quiz difficulties with the agreed question ratios", async ({ page }) => {
   await openQuiz(page, premiumSession);
   await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
-  await expect(page.locator('[data-quiz-start="advanced"]'),
-    "Advanced availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
-  ).toBeEnabled();
 
-  await page.locator('[data-quiz-start="advanced"]').click();
-  await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 20");
+  const expected = [
+    { difficulty:"beginner", count:10, composition:{beginner:10} },
+    { difficulty:"intermediate", count:15, composition:{intermediate:12,beginner:3} },
+    { difficulty:"advanced", count:20, composition:{advanced:12,intermediate:6,beginner:2} }
+  ];
+  const seenQuestionIds = new Set();
 
-  // Returning to overview and attempting a different difficulty must resume
-  // the existing server-owned session rather than create a second one.
-  await page.locator("#quizBackHome").click();
-  await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator("#quizActiveCard")).toBeVisible();
-  // A second difficulty must remain unavailable while the server-owned
-  // active session exists. Resume the existing session instead of clicking
-  // the intentionally disabled start button.
-  await expect(page.locator('[data-quiz-start="intermediate"]')).toBeDisabled();
-  await page.locator("#quizResume").click();
-  await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizSessionDifficulty")).toHaveText("Advanced");
+  for (const item of expected) {
+    await expect(page.locator('[data-quiz-start="'+item.difficulty+'"]'),
+      item.difficulty+" availability diagnostics: "+await page.locator("#quizDifficultyGrid").innerText()
+    ).toBeEnabled();
+    await page.locator('[data-quiz-start="'+item.difficulty+'"]').click();
+    await expect(page.locator("#quizSession")).toBeVisible();
+    await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of "+item.count);
 
-  page.once("dialog", dialog => dialog.accept());
-  await page.locator("#quizAbandon").click();
-  await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
-  await expect(page.locator("#quizActiveCard")).toBeHidden();
+    const snapshot=await fetchActiveQuiz(premiumSession);
+    expect(snapshot.difficulty).toBe(item.difficulty);
+    expect(snapshot.question_count).toBe(item.count);
+    expect(snapshot.translation_language_code).toBe("zh");
+    const composition={};
+    for(const question of snapshot.questions){
+      composition[question.source_difficulty]=(composition[question.source_difficulty]||0)+1;
+      expect(question.source_lesson_id).not.toContain("mock");
+      expect(question.prompt_learning).not.toContain("[Mock]");
+      expect(question.prompt_translation).toBeTruthy();
+      expect(question.options).toHaveLength(4);
+      expect(question.options.every(option=>option.translation_text)).toBeTruthy();
+      expect(seenQuestionIds.has(question.question_id)).toBeFalsy();
+      seenQuestionIds.add(question.question_id);
+    }
+    expect(composition).toEqual(item.composition);
+    expect(new Set(snapshot.questions.map(question=>question.topic_id)).size).toBeGreaterThanOrEqual(3);
+    const topicCounts={};
+    snapshot.questions.forEach(question=>topicCounts[question.topic_id]=(topicCounts[question.topic_id]||0)+1);
+    expect(Math.max(...Object.values(topicCounts))).toBeLessThanOrEqual(item.count*0.4);
+
+    // A second difficulty cannot start while this account has an active session.
+    if(item.difficulty==="beginner"){
+      await page.locator("#quizBackHome").click();
+      await expect(page.locator("#quizActiveCard")).toBeVisible();
+      await expect(page.locator('[data-quiz-start="intermediate"]')).toBeDisabled();
+      await page.locator("#quizResume").click();
+      await expect(page.locator("#quizSessionDifficulty")).toHaveText("Beginner");
+    }
+
+    page.once("dialog", dialog => dialog.accept());
+    await page.locator("#quizAbandon").click();
+    await expect(page.locator("#quizHome")).toBeVisible();
+    await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
+    await expect(page.locator("#quizActiveCard")).toBeHidden();
+  }
+  expect(seenQuestionIds.size).toBe(45);
 });
-
 test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
   await installLocalSupabaseConfig(page);
   await page.goto("/#quiz");
