@@ -4,9 +4,8 @@ const { randomUUID } = require("node:crypto");
 const apiUrl = process.env.API_URL;
 const anonKey = process.env.ANON_KEY;
 const serviceRoleKey = process.env.SERVICE_ROLE_KEY;
-if (!apiUrl || !anonKey || !serviceRoleKey) {
-  throw new Error("API_URL, ANON_KEY and SERVICE_ROLE_KEY are required.");
-}
+test.skip(!apiUrl || !anonKey || !serviceRoleKey,
+  "Quiz authenticated runtime tests require the disposable local Supabase environment.");
 
 let api;
 let freeSession;
