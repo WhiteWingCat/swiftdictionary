@@ -14,14 +14,20 @@ test.beforeEach(async ({ page }) => {
   // not first-visit guide behaviour. Prevent the new guide from intercepting
   // unrelated regression-test clicks.
   await page.addInitScript(() => {
-    const dismissGuide = () => {
-      const backdrop = document.getElementById("learningIntroBackdrop");
-      const dismiss = document.getElementById("learningIntroDismiss");
-      if (backdrop && !backdrop.hidden && dismiss) dismiss.click();
+    const startGuideObserver = () => {
+      const root = document.documentElement;
+      if (!root) return;
+      const dismissGuide = () => {
+        const backdrop = document.getElementById("learningIntroBackdrop");
+        const dismiss = document.getElementById("learningIntroDismiss");
+        if (backdrop && !backdrop.hidden && dismiss) dismiss.click();
+      };
+      const observer = new MutationObserver(dismissGuide);
+      observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
+      dismissGuide();
     };
-    const observer = new MutationObserver(dismissGuide);
-    observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
-    document.addEventListener("DOMContentLoaded", dismissGuide);
+    if (document.documentElement) startGuideObserver();
+    else document.addEventListener("DOMContentLoaded", startGuideObserver, { once: true });
   });
 });
 
