@@ -18679,7 +18679,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q||quizPageState.saving)return;
       q.selected_option_id=optionId;quizRenderSession();
       try{await quizSaveCurrent(s.current_position,optionId);quizRenderSession();}
-      catch{await quizReloadActive();}
+      catch(error){await quizReloadActive();quizStatus("Your answer was not saved. Please check your connection and try again. "+(error.message||""),true);}
     }
     async function quizReloadActive(){
       try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;quizPageState.session=data||null;if(data)quizRenderSession();else await quizLoadHome();}
@@ -18698,7 +18698,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const session=data&&data.session?data.session:data;
         if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
         quizPageState.session=session;quizRenderSession();
-      }catch(error){quizStatus(error.message||"Could not start this Quiz.",true);await quizLoadHome().catch(()=>{});}
+      }catch(error){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}
     }
     async function quizSubmit(){
       const s=quizPageState.session;if(!s)return;
