@@ -43,7 +43,7 @@ Quiz workflow run [#107](https://github.com/WhiteWingCat/wordbook/actions/runs/4
 
 The 48-question Advanced batch and expanded 114-row SQL import assertions have since been added. A structural/curriculum check in this session found 114 unique question IDs and prompts, four unique English options per question, matching answer keys, complete bilingual fields and valid source mappings across all three difficulty levels. Quiz workflow run 132 passed both PostgreSQL 17 and disposable local Supabase jobs, including migrations, authenticated RPC/session/allowance tests, the 114-row draft import (30 Beginner, 36 Intermediate, 48 Advanced), 14 source-topic groups, zero approved rows, Supabase Auth checks and security advisors. Local-service cleanup also completed successfully.
 
-The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility.
+The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility. A later companion run #839 again passed PostgreSQL 17 and Chromium checks, but its local Supabase setup hit the GitHub release API rate limit before tests started; the earlier full run #829 remains green.
 
 ## Content readiness
 
