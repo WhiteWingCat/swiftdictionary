@@ -368,7 +368,7 @@
     .daily-discovery-word-meta strong{color:var(--accent);text-transform:capitalize}
     .daily-discovery-frequency-note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px}
 
-    .quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .quiz-error{color:#ffb1b1}.quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
     .quiz-page-heading{margin-bottom:18px}.quiz-page-heading h1{margin-top:5px}
     .quiz-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
     .quiz-overview-grid .profile-card,.quiz-difficulty-card,.quiz-results-card{margin:0}
@@ -18617,7 +18617,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const target=item.bank_target_met?"Preferred question-bank target met":item.bank_minimum_met?"Minimum question bank met":"Question bank below minimum";
         const reason=item.available?"Ready to start":quizReason(item.reason);
         const composition=item.difficulty==="beginner"?"10 questions":item.difficulty==="intermediate"?"15 questions · mainly Intermediate with Beginner support":"20 questions · Advanced core with Intermediate and Beginner support";
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><p>'+quizEscape(composition)+'</p><p class="quiz-bank-status">'+quizEscape(target)+'</p><p class="quiz-bank-status">'+quizEscape(reason)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+        const bankSummary=Object.entries(counts).map(([level,count])=>(quizDifficultyLabels[level]||level)+": "+count+" approved").join(" · ");
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><p>'+quizEscape(composition)+'</p><p class="quiz-bank-status">'+quizEscape(target)+'</p><p class="quiz-bank-status">'+quizEscape(bankSummary||"No approved questions for this language pair yet.")+'</p><p class="quiz-bank-status">'+quizEscape(reason)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
       }).join("");
     }
     function quizRenderHistory(rows){
@@ -18761,6 +18762,10 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizAbandon").addEventListener("click",quizAbandon);
     quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
     quizEl("quizResultsHome").addEventListener("click",async()=>{quizPageState.result=null;await quizLoadHome();});
+    window.addEventListener("swift-auth-updated",()=>{
+      quizPageState={loaded:false,loading:false,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null};
+      if(location.hash==="#quiz")initialiseQuizPage();
+    });
 
     // Keep the profile route inaccessible to signed-out visitors.
     initAccount().then(() => showHashPage()).catch(error => {
