@@ -935,6 +935,1122 @@
       "correct_option_id": "c",
       "explanation_learning": "In a neutral present simple sentence, an adverb of frequency usually comes before the main verb: “usually drinks.”",
       "explanation_translation": "在一般现在时的普通陈述句中，频率副词通常放在主要动词之前，例如“usually drinks”。"
+    },
+    {
+      "question_id": "quiz-intermediate-001",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "The new training programme should help employees ___ progress in their communication skills.",
+      "prompt_translation": "新的培训计划应该帮助员工在沟通技巧方面取得进步。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "do",
+          "translation_text": "做"
+        },
+        {
+          "id": "b",
+          "learning_text": "take",
+          "translation_text": "拿/采取"
+        },
+        {
+          "id": "c",
+          "learning_text": "make",
+          "translation_text": "取得/制造"
+        },
+        {
+          "id": "d",
+          "learning_text": "have",
+          "translation_text": "拥有"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The standard collocation is “make progress.”",
+      "explanation_translation": "标准搭配是“make progress”（取得进步）。"
+    },
+    {
+      "question_id": "quiz-intermediate-002",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "The outdoor event was canceled because of ___ rain.",
+      "prompt_translation": "由于下大雨，户外活动被取消了。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "heavy",
+          "translation_text": "大的/沉重的"
+        },
+        {
+          "id": "b",
+          "learning_text": "powerful",
+          "translation_text": "强大的"
+        },
+        {
+          "id": "c",
+          "learning_text": "thick",
+          "translation_text": "厚的"
+        },
+        {
+          "id": "d",
+          "learning_text": "solid",
+          "translation_text": "坚固的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "English commonly uses “heavy rain” for rain falling in large amounts.",
+      "explanation_translation": "英语通常用“heavy rain”表示雨量很大。"
+    },
+    {
+      "question_id": "quiz-intermediate-003",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "We need to finish the safety checks on time to ___ the deadline.",
+      "prompt_translation": "我们需要按时完成安全检查，以赶上截止日期。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "reach",
+          "translation_text": "到达"
+        },
+        {
+          "id": "b",
+          "learning_text": "meet",
+          "translation_text": "达到/满足"
+        },
+        {
+          "id": "c",
+          "learning_text": "touch",
+          "translation_text": "触碰"
+        },
+        {
+          "id": "d",
+          "learning_text": "arrive",
+          "translation_text": "抵达"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Meet a deadline” means to complete something by the required time.",
+      "explanation_translation": "“Meet a deadline”表示在规定时间前完成任务。"
+    },
+    {
+      "question_id": "quiz-intermediate-004",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "During the meeting, Maya ___ an important issue about customer support.",
+      "prompt_translation": "会议期间，Maya提出了一个有关客户支持的重要问题。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "raised",
+          "translation_text": "提出"
+        },
+        {
+          "id": "b",
+          "learning_text": "rose",
+          "translation_text": "上升"
+        },
+        {
+          "id": "c",
+          "learning_text": "grew",
+          "translation_text": "成长/增长"
+        },
+        {
+          "id": "d",
+          "learning_text": "lifted",
+          "translation_text": "举起"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Raise an issue” means to bring a problem or subject to people's attention.",
+      "explanation_translation": "“Raise an issue”表示提出问题或让大家注意某个议题。"
+    },
+    {
+      "question_id": "quiz-intermediate-005",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Given the clear weather forecast, it is ___ that the outdoor concert will be canceled.",
+      "prompt_translation": "考虑到天气预报显示天气晴朗，户外音乐会被取消的可能性很小。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "strongly unlikely",
+          "translation_text": "强烈地不可能"
+        },
+        {
+          "id": "b",
+          "learning_text": "deeply unlikely",
+          "translation_text": "深深地不可能"
+        },
+        {
+          "id": "c",
+          "learning_text": "highly unlikely",
+          "translation_text": "极不可能"
+        },
+        {
+          "id": "d",
+          "learning_text": "heavily unlikely",
+          "translation_text": "沉重地不可能"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Highly unlikely” is the natural collocation meaning very improbable.",
+      "explanation_translation": "“Highly unlikely”是自然搭配，表示极不可能。"
+    },
+    {
+      "question_id": "quiz-intermediate-006",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Every team member must ___ responsibility for checking their own work.",
+      "prompt_translation": "每位团队成员都必须为检查自己的工作承担责任。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make",
+          "translation_text": "制造"
+        },
+        {
+          "id": "b",
+          "learning_text": "do",
+          "translation_text": "做"
+        },
+        {
+          "id": "c",
+          "learning_text": "take",
+          "translation_text": "承担"
+        },
+        {
+          "id": "d",
+          "learning_text": "hold",
+          "translation_text": "持有"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The standard expression is “take responsibility for” something.",
+      "explanation_translation": "标准表达是“take responsibility for”（对某事承担责任）。"
+    },
+    {
+      "question_id": "quiz-intermediate-007",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "The sudden drop in sales could ___ a serious problem for the business.",
+      "prompt_translation": "销售额突然下降可能会给企业带来严重问题。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "pose",
+          "translation_text": "构成/造成"
+        },
+        {
+          "id": "b",
+          "learning_text": "do",
+          "translation_text": "做"
+        },
+        {
+          "id": "c",
+          "learning_text": "take",
+          "translation_text": "拿"
+        },
+        {
+          "id": "d",
+          "learning_text": "make",
+          "translation_text": "制作"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Pose a problem” means to create or present a problem.",
+      "explanation_translation": "“Pose a problem”表示造成或带来问题。"
+    },
+    {
+      "question_id": "quiz-intermediate-008",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "The manager was ___ concerned about the safety report and asked for a review.",
+      "prompt_translation": "经理非常关注安全报告，并要求重新审查。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "deeply",
+          "translation_text": "深切地"
+        },
+        {
+          "id": "b",
+          "learning_text": "heavily",
+          "translation_text": "沉重地"
+        },
+        {
+          "id": "c",
+          "learning_text": "widely",
+          "translation_text": "广泛地"
+        },
+        {
+          "id": "d",
+          "learning_text": "strongly",
+          "translation_text": "强烈地"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Deeply concerned” is a common collocation expressing serious worry.",
+      "explanation_translation": "“Deeply concerned”是常见搭配，表示非常担忧。"
+    },
+    {
+      "question_id": "quiz-intermediate-009",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Choose the correct completion: If the weather improves tomorrow, we ___ the match outside.",
+      "prompt_translation": "选择正确的句子补全：如果明天天气好转，我们将在户外比赛。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "held",
+          "translation_text": "举行（过去式）"
+        },
+        {
+          "id": "b",
+          "learning_text": "will hold",
+          "translation_text": "将举行"
+        },
+        {
+          "id": "c",
+          "learning_text": "would hold",
+          "translation_text": "会举行（假设）"
+        },
+        {
+          "id": "d",
+          "learning_text": "have held",
+          "translation_text": "已经举行"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "A first conditional uses a present-tense if-clause and “will” for a likely future result.",
+      "explanation_translation": "第一条件句通常在 if 从句中使用现在时，并在可能发生的未来结果中使用“will”。"
+    },
+    {
+      "question_id": "quiz-intermediate-010",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Choose the correct completion: If I ___ closer to the office, I would walk to work.",
+      "prompt_translation": "选择正确的句子补全：如果我住得离办公室更近，我就会步行上班。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "live",
+          "translation_text": "居住（现在时）"
+        },
+        {
+          "id": "b",
+          "learning_text": "will live",
+          "translation_text": "将居住"
+        },
+        {
+          "id": "c",
+          "learning_text": "lived",
+          "translation_text": "居住（过去式）"
+        },
+        {
+          "id": "d",
+          "learning_text": "had lived",
+          "translation_text": "曾经居住"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The second conditional uses the past simple in the if-clause for an unreal or unlikely present situation.",
+      "explanation_translation": "第二条件句用一般过去时表达不真实或不太可能发生的现在情况。"
+    },
+    {
+      "question_id": "quiz-intermediate-011",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Complete the sentence: ___ you leave now, you will miss the last train.",
+      "prompt_translation": "完成句子：如果你现在不出发，就会错过末班车。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Although",
+          "translation_text": "虽然"
+        },
+        {
+          "id": "b",
+          "learning_text": "Unless",
+          "translation_text": "除非/如果不"
+        },
+        {
+          "id": "c",
+          "learning_text": "Because",
+          "translation_text": "因为"
+        },
+        {
+          "id": "d",
+          "learning_text": "While",
+          "translation_text": "当……时"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Unless” means “if not,” so it expresses the condition that you do not leave now.",
+      "explanation_translation": "“Unless”表示“如果不”，这里指如果你现在不出发。"
+    },
+    {
+      "question_id": "quiz-intermediate-012",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Choose the correct zero conditional sentence about a general fact.",
+      "prompt_translation": "选择描述一般事实的正确零条件句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "If you heat ice, it melts.",
+          "translation_text": "如果加热冰，冰就会融化。"
+        },
+        {
+          "id": "b",
+          "learning_text": "If you heated ice, it will melt.",
+          "translation_text": "如果你加热冰，它将融化。"
+        },
+        {
+          "id": "c",
+          "learning_text": "If you heat ice, it would melt.",
+          "translation_text": "如果你加热冰，它会融化。"
+        },
+        {
+          "id": "d",
+          "learning_text": "If you will heat ice, it melts.",
+          "translation_text": "如果你将加热冰，它就会融化。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The zero conditional uses present simple in both clauses for general facts.",
+      "explanation_translation": "零条件句通常在两个分句中都使用一般现在时来表达普遍事实。"
+    },
+    {
+      "question_id": "quiz-intermediate-013",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Choose the correct third conditional completion: If they had booked earlier, they ___ less.",
+      "prompt_translation": "选择正确的第三条件句补全：如果他们早点预订，他们当时就会花更少的钱。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would pay",
+          "translation_text": "会支付"
+        },
+        {
+          "id": "b",
+          "learning_text": "will have paid",
+          "translation_text": "将已经支付"
+        },
+        {
+          "id": "c",
+          "learning_text": "would have paid",
+          "translation_text": "本来会支付"
+        },
+        {
+          "id": "d",
+          "learning_text": "had paid",
+          "translation_text": "已经支付（过去完成时）"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The third conditional uses “would have” plus a past participle for an unreal past result.",
+      "explanation_translation": "第三条件句用“would have”加过去分词表示与过去事实相反的结果。"
+    },
+    {
+      "question_id": "quiz-intermediate-014",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Choose the phrase that correctly completes the sentence: You may use the meeting room ___ you leave it clean.",
+      "prompt_translation": "选择正确的短语补全句子：只要你保持会议室整洁，就可以使用它。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "even though",
+          "translation_text": "即使"
+        },
+        {
+          "id": "b",
+          "learning_text": "as soon as",
+          "translation_text": "一……就……"
+        },
+        {
+          "id": "c",
+          "learning_text": "provided that",
+          "translation_text": "只要"
+        },
+        {
+          "id": "d",
+          "learning_text": "in case",
+          "translation_text": "以防"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Provided that” introduces a condition that must be met.",
+      "explanation_translation": "“Provided that”引出必须满足的条件，意思是“只要”。"
+    },
+    {
+      "question_id": "quiz-intermediate-015",
+      "source_lesson_id": "i-conditionals",
+      "prompt_learning": "Choose the correct mixed conditional: If I had accepted the offer, I ___ in Singapore now.",
+      "prompt_translation": "选择正确的混合条件句：如果我当时接受了那份工作，我现在就会住在新加坡。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would live",
+          "translation_text": "会住（一般假设）"
+        },
+        {
+          "id": "b",
+          "learning_text": "would be living",
+          "translation_text": "现在会住着"
+        },
+        {
+          "id": "c",
+          "learning_text": "will be living",
+          "translation_text": "将会住着"
+        },
+        {
+          "id": "d",
+          "learning_text": "had lived",
+          "translation_text": "曾经住过"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The past perfect describes the unreal past condition; “would be living” describes its present result.",
+      "explanation_translation": "过去完成时描述与过去事实相反的条件；“would be living”描述它在现在产生的结果。"
+    },
+    {
+      "question_id": "quiz-intermediate-016",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "Could you ___ my dog while I am away this weekend?",
+      "prompt_translation": "这个周末我不在时，你能帮我照看我的狗吗？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "look after",
+          "translation_text": "照顾"
+        },
+        {
+          "id": "b",
+          "learning_text": "look into",
+          "translation_text": "调查"
+        },
+        {
+          "id": "c",
+          "learning_text": "look over",
+          "translation_text": "检查"
+        },
+        {
+          "id": "d",
+          "learning_text": "look up",
+          "translation_text": "查找"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Look after” means to take care of a person or animal.",
+      "explanation_translation": "“Look after”表示照顾某人或动物。"
+    },
+    {
+      "question_id": "quiz-intermediate-017",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "The meeting was ___ until next Monday because the director was ill.",
+      "prompt_translation": "由于主管生病，会议被推迟到下周一。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "put out",
+          "translation_text": "扑灭/熄灭"
+        },
+        {
+          "id": "b",
+          "learning_text": "put off",
+          "translation_text": "推迟"
+        },
+        {
+          "id": "c",
+          "learning_text": "put up",
+          "translation_text": "张贴/举起"
+        },
+        {
+          "id": "d",
+          "learning_text": "put through",
+          "translation_text": "接通电话"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Put off” means to postpone an event or activity.",
+      "explanation_translation": "“Put off”表示推迟活动或事件。"
+    },
+    {
+      "question_id": "quiz-intermediate-018",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "We need to buy more milk because we have ___ it.",
+      "prompt_translation": "我们需要再买一些牛奶，因为牛奶已经用完了。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "run into",
+          "translation_text": "偶遇/撞上"
+        },
+        {
+          "id": "b",
+          "learning_text": "run over",
+          "translation_text": "碾过/复习"
+        },
+        {
+          "id": "c",
+          "learning_text": "run out of",
+          "translation_text": "用完"
+        },
+        {
+          "id": "d",
+          "learning_text": "run after",
+          "translation_text": "追赶"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Run out of” means to have no more of something available.",
+      "explanation_translation": "“Run out of”表示某物已经用完。"
+    },
+    {
+      "question_id": "quiz-intermediate-019",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "Despite the interruption, the speaker ___ explaining the results.",
+      "prompt_translation": "尽管被打断，演讲者还是继续解释结果。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "carried on",
+          "translation_text": "继续"
+        },
+        {
+          "id": "b",
+          "learning_text": "carried out",
+          "translation_text": "执行"
+        },
+        {
+          "id": "c",
+          "learning_text": "carried away",
+          "translation_text": "冲昏头脑"
+        },
+        {
+          "id": "d",
+          "learning_text": "carried off",
+          "translation_text": "成功完成/带走"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Carry on” means to continue doing something.",
+      "explanation_translation": "“Carry on”表示继续做某事。"
+    },
+    {
+      "question_id": "quiz-intermediate-020",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "At the end of the interview, the candidate ___ an important question about training.",
+      "prompt_translation": "面试快结束时，候选人提出了一个有关培训的重要问题。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "brought up",
+          "translation_text": "提出/提起"
+        },
+        {
+          "id": "b",
+          "learning_text": "brought about",
+          "translation_text": "引起"
+        },
+        {
+          "id": "c",
+          "learning_text": "brought back",
+          "translation_text": "带回/使回忆"
+        },
+        {
+          "id": "d",
+          "learning_text": "brought down",
+          "translation_text": "降低/击落"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Bring up” means to mention a topic for discussion.",
+      "explanation_translation": "“Bring up”表示提出一个话题供讨论。"
+    },
+    {
+      "question_id": "quiz-intermediate-021",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "She ___ the job offer because the position required frequent travel.",
+      "prompt_translation": "她拒绝了这份工作邀请，因为该职位需要经常出差。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "turned on",
+          "translation_text": "打开/攻击"
+        },
+        {
+          "id": "b",
+          "learning_text": "turned up",
+          "translation_text": "出现/调高"
+        },
+        {
+          "id": "c",
+          "learning_text": "turned down",
+          "translation_text": "拒绝/调低"
+        },
+        {
+          "id": "d",
+          "learning_text": "turned into",
+          "translation_text": "变成"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Turn down” means to reject an offer or request.",
+      "explanation_translation": "“Turn down”表示拒绝提议或请求。"
+    },
+    {
+      "question_id": "quiz-intermediate-022",
+      "source_lesson_id": "i-phrasal",
+      "prompt_learning": "I usually ___ my new colleagues because we communicate openly and respectfully.",
+      "prompt_translation": "我通常和新同事相处融洽，因为我们沟通坦诚且互相尊重。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "get over",
+          "translation_text": "克服"
+        },
+        {
+          "id": "b",
+          "learning_text": "get along with",
+          "translation_text": "与……相处融洽"
+        },
+        {
+          "id": "c",
+          "learning_text": "get away with",
+          "translation_text": "侥幸逃脱"
+        },
+        {
+          "id": "d",
+          "learning_text": "get through",
+          "translation_text": "完成/接通"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Get along with” describes having a friendly or successful relationship with someone.",
+      "explanation_translation": "“Get along with”表示与某人关系融洽。"
+    },
+    {
+      "question_id": "quiz-intermediate-023",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "I ___ in this neighbourhood for five years, and I still live here.",
+      "prompt_translation": "我在这个社区住了五年，而且现在仍然住在这里。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "lived",
+          "translation_text": "住过（过去式）"
+        },
+        {
+          "id": "b",
+          "learning_text": "have lived",
+          "translation_text": "已经住了"
+        },
+        {
+          "id": "c",
+          "learning_text": "am living",
+          "translation_text": "正在居住"
+        },
+        {
+          "id": "d",
+          "learning_text": "had lived",
+          "translation_text": "此前住过"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The present perfect connects a situation that began in the past with the present; the sentence says it continues now.",
+      "explanation_translation": "现在完成时把过去开始并延续到现在的情况联系起来；句子说明目前仍住在这里。"
+    },
+    {
+      "question_id": "quiz-intermediate-024",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "Choose the correct sentence for a completed action at a finished time yesterday.",
+      "prompt_translation": "选择描述昨天某个已结束时间内完成动作的正确句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I have seen her yesterday.",
+          "translation_text": "我昨天见过她。"
+        },
+        {
+          "id": "b",
+          "learning_text": "I had seen her yesterday.",
+          "translation_text": "我昨天之前见过她。"
+        },
+        {
+          "id": "c",
+          "learning_text": "I saw her yesterday.",
+          "translation_text": "我昨天见到了她。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I am seeing her yesterday.",
+          "translation_text": "我昨天正在见她。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Yesterday” is a finished past time, so the past simple “saw” is used.",
+      "explanation_translation": "“Yesterday”表示已经结束的过去时间，因此使用一般过去时“saw”。"
+    },
+    {
+      "question_id": "quiz-intermediate-025",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "By the time we arrived at the cinema, the film ___.",
+      "prompt_translation": "我们到达电影院时，电影已经开始了。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "has started",
+          "translation_text": "已经开始（现在完成时）"
+        },
+        {
+          "id": "b",
+          "learning_text": "was starting",
+          "translation_text": "当时正在开始"
+        },
+        {
+          "id": "c",
+          "learning_text": "had started",
+          "translation_text": "此前已经开始"
+        },
+        {
+          "id": "d",
+          "learning_text": "starts",
+          "translation_text": "开始（一般现在时）"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The film started before the later past event of our arrival, so the past perfect is used.",
+      "explanation_translation": "电影开始发生在我们到达之前，因此使用过去完成时。"
+    },
+    {
+      "question_id": "quiz-intermediate-026",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "Lena ___ for three hours, and she is still studying now.",
+      "prompt_translation": "Lena已经学习了三个小时，而且现在仍在学习。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "studied",
+          "translation_text": "学习了（过去式）"
+        },
+        {
+          "id": "b",
+          "learning_text": "has been studying",
+          "translation_text": "一直在学习"
+        },
+        {
+          "id": "c",
+          "learning_text": "had studied",
+          "translation_text": "此前学习过"
+        },
+        {
+          "id": "d",
+          "learning_text": "studies",
+          "translation_text": "学习（一般现在时）"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The present perfect continuous emphasizes an activity that began earlier and is still continuing.",
+      "explanation_translation": "现在完成进行时强调一项较早开始并持续到现在的活动。"
+    },
+    {
+      "question_id": "quiz-intermediate-027",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "Choose the correct word: I have worked at this school ___ 2020.",
+      "prompt_translation": "选择正确的词：我从2020年起就在这所学校工作。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "for",
+          "translation_text": "持续了"
+        },
+        {
+          "id": "b",
+          "learning_text": "during",
+          "translation_text": "在……期间"
+        },
+        {
+          "id": "c",
+          "learning_text": "since",
+          "translation_text": "自从"
+        },
+        {
+          "id": "d",
+          "learning_text": "until",
+          "translation_text": "直到"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Since” introduces the starting point of a period that continues to the present.",
+      "explanation_translation": "“Since”引出持续到现在的一段时间的起点。"
+    },
+    {
+      "question_id": "quiz-intermediate-028",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "Choose the correct sentence using “yet” in a negative present perfect statement.",
+      "prompt_translation": "选择在现在完成时否定句中正确使用“yet”的句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I haven't finished the report yet.",
+          "translation_text": "我还没有完成报告。"
+        },
+        {
+          "id": "b",
+          "learning_text": "I haven't yet finish the report.",
+          "translation_text": "我还没有完成报告。"
+        },
+        {
+          "id": "c",
+          "learning_text": "I don't have finished the report yet.",
+          "translation_text": "我还没有完成报告。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I hadn't finish the report yet.",
+          "translation_text": "我当时还没有完成报告。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "In a negative present perfect statement, “yet” commonly appears at the end after the past participle.",
+      "explanation_translation": "在现在完成时否定句中，“yet”通常放在过去分词之后的句末。"
+    },
+    {
+      "question_id": "quiz-intermediate-029",
+      "source_lesson_id": "i-perfect",
+      "prompt_learning": "Choose the correct sentence to show that the guests left before now.",
+      "prompt_translation": "选择正确的句子，表示客人已经在现在之前离开。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The guests have already left.",
+          "translation_text": "客人已经离开了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The guests has already left.",
+          "translation_text": "客人已经离开了。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The guests have already leave.",
+          "translation_text": "客人已经离开了。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The guests already leaving.",
+          "translation_text": "客人已经离开了。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The plural subject “guests” takes “have,” followed by the past participle “left.”",
+      "explanation_translation": "复数主语“guests”使用“have”，后接过去分词“left”。"
+    },
+    {
+      "question_id": "quiz-intermediate-030",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "Choose the noun form of the verb “decide” to complete the sentence: Her ___ surprised everyone.",
+      "prompt_translation": "选择动词“decide”的名词形式完成句子：她的决定让所有人都感到惊讶。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "decisive",
+          "translation_text": "果断的"
+        },
+        {
+          "id": "b",
+          "learning_text": "decision",
+          "translation_text": "决定"
+        },
+        {
+          "id": "c",
+          "learning_text": "deciding",
+          "translation_text": "正在决定"
+        },
+        {
+          "id": "d",
+          "learning_text": "decided",
+          "translation_text": "已决定的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Decision” is the noun form of “decide.”",
+      "explanation_translation": "“Decision”是动词“decide”的名词形式。"
+    },
+    {
+      "question_id": "quiz-intermediate-031",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "Choose the adjective form of “rely”: We need a ___ source of information.",
+      "prompt_translation": "选择“rely”的形容词形式：我们需要一个可靠的信息来源。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "reliance",
+          "translation_text": "依赖"
+        },
+        {
+          "id": "b",
+          "learning_text": "reliably",
+          "translation_text": "可靠地"
+        },
+        {
+          "id": "c",
+          "learning_text": "reliable",
+          "translation_text": "可靠的"
+        },
+        {
+          "id": "d",
+          "learning_text": "reliability",
+          "translation_text": "可靠性"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Reliable” is the adjective describing something or someone that can be relied on.",
+      "explanation_translation": "“Reliable”是形容词，形容某事物或某人值得信赖。"
+    },
+    {
+      "question_id": "quiz-intermediate-032",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "Choose the correct adjective: The project was a ___ because it met all its goals.",
+      "prompt_translation": "选择正确的形容词：这个项目很成功，因为它达成了所有目标。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "success",
+          "translation_text": "成功（名词）"
+        },
+        {
+          "id": "b",
+          "learning_text": "successfully",
+          "translation_text": "成功地"
+        },
+        {
+          "id": "c",
+          "learning_text": "successful",
+          "translation_text": "成功的"
+        },
+        {
+          "id": "d",
+          "learning_text": "succeed",
+          "translation_text": "成功（动词）"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Successful” is the adjective form used to describe the project.",
+      "explanation_translation": "“Successful”是用于描述项目的形容词形式。"
+    },
+    {
+      "question_id": "quiz-intermediate-033",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "The artist is known for her original ideas and great ___.",
+      "prompt_translation": "这位艺术家以独特的想法和丰富的创造力而闻名。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "creative",
+          "translation_text": "有创造力的"
+        },
+        {
+          "id": "b",
+          "learning_text": "creation",
+          "translation_text": "创作/作品"
+        },
+        {
+          "id": "c",
+          "learning_text": "creatively",
+          "translation_text": "有创造性地"
+        },
+        {
+          "id": "d",
+          "learning_text": "creativity",
+          "translation_text": "创造力"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "“Creativity” is the noun for the ability to produce original ideas.",
+      "explanation_translation": "“Creativity”是名词，表示产生原创想法的能力。"
+    },
+    {
+      "question_id": "quiz-intermediate-034",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "The speaker tried to ___ the audience to support the proposal.",
+      "prompt_translation": "演讲者试图说服观众支持这项提议。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "persuasion",
+          "translation_text": "说服（名词）"
+        },
+        {
+          "id": "b",
+          "learning_text": "persuasive",
+          "translation_text": "有说服力的"
+        },
+        {
+          "id": "c",
+          "learning_text": "persuade",
+          "translation_text": "说服"
+        },
+        {
+          "id": "d",
+          "learning_text": "persuasively",
+          "translation_text": "有说服力地"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "After “tried to,” the base verb “persuade” is required.",
+      "explanation_translation": "“Tried to”后面需要接动词原形“persuade”。"
+    },
+    {
+      "question_id": "quiz-intermediate-035",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "The road becomes ___ at night, so drivers should slow down.",
+      "prompt_translation": "这条路在夜间会变得危险，因此驾驶员应该减速。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "danger",
+          "translation_text": "危险（名词）"
+        },
+        {
+          "id": "b",
+          "learning_text": "dangerous",
+          "translation_text": "危险的"
+        },
+        {
+          "id": "c",
+          "learning_text": "dangerously",
+          "translation_text": "危险地"
+        },
+        {
+          "id": "d",
+          "learning_text": "endanger",
+          "translation_text": "危及"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Dangerous” is the adjective describing the road.",
+      "explanation_translation": "“Dangerous”是用于描述道路的形容词。"
+    },
+    {
+      "question_id": "quiz-intermediate-036",
+      "source_lesson_id": "i-word-families",
+      "prompt_learning": "Choose the noun form of “accurate”: The ___ of the measurements is important.",
+      "prompt_translation": "选择“accurate”的名词形式：测量结果的准确性很重要。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "accurately",
+          "translation_text": "准确地"
+        },
+        {
+          "id": "b",
+          "learning_text": "accuracy",
+          "translation_text": "准确性"
+        },
+        {
+          "id": "c",
+          "learning_text": "accurate",
+          "translation_text": "准确的"
+        },
+        {
+          "id": "d",
+          "learning_text": "inaccurate",
+          "translation_text": "不准确的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Accuracy” is the noun form of the adjective “accurate.”",
+      "explanation_translation": "“Accuracy”是形容词“accurate”的名词形式。"
     }
   ]
 }
