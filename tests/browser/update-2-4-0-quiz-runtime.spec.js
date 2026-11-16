@@ -204,7 +204,10 @@ test("Free user can resume, change answers, submit, and review a real authentica
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
   await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+  await page.locator("#quizPrevious").click();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
+  await page.locator("#quizNext").click();
 
   for (let position = 2; position <= 10; position += 1) {
     await page.locator('[data-quiz-option="a"]').click();
@@ -276,6 +279,7 @@ test("learning introductions are independent per page and help controls reopen t
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Flashcards");
   await page.locator("#learningIntroDismiss").click();
+  await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
 
   const rows = await api.get(apiUrl + "/rest/v1/learning_page_introduction_preferences?user_id=eq." +
     encodeURIComponent(freeSession.user.id) + "&select=page_key", {
