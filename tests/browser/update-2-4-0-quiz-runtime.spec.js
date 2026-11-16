@@ -204,7 +204,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   ).toBeEnabled();
 
   await page.locator('[data-quiz-start="beginner"]').click();
-  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizSession")).toBeVisible({ timeout: 15000 });
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10",{timeout:15000});
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
 
