@@ -13,7 +13,7 @@ select
   'en',
   true
 from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
-cross join generate_series(1,5) n
+cross join generate_series(1,10) n
 on conflict (activity_type,content_id,language_code)
 do update set
   topic_id=excluded.topic_id,
@@ -30,8 +30,8 @@ select
   1,
   'en',
   'zh',
-  d.prefix || '-runtime-lesson-' || (((n-1)%5)+1),
-  'quiz-runtime-topic-' || (((n-1)%5)+1),
+  d.prefix || '-runtime-lesson-' || (((n-1)%10)+1),
+  'quiz-runtime-topic-' || (((n-1)%10)+1),
   d.difficulty,
   'Runtime test question ' || d.difficulty || ' ' || n || ': choose the correct answer.',
   '运行测试题' || n || '：请选择正确答案。',
@@ -46,11 +46,11 @@ select
   '这是合成测试内容；选项 A 是正确答案。',
   'approved'
 from (
-  select 'b' as prefix, 'beginner' as difficulty, n from generate_series(1,30) n
+  select 'b' as prefix, 'beginner' as difficulty, n from generate_series(1,60) n
   union all
-  select 'i', 'intermediate', n from generate_series(1,36) n
+  select 'i', 'intermediate', n from generate_series(1,60) n
   union all
-  select 'a', 'advanced', n from generate_series(1,48) n
+  select 'a', 'advanced', n from generate_series(1,60) n
 ) d;
 
 -- Separate English-translation fixture rows exercise the session-snapshot
@@ -65,8 +65,8 @@ select
   1,
   'en',
   'en',
-  'b-runtime-lesson-' || (((n-1)%5)+1),
-  'quiz-runtime-topic-' || (((n-1)%5)+1),
+  'b-runtime-lesson-' || (((n-1)%10)+1),
+  'quiz-runtime-topic-' || (((n-1)%10)+1),
   'beginner',
   'English snapshot test question ' || n || ': choose the correct answer.',
   'English snapshot test question ' || n || ': choose the correct answer.',
