@@ -18579,7 +18579,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     // Update 2.4.0 Quiz frontend. All question data and answer keys are served
     // by authenticated RPCs; the browser never queries the private Quiz tables.
-    let quizPageState = { loaded:false, loading:false, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null };
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
@@ -18763,7 +18763,12 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
     quizEl("quizResultsHome").addEventListener("click",async()=>{quizPageState.result=null;await quizLoadHome();});
     window.addEventListener("swift-auth-updated",()=>{
-      quizPageState={loaded:false,loading:false,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null};
+      const nextUserId=currentUser?.id||null;
+      // Supabase emits INITIAL_SESSION after page load. Do not reset a Quiz
+      // session that the learner has already resumed when that same account's
+      // delayed auth notification arrives. Reset only when identity changes.
+      if(quizPageState.userId===nextUserId)return;
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null};
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
