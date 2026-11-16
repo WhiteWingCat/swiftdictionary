@@ -1,0 +1,62 @@
+{
+  "b-verb-combinations": {
+    "topic_id": "everyday-vocabulary",
+    "difficulty": "beginner"
+  },
+  "b-articles": {
+    "topic_id": "nouns-and-articles",
+    "difficulty": "beginner"
+  },
+  "b-countable-nouns": {
+    "topic_id": "nouns-and-quantity",
+    "difficulty": "beginner"
+  },
+  "b-sentence": {
+    "topic_id": "sentence-basics",
+    "difficulty": "beginner"
+  },
+  "b-present": {
+    "topic_id": "verb-tenses",
+    "difficulty": "beginner"
+  },
+  "i-collocations": {
+    "topic_id": "collocations",
+    "difficulty": "intermediate"
+  },
+  "i-conditionals": {
+    "topic_id": "conditional-sentences",
+    "difficulty": "intermediate"
+  },
+  "i-phrasal": {
+    "topic_id": "phrasal-verbs",
+    "difficulty": "intermediate"
+  },
+  "i-perfect": {
+    "topic_id": "verb-tenses",
+    "difficulty": "intermediate"
+  },
+  "i-word-families": {
+    "topic_id": "word-formation",
+    "difficulty": "intermediate"
+  },
+  "a-hedging": {
+    "topic_id": "academic-professional-english",
+    "difficulty": "advanced"
+  },
+  "a-inversion": {
+    "topic_id": "advanced-grammar",
+    "difficulty": "advanced"
+  },
+  "a-mixed-conditionals": {
+    "topic_id": "advanced-grammar",
+    "difficulty": "advanced"
+  },
+  "a-idioms": {
+    "topic_id": "idioms-fixed-expressions",
+    "difficulty": "advanced"
+  },
+  "a-near-synonyms": {
+    "topic_id": "precise-vocabulary",
+    "difficulty": "advanced"
+  }
+}
