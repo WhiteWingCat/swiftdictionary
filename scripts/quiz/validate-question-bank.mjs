@@ -11,7 +11,7 @@ const raw = JSON.parse(fs.readFileSync(file, "utf8"));
 const mapFile = path.join(repoRoot, "content/quiz/curriculum-map.en.json");
 const lessons = JSON.parse(fs.readFileSync(mapFile, "utf8"));
 const fail = [];
-const questions = raw.questions ?? [];
+const questions = Array.isArray(raw.questions) ? raw.questions : [];
 const seenIds = new Set();
 const seenPrompts = new Set();
 const counts = { beginner: 0, intermediate: 0, advanced: 0 };
@@ -58,7 +58,7 @@ for (const [index, q] of questions.entries()) {
     if (optionIds.size !== 4 || !optionIds.has(q.correct_option_id)) {
       fail.push(at + " correct_option_id must match exactly one of four unique option IDs");
     }
-    const labels = q.options.map(o => o.learning_text.trim().toLocaleLowerCase("en"));
+    const labels = q.options.map(o => String(o.learning_text ?? "").trim().toLocaleLowerCase("en"));
     if (new Set(labels).size !== 4) fail.push(at + " has duplicate English option labels");
   }
   if (source) {
