@@ -84,9 +84,11 @@
     .primary-nav button { flex:0 0 auto; border:1px solid transparent; border-radius:10px; background:transparent; color:var(--muted); padding:9px 14px; }
     .primary-nav button[aria-current="page"] { color:var(--accent); background:var(--accent-bg); border-color:#4c5b8b; }
     .top-actions { flex-wrap:wrap; justify-content:flex-end; }
-    .course-controls { margin:0; gap:8px; }
-    .course-controls label { font-size:.82rem; }
-    .course-controls select { padding:7px 9px; max-width:150px; }
+    .course-controls { display:flex; align-items:center; gap:9px; margin:0; padding:7px; border:1px solid #52658f; border-radius:16px; background:linear-gradient(135deg,#202b46 0%,#172033 58%,#20283a 100%); box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.07); }
+    .course-controls label { display:grid; gap:5px; min-width:0; padding:7px 10px; border:1px solid rgba(151,174,231,.24); border-radius:11px; background:rgba(8,14,27,.48); color:#dbe5ff; font-size:.72rem; font-weight:800; letter-spacing:.035em; text-transform:uppercase; }
+    .course-controls select { width:100%; min-width:142px; padding:8px 30px 8px 10px; border:1px solid #718ac7; border-radius:9px; background:#111a2c; color:#fff; font-size:.9rem; font-weight:750; letter-spacing:0; text-transform:none; box-shadow:inset 0 1px 3px rgba(0,0,0,.32); }
+    .course-controls select:focus-visible { outline:3px solid #a9c2ff; outline-offset:2px; border-color:#c5d5ff; }
+    .course-controls label:focus-within { border-color:#9db6f1; background:rgba(22,34,57,.9); }
     .page-panel { padding:34px 0 54px; min-height:55vh; }
     .page-panel[hidden], #dictionaryPage[hidden] { display:none !important; }
     .page-intro { color:var(--muted); max-width:720px; }
@@ -373,11 +375,15 @@
     .quiz-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
     .quiz-overview-grid .profile-card,.quiz-difficulty-card,.quiz-results-card{margin:0}
     .quiz-allowance-number{font-size:1.7rem;font-weight:800;color:var(--accent);margin:8px 0}
-    .quiz-difficulty-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
-    .quiz-difficulty-option{display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-width:0;padding:17px;border:1px solid var(--border);border-radius:13px;background:var(--panel-hover)}
-    .quiz-difficulty-option h3{margin:0;font-size:1.05rem}.quiz-difficulty-option p{margin:0;color:var(--muted);font-size:.86rem}
-    .quiz-difficulty-option button{margin-top:auto;width:100%}.quiz-difficulty-option .quiz-bank-status{font-size:.8rem}
-    .quiz-difficulty-option[aria-disabled="true"]{opacity:.76}
+    .quiz-difficulty-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+    .quiz-difficulty-option{display:flex;flex-direction:column;align-items:flex-start;gap:11px;min-width:0;min-height:205px;padding:21px;border:1px solid #465575;border-radius:16px;background:linear-gradient(155deg,#222d46 0%,#192235 58%,#17202f 100%);box-shadow:0 9px 22px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.055);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .quiz-difficulty-option:hover{transform:translateY(-2px);border-color:#8199d0;box-shadow:0 13px 28px rgba(0,0,0,.24)}
+    .quiz-difficulty-option h3{margin:0;color:#f4f6ff;font-size:1.22rem;font-weight:850;letter-spacing:.01em}
+    .quiz-difficulty-count{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid #7089c3;border-radius:999px;background:#2b3a5d;color:#e5edff;font-size:.82rem;font-weight:850;letter-spacing:.025em}
+    .quiz-difficulty-option p{margin:0;color:#c4cee2;font-size:.91rem;line-height:1.55}
+    .quiz-difficulty-option button{margin-top:auto;width:100%;font-weight:800}
+    .quiz-difficulty-option[aria-disabled="true"]{opacity:.82}
+    @media(max-width:760px){.course-controls{width:100%;justify-content:stretch}.course-controls label{flex:1}.course-controls select{min-width:0}.quiz-difficulty-grid{grid-template-columns:1fr}}
     .quiz-history-list{display:grid;gap:8px;margin-top:14px}
     .quiz-history-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:11px;background:var(--panel-hover)}
     .quiz-history-row strong{display:block}.quiz-history-row small{color:var(--muted)}
@@ -17804,21 +17810,30 @@
       }
     }
     document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
-    function refreshTranslationViews() {
+    function refreshTranslationViews(nextLanguage) {
+      const selector=document.getElementById("translationSelect");
+      translationLanguage=nextLanguage || selector.value || "en";
+      selector.value=translationLanguage;
+      document.getElementById("preferenceTranslation").value=translationLanguage;
       document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
       if (activeWord) openWord(activeWord);
       if (ls.active) {
-        const activeLesson = lessonData[ls.difficulty].find(item=>item.id===ls.active.id) || ls.active;
-        ls.topic="all";
-        renderLessons();
-        renderLesson(activeLesson,true);
+        const activeLessonId=ls.active.id;
+        const activeLesson=lessonData[ls.difficulty].find(item=>item.id===activeLessonId);
+        if(activeLesson){
+          ls.topic="all";
+          renderLessons();
+          renderLesson(activeLesson,true);
+        } else {
+          ls.active=null;
+          document.getElementById("lessonReader").hidden=true;
+          renderLessons();
+        }
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
-      translationLanguage=e.target.value;
-      document.getElementById("preferenceTranslation").value=e.target.value;
-      refreshTranslationViews();
+      refreshTranslationViews(e.target.value);
       rememberCoursePreferences();
     });
     search.addEventListener("input", () => { currentPage = 1; render(); });
@@ -18665,12 +18680,14 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const list=data.difficulties||[];
       quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
         const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
-        const counts=item.bank_counts||{};
-        const target=item.bank_target_met?"Preferred question-bank target met":item.bank_minimum_met?"Minimum question bank met":"Question bank below minimum";
-        const reason=item.available?"Ready to start":quizReason(item.reason);
-        const composition=item.difficulty==="beginner"?"10 questions":item.difficulty==="intermediate"?"15 questions · mainly Intermediate with Beginner support":"20 questions · Advanced core with Intermediate and Beginner support";
-        const bankSummary=Object.entries(counts).map(([level,count])=>(quizDifficultyLabels[level]||level)+": "+count+" approved").join(" · ");
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><p>'+quizEscape(composition)+'</p><p class="quiz-bank-status">'+quizEscape(target)+'</p><p class="quiz-bank-status">'+quizEscape(bankSummary||"No approved questions for this language pair yet.")+'</p><p class="quiz-bank-status">'+quizEscape(reason)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+        const count=item.difficulty==="beginner"?10:item.difficulty==="intermediate"?15:20;
+        const description=item.difficulty==="beginner"
+          ?"Build confidence with essential vocabulary and the foundations of everyday English."
+          :item.difficulty==="intermediate"
+            ?"Apply your knowledge across varied situations, sentence patterns and common expressions."
+            :"Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.";
+        const unavailableReason=item.available?"":quizReason(item.reason);
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"'+(!item.available?' title="'+quizEscape(unavailableReason)+'"':'')+'><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
       }).join("");
     }
     function quizRenderHistory(rows){
@@ -18715,7 +18732,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(option.learning_text)+'</span>'+(showTranslation?'<small>'+quizEscape(option.translation_text)+'</small>':'')+'</span></button>';
       }).join("")+'</div>';
       quizEl("quizPrevious").disabled=pos<=1;
-      quizEl("quizNext").textContent=pos>=s.question_count?"Review answers":"Next";
+      quizEl("quizNext").hidden=pos>=s.question_count;
+      quizEl("quizNext").textContent="Next";
       quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
       quizEl("quizSubmit").textContent=answered===s.question_count?"Submit Quiz":"Answer all questions to submit";
       quizStatus("");
