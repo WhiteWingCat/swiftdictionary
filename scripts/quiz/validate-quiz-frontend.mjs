@@ -44,7 +44,8 @@ if (!appScript.includes("function quizSaveCurrent") || !appScript.includes("func
 const learningPageFeatures = [
   "learningIntroSaveDismissal", "learningIntroLoadPreferences",
   "learningIntroMaybeShow", "learning_page_introduction_preferences",
-  "quizEffectiveTranslationCode", "quizUpdateTranslationNotice", "quizSyncCoursePreferences", "applyLearningCourseAvailability"
+  "quizEffectiveTranslationCode", "quizUpdateTranslationNotice", "quizSyncCoursePreferences", "applyLearningCourseAvailability",
+  "quizRefreshVisibleTranslation", "quizMockNotice"
 ];
 for (const feature of learningPageFeatures) {
   if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
@@ -57,6 +58,12 @@ if (!appScript.includes("This session keeps its original translation") || !appSc
 }
 if (!mockTesting.includes('"learning_page_introduction_preferences"')) {
   throw new Error("Mock User adapter does not support account-scoped learning introduction preferences.");
+}
+if (!mockTesting.includes("mock_simulation:true") || !html.includes("This session uses synthetic questions")) {
+  throw new Error("Mock Quiz sessions must be clearly labelled as simulations, not approved question-bank content.");
+}
+if (!mockTesting.includes("correct_option_id:correctOptionId")) {
+  throw new Error("Mock answer shuffling must preserve the actual correct option ID.");
 }
 for (const feature of [
   "function refreshTranslationViews(nextLanguage)",
