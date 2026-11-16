@@ -18876,7 +18876,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       }
     }
     function learningIntroMaybeShow(page){
-      if(!learningIntroDismissed.has(page))learningIntroRender(page);
+      if(learningIntroDismissed.has(page)){if(learningIntroCurrentPage===page)learningIntroClose();return;}
+      learningIntroRender(page);
     }
     document.querySelectorAll("[data-learning-help]").forEach(button=>button.addEventListener("click",()=>learningIntroRender(button.dataset.learningHelp)));
     quizEl("learningIntroClose").addEventListener("click",learningIntroClose);
