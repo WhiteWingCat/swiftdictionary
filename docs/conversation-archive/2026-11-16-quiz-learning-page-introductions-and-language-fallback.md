@@ -107,3 +107,10 @@ Quiz workflow run #269 (commit f753e40) completed successfully across both jobs:
 - Supabase security advisors passed.
 
 This is the first complete green CI run for the new learning-page feature set. Run #271 re-runs the suite with extended Playwright navigation timeouts; it was in progress when this note was written. Latest branch-head run #274 was queued after documentation-only updates.
+
+## Stabilized and latest-code CI result
+
+- Quiz workflow run #271 (commit e9ca861) completed successfully after the Playwright navigation waits were extended.
+- Quiz workflow run #274 (commit 0cc4822) also completed successfully across PostgreSQL foundation, disposable local Supabase Auth/RPC/browser tests and Supabase security advisors.
+- Both green runs validate the application, migration and browser-test code now present at the feature branch head. Later changes through this archive note are documentation/PR updates only.
+- Documentation-only CI reruns #278–#279 were in progress at the latest check.
