@@ -904,5 +904,5 @@ This section supersedes the earlier statement above that authenticated runtime v
 1. The feature-branch authenticated browser/runtime suite has passed against disposable local Supabase.
 2. The Quiz database foundation and RPC lifecycle/allowance tests have passed.
 3. Supabase security advisors have passed against the disposable local Quiz schema.
-4. The 2.3.x regression suite and expanded Mock User unit tests are being rerun on the latest branch tip.
+4. The 2.3.x regression suite, expanded Mock User unit tests, PostgreSQL migration/allowance checks and local Supabase security advisors passed on the latest validated branch tip. The feature preview has not yet been deployed, so owner-facing interactive Mock User testing is not available yet.
 5. PR #8 remains draft and unmerged. Do not deploy to the live site, apply Quiz schema/content to production, or merge without explicit owner approval.
