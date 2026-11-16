@@ -9,6 +9,20 @@ test.beforeEach(async ({ page }) => {
     body: 'window.SWIFT_SUPABASE_CONFIG = { url: "", anonKey: "" };'
   }));
   await page.route("https://*.supabase.co/**", route => route.abort());
+
+  // This suite validates the existing Lessons/Daily Learning experience,
+  // not first-visit guide behaviour. Prevent the new guide from intercepting
+  // unrelated regression-test clicks.
+  await page.addInitScript(() => {
+    const dismissGuide = () => {
+      const backdrop = document.getElementById("learningIntroBackdrop");
+      const dismiss = document.getElementById("learningIntroDismiss");
+      if (backdrop && !backdrop.hidden && dismiss) dismiss.click();
+    };
+    const observer = new MutationObserver(dismissGuide);
+    observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
+    document.addEventListener("DOMContentLoaded", dismissGuide);
+  });
 });
 
 test("dictionary loads and remains usable in signed-out mode", async ({ page }) => {
