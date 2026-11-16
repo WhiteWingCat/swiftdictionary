@@ -224,18 +224,24 @@
         : [...Array(12).fill("advanced"),...Array(6).fill("intermediate"),...Array(2).fill("beginner")];
     return Array.from({length:count},(_,index)=>{
       const number=index+1, id="mock-quiz-question-"+sessionId+"-"+number;
+      const options=[
+        {id:"a",learning_text:"Correct mock answer "+number,translation_text:"模拟正确答案 "+number},
+        {id:"b",learning_text:"Alternative answer B",translation_text:"备选答案 B"},
+        {id:"c",learning_text:"Alternative answer C",translation_text:"备选答案 C"},
+        {id:"d",learning_text:"Alternative answer D",translation_text:"备选答案 D"}
+      ];
+      // Shuffle the complete option set so the correct answer is not always A.
+      for(let i=options.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [options[i],options[j]]=[options[j],options[i]];
+      }
       return {
         question_id:id,source_lesson_id:"mock-approved-lesson-"+number,
         topic_id:["greetings","daily-life","places","communication"][index%4],
         source_difficulty:sourceLevels[index],position:number,
         prompt_learning:"[Mock] Choose the correct answer for practice question "+number+".",
         prompt_translation:"[模拟] 请选择第"+number+"题的正确答案。",
-        options:[
-          {id:"a",learning_text:"Correct mock answer "+number,translation_text:"模拟正确答案 "+number},
-          {id:"b",learning_text:"Alternative answer B",translation_text:"备选答案 B"},
-          {id:"c",learning_text:"Alternative answer C",translation_text:"备选答案 C"},
-          {id:"d",learning_text:"Alternative answer D",translation_text:"备选答案 D"}
-        ],
+        options,
         selected_option_id:null,correct_option_id:"a",
         explanation_learning:"This is synthetic mock content used to test the Quiz interface.",
         explanation_translation:"这是用于测试测验界面的模拟内容。"
