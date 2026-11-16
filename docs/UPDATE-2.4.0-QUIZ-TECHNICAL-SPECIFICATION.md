@@ -617,7 +617,7 @@ The validator checks:
 - source lesson mapping to the shared curriculum map, including topic and difficulty;
 - the draft-only source-pack status.
 
-The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 30 rows, five topics (six per topic), valid lesson mappings, four options and zero approved rows. This tests the importer against the real Quiz table constraints without writing question content to production.
+The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 30 rows, five topics (six per topic), valid lesson mappings, four options and zero approved rows. The PostgreSQL 17 job passed this importer and the full Quiz RPC suite in workflow run 104. The local Supabase job in that run did not reach setup because the CLI setup action hit GitHub's release API rate limit while resolving the latest version. The workflow now pins Supabase CLI 2.81.3 and makes cleanup safe when setup fails; a follow-up local Supabase run remains pending.
 
 The validator is structural, not a semantic truth checker. Every question still requires human editorial review for one unambiguous correct answer, distractor quality, difficulty, natural English, accurate Simplified Chinese and explanation quality. A separate reviewed approval migration is required after content approval.
 
