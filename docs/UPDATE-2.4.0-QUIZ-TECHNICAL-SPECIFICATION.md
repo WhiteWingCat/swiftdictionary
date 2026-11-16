@@ -601,7 +601,7 @@ Official reference material:
 
 The feature branch now contains a source-controlled bilingual authoring workflow:
 - `content/quiz/curriculum-map.en.json` — stable source lesson IDs mapped to topic and source difficulty.
-- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation Batch 01, currently 30 Beginner questions.
+- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation draft pack with 30 Beginner and 36 Intermediate questions.
 - `content/quiz/README.md` — authoring, editorial review, approval and release rules.
 - `scripts/quiz/validate-question-bank.mjs` — structural and curriculum validation plus a SQL exporter that always inserts as `draft`.
 - `supabase/tests/quiz_draft_content_catalog.sql` and `quiz_draft_content_import_assertions.sql` — isolated local curriculum fixtures and import assertions.
@@ -623,10 +623,9 @@ The validator is structural, not a semantic truth checker. Every question still 
 
 ### 14.3 Current content readiness
 
-Batch 01 contains 30 Beginner questions. If approved and imported to the Quiz bank, this reaches the preferred three-session target of 30. It does not make Beginner available yet because the content remains draft and has not been approved or imported to production.
+The draft pack contains 30 Beginner questions and 36 Intermediate questions. These counts reach the preferred three-session targets for Beginner and Intermediate, with 30 Beginner questions also exceeding the 24-question Beginner support target for Intermediate. Neither difficulty is available because all records remain draft and have not been approved or imported to production.
 
-Intermediate and Advanced batches are not yet authored. Their minimums and targets remain:
-- Intermediate: minimum 24 Intermediate + 16 Beginner; target 36 + 24.
+Advanced content is not yet authored. Its minimum and target remain:
 - Advanced: minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
 
 All availability checks continue to count only approved questions with an active matching permanent lesson/topic mapping and the learner's selected translation language. The current batch is English-learning / Simplified-Chinese-translation only; other translation languages remain unavailable until matching content is authored and approved.
