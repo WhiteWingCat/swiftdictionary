@@ -52,3 +52,32 @@ from (
   union all
   select 'a', 'advanced', n from generate_series(1,48) n
 ) d;
+
+-- Separate English-translation fixture rows exercise the session-snapshot
+-- fallback when a learner changes their preference to Chinese mid-session.
+insert into private.quiz_question_bank(
+  question_id, revision, learning_language_code, translation_language_code,
+  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,
+  options, correct_option_id, explanation_learning, explanation_translation, status
+)
+select
+  'b-runtime-en-' || lpad(n::text,3,'0'),
+  1,
+  'en',
+  'en',
+  'b-runtime-lesson-' || (((n-1)%5)+1),
+  'quiz-runtime-topic-' || (((n-1)%5)+1),
+  'beginner',
+  'English snapshot test question ' || n || ': choose the correct answer.',
+  'English snapshot test question ' || n || ': choose the correct answer.',
+  jsonb_build_array(
+    jsonb_build_object('id','a','learning_text','Correct answer','translation_text','Correct answer'),
+    jsonb_build_object('id','b','learning_text','Incorrect option one','translation_text','Incorrect option one'),
+    jsonb_build_object('id','c','learning_text','Incorrect option two','translation_text','Incorrect option two'),
+    jsonb_build_object('id','d','learning_text','Incorrect option three','translation_text','Incorrect option three')
+  ),
+  'a',
+  'This synthetic English-only snapshot has no Chinese translation.',
+  'This synthetic English-only snapshot has no Chinese translation.',
+  'approved'
+from generate_series(1,30) n;
