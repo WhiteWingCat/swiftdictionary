@@ -90,6 +90,16 @@ async function openQuiz(page, session) {
   await expect(page.locator("#quizPage")).toBeVisible({ timeout: 20000 });
   try {
     await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
+    await expect(page.locator("#learningIntroBackdrop")).toBeVisible({ timeout: 10000 });
+    await page.locator("#learningIntroDismiss").click();
+    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+    const savedIntro = await api.get(apiUrl + "/rest/v1/learning_page_introduction_preferences?user_id=eq." +
+      encodeURIComponent(session.user.id) + "&page_key=eq.quiz&select=page_key", {
+      headers: { apikey: serviceRoleKey, Authorization: "Bearer " + serviceRoleKey }
+    });
+    if (!savedIntro.ok() || !(await savedIntro.json()).some(row => row.page_key === "quiz")) {
+      throw new Error("Quiz introduction dismissal was not persisted to the signed-in account.");
+    }
   } catch (error) {
     const diagnostics = await page.evaluate(() => ({
       accountLabel: document.querySelector("#accountButtonLabel")?.textContent,
@@ -183,14 +193,18 @@ test("Free user can resume, change answers, submit, and review a real authentica
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
 
-  // Change the account preference mid-session. The session's frozen language
-  // snapshot must continue to render Chinese until this session is complete.
+  // English is already present as the learning-language text in this snapshot.
+  // Selecting it must refresh the active session immediately without changing
+  // the server-owned answers or question position.
   await updateTranslationPreference(freeUserId, "en");
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
   await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
+  await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+  await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
 
   for (let position = 2; position <= 10; position += 1) {
     await page.locator('[data-quiz-option="a"]').click();
@@ -212,6 +226,67 @@ test("Free user can resume, change answers, submit, and review a real authentica
   await page.locator("#quizHistory [data-quiz-review]").click();
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
+});
+
+
+test("learning introductions are independent per page and help controls reopen them", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await page.goto("/#lessons");
+  await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Lessons");
+  await page.locator("#learningIntroDismiss").click();
+  await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+
+  await page.locator('[data-learning-help="lessons"]').click();
+  await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Lessons");
+  await page.locator("#learningIntroClose").click();
+
+  await page.goto("/#flashcards");
+  await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Flashcards");
+  await page.locator("#learningIntroDismiss").click();
+
+  const rows = await api.get(apiUrl + "/rest/v1/learning_page_introduction_preferences?user_id=eq." +
+    encodeURIComponent(freeSession.user.id) + "&select=page_key", {
+    headers: { apikey: serviceRoleKey, Authorization: "Bearer " + serviceRoleKey }
+  });
+  expect(rows.ok()).toBeTruthy();
+  const pages = (await rows.json()).map(row => row.page_key).sort();
+  expect(pages).toEqual(["flashcards", "lessons", "quiz"]);
+
+  const otherAccountRows = await api.get(apiUrl + "/rest/v1/learning_page_introduction_preferences?user_id=eq." +
+    encodeURIComponent(premiumSession.user.id) + "&select=page_key", {
+    headers: { apikey: serviceRoleKey, Authorization: "Bearer " + serviceRoleKey }
+  });
+  expect(otherAccountRows.ok()).toBeTruthy();
+  expect(await otherAccountRows.json()).toEqual([]);
+});
+
+test("Chinese course selection clearly disables English learning content on all three pages", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  await page.locator("#courseSelect").selectOption("en");
+  await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#quizHome")).toBeVisible();
+
+  await page.goto("/#lessons");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect(page.locator("#lessonsChineseUnavailable")).toBeVisible();
+  await expect(page.locator("#lessonLibrary")).toBeHidden();
+  await page.locator("#courseSelect").selectOption("en");
+  await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#lessonLibrary")).toBeVisible();
+
+  await page.goto("/#flashcards");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect(page.locator("#flashcardsChineseUnavailable")).toBeVisible();
+  await expect(page.locator("#flashcardsPage .coming-card")).toBeHidden();
+  await page.locator("#courseSelect").selectOption("en");
+  await expect(page.locator("#flashcardsChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#flashcardsPage .coming-card")).toBeVisible();
 });
 
 test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
