@@ -6,7 +6,7 @@
 - Learning course: English
 - Translation: Simplified Chinese
 - Current status: draft only
-- Batch 01: 20 Beginner questions, four mapped curriculum topics? The current batch spans five Beginner topics and four questions per topic.
+- Batch 01: 30 Beginner questions, four mapped curriculum topics? The current batch spans five Beginner topics and four questions per topic.
 
 These questions are original SwiftDictionary learning content. Do not copy third-party dictionary entries, textbook exercises, commercial question banks or online quiz sets. Keep prompts, distractors, translations and explanations independently authored.
 
