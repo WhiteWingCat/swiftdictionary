@@ -44,7 +44,7 @@ if (!appScript.includes("function quizSaveCurrent") || !appScript.includes("func
 const learningPageFeatures = [
   "learningIntroSaveDismissal", "learningIntroLoadPreferences",
   "learningIntroMaybeShow", "learning_page_introduction_preferences",
-  "quizEffectiveTranslationCode", "quizSyncCoursePreferences", "applyLearningCourseAvailability"
+  "quizEffectiveTranslationCode", "quizUpdateTranslationNotice", "quizSyncCoursePreferences", "applyLearningCourseAvailability"
 ];
 for (const feature of learningPageFeatures) {
   if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
