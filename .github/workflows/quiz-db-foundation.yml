@@ -98,7 +98,7 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
 
-      - name: Seed disposable synthetic approved Quiz content
+      - name: Approve real draft questions only inside disposable runtime database
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
           eval "$(supabase status --output env)"
