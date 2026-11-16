@@ -278,7 +278,7 @@ if (!dailyStartActivitySource.includes('p_topic_id:activityType === "daily_disco
   throw new Error("Global Daily Discovery sessions must use the approved null topic/difficulty catalogue metadata.");
 }
 if (!html.includes('id="lessonDetailPage"') || !html.includes('showPage("lessonDetail")')
-    || !html.includes("function refreshTranslationViews()")
+    || !html.includes("function refreshTranslationViews(nextLanguage)")
     || !html.includes("window.refreshDailyLearningTranslation")) {
   throw new Error("Permanent lesson page navigation or shared translation refresh is missing.");
 }
