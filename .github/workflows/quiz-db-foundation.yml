@@ -89,8 +89,11 @@ jobs:
 
       - name: Stop disposable local Supabase services
         if: always()
-        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
-        run: supabase stop --no-backup
+        run: |
+          if [ -d "$RUNNER_TEMP/swiftdictionary-quiz-supabase" ]; then
+            cd "$RUNNER_TEMP/swiftdictionary-quiz-supabase"
+            supabase stop --no-backup
+          fi
 
   quiz-db-foundation:
     runs-on: ubuntu-latest
