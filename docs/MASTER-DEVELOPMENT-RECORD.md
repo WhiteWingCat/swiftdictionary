@@ -965,6 +965,10 @@ The owner also confirmed:
 - The separate PostgreSQL foundation job in run #262 failed in an existing Premium multi-session RPC assertion with topic_coverage_unavailable on the third 15-question session. This is a disposable fixture-capacity/diversity issue, not a production migration change. Expanded the synthetic browser fixture to 10 topics and 60 questions per difficulty (and 30 English-only Beginner rows for the fallback test) in commit f753e40.
 - Increased navigation assertion timeouts to 15 seconds to avoid the observed transient async persistence flake (commit e9ca861). Re-run both jobs on the latest branch head before considering the CI gate green.
 
+
+- **Full green CI run:** Quiz workflow run #269 (commit f753e40) completed successfully across both jobs. PostgreSQL 17 foundation/migration/RPC/allowance tests passed; disposable local Supabase Auth/RPC and authenticated Chromium browser tests passed; the account-scoped introduction table/RLS assertions passed; the English-only snapshot fallback test and next-session preference application passed; Chinese availability and account isolation passed; Supabase security advisors passed. This is the first complete green run for the new feature set.
+- Run #271 (commit e9ca861) re-runs the same code with longer Playwright navigation waits to remove the transient question-navigation flake; it was still in progress at the time of the update. Latest branch-head run #274 was queued after documentation-only updates.
+
 ### Privacy/legal planning
 
 The new preference table stores only the learner's account ID, one of three page keys and a dismissal timestamp. This is still account-linked personal data. Before release, include it in the Malaysia PDPA and international privacy review, update the retention/deletion inventory, confirm account deletion cascades remove these rows, and ensure the privacy notice explains saved page preferences and cross-device synchronisation. Do not treat a free educational project as automatically outside PDPA scope; obtain Malaysian legal advice on applicability. This is planning guidance, not legal advice or a compliance certification.
