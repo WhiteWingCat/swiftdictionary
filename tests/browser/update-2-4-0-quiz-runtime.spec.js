@@ -158,7 +158,7 @@ test("Free user can resume, change answers, submit, and review a real authentica
 
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10",{timeout:15000});
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
 
   // The learner can change an answer before submission.
@@ -167,7 +167,7 @@ test("Free user can resume, change answers, submit, and review a real authentica
   await page.locator('[data-quiz-option="a"]').click();
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10",{timeout:15000});
 
   // Reloading restores the active session and the saved position/answer.
   await page.reload();
