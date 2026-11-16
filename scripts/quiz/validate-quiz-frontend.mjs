@@ -73,10 +73,11 @@ for (const feature of [
   }
 }
 for (const internalLabel of [
-  "Preferred question-bank target met",
-  "Minimum question bank met",
-  "approved</p><p class=\\"quiz-bank-status",
-  "You have used today's Quiz allowance. It resets at midnight in your configured timezone."
+  "quiz-bank-status",
+  "quizEscape(target)",
+  "quizEscape(bankSummary)",
+  "quizEscape(reason)",
+  "quizEscape(unavailableReason)"
 ]) {
   if (html.includes(internalLabel)) {
     throw new Error("Internal bank/allowance diagnostics must not be rendered in Quiz difficulty cards: " + internalLabel);
