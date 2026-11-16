@@ -277,12 +277,16 @@
     const used=sessions.filter(row=>row.status==="completed"&&row.completed_at&&dateInZone(row.completed_at,timezone)===day).length;
     const active=sessions.find(row=>row.status==="in_progress")||null;
     const remaining=Math.max(0,limit-used);
-    const difficulties=[
-      {difficulty:"beginner",question_count:10,bank_minimum_met:true,bank_target_met:true,bank_counts:{beginner:40},remaining_counts:{beginner:40},available:!active&&remaining>0,reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":null},
-      {difficulty:"intermediate",question_count:15,bank_minimum_met:true,bank_target_met:true,bank_counts:{beginner:40,intermediate:40},remaining_counts:{beginner:40,intermediate:40},available:!active&&remaining>0,reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":null},
-      {difficulty:"advanced",question_count:20,bank_minimum_met:true,bank_target_met:true,bank_counts:{beginner:40,intermediate:40,advanced:40},remaining_counts:{beginner:40,intermediate:40,advanced:40},available:!active&&remaining>0,reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":null}
-    ];
-    return {timezone,local_date:day,plan_code:plan,allowance:{daily_limit:limit,used_count:used,remaining_count:remaining},active_session_id:active?.session_id||null,difficulties};
+    const difficulties=["beginner","intermediate","advanced"].map(difficulty=>({
+      difficulty,question_count:difficulty==="beginner"?10:difficulty==="intermediate"?15:20,
+      // The mock adapter does not inspect or approve any real question-bank rows.
+      bank_minimum_met:false,bank_target_met:false,bank_counts:{},remaining_counts:{},
+      available:!active&&remaining>0,
+      reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":"mock_simulation_only"
+    }));
+    return {mock_simulation:true,timezone,local_date:day,plan_code:plan,
+      allowance:{daily_limit:limit,used_count:used,remaining_count:remaining},
+      active_session_id:active?.session_id||null,difficulties};
   }
   function mockRpc(name,args) {
     const db=state(), tables=db.tables, user=activeUser;
