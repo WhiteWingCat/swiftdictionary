@@ -940,8 +940,8 @@ The owner also confirmed:
 - Feature branch: feature/update-2-4-0-quiz.
 - PR #8 remains draft and unmerged.
 - Relevant implementation commits include 70d165a (draft preference migration), 7d6c64e (introduction/availability UI), a41fe28 (language refresh hardening), dd850d6 (Quiz snapshot translation fallback), cbe64de (frontend validator expansion), c5ea9dd (CI migration application), f32a3ea (RLS assertions), and 58d64a7 (CI assertion wiring). Later commits may supersede these hashes; inspect branch HEAD before resuming.
-- Static inspection confirmed no duplicate HTML IDs and confirmed the expected feature hooks/markup are present. The main inline JavaScript parser and full CI results are being exercised by GitHub Actions; at the time of this record update, the latest runs were queued/in progress and are not claimed as passed.
-- No real hosted browser test has yet been performed for the new intro/FAQ, account sync, Chinese availability or translation fallback.
+- Static inspection confirmed no duplicate HTML IDs and confirmed the expected feature hooks/markup are present. The main inline JavaScript parser and full CI results are being exercised by GitHub Actions; at the time of this record update, the latest run for branch head 6c586e3 (Quiz workflow run #224) was queued; previous feature-branch runs were in progress. No result is claimed as passed for the new additions.
+- New Playwright runtime coverage was added for first-visit dismissal persistence to the signed-in account, per-page independence, help-button reopening, account isolation, Chinese availability transitions and the active Quiz language refresh. These tests have not yet been confirmed passing. No real hosted browser test has yet been performed for the new intro/FAQ, account sync, Chinese availability or translation fallback.
 - Supabase project discovery found the SwiftDictionary production project only and no Supabase development branches. The new migration is a repository draft and was not applied to production.
 - No production schema/data changes, website deployment, merge or question publication occurred. All 114 Quiz question records remain drafts.
 
