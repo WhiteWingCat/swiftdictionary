@@ -2303,8 +2303,8 @@
     {
       "question_id": "quiz-advanced-009",
       "source_lesson_id": "a-hedging",
-      "prompt_learning": "The available evidence ___ points to a link between sleep and concentration, but further research is needed.",
-      "prompt_translation": "现有证据___地指向睡眠与注意力之间存在联系，但仍需要进一步研究。",
+      "prompt_learning": "The available evidence ___ suggests a link between sleep and concentration, but further research is needed.",
+      "prompt_translation": "现有证据___地表明睡眠与注意力之间可能存在联系，但仍需要进一步研究。",
       "options": [
         {
           "id": "a",
