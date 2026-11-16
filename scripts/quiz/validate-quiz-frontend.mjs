@@ -2,7 +2,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
-const scripts = [...html.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/gi)];
+const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
 
