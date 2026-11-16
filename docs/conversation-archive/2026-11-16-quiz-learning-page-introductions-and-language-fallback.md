@@ -27,7 +27,9 @@ Branch: feature/update-2-4-0-quiz. PR #8 remains draft and unmerged.
 
 ## Validation and current limits
 
-- Static repository inspection confirmed no duplicate HTML IDs and presence of the required feature hooks and page notices. The test suite now includes dedicated authenticated runtime coverage, but its execution is pending CI.
+- Static repository inspection confirmed no duplicate HTML IDs and presence of the required feature hooks and page notices. The test suite now includes dedicated authenticated runtime coverage.
+- Quiz workflow run #224: PostgreSQL/frontend validation and the new migration/RLS assertions passed, but the local Supabase browser job failed because the introduction dialog markup was below the main inline script; event handlers ran before the dialog existed and stopped route initialization. Fixed by moving the dialog markup before the application scripts in commit b8830b0.
+- Corrected run #234 passed its PostgreSQL/frontend validation job; its disposable local Supabase Auth/browser job was still running at the time of this archive update. Mock adapter support and validator coverage were added after that run and require the next CI execution.
 - GitHub Actions was triggered for the implementation commits. At the time of this archive, the latest branch-head Quiz workflow run #224 was queued and earlier runs were still in progress; do not claim they passed until the exact latest branch-head run completes.
 - No dedicated browser tests yet cover first visit, dismiss/reopen, cross-device dismissal sync, account isolation, Chinese availability transitions or Quiz translation fallback edge cases.
 - Supabase project discovery returned the production SwiftDictionary project only and no development branches. The new migration remains a draft in the feature branch and has not been applied to production.
