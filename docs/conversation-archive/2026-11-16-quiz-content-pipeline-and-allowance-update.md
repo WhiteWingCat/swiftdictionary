@@ -43,15 +43,16 @@ Batch 01 has 30 Beginner questions, four mapped to each of five live English per
 - `b-sentence` → `sentence-basics`
 - `b-present` → `verb-tenses`
 
-Every record has an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations. The batch is original SwiftDictionary-authored content, not copied from third-party dictionary corpora, textbooks or commercial quiz banks.
+Every record has an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations. The batches are original SwiftDictionary-authored content, not copied from third-party dictionary corpora, textbooks or commercial quiz banks.
 
-The validator checks stable unique IDs, normalized prompt uniqueness, required bilingual fields, four unique options, answer-key membership, and source lesson/topic/difficulty mapping. Its `--emit-sql` mode emits an insert script that explicitly sets every row to `status='draft'`; it cannot approve questions. The CI workflow tests this generated SQL against disposable PostgreSQL and local Supabase databases, asserting 30 rows, five mapped topics (six per topic), valid four-option rows and zero approved questions.
+The validator checks stable unique IDs, normalized prompt uniqueness, required bilingual fields, four unique options, answer-key membership, and source lesson/topic/difficulty mapping. Its `--emit-sql` mode emits an insert script that explicitly sets every row to `status='draft'`; it cannot approve questions. The CI workflow tests this generated SQL against disposable PostgreSQL and local Supabase databases, asserting 66 rows (30 Beginner and 36 Intermediate), ten mapped source-topic groups, valid four-option rows and zero approved questions.
 
 A separate manual editorial review and separate approval migration are required before content can be approved. Structural validation does not prove that an answer is semantically correct or that distractors are unambiguous.
 
 ## Content readiness
 
-- Beginner: 30 draft questions across five topics. Reaches the preferred three-session target but remains unavailable until manual approval and import.
+- Beginner: 30 draft questions across five topics. Reaches the preferred three-session target by count but remains unavailable until manual approval and import.
+- Intermediate: 36 draft questions across five topics. Reaches the preferred Intermediate target by count; its 30-question Beginner support pool also exceeds the 24-question target. Both remain draft and unavailable until approval and import.
 - Intermediate: not yet authored. Minimum 24 Intermediate + 16 Beginner; preferred target 36 + 24.
 - Advanced: not yet authored. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; preferred target 48 + 12 + 12.
 - Availability counts only approved content with an active, matching permanent lesson/topic mapping and the selected translation language.
