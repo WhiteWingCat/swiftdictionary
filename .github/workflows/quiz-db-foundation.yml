@@ -121,6 +121,9 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
+      - name: Validate Quiz frontend integration and inline JavaScript
+        run: node scripts/quiz/validate-quiz-frontend.mjs
+
       - name: Prepare disposable Supabase-compatible Auth and learning schema
         run: |
           psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_rpc_bootstrap.sql
