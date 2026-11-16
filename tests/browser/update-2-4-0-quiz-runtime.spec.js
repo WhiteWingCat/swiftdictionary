@@ -149,9 +149,33 @@ test.afterAll(async () => {
   await api?.dispose();
 });
 
-test("Free user can resume, change answers, submit, and review a real authenticated Quiz session", async ({ page }) => {
+test("Free user can switch translation in an open permanent lesson and complete a real authenticated Quiz", async ({ page }) => {
   await openQuiz(page, freeSession);
+
+  // Translation changes must refresh the already-open permanent lesson,
+  // without closing it or discarding the learner's selected practice answer.
+  await page.goto("/#lessons");
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
+  await page.locator("#learningIntroDismiss").click();
+  await expect(page.locator("#lessonCards button").first()).toBeVisible();
+  await page.locator("#lessonCards button").first().click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
+  await page.locator('input[name="lessonAnswer0"][value="1"]').check();
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
+  await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
+  await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
+
+  await page.goto("/#quiz");
+  await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
+  await expect(page.locator("#quizDifficultyGrid")).not.toContainText("Preferred question-bank target met");
+  await expect(page.locator("#quizDifficultyGrid")).not.toContainText("approved");
+  await expect(page.locator("#quizDifficultyGrid")).not.toContainText("You have used today's Quiz allowance");
   await expect(page.locator('[data-quiz-start="beginner"]'),
     "Beginner availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
   ).toBeEnabled();
@@ -213,6 +237,8 @@ test("Free user can resume, change answers, submit, and review a real authentica
     await page.locator('[data-quiz-option="a"]').click();
     if (position < 10) await page.locator("#quizNext").click();
   }
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 10 of 10");
+  await expect(page.locator("#quizNext")).toBeHidden();
   await expect(page.locator("#quizSubmit")).toBeEnabled();
   page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizSubmit").click();
