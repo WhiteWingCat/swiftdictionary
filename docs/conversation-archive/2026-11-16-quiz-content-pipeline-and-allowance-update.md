@@ -53,7 +53,7 @@ A separate manual editorial review and separate approval migration are required 
 
 - Beginner: 30 draft questions across five topics. Reaches the preferred three-session target by count but remains unavailable until manual approval and import.
 - Intermediate: 36 draft questions across five topics. Reaches the preferred Intermediate target by count; its 30-question Beginner support pool also exceeds the 24-question target. Both remain draft and unavailable until approval and import.
-- Intermediate: not yet authored. Minimum 24 Intermediate + 16 Beginner; preferred target 36 + 24.
+- Intermediate: 36 draft questions across five topics. Reaches the preferred Intermediate target by count; the 30 Beginner drafts exceed its 24-question support target. It remains unavailable until approval and import.
 - Advanced: not yet authored. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; preferred target 48 + 12 + 12.
 - Availability counts only approved content with an active, matching permanent lesson/topic mapping and the selected translation language.
 - Current content batch supports English learning with Simplified Chinese translation only. Other translation languages remain unavailable until matching content is created and approved.
