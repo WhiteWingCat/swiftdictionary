@@ -18847,7 +18847,10 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try{localStorage.setItem(learningIntroStorageKey(currentUser?.id||null),JSON.stringify([...learningIntroDismissed]));}catch{}
       if(currentUser&&supabaseClient){
         const {error}=await supabaseClient.from("learning_page_introduction_preferences").upsert({user_id:currentUser.id,page_key:page,dismissed_at:new Date().toISOString()},{onConflict:"user_id,page_key"});
-        if(error){quizStatus("Your dismissal is saved on this device, but account sync is unavailable until the learning-introduction preference migration is applied.",true);return;}
+        if(error){
+          const status=document.getElementById("accountStatus");
+          if(status)status.textContent="Your dismissal is saved on this device, but account sync is unavailable until the learning-introduction preference migration is applied.";
+        }
       }
       learningIntroClose();
     }
