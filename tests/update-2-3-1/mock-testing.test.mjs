@@ -42,6 +42,15 @@ test("mock adapter activates only on the exact feature preview with explicit opt
   assert.match(oauth.error.message,/disabled in MOCK TEST MODE/);
 });
 
+test("Quiz feature preview requires explicit opt-in and activates only on its exact host",async()=>{
+  const env=makeContext("feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev");
+  assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);
+  assert.equal(env.window.SWIFT_DICTIONARY_MOCK_CAPABILITIES.database,false);
+  const client=env.window.supabase.createClient();
+  const availability=await client.rpc("get_my_quiz_availability");
+  assert.equal(availability.data.allowance.daily_limit,1);
+});
+
 test("mock data is isolated by identity and scoped to session storage",async()=>{
   const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
   const client=env.window.supabase.createClient();
@@ -193,7 +202,8 @@ test("production, root Pages and unknown hosts fail closed even with opt-in quer
     "whitewingcat.github.io",
     "example.com",
     "another-branch.swiftdictionary-testing.pages.dev",
-    "feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev"
+    "feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev",
+    "feature-update-2-4-0-quiz-extra.swiftdictionary-testing.pages.dev"
   ]){
     const env=makeContext(host);
     assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,undefined,host);
