@@ -208,8 +208,119 @@
         : dailyRows(db,activity_type).length
     }));
   }
+  function quizMockQuestions(sessionId,difficulty,count) {
+    const sourceLevels=difficulty==="beginner"
+      ? Array(count).fill("beginner")
+      : difficulty==="intermediate"
+        ? [...Array(12).fill("intermediate"),...Array(3).fill("beginner")]
+        : [...Array(12).fill("advanced"),...Array(6).fill("intermediate"),...Array(2).fill("beginner")];
+    return Array.from({length:count},(_,index)=>{
+      const number=index+1, id="mock-quiz-question-"+sessionId+"-"+number;
+      return {
+        question_id:id,source_lesson_id:"mock-approved-lesson-"+number,
+        topic_id:["greetings","daily-life","places","communication"][index%4],
+        source_difficulty:sourceLevels[index],position:number,
+        prompt_learning:"[Mock] Choose the correct answer for practice question "+number+".",
+        prompt_translation:"[模拟] 请选择第"+number+"题的正确答案。",
+        options:[
+          {id:"a",learning_text:"Correct mock answer "+number,translation_text:"模拟正确答案 "+number},
+          {id:"b",learning_text:"Alternative answer B",translation_text:"备选答案 B"},
+          {id:"c",learning_text:"Alternative answer C",translation_text:"备选答案 C"},
+          {id:"d",learning_text:"Alternative answer D",translation_text:"备选答案 D"}
+        ],
+        selected_option_id:null,correct_option_id:"a",
+        explanation_learning:"This is synthetic mock content used to test the Quiz interface.",
+        explanation_translation:"这是用于测试测验界面的模拟内容。"
+      };
+    });
+  }
+  function quizMockPayload(session,includeReview=false) {
+    if(!session)return null;
+    return {
+      session_id:session.session_id,difficulty:session.difficulty,status:session.status,
+      question_count:session.question_count,current_position:session.current_position,
+      learning_language_code:"en",translation_language_code:"zh",
+      source_composition:session.source_composition,started_at:session.started_at,
+      completed_at:session.completed_at||null,correct_count:session.correct_count??null,
+      percentage:session.percentage??null,
+      questions:clone(session.questions).map(question=>{
+        const item={...question};
+        if(!includeReview){
+          delete item.correct_option_id;delete item.explanation_learning;delete item.explanation_translation;
+        } else {
+          item.is_correct=item.selected_option_id===item.correct_option_id;
+        }
+        return item;
+      })
+    };
+  }
+  function quizMockAvailability(db,user) {
+    const pref=db.tables.user_preferences?.[0]||{},timezone=pref.allowance_timezone||pref.timezone||"UTC";
+    const day=today(timezone),plan=(db.tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
+    const limit=(db.tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="quiz")?.daily_limit??(plan==="premium"?3:1);
+    const sessions=db.tables.quiz_sessions||[];
+    const used=sessions.filter(row=>row.status==="completed"&&row.completed_at&&dateInZone(row.completed_at,timezone)===day).length;
+    const active=sessions.find(row=>row.status==="in_progress")||null;
+    const remaining=Math.max(0,limit-used);
+    const difficulties=[
+      {difficulty:"beginner",question_count:10,bank_minimum_met:true,bank_target_met:true,bank_counts:{beginner:40},remaining_counts:{beginner:40},available:!active&&remaining>0,reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":null},
+      {difficulty:"intermediate",question_count:15,bank_minimum_met:true,bank_target_met:true,bank_counts:{beginner:40,intermediate:40},remaining_counts:{beginner:40,intermediate:40},available:!active&&remaining>0,reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":null},
+      {difficulty:"advanced",question_count:20,bank_minimum_met:true,bank_target_met:true,bank_counts:{beginner:40,intermediate:40,advanced:40},remaining_counts:{beginner:40,intermediate:40,advanced:40},available:!active&&remaining>0,reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":null}
+    ];
+    return {timezone,local_date:day,plan_code:plan,allowance:{daily_limit:limit,used_count:used,remaining_count:remaining},active_session_id:active?.session_id||null,difficulties};
+  }
   function mockRpc(name,args) {
     const db=state(), tables=db.tables, user=activeUser;
+    if (name==="get_my_quiz_availability") return {data:quizMockAvailability(db,user),error:null};
+    if (name==="get_my_active_quiz") {
+      const active=(tables.quiz_sessions||[]).find(row=>row.status==="in_progress");
+      return {data:quizMockPayload(active),error:null};
+    }
+    if (name==="start_my_quiz") {
+      const active=(tables.quiz_sessions||[]).find(row=>row.status==="in_progress");
+      if(active)return {data:{status:"active_session_exists",session:quizMockPayload(active)},error:null};
+      const availability=quizMockAvailability(db,user);
+      if(availability.allowance.remaining_count<1)return {data:null,error:error("Daily Quiz completion allowance exhausted.","P0001")};
+      const difficulty=args.p_difficulty;
+      if(!["beginner","intermediate","advanced"].includes(difficulty))return {data:null,error:error("Invalid Quiz difficulty.","22023")};
+      const count=difficulty==="beginner"?10:difficulty==="intermediate"?15:20;
+      const sessionId="mock-quiz-session-"+(++sequence);
+      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,source_composition:difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10",started_at:now(),completed_at:null,questions:quizMockQuestions(sessionId,difficulty,count)};
+      (tables.quiz_sessions||=[]).push(session);persist(db);
+      return {data:quizMockPayload(session),error:null};
+    }
+    if (name==="save_my_quiz_answer") {
+      const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.user_id===user.id);
+      if(!session||session.status!=="in_progress")return {data:null,error:error("Unfinished mock Quiz session not found.")};
+      const question=session.questions.find(row=>row.question_id===args.p_question_id);
+      if(!question)return {data:null,error:error("Mock Quiz question not found.")};
+      if(args.p_selected_option_id!==null&&!question.options.some(option=>option.id===args.p_selected_option_id))return {data:null,error:error("Invalid mock answer option.")};
+      question.selected_option_id=args.p_selected_option_id??null;
+      session.current_position=args.p_current_position;
+      persist(db);return {data:quizMockPayload(session),error:null};
+    }
+    if (name==="submit_my_quiz") {
+      const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.user_id===user.id);
+      if(!session||session.status!=="in_progress")return {data:null,error:error("Unfinished mock Quiz session not found.")};
+      if(session.questions.some(question=>!question.selected_option_id))return {data:null,error:error("Answer all mock Quiz questions before submitting.")};
+      const correct=session.questions.filter(question=>question.selected_option_id===question.correct_option_id).length;
+      Object.assign(session,{status:"completed",completed_at:now(),correct_count:correct,percentage:Math.round(correct/session.question_count*100)});
+      persist(db);return {data:quizMockPayload(session,true),error:null};
+    }
+    if (name==="abandon_my_quiz") {
+      const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.user_id===user.id);
+      if(!session||session.status!=="in_progress")return {data:null,error:error("Unfinished mock Quiz session not found.")};
+      Object.assign(session,{status:"abandoned",abandoned_at:now()});persist(db);
+      return {data:quizMockPayload(session),error:null};
+    }
+    if (name==="get_my_quiz_history") {
+      const rows=(tables.quiz_sessions||[]).filter(row=>row.status==="completed").sort((a,b)=>String(b.completed_at).localeCompare(String(a.completed_at))).slice(0,Math.max(0,Number(args.p_limit)||20));
+      return {data:rows.map(row=>({session_id:row.session_id,difficulty:row.difficulty,question_count:row.question_count,percentage:row.percentage,completed_at:row.completed_at})),error:null};
+    }
+    if (name==="get_my_quiz_review") {
+      const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.status==="completed");
+      return session?{data:quizMockPayload(session,true),error:null}:{data:null,error:error("Completed mock Quiz review not found.")};
+    }
     if (name==="get_my_learning_allowance_usage") return {data:usageRows(db),error:null};
     if (name==="is_personal_learning_test_access") return {data:false,error:null};
     if (name==="record_completed_lesson_practice_result") {
