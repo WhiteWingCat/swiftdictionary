@@ -11,7 +11,10 @@ new vm.Script(appScript, { filename: "index.html:inline-app-script" });
 const requiredMarkup = [
   'id="quizPage"', 'id="quizSignedOut"', 'id="quizHome"', 'id="quizSession"',
   'id="quizResults"', 'id="quizDifficultyGrid"', 'id="quizHistory"',
-  'id="quizQuestionArea"', 'id="quizSubmit"', 'id="quizAbandon"'
+  'id="quizQuestionArea"', 'id="quizSubmit"', 'id="quizAbandon"',
+  'id="learningIntroBackdrop"', 'id="lessonsChineseUnavailable"',
+  'id="quizChineseUnavailable"', 'id="flashcardsChineseUnavailable"',
+  'id="quizTranslationNotice"'
 ];
 for (const marker of requiredMarkup) {
   if (!html.includes(marker)) throw new Error("Missing Quiz UI element: " + marker);
@@ -37,4 +40,18 @@ if (!appScript.includes("function quizSaveCurrent") || !appScript.includes("func
   throw new Error("Quiz save/resume/abandon flow is incomplete.");
 }
 
-console.log("Quiz frontend validation passed: inline JavaScript parses, required screens/RPCs exist, answer review is wired, and private Quiz tables are not queried directly.");
+const learningPageFeatures = [
+  "learningIntroSaveDismissal", "learningIntroLoadPreferences",
+  "learningIntroMaybeShow", "learning_page_introduction_preferences",
+  "quizEffectiveTranslationCode", "applyLearningCourseAvailability"
+];
+for (const feature of learningPageFeatures) {
+  if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
+}
+for (const page of ["lessons", "quiz", "flashcards"]) {
+  if (!html.includes('data-learning-help="' + page + '"')) throw new Error("Missing contextual help control: " + page);
+}
+if (!appScript.includes("This session keeps its original translation") || !appScript.includes("will apply to the next Quiz")) {
+  throw new Error("Quiz translation snapshot fallback messaging is incomplete.");
+}
+console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese availability states exist, Quiz translation snapshot fallback is wired, answer review is wired, and private Quiz tables are not queried directly.");
