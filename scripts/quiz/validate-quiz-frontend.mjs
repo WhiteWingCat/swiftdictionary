@@ -2,6 +2,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
+const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
@@ -53,5 +54,8 @@ for (const page of ["lessons", "quiz", "flashcards"]) {
 }
 if (!appScript.includes("This session keeps its original translation") || !appScript.includes("will apply to the next Quiz")) {
   throw new Error("Quiz translation snapshot fallback messaging is incomplete.");
+}
+if (!mockTesting.includes('"learning_page_introduction_preferences"')) {
+  throw new Error("Mock User adapter does not support account-scoped learning introduction preferences.");
 }
 console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese availability states exist, Quiz translation snapshot fallback is wired, answer review is wired, and private Quiz tables are not queried directly.");
