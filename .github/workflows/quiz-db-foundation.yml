@@ -26,6 +26,11 @@ jobs:
         with:
           version: 2.81.3
 
+      - name: Set up Node.js for authenticated browser tests
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
       - name: Create an isolated local Supabase workspace
         run: |
           mkdir -p "$RUNNER_TEMP/swiftdictionary-quiz-supabase"
@@ -82,6 +87,29 @@ jobs:
           node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs" --emit-sql > "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
+
+      - name: Create disposable authenticated Quiz browser users and seed synthetic approved content
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          export API_URL ANON_KEY SERVICE_ROLE_KEY
+          node "$GITHUB_WORKSPACE/tests/quiz/create-runtime-test-users.mjs" > "$RUNNER_TEMP/quiz-users.env"
+          source "$RUNNER_TEMP/quiz-users.env"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 \
+            -v free_user_id="$QUIZ_FREE_USER_ID" \
+            -v premium_user_id="$QUIZ_PREMIUM_USER_ID" \
+            -f "$GITHUB_WORKSPACE/tests/quiz/quiz-browser-runtime-fixture.sql"
+
+      - name: Run authenticated Chromium Quiz runtime tests against local Supabase
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          npm --prefix "$GITHUB_WORKSPACE" install --no-save @playwright/test
+          "$GITHUB_WORKSPACE/node_modules/.bin/playwright" install --with-deps chromium
+          eval "$(supabase status --output env)"
+          export API_URL ANON_KEY SERVICE_ROLE_KEY
+          source "$RUNNER_TEMP/quiz-users.env"
+          cd "$GITHUB_WORKSPACE"
+          CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
 
       - name: Run Supabase security advisors against the local Quiz schema
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase

@@ -1,0 +1,169 @@
+const { test, expect, request } = require("@playwright/test");
+
+const apiUrl = process.env.API_URL;
+const anonKey = process.env.ANON_KEY;
+const serviceRoleKey = process.env.SERVICE_ROLE_KEY;
+const required = [
+  "QUIZ_FREE_EMAIL", "QUIZ_FREE_PASSWORD", "QUIZ_FREE_USER_ID",
+  "QUIZ_PREMIUM_EMAIL", "QUIZ_PREMIUM_PASSWORD", "QUIZ_PREMIUM_USER_ID"
+];
+for (const name of required) {
+  if (!process.env[name]) throw new Error(name + " is required for Quiz runtime browser tests.");
+}
+if (!apiUrl || !anonKey || !serviceRoleKey) {
+  throw new Error("API_URL, ANON_KEY and SERVICE_ROLE_KEY are required.");
+}
+
+let api;
+let freeSession;
+let premiumSession;
+
+async function signIn(email, password) {
+  const response = await api.post(apiUrl + "/auth/v1/token?grant_type=password", {
+    headers: { apikey: anonKey },
+    data: { email, password }
+  });
+  const body = await response.json();
+  if (!response.ok || !body.access_token) {
+    throw new Error("Local Supabase password sign-in failed: " + JSON.stringify(body));
+  }
+  return {
+    ...body,
+    expires_at: Math.floor(Date.now() / 1000) + Number(body.expires_in || 3600)
+  };
+}
+
+async function openQuiz(page, session) {
+  const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
+  await page.addInitScript(({ key, value }) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, { key: storageKey, value: session });
+  await page.route("**/supabase-config.js", route => route.fulfill({
+    status: 200,
+    contentType: "application/javascript",
+    body: "window.SWIFT_SUPABASE_CONFIG = { url: " + JSON.stringify(apiUrl) +
+      ", anonKey: " + JSON.stringify(anonKey) + " };"
+  }));
+  await page.goto("/#quiz");
+  await expect(page.locator("#quizPage")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
+}
+
+async function updateTranslationPreference(userId, language) {
+  const response = await api.patch(
+    apiUrl + "/rest/v1/user_preferences?user_id=eq." + encodeURIComponent(userId),
+    {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: "Bearer " + serviceRoleKey,
+        Prefer: "return=minimal"
+      },
+      data: { translation_language: language }
+    }
+  );
+  if (!response.ok()) throw new Error("Could not update disposable test preference: " + await response.text());
+}
+
+test.beforeAll(async () => {
+  api = await request.newContext();
+  freeSession = await signIn(process.env.QUIZ_FREE_EMAIL, process.env.QUIZ_FREE_PASSWORD);
+  premiumSession = await signIn(process.env.QUIZ_PREMIUM_EMAIL, process.env.QUIZ_PREMIUM_PASSWORD);
+});
+
+test.afterAll(async () => {
+  await api?.dispose();
+});
+
+test("Free user can resume, change answers, submit, and review a real authenticated Quiz session", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
+  await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
+
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+
+  // The learner can change an answer before submission.
+  await page.locator('[data-quiz-option="b"]').click();
+  await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
+  await page.locator('[data-quiz-option="a"]').click();
+  await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
+  await page.locator("#quizNext").click();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+
+  // Reloading restores the active session and the saved position/answer.
+  await page.reload();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizActiveCard")).toBeVisible();
+  await page.locator("#quizResume").click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+  await page.locator("#quizPrevious").click();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
+  await page.locator("#quizNext").click();
+
+  // Change the account preference mid-session. The session's frozen language
+  // snapshot must continue to render Chinese until this session is complete.
+  await updateTranslationPreference(process.env.QUIZ_FREE_USER_ID, "en");
+  await page.reload();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await page.locator("#quizResume").click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+
+  for (let position = 2; position <= 10; position += 1) {
+    await page.locator('[data-quiz-option="a"]').click();
+    if (position < 10) await page.locator("#quizNext").click();
+  }
+  await expect(page.locator("#quizSubmit")).toBeEnabled();
+  page.once("dialog", dialog => dialog.accept());
+  await page.locator("#quizSubmit").click();
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("#quizResultsContent .quiz-results-score")).toContainText("100%");
+  await expect(page.locator("#quizResultsContent .quiz-results-score")).toContainText("10 correct out of 10");
+  await expect(page.locator("#quizResultsContent")).toContainText("There is no pass or fail result.");
+  await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
+  await expect(page.locator("#quizResultsContent .quiz-review-explanation")).toHaveCount(10);
+
+  await page.locator("#quizResultsHome").click();
+  await expect(page.locator("#quizAllowanceText")).toHaveText("0 of 1 remaining");
+  await expect(page.locator("#quizHistory [data-quiz-review]")).toHaveCount(1);
+  await page.locator("#quizHistory [data-quiz-review]").click();
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
+});
+
+test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
+  await openQuiz(page, premiumSession);
+  await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
+  await expect(page.locator('[data-quiz-start="advanced"]')).toBeEnabled();
+
+  await page.locator('[data-quiz-start="advanced"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 20");
+
+  // Returning to overview and attempting a different difficulty must resume
+  // the existing server-owned session rather than create a second one.
+  await page.locator("#quizBackHome").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizActiveCard")).toBeVisible();
+  await page.locator('[data-quiz-start="intermediate"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizSessionDifficulty")).toHaveText("Advanced");
+
+  page.once("dialog", dialog => dialog.accept());
+  await page.locator("#quizAbandon").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
+  await expect(page.locator("#quizActiveCard")).toBeHidden();
+});
+
+test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
+  await page.goto("/#quiz");
+  await expect(page.locator("#quizPage")).toBeVisible();
+  await expect(page.locator("#quizSignedOut")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizSession")).toBeHidden();
+});
