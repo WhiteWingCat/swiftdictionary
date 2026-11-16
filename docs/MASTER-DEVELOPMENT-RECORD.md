@@ -1659,7 +1659,7 @@ The exporter inserts all questions as status=draft. It does not approve or publi
 
 - Beginner: 30 draft questions across five topics (six per topic), reaching the preferred three-session target by count but still unavailable until approval/import.
 - Intermediate: 36 draft questions across five topics (eight or seven per topic), reaching the preferred Intermediate count target by count; its 24-question Beginner support pool is also present in draft form. It remains unavailable until approval/import. Beginner is not yet available.
-- Intermediate: not authored yet. Minimum 24 Intermediate + 16 Beginner; target 36 + 24.
+- Intermediate: 36 draft questions across five topics, reaching its preferred target by count; 30 Beginner drafts provide its 24-question support pool. It remains unavailable until manual approval and import.
 - Advanced: not authored yet. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
 - Only approved questions with active matching lesson/topic mappings and the learner's selected translation language count toward availability.
 - This batch supports English learning with Simplified Chinese translation only. Other translation-language pairs remain unavailable until authored and approved.
@@ -1672,7 +1672,7 @@ The batch is original authored educational content; it does not import third-par
 
 ### Next actions
 
-1. Continue the Intermediate and Advanced content batches using the same authoring and review process.
+1. Continue the Advanced content batch using the same authoring and review process.
 2. Manually review all questions and translations before approval.
 3. Reach the preferred three-session target for each difficulty.
 4. Run complete content and database validation, then implement Quiz frontend screens and signed-token/PostgREST/browser end-to-end tests.
