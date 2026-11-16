@@ -601,12 +601,12 @@ Official reference material:
 
 The feature branch now contains a source-controlled bilingual authoring workflow:
 - `content/quiz/curriculum-map.en.json` — stable source lesson IDs mapped to topic and source difficulty.
-- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation Batch 01, currently 20 Beginner questions.
+- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation Batch 01, currently 30 Beginner questions.
 - `content/quiz/README.md` — authoring, editorial review, approval and release rules.
 - `scripts/quiz/validate-question-bank.mjs` — structural and curriculum validation plus a SQL exporter that always inserts as `draft`.
 - `supabase/tests/quiz_draft_content_catalog.sql` and `quiz_draft_content_import_assertions.sql` — isolated local curriculum fixtures and import assertions.
 
-The batch maps four questions to each of the five existing Beginner source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`. Each record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations.
+The batch maps six questions to each of the five existing Beginner source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`. Each record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations.
 
 ### 14.2 Validation and import boundary
 
@@ -623,7 +623,7 @@ The validator is structural, not a semantic truth checker. Every question still 
 
 ### 14.3 Current content readiness
 
-Batch 01 contains 20 Beginner questions. If approved and imported to the Quiz bank, this would meet the Beginner hard bank minimum of 20, but not the preferred three-session target of 30. It does not make Beginner available yet because the content remains draft and has not been imported to production.
+Batch 01 contains 30 Beginner questions. If approved and imported to the Quiz bank, this would meet the Beginner hard bank minimum of 20, but not the preferred three-session target of 30. It does not make Beginner available yet because the content remains draft and has not been imported to production.
 
 Intermediate and Advanced batches are not yet authored. Their minimums and targets remain:
 - Intermediate: minimum 24 Intermediate + 16 Beginner; target 36 + 24.
