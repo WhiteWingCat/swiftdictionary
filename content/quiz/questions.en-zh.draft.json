@@ -2051,6 +2051,1494 @@
       "correct_option_id": "b",
       "explanation_learning": "“Accuracy” is the noun form of the adjective “accurate.”",
       "explanation_translation": "“Accuracy”是形容词“accurate”的名词形式。"
+    },
+    {
+      "question_id": "quiz-advanced-001",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "Which verb most appropriately hedges this claim? “The initial results ___ that the new process may reduce delays.”",
+      "prompt_translation": "哪个动词最适合用来谨慎表达这一主张？“初步结果___新流程可能减少延误。”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "prove",
+          "translation_text": "证明"
+        },
+        {
+          "id": "b",
+          "learning_text": "suggest",
+          "translation_text": "表明/暗示"
+        },
+        {
+          "id": "c",
+          "learning_text": "guarantee",
+          "translation_text": "保证"
+        },
+        {
+          "id": "d",
+          "learning_text": "establish",
+          "translation_text": "确立/证实"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Suggest” presents a possible interpretation without claiming definitive proof.",
+      "explanation_translation": "“Suggest”表达一种可能的解释，而不是声称已经得到确凿证明。"
+    },
+    {
+      "question_id": "quiz-advanced-002",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "Complete the cautious statement: The difference may be ___ to variation in the sample.",
+      "prompt_translation": "补全谨慎表达：这种差异可能___样本中的变化。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "certainly due",
+          "translation_text": "肯定由于"
+        },
+        {
+          "id": "b",
+          "learning_text": "entirely caused",
+          "translation_text": "完全由……造成"
+        },
+        {
+          "id": "c",
+          "learning_text": "partly attributable",
+          "translation_text": "部分归因于"
+        },
+        {
+          "id": "d",
+          "learning_text": "undeniably explained",
+          "translation_text": "无可否认地解释"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Partly attributable to” signals a possible contributing factor without claiming it is the only cause.",
+      "explanation_translation": "“Partly attributable to”表示某因素可能是部分原因，但不声称它是唯一原因。"
+    },
+    {
+      "question_id": "quiz-advanced-003",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "Given the limited sample size, the findings should be interpreted ___.",
+      "prompt_translation": "鉴于样本量有限，应当___地解读这些发现。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "universally",
+          "translation_text": "普遍地"
+        },
+        {
+          "id": "b",
+          "learning_text": "cautiously",
+          "translation_text": "谨慎地"
+        },
+        {
+          "id": "c",
+          "learning_text": "conclusively",
+          "translation_text": "决定性地"
+        },
+        {
+          "id": "d",
+          "learning_text": "literally",
+          "translation_text": "按字面地"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Cautiously” appropriately signals that limited evidence should not support overconfident conclusions.",
+      "explanation_translation": "“Cautiously”恰当地表示证据有限，不应据此作出过度肯定的结论。"
+    },
+    {
+      "question_id": "quiz-advanced-004",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "The observed pattern is ___ with previous studies, although the methods differ.",
+      "prompt_translation": "观察到的模式与以往研究___，尽管研究方法有所不同。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "identical",
+          "translation_text": "完全相同"
+        },
+        {
+          "id": "b",
+          "learning_text": "conclusive",
+          "translation_text": "结论性的"
+        },
+        {
+          "id": "c",
+          "learning_text": "consistent",
+          "translation_text": "一致/相符"
+        },
+        {
+          "id": "d",
+          "learning_text": "guaranteed",
+          "translation_text": "有保证的"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Consistent with” means the pattern agrees with earlier findings without claiming the studies are identical.",
+      "explanation_translation": "“Consistent with”表示该模式与先前研究结果相符，但不表示两项研究完全相同。"
+    },
+    {
+      "question_id": "quiz-advanced-005",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "The increase in costs may ___ from changes in supplier prices.",
+      "prompt_translation": "成本上升可能___供应商价格的变化。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "stem",
+          "translation_text": "源于"
+        },
+        {
+          "id": "b",
+          "learning_text": "prove",
+          "translation_text": "证明"
+        },
+        {
+          "id": "c",
+          "learning_text": "conclude",
+          "translation_text": "得出结论"
+        },
+        {
+          "id": "d",
+          "learning_text": "ensure",
+          "translation_text": "确保"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Stem from” means to originate from or be caused by something.",
+      "explanation_translation": "“Stem from”表示源自某事或由某事引起。"
+    },
+    {
+      "question_id": "quiz-advanced-006",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "Without a larger comparison group, it would be ___ to claim that the treatment is more effective.",
+      "prompt_translation": "如果没有更大的对照组，就断言该治疗方法更有效还为时___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "inevitable",
+          "translation_text": "不可避免"
+        },
+        {
+          "id": "b",
+          "learning_text": "premature",
+          "translation_text": "过早"
+        },
+        {
+          "id": "c",
+          "learning_text": "conclusive",
+          "translation_text": "确定"
+        },
+        {
+          "id": "d",
+          "learning_text": "universal",
+          "translation_text": "普遍"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Premature” indicates that the available evidence is not yet sufficient for the conclusion.",
+      "explanation_translation": "“Premature”表示现有证据尚不足以支持这一结论，现在下结论为时过早。"
+    },
+    {
+      "question_id": "quiz-advanced-007",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "Because the estimates are based on a small sample, they remain ___.",
+      "prompt_translation": "由于这些估算基于较小的样本，因此仍然具有___性。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "absolute",
+          "translation_text": "绝对"
+        },
+        {
+          "id": "b",
+          "learning_text": "tentative",
+          "translation_text": "暂定/初步"
+        },
+        {
+          "id": "c",
+          "learning_text": "final",
+          "translation_text": "最终"
+        },
+        {
+          "id": "d",
+          "learning_text": "certain",
+          "translation_text": "确定"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Tentative” describes a conclusion that is provisional and may change with further evidence.",
+      "explanation_translation": "“Tentative”表示暂时性的结论，可能会随着更多证据而改变。"
+    },
+    {
+      "question_id": "quiz-advanced-008",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "The revised schedule is likely to have a ___ effect on overall costs rather than transform the budget.",
+      "prompt_translation": "修订后的时间表可能只会对总成本产生___影响，而不会彻底改变预算。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "modest",
+          "translation_text": "有限/适度的"
+        },
+        {
+          "id": "b",
+          "learning_text": "guaranteed",
+          "translation_text": "有保证的"
+        },
+        {
+          "id": "c",
+          "learning_text": "universal",
+          "translation_text": "普遍的"
+        },
+        {
+          "id": "d",
+          "learning_text": "absolute",
+          "translation_text": "绝对的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Modest effect” signals a limited degree of impact rather than a sweeping or certain outcome.",
+      "explanation_translation": "“Modest effect”表示影响程度有限，而不是全面或必然的结果。"
+    },
+    {
+      "question_id": "quiz-advanced-009",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "The available evidence ___ points to a link between sleep and concentration, but further research is needed.",
+      "prompt_translation": "现有证据___地指向睡眠与注意力之间存在联系，但仍需要进一步研究。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "indisputably",
+          "translation_text": "无可争议地"
+        },
+        {
+          "id": "b",
+          "learning_text": "permanently",
+          "translation_text": "永久地"
+        },
+        {
+          "id": "c",
+          "learning_text": "tentatively",
+          "translation_text": "初步地/暂时地"
+        },
+        {
+          "id": "d",
+          "learning_text": "conclusively",
+          "translation_text": "决定性地"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Tentatively” communicates that the evidence suggests a link but does not establish it conclusively.",
+      "explanation_translation": "“Tentatively”表示证据初步显示存在联系，但尚未作出决定性证明。"
+    },
+    {
+      "question_id": "quiz-advanced-010",
+      "source_lesson_id": "a-hedging",
+      "prompt_learning": "The survey results ___ the possibility that flexible hours improve staff retention.",
+      "prompt_translation": "调查结果___了灵活工时可能提高员工留任率这一可能性。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "settle",
+          "translation_text": "解决/确定"
+        },
+        {
+          "id": "b",
+          "learning_text": "raise",
+          "translation_text": "提出/引起"
+        },
+        {
+          "id": "c",
+          "learning_text": "guarantee",
+          "translation_text": "保证"
+        },
+        {
+          "id": "d",
+          "learning_text": "dismiss",
+          "translation_text": "排除/否定"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Raise the possibility” introduces a plausible explanation for consideration without confirming it.",
+      "explanation_translation": "“Raise the possibility”表示提出一种值得考虑的可能性，而不是确认其为事实。"
+    },
+    {
+      "question_id": "quiz-advanced-011",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Complete the sentence: Not until the final report was published ___ the scale of the problem.",
+      "prompt_translation": "补全句子：直到最终报告发布后，公众才___问题的严重程度。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "the public understood",
+          "translation_text": "公众理解了"
+        },
+        {
+          "id": "b",
+          "learning_text": "did the public understand",
+          "translation_text": "公众才理解"
+        },
+        {
+          "id": "c",
+          "learning_text": "the public did understood",
+          "translation_text": "公众确实理解"
+        },
+        {
+          "id": "d",
+          "learning_text": "understood the public",
+          "translation_text": "理解了公众"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "A negative fronted phrase such as “Not until” triggers subject–auxiliary inversion in the main clause: “did the public understand.”",
+      "explanation_translation": "“Not until”等否定意义短语置于句首时，主句需要主谓倒装，使用“did the public understand”。"
+    },
+    {
+      "question_id": "quiz-advanced-012",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Choose the correct inversion: Rarely ___ such a detailed analysis of the issue.",
+      "prompt_translation": "选择正确的倒装形式：我们很少看到对这个问题如此详细的分析。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "we have seen",
+          "translation_text": "我们已经看到"
+        },
+        {
+          "id": "b",
+          "learning_text": "have we seen",
+          "translation_text": "我们曾看到"
+        },
+        {
+          "id": "c",
+          "learning_text": "did we saw",
+          "translation_text": "我们看到了"
+        },
+        {
+          "id": "d",
+          "learning_text": "we saw",
+          "translation_text": "我们看到"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Rarely” at the beginning of a clause requires subject–auxiliary inversion: “have we seen.”",
+      "explanation_translation": "“Rarely”置于句首时需要主谓倒装，因此使用“have we seen”。"
+    },
+    {
+      "question_id": "quiz-advanced-013",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Complete the sentence: Only after the data had been checked ___ the team release the report.",
+      "prompt_translation": "补全句子：只有在数据核查完毕后，团队才___发布报告。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "the team did",
+          "translation_text": "团队确实"
+        },
+        {
+          "id": "b",
+          "learning_text": "had the team",
+          "translation_text": "团队已经"
+        },
+        {
+          "id": "c",
+          "learning_text": "did the team",
+          "translation_text": "团队才"
+        },
+        {
+          "id": "d",
+          "learning_text": "was the team",
+          "translation_text": "团队是"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "When “Only after” introduces the fronted condition, the main clause uses inversion: “did the team release.”",
+      "explanation_translation": "“Only after”引导的条件短语置于句首时，主句使用倒装：“did the team release”。"
+    },
+    {
+      "question_id": "quiz-advanced-014",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Choose the correct formal inversion: Under no circumstances ___ confidential files with external parties.",
+      "prompt_translation": "选择正确的正式倒装结构：在任何情况下，员工都不应与外部人员分享机密文件。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "staff should share",
+          "translation_text": "员工应该分享"
+        },
+        {
+          "id": "b",
+          "learning_text": "should staff share",
+          "translation_text": "员工才应该分享"
+        },
+        {
+          "id": "c",
+          "learning_text": "staff share",
+          "translation_text": "员工分享"
+        },
+        {
+          "id": "d",
+          "learning_text": "did staff shared",
+          "translation_text": "员工曾分享"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Under no circumstances” is a negative fronted phrase and requires inversion: “should staff share.”",
+      "explanation_translation": "“Under no circumstances”是否定意义的句首短语，需要倒装，使用“should staff share”。"
+    },
+    {
+      "question_id": "quiz-advanced-015",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Complete the third conditional inversion: Had I known about the delay, I ___ an earlier train.",
+      "prompt_translation": "补全第三条件句倒装结构：如果我当时知道会延误，我就会乘坐更早的一班火车。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would take",
+          "translation_text": "会乘坐"
+        },
+        {
+          "id": "b",
+          "learning_text": "will have taken",
+          "translation_text": "将已经乘坐"
+        },
+        {
+          "id": "c",
+          "learning_text": "would have taken",
+          "translation_text": "本来会乘坐"
+        },
+        {
+          "id": "d",
+          "learning_text": "had taken",
+          "translation_text": "已经乘坐"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Had I known” replaces “If I had known”; the unreal past result takes “would have” plus a past participle.",
+      "explanation_translation": "“Had I known”相当于“If I had known”；与过去事实相反的结果使用“would have”加过去分词。"
+    },
+    {
+      "question_id": "quiz-advanced-016",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Choose the correct completion: No sooner ___ than the lights went out.",
+      "prompt_translation": "选择正确的补全：我们刚坐下，灯就熄灭了。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "we had sat down",
+          "translation_text": "我们已经坐下"
+        },
+        {
+          "id": "b",
+          "learning_text": "did we sat down",
+          "translation_text": "我们坐下了"
+        },
+        {
+          "id": "c",
+          "learning_text": "had we sat down",
+          "translation_text": "我们刚坐下"
+        },
+        {
+          "id": "d",
+          "learning_text": "we sat down",
+          "translation_text": "我们坐下"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The structure “No sooner had + subject + past participle + than” describes one event immediately followed by another.",
+      "explanation_translation": "结构“No sooner had + 主语 + 过去分词 + than”表示一件事刚发生，另一件事就紧接着发生。"
+    },
+    {
+      "question_id": "quiz-advanced-017",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Complete the sentence: Little ___ that the decision would reshape the industry.",
+      "prompt_translation": "补全句子：他们当时完全没有想到，这项决定会重塑整个行业。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "they knew",
+          "translation_text": "他们知道"
+        },
+        {
+          "id": "b",
+          "learning_text": "did they know",
+          "translation_text": "他们当时知道"
+        },
+        {
+          "id": "c",
+          "learning_text": "they did knew",
+          "translation_text": "他们确实知道"
+        },
+        {
+          "id": "d",
+          "learning_text": "had they knew",
+          "translation_text": "他们此前知道"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Little” meaning “not at all” at the beginning of a clause triggers inversion: “did they know.”",
+      "explanation_translation": "“Little”表示“完全没有”并置于句首时会触发倒装，使用“did they know”。"
+    },
+    {
+      "question_id": "quiz-advanced-018",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Choose the correct structure: Not only ___ the budget, but it also reduced delays.",
+      "prompt_translation": "选择正确结构：该计划不仅削减了预算，还减少了延误。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "the plan cut",
+          "translation_text": "计划削减"
+        },
+        {
+          "id": "b",
+          "learning_text": "did the plan cut",
+          "translation_text": "计划不仅削减"
+        },
+        {
+          "id": "c",
+          "learning_text": "had the plan cutted",
+          "translation_text": "计划已经削减"
+        },
+        {
+          "id": "d",
+          "learning_text": "the plan did cutted",
+          "translation_text": "计划确实削减"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "When “Not only” begins the clause, the auxiliary precedes the subject: “did the plan cut.”",
+      "explanation_translation": "“Not only”置于分句开头时，助动词要放在主语之前，使用“did the plan cut”。"
+    },
+    {
+      "question_id": "quiz-advanced-019",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Choose the correct completion: At no point ___ of the change to the contract.",
+      "prompt_translation": "选择正确的补全：在任何时候，客户都没有被告知合同变更。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "the client was informed",
+          "translation_text": "客户被告知"
+        },
+        {
+          "id": "b",
+          "learning_text": "did the client informed",
+          "translation_text": "客户告知"
+        },
+        {
+          "id": "c",
+          "learning_text": "was the client informed",
+          "translation_text": "客户被告知"
+        },
+        {
+          "id": "d",
+          "learning_text": "the client did informed",
+          "translation_text": "客户确实告知"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The negative phrase “At no point” triggers inversion; the passive form is “was the client informed.”",
+      "explanation_translation": "否定短语“At no point”触发倒装；此处被动语态应为“was the client informed”。"
+    },
+    {
+      "question_id": "quiz-advanced-020",
+      "source_lesson_id": "a-inversion",
+      "prompt_learning": "Complete the emphatic structure: So unexpected ___ that the committee requested a second review.",
+      "prompt_translation": "补全强调倒装结构：结果如此出乎意料，以至于委员会要求进行第二次审查。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "the result was",
+          "translation_text": "结果是"
+        },
+        {
+          "id": "b",
+          "learning_text": "did the result",
+          "translation_text": "结果做了"
+        },
+        {
+          "id": "c",
+          "learning_text": "was the result",
+          "translation_text": "结果竟然如此"
+        },
+        {
+          "id": "d",
+          "learning_text": "had the result",
+          "translation_text": "结果已经"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The “So + adjective” structure at the beginning triggers inversion: “So unexpected was the result that...”",
+      "explanation_translation": "“So + 形容词”结构置于句首时需要倒装：“So unexpected was the result that...”。"
+    },
+    {
+      "question_id": "quiz-advanced-021",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "Choose the correct mixed conditional: If I had accepted the scholarship, I ___ at university now.",
+      "prompt_translation": "选择正确的混合条件句：如果我当时接受了奖学金，我现在就会在大学学习。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would have studied",
+          "translation_text": "本来会学习"
+        },
+        {
+          "id": "b",
+          "learning_text": "will be studying",
+          "translation_text": "将会学习"
+        },
+        {
+          "id": "c",
+          "learning_text": "would be studying",
+          "translation_text": "现在会正在学习"
+        },
+        {
+          "id": "d",
+          "learning_text": "had studied",
+          "translation_text": "此前学习过"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The past perfect describes the unreal past choice; “would be studying” expresses its present result.",
+      "explanation_translation": "过去完成时描述与过去事实相反的选择；“would be studying”表达该选择在现在产生的结果。"
+    },
+    {
+      "question_id": "quiz-advanced-022",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If she were more organised, she ___ the deadline yesterday.",
+      "prompt_translation": "如果她更有条理，她昨天就不会错过截止日期。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would not miss",
+          "translation_text": "不会错过"
+        },
+        {
+          "id": "b",
+          "learning_text": "would not have missed",
+          "translation_text": "本来不会错过"
+        },
+        {
+          "id": "c",
+          "learning_text": "will not have missed",
+          "translation_text": "将不会错过"
+        },
+        {
+          "id": "d",
+          "learning_text": "had not missed",
+          "translation_text": "此前没有错过"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The present unreal condition uses “were”; the unreal past result uses “would not have missed.”",
+      "explanation_translation": "现在的非真实条件使用“were”；与过去事实相反的结果使用“would not have missed”。"
+    },
+    {
+      "question_id": "quiz-advanced-023",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If they had not moved abroad, they ___ here now.",
+      "prompt_translation": "如果他们当时没有移居国外，他们现在就仍然住在这里。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would still be living",
+          "translation_text": "现在仍会住着"
+        },
+        {
+          "id": "b",
+          "learning_text": "will still live",
+          "translation_text": "将仍然居住"
+        },
+        {
+          "id": "c",
+          "learning_text": "would have still lived",
+          "translation_text": "本来仍住过"
+        },
+        {
+          "id": "d",
+          "learning_text": "had still lived",
+          "translation_text": "此前仍住过"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The past perfect condition refers to an unreal past event, while “would still be living” gives the imagined present result.",
+      "explanation_translation": "过去完成时条件指与过去事实相反的事件；“would still be living”描述假设中的现在结果。"
+    },
+    {
+      "question_id": "quiz-advanced-024",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If he had taken the medicine, he ___ better now.",
+      "prompt_translation": "如果他当时吃了药，他现在就会感觉好一些。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "will feel",
+          "translation_text": "将会感觉"
+        },
+        {
+          "id": "b",
+          "learning_text": "would have felt",
+          "translation_text": "本来会感觉"
+        },
+        {
+          "id": "c",
+          "learning_text": "would feel",
+          "translation_text": "现在会感觉"
+        },
+        {
+          "id": "d",
+          "learning_text": "had felt",
+          "translation_text": "此前感觉"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The unreal past condition leads to a present result, so the main clause uses “would feel.”",
+      "explanation_translation": "与过去事实相反的条件导致现在的结果，因此主句使用“would feel”。"
+    },
+    {
+      "question_id": "quiz-advanced-025",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If I were not afraid of heights, I ___ the climb last weekend.",
+      "prompt_translation": "如果我不恐高，我上周末就会参加那次攀登。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would join",
+          "translation_text": "会参加"
+        },
+        {
+          "id": "b",
+          "learning_text": "will have joined",
+          "translation_text": "将已经参加"
+        },
+        {
+          "id": "c",
+          "learning_text": "would have joined",
+          "translation_text": "本来会参加"
+        },
+        {
+          "id": "d",
+          "learning_text": "had joined",
+          "translation_text": "此前参加"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The present unreal condition “were not afraid” explains a different possible past result: “would have joined.”",
+      "explanation_translation": "现在的非真实条件“were not afraid”解释了一个不同的过去结果，因此使用“would have joined”。"
+    },
+    {
+      "question_id": "quiz-advanced-026",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If the company had invested earlier, it ___ a larger market share today.",
+      "prompt_translation": "如果公司当时更早投资，它今天就会拥有更大的市场份额。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "will have",
+          "translation_text": "将拥有"
+        },
+        {
+          "id": "b",
+          "learning_text": "would have",
+          "translation_text": "现在会拥有"
+        },
+        {
+          "id": "c",
+          "learning_text": "would have had",
+          "translation_text": "本来会拥有过"
+        },
+        {
+          "id": "d",
+          "learning_text": "had had",
+          "translation_text": "此前拥有过"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The past perfect describes the unreal earlier investment; “would have” describes the present state.",
+      "explanation_translation": "过去完成时描述未发生的早期投资；“would have”描述假设中的现在状态。"
+    },
+    {
+      "question_id": "quiz-advanced-027",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If we had checked the map, we ___ lost now.",
+      "prompt_translation": "如果我们当时查看了地图，现在就不会迷路了。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would not be",
+          "translation_text": "现在就不会处于……状态"
+        },
+        {
+          "id": "b",
+          "learning_text": "will not be",
+          "translation_text": "将不会"
+        },
+        {
+          "id": "c",
+          "learning_text": "would not have been",
+          "translation_text": "本来不会是"
+        },
+        {
+          "id": "d",
+          "learning_text": "had not been",
+          "translation_text": "此前不是"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The unreal past condition affects the present state, so “would not be lost now” is the correct mixed result.",
+      "explanation_translation": "与过去事实相反的条件影响现在的状态，因此正确的混合结果是“would not be lost now”。"
+    },
+    {
+      "question_id": "quiz-advanced-028",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If she spoke French fluently, she ___ the Paris assignment last year.",
+      "prompt_translation": "如果她法语说得流利，她去年就会接受巴黎的任务。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "will accept",
+          "translation_text": "将接受"
+        },
+        {
+          "id": "b",
+          "learning_text": "would accept",
+          "translation_text": "会接受"
+        },
+        {
+          "id": "c",
+          "learning_text": "would have accepted",
+          "translation_text": "本来会接受"
+        },
+        {
+          "id": "d",
+          "learning_text": "had accepted",
+          "translation_text": "此前接受"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The present unreal ability condition leads to an unreal past result, expressed with “would have accepted.”",
+      "explanation_translation": "现在的非真实能力条件导致一个未发生的过去结果，使用“would have accepted”表达。"
+    },
+    {
+      "question_id": "quiz-advanced-029",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If the system were more reliable, it ___ during yesterday's outage.",
+      "prompt_translation": "如果系统更可靠，它昨天停电期间就不会发生故障。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "would not fail",
+          "translation_text": "不会发生故障"
+        },
+        {
+          "id": "b",
+          "learning_text": "would not have failed",
+          "translation_text": "本来不会发生故障"
+        },
+        {
+          "id": "c",
+          "learning_text": "will not have failed",
+          "translation_text": "将不会发生故障"
+        },
+        {
+          "id": "d",
+          "learning_text": "had not failed",
+          "translation_text": "此前没有发生故障"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The present unreal condition “were more reliable” is linked to an unreal past result: “would not have failed.”",
+      "explanation_translation": "现在的非真实条件“were more reliable”与一个未发生的过去结果相连，使用“would not have failed”。"
+    },
+    {
+      "question_id": "quiz-advanced-030",
+      "source_lesson_id": "a-mixed-conditionals",
+      "prompt_learning": "If I had saved more money, I ___ a new laptop now.",
+      "prompt_translation": "如果我当时存了更多钱，我现在就买得起一台新笔记本电脑。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "could afford",
+          "translation_text": "现在就能负担得起"
+        },
+        {
+          "id": "b",
+          "learning_text": "could have afforded",
+          "translation_text": "当时本来能负担得起"
+        },
+        {
+          "id": "c",
+          "learning_text": "can afford",
+          "translation_text": "现在能负担得起"
+        },
+        {
+          "id": "d",
+          "learning_text": "had afforded",
+          "translation_text": "此前负担得起"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The past perfect describes an unreal past saving habit; “could afford” expresses the present result.",
+      "explanation_translation": "过去完成时描述与过去事实相反的储蓄情况；“could afford”表达现在的结果。"
+    },
+    {
+      "question_id": "quiz-advanced-031",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "After months of planning, the team finally got the ball rolling. What does the idiom mean?",
+      "prompt_translation": "经过数月规划，团队终于开始行动。“get the ball rolling”是什么意思？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "They began the activity or process.",
+          "translation_text": "他们开始了活动或流程。"
+        },
+        {
+          "id": "b",
+          "learning_text": "They ended the project permanently.",
+          "translation_text": "他们永久结束了项目。"
+        },
+        {
+          "id": "c",
+          "learning_text": "They avoided making a decision.",
+          "translation_text": "他们避免作出决定。"
+        },
+        {
+          "id": "d",
+          "learning_text": "They repeated the planning stage.",
+          "translation_text": "他们重复了规划阶段。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Get the ball rolling” means to start an activity, process or project.",
+      "explanation_translation": "“Get the ball rolling”表示启动一项活动、流程或项目。"
+    },
+    {
+      "question_id": "quiz-advanced-032",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "The failed safety check was only the tip of the iceberg. What is implied?",
+      "prompt_translation": "安全检查失败只是冰山一角。这句话暗示了什么？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The problem is smaller than it appears.",
+          "translation_text": "问题比看起来更小。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The visible problem is part of a much larger one.",
+          "translation_text": "目前看到的问题只是更大问题的一部分。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The problem has already been solved.",
+          "translation_text": "问题已经解决。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The issue is caused by cold weather.",
+          "translation_text": "问题是由寒冷天气造成的。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“The tip of the iceberg” refers to a small visible part of a much larger hidden situation.",
+      "explanation_translation": "“The tip of the iceberg”表示目前可见的只是更大隐藏情况的一小部分。"
+    },
+    {
+      "question_id": "quiz-advanced-033",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "The contractor cut corners to finish the building sooner. What did the contractor do?",
+      "prompt_translation": "承包商为了更快完成建筑工程而偷工减料。这表示承包商做了什么？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Followed every quality procedure carefully.",
+          "translation_text": "严格遵守了所有质量程序。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Reduced quality or safety standards to save time or money.",
+          "translation_text": "为了节省时间或金钱而降低质量或安全标准。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Added extra checks to the schedule.",
+          "translation_text": "在计划中增加了额外检查。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Changed the design without changing the cost.",
+          "translation_text": "在不改变成本的情况下更改了设计。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Cut corners” means to take shortcuts, often by sacrificing quality or proper procedure.",
+      "explanation_translation": "“Cut corners”表示走捷径，通常意味着牺牲质量或适当程序。"
+    },
+    {
+      "question_id": "quiz-advanced-034",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "Before presenting the proposal, we should make sure everyone is on the same page. What does this mean?",
+      "prompt_translation": "在提交提案之前，我们应该确保每个人都在同一认知上。这是什么意思？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Everyone has the same understanding.",
+          "translation_text": "每个人都有相同的理解。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Everyone works in the same office.",
+          "translation_text": "每个人都在同一间办公室工作。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Everyone has completed the same document.",
+          "translation_text": "每个人都完成了同一份文件。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Everyone agrees with every detail.",
+          "translation_text": "每个人都同意所有细节。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“On the same page” means sharing a common understanding; it does not necessarily mean agreeing on everything.",
+      "explanation_translation": "“On the same page”表示拥有共同理解，但不一定意味着对所有细节都意见一致。"
+    },
+    {
+      "question_id": "quiz-advanced-035",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "After the software update caused more problems, the team was back to square one. What happened?",
+      "prompt_translation": "软件更新造成了更多问题后，团队又回到了原点。这意味着什么？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The team had completed the project.",
+          "translation_text": "团队已经完成项目。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The team had to return to the beginning and start again.",
+          "translation_text": "团队不得不回到起点重新开始。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The team had found a permanent solution.",
+          "translation_text": "团队找到了永久解决方案。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The team had moved to a different office.",
+          "translation_text": "团队搬到了另一间办公室。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Back to square one” means having to start again from the beginning.",
+      "explanation_translation": "“Back to square one”表示不得不从头开始。"
+    },
+    {
+      "question_id": "quiz-advanced-036",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "She is on the fence about accepting the promotion. What does this mean?",
+      "prompt_translation": "她对是否接受晋升仍然犹豫不决。这是什么意思？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She has already accepted it.",
+          "translation_text": "她已经接受了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She is strongly opposed to it.",
+          "translation_text": "她强烈反对。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She has not decided whether to accept it.",
+          "translation_text": "她还没有决定是否接受。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She wants someone else to receive it.",
+          "translation_text": "她希望别人得到晋升。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“On the fence” means undecided between alternatives.",
+      "explanation_translation": "“On the fence”表示在不同选择之间犹豫不决。"
+    },
+    {
+      "question_id": "quiz-advanced-037",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "Losing the first contract seemed disappointing, but it became a blessing in disguise. What does this suggest?",
+      "prompt_translation": "失去第一份合同起初令人失望，但后来却因祸得福。这暗示了什么？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The negative event eventually led to an unexpected benefit.",
+          "translation_text": "这件负面事件最终带来了意想不到的好处。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The event caused permanent damage.",
+          "translation_text": "这件事造成了永久损害。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The event was planned as a celebration.",
+          "translation_text": "这件事原本是为了庆祝而安排的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The event had no effect on later events.",
+          "translation_text": "这件事对后续没有影响。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“A blessing in disguise” is something that seems bad at first but later produces a good result.",
+      "explanation_translation": "“A blessing in disguise”指起初看似坏事，后来却带来好结果。"
+    },
+    {
+      "question_id": "quiz-advanced-038",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "I will not join the hike today because I am feeling under the weather. What does the phrase mean?",
+      "prompt_translation": "我今天不参加徒步，因为我感觉身体不太舒服。这个短语是什么意思？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Feeling slightly ill.",
+          "translation_text": "感觉有点不舒服。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Feeling unusually energetic.",
+          "translation_text": "感觉精力异常充沛。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Being caught in heavy rain.",
+          "translation_text": "遇到大雨。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Feeling confused about directions.",
+          "translation_text": "对方向感到困惑。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Under the weather” is an informal expression meaning slightly ill or unwell.",
+      "explanation_translation": "“Under the weather”是非正式表达，表示身体有些不舒服。"
+    },
+    {
+      "question_id": "quiz-advanced-039",
+      "source_lesson_id": "a-idioms",
+      "prompt_learning": "The new safety measures may seem expensive now, but they will save money in the long run. What does “in the long run” mean?",
+      "prompt_translation": "新的安全措施现在看起来可能很昂贵，但从长远来看会节省成本。“in the long run”是什么意思？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Immediately after the purchase.",
+          "translation_text": "购买后立即。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Over an extended period of time.",
+          "translation_text": "经过较长一段时间后。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Only during the first week.",
+          "translation_text": "只在第一周。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Before the project begins.",
+          "translation_text": "项目开始之前。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“In the long run” refers to the eventual result over a long period of time.",
+      "explanation_translation": "“In the long run”表示经过较长时间后最终产生的结果。"
+    },
+    {
+      "question_id": "quiz-advanced-040",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The company is looking for a more ___ way to package its products, using less material.",
+      "prompt_translation": "选择正确的词：公司正在寻找一种更___的产品包装方式，以减少材料使用。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "economic",
+          "translation_text": "经济方面的"
+        },
+        {
+          "id": "b",
+          "learning_text": "economical",
+          "translation_text": "节省成本/材料的"
+        },
+        {
+          "id": "c",
+          "learning_text": "economy",
+          "translation_text": "经济/节约"
+        },
+        {
+          "id": "d",
+          "learning_text": "economics",
+          "translation_text": "经济学"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Economical” means using resources, money or materials efficiently; “economic” usually relates to the economy.",
+      "explanation_translation": "“Economical”表示有效节省资源、金钱或材料；“economic”通常与经济体系有关。"
+    },
+    {
+      "question_id": "quiz-advanced-041",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The signing of the peace agreement was a ___ moment in the country's history.",
+      "prompt_translation": "选择正确的词：和平协议的签署是该国历史上一个___的时刻。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "historical",
+          "translation_text": "与历史有关的"
+        },
+        {
+          "id": "b",
+          "learning_text": "historic",
+          "translation_text": "具有历史意义的"
+        },
+        {
+          "id": "c",
+          "learning_text": "historically",
+          "translation_text": "从历史角度"
+        },
+        {
+          "id": "d",
+          "learning_text": "historian",
+          "translation_text": "历史学家"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Historic” describes an event that is important or significant in history; “historical” means related to the past or the study of history.",
+      "explanation_translation": "“Historic”形容具有重大历史意义的事件；“historical”表示与过去或历史研究有关。"
+    },
+    {
+      "question_id": "quiz-advanced-042",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The new attendance rule may ___ how employees plan their shifts.",
+      "prompt_translation": "选择正确的词：新的出勤规定可能会___员工安排轮班的方式。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "effect",
+          "translation_text": "影响（名词）"
+        },
+        {
+          "id": "b",
+          "learning_text": "affect",
+          "translation_text": "影响（动词）"
+        },
+        {
+          "id": "c",
+          "learning_text": "effective",
+          "translation_text": "有效的"
+        },
+        {
+          "id": "d",
+          "learning_text": "affection",
+          "translation_text": "喜爱"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Affect” is the verb meaning to influence; “effect” is most commonly used as a noun meaning a result.",
+      "explanation_translation": "“Affect”是表示影响的动词；“effect”最常用作名词，表示结果。"
+    },
+    {
+      "question_id": "quiz-advanced-043",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct verb: Please ___ that all files are backed up before the server is replaced.",
+      "prompt_translation": "选择正确的动词：更换服务器前，请___所有文件都已备份。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "assure",
+          "translation_text": "向某人保证"
+        },
+        {
+          "id": "b",
+          "learning_text": "ensure",
+          "translation_text": "确保"
+        },
+        {
+          "id": "c",
+          "learning_text": "insure",
+          "translation_text": "为……投保"
+        },
+        {
+          "id": "d",
+          "learning_text": "reassure",
+          "translation_text": "使安心"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Ensure” means to make certain that something happens or is true; “assure” usually means to tell someone confidently.",
+      "explanation_translation": "“Ensure”表示确保某事发生或属实；“assure”通常表示向某人作出保证。"
+    },
+    {
+      "question_id": "quiz-advanced-044",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The museum director is an ___ expert on ancient ceramics.",
+      "prompt_translation": "选择正确的词：博物馆馆长是一位研究古代陶瓷的杰出专家。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "imminent",
+          "translation_text": "即将发生的"
+        },
+        {
+          "id": "b",
+          "learning_text": "eminent",
+          "translation_text": "杰出的"
+        },
+        {
+          "id": "c",
+          "learning_text": "immanent",
+          "translation_text": "内在的"
+        },
+        {
+          "id": "d",
+          "learning_text": "immediate",
+          "translation_text": "立即的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Eminent” means distinguished or highly respected; “imminent” means about to happen.",
+      "explanation_translation": "“Eminent”表示杰出或受人尊敬；“imminent”表示即将发生。"
+    },
+    {
+      "question_id": "quiz-advanced-045",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct verb: The organisation plans to ___ a new mentoring programme next year.",
+      "prompt_translation": "选择正确的动词：该组织计划明年___一项新的导师计划。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "adapt",
+          "translation_text": "调整/适应"
+        },
+        {
+          "id": "b",
+          "learning_text": "adopt",
+          "translation_text": "采用"
+        },
+        {
+          "id": "c",
+          "learning_text": "adept",
+          "translation_text": "熟练的"
+        },
+        {
+          "id": "d",
+          "learning_text": "adapted",
+          "translation_text": "已调整"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Adopt” means to take up or begin using a plan or programme; “adapt” means to modify it.",
+      "explanation_translation": "“Adopt”表示采用或开始使用计划；“adapt”表示对其进行调整。"
+    },
+    {
+      "question_id": "quiz-advanced-046",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The blue curtains ___ the warm colours in the room.",
+      "prompt_translation": "选择正确的词：蓝色窗帘与房间里的暖色调相得益彰。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "compliment",
+          "translation_text": "赞美"
+        },
+        {
+          "id": "b",
+          "learning_text": "complement",
+          "translation_text": "补充/衬托"
+        },
+        {
+          "id": "c",
+          "learning_text": "complementary",
+          "translation_text": "互补的"
+        },
+        {
+          "id": "d",
+          "learning_text": "complimentary",
+          "translation_text": "免费的/赞美的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Complement” means to complete or enhance something; “compliment” means an expression of praise.",
+      "explanation_translation": "“Complement”表示补充或衬托；“compliment”表示赞美。"
+    },
+    {
+      "question_id": "quiz-advanced-047",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The journalist was careful to be ___ when discussing the confidential negotiations.",
+      "prompt_translation": "选择正确的词：这名记者在讨论机密谈判时谨慎而审慎。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "discrete",
+          "translation_text": "分离的/不连续的"
+        },
+        {
+          "id": "b",
+          "learning_text": "discreet",
+          "translation_text": "谨慎的/审慎的"
+        },
+        {
+          "id": "c",
+          "learning_text": "discretion",
+          "translation_text": "判断力/谨慎"
+        },
+        {
+          "id": "d",
+          "learning_text": "discreetly",
+          "translation_text": "谨慎地"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Discreet” means careful and tactful, especially to avoid revealing private information; “discrete” means separate or distinct.",
+      "explanation_translation": "“Discreet”表示谨慎且得体，尤其指避免泄露私人信息；“discrete”表示分离或彼此独立。"
+    },
+    {
+      "question_id": "quiz-advanced-048",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: The witness gave a ___ account that matched the available evidence.",
+      "prompt_translation": "选择正确的词：证人的陈述可信，并且与现有证据相符。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "credulous",
+          "translation_text": "轻信的"
+        },
+        {
+          "id": "b",
+          "learning_text": "credible",
+          "translation_text": "可信的"
+        },
+        {
+          "id": "c",
+          "learning_text": "credibility",
+          "translation_text": "可信度"
+        },
+        {
+          "id": "d",
+          "learning_text": "incredible",
+          "translation_text": "难以置信的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Credible” means believable or worthy of trust; “credulous” describes someone too ready to believe things.",
+      "explanation_translation": "“Credible”表示可信或值得信赖；“credulous”形容一个人过于轻信。"
     }
   ]
 }
