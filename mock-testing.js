@@ -230,7 +230,8 @@
         {id:"c",learning_text:"Alternative answer C",translation_text:"备选答案 C"},
         {id:"d",learning_text:"Alternative answer D",translation_text:"备选答案 D"}
       ];
-      // Shuffle the complete option set so the correct answer is not always A.
+      const correctOptionId="a";
+      // Shuffle the complete option set and retain the correct option identity.
       for(let i=options.length-1;i>0;i--){
         const j=Math.floor(Math.random()*(i+1));
         [options[i],options[j]]=[options[j],options[i]];
@@ -242,7 +243,7 @@
         prompt_learning:"[Mock] Choose the correct answer for practice question "+number+".",
         prompt_translation:"[模拟] 请选择第"+number+"题的正确答案。",
         options,
-        selected_option_id:null,correct_option_id:"a",
+        selected_option_id:null,correct_option_id:correctOptionId,
         explanation_learning:"This is synthetic mock content used to test the Quiz interface.",
         explanation_translation:"这是用于测试测验界面的模拟内容。"
       };
