@@ -32,7 +32,7 @@
     const lessonLimit = premium ? 15 : 5;
     return [
       ["lesson",lessonLimit],["daily_topic",dailyLimit],["daily_application",dailyLimit],
-      ["daily_discovery",dailyLimit],["daily_revision",dailyLimit],["quiz",5],["flashcard",5]
+      ["daily_discovery",dailyLimit],["daily_revision",dailyLimit],["quiz",dailyLimit],["flashcard",5]
     ].map(([activity_type,daily_limit]) => ({plan_code:premium?"premium":"free",activity_type,daily_limit,is_enabled:true}));
   }
   function key(userId) { return STORAGE_PREFIX + userId; }
@@ -50,7 +50,8 @@
       lesson_progress:[],
       learning_activity_log:[],
       lesson_practice_results:[],
-      daily_activity_sessions:[]
+      daily_activity_sessions:[],
+      quiz_sessions:[]
     };
   }
   function loadState(user) {
@@ -205,7 +206,9 @@
       activity_type,
       used_count:activity_type==="lesson"
         ? (db.tables.learning_activity_log||[]).filter(row=>row.activity_type==="lesson" && row.event_type==="completed" && row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
-        : dailyRows(db,activity_type).length
+        : activity_type==="quiz"
+          ? (db.tables.quiz_sessions||[]).filter(row=>row.status==="completed" && row.completed_at && dateInZone(row.completed_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
+          : dailyRows(db,activity_type).length
     }));
   }
   function quizMockQuestions(sessionId,difficulty,count) {
