@@ -18713,6 +18713,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function quizStart(difficulty){
       try{
+        await preferenceWriteQueue;
         quizStatus("Preparing your Quiz…");
         const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty});if(error)throw error;
         const session=data&&data.session?data.session:data;
@@ -18859,8 +18860,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const chinese=course==="zh";
       quizEl("lessonsChineseUnavailable").hidden=!chinese;
       quizEl("dailyLearningPage").hidden=chinese;
-      quizEl("lessonDifficultyTabs").hidden=chinese;
-      quizEl("lessonCards").hidden=chinese;
+      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese;
+      quizEl("lessonLibrary").hidden=chinese;
       quizEl("quizChineseUnavailable").hidden=!chinese;
       quizEl("quizHome").hidden=chinese||!currentUser;
       quizEl("quizSession").hidden=chinese;
@@ -18883,13 +18884,19 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     const originalShowPage = showPage;
     showPage = function(page,updateHash=true){
       originalShowPage(page,updateHash);
-      if(["lessons","quiz","flashcards"].includes(page)){applyLearningCourseAvailability();learningIntroMaybeShow(page);}
+      if(["lessons","quiz","flashcards"].includes(page)){applyLearningCourseAvailability();learningIntroPreferencesReady.then(()=>learningIntroMaybeShow(page));}
     };
     window.addEventListener("swift-auth-updated",async()=>{
-      await learningIntroLoadPreferences();
+      learningIntroPreferencesReady=learningIntroLoadPreferences();
+      await learningIntroPreferencesReady;
       if(["lessons","quiz","flashcards"].includes((location.hash||"").slice(1)))learningIntroMaybeShow(location.hash.slice(1));
     });
-    learningIntroLoadPreferences().then(()=>applyLearningCourseAvailability());
+    let learningIntroPreferencesReady=learningIntroLoadPreferences().then(()=>applyLearningCourseAvailability());
+    document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
+    document.getElementById("courseSelect").addEventListener("change",()=>{
+      applyLearningCourseAvailability();
+      if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
+    });
 
     // Resolve the requested route immediately; account initialisation must not
     // redirect signed-out visitors away from public pages such as Quiz.
