@@ -367,7 +367,45 @@
     .daily-discovery-word-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:-5px 0 14px;color:var(--muted);font-size:.9rem}
     .daily-discovery-word-meta strong{color:var(--accent);text-transform:capitalize}
     .daily-discovery-frequency-note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px}
-</style>
+
+    .quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .quiz-page-heading{margin-bottom:18px}.quiz-page-heading h1{margin-top:5px}
+    .quiz-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+    .quiz-overview-grid .profile-card,.quiz-difficulty-card,.quiz-results-card{margin:0}
+    .quiz-allowance-number{font-size:1.7rem;font-weight:800;color:var(--accent);margin:8px 0}
+    .quiz-difficulty-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+    .quiz-difficulty-option{display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-width:0;padding:17px;border:1px solid var(--border);border-radius:13px;background:var(--panel-hover)}
+    .quiz-difficulty-option h3{margin:0;font-size:1.05rem}.quiz-difficulty-option p{margin:0;color:var(--muted);font-size:.86rem}
+    .quiz-difficulty-option button{margin-top:auto;width:100%}.quiz-difficulty-option .quiz-bank-status{font-size:.8rem}
+    .quiz-difficulty-option[aria-disabled="true"]{opacity:.76}
+    .quiz-history-list{display:grid;gap:8px;margin-top:14px}
+    .quiz-history-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:11px;background:var(--panel-hover)}
+    .quiz-history-row strong{display:block}.quiz-history-row small{color:var(--muted)}
+    .quiz-history-score{font-size:1.1rem;font-weight:800;color:var(--accent);white-space:nowrap}
+    .quiz-session-card{max-width:900px;margin:18px auto;padding:clamp(18px,3vw,30px)}
+    .quiz-progress-heading{margin:22px 0 8px}.quiz-progress-track{height:8px;border:1px solid var(--border);border-radius:999px;background:var(--panel-hover);overflow:hidden}
+    .quiz-progress-track span{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+    .quiz-question-prompt{font-size:clamp(1.15rem,2.5vw,1.5rem);line-height:1.5;margin:25px 0 8px}
+    .quiz-question-translation{color:var(--muted);margin:0 0 20px;line-height:1.55}
+    .quiz-options{display:grid;gap:10px;margin:18px 0 26px}
+    .quiz-option{display:flex;align-items:center;gap:12px;width:100%;padding:14px 15px;text-align:left;border:1px solid var(--border);border-radius:12px;background:var(--panel-hover);color:var(--text)}
+    .quiz-option:hover{border-color:var(--accent)}.quiz-option[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-bg)}
+    .quiz-option-letter{display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid var(--border);border-radius:8px;font-weight:750}
+    .quiz-option-copy{display:grid;gap:3px}.quiz-option-copy small{color:var(--muted)}
+    .quiz-question-actions{margin:12px 0 18px}.quiz-submit-row{border-top:1px solid var(--border);padding-top:16px;align-items:flex-end}
+    .quiz-submit-row p{margin:0;max-width:360px}.quiz-results-score{text-align:center;padding:16px 8px 24px}
+    .quiz-results-score strong{display:block;font-size:clamp(2.7rem,7vw,4.3rem);line-height:1.1;color:var(--accent)}
+    .quiz-results-score h2{margin:8px 0}.quiz-review-list{display:grid;gap:12px;margin:20px 0}
+    .quiz-review-question{padding:15px;border:1px solid var(--border);border-radius:12px;background:var(--panel-hover)}
+    .quiz-review-question h3{font-size:1rem;line-height:1.5;margin:0 0 9px}
+    .quiz-review-option{padding:7px 10px;border-radius:8px;margin:5px 0;color:var(--muted)}
+    .quiz-review-option.correct{background:rgba(55,130,91,.16);color:#a8e6bf}
+    .quiz-review-option.chosen-wrong{background:rgba(160,75,75,.16);color:#ffb1b1}
+    .quiz-review-explanation{margin-top:10px;padding:10px 12px;border-left:3px solid var(--accent);background:var(--panel);border-radius:0 8px 8px 0}
+    .quiz-review-explanation p{margin:4px 0}.quiz-results-actions{justify-content:center;margin-top:18px}
+    @media(max-width:760px){.quiz-overview-grid,.quiz-difficulty-grid{grid-template-columns:1fr}.quiz-submit-row{align-items:stretch;flex-direction:column}.quiz-submit-row>div{display:flex;gap:8px;flex-wrap:wrap}.quiz-history-row{align-items:flex-start}.quiz-question-actions button{flex:1}.quiz-page-heading{align-items:flex-start}}
+
+  </style>
 </head>
 <body>
   <header>
@@ -465,8 +503,27 @@
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
-      <h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding and reinforce what you have learned.</p>
-      <div class="coming-card"><span class="coming-label">Coming Soon</span><h2>Quiz is being prepared</h2><p class="page-intro" style="margin:0 auto">Quiz sessions will be introduced in a future SwiftDictionary update.</p></div>
+      <div class="quiz-page-heading"><div><span class="eyebrow">Knowledge check</span><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div>
+      <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
+      <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
+      <section id="quizHome" hidden>
+        <div class="quiz-overview-grid">
+          <article class="profile-card quiz-allowance-card"><h2>Daily Quiz allowance</h2><p id="quizAllowanceText" class="quiz-allowance-number">—</p><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article>
+          <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
+        </div>
+        <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
+        <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
+      </section>
+      <section id="quizSession" class="profile-card quiz-session-card" hidden>
+        <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div>
+        <div class="quiz-progress-heading"><strong id="quizQuestionCounter">Question 1 of 10</strong><span id="quizAnsweredCounter">0 answered</span></div><div class="quiz-progress-track"><span id="quizProgressFill"></span></div>
+        <div id="quizQuestionArea"></div>
+        <div class="quiz-question-actions"><button id="quizPrevious" class="secondary-button" type="button">Previous</button><button id="quizNext" class="primary-button" type="button">Next</button></div>
+        <div class="quiz-submit-row"><p class="muted-note">Your answers are saved as you go. You can change them until you submit.</p><div><button id="quizAbandon" class="secondary-button" type="button">Abandon Quiz</button> <button id="quizSubmit" class="primary-button" type="button">Submit Quiz</button></div></div>
+      </section>
+      <section id="quizResults" class="profile-card quiz-results-card" hidden>
+        <div id="quizResultsContent"></div><div class="quiz-results-actions"><button id="quizResultsHome" class="primary-button" type="button">Back to Quiz</button></div>
+      </section>
     </section>
     <section id="flashcardsPage" class="page-panel" hidden aria-labelledby="flashcardsHeading">
       <h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p>
@@ -18043,6 +18100,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
       if (page === "lessons") { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
+      if (page === "quiz" && typeof initialiseQuizPage === "function") initialiseQuizPage();
       window.scrollTo({top:0,behavior:"instant"});
     }
     pageButtons.forEach(button => button.addEventListener("click", () => showPage(button.dataset.page)));
@@ -18517,6 +18575,192 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         await loadProfileData();
       } catch (error) { status.textContent = `Could not save preferences: ${error.message}`; }
     });
+
+
+    // Update 2.4.0 Quiz frontend. All question data and answer keys are served
+    // by authenticated RPCs; the browser never queries the private Quiz tables.
+    let quizPageState = { loaded:false, loading:false, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null };
+    const quizEl = id => document.getElementById(id);
+    const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
+    function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
+    function quizTranslationVisible(code){return code === "zh";}
+    function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
+    function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
+    function quizReason(reason){
+      const messages={
+        active_session_exists:"Finish or abandon your current Quiz before starting another.",
+        learning_course_not_supported:"Quiz currently supports the English learning course only.",
+        plan_not_enabled:"Quiz is not enabled for this account plan.",
+        allowance_exhausted:"You have used today's Quiz allowance. It resets at midnight in your configured timezone.",
+        question_bank_below_minimum:"This difficulty is not available yet because its approved question bank has not reached the minimum size.",
+        fresh_questions_unavailable_today:"There are not enough unseen questions for another complete Quiz today.",
+        topic_coverage_unavailable:"The available questions cannot yet form a balanced, mixed-topic session."
+      };
+      return messages[reason]||"This difficulty is not available yet.";
+    }
+    function quizShowHome(){
+      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
+      quizEl("quizSignedOut").hidden=true;
+    }
+    function quizRenderAvailability(data){
+      quizPageState.availability=data;
+      const a=data.allowance||{};
+      quizEl("quizAllowanceText").textContent=(a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining";
+      quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
+      const active=!!data.active_session_id;
+      quizEl("quizActiveCard").hidden=!active;
+      if(active)quizEl("quizActiveDescription").textContent="You have an unfinished Quiz. Your saved answers are waiting.";
+      const list=data.difficulties||[];
+      quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
+        const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
+        const counts=item.bank_counts||{};
+        const target=item.bank_target_met?"Preferred question-bank target met":item.bank_minimum_met?"Minimum question bank met":"Question bank below minimum";
+        const reason=item.available?"Ready to start":quizReason(item.reason);
+        const composition=item.difficulty==="beginner"?"10 questions":item.difficulty==="intermediate"?"15 questions · mainly Intermediate with Beginner support":"20 questions · Advanced core with Intermediate and Beginner support";
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><p>'+quizEscape(composition)+'</p><p class="quiz-bank-status">'+quizEscape(target)+'</p><p class="quiz-bank-status">'+quizEscape(reason)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+      }).join("");
+    }
+    function quizRenderHistory(rows){
+      quizPageState.history=Array.isArray(rows)?rows:[];
+      const host=quizEl("quizHistory");
+      if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">No completed Quizzes yet. Your results will appear here.</p>';return;}
+      host.innerHTML=quizPageState.history.map(row=>{
+        const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
+        return '<div class="quiz-history-row"><div><strong>'+quizEscape(quizDifficultyLabels[row.difficulty]||row.difficulty)+' · '+quizEscape(row.question_count)+' questions</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">Review</button></div></div>';
+      }).join("");
+    }
+    async function quizLoadHome(){
+      if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access your account's Quiz sessions.");return;}
+      quizStatus("Loading Quiz availability…");
+      const [availability,history,active]=await Promise.all([
+        quizCall("get_my_quiz_availability"),
+        quizCall("get_my_quiz_history",{p_limit:20}),
+        quizCall("get_my_active_quiz")
+      ]);
+      if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
+      quizRenderAvailability(availability.data||{});
+      quizRenderHistory(history.data||[]);
+      quizPageState.session=active.data||null;
+      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      quizStatus("");
+    }
+    function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
+    function quizRenderSession(){
+      const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
+      quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
+      const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
+      const answered=s.questions.filter(x=>x.selected_option_id).length;
+      quizEl("quizSessionDifficulty").textContent=quizDifficultyLabels[s.difficulty]||s.difficulty;
+      quizEl("quizQuestionCounter").textContent="Question "+pos+" of "+s.question_count;
+      quizEl("quizAnsweredCounter").textContent=answered+" answered";
+      quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
+      const showTranslation=quizTranslationVisible(s.translation_language_code);
+      quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
+        return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(option.learning_text)+'</span>'+(showTranslation?'<small>'+quizEscape(option.translation_text)+'</small>':'')+'</span></button>';
+      }).join("")+'</div>';
+      quizEl("quizPrevious").disabled=pos<=1;
+      quizEl("quizNext").textContent=pos>=s.question_count?"Review answers":"Next";
+      quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
+      quizEl("quizSubmit").textContent=answered===s.question_count?"Submit Quiz":"Answer all questions to submit";
+      quizStatus("");
+    }
+    async function quizSaveCurrent(position,selected){
+      const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q)return;
+      quizPageState.saving=true;quizEl("quizSubmit").disabled=true;
+      try{
+        const {data,error}=await quizCall("save_my_quiz_answer",{p_session_id:s.session_id,p_question_id:q.question_id,p_selected_option_id:selected===undefined?q.selected_option_id:selected,p_current_position:position});
+        if(error)throw error;quizPageState.session=data;return data;
+      }catch(error){quizStatus("Your answer could not be saved: "+error.message,true);throw error;}
+      finally{quizPageState.saving=false;}
+    }
+    async function quizChooseOption(optionId){
+      const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q||quizPageState.saving)return;
+      q.selected_option_id=optionId;quizRenderSession();
+      try{await quizSaveCurrent(s.current_position,optionId);quizRenderSession();}
+      catch{await quizReloadActive();}
+    }
+    async function quizReloadActive(){
+      try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;quizPageState.session=data||null;if(data)quizRenderSession();else await quizLoadHome();}
+      catch(error){quizStatus("Could not restore the saved Quiz: "+error.message,true);}
+    }
+    async function quizMove(position){
+      const s=quizPageState.session;if(!s||quizPageState.saving)return;
+      const next=Math.max(1,Math.min(s.question_count,position));if(next===s.current_position)return;
+      try{await quizSaveCurrent(next);quizPageState.session.current_position=next;quizRenderSession();}
+      catch{}
+    }
+    async function quizStart(difficulty){
+      try{
+        quizStatus("Preparing your Quiz…");
+        const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty});if(error)throw error;
+        const session=data&&data.session?data.session:data;
+        if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
+        quizPageState.session=session;quizRenderSession();
+      }catch(error){quizStatus(error.message||"Could not start this Quiz.",true);await quizLoadHome().catch(()=>{});}
+    }
+    async function quizSubmit(){
+      const s=quizPageState.session;if(!s)return;
+      const missing=s.questions.filter(q=>!q.selected_option_id).length;
+      if(missing){quizStatus("Please answer all "+missing+" remaining question"+(missing===1?"":"s")+" before submitting.",true);return;}
+      if(!confirm("Submit this Quiz? You will be able to review every answer, but cannot change it afterwards."))return;
+      try{
+        quizStatus("Submitting your Quiz…");quizPageState.saving=true;
+        const {data,error}=await quizCall("submit_my_quiz",{p_session_id:s.session_id});if(error)throw error;
+        quizPageState.saving=false;quizPageState.result=data;quizRenderResult(data);
+        await quizLoadHistoryAndAvailability();
+      }catch(error){quizPageState.saving=false;quizStatus(error.message||"Could not submit the Quiz.",true);}
+    }
+    async function quizLoadHistoryAndAvailability(){
+      try{
+        const [a,h]=await Promise.all([quizCall("get_my_quiz_availability"),quizCall("get_my_quiz_history",{p_limit:20})]);
+        if(!a.error)quizRenderAvailability(a.data||{});if(!h.error)quizRenderHistory(h.data||[]);
+      }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
+    }
+    function quizRenderResult(data){
+      quizPageState.result=data;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
+      const showTranslation=quizTranslationVisible(data.translation_language_code);
+      const questions=data.questions||[];
+      quizEl("quizResultsContent").innerHTML='<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
+        const opts=(q.options||[]).map((o,i)=>{
+          const correct=o.id===q.correct_option_id,chosen=o.id===q.selected_option_id;
+          return '<div class="quiz-review-option '+(correct?'correct':chosen?'chosen-wrong':'')+'">'+String.fromCharCode(65+i)+'. '+quizEscape(o.learning_text)+(showTranslation?' · '+quizEscape(o.translation_text):'')+(correct?' — Correct answer':chosen?' — Your answer':'')+'</div>';
+        }).join("");
+        return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
+      }).join("")+'</div>';
+      quizEl("quizResults").hidden=false;quizStatus("");
+    }
+    async function quizReview(sessionId){
+      try{quizStatus("Loading answer review…");const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;quizRenderResult(data);}
+      catch(error){quizStatus("Could not load this Quiz review: "+error.message,true);}
+    }
+    async function quizAbandon(){
+      const s=quizPageState.session;if(!s)return;
+      if(!confirm("Abandon this unfinished Quiz? Your answers will not be scored. The questions will remain unavailable for reuse today."))return;
+      try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;await quizLoadHome();}
+      catch(error){quizStatus("Could not abandon this Quiz: "+error.message,true);}
+    }
+    async function initialiseQuizPage(){
+      if(quizPageState.loading)return;quizPageState.loading=true;
+      try{
+        if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access Quiz.");return;}
+        await quizLoadHome();quizPageState.loaded=true;
+      }catch(error){quizStatus("Quiz is not ready on this environment yet. "+(error.message||""),true);}
+      finally{quizPageState.loading=false;}
+    }
+    quizEl("quizRefresh").addEventListener("click",()=>{quizPageState.loaded=false;initialiseQuizPage();});
+    quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
+    quizEl("quizDifficultyGrid").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-start]");if(button&&!button.disabled)quizStart(button.dataset.quizStart);});
+    quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
+    quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
+    quizEl("quizQuestionArea").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-option]");if(button)quizChooseOption(button.dataset.quizOption);});
+    quizEl("quizPrevious").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)-1));
+    quizEl("quizNext").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)+1));
+    quizEl("quizSubmit").addEventListener("click",quizSubmit);
+    quizEl("quizAbandon").addEventListener("click",quizAbandon);
+    quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
+    quizEl("quizResultsHome").addEventListener("click",async()=>{quizPageState.result=null;await quizLoadHome();});
 
     // Keep the profile route inaccessible to signed-out visitors.
     initAccount().then(() => showHashPage()).catch(error => {
