@@ -1621,59 +1621,70 @@ Next implementation work: build the question-bank authoring/import/approval pipe
 
 ## 36. Update 2.4.0 — Quiz authoring pipeline and production allowance update (2026-11-16)
 
-The user authorized the next Quiz content stage and explicitly asked to change the live Supabase Quiz allowance to Free 1/day and Premium 3/day.
+The user authorized the next Quiz content stage and explicitly requested changing the live Supabase Quiz allowance to Free 1/day and Premium 3/day.
 
 ### Production allowance change
 
-The live project was read first. Before the change, the only two Quiz rows were:
-- Free: 5/day, enabled.
-- Premium: 12/day, enabled.
+Before the change, the live project had exactly two enabled Quiz rows:
+- Free: 5/day.
+- Premium: 12/day.
 
-A narrowly scoped tracked migration was added to the feature branch:
-- supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql
+A guarded, narrowly scoped migration was added on the feature branch:
+- `supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
 
-It checks the exact expected pre-change rows and aborts if the project has unexpected Quiz rows or values. It changes only the Quiz rows in public.learning_plan_limits and leaves every other activity limit and all usage ledgers untouched.
+It checks the exact expected pre-change values and aborts if unexpected Quiz rows or values exist. It changes only the Quiz rows in `public.learning_plan_limits`; all other activity limits and usage ledgers remain untouched.
 
-The migration was applied to the live Supabase project through the Supabase migration tool. Supabase recorded migration version 20261116043139, name swiftdictionary_update_2_4_0_quiz_allowance_1_3. A follow-up SELECT verified:
+The migration was applied to live Supabase and recorded as version `20261116043139`, name `swiftdictionary_update_2_4_0_quiz_allowance_1_3`. A follow-up query verified:
 - Free Quiz: 1/day, enabled.
 - Premium Quiz: 3/day, enabled.
 
-No Quiz tables, RPCs, question content, sessions or frontend were deployed to production. No user data or existing usage rows were modified.
+No Quiz schema/RPC tables, question content, sessions or frontend were deployed to production. No user data or usage-ledger rows were modified.
 
 ### Question-bank authoring pipeline
 
 New feature-branch files:
-- content/quiz/README.md — content authoring, review, approval and release policy.
-- content/quiz/curriculum-map.en.json — stable mapping of the 15 English source lesson IDs to topics and difficulties.
-- content/quiz/questions.en-zh.draft.json — first bilingual draft batch.
-- scripts/quiz/validate-question-bank.mjs — structural/curriculum validator and draft-only SQL exporter.
-- supabase/tests/quiz_draft_content_catalog.sql — isolated local curriculum fixture.
-- supabase/tests/quiz_draft_content_import_assertions.sql — draft import assertions.
-- .github/workflows/quiz-db-foundation.yml — expanded with draft content validation/import checks in disposable PostgreSQL and local Supabase jobs.
+- `content/quiz/README.md` — authoring, editorial review, approval and release policy.
+- `content/quiz/curriculum-map.en.json` — stable mapping of 15 English source lesson IDs to topics and difficulties.
+- `content/quiz/questions.en-zh.draft.json` — bilingual draft bank.
+- `scripts/quiz/validate-question-bank.mjs` — structural/curriculum validator and draft-only SQL exporter.
+- `supabase/tests/quiz_draft_content_catalog.sql` — isolated local curriculum fixtures.
+- `supabase/tests/quiz_draft_content_import_assertions.sql` — database import assertions.
+- `.github/workflows/quiz-db-foundation.yml` — PostgreSQL and local Supabase validation/import checks.
 
-Batch 01 contains 30 original English-learning / Simplified-Chinese-translation Beginner questions: six questions each mapped to b-verb-combinations, b-articles, b-countable-nouns, b-sentence and b-present. Each has four bilingual options, one answer key and bilingual explanations.
+Current draft content:
+- Beginner: 30 original English-learning / Simplified-Chinese-translation questions, six each across five source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`.
+- Intermediate: 36 original bilingual questions across five source lessons: eight for `i-collocations` and seven each for `i-conditionals`, `i-phrasal`, `i-perfect` and `i-word-families`.
 
-The exporter inserts all questions as status=draft. It does not approve or publish content. CI imports this batch only into disposable local test databases and checks 30 rows, five topics (six per topic), correct source mappings, four options and zero approved rows. The structural validator cannot prove semantic accuracy; manual editorial review is still required before any separate approval migration.
+Each record contains an English prompt, Simplified Chinese translation, four bilingual options, one answer key and bilingual explanations. The questions are original SwiftDictionary content, not copied from third-party dictionaries, textbooks or commercial quiz banks.
+
+The validator checks unique IDs/prompts, bilingual fields, four unique English options, answer-key membership and source lesson/topic/difficulty mappings. Its SQL exporter always inserts `status='draft'`; it cannot approve or publish questions. Manual editorial review and a separate approval migration are required.
+
+### Validation
+
+Quiz workflow run [#107](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415258) passed both jobs:
+- PostgreSQL 17: both Quiz migrations, authenticated RPC/session/allowance tests, content validator, generated SQL import and database assertions.
+- Disposable local Supabase: real Auth helpers, authenticated Quiz RPC integration, generated SQL import and Supabase security advisors.
+
+Both environments imported 66 draft rows (30 Beginner and 36 Intermediate), verified ten source-topic groups, valid lesson mappings and four-option rows, and confirmed zero approved questions. Pinning Supabase CLI 2.81.3 resolved the earlier GitHub release API rate-limit failure in run 104.
+
+The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility.
 
 ### Content readiness
 
-- Beginner: 30 draft questions across five topics (six per topic), reaching the preferred three-session target by count but still unavailable until approval/import.
-- Intermediate: 36 draft questions across five topics (eight or seven per topic), reaching the preferred Intermediate count target by count; its 24-question Beginner support pool is also present in draft form. It remains unavailable until approval/import. Beginner is not yet available.
-- Intermediate: 36 draft questions across five topics, reaching its preferred target by count; 30 Beginner drafts provide its 24-question support pool. It remains unavailable until manual approval and import.
-- Advanced: not authored yet. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
-- Only approved questions with active matching lesson/topic mappings and the learner's selected translation language count toward availability.
-- This batch supports English learning with Simplified Chinese translation only. Other translation-language pairs remain unavailable until authored and approved.
+- Beginner: 30 draft questions across five topics, reaching the preferred three-session target by count.
+- Intermediate: 36 draft questions across five topics, reaching the preferred Intermediate target by count; 30 Beginner drafts also exceed the 24-question Beginner support target.
+- Advanced: not authored yet. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; preferred target 48 + 12 + 12.
 
-No draft questions have been imported to the production project. The Quiz schema/RPC migrations remain on the feature branch and PR #8 remains draft/unmerged. No merge or deployment occurred.
+None of the draft content is approved or imported to production, so Beginner and Intermediate remain unavailable. Availability still requires approved content, active matching lesson/topic mappings, the selected translation language, and enough unseen questions. The current pack supports English learning with Simplified Chinese translation only.
 
 ### Legal and content provenance
 
-The batch is original authored educational content; it does not import third-party dictionary corpora, textbook exercises, commercial question banks or personal data. The pipeline adds no tracking or analytics. Future external-source content needs a provenance and licensing review. Existing Malaysia PDPA/legal review for account-linked learning performance remains applicable; the dedicated Terms and Legal update stays scheduled after Flashcards is released to main.
+The content pack adds no learner personal data, tracking or analytics. It uses original authored educational material. Future external-source content requires provenance and licensing review. The broader Quiz feature still processes account-linked learning-performance data, so the standing Malaysia PDPA/general privacy review remains applicable. The dedicated Terms and Legal update remains scheduled after Flashcards is released to main.
 
-### Next actions
+### Current release boundaries and next actions
 
-1. Continue the Advanced content batch using the same authoring and review process.
-2. Manually review all questions and translations before approval.
-3. Reach the preferred three-session target for each difficulty.
-4. Run complete content and database validation, then implement Quiz frontend screens and signed-token/PostgREST/browser end-to-end tests.
-5. Keep Quiz schema/content deployment separate from the already-applied allowance change; do not merge PR #8 or apply further production migrations without explicit approval.
+- Production Quiz allowance is Free 1/day and Premium 3/day.
+- Quiz schema/RPC migrations and draft content remain unapplied to production.
+- PR #8 remains draft and unmerged.
+- No merge or deployment occurred.
+- Next, author the Advanced bank to its target, then complete human editorial review and approval planning before implementing the Quiz frontend and signed-token/PostgREST/browser end-to-end tests.
