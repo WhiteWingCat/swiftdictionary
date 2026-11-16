@@ -1651,13 +1651,13 @@ New feature-branch files:
 - supabase/tests/quiz_draft_content_import_assertions.sql — draft import assertions.
 - .github/workflows/quiz-db-foundation.yml — expanded with draft content validation/import checks in disposable PostgreSQL and local Supabase jobs.
 
-Batch 01 contains 20 original English-learning / Simplified-Chinese-translation Beginner questions: four questions each mapped to b-verb-combinations, b-articles, b-countable-nouns, b-sentence and b-present. Each has four bilingual options, one answer key and bilingual explanations.
+Batch 01 contains 30 original English-learning / Simplified-Chinese-translation Beginner questions: six questions each mapped to b-verb-combinations, b-articles, b-countable-nouns, b-sentence and b-present. Each has four bilingual options, one answer key and bilingual explanations.
 
-The exporter inserts all questions as status=draft. It does not approve or publish content. CI imports this batch only into disposable local test databases and checks 20 rows, five topics, correct source mappings, four options and zero approved rows. The structural validator cannot prove semantic accuracy; manual editorial review is still required before any separate approval migration.
+The exporter inserts all questions as status=draft. It does not approve or publish content. CI imports this batch only into disposable local test databases and checks 30 rows, five topics (six per topic), correct source mappings, four options and zero approved rows. The structural validator cannot prove semantic accuracy; manual editorial review is still required before any separate approval migration.
 
 ### Content readiness
 
-- Beginner: 20 draft questions. This is enough to meet the hard minimum of 20 only after approval and import, but below the 30-question three-session target. Beginner is not yet available.
+- Beginner: 30 draft questions across five topics (six per topic). This reaches the preferred three-session target, but remains unavailable until manual approval and import. Beginner is not yet available.
 - Intermediate: not authored yet. Minimum 24 Intermediate + 16 Beginner; target 36 + 24.
 - Advanced: not authored yet. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
 - Only approved questions with active matching lesson/topic mappings and the learner's selected translation language count toward availability.
