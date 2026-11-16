@@ -33,19 +33,23 @@ async function signIn(email, password) {
   };
 }
 
-async function openQuiz(page, session) {
-  const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
-  await page.addInitScript(({ key, value }) => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, { key: storageKey, value: session });
+async function installLocalSupabaseConfig(page) {
   await page.route("**/supabase-config.js", route => route.fulfill({
     status: 200,
     contentType: "application/javascript",
     body: "window.SWIFT_SUPABASE_CONFIG = { url: " + JSON.stringify(apiUrl) +
       ", anonKey: " + JSON.stringify(anonKey) + " };"
   }));
+}
+
+async function openQuiz(page, session) {
+  await installLocalSupabaseConfig(page);
+  const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
+  await page.addInitScript(({ key, value }) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, { key: storageKey, value: session });
   await page.goto("/#quiz");
-  await expect(page.locator("#quizPage")).toBeVisible();
+  await expect(page.locator("#quizPage")).toBeVisible({ timeout: 20000 });
   await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
 }
 
@@ -77,7 +81,9 @@ test.afterAll(async () => {
 test("Free user can resume, change answers, submit, and review a real authenticated Quiz session", async ({ page }) => {
   await openQuiz(page, freeSession);
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
-  await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
+  await expect(page.locator('[data-quiz-start="beginner"]'),
+    "Beginner availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
+  ).toBeEnabled();
 
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
@@ -138,7 +144,9 @@ test("Free user can resume, change answers, submit, and review a real authentica
 test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
   await openQuiz(page, premiumSession);
   await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
-  await expect(page.locator('[data-quiz-start="advanced"]')).toBeEnabled();
+  await expect(page.locator('[data-quiz-start="advanced"]'),
+    "Advanced availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
+  ).toBeEnabled();
 
   await page.locator('[data-quiz-start="advanced"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
@@ -161,8 +169,9 @@ test("Premium user sees three daily completions; abandonment does not consume al
 });
 
 test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
+  await installLocalSupabaseConfig(page);
   await page.goto("/#quiz");
-  await expect(page.locator("#quizPage")).toBeVisible();
+  await expect(page.locator("#quizPage")).toBeVisible({ timeout: 20000 });
   await expect(page.locator("#quizSignedOut")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizSession")).toBeHidden();
