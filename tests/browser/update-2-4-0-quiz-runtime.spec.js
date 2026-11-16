@@ -185,6 +185,15 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10",{timeout:15000});
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
 
+  // Changing the shared translation selector while a Quiz is already open
+  // must immediately redraw the current question from the immutable snapshot.
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
+  await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+  await expect(page.locator("#quizTranslationNotice")).toContainText("selected translation");
+
   // The learner can change an answer before submission.
   await page.locator('[data-quiz-option="b"]').click();
   await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
