@@ -230,7 +230,11 @@ test("Premium user sees three daily completions; abandonment does not consume al
   await page.locator("#quizBackHome").click();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizActiveCard")).toBeVisible();
-  await page.locator('[data-quiz-start="intermediate"]').click();
+  // A second difficulty must remain unavailable while the server-owned
+  // active session exists. Resume the existing session instead of clicking
+  // the intentionally disabled start button.
+  await expect(page.locator('[data-quiz-start="intermediate"]')).toBeDisabled();
+  await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizSessionDifficulty")).toHaveText("Advanced");
 
