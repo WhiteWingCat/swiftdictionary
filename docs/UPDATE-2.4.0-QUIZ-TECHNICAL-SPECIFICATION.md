@@ -599,14 +599,19 @@ Official reference material:
 
 ### 14.1 Authoring workflow
 
-The feature branch now contains a source-controlled bilingual authoring workflow:
-- `content/quiz/curriculum-map.en.json` — stable source lesson IDs mapped to topic and source difficulty.
-- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation draft pack with 30 Beginner and 36 Intermediate questions.
+The feature branch contains a source-controlled bilingual authoring workflow:
+- `content/quiz/curriculum-map.en.json` — stable source lesson IDs mapped to topics and source difficulty.
+- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation draft bank with 114 questions.
 - `content/quiz/README.md` — authoring, editorial review, approval and release rules.
-- `scripts/quiz/validate-question-bank.mjs` — structural and curriculum validation plus a SQL exporter that always inserts as `draft`.
-- `supabase/tests/quiz_draft_content_catalog.sql` and `quiz_draft_content_import_assertions.sql` — isolated local curriculum fixtures and import assertions.
+- `scripts/quiz/validate-question-bank.mjs` — structural/curriculum validator and draft-only SQL exporter.
+- `supabase/tests/quiz_draft_content_catalog.sql` and `quiz_draft_content_import_assertions.sql` — isolated curriculum fixtures and import assertions.
 
-The Beginner batch maps six questions to each of the five Beginner source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`. A second batch adds 36 Intermediate questions across five Intermediate lessons: eight each for `i-collocations` and seven each for `i-conditionals`, `i-phrasal`, `i-perfect` and `i-word-families`. Each record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations.
+Current content:
+- Beginner: 30 questions, six each across `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`.
+- Intermediate: 36 questions across `i-collocations` (8), `i-conditionals` (7), `i-phrasal` (7), `i-perfect` (7) and `i-word-families` (7).
+- Advanced: 48 questions across `a-hedging` (10), `a-inversion` and `a-mixed-conditionals` (20 combined in the `advanced-grammar` topic), `a-idioms` (9) and `a-near-synonyms` (9).
+
+Every record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations. The material is original SwiftDictionary-authored content.
 
 ### 14.2 Validation and import boundary
 
@@ -617,18 +622,18 @@ The validator checks:
 - source lesson mapping to the shared curriculum map, including topic and difficulty;
 - the draft-only source-pack status.
 
-The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 66 rows (30 Beginner and 36 Intermediate), ten source-topic groups, valid lesson mappings, four options and zero approved rows. Both Quiz workflow run 107 jobs passed: PostgreSQL 17 migration/RPC/content-import tests and disposable local Supabase Auth/RPC/content-import/security-advisor tests. The local job uses pinned Supabase CLI 2.81.3; this resolved the earlier GitHub release API rate-limit failure seen in run 104.
+The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The SQL assertions now check 114 rows (30 Beginner, 36 Intermediate and 48 Advanced), source-topic distribution, active lesson mappings, four-option records and zero approved rows. Quiz workflow run 107 passed the earlier 66-question pack in PostgreSQL 17 and disposable local Supabase. The expanded 114-question import is awaiting its own CI run.
 
 The validator is structural, not a semantic truth checker. Every question still requires human editorial review for one unambiguous correct answer, distractor quality, difficulty, natural English, accurate Simplified Chinese and explanation quality. A separate reviewed approval migration is required after content approval.
 
 ### 14.3 Current content readiness
 
-The draft pack contains 30 Beginner questions and 36 Intermediate questions. These counts reach the preferred three-session targets for Beginner and Intermediate, with 30 Beginner questions also exceeding the 24-question Beginner support target for Intermediate. Neither difficulty is available because all records remain draft and have not been approved or imported to production.
+The current draft counts reach the preferred three-session question-bank targets:
+- Beginner: 30 questions (target 30).
+- Intermediate: 36 Intermediate + 30 Beginner support questions (target 36 + 24).
+- Advanced: 48 Advanced + 12 Intermediate + 12 Beginner support questions (target 48 + 12 + 12).
 
-Advanced content is not yet authored. Its minimum and target remain:
-- Advanced: minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
-
-All availability checks continue to count only approved questions with an active matching permanent lesson/topic mapping and the learner's selected translation language. The current batch is English-learning / Simplified-Chinese-translation only; other translation languages remain unavailable until matching content is authored and approved.
+All records remain draft, so no difficulty is available yet. Availability additionally requires manual approval, production import, active matching lesson/topic mappings, the learner's selected translation language and sufficient unseen questions. This pack currently supports English learning with Simplified Chinese translation only.
 
 ### 14.4 Production allowance change
 
@@ -641,6 +646,6 @@ Post-migration verification confirmed exactly those two enabled Quiz rows. Other
 
 ### 14.5 Legal and content provenance check
 
-The content batch is original authored SwiftDictionary educational material and does not import third-party dictionary corpora, textbook exercises, commercial question banks or user personal data. No new personal-data processing, tracking or analytics is introduced by the authoring pipeline. Maintain provenance notes for future batches and review the content for third-party quotation or licensing issues before adding external source material.
+The content batches are original authored educational material and do not import third-party dictionary corpora, textbook exercises or commercial question banks. They add no learner personal data, tracking or analytics. Future external-source content requires provenance and licensing review.
 
-The standing Malaysia PDPA and general legal review remains in force for the overall Quiz feature, especially account-linked learner performance data. The dedicated Terms and Legal update remains after Flashcards is released to main.
+The broader Quiz feature still processes account-linked learner performance, so the standing Malaysia PDPA and general privacy review remains applicable. The dedicated Terms and Legal update remains scheduled after Flashcards is released to main.
