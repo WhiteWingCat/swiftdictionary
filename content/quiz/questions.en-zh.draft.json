@@ -58,10 +58,11 @@
           "learning_text": "take a break",
           "translation_text": "休息一下"
         },
-        [
-          "hold a break",
-          "进行一次休息"
-        ]
+        {
+          "id": "d",
+          "learning_text": "hold a break",
+          "translation_text": "进行一次休息"
+        }
       ],
       "correct_option_id": "c",
       "explanation_learning": "“Take a break” is the standard expression for resting briefly.",
@@ -460,10 +461,11 @@
           "learning_text": "Does he work here?",
           "translation_text": "他在这里工作吗？"
         },
-        [
-          "Does he work at here?",
-          "他在这里工作吗？"
-        ]
+        {
+          "id": "d",
+          "learning_text": "Does he work at here?",
+          "translation_text": "他在这里工作吗？"
+        }
       ],
       "correct_option_id": "c",
       "explanation_learning": "With “does,” the main verb stays in its base form: “work.”",
@@ -583,10 +585,11 @@
           "learning_text": "She walking to work every day.",
           "translation_text": "她每天步行上班。"
         },
-        [
-          "She walkes to work every day.",
-          "她每天步行上班。"
-        ]
+        {
+          "id": "d",
+          "learning_text": "She walkes to work every day.",
+          "translation_text": "她每天步行上班。"
+        }
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Every day” describes a regular habit, and “she” takes the verb form “walks.”",
