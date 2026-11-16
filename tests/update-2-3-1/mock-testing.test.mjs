@@ -207,3 +207,80 @@ test("preview host without explicit opt-in does not activate mock mode",()=>{
   assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,undefined);
   assert.equal(env.window.__swiftDictionaryMock,undefined);
 });
+
+test("mock Quiz supports Free session resume, answer saving, submission, history and 1/day allowance",async()=>{
+  const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  let availability=await client.rpc("get_my_quiz_availability");
+  assert.equal(availability.data.allowance.daily_limit,1);
+  assert.equal(availability.data.allowance.remaining_count,1);
+  const started=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
+  assert.equal(started.error,null);
+  assert.equal(started.data.questions.length,10);
+  const active=await client.rpc("get_my_active_quiz");
+  assert.equal(active.data.session_id,started.data.session_id);
+  assert.equal(active.data.questions.length,10);
+  const first=active.data.questions[0];
+  const saved=await client.rpc("save_my_quiz_answer",{
+    p_session_id:active.data.session_id,p_question_id:first.question_id,
+    p_selected_option_id:"a",p_current_position:2
+  });
+  assert.equal(saved.data.questions[0].selected_option_id,"a");
+  const blocked=await client.rpc("start_my_quiz",{p_difficulty:"intermediate"});
+  assert.equal(blocked.data.status,"active_session_exists");
+  for(const question of saved.data.questions){
+    if(!question.selected_option_id){
+      const result=await client.rpc("save_my_quiz_answer",{
+        p_session_id:active.data.session_id,p_question_id:question.question_id,
+        p_selected_option_id:"a",p_current_position:question.position
+      });
+      assert.equal(result.error,null);
+    }
+  }
+  const submitted=await client.rpc("submit_my_quiz",{p_session_id:active.data.session_id});
+  assert.equal(submitted.error,null);
+  assert.equal(submitted.data.status,"completed");
+  assert.equal(submitted.data.percentage,100);
+  assert.equal(submitted.data.questions[0].correct_option_id,"a");
+  const history=await client.rpc("get_my_quiz_history",{p_limit:20});
+  assert.equal(history.data.length,1);
+  const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
+  assert.equal(review.data.questions.length,10);
+  availability=await client.rpc("get_my_quiz_availability");
+  assert.equal(availability.data.allowance.remaining_count,0);
+  const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
+  assert.equal(exhausted.error.code,"P0001");
+});
+
+test("Premium mock Quiz supports abandonment without quota use and three completed sessions/day",async()=>{
+  const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  let availability=await client.rpc("get_my_quiz_availability");
+  assert.equal(availability.data.allowance.daily_limit,3);
+  const abandoned=await client.rpc("start_my_quiz",{p_difficulty:"advanced"});
+  assert.equal(abandoned.data.questions.length,20);
+  const activeStart=await client.rpc("start_my_quiz",{p_difficulty:"intermediate"});
+  assert.equal(activeStart.data.status,"active_session_exists");
+  const abandon=await client.rpc("abandon_my_quiz",{p_session_id:abandoned.data.session_id});
+  assert.equal(abandon.data.status,"abandoned");
+  availability=await client.rpc("get_my_quiz_availability");
+  assert.equal(availability.data.allowance.remaining_count,3);
+  for(const difficulty of ["intermediate","beginner","advanced"]){
+    const started=await client.rpc("start_my_quiz",{p_difficulty:difficulty});
+    const session=started.data.session||started.data;
+    for(const question of session.questions){
+      const saved=await client.rpc("save_my_quiz_answer",{
+        p_session_id:session.session_id,p_question_id:question.question_id,
+        p_selected_option_id:"a",p_current_position:question.position
+      });
+      assert.equal(saved.error,null);
+    }
+    const submitted=await client.rpc("submit_my_quiz",{p_session_id:session.session_id});
+    assert.equal(submitted.data.status,"completed");
+  }
+  availability=await client.rpc("get_my_quiz_availability");
+  assert.equal(availability.data.allowance.remaining_count,0);
+  const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
+  assert.equal(exhausted.error.code,"P0001");
+});
