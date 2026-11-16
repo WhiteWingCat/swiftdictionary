@@ -824,3 +824,50 @@ All three jobs passed:
    - Confirm Chinese/English translation refresh works without navigating away.
 5. Do not merge PR #5, apply production migrations or deploy until the owner explicitly approves.
 6. The preceding Update 2.3.1 content-quality/allowance work remains in force and is recorded in the prior archive. This layout change does not reverse those fixes.
+
+
+## 24. Update 2.4.0 — Quiz frontend foundation (2026-11-16)
+
+### Implementation
+
+The Quiz placeholder in `index.html` has been replaced on `feature/update-2-4-0-quiz` with an authenticated Quiz interface.
+
+- Signed-out users are prompted to sign in. Quiz history and sessions remain account-scoped.
+- The overview reads allowance, timezone, difficulty readiness, active-session state and completed history from authenticated RPCs.
+- Difficulty session sizes are Beginner 10, Intermediate 15 and Advanced 20 questions.
+- Approved bank counts and backend availability reasons are shown for each difficulty.
+- An unfinished session can be resumed; one active session per account remains enforced by the database.
+- Four shuffled answer options are rendered. Answers and current position are saved through RPCs and may be changed until submission.
+- Submission requires all answers and explicit confirmation.
+- Completed results show score and percentage, without pass/fail, and include the complete answer/explanation review.
+- Completed history entries can be reopened for review.
+- Explicit abandonment warns that issued questions cannot be reused that local day.
+- Session translation uses the language pair frozen by the backend session snapshot. Current draft pack supports English + Simplified Chinese only.
+- Account refresh events clear Quiz UI state and reload the active account's data when the Quiz page is open.
+
+### Security and privacy
+
+- The frontend calls only the public authenticated RPC wrappers: `get_my_quiz_availability`, `start_my_quiz`, `get_my_active_quiz`, `save_my_quiz_answer`, `submit_my_quiz`, `abandon_my_quiz`, `get_my_quiz_history`, and `get_my_quiz_review`.
+- It does not query private Quiz tables directly and does not submit a user ID; the backend derives ownership from `auth.uid()`.
+- Answer keys and explanations are only returned through the completed review RPC.
+- No analytics, advertising tracker or external content source was added.
+- Quiz answers/selections, session state, score and history are account-linked learning data. The temporary same-day no-repeat reservation ledger remains separate and minimal.
+- Malaysia PDPA and general privacy planning remains mandatory before release. The privacy notice should explain Quiz progress/answer storage, history deletion and temporary reservation retention. This is not legal advice or a compliance certification.
+
+### Validation and release status
+
+- Added `scripts/quiz/validate-quiz-frontend.mjs`, which extracts and parses the main inline application JavaScript, asserts required screens/RPCs, checks answer-review/save/abandon flows and prevents direct private-table access.
+- Added this validator to `.github/workflows/quiz-db-foundation.yml`.
+- The inline application script was independently parsed during development and returned no syntax errors. The GitHub Actions run for the updated workflow still needs to be confirmed; no runtime browser test is claimed yet.
+- Added `docs/UPDATE-2.4.0-QUIZ-FRONTEND-IMPLEMENTATION.md` with the screen/RPC map, data boundaries and next validation steps.
+- All 114 question records remain draft. No Quiz schema/RPC migration or content was applied to production.
+- The only production Quiz change remains the separately applied and verified allowance update: Free 1/day and Premium 3/day.
+- PR #8 remains draft and unmerged. No website deployment or production schema change was performed.
+
+### Next actions
+
+1. Confirm the frontend validation workflow passes.
+2. Add authenticated browser coverage using disposable local Supabase and synthetic users; use a separate test-only approved fixture, not the 114 production draft questions.
+3. Verify signed-out gating, allowance/difficulty states, answer saving and changing, resume after reload, abandonment, submission/scoring, complete review, history, translation snapshot and account switching.
+4. Keep PR #8 draft until automated runtime validation and owner review are complete.
+5. Do not merge, deploy or apply production Quiz schema/content without explicit owner approval.
