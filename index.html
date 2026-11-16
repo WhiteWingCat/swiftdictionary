@@ -18799,11 +18799,40 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;await quizLoadHome();}
       catch(error){quizStatus("Could not abandon this Quiz: "+error.message,true);}
     }
+    async function quizSyncCoursePreferences(){
+      if(!currentUser||!supabaseClient)return;
+      await preferenceWriteQueue;
+      const {data,error}=await supabaseClient.from("user_preferences")
+        .select("learning_language,translation_language").eq("user_id",currentUser.id).maybeSingle();
+      if(error)throw error;
+      if(!data)return;
+      const nextCourse=data.learning_language==="zh"?"zh":"en";
+      const nextTranslation=data.translation_language==="zh"?"zh":"en";
+      const courseChanged=course!==nextCourse;
+      course=nextCourse;translationLanguage=nextTranslation;
+      try{localStorage.setItem(preferenceStorageKey,JSON.stringify({learning_language:course,translation_language:translationLanguage}));}catch{}
+      quizEl("courseSelect").value=course;
+      quizEl("translationSelect").value=translationLanguage;
+      quizEl("preferenceLearning").value=course;
+      quizEl("preferenceTranslation").value=translationLanguage;
+      words=course==="zh"?chineseWords:englishWords;
+      categoryRow.hidden=course==="zh";
+      grid.classList.toggle("character-grid",course==="zh");
+      search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+      if(courseChanged){
+        activeLetter="";activeCategory="all";onlySaved=false;currentPage=1;
+        savedFilter.setAttribute("aria-pressed","false");savedFilter.textContent="☆ Saved words";
+        search.value="";makeAlphabet();updateLetterButtons();render();
+      }
+    }
     async function initialiseQuizPage(){
       if(currentUser)quizPageState.userId=currentUser.id;
       if(quizPageState.loading)return;quizPageState.loading=true;
       try{
         if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access Quiz.");return;}
+        await quizSyncCoursePreferences();
+        applyLearningCourseAvailability();
+        if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.");quizPageState.loaded=true;return;}
         await quizLoadHome();quizPageState.loaded=true;
       }catch(error){quizStatus("Quiz is not ready on this environment yet. "+(error.message||""),true);}
       finally{quizPageState.loading=false;}
@@ -18917,8 +18946,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizEl("lessonLibrary").hidden=chinese;
       quizEl("quizChineseUnavailable").hidden=!chinese;
       quizEl("quizHome").hidden=chinese||!currentUser;
-      quizEl("quizSession").hidden=chinese;
-      quizEl("quizResults").hidden=chinese;
+      quizEl("quizSession").hidden=chinese||!currentUser||!quizPageState.session;
+      quizEl("quizResults").hidden=chinese||!currentUser||!quizPageState.result;
       quizEl("quizSignedOut").hidden=chinese||!!currentUser;
       quizUpdateTranslationNotice(chinese?null:(quizPageState.session||quizPageState.result));
       quizEl("flashcardsChineseUnavailable").hidden=!chinese;
