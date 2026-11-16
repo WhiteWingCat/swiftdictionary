@@ -5,7 +5,7 @@
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
 > **Last consolidated:** 2026-11-16  
 > **Current baseline:** Update 2.3.0 merged to main on 2026-11-13  
-> **Current work:** Update 2.4.0 Quiz on feature/update-2-4-0-quiz; latest learning-page introduction/Chinese-availability/translation-fallback additions are undergoing CI validation  
+> **Current work:** Update 2.4.0 Quiz on feature/update-2-4-0-quiz; local Supabase CI is the only approved backend test environment (no Supabase Development Branch); latest first-visit-guide regression fixes are undergoing CI validation  
 > **Record status:** Updated 2026-11-16 with Quiz frontend, owner-approved introduction/FAQ and Chinese-course availability requirements, account-scoped dismissal design, and latest validation boundary. Re-check repository, Supabase and deployment state before further changes.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
@@ -986,3 +986,39 @@ The new preference table stores only the learner's account ID, one of three page
 5. Check current Supabase migration history before any staging/production migration. Do not apply this migration to production without explicit release approval.
 6. Verify the Cloudflare Pages branch preview for feature-update-2-4-0-quiz and test ?swiftMock=1 with both mock identities before offering the preview to the owner. The preview URL could not be verified from this session, so do not claim it is live or safe to use yet.
 7. Keep PR #8 draft until owner review and the preview check are complete. No merge, production migration or website deployment without explicit approval.
+
+
+## 25. Update 2.4.0 — No Supabase Development Branch; regression recovery (2026-11-16)
+
+### Owner decision and approved environment
+
+The owner explicitly declined use of a Supabase Development Branch. Do not create, enable, configure, or rely on Supabase Branching for this project. This also does not authorize a paid Supabase plan or any new recurring infrastructure.
+
+Continue with the existing free-first approach:
+- Keep implementation on `feature/update-2-4-0-quiz` and PR #8 draft.
+- Use disposable local Supabase services (Supabase CLI + Docker) and PostgreSQL 17 in GitHub Actions for schema, Auth, RPC, RLS and authenticated browser integration.
+- Use synthetic Free/Premium identities and synthetic approved test-only question fixtures. The 114 authored curriculum questions remain draft and are not approved by this testing decision.
+- Use the existing Cloudflare Pages feature preview with the explicitly gated, fictional Mock User mode for UI-only owner testing after deployment is verified. The preview frontend must not be treated as backend-isolated: source configuration still points at production Supabase. Do not sign in with real accounts or perform data-changing tests there.
+- Keep GitHub Pages production, live Supabase schema/data, PR merge and release deployment unchanged unless separately approved.
+
+### CI diagnosis and fixes
+
+- The latest branch head before recovery was `a51e0ee2111e65a03541911298157c9896dc2c28`.
+- Quiz workflow run #314 (run ID 43848032541) had a passing PostgreSQL foundation job, but the disposable local Supabase Auth/Chromium job failed one browser test. The failure was not caused by a Supabase Development Branch or backend schema: the test navigated from Quiz to Lessons, and the new first-visit Lessons introduction overlay intercepted the lesson-card click. Other Quiz runtime tests in that job passed, including translation snapshot fallback, introduction/account persistence, Chinese-course gating, Premium allowance/active-session behaviour and signed-out gating.
+- The companion 2.3.x run #926 exposed the same new first-visit overlay blocking unrelated legacy Lessons/Daily Learning smoke tests (13 affected tests); its PostgreSQL and local Supabase compatibility jobs passed.
+- Updated `tests/browser/update-2-3-0-smoke.spec.js` to dismiss the new guide in the shared setup for this legacy regression suite, keeping the dedicated introduction tests in the Quiz runtime suite responsible for testing guide behaviour.
+- Updated `tests/browser/update-2-4-0-quiz-runtime.spec.js` to explicitly wait for and dismiss the independent Lessons introduction before opening a permanent lesson in the authenticated translation/Quiz end-to-end test.
+- Commits: `f1ffc99d387899af8e06ff71a63196188b31bc8e` (legacy smoke-suite isolation) and `47ed08907d0b91dcb41d2f9cd196309326a997b7` (authenticated Quiz test dismissal). Both changes are test-only; application, migrations, content and production settings were not modified.
+- New branch-head CI checks for `47ed08907d0b91dcb41d2f9cd196309326a997b7` were observed running: PostgreSQL 17, local Supabase Auth/RPC/Chromium, 2.3.x Chromium regression, 2.3.x PostgreSQL and local Auth compatibility. Do not mark them passed until all relevant checks complete successfully.
+
+### Privacy, legal and release boundaries
+
+The selected alternative creates ephemeral synthetic test data in disposable local environments; it does not require copying production personal data or creating cloud test accounts. Continue to keep production secrets out of test fixtures and logs. The existing Quiz privacy/legal review remains in force: Quiz selections, progress, scores, history and the temporary no-repeat reservation ledger are account-linked learning data; Malaysia PDPA and applicable international/teen privacy review, retention disclosure and deletion behaviour must be addressed before release. This is planning guidance, not legal advice.
+
+### Recovery point and next actions
+
+1. Check all CI runs/checks on branch head `47ed08907d0b91dcb41d2f9cd196309326a997b7`; investigate any remaining failure from logs rather than assuming a product regression.
+2. If the overlay-related tests pass, continue authenticated Quiz edge-case coverage and content readiness review using disposable local Supabase only.
+3. Verify the Cloudflare Pages preview build and hostname before offering the mock link; use only `?swiftMock=1` and fictional Test User A (Free) / Test User B (Premium).
+4. Keep all 114 authored questions in draft until the owner separately reviews and approves content. No production Quiz schema/RPC migration or content import.
+5. Keep PR #8 draft and unmerged. No production deployment, database migration or release without explicit owner approval.
