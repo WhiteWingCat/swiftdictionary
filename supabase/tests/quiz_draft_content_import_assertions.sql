@@ -10,8 +10,7 @@ begin
          count(*) filter (where question_id like 'quiz-intermediate-%')::integer
   into v_beginner,v_intermediate
   from private.quiz_question_bank
-  where question_id like 'quiz-beginner-%'
-     or question_id like 'quiz-intermediate-%'
+  where (question_id like 'quiz-beginner-%' or question_id like 'quiz-intermediate-%')
     and learning_language_code='en'
     and translation_language_code='zh';
 
