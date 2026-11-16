@@ -2,13 +2,15 @@ import fs from "node:fs";
 
 const file = process.argv[2] ?? "content/quiz/questions.en-zh.draft.json";
 const raw = JSON.parse(fs.readFileSync(file, "utf8"));
+const mapFile = "content/quiz/curriculum-map.en.json";
+const lessons = JSON.parse(fs.readFileSync(mapFile, "utf8"));
 const fail = [];
-const lessons = raw.source_lessons ?? {};
 const questions = raw.questions ?? [];
 const seenIds = new Set();
 const seenPrompts = new Set();
 const counts = { beginner: 0, intermediate: 0, advanced: 0 };
 const topics = { beginner: new Set(), intermediate: new Set(), advanced: new Set() };
+const emitSql = process.argv.includes("--emit-sql");
 
 function requireText(value, label, max = 2000) {
   if (typeof value !== "string" || !value.trim() || value.length > max) {
@@ -69,16 +71,16 @@ if (fail.length) {
   for (const issue of fail) console.error(" - " + issue);
   process.exit(1);
 }
-console.log("Quiz content validation passed.");
-console.log("Draft items: " + questions.length);
+if (!emitSql) console.log("Quiz content validation passed.");
+if (!emitSql) console.log("Draft items: " + questions.length);
 for (const difficulty of ["beginner", "intermediate", "advanced"]) {
-  console.log(difficulty + ": " + counts[difficulty] + " questions across " + topics[difficulty].size + " topics");
+  if (!emitSql) console.log(difficulty + ": " + counts[difficulty] + " questions across " + topics[difficulty].size + " topics");
 }
-console.log("Availability gates (approved content only; draft counts do not enable any difficulty):");
-console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum, " + counts.beginner + "/30 target");
-console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
-console.log("Advanced minimum 32 advanced + 8 intermediate + 8 beginner; target 48 + 12 + 12.");
-console.log("All source content remains draft and must receive human approval before import.");
+if (!emitSql) console.log("Availability gates (approved content only; draft counts do not enable any difficulty):");
+if (!emitSql) console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum, " + counts.beginner + "/30 target");
+if (!emitSql) console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
+if (!emitSql) console.log("Advanced minimum 32 advanced + 8 intermediate + 8 beginner; target 48 + 12 + 12.");
+if (!emitSql) console.log("All source content remains draft and must receive human approval before import.");
 
 if (process.argv.includes("--emit-sql")) {
   const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
