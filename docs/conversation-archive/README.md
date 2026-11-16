@@ -33,3 +33,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 | 2026-11-14 | [Update 2.4.0 Quiz database foundation and no-cost validation](2026-11-14-update-2-4-0-quiz-database-foundation.md) | Records the private question-bank/session schema, same-day uniqueness, four-option validation, RLS/privileges, declined hosted Supabase branch cost, PostgreSQL 17 GitHub Actions alternative and passing foundation tests. |
 
 | 2026-11-14 | Update 2.4.0 — Quiz authenticated RPC implementation | Authenticated Quiz RPCs, question selection, session lifecycle, scoring, allowances, history deletion, PostgreSQL/local Supabase validation and preliminary Malaysia privacy review. | [Read archive](2026-11-14-update-2-4-0-quiz-authenticated-rpcs.md) |
+
+| 2026-11-16 | Update 2.4.0 — Quiz content pipeline and live allowance change | Records the guarded production Free 1/Premium 3 Quiz allowance migration, bilingual Beginner draft content, validation/import workflow and remaining content gates. | [Read archive](2026-11-16-quiz-content-pipeline-and-allowance-update.md) |
