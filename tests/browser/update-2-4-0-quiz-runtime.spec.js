@@ -161,6 +161,13 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator("#learningIntroDismiss").click();
   await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
   await expect(page.locator("#lessonCards button").first()).toBeVisible();
+  const lessonAllowanceNetwork = [];
+  page.on("response", async response => {
+    if (!response.url().includes("/rest/v1/")) return;
+    let body = "";
+    try { body = (await response.text()).slice(0, 1200); } catch {}
+    lessonAllowanceNetwork.push({ url: response.url(), status: response.status(), body });
+  });
   await page.locator("#lessonCards button").first().click();
   await page.waitForFunction(() => {
     const detail = document.querySelector("#lessonDetailPage");
@@ -174,7 +181,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
     accountStatus: document.querySelector("#accountStatus")?.textContent,
     accountLabel: document.querySelector("#accountButtonLabel")?.textContent
   }));
-  expect(lessonOpenDiagnostics.detailHidden, "Lesson opening diagnostics: " + JSON.stringify(lessonOpenDiagnostics)).toBe(false);
+  expect(lessonOpenDiagnostics.detailHidden, "Lesson opening diagnostics: " + JSON.stringify(lessonOpenDiagnostics) + "; allowance network: " + JSON.stringify(lessonAllowanceNetwork)).toBe(false);
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
   await page.locator('input[name="lessonAnswer0"][value="1"]').check();
   await page.locator("#translationSelect").selectOption("zh");
