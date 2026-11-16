@@ -945,6 +945,10 @@ The owner also confirmed:
 - Supabase project discovery found the SwiftDictionary production project only and no Supabase development branches. The new migration is a repository draft and was not applied to production.
 - No production schema/data changes, website deployment, merge or question publication occurred. All 114 Quiz question records remain drafts.
 
+
+- **Runtime CI recovery:** Quiz workflow run #224 completed the PostgreSQL job successfully but its disposable local Supabase browser job failed all five browser tests because the new introduction dialog markup had been placed after the main inline application script. The application registered dialog handlers before the markup existed, so route initialisation stopped and Quiz remained hidden. Fixed by moving the dialog markup before application script initialization (commit b8830b0). The corrected branch-head run #234 completed PostgreSQL validation successfully and its disposable Supabase/Auth/browser job was still running at the latest check.
+- **Mock User compatibility:** Added learning_page_introduction_preferences to the isolated mock adapter's supported tables and per-user sessionStorage fixture, so first-visit dismissals can be tested without real Supabase. Extended the frontend validator to enforce this adapter support (commits 83ee304 and d3d7e45).
+
 ### Privacy/legal planning
 
 The new preference table stores only the learner's account ID, one of three page keys and a dismissal timestamp. This is still account-linked personal data. Before release, include it in the Malaysia PDPA and international privacy review, update the retention/deletion inventory, confirm account deletion cascades remove these rows, and ensure the privacy notice explains saved page preferences and cross-device synchronisation. Do not treat a free educational project as automatically outside PDPA scope; obtain Malaysian legal advice on applicability. This is planning guidance, not legal advice or a compliance certification.
