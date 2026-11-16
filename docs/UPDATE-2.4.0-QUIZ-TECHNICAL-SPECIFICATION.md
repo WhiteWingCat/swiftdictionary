@@ -617,13 +617,13 @@ The validator checks:
 - source lesson mapping to the shared curriculum map, including topic and difficulty;
 - the draft-only source-pack status.
 
-The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 20 rows, five topics, valid lesson mappings, four options and zero approved rows. This tests the importer against the real Quiz table constraints without writing question content to production.
+The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 30 rows, five topics (six per topic), valid lesson mappings, four options and zero approved rows. This tests the importer against the real Quiz table constraints without writing question content to production.
 
 The validator is structural, not a semantic truth checker. Every question still requires human editorial review for one unambiguous correct answer, distractor quality, difficulty, natural English, accurate Simplified Chinese and explanation quality. A separate reviewed approval migration is required after content approval.
 
 ### 14.3 Current content readiness
 
-Batch 01 contains 30 Beginner questions. If approved and imported to the Quiz bank, this would meet the Beginner hard bank minimum of 20, but not the preferred three-session target of 30. It does not make Beginner available yet because the content remains draft and has not been imported to production.
+Batch 01 contains 30 Beginner questions. If approved and imported to the Quiz bank, this reaches the preferred three-session target of 30. It does not make Beginner available yet because the content remains draft and has not been approved or imported to production.
 
 Intermediate and Advanced batches are not yet authored. Their minimums and targets remain:
 - Intermediate: minimum 24 Intermediate + 16 Beginner; target 36 + 24.
