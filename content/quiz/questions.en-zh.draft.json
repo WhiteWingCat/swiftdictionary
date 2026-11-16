@@ -58,11 +58,10 @@
           "learning_text": "take a break",
           "translation_text": "休息一下"
         },
-        {
-          "id": "d",
-          "learning_text": "have a breaked",
-          "translation_text": "有一个休息"
-        }
+        [
+          "hold a break",
+          "进行一次休息"
+        ]
       ],
       "correct_option_id": "c",
       "explanation_learning": "“Take a break” is the standard expression for resting briefly.",
@@ -71,8 +70,8 @@
     {
       "question_id": "quiz-beginner-003",
       "source_lesson_id": "b-verb-combinations",
-      "prompt_learning": "Choose the natural phrase: I usually ___ breakfast at seven.",
-      "prompt_translation": "选择自然的短语：我通常在七点___早餐。",
+      "prompt_learning": "Which phrase is commonly used to say that you eat the morning meal?",
+      "prompt_translation": "哪个短语通常用来表示吃早饭？",
       "options": [
         {
           "id": "a",
@@ -585,11 +584,10 @@
           "learning_text": "She walking to work every day.",
           "translation_text": "她每天步行上班。"
         },
-        {
-          "id": "d",
-          "learning_text": "She walked to work every day now.",
-          "translation_text": "她现在每天步行上班。"
-        }
+        [
+          "She walkes to work every day.",
+          "她每天步行上班。"
+        ]
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Every day” describes a regular habit, and “she” takes the verb form “walks.”",
