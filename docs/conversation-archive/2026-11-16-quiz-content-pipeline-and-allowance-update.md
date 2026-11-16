@@ -36,7 +36,7 @@ New files on `feature/update-2-4-0-quiz`:
 - `supabase/tests/quiz_draft_content_import_assertions.sql` — database import assertions.
 - `.github/workflows/quiz-db-foundation.yml` — PostgreSQL and local Supabase jobs extended to validate and import draft content in disposable test databases.
 
-Batch 01 has 20 Beginner questions, four mapped to each of five live English permanent lesson IDs:
+Batch 01 has 30 Beginner questions, four mapped to each of five live English permanent lesson IDs:
 - `b-verb-combinations` → `everyday-vocabulary`
 - `b-articles` → `nouns-and-articles`
 - `b-countable-nouns` → `nouns-and-quantity`
@@ -51,7 +51,7 @@ A separate manual editorial review and separate approval migration are required 
 
 ## Content readiness
 
-- Beginner: 20 draft questions. Meets the hard bank count minimum of 20 only after approval/import; below the preferred 30-question target.
+- Beginner: 30 draft questions across five topics. Reaches the preferred three-session target but remains unavailable until manual approval and import.
 - Intermediate: not yet authored. Minimum 24 Intermediate + 16 Beginner; preferred target 36 + 24.
 - Advanced: not yet authored. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; preferred target 48 + 12 + 12.
 - Availability counts only approved content with an active, matching permanent lesson/topic mapping and the selected translation language.
