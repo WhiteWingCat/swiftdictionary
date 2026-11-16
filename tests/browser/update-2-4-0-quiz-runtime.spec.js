@@ -162,7 +162,19 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
   await expect(page.locator("#lessonCards button").first()).toBeVisible();
   await page.locator("#lessonCards button").first().click();
-  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await page.waitForFunction(() => {
+    const detail = document.querySelector("#lessonDetailPage");
+    const status = document.querySelector("#lessonStatus");
+    return (detail && !detail.hidden) || !!status?.textContent?.trim();
+  }, null, { timeout: 10000 });
+  const lessonOpenDiagnostics = await page.evaluate(() => ({
+    detailHidden: document.querySelector("#lessonDetailPage")?.hidden,
+    lessonStatus: document.querySelector("#lessonStatus")?.textContent,
+    readerHidden: document.querySelector("#lessonReader")?.hidden,
+    accountStatus: document.querySelector("#accountStatus")?.textContent,
+    accountLabel: document.querySelector("#accountButtonLabel")?.textContent
+  }));
+  expect(lessonOpenDiagnostics.detailHidden, "Lesson opening diagnostics: " + JSON.stringify(lessonOpenDiagnostics)).toBe(false);
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
   await page.locator('input[name="lessonAnswer0"][value="1"]').check();
   await page.locator("#translationSelect").selectOption("zh");
