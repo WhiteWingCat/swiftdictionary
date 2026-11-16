@@ -565,7 +565,7 @@ The local Supabase stack is created and destroyed within GitHub Actions. It is n
 
 - No approved Quiz question content has been inserted. The production question bank remains empty, so no difficulty should be made available yet.
 - Quiz frontend screens and navigation are not implemented in this stage.
-- Production Quiz allowance values remain Free 5/day and Premium 12/day. The confirmed target is Free 1/day and Premium 3/day; a separate reviewed migration must update the production limits before Quiz is enabled.
+- Production Quiz allowance values were updated on 2026-11-16 to Free 1/day and Premium 3/day by tracked migration 20261116043139 (swiftdictionary_update_2_4_0_quiz_allowance_1_3). The live rows were queried and verified after application. No other activity limits or usage ledgers were changed. The Quiz schema/RPC migrations remain feature-branch work and have not been applied to production.
 - PR #8 remains a draft validation PR. Do not merge it, apply production migrations, change production allowance rows, or deploy until explicitly approved.
 - Next work should cover the question-bank authoring/import/approval pipeline, content minimums and curriculum coverage, then the Quiz UI and end-to-end browser tests.
 
@@ -592,3 +592,56 @@ Official reference material:
 - [Automated Decision-Making and Profiling Guideline (issued 30 April 2026)](https://www.pdp.gov.my/en/akta/automated-decision-making-and-profiling-guideline-admp/)
 - [Cross-Border Transfer Guideline](https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-cross-border-transfer-of-personal-data-cbpdt/)
 - [Circular No. 1/2026 — Registration of Data Controllers](https://www.pdp.gov.my/en/akta/personal-data-protection-commissioners-circular-no-1-2026-registration-of-data-controllers/)
+
+
+
+## 14. Quiz question-bank authoring and draft import pipeline (2026-11-16)
+
+### 14.1 Authoring workflow
+
+The feature branch now contains a source-controlled bilingual authoring workflow:
+- `content/quiz/curriculum-map.en.json` — stable source lesson IDs mapped to topic and source difficulty.
+- `content/quiz/questions.en-zh.draft.json` — original English-learning / Simplified-Chinese-translation Batch 01, currently 20 Beginner questions.
+- `content/quiz/README.md` — authoring, editorial review, approval and release rules.
+- `scripts/quiz/validate-question-bank.mjs` — structural and curriculum validation plus a SQL exporter that always inserts as `draft`.
+- `supabase/tests/quiz_draft_content_catalog.sql` and `quiz_draft_content_import_assertions.sql` — isolated local curriculum fixtures and import assertions.
+
+The batch maps four questions to each of the five existing Beginner source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`. Each record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations.
+
+### 14.2 Validation and import boundary
+
+The validator checks:
+- stable unique question IDs and no duplicate normalized English prompts;
+- exact four-option shape, unique option IDs and a matching answer key;
+- non-empty bilingual prompts, options and explanations;
+- source lesson mapping to the shared curriculum map, including topic and difficulty;
+- the draft-only source-pack status.
+
+The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 20 rows, five topics, valid lesson mappings, four options and zero approved rows. This tests the importer against the real Quiz table constraints without writing question content to production.
+
+The validator is structural, not a semantic truth checker. Every question still requires human editorial review for one unambiguous correct answer, distractor quality, difficulty, natural English, accurate Simplified Chinese and explanation quality. A separate reviewed approval migration is required after content approval.
+
+### 14.3 Current content readiness
+
+Batch 01 contains 20 Beginner questions. If approved and imported to the Quiz bank, this would meet the Beginner hard bank minimum of 20, but not the preferred three-session target of 30. It does not make Beginner available yet because the content remains draft and has not been imported to production.
+
+Intermediate and Advanced batches are not yet authored. Their minimums and targets remain:
+- Intermediate: minimum 24 Intermediate + 16 Beginner; target 36 + 24.
+- Advanced: minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
+
+All availability checks continue to count only approved questions with an active matching permanent lesson/topic mapping and the learner's selected translation language. The current batch is English-learning / Simplified-Chinese-translation only; other translation languages remain unavailable until matching content is authored and approved.
+
+### 14.4 Production allowance change
+
+The live Supabase project was updated by the tracked migration:
+- `20261116043139` — `swiftdictionary_update_2_4_0_quiz_allowance_1_3`
+- Free Quiz allowance: 1 completion per local day.
+- Premium Quiz allowance: 3 completions per local day.
+
+Post-migration verification confirmed exactly those two enabled Quiz rows. Other activity allowances and all usage records were left unchanged. The Quiz schema/RPC migrations and draft content remain unapplied to production.
+
+### 14.5 Legal and content provenance check
+
+The content batch is original authored SwiftDictionary educational material and does not import third-party dictionary corpora, textbook exercises, commercial question banks or user personal data. No new personal-data processing, tracking or analytics is introduced by the authoring pipeline. Maintain provenance notes for future batches and review the content for third-party quotation or licensing issues before adding external source material.
+
+The standing Malaysia PDPA and general legal review remains in force for the overall Quiz feature, especially account-linked learner performance data. The dedicated Terms and Legal update remains after Flashcards is released to main.
