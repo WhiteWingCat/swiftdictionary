@@ -64,6 +64,15 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082332_swiftdictionary_update_2_3_0_current_window_allowance_ledger.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082335_swiftdictionary_update_2_3_0_learning_history_deletion.sql"
 
+      - name: Apply personal lesson testing access function (no allowlist identities seeded)
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          # Install the same account-scoped access RPC used by the app. The
+          # CI database remains synthetic and deliberately contains no owner
+          # UUID or personal exemption entry.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/202611090001_swiftdictionary_personal_lesson_testing_allowlist.sql"
+
       - name: Apply account-scoped learning introduction preferences
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
