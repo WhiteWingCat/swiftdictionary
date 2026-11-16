@@ -229,6 +229,36 @@ test("Free user can resume, change answers, submit, and review a real authentica
 });
 
 
+test("Quiz preserves an unavailable translation snapshot and applies the preference to the next session", async ({ page }) => {
+  // Begin with an English-only snapshot. The account preference is then
+  // changed to Chinese, which is not present in this active session.
+  await updateTranslationPreference(freeUserId, "en");
+  await openQuiz(page, freeSession);
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
+  await page.locator('[data-quiz-option="b"]').click();
+  await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
+
+  await updateTranslationPreference(freeUserId, "zh");
+  await page.reload();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await page.locator("#quizResume").click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
+  await expect(page.locator("#quizTranslationNotice")).toContainText("not included in this Quiz snapshot");
+  await expect(page.locator("#quizTranslationNotice")).toContainText("will apply to the next Quiz");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
+
+  page.once("dialog", dialog => dialog.accept());
+  await page.locator("#quizAbandon").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+});
+
 test("learning introductions are independent per page and help controls reopen them", async ({ page }) => {
   await openQuiz(page, freeSession);
   await page.goto("/#lessons");
