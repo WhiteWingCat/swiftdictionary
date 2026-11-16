@@ -1900,7 +1900,7 @@
     {
       "question_id": "quiz-intermediate-032",
       "source_lesson_id": "i-word-families",
-      "prompt_learning": "Choose the correct adjective: The project was a ___ because it met all its goals.",
+      "prompt_learning": "Choose the correct adjective: The project was ___ because it met all its goals.",
       "prompt_translation": "选择正确的形容词：这个项目很成功，因为它达成了所有目标。",
       "options": [
         {
