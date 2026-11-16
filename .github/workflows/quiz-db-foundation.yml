@@ -64,6 +64,12 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082332_swiftdictionary_update_2_3_0_current_window_allowance_ledger.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082335_swiftdictionary_update_2_3_0_learning_history_deletion.sql"
 
+      - name: Apply account-scoped learning introduction preferences
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql"
+
       - name: Apply Quiz question-bank and authenticated RPC migrations
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
@@ -151,6 +157,10 @@ jobs:
       - name: Prepare disposable Supabase-compatible Auth and learning schema
         run: |
           psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_rpc_bootstrap.sql
+
+      - name: Apply account-scoped learning introduction preferences
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql
 
       - name: Apply Quiz question-bank foundation
         run: |
