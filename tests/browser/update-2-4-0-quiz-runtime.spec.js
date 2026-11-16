@@ -71,6 +71,12 @@ async function openQuiz(page, session) {
   await page.addInitScript(({ key, value }) => {
     localStorage.setItem(key, JSON.stringify(value));
   }, { key: storageKey, value: session });
+  const browserDiagnostics = [];
+  page.on("console", message => {
+    if (message.type() === "error") browserDiagnostics.push("console: " + message.text());
+  });
+  page.on("pageerror", error => browserDiagnostics.push("pageerror: " + error.message));
+  page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
   await page.goto("/#quiz");
   const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
     headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
@@ -82,7 +88,20 @@ async function openQuiz(page, session) {
     throw new Error("New disposable account unexpectedly has an active Quiz session: " + availability.active_session_id);
   }
   await expect(page.locator("#quizPage")).toBeVisible({ timeout: 20000 });
-  await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
+  try {
+    await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
+  } catch (error) {
+    const diagnostics = await page.evaluate(() => ({
+      accountLabel: document.querySelector("#accountButtonLabel")?.textContent,
+      accountStatus: document.querySelector("#accountStatus")?.textContent,
+      quizStatus: document.querySelector("#quizStatus")?.textContent,
+      configLoaded: !!window.SWIFT_SUPABASE_CONFIG,
+      authStorageKeys: Object.keys(localStorage).filter(key => key.includes("auth-token"))
+    }));
+    throw new Error("Authenticated Quiz did not initialize. Browser diagnostics: " +
+      JSON.stringify(diagnostics) + "; browser errors: " + browserDiagnostics.join(" | ") +
+      "; original error: " + error.message);
+  }
 }
 
 async function updateTranslationPreference(userId, language) {
