@@ -1612,8 +1612,67 @@ Validation is implemented in .github/workflows/quiz-db-foundation.yml:
 
 No paid hosted Supabase branch was created. All local Supabase services ran in disposable GitHub Actions containers. No production migration, production allowance change, merge or deployment was performed.
 
-Current production Quiz allowance remains Free 5/day and Premium 12/day. The confirmed target remains Free 1/day and Premium 3/day; it is not applied to production. The question bank has no approved production questions, and the Quiz frontend is not implemented, so all difficulties remain unavailable. Draft PR #8 remains open and must not be merged without explicit approval.
+Production Quiz allowance was updated on 2026-11-16 by tracked Supabase migration 20261116043139 to Free 1/day and Premium 3/day; the live rows were verified. No other activity limits or usage records were changed. The Quiz schema/RPC migrations and question content remain unapplied to production. The question bank has no approved production questions, and the Quiz frontend is not implemented, so all difficulties remain unavailable. Draft PR #8 remains open and must not be merged without explicit approval.
 
 Preliminary Malaysia privacy review: Quiz stores account-linked answer selections, question/topic/lesson references, scores, timestamps and timezone. Adaptive weak-topic prioritisation may require assessment under the Commissioner's 2026 Automated Decision-Making and Profiling Guideline and the DPO regular/systematic-monitoring criterion. Before release, review Privacy Notice retention/deletion wording, DPO/DPIA requirements, 2026 data-controller registration classes, section 129 cross-border transfers, subprocessors and global age rules. The dedicated Terms and Legal update remains after Flashcards is released to main. See section 13.8 of the Quiz technical specification for official JPDP references and detail.
 
 Next implementation work: build the question-bank authoring/import/approval pipeline and populate sufficient reviewed content, then integrate the Quiz frontend and browser tests. Production migration and release remain separate approval gates.
+
+
+## 36. Update 2.4.0 — Quiz authoring pipeline and production allowance update (2026-11-16)
+
+The user authorized the next Quiz content stage and explicitly asked to change the live Supabase Quiz allowance to Free 1/day and Premium 3/day.
+
+### Production allowance change
+
+The live project was read first. Before the change, the only two Quiz rows were:
+- Free: 5/day, enabled.
+- Premium: 12/day, enabled.
+
+A narrowly scoped tracked migration was added to the feature branch:
+- supabase/migrations/20261116123000_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql
+
+It checks the exact expected pre-change rows and aborts if the project has unexpected Quiz rows or values. It changes only the Quiz rows in public.learning_plan_limits and leaves every other activity limit and all usage ledgers untouched.
+
+The migration was applied to the live Supabase project through the Supabase migration tool. Supabase recorded migration version 20261116043139, name swiftdictionary_update_2_4_0_quiz_allowance_1_3. A follow-up SELECT verified:
+- Free Quiz: 1/day, enabled.
+- Premium Quiz: 3/day, enabled.
+
+No Quiz tables, RPCs, question content, sessions or frontend were deployed to production. No user data or existing usage rows were modified.
+
+### Question-bank authoring pipeline
+
+New feature-branch files:
+- content/quiz/README.md — content authoring, review, approval and release policy.
+- content/quiz/curriculum-map.en.json — stable mapping of the 15 English source lesson IDs to topics and difficulties.
+- content/quiz/questions.en-zh.draft.json — first bilingual draft batch.
+- scripts/quiz/validate-question-bank.mjs — structural/curriculum validator and draft-only SQL exporter.
+- supabase/tests/quiz_draft_content_catalog.sql — isolated local curriculum fixture.
+- supabase/tests/quiz_draft_content_import_assertions.sql — draft import assertions.
+- .github/workflows/quiz-db-foundation.yml — expanded with draft content validation/import checks in disposable PostgreSQL and local Supabase jobs.
+
+Batch 01 contains 20 original English-learning / Simplified-Chinese-translation Beginner questions: four questions each mapped to b-verb-combinations, b-articles, b-countable-nouns, b-sentence and b-present. Each has four bilingual options, one answer key and bilingual explanations.
+
+The exporter inserts all questions as status=draft. It does not approve or publish content. CI imports this batch only into disposable local test databases and checks 20 rows, five topics, correct source mappings, four options and zero approved rows. The structural validator cannot prove semantic accuracy; manual editorial review is still required before any separate approval migration.
+
+### Content readiness
+
+- Beginner: 20 draft questions. This is enough to meet the hard minimum of 20 only after approval and import, but below the 30-question three-session target. Beginner is not yet available.
+- Intermediate: not authored yet. Minimum 24 Intermediate + 16 Beginner; target 36 + 24.
+- Advanced: not authored yet. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; target 48 + 12 + 12.
+- Only approved questions with active matching lesson/topic mappings and the learner's selected translation language count toward availability.
+- This batch supports English learning with Simplified Chinese translation only. Other translation-language pairs remain unavailable until authored and approved.
+
+No draft questions have been imported to the production project. The Quiz schema/RPC migrations remain on the feature branch and PR #8 remains draft/unmerged. No merge or deployment occurred.
+
+### Legal and content provenance
+
+The batch is original authored educational content; it does not import third-party dictionary corpora, textbook exercises, commercial question banks or personal data. The pipeline adds no tracking or analytics. Future external-source content needs a provenance and licensing review. Existing Malaysia PDPA/legal review for account-linked learning performance remains applicable; the dedicated Terms and Legal update stays scheduled after Flashcards is released to main.
+
+### Next actions
+
+1. Continue the Intermediate and Advanced content batches using the same authoring and review process.
+2. Manually review all questions and translations before approval.
+3. Reach the preferred three-session target for each difficulty.
+4. Run complete content and database validation, then implement Quiz frontend screens and signed-token/PostgREST/browser end-to-end tests.
+5. Keep Quiz schema/content deployment separate from the already-applied allowance change; do not merge PR #8 or apply further production migrations without explicit approval.
