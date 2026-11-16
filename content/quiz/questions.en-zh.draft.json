@@ -9,8 +9,8 @@
     {
       "question_id": "quiz-beginner-001",
       "source_lesson_id": "b-verb-combinations",
-      "prompt_learning": "Choose the correct verb: Please ___ a decision before Friday.",
-      "prompt_translation": "选择正确的动词：请在星期五之前___一个决定。",
+      "prompt_learning": "Choose the correct verb: Everyone can ___ a mistake when they are tired.",
+      "prompt_translation": "选择正确的动词：人们疲倦时都可能___错误。",
       "options": [
         {
           "id": "a",
@@ -19,23 +19,23 @@
         },
         {
           "id": "b",
-          "learning_text": "make",
-          "translation_text": "作出"
+          "learning_text": "take",
+          "translation_text": "拿/采取"
         },
         {
           "id": "c",
-          "learning_text": "take",
-          "translation_text": "拿"
+          "learning_text": "make",
+          "translation_text": "犯/造成"
         },
         {
           "id": "d",
           "learning_text": "have",
-          "translation_text": "拥有"
+          "translation_text": "有"
         }
       ],
-      "correct_option_id": "b",
-      "explanation_learning": "The natural expression is “make a decision.”",
-      "explanation_translation": "自然的搭配是“make a decision”（作出决定）。"
+      "correct_option_id": "c",
+      "explanation_learning": "The standard collocation is “make a mistake.”",
+      "explanation_translation": "标准搭配是“make a mistake”（犯错误）。"
     },
     {
       "question_id": "quiz-beginner-002",
@@ -91,8 +91,8 @@
         },
         {
           "id": "d",
-          "learning_text": "take breakfast",
-          "translation_text": "拿早餐"
+          "learning_text": "do breakfast",
+          "translation_text": "做早餐"
         }
       ],
       "correct_option_id": "b",
