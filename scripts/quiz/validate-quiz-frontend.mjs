@@ -58,4 +58,28 @@ if (!appScript.includes("This session keeps its original translation") || !appSc
 if (!mockTesting.includes('"learning_page_introduction_preferences"')) {
   throw new Error("Mock User adapter does not support account-scoped learning introduction preferences.");
 }
-console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese availability states exist, Quiz translation snapshot fallback is wired, answer review is wired, and private Quiz tables are not queried directly.");
+for (const feature of [
+  "function refreshTranslationViews(nextLanguage)",
+  "renderLesson(activeLesson,true)",
+  'quizEl("quizNext").hidden=pos>=s.question_count',
+  "quiz-difficulty-count",
+  "Build confidence with essential vocabulary",
+  "Stretch your command of English",
+  "linear-gradient(135deg,#202b46",
+  "Math.random()*(i+1)"
+]) {
+  if (!html.includes(feature) && !mockTesting.includes(feature)) {
+    throw new Error("Missing revised learning/Quiz UI behaviour: " + feature);
+  }
+}
+for (const internalLabel of [
+  "Preferred question-bank target met",
+  "Minimum question bank met",
+  "approved</p><p class=\\"quiz-bank-status",
+  "You have used today's Quiz allowance. It resets at midnight in your configured timezone."
+]) {
+  if (html.includes(internalLabel)) {
+    throw new Error("Internal bank/allowance diagnostics must not be rendered in Quiz difficulty cards: " + internalLabel);
+  }
+}
+console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese availability states exist, lesson translation refresh and Quiz snapshot fallback are wired, simplified difficulty cards and last-question navigation are present, mock answer positions are randomized, answer review is wired, and private Quiz tables are not queried directly.");
