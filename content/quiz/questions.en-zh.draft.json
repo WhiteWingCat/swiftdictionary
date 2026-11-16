@@ -625,6 +625,316 @@
       "correct_option_id": "c",
       "explanation_learning": "“We” takes the base present simple form “have.”",
       "explanation_translation": "主语“We”使用一般现在时动词原形“have”。"
+    },
+    {
+      "question_id": "quiz-beginner-021",
+      "source_lesson_id": "b-verb-combinations",
+      "prompt_learning": "Choose the correct verb: Please ___ attention to the road.",
+      "prompt_translation": "选择正确的动词：请注意路况。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make",
+          "translation_text": "制作"
+        },
+        {
+          "id": "b",
+          "learning_text": "do",
+          "translation_text": "做"
+        },
+        {
+          "id": "c",
+          "learning_text": "pay",
+          "translation_text": "给予/支付"
+        },
+        {
+          "id": "d",
+          "learning_text": "take",
+          "translation_text": "拿"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The standard expression is “pay attention.”",
+      "explanation_translation": "标准表达是“pay attention”（注意）。"
+    },
+    {
+      "question_id": "quiz-beginner-022",
+      "source_lesson_id": "b-verb-combinations",
+      "prompt_learning": "Which phrase means to do what you promised?",
+      "prompt_translation": "哪个短语表示履行自己的承诺？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make a promise",
+          "translation_text": "作出承诺"
+        },
+        {
+          "id": "b",
+          "learning_text": "keep a promise",
+          "translation_text": "遵守承诺"
+        },
+        {
+          "id": "c",
+          "learning_text": "break a promise",
+          "translation_text": "违背承诺"
+        },
+        {
+          "id": "d",
+          "learning_text": "take a promise",
+          "translation_text": "拿一个承诺"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Keep a promise” means to do what you said you would do.",
+      "explanation_translation": "“Keep a promise”表示履行自己作出的承诺。"
+    },
+    {
+      "question_id": "quiz-beginner-023",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct article: It took us ___ hour to reach the station.",
+      "prompt_translation": "选择正确的冠词：我们花了一个小时到达车站。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "a"
+        },
+        {
+          "id": "b",
+          "learning_text": "the",
+          "translation_text": "the"
+        },
+        {
+          "id": "c",
+          "learning_text": "no article",
+          "translation_text": "不加冠词"
+        },
+        {
+          "id": "d",
+          "learning_text": "an",
+          "translation_text": "an"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The “h” in “hour” is silent, so the word begins with a vowel sound and takes “an.”",
+      "explanation_translation": "“Hour”中的 h 不发音，因此该词以元音音素开头，使用“an”。"
+    },
+    {
+      "question_id": "quiz-beginner-024",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct article: She bought ___ useful dictionary.",
+      "prompt_translation": "选择正确的冠词：她买了一本有用的词典。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "an",
+          "translation_text": "an"
+        },
+        {
+          "id": "b",
+          "learning_text": "a",
+          "translation_text": "a"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "the"
+        },
+        {
+          "id": "d",
+          "learning_text": "no article",
+          "translation_text": "不加冠词"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Useful” begins with the consonant sound /j/, so the correct article is “a.”",
+      "explanation_translation": "“Useful”以辅音音素 /j/ 开头，因此使用“a”。"
+    },
+    {
+      "question_id": "quiz-beginner-025",
+      "source_lesson_id": "b-countable-nouns",
+      "prompt_learning": "Complete the sentence: There are two ___ of bread on the plate.",
+      "prompt_translation": "完成句子：盘子里有两___面包。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "slice",
+          "translation_text": "片"
+        },
+        {
+          "id": "b",
+          "learning_text": "slices",
+          "translation_text": "片（复数）"
+        },
+        {
+          "id": "c",
+          "learning_text": "breads",
+          "translation_text": "面包（复数）"
+        },
+        {
+          "id": "d",
+          "learning_text": "loafs",
+          "translation_text": "loafs"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "“Two” requires a plural countable unit; “two slices of bread” is correct.",
+      "explanation_translation": "“Two”后需要可数名词复数；“two slices of bread”是正确表达。"
+    },
+    {
+      "question_id": "quiz-beginner-026",
+      "source_lesson_id": "b-countable-nouns",
+      "prompt_learning": "Choose the uncountable noun: How much ___ do we need for the recipe?",
+      "prompt_translation": "选择不可数名词：这个食谱需要多少___？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "eggs",
+          "translation_text": "鸡蛋"
+        },
+        {
+          "id": "b",
+          "learning_text": "carrots",
+          "translation_text": "胡萝卜"
+        },
+        {
+          "id": "c",
+          "learning_text": "sugar",
+          "translation_text": "糖"
+        },
+        {
+          "id": "d",
+          "learning_text": "apples",
+          "translation_text": "苹果"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Sugar” is uncountable in this context, so it fits the question with “much.”",
+      "explanation_translation": "在此语境中，“sugar”是不可数名词，因此可与“much”搭配。"
+    },
+    {
+      "question_id": "quiz-beginner-027",
+      "source_lesson_id": "b-sentence",
+      "prompt_learning": "Choose the correct sentence: ___ three chairs in the room.",
+      "prompt_translation": "选择正确的句子：房间里有三把椅子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "There is",
+          "translation_text": "有（单数）"
+        },
+        {
+          "id": "b",
+          "learning_text": "It are",
+          "translation_text": "它们是"
+        },
+        {
+          "id": "c",
+          "learning_text": "There are",
+          "translation_text": "有（复数）"
+        },
+        {
+          "id": "d",
+          "learning_text": "They is",
+          "translation_text": "它们是"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“Three chairs” is plural, so the correct structure is “There are.”",
+      "explanation_translation": "“Three chairs”是复数，因此正确结构是“There are”。"
+    },
+    {
+      "question_id": "quiz-beginner-028",
+      "source_lesson_id": "b-sentence",
+      "prompt_learning": "Choose the correct word to begin this present simple question: ___ you like music?",
+      "prompt_translation": "选择正确的词来开头，构成一般现在时疑问句：你喜欢音乐吗？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Does",
+          "translation_text": "助动词（第三人称单数）"
+        },
+        {
+          "id": "b",
+          "learning_text": "Do",
+          "translation_text": "助动词（I/you/we/they）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Are",
+          "translation_text": "be动词复数/第二人称"
+        },
+        {
+          "id": "d",
+          "learning_text": "Is",
+          "translation_text": "be动词单数"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "For a present simple question with the subject “you,” use the auxiliary “do.”",
+      "explanation_translation": "一般现在时中，主语是“you”的疑问句使用助动词“do”。"
+    },
+    {
+      "question_id": "quiz-beginner-029",
+      "source_lesson_id": "b-present",
+      "prompt_learning": "Choose the correct present simple form: The shop ___ at nine every morning.",
+      "prompt_translation": "选择正确的一般现在时形式：这家商店每天早上九点开门。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "open",
+          "translation_text": "开门"
+        },
+        {
+          "id": "b",
+          "learning_text": "opening",
+          "translation_text": "正在开门"
+        },
+        {
+          "id": "c",
+          "learning_text": "opens",
+          "translation_text": "开门（第三人称单数）"
+        },
+        {
+          "id": "d",
+          "learning_text": "opened",
+          "translation_text": "开了（过去式）"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "“The shop” is third-person singular, so the present simple verb takes -s.",
+      "explanation_translation": "“The shop”是第三人称单数，因此一般现在时动词加 -s。"
+    },
+    {
+      "question_id": "quiz-beginner-030",
+      "source_lesson_id": "b-present",
+      "prompt_learning": "Which sentence places the adverb of frequency before the main verb, its usual position?",
+      "prompt_translation": "哪个句子把频率副词放在主要动词之前，也就是它通常的位置？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She drinks usually tea in the evening.",
+          "translation_text": "她晚上通常喝茶。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She drinks tea usually in the evening.",
+          "translation_text": "她晚上通常喝茶。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She usually drinks tea in the evening.",
+          "translation_text": "她晚上通常喝茶。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She drinks tea in the evening usually.",
+          "translation_text": "她晚上通常喝茶。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "In a neutral present simple sentence, an adverb of frequency usually comes before the main verb: “usually drinks.”",
+      "explanation_translation": "在一般现在时的普通陈述句中，频率副词通常放在主要动词之前，例如“usually drinks”。"
     }
   ]
 }
