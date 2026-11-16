@@ -11,7 +11,7 @@ Project migration history was checked first. No Quiz schema migrations had been 
 - Premium Quiz: 12/day, enabled.
 
 A guarded, narrowly scoped migration was added on the Quiz feature branch:
-- `supabase/migrations/20261116123000_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
+- `supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
 
 The migration verifies that exactly the expected Free 5 and Premium 12 enabled Quiz rows exist, aborts on unexpected values or extra Quiz rows, updates only `public.learning_plan_limits` rows for `activity_type='quiz'`, and verifies the resulting Free 1 / Premium 3 values.
 
