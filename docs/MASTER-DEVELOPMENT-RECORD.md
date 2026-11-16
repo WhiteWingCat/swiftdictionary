@@ -1009,7 +1009,7 @@ Continue with the existing free-first approach:
 - Updated `tests/browser/update-2-3-0-smoke.spec.js` to dismiss the new guide in the shared setup for this legacy regression suite, keeping the dedicated introduction tests in the Quiz runtime suite responsible for testing guide behaviour.
 - Updated `tests/browser/update-2-4-0-quiz-runtime.spec.js` to explicitly wait for and dismiss the independent Lessons introduction before opening a permanent lesson in the authenticated translation/Quiz end-to-end test.
 - Commits: `f1ffc99d387899af8e06ff71a63196188b31bc8e` (legacy smoke-suite isolation) and `47ed08907d0b91dcb41d2f9cd196309326a997b7` (authenticated Quiz test dismissal). Both changes are test-only; application, migrations, content and production settings were not modified.
-- New branch-head CI checks for `47ed08907d0b91dcb41d2f9cd196309326a997b7` were observed running: PostgreSQL 17, local Supabase Auth/RPC/Chromium, 2.3.x Chromium regression, 2.3.x PostgreSQL and local Auth compatibility. Do not mark them passed until all relevant checks complete successfully.
+- New branch-head CI checks for `47ed08907d0b91dcb41d2f9cd196309326a997b7` were observed running. Follow-up status: PostgreSQL 17 foundation and the companion 2.3.x PostgreSQL job passed; the 2.3.x local Supabase Auth compatibility job passed; the Quiz local Supabase Auth/RPC/Chromium job and 2.3.x Chromium regression remained in progress at the latest check. Cloudflare Pages successfully deployed the feature preview at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev` (latest preview commit `283d2e0`). A separate Cloudflare Workers Builds check reported failure; this is distinct from the successful Pages deployment and still needs diagnosis. Do not mark the overall validation gate passed until the remaining browser jobs complete.
 
 ### Privacy, legal and release boundaries
 
@@ -1019,6 +1019,6 @@ The selected alternative creates ephemeral synthetic test data in disposable loc
 
 1. Check all CI runs/checks on branch head `47ed08907d0b91dcb41d2f9cd196309326a997b7`; investigate any remaining failure from logs rather than assuming a product regression.
 2. If the overlay-related tests pass, continue authenticated Quiz edge-case coverage and content readiness review using disposable local Supabase only.
-3. Verify the Cloudflare Pages preview build and hostname before offering the mock link; use only `?swiftMock=1` and fictional Test User A (Free) / Test User B (Premium).
+3. Cloudflare Pages branch preview is now confirmed deployed at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev`. Before owner testing, confirm the mock-mode allowlist and that the preview loads the latest commit; use only `?swiftMock=1` and fictional Test User A (Free) / Test User B (Premium). Never use real accounts or data-changing flows because the preview frontend is still configured for production Supabase.
 4. Keep all 114 authored questions in draft until the owner separately reviews and approves content. No production Quiz schema/RPC migration or content import.
 5. Keep PR #8 draft and unmerged. No production deployment, database migration or release without explicit owner approval.
