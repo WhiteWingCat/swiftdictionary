@@ -462,6 +462,10 @@
       #globalCourseControls.course-controls { width:100%; gap:8px; padding:8px; }
       #globalCourseControls.course-controls label { flex:1 1 145px; min-width:0; }
     }
+
+    .quiz-mock-notice { display:flex; flex-direction:column; gap:4px; margin:14px 0; padding:13px 16px; border:1px solid #d69b43; border-left:4px solid #d69b43; border-radius:12px; background:#342719; color:#ffe8bd; }
+    .quiz-mock-notice strong { font-weight:850; }
+    .quiz-mock-notice span { font-size:.9rem; line-height:1.45; }
   </style>
 </head>
 <body>
@@ -571,7 +575,8 @@
           <article class="profile-card quiz-allowance-card"><h2>Daily Quiz allowance</h2><p id="quizAllowanceText" class="quiz-allowance-number">—</p><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article>
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
         </div>
-        <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
+        <div id="quizMockNotice" class="quiz-mock-notice" hidden role="status"><strong>Preview simulation</strong><span>This session uses synthetic questions to check the interface only. It does not test the real question bank, difficulty balance or learning accuracy.</span></div>
+      <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
         <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
       </section>
       <section id="quizSession" class="profile-card quiz-session-card" hidden>
@@ -18695,24 +18700,14 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
-    function quizReason(reason){
-      const messages={
-        active_session_exists:"Finish or abandon your current Quiz before starting another.",
-        learning_course_not_supported:"Quiz currently supports the English learning course only.",
-        plan_not_enabled:"Quiz is not enabled for this account plan.",
-        allowance_exhausted:"You have used today's Quiz allowance. It resets at midnight in your configured timezone.",
-        question_bank_below_minimum:"This difficulty is not available yet because its approved question bank has not reached the minimum size.",
-        fresh_questions_unavailable_today:"There are not enough unseen questions for another complete Quiz today.",
-        topic_coverage_unavailable:"The available questions cannot yet form a balanced, mixed-topic session."
-      };
-      return messages[reason]||"This difficulty is not available yet.";
-    }
     function quizShowHome(){
       quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
       quizEl("quizSignedOut").hidden=true;
     }
     function quizRenderAvailability(data){
       quizPageState.availability=data;
+      const mockNotice=quizEl("quizMockNotice");
+      if(mockNotice)mockNotice.hidden=!data.mock_simulation;
       const a=data.allowance||{};
       quizEl("quizAllowanceText").textContent=(a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining";
       quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
