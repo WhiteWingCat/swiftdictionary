@@ -66,3 +66,20 @@ Mock User support:
 - Added a Node unit test confirming per-page persistence and account isolation. The 2.3.x workflow run #893 PostgreSQL job passed, including the expanded mock adapter unit suite. Its local Auth/Chromium jobs were still in progress at the last check.
 
 The follow-up Quiz browser suite containing the preference sync and English-only snapshot fallback test is awaiting CI. No production schema or website deployment was changed.
+
+## Translation fallback runtime result and test refinements
+
+Quiz workflow run #254 (commit d2eacc0) passed the dedicated English-only snapshot fallback test end-to-end:
+- Started a Quiz with an English-only translation snapshot.
+- Changed the account preference to Chinese while the Quiz was active.
+- Preserved the active English snapshot and saved answer, and displayed the next-Quiz fallback notice.
+- Abandoned the session without consuming the daily allowance.
+- Started the next Quiz using the updated Chinese preference; Chinese translation appeared.
+
+The same run passed the Chinese-course availability transitions, Premium allowance/active-session test and signed-out gating. The PostgreSQL/frontend job also passed.
+
+Two remaining browser failures were test assertion issues:
+- The Free-session test checked a saved answer on question 2 although the answer had been saved on question 1. It now navigates back to question 1 before checking persistence.
+- The introduction test checked the Flashcards dismissal row before waiting for the asynchronous dismissal dialog to close after persistence. It now waits for the dialog to close before querying the database.
+
+Corrected assertions were committed in 67a8254. Quiz workflow run #262 was queued to re-run the complete corrected suite. The overall browser gate remains pending until that run completes.
