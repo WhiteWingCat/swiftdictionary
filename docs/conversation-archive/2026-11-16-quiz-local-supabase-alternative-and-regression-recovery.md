@@ -34,14 +34,7 @@ These were test-only changes. No application source, database migration, questio
 
 ## Validation state at archive time
 
-New checks for branch head `47ed08907d0b91dcb41d2f9cd196309326a997b7` were observed running:
-- Quiz PostgreSQL 17 foundation.
-- Quiz disposable local Supabase Auth/RPC/Chromium runtime.
-- 2.3.x Chromium regression.
-- 2.3.x PostgreSQL migration/allowance tests.
-- 2.3.x local Supabase Auth compatibility.
-
-Do not describe these checks as passed until their final conclusions are confirmed.
+New checks for branch head `47ed08907d0b91dcb41d2f9cd196309326a997b7` were observed running. Follow-up status: Quiz PostgreSQL 17 foundation passed; 2.3.x PostgreSQL migration/allowance tests passed; 2.3.x local Supabase Auth compatibility passed; Quiz local Supabase Auth/RPC/Chromium and 2.3.x Chromium regression remained in progress at the latest check. Cloudflare Pages successfully deployed the branch preview at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev` (latest preview commit `283d2e0`). A separate Cloudflare Workers Builds check failed; it is distinct from the successful Pages deployment and still requires diagnosis. The overall browser validation gate remains open.
 
 ## Legal, privacy and release safeguards
 
