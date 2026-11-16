@@ -1583,7 +1583,7 @@ This no-cost workflow tests PostgreSQL DDL, constraints, triggers, role grants a
 ### Current safety boundary
 
 - No production Supabase migration was applied.
-- Production Quiz allowance values remain unchanged (Free 5/day, Premium 12/day); confirmed Quiz targets remain Free 1/day and Premium 3/day.
+- At the time of section 34 (2026-11-14), production Quiz allowance was Free 5/day and Premium 12/day. It was subsequently updated on 2026-11-16 to Free 1/day and Premium 3/day; see section 36.
 - No Quiz content has been approved or seeded. All difficulties remain unavailable.
 - No live user data changed.
 - No merge or deployment occurred.
@@ -1610,7 +1610,7 @@ Validation is implemented in .github/workflows/quiz-db-foundation.yml:
 - Disposable local Supabase job uses the real local Auth schema/JWT helpers, the existing synthetic SwiftDictionary baseline, the 2.3.x prerequisite migrations, both Quiz migrations, authenticated integration tests and Supabase security advisors.
 - Both Quiz validation jobs passed on workflow run 66 (2026-11-14). The companion 2.3.x PostgreSQL and Chromium regression checks also passed. A final extra access-control assertion for the reservation table was committed afterward and its follow-up workflow is pending at the time of this record update.
 
-No paid hosted Supabase branch was created. All local Supabase services ran in disposable GitHub Actions containers. No production migration, production allowance change, merge or deployment was performed.
+No paid hosted Supabase branch was created. All local Supabase services ran in disposable GitHub Actions containers. At the time of this 2026-11-14 implementation stage, no production migration, production allowance change, merge or deployment had been performed.
 
 Production Quiz allowance was updated on 2026-11-16 by tracked Supabase migration 20261116043139 to Free 1/day and Premium 3/day; the live rows were verified. No other activity limits or usage records were changed. The Quiz schema/RPC migrations and question content remain unapplied to production. The question bank has no approved production questions, and the Quiz frontend is not implemented, so all difficulties remain unavailable. Draft PR #8 remains open and must not be merged without explicit approval.
 
