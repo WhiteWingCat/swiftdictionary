@@ -18686,8 +18686,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           :item.difficulty==="intermediate"
             ?"Apply your knowledge across varied situations, sentence patterns and common expressions."
             :"Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.";
-        const unavailableReason=item.available?"":quizReason(item.reason);
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"'+(!item.available?' title="'+quizEscape(unavailableReason)+'"':'')+'><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
       }).join("");
     }
     function quizRenderHistory(rows){
