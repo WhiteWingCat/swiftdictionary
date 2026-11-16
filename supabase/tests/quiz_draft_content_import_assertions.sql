@@ -39,8 +39,8 @@ begin
       )
     );
 
-  if v_total<>20 then
-    raise exception 'Expected 20 imported draft questions; found %',v_total;
+  if v_total<>30 then
+    raise exception 'Expected 30 imported draft questions; found %',v_total;
   end if;
   if v_approved<>0 then
     raise exception 'Draft content importer unexpectedly approved % questions',v_approved;
@@ -55,6 +55,13 @@ begin
       where question_id like 'quiz-beginner-%')<>5 then
     raise exception 'Beginner batch should cover five source topics';
   end if;
-  raise notice 'Quiz draft content import passed: 20 rows, 5 topics, 0 approved';
+  if exists (
+    select 1 from private.quiz_question_bank
+    where question_id like 'quiz-beginner-%'
+    group by topic_id having count(*)<>6
+  ) then
+    raise exception 'Beginner batch should contain six questions per source topic';
+  end if;
+  raise notice 'Quiz draft content import passed: 30 rows, 5 topics, 0 approved';
 end;
 $draft_import$;
