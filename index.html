@@ -427,6 +427,41 @@
     .learning-intro-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;position:sticky;bottom:-24px;background:var(--panel);padding:14px 0 0}
     .quiz-translation-notice{padding:10px 13px;border:1px solid var(--border);border-radius:10px;margin:10px 0;color:var(--muted)}
 
+
+    /* High-contrast course selectors: clearly separated from account actions. */
+    #globalCourseControls.course-controls {
+      display:flex; align-items:stretch; gap:10px; margin:0; padding:9px;
+      border:1px solid #7ea5ff; border-radius:18px;
+      background:linear-gradient(135deg,#dce9ff 0%,#b9d1ff 48%,#e7efff 100%);
+      box-shadow:0 8px 24px rgba(8,25,60,.28),inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    #globalCourseControls.course-controls label {
+      display:grid; gap:5px; min-width:154px; padding:8px 11px;
+      border:1px solid #5279c2; border-radius:12px; background:#142b55;
+      color:#edf4ff; font-size:.7rem; font-weight:850; letter-spacing:.075em;
+      text-transform:uppercase;
+    }
+    #globalCourseControls.course-controls select {
+      min-width:0; width:100%; padding:9px 32px 9px 11px;
+      border:1px solid #9bbcff; border-radius:9px; background:#fff;
+      color:#142b55; font-size:.94rem; font-weight:800;
+      letter-spacing:0; text-transform:none; box-shadow:0 2px 5px rgba(8,25,60,.14);
+    }
+    #globalCourseControls.course-controls label:focus-within {
+      border-color:#183f83; background:#0e2450; box-shadow:0 0 0 2px rgba(255,255,255,.55);
+    }
+    #globalCourseControls.course-controls select:focus-visible {
+      outline:3px solid #173f85; outline-offset:2px; border-color:#173f85;
+    }
+    .quiz-difficulty-option { padding:22px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(155deg,var(--panel) 0%,var(--panel-hover) 100%); box-shadow:var(--shadow); }
+    .quiz-difficulty-option h3 { margin:0 0 7px; font-size:1.2rem; font-weight:850; letter-spacing:-.02em; }
+    .quiz-difficulty-count { display:block; margin:0 0 10px; color:var(--accent); font-size:1rem; font-weight:850; }
+    .quiz-difficulty-option p { min-height:3.2em; margin:0 0 18px; color:var(--text); font-size:.93rem; line-height:1.55; }
+    .quiz-difficulty-option button { font-weight:800; }
+    @media(max-width:760px) {
+      #globalCourseControls.course-controls { width:100%; gap:8px; padding:8px; }
+      #globalCourseControls.course-controls label { flex:1 1 145px; min-width:0; }
+    }
   </style>
 </head>
 <body>
@@ -17831,6 +17866,13 @@
         }
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
+      if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
+      if (ls.active) {
+        const status=document.getElementById("lessonStatus");
+        if(status) status.textContent=translationLanguage==="zh"
+          ? "翻译语言已更新，当前课程内容已刷新。"
+          : "Translation updated. This lesson has been refreshed.";
+      }
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);
@@ -18736,6 +18778,14 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
       quizEl("quizSubmit").textContent=answered===s.question_count?"Submit Quiz":"Answer all questions to submit";
       quizStatus("");
+    }
+    function quizRefreshVisibleTranslation(){
+      // Session snapshots are immutable. Refresh immediately when the chosen
+      // language is present; otherwise keep the session intact and explain why.
+      if(quizPageState.session) quizRenderSession();
+      if(quizPageState.result) quizRenderResult(quizPageState.result);
+      const snapshot=quizPageState.session||quizPageState.result;
+      if(snapshot) quizUpdateTranslationNotice(snapshot);
     }
     async function quizSaveCurrent(position,selected){
       const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q)return;
