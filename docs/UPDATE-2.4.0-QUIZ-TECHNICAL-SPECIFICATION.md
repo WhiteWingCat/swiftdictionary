@@ -606,7 +606,7 @@ The feature branch now contains a source-controlled bilingual authoring workflow
 - `scripts/quiz/validate-question-bank.mjs` — structural and curriculum validation plus a SQL exporter that always inserts as `draft`.
 - `supabase/tests/quiz_draft_content_catalog.sql` and `quiz_draft_content_import_assertions.sql` — isolated local curriculum fixtures and import assertions.
 
-The batch maps six questions to each of the five existing Beginner source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`. Each record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations.
+The Beginner batch maps six questions to each of the five Beginner source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`. A second batch adds 36 Intermediate questions across five Intermediate lessons: eight each for `i-collocations` and seven each for `i-conditionals`, `i-phrasal`, `i-perfect` and `i-word-families`. Each record includes an English prompt, Simplified Chinese translation, four bilingual options, one correct option ID, and bilingual explanations.
 
 ### 14.2 Validation and import boundary
 
@@ -617,7 +617,7 @@ The validator checks:
 - source lesson mapping to the shared curriculum map, including topic and difficulty;
 - the draft-only source-pack status.
 
-The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 30 rows, five topics (six per topic), valid lesson mappings, four options and zero approved rows. Both Quiz workflow run 107 jobs passed: PostgreSQL 17 migration/RPC/content-import tests and disposable local Supabase Auth/RPC/content-import/security-advisor tests. The local job uses pinned Supabase CLI 2.81.3; this resolved the earlier GitHub release API rate-limit failure seen in run 104.
+The `--emit-sql` mode produces SQL that inserts content with `status='draft'`; it never approves questions. The GitHub Actions workflow imports the generated SQL only into disposable PostgreSQL and local Supabase environments, then asserts 66 rows (30 Beginner and 36 Intermediate), ten source-topic groups, valid lesson mappings, four options and zero approved rows. Both Quiz workflow run 107 jobs passed: PostgreSQL 17 migration/RPC/content-import tests and disposable local Supabase Auth/RPC/content-import/security-advisor tests. The local job uses pinned Supabase CLI 2.81.3; this resolved the earlier GitHub release API rate-limit failure seen in run 104.
 
 The validator is structural, not a semantic truth checker. Every question still requires human editorial review for one unambiguous correct answer, distractor quality, difficulty, natural English, accurate Simplified Chinese and explanation quality. A separate reviewed approval migration is required after content approval.
 
