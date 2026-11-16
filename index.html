@@ -17941,7 +17941,7 @@
           if (activeWord) updateSaveButton();
           render();
           accountStatus.textContent = "Signed out. Sign in to load your cloud-saved words.";
-          if (document.getElementById("profilePage")) showPage("dictionary");
+          if ((location.hash === "#profile" || location.hash === "#preferences") && document.getElementById("profilePage")) showPage("dictionary");
           document.getElementById("profileContent").hidden = true;
           document.getElementById("profileSignedOut").hidden = false;
         }
@@ -18767,6 +18767,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
+    // Resolve the requested route immediately; account initialisation must not
+    // redirect signed-out visitors away from public pages such as Quiz.
+    showHashPage();
     // Keep the profile route inaccessible to signed-out visitors.
     initAccount().then(() => showHashPage()).catch(error => {
       document.getElementById("accountStatus").textContent = `Account initialization failed: ${error.message}`;
