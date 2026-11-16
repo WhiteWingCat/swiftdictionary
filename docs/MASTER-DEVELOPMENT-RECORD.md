@@ -979,9 +979,10 @@ The new preference table stores only the learner's account ID, one of three page
 
 ### Next gates
 
-1. Confirm the latest GitHub Actions jobs pass, including the new frontend validator and disposable-database RLS assertions.
+1. Confirm the documentation-only GitHub Actions reruns on the latest branch head complete successfully; application code already passed full CI in Quiz run #274.
 2. Add browser/runtime tests for first visit, dismissal persistence across reload, reopening via ?, independent per-page dismissals, account isolation/switching and signed-out fallback.
 3. Add/verify active Quiz tests for translation available in snapshot, translation unavailable in snapshot, unchanged answers/session state and preference application to the next session.
 4. Verify Chinese selection never exposes English lesson/Quiz/Flashcard content as Chinese learning content, and switching back to English restores the available experience.
 5. Check current Supabase migration history before any staging/production migration. Do not apply this migration to production without explicit release approval.
-6. Keep PR #8 draft until automated runtime tests and owner review are complete. No merge or website deployment without explicit approval.
+6. Verify the Cloudflare Pages branch preview for feature-update-2-4-0-quiz and test ?swiftMock=1 with both mock identities before offering the preview to the owner. The preview URL could not be verified from this session, so do not claim it is live or safe to use yet.
+7. Keep PR #8 draft until owner review and the preview check are complete. No merge, production migration or website deployment without explicit approval.
