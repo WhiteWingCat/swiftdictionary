@@ -1630,7 +1630,7 @@ The live project was read first. Before the change, the only two Quiz rows were:
 - Premium: 12/day, enabled.
 
 A narrowly scoped tracked migration was added to the feature branch:
-- supabase/migrations/20261116123000_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql
+- supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql
 
 It checks the exact expected pre-change rows and aborts if the project has unexpected Quiz rows or values. It changes only the Quiz rows in public.learning_plan_limits and leaves every other activity limit and all usage ledgers untouched.
 
