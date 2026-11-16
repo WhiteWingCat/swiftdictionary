@@ -294,3 +294,28 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
   assert.equal(exhausted.error.code,"P0001");
 });
+
+test("learning page introduction dismissals persist per page and mock account",async()=>{
+  const env=makeContext("feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  await client.from("learning_page_introduction_preferences").upsert({
+    user_id:"mock-user-a",page_key:"quiz",dismissed_at:"2026-11-16T00:00:00.000Z"
+  },{onConflict:"user_id,page_key"});
+  await client.from("learning_page_introduction_preferences").upsert({
+    user_id:"mock-user-a",page_key:"lessons",dismissed_at:"2026-11-16T00:01:00.000Z"
+  },{onConflict:"user_id,page_key"});
+  let rows=await client.from("learning_page_introduction_preferences")
+    .select("page_key").eq("user_id","mock-user-a");
+  assert.deepEqual(Array.from(rows.data,row=>row.page_key).sort(),["lessons","quiz"]);
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  rows=await client.from("learning_page_introduction_preferences")
+    .select("page_key").eq("user_id","mock-user-b");
+  assert.deepEqual(Array.from(rows.data),[]);
+  await client.from("learning_page_introduction_preferences").upsert({
+    user_id:"mock-user-b",page_key:"flashcards",dismissed_at:"2026-11-16T00:02:00.000Z"
+  },{onConflict:"user_id,page_key"});
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-a");
+  rows=await client.from("learning_page_introduction_preferences")
+    .select("page_key").eq("user_id","mock-user-a");
+  assert.deepEqual(Array.from(rows.data,row=>row.page_key).sort(),["lessons","quiz"]);
+});
