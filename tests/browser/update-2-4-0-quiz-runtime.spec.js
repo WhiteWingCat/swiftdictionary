@@ -164,7 +164,19 @@ test("Free user can resume, change answers, submit, and review a real authentica
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizActiveCard")).toBeVisible();
   await page.locator("#quizResume").click();
-  await expect(page.locator("#quizSession")).toBeVisible();
+  try {
+    await expect(page.locator("#quizSession")).toBeVisible({ timeout: 7000 });
+  } catch (error) {
+    const diagnostics = await page.evaluate(() => ({
+      quizStatus: document.querySelector("#quizStatus")?.textContent,
+      quizHomeHidden: document.querySelector("#quizHome")?.hidden,
+      quizSessionHidden: document.querySelector("#quizSession")?.hidden,
+      activeCardText: document.querySelector("#quizActiveDescription")?.textContent,
+      accountStatus: document.querySelector("#accountStatus")?.textContent,
+      accountLabel: document.querySelector("#accountButtonLabel")?.textContent
+    }));
+    throw new Error("Resume RPC did not render the active session: " + JSON.stringify(diagnostics) + "; " + error.message);
+  }
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
   await page.locator("#quizPrevious").click();
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
