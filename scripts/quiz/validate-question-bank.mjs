@@ -1,8 +1,14 @@
 import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const file = process.argv[2] ?? "content/quiz/questions.en-zh.draft.json";
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const args = process.argv.slice(2);
+const emitSql = args.includes("--emit-sql");
+const fileArg = args.find(arg => !arg.startsWith("--"));
+const file = path.resolve(repoRoot, fileArg ?? "content/quiz/questions.en-zh.draft.json");
 const raw = JSON.parse(fs.readFileSync(file, "utf8"));
-const mapFile = "content/quiz/curriculum-map.en.json";
+const mapFile = path.join(repoRoot, "content/quiz/curriculum-map.en.json");
 const lessons = JSON.parse(fs.readFileSync(mapFile, "utf8"));
 const fail = [];
 const questions = raw.questions ?? [];
@@ -10,7 +16,6 @@ const seenIds = new Set();
 const seenPrompts = new Set();
 const counts = { beginner: 0, intermediate: 0, advanced: 0 };
 const topics = { beginner: new Set(), intermediate: new Set(), advanced: new Set() };
-const emitSql = process.argv.includes("--emit-sql");
 
 function requireText(value, label, max = 2000) {
   if (typeof value !== "string" || !value.trim() || value.length > max) {
@@ -82,7 +87,7 @@ if (!emitSql) console.log("Intermediate minimum 24 intermediate + 16 beginner; t
 if (!emitSql) console.log("Advanced minimum 32 advanced + 8 intermediate + 8 beginner; target 48 + 12 + 12.");
 if (!emitSql) console.log("All source content remains draft and must receive human approval before import.");
 
-if (process.argv.includes("--emit-sql")) {
+if (emitSql) {
   const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
   const json = value => lit(JSON.stringify(value)) + "::jsonb";
   const rows = questions.map(q => {
