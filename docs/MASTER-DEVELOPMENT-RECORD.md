@@ -1625,18 +1625,14 @@ The user authorized the next Quiz content stage and explicitly requested changin
 
 ### Production allowance change
 
-Before the change, the live project had exactly two enabled Quiz rows:
-- Free: 5/day.
-- Premium: 12/day.
+Before the change, the live project had exactly two enabled Quiz rows: Free 5/day and Premium 12/day.
 
 A guarded, narrowly scoped migration was added on the feature branch:
 - `supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
 
-It checks the exact expected pre-change values and aborts if unexpected Quiz rows or values exist. It changes only the Quiz rows in `public.learning_plan_limits`; all other activity limits and usage ledgers remain untouched.
+It verifies the exact expected pre-change values and aborts if unexpected Quiz rows or values exist. It changes only the Quiz rows in `public.learning_plan_limits`; all other activity limits and usage ledgers remain untouched.
 
-The migration was applied to live Supabase and recorded as version `20261116043139`, name `swiftdictionary_update_2_4_0_quiz_allowance_1_3`. A follow-up query verified:
-- Free Quiz: 1/day, enabled.
-- Premium Quiz: 3/day, enabled.
+The migration was applied to live Supabase and recorded as version `20261116043139`, name `swiftdictionary_update_2_4_0_quiz_allowance_1_3`. A follow-up query verified Free Quiz 1/day and Premium Quiz 3/day, both enabled.
 
 No Quiz schema/RPC tables, question content, sessions or frontend were deployed to production. No user data or usage-ledger rows were modified.
 
@@ -1644,38 +1640,38 @@ No Quiz schema/RPC tables, question content, sessions or frontend were deployed 
 
 New feature-branch files:
 - `content/quiz/README.md` — authoring, editorial review, approval and release policy.
-- `content/quiz/curriculum-map.en.json` — stable mapping of 15 English source lesson IDs to topics and difficulties.
+- `content/quiz/curriculum-map.en.json` — stable mapping of 15 English source lesson IDs to topics and difficulty.
 - `content/quiz/questions.en-zh.draft.json` — bilingual draft bank.
 - `scripts/quiz/validate-question-bank.mjs` — structural/curriculum validator and draft-only SQL exporter.
 - `supabase/tests/quiz_draft_content_catalog.sql` — isolated local curriculum fixtures.
 - `supabase/tests/quiz_draft_content_import_assertions.sql` — database import assertions.
 - `.github/workflows/quiz-db-foundation.yml` — PostgreSQL and local Supabase validation/import checks.
 
-Current draft content:
-- Beginner: 30 original English-learning / Simplified-Chinese-translation questions, six each across five source lessons: `b-verb-combinations`, `b-articles`, `b-countable-nouns`, `b-sentence` and `b-present`.
-- Intermediate: 36 original bilingual questions across five source lessons: eight for `i-collocations` and seven each for `i-conditionals`, `i-phrasal`, `i-perfect` and `i-word-families`.
+The current draft bank contains 114 original English-learning / Simplified-Chinese-translation questions:
+- Beginner: 30 questions, six each across five source lessons.
+- Intermediate: 36 questions across five source lessons (8 + 7 + 7 + 7 + 7).
+- Advanced: 48 questions across four source topics (10 academic/professional, 20 advanced grammar, 9 idioms, 9 precise vocabulary).
 
-Each record contains an English prompt, Simplified Chinese translation, four bilingual options, one answer key and bilingual explanations. The questions are original SwiftDictionary content, not copied from third-party dictionaries, textbooks or commercial quiz banks.
+Every record has an English prompt, Simplified Chinese translation, four bilingual options, one answer key and bilingual explanations. The material is original SwiftDictionary content, not copied from third-party dictionaries, textbooks or commercial quiz banks.
 
 The validator checks unique IDs/prompts, bilingual fields, four unique English options, answer-key membership and source lesson/topic/difficulty mappings. Its SQL exporter always inserts `status='draft'`; it cannot approve or publish questions. Manual editorial review and a separate approval migration are required.
 
 ### Validation
 
-Quiz workflow run [#107](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415258) passed both jobs:
-- PostgreSQL 17: both Quiz migrations, authenticated RPC/session/allowance tests, content validator, generated SQL import and database assertions.
-- Disposable local Supabase: real Auth helpers, authenticated Quiz RPC integration, generated SQL import and Supabase security advisors.
+Quiz workflow run [#107](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415258) passed both PostgreSQL 17 and disposable local Supabase jobs for the 66-question Beginner/Intermediate pack, including authenticated RPC/session/allowance tests, draft import, local Auth helper checks and Supabase security advisors. Pinning Supabase CLI 2.81.3 resolved the earlier release API rate-limit issue.
 
-Both environments imported 66 draft rows (30 Beginner and 36 Intermediate), verified ten source-topic groups, valid lesson mappings and four-option rows, and confirmed zero approved questions. Pinning Supabase CLI 2.81.3 resolved the earlier GitHub release API rate-limit failure in run 104.
+The 48-question Advanced batch and expanded 114-row import assertions have since been added. The structural/curriculum check in this session found 114 unique question IDs and prompts, four unique English options per question, matching answer keys, complete bilingual fields, and valid mappings across all three difficulty levels. The 114-row PostgreSQL/local Supabase CI run is pending.
 
 The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility.
 
 ### Content readiness
 
-- Beginner: 30 draft questions across five topics, reaching the preferred three-session target by count.
-- Intermediate: 36 draft questions across five topics, reaching the preferred Intermediate target by count; 30 Beginner drafts also exceed the 24-question Beginner support target.
-- Advanced: not authored yet. Minimum 32 Advanced + 8 Intermediate + 8 Beginner; preferred target 48 + 12 + 12.
+The draft counts reach the preferred three-session question-bank targets:
+- Beginner: 30 (target 30).
+- Intermediate: 36 Intermediate + 30 Beginner support questions (target 36 + 24).
+- Advanced: 48 Advanced + 12 Intermediate + 12 Beginner support questions (target 48 + 12 + 12).
 
-None of the draft content is approved or imported to production, so Beginner and Intermediate remain unavailable. Availability still requires approved content, active matching lesson/topic mappings, the selected translation language, and enough unseen questions. The current pack supports English learning with Simplified Chinese translation only.
+All content remains draft, so no difficulty is available yet. Availability also requires manual approval, production import, active matching lesson/topic mappings, the selected translation language and enough unseen questions. The current pack supports English learning with Simplified Chinese translation only.
 
 ### Legal and content provenance
 
@@ -1687,4 +1683,4 @@ The content pack adds no learner personal data, tracking or analytics. It uses o
 - Quiz schema/RPC migrations and draft content remain unapplied to production.
 - PR #8 remains draft and unmerged.
 - No merge or deployment occurred.
-- Next, author the Advanced bank to its target, then complete human editorial review and approval planning before implementing the Quiz frontend and signed-token/PostgREST/browser end-to-end tests.
+- Next, complete the 114-question CI validation, then perform human editorial review and plan a separate approval migration before implementing Quiz frontend and signed-token/PostgREST/browser end-to-end tests.
