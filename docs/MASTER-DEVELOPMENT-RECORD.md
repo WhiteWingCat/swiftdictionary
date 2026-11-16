@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-13  
+> **Last consolidated:** 2026-11-16  
 > **Current baseline:** Update 2.3.0 merged to main on 2026-11-13  
-> **Current work:** Update 2.3.1 bug fixes and dashboard/navigation improvements on feature/update-2-3-1-bug-fix-and-changes  
-> **Record status:** Updated after the 2.3.0 merge and live-site owner testing; re-check repository, Supabase and deployment state before further changes.
+> **Current work:** Update 2.4.0 Quiz on feature/update-2-4-0-quiz; latest learning-page introduction/Chinese-availability/translation-fallback additions are undergoing CI validation  
+> **Record status:** Updated 2026-11-16 with Quiz frontend, owner-approved introduction/FAQ and Chinese-course availability requirements, account-scoped dismissal design, and latest validation boundary. Re-check repository, Supabase and deployment state before further changes.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
@@ -906,3 +906,54 @@ This section supersedes the earlier statement above that authenticated runtime v
 3. Supabase security advisors have passed against the disposable local Quiz schema.
 4. The 2.3.x regression suite, expanded Mock User unit tests, PostgreSQL migration/allowance checks and local Supabase security advisors passed on the latest validated branch tip. The feature preview has not yet been deployed, so owner-facing interactive Mock User testing is not available yet.
 5. PR #8 remains draft and unmerged. Do not deploy to the live site, apply Quiz schema/content to production, or merge without explicit owner approval.
+
+## 14. Update 2.4.0 — learning-page introductions, Chinese availability and translation fallback (2026-11-16)
+
+### Owner-approved behaviour
+
+The owner approved the fallback rule for Quiz translation preference changes:
+- When the requested translation is already represented in the active session snapshot, refresh the active Quiz display immediately.
+- When the requested translation is not represented in the snapshot, preserve the session's original translation and all answers/progress; clearly explain that the new preference applies to the next Quiz.
+- Persist the new translation preference through the existing account preference flow.
+
+The owner also confirmed:
+- Dismissing a first-visit introduction saves that choice to the learner's account.
+- Lessons, Quiz and Flashcards each need a consistently placed, noticeable ? help control.
+- The help control reopens the introduction and relevant FAQs at any time.
+- If the learner selects Chinese, each of Lessons, Quiz and Flashcards must clearly state that no Chinese learning course is currently available. Do not silently show English learning content as if it were Chinese content.
+- The owner clarified that development should continue using normal GitHub/Supabase authorization prompts when required; this is not permission to merge, deploy or modify production Quiz schema/content.
+
+### Implementation on feature/update-2-4-0-quiz
+
+- Updated index.html to add a reusable introduction/FAQ dialog for Lessons, Quiz and Flashcards, with consistently positioned ? controls.
+- Each page has its own dismissal key. Local fallback storage is separated by signed-in user ID (and guest browser), and signed-in dismissal writes use the new account-scoped Supabase table.
+- Added Quiz-specific FAQs covering untimed sessions, resume/change-answer behaviour, allowance and frozen translation snapshots.
+- Added explicit Chinese-course-unavailable states for Lessons, Quiz and Flashcards. The Lessons library and Daily Learning content are hidden while Chinese is selected; Quiz session/results are hidden while Chinese is selected; Flashcards retains its Coming Soon state while showing the Chinese availability notice.
+- Added the approved Quiz translation fallback: use the learning-language text when requested, immediately show a translation only when it is included in the active session snapshot, otherwise retain the snapshot translation and show a clear next-Quiz notice. Quiz start waits for the existing preference-write queue so the new preference is persisted before requesting the next session.
+- Added supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql. It creates a minimal account/page-key dismissal table with a dismissal timestamp, composite account/page primary key, RLS and owner-scoped CRUD policies. No answer or behavioural tracking is added by this feature.
+- Added supabase/tests/learning_page_introduction_preferences.sql to assert RLS, policy count, anonymous access denial, authenticated grants and the primary key.
+- Extended scripts/quiz/validate-quiz-frontend.mjs to check the new UI, account-scoped dismissal integration, Chinese availability and Quiz translation fallback.
+- Updated .github/workflows/quiz-db-foundation.yml to apply the new migration and run its security assertions only in disposable CI databases.
+
+### Repository state and validation boundary
+
+- Feature branch: feature/update-2-4-0-quiz.
+- PR #8 remains draft and unmerged.
+- Relevant implementation commits include 70d165a (draft preference migration), 7d6c64e (introduction/availability UI), a41fe28 (language refresh hardening), dd850d6 (Quiz snapshot translation fallback), cbe64de (frontend validator expansion), c5ea9dd (CI migration application), f32a3ea (RLS assertions), and 58d64a7 (CI assertion wiring). Later commits may supersede these hashes; inspect branch HEAD before resuming.
+- Static inspection confirmed no duplicate HTML IDs and confirmed the expected feature hooks/markup are present. The main inline JavaScript parser and full CI results are being exercised by GitHub Actions; at the time of this record update, the latest runs were queued/in progress and are not claimed as passed.
+- No real hosted browser test has yet been performed for the new intro/FAQ, account sync, Chinese availability or translation fallback.
+- Supabase project discovery found the SwiftDictionary production project only and no Supabase development branches. The new migration is a repository draft and was not applied to production.
+- No production schema/data changes, website deployment, merge or question publication occurred. All 114 Quiz question records remain drafts.
+
+### Privacy/legal planning
+
+The new preference table stores only the learner's account ID, one of three page keys and a dismissal timestamp. This is still account-linked personal data. Before release, include it in the Malaysia PDPA and international privacy review, update the retention/deletion inventory, confirm account deletion cascades remove these rows, and ensure the privacy notice explains saved page preferences and cross-device synchronisation. Do not treat a free educational project as automatically outside PDPA scope; obtain Malaysian legal advice on applicability. This is planning guidance, not legal advice or a compliance certification.
+
+### Next gates
+
+1. Confirm the latest GitHub Actions jobs pass, including the new frontend validator and disposable-database RLS assertions.
+2. Add browser/runtime tests for first visit, dismissal persistence across reload, reopening via ?, independent per-page dismissals, account isolation/switching and signed-out fallback.
+3. Add/verify active Quiz tests for translation available in snapshot, translation unavailable in snapshot, unchanged answers/session state and preference application to the next session.
+4. Verify Chinese selection never exposes English lesson/Quiz/Flashcard content as Chinese learning content, and switching back to English restores the available experience.
+5. Check current Supabase migration history before any staging/production migration. Do not apply this migration to production without explicit release approval.
+6. Keep PR #8 draft until automated runtime tests and owner review are complete. No merge or website deployment without explicit approval.
