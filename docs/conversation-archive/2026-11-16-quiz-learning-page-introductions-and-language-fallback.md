@@ -114,3 +114,7 @@ This is the first complete green CI run for the new learning-page feature set. R
 - Quiz workflow run #274 (commit 0cc4822) also completed successfully across PostgreSQL foundation, disposable local Supabase Auth/RPC/browser tests and Supabase security advisors.
 - Both green runs validate the application, migration and browser-test code now present at the feature branch head. Later changes through this archive note are documentation/PR updates only.
 - Documentation-only CI reruns #278–#279 were in progress at the latest check.
+
+## Mock preview release gate
+
+The Mock User adapter and unit tests support the new per-account introduction preferences, but the Cloudflare Pages preview host could not be verified as reachable from this session. Do not present the preview URL as live or ready yet. Before owner testing, verify the feature branch preview is deployed, open it with the explicit ?swiftMock=1 opt-in, and test both fictional Free and Premium identities. No real Supabase calls or production data should be used in Mock Test Mode.
