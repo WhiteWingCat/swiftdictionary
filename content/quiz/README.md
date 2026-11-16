@@ -6,7 +6,7 @@
 - Learning course: English
 - Translation: Simplified Chinese
 - Current status: draft only
-- Batch 01: 30 Beginner questions across five Beginner topics, with six questions per topic.
+- Current draft bank: 30 Beginner questions (six per each of five topics) and 36 Intermediate questions (seven or eight per each of five topics).
 
 These questions are original SwiftDictionary learning content. Do not copy third-party dictionary entries, textbook exercises, commercial question banks or online quiz sets. Keep prompts, distractors, translations and explanations independently authored.
 
