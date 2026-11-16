@@ -18856,10 +18856,23 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function learningIntroLoadPreferences(){
       learningIntroDismissed=new Set();
-      try{learningIntroDismissed=new Set(JSON.parse(localStorage.getItem(learningIntroStorageKey(currentUser?.id||null))||"[]"));}catch{}
+      const readDismissals=key=>{try{return new Set(JSON.parse(localStorage.getItem(key)||"[]"));}catch{return new Set();}};
+      const guestDismissals=readDismissals(learningIntroStorageKey(null));
+      const accountDismissals=currentUser?readDismissals(learningIntroStorageKey(currentUser.id)):new Set();
+      learningIntroDismissed=currentUser?new Set([...guestDismissals,...accountDismissals]):guestDismissals;
       if(currentUser&&supabaseClient){
         const {data,error}=await supabaseClient.from("learning_page_introduction_preferences").select("page_key").eq("user_id",currentUser.id);
-        if(!error){(data||[]).forEach(row=>learningIntroDismissed.add(row.page_key));}
+        if(!error){
+          (data||[]).forEach(row=>learningIntroDismissed.add(row.page_key));
+          // If a learner dismissed a guide before signing in, carry that choice
+          // into their account so it follows them to other devices.
+          for(const page of guestDismissals){
+            if(!["lessons","quiz","flashcards"].includes(page))continue;
+            const {error:saveError}=await supabaseClient.from("learning_page_introduction_preferences").upsert({user_id:currentUser.id,page_key:page,dismissed_at:new Date().toISOString()},{onConflict:"user_id,page_key"});
+            if(!saveError)learningIntroDismissed.add(page);
+          }
+          try{localStorage.setItem(learningIntroStorageKey(currentUser.id),JSON.stringify([...learningIntroDismissed]));}catch{}
+        }
       }
     }
     function learningIntroMaybeShow(page){
@@ -18927,7 +18940,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
   <div id="learningIntroBackdrop" class="learning-intro-backdrop" hidden>
     <section class="learning-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="learningIntroTitle">
-      <p class="eyebrow">SWIF TDICTIONARY LEARNING GUIDE</p>
+      <p class="eyebrow">SWIFTD ICTIONARY LEARNING GUIDE</p>
       <h2 id="learningIntroTitle">Welcome</h2>
       <div id="learningIntroContent"></div>
       <div class="learning-intro-actions"><button type="button" class="secondary-button" id="learningIntroClose">Close</button><button type="button" class="primary-button" id="learningIntroDismiss">Dismiss</button></div>
