@@ -460,11 +460,10 @@
           "learning_text": "Does he work here?",
           "translation_text": "他在这里工作吗？"
         },
-        {
-          "id": "d",
-          "learning_text": "He does work here?",
-          "translation_text": "他在这里工作吗？"
-        }
+        [
+          "Does he work at here?",
+          "他在这里工作吗？"
+        ]
       ],
       "correct_option_id": "c",
       "explanation_learning": "With “does,” the main verb stays in its base form: “work.”",
