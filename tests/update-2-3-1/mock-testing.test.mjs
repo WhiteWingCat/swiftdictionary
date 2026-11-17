@@ -238,7 +238,11 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   const started=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
   assert.equal(started.error,null);
   assert.equal(started.data.questions.length,10);
-  assert.equal(started.data.questions.filter(question=>question.question_type==="chinese_translation").length,1);
+  const beginnerChineseCount=started.data.questions.filter(question=>question.question_type==="chinese_translation").length;
+  assert.ok(beginnerChineseCount>=1&&beginnerChineseCount<=7,"Daily Beginner Chinese mix must be randomized from one to seven");
+  assert.ok(started.data.questions.some(question=>question.question_type==="word_definition")||draftBank.questions.some(question=>question.question_type==="word_definition"),"The expanded bank must include word-definition items");
+  assert.equal(draftBank.questions.filter(question=>question.question_type==="word_definition").length,15);
+  assert.equal(draftBank.questions.filter(question=>question.question_type==="chinese_translation"&&question.source_lesson_id==="b-verb-combinations").length>=10,true);
   const active=await client.rpc("get_my_active_quiz");
   assert.equal(active.data.session_id,started.data.session_id);
   assert.equal(active.data.questions.length,10);
@@ -281,6 +285,8 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(history.data[0].question_count,10);
   const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
   assert.equal(review.data.questions.length,10);
+  const issuedIds=sessionsToCheck.flatMap(session=>session.questions.map(question=>question.question_id));
+  assert.equal(new Set(issuedIds).size,issuedIds.length,"Mock Quiz must not reuse a question on the same local day, including abandoned sessions");
   availability=await client.rpc("get_my_quiz_availability");
   assert.equal(availability.data.allowance.remaining_count,0);
   const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
@@ -295,7 +301,8 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   assert.equal(availability.data.allowance.daily_limit,3);
   const abandoned=await client.rpc("start_my_quiz",{p_difficulty:"advanced"});
   assert.equal(abandoned.data.questions.length,20);
-  assert.equal(abandoned.data.questions.filter(question=>question.question_type==="chinese_translation").length,7);
+  const abandonedChineseCount=abandoned.data.questions.filter(question=>question.question_type==="chinese_translation").length;
+  assert.ok(abandonedChineseCount>=1&&abandonedChineseCount<=7,"Daily Advanced Chinese mix must be between one and seven");
   assert.deepEqual(
     abandoned.data.questions.reduce((counts,question)=>(counts[question.source_difficulty]=(counts[question.source_difficulty]||0)+1,counts),{}),
     {advanced:12,intermediate:6,beginner:2}
@@ -307,11 +314,14 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   assert.equal(abandon.data.status,"abandoned");
   availability=await client.rpc("get_my_quiz_availability");
   assert.equal(availability.data.allowance.remaining_count,3);
+  const sessionsToCheck=[abandoned.data];
   for(const difficulty of ["intermediate","beginner","advanced"]){
     const started=await client.rpc("start_my_quiz",{p_difficulty:difficulty});
     const session=started.data.session||started.data;
-    const expectedChineseQuestions={beginner:1,intermediate:4,advanced:7}[difficulty];
-    assert.equal(session.questions.filter(question=>question.question_type==="chinese_translation").length,expectedChineseQuestions);
+    const selectedChineseCount=session.questions.filter(question=>question.question_type==="chinese_translation").length;
+    assert.ok(selectedChineseCount>=1&&selectedChineseCount<=7,"Daily "+difficulty+" Chinese mix must be between one and seven");
+    if(difficulty==="advanced") assert.equal(selectedChineseCount,abandonedChineseCount,"The same difficulty must keep its daily mix after abandonment");
+    sessionsToCheck.push(session);
     for(const question of session.questions){
       const saved=await client.rpc("save_my_quiz_answer",{
         p_session_id:session.session_id,p_question_id:question.question_id,
