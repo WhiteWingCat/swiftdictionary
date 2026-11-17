@@ -131,4 +131,4 @@ select
   ),
   'a','Option A is the intended Chinese translation.','选项 A 是准确的中文翻译。','approved'
 from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
-cross join generate_series(1,7) n;
+cross join generate_series(1,21) n;
