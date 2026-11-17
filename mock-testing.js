@@ -228,7 +228,7 @@
         const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
         if(bank.status!=="draft") throw new Error("Mock Quiz may load only content explicitly marked as draft.");
         if(!Array.isArray(bank.questions)||bank.questions.length!==150) throw new Error("The draft Quiz bank must contain exactly 150 questions.");
-        const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\\s\\p{P}\\p{S}]+/gu,"");
+        const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
         const mapped=bank.questions.map(question=>{
           const source=curriculum[question.source_lesson_id];
           if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty)) throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);

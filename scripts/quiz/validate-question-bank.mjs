@@ -18,7 +18,7 @@ const counts = { beginner: 0, intermediate: 0, advanced: 0 };
 const translationCounts = { beginner: 0, intermediate: 0, advanced: 0 };
 const knowledgeCounts = { beginner: 0, intermediate: 0, advanced: 0 };
 const topics = { beginner: new Set(), intermediate: new Set(), advanced: new Set() };
-const normalizeOption = value => String(value ?? "").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\\s\\p{P}\\p{S}]+/gu, "");
+const normalizeOption = value => String(value ?? "").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu, "");
 
 function requireText(value, label, max = 2000) {
   if (typeof value !== "string" || !value.trim() || value.length > max) {
