@@ -69,6 +69,18 @@ if (!mockTesting.includes("async function loadQuizDraftBank") || !mockTesting.in
 if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
   throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");
 }
+if (!html.includes('class="course-selector-wrap course-selector-pill"') ||
+    html.includes("courseControlTrigger") || html.includes("translationControlTrigger")) {
+  throw new Error("Learning and translation language controls must be directly selectable with one interaction.");
+}
+if (!html.includes('showPage("quiz",true,{skipQuizInitialise:true})') ||
+    !html.includes('quizReview(button.dataset.dashboardQuizReview,"profile")') ||
+    !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {
+  throw new Error("Dashboard Quiz history must open directly into the review and provide a Dashboard return path.");
+}
+if (!mockTesting.includes("correct_count:row.correct_count")) {
+  throw new Error("Mock Quiz history must include the actual correct-answer count.");
+}
 for (const feature of [
   "function refreshTranslationViews(nextLanguage)",
   "renderLesson(activeLesson,true)",
