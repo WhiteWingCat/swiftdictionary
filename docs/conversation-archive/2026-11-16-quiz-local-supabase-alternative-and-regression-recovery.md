@@ -66,3 +66,36 @@ Use only synthetic identities and synthetic test data in disposable environments
 3. Collect the owner's Mock User UI feedback; keep it separate from backend validation.
 4. Complete Malaysia PDPA and applicable international/teen privacy, retention and deletion review before release.
 5. Keep PR #8 draft/unmerged and do not migrate/import to live Supabase, merge main, or deploy production without separate explicit approval.
+
+
+## Owner feedback and implementation follow-up — 2026-11-17
+
+The owner tested the Mock User preview and requested: permanent lesson translations refresh reliably; smaller Profile-style course/translation controls with contextual icons and labels inside dropdowns; Daily Quiz allowance moved to the right of “Choose a difficulty”; Quiz history shown in Dashboard learning progress; and a path to real Quiz testing instead of synthetic mock questions.
+
+### Implementation
+
+- Global language controls are now compact Profile-style pills: 📘 Learning Course and 🌐 translation language. The selected language appears next to the icon; the descriptive labels are inside the dropdown panels.
+- Daily Quiz allowance moved into the right side of the Quiz difficulty heading; it stacks on mobile.
+- Dashboard > Learning progress now contains recent Quiz history with difficulty, correct/total, date, percentage and a Review action.
+- Permanent lesson translation refresh directly re-renders the active lesson reader, preserving selected practice answers/progress. Daily Learning and permanent lessons use separate renderers but share the global translation preference; the page-boundary theory was not the actual cause.
+
+### Bugs found and corrected
+
+- Dashboard's profile bootstrap performed a redundant upsert on `user_preferences` every time. Postgres still evaluated INSERT RLS policies even when the upsert conflict path would not insert, causing a valid existing account to fail Dashboard loading. `ensureProfileRows()` now checks for the owner row first and inserts only if absent.
+- Disposable CI's minimal `profiles` table lacks the optional `avatar_icon` column. Dashboard now falls back to `display_name` when that column is unavailable.
+- Authenticated Quiz test navigation now waits for the saved question position after each Next action to avoid racing answer persistence.
+
+### Validation at commit `525e160a00dc8c0febf648dff6bca133df44725e`
+
+- Authenticated local Supabase runtime: passed, 6/6 Chromium tests. The permanent lesson translation switch (both directions) preserved the selected practice answer; completed Quiz history appeared in Dashboard and its Review action opened the correct answer review.
+- Supabase security advisors: passed, no issues found.
+- Quiz PostgreSQL 17 foundation and RPC/session/allowance tests: passed.
+- Companion 2.3.x PostgreSQL, Chromium regression and local Auth compatibility jobs: all passed.
+- Cloudflare Pages preview deployed successfully for commit `525e160`: `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev`.
+- Separate Workers Builds check still fails; Pages deployment succeeds independently and the static Pages app has not been shown to require that Worker.
+
+### Real Quiz website testing boundary
+
+The current preview remains Mock User UI simulation. Turning off the mock adapter would use the production Supabase configuration, so it is not safe to simply switch it off. Real end-to-end testing requires a separate temporary Supabase staging project (not a Supabase Development Branch), isolated test accounts and the 2.4.0 schema/content there. This needs owner approval and appropriate Supabase write permissions. The 114 authored questions (30 Beginner, 36 Intermediate, 48 Advanced) remain draft; using them in staging for test-only evaluation also needs the owner's explicit approval. No staging project or new cloud environment has been created.
+
+PR #8 remains draft/open/unmerged. No production Quiz schema/content changes, production deployment or main merge occurred. Quiz progress and scores are account-linked learning data; Malaysia PDPA and applicable international/teen privacy, retention and deletion review remains a release gate.
