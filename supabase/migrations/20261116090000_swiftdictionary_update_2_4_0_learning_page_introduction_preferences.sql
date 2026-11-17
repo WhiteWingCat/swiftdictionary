@@ -14,6 +14,7 @@ alter table public.learning_page_introduction_preferences enable row level secur
 revoke all on table public.learning_page_introduction_preferences from public, anon;
 revoke all on table public.learning_page_introduction_preferences from authenticated;
 grant select, insert, update, delete on table public.learning_page_introduction_preferences to authenticated;
+grant select, insert, update, delete on table public.learning_page_introduction_preferences to service_role;
 
 drop policy if exists "Users can read their own learning page introduction preferences" on public.learning_page_introduction_preferences;
 create policy "Users can read their own learning page introduction preferences"
