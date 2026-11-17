@@ -51,7 +51,7 @@ jobs:
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
           eval "$(supabase status --output env)"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/bootstrap.sql"
+          psql "$DB_URL" -X -1 -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/bootstrap.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/verify-clean-bootstrap.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-3-0/supabase-local-app-fixtures.sql"
 
