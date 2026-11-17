@@ -18891,6 +18891,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const translatedLabel=quizT(label,({beginner:"初级",intermediate:"中级",advanced:"高级"})[item.difficulty]||label);
         return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
       }).join("");
+      quizEl("quizDifficultyGrid").querySelectorAll("[data-quiz-start]").forEach(button=>{
+        button.addEventListener("click",()=>{if(!button.disabled)quizStart(button.dataset.quizStart);});
+      });
       quizApplyPageTranslation();
     }
     function quizRenderHistory(rows){
@@ -18998,8 +19001,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function quizStart(difficulty){
       try{
+        quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
         await preferenceWriteQueue;
-        quizStatus("Preparing your Quiz…");
         const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty});if(error)throw error;
         const session=data&&data.session?data.session:data;
         if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
@@ -19097,7 +19100,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     quizEl("quizRefresh").addEventListener("click",()=>{quizPageState.loaded=false;initialiseQuizPage();});
     quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
-    quizEl("quizDifficultyGrid").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-start]");if(button&&!button.disabled)quizStart(button.dataset.quizStart);});
+
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
     quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
     quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
