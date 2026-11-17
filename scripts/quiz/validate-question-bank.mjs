@@ -47,9 +47,11 @@ for (const [index, q] of questions.entries()) {
   if (!Array.isArray(source?.objectives) || source.objectives.length === 0) fail.push(at + " source lesson has no defined learning objectives");
   if (source && (!q.learning_objective_id || !source.objectives.some(objective => objective.id === q.learning_objective_id))) fail.push(at + " has no valid learning_objective_id for its source lesson");
   const questionType = q.question_type ?? "knowledge";
+  q.question_type = questionType;
+  q.answer_language_code = q.answer_language_code ?? (questionType === "chinese_translation" ? "zh" : "en");
   if (!["knowledge", "word_definition", "chinese_translation"].includes(questionType)) fail.push(at + " has an unsupported question_type");
   if (questionType === "chinese_translation" && q.answer_language_code !== "zh") fail.push(at + " Chinese translation questions must set answer_language_code to zh");
-  if (questionType === "word_definition" && q.answer_language_code !== "en") fail.push(at + " word-definition questions must set answer_language_code to en");
+  if (questionType !== "chinese_translation" && q.answer_language_code !== "en") fail.push(at + " knowledge and word-definition questions must set answer_language_code to en");
   requireText(q.prompt_learning, at + ".prompt_learning");
   requireText(q.prompt_translation, at + ".prompt_translation");
   requireText(q.explanation_learning, at + ".explanation_learning");
@@ -101,8 +103,8 @@ if (!emitSql) console.log("Draft items: " + questions.length);
 for (const difficulty of ["beginner", "intermediate", "advanced"]) {
   if (!emitSql) console.log(difficulty + ": " + counts[difficulty] + " total (" + knowledgeCounts[difficulty] + " knowledge, " + definitionCounts[difficulty] + " word definition, " + translationCounts[difficulty] + " Chinese translation) across " + topics[difficulty].size + " topics");
 }
-if (!emitSql) console.log("All 85 non-knowledge items remain Mock User preview content until authenticated Quiz question_type support is implemented.");
-if (!emitSql) console.log("Authenticated availability gates still use the original 114 knowledge questions only; draft counts do not enable any difficulty.");
+if (!emitSql) console.log("All 199 items are draft-only; authenticated question-type support is being added but content still requires human approval.");
+if (!emitSql) console.log("No difficulty becomes available until sufficient approved, lesson-aligned questions of each required type exist.");
 if (!emitSql) console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum, " + counts.beginner + "/30 target");
 if (!emitSql) console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
 if (!emitSql) console.log("Advanced minimum 32 advanced + 8 intermediate + 8 beginner; target 48 + 12 + 12.");
@@ -111,13 +113,15 @@ if (!emitSql) console.log("All source content remains draft and must receive hum
 if (emitSql) {
   const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
   const json = value => lit(JSON.stringify(value)) + "::jsonb";
-  const exportQuestions = questions.filter(q => (q.question_type ?? "knowledge") === "knowledge");
+  const exportQuestions = questions;
   const rows = exportQuestions.map(q => {
     const source = lessons[q.source_lesson_id];
     return "(" + [
       lit(q.question_id), "1", lit(raw.learning_language_code),
       lit(raw.translation_language_code), lit(q.source_lesson_id),
       lit(source.topic_id), lit(source.difficulty),
+      lit(q.question_type ?? "knowledge"), lit(q.answer_language_code ?? ((q.question_type ?? "knowledge") === "chinese_translation" ? "zh" : "en")),
+      lit(q.learning_objective_id),
       lit(q.prompt_learning), lit(q.prompt_translation), json(q.options),
       lit(q.correct_option_id), lit(q.explanation_learning),
       lit(q.explanation_translation), lit("draft")
@@ -125,11 +129,11 @@ if (emitSql) {
   });
   const sql = [
     "-- Generated from " + file + ". Drafts only; never auto-approve.",
-    "-- Non-knowledge question types are omitted until the authenticated database question_type migration is applied.",
+    "-- All question types are imported as drafts; this exporter never approves content.",
     "begin;",
     "insert into private.quiz_question_bank (",
     "  question_id, revision, learning_language_code, translation_language_code,",
-    "  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,",
+    "  source_lesson_id, topic_id, difficulty, question_type, answer_language_code, learning_objective_id, prompt_learning, prompt_translation,
     "  options, correct_option_id, explanation_learning, explanation_translation, status",
     ") values",
     rows.join(",\n"),
