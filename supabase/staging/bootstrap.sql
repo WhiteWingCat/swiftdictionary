@@ -30,7 +30,8 @@ create table public.saved_words (
 
 create table public.profiles (
   user_id uuid primary key references auth.users(id) on delete cascade,
-  display_name text
+  display_name text,
+  avatar_icon text
 );
 
 -- Match the live project's RLS posture for the synthetic language/profile tables.
