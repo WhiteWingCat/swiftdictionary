@@ -18851,12 +18851,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       set("#quizSignedOut h2","Sign in to take a Quiz","登录后开始测验");
       set("#quizSignedOut p","Your sessions and progress are saved to your account so you can continue later.","测验记录和进度会保存到你的账户，方便稍后继续。");
       set("#quizSignIn","Sign in","登录");
+      const help=page.querySelector('[data-learning-help="quiz"]');
+      if(help){help.setAttribute("aria-label",quizT("Quiz introduction and FAQs","测验介绍与常见问题"));help.title=quizT("Introduction and FAQs","介绍与常见问题");}
       set("#quizActiveCard h2","Continue your Quiz","继续测验");
       set("#quizResume","Resume Quiz","继续测验");
       set(".quiz-difficulty-heading h2","Choose a difficulty","选择难度");
       set(".quiz-difficulty-heading > div > p","Each session contains a fixed set of mixed-topic questions.","每次测验包含固定数量的多主题问题。");
       set(".quiz-allowance-card > div > strong","Daily Quiz allowance","每日测验额度");
       set("#quizBackHome","← Quiz overview","← 测验总览");
+      set("#quizPrevious","Previous","上一题");
       set("#quizPrevious","Previous","上一题");
       set("#quizNext","Next","下一题");
       set(".quiz-submit-row > p","Your answers are saved as you go. You can change them until you submit.","你的答案会自动保存。提交前可以随时修改。");
@@ -18951,7 +18954,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
       const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
       const answered=s.questions.filter(x=>x.selected_option_id).length;
-      quizEl("quizSessionDifficulty").textContent=quizDifficultyLabels[s.difficulty]||s.difficulty;
+      quizEl("quizSessionDifficulty").textContent=quizT(quizDifficultyLabels[s.difficulty]||s.difficulty,({beginner:"初级",intermediate:"中级",advanced:"高级"})[s.difficulty]||s.difficulty);
       quizEl("quizQuestionCounter").textContent=quizT("Question "+pos+" of "+s.question_count,"第 "+pos+" 题，共 "+s.question_count+" 题");
       quizEl("quizAnsweredCounter").textContent=quizT(answered+" answered","已作答 "+answered+" 题");
       quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
@@ -18965,6 +18968,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
       }).join("")+'</div>';
+      quizEl("quizPrevious").textContent=quizT("Previous","上一题");
+      quizEl("quizQuestionArea").setAttribute("aria-label",quizT("Answer options","答案选项"));
       quizEl("quizPrevious").disabled=pos<=1;
       quizEl("quizNext").hidden=pos>=s.question_count;
       quizEl("quizNext").textContent=quizT("Next","下一题");
@@ -18976,7 +18981,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       // Session snapshots are immutable. Refresh immediately when the chosen
       // language is present; otherwise keep the session intact and explain why.
       quizApplyPageTranslation();
-      if(quizPageState.session) quizRenderSession();
+      if(quizPageState.session&&quizPageState.sessionView) quizRenderSession();
       if(quizPageState.result) quizRenderResult(quizPageState.result);
       const snapshot=quizPageState.session||quizPageState.result;
       if(snapshot) quizUpdateTranslationNotice(snapshot);
@@ -19016,8 +19021,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     async function quizStart(difficulty){
       const courseSelector=document.getElementById("courseSelect");
       const translationSelector=document.getElementById("translationSelect");
-      const requestedCourse=course;
-      const requestedTranslation=translationLanguage;
+      const requestedCourse=courseSelector.value||course||"en";
+      const requestedTranslation=translationSelector.value||translationLanguage||"en";
       const requestedUserId=currentUser?.id||null;
       quizPageState.userId=requestedUserId||quizPageState.userId;
       courseSelector.disabled=true;
