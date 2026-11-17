@@ -18893,6 +18893,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
     function quizShowHome(){
+      quizPageState.sessionView=false;
       quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
       quizEl("quizSignedOut").hidden=true;
     }
@@ -19275,9 +19276,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese;
       quizEl("lessonLibrary").hidden=chinese;
       quizEl("quizChineseUnavailable").hidden=!chinese;
-      quizEl("quizHome").hidden=chinese||!currentUser;
-      quizEl("quizSession").hidden=chinese||!currentUser||!quizPageState.session;
-      quizEl("quizResults").hidden=chinese||!currentUser||!quizPageState.result;
+      const quizSignedIn=!chinese&&!!currentUser;
+      const showQuizResults=quizSignedIn&&!!quizPageState.result;
+      const showQuizSession=quizSignedIn&&!showQuizResults&&!!quizPageState.session&&!!quizPageState.sessionView;
+      const showQuizHome=quizSignedIn&&!showQuizResults&&!showQuizSession;
+      quizEl("quizHome").hidden=!showQuizHome;
+      quizEl("quizSession").hidden=!showQuizSession;
+      quizEl("quizResults").hidden=!showQuizResults;
       quizEl("quizSignedOut").hidden=chinese||!!currentUser;
       quizUpdateTranslationNotice(chinese?null:(quizPageState.session||quizPageState.result));
       quizEl("flashcardsChineseUnavailable").hidden=!chinese;
