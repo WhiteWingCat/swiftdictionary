@@ -18914,11 +18914,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus(quizT("Sign in to access your account's Quiz sessions.","登录后即可查看账户中的测验记录。"));return;}
       quizApplyPageTranslation();
       quizStatus(quizT("Loading Quiz availability…","正在加载测验可用情况…"));
+      const requestedUserId=currentUser.id;
       const [availability,history,active]=await Promise.all([
         quizCall("get_my_quiz_availability"),
         quizCall("get_my_quiz_history",{p_limit:20}),
         quizCall("get_my_active_quiz")
       ]);
+      if(currentUser?.id!==requestedUserId)return;
       if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
       quizRenderAvailability(availability.data||{});
       quizRenderHistory(history.data||[]);
@@ -19016,7 +19018,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const translationSelector=document.getElementById("translationSelect");
       const requestedCourse=course;
       const requestedTranslation=translationLanguage;
-      quizPageState.userId=currentUser?.id||quizPageState.userId;
+      const requestedUserId=currentUser?.id||null;
+      quizPageState.userId=requestedUserId||quizPageState.userId;
       courseSelector.disabled=true;
       translationSelector.disabled=true;
       try{
@@ -19026,6 +19029,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           p_learning_language:requestedCourse,
           p_translation_language:requestedTranslation
         });if(error)throw error;
+        if(currentUser?.id!==requestedUserId)return;
         const session=data&&data.session?data.session:data;
         if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
         course=requestedCourse;
