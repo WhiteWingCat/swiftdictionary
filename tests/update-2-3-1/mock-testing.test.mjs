@@ -239,6 +239,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(started.error,null);
   assert.equal(started.data.questions.length,10);
   assert.equal(started.data.questions.filter(question=>question.question_type==="word_definition").length,1);
+  assert.ok(started.data.questions.every(question=>question.learning_objective_id),"Every issued question must retain its permanent lesson objective link.");
   const beginnerChineseCount=started.data.questions.filter(question=>question.question_type==="chinese_translation").length;
   assert.ok(beginnerChineseCount>=1&&beginnerChineseCount<=7,"Daily Beginner Chinese mix must be randomized from one to seven");
   assert.ok(started.data.questions.some(question=>question.question_type==="word_definition")||draftBank.questions.some(question=>question.question_type==="word_definition"),"The expanded bank must include word-definition items");
@@ -286,8 +287,6 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(history.data[0].question_count,10);
   const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
   assert.equal(review.data.questions.length,10);
-  const issuedIds=sessionsToCheck.flatMap(session=>session.questions.map(question=>question.question_id));
-  assert.equal(new Set(issuedIds).size,issuedIds.length,"Mock Quiz must not reuse a question on the same local day, including abandoned sessions");
   availability=await client.rpc("get_my_quiz_availability");
   assert.equal(availability.data.allowance.remaining_count,0);
   const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
@@ -334,6 +333,8 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
     const submitted=await client.rpc("submit_my_quiz",{p_session_id:session.session_id});
     assert.equal(submitted.data.status,"completed");
   }
+  const issuedIds=sessionsToCheck.flatMap(session=>session.questions.map(question=>question.question_id));
+  assert.equal(new Set(issuedIds).size,issuedIds.length,"Mock Quiz must not reuse a question on the same local day, including abandoned sessions");
   availability=await client.rpc("get_my_quiz_availability");
   assert.equal(availability.data.allowance.remaining_count,0);
   const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
@@ -375,4 +376,5 @@ test("Mock Quiz includes Chinese integration only when Chinese is the selected t
   assert.equal(started.error,null);
   assert.equal(started.data.translation_language_code,"en");
   assert.equal(started.data.questions.filter(question=>question.question_type==="chinese_translation").length,0);
+  assert.equal(started.data.questions.filter(question=>question.question_type==="word_definition").length,1);
 });

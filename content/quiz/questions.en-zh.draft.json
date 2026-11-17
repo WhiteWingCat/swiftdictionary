@@ -952,8 +952,8 @@
         },
         {
           "id": "c",
-          "learning_text": "She drinks tea usually in the evening.",
-          "translation_text": "她喝茶通常是在晚上。"
+          "learning_text": "She usually drinks tea in the evening.",
+          "translation_text": "她通常在晚上喝茶。"
         },
         {
           "id": "d",
@@ -962,8 +962,8 @@
         }
       ],
       "correct_option_id": "c",
-      "explanation_learning": "In a neutral present simple sentence, an adverb of frequency usually comes before the main verb: “usually drinks.”",
-      "explanation_translation": "在一般现在时的普通陈述句中，频率副词通常放在主要动词之前，例如“usually drinks”。",
+      "explanation_learning": "Adverbs of frequency such as usually normally appear before the main verb: She usually drinks tea in the evening.",
+      "explanation_translation": "Usually 等频率副词通常放在主要动词之前：She usually drinks tea in the evening。",
       "learning_objective_id": "present-simple-routines"
     },
     {
@@ -4336,7 +4336,7 @@
     },
     {
       "question_id": "quiz-advanced-zh-006",
-      "source_lesson_id": "a-mixed-conditionals",
+      "source_lesson_id": "a-inversion",
       "question_type": "chinese_translation",
       "answer_language_code": "zh",
       "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Had I known about the delay, I would have left later.”",
@@ -4366,7 +4366,7 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "formal-inversion"
     },
     {
       "question_id": "quiz-advanced-zh-007",

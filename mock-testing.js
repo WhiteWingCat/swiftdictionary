@@ -303,7 +303,7 @@
         answer_language_code:question.answer_language_code||null,position:index+1,
         prompt_learning:question.prompt_learning,prompt_translation:question.prompt_translation,
         options,selected_option_id:null,correct_option_id:question.correct_option_id,
-        explanation_learning:question.explanation_learning,explanation_translation:question.explanation_translation
+        learning_objective_id:question.learning_objective_id,explanation_learning:question.explanation_learning,explanation_translation:question.explanation_translation
       };
     });
   }
