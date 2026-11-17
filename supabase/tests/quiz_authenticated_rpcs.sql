@@ -599,11 +599,13 @@ $deletion$;
 do $security$
 begin
   if has_function_privilege('anon','public.start_my_quiz(text)','EXECUTE')
+     or has_function_privilege('anon','public.start_my_quiz(text,text,text)','EXECUTE')
      or has_function_privilege('anon','public.submit_my_quiz(uuid)','EXECUTE')
      or has_function_privilege('anon','public.get_my_quiz_review(uuid)','EXECUTE') then
     raise exception 'Anonymous role can execute a Quiz RPC';
   end if;
   if not has_function_privilege('authenticated','public.start_my_quiz(text)','EXECUTE')
+     or not has_function_privilege('authenticated','public.start_my_quiz(text,text,text)','EXECUTE')
      or not has_function_privilege('authenticated','public.submit_my_quiz(uuid)','EXECUTE') then
     raise exception 'Authenticated role is missing Quiz RPC execute grants';
   end if;
