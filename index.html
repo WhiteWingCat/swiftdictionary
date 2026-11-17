@@ -17923,6 +17923,7 @@
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
       if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
+      if (typeof quizApplyPageTranslation === "function") quizApplyPageTranslation();
       if (ls.active) {
         const status=document.getElementById("lessonStatus");
         if(status) status.textContent=translationLanguage==="zh"
@@ -18628,9 +18629,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           dashboardQuizHost.innerHTML=quizHistoryQ.error
             ? '<p class="muted-note">Quiz history is unavailable until the Update 2.4.0 Quiz database functions are installed.</p>'
             : quizRows.length?quizRows.map(row=>{
-              const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
+              const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
               const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
-              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">Review</button></div></div>';
+              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">\'+quizEscape(quizT("Review","查看"))+\'</button></div></div>';
             }).join("")
             : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
         }
@@ -18824,13 +18825,45 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const learningCode=snapshot.learning_language_code||"en";
       const savedTranslation=snapshot.translation_language_code||"en";
       if(translationLanguage===learningCode){
-        notice.textContent="This Quiz is showing its learning-language text, which is already included in this session.";
+        notice.textContent=quizT("This Quiz is showing its learning-language text, which is already included in this session.","本次测验正在显示学习语言内容，该内容已包含在当前测验中。");
       }else if(translationLanguage===savedTranslation){
-        notice.textContent="This Quiz is using your selected translation, which is included in this session.";
+        notice.textContent=quizT("This Quiz is using your selected translation, which is included in this session.","本次测验正在使用你选择的翻译语言，该内容已包含在当前测验中。");
       }else{
-        notice.textContent="Your requested translation ("+(translationLanguage==="zh"?"简体中文":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.";
+        notice.textContent=quizT("Your requested translation ("+(translationLanguage==="zh"?"Simplified Chinese":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.","你选择的翻译语言（"+(translationLanguage==="zh"?"简体中文":"英语")+"）不包含在本次测验快照中。本次测验会保留原有语言设置；新偏好将在下一次测验生效。当前答案和进度不会改变。");
       }
       notice.hidden=false;
+    }
+
+    function quizT(en,zh){return translationLanguage==="zh"?zh:en;}
+    function quizApplyPageTranslation(){
+      const page=quizEl("quizPage");if(!page)return;
+      const set=(selector,en,zh)=>{const node=page.querySelector(selector);if(node)node.textContent=quizT(en,zh);};
+      set(".quiz-page-heading .eyebrow","Knowledge check","知识测验");
+      set("#quizHeading","Quiz","测验");
+      set(".quiz-page-heading .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
+      set("#quizRefresh","Refresh","刷新");
+      set("#quizChineseUnavailable h2","Chinese Quiz is coming soon","中文测验即将推出");
+      set("#quizChineseUnavailable p","There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.","测验目前暂不提供中文学习课程。请切换至 English 学习课程以使用测验。你的翻译语言偏好会独立保留。");
+      set("#quizSignedOut h2","Sign in to take a Quiz","登录后开始测验");
+      set("#quizSignedOut p","Your sessions and progress are saved to your account so you can continue later.","测验记录和进度会保存到你的账户，方便稍后继续。");
+      set("#quizSignIn","Sign in","登录");
+      set("#quizActiveCard h2","Continue your Quiz","继续测验");
+      set("#quizResume","Resume Quiz","继续测验");
+      set(".quiz-difficulty-heading h2","Choose a difficulty","选择难度");
+      set(".quiz-difficulty-heading > div > p","Each session contains a fixed set of mixed-topic questions.","每次测验包含固定数量的多主题问题。");
+      set(".quiz-allowance-card > div > strong","Daily Quiz allowance","每日测验额度");
+      set("#quizBackHome","← Quiz overview","← 测验总览");
+      set("#quizPrevious","Previous","上一题");
+      set("#quizNext","Next","下一题");
+      set(".quiz-submit-row > p","Your answers are saved as you go. You can change them until you submit.","你的答案会自动保存。提交前可以随时修改。");
+      set("#quizAbandon","Abandon Quiz","放弃测验");
+      set("#quizResultsHome","← Back to Quiz","← 返回测验");
+      const headings=page.querySelectorAll("#quizHome .profile-card h2");
+      if(headings.length>=3)headings[2].textContent=quizT("Quiz history","测验记录");
+      const historyIntro=page.querySelector("#quizHistory")?.closest(".profile-card")?.querySelector(".quiz-section-heading p");
+      if(historyIntro)historyIntro.textContent=quizT("Your completed sessions and scores.","查看已完成的测验和成绩。");
+      const allowance=page.querySelector("#quizAllowanceNote");
+      if(allowance&&!quizPageState.availability)allowance.textContent=quizT("Allowance resets at midnight in your configured timezone.","每日额度会在你设置的时区午夜重置。");
     }
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
@@ -18845,7 +18878,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
       const active=!!data.active_session_id;
       quizEl("quizActiveCard").hidden=!active;
-      if(active)quizEl("quizActiveDescription").textContent="You have an unfinished Quiz. Your saved answers are waiting.";
+      if(active)quizEl("quizActiveDescription").textContent=quizT("You have an unfinished Quiz. Your saved answers are waiting.","你有一份尚未完成的测验，已保存的答案可继续作答。");
       const list=data.difficulties||[];
       quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
         const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
@@ -18857,19 +18890,21 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
             :"Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.";
         return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
       }).join("");
+      quizApplyPageTranslation();
     }
     function quizRenderHistory(rows){
       quizPageState.history=Array.isArray(rows)?rows:[];
       const host=quizEl("quizHistory");
-      if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">No completed Quizzes yet. Your results will appear here.</p>';return;}
+      if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">'+quizEscape(quizT("No completed Quizzes yet. Your results will appear here.","目前还没有已完成的测验。完成测验后，成绩会显示在这里。"))+'</p>';return;}
       host.innerHTML=quizPageState.history.map(row=>{
         const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
         return '<div class="quiz-history-row"><div><strong>'+quizEscape(quizDifficultyLabels[row.difficulty]||row.difficulty)+' · '+quizEscape(row.question_count)+' questions</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">Review</button></div></div>';
       }).join("");
     }
     async function quizLoadHome(){
-      if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access your account's Quiz sessions.");return;}
-      quizStatus("Loading Quiz availability…");
+      if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus(quizT("Sign in to access your account's Quiz sessions.","登录后即可查看账户中的测验记录。"));return;}
+      quizApplyPageTranslation();
+      quizStatus(quizT("Loading Quiz availability…","正在加载测验可用情况…"));
       const [availability,history,active]=await Promise.all([
         quizCall("get_my_quiz_availability"),
         quizCall("get_my_quiz_history",{p_limit:20}),
@@ -18921,6 +18956,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function quizRefreshVisibleTranslation(){
       // Session snapshots are immutable. Refresh immediately when the chosen
       // language is present; otherwise keep the session intact and explain why.
+      quizApplyPageTranslation();
       if(quizPageState.session) quizRenderSession();
       if(quizPageState.result) quizRenderResult(quizPageState.result);
       const snapshot=quizPageState.session||quizPageState.result;
