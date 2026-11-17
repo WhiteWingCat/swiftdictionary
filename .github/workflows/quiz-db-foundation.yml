@@ -91,7 +91,8 @@ jobs:
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117113912_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117125000_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql"\n          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_translation_language_eligibility_fix.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117125000_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_translation_language_eligibility_fix.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -208,7 +209,8 @@ jobs:
         run: |
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117113904_swiftdictionary_update_2_4_0_quiz_authenticated_rpcs.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117113912_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql
-          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117125000_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql\n          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_translation_language_eligibility_fix.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117125000_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_translation_language_eligibility_fix.sql
 
       - name: Validate and import draft Quiz content in PostgreSQL
         run: |
