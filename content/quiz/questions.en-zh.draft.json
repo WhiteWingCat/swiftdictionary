@@ -947,8 +947,8 @@
         },
         {
           "id": "b",
-          "learning_text": "She usually drinks tea in the evening.",
-          "translation_text": "她通常在晚上喝茶。"
+          "learning_text": "She drinks usually tea in the evening.",
+          "translation_text": "她在晚上通常喝茶（副词位置不自然）。"
         },
         {
           "id": "c",
