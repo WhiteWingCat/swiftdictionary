@@ -370,7 +370,8 @@
     .daily-discovery-word-meta strong{color:var(--accent);text-transform:capitalize}
     .daily-discovery-frequency-note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px}
 
-    .quiz-error{color:#ffb1b1}.quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .quiz-error{color:#ffb1b1}
+    .preference-refresh-toast{position:fixed;z-index:1500;left:50%;bottom:28px;transform:translate(-50%,12px);max-width:min(90vw,440px);padding:11px 17px;border:1px solid var(--border);border-radius:999px;background:#252b38;color:var(--text);box-shadow:var(--shadow);font-size:.9rem;text-align:center;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}.preference-refresh-toast.visible{opacity:1;transform:translate(-50%,0)}.quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
     .quiz-page-heading{margin-bottom:18px}.quiz-page-heading h1{margin-top:5px}
     .quiz-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
     .quiz-overview-grid .profile-card,.quiz-difficulty-card,.quiz-results-card{margin:0}
@@ -575,7 +576,7 @@
       <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
-      <div id="quizMockNotice" class="quiz-mock-notice" hidden role="status"><strong>Draft question-bank preview</strong><span>Mock Quiz sessions use the 114 bilingual draft questions from the question bank. The questions, answer keys and explanations are not yet accuracy-approved for learners. Quiz sessions, answer checking, scores, history and allowances are simulated locally; no real account or cloud data is used.</span></div>
+      
       <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
       <section id="quizHome" hidden>
         <div class="quiz-overview-grid">
@@ -17866,7 +17867,37 @@
         }).catch(error => console.warn("Could not save course preferences:", error));
       }
     }
-    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; updateGlobalCourseControlLabels(); rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
+    let preferenceRefreshToastTimer=null;
+    function showPreferenceRefreshToast(kind){
+      const toast=document.getElementById("preferenceRefreshToast");
+      if(!toast)return;
+      const zh=translationLanguage==="zh";
+      toast.textContent=zh
+        ? (kind==="course"?"学习课程已更新，页面已刷新。":"翻译语言已更新，页面已刷新。")
+        : (kind==="course"?"Learning course updated. The page has been refreshed.":"Translation language updated. The page has been refreshed.");
+      toast.classList.add("visible");
+      if(preferenceRefreshToastTimer)clearTimeout(preferenceRefreshToastTimer);
+      preferenceRefreshToastTimer=setTimeout(()=>toast.classList.remove("visible"),2300);
+    }
+    document.getElementById("courseSelect").addEventListener("change", e => {
+      document.getElementById("preferenceLearning").value=e.target.value;
+      course=e.target.value;
+      updateGlobalCourseControlLabels();
+      rememberCoursePreferences();
+      categoryRow.hidden=course==="zh";
+      grid.classList.toggle("character-grid",course==="zh");
+      words=course==="zh"?chineseWords:englishWords;
+      activeLetter="";activeCategory="all";onlySaved=false;
+      savedFilter.setAttribute("aria-pressed","false");
+      savedFilter.textContent="☆ Saved words";
+      search.value="";
+      search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+      currentPage=1;makeAlphabet();updateLetterButtons();
+      categoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+      render();
+      if(currentUser)syncCurrentCourseFromCloud({mergeLocal:false});
+      showPreferenceRefreshToast("course");
+    });
     function refreshTranslationViews(nextLanguage) {
       const selector=document.getElementById("translationSelect");
       translationLanguage=nextLanguage || selector.value || "en";
@@ -17903,6 +17934,7 @@
       refreshTranslationViews(e.target.value);
       updateGlobalCourseControlLabels();
       rememberCoursePreferences();
+      showPreferenceRefreshToast("translation");
     });
     search.addEventListener("input", () => { currentPage = 1; render(); });
     categoryButtons.forEach(button => button.addEventListener("click", () => {
@@ -18771,7 +18803,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     // Update 2.4.0 Quiz frontend. All question data and answer keys are served
     // by authenticated RPCs; the browser never queries the private Quiz tables.
-    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
@@ -18808,8 +18840,6 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     function quizRenderAvailability(data){
       quizPageState.availability=data;
-      const mockNotice=quizEl("quizMockNotice");
-      if(mockNotice)mockNotice.hidden=!data.mock_simulation;
       const a=data.allowance||{};
       quizEl("quizAllowanceText").textContent=(a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining";
       quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
@@ -18848,13 +18878,22 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
       quizRenderAvailability(availability.data||{});
       quizRenderHistory(history.data||[]);
+      const preserveSessionView=quizPageState.sessionView
+        && quizPageState.session?.session_id
+        && quizPageState.session.session_id===active.data?.session_id;
       quizPageState.session=active.data||null;
-      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      if(preserveSessionView&&quizPageState.session){
+        quizRenderSession();
+      }else{
+        quizPageState.sessionView=false;
+        quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      }
       quizStatus("");
     }
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
     function quizRenderSession(){
       const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
+      quizPageState.sessionView=true;
       quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
       const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
       const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
@@ -18948,7 +18987,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
     }
     function quizRenderResult(data){
-      quizPageState.result=data;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
       const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
       const effectiveTranslation=quizEffectiveTranslationCode(data);
       const showTranslation=effectiveTranslation!== (data.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
@@ -18976,7 +19015,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     async function quizAbandon(){
       const s=quizPageState.session;if(!s)return;
       if(!confirm("Abandon this unfinished Quiz? Your answers will not be scored. The questions will remain unavailable for reuse today."))return;
-      try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;await quizLoadHome();}
+      try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;quizPageState.sessionView=false;await quizLoadHome();}
       catch(error){quizStatus("Could not abandon this Quiz: "+error.message,true);}
     }
     async function quizSyncCoursePreferences(){
@@ -19028,7 +19067,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizNext").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)+1));
     quizEl("quizSubmit").addEventListener("click",quizSubmit);
     quizEl("quizAbandon").addEventListener("click",quizAbandon);
-    quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
+    quizEl("quizBackHome").addEventListener("click",async()=>{quizPageState.sessionView=false;await quizLoadHome();});
     quizEl("quizResultsHome").addEventListener("click",async()=>{const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();});
     window.addEventListener("swift-auth-updated",()=>{
       const nextUserId=currentUser?.id||null;
@@ -19036,7 +19075,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       // session that the learner has already resumed when that same account's
       // delayed auth notification arrives. Reset only when identity changes.
       if(quizPageState.userId===nextUserId)return;
-      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,sessionView:false,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
@@ -19165,5 +19204,6 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
   </script>
 
   <script src="daily-learning.js"></script>
+<div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
