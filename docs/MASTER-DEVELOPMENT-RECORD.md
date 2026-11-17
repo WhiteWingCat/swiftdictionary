@@ -1137,3 +1137,14 @@ Session archive: `docs/conversation-archive/2026-11-17-quiz-mock-draft-question-
 ### Mock Quiz follow-up validation
 
 The Mock Quiz draft-bank integration was extended with a persistent warning visible during active sessions/results and the static Quiz validator was updated to enforce the draft-only loader and answer-key privacy. The isolated mock test suite passed 12/12 on commit `2a9173a`; the Quiz frontend validator passed on `ce606a7`. Cloudflare Pages reports success for application commit `ccd4bc5`; the separate Workers Builds check remains failed and is not the Pages deployment. The 2.3.x PostgreSQL regression job passed on `ccd4bc5`; 2.3.x browser/Auth and 2.4.0 local Auth/RPC jobs were still running at the latest check. See the [session archive](conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md) for details. Mock content remains draft-only and PR #8 remains unmerged.
+
+
+## 29. Mock Quiz feedback and follow-up UI fixes (2026-11-17)
+
+The owner tested the draft-bank Mock User preview and requested: duplicate-option checks as a mandatory part of the future accuracy audit; direct Dashboard Quiz-history review with return to the originating page; correct-answer counts in Dashboard history; and one-interaction learning/translation selectors.
+
+A structural scan across all 114 draft items found 9 questions with duplicate Chinese translation options: `quiz-beginner-012`, `quiz-beginner-015`, `quiz-beginner-018`, `quiz-beginner-019`, `quiz-beginner-027`, `quiz-beginner-030`, `quiz-intermediate-028`, `quiz-intermediate-029`, and `quiz-advanced-019`. No duplicate English learning-option strings were detected in this scan. The draft source has not been silently edited; these are editorial blockers for the complete bilingual accuracy review.
+
+Implemented: Mock history now returns `correct_count`; Dashboard review enters the result view directly and remembers the Dashboard return destination; language selectors are direct compact native selects beside their icons; unit/browser tests and the frontend validator were updated. Static Quiz validation passed on `17ace8e`; companion PostgreSQL and Chromium regression jobs passed, but the 2.4.0 runtime browser cases were skipped in that companion workflow and Auth/RPC CI was still pending at the latest check. Do not claim all gates passed until current CI and Pages deployment are confirmed.
+
+Session archive: `docs/conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md`.
