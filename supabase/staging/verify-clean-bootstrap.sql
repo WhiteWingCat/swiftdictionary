@@ -58,5 +58,15 @@ begin
      or not has_table_privilege('authenticated','public.saved_words','DELETE') then
     raise exception 'Authenticated saved_words privileges are incomplete';
   end if;
+
+  if not has_table_privilege('authenticated','public.user_preferences','INSERT')
+     or not has_table_privilege('authenticated','public.lesson_progress','INSERT')
+     or not has_sequence_privilege('authenticated','public.lesson_progress_id_seq','USAGE') then
+    raise exception 'New-account preferences or lesson-start privileges are incomplete';
+  end if;
+
+  if not has_table_privilege('anon','public.languages','SELECT') then
+    raise exception 'Anonymous role must be able to read active language references';
+  end if;
 end
 $$;
