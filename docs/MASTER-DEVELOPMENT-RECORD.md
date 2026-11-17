@@ -6,7 +6,7 @@
 > **Last consolidated:** 2026-11-17 (Update 2.4.0 authenticated Quiz question-type support; 199-question draft bank)  
 > **Current baseline:** Update 2.3.3 is merged to main; six 2.3.0 Supabase migrations are applied to production. The separately approved Quiz allowance change is live at Free 1/day and Premium 3/day.  
 > **Current work:** Update 2.4.0 is on `feature/update-2-4-0-quiz`; PR #8 remains open and draft. Authenticated Quiz question-type support for knowledge, word-definition and Chinese-translation items has been implemented on the feature branch. The 199-question bilingual bank remains draft. A separate Supabase staging project exists but remains empty while a safe clean-schema bootstrap is unresolved.  
-> **Record status:** Quiz workflow #473 passed PostgreSQL 17, disposable local Supabase Auth/RPC, authenticated Chromium and Supabase security-advisor checks. A follow-up Chinese-mix SQL test in workflow #477 is pending. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged.
+> **Record status:** Quiz workflow #483 passed PostgreSQL 17, authenticated Chinese-mix and session-lifecycle RPC tests, 199-row draft import, disposable local Supabase Auth/RPC, authenticated Chromium and Supabase security-advisor checks. Companion 2.3.x regression workflow #1003 also passed. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
