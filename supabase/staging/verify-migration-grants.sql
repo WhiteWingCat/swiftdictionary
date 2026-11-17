@@ -31,7 +31,8 @@ begin
      or not has_function_privilege('authenticated','public.get_my_quiz_availability()','EXECUTE')
      or has_function_privilege('anon','public.start_my_quiz(text)','EXECUTE')
      or has_function_privilege('anon','public.get_my_quiz_availability()','EXECUTE')
-     or has_function_privilege('anon','public.enforce_learning_daily_limit()','EXECUTE') then
+     or has_function_privilege('anon','public.enforce_learning_daily_limit()','EXECUTE')
+     or has_function_privilege('anon','public.guard_lesson_progress_update()','EXECUTE') then
     raise exception 'Authenticated Quiz RPC grants or private trigger-function restrictions are incorrect';
   end if;
 end
