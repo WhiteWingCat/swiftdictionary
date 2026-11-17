@@ -281,7 +281,10 @@ test("Free user can switch translation in an open permanent lesson and complete 
 
   for (let position = 2; position <= 10; position += 1) {
     await page.locator('[data-quiz-option="a"]').click();
-    if (position < 10) await page.locator("#quizNext").click();
+    if (position < 10) {
+      await page.locator("#quizNext").click();
+      await expect(page.locator("#quizQuestionCounter")).toHaveText("Question "+(position+1)+" of 10",{timeout:10000});
+    }
   }
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 10 of 10");
   await expect(page.locator("#quizNext")).toBeHidden();
