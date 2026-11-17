@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-17 (Update 2.4.0 Mock Quiz draft-bank integration, Chinese-translation question mix and CI verification)  
+> **Last consolidated:** 2026-11-17 (Update 2.4.0 authenticated Quiz question-type support; 199-question draft bank)  
 > **Current baseline:** Update 2.3.3 is merged to main; six 2.3.0 Supabase migrations are applied to production. The separately approved Quiz allowance change is live at Free 1/day and Premium 3/day.  
-> **Current work:** Update 2.4.0 is on `feature/update-2-4-0-quiz`; PR #8 remains open and draft. The authenticated Quiz schema/RPC and frontend foundation are implemented on the branch. The 150-item bilingual draft bank contains 114 knowledge questions and 36 Chinese-translation assessment questions; the latter are Mock User preview-only until backend question-type support is added. A separate Supabase staging project exists but remains empty while a safe clean-schema bootstrap is unresolved.  
-> **Record status:** Quiz workflow #417 and 2.3.x regression workflow #974 passed. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged. The latest Cloudflare Pages preview deployment still requires confirmation before sharing a test link.
+> **Current work:** Update 2.4.0 is on `feature/update-2-4-0-quiz`; PR #8 remains open and draft. Authenticated Quiz question-type support for knowledge, word-definition and Chinese-translation items has been implemented on the feature branch. The 199-question bilingual bank remains draft. A separate Supabase staging project exists but remains empty while a safe clean-schema bootstrap is unresolved.  
+> **Record status:** Quiz workflow #473 passed PostgreSQL 17, disposable local Supabase Auth/RPC, authenticated Chromium and Supabase security-advisor checks. A follow-up Chinese-mix SQL test in workflow #477 is pending. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
@@ -1821,3 +1821,21 @@ The Chinese-integrated question quiz-advanced-zh-006 tests a third-conditional i
 1. Continue bilingual editorial review for factual accuracy, natural Simplified Chinese, answer uniqueness, difficulty and explanations.
 3. Add authenticated database/RPC support for word_definition and chinese_translation in a reviewed feature-branch migration, then test it in the isolated staging environment after its clean-schema bootstrap is complete.
 4. Keep all content draft until the owner has reviewed and explicitly approved the bank. Production import and release remain separate approval gates.
+
+
+## 39. Update 2.4.0 — authenticated Quiz question-type support (2026-11-17)
+
+The owner authorised continuation of authenticated backend question-type support while keeping production untouched. The implementation adds `question_type`, `answer_language_code` and `learning_objective_id` to the private question bank, with matching immutable issued-question snapshot fields and authenticated session-payload metadata. The selector now includes one word-definition question per session, a stable 1–7 Chinese-translation mix when Simplified Chinese is selected, and knowledge questions for remaining source-composition slots. Existing session sizes, source-difficulty composition, topic cap, topic diversity, answer secrecy and same-day no-repeat rules are preserved.
+
+The SQL exporter and authoring documentation now support all 199 questions as draft-only imports. No automatic approval is possible. The migration and test changes are on `feature/update-2-4-0-quiz`; PR #8 remains draft and unmerged.
+
+Validation:
+- Quiz workflow #473 passed PostgreSQL 17 migration/RPC tests, 199-row draft import assertions, disposable local Supabase Auth/RPC integration, authenticated Chromium runtime tests and Supabase security advisors. Local services were stopped after tests.
+- Earlier workflow #465 caught a malformed exporter string; it was fixed. The test fixture's English translation-language mismatch was also corrected.
+- Follow-up workflow #477 adds a direct authenticated Chinese-preference session test for 1–7 Chinese-translation questions, exactly one definition item, Chinese answer-language metadata and free abandonment. It was pending at the time of this update.
+
+No production Quiz schema/content migration, production data operation, merge or production deployment occurred. The existing production Quiz allowance remains Free 1/day and Premium 3/day. The approved zero-cost staging project remains empty because the clean-schema bootstrap blocker has not been resolved; no staging migration/import was performed.
+
+The 199 questions remain draft and require full human bilingual accuracy review and explicit owner approval. The backend work adds no new personal-data category or analytics, but existing Quiz account-linked answers, scores, history and temporary no-repeat reservations remain subject to Malaysia PDPA and applicable international/16+ privacy review, including retention/deletion and cross-border disclosures. This is planning guidance, not legal advice.
+
+Next: confirm workflow #477, resolve any failures, complete human bilingual review before content approval, and keep production/main untouched until separate explicit release approval.
