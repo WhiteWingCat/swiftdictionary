@@ -85,3 +85,11 @@ The Chinese-integrated question quiz-advanced-zh-006 tests a third-conditional i
 1. Continue bilingual editorial review for factual accuracy, natural Simplified Chinese, answer uniqueness, difficulty and explanations.
 3. Add authenticated database/RPC support for word_definition and chinese_translation in a reviewed feature-branch migration, then test it in the isolated staging environment after its clean-schema bootstrap is complete.
 4. Keep all content draft until the owner has reviewed and explicitly approved the bank. Production import and release remain separate approval gates.
+
+
+### Final Mock objective-link guard (2026-11-17)
+
+- The Mock loader now verifies that each question's learning_objective_id actually exists in the objectives array of its mapped permanent lesson; a non-empty but mismatched objective is rejected.
+- Issued Mock question snapshots retain learning_objective_id, and the Mock test asserts that the issued snapshot matches the source draft record.
+- Follow-up application commit: a0ff09012751a16d5d7e4c683ac965cf385c5d9d.
+- On that commit, Cloudflare Pages, quiz-db-foundation, PostgreSQL 17, Chromium browser regression and Supabase CLI local Auth compatibility checks passed. The separate disposable local Supabase Auth/RPC integration job was still running at the latest check. The separate Workers Builds check remains failed; the Pages deployment is successful.

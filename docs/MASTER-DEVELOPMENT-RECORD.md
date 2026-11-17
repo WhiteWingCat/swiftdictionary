@@ -1800,6 +1800,14 @@ The Chinese-integrated question quiz-advanced-zh-006 tests a third-conditional i
 - The draft content validator and PostgreSQL import assertions passed for the 199-question source pack; the exporter continues to include only the original 114 knowledge questions. The companion 2.3.x workflow #44059591070 also passed its PostgreSQL 17, Chromium (23 tests) and Supabase CLI local Auth compatibility jobs.
 - Cloudflare Pages check for the feature branch completed successfully. The separate Workers Builds check remains failed, consistent with the pre-existing split result recorded in the preceding archive; it is not the Pages deployment result.
 
+
+### Final Mock objective-link guard (2026-11-17)
+
+- The Mock loader now verifies that each question's learning_objective_id actually exists in the objectives array of its mapped permanent lesson; a non-empty but mismatched objective is rejected.
+- Issued Mock question snapshots retain learning_objective_id, and the Mock test asserts that the issued snapshot matches the source draft record.
+- Follow-up application commit: a0ff09012751a16d5d7e4c683ac965cf385c5d9d.
+- On that commit, Cloudflare Pages, quiz-db-foundation, PostgreSQL 17, Chromium browser regression and Supabase CLI local Auth compatibility checks passed. The separate disposable local Supabase Auth/RPC integration job was still running at the latest check. The separate Workers Builds check remains failed; the Pages deployment is successful.
+
 ## Backend, legal and release boundaries
 
 - The 15 word-definition and 70 Chinese-translation questions remain Mock User preview-only because authenticated Quiz database/RPC support for the new question types has not yet been added. The SQL exporter intentionally excludes all 85 non-knowledge items.
