@@ -18874,8 +18874,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function quizRenderAvailability(data){
       quizPageState.availability=data;
       const a=data.allowance||{};
-      quizEl("quizAllowanceText").textContent=(a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining";
-      quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
+      quizEl("quizAllowanceText").textContent=quizT((a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining",(a.remaining_count??0)+" / "+(a.daily_limit??0)+" 今日剩余");
+      quizEl("quizAllowanceNote").textContent=quizT("Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")","方案："+((data.plan_code||"free")==="premium"?"高级方案":"免费方案")+" · 每日额度于 "+(data.timezone||"你的时区")+" 午夜重置");
       const active=!!data.active_session_id;
       quizEl("quizActiveCard").hidden=!active;
       if(active)quizEl("quizActiveDescription").textContent=quizT("You have an unfinished Quiz. Your saved answers are waiting.","你有一份尚未完成的测验，已保存的答案可继续作答。");
@@ -18884,11 +18884,12 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
         const count=item.difficulty==="beginner"?10:item.difficulty==="intermediate"?15:20;
         const description=item.difficulty==="beginner"
-          ?"Build confidence with essential vocabulary and the foundations of everyday English."
+          ?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。")
           :item.difficulty==="intermediate"
-            ?"Apply your knowledge across varied situations, sentence patterns and common expressions."
-            :"Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.";
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+            ?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。")
+            :quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。");
+        const translatedLabel=quizT(label,({beginner:"初级",intermediate:"中级",advanced:"高级"})[item.difficulty]||label);
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
       }).join("");
       quizApplyPageTranslation();
     }
