@@ -18612,6 +18612,16 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         document.getElementById("courseSelect").value = preferenceSelectionChanged ? course : prefs.learning_language;
         document.getElementById("translationSelect").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
         updateGlobalCourseControlLabels();
+        // Profile hydration may finish after the Quiz overview has rendered.
+        // Re-apply the current language to static and dynamic Quiz UI without
+        // changing whether the learner is viewing the overview, session or results.
+        if (typeof quizRenderAvailability === "function" && quizPageState.availability) {
+          quizRenderAvailability(quizPageState.availability);
+          quizRenderHistory(quizPageState.history);
+        } else if (typeof quizApplyPageTranslation === "function") {
+          quizApplyPageTranslation();
+        }
+        if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
         const completedActivity = (activityQ.data || []).filter(row => legacyActivityLog || row.event_type === "completed");
         const tz = effectiveAllowanceTimezone(prefs);
         const displayTimezone = prefs.timezone || browserTimezone();
