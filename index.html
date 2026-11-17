@@ -18941,7 +18941,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         quizCall("get_my_quiz_history",{p_limit:20}),
         quizCall("get_my_active_quiz")
       ]);
-      if(currentUser?.id!==requestedUserId)return;
+      if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
       if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
       quizRenderAvailability(availability.data||{});
       quizRenderHistory(history.data||[]);
@@ -19056,7 +19056,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           p_learning_language:requestedCourse,
           p_translation_language:requestedTranslation
         });if(error)throw error;
-        if(currentUser?.id!==requestedUserId)return;
+        if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
         const session=data&&data.session?data.session:data;
         if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
         course=requestedCourse;
