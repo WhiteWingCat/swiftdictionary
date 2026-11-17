@@ -65,6 +65,15 @@ async function installLocalSupabaseConfig(page) {
   }));
 }
 
+async function selectCourse(page, language) {
+  await page.locator("#courseControlTrigger").click();
+  await page.locator("#courseSelect").selectOption(language);
+}
+async function selectTranslation(page, language) {
+  await page.locator("#translationControlTrigger").click();
+  await page.locator("#translationSelect").selectOption(language);
+}
+
 async function openQuiz(page, session) {
   await installLocalSupabaseConfig(page);
   const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
@@ -186,10 +195,10 @@ test("Free user can switch translation in an open permanent lesson and complete 
   // Verify the current snapshot, then switch both ways without losing the answer.
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await page.locator('input[name="lessonAnswer0"][value="1"]').check();
-  await page.locator("#translationSelect").selectOption("en");
+  await selectTranslation(page,"en");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
-  await page.locator("#translationSelect").selectOption("zh");
+  await selectTranslation(page,"zh");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
 
@@ -215,10 +224,10 @@ test("Free user can switch translation in an open permanent lesson and complete 
 
   // Changing the shared translation selector while a Quiz is already open
   // must immediately redraw the current question from the immutable snapshot.
-  await page.locator("#translationSelect").selectOption("en");
+  await selectTranslation(page,"en");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
   await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
-  await page.locator("#translationSelect").selectOption("zh");
+  await selectTranslation(page,"zh");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
   await expect(page.locator("#quizTranslationNotice")).toContainText("selected translation");
 
@@ -292,6 +301,15 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator("#quizHistory [data-quiz-review]").click();
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
+
+  // The Dashboard must surface the same completed Quiz history and allow review.
+  await page.goto("/#profile");
+  await expect(page.locator("#profileContent")).toBeVisible();
+  await expect(page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]")).toHaveCount(1);
+  await expect(page.locator("#dashboardQuizHistory")).toContainText("100%");
+  await page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]").click();
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
 });
 
 
@@ -362,30 +380,30 @@ test("learning introductions are independent per page and help controls reopen t
 
 test("Chinese course selection clearly disables English learning content on all three pages", async ({ page }) => {
   await openQuiz(page, freeSession);
-  await page.locator("#courseSelect").selectOption("zh");
+  await selectCourse(page,"zh");
   await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
-  await page.locator("#courseSelect").selectOption("en");
+  await selectCourse(page,"en");
   await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
   await expect(page.locator("#quizHome")).toBeVisible();
 
   await page.goto("/#lessons");
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await page.locator("#learningIntroDismiss").click();
-  await page.locator("#courseSelect").selectOption("zh");
+  await selectCourse(page,"zh");
   await expect(page.locator("#lessonsChineseUnavailable")).toBeVisible();
   await expect(page.locator("#lessonLibrary")).toBeHidden();
-  await page.locator("#courseSelect").selectOption("en");
+  await selectCourse(page,"en");
   await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
   await expect(page.locator("#lessonLibrary")).toBeVisible();
 
   await page.goto("/#flashcards");
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await page.locator("#learningIntroDismiss").click();
-  await page.locator("#courseSelect").selectOption("zh");
+  await selectCourse(page,"zh");
   await expect(page.locator("#flashcardsChineseUnavailable")).toBeVisible();
   await expect(page.locator("#flashcardsPage .coming-card")).toBeHidden();
-  await page.locator("#courseSelect").selectOption("en");
+  await selectCourse(page,"en");
   await expect(page.locator("#flashcardsChineseUnavailable")).toBeHidden();
   await expect(page.locator("#flashcardsPage .coming-card")).toBeVisible();
 });
