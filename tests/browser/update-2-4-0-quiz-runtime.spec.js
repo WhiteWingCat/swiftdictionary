@@ -207,7 +207,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await updateTranslationPreference(freeUserId, "zh");
   await page.goto("/#quiz");
   await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("Preferred question-bank target met");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("approved");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("You have used today's Quiz allowance");
@@ -219,7 +219,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#quizSession"),
     "Beginner Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
   ).toBeVisible({ timeout: 15000 });
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10",{timeout:15000});
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题",{timeout:15000});
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).not.toBeEmpty();
 
@@ -230,7 +230,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
   await selectTranslation(page,"zh");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
-  await expect(page.locator("#quizTranslationNotice")).toContainText("selected translation");
+  await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在使用你选择的翻译语言");
 
   // The learner can change an answer before submission.
   await page.locator('[data-quiz-option="b"]').click();
@@ -238,7 +238,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator('[data-quiz-option="a"]').click();
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10",{timeout:15000});
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 2 题，共 10 题",{timeout:15000});
 
   // Reloading restores the active session and the saved position/answer.
   await page.reload();
@@ -258,9 +258,9 @@ test("Free user can switch translation in an open permanent lesson and complete 
     }));
     throw new Error("Resume RPC did not render the active session: " + JSON.stringify(diagnostics) + "; " + error.message);
   }
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 2 题，共 10 题");
   await page.locator("#quizPrevious").click();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
 
@@ -345,9 +345,9 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
-  await expect(page.locator("#quizTranslationNotice")).toContainText("not included in this Quiz snapshot");
-  await expect(page.locator("#quizTranslationNotice")).toContainText("will apply to the next Quiz");
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator("#quizTranslationNotice")).toContainText("不包含在本次测验快照中");
+  await expect(page.locator("#quizTranslationNotice")).toContainText("新偏好将在下一次测验生效");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
   await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
 
   page.once("dialog", dialog => dialog.accept());
@@ -355,7 +355,12 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   await expect(page.locator("#quizHome")).toBeVisible();
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+  const questionTypes = [];
+  for (let position=1;position<=10;position++) {
+    questionTypes.push(await page.locator("#quizQuestionArea").getAttribute("data-question-type"));
+    if(position<10) await page.locator("#quizNext").click();
+  }
+  expect(questionTypes).toContain("chinese_translation");
 });
 
 test("learning introductions are independent per page and help controls reopen them", async ({ page }) => {
@@ -425,16 +430,23 @@ test("Chinese course selection clearly disables English learning content on all 
 
 test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
   await openQuiz(page, premiumSession);
-  await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("3 / 3 今日剩余");
   await expect(page.locator('[data-quiz-start="advanced"]'),
     "Advanced availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
   ).toBeEnabled();
 
+  const startDiagnostics=[];
+  page.on("request",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"request",url:request.url(),body:request.postData()});});
+  page.on("response",response=>{if(response.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"response",status:response.status()});});
+  page.on("requestfailed",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"failed",error:request.failure()?.errorText||"unknown"});});
   await page.locator('[data-quiz-start="advanced"]').click();
-  await expect(page.locator("#quizSession"),
-    "Advanced Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
-  ).toBeVisible();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 20");
+  try {
+    await expect(page.locator("#quizSession")).toBeVisible({ timeout: 15000 });
+  } catch (error) {
+    const state=await page.evaluate(()=>({userId:currentUser?.id,requestedUserId:quizPageState.userId,translation:translationLanguage,selector:document.querySelector("#translationSelect")?.value,sessionView:quizPageState.sessionView,sessionId:quizPageState.session?.session_id,quizStatus:document.querySelector("#quizStatus")?.textContent}));
+    throw new Error("Advanced Quiz did not render. State: "+JSON.stringify(state)+"; RPC diagnostics: "+JSON.stringify(startDiagnostics)+"; "+error.message);
+  }
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 20 题");
 
   // Returning to overview and attempting a different difficulty must resume
   // the existing server-owned session rather than create a second one.
@@ -447,15 +459,88 @@ test("Premium user sees three daily completions; abandonment does not consume al
   await expect(page.locator('[data-quiz-start="intermediate"]')).toBeDisabled();
   await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizSessionDifficulty")).toHaveText("Advanced");
+  await expect(page.locator("#quizSessionDifficulty")).toHaveText("高级");
 
   page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("3 of 3 remaining");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("3 / 3 今日剩余");
   await expect(page.locator("#quizActiveCard")).toBeHidden();
 });
 
+test("Quiz overview follows translation preference and selector changes preserve an active session", async ({ page }) => {
+  await updateTranslationPreference(freeUserId,"en");
+  await openQuiz(page, freeSession);
+  await expect(page.locator("#quizHeading")).toHaveText("Quiz");
+  await expect(page.locator(".quiz-page-heading .page-intro")).toContainText("Test your understanding");
+  await expect(page.locator("#quizRefresh")).toHaveText("Refresh");
+  await expect(page.locator(".quiz-difficulty-heading h2")).toHaveText("Choose a difficulty");
+  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("Beginner");
+
+  await selectTranslation(page,"zh");
+  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+  await expect(page.locator("#quizHeading")).toHaveText("测验");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
+  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
+  await expect(page.locator("#preferenceRefreshToast")).not.toHaveClass(/visible/,{timeout:5000});
+
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  const languageState = await page.evaluate(() => ({ selector:document.querySelector("#translationSelect")?.value, global:translationLanguage, sessionView:quizPageState.sessionView, sessionVisible:!document.querySelector("#quizSession")?.hidden }));
+  expect(languageState).toEqual({selector:"zh",global:"zh",sessionView:true,sessionVisible:true});
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+  await selectTranslation(page,"en");
+  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizTranslationNotice")).toContainText("This Quiz is showing its learning-language text");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await selectTranslation(page,"zh");
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在使用你选择的翻译语言");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+});
+test("Translation changes on the Quiz overview do not auto-open an unfinished session", async ({ page }) => {
+  await updateTranslationPreference(freeUserId,"zh");
+  await openQuiz(page,freeSession);
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizHeading")).toHaveText("测验");
+  await expect(page.locator(".quiz-page-heading .page-intro")).toContainText("通过不同主题的问题检验你的理解");
+  await expect(page.locator("#quizRefresh")).toHaveText("刷新");
+  await expect(page.locator(".quiz-difficulty-heading h2")).toHaveText("选择难度");
+  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await page.locator("#quizBackHome").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizActiveCard")).toBeVisible();
+  await expect(page.locator("#quizSession")).toBeHidden();
+
+  await selectTranslation(page,"en");
+  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizActiveCard")).toBeVisible();
+  await expect(page.locator("#quizSession")).toBeHidden();
+
+  await page.locator("#quizResume").click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await selectTranslation(page,"zh");
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+});
+test("Learning course selector shows a short refresh confirmation", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await selectCourse(page,"zh");
+  await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
+  await expect(page.locator("#quizChineseUnavailable h2")).toHaveText("中文测验即将推出");
+  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+  await selectCourse(page,"en");
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+});
 test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
   await installLocalSupabaseConfig(page);
   await page.goto("/#quiz");

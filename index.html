@@ -370,7 +370,8 @@
     .daily-discovery-word-meta strong{color:var(--accent);text-transform:capitalize}
     .daily-discovery-frequency-note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px}
 
-    .quiz-error{color:#ffb1b1}.quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .quiz-error{color:#ffb1b1}
+    .preference-refresh-toast{position:fixed;z-index:1500;left:50%;bottom:28px;transform:translate(-50%,12px);max-width:min(90vw,440px);padding:11px 17px;border:1px solid var(--border);border-radius:999px;background:#252b38;color:var(--text);box-shadow:var(--shadow);font-size:.9rem;text-align:center;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}.preference-refresh-toast.visible{opacity:1;transform:translate(-50%,0)}.quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
     .quiz-page-heading{margin-bottom:18px}.quiz-page-heading h1{margin-top:5px}
     .quiz-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
     .quiz-overview-grid .profile-card,.quiz-difficulty-card,.quiz-results-card{margin:0}
@@ -575,7 +576,7 @@
       <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
-      <div id="quizMockNotice" class="quiz-mock-notice" hidden role="status"><strong>Draft question-bank preview</strong><span>Mock Quiz sessions use the 114 bilingual draft questions from the question bank. The questions, answer keys and explanations are not yet accuracy-approved for learners. Quiz sessions, answer checking, scores, history and allowances are simulated locally; no real account or cloud data is used.</span></div>
+      
       <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
       <section id="quizHome" hidden>
         <div class="quiz-overview-grid">
@@ -17366,6 +17367,7 @@
     let translationLanguage = storedCoursePreferences.translation_language === "zh" ? "zh" : "en";
     let words = course === "zh" ? chineseWords : englishWords;
     let preferenceWriteQueue = Promise.resolve();
+    let coursePreferenceSelectionVersion = 0;
     let selectedAvatar = "🐦";
     try { selectedAvatar = localStorage.getItem("swiftdictionary-avatar") || "🐦"; } catch {}
 
@@ -17849,6 +17851,7 @@
     updateGlobalCourseControlLabels();
 
     function rememberCoursePreferences() {
+      coursePreferenceSelectionVersion++;
       updateGlobalCourseControlLabels();
       const value = { learning_language: course, translation_language: translationLanguage };
       try { localStorage.setItem(preferenceStorageKey, JSON.stringify(value)); } catch {}
@@ -17866,8 +17869,43 @@
         }).catch(error => console.warn("Could not save course preferences:", error));
       }
     }
-    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; updateGlobalCourseControlLabels(); rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
+    let preferenceRefreshToastTimer=null;
+    function showPreferenceRefreshToast(kind){
+      const toast=document.getElementById("preferenceRefreshToast");
+      if(!toast)return;
+      const zh=translationLanguage==="zh";
+      toast.textContent=zh
+        ? (kind==="course"?"学习课程已更新，页面已刷新。":"翻译语言已更新，页面已刷新。")
+        : (kind==="course"?"Learning course updated. The page has been refreshed.":"Translation language updated. The page has been refreshed.");
+      toast.classList.add("visible");
+      if(preferenceRefreshToastTimer)clearTimeout(preferenceRefreshToastTimer);
+      preferenceRefreshToastTimer=setTimeout(()=>toast.classList.remove("visible"),2300);
+    }
+    document.getElementById("courseSelect").addEventListener("change", e => {
+      document.getElementById("preferenceLearning").value=e.target.value;
+      course=e.target.value;
+      updateGlobalCourseControlLabels();
+      rememberCoursePreferences();
+      categoryRow.hidden=course==="zh";
+      grid.classList.toggle("character-grid",course==="zh");
+      words=course==="zh"?chineseWords:englishWords;
+      activeLetter="";activeCategory="all";onlySaved=false;
+      savedFilter.setAttribute("aria-pressed","false");
+      savedFilter.textContent="☆ Saved words";
+      search.value="";
+      search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+      currentPage=1;makeAlphabet();updateLetterButtons();
+      categoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+      render();
+      if(currentUser)syncCurrentCourseFromCloud({mergeLocal:false});
+      showPreferenceRefreshToast("course");
+    });
     function refreshTranslationViews(nextLanguage) {
+      const quizViewBefore=location.hash==="#quiz"
+        ? (!document.getElementById("quizResults").hidden ? "results"
+          : !document.getElementById("quizSession").hidden ? "session"
+          : !document.getElementById("quizHome").hidden ? "home" : "other")
+        : null;
       const selector=document.getElementById("translationSelect");
       translationLanguage=nextLanguage || selector.value || "en";
       selector.value=translationLanguage;
@@ -17891,7 +17929,25 @@
         }
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
+      if (typeof quizRenderAvailability === "function" && quizPageState.availability && location.hash==="#quiz") {
+        quizRenderAvailability(quizPageState.availability);
+        quizRenderHistory(quizPageState.history);
+      }
       if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
+      if (typeof quizApplyPageTranslation === "function") quizApplyPageTranslation();
+      // Keep the exact Quiz subview the learner was looking at before the
+      // language refresh. The overview's Resume card must not open the session.
+      if (quizViewBefore==="session" && quizPageState.session) {
+        quizPageState.sessionView=true;
+        quizRenderSession();
+      } else if (quizViewBefore==="results" && quizPageState.result) {
+        quizRenderResult(quizPageState.result);
+      } else if (quizViewBefore==="home") {
+        quizPageState.sessionView=false;
+        document.getElementById("quizHome").hidden=false;
+        document.getElementById("quizSession").hidden=true;
+        document.getElementById("quizResults").hidden=true;
+      }
       if (ls.active) {
         const status=document.getElementById("lessonStatus");
         if(status) status.textContent=translationLanguage==="zh"
@@ -17903,6 +17959,7 @@
       refreshTranslationViews(e.target.value);
       updateGlobalCourseControlLabels();
       rememberCoursePreferences();
+      showPreferenceRefreshToast("translation");
     });
     search.addEventListener("input", () => { currentPage = 1; render(); });
     categoryButtons.forEach(button => button.addEventListener("click", () => {
@@ -18479,6 +18536,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     async function loadProfileData() {
       if (!supabaseClient || !currentUser) return;
+      // A profile read can finish after the learner changes a language selector.
+      // Snapshot the selection version so stale account data cannot overwrite that newer choice.
+      const preferenceSelectionVersionAtStart = coursePreferenceSelectionVersion;
       const signedOut = document.getElementById("profileSignedOut");
       const content = document.getElementById("profileContent");
       signedOut.hidden = true; content.hidden = false;
@@ -18526,27 +18586,42 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const allowanceUsageRows = allowanceUsageQ.error ? null : (allowanceUsageQ.data || []);
         const personalTestAccess = personalTestQ.error ? false : personalTestQ.data === true;
         const prefs = prefsQ.data || {learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()};
-        profilePreferences = prefs;
-        const courseChanged = course !== prefs.learning_language;
-        course = prefs.learning_language;
-        translationLanguage = prefs.translation_language;
-        try { localStorage.setItem(preferenceStorageKey, JSON.stringify({learning_language:course,translation_language:translationLanguage})); } catch {}
-        words = course === "zh" ? chineseWords : englishWords;
-        document.getElementById("categoryRow").hidden = course === "zh";
-        grid.classList.toggle("character-grid", course === "zh");
-        search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
-        if (courseChanged) { activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
+        const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
+        profilePreferences = preferenceSelectionChanged
+          ? {...prefs,learning_language:course,translation_language:translationLanguage}
+          : prefs;
+        if (!preferenceSelectionChanged) {
+          const courseChanged = course !== prefs.learning_language;
+          course = prefs.learning_language;
+          translationLanguage = prefs.translation_language;
+          try { localStorage.setItem(preferenceStorageKey, JSON.stringify({learning_language:course,translation_language:translationLanguage})); } catch {}
+          words = course === "zh" ? chineseWords : englishWords;
+          document.getElementById("categoryRow").hidden = course === "zh";
+          grid.classList.toggle("character-grid", course === "zh");
+          search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
+          if (courseChanged) { activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
+        }
         selectedAvatar = profileQ.data?.avatar_icon || selectedAvatar || "🐦";
         updateAvatarDisplay();
         const correctlyClassifiedSavedWords = await normaliseSavedWordCourses(savedWordsQ.data || []);
         renderFavoriteWords(correctlyClassifiedSavedWords);
         document.getElementById("displayNameInput").value = profileQ.data?.display_name || "";
-        document.getElementById("preferenceLearning").value = prefs.learning_language;
-        document.getElementById("preferenceTranslation").value = prefs.translation_language;
+        document.getElementById("preferenceLearning").value = preferenceSelectionChanged ? course : prefs.learning_language;
+        document.getElementById("preferenceTranslation").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
         document.getElementById("preferenceTimezone").value = prefs.timezone;
-        document.getElementById("courseSelect").value = prefs.learning_language;
-        document.getElementById("translationSelect").value = prefs.translation_language;
+        document.getElementById("courseSelect").value = preferenceSelectionChanged ? course : prefs.learning_language;
+        document.getElementById("translationSelect").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
         updateGlobalCourseControlLabels();
+        // Profile hydration may finish after the Quiz overview has rendered.
+        // Re-apply the current language to static and dynamic Quiz UI without
+        // changing whether the learner is viewing the overview, session or results.
+        if (typeof quizRenderAvailability === "function" && quizPageState.availability) {
+          quizRenderAvailability(quizPageState.availability);
+          quizRenderHistory(quizPageState.history);
+        } else if (typeof quizApplyPageTranslation === "function") {
+          quizApplyPageTranslation();
+        }
+        if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
         const completedActivity = (activityQ.data || []).filter(row => legacyActivityLog || row.event_type === "completed");
         const tz = effectiveAllowanceTimezone(prefs);
         const displayTimezone = prefs.timezone || browserTimezone();
@@ -18596,9 +18671,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           dashboardQuizHost.innerHTML=quizHistoryQ.error
             ? '<p class="muted-note">Quiz history is unavailable until the Update 2.4.0 Quiz database functions are installed.</p>'
             : quizRows.length?quizRows.map(row=>{
-              const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
+              const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
               const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
-              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">Review</button></div></div>';
+              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">\'+quizEscape(quizT("Review","查看"))+\'</button></div></div>';
             }).join("")
             : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
         }
@@ -18771,7 +18846,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     // Update 2.4.0 Quiz frontend. All question data and answer keys are served
     // by authenticated RPCs; the browser never queries the private Quiz tables.
-    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
@@ -18792,97 +18867,164 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const learningCode=snapshot.learning_language_code||"en";
       const savedTranslation=snapshot.translation_language_code||"en";
       if(translationLanguage===learningCode){
-        notice.textContent="This Quiz is showing its learning-language text, which is already included in this session.";
+        notice.textContent=quizT("This Quiz is showing its learning-language text, which is already included in this session.","本次测验正在显示学习语言内容，该内容已包含在当前测验中。");
       }else if(translationLanguage===savedTranslation){
-        notice.textContent="This Quiz is using your selected translation, which is included in this session.";
+        notice.textContent=quizT("This Quiz is using your selected translation, which is included in this session.","本次测验正在使用你选择的翻译语言，该内容已包含在当前测验中。");
       }else{
-        notice.textContent="Your requested translation ("+(translationLanguage==="zh"?"简体中文":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.";
+        notice.textContent=quizT("Your requested translation ("+(translationLanguage==="zh"?"Simplified Chinese":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.","你选择的翻译语言（"+(translationLanguage==="zh"?"简体中文":"英语")+"）不包含在本次测验快照中。本次测验会保留原有语言设置；新偏好将在下一次测验生效。当前答案和进度不会改变。");
       }
       notice.hidden=false;
+    }
+
+    function quizT(en,zh){return translationLanguage==="zh"?zh:en;}
+    function quizApplyPageTranslation(){
+      const page=quizEl("quizPage");if(!page)return;
+      const set=(selector,en,zh)=>{const node=page.querySelector(selector);if(node)node.textContent=quizT(en,zh);};
+      set(".quiz-page-heading .eyebrow","Knowledge check","知识测验");
+      set("#quizHeading","Quiz","测验");
+      set(".quiz-page-heading .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
+      set("#quizRefresh","Refresh","刷新");
+      set("#quizChineseUnavailable h2","Chinese Quiz is coming soon","中文测验即将推出");
+      set("#quizChineseUnavailable p","There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.","测验目前暂不提供中文学习课程。请切换至 English 学习课程以使用测验。你的翻译语言偏好会独立保留。");
+      set("#quizSignedOut h2","Sign in to take a Quiz","登录后开始测验");
+      set("#quizSignedOut p","Your sessions and progress are saved to your account so you can continue later.","测验记录和进度会保存到你的账户，方便稍后继续。");
+      set("#quizSignIn","Sign in","登录");
+      const help=page.querySelector('[data-learning-help="quiz"]');
+      if(help){help.setAttribute("aria-label",quizT("Quiz introduction and FAQs","测验介绍与常见问题"));help.title=quizT("Introduction and FAQs","介绍与常见问题");}
+      set("#quizActiveCard h2","Continue your Quiz","继续测验");
+      set("#quizResume","Resume Quiz","继续测验");
+      set(".quiz-difficulty-heading h2","Choose a difficulty","选择难度");
+      set(".quiz-difficulty-heading > div > p","Each session contains a fixed set of mixed-topic questions.","每次测验包含固定数量的多主题问题。");
+      set(".quiz-allowance-card > div > strong","Daily Quiz allowance","每日测验额度");
+      set("#quizBackHome","← Quiz overview","← 测验总览");
+      set("#quizPrevious","Previous","上一题");
+      set("#quizPrevious","Previous","上一题");
+      set("#quizNext","Next","下一题");
+      set(".quiz-submit-row > p","Your answers are saved as you go. You can change them until you submit.","你的答案会自动保存。提交前可以随时修改。");
+      set("#quizAbandon","Abandon Quiz","放弃测验");
+      set("#quizResultsHome","← Back to Quiz","← 返回测验");
+      const headings=page.querySelectorAll("#quizHome .profile-card h2");
+      if(headings.length>=3)headings[2].textContent=quizT("Quiz history","测验记录");
+      const historyIntro=page.querySelector("#quizHistory")?.closest(".profile-card")?.querySelector(".quiz-section-heading p");
+      if(historyIntro)historyIntro.textContent=quizT("Your completed sessions and scores.","查看已完成的测验和成绩。");
+      const allowance=page.querySelector("#quizAllowanceNote");
+      if(allowance&&!quizPageState.availability)allowance.textContent=quizT("Allowance resets at midnight in your configured timezone.","每日额度会在你设置的时区午夜重置。");
     }
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
     function quizShowHome(){
+      quizPageState.sessionView=false;
       quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
       quizEl("quizSignedOut").hidden=true;
     }
     function quizRenderAvailability(data){
       quizPageState.availability=data;
-      const mockNotice=quizEl("quizMockNotice");
-      if(mockNotice)mockNotice.hidden=!data.mock_simulation;
       const a=data.allowance||{};
-      quizEl("quizAllowanceText").textContent=(a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining";
-      quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
+      quizEl("quizAllowanceText").textContent=quizT((a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining",(a.remaining_count??0)+" / "+(a.daily_limit??0)+" 今日剩余");
+      quizEl("quizAllowanceNote").textContent=quizT("Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")","方案："+((data.plan_code||"free")==="premium"?"高级方案":"免费方案")+" · 每日额度于 "+(data.timezone||"你的时区")+" 午夜重置");
       const active=!!data.active_session_id;
       quizEl("quizActiveCard").hidden=!active;
-      if(active)quizEl("quizActiveDescription").textContent="You have an unfinished Quiz. Your saved answers are waiting.";
+      if(active)quizEl("quizActiveDescription").textContent=quizT("You have an unfinished Quiz. Your saved answers are waiting.","你有一份尚未完成的测验，已保存的答案可继续作答。");
       const list=data.difficulties||[];
       quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
         const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
         const count=item.difficulty==="beginner"?10:item.difficulty==="intermediate"?15:20;
         const description=item.difficulty==="beginner"
-          ?"Build confidence with essential vocabulary and the foundations of everyday English."
+          ?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。")
           :item.difficulty==="intermediate"
-            ?"Apply your knowledge across varied situations, sentence patterns and common expressions."
-            :"Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.";
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+            ?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。")
+            :quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。");
+        const translatedLabel=quizT(label,({beginner:"初级",intermediate:"中级",advanced:"高级"})[item.difficulty]||label);
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
       }).join("");
+      quizEl("quizDifficultyGrid").querySelectorAll("[data-quiz-start]").forEach(button=>{
+        button.addEventListener("click",()=>{if(!button.disabled)quizStart(button.dataset.quizStart);});
+      });
+      quizApplyPageTranslation();
     }
     function quizRenderHistory(rows){
       quizPageState.history=Array.isArray(rows)?rows:[];
       const host=quizEl("quizHistory");
-      if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">No completed Quizzes yet. Your results will appear here.</p>';return;}
+      if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">'+quizEscape(quizT("No completed Quizzes yet. Your results will appear here.","目前还没有已完成的测验。完成测验后，成绩会显示在这里。"))+'</p>';return;}
       host.innerHTML=quizPageState.history.map(row=>{
-        const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
-        return '<div class="quiz-history-row"><div><strong>'+quizEscape(quizDifficultyLabels[row.difficulty]||row.difficulty)+' · '+quizEscape(row.question_count)+' questions</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">Review</button></div></div>';
+        const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
+        const difficultyLabel=quizT(quizDifficultyLabels[row.difficulty]||row.difficulty,({beginner:"初级",intermediate:"中级",advanced:"高级"})[row.difficulty]||row.difficulty);
+        return '<div class="quiz-history-row"><div><strong>'+quizEscape(difficultyLabel)+' · '+quizEscape(row.question_count)+quizEscape(quizT(" questions"," 道题"))+'</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">'+quizEscape(quizT("Review","查看"))+'</button></div></div>';
       }).join("");
     }
     async function quizLoadHome(){
-      if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access your account's Quiz sessions.");return;}
-      quizStatus("Loading Quiz availability…");
+      if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus(quizT("Sign in to access your account's Quiz sessions.","登录后即可查看账户中的测验记录。"));return;}
+      quizApplyPageTranslation();
+      quizStatus(quizT("Loading Quiz availability…","正在加载测验可用情况…"));
+      const requestedUserId=currentUser.id;
       const [availability,history,active]=await Promise.all([
         quizCall("get_my_quiz_availability"),
         quizCall("get_my_quiz_history",{p_limit:20}),
         quizCall("get_my_active_quiz")
       ]);
+      if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
       if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
       quizRenderAvailability(availability.data||{});
       quizRenderHistory(history.data||[]);
+      // An overview request may have started before the learner opened a
+      // session or answer review. Never let that stale response replace the
+      // newer in-progress view with the overview.
+      if(quizPageState.result){
+        quizRenderResult(quizPageState.result);
+        quizStatus("");
+        return;
+      }
+      if(quizPageState.sessionView&&quizPageState.session?.session_id){
+        if(active.data?.session_id===quizPageState.session.session_id)quizPageState.session=active.data;
+        quizRenderSession();
+        quizStatus("");
+        return;
+      }
       quizPageState.session=active.data||null;
+      quizPageState.sessionView=false;
       quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
       quizStatus("");
     }
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
     function quizRenderSession(){
       const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
+      quizPageState.sessionView=true;
       quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
       const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
       const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
       const answered=s.questions.filter(x=>x.selected_option_id).length;
-      quizEl("quizSessionDifficulty").textContent=quizDifficultyLabels[s.difficulty]||s.difficulty;
-      quizEl("quizQuestionCounter").textContent="Question "+pos+" of "+s.question_count;
-      quizEl("quizAnsweredCounter").textContent=answered+" answered";
+      quizEl("quizSessionDifficulty").textContent=quizT(quizDifficultyLabels[s.difficulty]||s.difficulty,({beginner:"初级",intermediate:"中级",advanced:"高级"})[s.difficulty]||s.difficulty);
+      quizEl("quizQuestionCounter").textContent=quizT("Question "+pos+" of "+s.question_count,"第 "+pos+" 题，共 "+s.question_count+" 题");
+      quizEl("quizAnsweredCounter").textContent=quizT(answered+" answered","已作答 "+answered+" 题");
       quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
       const effectiveTranslation=quizEffectiveTranslationCode(s);
       const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
       quizUpdateTranslationNotice(s);
+      quizEl("quizQuestionArea").dataset.questionType=q.question_type||"";
       const chineseTranslationQuestion=q.question_type==="chinese_translation";
       quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
         const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
         const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
       }).join("")+'</div>';
+      quizEl("quizPrevious").textContent=quizT("Previous","上一题");
+      quizEl("quizQuestionArea").setAttribute("aria-label",quizT("Answer options","答案选项"));
       quizEl("quizPrevious").disabled=pos<=1;
       quizEl("quizNext").hidden=pos>=s.question_count;
-      quizEl("quizNext").textContent="Next";
+      quizEl("quizNext").textContent=quizT("Next","下一题");
       quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
-      quizEl("quizSubmit").textContent=answered===s.question_count?"Submit Quiz":"Answer all questions to submit";
+      quizEl("quizSubmit").textContent=answered===s.question_count?quizT("Submit Quiz","提交测验"):quizT("Answer all questions to submit","请回答所有问题后再提交");
       quizStatus("");
     }
     function quizRefreshVisibleTranslation(){
       // Session snapshots are immutable. Refresh immediately when the chosen
       // language is present; otherwise keep the session intact and explain why.
-      if(quizPageState.session) quizRenderSession();
+      quizApplyPageTranslation();
+      // The rendered screen is authoritative: keep an open session open, but
+      // never turn an overview's saved in-progress session into the active view.
+      const sessionIsVisible=!!quizPageState.session&&!quizEl("quizSession").hidden;
+      if(sessionIsVisible){quizPageState.sessionView=true;quizRenderSession();}
+      else if(quizPageState.session){quizPageState.sessionView=false;}
       if(quizPageState.result) quizRenderResult(quizPageState.result);
       const snapshot=quizPageState.session||quizPageState.result;
       if(snapshot) quizUpdateTranslationNotice(snapshot);
@@ -18920,14 +19062,37 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       catch{}
     }
     async function quizStart(difficulty){
+      const courseSelector=document.getElementById("courseSelect");
+      const translationSelector=document.getElementById("translationSelect");
+      const requestedCourse=courseSelector.value||course||"en";
+      const requestedTranslation=translationSelector.value||translationLanguage||"en";
+      const requestedUserId=currentUser?.id||null;
+      quizPageState.userId=requestedUserId||quizPageState.userId;
+      courseSelector.disabled=true;
+      translationSelector.disabled=true;
       try{
-        await preferenceWriteQueue;
-        quizStatus("Preparing your Quiz…");
-        const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty});if(error)throw error;
+        quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
+        const {data,error}=await quizCall("start_my_quiz",{
+          p_difficulty:difficulty,
+          p_learning_language:requestedCourse,
+          p_translation_language:requestedTranslation
+        });if(error)throw error;
+        if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
         const session=data&&data.session?data.session:data;
         if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
+        course=requestedCourse;
+        translationLanguage=requestedTranslation;
+        courseSelector.value=requestedCourse;
+        translationSelector.value=requestedTranslation;
+        document.getElementById("preferenceLearning").value=requestedCourse;
+        document.getElementById("preferenceTranslation").value=requestedTranslation;
+        quizApplyPageTranslation();
         quizPageState.session=session;quizRenderSession();
-      }catch(error){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}
+      }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}}
+      finally{
+        courseSelector.disabled=false;
+        translationSelector.disabled=false;
+      }
     }
     async function quizSubmit(){
       const s=quizPageState.session;if(!s)return;
@@ -18948,7 +19113,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
     }
     function quizRenderResult(data){
-      quizPageState.result=data;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
       const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
       const effectiveTranslation=quizEffectiveTranslationCode(data);
       const showTranslation=effectiveTranslation!== (data.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
@@ -18976,16 +19141,21 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     async function quizAbandon(){
       const s=quizPageState.session;if(!s)return;
       if(!confirm("Abandon this unfinished Quiz? Your answers will not be scored. The questions will remain unavailable for reuse today."))return;
-      try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;await quizLoadHome();}
+      try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;quizPageState.sessionView=false;await quizLoadHome();}
       catch(error){quizStatus("Could not abandon this Quiz: "+error.message,true);}
     }
     async function quizSyncCoursePreferences(){
       if(!currentUser||!supabaseClient)return;
-      await preferenceWriteQueue;
+      const selectionVersionAtStart=coursePreferenceSelectionVersion;
+      const writesSettled=await Promise.race([
+        preferenceWriteQueue.then(()=>true),
+        new Promise(resolve=>setTimeout(()=>resolve(false),1500))
+      ]);
+      if(!writesSettled||selectionVersionAtStart!==coursePreferenceSelectionVersion)return;
       const {data,error}=await supabaseClient.from("user_preferences")
         .select("learning_language,translation_language").eq("user_id",currentUser.id).maybeSingle();
       if(error)throw error;
-      if(!data)return;
+      if(!data||selectionVersionAtStart!==coursePreferenceSelectionVersion)return;
       const nextCourse=data.learning_language==="zh"?"zh":"en";
       const nextTranslation=data.translation_language==="zh"?"zh":"en";
       const courseChanged=course!==nextCourse;
@@ -19007,6 +19177,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function initialiseQuizPage(){
       if(currentUser)quizPageState.userId=currentUser.id;
+      quizApplyPageTranslation();
       if(quizPageState.loading)return;quizPageState.loading=true;
       try{
         if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access Quiz.");return;}
@@ -19019,7 +19190,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     quizEl("quizRefresh").addEventListener("click",()=>{quizPageState.loaded=false;initialiseQuizPage();});
     quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
-    quizEl("quizDifficultyGrid").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-start]");if(button&&!button.disabled)quizStart(button.dataset.quizStart);});
+
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
     quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
     quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
@@ -19028,7 +19199,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizNext").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)+1));
     quizEl("quizSubmit").addEventListener("click",quizSubmit);
     quizEl("quizAbandon").addEventListener("click",quizAbandon);
-    quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
+    quizEl("quizBackHome").addEventListener("click",async()=>{quizPageState.sessionView=false;await quizLoadHome();});
     quizEl("quizResultsHome").addEventListener("click",async()=>{const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();});
     window.addEventListener("swift-auth-updated",()=>{
       const nextUserId=currentUser?.id||null;
@@ -19036,7 +19207,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       // session that the learner has already resumed when that same account's
       // delayed auth notification arrives. Reset only when identity changes.
       if(quizPageState.userId===nextUserId)return;
-      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,sessionView:false,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
@@ -19126,9 +19297,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese;
       quizEl("lessonLibrary").hidden=chinese;
       quizEl("quizChineseUnavailable").hidden=!chinese;
-      quizEl("quizHome").hidden=chinese||!currentUser;
-      quizEl("quizSession").hidden=chinese||!currentUser||!quizPageState.session;
-      quizEl("quizResults").hidden=chinese||!currentUser||!quizPageState.result;
+      const quizSignedIn=!chinese&&!!currentUser;
+      const showQuizResults=quizSignedIn&&!!quizPageState.result;
+      const showQuizSession=quizSignedIn&&!showQuizResults&&!!quizPageState.session&&!!quizPageState.sessionView;
+      const showQuizHome=quizSignedIn&&!showQuizResults&&!showQuizSession;
+      quizEl("quizHome").hidden=!showQuizHome;
+      quizEl("quizSession").hidden=!showQuizSession;
+      quizEl("quizResults").hidden=!showQuizResults;
       quizEl("quizSignedOut").hidden=chinese||!!currentUser;
       quizUpdateTranslationNotice(chinese?null:(quizPageState.session||quizPageState.result));
       quizEl("flashcardsChineseUnavailable").hidden=!chinese;
@@ -19165,5 +19340,6 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
   </script>
 
   <script src="daily-learning.js"></script>
+<div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

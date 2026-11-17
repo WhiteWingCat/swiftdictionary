@@ -56,7 +56,7 @@ insert into private.quiz_question_bank(
   options,correct_option_id,explanation_learning,explanation_translation,status
 )
 select
-  prefix||'-'||n,1,'en','en',
+  prefix||'-'||n,1,'en','zh',
   prefix||'-lesson-'||(((n-1)%5)+1),
   'topic-'||(((n-1)%5)+1),
   difficulty,
@@ -86,7 +86,7 @@ insert into private.quiz_question_bank(
   explanation_learning,explanation_translation,status
 )
 select
-  prefix||'-definition-'||n,1,'en','en',
+  prefix||'-definition-'||n,1,'en','zh',
   prefix||'-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),difficulty,
   'word_definition','en','synthetic-objective-'||prefix,
   'Which meaning best matches definition item '||n||' for '||prefix||'?',
@@ -599,11 +599,13 @@ $deletion$;
 do $security$
 begin
   if has_function_privilege('anon','public.start_my_quiz(text)','EXECUTE')
+     or has_function_privilege('anon','public.start_my_quiz(text,text,text)','EXECUTE')
      or has_function_privilege('anon','public.submit_my_quiz(uuid)','EXECUTE')
      or has_function_privilege('anon','public.get_my_quiz_review(uuid)','EXECUTE') then
     raise exception 'Anonymous role can execute a Quiz RPC';
   end if;
   if not has_function_privilege('authenticated','public.start_my_quiz(text)','EXECUTE')
+     or not has_function_privilege('authenticated','public.start_my_quiz(text,text,text)','EXECUTE')
      or not has_function_privilege('authenticated','public.submit_my_quiz(uuid)','EXECUTE') then
     raise exception 'Authenticated role is missing Quiz RPC execute grants';
   end if;
