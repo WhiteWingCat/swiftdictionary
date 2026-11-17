@@ -6,6 +6,15 @@ declare
   v_knowledge integer;
   v_definitions integer;
   v_translations integer;
+  v_k_b integer;
+  v_k_i integer;
+  v_k_a integer;
+  v_d_b integer;
+  v_d_i integer;
+  v_d_a integer;
+  v_zh_b integer;
+  v_zh_i integer;
+  v_zh_a integer;
   v_beginner integer;
   v_intermediate integer;
   v_advanced integer;
@@ -20,11 +29,21 @@ begin
          count(*) filter (where question_type='knowledge')::integer,
          count(*) filter (where question_type='word_definition')::integer,
          count(*) filter (where question_type='chinese_translation')::integer,
+         count(*) filter (where question_type='knowledge' and difficulty='beginner')::integer,
+         count(*) filter (where question_type='knowledge' and difficulty='intermediate')::integer,
+         count(*) filter (where question_type='knowledge' and difficulty='advanced')::integer,
+         count(*) filter (where question_type='word_definition' and difficulty='beginner')::integer,
+         count(*) filter (where question_type='word_definition' and difficulty='intermediate')::integer,
+         count(*) filter (where question_type='word_definition' and difficulty='advanced')::integer,
+         count(*) filter (where question_type='chinese_translation' and difficulty='beginner')::integer,
+         count(*) filter (where question_type='chinese_translation' and difficulty='intermediate')::integer,
+         count(*) filter (where question_type='chinese_translation' and difficulty='advanced')::integer,
          count(*) filter (where difficulty='beginner')::integer,
          count(*) filter (where difficulty='intermediate')::integer,
          count(*) filter (where difficulty='advanced')::integer,
          count(*) filter (where learning_objective_id is null)::integer
     into v_total,v_approved,v_knowledge,v_definitions,v_translations,
+         v_k_b,v_k_i,v_k_a,v_d_b,v_d_i,v_d_a,v_zh_b,v_zh_i,v_zh_a,
          v_beginner,v_intermediate,v_advanced,v_bad_objectives
   from private.quiz_question_bank
   where learning_language_code='en' and translation_language_code='zh'
@@ -72,6 +91,12 @@ begin
   end if;
   if v_beginner<>56 or v_intermediate<>62 or v_advanced<>81 then
     raise exception 'Expected difficulty counts 56/62/81; found %/%/%',v_beginner,v_intermediate,v_advanced;
+  end if;
+  if v_k_b<>30 or v_k_i<>36 or v_k_a<>48
+     or v_d_b<>5 or v_d_i<>5 or v_d_a<>5
+     or v_zh_b<>21 or v_zh_i<>21 or v_zh_a<>28 then
+    raise exception 'Unexpected question-type/difficulty distribution: knowledge %/%/%, definitions %/%/%, Chinese %/%/%',
+      v_k_b,v_k_i,v_k_a,v_d_b,v_d_i,v_d_a,v_zh_b,v_zh_i,v_zh_a;
   end if;
   if v_bad_mappings<>0 or v_bad_objectives<>0 or v_bad_options<>0 or v_bad_languages<>0 then
     raise exception 'Release content integrity failed: mappings %, objectives %, options %, answer languages %',
