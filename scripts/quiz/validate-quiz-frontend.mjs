@@ -59,11 +59,15 @@ if (!appScript.includes("This session keeps its original translation") || !appSc
 if (!mockTesting.includes('"learning_page_introduction_preferences"')) {
   throw new Error("Mock User adapter does not support account-scoped learning introduction preferences.");
 }
-if (!mockTesting.includes("mock_simulation:true") || !html.includes("This session uses synthetic questions")) {
-  throw new Error("Mock Quiz sessions must be clearly labelled as simulations, not approved question-bank content.");
+if (!mockTesting.includes("mock_simulation:true") || !html.includes("Draft question-bank preview") || !html.includes("not yet accuracy-approved for learners")) {
+  throw new Error("Mock Quiz must clearly label its draft question-bank content and local simulation boundary.");
 }
-if (!mockTesting.includes("correct_option_id:correctOptionId")) {
-  throw new Error("Mock answer shuffling must preserve the actual correct option ID.");
+if (!mockTesting.includes("async function loadQuizDraftBank") || !mockTesting.includes('bank.status!=="draft"') ||
+    !mockTesting.includes("questions.en-zh.draft.json") || !mockTesting.includes("curriculum-map.en.json")) {
+  throw new Error("Mock Quiz must load and validate only the bilingual draft question bank and its curriculum map.");
+}
+if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
+  throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");
 }
 for (const feature of [
   "function refreshTranslationViews(nextLanguage)",
