@@ -46,3 +46,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Quiz curriculum alignment and expanded question variety](2026-11-17-quiz-lesson-alignment-and-question-variety.md) — full 199-question curriculum audit, bilingual lesson expansions, learning-objective traceability, one-definition-per-session and daily randomized Chinese integration.
 
 - [Authenticated Quiz question-type support](2026-11-17-quiz-authenticated-question-type-support.md) — adds authenticated knowledge, word-definition and Chinese-translation support; imports all 199 items as drafts; records passing PostgreSQL, local Supabase/Auth, authenticated Chromium, security-advisor and companion 2.3.x regression checks, plus production safeguards.
+
+
+- [Staging bootstrap and deferred friend-testing review](2026-11-17-quiz-staging-bootstrap-and-friend-testing.md) — documents the clean staging bootstrap, hosted 2.3.x/2.4.0 migrations, empty data boundary, staging-only preview routing, OAuth setup requirement, security-advisor review, and deferred manual accuracy review pending friend feedback.
