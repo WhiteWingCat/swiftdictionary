@@ -6,6 +6,10 @@ declare
   v_approved integer;
   v_bad_mappings integer;
   v_bad_options integer;
+  v_definitions integer;
+  v_translations integer;
+  v_knowledge integer;
+  v_bad_objectives integer;
 begin
   select count(*) filter (where question_id like 'quiz-beginner-%')::integer,
          count(*) filter (where question_id like 'quiz-intermediate-%')::integer,
@@ -17,6 +21,14 @@ begin
       or question_id like 'quiz-advanced-%')
     and learning_language_code='en'
     and translation_language_code='zh';
+
+  select count(*) filter (where question_type='knowledge')::integer,
+         count(*) filter (where question_type='word_definition')::integer,
+         count(*) filter (where question_type='chinese_translation')::integer,
+         count(*) filter (where learning_objective_id is null)::integer
+  into v_knowledge,v_definitions,v_translations,v_bad_objectives
+  from private.quiz_question_bank
+  where question_id like 'quiz-beginner-%' or question_id like 'quiz-intermediate-%' or question_id like 'quiz-advanced-%';
 
   select count(*) into v_approved
   from private.quiz_question_bank
@@ -46,14 +58,20 @@ begin
       )
     );
 
-  if v_beginner<>30 then
-    raise exception 'Expected 30 Beginner draft questions; found %',v_beginner;
+  if v_knowledge<>114 or v_definitions<>15 or v_translations<>70 then
+    raise exception 'Expected all 199 typed drafts (114 knowledge, 15 definitions, 70 Chinese translations); got %, %, %',v_knowledge,v_definitions,v_translations;
   end if;
-  if v_intermediate<>36 then
-    raise exception 'Expected 36 Intermediate draft questions; found %',v_intermediate;
+  if v_bad_objectives<>0 then
+    raise exception 'Draft import has % questions without learning-objective links',v_bad_objectives;
   end if;
-  if v_advanced<>48 then
-    raise exception 'Expected 48 Advanced draft questions; found %',v_advanced;
+  if v_beginner<>56 then
+    raise exception 'Expected 56 Beginner draft questions; found %',v_beginner;
+  end if;
+  if v_intermediate<>62 then
+    raise exception 'Expected 62 Intermediate draft questions; found %',v_intermediate;
+  end if;
+  if v_advanced<>81 then
+    raise exception 'Expected 81 Advanced draft questions; found %',v_advanced;
   end if;
   if v_approved<>0 then
     raise exception 'Draft content importer unexpectedly approved % questions',v_approved;
@@ -98,6 +116,6 @@ begin
   ) then
     raise exception 'Advanced batch topic distribution is unexpected';
   end if;
-  raise notice 'Quiz draft content import passed: 114 rows (30 Beginner, 36 Intermediate, 48 Advanced), 14 source-topic groups, 0 approved';
+  raise notice 'Quiz draft content import passed: 199 rows (56 Beginner, 62 Intermediate, 81 Advanced; all drafts), 14 source-topic groups, 0 approved';
 end;
 $draft_import$;
