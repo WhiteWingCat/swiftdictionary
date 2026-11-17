@@ -89,7 +89,7 @@ begin
   end if;
   if exists (
     select 1 from private.quiz_question_bank
-    where question_id like 'quiz-beginner-%'
+    where question_id like 'quiz-beginner-%' and question_type='knowledge'
     group by topic_id having count(*)<>6
   ) then
     raise exception 'Beginner batch should contain six questions per source topic';
@@ -100,7 +100,7 @@ begin
   end if;
   if exists (
     select 1 from private.quiz_question_bank
-    where question_id like 'quiz-intermediate-%'
+    where question_id like 'quiz-intermediate-%' and question_type='knowledge'
     group by topic_id having count(*) not in (7,8)
   ) then
     raise exception 'Intermediate batch should distribute seven or eight questions per source topic';
@@ -111,7 +111,7 @@ begin
   end if;
   if exists (
     select 1 from private.quiz_question_bank
-    where question_id like 'quiz-advanced-%'
+    where question_id like 'quiz-advanced-%' and question_type='knowledge'
     group by topic_id having count(*) not in (9,10,20)
   ) then
     raise exception 'Advanced batch topic distribution is unexpected';
