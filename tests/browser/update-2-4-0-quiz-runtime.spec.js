@@ -435,10 +435,17 @@ test("Premium user sees three daily completions; abandonment does not consume al
     "Advanced availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
   ).toBeEnabled();
 
+  const startDiagnostics=[];
+  page.on("request",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"request",url:request.url(),body:request.postData()});});
+  page.on("response",response=>{if(response.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"response",status:response.status()});});
+  page.on("requestfailed",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"failed",error:request.failure()?.errorText||"unknown"});});
   await page.locator('[data-quiz-start="advanced"]').click();
-  await expect(page.locator("#quizSession"),
-    "Advanced Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
-  ).toBeVisible({ timeout: 15000 });
+  try {
+    await expect(page.locator("#quizSession")).toBeVisible({ timeout: 15000 });
+  } catch (error) {
+    const state=await page.evaluate(()=>({userId:currentUser?.id,requestedUserId:quizPageState.userId,translation:translationLanguage,selector:document.querySelector("#translationSelect")?.value,sessionView:quizPageState.sessionView,sessionId:quizPageState.session?.session_id,quizStatus:document.querySelector("#quizStatus")?.textContent}));
+    throw new Error("Advanced Quiz did not render. State: "+JSON.stringify(state)+"; RPC diagnostics: "+JSON.stringify(startDiagnostics)+"; "+error.message);
+  }
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 20 题");
 
   // Returning to overview and attempting a different difficulty must resume
