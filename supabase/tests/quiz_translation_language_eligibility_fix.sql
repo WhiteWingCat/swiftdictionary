@@ -1071,4 +1071,6 @@ grant execute on function public.start_my_quiz(text,text,text) to authenticated;
 revoke all on function public.start_my_quiz(text,text,text) from public,anon;
 
 
+notify pgrst, 'reload schema';
+
 commit;
