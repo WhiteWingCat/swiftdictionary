@@ -6,7 +6,8 @@ alter table private.quiz_question_bank
   add column if not exists question_type text not null default 'knowledge'
     check (question_type in ('knowledge','word_definition','chinese_translation')),
   add column if not exists answer_language_code text not null default 'en'
-    check (answer_language_code in ('en','zh'));
+    check (answer_language_code in ('en','zh')),
+  add column if not exists learning_objective_id text;
 
 alter table private.quiz_question_bank
   add constraint quiz_question_bank_answer_language_by_type_check
@@ -24,7 +25,8 @@ alter table private.quiz_session_questions
   add column if not exists question_type_snapshot text not null default 'knowledge'
     check (question_type_snapshot in ('knowledge','word_definition','chinese_translation')),
   add column if not exists answer_language_code_snapshot text not null default 'en'
-    check (answer_language_code_snapshot in ('en','zh'));
+    check (answer_language_code_snapshot in ('en','zh')),
+  add column if not exists learning_objective_id_snapshot text;
 
 alter table private.quiz_session_questions
   add constraint quiz_session_question_type_language_check
@@ -47,6 +49,7 @@ begin
      or new.position is distinct from old.position
      or new.question_type_snapshot is distinct from old.question_type_snapshot
      or new.answer_language_code_snapshot is distinct from old.answer_language_code_snapshot
+     or new.learning_objective_id_snapshot is distinct from old.learning_objective_id_snapshot
      or new.option_order is distinct from old.option_order
      or new.prompt_learning_snapshot is distinct from old.prompt_learning_snapshot
      or new.prompt_translation_snapshot is distinct from old.prompt_translation_snapshot
@@ -129,6 +132,7 @@ begin
             'source_difficulty', q.source_difficulty,
             'question_type', q.question_type_snapshot,
             'answer_language_code', q.answer_language_code_snapshot,
+            'learning_objective_id', q.learning_objective_id_snapshot,
             'position', q.position,
             'prompt_learning', q.prompt_learning_snapshot,
             'prompt_translation', q.prompt_translation_snapshot,
@@ -397,6 +401,7 @@ begin
       and q.learning_language_code='en'
       and q.translation_language_code=v_translation
       and q.question_type='word_definition'
+      and q.learning_objective_id is not null
       and coalesce((v_comp ->> q.difficulty)::integer,0) >
           coalesce((v_source_selected ->> q.difficulty)::integer,0)
       and not exists (
@@ -438,6 +443,7 @@ begin
         and q.learning_language_code='en'
         and q.translation_language_code=v_translation
         and q.question_type='chinese_translation'
+        and q.learning_objective_id is not null
         and q.answer_language_code='zh'
         and coalesce((v_comp ->> q.difficulty)::integer,0) >
             coalesce((v_source_selected ->> q.difficulty)::integer,0)
@@ -486,6 +492,7 @@ begin
           and q.translation_language_code=v_translation
           and q.difficulty=v_source
           and q.question_type='knowledge'
+          and q.learning_objective_id is not null
           and not exists (
             select 1 from private.quiz_daily_question_reservations issued
             where issued.user_id=v_user and issued.local_date=v_day
@@ -548,14 +555,14 @@ begin
   )
   insert into private.quiz_session_questions(
     session_id,user_id,local_date,question_id,question_revision,position,
-    source_lesson_id,topic_id,source_difficulty,question_type_snapshot,answer_language_code_snapshot,option_order,
+    source_lesson_id,topic_id,source_difficulty,question_type_snapshot,answer_language_code_snapshot,learning_objective_id_snapshot,option_order,
     prompt_learning_snapshot,prompt_translation_snapshot,
     options_snapshot,correct_option_id_snapshot,
     explanation_learning_snapshot,explanation_translation_snapshot
   )
   select
     v_session,v_user,v_day,s.question_id,s.revision,s.new_position,
-    s.source_lesson_id,s.topic_id,s.difficulty,s.question_type,s.answer_language_code,s.shuffled_options,
+    s.source_lesson_id,s.topic_id,s.difficulty,s.question_type,s.answer_language_code,s.learning_objective_id,s.shuffled_options,
     s.prompt_learning,s.prompt_translation,s.options,
     s.correct_option_id,s.explanation_learning,s.explanation_translation
   from selected s;
