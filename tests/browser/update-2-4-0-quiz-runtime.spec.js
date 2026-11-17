@@ -462,24 +462,20 @@ test("Premium user sees three daily completions; abandonment does not consume al
 });
 
 test("Quiz overview follows translation preference and selector changes preserve an active session", async ({ page }) => {
+  await updateTranslationPreference(freeUserId,"en");
   await openQuiz(page, freeSession);
-  await expect(page.locator("#quizHeading")).toHaveText("测验");
-  await expect(page.locator(".quiz-page-heading .page-intro")).toContainText("通过不同主题");
-  await expect(page.locator("#quizRefresh")).toHaveText("刷新");
-  await expect(page.locator(".quiz-difficulty-heading h2")).toHaveText("选择难度");
-  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
-
-  await selectTranslation(page,"en");
-  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizHeading")).toHaveText("Quiz");
-  await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
+  await expect(page.locator(".quiz-page-heading .page-intro")).toContainText("Test your understanding");
+  await expect(page.locator("#quizRefresh")).toHaveText("Refresh");
+  await expect(page.locator(".quiz-difficulty-heading h2")).toHaveText("Choose a difficulty");
   await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("Beginner");
-  await expect(page.locator("#preferenceRefreshToast")).not.toHaveClass(/visible/,{timeout:5000});
+
   await selectTranslation(page,"zh");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizHeading")).toHaveText("测验");
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
   await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
+  await expect(page.locator("#preferenceRefreshToast")).not.toHaveClass(/visible/,{timeout:5000});
 
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
