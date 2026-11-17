@@ -1035,3 +1035,42 @@ The selected alternative creates ephemeral synthetic test data in disposable loc
 - The separate Cloudflare Workers Builds failure remains unclassified and must not be conflated with the successful Pages deployment unless evidence shows a required Workers/Pages Functions dependency.
 
 **Next gates:** (1) confirm CI reruns on `8b70b076` and fix the authenticated Free-user test from observed evidence; (2) pass the local Supabase security advisor; (3) verify owner Mock User feedback and any resulting UI corrections; (4) complete Malaysia PDPA and relevant international/teen privacy, retention and deletion review before release. Keep PR #8 draft/unmerged. No live Supabase migration/content import, main merge or production deployment without separate explicit approval.
+
+
+## 26. Update 2.4.0 — Owner feedback: language controls, Quiz allowance placement and Dashboard history (2026-11-17)
+
+### Owner feedback addressed
+
+- Replaced the large, high-contrast course/translation panels with compact Profile-style navigation pills. The Learning Course pill uses a book icon and the translation pill uses a globe icon; the selected language is shown beside its icon, while the labels “Learning course” and “Translate into” appear inside the corresponding dropdown panel.
+- Moved Daily Quiz allowance into the right side of the “Choose a difficulty” heading. The compact card stacks beneath the heading on narrower screens. Server-provided allowance values and reset-time behaviour are unchanged.
+- Added recent Quiz history to Dashboard > Learning progress, including difficulty, correct/total answers, completion date, percentage and a Review action that opens the completed answer review.
+- Hardened permanent-lesson translation refresh. The translation preference is global, but Daily Learning and permanent lessons have separate renderers. The selector now refreshes the active permanent lesson directly in place and preserves its current practice selection/progress rather than rebuilding the lesson library as part of the translation change.
+
+### Root causes found during regression
+
+- The authenticated Dashboard test exposed that `ensureProfileRows()` performed an `upsert(... ignoreDuplicates)` against `user_preferences` on every Dashboard load. PostgreSQL still evaluated the INSERT policy for the upsert, so an existing row could trigger an RLS denial. Replaced the redundant upserts with owner-scoped existence checks and inserts only when a row is genuinely absent.
+- The disposable CI baseline's `profiles` table does not include the optional `avatar_icon` column present in the full app schema. Dashboard loading now falls back to `display_name` when that optional column is unavailable; it continues to use the avatar when the column exists.
+- Stabilised the authenticated Quiz browser test by waiting for each saved question-position transition before advancing again.
+
+### Verified branch-head validation
+
+Latest branch head: `525e160a00dc8c0febf648dff6bca133df44725e`.
+
+- Authenticated local Supabase Quiz runtime: **passed, 6/6 Chromium tests**. This includes the open permanent-lesson translation switch (English ↔ Chinese) while preserving the learner's selected practice answer; Free Quiz completion and history; Dashboard Quiz history and Dashboard Review navigation; unavailable-translation snapshot fallback; account-specific introductions; Premium allowance/active-session behaviour; Chinese-course gating; and signed-out restrictions.
+- Supabase security advisors on the disposable local Quiz schema: **passed, no issues found**.
+- Quiz PostgreSQL 17 foundation and RPC/session/allowance assertions: **passed**.
+- Companion 2.3.x PostgreSQL allowance tests, Chromium regression smoke tests and local Supabase Auth compatibility: **all passed**.
+- Cloudflare Pages feature preview: **successfully deployed for commit `525e160`** at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev`.
+- The separate Cloudflare Workers Builds check still reports failure. Cloudflare Pages deployment is independently successful; no evidence currently shows that this static Pages application depends on the failing Workers build.
+
+### Real Quiz testing request and safety boundary
+
+The current Cloudflare Pages preview remains a UI-only Mock User environment. Removing or bypassing the mock adapter on this preview would expose the frontend to the production Supabase configuration; it is not a safe route to real Quiz testing. The 114 authored questions (30 Beginner, 36 Intermediate, 48 Advanced) remain draft and are not approved for production publication.
+
+A real end-to-end website test requires a separate temporary Supabase staging project (not a Supabase Development Branch), with the 2.4.0 migrations and isolated test accounts/content. This would require separate owner approval and the necessary Supabase write permissions. The owner must also explicitly approve using the 114 draft questions in that staging environment for test-only evaluation. No staging project has been created, no live production schema/content has been changed, and no real account has been used for testing.
+
+### Release, privacy and repository boundaries
+
+- Dashboard history reads only the signed-in user's Quiz history through the existing owner-scoped authenticated `get_my_quiz_history` RPC. It adds no new stored personal data; it displays existing account-linked scores and completion history.
+- Malaysia PDPA and applicable international/teen privacy review, including retention and deletion disclosures for Quiz history and the temporary no-repeat reservation ledger, remains a release gate.
+- PR #8 remains **draft, open and unmerged**. The 114 authored questions remain drafts. No production Quiz schema/RPC migration, question import, main merge or production website deployment has been performed as part of this feedback round.
