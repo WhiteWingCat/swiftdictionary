@@ -467,10 +467,14 @@ test("Quiz overview follows translation preference and selector changes preserve
   await selectTranslation(page,"en");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizHeading")).toHaveText("Quiz");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 of 1 remaining");
+  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("Beginner");
   await expect(page.locator("#preferenceRefreshToast")).not.toHaveClass(/visible/,{timeout:5000});
   await selectTranslation(page,"zh");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizHeading")).toHaveText("测验");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
+  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
 
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
