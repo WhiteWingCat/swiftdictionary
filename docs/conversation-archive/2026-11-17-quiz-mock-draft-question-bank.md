@@ -86,3 +86,44 @@ This change adds no real learner data collection and keeps test state in the bro
 - Files changed now also include `scripts/quiz/validate-quiz-frontend.mjs`. Latest application commit at this follow-up: `ccd4bc5de796ad49fa267474cac00a26ec6c7d09`.
 
 The Mock User preview may be opened after deployment using the existing feature preview URL with `?swiftMock=1`. Use only the fictional Test User A / Test User B identities. The mock is still a browser-side simulation, not a real backend or RLS test.
+
+
+## Owner's Mock Quiz feedback and follow-up changes (2026-11-17)
+
+After testing the draft-bank Mock User preview, the owner requested four improvements:
+
+1. During the future full accuracy review, check every draft question for duplicate answer options. No duplicate answers should remain.
+2. Opening a completed Quiz review from Dashboard history should enter the review directly, without first showing the Quiz overview. Returning from the review must restore the originating page; a Dashboard-originated review must return to Dashboard.
+3. Dashboard Quiz history must display the real correct-answer count (for example, 10/10), not a placeholder such as --/10.
+4. Learning-course and translation-language selectors must each be changeable in one interaction, without opening a separate trigger menu first.
+
+### Duplicate-option audit finding
+
+A structural duplicate scan was performed across all 114 draft questions. It normalised Unicode, case, whitespace and punctuation, and compared the learning and translation option text independently. It found **9 questions with duplicate Chinese translation options**; no duplicate English learning-option strings were found by this scan:
+
+- `quiz-beginner-012` — options b and d repeat
+- `quiz-beginner-015` — all four translation options repeat
+- `quiz-beginner-018` — all four translation options repeat
+- `quiz-beginner-019` — all four translation options repeat
+- `quiz-beginner-027` — options b and d repeat
+- `quiz-beginner-030` — all four translation options repeat
+- `quiz-intermediate-028` — options a, b and c repeat
+- `quiz-intermediate-029` — all four translation options repeat
+- `quiz-advanced-019` — options a and c repeat
+
+These are now explicit editorial blockers for the comprehensive accuracy review. Do not silently generate replacement distractors; each option must be reviewed against its question context, correct answer and bilingual meaning. The current draft content file was not changed in this follow-up.
+
+### Implemented code changes
+
+- `mock-testing.js`: Mock `get_my_quiz_history` now includes `correct_count`, matching the database RPC payload.
+- `index.html`: Dashboard history review now opens the review state directly and skips Quiz overview initialisation. Review stores its originating page and its return control returns Dashboard when opened from Dashboard; review opened from the Quiz page returns to the Quiz overview. Language controls are now compact, always-visible native selects beside the book/globe icons, removing the extra trigger-button click.
+- `tests/update-2-3-1/mock-testing.test.mjs`: asserts Mock Quiz history returns the real correct count.
+- `tests/browser/update-2-4-0-quiz-runtime.spec.js`: selector helpers use the direct controls; adds checks for 10/10 Dashboard history, direct review without showing Quiz home, and return to Dashboard/Quiz as appropriate.
+- `scripts/quiz/validate-quiz-frontend.mjs`: enforces the one-interaction selectors, Dashboard-origin review route/return label, and correct-count field in mock history.
+
+### Validation at the time of this note
+
+- GitHub Actions `quiz-db-foundation` static validation passed on commit `17ace8e5e122d791e9f1547109d6c147ef63c9c3`.
+- 2.3.x regression workflow PostgreSQL 17 and Chromium regression jobs passed on the same commit. The Chromium workflow reported 23 passed, 6 skipped; the 2.4.0 runtime browser cases are among the skipped cases in that companion workflow, so do not treat those skipped cases as directly tested.
+- 2.4.0 local Supabase Auth/RPC integration and 2.3.x Supabase CLI Auth compatibility were still running at the latest status check.
+- Latest feature application changes are on `feature/update-2-4-0-quiz`; no merge to main or production change is authorised. Wait for current CI and Cloudflare Pages deployment status before sharing the refreshed preview.
