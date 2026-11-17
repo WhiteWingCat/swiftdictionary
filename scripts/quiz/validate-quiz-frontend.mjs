@@ -4,7 +4,7 @@ import vm from "node:vm";
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
 const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
 const dailyLearning = fs.readFileSync(new URL("../../daily-learning.js", import.meta.url), "utf8");
-const quizTranslationMigration = fs.readFileSync(new URL("../../supabase/migrations/20261117125000_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql", import.meta.url), "utf8");
+const quizTranslationMigration = fs.readFileSync(new URL("../../supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql", import.meta.url), "utf8");
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
