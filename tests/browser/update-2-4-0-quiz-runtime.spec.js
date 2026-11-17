@@ -487,11 +487,13 @@ test("Quiz overview follows translation preference and selector changes preserve
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
-  await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在显示学习语言内容");
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+  await expect(page.locator("#quizTranslationNotice")).toContainText("This Quiz is showing its learning-language text");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
   await selectTranslation(page,"zh");
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在使用你选择的翻译语言");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
 });
 test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
   await installLocalSupabaseConfig(page);
