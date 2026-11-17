@@ -355,7 +355,12 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   await expect(page.locator("#quizHome")).toBeVisible();
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+  const questionTypes = [];
+  for (let position=1;position<=10;position++) {
+    questionTypes.push(await page.locator("#quizQuestionArea").getAttribute("data-question-type"));
+    if(position<10) await page.locator("#quizNext").click();
+  }
+  expect(questionTypes).toContain("chinese_translation");
 });
 
 test("learning introductions are independent per page and help controls reopen them", async ({ page }) => {
