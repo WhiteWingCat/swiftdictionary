@@ -74,3 +74,15 @@ This change adds no real learner data collection and keeps test state in the bro
 3. Confirm Cloudflare Pages has deployed the latest feature-branch commit.
 4. Only then provide the owner the Mock User preview link and ask them to use the two fictional identities for feedback.
 5. Keep the draft content unapproved, PR #8 unmerged, and production/staging unchanged unless separately authorised.
+
+
+## Follow-up implementation and validation (2026-11-17)
+
+- Updated `scripts/quiz/validate-quiz-frontend.mjs` to enforce the new mock-only draft-bank loader, draft-status guard, bilingual curriculum files, and hidden-before-submission answer-key behaviour. This replaced stale assertions that required synthetic question copy and a hard-coded correct-option variable.
+- Moved the draft-bank warning out of the overview-only container so it remains visible throughout an active Mock Quiz and its results.
+- The isolated Mock User test suite passed **12/12** on commit `2a9173abe13b3c0405a34e5267c180349e542f97`, including real draft content, option-key preservation, Free/Premium allowances, and the Advanced 12/6/2 mix. The later frontend validator also passed in the Quiz database foundation CI job on commit `ce606a762f7d443ff6156ac26092ee1f47ca7c84`.
+- On the current application commit `ccd4bc5de796ad49fa267474cac00a26ec6c7d09`, Cloudflare Pages reports **success**. The separate Workers Builds check reports **failure**, consistent with the previously recorded distinct Workers build issue; it is not the Pages deployment result.
+- On the same current commit, the PostgreSQL 17 regression job in the 2.3.x workflow passed. The 2.3.x Chromium and Supabase CLI Auth jobs and the 2.4.0 local Supabase Auth/RPC integration job were still running at the latest check. Do not mark all project CI gates passed until those jobs finish.
+- Files changed now also include `scripts/quiz/validate-quiz-frontend.mjs`. Latest application commit at this follow-up: `ccd4bc5de796ad49fa267474cac00a26ec6c7d09`.
+
+The Mock User preview may be opened after deployment using the existing feature preview URL with `?swiftMock=1`. Use only the fictional Test User A / Test User B identities. The mock is still a browser-side simulation, not a real backend or RLS test.
