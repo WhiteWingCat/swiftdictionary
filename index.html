@@ -17838,7 +17838,35 @@
         openWord(list[index], document.activeElement);
       }
     }
+    function updateGlobalCourseControlLabels() {
+      const courseValue=document.getElementById("courseControlValue");
+      const translationValue=document.getElementById("translationControlValue");
+      if(courseValue)courseValue.textContent=course==="zh"?"简体中文":"English";
+      if(translationValue)translationValue.textContent=translationLanguage==="zh"?"简体中文":"English";
+    }
+    function closeGlobalCourseMenus() {
+      for(const [triggerId,menuId] of [["courseControlTrigger","courseControlMenu"],["translationControlTrigger","translationControlMenu"]]) {
+        const trigger=document.getElementById(triggerId),menu=document.getElementById(menuId);
+        if(trigger&&menu){menu.hidden=true;trigger.setAttribute("aria-expanded","false");}
+      }
+    }
+    function toggleGlobalCourseMenu(triggerId,menuId) {
+      const trigger=document.getElementById(triggerId),menu=document.getElementById(menuId);
+      if(!trigger||!menu)return;
+      const shouldOpen=menu.hidden;
+      closeGlobalCourseMenus();
+      menu.hidden=!shouldOpen;
+      trigger.setAttribute("aria-expanded",String(shouldOpen));
+      if(shouldOpen)menu.querySelector("select")?.focus();
+    }
+    document.getElementById("courseControlTrigger").addEventListener("click",()=>toggleGlobalCourseMenu("courseControlTrigger","courseControlMenu"));
+    document.getElementById("translationControlTrigger").addEventListener("click",()=>toggleGlobalCourseMenu("translationControlTrigger","translationControlMenu"));
+    document.addEventListener("click",event=>{if(!event.target.closest("#globalCourseControls"))closeGlobalCourseMenus();});
+    document.addEventListener("keydown",event=>{if(event.key==="Escape")closeGlobalCourseMenus();});
+    updateGlobalCourseControlLabels();
+
     function rememberCoursePreferences() {
+      updateGlobalCourseControlLabels();
       const value = { learning_language: course, translation_language: translationLanguage };
       try { localStorage.setItem(preferenceStorageKey, JSON.stringify(value)); } catch {}
       if (currentUser && supabaseClient) {
@@ -17855,7 +17883,7 @@
         }).catch(error => console.warn("Could not save course preferences:", error));
       }
     }
-    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
+    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; updateGlobalCourseControlLabels(); closeGlobalCourseMenus(); rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
     function refreshTranslationViews(nextLanguage) {
       const selector=document.getElementById("translationSelect");
       translationLanguage=nextLanguage || selector.value || "en";
@@ -17863,17 +17891,20 @@
       document.getElementById("preferenceTranslation").value=translationLanguage;
       document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
       if (activeWord) openWord(activeWord);
+      // Permanent lessons and Daily Learning share this preference, but their
+      // readers have independent renderers. Refresh the open permanent lesson
+      // directly instead of routing through the Daily Learning page state.
       if (ls.active) {
         const activeLessonId=ls.active.id;
-        const activeLesson=lessonData[ls.difficulty].find(item=>item.id===activeLessonId);
-        if(activeLesson){
-          ls.topic="all";
-          renderLessons();
+        const activeLesson=(lessonData[ls.difficulty]||[]).find(item=>item.id===activeLessonId);
+        if(activeLesson) {
+          const reader=document.getElementById("lessonReader");
+          const wasOpen=reader&&!reader.hidden;
           renderLesson(activeLesson,true);
+          if(reader&&wasOpen)reader.hidden=false;
         } else {
           ls.active=null;
           document.getElementById("lessonReader").hidden=true;
-          renderLessons();
         }
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
@@ -17887,6 +17918,8 @@
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);
+      updateGlobalCourseControlLabels();
+      closeGlobalCourseMenus();
       rememberCoursePreferences();
     });
     search.addEventListener("input", () => { currentPage = 1; render(); });
@@ -18529,6 +18562,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         document.getElementById("preferenceTimezone").value = prefs.timezone;
         document.getElementById("courseSelect").value = prefs.learning_language;
         document.getElementById("translationSelect").value = prefs.translation_language;
+        updateGlobalCourseControlLabels();
         const completedActivity = (activityQ.data || []).filter(row => legacyActivityLog || row.event_type === "completed");
         const tz = effectiveAllowanceTimezone(prefs);
         const displayTimezone = prefs.timezone || browserTimezone();
@@ -18656,6 +18690,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         course=learning; translationLanguage=translation; words=course==="zh"?chineseWords:englishWords;
         document.getElementById("courseSelect").value=learning;
         document.getElementById("translationSelect").value=translation;
+        updateGlobalCourseControlLabels();
         document.getElementById("categoryRow").hidden=course==="zh";
         grid.classList.toggle("character-grid",course==="zh");
         search.value=""; search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
