@@ -18949,6 +18949,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const effectiveTranslation=quizEffectiveTranslationCode(s);
       const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
       quizUpdateTranslationNotice(s);
+      quizEl("quizQuestionArea").dataset.questionType=q.question_type||"";
       const chineseTranslationQuestion=q.question_type==="chinese_translation";
       quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
         const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
@@ -19006,8 +19007,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     async function quizStart(difficulty){
       try{
         quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
-        await preferenceWriteQueue;
-        const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty});if(error)throw error;
+        const {data,error}=await quizCall("start_my_quiz",{
+          p_difficulty:difficulty,
+          p_learning_language:course,
+          p_translation_language:translationLanguage
+        });if(error)throw error;
         const session=data&&data.session?data.session:data;
         if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
         quizPageState.session=session;quizRenderSession();
@@ -19065,7 +19069,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function quizSyncCoursePreferences(){
       if(!currentUser||!supabaseClient)return;
-      await preferenceWriteQueue;
+      const writesSettled=await Promise.race([
+        preferenceWriteQueue.then(()=>true),
+        new Promise(resolve=>setTimeout(()=>resolve(false),1500))
+      ]);
+      if(!writesSettled)return;
       const {data,error}=await supabaseClient.from("user_preferences")
         .select("learning_language,translation_language").eq("user_id",currentUser.id).maybeSingle();
       if(error)throw error;
