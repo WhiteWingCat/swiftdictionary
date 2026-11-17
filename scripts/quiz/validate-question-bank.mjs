@@ -5,6 +5,11 @@ import { fileURLToPath } from "node:url";
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
 const emitSql = args.includes("--emit-sql");
+const approveForRelease = args.includes("--approve-for-release");
+if (approveForRelease && !emitSql) {
+  console.error("--approve-for-release requires --emit-sql");
+  process.exit(1);
+}
 const fileArg = args.find(arg => !arg.startsWith("--"));
 const file = path.resolve(repoRoot, fileArg ?? "content/quiz/questions.en-zh.draft.json");
 const raw = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -114,6 +119,9 @@ if (emitSql) {
   const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
   const json = value => lit(JSON.stringify(value)) + "::jsonb";
   const exportQuestions = questions;
+  if (approveForRelease) {
+    console.error("OWNER-AUTHORIZED RELEASE MODE: generated rows will be approved and selectable by Quiz.");
+  }
   const rows = exportQuestions.map(q => {
     const source = lessons[q.source_lesson_id];
     return "(" + [
@@ -124,17 +132,17 @@ if (emitSql) {
       lit(q.learning_objective_id),
       lit(q.prompt_learning), lit(q.prompt_translation), json(q.options),
       lit(q.correct_option_id), lit(q.explanation_learning),
-      lit(q.explanation_translation), lit("draft")
+      lit(q.explanation_translation), lit(approveForRelease ? "approved" : "draft"), approveForRelease ? "pg_catalog.now()" : "null"
     ].join(", ") + ")";
   });
   const sql = [
-    "-- Generated from " + file + ". Drafts only; never auto-approve.",
-    "-- All question types are imported as drafts; this exporter never approves content.",
+    "-- Generated from " + file + (approveForRelease ? ". OWNER-AUTHORIZED RELEASE IMPORT." : ". Draft import only."),
+    approveForRelease ? "-- Owner explicitly authorized publication; approved rows become selectable by Quiz." : "-- Draft import only; no question is approved or made selectable.",
     "begin;",
     "insert into private.quiz_question_bank (",
     "  question_id, revision, learning_language_code, translation_language_code,",
     "  source_lesson_id, topic_id, difficulty, question_type, answer_language_code, learning_objective_id, prompt_learning, prompt_translation,",
-    "  options, correct_option_id, explanation_learning, explanation_translation, status",
+    "  options, correct_option_id, explanation_learning, explanation_translation, status, approved_at",
     ") values",
     rows.join(",\n"),
     ";",
