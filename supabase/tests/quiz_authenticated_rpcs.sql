@@ -96,6 +96,56 @@ select
 from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
 cross join generate_series(1,3) n;
 
+
+-- A separate Chinese-translation bank exercises the authenticated 1–7
+-- question mix without sharing state with the English-only lifecycle fixtures.
+insert into private.quiz_question_bank(
+  question_id,revision,learning_language_code,translation_language_code,
+  source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,
+  prompt_learning,prompt_translation,options,correct_option_id,
+  explanation_learning,explanation_translation,status
+)
+select
+  'b-zh-knowledge-'||n,1,'en','zh',
+  'b-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),'beginner',
+  'knowledge','en','synthetic-objective-b',
+  'Chinese bank knowledge item '||n,
+  '中文题库知识题'||n,
+  '[{"id":"a","learning_text":"Correct","translation_text":"正确"},{"id":"b","learning_text":"Wrong one","translation_text":"错误一"},{"id":"c","learning_text":"Wrong two","translation_text":"错误二"},{"id":"d","learning_text":"Wrong three","translation_text":"错误三"}]'::jsonb,
+  'a','The first option is correct.','第一个选项正确。','approved'
+from generate_series(1,30) n;
+
+insert into private.quiz_question_bank(
+  question_id,revision,learning_language_code,translation_language_code,
+  source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,
+  prompt_learning,prompt_translation,options,correct_option_id,
+  explanation_learning,explanation_translation,status
+)
+select
+  'b-zh-definition-'||n,1,'en','zh',
+  'b-lesson-'||n,'topic-'||n,'beginner',
+  'word_definition','en','synthetic-objective-b',
+  'Definition question '||n,'释义题'||n,
+  '[{"id":"a","learning_text":"Correct meaning","translation_text":"正确含义"},{"id":"b","learning_text":"Wrong meaning one","translation_text":"错误含义一"},{"id":"c","learning_text":"Wrong meaning two","translation_text":"错误含义二"},{"id":"d","learning_text":"Wrong meaning three","translation_text":"错误含义三"}]'::jsonb,
+  'a','Option A is the intended definition.','选项 A 是正确释义。','approved'
+from generate_series(1,3) n;
+
+insert into private.quiz_question_bank(
+  question_id,revision,learning_language_code,translation_language_code,
+  source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,
+  prompt_learning,prompt_translation,options,correct_option_id,
+  explanation_learning,explanation_translation,status
+)
+select
+  'b-zh-translation-'||n,1,'en','zh',
+  'b-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),'beginner',
+  'chinese_translation','zh','synthetic-objective-b',
+  'Choose the most accurate Simplified Chinese translation for sentence '||n||'.',
+  '请选择第'||n||'句最准确的简体中文翻译。',
+  '[{"id":"a","learning_text":"Correct translation","translation_text":"正确翻译"},{"id":"b","learning_text":"Wrong translation one","translation_text":"错误翻译一"},{"id":"c","learning_text":"Wrong translation two","translation_text":"错误翻译二"},{"id":"d","learning_text":"Wrong translation three","translation_text":"错误翻译三"}]'::jsonb,
+  'a','Option A is the accurate Chinese translation.','选项 A 是准确的中文翻译。','approved'
+from generate_series(1,21) n;
+
 insert into auth.sessions(id,user_id,created_at,not_after)
 values
  (
@@ -288,6 +338,62 @@ begin
   end if;
 end;
 $ownership$;
+
+
+-- User C exercises the authenticated Chinese-translation mix, answer-language
+-- metadata and the one-definition rule. Abandonment remains free.
+update public.user_preferences set translation_language='zh'
+where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
+select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
+select set_config('request.jwt.claims','{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc","session_id":"eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee"}',true);
+do $chinese_mix$
+declare
+  v_session jsonb;
+  v_session_id uuid;
+  v_chinese integer;
+  v_definitions integer;
+  v_knowledge integer;
+  v_bad_answer_language integer;
+begin
+  v_session:=public.start_my_quiz('beginner');
+  if v_session->>'status'<>'in_progress' or jsonb_array_length(v_session->'questions')<>10 then
+    raise exception 'Chinese-translation Beginner Quiz did not create ten questions';
+  end if;
+  select count(*) filter (where q->>'question_type'='chinese_translation')::integer,
+         count(*) filter (where q->>'question_type'='word_definition')::integer,
+         count(*) filter (where q->>'question_type'='knowledge')::integer,
+         count(*) filter (where q->>'question_type'='chinese_translation' and q->>'answer_language_code'<>'zh')::integer
+  into v_chinese,v_definitions,v_knowledge,v_bad_answer_language
+  from jsonb_array_elements(v_session->'questions') q;
+  if v_chinese not between 1 and 7 then
+    raise exception 'Chinese integration count must be between one and seven; found %',v_chinese;
+  end if;
+  if v_definitions<>1 or v_knowledge+v_definitions+v_chinese<>10 then
+    raise exception 'Chinese mix must include exactly one definition and fill all remaining slots with knowledge questions';
+  end if;
+  if v_bad_answer_language<>0 then
+    raise exception 'Chinese translation items must retain Chinese as their answer language';
+  end if;
+  if exists (
+    select 1 from jsonb_array_elements(v_session->'questions') q
+    where q->>'question_type'='chinese_translation'
+      and not exists (
+        select 1 from jsonb_array_elements(q->'options') o
+        where nullif(o->>'translation_text','') is null
+      )
+  ) then
+    raise exception 'Chinese translation item is missing its Chinese answer text';
+  end if;
+  v_session_id:=(v_session->>'session_id')::uuid;
+  perform public.abandon_my_quiz(v_session_id);
+  if public.test_current_quiz_usage()<>0 then
+    raise exception 'Abandoning the Chinese-mix test session consumed allowance';
+  end if;
+end;
+$chinese_mix$;
+
+update public.user_preferences set translation_language='en'
+where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 
 -- Premium user: exactly three completions/day, no same-day reuse between sessions,
 -- and a fourth start is blocked by the server-side completion allowance.
