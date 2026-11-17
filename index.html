@@ -17922,6 +17922,10 @@
         }
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
+      if (typeof quizRenderAvailability === "function" && quizPageState.availability && location.hash==="#quiz") {
+        quizRenderAvailability(quizPageState.availability);
+        quizRenderHistory(quizPageState.history);
+      }
       if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
       if (typeof quizApplyPageTranslation === "function") quizApplyPageTranslation();
       if (ls.active) {
