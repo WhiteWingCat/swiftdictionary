@@ -52,7 +52,7 @@ do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_activ
 -- with five distinct topics and five approved lesson mappings.
 insert into private.quiz_question_bank(
   question_id,revision,learning_language_code,translation_language_code,
-  source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,
+  source_lesson_id,topic_id,difficulty,learning_objective_id,prompt_learning,prompt_translation,
   options,correct_option_id,explanation_learning,explanation_translation,status
 )
 select
@@ -60,6 +60,7 @@ select
   prefix||'-lesson-'||(((n-1)%5)+1),
   'topic-'||(((n-1)%5)+1),
   difficulty,
+  'synthetic-objective-'||prefix,
   'Select the correct answer for '||prefix||' question '||n||'.',
   '请选择'||prefix||'第'||n||'题的正确答案。',
   '[{"id":"a","learning_text":"Correct","translation_text":"正确"},{"id":"b","learning_text":"Wrong one","translation_text":"错误一"},{"id":"c","learning_text":"Wrong two","translation_text":"错误二"},{"id":"d","learning_text":"Wrong three","translation_text":"错误三"}]'::jsonb,
