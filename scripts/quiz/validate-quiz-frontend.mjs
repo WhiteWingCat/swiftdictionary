@@ -77,6 +77,16 @@ if (!html.includes('class="course-selector-wrap course-selector-pill"') ||
     html.includes("courseControlTrigger") || html.includes("translationControlTrigger")) {
   throw new Error("Learning and translation language controls must be directly selectable with one interaction.");
 }
+if (!html.includes("color-scheme:dark") || !html.includes(".course-selector-pill select option")) {
+  throw new Error("Course and translation dropdown options must use the dark SwiftDictionary theme rather than the default white popup.");
+}
+if (!html.includes('id="practiceQuizWrongAnswers"') ||
+    !appScript.includes('supabaseClient.rpc("get_my_quiz_review"') ||
+    !appScript.includes("const quizPracticeRows = []") ||
+    !appScript.includes("data-practice-lesson") ||
+    !appScript.includes("openLesson(lessonId)")) {
+  throw new Error("Practice Insights must aggregate completed Quiz reviews and link missed questions to their source lessons.");
+}
 if (!html.includes('showPage("quiz",true,{skipQuizInitialise:true})') ||
     !html.includes('quizReview(button.dataset.dashboardQuizReview,"profile")') ||
     !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {

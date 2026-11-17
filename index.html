@@ -432,7 +432,8 @@
     #globalCourseControls.course-controls { display:flex; align-items:center; gap:7px; margin:0; padding:0; border:0; background:transparent; box-shadow:none; }
     .course-selector-pill { display:flex; align-items:center; gap:7px; min-height:40px; padding:5px 9px 5px 7px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); }
     .course-control-icon { width:27px; height:27px; flex:0 0 27px; display:grid; place-items:center; border-radius:50%; background:var(--accent-bg); font-size:1rem; }
-    .course-selector-pill select { min-width:90px; max-width:150px; border:0; outline:0; padding:4px 19px 4px 0; background:transparent; color:var(--text); font-size:.88rem; font-weight:750; cursor:pointer; }
+    .course-selector-pill select { min-width:90px; max-width:150px; border:0; outline:0; padding:4px 19px 4px 0; background:transparent; color:var(--text); color-scheme:dark; font-size:.88rem; font-weight:750; cursor:pointer; }
+    .course-selector-pill select option { background:var(--panel); color:var(--text); }
     .course-selector-pill:focus-within { outline:2px solid var(--accent); outline-offset:2px; }
     .course-selector-pill select:focus-visible { outline:0; }
     @media(max-width:760px) {
@@ -448,6 +449,12 @@
     .quiz-allowance-card .quiz-allowance-number { margin:2px 0 0; font-size:1.15rem; font-weight:850; line-height:1.2; }
     .quiz-allowance-card .muted-note { margin:0; font-size:.72rem; line-height:1.35; max-width:150px; }
     .quiz-history-row { gap:12px; }
+    .practice-quiz-wrong-list { display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .practice-quiz-wrong-list li { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--panel); }
+    .practice-quiz-wrong-copy { display:grid; gap:4px; min-width:0; }
+    .practice-quiz-wrong-copy strong { font-size:.92rem; line-height:1.45; }
+    .practice-quiz-wrong-copy small { color:var(--muted); }
+    @media(max-width:760px) { .practice-quiz-wrong-list li { align-items:stretch; flex-direction:column; } }
     @media(max-width:760px) { .quiz-difficulty-heading { align-items:stretch; flex-direction:column; } .quiz-allowance-card { width:100%; justify-content:space-between; } }
     .quiz-difficulty-option { padding:22px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(155deg,var(--panel) 0%,var(--panel-hover) 100%); box-shadow:var(--shadow); }
     .quiz-difficulty-option h3 { margin:0 0 7px; font-size:1.2rem; font-weight:850; letter-spacing:-.02em; }
@@ -615,7 +622,9 @@
             <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
           </div>
           <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Needs another attempt: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
-          <p id="practiceInsightsDetails" class="muted-note">Complete lessons or daily practice to build your learning insights. Only aggregate correct/question counts are saved; individual answers are not stored.</p>
+          <h4 class="review-topics-heading">Quiz answers to revisit</h4>
+          <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
+          <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
         </section>
         <section class="profile-card"><h3>Account</h3><p id="profileEmail" class="muted-note"></p><button type="button" id="profileSignOut" class="secondary-button">Sign out</button></section>
       </div>
@@ -18606,11 +18615,51 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
             : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
         }
 
-        // Practice insights use aggregate counts only. No individual answers or
-        // response text are retrieved or retained.
+        // Use the existing account-scoped Quiz review RPC to calculate topic
+        // accuracy and identify missed questions. No duplicate answer records are stored.
+        const quizPracticeRows = [];
+        const quizWrongAnswerRows = [];
+        let quizReviewFailureCount = quizHistoryQ.error ? 1 : 0;
+        const recentQuizHistoryRows = Array.isArray(quizHistoryQ.data) ? quizHistoryQ.data : [];
+        if (!quizHistoryQ.error) {
+          await Promise.all(recentQuizHistoryRows.slice(0,5).map(async historyRow => {
+            try {
+              const {data,error} = await supabaseClient.rpc("get_my_quiz_review",{p_session_id:historyRow.session_id});
+              if (error || !data) { quizReviewFailureCount += 1; return; }
+              const topicTotals = new Map();
+              for (const question of data.questions || []) {
+                if (!question.topic_id || !question.selected_option_id) continue;
+                const hasResult = typeof question.is_correct === "boolean" || Boolean(question.correct_option_id);
+                if (!hasResult) continue;
+                const isCorrect = typeof question.is_correct === "boolean"
+                  ? question.is_correct : question.selected_option_id === question.correct_option_id;
+                const total = topicTotals.get(question.topic_id) || {
+                  topic_id:question.topic_id,correct_count:0,question_count:0,
+                  practice_at:data.completed_at || historyRow.completed_at
+                };
+                total.question_count += 1;
+                if (isCorrect) total.correct_count += 1;
+                topicTotals.set(question.topic_id,total);
+                if (!isCorrect && question.source_lesson_id && question.source_difficulty) {
+                  quizWrongAnswerRows.push({
+                    session_id:historyRow.session_id,question_id:question.question_id,
+                    prompt_learning:question.prompt_learning,source_lesson_id:question.source_lesson_id,
+                    source_difficulty:question.source_difficulty,topic_id:question.topic_id,
+                    practice_at:data.completed_at || historyRow.completed_at
+                  });
+                }
+              }
+              quizPracticeRows.push(...topicTotals.values());
+            } catch (error) {
+              quizReviewFailureCount += 1;
+              console.warn("A recent Quiz review could not be included in Practice Insights:",error.message);
+            }
+          }));
+        }
         const practiceRows = [
           ...(lessonPracticeQ.data || []).map(row=>({...row,practice_at:row.attempted_at})),
-          ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at}))
+          ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at})),
+          ...quizPracticeRows
         ].filter(row=>row.topic_id && Number(row.question_count)>0
           && Number.isFinite(Number(row.correct_count))
           && Number(row.correct_count)>=0
@@ -18639,14 +18688,14 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         for (const [topicId,entries] of byTopic.entries()) {
           const questions = entries.reduce((sum,row)=>sum+Number(row.question_count),0);
           const correct = entries.reduce((sum,row)=>sum+Number(row.correct_count),0);
-          if (entries.length < 2 || questions < 6) continue;
+          if (questions < 6) continue;
           const accuracy = correct/questions;
           const intervalDays = accuracy < 0.65 ? 1 : accuracy < 0.8 ? 3 : accuracy < 0.9 ? 7 : 14;
           const lastAt = Date.parse(entries[0].practice_at || "");
           if (!Number.isFinite(lastAt)) continue;
           const daysSince = Math.max(0,(now-lastAt)/86400000);
           const weak = accuracy < 0.7;
-          const due = daysSince >= intervalDays;
+          const due = entries.length >= 2 && daysSince >= intervalDays;
           if (!weak && !due) continue;
           const reason = weak
             ? "Recent accuracy is " + Math.round(accuracy*100) + "% across " + entries.length + " attempts; this topic may benefit from another review."
@@ -18659,9 +18708,24 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         reviewList.innerHTML = reviewTopics.length
           ? reviewTopics.slice(0,5).map(item=>'<li><strong>'+escapeHTML(formatTopicName(item.topicId))+'</strong><span>'+escapeHTML(item.reason)+'</span></li>').join("")
           : '<li class="muted-note">'+(practiceRows.length ? "No topics currently meet the review threshold. Keep practising to maintain your progress." : "Complete more scored practice to receive topic recommendations.")+'</li>';
+        const uniqueWrongQuizAnswers = quizWrongAnswerRows
+          .sort((a,b)=>Date.parse(b.practice_at||0)-Date.parse(a.practice_at||0))
+          .filter((item,index,all)=>all.findIndex(other=>other.session_id===item.session_id&&other.question_id===item.question_id)===index)
+          .slice(0,5);
+        const wrongAnswerList = document.getElementById("practiceQuizWrongAnswers");
+        wrongAnswerList.innerHTML = uniqueWrongQuizAnswers.length
+          ? uniqueWrongQuizAnswers.map(item=>{
+              const sourceLesson = (lessonData[item.source_difficulty] || []).find(lesson=>lesson.id===item.source_lesson_id);
+              const lessonTitle = sourceLesson ? lessonField(sourceLesson,"title") : "Related lesson";
+              const lessonAction = sourceLesson
+                ? '<button type="button" class="secondary-button" data-practice-lesson="'+escapeHTML(item.source_lesson_id)+'" data-practice-difficulty="'+escapeHTML(item.source_difficulty)+'">Review lesson: '+escapeHTML(lessonTitle)+'</button>'
+                : '<span class="muted-note">Related lesson unavailable</span>';
+              return '<li><div class="practice-quiz-wrong-copy"><strong>'+escapeHTML(item.prompt_learning||"Missed Quiz question")+'</strong><small>'+escapeHTML(formatTopicName(item.topic_id))+'</small></div>'+lessonAction+'</li>';
+            }).join("")
+          : '<li class="muted-note">'+(quizReviewFailureCount ? "Some recent Quiz reviews could not be loaded." : recentQuizHistoryRows.length ? "No incorrect answers in your five most recent completed Quizzes." : "Complete a Quiz to see missed questions and their related lessons.")+'</li>';
         const practiceDetailText = recentPractice.length
-          ? "Based on your " + recentPractice.length + " most recent practice summaries. Accuracy uses first-attempt aggregate results; topics are marked due only after at least two attempts and six questions."
-          : "No scored practice has been recorded yet. Complete a lesson or Daily Application/Revision to build your learning insights. Individual answers are never stored.";
+          ? "Recent accuracy combines lesson and Daily Learning practice with completed Quiz results. The five most recent Quizzes are checked for weak topics and missed questions; missed questions link to their source lessons. Individual Quiz answers are read only from the account-scoped review and are not copied into separate records."
+          : "No scored practice has been recorded yet. Complete a lesson, Daily Learning activity or Quiz to build your learning insights.";
         document.getElementById("practiceInsightsDetails").textContent = practiceDetailText + (dailyPracticeUnavailable ? " Daily activity practice data will appear after the matching server update is applied." : "");
 
         document.getElementById("profileWelcome").textContent = `Welcome${profileQ.data?.display_name ? ", "+profileQ.data.display_name : ""}. Here is your learning overview.`;
@@ -18670,6 +18734,16 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         if (preferenceStatus) preferenceStatus.textContent = `Could not load account data: ${error.message}`;
       }
     }
+    document.getElementById("practiceQuizWrongAnswers").addEventListener("click",event=>{
+      const button=event.target.closest("[data-practice-lesson]");
+      if(!button)return;
+      const lessonId=button.dataset.practiceLesson;
+      const difficulty=button.dataset.practiceDifficulty;
+      const sourceLesson=(lessonData[difficulty]||[]).find(lesson=>lesson.id===lessonId);
+      if(!sourceLesson)return;
+      ls.difficulty=difficulty;ls.topic="all";
+      openLesson(lessonId);
+    });
     document.getElementById("savePreferences").addEventListener("click", async () => {
       if (!supabaseClient || !currentUser) return;
       const status = document.getElementById("preferenceStatus");
