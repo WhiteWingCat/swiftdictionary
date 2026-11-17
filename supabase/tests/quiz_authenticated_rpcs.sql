@@ -10,9 +10,9 @@ on conflict (id) do nothing;
 
 insert into public.user_preferences(user_id,learning_language,translation_language,timezone)
 values
- ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','en','zh','Asia/Kuala_Lumpur'),
- ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb','en','zh','Asia/Kuala_Lumpur'),
- ('cccccccc-cccc-4ccc-8ccc-cccccccccccc','en','zh','Asia/Kuala_Lumpur')
+ ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','en','en','Asia/Kuala_Lumpur'),
+ ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb','en','en','Asia/Kuala_Lumpur'),
+ ('cccccccc-cccc-4ccc-8ccc-cccccccccccc','en','en','Asia/Kuala_Lumpur')
 on conflict (user_id) do update set
   learning_language=excluded.learning_language,
   translation_language=excluded.translation_language,
@@ -75,6 +75,26 @@ from (
   union all
   select 'a','advanced',n from generate_series(1,48) n
 ) bank;
+
+
+-- Two lesson-aligned definition questions per source difficulty allow the
+-- authenticated lifecycle test to start, abandon and restart on the same day.
+insert into private.quiz_question_bank(
+  question_id,revision,learning_language_code,translation_language_code,
+  source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,
+  prompt_learning,prompt_translation,options,correct_option_id,
+  explanation_learning,explanation_translation,status
+)
+select
+  prefix||'-definition-'||n,1,'en','en',
+  prefix||'-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),difficulty,
+  'word_definition','en','synthetic-objective-'||prefix,
+  'Which meaning best matches definition item '||n||' for '||prefix||'?',
+  'Which meaning best matches definition item '||n||' for '||prefix||'?',
+  '[{"id":"a","learning_text":"Correct meaning","translation_text":"Correct meaning"},{"id":"b","learning_text":"Alternative one","translation_text":"Alternative one"},{"id":"c","learning_text":"Alternative two","translation_text":"Alternative two"},{"id":"d","learning_text":"Alternative three","translation_text":"Alternative three"}]'::jsonb,
+  'a','Option A gives the intended meaning.','Option A gives the intended meaning.','approved'
+from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
+cross join generate_series(1,3) n;
 
 insert into auth.sessions(id,user_id,created_at,not_after)
 values
