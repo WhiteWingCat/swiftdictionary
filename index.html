@@ -18981,7 +18981,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       // Session snapshots are immutable. Refresh immediately when the chosen
       // language is present; otherwise keep the session intact and explain why.
       quizApplyPageTranslation();
-      if(quizPageState.session&&quizPageState.sessionView) quizRenderSession();
+      // The rendered screen is authoritative: keep an open session open, but
+      // never turn an overview's saved in-progress session into the active view.
+      const sessionIsVisible=!!quizPageState.session&&!quizEl("quizSession").hidden;
+      if(sessionIsVisible){quizPageState.sessionView=true;quizRenderSession();}
+      else if(quizPageState.session){quizPageState.sessionView=false;}
       if(quizPageState.result) quizRenderResult(quizPageState.result);
       const snapshot=quizPageState.session||quizPageState.result;
       if(snapshot) quizUpdateTranslationNotice(snapshot);
