@@ -2,10 +2,18 @@
 -- before loading any disposable CI fixtures. This is safe for a fresh Supabase
 -- project and must not be run after real tester accounts have been created.
 
-do $$
+create function public._staging_default_privilege_probe()
+returns void language sql as 'select';
+
+do $
 declare
   v_rls_missing text[];
 begin
+  if has_function_privilege('anon','public._staging_default_privilege_probe()','EXECUTE')
+     or has_function_privilege('authenticated','public._staging_default_privilege_probe()','EXECUTE')
+     or has_function_privilege('service_role','public._staging_default_privilege_probe()','EXECUTE') then
+    raise exception 'New public functions must not inherit broad API execute privileges';
+  end if;
   if exists (select 1 from auth.users) then
     raise exception 'Clean bootstrap unexpectedly created Auth users';
   end if;
@@ -75,4 +83,6 @@ begin
     raise exception 'Server-side service_role grants are incomplete';
   end if;
 end
-$$;
+$;
+
+drop function public._staging_default_privilege_probe();
