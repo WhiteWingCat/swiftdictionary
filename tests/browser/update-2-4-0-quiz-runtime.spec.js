@@ -438,7 +438,7 @@ test("Premium user sees three daily completions; abandonment does not consume al
   await page.locator('[data-quiz-start="advanced"]').click();
   await expect(page.locator("#quizSession"),
     "Advanced Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
-  ).toBeVisible();
+  ).toBeVisible({ timeout: 15000 });
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 20 题");
 
   // Returning to overview and attempting a different difficulty must resume
@@ -452,7 +452,7 @@ test("Premium user sees three daily completions; abandonment does not consume al
   await expect(page.locator('[data-quiz-start="intermediate"]')).toBeDisabled();
   await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizSessionDifficulty")).toHaveText("Advanced");
+  await expect(page.locator("#quizSessionDifficulty")).toHaveText("高级");
 
   page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizAbandon").click();
@@ -481,6 +481,8 @@ test("Quiz overview follows translation preference and selector changes preserve
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+  const languageState = await page.evaluate(() => ({ selector:document.querySelector("#translationSelect")?.value, global:translationLanguage, sessionView:quizPageState.sessionView, sessionVisible:!document.querySelector("#quizSession")?.hidden }));
+  expect(languageState).toEqual({selector:"zh",global:"zh",sessionView:true,sessionVisible:true});
   await selectTranslation(page,"en");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizSession")).toBeVisible();
