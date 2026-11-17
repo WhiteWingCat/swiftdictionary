@@ -506,6 +506,11 @@ test("Translation changes on the Quiz overview do not auto-open an unfinished se
   await updateTranslationPreference(freeUserId,"zh");
   await openQuiz(page,freeSession);
   await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizHeading")).toHaveText("测验");
+  await expect(page.locator(".quiz-page-heading .page-intro")).toContainText("通过不同主题的问题检验你的理解");
+  await expect(page.locator("#quizRefresh")).toHaveText("刷新");
+  await expect(page.locator(".quiz-difficulty-heading h2")).toHaveText("选择难度");
+  await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await page.locator("#quizBackHome").click();
