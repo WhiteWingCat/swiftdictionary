@@ -18922,16 +18922,23 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
       quizRenderAvailability(availability.data||{});
       quizRenderHistory(history.data||[]);
-      const preserveSessionView=quizPageState.sessionView
-        && quizPageState.session?.session_id
-        && quizPageState.session.session_id===active.data?.session_id;
-      quizPageState.session=active.data||null;
-      if(preserveSessionView&&quizPageState.session){
-        quizRenderSession();
-      }else{
-        quizPageState.sessionView=false;
-        quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      // An overview request may have started before the learner opened a
+      // session or answer review. Never let that stale response replace the
+      // newer in-progress view with the overview.
+      if(quizPageState.result){
+        quizRenderResult(quizPageState.result);
+        quizStatus("");
+        return;
       }
+      if(quizPageState.sessionView&&quizPageState.session?.session_id){
+        if(active.data?.session_id===quizPageState.session.session_id)quizPageState.session=active.data;
+        quizRenderSession();
+        quizStatus("");
+        return;
+      }
+      quizPageState.session=active.data||null;
+      quizPageState.sessionView=false;
+      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
       quizStatus("");
     }
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
