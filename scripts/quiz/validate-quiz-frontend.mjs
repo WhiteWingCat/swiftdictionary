@@ -4,6 +4,7 @@ import vm from "node:vm";
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
 const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
 const dailyLearning = fs.readFileSync(new URL("../../daily-learning.js", import.meta.url), "utf8");
+const quizTranslationMigration = fs.readFileSync(new URL("../../supabase/migrations/20261117125000_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql", import.meta.url), "utf8");
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
@@ -71,6 +72,18 @@ if (!appScript.includes("function quizApplyPageTranslation") || !appScript.inclu
 }
 if (!dailyLearning.includes('.select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")')) {
   throw new Error("Daily Learning must select the session ID before attempting expired-session cleanup.");
+}
+if (!appScript.includes("if(quizPageState.session&&quizPageState.sessionView) quizRenderSession();")) {
+  throw new Error("Changing translation from the Quiz overview must not auto-open an unfinished session.");
+}
+if (!appScript.includes("const requestedCourse=courseSelector.value||course||\"en\";") ||
+    !appScript.includes("const requestedTranslation=translationSelector.value||translationLanguage||\"en\";")) {
+  throw new Error("Quiz start must snapshot the current visible course and translation selector values.");
+}
+if (!quizTranslationMigration.includes("create or replace function private.get_my_quiz_availability_impl()") ||
+    !quizTranslationMigration.includes("create or replace function private.start_my_quiz_impl(p_difficulty text, p_learning_language text, p_translation_language text)") ||
+    !quizTranslationMigration.includes("create or replace function public.start_my_quiz(")) {
+  throw new Error("The Update 2.4.1 Quiz translation migration is incomplete.");
 }
 if (!mockTesting.includes('"learning_page_introduction_preferences"')) {
   throw new Error("Mock User adapter does not support account-scoped learning introduction preferences.");
