@@ -625,9 +625,9 @@ grant execute on function public.record_completed_lesson_practice_result(text,te
 
 -- The former start-trigger function is now dormant; prevent direct execution.
 revoke all on function public.record_lesson_start_allowance()
+  from public, anon, authenticated;
 revoke all on function public.enforce_learning_daily_limit() from public, anon, authenticated, service_role;
 revoke all on function public.guard_lesson_progress_update() from public, anon, authenticated, service_role;
-  from public, anon, authenticated;
 
 
 -- Required post-migration checks:
