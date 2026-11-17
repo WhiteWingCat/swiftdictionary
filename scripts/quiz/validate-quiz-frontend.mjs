@@ -61,6 +61,10 @@ if (!html.includes('id="preferenceRefreshToast"') || !appScript.includes("showPr
     !appScript.includes("showPreferenceRefreshToast(\"translation\")")) {
   throw new Error("Course and translation selectors must show a transient page-refresh confirmation.");
 }
+if (!appScript.includes("p_learning_language:course") || !appScript.includes("p_translation_language:translationLanguage") ||
+    !appScript.includes("setTimeout(()=>resolve(false),1500)")) {
+  throw new Error("Quiz start must use the current selector values and must not block indefinitely on preference synchronization.");
+}
 if (!appScript.includes("function quizApplyPageTranslation") || !appScript.includes("知识测验") ||
     !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("preserveSessionView")) {
   throw new Error("Quiz overview translation or active-session continuity is incomplete.");
