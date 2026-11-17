@@ -216,7 +216,9 @@ test("Free user can switch translation in an open permanent lesson and complete 
   ).toBeEnabled();
 
   await page.locator('[data-quiz-start="beginner"]').click();
-  await expect(page.locator("#quizSession")).toBeVisible({ timeout: 15000 });
+  await expect(page.locator("#quizSession"),
+    "Beginner Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
+  ).toBeVisible({ timeout: 15000 });
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10",{timeout:15000});
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).not.toBeEmpty();
