@@ -19040,7 +19040,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         document.getElementById("preferenceTranslation").value=requestedTranslation;
         quizApplyPageTranslation();
         quizPageState.session=session;quizRenderSession();
-      }catch(error){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}
+      }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}}
       finally{
         courseSelector.disabled=false;
         translationSelector.disabled=false;
