@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-14 (Quiz technical preparation and read-only repository/Supabase inspection)  
-> **Current baseline:** Update 2.3.3 merged to main and GitHub Pages deployment succeeded on 2026-11-14 (merge commit `90dc73a9b65fc3af713fefab4955057026089b96`); six 2.3.0 Supabase migrations are applied to production  
-> **Current work:** Update 2.4.0 Quiz technical specification and product decisions are final; implementation is authorised to proceed on a dedicated feature branch. No Quiz implementation has started.  
-> **Record status:** Updated after the six approved production migrations were applied and verified, PR #7 merged, and main GitHub Pages deployment succeeded. No production user-content bulk operation was performed.
+> **Last consolidated:** 2026-11-17 (Update 2.4.0 Mock Quiz draft-bank integration, Chinese-translation question mix and CI verification)  
+> **Current baseline:** Update 2.3.3 is merged to main; six 2.3.0 Supabase migrations are applied to production. The separately approved Quiz allowance change is live at Free 1/day and Premium 3/day.  
+> **Current work:** Update 2.4.0 is on `feature/update-2-4-0-quiz`; PR #8 remains open and draft. The authenticated Quiz schema/RPC and frontend foundation are implemented on the branch. The 150-item bilingual draft bank contains 114 knowledge questions and 36 Chinese-translation assessment questions; the latter are Mock User preview-only until backend question-type support is added. A separate Supabase staging project exists but remains empty while a safe clean-schema bootstrap is unresolved.  
+> **Record status:** Quiz workflow #417 and 2.3.x regression workflow #974 passed. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged. The latest Cloudflare Pages preview deployment still requires confirmation before sharing a test link.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
@@ -1684,3 +1684,52 @@ The content pack adds no learner personal data, tracking or analytics. It uses o
 - PR #8 remains draft and unmerged.
 - No merge or deployment occurred.
 - Next, complete the 114-question CI validation, then perform human editorial review and plan a separate approval migration before implementing Quiz frontend and signed-token/PostgREST/browser end-to-end tests.
+
+
+## 37. Update 2.4.0 — Chinese-translation integration questions and Mock Quiz validation (2026-11-17)
+
+The owner approved the proposed Chinese-integration distribution for English-learning Quiz sessions with Simplified Chinese selected as the translation language:
+
+- Beginner: 1 Chinese-translation assessment question in a 10-question session.
+- Intermediate: 4 in a 15-question session.
+- Advanced: 7 in a 20-question session.
+
+These are included within the existing session lengths, not added on top. The approved difficulty composition remains unchanged: Beginner 10 Beginner; Intermediate 12 Intermediate + 3 Beginner; Advanced 12 Advanced + 6 Intermediate + 2 Beginner.
+
+### Draft content and Mock User implementation
+
+- Expanded `content/quiz/questions.en-zh.draft.json` from 114 to 150 original draft questions: 114 knowledge questions (30/36/48 by difficulty) plus 36 Chinese-translation assessment questions (3/12/21 by difficulty). The 3x bank supply is intended to support up to three daily sessions without exhausting the required translation-question pool.
+- Each new assessment question uses an English prompt asking for the most accurate Simplified Chinese translation, with four Chinese answer choices and an English gloss stored as supporting metadata.
+- Mock User sessions select exactly 1/4/7 Chinese-translation questions when the saved translation preference is Simplified Chinese. When English is selected as the translation language, the Mock session uses knowledge questions only. The total session lengths and original source-difficulty composition remain unchanged.
+- The Quiz UI displays Chinese answer choices as the primary options for these assessment questions. If the learner changes the active session's display preference to English, the English gloss is shown as supporting text while the Chinese answer target remains intact.
+- The existing nine questions with duplicate Chinese support-option strings were revised. The content validator and Mock loader now check for four unique English and four unique Chinese option labels after Unicode normalisation, in addition to IDs, answer-key membership, bilingual fields and curriculum mappings.
+- The answer-navigation controls are disabled while an answer-save request is pending. This prevents a rapid Next/Previous action from being silently ignored while the save is in progress.
+
+### Backend and release boundary
+
+The 36 Chinese-translation assessment questions are intentionally Mock User preview-only in this stage. The authenticated Quiz database schema and RPC payloads do not yet carry a `question_type` field. The draft SQL exporter therefore imports only the 114 knowledge questions into disposable CI databases and excludes the 36 translation-assessment questions. A later feature-branch migration and RPC update is required before these question types can be tested against the authenticated backend or considered for release.
+
+The source pack remains `draft`. None of the 150 questions is approved for learner-facing publication. No Quiz schema/RPC migration, question import, staging migration, production data change, production configuration change, main-branch merge or production deployment was performed in this session.
+
+### Validation and current branch state
+
+- Implementation branch: `feature/update-2-4-0-quiz`.
+- Latest implementation commit: `710f043a43e116c90d4b3a6fb779605658bd2333`.
+- PR #8 remains open, draft and unmerged.
+- Quiz database foundation workflow run [#417](https://github.com/WhiteWingCat/wordbook/actions/runs/44047597209) passed PostgreSQL validation, draft import of the 114 supported knowledge questions, disposable local Supabase Auth/RPC/session tests, authenticated Chromium runtime tests and Supabase security advisors.
+- Companion 2.3.x regression workflow run [#974](https://github.com/WhiteWingCat/wordbook/actions/runs/44047597250) passed PostgreSQL, Chromium and Supabase Auth compatibility checks.
+- Earlier run #415 failed because a double-escaped Unicode-normalisation regular expression produced false duplicate-option reports. The regex was corrected in commit `710f043`; the subsequent #417 run passed.
+- Earlier run #413 exposed a navigation/save timing race. Disabling navigation while saving was added; the authenticated Chromium runtime tests passed in #417.
+- The latest Cloudflare Pages deployment for commit `710f043` has not yet been confirmed. Do not provide a preview link or claim the hosted preview contains these changes until deployment is independently verified.
+
+### Legal, privacy and content review
+
+The new questions are original authored learning content; no third-party question bank, dictionary text or external dataset was imported. This content change adds no learner personal-data fields or new tracking. The existing Quiz feature still processes account-linked learning activity, selected answers, scores and history, so the standing Malaysia PDPA and applicable international/16+ privacy review, retention/deletion disclosures and cross-border processing review remain release gates. This is planning guidance, not legal advice. Human editorial review of all bilingual questions remains mandatory before approval.
+
+### Next steps
+
+1. Confirm Cloudflare Pages has deployed the latest feature-branch commit before sharing the Mock User preview.
+2. Let the owner test the 1/4/7 Chinese-integration mix, the question wording and the Chinese answer choices using fictional Mock User accounts only.
+3. Continue the full bilingual accuracy review; do not publish or approve the draft pack based only on structural CI checks.
+4. After the owner accepts the Mock preview, add backend `question_type` support through a reviewed feature-branch migration/RPC update and validate it in the isolated staging environment only after the clean-schema bootstrap is complete.
+5. Keep PR #8 draft and unmerged until explicit owner approval. Keep production `main`, production Quiz schema/content and production data unchanged.

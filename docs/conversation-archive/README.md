@@ -35,3 +35,10 @@ This directory contains structured handover archives for meaningful SwiftDiction
 | 2026-11-14 | Update 2.4.0 — Quiz authenticated RPC implementation | Authenticated Quiz RPCs, question selection, session lifecycle, scoring, allowances, history deletion, PostgreSQL/local Supabase validation and preliminary Malaysia privacy review. | [Read archive](2026-11-14-update-2-4-0-quiz-authenticated-rpcs.md) |
 
 | 2026-11-16 | Update 2.4.0 — Quiz content pipeline and live allowance change | Records the guarded production Free 1/Premium 3 Quiz allowance migration, bilingual Beginner draft content, validation/import workflow and remaining content gates. | [Read archive](2026-11-16-quiz-content-pipeline-and-allowance-update.md) |
+
+
+## 2026-11-17 additions
+
+- [SwiftDictionary Indie staging approval and creation](2026-11-17-swiftdictionary-indie-staging-approval-and-creation.md) — isolated US$0/month staging project approval and creation; clean-schema bootstrap remains a blocker.
+- [Mock Quiz draft question-bank integration](2026-11-17-quiz-mock-draft-question-bank.md) — Mock User preview using the original 114 bilingual draft questions, followed by Dashboard review and selector fixes.
+- [Chinese-translation integration questions and Mock Quiz validation](2026-11-17-quiz-chinese-integration-questions.md) — owner-approved 1/4/7 distribution, 36 additional preview-only questions, duplicate-option validation, backend exclusion guard and passing CI runs #417/#974.
