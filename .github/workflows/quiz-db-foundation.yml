@@ -115,6 +115,20 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
 
+      - name: Validate owner-authorized 199-question release export and migration
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs" --emit-sql --approve-for-release > "$RUNNER_TEMP/quiz-approved-export.sql"
+          grep -q "OWNER-AUTHORIZED RELEASE IMPORT" "$RUNNER_TEMP/quiz-approved-export.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-approved-export.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117190000_swiftdictionary_update_2_4_0_quiz_content_release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+
       - name: Seed disposable synthetic approved Quiz content
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
