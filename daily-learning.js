@@ -705,7 +705,7 @@
         .eq("user_id",userId).eq("status","completed")
         .order("completed_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
-        .select("activity_type,content_id,topic_id,difficulty,source,status,started_at")
+        .select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")
         .eq("user_id",userId).eq("status","in_progress")
         .order("started_at",{ascending:false}).limit(10)
     ]);
