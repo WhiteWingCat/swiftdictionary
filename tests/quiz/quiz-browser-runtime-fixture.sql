@@ -22,7 +22,7 @@ do update set
 
 insert into private.quiz_question_bank(
   question_id, revision, learning_language_code, translation_language_code,
-  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,
+  source_lesson_id, topic_id, difficulty, learning_objective_id, prompt_learning, prompt_translation,
   options, correct_option_id, explanation_learning, explanation_translation, status
 )
 select
@@ -33,6 +33,7 @@ select
   d.prefix || '-runtime-lesson-' || (((n-1)%10)+1),
   'quiz-runtime-topic-' || (((n-1)%10)+1),
   d.difficulty,
+  'runtime-objective-' || d.prefix,
   'Runtime test question ' || d.difficulty || ' ' || n || ': choose the correct answer.',
   '运行测试题' || n || '：请选择正确答案。',
   jsonb_build_array(
@@ -57,7 +58,7 @@ from (
 -- fallback when a learner changes their preference to Chinese mid-session.
 insert into private.quiz_question_bank(
   question_id, revision, learning_language_code, translation_language_code,
-  source_lesson_id, topic_id, difficulty, prompt_learning, prompt_translation,
+  source_lesson_id, topic_id, difficulty, learning_objective_id, prompt_learning, prompt_translation,
   options, correct_option_id, explanation_learning, explanation_translation, status
 )
 select
@@ -68,6 +69,7 @@ select
   'b-runtime-lesson-' || (((n-1)%10)+1),
   'quiz-runtime-topic-' || (((n-1)%10)+1),
   'beginner',
+  'runtime-objective-b',
   'English snapshot test question ' || n || ': choose the correct answer.',
   'English snapshot test question ' || n || ': choose the correct answer.',
   jsonb_build_array(
