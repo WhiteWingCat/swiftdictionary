@@ -17899,6 +17899,11 @@
       showPreferenceRefreshToast("course");
     });
     function refreshTranslationViews(nextLanguage) {
+      const quizViewBefore=location.hash==="#quiz"
+        ? (!document.getElementById("quizResults").hidden ? "results"
+          : !document.getElementById("quizSession").hidden ? "session"
+          : !document.getElementById("quizHome").hidden ? "home" : "other")
+        : null;
       const selector=document.getElementById("translationSelect");
       translationLanguage=nextLanguage || selector.value || "en";
       selector.value=translationLanguage;
@@ -17928,6 +17933,19 @@
       }
       if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
       if (typeof quizApplyPageTranslation === "function") quizApplyPageTranslation();
+      // Keep the exact Quiz subview the learner was looking at before the
+      // language refresh. The overview's Resume card must not open the session.
+      if (quizViewBefore==="session" && quizPageState.session) {
+        quizPageState.sessionView=true;
+        quizRenderSession();
+      } else if (quizViewBefore==="results" && quizPageState.result) {
+        quizRenderResult(quizPageState.result);
+      } else if (quizViewBefore==="home") {
+        quizPageState.sessionView=false;
+        document.getElementById("quizHome").hidden=false;
+        document.getElementById("quizSession").hidden=true;
+        document.getElementById("quizResults").hidden=true;
+      }
       if (ls.active) {
         const status=document.getElementById("lessonStatus");
         if(status) status.textContent=translationLanguage==="zh"
