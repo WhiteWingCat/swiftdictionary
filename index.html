@@ -18936,8 +18936,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
       const answered=s.questions.filter(x=>x.selected_option_id).length;
       quizEl("quizSessionDifficulty").textContent=quizDifficultyLabels[s.difficulty]||s.difficulty;
-      quizEl("quizQuestionCounter").textContent="Question "+pos+" of "+s.question_count;
-      quizEl("quizAnsweredCounter").textContent=answered+" answered";
+      quizEl("quizQuestionCounter").textContent=quizT("Question "+pos+" of "+s.question_count,"第 "+pos+" 题，共 "+s.question_count+" 题");
+      quizEl("quizAnsweredCounter").textContent=quizT(answered+" answered","已作答 "+answered+" 题");
       quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
       const effectiveTranslation=quizEffectiveTranslationCode(s);
       const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
@@ -18950,9 +18950,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       }).join("")+'</div>';
       quizEl("quizPrevious").disabled=pos<=1;
       quizEl("quizNext").hidden=pos>=s.question_count;
-      quizEl("quizNext").textContent="Next";
+      quizEl("quizNext").textContent=quizT("Next","下一题");
       quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
-      quizEl("quizSubmit").textContent=answered===s.question_count?"Submit Quiz":"Answer all questions to submit";
+      quizEl("quizSubmit").textContent=answered===s.question_count?quizT("Submit Quiz","提交测验"):quizT("Answer all questions to submit","请回答所有问题后再提交");
       quizStatus("");
     }
     function quizRefreshVisibleTranslation(){
