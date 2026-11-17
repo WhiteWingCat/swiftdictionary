@@ -49,3 +49,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Staging bootstrap and deferred friend-testing review](2026-11-17-quiz-staging-bootstrap-and-friend-testing.md) — documents the clean staging bootstrap, hosted 2.3.x/2.4.0 migrations, empty data boundary, staging-only preview routing, OAuth setup requirement, security-advisor review, and deferred manual accuracy review pending friend feedback.
+
+
+- [Update 2.4.0 production merge and 199-question release](2026-11-17-update-2-4-0-production-release.md) — records PR #8 merge, successful GitHub Pages deployment, five production Supabase migration versions, all 199 selectable questions and post-import verification, security-advisor findings, deferred human accuracy review, and privacy/test-notice requirements before friend onboarding.
