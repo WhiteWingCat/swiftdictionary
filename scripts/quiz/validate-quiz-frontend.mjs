@@ -3,6 +3,7 @@ import vm from "node:vm";
 
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
 const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
+const dailyLearning = fs.readFileSync(new URL("../../daily-learning.js", import.meta.url), "utf8");
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
@@ -45,7 +46,7 @@ const learningPageFeatures = [
   "learningIntroSaveDismissal", "learningIntroLoadPreferences",
   "learningIntroMaybeShow", "learning_page_introduction_preferences",
   "quizEffectiveTranslationCode", "quizUpdateTranslationNotice", "quizSyncCoursePreferences", "applyLearningCourseAvailability",
-  "quizRefreshVisibleTranslation", "quizMockNotice"
+  "quizRefreshVisibleTranslation", "quizApplyPageTranslation", "showPreferenceRefreshToast", "sessionView"
 ];
 for (const feature of learningPageFeatures) {
   if (!appScript.includes(feature)) throw new Error("Missing learning-page feature: " + feature);
@@ -56,11 +57,22 @@ for (const page of ["lessons", "quiz", "flashcards"]) {
 if (!appScript.includes("This session keeps its original translation") || !appScript.includes("will apply to the next Quiz")) {
   throw new Error("Quiz translation snapshot fallback messaging is incomplete.");
 }
+if (!html.includes('id="preferenceRefreshToast"') || !appScript.includes("showPreferenceRefreshToast(\"course\")") ||
+    !appScript.includes("showPreferenceRefreshToast(\"translation\")")) {
+  throw new Error("Course and translation selectors must show a transient page-refresh confirmation.");
+}
+if (!appScript.includes("function quizApplyPageTranslation") || !appScript.includes("知识测验") ||
+    !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("preserveSessionView")) {
+  throw new Error("Quiz overview translation or active-session continuity is incomplete.");
+}
+if (!dailyLearning.includes('.select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")')) {
+  throw new Error("Daily Learning must select the session ID before attempting expired-session cleanup.");
+}
 if (!mockTesting.includes('"learning_page_introduction_preferences"')) {
   throw new Error("Mock User adapter does not support account-scoped learning introduction preferences.");
 }
-if (!mockTesting.includes("mock_simulation:true") || !html.includes("Draft question-bank preview") || !html.includes("not yet accuracy-approved for learners")) {
-  throw new Error("Mock Quiz must clearly label its draft question-bank content and local simulation boundary.");
+if (!mockTesting.includes("mock_simulation:true") || html.includes("Draft question-bank preview") || html.includes("not yet accuracy-approved for learners")) {
+  throw new Error("The live Quiz page must not display the internal draft question-bank preview notice.");
 }
 if (!mockTesting.includes("async function loadQuizDraftBank") || !mockTesting.includes('bank.status!=="draft"') ||
     !mockTesting.includes("questions.en-zh.draft.json") || !mockTesting.includes("curriculum-map.en.json")) {
