@@ -84,9 +84,11 @@
     .primary-nav button { flex:0 0 auto; border:1px solid transparent; border-radius:10px; background:transparent; color:var(--muted); padding:9px 14px; }
     .primary-nav button[aria-current="page"] { color:var(--accent); background:var(--accent-bg); border-color:#4c5b8b; }
     .top-actions { flex-wrap:wrap; justify-content:flex-end; }
-    .course-controls { margin:0; gap:8px; }
-    .course-controls label { font-size:.82rem; }
-    .course-controls select { padding:7px 9px; max-width:150px; }
+    .course-controls { display:flex; align-items:center; gap:9px; margin:0; padding:7px; border:1px solid #52658f; border-radius:16px; background:linear-gradient(135deg,#202b46 0%,#172033 58%,#20283a 100%); box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.07); }
+    .course-controls label { display:grid; gap:5px; min-width:0; padding:7px 10px; border:1px solid rgba(151,174,231,.24); border-radius:11px; background:rgba(8,14,27,.48); color:#dbe5ff; font-size:.72rem; font-weight:800; letter-spacing:.035em; text-transform:uppercase; }
+    .course-controls select { width:100%; min-width:142px; padding:8px 30px 8px 10px; border:1px solid #718ac7; border-radius:9px; background:#111a2c; color:#fff; font-size:.9rem; font-weight:750; letter-spacing:0; text-transform:none; box-shadow:inset 0 1px 3px rgba(0,0,0,.32); }
+    .course-controls select:focus-visible { outline:3px solid #a9c2ff; outline-offset:2px; border-color:#c5d5ff; }
+    .course-controls label:focus-within { border-color:#9db6f1; background:rgba(22,34,57,.9); }
     .page-panel { padding:34px 0 54px; min-height:55vh; }
     .page-panel[hidden], #dictionaryPage[hidden] { display:none !important; }
     .page-intro { color:var(--muted); max-width:720px; }
@@ -367,13 +369,116 @@
     .daily-discovery-word-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:-5px 0 14px;color:var(--muted);font-size:.9rem}
     .daily-discovery-word-meta strong{color:var(--accent);text-transform:capitalize}
     .daily-discovery-frequency-note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--accent);padding-left:10px}
-</style>
+
+    .quiz-error{color:#ffb1b1}.quiz-page-heading,.quiz-section-heading,.quiz-session-top,.quiz-progress-heading,.quiz-question-actions,.quiz-submit-row,.quiz-results-actions{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .quiz-page-heading{margin-bottom:18px}.quiz-page-heading h1{margin-top:5px}
+    .quiz-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+    .quiz-overview-grid .profile-card,.quiz-difficulty-card,.quiz-results-card{margin:0}
+    .quiz-allowance-number{font-size:1.7rem;font-weight:800;color:var(--accent);margin:8px 0}
+    .quiz-difficulty-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+    .quiz-difficulty-option{display:flex;flex-direction:column;align-items:flex-start;gap:11px;min-width:0;min-height:205px;padding:21px;border:1px solid #465575;border-radius:16px;background:linear-gradient(155deg,#222d46 0%,#192235 58%,#17202f 100%);box-shadow:0 9px 22px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.055);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .quiz-difficulty-option:hover{transform:translateY(-2px);border-color:#8199d0;box-shadow:0 13px 28px rgba(0,0,0,.24)}
+    .quiz-difficulty-option h3{margin:0;color:#f4f6ff;font-size:1.22rem;font-weight:850;letter-spacing:.01em}
+    .quiz-difficulty-count{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid #7089c3;border-radius:999px;background:#2b3a5d;color:#e5edff;font-size:.82rem;font-weight:850;letter-spacing:.025em}
+    .quiz-difficulty-option p{margin:0;color:#c4cee2;font-size:.91rem;line-height:1.55}
+    .quiz-difficulty-option button{margin-top:auto;width:100%;font-weight:800}
+    .quiz-difficulty-option[aria-disabled="true"]{opacity:.82}
+    @media(max-width:760px){.course-controls{width:100%;justify-content:stretch}.course-controls label{flex:1}.course-controls select{min-width:0}.quiz-difficulty-grid{grid-template-columns:1fr}}
+    .quiz-history-list{display:grid;gap:8px;margin-top:14px}
+    .quiz-history-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:11px;background:var(--panel-hover)}
+    .quiz-history-row strong{display:block}.quiz-history-row small{color:var(--muted)}
+    .quiz-history-score{font-size:1.1rem;font-weight:800;color:var(--accent);white-space:nowrap}
+    .quiz-session-card{max-width:900px;margin:18px auto;padding:clamp(18px,3vw,30px)}
+    .quiz-progress-heading{margin:22px 0 8px}.quiz-progress-track{height:8px;border:1px solid var(--border);border-radius:999px;background:var(--panel-hover);overflow:hidden}
+    .quiz-progress-track span{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+    .quiz-question-prompt{font-size:clamp(1.15rem,2.5vw,1.5rem);line-height:1.5;margin:25px 0 8px}
+    .quiz-question-translation{color:var(--muted);margin:0 0 20px;line-height:1.55}
+    .quiz-options{display:grid;gap:10px;margin:18px 0 26px}
+    .quiz-option{display:flex;align-items:center;gap:12px;width:100%;padding:14px 15px;text-align:left;border:1px solid var(--border);border-radius:12px;background:var(--panel-hover);color:var(--text)}
+    .quiz-option:hover{border-color:var(--accent)}.quiz-option[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-bg)}
+    .quiz-option-letter{display:grid;place-items:center;flex:0 0 30px;height:30px;border:1px solid var(--border);border-radius:8px;font-weight:750}
+    .quiz-option-copy{display:grid;gap:3px}.quiz-option-copy small{color:var(--muted)}
+    .quiz-question-actions{margin:12px 0 18px}.quiz-submit-row{border-top:1px solid var(--border);padding-top:16px;align-items:flex-end}
+    .quiz-submit-row p{margin:0;max-width:360px}.quiz-results-score{text-align:center;padding:16px 8px 24px}
+    .quiz-results-score strong{display:block;font-size:clamp(2.7rem,7vw,4.3rem);line-height:1.1;color:var(--accent)}
+    .quiz-results-score h2{margin:8px 0}.quiz-review-list{display:grid;gap:12px;margin:20px 0}
+    .quiz-review-question{padding:15px;border:1px solid var(--border);border-radius:12px;background:var(--panel-hover)}
+    .quiz-review-question h3{font-size:1rem;line-height:1.5;margin:0 0 9px}
+    .quiz-review-option{padding:7px 10px;border-radius:8px;margin:5px 0;color:var(--muted)}
+    .quiz-review-option.correct{background:rgba(55,130,91,.16);color:#a8e6bf}
+    .quiz-review-option.chosen-wrong{background:rgba(160,75,75,.16);color:#ffb1b1}
+    .quiz-review-explanation{margin-top:10px;padding:10px 12px;border-left:3px solid var(--accent);background:var(--panel);border-radius:0 8px 8px 0}
+    .quiz-review-explanation p{margin:4px 0}.quiz-results-actions{justify-content:center;margin-top:18px}
+    @media(max-width:760px){.quiz-overview-grid,.quiz-difficulty-grid{grid-template-columns:1fr}.quiz-submit-row{align-items:stretch;flex-direction:column}.quiz-submit-row>div{display:flex;gap:8px;flex-wrap:wrap}.quiz-history-row{align-items:flex-start}.quiz-question-actions button{flex:1}.quiz-page-heading{align-items:flex-start}}
+
+  
+    .learning-page-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .learning-page-heading h1{margin:0 0 8px}
+    .learning-help-button{flex:0 0 auto;width:38px;height:38px;border:1px solid var(--border);border-radius:50%;background:var(--panel);color:var(--text);font-size:1.05rem;font-weight:800;cursor:pointer}
+    .learning-course-unavailable{padding:22px;border:1px solid var(--border);border-radius:16px;background:var(--panel-hover);margin:16px 0}
+    .learning-course-unavailable h2{margin:0 0 8px}
+    .learning-course-unavailable p{margin:0;color:var(--muted)}
+    .learning-intro-backdrop{position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.68);display:grid;place-items:center;padding:18px}
+    .learning-intro-backdrop[hidden]{display:none}
+    .learning-intro-dialog{width:min(620px,100%);max-height:min(82vh,760px);overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+    .learning-intro-dialog h2{margin:0 0 10px}
+    .learning-intro-dialog h3{margin:20px 0 8px}
+    .learning-intro-dialog p,.learning-intro-dialog li{color:var(--muted);line-height:1.6}
+    .learning-intro-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;position:sticky;bottom:-24px;background:var(--panel);padding:14px 0 0}
+    .quiz-translation-notice{padding:10px 13px;border:1px solid var(--border);border-radius:10px;margin:10px 0;color:var(--muted)}
+
+
+    /* Compact language controls follow the account/Profile navigation pill style. */
+    #globalCourseControls.course-controls { display:flex; align-items:center; gap:7px; margin:0; padding:0; border:0; background:transparent; box-shadow:none; }
+    .course-selector-pill { display:flex; align-items:center; gap:7px; min-height:40px; padding:5px 9px 5px 7px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); }
+    .course-control-icon { width:27px; height:27px; flex:0 0 27px; display:grid; place-items:center; border-radius:50%; background:var(--accent-bg); font-size:1rem; }
+    .course-selector-pill select { min-width:90px; max-width:150px; border:0; outline:0; padding:4px 19px 4px 0; background:transparent; color:var(--text); color-scheme:dark; font-size:.88rem; font-weight:750; cursor:pointer; }
+    .course-selector-pill select option { background:var(--panel); color:var(--text); }
+    .course-selector-pill:focus-within { outline:2px solid var(--accent); outline-offset:2px; }
+    .course-selector-pill select:focus-visible { outline:0; }
+    @media(max-width:760px) {
+      #globalCourseControls.course-controls { width:auto; gap:6px; }
+      .course-selector-pill { min-height:38px; gap:5px; padding:4px 7px 4px 5px; }
+      .course-control-icon { width:25px; height:25px; flex-basis:25px; }
+      .course-selector-pill select { min-width:76px; max-width:112px; font-size:.8rem; }
+    }
+    .quiz-difficulty-heading { align-items:center; gap:18px; }
+    .quiz-allowance-card { flex:0 0 auto; display:flex; align-items:center; gap:14px; min-width:220px; margin:0; padding:10px 13px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
+    .quiz-allowance-card h2 { margin:0; }
+    .quiz-allowance-card strong { display:block; font-size:.82rem; }
+    .quiz-allowance-card .quiz-allowance-number { margin:2px 0 0; font-size:1.15rem; font-weight:850; line-height:1.2; }
+    .quiz-allowance-card .muted-note { margin:0; font-size:.72rem; line-height:1.35; max-width:150px; }
+    .quiz-history-row { gap:12px; }
+    .practice-quiz-wrong-list { display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .practice-quiz-wrong-list li { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--panel); }
+    .practice-quiz-wrong-copy { display:grid; gap:4px; min-width:0; }
+    .practice-quiz-wrong-copy strong { font-size:.92rem; line-height:1.45; }
+    .practice-quiz-wrong-copy small { color:var(--muted); }
+    @media(max-width:760px) { .practice-quiz-wrong-list li { align-items:stretch; flex-direction:column; } }
+    @media(max-width:760px) { .quiz-difficulty-heading { align-items:stretch; flex-direction:column; } .quiz-allowance-card { width:100%; justify-content:space-between; } }
+    .quiz-difficulty-option { padding:22px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(155deg,var(--panel) 0%,var(--panel-hover) 100%); box-shadow:var(--shadow); }
+    .quiz-difficulty-option h3 { margin:0 0 7px; font-size:1.2rem; font-weight:850; letter-spacing:-.02em; }
+    .quiz-difficulty-count { display:block; margin:0 0 10px; color:var(--accent); font-size:1rem; font-weight:850; }
+    .quiz-difficulty-option p { min-height:3.2em; margin:0 0 18px; color:var(--text); font-size:.93rem; line-height:1.55; }
+    .quiz-difficulty-option button { font-weight:800; }
+    @media(max-width:760px) {
+      #globalCourseControls.course-controls { width:100%; gap:8px; padding:8px; }
+      #globalCourseControls.course-controls label { flex:1 1 145px; min-width:0; }
+    }
+
+    .quiz-mock-notice { display:flex; flex-direction:column; gap:4px; margin:14px 0; padding:13px 16px; border:1px solid #d69b43; border-left:4px solid #d69b43; border-radius:12px; background:#342719; color:#ffe8bd; }
+    .quiz-mock-notice strong { font-weight:850; }
+    .quiz-mock-notice span { font-size:.9rem; line-height:1.45; }
+  </style>
 </head>
 <body>
   <header>
     <div class="wrap topbar">
       <div class="brand"><div class="brand-icon">S</div><span>SwiftDictionary</span></div>
-      <div class="top-actions"><div class="course-controls" id="globalCourseControls"><label>Learning course <select id="courseSelect"><option value="en">English</option><option value="zh">简体中文</option></select></label><label>Translate into <select id="translationSelect"><option value="en">English</option><option value="zh">简体中文</option></select></label></div>
+      <div class="top-actions"><div class="course-controls" id="globalCourseControls" aria-label="Learning language settings">
+          <label class="course-selector-wrap course-selector-pill" for="courseSelect"><span class="course-control-icon" aria-hidden="true">📘</span><select id="courseSelect" aria-label="Learning course"><option value="en">English</option><option value="zh">简体中文</option></select></label>
+          <label class="course-selector-wrap course-selector-pill" for="translationSelect"><span class="course-control-icon" aria-hidden="true">🌐</span><select id="translationSelect" aria-label="Translation language"><option value="en">English</option><option value="zh">简体中文</option></select></label>
+        </div>
         <div class="account-menu-wrap"><button id="accountButton" class="account-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu"><span id="accountAvatar" class="account-avatar" aria-hidden="true">🐦</span><span id="accountButtonLabel">Account</span><span aria-hidden="true">⌄</span></button>
           <div id="accountMenu" class="account-menu" hidden>
             <div id="accountMenuEmail" class="menu-email">Not signed in</div>
@@ -438,7 +543,8 @@
     </div>
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
-      <p class="eyebrow">ENGLISH COURSE</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p>
+      <div class="learning-page-heading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div>
+    <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
       <h2 id="dailyLearningHeading">Daily Learning</h2>
@@ -465,11 +571,33 @@
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
-      <h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding and reinforce what you have learned.</p>
-      <div class="coming-card"><span class="coming-label">Coming Soon</span><h2>Quiz is being prepared</h2><p class="page-intro" style="margin:0 auto">Quiz sessions will be introduced in a future SwiftDictionary update.</p></div>
+      <div class="quiz-page-heading"><div><span class="eyebrow">Knowledge check</span><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div style="display:flex;gap:8px;align-items:center"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></div>
+      <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
+      <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
+      <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
+      <div id="quizMockNotice" class="quiz-mock-notice" hidden role="status"><strong>Draft question-bank preview</strong><span>Mock Quiz sessions use the 114 bilingual draft questions from the question bank. The questions, answer keys and explanations are not yet accuracy-approved for learners. Quiz sessions, answer checking, scores, history and allowances are simulated locally; no real account or cloud data is used.</span></div>
+      <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
+      <section id="quizHome" hidden>
+        <div class="quiz-overview-grid">
+          <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
+        </div>
+        <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading quiz-difficulty-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div><article class="quiz-allowance-card"><div><strong>Daily Quiz allowance</strong><p id="quizAllowanceText" class="quiz-allowance-number">—</p></div><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
+        <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
+      </section>
+      <section id="quizSession" class="profile-card quiz-session-card" hidden>
+        <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div>
+        <div class="quiz-progress-heading"><strong id="quizQuestionCounter">Question 1 of 10</strong><span id="quizAnsweredCounter">0 answered</span></div><div class="quiz-progress-track"><span id="quizProgressFill"></span></div>
+        <div id="quizQuestionArea"></div>
+        <div class="quiz-question-actions"><button id="quizPrevious" class="secondary-button" type="button">Previous</button><button id="quizNext" class="primary-button" type="button">Next</button></div>
+        <div class="quiz-submit-row"><p class="muted-note">Your answers are saved as you go. You can change them until you submit.</p><div><button id="quizAbandon" class="secondary-button" type="button">Abandon Quiz</button> <button id="quizSubmit" class="primary-button" type="button">Submit Quiz</button></div></div>
+      </section>
+      <section id="quizResults" class="profile-card quiz-results-card" hidden>
+        <div id="quizResultsContent"></div><div class="quiz-results-actions"><button id="quizResultsHome" class="primary-button" type="button">Back to Quiz</button></div>
+      </section>
     </section>
     <section id="flashcardsPage" class="page-panel" hidden aria-labelledby="flashcardsHeading">
-      <h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p>
+      <div class="learning-page-heading"><div><h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p></div><button type="button" class="learning-help-button" data-learning-help="flashcards" aria-label="Flashcards introduction and FAQs" title="Introduction and FAQs">?</button></div>
+      <div id="flashcardsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Flashcards are coming soon</h2><p>There is currently no Chinese learning course available in Flashcards. Switch your learning course to English to continue when Flashcards are released.</p></div>
       <div class="coming-card"><span class="coming-label">Coming Soon</span><h2>Flashcards are being prepared</h2><p class="page-intro" style="margin:0 auto">Flashcard practice will be introduced in a future SwiftDictionary update.</p></div>
     </section>
     <section id="profilePage" class="page-panel" hidden aria-labelledby="profileHeading">
@@ -485,6 +613,7 @@
         <section class="profile-card"><h3>Learning progress</h3><p class="muted-note">Your progress is based on successful lesson and daily activity completions. Dictionary searches and saved words are not restricted or counted as lesson activity.</p>
           <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
           <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-bars"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
+          <details open><summary>Quiz history</summary><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></details>
         </section>
         <section class="profile-card"><h3>Practice insights</h3>
           <div class="profile-grid">
@@ -493,7 +622,9 @@
             <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
           </div>
           <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Needs another attempt: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
-          <p id="practiceInsightsDetails" class="muted-note">Complete lessons or daily practice to build your learning insights. Only aggregate correct/question counts are saved; individual answers are not stored.</p>
+          <h4 class="review-topics-heading">Quiz answers to revisit</h4>
+          <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
+          <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
         </section>
         <section class="profile-card"><h3>Account</h3><p id="profileEmail" class="muted-note"></p><button type="button" id="profileSignOut" class="secondary-button">Sign out</button></section>
       </div>
@@ -556,6 +687,14 @@
 
   <div id="accountDialog" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><article class="modal" style="padding:24px;max-width:520px;min-width:min(440px,100%);height:auto;max-height:90dvh;border-radius:18px;margin:auto;transform:none;animation:none"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h2 id="accountTitle">Your SwiftDictionary account</h2><button id="accountClose" class="icon-button" type="button" aria-label="Close account dialog">×</button></div><p>Sign in with Google to keep saved words and learning activity linked to your account across devices.</p><button id="googleSignIn" class="primary-button" type="button">Continue with Google</button> <button id="signOutButton" class="secondary-button" type="button" hidden>Sign out</button><p id="accountStatus" class="account-status" aria-live="polite">Account sync needs setup by the site owner. Local saved words still work on this device.</p><p class="tip">Your account feature uses Supabase authentication. Follow the README setup steps before enabling it publicly.</p></article></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <div id="learningIntroBackdrop" class="learning-intro-backdrop" hidden>
+    <section class="learning-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="learningIntroTitle">
+      <p class="eyebrow">LEARNING GUIDE</p>
+      <h2 id="learningIntroTitle">Welcome</h2>
+      <div id="learningIntroContent"></div>
+      <div class="learning-intro-actions"><button type="button" class="secondary-button" id="learningIntroClose">Close</button><button type="button" class="primary-button" id="learningIntroDismiss">Dismiss</button></div>
+    </section>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script src="supabase-config.js"></script>
   <script src="mock-testing.js"></script>
@@ -17701,7 +17840,16 @@
         openWord(list[index], document.activeElement);
       }
     }
+    function updateGlobalCourseControlLabels() {
+      const courseSelect=document.getElementById("courseSelect");
+      const translationSelect=document.getElementById("translationSelect");
+      if(courseSelect)courseSelect.value=course;
+      if(translationSelect)translationSelect.value=translationLanguage;
+    }
+    updateGlobalCourseControlLabels();
+
     function rememberCoursePreferences() {
+      updateGlobalCourseControlLabels();
       const value = { learning_language: course, translation_language: translationLanguage };
       try { localStorage.setItem(preferenceStorageKey, JSON.stringify(value)); } catch {}
       if (currentUser && supabaseClient) {
@@ -17718,22 +17866,42 @@
         }).catch(error => console.warn("Could not save course preferences:", error));
       }
     }
-    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
-    function refreshTranslationViews() {
+    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; updateGlobalCourseControlLabels(); rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
+    function refreshTranslationViews(nextLanguage) {
+      const selector=document.getElementById("translationSelect");
+      translationLanguage=nextLanguage || selector.value || "en";
+      selector.value=translationLanguage;
+      document.getElementById("preferenceTranslation").value=translationLanguage;
       document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
       if (activeWord) openWord(activeWord);
+      // Permanent lessons and Daily Learning share this preference, but their
+      // readers have independent renderers. Refresh the open permanent lesson
+      // directly instead of routing through the Daily Learning page state.
       if (ls.active) {
-        const activeLesson = lessonData[ls.difficulty].find(item=>item.id===ls.active.id) || ls.active;
-        ls.topic="all";
-        renderLessons();
-        renderLesson(activeLesson,true);
+        const activeLessonId=ls.active.id;
+        const activeLesson=(lessonData[ls.difficulty]||[]).find(item=>item.id===activeLessonId);
+        if(activeLesson) {
+          const reader=document.getElementById("lessonReader");
+          const wasOpen=reader&&!reader.hidden;
+          renderLesson(activeLesson,true);
+          if(reader&&wasOpen)reader.hidden=false;
+        } else {
+          ls.active=null;
+          document.getElementById("lessonReader").hidden=true;
+        }
       }
       if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
+      if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
+      if (ls.active) {
+        const status=document.getElementById("lessonStatus");
+        if(status) status.textContent=translationLanguage==="zh"
+          ? "翻译语言已更新，当前课程内容已刷新。"
+          : "Translation updated. This lesson has been refreshed.";
+      }
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
-      translationLanguage=e.target.value;
-      document.getElementById("preferenceTranslation").value=e.target.value;
-      refreshTranslationViews();
+      refreshTranslationViews(e.target.value);
+      updateGlobalCourseControlLabels();
       rememberCoursePreferences();
     });
     search.addEventListener("input", () => { currentPage = 1; render(); });
@@ -17884,7 +18052,7 @@
           if (activeWord) updateSaveButton();
           render();
           accountStatus.textContent = "Signed out. Sign in to load your cloud-saved words.";
-          if (document.getElementById("profilePage")) showPage("dictionary");
+          if ((location.hash === "#profile" || location.hash === "#preferences") && document.getElementById("profilePage")) showPage("dictionary");
           document.getElementById("profileContent").hidden = true;
           document.getElementById("profileSignedOut").hidden = false;
         }
@@ -17957,43 +18125,31 @@
     document.getElementById("accountDialog").addEventListener("click",e=>{if(e.target.id==="accountDialog")e.currentTarget.classList.remove("open")});
 
     // Update 2.2.0 Lessons Foundation
-    const lessonData={beginner:[
-      {id:"b-sentence",topic:"Sentence basics",title:"Build a clear basic sentence",summary:"Learn the usual order of a simple English sentence.",explanation:"English statements commonly place the subject before the verb. When the verb takes an object, the object usually follows it. This helps readers identify who performs an action and what receives it.",points:["A basic statement often follows subject + verb + object.","The subject tells us who or what the sentence is about."],examples:["Maya reads a book every evening.","The small dog follows its owner."],breakdown:{title:"See the sentence parts",intro:"The labels below identify the job each part performs in the example sentence.",sentence:[{text:"Maya",role:"subject"},{text:"reads",role:"verb"},{text:"a book every evening.",role:"object"}],parts:[{text:"Maya",label:"Subject · who acts"},{text:"reads",label:"Verb · the action"},{text:"a book",label:"Object · what is read"}]},mistakes:["Incorrect: Reads Maya a book. Correct: Maya reads a book."],practices:[{q:"Choose the usual order for a simple statement.",options:["Verb + subject + object","Subject + verb + object","Object + subject + verb"],answer:1},{q:"In “The young artist painted a mural,” which words form the subject?",options:["The young artist","painted","a mural"],answer:0},{q:"Choose the sentence with the usual subject–verb–object order.",options:["The children planted flowers.","Planted the children flowers.","Flowers the children planted."],answer:0}]},
-      {id:"b-present",topic:"Verb tenses",title:"Use the present simple",summary:"Talk about routines, facts and regular situations.",explanation:"The present simple describes habits, repeated actions and general facts. In positive sentences, third-person singular subjects usually take a verb ending in -s or -es.",points:["Use the base verb with I, you, we and they.","Add -s or -es with he, she and it."],examples:["I walk to work every day.","She walks to work every day."],mistakes:["Incorrect: He work here. Correct: He works here."],practices:[{q:"Choose the correct sentence.",options:["She play tennis on Sundays.","She plays tennis on Sundays.","She playing tennis on Sundays."],answer:1},{q:"My brother ___ to work by train every day.",options:["travel","travels","is travel"],answer:1},{q:"Which sentence states a general fact?",options:["Water boiled at 100°C at sea level.","Water boils at 100°C at sea level.","Water is boil at 100°C at sea level."],answer:1}]},
-      {id:"b-articles",topic:"Nouns and articles",title:"Choose a, an or the",summary:"Understand when English nouns need an article.",explanation:"A and an introduce a singular countable noun that is not yet identified. Choose between them by the first sound, not simply the first letter. The introduces a particular noun that the listener can identify from the situation or earlier context.",points:["Use a before a consonant sound and an before a vowel sound.","Use the when the listener can identify the specific thing."],examples:["I saw an owl near the tree.","Please close the door."],mistakes:["Use an hour because hour begins with a vowel sound.","Do not use the automatically: it points to a specific, identifiable noun."],practices:[{q:"Choose the correct phrase for a first mention.",options:["a apple","an apple","the apple in every context"],answer:1},{q:"Choose the article: She waited for ___ bus we had booked.",options:["a","an","the"],answer:2},{q:"Choose the natural phrase.",options:["a honest answer","an honest answer","the honest answer in every context"],answer:1},{q:"Why do we say an hour?",options:["The letter h is a vowel","The first sound is a vowel sound","All words beginning with h use an"],answer:1}],breakdown:{title:"Notice the article clue",intro:"These examples show whether a noun is new, identifiable, or begins with a vowel sound.",parts:[{text:"an owl",label:"New noun · vowel sound"},{text:"the tree",label:"Identifiable from context"},{text:"an hour",label:"Vowel sound despite the letter h"}]}},
-      {id:"b-verb-combinations",topic:"Everyday vocabulary",title:"Build useful verb combinations",summary:"Learn common verb–noun combinations for everyday situations.",explanation:"Many everyday actions are expressed with familiar verb–noun combinations. English speakers say do homework, make breakfast, take a break and catch a bus. The noun helps determine which verb sounds natural, so learn the whole combination rather than translating each word separately.",points:["Learn frequent combinations as complete phrases.","The same general idea may use different verbs with different nouns.","Use the surrounding situation to choose the natural combination."],examples:["I need to do my homework before dinner.","We usually catch the bus at the next stop.","Let's take a short break."],mistakes:["Incorrect: make homework. Correct: do homework.","Incorrect: do a break. Correct: take a break."],practices:[{q:"Choose the natural phrase.",options:["make homework","do homework","take homework"],answer:1},{q:"We usually ___ the bus at 8 a.m.",options:["catch","make","do"],answer:0},{q:"After two hours of study, let's ___ a break.",options:["do","make","take"],answer:2},{q:"Choose the natural combination for preparing the morning meal.",options:["make breakfast","catch breakfast","do breakfast"],answer:0}]},
-      {id:"b-countable-nouns",topic:"Nouns and quantity",title:"Use countable and uncountable nouns",summary:"Choose noun forms and quantity words accurately.",explanation:"Countable nouns have singular and plural forms: one book, two books. Uncountable nouns such as information, advice and water are not normally counted directly and do not usually take a plural -s. Use a piece of advice or some information when you need to refer to an amount or item.",points:["Use a/an with a singular countable noun: a book.","Use many with plural countable nouns and much with uncountable nouns.","Use expressions such as a piece of advice to count units of an uncountable noun."],examples:["I received some useful advice.","She bought three notebooks.","Could you give me a piece of information about the course?"],mistakes:["Incorrect: an advice. Correct: some advice or a piece of advice.","Incorrect: many information. Correct: much information or a lot of information."],practices:[{q:"Choose the correct phrase.",options:["an advice","some advice","many advice"],answer:1},{q:"How ___ books did you borrow?",options:["much","many","any of"],answer:1},{q:"We do not have ___ information about the event yet.",options:["many","a few","much"],answer:2},{q:"Choose the natural expression.",options:["two pieces of advice","two advices","two advice"],answer:0}]},
-    ],intermediate:[
-      {id:"i-perfect",topic:"Verb tenses",title:"Connect past actions to the present",summary:"Use the present perfect for experience and present relevance.",explanation:"The present perfect links an earlier event or situation to the present. It commonly describes life experience, a recent result, or a situation that began in the past and continues. A finished time such as yesterday normally calls for the past simple.",points:["Form: have/has + past participle.","Use it when the past event matters to the present."],examples:["I have visited Penang twice.","She has lost her keys, so she cannot enter."],mistakes:["Incorrect: I have seen him yesterday. Correct: I saw him yesterday."],practices:[{q:"Which sentence uses a finished past-time expression correctly?",options:["I have finished it last night.","I finished it last night.","I has finished it last night."],answer:1},{q:"She ___ her report, so she can relax now.",options:["has finished","had finish","finishes yesterday"],answer:0},{q:"Which question asks about life experience?",options:["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"],answer:1}]},
-      {id:"i-phrasal",topic:"Phrasal verbs",title:"Understand phrasal verbs in context",summary:"See how a verb and particle create a combined meaning.",explanation:"Learn phrasal verbs as complete expressions in context. Give up means stop trying; it does not mean physically give something upward. Some phrasal verbs are separable, while others are not.",points:["A phrasal verb combines a verb with a particle.","The combined meaning may differ from the verb's literal meaning."],examples:["After several attempts, he did not give up.","Please turn off the lights before leaving."],mistakes:["With a separable verb and pronoun object: turn it off, not turn off it."],practices:[{q:"What does give up mean in 'She refused to give up'?",options:["Continue trying","Stop trying","Give something to another person"],answer:1},{q:"In “The meeting was put off until Friday,” what does put off mean?",options:["Cancel permanently","Postpone","Start earlier"],answer:1},{q:"Choose the correct sentence with a pronoun object.",options:["Please turn off it.","Please turn it off.","Please it turn off."],answer:1}]},
-      {id:"i-collocations",topic:"Collocations",title:"Use natural word partnerships",summary:"Learn why some words commonly occur together.",explanation:"English speakers often prefer particular combinations. We say make a decision and heavy rain, although other combinations may seem logically possible. Learning collocations helps your English sound more natural.",points:["A collocation is a combination of words that commonly occur together.","Choose combinations that sound natural, not only grammatically possible."],examples:["We need to make a decision today.","Heavy rain delayed the match."],mistakes:["Common: make a mistake. Less natural in this meaning: do a mistake."],practices:[{q:"Choose the natural collocation.",options:["do a decision","make a decision","build a decision"],answer:1},{q:"Choose the natural combination.",options:["strong rain","heavy rain","powerful rain"],answer:1},{q:"Complete the phrase: “I made ___ when I copied the wrong number.”",options:["a mistake","a decision","an effort"],answer:0}]},
-      {id:"i-word-families",topic:"Word formation",title:"Recognise word families and affixes",summary:"Use prefixes and suffixes to understand related words.",explanation:"A word family contains words built from the same base, such as decide, decision and decisive. Prefixes are added before a base and can change its meaning; suffixes are added after the base and often change its grammatical role. Recognising these patterns helps you infer meaning, but always check that the form fits the sentence.",points:["A prefix appears before the base word: un- + certain = uncertain.","A suffix appears after the base word: care + -ful = careful.","A suffix can change a word's part of speech, as in decide (verb) and decision (noun)."],examples:["The instructions were unclear, so I asked for clarification.","Her decision was careful and well considered."],mistakes:["Do not assume every word can take every prefix or suffix; use established word forms.","Check the grammar of the sentence: a noun, verb and adjective cannot always be substituted for one another."],practices:[{q:"Which word means 'not certain'?",options:["certainly","uncertain","certainty"],answer:1},{q:"Which word is a noun in the decide word family?",options:["decisive","decide","decision"],answer:2},{q:"Choose the correctly formed adjective meaning 'full of care'.",options:["careful","carement","carely"],answer:0},{q:"Complete the sentence: “The instructions were ___, so nobody knew what to do.”",options:["clarity","clarify","unclear"],answer:2}]},
-      {id:"i-conditionals",topic:"Conditional sentences",title:"Choose first and second conditionals",summary:"Distinguish realistic future possibilities from hypothetical situations.",explanation:"The first conditional describes a realistic or possible future situation: if + present simple, will + base verb. The second conditional describes an unreal, imagined or less likely situation: if + past simple, would + base verb. The past form in the second conditional usually signals distance from reality, not past time.",points:["First conditional: If it rains, we will stay inside.","Second conditional: If I had more time, I would learn another language.","Do not normally put will directly in the if-clause of these patterns."],examples:["If the train is late, we will call a taxi.","If I lived near the sea, I would swim every morning."],mistakes:["Incorrect: If it will rain, we will stay inside. Correct: If it rains, we will stay inside.","The second conditional uses a past form to express a hypothetical situation, not necessarily a past event."],practices:[{q:"Complete the realistic future condition: “If she ___ early, we will have time for coffee.”",options:["arrives","will arrive","would arrive"],answer:0},{q:"Choose the second conditional sentence.",options:["If I see him, I will tell him.","If I saw him, I would tell him.","If I had seen him, I would have told him."],answer:1},{q:"Complete: “If we had a bigger kitchen, we ___ more often.”",options:["cook","will cook","would cook"],answer:2},{q:"Which sentence describes a possible future result?",options:["If the weather improves, we will go hiking.","If I were taller, I would play basketball.","If she had called, I would have answered."],answer:0}]},
-    ],advanced:[
-      {id:"a-inversion",topic:"Advanced grammar",title:"Use inversion for emphasis",summary:"Recognise formal inversion after negative or restrictive expressions.",explanation:"When expressions such as never, rarely, or not only are placed at the beginning for emphasis, the auxiliary verb commonly comes before the subject. If there is no auxiliary, do-support is used.",points:["Negative expressions at the front can trigger subject–auxiliary inversion.","The structure is emphatic and often formal."],examples:["Rarely have we seen such a careful analysis.","Not only did she lead the team, but she also trained new members."],mistakes:["Incorrect: Rarely we have seen… Correct: Rarely have we seen…"],practices:[{q:"Complete: Never ___ such a result.",options:["we have seen","have we seen","we saw have"],answer:1},{q:"Choose the correct inversion after “Rarely”.",options:["Rarely we witness such care.","Rarely do we witness such care.","Rarely witness we such care."],answer:1},{q:"Complete: Not only ___ the proposal, but she also improved it.",options:["she approved","did she approve","approved she"],answer:1}]},
-      {id:"a-idioms",topic:"Idioms and fixed expressions",title:"Interpret idioms beyond literal meaning",summary:"Use context to understand figurative expressions.",explanation:"Idioms are established expressions whose meaning is often figurative. Do not translate each word separately. Learn the expression's meaning, grammatical pattern and level of formality, then use context to decide whether it fits.",points:["An idiom has a conventional meaning not always predictable from its words.","Register and context determine whether an idiom is appropriate."],examples:["We are on the same page about the project.","The new evidence was a game changer."],mistakes:["Avoid informal idioms in formal reports unless the style allows them."],practices:[{q:"In a workplace discussion, what does 'on the same page' mean?",options:["Reading the same document page","Having the same understanding or agreement","Working in different departments"],answer:1},{q:"If someone “breaks the ice” at a meeting, what do they do?",options:["Make people feel more comfortable and start conversation","End the meeting abruptly","Disagree with every suggestion"],answer:0},{q:"What does “hit the nail on the head” mean?",options:["Make a small mistake","Describe or identify something exactly right","Avoid answering a question"],answer:1}]},
-      {id:"a-hedging",topic:"Academic and professional English",title:"Qualify claims with precise language",summary:"Use hedging to express appropriate degrees of certainty.",explanation:"In academic and professional writing, writers often avoid presenting uncertain interpretations as absolute facts. Words such as may, might, appears to and is likely to can indicate a measured claim. Hedging should reflect genuine uncertainty.",points:["Hedging signals that a claim is limited, cautious or evidence-dependent.","Choose a level of certainty that matches the evidence."],examples:["The results suggest that sleep may affect concentration.","This approach is likely to reduce processing time."],mistakes:["Do not combine may, might and definitely when their certainty levels conflict."],practices:[{q:"Which phrase expresses a cautious interpretation?",options:["This proves beyond all doubt…","The findings may indicate…","It is certainly impossible…"],answer:1},{q:"The sample was small, so the results ___ be interpreted cautiously.",options:["may","definitely must","cannot possibly"],answer:0},{q:"Which wording makes a suitably qualified claim?",options:["The treatment always causes improvement.","The treatment appears to be associated with improvement.","The treatment proves every case."],answer:1}]},
-      {id:"a-near-synonyms",topic:"Precise vocabulary",title:"Distinguish near-synonyms precisely",summary:"Choose between similar words by meaning and context.",explanation:"Near-synonyms share part of their meaning but are not always interchangeable. For example, imply means to suggest something indirectly, while infer means to reach a conclusion from evidence. Economic relates to the economy; economical describes something that uses money or resources carefully. Precise word choice makes advanced writing clearer.",points:["Check the exact relationship between similar words, not just their dictionary overlap.","Imply describes what a speaker or text suggests; infer describes what a listener or reader concludes.","Choose the word that matches the intended meaning and grammatical context."],examples:["The report implies that costs may rise next year.","From the missing data, the analyst inferred that the survey was incomplete.","This car is economical to run."],mistakes:["Do not use infer when you mean imply: the writer implies; the reader infers.","Economic growth and an economical design have different meanings."],practices:[{q:"A speaker suggests an idea without stating it directly. Which verb describes the speaker's action?",options:["infer","imply","assume"],answer:1},{q:"A reader reaches a conclusion from the evidence. Which verb describes the reader's action?",options:["imply","infer","announce"],answer:1},{q:"Choose the natural phrase for something that uses little fuel.",options:["an economic car","an economical car","an economy car"],answer:1},{q:"The policy concerns national employment and inflation. Which adjective fits?",options:["economical policy","economic policy","economy policy"],answer:1}]},
-      {id:"a-mixed-conditionals",topic:"Advanced grammar",title:"Understand mixed conditionals",summary:"Connect an unreal past condition with a present result, or a present condition with a past result.",explanation:"Mixed conditionals combine different time references. A common pattern uses if + past perfect for an unreal past condition and would + base verb for its present result: If I had studied medicine, I would be a doctor now. Another pattern uses if + past simple for a general present condition and would have + past participle for a past result. Choose the pattern according to the time relationship you mean.",points:["Past condition → present result: If I had taken the job, I would live abroad now.","Present condition → past result: If she were more careful, she would not have made that mistake.","The verb forms signal the time of the condition and the result separately."],examples:["If he had saved more money, he would own a house now.","If I were more confident, I would have spoken at the meeting yesterday."],mistakes:["Do not use a single third-conditional pattern when the result refers to the present.","Check whether each clause refers to the past or the present before choosing its verb form."],practices:[{q:"Complete the past condition with a present result: “If I had accepted the offer, I ___ in London now.”",options:["would live","would have lived","will live"],answer:0},{q:"Which sentence is a mixed conditional?",options:["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."],answer:2},{q:"Complete: “If he had taken the medicine, he ___ better now.”",options:["would feel","would have felt","will feel"],answer:0},{q:"In “If she were more patient, she would have handled the call better,” when does the condition apply?",options:["Only in the past","As a general or present characteristic","Only in the future"],answer:1}]}
-    ]};
-    const lessonZh={
-"b-sentence":{topic:"句子基础",title:"构建清晰的基本句子",summary:"学习简单英语句子的常见语序。",explanation:"英语陈述句通常把主语放在动词之前。如果动词需要宾语，宾语通常放在动词之后。这样的语序有助于读者理解是谁执行动作，以及动作作用于什么对象。",points:["基本陈述句通常采用主语 + 动词 + 宾语的语序。","主语说明句子谈论的人或事物。"],examples:["Maya 每天晚上读一本书。","那只小狗跟着它的主人。"],breakdown:{title:"认识句子的组成部分",intro:"以下标签说明例句中每个部分的作用。",sentence:[{text:"Maya",role:"subject"},{text:"reads",role:"verb"},{text:"a book every evening.",role:"object"}],parts:[{text:"Maya",label:"主语 · 执行动作的人"},{text:"reads",label:"动词 · 动作"},{text:"a book",label:"宾语 · 阅读的对象"}]},mistakes:["错误：Reads Maya a book. 正确：Maya reads a book."],practices:[{q:"简单陈述句最常见的语序是什么？",options:["动词 + 主语 + 宾语","主语 + 动词 + 宾语","宾语 + 主语 + 动词"]},{q:"在句子“The young artist painted a mural”中，哪一部分是主语？",options:["The young artist","painted","a mural"]},{q:"选择符合常见主语—动词—宾语语序的句子。",options:["The children planted flowers.","Planted the children flowers.","Flowers the children planted."]}]},
-"b-present":{topic:"动词时态",title:"使用一般现在时",summary:"描述日常习惯、事实和经常发生的情况。",explanation:"一般现在时用于表达习惯、重复发生的动作和普遍事实。在肯定句中，第三人称单数主语通常需要在动词后加 -s 或 -es。",points:["主语为 I、you、we、they 时使用动词原形。","主语为 he、she、it 时，动词通常加 -s 或 -es。"],examples:["我每天步行上班。","她每周日打网球。"],mistakes:["错误：He work here. 正确：He works here."],practices:[{q:"选择正确的句子。",options:["She play tennis on Sundays.","She plays tennis on Sundays.","She playing tennis on Sundays."]},{q:"选择正确的动词形式：My brother ___ to work by train every day.",options:["travel","travels","is travel"]},{q:"哪一个句子表达普遍事实？",options:["Water boiled at 100°C at sea level.","Water boils at 100°C at sea level.","Water is boil at 100°C at sea level."]}]},
-"b-articles":{topic:"名词与冠词",title:"选择 a、an 或 the",summary:"理解英语名词何时需要使用冠词。",explanation:"a 和 an 用于首次提及、尚未明确指向的单数可数名词。两者的选择取决于名词开头的发音，而不只是首字母。the 用于听者能够根据当前情境或前文确定的特定人或事物。",points:["辅音音素前使用 a，元音音素前使用 an。","当听者能够确定具体所指时，使用 the。"],examples:["我在那棵树附近看见一只猫头鹰。","请把那扇门关上。"],mistakes:["hour 的 h 不发音，因此说 an hour。","不要在所有名词前都使用 the；它表示特定且可识别的对象。"],breakdown:{title:"留意冠词提供的线索",intro:"以下例子展示名词是首次提及、已明确所指，还是以元音音素开头。",parts:[{text:"an owl",label:"首次提及 · 元音音素"},{text:"the tree",label:"根据语境可以确定"},{text:"an hour",label:"虽然有字母 h，但以元音音素开头"}]},practices:[{q:"首次提及时，应该选择哪一个短语？",options:["a apple","an apple","the apple（任何语境都适用）"]},{q:"选择冠词：She waited for ___ bus we had booked.",options:["a","an","the"]},{q:"选择自然的表达。",options:["a honest answer","an honest answer","the honest answer（任何语境都适用）"]},{q:"为什么使用 an hour？",options:["字母 h 是元音","第一个发音是元音音素","所有以 h 开头的单词都使用 an"]}]},
-"i-perfect":{topic:"动词时态",title:"将过去的动作与现在联系起来",summary:"使用现在完成时表达经历和与现在相关的结果。",explanation:"现在完成时把较早发生的事件或情况与现在联系起来。它常用于描述人生经历、近期结果，或从过去开始并持续到现在的情况。若句子明确使用 yesterday 等已结束的过去时间，通常应使用一般过去时。",points:["结构：have/has + 过去分词。","当过去发生的事情与现在有关时，考虑使用现在完成时。"],examples:["我去过槟城两次。","她把钥匙弄丢了，所以现在无法进去。"],mistakes:["错误：I have seen him yesterday. 正确：I saw him yesterday."],practices:[{q:"哪一个句子正确使用了已结束的过去时间表达？",options:["I have finished it last night.","I finished it last night.","I has finished it last night."]},{q:"选择正确的现在完成时：She ___ her report, so she can relax now.",options:["has finished","had finish","finishes yesterday"]},{q:"哪一个问题是在询问人生经历？",options:["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"]}]},
-"i-phrasal":{topic:"短语动词",title:"结合语境理解短语动词",summary:"了解动词与小品词如何组合成新的含义。",explanation:"学习短语动词时，应把它们作为完整表达并结合语境理解。give up 表示放弃或停止尝试，并不是把某物向上递交。有些短语动词可以分开使用，有些则不能。",points:["短语动词由动词和小品词组合而成。","组合后的意思可能不同于动词本身的字面意思。"],examples:["尝试了好几次后，他仍然没有放弃。","离开前请关灯。"],mistakes:["对于可分开的短语动词，代词宾语应放在中间：turn it off，而不是 turn off it。"],practices:[{q:"在“She refused to give up”中，give up 是什么意思？",options:["继续尝试","停止尝试／放弃","把某物交给另一个人"]},{q:"在“The meeting was put off until Friday”中，put off 是什么意思？",options:["永久取消","推迟","提前开始"]},{q:"选择代词宾语位置正确的句子。",options:["Please turn off it.","Please turn it off.","Please it turn off."]}]},
-"i-collocations":{topic:"词语搭配",title:"使用自然的词语搭配",summary:"了解为什么某些单词经常一起使用。",explanation:"英语使用者习惯某些固定或常见的词语组合。例如英语通常说 make a decision（作出决定）和 heavy rain（大雨）。其他组合即使在逻辑上似乎说得通，也可能不自然。学习词语搭配能让表达更地道。",points:["词语搭配是经常一起出现的词语组合。","选择自然常见的搭配，而不只是语法上可能成立的组合。"],examples:["我们今天需要作出决定。","大雨延误了比赛。"],mistakes:["常见表达：make a mistake（犯错误）。在这个意思下，do a mistake 不自然。"],practices:[{q:"选择自然的词语搭配。",options:["do a decision","make a decision","build a decision"]},{q:"选择自然的词语组合。",options:["strong rain","heavy rain","powerful rain"]},{q:"完成短语：I made ___ when I copied the wrong number.",options:["a mistake","a decision","an effort"]}]},
-"a-inversion":{topic:"高级语法",title:"使用倒装结构加强语气",summary:"认识否定或限制性表达置于句首后的倒装结构。",explanation:"当 never、rarely 或 not only 等表达被放在句首以加强语气时，助动词通常要置于主语之前。如果原句没有助动词，则需要使用 do、does 或 did 等助动词。",points:["否定表达置于句首时，可能触发主语与助动词倒装。","这种结构常用于强调，语气通常较正式。"],examples:["我们很少见到如此仔细的分析。","她不仅领导团队，还培训了新成员。"],mistakes:["错误：Rarely we have seen… 正确：Rarely have we seen…"],practices:[{q:"完成句子：Never ___ such a result.",options:["we have seen","have we seen","we saw have"]},{q:"选择“Rarely”后正确的倒装结构。",options:["Rarely we witness such care.","Rarely do we witness such care.","Rarely witness we such care."]},{q:"完成句子：Not only ___ the proposal, but she also improved it.",options:["she approved","did she approve","approved she"]}]},
-"a-idioms":{topic:"习语与固定表达",title:"理解超越字面意思的习语",summary:"结合语境理解比喻性表达。",explanation:"习语是具有约定俗成含义的固定表达，其意思往往不能从每个单词的字面意思直接推断。学习时应掌握整体含义、语法结构和正式程度，再根据语境判断是否适合使用。",points:["习语具有约定俗成的含义，不一定能从组成单词推断出来。","语域和语境决定习语是否适合使用。"],examples:["我们对这个项目的理解是一致的。","这项新证据带来了重大改变。"],mistakes:["在正式报告中避免使用过于口语化的习语，除非文体允许。"],practices:[{q:"在工作讨论中，“on the same page”是什么意思？",options:["阅读同一页文件","拥有相同的理解或共识","在不同部门工作"]},{q:"如果有人在会议上“breaks the ice”，他做了什么？",options:["让大家放松并开始交谈","突然结束会议","反对所有建议"]},{q:"“hit the nail on the head”是什么意思？",options:["犯了一个小错误","准确地说中要点","回避问题"]}]},
-"a-hedging":{topic:"学术与职场英语",title:"使用准确措辞限定观点",summary:"使用审慎表达来体现适当的确定程度。",explanation:"在学术和职场写作中，作者通常不会把尚不确定的解释说成绝对事实。may、might、appears to 和 is likely to 等表达可以体现审慎程度。使用这些表达时，应让措辞与实际的不确定性相符。",points:["审慎表达表示观点有所限制、保留或取决于证据。","措辞的确定程度应与证据相匹配。"],examples:["结果表明，睡眠可能会影响注意力。","这种方法很可能会缩短处理时间。"],mistakes:["不要把 may、might 和 definitely 等确定程度相互冲突的表达随意组合。"],practices:[{q:"哪一个短语表达了审慎的判断？",options:["This proves beyond all doubt…","The findings may indicate…","It is certainly impossible…"]},{q:"由于样本数量较少，研究结果___需要谨慎解读。",options:["may","definitely must","cannot possibly"]},{q:"哪一种措辞对结论作出了恰当限定？",options:["The treatment always causes improvement.","The treatment appears to be associated with improvement.","The treatment proves every case."]}]}
-,"b-verb-combinations":{topic:"日常词汇",title:"掌握实用的动词搭配",summary:"学习日常情境中常见的动词与名词组合。",explanation:"英语中许多日常动作都通过固定的动词与名词组合来表达。英语使用者会说 do homework（做作业）、make breakfast（做早餐）、take a break（休息一下）和 catch a bus（赶／搭公交车）。名词会影响适合搭配的动词，因此应把整个短语一起学习，而不是逐字翻译。",points:["把常见搭配作为完整短语来学习。","表达相近概念时，不同名词可能需要搭配不同动词。","结合具体情境选择自然的搭配。"],examples:["晚饭前我需要做完作业。","我们通常在下一站搭公交车。","我们休息一会儿吧。"],mistakes:["错误：make homework。正确：do homework。","错误：do a break。正确：take a break。"],practices:[{q:"选择自然的英语表达。",options:["make homework","do homework","take homework"]},{q:"我们通常早上八点___公交车。",options:["catch","make","do"]},{q:"学习了两个小时后，我们休息一下吧。",options:["do","make","take"]},{q:"选择表示准备早晨那一餐的自然搭配。",options:["make breakfast","catch breakfast","do breakfast"]}]},
-"i-word-families":{topic:"构词法",title:"识别词族与词缀",summary:"利用前缀和后缀理解相关词汇。",explanation:"词族是由同一个词根或基础词构成的一组相关词，例如 decide（决定）、decision（决定／决策）和 decisive（果断的）。前缀加在词根前面，可能改变词义；后缀加在词根后面，通常也会改变词的语法功能。识别这些规律有助于推测词义，但仍须确认词形是否符合句子的语法。",points:["前缀位于词根之前，例如 un- + certain = uncertain。","后缀位于词根之后，例如 care + -ful = careful。","后缀可能改变词性，例如 decide 是动词，decision 是名词。"],examples:["说明不够清楚，所以我要求对方进一步解释。","她的决定经过了谨慎考虑。"],mistakes:["不要认为每个单词都能随意添加任何前缀或后缀；应使用英语中真实存在的词形。","检查句子的语法：名词、动词和形容词不能在所有位置互换。"],practices:[{q:"哪个单词表示“不确定的”？",options:["certainly","uncertain","certainty"]},{q:"decide 词族中的哪一个是名词？",options:["decisive","decide","decision"]},{q:"选择表示“仔细的”的正确形容词。",options:["careful","carement","carely"]},{q:"完成句子：The instructions were ___, so nobody knew what to do.",options:["clarity","clarify","unclear"]}]},
-"a-near-synonyms":{topic:"精准词汇",title:"准确区分近义词",summary:"根据词义和语境，在相似词语之间作出选择。",explanation:"近义词虽然有部分相似含义，却不一定可以互换。例如 imply 表示说话者或文本间接暗示某事；infer 表示读者或听者根据证据推断结论。economic 与经济相关；economical 则表示节省金钱或资源。准确选择词语能让进阶写作更加清晰。",points:["区分相似词语时，应检查它们之间的具体含义差异。","imply 描述说话者或文本暗示什么；infer 描述读者或听者推断出什么。","根据想表达的意思和句子语法选择词语。"],examples:["报告暗示明年的成本可能会上升。","分析人员根据缺失的数据推断调查并不完整。","这辆汽车的使用成本很低。"],mistakes:["不要把 infer 当作 imply 使用：作者暗示（implies），读者推断（infers）。","economic growth（经济增长）和 economical design（节省资源的设计）含义不同。"],practices:[{q:"说话者没有直接说明，而是间接表达一个想法。哪个动词描述说话者的行为？",options:["infer","imply","assume"]},{q:"读者根据证据得出结论。哪个动词描述读者的行为？",options:["imply","infer","announce"]},{q:"选择表示耗油量较低的自然表达。",options:["an economic car","an economical car","an economy car"]},{q:"某项政策涉及国家就业和通货膨胀。应使用哪个形容词？",options:["economical policy","economic policy","economy policy"]}]}
-,"b-countable-nouns":{topic:"名词与数量",title:"正确使用可数名词与不可数名词",summary:"准确选择名词形式和数量表达。",explanation:"可数名词有单数和复数形式，例如 one book、two books。information（信息）、advice（建议）和 water（水）等不可数名词通常不能直接计数，也通常不加复数 -s。需要表达数量或具体项目时，可以使用 a piece of advice（一条建议）或 some information（一些信息）等说法。",points:["单数可数名词前使用 a/an，例如 a book。","many 搭配可数名词复数；much 搭配不可数名词。","需要计量不可数名词时，可以使用 a piece of advice 等量词表达。"],examples:["我收到了一些有用的建议。","她买了三本笔记本。","你能告诉我一些有关课程的信息吗？"],mistakes:["错误：an advice。正确：some advice 或 a piece of advice。","错误：many information。正确：much information 或 a lot of information。"],practices:[{q:"选择正确的表达。",options:["an advice","some advice","many advice"]},{q:"How ___ books did you borrow?",options:["much","many","any of"]},{q:"我们目前没有关于该活动的___信息。",options:["many","a few","much"]},{q:"选择自然的英语表达。",options:["two pieces of advice","two advices","two advice"]}]},
-"i-conditionals":{topic:"条件句",title:"选择第一与第二条件句",summary:"区分现实可能发生的未来情况与假设情境。",explanation:"第一条件句描述现实或有可能发生的未来情况：if + 一般现在时，will + 动词原形。第二条件句描述不真实、想象中或可能性较低的情况：if + 一般过去时，would + 动词原形。第二条件句中的过去式通常表示与现实有距离，并不一定表示过去时间。",points:["第一条件句：If it rains, we will stay inside.（如果下雨，我们就待在室内。）","第二条件句：If I had more time, I would learn another language.（如果我有更多时间，我会学习另一种语言。）","这两种结构的 if 从句通常不直接使用 will。"],examples:["如果火车晚点，我们就叫出租车。","如果我住在海边，我每天早上都会游泳。"],mistakes:["错误：If it will rain, we will stay inside. 正确：If it rains, we will stay inside。","第二条件句使用过去式来表达假设，不一定表示过去发生的事件。"],practices:[{q:"完成表示现实未来可能性的句子：If she ___ early, we will have time for coffee.",options:["arrives","will arrive","would arrive"]},{q:"选择第二条件句。",options:["If I see him, I will tell him.","If I saw him, I would tell him.","If I had seen him, I would have told him."]},{q:"完成句子：If we had a bigger kitchen, we ___ more often.",options:["cook","will cook","would cook"]},{q:"哪一个句子描述可能发生的未来结果？",options:["If the weather improves, we will go hiking.","If I were taller, I would play basketball.","If she had called, I would have answered."]}]},
-"a-mixed-conditionals":{topic:"高级语法",title:"理解混合条件句",summary:"把不真实的过去条件与现在结果联系起来，或把现在条件与过去结果联系起来。",explanation:"混合条件句会结合不同的时间指向。常见结构之一是 if + 过去完成时，搭配 would + 动词原形，表达不真实的过去条件及其现在结果：If I had studied medicine, I would be a doctor now. 另一种结构使用 if + 一般过去时表达现在的一般情况，并使用 would have + 过去分词表达过去结果。应根据条件和结果之间的时间关系选择结构。",points:["过去条件 → 现在结果：If I had taken the job, I would live abroad now.","现在条件 → 过去结果：If she were more careful, she would not have made that mistake.","两个分句的动词形式分别表示条件和结果的时间。"],examples:["如果他当时存了更多钱，他现在就拥有一套房子了。","如果我更有自信，昨天就会在会议上发言了。"],mistakes:["如果结果指向现在，不要误用只描述过去结果的第三条件句结构。","选择动词形式前，先确认每个分句指向过去还是现在。"],practices:[{q:"完成表示过去条件与现在结果的句子：If I had accepted the offer, I ___ in London now.",options:["would live","would have lived","will live"]},{q:"哪一个句子是混合条件句？",options:["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."]},{q:"完成句子：If he had taken the medicine, he ___ better now.",options:["would feel","would have felt","will feel"]},{q:"在“If she were more patient, she would have handled the call better”中，条件指向什么时候？",options:["只指过去","一般或现在的特征","只指未来"]}]}
-};
-const lessonTopicIds={
+    const lessonData={
+      beginner:[
+        {id:"b-sentence",topic:"Sentence basics","title":"Build a clear basic sentence","summary":"Learn the usual order of a simple English sentence.","explanation":"English statements commonly place the subject before the verb. When the verb takes an object, the object usually follows it. This helps readers identify who performs an action and what receives it. Basic sentence structure also includes there is/there are to say that something exists or is present. Use there is with a singular noun or an uncountable noun, and there are with a plural noun. In the present simple, questions with I/you/we/they usually begin with do; questions with he/she/it usually begin with does, followed by the base verb. Adjectives normally come before the nouns they describe.","points":["A basic statement often follows subject + verb + object.","The subject tells us who or what the sentence is about.","There is + singular or uncountable noun; there are + plural noun.","Use Do you…? with you and Does he…? with he; keep the main verb in its base form after does.","A descriptive adjective usually comes before its noun, as in a red bag."],"examples":["Maya reads a book every evening.","The small dog follows its owner.","There is a book on the table.","There are three chairs in the room.","Do you like music? Does he work here?","She has a red bag."],"breakdown":{"title":"See the sentence parts","intro":"The labels below identify the job each part performs in the example sentence.","sentence":[{"text":"Maya","role":"subject"},{"text":"reads","role":"verb"},{"text":"a book every evening.","role":"object"}],"parts":[{"text":"Maya","label":"Subject · who acts"},{"text":"reads","label":"Verb · the action"},{"text":"a book","label":"Object · what is read"}]},"mistakes":["Incorrect: Reads Maya a book. Correct: Maya reads a book."],"practices":[{"q":"Choose the usual order for a simple statement.","options":["Verb + subject + object","Subject + verb + object","Object + subject + verb"],"answer":1},{"q":"In “The young artist painted a mural,” which words form the subject?","options":["The young artist","painted","a mural"],"answer":0},{"q":"Choose the sentence with the usual subject–verb–object order.","options":["The children planted flowers.","Planted the children flowers.","Flowers the children planted."],"answer":0},{"q":"Choose the correct sentence.","options":["There is three chairs.","There are three chairs.","There be three chairs."],"answer":1},{"q":"Choose the correct question.","options":["Does he works here?","Does he work here?","Do he work here?"],"answer":1}]},
+        {id:"b-present",topic:"Verb tenses","title":"Use the present simple","summary":"Talk about routines, facts and regular situations.","explanation":"The present simple describes habits, repeated actions and general facts. In positive sentences, third-person singular subjects usually take a verb ending in -s or -es. The present simple also forms negatives and questions with do or does. Use do not/don't with I, you, we and they; use does not/doesn't with he, she and it. In questions, place do or does before the subject and use the base form of the main verb. Adverbs of frequency such as usually normally come before the main verb, but after the verb be.","points":["Use the base verb with I, you, we and they.","Add -s or -es with he, she and it.","Negative: They do not like coffee; he does not work here.","Question: Do you like music? Does she walk to work?","Place usually before the main verb: She usually drinks tea in the evening."],"examples":["I walk to work every day.","She walks to work every day.","They do not like coffee.","Does your brother go to school by bus?","She usually drinks tea in the evening.","The shop opens at nine every morning."],"mistakes":["Incorrect: He work here. Correct: He works here.","Incorrect: She usually drinks tea usually in the evening. Correct: She usually drinks tea in the evening.","After does, use the base verb: Does he work? not Does he works?"],"practices":[{"q":"Choose the correct sentence.","options":["She play tennis on Sundays.","She plays tennis on Sundays.","She playing tennis on Sundays."],"answer":1},{"q":"My brother ___ to work by train every day.","options":["travel","travels","is travel"],"answer":1},{"q":"Which sentence states a general fact?","options":["Water boiled at 100°C at sea level.","Water boils at 100°C at sea level.","Water is boil at 100°C at sea level."],"answer":1},{"q":"Choose the correct negative sentence.","options":["They doesn't like coffee.","They don't like coffee.","They not like coffee."],"answer":1},{"q":"Choose the natural position for usually.","options":["She drinks usually tea.","She usually drinks tea.","Usually she drinks usually tea."],"answer":1}]},
+        {id:"b-articles",topic:"Nouns and articles","title":"Choose a, an or the","summary":"Understand when English nouns need an article.","explanation":"A and an introduce a singular countable noun that is not yet identified. Choose between them by the first sound, not simply the first letter. The introduces a particular noun that the listener can identify from the situation or earlier context. The article examples also include familiar objects. Umbrella begins with the vowel sound /ʌ/, so we say an umbrella when introducing one for the first time. The spelling starts with u, but article choice follows pronunciation.","points":["Use a before a consonant sound and an before a vowel sound.","Use the when the listener can identify the specific thing.","Say an umbrella because umbrella begins with a vowel sound."],"examples":["I saw an owl near the tree.","Please close the door.","She took an umbrella because it looked like rain."],"mistakes":["Use an hour because hour begins with a vowel sound.","Do not use the automatically: it points to a specific, identifiable noun."],"practices":[{"q":"Choose the correct phrase for a first mention.","options":["a apple","an apple","the apple in every context"],"answer":1},{"q":"Choose the article: She waited for ___ bus we had booked.","options":["a","an","the"],"answer":2},{"q":"Choose the natural phrase.","options":["a honest answer","an honest answer","the honest answer in every context"],"answer":1},{"q":"Why do we say an hour?","options":["The letter h is a vowel","The first sound is a vowel sound","All words beginning with h use an"],"answer":1},{"q":"Choose the correct phrase: “She packed ___ umbrella.”","options":["a","an","the"],"answer":1}],"breakdown":{"title":"Notice the article clue","intro":"These examples show whether a noun is new, identifiable, or begins with a vowel sound.","parts":[{"text":"an owl","label":"New noun · vowel sound"},{"text":"the tree","label":"Identifiable from context"},{"text":"an hour","label":"Vowel sound despite the letter h"}]}},
+        {id:"b-verb-combinations",topic:"Everyday vocabulary","title":"Build useful everyday vocabulary","summary":"Learn common verb–noun combinations and descriptive words for everyday situations.","explanation":"Many everyday actions are expressed with familiar verb–noun combinations. English speakers say do homework, make breakfast, take a break and catch a bus. The noun helps determine which verb sounds natural, so learn the whole combination rather than translating each word separately. Everyday vocabulary also includes descriptive adjectives. Exciting describes something that creates strong interest or enthusiasm; beautiful describes something very pleasing to look at. Crowded describes a place with many people and little space, comfortable describes something that helps you feel relaxed, and delicious describes food with a very pleasant taste. Descriptive adjectives can also express an unfavourable reaction. Boring describes something that does not hold your interest; it is the opposite of exciting. Friendly describes a kind and welcoming person or manner. Quiet means making little noise, useful means helpful for a purpose, and expensive means costing a lot of money. The core everyday combinations assessed in the Quiz are make a mistake, take a break, have breakfast, do homework, pay attention and keep a promise. These are conventional verb–noun collocations, so learn the complete phrase rather than translating each word separately.","points":["Learn frequent combinations as complete phrases.","The same general idea may use different verbs with different nouns.","Use the surrounding situation to choose the natural combination.","Descriptive adjectives explain how a person, place, food or experience looks or feels.","Exciting means causing strong interest or enthusiasm; beautiful means very pleasing to look at.","Crowded describes a place with many people, while comfortable describes something that makes you feel relaxed.","Delicious describes food or drink that has a very pleasant taste.","Boring means not interesting; exciting means creating interest or enthusiasm.","Friendly describes a kind and welcoming person; quiet describes a place or person with little noise.","Useful means helpful for a purpose; expensive means costing a lot of money.","Make a mistake means do something incorrectly; take a break means stop briefly to rest.","Have breakfast means eat the morning meal; do homework means complete school or study tasks.","Pay attention means focus carefully; keep a promise means do what you said you would do."],"examples":["I need to do my homework before dinner.","We usually catch the bus at the next stop.","Let's take a short break.","The science show was exciting.","We saw a beautiful garden near the station.","The café was crowded, but the seats were comfortable.","The soup was delicious, and the staff were friendly.","The lecture was boring, but the practical activity was exciting.","The staff were friendly, and the library was quiet.","This useful guide is not expensive.","Everyone can make a mistake when they are tired.","Let's take a break after this exercise.","I have breakfast at home and do my homework after dinner.","Please pay attention to the road and keep your promise."],"mistakes":["Incorrect: make homework. Correct: do homework.","Incorrect: do a break. Correct: take a break."],"practices":[{"q":"Choose the natural phrase.","options":["make homework","do homework","take homework"],"answer":1},{"q":"We usually ___ the bus at 8 a.m.","options":["catch","make","do"],"answer":0},{"q":"After two hours of study, let's ___ a break.","options":["do","make","take"],"answer":2},{"q":"Choose the natural combination for preparing the morning meal.","options":["make breakfast","catch breakfast","do breakfast"],"answer":0},{"q":"Which definition best matches “exciting”?","options":["Causing strong interest or enthusiasm","Making someone feel sleepy","Full of people with little space"],"answer":0},{"q":"Choose the best adjective: “We saw a ___ garden.”","options":["beautiful","crowded","delicious"],"answer":0},{"q":"Which word describes a place with many people and little space?","options":["quiet","crowded","comfortable"],"answer":1},{"q":"Which word describes food that tastes very good?","options":["delicious","expensive","exciting"],"answer":0},{"q":"Which word describes something that does not hold your interest?","options":["boring","exciting","delicious"],"answer":0},{"q":"Choose the best word: “The staff were kind and welcoming.” They were ___.","options":["friendly","crowded","expensive"],"answer":0},{"q":"Which word means “helpful for a purpose”?","options":["useful","quiet","boring"],"answer":0},{"q":"Choose the natural phrase: “Please ___ attention to the road.”","options":["pay","make","do"],"answer":0},{"q":"Which phrase means to do what you promised?","options":["keep a promise","take a break","make a mistake"],"answer":0}]},
+        {id:"b-countable-nouns",topic:"Nouns and quantity","title":"Use countable and uncountable nouns","summary":"Choose noun forms and quantity words accurately.","explanation":"Countable nouns have singular and plural forms: one book, two books. Uncountable nouns such as information, advice and water are not normally counted directly and do not usually take a plural -s. Use a piece of advice or some information when you need to refer to an amount or item. Some everyday nouns are uncountable even when they refer to objects or collections. Equipment means the tools or items needed for an activity, and furniture means the movable items in a room, such as tables and chairs. In standard English, do not normally say equipments or furnitures. Use some equipment, a piece of equipment, some furniture or an item of furniture. Some countable nouns have irregular plural forms that do not take the regular -s ending. For example, child becomes children. For bread, use a countable unit such as a slice: one slice of bread, two slices of bread. Sugar is uncountable in the recipe context, so ask how much sugar rather than how many sugars.","points":["Use a/an with a singular countable noun: a book.","Use many with plural countable nouns and much with uncountable nouns.","Use expressions such as a piece of advice to count units of an uncountable noun.","Equipment and furniture are normally uncountable nouns in standard English.","Use a piece of equipment or an item of furniture when you need to count one item.","Child has the irregular plural children.","Use a unit such as a slice to count bread: two slices of bread.","Sugar is uncountable in this context, so use much sugar."],"examples":["I received some useful advice.","She bought three notebooks.","Could you give me a piece of information about the course?","The studio bought some new equipment.","We need a piece of equipment for the activity.","There is not much furniture in the room yet.","One child is waiting; two children are playing.","There are two slices of bread on the plate.","How much sugar do we need for the recipe?"],"mistakes":["Incorrect: an advice. Correct: some advice or a piece of advice.","Incorrect: many information. Correct: much information or a lot of information.","Incorrect: two equipments. Correct: two pieces of equipment.","Incorrect: many furnitures. Correct: several items of furniture."],"practices":[{"q":"Choose the correct phrase.","options":["an advice","some advice","many advice"],"answer":1},{"q":"How ___ books did you borrow?","options":["much","many","any of"],"answer":1},{"q":"We do not have ___ information about the event yet.","options":["many","a few","much"],"answer":2},{"q":"Choose the natural expression.","options":["two pieces of advice","two advices","two advice"],"answer":0},{"q":"Choose the correct phrase.","options":["three equipments","three pieces of equipment","three equipment"],"answer":1},{"q":"Which sentence is standard English?","options":["We bought new furnitures.","We bought some new furniture.","We bought many furniture."],"answer":1},{"q":"Choose the correct plural: one child, two ___.","options":["childs","children","childes"],"answer":1},{"q":"Choose the natural phrase.","options":["two breads","two slices of bread","two slice bread"],"answer":1}]}
+      ],
+      intermediate:[
+        {id:"i-perfect",topic:"Verb tenses","title":"Connect past actions to the present","summary":"Use the present perfect for experience and present relevance.","explanation":"The present perfect links an earlier event or situation to the present. It commonly describes life experience, a recent result, or a situation that began in the past and continues. A finished time such as yesterday normally calls for the past simple. The perfect aspect includes several useful patterns. The present perfect continuous uses have/has been + verb-ing for an activity that began earlier and continues or has a present result: I have been working here for three years. The past perfect uses had + past participle for an action completed before another past event: the film had started before we arrived. Use since for a starting point and for for a duration. Already often marks a completed action; yet is common in negatives and questions.","points":["Form: have/has + past participle.","Use it when the past event matters to the present.","Present perfect continuous: have/has been + -ing; it emphasises an ongoing activity or its duration.","Past perfect: had + past participle; it marks the earlier of two past events.","Use since + starting point and for + duration.","Use yet in negatives and questions; already often indicates completion."],"examples":["I have visited Penang twice.","She has lost her keys, so she cannot enter.","I have been working here for three years.","Lena has been studying for three hours.","By the time we arrived, the film had started.","I have worked at this school since 2020, but I have not finished the report yet.","The guests have already left."],"mistakes":["Incorrect: I have seen him yesterday. Correct: I saw him yesterday."],"practices":[{"q":"Which sentence uses a finished past-time expression correctly?","options":["I have finished it last night.","I finished it last night.","I has finished it last night."],"answer":1},{"q":"She ___ her report, so she can relax now.","options":["has finished","had finish","finishes yesterday"],"answer":0},{"q":"Which question asks about life experience?","options":["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"],"answer":1},{"q":"Choose the present perfect continuous form.","options":["has studied","has been studying","had study"],"answer":1},{"q":"Which action happened first: the film started or we arrived?","options":["The film had started first.","We arrived first."],"answer":0}]},
+        {id:"i-phrasal",topic:"Phrasal verbs","title":"Understand phrasal verbs in context","summary":"See how a verb and particle create a combined meaning.","explanation":"Learn phrasal verbs as complete expressions in context. Give up means stop trying; it does not mean physically give something upward. Some phrasal verbs are separable, while others are not. Other common phrasal verbs include look after, meaning to take care of someone or something, and run into, meaning to meet someone unexpectedly. Put off means postpone or delay; postpone is a useful single-word equivalent. Learn the whole expression and its object pattern.","points":["A phrasal verb combines a verb with a particle.","The combined meaning may differ from the verb's literal meaning.","Look after means take care of: “She looks after her younger brother.”","Run into means meet unexpectedly: “I ran into an old friend.”","Put off means postpone or delay an event or activity."],"examples":["After several attempts, he did not give up.","Please turn off the lights before leaving.","Could you look after my dog this weekend?","I ran into an old friend at the station.","They put off the meeting until Friday."],"mistakes":["With a separable verb and pronoun object: turn it off, not turn off it."],"practices":[{"q":"What does give up mean in 'She refused to give up'?","options":["Continue trying","Stop trying","Give something to another person"],"answer":1},{"q":"In “The meeting was put off until Friday,” what does put off mean?","options":["Cancel permanently","Postpone","Start earlier"],"answer":1},{"q":"Choose the correct sentence with a pronoun object.","options":["Please turn off it.","Please turn it off.","Please it turn off."],"answer":1},{"q":"What does “look after” mean?","options":["Take care of","Meet unexpectedly","Delay"],"answer":0},{"q":"If you run into an old friend, what happens?","options":["You meet unexpectedly","You take care of them","You postpone a meeting"],"answer":0},{"q":"Which single verb is closest in meaning to “put off”?","options":["postpone","discover","continue"],"answer":0}]},
+        {id:"i-collocations",topic:"Collocations","title":"Use natural word partnerships","summary":"Learn why some words commonly occur together.","explanation":"English speakers often prefer particular combinations. We say make a decision and heavy rain, although other combinations may seem logically possible. Learning collocations helps your English sound more natural. Common collocations include make a decision and take responsibility. A collocation is a combination of words that native or proficient speakers commonly use together. We say make a decision, not do a decision, and take responsibility for something. Other useful collocations from this level include make progress, heavy rain, meet a deadline, raise an issue, highly unlikely, pose a problem and deeply concerned. The strength or type of word matters: we say heavy rain rather than strong rain, and raise an issue rather than lift an issue.","points":["A collocation is a combination of words that commonly occur together.","Choose combinations that sound natural, not only grammatically possible.","Make a decision means choose after considering options.","Take responsibility for something means accept that it is your duty or that you are accountable for it.","Make progress means move forward or improve.","Heavy rain is the natural combination; meet a deadline means finish by the required time.","Raise an issue means bring up a point for discussion; pose a problem means create a difficulty.","Highly unlikely means very improbable; deeply concerned means very worried."],"examples":["We need to make a decision today.","Heavy rain delayed the match.","After comparing the options, she made a decision.","Every team member should take responsibility for checking their work.","The programme helped employees make progress.","The event was cancelled because of heavy rain.","We must meet the deadline and raise any serious issue early.","The delay could pose a problem, so the manager was deeply concerned; cancellation was highly unlikely."],"mistakes":["Common: make a mistake. Less natural in this meaning: do a mistake."],"practices":[{"q":"Choose the natural collocation.","options":["do a decision","make a decision","build a decision"],"answer":1},{"q":"Choose the natural combination.","options":["strong rain","heavy rain","powerful rain"],"answer":1},{"q":"Complete the phrase: “I made ___ when I copied the wrong number.”","options":["a mistake","a decision","an effort"],"answer":0},{"q":"Choose the natural collocation.","options":["do a decision","make a decision","take a decisioning"],"answer":1},{"q":"Complete the phrase: take ___ for your actions.","options":["responsibility","decision","progress"],"answer":0},{"q":"Choose the natural collocation.","options":["strong rain","heavy rain","tall rain"],"answer":1},{"q":"Which phrase means finish work by the required date?","options":["meet a deadline","raise a deadline","pose a deadline"],"answer":0}]},
+        {id:"i-word-families",topic:"Word formation","title":"Recognise word families and affixes","summary":"Use prefixes and suffixes to understand related words.","explanation":"A word family contains words built from the same base, such as decide, decision and decisive. Prefixes are added before a base and can change its meaning; suffixes are added after the base and often change its grammatical role. Recognising these patterns helps you infer meaning, but always check that the form fits the sentence. Word choice also involves recognising commonly confused forms. Affect is usually a verb meaning influence; effect is usually a noun meaning result. Convince is a verb meaning persuade, while convincing is an adjective describing something that gives a strong reason to believe it. Clarification is a noun meaning an explanation that makes something clearer; unclear means difficult to understand. The question set practises these word families: decide → decision, rely → reliable, succeed → successful, create → creativity, persuade (verb), danger → dangerous and accurate → accuracy. Notice how suffixes change a word's grammatical role. Persuade is a verb meaning convince someone to do or believe something.","points":["A prefix appears before the base word: un- + certain = uncertain.","A suffix appears after the base word: care + -ful = careful.","A suffix can change a word's part of speech, as in decide (verb) and decision (noun).","Affect (verb) means influence; effect (noun) means result.","Convince is a verb; convincing is an adjective meaning persuasive or believable.","Clarification is an explanation that makes something clearer; unclear means not clear.","Decide (verb) → decision (noun).","Rely (verb) → reliable (adjective); succeed (verb) → successful (adjective).","Create (verb) → creativity (noun); accurate (adjective) → accuracy (noun).","Danger (noun) → dangerous (adjective); persuade means convince someone."],"examples":["The instructions were unclear, so I asked for clarification.","Her decision was careful and well considered.","The new policy may affect all staff.","The convincing explanation helped clarify the issue.","The effect of the change was clear.","Her decision surprised everyone.","We need a reliable source.","The project was successful because it met its goals.","The artist is known for her creativity.","The speaker tried to persuade the audience.","The road becomes dangerous at night.","The accuracy of the measurements is important."],"mistakes":["Do not assume every word can take every prefix or suffix; use established word forms.","Check the grammar of the sentence: a noun, verb and adjective cannot always be substituted for one another."],"practices":[{"q":"Which word means 'not certain'?","options":["certainly","uncertain","certainty"],"answer":1},{"q":"Which word is a noun in the decide word family?","options":["decisive","decide","decision"],"answer":2},{"q":"Choose the correctly formed adjective meaning 'full of care'.","options":["careful","carement","carely"],"answer":0},{"q":"Complete the sentence: “The instructions were ___, so nobody knew what to do.”","options":["clarity","clarify","unclear"],"answer":2},{"q":"Choose the correct form: “The new rule may ___ everyone.”","options":["affect","effect","effective"],"answer":0},{"q":"Which word describes an explanation that gives a strong reason to believe something?","options":["convincing","convincedly","convince"],"answer":0},{"q":"Choose the noun form of accurate.","options":["accurate","accuracy","accurately"],"answer":1},{"q":"Which adjective comes from rely?","options":["reliance","reliable","relying"],"answer":1}]},
+        {id:"i-conditionals",topic:"Conditional sentences","title":"Choose first and second conditionals","summary":"Distinguish realistic future possibilities from hypothetical situations.","explanation":"The first conditional describes a realistic or possible future situation: if + present simple, will + base verb. The second conditional describes an unreal, imagined or less likely situation: if + past simple, would + base verb. The past form in the second conditional usually signals distance from reality, not past time. Conditional clauses can also begin with unless or even if. Unless means if not: “Unless you hurry, you will miss the train.” Even if introduces a condition that will not change the result: “Even if it rains, the event will continue.” Hypothetical describes an imagined situation; realistic describes one that is practical or likely to happen. The course also reviews the zero and third conditional. The zero conditional describes general facts: if + present simple, present simple. The third conditional describes an unreal past condition and result: if + past perfect, would have + past participle. Provided that means only if a stated condition is met. At an intermediate level, mixed conditional patterns can be recognised as a connection between different time references; advanced lessons develop them in detail.","points":["First conditional: If it rains, we will stay inside.","Second conditional: If I had more time, I would learn another language.","Do not normally put will directly in the if-clause of these patterns.","Unless means if not and introduces a condition that may prevent a result.","Even if means the result remains the same despite the condition.","Hypothetical means imagined or assumed; realistic means practical or based on real conditions.","Zero conditional: If you heat ice, it melts.","Third conditional: If they had booked earlier, they would have paid less.","Provided that means on the condition that; it introduces a requirement.","A mixed conditional connects a condition and result that refer to different times."],"examples":["If the train is late, we will call a taxi.","If I lived near the sea, I would swim every morning.","Unless we leave now, we will miss the train.","Even if it rains, the event will continue.","A hypothetical example is imagined; a realistic plan considers actual limits.","If water reaches 100°C at sea level, it boils.","If they had booked earlier, they would have paid less.","You may use the room provided that you leave it clean.","If I had accepted the offer, I would be living in Singapore now."],"mistakes":["Incorrect: If it will rain, we will stay inside. Correct: If it rains, we will stay inside.","The second conditional uses a past form to express a hypothetical situation, not necessarily a past event."],"practices":[{"q":"Complete the realistic future condition: “If she ___ early, we will have time for coffee.”","options":["arrives","will arrive","would arrive"],"answer":0},{"q":"Choose the second conditional sentence.","options":["If I see him, I will tell him.","If I saw him, I would tell him.","If I had seen him, I would have told him."],"answer":1},{"q":"Complete: “If we had a bigger kitchen, we ___ more often.”","options":["cook","will cook","would cook"],"answer":2},{"q":"Which sentence describes a possible future result?","options":["If the weather improves, we will go hiking.","If I were taller, I would play basketball.","If she had called, I would have answered."],"answer":0},{"q":"What does “unless you hurry” mean?","options":["If you do not hurry","Even when you hurry","Because you hurried"],"answer":0},{"q":"Which phrase means the result will remain the same despite a condition?","options":["even if","only if","as soon as"],"answer":0},{"q":"Which sentence expresses a general fact?","options":["If you heat ice, it melts.","If you heated ice, it would melt.","If you had heated ice, it would have melted."],"answer":0},{"q":"Complete the third conditional: “If we had left earlier, we ___ the train.”","options":["would catch","would have caught","will catch"],"answer":1}]}
+      ],
+      advanced:[
+        {id:"a-inversion",topic:"Advanced grammar","title":"Use inversion for emphasis","summary":"Recognise formal inversion after negative or restrictive expressions.","explanation":"When expressions such as never, rarely, or not only are placed at the beginning for emphasis, the auxiliary verb commonly comes before the subject. If there is no auxiliary, do-support is used. Formal inversion also appears in several fixed patterns: not until + clause + did + subject + base verb; only after + clause + did + subject + base verb; under no circumstances + should + subject + base verb; no sooner had + subject + past participle + than…; little did + subject + base verb; and at no point + auxiliary + subject. In a third conditional inversion, remove if and place had before the subject: Had I known…, I would have….","points":["Negative expressions at the front can trigger subject–auxiliary inversion.","The structure is emphatic and often formal.","Not until and only after can trigger inversion in the main clause.","Under no circumstances and at no point introduce emphatic negative restrictions.","No sooner…than links two closely following past events.","Had I known… is an inverted third conditional; use had + subject + past participle."],"examples":["Rarely have we seen such a careful analysis.","Not only did she lead the team, but she also trained new members.","Not until the report was published did the public understand the problem.","Under no circumstances should staff share confidential files.","No sooner had we sat down than the lights went out.","Had I known about the delay, I would have taken an earlier train.","At no point was the client informed of the change."],"mistakes":["Incorrect: Rarely we have seen… Correct: Rarely have we seen…"],"practices":[{"q":"Complete: Never ___ such a result.","options":["we have seen","have we seen","we saw have"],"answer":1},{"q":"Choose the correct inversion after “Rarely”.","options":["Rarely we witness such care.","Rarely do we witness such care.","Rarely witness we such care."],"answer":1},{"q":"Complete: Not only ___ the proposal, but she also improved it.","options":["she approved","did she approve","approved she"],"answer":1},{"q":"Choose the correct inversion.","options":["Not until the end we understood.","Not until the end did we understand.","Not until did we understood the end."],"answer":1},{"q":"Complete the third conditional inversion: “Had I known, I ___ earlier.”","options":["would leave","would have left","will leave"],"answer":1}]},
+        {id:"a-idioms",topic:"Idioms and fixed expressions","title":"Interpret idioms beyond literal meaning","summary":"Use context to understand figurative expressions.","explanation":"Idioms are established expressions whose meaning is often figurative. Do not translate each word separately. Learn the expression's meaning, grammatical pattern and level of formality, then use context to decide whether it fits. The question bank also uses several common idioms. Break the ice means ease initial tension and start friendly communication. Scratch the surface means deal with only a small or superficial part of a subject. Take the plunge means make a bold decision and begin something significant. Jump to conclusions means decide too quickly without enough information. The core idioms in the Quiz are: get the ball rolling (start a process), the tip of the iceberg (a small visible part of a larger hidden problem), cut corners (save time or money by sacrificing quality), back to square one (return to the beginning), on the fence (undecided), a blessing in disguise (a seemingly bad event that later brings a benefit), under the weather (slightly ill) and in the long run (over an extended period).","points":["An idiom has a conventional meaning not always predictable from its words.","Register and context determine whether an idiom is appropriate.","Break the ice means make people feel more comfortable and begin communicating.","Scratch the surface means examine only the most superficial part.","Take the plunge means take a bold step or make a significant decision.","Jump to conclusions means form a judgement too quickly without enough evidence.","Get the ball rolling means begin a process; the tip of the iceberg is only the visible part of a larger issue.","Cut corners means take shortcuts that reduce quality; back to square one means start again.","On the fence means undecided; a blessing in disguise is an unexpected benefit from an apparently bad event.","Under the weather means slightly ill; in the long run means over time."],"examples":["We are on the same page about the project.","The new evidence was a game changer.","The host told a light-hearted story to break the ice.","The report only scratched the surface of the issue.","She took the plunge and started her own business.","Do not jump to conclusions before hearing both sides.","Let's get the ball rolling with a short introduction.","The complaint was only the tip of the iceberg.","The contractor cut corners to save money.","After the failed update, we were back to square one.","She is on the fence about the offer.","The delay was a blessing in disguise.","I am feeling under the weather.","The investment will save money in the long run."],"mistakes":["Avoid informal idioms in formal reports unless the style allows them."],"practices":[{"q":"In a workplace discussion, what does 'on the same page' mean?","options":["Reading the same document page","Having the same understanding or agreement","Working in different departments"],"answer":1},{"q":"If someone “breaks the ice” at a meeting, what do they do?","options":["Make people feel more comfortable and start conversation","End the meeting abruptly","Disagree with every suggestion"],"answer":0},{"q":"What does “hit the nail on the head” mean?","options":["Make a small mistake","Describe or identify something exactly right","Avoid answering a question"],"answer":1},{"q":"What does “scratch the surface” mean?","options":["Explore only the superficial part","Understand every detail","Make a bold decision"],"answer":0},{"q":"If someone takes the plunge, what do they do?","options":["Take a bold step","Avoid making a decision","End a conversation"],"answer":0},{"q":"What should you avoid doing before hearing both sides?","options":["Jumping to conclusions","Breaking the ice","Getting the ball rolling"],"answer":0},{"q":"If someone is on the fence, what does it mean?","options":["They are undecided.","They are ill.","They have started a project."],"answer":0},{"q":"What does cut corners mean?","options":["Reduce quality to save time or money","Make a careful improvement","Return to the beginning"],"answer":0}]},
+        {id:"a-hedging",topic:"Academic and professional English","title":"Qualify claims with precise language","summary":"Use hedging to express appropriate degrees of certainty.","explanation":"In academic and professional writing, writers often avoid presenting uncertain interpretations as absolute facts. Words such as may, might, appears to and is likely to can indicate a measured claim. Hedging should reflect genuine uncertainty. Useful academic vocabulary often appears with hedging. Tentative means not yet definite or final; cautious means careful to avoid claiming more than the evidence supports. Effective means producing the intended result. Attribute a result to a cause means regard that cause as responsible. Consistent means in agreement with other evidence; compelling means convincing; a causal relationship is a connection in which one factor produces or contributes to another.","points":["Hedging signals that a claim is limited, cautious or evidence-dependent.","Choose a level of certainty that matches the evidence.","Tentative means provisional or not yet final; cautious means careful and restrained.","Effective means successful in producing the intended result.","Attribute an outcome to something means identify it as a possible cause.","Consistent means compatible with other information; compelling means strongly convincing.","A causal relationship links a cause with an effect."],"examples":["The results suggest that sleep may affect concentration.","This approach is likely to reduce processing time.","The findings are tentative and should be interpreted cautiously.","The measure may be effective, but further research is needed.","The decline may be attributed to reduced demand.","The figures are broadly consistent with earlier estimates.","The evidence is compelling, but it does not prove a causal relationship."],"mistakes":["Do not combine may, might and definitely when their certainty levels conflict."],"practices":[{"q":"Which phrase expresses a cautious interpretation?","options":["This proves beyond all doubt…","The findings may indicate…","It is certainly impossible…"],"answer":1},{"q":"The sample was small, so the results ___ be interpreted cautiously.","options":["may","definitely must","cannot possibly"],"answer":0},{"q":"Which wording makes a suitably qualified claim?","options":["The treatment always causes improvement.","The treatment appears to be associated with improvement.","The treatment proves every case."],"answer":1},{"q":"Which word means provisional or not yet final?","options":["tentative","permanent","certain"],"answer":0},{"q":"Which word means producing the intended result?","options":["effective","incidental","reluctant"],"answer":0},{"q":"A causal relationship connects which two ideas?","options":["cause and effect","similar spelling and sound","two unrelated events"],"answer":0}]},
+        {id:"a-near-synonyms",topic:"Precise vocabulary","title":"Distinguish near-synonyms precisely","summary":"Choose between similar words by meaning and context.","explanation":"Near-synonyms share part of their meaning but are not always interchangeable. For example, imply means to suggest something indirectly, while infer means to reach a conclusion from evidence. Economic relates to the economy; economical describes something that uses money or resources carefully. Precise word choice makes advanced writing clearer. Precise vocabulary includes words used to describe tone and judgement. Tactful means careful not to upset or embarrass others; candid means honest and direct; harsh means unkind, severe or too critical. Incidental means secondary or happening as a minor part of something else. Reluctant means unwilling or hesitant. Disclose means reveal information that was not previously known or public. These words are related to precise word choice but are not interchangeable. The Quiz also distinguishes these easily confused pairs: historic (important in history) vs historical (related to the past); ensure (make certain) vs assure (tell someone confidently); eminent (respected and distinguished) vs imminent (about to happen); adopt (take up a plan) vs adapt (modify to suit); complement (complete or enhance) vs compliment (praise); discreet (careful and tactful) vs discrete (separate); and credible (believable) vs credulous (too ready to believe).","points":["Check the exact relationship between similar words, not just their dictionary overlap.","Imply describes what a speaker or text suggests; infer describes what a listener or reader concludes.","Choose the word that matches the intended meaning and grammatical context.","Tactful means considerate and careful in communication; candid means frank and honest; harsh means severe or unkind.","Incidental describes something secondary or not the main purpose.","Reluctant means unwilling or hesitant; disclose means reveal information.","Historic means important in history; historical means related to the past.","Ensure means make certain; assure means tell someone confidently.","Eminent means distinguished; imminent means about to happen.","Adopt means take up; adapt means modify.","Complement means enhance; compliment means praise.","Discreet means tactful; discrete means separate.","Credible means believable; credulous means too ready to believe."],"examples":["The report implies that costs may rise next year.","From the missing data, the analyst inferred that the survey was incomplete.","This car is economical to run.","Her tactful response avoided embarrassing the speaker.","He was candid about the risks without being harsh.","An incidental remark led to a useful discussion.","She was reluctant to disclose the details.","The agreement was a historic moment; the museum displays historical objects.","Please ensure the files are backed up; I assure you the process is safe.","An eminent scholar warned that a storm was imminent.","The organisation adopted the policy and adapted it for local needs.","The curtains complement the room; the host complimented the designer.","Be discreet with confidential information; the data are stored in discrete groups.","The witness gave a credible account; a credulous reader might accept every claim."],"mistakes":["Do not use infer when you mean imply: the writer implies; the reader infers.","Economic growth and an economical design have different meanings."],"practices":[{"q":"A speaker suggests an idea without stating it directly. Which verb describes the speaker's action?","options":["infer","imply","assume"],"answer":1},{"q":"A reader reaches a conclusion from the evidence. Which verb describes the reader's action?","options":["imply","infer","announce"],"answer":1},{"q":"Choose the natural phrase for something that uses little fuel.","options":["an economic car","an economical car","an economy car"],"answer":1},{"q":"The policy concerns national employment and inflation. Which adjective fits?","options":["economical policy","economic policy","economy policy"],"answer":1},{"q":"Which word means honest and direct?","options":["candid","tactful","reluctant"],"answer":0},{"q":"Which word means unwilling or hesitant?","options":["reluctant","incidental","precise"],"answer":0},{"q":"What does disclose mean?","options":["Reveal information","Hide information","Delay a decision"],"answer":0},{"q":"Which word means “about to happen”?","options":["eminent","imminent","historic"],"answer":1},{"q":"Which word means “careful and tactful, especially with private information”?","options":["discreet","discrete","credible"],"answer":0},{"q":"Which word means “to modify to suit a new situation”?","options":["adopt","adapt","assure"],"answer":1}]},
+        {id:"a-mixed-conditionals",topic:"Advanced grammar","title":"Understand mixed conditionals","summary":"Connect an unreal past condition with a present result, or a present condition with a past result.","explanation":"Mixed conditionals combine different time references. A common pattern uses if + past perfect for an unreal past condition and would + base verb for its present result: If I had studied medicine, I would be a doctor now. Another pattern uses if + past simple for a general present condition and would have + past participle for a past result. Choose the pattern according to the time relationship you mean. A mixed conditional can also use inversion in the conditional clause. In formal style, remove if and place had before the subject: “Had the data been checked, the error would not now be affecting the results.” The past perfect passive condition refers to an earlier check; the result clause describes the present effect. This combines mixed-condition meaning with the inversion pattern taught in the advanced inversion lesson.","points":["Past condition → present result: If I had taken the job, I would live abroad now.","Present condition → past result: If she were more careful, she would not have made that mistake.","The verb forms signal the time of the condition and the result separately.","Inverted mixed conditional: Had + subject + past participle, would + base verb / would be + -ing now.","The condition and result refer to different times; inversion changes word order but keeps the time relationship."],"examples":["If he had saved more money, he would own a house now.","If I were more confident, I would have spoken at the meeting yesterday.","Had the data been checked, the error would not now be affecting the results."],"mistakes":["Do not use a single third-conditional pattern when the result refers to the present.","Check whether each clause refers to the past or the present before choosing its verb form."],"practices":[{"q":"Complete the past condition with a present result: “If I had accepted the offer, I ___ in London now.”","options":["would live","would have lived","will live"],"answer":0},{"q":"Which sentence is a mixed conditional?","options":["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."],"answer":2},{"q":"Complete: “If he had taken the medicine, he ___ better now.”","options":["would feel","would have felt","will feel"],"answer":0},{"q":"In “If she were more patient, she would have handled the call better,” when does the condition apply?","options":["Only in the past","As a general or present characteristic","Only in the future"],"answer":1},{"q":"Which sentence combines an inverted condition with a present result?","options":["Had the data been checked, the error would not now be affecting the results.","If the data is checked, the error disappeared yesterday.","Had the data checked, the error would not now affect."],"answer":0}]}
+      ]
+    };
+    const lessonZh={"b-sentence":{"topic":"句子基础","title":"构建清晰的基本句子","summary":"学习简单英语句子的常见语序。","explanation":"英语陈述句通常把主语放在动词之前。如果动词需要宾语，宾语通常放在动词之后。这样的语序有助于读者理解是谁执行动作，以及动作作用于什么对象。 基本句型也包括 there is/there are，用来表示某物存在或位于某处。单数名词或不可数名词搭配 there is；复数名词搭配 there are。一般现在时中，主语为 I、you、we、they 的疑问句通常以 do 开头；主语为 he、she、it 的疑问句通常以 does 开头，后面的主要动词使用原形。描述性形容词通常放在名词之前。","points":["基本陈述句通常采用主语 + 动词 + 宾语的语序。","主语说明句子谈论的人或事物。","There is 搭配单数或不可数名词；there are 搭配复数名词。","You 通常搭配 Do you…?；he 通常搭配 Does he…?；does 后面的主要动词使用原形。","描述性形容词通常放在名词前面，例如 a red bag。"],"examples":["Maya 每天晚上读一本书。","那只小狗跟着它的主人。","桌子上有一本书。","房间里有三把椅子。","你喜欢音乐吗？他在这里工作吗？","她有一个红色的包。"],"breakdown":{"title":"认识句子的组成部分","intro":"以下标签说明例句中每个部分的作用。","sentence":[{"text":"Maya","role":"subject"},{"text":"reads","role":"verb"},{"text":"a book every evening.","role":"object"}],"parts":[{"text":"Maya","label":"主语 · 执行动作的人"},{"text":"reads","label":"动词 · 动作"},{"text":"a book","label":"宾语 · 阅读的对象"}]},"mistakes":["错误：Reads Maya a book. 正确：Maya reads a book."],"practices":[{"q":"简单陈述句最常见的语序是什么？","options":["动词 + 主语 + 宾语","主语 + 动词 + 宾语","宾语 + 主语 + 动词"]},{"q":"在句子“The young artist painted a mural”中，哪一部分是主语？","options":["The young artist","painted","a mural"]},{"q":"选择符合常见主语—动词—宾语语序的句子。","options":["The children planted flowers.","Planted the children flowers.","Flowers the children planted."]},{"q":"选择正确的句子。","options":["There is three chairs.","There are three chairs.","There be three chairs."]},{"q":"选择正确的疑问句。","options":["Does he works here?","Does he work here?","Do he work here?"]}]},"b-present":{"topic":"动词时态","title":"使用一般现在时","summary":"描述日常习惯、事实和经常发生的情况。","explanation":"一般现在时用于表达习惯、重复发生的动作和普遍事实。在肯定句中，第三人称单数主语通常需要在动词后加 -s 或 -es。 一般现在时也可以使用 do 或 does 构成否定句和疑问句。I、you、we、they 搭配 do not/don't；he、she、it 搭配 does not/doesn't。疑问句把 do 或 does 放在主语之前，并让主要动词保持原形。Usually 等频率副词通常放在主要动词之前，但放在 be 动词之后。","points":["主语为 I、you、we、they 时使用动词原形。","主语为 he、she、it 时，动词通常加 -s 或 -es。","否定句：They do not like coffee；he does not work here。","疑问句：Do you like music？Does she walk to work？","Usually 通常放在主要动词之前：She usually drinks tea in the evening。"],"examples":["我每天步行上班。","她每周日打网球。","他们不喜欢咖啡。","你哥哥／弟弟乘公共汽车上学吗？","她通常在晚上喝茶。","商店每天早上九点开门。"],"mistakes":["错误：He work here. 正确：He works here.","错误：She drinks tea usually in the evening。更自然的表达：She usually drinks tea in the evening。","Does 后面使用动词原形：Does he work? 而不是 Does he works?"],"practices":[{"q":"选择正确的句子。","options":["She play tennis on Sundays.","She plays tennis on Sundays.","She playing tennis on Sundays."]},{"q":"选择正确的动词形式：My brother ___ to work by train every day.","options":["travel","travels","is travel"]},{"q":"哪一个句子表达普遍事实？","options":["Water boiled at 100°C at sea level.","Water boils at 100°C at sea level.","Water is boil at 100°C at sea level."]},{"q":"选择正确的否定句。","options":["They doesn't like coffee.","They don't like coffee.","They not like coffee."]},{"q":"选择 usually 的自然位置。","options":["She drinks usually tea.","She usually drinks tea.","Usually she drinks usually tea."]}]},"b-articles":{"topic":"名词与冠词","title":"选择 a、an 或 the","summary":"理解英语名词何时需要使用冠词。","explanation":"a 和 an 用于首次提及、尚未明确指向的单数可数名词。两者的选择取决于名词开头的发音，而不只是首字母。the 用于听者能够根据当前情境或前文确定的特定人或事物。 冠词例子也包括常见物品。Umbrella（雨伞）以元音音素 /ʌ/ 开头，因此首次提及时应说 an umbrella。虽然拼写以字母 u 开头，但冠词的选择取决于发音。","points":["辅音音素前使用 a，元音音素前使用 an。","当听者能够确定具体所指时，使用 the。","Umbrella 以元音音素开头，因此使用 an umbrella。"],"examples":["我在那棵树附近看见一只猫头鹰。","请把那扇门关上。","看起来要下雨了，所以她带了一把雨伞。"],"mistakes":["hour 的 h 不发音，因此说 an hour。","不要在所有名词前都使用 the；它表示特定且可识别的对象。"],"breakdown":{"title":"留意冠词提供的线索","intro":"以下例子展示名词是首次提及、已明确所指，还是以元音音素开头。","parts":[{"text":"an owl","label":"首次提及 · 元音音素"},{"text":"the tree","label":"根据语境可以确定"},{"text":"an hour","label":"虽然有字母 h，但以元音音素开头"}]},"practices":[{"q":"首次提及时，应该选择哪一个短语？","options":["a apple","an apple","the apple（任何语境都适用）"]},{"q":"选择冠词：She waited for ___ bus we had booked.","options":["a","an","the"]},{"q":"选择自然的表达。","options":["a honest answer","an honest answer","the honest answer（任何语境都适用）"]},{"q":"为什么使用 an hour？","options":["字母 h 是元音","第一个发音是元音音素","所有以 h 开头的单词都使用 an"]},{"q":"选择正确的表达：“She packed ___ umbrella.”","options":["a","an","the"]}]},"i-perfect":{"topic":"动词时态","title":"将过去的动作与现在联系起来","summary":"使用现在完成时表达经历和与现在相关的结果。","explanation":"现在完成时把较早发生的事件或情况与现在联系起来。它常用于描述人生经历、近期结果，或从过去开始并持续到现在的情况。若句子明确使用 yesterday 等已结束的过去时间，通常应使用一般过去时。 完成时态还包括几种常见结构。现在完成进行时使用 have/has been + 动词-ing，强调较早开始并持续至今或对现在有影响的活动：I have been working here for three years。过去完成时使用 had + 过去分词，表示某个动作在另一个过去事件之前已经完成：我们到达前电影已经开始。Since 后接起点，for 后接持续时间。Already 常表示动作已经完成；yet 常用于否定句和疑问句。","points":["结构：have/has + 过去分词。","当过去发生的事情与现在有关时，考虑使用现在完成时。","现在完成进行时：have/has been + 动词-ing，强调持续中的活动或其时长。","过去完成时：had + 过去分词，表示两个过去事件中较早发生的动作。","Since 后接起点；for 后接持续时间。","Yet 常用于否定句和疑问句；already 常表示已经完成。"],"examples":["我去过槟城两次。","她把钥匙弄丢了，所以现在无法进去。","我在这里工作已经三年了。","Lena 已经学习了三个小时。","我们到达时，电影已经开始了。","我从 2020 年起就在这所学校工作，但我还没有完成报告。","客人们已经离开了。"],"mistakes":["错误：I have seen him yesterday. 正确：I saw him yesterday."],"practices":[{"q":"哪一个句子正确使用了已结束的过去时间表达？","options":["I have finished it last night.","I finished it last night.","I has finished it last night."]},{"q":"选择正确的现在完成时：She ___ her report, so she can relax now.","options":["has finished","had finish","finishes yesterday"]},{"q":"哪一个问题是在询问人生经历？","options":["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"]},{"q":"选择现在完成进行时的正确形式。","options":["has studied","has been studying","had study"]},{"q":"哪个动作先发生：电影开始，还是我们到达？","options":["电影先开始。","我们先到达。"]}]},"i-phrasal":{"topic":"短语动词","title":"结合语境理解短语动词","summary":"了解动词与小品词如何组合成新的含义。","explanation":"学习短语动词时，应把它们作为完整表达并结合语境理解。give up 表示放弃或停止尝试，并不是把某物向上递交。有些短语动词可以分开使用，有些则不能。 其他常见短语动词包括 look after（照顾某人或某物）以及 run into（意外遇见某人）。Put off 表示推迟或延后；postpone 是它常见的单词近义表达。学习时应掌握完整短语及其宾语用法。","points":["短语动词由动词和小品词组合而成。","组合后的意思可能不同于动词本身的字面意思。","Look after 表示照顾，例如：She looks after her younger brother。","Run into 表示意外遇见，例如：I ran into an old friend。","Put off 表示推迟某项活动或事件。"],"examples":["尝试了好几次后，他仍然没有放弃。","离开前请关灯。","这个周末你能帮我照看我的狗吗？","我在车站意外遇见了一位老朋友。","他们把会议推迟到星期五。"],"mistakes":["对于可分开的短语动词，代词宾语应放在中间：turn it off，而不是 turn off it。"],"practices":[{"q":"在“She refused to give up”中，give up 是什么意思？","options":["继续尝试","停止尝试／放弃","把某物交给另一个人"]},{"q":"在“The meeting was put off until Friday”中，put off 是什么意思？","options":["永久取消","推迟","提前开始"]},{"q":"选择代词宾语位置正确的句子。","options":["Please turn off it.","Please turn it off.","Please it turn off."]},{"q":"Look after 是什么意思？","options":["照顾","意外遇见","推迟"]},{"q":"如果你 run into an old friend，会发生什么？","options":["意外遇见对方","照顾对方","推迟会议"]},{"q":"哪个单词最接近 put off 的意思？","options":["postpone（推迟）","discover（发现）","continue（继续）"]}]},"i-collocations":{"topic":"词语搭配","title":"使用自然的词语搭配","summary":"了解为什么某些单词经常一起使用。","explanation":"英语使用者习惯某些固定或常见的词语组合。例如英语通常说 make a decision（作出决定）和 heavy rain（大雨）。其他组合即使在逻辑上似乎说得通，也可能不自然。学习词语搭配能让表达更地道。 常见搭配包括 make a decision（作出决定）和 take responsibility（承担责任）。Collocation 指母语者或熟练使用者经常一起使用的词语组合。英语中通常说 make a decision，而不是 do a decision；take responsibility for something 表示承担某事的责任。 本级别还会学习其他常见搭配，例如 make progress（取得进展）、heavy rain（大雨）、meet a deadline（按时完成）、raise an issue（提出问题）、highly unlikely（极不可能）、pose a problem（造成问题）以及 deeply concerned（非常担忧）。搭配中的词语选择很重要：英语通常说 heavy rain，而不是 strong rain；说 raise an issue，而不是 lift an issue。","points":["词语搭配是经常一起出现的词语组合。","选择自然常见的搭配，而不只是语法上可能成立的组合。","Make a decision 表示在考虑不同选择后作出决定。","Take responsibility for something 表示承认并承担自己的职责或责任。","Make progress 表示取得进展或有所改善。","Heavy rain 表示大雨；meet a deadline 表示按要求按时完成。","Raise an issue 表示提出问题；pose a problem 表示造成困难。","Highly unlikely 表示极不可能；deeply concerned 表示非常担忧。"],"examples":["我们今天需要作出决定。","大雨延误了比赛。","比较各种选择后，她作出了决定。","每位团队成员都应负责检查自己的工作。","这个项目帮助员工取得进展。","由于下大雨，户外活动被取消了。","我们必须按时完成，并尽早提出任何严重问题。","延误可能造成问题，因此经理非常担忧；活动被取消的可能性极低。"],"mistakes":["常见表达：make a mistake（犯错误）。在这个意思下，do a mistake 不自然。"],"practices":[{"q":"选择自然的词语搭配。","options":["do a decision","make a decision","build a decision"]},{"q":"选择自然的词语组合。","options":["strong rain","heavy rain","powerful rain"]},{"q":"完成短语：I made ___ when I copied the wrong number.","options":["a mistake","a decision","an effort"]},{"q":"选择自然的英语搭配。","options":["do a decision","make a decision","take a decisioning"]},{"q":"完成短语：take ___ for your actions。","options":["responsibility","decision","progress"]},{"q":"选择自然的英语搭配。","options":["strong rain","heavy rain","tall rain"]},{"q":"哪个短语表示按要求的时间完成工作？","options":["meet a deadline","raise a deadline","pose a deadline"]}]},"a-inversion":{"topic":"高级语法","title":"使用倒装结构加强语气","summary":"认识否定或限制性表达置于句首后的倒装结构。","explanation":"当 never、rarely 或 not only 等表达被放在句首以加强语气时，助动词通常要置于主语之前。如果原句没有助动词，则需要使用 do、does 或 did 等助动词。 正式倒装也会出现在几种固定结构中：not until + 从句 + did + 主语 + 动词原形；only after + 从句 + did + 主语 + 动词原形；under no circumstances + should + 主语 + 动词原形；no sooner had + 主语 + 过去分词 + than…；little did + 主语 + 动词原形；以及 at no point + 助动词 + 主语。在第三条件句倒装中，省略 if，并把 had 放在主语之前：Had I known…, I would have…。","points":["否定表达置于句首时，可能触发主语与助动词倒装。","这种结构常用于强调，语气通常较正式。","Not until 和 only after 可以触发主句倒装。","Under no circumstances 和 at no point 用于强调否定限制。","No sooner…than 用于连接两个紧接着发生的过去事件。","Had I known… 是第三条件句的倒装形式，使用 had + 主语 + 过去分词。"],"examples":["我们很少见到如此仔细的分析。","她不仅领导团队，还培训了新成员。","直到报告发布后，公众才了解问题的严重性。","在任何情况下，工作人员都不应与外部人士分享机密文件。","我们刚坐下，灯就熄灭了。","如果我当时知道会延误，就会乘坐更早的火车。","客户从未被告知合同变更。"],"mistakes":["错误：Rarely we have seen… 正确：Rarely have we seen…"],"practices":[{"q":"完成句子：Never ___ such a result.","options":["we have seen","have we seen","we saw have"]},{"q":"选择“Rarely”后正确的倒装结构。","options":["Rarely we witness such care.","Rarely do we witness such care.","Rarely witness we such care."]},{"q":"完成句子：Not only ___ the proposal, but she also improved it.","options":["she approved","did she approve","approved she"]},{"q":"选择正确的倒装结构。","options":["Not until the end we understood.","Not until the end did we understand.","Not until did we understood the end."]},{"q":"完成第三条件句倒装：“Had I known, I ___ earlier.”","options":["would leave","would have left","will leave"]}]},"a-idioms":{"topic":"习语与固定表达","title":"理解超越字面意思的习语","summary":"结合语境理解比喻性表达。","explanation":"习语是具有约定俗成含义的固定表达，其意思往往不能从每个单词的字面意思直接推断。学习时应掌握整体含义、语法结构和正式程度，再根据语境判断是否适合使用。 题库中还使用了几种常见习语。Break the ice 表示缓和初次交流时的紧张气氛并开始友好交谈。Scratch the surface 表示只触及某个主题的表面或一小部分。Take the plunge 表示鼓起勇气作出重大决定并开始行动。Jump to conclusions 表示在信息不足时过早下结论。 题库中的核心习语包括：get the ball rolling（开始行动）；the tip of the iceberg（更大问题中可见的一小部分）；cut corners（为了节省时间或金钱而牺牲质量）；back to square one（回到起点）；on the fence（犹豫不决）；a blessing in disguise（表面上不好的事情后来带来意外好处）；under the weather（身体有些不舒服）；以及 in the long run（从长远来看）。","points":["习语具有约定俗成的含义，不一定能从组成单词推断出来。","语域和语境决定习语是否适合使用。","Break the ice 表示打破沉默、缓和紧张并开始交流。","Scratch the surface 表示只触及表面或浅层部分。","Take the plunge 表示鼓起勇气迈出重要的一步。","Jump to conclusions 表示在证据不足时过早下结论。","Get the ball rolling 表示开始行动；the tip of the iceberg 表示更大问题中可见的一小部分。","Cut corners 表示为了节省时间或金钱而降低质量；back to square one 表示回到起点。","On the fence 表示犹豫不决；a blessing in disguise 表示因祸得福。","Under the weather 表示身体不太舒服；in the long run 表示从长远来看。"],"examples":["我们对这个项目的理解是一致的。","这项新证据带来了重大改变。","主持人讲了一个轻松的故事来缓和气氛。","这份报告只是触及了问题的表面。","她鼓起勇气创办了自己的公司。","在听取双方说法之前，不要急于下结论。","让我们先作一个简短介绍，开始今天的活动。","这项投诉只是更大问题的冰山一角。","承包商为了省钱而偷工减料。","更新失败后，我们不得不回到起点。","她还在犹豫是否接受这份邀请。","这次延误后来反而带来了意想不到的好处。","我感觉身体有些不舒服。","这项投资从长远来看会节省成本。"],"mistakes":["在正式报告中避免使用过于口语化的习语，除非文体允许。"],"practices":[{"q":"在工作讨论中，“on the same page”是什么意思？","options":["阅读同一页文件","拥有相同的理解或共识","在不同部门工作"]},{"q":"如果有人在会议上“breaks the ice”，他做了什么？","options":["让大家放松并开始交谈","突然结束会议","反对所有建议"]},{"q":"“hit the nail on the head”是什么意思？","options":["犯了一个小错误","准确地说中要点","回避问题"]},{"q":"Scratch the surface 是什么意思？","options":["只探讨表面部分","理解所有细节","作出大胆决定"]},{"q":"如果某人 takes the plunge，他做了什么？","options":["鼓起勇气迈出重要的一步","避免作出决定","结束对话"]},{"q":"在听取双方意见之前，应该避免做什么？","options":["急于下结论","打破沉默","开始行动"]},{"q":"如果某人 is on the fence，是什么意思？","options":["他／她犹豫不决。","他／她身体不舒服。","他／她已经开始一个项目。"]},{"q":"Cut corners 是什么意思？","options":["为了节省时间或金钱而牺牲质量","认真改进质量","回到起点"]}]},"a-hedging":{"topic":"学术与职场英语","title":"使用准确措辞限定观点","summary":"使用审慎表达来体现适当的确定程度。","explanation":"在学术和职场写作中，作者通常不会把尚不确定的解释说成绝对事实。may、might、appears to 和 is likely to 等表达可以体现审慎程度。使用这些表达时，应让措辞与实际的不确定性相符。 学术写作中常用一些词汇来表达审慎程度。Tentative 表示暂定的、尚未确定的；cautious 表示谨慎的，避免作出超出证据支持范围的断言。Effective 表示能产生预期效果的。Attribute a result to a cause 表示认为某个原因导致了某种结果。Consistent 表示与其他证据相符；compelling 表示有说服力的；causal relationship 表示某个因素导致或促成另一个因素的因果关系。","points":["审慎表达表示观点有所限制、保留或取决于证据。","措辞的确定程度应与证据相匹配。","Tentative 表示暂定的、尚未确定的；cautious 表示谨慎的。","Effective 表示有效的、能产生预期结果的。","Attribute an outcome to something 表示把某个结果归因于某事。","Consistent 表示与其他信息一致；compelling 表示令人信服的。","Causal relationship 表示原因与结果之间的联系。"],"examples":["结果表明，睡眠可能会影响注意力。","这种方法很可能会缩短处理时间。","研究结果仍属暂定，因此应谨慎解读。","这项措施可能有效，但仍需要进一步研究。","需求减少可能是这次下滑的原因。","这些数据与早前的估算大致一致。","证据很有说服力，但并不能证明存在因果关系。"],"mistakes":["不要把 may、might 和 definitely 等确定程度相互冲突的表达随意组合。"],"practices":[{"q":"哪一个短语表达了审慎的判断？","options":["This proves beyond all doubt…","The findings may indicate…","It is certainly impossible…"]},{"q":"由于样本数量较少，研究结果___需要谨慎解读。","options":["may","definitely must","cannot possibly"]},{"q":"哪一种措辞对结论作出了恰当限定？","options":["The treatment always causes improvement.","The treatment appears to be associated with improvement.","The treatment proves every case."]},{"q":"哪个词表示暂定的、尚未确定的？","options":["tentative","permanent","certain"]},{"q":"哪个词表示能够产生预期结果的？","options":["effective","incidental","reluctant"]},{"q":"因果关系连接哪两个概念？","options":["原因与结果","相似的拼写和发音","两个无关事件"]}]},"b-verb-combinations":{"topic":"日常词汇","title":"掌握实用的日常词汇","summary":"学习日常情境中常见的动词搭配和描述性词语。","explanation":"英语中许多日常动作都通过固定的动词与名词组合来表达。英语使用者会说 do homework（做作业）、make breakfast（做早餐）、take a break（休息一下）和 catch a bus（赶／搭公交车）。名词会影响适合搭配的动词，因此应把整个短语一起学习，而不是逐字翻译。 日常词汇也包括描述性形容词。Exciting形容能引起强烈兴趣或热情的事物；beautiful形容看起来非常赏心悦目的事物。Crowded形容人多、空间有限的地方；comfortable形容让人感到放松和舒适的事物；delicious则形容食物或饮料味道很好。 描述性形容词也可以表达负面的感受。Boring 表示某事物缺乏趣味、无法引起兴趣，与 exciting（令人兴奋的）意思相反。Friendly 形容友善、热情待人的人或态度；quiet 表示声音很小或安静；useful 表示对某种用途有帮助；expensive 表示价格昂贵。 题库考查的日常搭配包括 make a mistake（犯错）、take a break（休息一下）、have breakfast（吃早餐）、do homework（做作业）、pay attention（集中注意力）以及 keep a promise（遵守承诺）。这些都是约定俗成的动词与名词搭配，应把完整短语作为一个表达来学习，而不是逐词翻译。","points":["把常见搭配作为完整短语来学习。","表达相近概念时，不同名词可能需要搭配不同动词。","结合具体情境选择自然的搭配。","描述性形容词可以说明人物、地点、食物或经历的外观和感受。","Exciting表示令人兴奋或引起强烈兴趣的；beautiful表示美丽、赏心悦目的。","Crowded形容人多、空间有限的地方；comfortable形容让人感到放松舒适的事物。","Delicious形容食物或饮料味道非常好。","Boring 表示无聊的、缺乏趣味的；exciting 表示令人兴奋或引起兴趣的。","Friendly 形容友善、热情的；quiet 形容安静的。","Useful 表示有用的；expensive 表示昂贵的。","Make a mistake 表示犯错；take a break 表示暂时停下来休息。","Have breakfast 表示吃早餐；do homework 表示完成作业。","Pay attention 表示集中注意力；keep a promise 表示履行承诺。"],"examples":["晚饭前我需要做完作业。","我们通常在下一站搭公交车。","我们休息一会儿吧。","这场科学展演令人兴奋。","我们在车站附近看见一座美丽的花园。","咖啡馆里人很多，但座位很舒适。","汤非常美味，工作人员也很友善。","这场讲座很无聊，但实践活动令人兴奋。","工作人员很友善，图书馆也很安静。","这本实用指南并不贵。","人们疲倦时都可能犯错。","做完这个练习后，我们休息一下吧。","我在家吃早餐，晚饭后做作业。","请注意路况，并遵守你的承诺。"],"mistakes":["错误：make homework。正确：do homework。","错误：do a break。正确：take a break。"],"practices":[{"q":"选择自然的英语表达。","options":["make homework","do homework","take homework"]},{"q":"我们通常早上八点___公交车。","options":["catch","make","do"]},{"q":"学习了两个小时后，我们休息一下吧。","options":["do","make","take"]},{"q":"选择表示准备早晨那一餐的自然搭配。","options":["make breakfast","catch breakfast","do breakfast"]},{"q":"以下哪项最符合“exciting”的含义？","options":["引起强烈兴趣或热情的","让人感到困倦的","人很多、空间很拥挤的"]},{"q":"选择最合适的形容词：“We saw a ___ garden.”","options":["beautiful","crowded","delicious"]},{"q":"哪个词形容人很多、空间很少的地方？","options":["quiet","crowded","comfortable"]},{"q":"哪个词形容味道非常好的食物？","options":["delicious","expensive","exciting"]},{"q":"哪个词形容缺乏趣味、无法引起兴趣的事物？","options":["boring","exciting","delicious"]},{"q":"选择最合适的词：“The staff were kind and welcoming.” 他们很___。","options":["friendly","crowded","expensive"]},{"q":"哪个词表示“对某种用途有帮助”？","options":["useful","quiet","boring"]},{"q":"选择自然的表达：“Please ___ attention to the road.”","options":["pay","make","do"]},{"q":"哪个短语表示履行自己的承诺？","options":["keep a promise","take a break","make a mistake"]}]},"i-word-families":{"topic":"构词法","title":"识别词族与词缀","summary":"利用前缀和后缀理解相关词汇。","explanation":"词族是由同一个词根或基础词构成的一组相关词，例如 decide（决定）、decision（决定／决策）和 decisive（果断的）。前缀加在词根前面，可能改变词义；后缀加在词根后面，通常也会改变词的语法功能。识别这些规律有助于推测词义，但仍须确认词形是否符合句子的语法。 词汇选择也包括辨认容易混淆的词形。Affect 通常是动词，表示影响；effect 通常是名词，表示结果。Convince 是表示说服的动词；convincing 是形容词，表示有说服力、令人信服的。Clarification 是名词，表示让事情更清楚的解释；unclear 表示不清楚、难以理解。 题库会练习以下词族：decide（动词）→ decision（名词）；rely（动词）→ reliable（形容词）；succeed（动词）→ successful（形容词）；create（动词）→ creativity（名词）；persuade（说服，动词）；danger（名词）→ dangerous（形容词）；accurate（形容词）→ accuracy（名词）。请留意后缀如何改变单词的语法功能。Persuade 表示说服某人做某事或相信某个观点。","points":["前缀位于词根之前，例如 un- + certain = uncertain。","后缀位于词根之后，例如 care + -ful = careful。","后缀可能改变词性，例如 decide 是动词，decision 是名词。","Affect（动词）表示影响；effect（名词）表示结果。","Convince 是动词；convincing 是形容词，表示有说服力的或令人信服的。","Clarification 表示澄清或说明；unclear 表示不清楚的。","Decide（动词）→ decision（名词）。","Rely（动词）→ reliable（形容词）；succeed（动词）→ successful（形容词）。","Create（动词）→ creativity（名词）；accurate（形容词）→ accuracy（名词）。","Danger（名词）→ dangerous（形容词）；persuade 表示说服某人。"],"examples":["说明不够清楚，所以我要求对方进一步解释。","她的决定经过了谨慎考虑。","新政策可能会影响所有员工。","这个令人信服的解释帮助澄清了问题。","这项变化带来的影响很明显。","她的决定让所有人感到惊讶。","我们需要一个可靠的信息来源。","这个项目达成了所有目标，因此取得了成功。","这位艺术家以原创想法和创造力闻名。","演讲者试图说服观众支持这项提案。","这条道路夜间很危险，因此驾驶者应减速。","测量结果的准确性很重要。"],"mistakes":["不要认为每个单词都能随意添加任何前缀或后缀；应使用英语中真实存在的词形。","检查句子的语法：名词、动词和形容词不能在所有位置互换。"],"practices":[{"q":"哪个单词表示“不确定的”？","options":["certainly","uncertain","certainty"]},{"q":"decide 词族中的哪一个是名词？","options":["decisive","decide","decision"]},{"q":"选择表示“仔细的”的正确形容词。","options":["careful","carement","carely"]},{"q":"完成句子：The instructions were ___, so nobody knew what to do.","options":["clarity","clarify","unclear"]},{"q":"选择正确的词形：“The new rule may ___ everyone.”","options":["affect","effect","effective"]},{"q":"哪个词形容能够提供有力理由、令人信服的解释？","options":["convincing","convincedly","convince"]},{"q":"Accurate 的名词形式是什么？","options":["accurate","accuracy","accurately"]},{"q":"哪个形容词由 rely 构成？","options":["reliance","reliable","relying"]}]},"a-near-synonyms":{"topic":"精准词汇","title":"准确区分近义词","summary":"根据词义和语境，在相似词语之间作出选择。","explanation":"近义词虽然有部分相似含义，却不一定可以互换。例如 imply 表示说话者或文本间接暗示某事；infer 表示读者或听者根据证据推断结论。economic 与经济相关；economical 则表示节省金钱或资源。准确选择词语能让进阶写作更加清晰。 精准词汇也包括描述语气和判断的词。Tactful 表示说话得体、注意不冒犯他人；candid 表示坦率、诚实直接；harsh 表示严厉、不友善或过于苛刻。Incidental 表示附带的、次要的，并非主要目的。Reluctant 表示不情愿或犹豫。Disclose 表示公开或透露此前未知或未公开的信息。这些词都与精准选词有关，但不能随意互换。 题库还会区分以下容易混淆的词语：historic 表示具有历史意义的；historical 表示与过去或历史有关的。Ensure 表示确保；assure 表示向某人保证。Eminent 表示杰出、受尊敬的；imminent 表示即将发生的。Adopt 表示采用；adapt 表示调整以适应。Complement 表示补充或衬托；compliment 表示赞美。Discreet 表示谨慎、得体；discrete 表示分离、独立的。Credible 表示可信的；credulous 表示轻信的。","points":["区分相似词语时，应检查它们之间的具体含义差异。","imply 描述说话者或文本暗示什么；infer 描述读者或听者推断出什么。","根据想表达的意思和句子语法选择词语。","Tactful 表示得体、考虑周到；candid 表示坦率、诚实；harsh 表示严厉或尖刻。","Incidental 表示附带的、次要的。","Reluctant 表示不情愿或犹豫；disclose 表示透露信息。","Historic 表示具有历史意义的；historical 表示与过去或历史有关的。","Ensure 表示确保；assure 表示向某人保证。","Eminent 表示杰出的；imminent 表示即将发生的。","Adopt 表示采用；adapt 表示调整以适应。","Complement 表示补充或衬托；compliment 表示赞美。","Discreet 表示谨慎、得体；discrete 表示分离、独立的。","Credible 表示可信的；credulous 表示轻信的。"],"examples":["报告暗示明年的成本可能会上升。","分析人员根据缺失的数据推断调查并不完整。","这辆汽车的使用成本很低。","她得体的回应避免让发言者感到尴尬。","他坦率地谈到了风险，但没有显得尖刻。","一句附带的话引发了一场有益的讨论。","她不愿透露这些细节。","这项协议具有历史意义；博物馆展出的是历史文物。","请确保文件已备份；我向你保证流程是安全的。","一位杰出的学者警告说，暴风雨即将来临。","该组织采用了这项政策，并根据当地需求作出调整。","窗帘衬托了房间的色彩；主人赞美了设计师。","请谨慎处理机密信息；数据被储存在不同的独立组别中。","证人作出了可信的陈述；轻信的人可能会接受所有说法。"],"mistakes":["不要把 infer 当作 imply 使用：作者暗示（implies），读者推断（infers）。","economic growth（经济增长）和 economical design（节省资源的设计）含义不同。"],"practices":[{"q":"说话者没有直接说明，而是间接表达一个想法。哪个动词描述说话者的行为？","options":["infer","imply","assume"]},{"q":"读者根据证据得出结论。哪个动词描述读者的行为？","options":["imply","infer","announce"]},{"q":"选择表示耗油量较低的自然表达。","options":["an economic car","an economical car","an economy car"]},{"q":"某项政策涉及国家就业和通货膨胀。应使用哪个形容词？","options":["economical policy","economic policy","economy policy"]},{"q":"哪个词表示诚实、直接、坦率？","options":["candid","tactful","reluctant"]},{"q":"哪个词表示不情愿或犹豫？","options":["reluctant","incidental","precise"]},{"q":"Disclose 是什么意思？","options":["透露信息","隐瞒信息","推迟决定"]},{"q":"哪个词表示“即将发生的”？","options":["eminent","imminent","historic"]},{"q":"哪个词表示“谨慎得体，尤其是在处理私人信息时”？","options":["discreet","discrete","credible"]},{"q":"哪个词表示“调整以适应新情况”？","options":["adopt","adapt","assure"]}]},"b-countable-nouns":{"topic":"名词与数量","title":"正确使用可数名词与不可数名词","summary":"准确选择名词形式和数量表达。","explanation":"可数名词有单数和复数形式，例如 one book、two books。information（信息）、advice（建议）和 water（水）等不可数名词通常不能直接计数，也通常不加复数 -s。需要表达数量或具体项目时，可以使用 a piece of advice（一条建议）或 some information（一些信息）等说法。 有些日常名词即使指具体物品或集合，在英语中仍属于不可数名词。Equipment 指某项活动所需的器材或设备；furniture 指房间里的可移动家具，例如桌子和椅子。在标准英语中，通常不说 equipments 或 furnitures。需要计数时，可以使用 some equipment、a piece of equipment、some furniture 或 an item of furniture。 有些可数名词的复数形式不遵循直接加 -s 的规则。例如 child 的复数是 children。Bread（面包）需要使用可数单位来计数，例如 a slice：one slice of bread、two slices of bread。在食谱语境中，sugar（糖）是不可数名词，因此应使用 how much sugar，而不是 how many sugars。","points":["单数可数名词前使用 a/an，例如 a book。","many 搭配可数名词复数；much 搭配不可数名词。","需要计量不可数名词时，可以使用 a piece of advice 等量词表达。","Equipment 和 furniture 在标准英语中通常是不可数名词。","需要计算单件物品时，可以使用 a piece of equipment 或 an item of furniture。","Child 的不规则复数形式是 children。","Bread 可以用 slice 作为计量单位：two slices of bread。","在此语境中 sugar 是不可数名词，因此使用 much sugar。"],"examples":["我收到了一些有用的建议。","她买了三本笔记本。","你能告诉我一些有关课程的信息吗？","工作室购买了一些新设备。","我们需要一件器材来进行这项活动。","房间里目前没有多少家具。","一个孩子正在等候；两个孩子正在玩耍。","盘子里有两片面包。","这个食谱需要多少糖？"],"mistakes":["错误：an advice。正确：some advice 或 a piece of advice。","错误：many information。正确：much information 或 a lot of information。","错误：two equipments。正确：two pieces of equipment。","错误：many furnitures。正确：several items of furniture。"],"practices":[{"q":"选择正确的表达。","options":["an advice","some advice","many advice"]},{"q":"How ___ books did you borrow?","options":["much","many","any of"]},{"q":"我们目前没有关于该活动的___信息。","options":["many","a few","much"]},{"q":"选择自然的英语表达。","options":["two pieces of advice","two advices","two advice"]},{"q":"选择正确的表达。","options":["three equipments","three pieces of equipment","three equipment"]},{"q":"哪一个句子符合标准英语？","options":["We bought new furnitures.","We bought some new furniture.","We bought many furniture."]},{"q":"选择正确的复数形式：one child, two ___。","options":["childs","children","childes"]},{"q":"选择自然的表达。","options":["two breads","two slices of bread","two slice bread"]}]},"i-conditionals":{"topic":"条件句","title":"选择第一与第二条件句","summary":"区分现实可能发生的未来情况与假设情境。","explanation":"第一条件句描述现实或有可能发生的未来情况：if + 一般现在时，will + 动词原形。第二条件句描述不真实、想象中或可能性较低的情况：if + 一般过去时，would + 动词原形。第二条件句中的过去式通常表示与现实有距离，并不一定表示过去时间。 条件从句也可以使用 unless 或 even if 开头。Unless 表示 if not（如果不）：Unless you hurry, you will miss the train（如果你不快点，就会错过火车）。Even if 表示即使某种情况发生，结果仍然不变：Even if it rains, the event will continue（即使下雨，活动仍会继续）。Hypothetical 表示假设或想象中的；realistic 表示现实可行或符合实际情况的。 本课程也会复习零条件句和第三条件句。零条件句描述普遍事实：if + 一般现在时，一般现在时。第三条件句描述与过去事实相反的假设及结果：if + 过去完成时，would have + 过去分词。Provided that 表示“只要满足某个条件”。中级课程会初步认识混合条件句，即条件与结果指向不同时间；进阶课程会进一步深入讲解。","points":["第一条件句：If it rains, we will stay inside.（如果下雨，我们就待在室内。）","第二条件句：If I had more time, I would learn another language.（如果我有更多时间，我会学习另一种语言。）","这两种结构的 if 从句通常不直接使用 will。","Unless 表示“如果不”，用于引出可能导致某种结果的条件。","Even if 表示“即使”，强调某个条件不会改变结果。","Hypothetical 表示假设的；realistic 表示现实可行的或符合实际的。","零条件句：If you heat ice, it melts。（如果加热冰，冰就会融化。）","第三条件句：If they had booked earlier, they would have paid less。（如果他们早点预订，就会少付一些钱。）","Provided that 表示“只要”，用于提出必须满足的条件。","混合条件句把指向不同时间的条件与结果联系起来。"],"examples":["如果火车晚点，我们就叫出租车。","如果我住在海边，我每天早上都会游泳。","如果我们现在不出发，就会错过火车。","即使下雨，活动仍会继续。","假设例子是想象出来的；现实的计划会考虑实际限制。","如果海平面气压下的水达到 100°C，就会沸腾。","如果他们早点预订，就会少付一些钱。","只要你保持房间整洁，就可以使用会议室。","如果我当时接受了邀请，现在就会住在新加坡。"],"mistakes":["错误：If it will rain, we will stay inside. 正确：If it rains, we will stay inside。","第二条件句使用过去式来表达假设，不一定表示过去发生的事件。"],"practices":[{"q":"完成表示现实未来可能性的句子：If she ___ early, we will have time for coffee.","options":["arrives","will arrive","would arrive"]},{"q":"选择第二条件句。","options":["If I see him, I will tell him.","If I saw him, I would tell him.","If I had seen him, I would have told him."]},{"q":"完成句子：If we had a bigger kitchen, we ___ more often.","options":["cook","will cook","would cook"]},{"q":"哪一个句子描述可能发生的未来结果？","options":["If the weather improves, we will go hiking.","If I were taller, I would play basketball.","If she had called, I would have answered."]},{"q":"Unless you hurry 是什么意思？","options":["如果你不快点","即使你很快","因为你刚才很快"]},{"q":"哪个短语表示即使某个条件发生，结果仍然不变？","options":["even if","only if","as soon as"]},{"q":"哪一个句子表达普遍事实？","options":["If you heat ice, it melts.","If you heated ice, it would melt.","If you had heated ice, it would have melted."]},{"q":"完成第三条件句：If we had left earlier, we ___ the train。","options":["would catch","would have caught","will catch"]}]},"a-mixed-conditionals":{"topic":"高级语法","title":"理解混合条件句","summary":"把不真实的过去条件与现在结果联系起来，或把现在条件与过去结果联系起来。","explanation":"混合条件句会结合不同的时间指向。常见结构之一是 if + 过去完成时，搭配 would + 动词原形，表达不真实的过去条件及其现在结果：If I had studied medicine, I would be a doctor now. 另一种结构使用 if + 一般过去时表达现在的一般情况，并使用 would have + 过去分词表达过去结果。应根据条件和结果之间的时间关系选择结构。 混合条件句也可以在条件从句中使用倒装。正式表达中省略 if，并把 had 放在主语之前：“Had the data been checked, the error would not now be affecting the results.” 过去完成时的被动条件指向较早进行的核查；结果从句描述现在仍然受到的影响。这种结构把混合条件句的时间关系与进阶倒装课中的语序变化结合起来。","points":["过去条件 → 现在结果：If I had taken the job, I would live abroad now.","现在条件 → 过去结果：If she were more careful, she would not have made that mistake.","两个分句的动词形式分别表示条件和结果的时间。","混合条件句倒装：Had + 主语 + 过去分词，结果从句使用 would + 动词原形，或表示现在持续影响的 would be + -ing。","条件与结果指向不同时间；倒装改变语序，但不改变时间关系。"],"examples":["如果他当时存了更多钱，他现在就拥有一套房子了。","如果我更有自信，昨天就会在会议上发言了。","如果当时核查过数据，这个错误现在就不会继续影响结果。"],"mistakes":["如果结果指向现在，不要误用只描述过去结果的第三条件句结构。","选择动词形式前，先确认每个分句指向过去还是现在。"],"practices":[{"q":"完成表示过去条件与现在结果的句子：If I had accepted the offer, I ___ in London now.","options":["would live","would have lived","will live"]},{"q":"哪一个句子是混合条件句？","options":["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."]},{"q":"完成句子：If he had taken the medicine, he ___ better now.","options":["would feel","would have felt","will feel"]},{"q":"在“If she were more patient, she would have handled the call better”中，条件指向什么时候？","options":["只指过去","一般或现在的特征","只指未来"]},{"q":"哪一个句子同时使用倒装条件从句和现在的结果？","options":["Had the data been checked, the error would not now be affecting the results.","If the data is checked, the error disappeared yesterday.","Had the data checked, the error would not now affect."]}]}};
+    const lessonTopicIds={
       "Sentence basics":"sentence-basics",
       "Verb tenses":"verb-tenses",
       "Nouns and articles":"nouns-and-articles",
@@ -18032,7 +18188,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     const pageButtons = [...document.querySelectorAll("[data-page]")];
     const pageIds = { dictionary:"dictionaryPage", lessons:"lessonsPage", lessonDetail:"lessonDetailPage", quiz:"quizPage", flashcards:"flashcardsPage", profile:"profilePage", preferences:"preferencesPage" };
     let profilePreferences = null;
-    function showPage(page, updateHash = true) {
+    function showPage(page, updateHash = true, options = {}) {
       if ((page === "profile" || page === "preferences") && !currentUser) page = "dictionary";
       if (!pageIds[page]) page = "dictionary";
       if (updateHash && location.hash !== `#${page}`) history.pushState(null, "", `#${page}`);
@@ -18043,6 +18199,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
       if (page === "lessons") { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
+      if (page === "quiz" && !options.skipQuizInitialise && typeof initialiseQuizPage === "function") initialiseQuizPage();
       window.scrollTo({top:0,behavior:"instant"});
     }
     pageButtons.forEach(button => button.addEventListener("click", () => showPage(button.dataset.page)));
@@ -18161,12 +18318,21 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if (!supabaseClient || !currentUser) return;
       const userId = currentUser.id;
       const displayName = currentUser.user_metadata?.full_name || currentUser.user_metadata?.name || null;
-      const [profileResult, prefResult] = await Promise.all([
-        supabaseClient.from("profiles").upsert({user_id:userId,display_name:displayName},{onConflict:"user_id",ignoreDuplicates:true}),
-        supabaseClient.from("user_preferences").upsert({user_id:userId,learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()},{onConflict:"user_id",ignoreDuplicates:true})
+      // Avoid blind upserts here: PostgreSQL evaluates INSERT policies for an
+      // upsert even when ON CONFLICT would leave an existing row unchanged.
+      // Some valid account policies intentionally allow owners to read/update
+      // preferences but do not grant a redundant INSERT on every dashboard load.
+      async function ensureOwnedRow(table,values) {
+        const {data,error}=await supabaseClient.from(table).select("user_id").eq("user_id",userId).maybeSingle();
+        if(error)throw error;
+        if(data)return;
+        const {error:insertError}=await supabaseClient.from(table).insert(values);
+        if(insertError&&insertError.code!=="23505")throw insertError;
+      }
+      await Promise.all([
+        ensureOwnedRow("profiles",{user_id:userId,display_name:displayName}),
+        ensureOwnedRow("user_preferences",{user_id:userId,learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()})
       ]);
-      if (profileResult.error) throw profileResult.error;
-      if (prefResult.error) throw prefResult.error;
     }
 
     function inferSavedWordCourse(word,storedCourse) {
@@ -18320,7 +18486,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try {
         await preferenceWriteQueue;
         await ensureProfileRows();
-        const [profileQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ] = await Promise.all([
+        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -18332,8 +18498,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at").eq("user_id",currentUser.id).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",currentUser.id),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
-          supabaseClient.rpc("is_personal_learning_test_access")
+          supabaseClient.rpc("is_personal_learning_test_access"),
+          supabaseClient.rpc("get_my_quiz_history",{p_limit:5})
         ]);
+        let profileQ=profileInitialQ;
+        if(profileQ.error&&/avatar_icon|PGRST204|42703/i.test(profileQ.error.message||"")) {
+          profileQ=await supabaseClient.from("profiles").select("display_name").eq("user_id",currentUser.id).maybeSingle();
+        }
         let prefsQ = prefsInitialQ;
         if (prefsQ.error && /allowance_timezone|PGRST204|42703/i.test(prefsQ.error.message || "")) {
           prefsQ = await supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone").eq("user_id",currentUser.id).maybeSingle();
@@ -18375,6 +18546,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         document.getElementById("preferenceTimezone").value = prefs.timezone;
         document.getElementById("courseSelect").value = prefs.learning_language;
         document.getElementById("translationSelect").value = prefs.translation_language;
+        updateGlobalCourseControlLabels();
         const completedActivity = (activityQ.data || []).filter(row => legacyActivityLog || row.event_type === "completed");
         const tz = effectiveAllowanceTimezone(prefs);
         const displayTimezone = prefs.timezone || browserTimezone();
@@ -18418,12 +18590,64 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           return '<div class="activity-overview-row"><div class="activity-overview-heading"><strong>'+activityLabels[type]+'</strong><span>'+(unavailable?"Unavailable":count+(count===1?" completion":" completions"))+'</span></div><div class="activity-overview-track" role="img" aria-label="'+activityLabels[type]+': '+count+' completions"><span style="width:'+(unavailable?0:width)+'%"></span></div></div>';
         }).join(""):'<p class="muted-note">No completed learning activity recorded yet. '+(dailyPracticeUnavailable?"Daily activity history will appear after the server update.":"Your completed lessons and daily activities will appear here.")+'</p>';
         renderDashboardAllowanceBars(plan,limits,allowanceUsageRows,tz,personalTestAccess);
+        const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
+        if(dashboardQuizHost) {
+          const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data:[]);
+          dashboardQuizHost.innerHTML=quizHistoryQ.error
+            ? '<p class="muted-note">Quiz history is unavailable until the Update 2.4.0 Quiz database functions are installed.</p>'
+            : quizRows.length?quizRows.map(row=>{
+              const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
+              const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
+              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">Review</button></div></div>';
+            }).join("")
+            : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
+        }
 
-        // Practice insights use aggregate counts only. No individual answers or
-        // response text are retrieved or retained.
+        // Use the existing account-scoped Quiz review RPC to calculate topic
+        // accuracy and identify missed questions. No duplicate answer records are stored.
+        const quizPracticeRows = [];
+        const quizWrongAnswerRows = [];
+        let quizReviewFailureCount = quizHistoryQ.error ? 1 : 0;
+        const recentQuizHistoryRows = Array.isArray(quizHistoryQ.data) ? quizHistoryQ.data : [];
+        if (!quizHistoryQ.error) {
+          await Promise.all(recentQuizHistoryRows.slice(0,5).map(async historyRow => {
+            try {
+              const {data,error} = await supabaseClient.rpc("get_my_quiz_review",{p_session_id:historyRow.session_id});
+              if (error || !data) { quizReviewFailureCount += 1; return; }
+              const topicTotals = new Map();
+              for (const question of data.questions || []) {
+                if (!question.topic_id || !question.selected_option_id) continue;
+                const hasResult = typeof question.is_correct === "boolean" || Boolean(question.correct_option_id);
+                if (!hasResult) continue;
+                const isCorrect = typeof question.is_correct === "boolean"
+                  ? question.is_correct : question.selected_option_id === question.correct_option_id;
+                const total = topicTotals.get(question.topic_id) || {
+                  topic_id:question.topic_id,correct_count:0,question_count:0,
+                  practice_at:data.completed_at || historyRow.completed_at
+                };
+                total.question_count += 1;
+                if (isCorrect) total.correct_count += 1;
+                topicTotals.set(question.topic_id,total);
+                if (!isCorrect && question.source_lesson_id && question.source_difficulty) {
+                  quizWrongAnswerRows.push({
+                    session_id:historyRow.session_id,question_id:question.question_id,
+                    prompt_learning:question.prompt_learning,source_lesson_id:question.source_lesson_id,
+                    source_difficulty:question.source_difficulty,topic_id:question.topic_id,
+                    practice_at:data.completed_at || historyRow.completed_at
+                  });
+                }
+              }
+              quizPracticeRows.push(...topicTotals.values());
+            } catch (error) {
+              quizReviewFailureCount += 1;
+              console.warn("A recent Quiz review could not be included in Practice Insights:",error.message);
+            }
+          }));
+        }
         const practiceRows = [
           ...(lessonPracticeQ.data || []).map(row=>({...row,practice_at:row.attempted_at})),
-          ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at}))
+          ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at})),
+          ...quizPracticeRows
         ].filter(row=>row.topic_id && Number(row.question_count)>0
           && Number.isFinite(Number(row.correct_count))
           && Number(row.correct_count)>=0
@@ -18452,14 +18676,14 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         for (const [topicId,entries] of byTopic.entries()) {
           const questions = entries.reduce((sum,row)=>sum+Number(row.question_count),0);
           const correct = entries.reduce((sum,row)=>sum+Number(row.correct_count),0);
-          if (entries.length < 2 || questions < 6) continue;
+          if (questions < 6) continue;
           const accuracy = correct/questions;
           const intervalDays = accuracy < 0.65 ? 1 : accuracy < 0.8 ? 3 : accuracy < 0.9 ? 7 : 14;
           const lastAt = Date.parse(entries[0].practice_at || "");
           if (!Number.isFinite(lastAt)) continue;
           const daysSince = Math.max(0,(now-lastAt)/86400000);
           const weak = accuracy < 0.7;
-          const due = daysSince >= intervalDays;
+          const due = entries.length >= 2 && daysSince >= intervalDays;
           if (!weak && !due) continue;
           const reason = weak
             ? "Recent accuracy is " + Math.round(accuracy*100) + "% across " + entries.length + " attempts; this topic may benefit from another review."
@@ -18472,9 +18696,24 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         reviewList.innerHTML = reviewTopics.length
           ? reviewTopics.slice(0,5).map(item=>'<li><strong>'+escapeHTML(formatTopicName(item.topicId))+'</strong><span>'+escapeHTML(item.reason)+'</span></li>').join("")
           : '<li class="muted-note">'+(practiceRows.length ? "No topics currently meet the review threshold. Keep practising to maintain your progress." : "Complete more scored practice to receive topic recommendations.")+'</li>';
+        const uniqueWrongQuizAnswers = quizWrongAnswerRows
+          .sort((a,b)=>Date.parse(b.practice_at||0)-Date.parse(a.practice_at||0))
+          .filter((item,index,all)=>all.findIndex(other=>other.session_id===item.session_id&&other.question_id===item.question_id)===index)
+          .slice(0,5);
+        const wrongAnswerList = document.getElementById("practiceQuizWrongAnswers");
+        wrongAnswerList.innerHTML = uniqueWrongQuizAnswers.length
+          ? uniqueWrongQuizAnswers.map(item=>{
+              const sourceLesson = (lessonData[item.source_difficulty] || []).find(lesson=>lesson.id===item.source_lesson_id);
+              const lessonTitle = sourceLesson ? lessonField(sourceLesson,"title") : "Related lesson";
+              const lessonAction = sourceLesson
+                ? '<button type="button" class="secondary-button" data-practice-lesson="'+escapeHTML(item.source_lesson_id)+'" data-practice-difficulty="'+escapeHTML(item.source_difficulty)+'">Review lesson: '+escapeHTML(lessonTitle)+'</button>'
+                : '<span class="muted-note">Related lesson unavailable</span>';
+              return '<li><div class="practice-quiz-wrong-copy"><strong>'+escapeHTML(item.prompt_learning||"Missed Quiz question")+'</strong><small>'+escapeHTML(formatTopicName(item.topic_id))+'</small></div>'+lessonAction+'</li>';
+            }).join("")
+          : '<li class="muted-note">'+(quizReviewFailureCount ? "Some recent Quiz reviews could not be loaded." : recentQuizHistoryRows.length ? "No incorrect answers in your five most recent completed Quizzes." : "Complete a Quiz to see missed questions and their related lessons.")+'</li>';
         const practiceDetailText = recentPractice.length
-          ? "Based on your " + recentPractice.length + " most recent practice summaries. Accuracy uses first-attempt aggregate results; topics are marked due only after at least two attempts and six questions."
-          : "No scored practice has been recorded yet. Complete a lesson or Daily Application/Revision to build your learning insights. Individual answers are never stored.";
+          ? "Recent accuracy combines lesson and Daily Learning practice with completed Quiz results. The five most recent Quizzes are checked for weak topics and missed questions; missed questions link to their source lessons. Individual Quiz answers are read only from the account-scoped review and are not copied into separate records."
+          : "No scored practice has been recorded yet. Complete a lesson, Daily Learning activity or Quiz to build your learning insights.";
         document.getElementById("practiceInsightsDetails").textContent = practiceDetailText + (dailyPracticeUnavailable ? " Daily activity practice data will appear after the matching server update is applied." : "");
 
         document.getElementById("profileWelcome").textContent = `Welcome${profileQ.data?.display_name ? ", "+profileQ.data.display_name : ""}. Here is your learning overview.`;
@@ -18483,6 +18722,16 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         if (preferenceStatus) preferenceStatus.textContent = `Could not load account data: ${error.message}`;
       }
     }
+    document.getElementById("practiceQuizWrongAnswers").addEventListener("click",event=>{
+      const button=event.target.closest("[data-practice-lesson]");
+      if(!button)return;
+      const lessonId=button.dataset.practiceLesson;
+      const difficulty=button.dataset.practiceDifficulty;
+      const sourceLesson=(lessonData[difficulty]||[]).find(lesson=>lesson.id===lessonId);
+      if(!sourceLesson)return;
+      ls.difficulty=difficulty;ls.topic="all";
+      openLesson(lessonId);
+    });
     document.getElementById("savePreferences").addEventListener("click", async () => {
       if (!supabaseClient || !currentUser) return;
       const status = document.getElementById("preferenceStatus");
@@ -18502,6 +18751,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         course=learning; translationLanguage=translation; words=course==="zh"?chineseWords:englishWords;
         document.getElementById("courseSelect").value=learning;
         document.getElementById("translationSelect").value=translation;
+        updateGlobalCourseControlLabels();
         document.getElementById("categoryRow").hidden=course==="zh";
         grid.classList.toggle("character-grid",course==="zh");
         search.value=""; search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
@@ -18518,12 +18768,402 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       } catch (error) { status.textContent = `Could not save preferences: ${error.message}`; }
     });
 
+
+    // Update 2.4.0 Quiz frontend. All question data and answer keys are served
+    // by authenticated RPCs; the browser never queries the private Quiz tables.
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
+    const quizEl = id => document.getElementById(id);
+    const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
+    function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
+    function quizTranslationVisible(code){return code === "zh";}
+    function quizEffectiveTranslationCode(snapshot){
+      const learningCode=snapshot?.learning_language_code||"en";
+      const savedTranslation=snapshot?.translation_language_code||"en";
+      // The learning-language text is always present. A different translation
+      // is available only when it matches the frozen session snapshot.
+      if(translationLanguage===learningCode)return learningCode;
+      if(translationLanguage===savedTranslation)return translationLanguage;
+      return savedTranslation;
+    }
+    function quizUpdateTranslationNotice(snapshot){
+      const notice=quizEl("quizTranslationNotice");
+      if(!notice)return;
+      if(!snapshot){notice.hidden=true;return;}
+      const learningCode=snapshot.learning_language_code||"en";
+      const savedTranslation=snapshot.translation_language_code||"en";
+      if(translationLanguage===learningCode){
+        notice.textContent="This Quiz is showing its learning-language text, which is already included in this session.";
+      }else if(translationLanguage===savedTranslation){
+        notice.textContent="This Quiz is using your selected translation, which is included in this session.";
+      }else{
+        notice.textContent="Your requested translation ("+(translationLanguage==="zh"?"简体中文":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.";
+      }
+      notice.hidden=false;
+    }
+    function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
+    function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
+    function quizShowHome(){
+      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
+      quizEl("quizSignedOut").hidden=true;
+    }
+    function quizRenderAvailability(data){
+      quizPageState.availability=data;
+      const mockNotice=quizEl("quizMockNotice");
+      if(mockNotice)mockNotice.hidden=!data.mock_simulation;
+      const a=data.allowance||{};
+      quizEl("quizAllowanceText").textContent=(a.remaining_count??0)+" of "+(a.daily_limit??0)+" remaining";
+      quizEl("quizAllowanceNote").textContent="Plan: "+(data.plan_code||"free")+" · Resets at midnight ("+(data.timezone||"your timezone")+")";
+      const active=!!data.active_session_id;
+      quizEl("quizActiveCard").hidden=!active;
+      if(active)quizEl("quizActiveDescription").textContent="You have an unfinished Quiz. Your saved answers are waiting.";
+      const list=data.difficulties||[];
+      quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
+        const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
+        const count=item.difficulty==="beginner"?10:item.difficulty==="intermediate"?15:20;
+        const description=item.difficulty==="beginner"
+          ?"Build confidence with essential vocabulary and the foundations of everyday English."
+          :item.difficulty==="intermediate"
+            ?"Apply your knowledge across varied situations, sentence patterns and common expressions."
+            :"Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.";
+        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(label)+'</h3><strong class="quiz-difficulty-count">'+count+' questions</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>Start '+quizEscape(label)+'</button></article>';
+      }).join("");
+    }
+    function quizRenderHistory(rows){
+      quizPageState.history=Array.isArray(rows)?rows:[];
+      const host=quizEl("quizHistory");
+      if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">No completed Quizzes yet. Your results will appear here.</p>';return;}
+      host.innerHTML=quizPageState.history.map(row=>{
+        const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
+        return '<div class="quiz-history-row"><div><strong>'+quizEscape(quizDifficultyLabels[row.difficulty]||row.difficulty)+' · '+quizEscape(row.question_count)+' questions</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">Review</button></div></div>';
+      }).join("");
+    }
+    async function quizLoadHome(){
+      if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access your account's Quiz sessions.");return;}
+      quizStatus("Loading Quiz availability…");
+      const [availability,history,active]=await Promise.all([
+        quizCall("get_my_quiz_availability"),
+        quizCall("get_my_quiz_history",{p_limit:20}),
+        quizCall("get_my_active_quiz")
+      ]);
+      if(availability.error)throw availability.error;if(history.error)throw history.error;if(active.error)throw active.error;
+      quizRenderAvailability(availability.data||{});
+      quizRenderHistory(history.data||[]);
+      quizPageState.session=active.data||null;
+      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      quizStatus("");
+    }
+    function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
+    function quizRenderSession(){
+      const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
+      quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
+      const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
+      const answered=s.questions.filter(x=>x.selected_option_id).length;
+      quizEl("quizSessionDifficulty").textContent=quizDifficultyLabels[s.difficulty]||s.difficulty;
+      quizEl("quizQuestionCounter").textContent="Question "+pos+" of "+s.question_count;
+      quizEl("quizAnsweredCounter").textContent=answered+" answered";
+      quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
+      const effectiveTranslation=quizEffectiveTranslationCode(s);
+      const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
+      quizUpdateTranslationNotice(s);
+      const chineseTranslationQuestion=q.question_type==="chinese_translation";
+      quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
+        const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
+        const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
+        return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
+      }).join("")+'</div>';
+      quizEl("quizPrevious").disabled=pos<=1;
+      quizEl("quizNext").hidden=pos>=s.question_count;
+      quizEl("quizNext").textContent="Next";
+      quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
+      quizEl("quizSubmit").textContent=answered===s.question_count?"Submit Quiz":"Answer all questions to submit";
+      quizStatus("");
+    }
+    function quizRefreshVisibleTranslation(){
+      // Session snapshots are immutable. Refresh immediately when the chosen
+      // language is present; otherwise keep the session intact and explain why.
+      if(quizPageState.session) quizRenderSession();
+      if(quizPageState.result) quizRenderResult(quizPageState.result);
+      const snapshot=quizPageState.session||quizPageState.result;
+      if(snapshot) quizUpdateTranslationNotice(snapshot);
+    }
+    async function quizSaveCurrent(position,selected){
+      const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q)return;
+      quizPageState.saving=true;quizEl("quizSubmit").disabled=true;
+      quizEl("quizPrevious").disabled=true;quizEl("quizNext").disabled=true;
+      try{
+        const {data,error}=await quizCall("save_my_quiz_answer",{p_session_id:s.session_id,p_question_id:q.question_id,p_selected_option_id:selected===undefined?q.selected_option_id:selected,p_current_position:position});
+        if(error)throw error;quizPageState.session=data;return data;
+      }catch(error){quizStatus("Your answer could not be saved: "+error.message,true);throw error;}
+      finally{
+        quizPageState.saving=false;
+        const current=quizPageState.session;
+        const currentPosition=Number(current?.current_position)||1;
+        quizEl("quizPrevious").disabled=!current||currentPosition<=1;
+        quizEl("quizNext").disabled=!current||currentPosition>=Number(current.question_count||0);
+      }
+    }
+    async function quizChooseOption(optionId){
+      const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q||quizPageState.saving)return;
+      q.selected_option_id=optionId;quizRenderSession();
+      try{await quizSaveCurrent(s.current_position,optionId);quizRenderSession();}
+      catch(error){await quizReloadActive();quizStatus("Your answer was not saved. Please check your connection and try again. "+(error.message||""),true);}
+    }
+    async function quizReloadActive(){
+      try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;quizPageState.session=data||null;if(data)quizRenderSession();else await quizLoadHome();}
+      catch(error){quizStatus("Could not restore the saved Quiz: "+error.message,true);}
+    }
+    async function quizMove(position){
+      const s=quizPageState.session;if(!s||quizPageState.saving)return;
+      const next=Math.max(1,Math.min(s.question_count,position));if(next===s.current_position)return;
+      try{await quizSaveCurrent(next);quizPageState.session.current_position=next;quizRenderSession();}
+      catch{}
+    }
+    async function quizStart(difficulty){
+      try{
+        await preferenceWriteQueue;
+        quizStatus("Preparing your Quiz…");
+        const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty});if(error)throw error;
+        const session=data&&data.session?data.session:data;
+        if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
+        quizPageState.session=session;quizRenderSession();
+      }catch(error){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}
+    }
+    async function quizSubmit(){
+      const s=quizPageState.session;if(!s)return;
+      const missing=s.questions.filter(q=>!q.selected_option_id).length;
+      if(missing){quizStatus("Please answer all "+missing+" remaining question"+(missing===1?"":"s")+" before submitting.",true);return;}
+      if(!confirm("Submit this Quiz? You will be able to review every answer, but cannot change it afterwards."))return;
+      try{
+        quizStatus("Submitting your Quiz…");quizPageState.saving=true;
+        const {data,error}=await quizCall("submit_my_quiz",{p_session_id:s.session_id});if(error)throw error;
+        quizPageState.saving=false;quizPageState.result=data;quizRenderResult(data);
+        await quizLoadHistoryAndAvailability();
+      }catch(error){quizPageState.saving=false;quizStatus(error.message||"Could not submit the Quiz.",true);}
+    }
+    async function quizLoadHistoryAndAvailability(){
+      try{
+        const [a,h]=await Promise.all([quizCall("get_my_quiz_availability"),quizCall("get_my_quiz_history",{p_limit:20})]);
+        if(!a.error)quizRenderAvailability(a.data||{});if(!h.error)quizRenderHistory(h.data||[]);
+      }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
+    }
+    function quizRenderResult(data){
+      quizPageState.result=data;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
+      const effectiveTranslation=quizEffectiveTranslationCode(data);
+      const showTranslation=effectiveTranslation!== (data.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
+      quizUpdateTranslationNotice(data);
+      const questions=data.questions||[];
+      quizEl("quizResultsContent").innerHTML='<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
+        const chineseTranslationQuestion=q.question_type==="chinese_translation";
+        const opts=(q.options||[]).map((o,i)=>{
+          const correct=o.id===q.correct_option_id,chosen=o.id===q.selected_option_id;
+          const primaryText=chineseTranslationQuestion?o.translation_text:o.learning_text;
+          const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?" · "+o.learning_text:""):(showTranslation?" · "+o.translation_text:"");
+          return '<div class="quiz-review-option '+(correct?'correct':chosen?'chosen-wrong':'')+'">'+String.fromCharCode(65+i)+'. '+quizEscape(primaryText)+(secondaryText?quizEscape(secondaryText):'')+(correct?' — Correct answer':chosen?' — Your answer':'')+'</div>';
+        }).join("");
+        return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
+      }).join("")+'</div>';
+      quizEl("quizResultsHome").textContent=quizPageState.returnPage==="profile"?"← Back to Dashboard":"← Back to Quiz";
+      quizEl("quizResults").hidden=false;quizStatus("");
+    }
+    async function quizReview(sessionId,returnPage="quiz"){
+      quizPageState.returnPage=returnPage;
+      quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      try{quizStatus("Loading answer review…");const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;quizRenderResult(data);}
+      catch(error){quizStatus("Could not load this Quiz review: "+error.message,true);}
+    }
+    async function quizAbandon(){
+      const s=quizPageState.session;if(!s)return;
+      if(!confirm("Abandon this unfinished Quiz? Your answers will not be scored. The questions will remain unavailable for reuse today."))return;
+      try{quizStatus("Saving your decision…");const {error}=await quizCall("abandon_my_quiz",{p_session_id:s.session_id});if(error)throw error;quizPageState.session=null;await quizLoadHome();}
+      catch(error){quizStatus("Could not abandon this Quiz: "+error.message,true);}
+    }
+    async function quizSyncCoursePreferences(){
+      if(!currentUser||!supabaseClient)return;
+      await preferenceWriteQueue;
+      const {data,error}=await supabaseClient.from("user_preferences")
+        .select("learning_language,translation_language").eq("user_id",currentUser.id).maybeSingle();
+      if(error)throw error;
+      if(!data)return;
+      const nextCourse=data.learning_language==="zh"?"zh":"en";
+      const nextTranslation=data.translation_language==="zh"?"zh":"en";
+      const courseChanged=course!==nextCourse;
+      course=nextCourse;translationLanguage=nextTranslation;
+      try{localStorage.setItem(preferenceStorageKey,JSON.stringify({learning_language:course,translation_language:translationLanguage}));}catch{}
+      quizEl("courseSelect").value=course;
+      quizEl("translationSelect").value=translationLanguage;
+      quizEl("preferenceLearning").value=course;
+      quizEl("preferenceTranslation").value=translationLanguage;
+      words=course==="zh"?chineseWords:englishWords;
+      categoryRow.hidden=course==="zh";
+      grid.classList.toggle("character-grid",course==="zh");
+      search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+      if(courseChanged){
+        activeLetter="";activeCategory="all";onlySaved=false;currentPage=1;
+        savedFilter.setAttribute("aria-pressed","false");savedFilter.textContent="☆ Saved words";
+        search.value="";makeAlphabet();updateLetterButtons();render();
+      }
+    }
+    async function initialiseQuizPage(){
+      if(currentUser)quizPageState.userId=currentUser.id;
+      if(quizPageState.loading)return;quizPageState.loading=true;
+      try{
+        if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access Quiz.");return;}
+        await quizSyncCoursePreferences();
+        applyLearningCourseAvailability();
+        if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.");quizPageState.loaded=true;return;}
+        await quizLoadHome();quizPageState.loaded=true;
+      }catch(error){quizStatus("Quiz is not ready on this environment yet. "+(error.message||""),true);}
+      finally{quizPageState.loading=false;}
+    }
+    quizEl("quizRefresh").addEventListener("click",()=>{quizPageState.loaded=false;initialiseQuizPage();});
+    quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
+    quizEl("quizDifficultyGrid").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-start]");if(button&&!button.disabled)quizStart(button.dataset.quizStart);});
+    quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
+    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
+    quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
+    quizEl("quizQuestionArea").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-option]");if(button)quizChooseOption(button.dataset.quizOption);});
+    quizEl("quizPrevious").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)-1));
+    quizEl("quizNext").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)+1));
+    quizEl("quizSubmit").addEventListener("click",quizSubmit);
+    quizEl("quizAbandon").addEventListener("click",quizAbandon);
+    quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
+    quizEl("quizResultsHome").addEventListener("click",async()=>{const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();});
+    window.addEventListener("swift-auth-updated",()=>{
+      const nextUserId=currentUser?.id||null;
+      // Supabase emits INITIAL_SESSION after page load. Do not reset a Quiz
+      // session that the learner has already resumed when that same account's
+      // delayed auth notification arrives. Reset only when identity changes.
+      if(quizPageState.userId===nextUserId)return;
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
+      if(location.hash==="#quiz")initialiseQuizPage();
+    });
+
+
+    // Update 2.4.0: persistent introductions, contextual FAQs and explicit
+    // Chinese-course availability. Dismissals are scoped to the signed-in
+    // account; local storage is a graceful fallback until the migration is applied.
+    const learningIntroCopy = {
+      lessons:{title:"Welcome to Lessons",intro:"Lessons build English skills through guided explanations, examples and short practice. Choose a difficulty, work at your own pace and return to unfinished learning.",faqs:[
+        ["Do I need to finish a lesson in one sitting?","No. Unfinished lessons can be resumed. There is no timer or time pressure."],
+        ["How is progress saved?","Completed lessons and supported practice progress are saved to your account when signed in."],
+        ["Can I change the translation language?","Yes. Your translation preference is separate from the learning course."],
+        ["Why are Chinese lessons unavailable?","The current Lessons library contains English learning content only. Chinese learning content will be announced when it is ready."]
+      ]},
+      quiz:{title:"Welcome to Quiz",intro:"Quiz offers mixed-topic questions at Beginner, Intermediate and Advanced levels. Sessions are untimed, answers can be changed before submission, and results show a score and percentage without pass or fail.",faqs:[
+        ["Can I pause and resume?","Yes. Your unfinished session and saved answers remain available until you complete or explicitly abandon it."],
+        ["Can I change an answer?","Yes. You can revisit questions and change answers until you submit the Quiz."],
+        ["How does the daily allowance work?","Free accounts have one completed Quiz per day; Premium accounts have three. Only a completed Quiz consumes an allowance."],
+        ["Why does an active Quiz keep its old translation?","The language pair is fixed when a Quiz session starts. A changed preference applies to the next Quiz if the active session does not contain that translation."],
+        ["Is Chinese Quiz available?","Not yet. The current approved Quiz content supports the English learning course only."]
+      ]},
+      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards will provide focused vocabulary recall and review. This learning experience is still being prepared.",faqs:[
+        ["Can I start a Flashcard session now?","Not yet. Flashcards will become available in a future SwiftDictionary update."],
+        ["Will progress be saved?","The planned experience includes saved review progress and allowance integration."],
+        ["Is Chinese Flashcards available?","Not yet. There is currently no Chinese Flashcards learning course."]
+      ]}
+    };
+    let learningIntroCurrentPage = null;
+    let learningIntroDismissed = new Set();
+    function learningIntroStorageKey(userId){return "swiftdictionary-learning-intro-dismissals:"+ (userId||"guest");}
+    function learningIntroRender(page){
+      const data=learningIntroCopy[page];if(!data)return;
+      learningIntroCurrentPage=page;
+      quizEl("learningIntroTitle").textContent=data.title;
+      quizEl("learningIntroContent").innerHTML='<p>'+escapeHTML(data.intro)+'</p><h3>Frequently asked questions</h3>'+data.faqs.map(([q,a])=>'<h3>'+escapeHTML(q)+'</h3><p>'+escapeHTML(a)+'</p>').join("");
+      quizEl("learningIntroBackdrop").hidden=false;
+      quizEl("learningIntroClose").focus();
+    }
+    function learningIntroClose(){quizEl("learningIntroBackdrop").hidden=true;learningIntroCurrentPage=null;}
+    async function learningIntroSaveDismissal(page){
+      const key=page;
+      learningIntroDismissed.add(key);
+      try{localStorage.setItem(learningIntroStorageKey(currentUser?.id||null),JSON.stringify([...learningIntroDismissed]));}catch{}
+      if(currentUser&&supabaseClient){
+        const {error}=await supabaseClient.from("learning_page_introduction_preferences").upsert({user_id:currentUser.id,page_key:page,dismissed_at:new Date().toISOString()},{onConflict:"user_id,page_key"});
+        if(error){
+          const status=document.getElementById("accountStatus");
+          if(status)status.textContent="Your dismissal is saved on this device, but account sync is unavailable until the learning-introduction preference migration is applied.";
+        }
+      }
+      learningIntroClose();
+    }
+    async function learningIntroLoadPreferences(){
+      learningIntroDismissed=new Set();
+      const readDismissals=key=>{try{return new Set(JSON.parse(localStorage.getItem(key)||"[]"));}catch{return new Set();}};
+      const guestDismissals=readDismissals(learningIntroStorageKey(null));
+      const accountDismissals=currentUser?readDismissals(learningIntroStorageKey(currentUser.id)):new Set();
+      learningIntroDismissed=currentUser?new Set([...guestDismissals,...accountDismissals]):guestDismissals;
+      if(currentUser&&supabaseClient){
+        const {data,error}=await supabaseClient.from("learning_page_introduction_preferences").select("page_key").eq("user_id",currentUser.id);
+        if(!error){
+          (data||[]).forEach(row=>learningIntroDismissed.add(row.page_key));
+          // If a learner dismissed a guide before signing in, carry that choice
+          // into their account so it follows them to other devices.
+          for(const page of guestDismissals){
+            if(!["lessons","quiz","flashcards"].includes(page))continue;
+            const {error:saveError}=await supabaseClient.from("learning_page_introduction_preferences").upsert({user_id:currentUser.id,page_key:page,dismissed_at:new Date().toISOString()},{onConflict:"user_id,page_key"});
+            if(!saveError)learningIntroDismissed.add(page);
+          }
+          try{localStorage.setItem(learningIntroStorageKey(currentUser.id),JSON.stringify([...learningIntroDismissed]));}catch{}
+        }
+      }
+    }
+    function learningIntroMaybeShow(page){
+      if(learningIntroDismissed.has(page)){if(learningIntroCurrentPage===page)learningIntroClose();return;}
+      learningIntroRender(page);
+    }
+    document.querySelectorAll("[data-learning-help]").forEach(button=>button.addEventListener("click",()=>learningIntroRender(button.dataset.learningHelp)));
+    quizEl("learningIntroClose").addEventListener("click",learningIntroClose);
+    quizEl("learningIntroDismiss").addEventListener("click",()=>{if(learningIntroCurrentPage)learningIntroSaveDismissal(learningIntroCurrentPage);});
+    quizEl("learningIntroBackdrop").addEventListener("click",event=>{if(event.target===quizEl("learningIntroBackdrop"))learningIntroClose();});
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!quizEl("learningIntroBackdrop").hidden)learningIntroClose();});
+    function applyLearningCourseAvailability(){
+      const chinese=course==="zh";
+      quizEl("lessonsChineseUnavailable").hidden=!chinese;
+      quizEl("dailyLearningPage").hidden=chinese;
+      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese;
+      quizEl("lessonLibrary").hidden=chinese;
+      quizEl("quizChineseUnavailable").hidden=!chinese;
+      quizEl("quizHome").hidden=chinese||!currentUser;
+      quizEl("quizSession").hidden=chinese||!currentUser||!quizPageState.session;
+      quizEl("quizResults").hidden=chinese||!currentUser||!quizPageState.result;
+      quizEl("quizSignedOut").hidden=chinese||!!currentUser;
+      quizUpdateTranslationNotice(chinese?null:(quizPageState.session||quizPageState.result));
+      quizEl("flashcardsChineseUnavailable").hidden=!chinese;
+      const flashComing=quizEl("flashcardsPage").querySelector(".coming-card");
+      if(flashComing)flashComing.hidden=chinese;
+    }
+    const originalRememberCoursePreferences = rememberCoursePreferences;
+    rememberCoursePreferences = function(){originalRememberCoursePreferences();applyLearningCourseAvailability();};
+    const originalShowPage = showPage;
+    showPage = function(page,updateHash=true){
+      originalShowPage(page,updateHash);
+      if(["lessons","quiz","flashcards"].includes(page)){applyLearningCourseAvailability();learningIntroPreferencesReady.then(()=>learningIntroMaybeShow(page));}
+    };
+    window.addEventListener("swift-auth-updated",async()=>{
+      learningIntroPreferencesReady=learningIntroLoadPreferences();
+      await learningIntroPreferencesReady;
+      if(["lessons","quiz","flashcards"].includes((location.hash||"").slice(1)))learningIntroMaybeShow(location.hash.slice(1));
+    });
+    let learningIntroPreferencesReady=learningIntroLoadPreferences().then(()=>applyLearningCourseAvailability());
+    document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
+    document.getElementById("courseSelect").addEventListener("change",()=>{
+      applyLearningCourseAvailability();
+      if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
+    });
+
+    // Resolve the requested route immediately; account initialisation must not
+    // redirect signed-out visitors away from public pages such as Quiz.
+    showHashPage();
     // Keep the profile route inaccessible to signed-out visitors.
     initAccount().then(() => showHashPage()).catch(error => {
       document.getElementById("accountStatus").textContent = `Account initialization failed: ${error.message}`;
       showHashPage();
     });
   </script>
+
   <script src="daily-learning.js"></script>
 </body>
 </html>

@@ -83,6 +83,7 @@ create policy "Users can update their own daily activity sessions"
   with check ((select auth.uid()) = user_id);
 
 grant select, insert, update on public.daily_activity_sessions to authenticated;
+grant select, insert, update, delete on public.daily_activity_sessions to service_role;
 
 -- Clients cannot bypass the start RPC by inserting a session with a forged
 -- local date, timezone, source, or content identifier.

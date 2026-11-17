@@ -1,5 +1,27 @@
 const { test, expect } = require("@playwright/test");
 
+async function autoDismissLearningIntro(page) {
+  // Legacy regression cases focus on Lessons/Daily Learning, not the guide.
+  // Install this on every page explicitly, including pages created via
+  // browser.newPage() which do not run the Playwright page fixture's beforeEach.
+  await page.addInitScript(() => {
+    const startGuideObserver = () => {
+      const root = document.documentElement;
+      if (!root) return;
+      const dismissGuide = () => {
+        const backdrop = document.getElementById("learningIntroBackdrop");
+        const dismiss = document.getElementById("learningIntroDismiss");
+        if (backdrop && !backdrop.hidden && dismiss) dismiss.click();
+      };
+      const observer = new MutationObserver(dismissGuide);
+      observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
+      dismissGuide();
+    };
+    if (document.documentElement) startGuideObserver();
+    else document.addEventListener("DOMContentLoaded", startGuideObserver, { once: true });
+  });
+}
+
 test.beforeEach(async ({ page }) => {
   // Keep browser CI isolated from the hosted project. The signed-out UI only
   // needs the public app shell; account-dependent flows are covered separately.
@@ -9,6 +31,7 @@ test.beforeEach(async ({ page }) => {
     body: 'window.SWIFT_SUPABASE_CONFIG = { url: "", anonKey: "" };'
   }));
   await page.route("https://*.supabase.co/**", route => route.abort());
+  await autoDismissLearningIntro(page);
 });
 
 test("dictionary loads and remains usable in signed-out mode", async ({ page }) => {
@@ -551,6 +574,8 @@ test("completed Discovery content remains reviewable across UTC rollover within 
 test("Daily activity tabs show one Free card or three Premium cards with row actions", async ({ browser }) => {
   const freePage = await browser.newPage();
   const premiumPage = await browser.newPage();
+  await autoDismissLearningIntro(freePage);
+  await autoDismissLearningIntro(premiumPage);
   await installDailyLearningMock(freePage,"daily-tabs-free","free");
   await installDailyLearningMock(premiumPage,"daily-tabs-premium","premium");
   for (const page of [freePage,premiumPage]) {
@@ -580,6 +605,9 @@ test("Daily Discovery shows one Free entry and three identical Premium entries g
   const freePage = await browser.newPage();
   const premiumPageA = await browser.newPage();
   const premiumPageB = await browser.newPage();
+  await autoDismissLearningIntro(freePage);
+  await autoDismissLearningIntro(premiumPageA);
+  await autoDismissLearningIntro(premiumPageB);
   await installDailyLearningMock(freePage,"discovery-free-account","free");
   await installDailyLearningMock(premiumPageA,"discovery-premium-account-a","premium");
   await installDailyLearningMock(premiumPageB,"discovery-premium-account-b","premium");

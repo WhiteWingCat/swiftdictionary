@@ -1,0 +1,221 @@
+name: Quiz database foundation
+
+on:
+  push:
+    branches:
+      - feature/update-2-4-0-quiz
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quiz-local-supabase:
+    name: Local Supabase Auth and RPC integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+
+      - name: Set up Node.js for authenticated browser tests
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      - name: Create an isolated local Supabase workspace
+        run: |
+          mkdir -p "$RUNNER_TEMP/swiftdictionary-quiz-supabase"
+          cd "$RUNNER_TEMP/swiftdictionary-quiz-supabase"
+          supabase init
+
+      - name: Start disposable local Supabase services
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: supabase start -x studio,edge-runtime,logflare,vector,imgproxy
+
+      - name: Verify real Supabase Auth contract
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-3-0/supabase-local-auth-contract.sql"
+
+      - name: Create clean staging application baseline and CI-only legacy fixtures
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -1 -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/bootstrap.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/verify-clean-bootstrap.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-3-0/supabase-local-app-fixtures.sql"
+
+      - name: Apply Update 2.3.x prerequisite migrations
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          # Create the private lesson-exemption helper before the 2.3.x
+          # allowance migrations; those later migrations install the current
+          # completion-ledger trigger implementation.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/202611090001_swiftdictionary_personal_lesson_testing_allowlist.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082303_swiftdictionary_update_2_3_0_saved_words_privilege_hardening.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082311_swiftdictionary_update_2_3_0_learning_content_catalog.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082324_swiftdictionary_update_2_3_0_completion_based_allowance.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082328_swiftdictionary_update_2_3_0_daily_activity_sessions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082332_swiftdictionary_update_2_3_0_current_window_allowance_ledger.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114082335_swiftdictionary_update_2_3_0_learning_history_deletion.sql"
+
+      - name: Apply Quiz question-bank and authenticated RPC migrations
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114120000_swiftdictionary_update_2_4_0_quiz_question_bank_foundation.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261114160000_swiftdictionary_update_2_4_0_quiz_authenticated_rpcs.sql"
+          # Apply the approved Quiz-only 1/3 allowance migration in timestamp order.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql"
+
+      - name: Apply account-scoped learning introduction preferences
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/learning_page_introduction_preferences.sql"
+
+      - name: Apply authenticated question-type extension
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117180000_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql"
+
+      - name: Verify explicit grants for all staged public tables
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/verify-migration-grants.sql"
+
+      - name: Install test-only observers and run authenticated Quiz RPC integration tests
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_rpc_test_observers.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_authenticated_rpcs.sql"
+
+      - name: Validate and import draft Quiz content in local Supabase
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_catalog.sql"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs" --emit-sql > "$RUNNER_TEMP/quiz-drafts.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
+
+      - name: Validate owner-authorized 199-question release export and migration
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs" --emit-sql --approve-for-release > "$RUNNER_TEMP/quiz-approved-export.sql"
+          grep -q "OWNER-AUTHORIZED RELEASE IMPORT" "$RUNNER_TEMP/quiz-approved-export.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-approved-export.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117190000_swiftdictionary_update_2_4_0_quiz_content_release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+
+      - name: Seed disposable synthetic approved Quiz content
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/quiz/quiz-browser-runtime-fixture.sql"
+
+      - name: Run authenticated Chromium Quiz runtime tests against local Supabase
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          npm --prefix "$GITHUB_WORKSPACE" install --no-save @playwright/test
+          "$GITHUB_WORKSPACE/node_modules/.bin/playwright" install --with-deps chromium
+          eval "$(supabase status --output env)"
+          export API_URL ANON_KEY SERVICE_ROLE_KEY
+          cd "$GITHUB_WORKSPACE"
+          CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
+
+      - name: Run Supabase security advisors against the local Quiz schema
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: supabase db advisors --type security --fail-on error
+
+      - name: Stop disposable local Supabase services
+        if: always()
+        run: |
+          if [ -d "$RUNNER_TEMP/swiftdictionary-quiz-supabase" ]; then
+            cd "$RUNNER_TEMP/swiftdictionary-quiz-supabase"
+            supabase stop --no-backup
+          fi
+
+  quiz-db-foundation:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: swiftdictionary_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d swiftdictionary_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: swiftdictionary_test
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Validate Quiz frontend integration and inline JavaScript
+        run: node scripts/quiz/validate-quiz-frontend.mjs
+
+      - name: Prepare disposable Supabase-compatible Auth and learning schema
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_rpc_bootstrap.sql
+
+      - name: Apply account-scoped learning introduction preferences
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/learning_page_introduction_preferences.sql
+
+      - name: Apply Quiz question-bank foundation
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261114120000_swiftdictionary_update_2_4_0_quiz_question_bank_foundation.sql
+
+      - name: Validate Quiz question-bank foundation
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_question_bank_foundation.sql
+
+      - name: Apply authenticated Quiz RPC migration
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261114160000_swiftdictionary_update_2_4_0_quiz_authenticated_rpcs.sql
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117180000_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql
+
+      - name: Validate and import draft Quiz content in PostgreSQL
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_draft_content_catalog.sql
+          node scripts/quiz/validate-question-bank.mjs
+          node scripts/quiz/validate-question-bank.mjs --emit-sql > "$RUNNER_TEMP/quiz-drafts.sql"
+          psql -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_draft_content_import_assertions.sql
+
+      - name: Validate authenticated Quiz RPCs, session lifecycle and allowances
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_authenticated_rpcs.sql
