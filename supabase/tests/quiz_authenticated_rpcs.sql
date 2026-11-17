@@ -56,7 +56,7 @@ insert into private.quiz_question_bank(
   options,correct_option_id,explanation_learning,explanation_translation,status
 )
 select
-  prefix||'-'||n,1,'en','en',
+  prefix||'-'||n,1,'en','zh',
   prefix||'-lesson-'||(((n-1)%5)+1),
   'topic-'||(((n-1)%5)+1),
   difficulty,
@@ -86,7 +86,7 @@ insert into private.quiz_question_bank(
   explanation_learning,explanation_translation,status
 )
 select
-  prefix||'-definition-'||n,1,'en','en',
+  prefix||'-definition-'||n,1,'en','zh',
   prefix||'-lesson-'||(((n-1)%5)+1),'topic-'||(((n-1)%5)+1),difficulty,
   'word_definition','en','synthetic-objective-'||prefix,
   'Which meaning best matches definition item '||n||' for '||prefix||'?',
