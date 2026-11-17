@@ -18898,8 +18898,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const host=quizEl("quizHistory");
       if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">'+quizEscape(quizT("No completed Quizzes yet. Your results will appear here.","目前还没有已完成的测验。完成测验后，成绩会显示在这里。"))+'</p>';return;}
       host.innerHTML=quizPageState.history.map(row=>{
-        const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
-        return '<div class="quiz-history-row"><div><strong>'+quizEscape(quizDifficultyLabels[row.difficulty]||row.difficulty)+' · '+quizEscape(row.question_count)+' questions</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">Review</button></div></div>';
+        const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
+        const difficultyLabel=quizT(quizDifficultyLabels[row.difficulty]||row.difficulty,({beginner:"初级",intermediate:"中级",advanced:"高级"})[row.difficulty]||row.difficulty);
+        return '<div class="quiz-history-row"><div><strong>'+quizEscape(difficultyLabel)+' · '+quizEscape(row.question_count)+quizEscape(quizT(" questions"," 道题"))+'</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">'+quizEscape(quizT("Review","查看"))+'</button></div></div>';
       }).join("");
     }
     async function quizLoadHome(){
