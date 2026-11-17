@@ -86,6 +86,11 @@ if (!appScript.includes('const quizViewBefore=location.hash==="#quiz"') ||
     !appScript.includes('else if (quizViewBefore==="home")')) {
   throw new Error("Changing translation must preserve the exact Quiz subview the learner was viewing.");
 }
+if (!appScript.includes("let coursePreferenceSelectionVersion = 0;") ||
+    !appScript.includes("const selectionVersionAtStart=coursePreferenceSelectionVersion;") ||
+    !appScript.includes("selectionVersionAtStart!==coursePreferenceSelectionVersion")) {
+  throw new Error("A stale cloud preference read must not overwrite a newer local course/translation selection.");
+}
 if (!appScript.includes("const requestedCourse=courseSelector.value||course||\"en\";") ||
     !appScript.includes("const requestedTranslation=translationSelector.value||translationLanguage||\"en\";")) {
   throw new Error("Quiz start must snapshot the current visible course and translation selector values.");
