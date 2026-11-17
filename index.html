@@ -428,31 +428,28 @@
     .quiz-translation-notice{padding:10px 13px;border:1px solid var(--border);border-radius:10px;margin:10px 0;color:var(--muted)}
 
 
-    /* High-contrast course selectors: clearly separated from account actions. */
-    #globalCourseControls.course-controls {
-      display:flex; align-items:stretch; gap:10px; margin:0; padding:9px;
-      border:1px solid #7ea5ff; border-radius:18px;
-      background:linear-gradient(135deg,#dce9ff 0%,#b9d1ff 48%,#e7efff 100%);
-      box-shadow:0 8px 24px rgba(8,25,60,.28),inset 0 1px 0 rgba(255,255,255,.9);
+    /* Compact language controls follow the account/Profile navigation pill style. */
+    #globalCourseControls.course-controls { display:flex; align-items:center; gap:7px; margin:0; padding:0; border:0; background:transparent; box-shadow:none; }
+    .course-selector-wrap { position:relative; }
+    .course-control-trigger { min-height:40px; padding:5px 10px 5px 7px; font-size:.9rem; font-weight:750; white-space:nowrap; }
+    .course-control-icon { width:27px; height:27px; display:grid; place-items:center; border-radius:50%; background:var(--accent-bg); font-size:1rem; }
+    .course-selector-menu { display:grid; gap:9px; padding:12px; }
+    .course-selector-label { display:block; color:var(--muted); font-size:.75rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+    .course-selector-menu select { width:100%; min-width:160px; padding:9px 32px 9px 11px; border:1px solid var(--border); border-radius:10px; background:var(--panel); color:var(--text); font-size:.92rem; font-weight:700; }
+    .course-selector-menu select:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    @media(max-width:760px) {
+      #globalCourseControls.course-controls { width:auto; gap:6px; }
+      .course-control-trigger { min-height:38px; padding:4px 8px 4px 6px; font-size:.82rem; }
+      .course-control-icon { width:25px; height:25px; }
     }
-    #globalCourseControls.course-controls label {
-      display:grid; gap:5px; min-width:154px; padding:8px 11px;
-      border:1px solid #5279c2; border-radius:12px; background:#142b55;
-      color:#edf4ff; font-size:.7rem; font-weight:850; letter-spacing:.075em;
-      text-transform:uppercase;
-    }
-    #globalCourseControls.course-controls select {
-      min-width:0; width:100%; padding:9px 32px 9px 11px;
-      border:1px solid #9bbcff; border-radius:9px; background:#fff;
-      color:#142b55; font-size:.94rem; font-weight:800;
-      letter-spacing:0; text-transform:none; box-shadow:0 2px 5px rgba(8,25,60,.14);
-    }
-    #globalCourseControls.course-controls label:focus-within {
-      border-color:#183f83; background:#0e2450; box-shadow:0 0 0 2px rgba(255,255,255,.55);
-    }
-    #globalCourseControls.course-controls select:focus-visible {
-      outline:3px solid #173f85; outline-offset:2px; border-color:#173f85;
-    }
+    .quiz-difficulty-heading { align-items:center; gap:18px; }
+    .quiz-allowance-card { flex:0 0 auto; display:flex; align-items:center; gap:14px; min-width:220px; margin:0; padding:10px 13px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
+    .quiz-allowance-card h2 { margin:0; }
+    .quiz-allowance-card strong { display:block; font-size:.82rem; }
+    .quiz-allowance-card .quiz-allowance-number { margin:2px 0 0; font-size:1.15rem; font-weight:850; line-height:1.2; }
+    .quiz-allowance-card .muted-note { margin:0; font-size:.72rem; line-height:1.35; max-width:150px; }
+    .quiz-history-row { gap:12px; }
+    @media(max-width:760px) { .quiz-difficulty-heading { align-items:stretch; flex-direction:column; } .quiz-allowance-card { width:100%; justify-content:space-between; } }
     .quiz-difficulty-option { padding:22px; border:1px solid var(--border); border-radius:16px; background:linear-gradient(155deg,var(--panel) 0%,var(--panel-hover) 100%); box-shadow:var(--shadow); }
     .quiz-difficulty-option h3 { margin:0 0 7px; font-size:1.2rem; font-weight:850; letter-spacing:-.02em; }
     .quiz-difficulty-count { display:block; margin:0 0 10px; color:var(--accent); font-size:1rem; font-weight:850; }
@@ -472,7 +469,16 @@
   <header>
     <div class="wrap topbar">
       <div class="brand"><div class="brand-icon">S</div><span>SwiftDictionary</span></div>
-      <div class="top-actions"><div class="course-controls" id="globalCourseControls"><label>Learning course <select id="courseSelect"><option value="en">English</option><option value="zh">简体中文</option></select></label><label>Translate into <select id="translationSelect"><option value="en">English</option><option value="zh">简体中文</option></select></label></div>
+      <div class="top-actions"><div class="course-controls" id="globalCourseControls" aria-label="Learning language settings">
+          <div class="course-selector-wrap">
+            <button id="courseControlTrigger" class="account-menu-trigger course-control-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="courseControlMenu"><span class="course-control-icon" aria-hidden="true">📘</span><span id="courseControlValue">English</span><span aria-hidden="true">⌄</span></button>
+            <div id="courseControlMenu" class="account-menu course-selector-menu" hidden><label class="course-selector-label" for="courseSelect">Learning course</label><select id="courseSelect"><option value="en">English</option><option value="zh">简体中文</option></select></div>
+          </div>
+          <div class="course-selector-wrap">
+            <button id="translationControlTrigger" class="account-menu-trigger course-control-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="translationControlMenu"><span class="course-control-icon" aria-hidden="true">🌐</span><span id="translationControlValue">简体中文</span><span aria-hidden="true">⌄</span></button>
+            <div id="translationControlMenu" class="account-menu course-selector-menu" hidden><label class="course-selector-label" for="translationSelect">Translate into</label><select id="translationSelect"><option value="en">English</option><option value="zh">简体中文</option></select></div>
+          </div>
+        </div>
         <div class="account-menu-wrap"><button id="accountButton" class="account-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu"><span id="accountAvatar" class="account-avatar" aria-hidden="true">🐦</span><span id="accountButtonLabel">Account</span><span aria-hidden="true">⌄</span></button>
           <div id="accountMenu" class="account-menu" hidden>
             <div id="accountMenuEmail" class="menu-email">Not signed in</div>
@@ -572,11 +578,10 @@
       <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
       <section id="quizHome" hidden>
         <div class="quiz-overview-grid">
-          <article class="profile-card quiz-allowance-card"><h2>Daily Quiz allowance</h2><p id="quizAllowanceText" class="quiz-allowance-number">—</p><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article>
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
         </div>
         <div id="quizMockNotice" class="quiz-mock-notice" hidden role="status"><strong>Preview simulation</strong><span>This session uses synthetic questions to check the interface only. It does not test the real question bank, difficulty balance or learning accuracy.</span></div>
-      <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
+        <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading quiz-difficulty-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div><article class="quiz-allowance-card"><div><strong>Daily Quiz allowance</strong><p id="quizAllowanceText" class="quiz-allowance-number">—</p></div><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
         <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
       </section>
       <section id="quizSession" class="profile-card quiz-session-card" hidden>
@@ -608,6 +613,7 @@
         <section class="profile-card"><h3>Learning progress</h3><p class="muted-note">Your progress is based on successful lesson and daily activity completions. Dictionary searches and saved words are not restricted or counted as lesson activity.</p>
           <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
           <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-bars"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
+          <details open><summary>Quiz history</summary><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></details>
         </section>
         <section class="profile-card"><h3>Practice insights</h3>
           <div class="profile-grid">
