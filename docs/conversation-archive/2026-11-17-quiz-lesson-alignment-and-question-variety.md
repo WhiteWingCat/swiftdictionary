@@ -67,8 +67,8 @@ The Chinese-integrated question quiz-advanced-zh-006 tests a third-conditional i
 - Implementation branch: feature/update-2-4-0-quiz.
 - Latest application/documentation commit at this note: 5b075f9bc01f0165fa0704931d42fb2d6ab0fa29.
 - PR #8 remains open, draft and unmerged.
-- Quiz database foundation workflow run #44059590986: quiz-db-foundation passed; disposable local Supabase Auth/RPC integration was still running at the latest status check.
-- Companion 2.3.x regression workflow run #44059591070: PostgreSQL 17, Chromium browser regression and Supabase CLI local Auth compatibility all passed.
+- Quiz database foundation workflow run #44059590986 passed both PostgreSQL/draft-import and disposable local Supabase Auth/RPC jobs, including six authenticated Chromium Quiz runtime tests and Supabase security advisors.
+- Companion 2.3.x regression workflow run #44059591070: PostgreSQL 17, Chromium browser regression (23 passed) and Supabase CLI local Auth compatibility all passed.
 - The draft content validator and PostgreSQL import assertions passed for the 199-question source pack; the exporter continues to include only the original 114 knowledge questions.
 - Cloudflare Pages check for the feature branch completed successfully. The separate Workers Builds check remains failed, consistent with the pre-existing split result recorded in the preceding archive; it is not the Pages deployment result.
 
@@ -82,7 +82,6 @@ The Chinese-integrated question quiz-advanced-zh-006 tests a third-conditional i
 
 ## Next steps
 
-1. Confirm the disposable local Supabase Auth/RPC integration job finishes successfully.
-2. Continue bilingual editorial review for factual accuracy, natural Simplified Chinese, answer uniqueness, difficulty and explanations.
+1. Continue bilingual editorial review for factual accuracy, natural Simplified Chinese, answer uniqueness, difficulty and explanations.
 3. Add authenticated database/RPC support for word_definition and chinese_translation in a reviewed feature-branch migration, then test it in the isolated staging environment after its clean-schema bootstrap is complete.
 4. Keep all content draft until the owner has reviewed and explicitly approved the bank. Production import and release remain separate approval gates.
