@@ -3,7 +3,7 @@
 -- project and must not be run after real tester accounts have been created.
 
 create function public._staging_default_privilege_probe()
-returns void language sql as 'select';
+returns void language plpgsql as $ begin return; end $;
 
 do $
 declare
