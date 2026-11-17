@@ -230,7 +230,8 @@ begin
   where q.status = 'approved'
     and q.learning_language_code = 'en'
     and v_learning = 'en'
-    and q.translation_language_code = v_translation;
+    and q.translation_language_code = v_translation
+    and q.learning_objective_id is not null;
 
   select
     count(*) filter (where q.question_type='word_definition' and q.difficulty='beginner')::integer,
@@ -292,6 +293,7 @@ begin
     and v_learning = 'en'
     and q.translation_language_code = v_translation
     and q.question_type='knowledge'
+    and q.learning_objective_id is not null
     and not exists (
       select 1 from private.quiz_daily_question_reservations issued
       where issued.user_id = v_user
@@ -316,7 +318,7 @@ begin
     and v_def_b+v_def_i+v_def_a>=3
     and (v_translation<>'zh' or v_zh_b+v_zh_i+v_zh_a>=21);
 
-  v_beginner_fresh := v_rb >= 10 and v_beginner_topics >= 3 and v_unseen_def>=1 and (v_translation<>'zh' or v_unseen_zh>=1);
+  v_beginner_fresh := v_rb >= 10 and v_beginner_topics >= 3 and v_unseen_def>=1 and (v_translation<>'zh' or v_unseen_zh>=7);
   v_intermediate_fresh := v_intermediate_topics >= 3 and v_unseen_def>=1 and (v_translation<>'zh' or v_unseen_zh>=1) and (
        (v_ri >= 12 and v_rb >= 3)
     or (v_ri >= 8 and v_rb >= 7)
