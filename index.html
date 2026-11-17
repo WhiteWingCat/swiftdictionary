@@ -18348,12 +18348,21 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       if (!supabaseClient || !currentUser) return;
       const userId = currentUser.id;
       const displayName = currentUser.user_metadata?.full_name || currentUser.user_metadata?.name || null;
-      const [profileResult, prefResult] = await Promise.all([
-        supabaseClient.from("profiles").upsert({user_id:userId,display_name:displayName},{onConflict:"user_id",ignoreDuplicates:true}),
-        supabaseClient.from("user_preferences").upsert({user_id:userId,learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()},{onConflict:"user_id",ignoreDuplicates:true})
+      // Avoid blind upserts here: PostgreSQL evaluates INSERT policies for an
+      // upsert even when ON CONFLICT would leave an existing row unchanged.
+      // Some valid account policies intentionally allow owners to read/update
+      // preferences but do not grant a redundant INSERT on every dashboard load.
+      async function ensureOwnedRow(table,values) {
+        const {data,error}=await supabaseClient.from(table).select("user_id").eq("user_id",userId).maybeSingle();
+        if(error)throw error;
+        if(data)return;
+        const {error:insertError}=await supabaseClient.from(table).insert(values);
+        if(insertError&&insertError.code!=="23505")throw insertError;
+      }
+      await Promise.all([
+        ensureOwnedRow("profiles",{user_id:userId,display_name:displayName}),
+        ensureOwnedRow("user_preferences",{user_id:userId,learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()})
       ]);
-      if (profileResult.error) throw profileResult.error;
-      if (prefResult.error) throw prefResult.error;
     }
 
     function inferSavedWordCourse(word,storedCourse) {
