@@ -18507,7 +18507,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try {
         await preferenceWriteQueue;
         await ensureProfileRows();
-        const [profileQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ] = await Promise.all([
+        const [profileQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -18519,7 +18519,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at").eq("user_id",currentUser.id).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",currentUser.id),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
-          supabaseClient.rpc("is_personal_learning_test_access")
+          supabaseClient.rpc("is_personal_learning_test_access"),
+          supabaseClient.rpc("get_my_quiz_history",{p_limit:5})
         ]);
         let prefsQ = prefsInitialQ;
         if (prefsQ.error && /allowance_timezone|PGRST204|42703/i.test(prefsQ.error.message || "")) {
@@ -18606,6 +18607,18 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           return '<div class="activity-overview-row"><div class="activity-overview-heading"><strong>'+activityLabels[type]+'</strong><span>'+(unavailable?"Unavailable":count+(count===1?" completion":" completions"))+'</span></div><div class="activity-overview-track" role="img" aria-label="'+activityLabels[type]+': '+count+' completions"><span style="width:'+(unavailable?0:width)+'%"></span></div></div>';
         }).join(""):'<p class="muted-note">No completed learning activity recorded yet. '+(dailyPracticeUnavailable?"Daily activity history will appear after the server update.":"Your completed lessons and daily activities will appear here.")+'</p>';
         renderDashboardAllowanceBars(plan,limits,allowanceUsageRows,tz,personalTestAccess);
+        const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
+        if(dashboardQuizHost) {
+          const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data:[]);
+          dashboardQuizHost.innerHTML=quizHistoryQ.error
+            ? '<p class="muted-note">Quiz history is unavailable until the Update 2.4.0 Quiz database functions are installed.</p>'
+            : quizRows.length?quizRows.map(row=>{
+              const date=row.completed_at?new Date(row.completed_at).toLocaleString():"Completed";
+              const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
+              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">Review</button></div></div>';
+            }).join("")
+            : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
+        }
 
         // Practice insights use aggregate counts only. No individual answers or
         // response text are retrieved or retained.
@@ -18944,6 +18957,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
     quizEl("quizDifficultyGrid").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-start]");if(button&&!button.disabled)quizStart(button.dataset.quizStart);});
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
+    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz");quizReview(button.dataset.dashboardQuizReview);}});
     quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
     quizEl("quizQuestionArea").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-option]");if(button)quizChooseOption(button.dataset.quizOption);});
     quizEl("quizPrevious").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)-1));
