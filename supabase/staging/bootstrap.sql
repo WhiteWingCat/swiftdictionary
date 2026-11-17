@@ -12,6 +12,12 @@
 
 begin;
 
+-- Match Supabase's post-2026-10-30 least-privilege default for new public objects.
+alter default privileges for role postgres in schema public
+  revoke select, insert, update, delete on tables from anon, authenticated, service_role;
+alter default privileges for role postgres in schema public
+  revoke usage, select on sequences from anon, authenticated, service_role;
+
 -- Supabase provides the auth schema, roles, users, sessions and Auth helpers.
 create schema if not exists private;
 create table public.languages (
@@ -265,6 +271,10 @@ grant usage, select on sequence public.lesson_practice_results_id_seq to authent
 grant select, insert, update on public.user_preferences to authenticated;
 grant select on public.user_entitlements, public.learning_plan_limits to authenticated;
 grant usage, select on sequence public.learning_activity_log_id_seq to authenticated;
+
+-- Server-side service_role access is explicit; never ship this key to the browser.
+grant all privileges on all tables in schema public to service_role;
+grant usage, select on all sequences in schema public to service_role;
 
 insert into public.learning_plan_limits(plan_code, activity_type, daily_limit)
 values
