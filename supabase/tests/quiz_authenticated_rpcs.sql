@@ -377,7 +377,7 @@ begin
   if exists (
     select 1 from jsonb_array_elements(v_session->'questions') q
     where q->>'question_type'='chinese_translation'
-      and not exists (
+      and exists (
         select 1 from jsonb_array_elements(q->'options') o
         where nullif(o->>'translation_text','') is null
       )
