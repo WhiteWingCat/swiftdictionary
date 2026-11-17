@@ -1115,3 +1115,20 @@ US$0/month is the current project-creation quote, not a guarantee that all usage
 No production schema/data, production hosting, main branch or PR #8 state was changed by creating this staging project. The 114 questions remain drafts and are approved for this staging test purpose only.
 
 **Session archive:** `docs/conversation-archive/2026-11-17-swiftdictionary-indie-staging-approval-and-creation.md`.
+
+
+## 28. Update 2.4.0 — Mock Quiz uses the 114 bilingual draft questions (2026-11-17)
+
+The owner approved using the existing 114 draft Quiz questions in Mock User testing now, accepting that some wording or answers may be inaccurate so they can provide meaningful feedback. This approval is limited to the isolated Mock Quiz preview and is not approval to publish the content to learners.
+
+- `mock-testing.js` now loads `content/quiz/questions.en-zh.draft.json` and `content/quiz/curriculum-map.en.json` only in the preview-only Mock Test Mode. The loader requires the pack to remain marked `draft`, validates the 114-question count, bilingual prompts/options/explanations, unique option IDs, correct-answer keys and curriculum mappings, and checks the expected 30 Beginner / 36 Intermediate / 48 Advanced distribution.
+- Mock sessions sample from the actual pools with the approved compositions: Beginner 10; Intermediate 12 Intermediate + 3 Beginner; Advanced 12 Advanced + 6 Intermediate + 2 Beginner (60% Advanced). Question order and answer options are shuffled without changing option IDs or answer identity.
+- Active-session responses do not reveal correct answers or explanations. Those are returned only after completion for review. Scoring, session state, history, resume/abandonment and daily allowances remain local simulations.
+- `index.html` now labels the feature as a draft question-bank preview and warns that question content, answer keys and explanations are not accuracy-approved for learners.
+- `tests/update-2-3-1/mock-testing.test.mjs` now loads the real draft fixtures and verifies real question identity/content, hidden answer keys before submission, preserved correct keys after submission and Advanced difficulty composition.
+- Independent structural inspection found all 114 draft items mapped and complete, with 30/36/48 difficulty counts. This is a structural check, not editorial accuracy approval.
+- Branch: `feature/update-2-4-0-quiz`; latest implementation commit before this record update: `2a9173abe13b3c0405a34e5267c180349e542f97`. PR #8 remains draft/open/unmerged.
+- GitHub Actions on that branch head were still running at the time of the archive update. Do not mark validation complete until the mock-adapter tests and relevant CI jobs pass. Latest Cloudflare Pages deployment also needs confirmation before handing over the updated preview.
+- No Supabase staging or production database, Auth, migration, question import, production hosting or main-branch changes were made. Draft content remains unapproved for learner-facing publication. Existing Malaysia PDPA and applicable international/teen privacy, retention and deletion review remain release gates.
+
+Session archive: `docs/conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md`.
