@@ -92,6 +92,12 @@ jobs:
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117180000_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql"
 
+      - name: Verify explicit grants for all staged public tables
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/verify-migration-grants.sql"
+
       - name: Install test-only observers and run authenticated Quiz RPC integration tests
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
