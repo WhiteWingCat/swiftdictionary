@@ -291,6 +291,7 @@ begin
     and q.learning_language_code = 'en'
     and v_learning = 'en'
     and q.translation_language_code = v_translation
+    and q.question_type='knowledge'
     and not exists (
       select 1 from private.quiz_daily_question_reservations issued
       where issued.user_id = v_user
