@@ -342,10 +342,10 @@ $ownership$;
 
 -- User C exercises the authenticated Chinese-translation mix, answer-language
 -- metadata and the one-definition rule. Abandonment remains free.
-update public.user_preferences set translation_language='zh'
-where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
 select set_config('request.jwt.claims','{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc"}',true);
+update public.user_preferences set translation_language='zh'
+where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 do $chinese_mix$
 declare
   v_session jsonb;
@@ -365,6 +365,9 @@ begin
          count(*) filter (where q->>'question_type'='chinese_translation' and q->>'answer_language_code'<>'zh')::integer
   into v_chinese,v_definitions,v_knowledge,v_bad_answer_language
   from jsonb_array_elements(v_session->'questions') q;
+  if v_session->>'translation_language_code'<>'zh' then
+    raise exception 'Chinese-mix test did not retain the selected Chinese translation preference';
+  end if;
   if v_chinese not between 1 and 7 then
     raise exception 'Chinese integration count must be between one and seven; found %',v_chinese;
   end if;
