@@ -66,7 +66,7 @@ if (!appScript.includes("p_learning_language:course") || !appScript.includes("p_
   throw new Error("Quiz start must use the current selector values and must not block indefinitely on preference synchronization.");
 }
 if (!appScript.includes("function quizApplyPageTranslation") || !appScript.includes("知识测验") ||
-    !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("preserveSessionView")) {
+    !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("quizPageState.sessionView&&quizPageState.session?.session_id") || !appScript.includes("if(quizPageState.result)")) {
   throw new Error("Quiz overview translation or active-session continuity is incomplete.");
 }
 if (!dailyLearning.includes('.select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")')) {
