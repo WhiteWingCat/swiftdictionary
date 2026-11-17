@@ -2,11 +2,11 @@
 
 > Durable project handover and source-of-truth summary for future development conversations.
 >
-> **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-17 (Update 2.4.0 merged to main; production Quiz schema/RPCs and all 199 questions deployed)  
-> **Current baseline:** Update 2.4.0 is merged to `main`. Production Quiz schema, authenticated RPCs, introduction preferences, all three question types and the 199-question English/Simplified Chinese bank are live. Production database contains 199 selectable questions (114 knowledge, 15 definitions, 70 Chinese translations) mapped to 15 active lessons. Quiz allowances remain Free 1/day and Premium 3/day.  
-> **Current work:** Owner is testing the live production website. The human bilingual accuracy review of the 199 questions is deferred until owner/friend testing feedback; the questions are database-approved/selectable, not claimed to be human-reviewed. PR #9 has been merged as `44f913e6898fbc154105f097fe9501dbdac84ff2`, aligning the five local migration filenames and CI references with production-generated migration versions. The isolated staging project remains empty and is not the friend-testing target. The follow-up Pages deployment for PR #9 (run #44076635256) also succeeded; it changes only migration filenames and CI references, not application assets.  
-> **Record status:** PR #8 merged as `01c7c61a9d7c8c91591eeb7f184afdf5c3caf8bf`. GitHub Pages deployment #44075861937 succeeded. Production Supabase migrations `20261117113854`, `20261117113904`, `20261117113907`, `20261117113912`, and `20261117113917` applied successfully. Verification confirmed all 199 questions approved/selectable, correct type/difficulty distribution, 15 lesson mappings, no missing objectives or invalid options, and no existing Quiz sessions overwritten. Final pre-merge Quiz workflow #44075394265 and companion 2.3.x regression workflow #44075394304 passed. Malaysia PDPA and applicable international/16+ privacy review remains necessary before inviting friends or broader public use.
+> **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
+> **Last consolidated:** 2026-11-17 (Update 2.4.1 merged to main; production migration verified; GitHub Pages deployment succeeded)  
+> **Current baseline:** Update 2.4.1 is merged to `main`. The 2.4.0 Quiz experience and 199-question English/Simplified Chinese bank remain live. Update 2.4.1 fixes Daily Learning expired-session cleanup, Quiz translation-language eligibility/start, active-session view preservation and stale preference hydration; removes the internal draft-bank notice; adds short-lived selector refresh notices; and translates the Quiz overview into Simplified Chinese. Production Quiz allowances remain Free 1/day and Premium 3/day.  
+> **Current work:** Owner should now test the live production site at `https://whitewingcat.github.io/swiftdictionary/`. The human bilingual accuracy review of the 199 questions remains deferred, not waived; friends are not yet invited to sign in. Two stale Daily Learning sessions remain in production as `in_progress` until the owner next loads Lessons; the corrected frontend now retrieves their IDs and abandons expired sessions. The isolated staging project remains empty and is not the friend-testing target.  
+> **Record status:** Update 2.4.0 PR #8 merged as `01c7c61a9d7c8c91591eeb7f184afdf5c3caf8bf`; migration-filename sync PR #9 merged as `44f913e6898fbc154105f097fe9501dbdac84ff2`; Update 2.4.1 PR #10 merged as `6dfd084fa9b2c1290fb183fbf0862dadec0dd8f7`. GitHub Pages deployment #44098139901 succeeded. Production migration `20261117132100` (`swiftdictionary_update_2_4_1_quiz_translation_language_fix`) was already present in Supabase migration history and was verified after merge; it was not reapplied during release wrap-up. Production still contains 199 approved/selectable questions (114 knowledge, 15 definitions, 70 Chinese translations) mapped to 15 active permanent lessons. Update 2.4.1 Quiz workflow #44097715861 and companion 2.3.x regression workflow #44097715708 both passed. Security advisors returned no health findings and no new Quiz-related warnings; existing private-schema RLS INFO findings and previously reviewed public SECURITY DEFINER/password-protection warnings remain. No new learner personal-data fields, analytics or tracking were introduced. Malaysia PDPA and applicable international/16+ privacy review remains necessary before inviting friends or broader public use.
 >
 > This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
 
@@ -16,7 +16,7 @@
 
 SwiftDictionary is a personal vocabulary-learning project intended to be freely accessible to a global audience, with an intended age group of 16+. It currently supports English and Simplified Chinese dictionary and learning content.
 
-- Repository: WhiteWingCat/wordbook.
+- Repository: WhiteWingCat/swiftdictionary.
 - Hosting: GitHub Pages.
 - Application: Static, GitHub Pages-compatible web application; main application file is index.html.
 - Backend: Supabase for authentication, account data, saved-word synchronisation and learning-related data.
@@ -291,7 +291,7 @@ See `docs/UPDATE-2.3.0-PRIVACY-FIRST-CATALOGUE-DECISION.md`.
 - Added `docs/UPDATE-2.3.0-CONTENT-CATALOG-MIGRATION-DRAFT.sql`, a private catalogue of 95 English IDs: 28 Daily Topics, 25 Daily Applications, 27 Daily Discoveries and 15 permanent lessons. It contains IDs and topic/difficulty/language metadata only, no question or answer content.
 - Daily session start and permanent lesson completion/replay RPCs validate catalogue mappings. Lesson progress insertion is guarded against unknown lesson IDs.
 - Added a frontend-to-SQL catalogue consistency checker, SQL security/mapping assertions and signed-in Daily Topic/Daily Application browser tests.
-- GitHub Actions run [#346](https://github.com/WhiteWingCat/wordbook/actions/runs/43382607103) passed all 3 jobs on the implementation branch: PostgreSQL 17 migrations/assertions/concurrency, disposable local Supabase Auth compatibility, and Chromium browser tests (8/8).
+- GitHub Actions run [#346](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43382607103) passed all 3 jobs on the implementation branch: PostgreSQL 17 migrations/assertions/concurrency, disposable local Supabase Auth compatibility, and Chromium browser tests (8/8).
 - Browser tests use a mocked Supabase client. They do not prove real Google OAuth callbacks, hosted account switching or cross-device sync.
 - PR #3 remains **open and draft**, with base `feature/update-2-3-0-planning` and head `feature/update-2-3-0-allowance-foundation`. No merge, rebase, deployment or production migration was performed.
 
@@ -337,7 +337,7 @@ A draft-only hardening migration now:
 
 The app was checked and uses only SELECT, INSERT/upsert with ignore-duplicates, and DELETE for saved words. No production grant was changed.
 
-Validation: GitHub Actions run [#354](https://github.com/WhiteWingCat/wordbook/actions/runs/43383331625) passed all 3 jobs, including the new saved-word table/sequence privilege assertions, catalogue-to-frontend consistency (95 entries), PostgreSQL 17 migration and concurrency tests, disposable local Supabase compatibility, and Chromium browser tests (8/8).
+Validation: GitHub Actions run [#354](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43383331625) passed all 3 jobs, including the new saved-word table/sequence privilege assertions, catalogue-to-frontend consistency (95 entries), PostgreSQL 17 migration and concurrency tests, disposable local Supabase compatibility, and Chromium browser tests (8/8).
 
 The 13 November legal review was refined to clarify the PDPA personal/household exemption and breach-notification thresholds. Those changes were documentation-only. The implementation remains draft on PR #3; PR #3 and PR #4 remain unmerged. No production Supabase changes, merge or deployment have occurred.
 
@@ -356,10 +356,10 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
 ### Update 2.3.0 — completion record
 
 - **Status:** Completed as a development milestone; merged to main on 2026-11-13.
-- **Pull request:** [#3 — SwiftDictionary Update 2.3.0 — Completion-Based Allowance Foundation](https://github.com/WhiteWingCat/wordbook/pull/3).
+- **Pull request:** [#3 — SwiftDictionary Update 2.3.0 — Completion-Based Allowance Foundation](https://github.com/WhiteWingCat/swiftdictionary/pull/3).
 - **Merge commit:** 090f5f47ef7e596d987b8ab2f5a1eb996c8f22e6 (squash merge).
 - **Main branch head confirmed:** 090f5f47ef7e596d987b8ab2f5a1eb996c8f22e6.
-- **Automated validation before merge:** GitHub Actions runs [#398](https://github.com/WhiteWingCat/wordbook/actions/runs/43386713881) and [#399](https://github.com/WhiteWingCat/wordbook/actions/runs/43386720980) passed. They covered PostgreSQL 17 allowance/migration/concurrency checks, disposable local Supabase Auth/migration/deletion checks, Chromium browser regression tests and the local Supabase security advisor check.
+- **Automated validation before merge:** GitHub Actions runs [#398](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43386713881) and [#399](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43386720980) passed. They covered PostgreSQL 17 allowance/migration/concurrency checks, disposable local Supabase Auth/migration/deletion checks, Chromium browser regression tests and the local Supabase security advisor check.
 - **Owner live testing:** the owner reports testing the live website after merge and identified follow-up issues now tracked under Update 2.3.1. These are post-merge findings, not evidence that the 2.3.0 merge failed.
 - **Deployment:** a GitHub Pages workflow was observed starting after the merge. The owner subsequently confirmed live-site testing. Do not infer that every hosted integration check passed without checking current Actions status.
 - **Production database:** no production Supabase migration or production data modification was performed as part of the merge. A read-only audit on 2026-11-13 later confirmed that the live project migration history still ends at the 2.2.0 reconciliation baseline (20261110041007).
@@ -476,12 +476,12 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
 ### Current handover — Update 2.3.1 mock testing (2026-11-13)
 
 - **Feature branch:** `feature/update-2-3-1-bug-fix-and-changes`.
-- **Pull request:** [#5](https://github.com/WhiteWingCat/wordbook/pull/5), base `main`, head feature branch, open and unmerged at the latest recorded check.
+- **Pull request:** [#5](https://github.com/WhiteWingCat/swiftdictionary/pull/5), base `main`, head feature branch, open and unmerged at the latest recorded check.
 - **Latest recorded feature commit:** `c55d05fe196811903f2c358f090eebed6893b3ff`.
 - **Owner-approved direction:** Option B — isolated browser-only mock testing with fictional Test User A and Test User B, explicitly entered only on the dedicated Cloudflare Pages preview.
 - **Implementation:** `mock-testing.js`, loaded by `index.html`; mock-specific tests under `tests/update-2-3-1/`; browser smoke coverage under `tests/browser/`; CI updates in the existing workflow.
 - **Isolation design:** namespaced session storage per fictional identity; mock adapter intercepts app Supabase client creation only when the preview-host guard and `?swiftMock=1` are both satisfied; Google OAuth is unavailable in mock mode; scoped reset/exit; visible mock-mode indicator; production/unknown hosts fail closed.
-- **CI evidence:** workflow run [#456](https://github.com/WhiteWingCat/wordbook/actions/runs/43413625418) passed mock adapter syntax/unit tests, PostgreSQL 17 migration/allowance checks, Chromium browser regression and disposable local Supabase Auth compatibility checks.
+- **CI evidence:** workflow run [#456](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43413625418) passed mock adapter syntax/unit tests, PostgreSQL 17 migration/allowance checks, Chromium browser regression and disposable local Supabase Auth compatibility checks.
 - **Not yet verified:** actual Cloudflare preview-host manual test. Expected preview host is `feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev`; append `/?swiftMock=1` to the actual preview URL. If the hostname differs, the exact-host guard will fail closed and must be reviewed before testing. Do not use a real account as a workaround.
 - **Backend limitation:** the Cloudflare preview frontend still points to the production Supabase project. Do not run real-account or data-changing tests from preview until backend isolation is independently confirmed. Mock mode does not validate real OAuth/JWT/RLS/database functions/triggers or cross-device sync.
 - **Production safety:** no production Supabase schema/data/settings/credentials were changed; no PR merge or production deployment was performed. Do not merge PR #5, apply migrations or deploy without explicit owner approval.
@@ -517,7 +517,7 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
 ### Implementation now on the feature branch
 
 - **Feature branch:** `feature/update-2-3-1-bug-fix-and-changes`.
-- **PR:** [#5](https://github.com/WhiteWingCat/wordbook/pull/5), still intended to target `main`; no merge or production deployment authorised.
+- **PR:** [#5](https://github.com/WhiteWingCat/swiftdictionary/pull/5), still intended to target `main`; no merge or production deployment authorised.
 - **Latest recorded feature commit:** `c2f7ab612e1d3f773eb5322296b77240e8a36e24`.
 - **Files changed:** `index.html` and `daily-learning.js`.
 - Dashboard course recency now displays relative elapsed time in minutes, hours, days, weeks or months.
@@ -535,7 +535,7 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
 - JavaScript syntax validation passed for `daily-learning.js` and the inline application script in `index.html` after the final JavaScript changes.
 - Static assertions passed for relative timestamps, activity bars, UTC-shared discovery selection, cooldown preview suppression, drawer open/close controls, additional examples and dictionary-style discovery definition.
 - An early syntax check caught an unescaped apostrophe in the cooldown message. It was corrected and syntax validation passed afterward.
-- Latest GitHub Actions run observed: [run #486](https://github.com/WhiteWingCat/wordbook/actions/runs/43549929803), triggered from the latest feature commit and still queued at the time of this record update. It contains Chromium browser regression, PostgreSQL 17 migration/allowance and disposable local Supabase Auth compatibility jobs. Do not claim CI passed until all three finish successfully.
+- Latest GitHub Actions run observed: [run #486](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43549929803), triggered from the latest feature commit and still queued at the time of this record update. It contains Chromium browser regression, PostgreSQL 17 migration/allowance and disposable local Supabase Auth compatibility jobs. Do not claim CI passed until all three finish successfully.
 - Owner has not yet tested these new changes. Do not mark Update 2.3.1 complete until owner preview testing and CI both pass.
 
 ### Frequency-data research and legal/content notes
@@ -569,7 +569,7 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
   - Catalogue checker expectations now total 80 entries (28 Topic + 25 Application + 12 Discovery + 15 permanent lessons).
   - SQL assertions test valid date-scoped IDs, unknown IDs, malformed dates and forged topic metadata. The allowance test fixture was updated to use a date-scoped ID.
 - Latest PR #5 head confirmed: `c2f7ab612e1d3f773eb5322296b77240e8a36e24`.
-- Latest CI run [#499](https://github.com/WhiteWingCat/wordbook/actions/runs/43550190284) completed successfully: Chromium browser regression, PostgreSQL 17 migration/allowance tests and disposable local Supabase Auth compatibility all passed.
+- Latest CI run [#499](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43550190284) completed successfully: Chromium browser regression, PostgreSQL 17 migration/allowance tests and disposable local Supabase Auth compatibility all passed.
 - The earlier run #495 failure was confined to the stale frontend checker expectation; run #499 includes the corrected checker, catalogue migration, date-scoped validator and updated allowance assertion.
 - Static JavaScript syntax and catalogue matching checks also passed.
 - This CI evidence does not replace owner preview testing. Cloudflare preview deployment for the latest commit has not been independently confirmed in this record.
@@ -595,7 +595,7 @@ The owner reviewed the prior Update 2.3.1 preview and requested:
 ### Implementation on the existing feature branch
 
 - **Branch:** `feature/update-2-3-1-bug-fix-and-changes`.
-- **PR:** [#5](https://github.com/WhiteWingCat/wordbook/pull/5), still open and unmerged; base remains `main`.
+- **PR:** [#5](https://github.com/WhiteWingCat/swiftdictionary/pull/5), still open and unmerged; base remains `main`.
 - **Latest application commit:** `d1af4357fdbca0b86765ebba22750457eb9b62a5`.
 - **Files changed in this pass:** `index.html`, `daily-learning.js`, `mock-testing.js`, `tests/browser/update-2-3-0-smoke.spec.js`, `tests/update-2-3-0/check-frontend.mjs`, and `tests/update-2-3-1/mock-testing.test.mjs`.
 
@@ -630,7 +630,7 @@ The owner reviewed the prior Update 2.3.1 preview and requested:
 
 ### Validation and CI evidence
 
-- Latest GitHub Actions run: [run #549](https://github.com/WhiteWingCat/wordbook/actions/runs/43553866219).
+- Latest GitHub Actions run: [run #549](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43553866219).
 - **All three CI jobs passed**:
   - Chromium browser regression: 15 tests passed, including bilingual Daily Learning refresh, dictionary-style Discovery, transparent panel inset, and dedicated permanent lesson page.
   - PostgreSQL 17 migration and allowance tests passed, including frontend/RPC integration checks and mock-adapter unit tests.
@@ -697,7 +697,7 @@ Browser regression coverage now checks:
 - Reader closure after successful completion.
 - Automatic abandonment of a previous-day unfinished session, followed by creation of a fresh session.
 
-Latest GitHub Actions run: [run #557](https://github.com/WhiteWingCat/wordbook/actions/runs/43556612276).
+Latest GitHub Actions run: [run #557](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43556612276).
 
 - Chromium browser regression: 16 tests passed.
 - PostgreSQL 17 migration and allowance tests passed.
@@ -716,7 +716,7 @@ An earlier browser attempt failed only because an existing test expected an Engl
 ### Current branch and recovery point
 
 1. Feature branch: feature/update-2-3-1-bug-fix-and-changes.
-2. PR #5: https://github.com/WhiteWingCat/wordbook/pull/5 — open, targets main, not merged.
+2. PR #5: https://github.com/WhiteWingCat/swiftdictionary/pull/5 — open, targets main, not merged.
 3. Latest feature head: 99dc69446ca56459c344915711ed2169c909b0c4.
 4. CI run #557 passed all three jobs; browser suite passed 16 tests.
 5. No production database migration, production data operation, PR merge or production deployment was performed.
@@ -828,7 +828,7 @@ The owner selected **Option A**:
 ### Full CI result
 
 GitHub Actions run **#632** completed successfully against feature head **0531dfaea4903630eb147a75fdbbc122fbf8871d**:
-https://github.com/WhiteWingCat/wordbook/actions/runs/43561897142
+https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43561897142
 
 All three jobs passed:
 
@@ -862,7 +862,7 @@ To make the owner preview testable without real accounts:
 ### Final CI revalidation
 
 GitHub Actions run **#647** completed successfully against code/test commit **308138b72917161d14ba5c5ed028a293509423b9**:
-https://github.com/WhiteWingCat/wordbook/actions/runs/43562295504
+https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43562295504
 
 All three jobs passed again:
 - Chromium browser regression: 17 tests passed.
@@ -922,7 +922,7 @@ These corrections preserve the previously approved allowance values:
 ### Validation
 
 GitHub Actions run **#705** passed against code/test commit **8fb19e183f524277fc9b5c133e8860d79a4a975b**:
-https://github.com/WhiteWingCat/wordbook/actions/runs/43565545461
+https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43565545461
 
 All three jobs passed:
 - **Chromium browser regression:** 21 tests passed. New coverage includes Free and Premium lesson limits, free completed-lesson review, distinct Application/Revision examples and Q&A, completed Daily Topic review after exhaustion, and Discovery review across UTC rollover. Existing translation, Daily Learning, Dashboard, sign-in and account-switching regressions also passed.
@@ -992,7 +992,7 @@ No allowance amount, course, content-library or Dashboard scope decision was cha
 ### Validation
 
 GitHub Actions run **#749** completed successfully against code/test commit **55ad7a12abaa462142a7c6e88b8466d11851040a**:
-https://github.com/WhiteWingCat/wordbook/actions/runs/43568453615
+https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43568453615
 
 All three jobs passed:
 - **Chromium browser regression:** 22 tests passed. New coverage verifies all four tabs, Free one-card and Premium three-card rows for every category, right-side row actions, reset-message placement after Daily Topic completion, and Discovery review across UTC rollover. Existing content-quality, lesson/daily allowance, completed-review, translation, Dashboard, sign-in and account-switching tests passed.
@@ -1059,13 +1059,13 @@ The branch was corrected by updating the actual current file versions sequential
 
 Both GitHub Actions runs below completed successfully against commit `8c4c4949be68f2b372def13ce75c8ec67b67405e`, with all three jobs passing in each run (Chromium browser regression, PostgreSQL 17 migration/allowance tests, and disposable local Supabase Auth compatibility):
 
-- Run #771: https://github.com/WhiteWingCat/wordbook/actions/runs/43571579491
-- Run #772: https://github.com/WhiteWingCat/wordbook/actions/runs/43571583586
+- Run #771: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43571579491
+- Run #772: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43571583586
 
 Cloudflare's pull-request deployment status reported a successful preview deployment for commit `8c4c494`. The owner confirmed all five requested changes in the preview.
 
 **PR #5 was merged into `main` on 2026-11-14 at 07:52:23 UTC.**
-- PR: https://github.com/WhiteWingCat/wordbook/pull/5
+- PR: https://github.com/WhiteWingCat/swiftdictionary/pull/5
 - Feature head: `8c4c4949be68f2b372def13ce75c8ec67b67405e`
 - Merge commit and verified `main` HEAD: `3ca194f908356f85aed1c143c647ebf488e9a353`
 
@@ -1156,7 +1156,7 @@ The Update 2.3.2 hotfix:
 ### Branch, CI and merge
 
 - Branch: `hotfix/update-2-3-2-favorite-words-course-isolation`
-- PR #6: https://github.com/WhiteWingCat/wordbook/pull/6
+- PR #6: https://github.com/WhiteWingCat/swiftdictionary/pull/6
 - Final hotfix head: `b50f0cc7b6ec74b065342c1e953d2f6d85d44fcd`
 - GitHub Actions run #774 passed all three jobs: 22 Chromium browser regression tests, PostgreSQL 17 migration/allowance tests, and disposable local Supabase Auth compatibility.
 - An earlier run #773 exposed two test-harness issues (a strict locator assertion after adding multiple saved rows, and changed mock INSERT timing). Both were corrected; run #774 passed.
@@ -1233,7 +1233,7 @@ No production test account, synthetic user, or test session was inserted. No per
 ### Update 2.3.3 Dashboard Favorite Words detail behavior
 
 - Branch: `feature/update-2-3-3-dashboard-favorite-details`.
-- PR #7: https://github.com/WhiteWingCat/wordbook/pull/7.
+- PR #7: https://github.com/WhiteWingCat/swiftdictionary/pull/7.
 - Current recorded feature head at archive time: `b09f10aa1fa22ea3ba4209408758cb2325eba4ae`.
 - Selecting an English or Chinese saved word opens the existing expanded detail drawer while the Dashboard page remains visible.
 - Previous/next dictionary navigation controls and arrow-key navigation are suppressed while a Dashboard favorite is open; normal dictionary modal behavior is restored after closing.
@@ -1587,7 +1587,7 @@ This no-cost workflow tests PostgreSQL DDL, constraints, triggers, role grants a
 - No Quiz content has been approved or seeded. All difficulties remain unavailable.
 - No live user data changed.
 - No merge or deployment occurred.
-- Draft PR #8 is open for validation only: https://github.com/WhiteWingCat/wordbook/pull/8. Do not merge it yet.
+- Draft PR #8 is open for validation only: https://github.com/WhiteWingCat/swiftdictionary/pull/8. Do not merge it yet.
 
 ### Next implementation stage
 
@@ -1658,11 +1658,11 @@ The validator checks unique IDs/prompts, bilingual fields, four unique English o
 
 ### Validation
 
-Quiz workflow run [#107](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415258) passed both PostgreSQL 17 and disposable local Supabase jobs for the 66-question Beginner/Intermediate pack, including authenticated RPC/session/allowance tests, draft import, local Auth helper checks and Supabase security advisors. Pinning Supabase CLI 2.81.3 resolved the earlier release API rate-limit issue.
+Quiz workflow run [#107](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43805415258) passed both PostgreSQL 17 and disposable local Supabase jobs for the 66-question Beginner/Intermediate pack, including authenticated RPC/session/allowance tests, draft import, local Auth helper checks and Supabase security advisors. Pinning Supabase CLI 2.81.3 resolved the earlier release API rate-limit issue.
 
 The 48-question Advanced batch and expanded 114-row import assertions have since been added. The structural/curriculum check in this session found 114 unique question IDs and prompts, four unique English options per question, matching answer keys, complete bilingual fields, and valid mappings across all three difficulty levels. The 114-row PostgreSQL/local Supabase CI run is pending.
 
-The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility. A later companion run #839 again passed PostgreSQL 17 and Chromium checks, but its local Supabase setup hit the GitHub release API rate limit before tests started; the earlier full run #829 remains green.
+The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility. A later companion run #839 again passed PostgreSQL 17 and Chromium checks, but its local Supabase setup hit the GitHub release API rate limit before tests started; the earlier full run #829 remains green.
 
 ### Content readiness
 
@@ -1716,8 +1716,8 @@ The source pack remains `draft`. None of the 150 questions is approved for learn
 - Implementation branch: `feature/update-2-4-0-quiz`.
 - Latest implementation commit: `710f043a43e116c90d4b3a6fb779605658bd2333`.
 - PR #8 remains open, draft and unmerged.
-- Quiz database foundation workflow run [#417](https://github.com/WhiteWingCat/wordbook/actions/runs/44047597209) passed PostgreSQL validation, draft import of the 114 supported knowledge questions, disposable local Supabase Auth/RPC/session tests, authenticated Chromium runtime tests and Supabase security advisors.
-- Companion 2.3.x regression workflow run [#974](https://github.com/WhiteWingCat/wordbook/actions/runs/44047597250) passed PostgreSQL, Chromium and Supabase Auth compatibility checks.
+- Quiz database foundation workflow run [#417](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44047597209) passed PostgreSQL validation, draft import of the 114 supported knowledge questions, disposable local Supabase Auth/RPC/session tests, authenticated Chromium runtime tests and Supabase security advisors.
+- Companion 2.3.x regression workflow run [#974](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44047597250) passed PostgreSQL, Chromium and Supabase Auth compatibility checks.
 - Earlier run #415 failed because a double-escaped Unicode-normalisation regular expression produced false duplicate-option reports. The regex was corrected in commit `710f043`; the subsequent #417 run passed.
 - Earlier run #413 exposed a navigation/save timing race. Disabling navigation while saving was added; the authenticated Chromium runtime tests passed in #417.
 - The latest Cloudflare Pages deployment for commit `710f043` has not yet been confirmed. Do not provide a preview link or claim the hosted preview contains these changes until deployment is independently verified.
@@ -1865,9 +1865,9 @@ Next: complete latest branch-head CI; configure staging Google OAuth; confirm pr
 
 Update 2.4.0 has been merged to `main` through PR #8, squash commit `01c7c61a9d7c8c91591eeb7f184afdf5c3caf8bf`. The owner explicitly authorized publication of all 199 questions without waiting for human bilingual accuracy review. Review is deferred until the owner and friends test the live website and provide feedback. Production database status `approved` means selectable; it does not mean independently human-reviewed. The source JSON remains draft for ongoing authoring.
 
-GitHub Pages deployment #44075861937 succeeded for the merge commit. Live URL: `https://whitewingcat.github.io/wordbook/`. Feature-branch `supabase-config.js` was restored to production before merge. The isolated staging project remains empty and is not the friend-testing target.
+GitHub Pages deployment #44075861937 succeeded for the merge commit. Live URL: `https://whitewingcat.github.io/swiftdictionary/`. Feature-branch `supabase-config.js` was restored to production before merge. The isolated staging project remains empty and is not the friend-testing target.
 
-Production Supabase project `pzymiesazmpyvnfvsbsc` (Tokyo, PostgreSQL 17.11, ACTIVE_HEALTHY) received five migrations via the connector; generated version IDs are `20261117113854` (Quiz bank foundation), `20261117113904` (authenticated Quiz RPCs), `20261117113907` (learning page introduction preferences), `20261117113912` (authenticated question types), and `20261117113917` (199-question content release). The pre-existing Quiz allowance migration `20261116043139` was already applied and not repeated. PR #9 is open to rename source migration files to those exact generated versions and update CI references; do not reapply these migrations.
+Production Supabase project `pzymiesazmpyvnfvsbsc` (Tokyo, PostgreSQL 17.11, ACTIVE_HEALTHY) received five migrations via the connector; generated version IDs are `20261117113854` (Quiz bank foundation), `20261117113904` (authenticated Quiz RPCs), `20261117113907` (learning page introduction preferences), `20261117113912` (authenticated question types), and `20261117113917` (199-question content release). The pre-existing Quiz allowance migration `20261116043139` was already applied and not repeated. PR #9 subsequently merged as `44f913e6898fbc154105f097fe9501dbdac84ff2`, renaming source migration files to those exact generated versions and updating CI references; do not reapply these migrations.
 
 Post-migration production verification confirmed 199 approved/selectable rows: 114 knowledge (30/36/48), 15 word definitions (5/5/5), 70 Chinese translations (21/21/28); difficulty totals 56 Beginner, 62 Intermediate, 81 Advanced. All 15 source lessons are active and match topic/difficulty. Missing learning objectives: 0. Invalid four-option/correct-option records: 0. Production Quiz sessions at verification: 0. Existing learner records were not deleted or rewritten. Free 1/day and Premium 3/day allowances remain unchanged. The new public introduction-preferences table exists with RLS enabled.
 
@@ -1878,3 +1878,45 @@ Production security advisors after migration: 7 INFO for private-schema RLS tabl
 The content pack is original and adds no personal-data fields or analytics. Existing Quiz processing includes account-linked selected option IDs, question/lesson snapshots, scores, session history, timezone and temporary no-repeat reservation metadata (designed 36-hour cleanup). Production database is in Tokyo. Malaysia's PDPA Amendment Act 2024 commenced in phases on 1 January, 1 April and 1 June 2025. Before inviting friends to sign in, provide a clear test/privacy notice covering stored Quiz data, purposes, retention/deletion exception, Supabase hosting/cross-border transfer and user requests. The current website has no formal public Privacy Notice or Terms page. Review Malaysia and applicable international/16+ age obligations before broader public launch. This is planning guidance, not legal advice.
 
 Next: owner tests live production Quiz; then friends test with an accompanying notice and provide feedback; correct questions/lessons based on reports; continue Flashcards 2.5.0 and the separate Legal/Privacy/Terms milestone on the existing roadmap.
+
+
+## 42. Update 2.4.1 — Daily Learning and Quiz fixes (2026-11-17)
+
+Update 2.4.1 has been merged to `main` through PR #10, squash commit `6dfd084fa9b2c1290fb183fbf0862dadec0dd8f7`. The feature branch was `feature/update-2-4-1-fix-changes`; final head `db96af2b1c1099380f09bd0b387d5d1863e3f7e1`. The PR description records the owner's four requested changes.
+
+### Owner-approved changes
+
+1. Remove the entire internal “Draft question-bank preview” notice from the live Quiz page.
+2. Add a short-lived, accessible page-refresh toast after either Learning Course or Translation Language changes.
+3. Preserve the Quiz subview the learner was already using when the translation selector changes. An open session remains open; changing translation from the overview does not automatically open an unfinished session. Immutable session snapshots and saved answers are retained.
+4. Translate the main Quiz overview into Simplified Chinese, including the page heading/introduction, refresh control, difficulty cards, allowance, history and related controls.
+
+### Root causes and repairs
+
+- **Daily Learning blank activity grid:** the expired in-progress-session query did not select the session `id`, but cleanup required that identifier to call `abandon_daily_activity_session`. The missing ID caused loading to fail before activity cards rendered. The query now includes `id`; the existing expiry regression test verifies an old session is abandoned and a fresh session can be started.
+- **Quiz unavailable under English translation preference:** the released 199-question bank stores a Simplified Chinese translation pack (`translation_language_code='zh'`) for English learning content. The availability function incorrectly coupled all English Quiz eligibility to the learner's display translation preference. The 2.4.1 migration now counts the available English question pack independently and includes Chinese-integration question types only when Simplified Chinese is selected. The browser sends its current course/translation selection explicitly when starting a session.
+- **Translation selector reverting after Quiz start:** an asynchronous Profile hydration request could finish after a learner changed language selectors and overwrite the newer selection with stale account data. Profile hydration now snapshots the selection version and does not overwrite a newer local choice; it also reapplies the current translation to the Quiz overview/session after hydration.
+- **Session appearing on the overview after translation changes:** the frontend now snapshots and restores the exact visible Quiz subview around language refreshes. It does not infer that an active server-side session must be opened.
+
+### Validation and production state
+
+- Quiz workflow #44097715861 passed: PostgreSQL 17 foundation and migration checks, local Supabase/Auth/RPC integration, authenticated Chromium Quiz runtime tests, and security advisors.
+- Companion 2.3.x regression workflow #44097715708 passed: PostgreSQL migration/allowance tests, local Supabase Auth compatibility, and Chromium browser regression smoke tests.
+- GitHub Pages deployment #44098139901 completed successfully for main commit `6dfd084fa9b2c1290fb183fbf0862dadec0dd8f7`.
+- Production Supabase project `pzymiesazmpyvnfvsbsc` remains `ACTIVE_HEALTHY`, PostgreSQL 17.11. Migration `20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix` is present in production migration history; release wrap-up verified it rather than applying it again.
+- Production question counts remain unchanged: 114 approved knowledge, 15 approved word-definition and 70 approved Chinese-translation questions (199 total). All 15 permanent English lesson mappings remain active.
+- The new three-argument `public.start_my_quiz(text,text,text)` and private implementation are installed. Authenticated execute is granted; anon and public execute are false. Existing one-argument overloads remain authenticated-only for compatibility.
+- Production security advisor returned 7 INFO findings for private-schema RLS tables without direct client policies (intentional private/RPC-mediated access), 2 WARN findings for previously reviewed public lesson SECURITY DEFINER functions, and 1 WARN for disabled leaked-password protection (current sign-in uses Google OAuth). No health findings or new Quiz-specific advisor warnings were returned.
+- Production had two old Daily Learning sessions still marked `in_progress` at post-release verification. No user data was manually changed. On the next Lessons load, the corrected client should identify and abandon those sessions because they are outside the user's current allowance day.
+- The release adds no new learner personal-data fields, analytics or tracking. Existing Quiz account-linked answers, score/history, session snapshots, timezone and temporary no-repeat reservation metadata remain subject to the previously recorded Malaysia PDPA and applicable international/16+ privacy review.
+
+### Owner testing and next gates
+
+1. Hard-refresh the live site at `https://whitewingcat.github.io/swiftdictionary/` so the new Pages assets are loaded.
+2. Open Lessons and verify the Daily Topic, Daily Application, Daily Discovery and Daily Revision cards appear; stale sessions should be cleared automatically.
+3. Test Quiz with English and Simplified Chinese translation preferences, including Beginner, Intermediate and Advanced availability/start.
+4. Change translation while a Quiz is open and verify the active session stays open, then return to the overview and verify changing translation does not auto-open it.
+5. Verify both selector toasts appear briefly and disappear, and check the Quiz overview is translated when Simplified Chinese is selected.
+6. Report any live-test issues before inviting friends. Human bilingual review of the 199-question bank remains deferred, not waived. Before friends sign in, provide a concise test/privacy notice covering stored Quiz data, purposes, retention/deletion, Tokyo hosting/cross-border processing and a contact route. The current website still lacks formal public Privacy Notice/Terms pages. This is planning guidance, not legal advice.
+
+No live Quiz session was started on the owner's production account during release verification, to avoid creating a session or consuming/reserving questions on their behalf. Automated authenticated tests used disposable local Supabase accounts; manual production-account testing remains the owner's next step.
