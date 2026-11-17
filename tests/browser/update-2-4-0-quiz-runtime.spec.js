@@ -487,9 +487,9 @@ test("Quiz overview follows translation preference and selector changes preserve
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
   const languageState = await page.evaluate(() => ({ selector:document.querySelector("#translationSelect")?.value, global:translationLanguage, sessionView:quizPageState.sessionView, sessionVisible:!document.querySelector("#quizSession")?.hidden }));
   expect(languageState).toEqual({selector:"zh",global:"zh",sessionView:true,sessionVisible:true});
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
   await selectTranslation(page,"en");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizSession")).toBeVisible();
