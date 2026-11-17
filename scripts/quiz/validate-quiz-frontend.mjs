@@ -61,7 +61,7 @@ if (!html.includes('id="preferenceRefreshToast"') || !appScript.includes("showPr
     !appScript.includes("showPreferenceRefreshToast(\"translation\")")) {
   throw new Error("Course and translation selectors must show a transient page-refresh confirmation.");
 }
-if (!appScript.includes("p_learning_language:course") || !appScript.includes("p_translation_language:translationLanguage") ||
+if (!appScript.includes("p_learning_language:requestedCourse") || !appScript.includes("p_translation_language:requestedTranslation") ||
     !appScript.includes("setTimeout(()=>resolve(false),1500)")) {
   throw new Error("Quiz start must use the current selector values and must not block indefinitely on preference synchronization.");
 }
