@@ -4727,6 +4727,1623 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-beginner-def-001",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “exciting”?",
+      "prompt_translation": "以下哪项最符合单词“exciting”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Causing strong interest or enthusiasm.",
+          "translation_text": "引起强烈兴趣或热情的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Making someone feel sleepy and relaxed.",
+          "translation_text": "使人感到困倦和放松的。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Full of people with very little space.",
+          "translation_text": "人很多、空间很拥挤的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Having a very pleasant taste.",
+          "translation_text": "味道非常好的。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Exciting describes something that creates strong interest, enthusiasm or anticipation.",
+      "explanation_translation": "Exciting形容能引起强烈兴趣、热情或期待的事物。"
+    },
+    {
+      "question_id": "quiz-beginner-def-002",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “beautiful”?",
+      "prompt_translation": "以下哪项最符合单词“beautiful”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Very pleasing to look at.",
+          "translation_text": "看起来非常赏心悦目的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Full of people and activity.",
+          "translation_text": "人很多、活动频繁的。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Pleasant to eat or drink.",
+          "translation_text": "吃起来或喝起来味道很好的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Making the body feel relaxed.",
+          "translation_text": "让身体感到放松的。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Beautiful describes a person, place or thing that is very pleasing to look at.",
+      "explanation_translation": "Beautiful形容人、地方或事物非常好看、令人赏心悦目。"
+    },
+    {
+      "question_id": "quiz-beginner-def-003",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “crowded”?",
+      "prompt_translation": "以下哪项最符合单词“crowded”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Full of people, with little free space.",
+          "translation_text": "人很多、空余空间很少的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Quiet and almost empty.",
+          "translation_text": "安静而且几乎没有人的。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Easy to carry from place to place.",
+          "translation_text": "容易从一个地方搬到另一个地方的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Pleasant to look at.",
+          "translation_text": "看起来令人赏心悦目的。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Crowded describes a place where many people are close together and space is limited.",
+      "explanation_translation": "Crowded形容许多人聚集在一起、空间有限的地方。"
+    },
+    {
+      "question_id": "quiz-beginner-def-004",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “comfortable”?",
+      "prompt_translation": "以下哪项最符合单词“comfortable”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Making you feel relaxed and physically at ease.",
+          "translation_text": "让你感到放松、身体舒适的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Costing a lot of money.",
+          "translation_text": "价格很高的。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Causing strong excitement.",
+          "translation_text": "令人非常兴奋的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Having many people in a small space.",
+          "translation_text": "许多人挤在狭小空间里的。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Comfortable describes something that makes you feel relaxed or physically at ease.",
+      "explanation_translation": "Comfortable形容让人感到放松或身体舒适的事物。"
+    },
+    {
+      "question_id": "quiz-beginner-def-005",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “delicious”?",
+      "prompt_translation": "以下哪项最符合单词“delicious”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Having a very pleasant taste.",
+          "translation_text": "味道非常好的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Very quiet and peaceful.",
+          "translation_text": "非常安静、平和的。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Difficult to understand.",
+          "translation_text": "难以理解的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Full of people.",
+          "translation_text": "人很多的。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Delicious describes food or drink that tastes very good.",
+      "explanation_translation": "Delicious形容食物或饮料味道非常好。"
+    },
+    {
+      "question_id": "quiz-intermediate-def-001",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “give up”?",
+      "prompt_translation": "以下哪项最符合短语“give up”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "To stop trying to do something.",
+          "translation_text": "停止尝试做某事。"
+        },
+        {
+          "id": "b",
+          "learning_text": "To postpone an activity.",
+          "translation_text": "把某项活动推迟。"
+        },
+        {
+          "id": "c",
+          "learning_text": "To discover something new.",
+          "translation_text": "发现新的事物。"
+        },
+        {
+          "id": "d",
+          "learning_text": "To continue despite difficulty.",
+          "translation_text": "尽管困难仍继续。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Give up means to stop trying or to stop doing something.",
+      "explanation_translation": "Give up表示停止尝试或停止做某事。"
+    },
+    {
+      "question_id": "quiz-intermediate-def-002",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “put off”?",
+      "prompt_translation": "以下哪项最符合短语“put off”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "To delay something until a later time.",
+          "translation_text": "把某事推迟到较晚的时间。"
+        },
+        {
+          "id": "b",
+          "learning_text": "To complete something early.",
+          "translation_text": "提前完成某事。"
+        },
+        {
+          "id": "c",
+          "learning_text": "To explain something clearly.",
+          "translation_text": "清楚地解释某事。"
+        },
+        {
+          "id": "d",
+          "learning_text": "To accept an invitation.",
+          "translation_text": "接受邀请。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Put off means to postpone or delay an event or activity.",
+      "explanation_translation": "Put off表示推迟某个事件或活动。"
+    },
+    {
+      "question_id": "quiz-intermediate-def-003",
+      "source_lesson_id": "i-collocations",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “collocation”?",
+      "prompt_translation": "以下哪项最符合单词“collocation”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "A combination of words that commonly occur together.",
+          "translation_text": "经常一起出现的词语组合。"
+        },
+        {
+          "id": "b",
+          "learning_text": "A word that has the opposite meaning of another.",
+          "translation_text": "与另一个词意思相反的词。"
+        },
+        {
+          "id": "c",
+          "learning_text": "A sentence with no verb.",
+          "translation_text": "没有动词的句子。"
+        },
+        {
+          "id": "d",
+          "learning_text": "A rule for spelling every plural noun.",
+          "translation_text": "所有复数名词的拼写规则。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "A collocation is a natural or common combination of words, such as “make a decision”.",
+      "explanation_translation": "Collocation指自然或常见的词语搭配，例如“make a decision”。"
+    },
+    {
+      "question_id": "quiz-intermediate-def-004",
+      "source_lesson_id": "i-word-families",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “clarification”?",
+      "prompt_translation": "以下哪项最符合单词“clarification”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "An explanation that makes something easier to understand.",
+          "translation_text": "让某事更容易理解的说明。"
+        },
+        {
+          "id": "b",
+          "learning_text": "A statement that makes something less certain.",
+          "translation_text": "让某事变得更不确定的陈述。"
+        },
+        {
+          "id": "c",
+          "learning_text": "A decision to stop an activity.",
+          "translation_text": "停止某项活动的决定。"
+        },
+        {
+          "id": "d",
+          "learning_text": "A description of a future possibility.",
+          "translation_text": "对未来可能性的描述。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Clarification is extra information or an explanation that makes a point clearer.",
+      "explanation_translation": "Clarification指让某个观点更清楚的补充信息或解释。"
+    },
+    {
+      "question_id": "quiz-intermediate-def-005",
+      "source_lesson_id": "i-conditionals",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “hypothetical”?",
+      "prompt_translation": "以下哪项最符合单词“hypothetical”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Based on an imagined situation rather than a confirmed fact.",
+          "translation_text": "基于想象情境，而非已确认事实的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Proven by direct measurement.",
+          "translation_text": "通过直接测量证实的。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Likely to happen at a fixed time.",
+          "translation_text": "很可能在固定时间发生的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Describing something that happened regularly in the past.",
+          "translation_text": "描述过去经常发生的事情的。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Hypothetical describes an imagined or assumed situation used for discussion or reasoning.",
+      "explanation_translation": "Hypothetical形容用于讨论或推理的想象或假设情境。"
+    },
+    {
+      "question_id": "quiz-advanced-def-001",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “imply”?",
+      "prompt_translation": "以下哪项最符合单词“imply”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "To suggest something without stating it directly.",
+          "translation_text": "不直接说明，而是暗示某事。"
+        },
+        {
+          "id": "b",
+          "learning_text": "To reach a conclusion from available evidence.",
+          "translation_text": "根据现有证据得出结论。"
+        },
+        {
+          "id": "c",
+          "learning_text": "To reject an idea openly.",
+          "translation_text": "公开否定某个想法。"
+        },
+        {
+          "id": "d",
+          "learning_text": "To repeat a statement word for word.",
+          "translation_text": "逐字重复一项陈述。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "To imply is to communicate an idea indirectly rather than state it explicitly.",
+      "explanation_translation": "Imply表示间接传达某个意思，而不是明确说出来。"
+    },
+    {
+      "question_id": "quiz-advanced-def-002",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “infer”?",
+      "prompt_translation": "以下哪项最符合单词“infer”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "To reach a conclusion from evidence or clues.",
+          "translation_text": "根据证据或线索得出结论。"
+        },
+        {
+          "id": "b",
+          "learning_text": "To suggest an idea without saying it.",
+          "translation_text": "不直接说出某个想法，而是暗示它。"
+        },
+        {
+          "id": "c",
+          "learning_text": "To remove information from a report.",
+          "translation_text": "从报告中删除信息。"
+        },
+        {
+          "id": "d",
+          "learning_text": "To make a statement less certain.",
+          "translation_text": "降低陈述确定性的表达方式。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "To infer is to work out a conclusion from evidence, clues or reasoning.",
+      "explanation_translation": "Infer表示根据证据、线索或推理得出结论。"
+    },
+    {
+      "question_id": "quiz-advanced-def-003",
+      "source_lesson_id": "a-hedging",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “hedging”?",
+      "prompt_translation": "以下哪项最符合语言学中“hedging”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Using language to make a claim less absolute or certain.",
+          "translation_text": "使用语言让某项主张不那么绝对或确定。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Repeating a claim to make it sound stronger.",
+          "translation_text": "重复某项主张以增强语气。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Changing a sentence into a question.",
+          "translation_text": "把句子改成疑问句。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Removing all supporting evidence from an argument.",
+          "translation_text": "从论证中删除所有支持证据。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Hedging uses cautious language, such as “may” or “suggests”, to express appropriate uncertainty.",
+      "explanation_translation": "Hedging指使用“may”或“suggests”等谨慎措辞，恰当地表达不确定性。"
+    },
+    {
+      "question_id": "quiz-advanced-def-004",
+      "source_lesson_id": "a-inversion",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “inversion”?",
+      "prompt_translation": "以下哪项最符合语法术语“inversion”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Changing the usual word order, often placing an auxiliary verb before the subject.",
+          "translation_text": "改变通常的语序，常把助动词放在主语之前。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Leaving out a word that is understood from context.",
+          "translation_text": "省略一个可从语境理解的词。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Joining two independent clauses with a conjunction.",
+          "translation_text": "用连词连接两个独立分句。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Changing a verb into its past participle form.",
+          "translation_text": "把动词变成过去分词形式。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Inversion changes the usual word order; formal English may place an auxiliary verb before the subject.",
+      "explanation_translation": "Inversion指改变通常的语序；正式英语中可能把助动词放在主语之前。"
+    },
+    {
+      "question_id": "quiz-advanced-def-005",
+      "source_lesson_id": "a-idioms",
+      "question_type": "word_definition",
+      "answer_language_code": "en",
+      "prompt_learning": "Which definition best matches the word “on the same page”?",
+      "prompt_translation": "以下哪项最符合短语“on the same page”的含义？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Having the same understanding or agreement about something.",
+          "translation_text": "对某事有相同的理解或共识。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Reading the same physical page in a book.",
+          "translation_text": "阅读书本中同一张页面。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Working in different places without communicating.",
+          "translation_text": "在不同地点工作且互不沟通。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Finishing a task before the agreed time.",
+          "translation_text": "在约定时间之前完成任务。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "On the same page means sharing the same understanding or agreement.",
+      "explanation_translation": "On the same page表示彼此理解一致或达成共识。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-001",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “exciting”?",
+      "prompt_translation": "以下哪项是“exciting”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "exciting",
+          "translation_text": "令人兴奋的"
+        },
+        {
+          "id": "b",
+          "learning_text": "beautiful",
+          "translation_text": "美丽的"
+        },
+        {
+          "id": "c",
+          "learning_text": "crowded",
+          "translation_text": "拥挤的"
+        },
+        {
+          "id": "d",
+          "learning_text": "delicious",
+          "translation_text": "美味的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “exciting” in this vocabulary context is “令人兴奋的”.",
+      "explanation_translation": "在本词汇语境中，“exciting”的正确翻译是“令人兴奋的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-002",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “beautiful”?",
+      "prompt_translation": "以下哪项是“beautiful”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "beautiful",
+          "translation_text": "美丽的"
+        },
+        {
+          "id": "b",
+          "learning_text": "comfortable",
+          "translation_text": "舒适的"
+        },
+        {
+          "id": "c",
+          "learning_text": "expensive",
+          "translation_text": "昂贵的"
+        },
+        {
+          "id": "d",
+          "learning_text": "boring",
+          "translation_text": "无聊的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “beautiful” in this vocabulary context is “美丽的”.",
+      "explanation_translation": "在本词汇语境中，“beautiful”的正确翻译是“美丽的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-003",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “crowded”?",
+      "prompt_translation": "以下哪项是“crowded”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "crowded",
+          "translation_text": "拥挤的"
+        },
+        {
+          "id": "b",
+          "learning_text": "quiet",
+          "translation_text": "安静的"
+        },
+        {
+          "id": "c",
+          "learning_text": "friendly",
+          "translation_text": "友好的"
+        },
+        {
+          "id": "d",
+          "learning_text": "useful",
+          "translation_text": "有用的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “crowded” in this vocabulary context is “拥挤的”.",
+      "explanation_translation": "在本词汇语境中，“crowded”的正确翻译是“拥挤的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-004",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “comfortable”?",
+      "prompt_translation": "以下哪项是“comfortable”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "comfortable",
+          "translation_text": "舒适的"
+        },
+        {
+          "id": "b",
+          "learning_text": "dangerous",
+          "translation_text": "危险的"
+        },
+        {
+          "id": "c",
+          "learning_text": "delicious",
+          "translation_text": "美味的"
+        },
+        {
+          "id": "d",
+          "learning_text": "beautiful",
+          "translation_text": "美丽的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “comfortable” in this vocabulary context is “舒适的”.",
+      "explanation_translation": "在本词汇语境中，“comfortable”的正确翻译是“舒适的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-005",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “delicious”?",
+      "prompt_translation": "以下哪项是“delicious”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "delicious",
+          "translation_text": "美味的"
+        },
+        {
+          "id": "b",
+          "learning_text": "exciting",
+          "translation_text": "令人兴奋的"
+        },
+        {
+          "id": "c",
+          "learning_text": "crowded",
+          "translation_text": "拥挤的"
+        },
+        {
+          "id": "d",
+          "learning_text": "expensive",
+          "translation_text": "昂贵的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “delicious” in this vocabulary context is “美味的”.",
+      "explanation_translation": "在本词汇语境中，“delicious”的正确翻译是“美味的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-006",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “friendly”?",
+      "prompt_translation": "以下哪项是“friendly”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "friendly",
+          "translation_text": "友好的"
+        },
+        {
+          "id": "b",
+          "learning_text": "quiet",
+          "translation_text": "安静的"
+        },
+        {
+          "id": "c",
+          "learning_text": "boring",
+          "translation_text": "无聊的"
+        },
+        {
+          "id": "d",
+          "learning_text": "comfortable",
+          "translation_text": "舒适的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “friendly” in this vocabulary context is “友好的”.",
+      "explanation_translation": "在本词汇语境中，“friendly”的正确翻译是“友好的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-007",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “quiet”?",
+      "prompt_translation": "以下哪项是“quiet”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "quiet",
+          "translation_text": "安静的"
+        },
+        {
+          "id": "b",
+          "learning_text": "crowded",
+          "translation_text": "拥挤的"
+        },
+        {
+          "id": "c",
+          "learning_text": "useful",
+          "translation_text": "有用的"
+        },
+        {
+          "id": "d",
+          "learning_text": "delicious",
+          "translation_text": "美味的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “quiet” in this vocabulary context is “安静的”.",
+      "explanation_translation": "在本词汇语境中，“quiet”的正确翻译是“安静的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-008",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “useful”?",
+      "prompt_translation": "以下哪项是“useful”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "useful",
+          "translation_text": "有用的"
+        },
+        {
+          "id": "b",
+          "learning_text": "beautiful",
+          "translation_text": "美丽的"
+        },
+        {
+          "id": "c",
+          "learning_text": "expensive",
+          "translation_text": "昂贵的"
+        },
+        {
+          "id": "d",
+          "learning_text": "friendly",
+          "translation_text": "友好的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “useful” in this vocabulary context is “有用的”.",
+      "explanation_translation": "在本词汇语境中，“useful”的正确翻译是“有用的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-009",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “expensive”?",
+      "prompt_translation": "以下哪项是“expensive”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "expensive",
+          "translation_text": "昂贵的"
+        },
+        {
+          "id": "b",
+          "learning_text": "cheap",
+          "translation_text": "便宜的"
+        },
+        {
+          "id": "c",
+          "learning_text": "comfortable",
+          "translation_text": "舒适的"
+        },
+        {
+          "id": "d",
+          "learning_text": "exciting",
+          "translation_text": "令人兴奋的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “expensive” in this vocabulary context is “昂贵的”.",
+      "explanation_translation": "在本词汇语境中，“expensive”的正确翻译是“昂贵的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-010",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “boring”?",
+      "prompt_translation": "以下哪项是“boring”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "boring",
+          "translation_text": "无聊的"
+        },
+        {
+          "id": "b",
+          "learning_text": "interesting",
+          "translation_text": "有趣的"
+        },
+        {
+          "id": "c",
+          "learning_text": "crowded",
+          "translation_text": "拥挤的"
+        },
+        {
+          "id": "d",
+          "learning_text": "delicious",
+          "translation_text": "美味的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “boring” in this vocabulary context is “无聊的”.",
+      "explanation_translation": "在本词汇语境中，“boring”的正确翻译是“无聊的”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-011",
+      "source_lesson_id": "b-countable-nouns",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “advice”?",
+      "prompt_translation": "以下哪项是“advice”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "advice",
+          "translation_text": "建议"
+        },
+        {
+          "id": "b",
+          "learning_text": "information",
+          "translation_text": "信息"
+        },
+        {
+          "id": "c",
+          "learning_text": "equipment",
+          "translation_text": "设备"
+        },
+        {
+          "id": "d",
+          "learning_text": "furniture",
+          "translation_text": "家具"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “advice” in this vocabulary context is “建议”.",
+      "explanation_translation": "在本词汇语境中，“advice”的正确翻译是“建议”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-012",
+      "source_lesson_id": "b-countable-nouns",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “information”?",
+      "prompt_translation": "以下哪项是“information”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "information",
+          "translation_text": "信息"
+        },
+        {
+          "id": "b",
+          "learning_text": "advice",
+          "translation_text": "建议"
+        },
+        {
+          "id": "c",
+          "learning_text": "luggage",
+          "translation_text": "行李"
+        },
+        {
+          "id": "d",
+          "learning_text": "equipment",
+          "translation_text": "设备"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “information” in this vocabulary context is “信息”.",
+      "explanation_translation": "在本词汇语境中，“information”的正确翻译是“信息”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-013",
+      "source_lesson_id": "b-countable-nouns",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “equipment”?",
+      "prompt_translation": "以下哪项是“equipment”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "equipment",
+          "translation_text": "设备"
+        },
+        {
+          "id": "b",
+          "learning_text": "furniture",
+          "translation_text": "家具"
+        },
+        {
+          "id": "c",
+          "learning_text": "advice",
+          "translation_text": "建议"
+        },
+        {
+          "id": "d",
+          "learning_text": "information",
+          "translation_text": "信息"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “equipment” in this vocabulary context is “设备”.",
+      "explanation_translation": "在本词汇语境中，“equipment”的正确翻译是“设备”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-014",
+      "source_lesson_id": "b-countable-nouns",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “furniture”?",
+      "prompt_translation": "以下哪项是“furniture”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "furniture",
+          "translation_text": "家具"
+        },
+        {
+          "id": "b",
+          "learning_text": "equipment",
+          "translation_text": "设备"
+        },
+        {
+          "id": "c",
+          "learning_text": "luggage",
+          "translation_text": "行李"
+        },
+        {
+          "id": "d",
+          "learning_text": "information",
+          "translation_text": "信息"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “furniture” in this vocabulary context is “家具”.",
+      "explanation_translation": "在本词汇语境中，“furniture”的正确翻译是“家具”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-015",
+      "source_lesson_id": "b-articles",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “hour”?",
+      "prompt_translation": "以下哪项是“hour”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "hour",
+          "translation_text": "小时"
+        },
+        {
+          "id": "b",
+          "learning_text": "owl",
+          "translation_text": "猫头鹰"
+        },
+        {
+          "id": "c",
+          "learning_text": "umbrella",
+          "translation_text": "雨伞"
+        },
+        {
+          "id": "d",
+          "learning_text": "university",
+          "translation_text": "大学"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “hour” in this vocabulary context is “小时”.",
+      "explanation_translation": "在本词汇语境中，“hour”的正确翻译是“小时”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-016",
+      "source_lesson_id": "b-articles",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “umbrella”?",
+      "prompt_translation": "以下哪项是“umbrella”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "umbrella",
+          "translation_text": "雨伞"
+        },
+        {
+          "id": "b",
+          "learning_text": "hour",
+          "translation_text": "小时"
+        },
+        {
+          "id": "c",
+          "learning_text": "article",
+          "translation_text": "冠词"
+        },
+        {
+          "id": "d",
+          "learning_text": "owl",
+          "translation_text": "猫头鹰"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “umbrella” in this vocabulary context is “雨伞”.",
+      "explanation_translation": "在本词汇语境中，“umbrella”的正确翻译是“雨伞”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-017",
+      "source_lesson_id": "b-present",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “routine”?",
+      "prompt_translation": "以下哪项是“routine”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "routine",
+          "translation_text": "日常惯例"
+        },
+        {
+          "id": "b",
+          "learning_text": "schedule",
+          "translation_text": "时间表"
+        },
+        {
+          "id": "c",
+          "learning_text": "holiday",
+          "translation_text": "假期"
+        },
+        {
+          "id": "d",
+          "learning_text": "journey",
+          "translation_text": "旅程"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “routine” in this vocabulary context is “日常惯例”.",
+      "explanation_translation": "在本词汇语境中，“routine”的正确翻译是“日常惯例”。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-word-018",
+      "source_lesson_id": "b-sentence",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “subject”?",
+      "prompt_translation": "在英语语法中，以下哪项是“subject”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "subject",
+          "translation_text": "主语"
+        },
+        {
+          "id": "b",
+          "learning_text": "verb",
+          "translation_text": "动词"
+        },
+        {
+          "id": "c",
+          "learning_text": "object",
+          "translation_text": "宾语"
+        },
+        {
+          "id": "d",
+          "learning_text": "sentence",
+          "translation_text": "句子"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “subject” in this vocabulary context is “主语”.",
+      "explanation_translation": "在本词汇语境中，“subject”的正确翻译是“主语”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-001",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “postpone”?",
+      "prompt_translation": "以下哪项是“postpone”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "postpone",
+          "translation_text": "推迟"
+        },
+        {
+          "id": "b",
+          "learning_text": "complete",
+          "translation_text": "完成"
+        },
+        {
+          "id": "c",
+          "learning_text": "repeat",
+          "translation_text": "重复"
+        },
+        {
+          "id": "d",
+          "learning_text": "cancel",
+          "translation_text": "取消"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “postpone” in this lesson context is “推迟”.",
+      "explanation_translation": "在本课语境中，“postpone”的正确翻译是“推迟”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-002",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “give up”?",
+      "prompt_translation": "以下哪项是短语“give up”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "give up",
+          "translation_text": "放弃"
+        },
+        {
+          "id": "b",
+          "learning_text": "carry on",
+          "translation_text": "继续"
+        },
+        {
+          "id": "c",
+          "learning_text": "find out",
+          "translation_text": "查明"
+        },
+        {
+          "id": "d",
+          "learning_text": "set up",
+          "translation_text": "建立"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “give up” in this lesson context is “放弃”.",
+      "explanation_translation": "在本课语境中，“give up”的正确翻译是“放弃”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-003",
+      "source_lesson_id": "i-word-families",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “clarification”?",
+      "prompt_translation": "以下哪项是“clarification”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "clarification",
+          "translation_text": "澄清"
+        },
+        {
+          "id": "b",
+          "learning_text": "prediction",
+          "translation_text": "预测"
+        },
+        {
+          "id": "c",
+          "learning_text": "permission",
+          "translation_text": "许可"
+        },
+        {
+          "id": "d",
+          "learning_text": "comparison",
+          "translation_text": "比较"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “clarification” in this lesson context is “澄清”.",
+      "explanation_translation": "在本课语境中，“clarification”的正确翻译是“澄清”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-004",
+      "source_lesson_id": "i-word-families",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “unclear”?",
+      "prompt_translation": "以下哪项是“unclear”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "unclear",
+          "translation_text": "不清楚的"
+        },
+        {
+          "id": "b",
+          "learning_text": "accurate",
+          "translation_text": "准确的"
+        },
+        {
+          "id": "c",
+          "learning_text": "reliable",
+          "translation_text": "可靠的"
+        },
+        {
+          "id": "d",
+          "learning_text": "formal",
+          "translation_text": "正式的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “unclear” in this lesson context is “不清楚的”.",
+      "explanation_translation": "在本课语境中，“unclear”的正确翻译是“不清楚的”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-005",
+      "source_lesson_id": "i-collocations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “collocation”?",
+      "prompt_translation": "以下哪项是“collocation”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "collocation",
+          "translation_text": "词语搭配"
+        },
+        {
+          "id": "b",
+          "learning_text": "punctuation",
+          "translation_text": "标点符号"
+        },
+        {
+          "id": "c",
+          "learning_text": "pronunciation",
+          "translation_text": "发音"
+        },
+        {
+          "id": "d",
+          "learning_text": "paragraph",
+          "translation_text": "段落"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “collocation” in this lesson context is “词语搭配”.",
+      "explanation_translation": "在本课语境中，“collocation”的正确翻译是“词语搭配”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-006",
+      "source_lesson_id": "i-collocations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “decision”?",
+      "prompt_translation": "以下哪项是“decision”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "decision",
+          "translation_text": "决定"
+        },
+        {
+          "id": "b",
+          "learning_text": "suggestion",
+          "translation_text": "建议"
+        },
+        {
+          "id": "c",
+          "learning_text": "experience",
+          "translation_text": "经历"
+        },
+        {
+          "id": "d",
+          "learning_text": "opportunity",
+          "translation_text": "机会"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “decision” in this lesson context is “决定”.",
+      "explanation_translation": "在本课语境中，“decision”的正确翻译是“决定”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-007",
+      "source_lesson_id": "i-perfect",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “experience”?",
+      "prompt_translation": "以下哪项是“experience”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "experience",
+          "translation_text": "经历"
+        },
+        {
+          "id": "b",
+          "learning_text": "schedule",
+          "translation_text": "日程"
+        },
+        {
+          "id": "c",
+          "learning_text": "result",
+          "translation_text": "结果"
+        },
+        {
+          "id": "d",
+          "learning_text": "intention",
+          "translation_text": "意图"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “experience” in this lesson context is “经历”.",
+      "explanation_translation": "在本课语境中，“experience”的正确翻译是“经历”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-008",
+      "source_lesson_id": "i-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “hypothetical”?",
+      "prompt_translation": "以下哪项是“hypothetical”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "hypothetical",
+          "translation_text": "假设的"
+        },
+        {
+          "id": "b",
+          "learning_text": "realistic",
+          "translation_text": "现实的"
+        },
+        {
+          "id": "c",
+          "learning_text": "certain",
+          "translation_text": "确定的"
+        },
+        {
+          "id": "d",
+          "learning_text": "regular",
+          "translation_text": "有规律的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “hypothetical” in this lesson context is “假设的”.",
+      "explanation_translation": "在本课语境中，“hypothetical”的正确翻译是“假设的”。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-word-009",
+      "source_lesson_id": "i-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “realistic”?",
+      "prompt_translation": "以下哪项是“realistic”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "realistic",
+          "translation_text": "现实的"
+        },
+        {
+          "id": "b",
+          "learning_text": "imaginary",
+          "translation_text": "想象的"
+        },
+        {
+          "id": "c",
+          "learning_text": "temporary",
+          "translation_text": "暂时的"
+        },
+        {
+          "id": "d",
+          "learning_text": "uncertain",
+          "translation_text": "不确定的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “realistic” in this lesson context is “现实的”.",
+      "explanation_translation": "在本课语境中，“realistic”的正确翻译是“现实的”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-001",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “imply”?",
+      "prompt_translation": "以下哪项是“imply”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "imply",
+          "translation_text": "暗示"
+        },
+        {
+          "id": "b",
+          "learning_text": "infer",
+          "translation_text": "推断"
+        },
+        {
+          "id": "c",
+          "learning_text": "describe",
+          "translation_text": "描述"
+        },
+        {
+          "id": "d",
+          "learning_text": "deny",
+          "translation_text": "否认"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “imply” in this context is “暗示”.",
+      "explanation_translation": "在本语境中，“imply”的正确翻译是“暗示”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-002",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “infer”?",
+      "prompt_translation": "以下哪项是“infer”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "infer",
+          "translation_text": "推断"
+        },
+        {
+          "id": "b",
+          "learning_text": "imply",
+          "translation_text": "暗示"
+        },
+        {
+          "id": "c",
+          "learning_text": "observe",
+          "translation_text": "观察"
+        },
+        {
+          "id": "d",
+          "learning_text": "repeat",
+          "translation_text": "重复"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “infer” in this context is “推断”.",
+      "explanation_translation": "在本语境中，“infer”的正确翻译是“推断”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-003",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “tentative”?",
+      "prompt_translation": "以下哪项是“tentative”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "tentative",
+          "translation_text": "暂定的"
+        },
+        {
+          "id": "b",
+          "learning_text": "permanent",
+          "translation_text": "永久的"
+        },
+        {
+          "id": "c",
+          "learning_text": "certain",
+          "translation_text": "确定的"
+        },
+        {
+          "id": "d",
+          "learning_text": "ordinary",
+          "translation_text": "普通的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “tentative” in this context is “暂定的”.",
+      "explanation_translation": "在本语境中，“tentative”的正确翻译是“暂定的”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-004",
+      "source_lesson_id": "a-inversion",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “rarely”?",
+      "prompt_translation": "以下哪项是“rarely”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "rarely",
+          "translation_text": "很少"
+        },
+        {
+          "id": "b",
+          "learning_text": "frequently",
+          "translation_text": "经常"
+        },
+        {
+          "id": "c",
+          "learning_text": "always",
+          "translation_text": "总是"
+        },
+        {
+          "id": "d",
+          "learning_text": "immediately",
+          "translation_text": "立即"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “rarely” in this context is “很少”.",
+      "explanation_translation": "在本语境中，“rarely”的正确翻译是“很少”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-005",
+      "source_lesson_id": "a-inversion",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “inversion”?",
+      "prompt_translation": "在英语语法中，以下哪项是“inversion”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "inversion",
+          "translation_text": "倒装"
+        },
+        {
+          "id": "b",
+          "learning_text": "omission",
+          "translation_text": "省略"
+        },
+        {
+          "id": "c",
+          "learning_text": "emphasis",
+          "translation_text": "强调"
+        },
+        {
+          "id": "d",
+          "learning_text": "tense",
+          "translation_text": "时态"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “inversion” in this context is “倒装”.",
+      "explanation_translation": "在本语境中，“inversion”的正确翻译是“倒装”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-006",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “precise”?",
+      "prompt_translation": "以下哪项是“precise”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "precise",
+          "translation_text": "精确的"
+        },
+        {
+          "id": "b",
+          "learning_text": "vague",
+          "translation_text": "模糊的"
+        },
+        {
+          "id": "c",
+          "learning_text": "general",
+          "translation_text": "普遍的"
+        },
+        {
+          "id": "d",
+          "learning_text": "temporary",
+          "translation_text": "暂时的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “precise” in this context is “精确的”.",
+      "explanation_translation": "在本语境中，“precise”的正确翻译是“精确的”。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-word-007",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Which is the correct Simplified Chinese translation of “cautious”?",
+      "prompt_translation": "以下哪项是“cautious”的正确简体中文翻译？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "cautious",
+          "translation_text": "谨慎的"
+        },
+        {
+          "id": "b",
+          "learning_text": "reckless",
+          "translation_text": "鲁莽的"
+        },
+        {
+          "id": "c",
+          "learning_text": "casual",
+          "translation_text": "随意的"
+        },
+        {
+          "id": "d",
+          "learning_text": "confident",
+          "translation_text": "自信的"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct translation of “cautious” in this context is “谨慎的”.",
+      "explanation_translation": "在本语境中，“cautious”的正确翻译是“谨慎的”。"
     }
   ]
 }
