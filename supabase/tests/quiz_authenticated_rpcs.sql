@@ -149,7 +149,7 @@ begin
        where not coalesce((d->>'available')::boolean,false)
           or not coalesce((d->>'bank_target_met')::boolean,false)
      ) then
-    raise exception 'All three difficulties should meet the seeded target bank and be available';
+    raise exception 'All three difficulties should meet the seeded target bank and be available. Actual availability: %',v_availability;
   end if;
   if v_availability->'allowance'->>'daily_limit'<>'1' then
     raise exception 'Free Quiz allowance must be one per local day';
