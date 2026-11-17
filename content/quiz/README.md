@@ -17,9 +17,9 @@ These questions are original SwiftDictionary learning content. Do not copy third
 
 1. Add or revise question records in the JSON draft pack. Use stable unique question IDs, the exact source lesson ID and a valid `learning_objective_id` from `curriculum-map.en.json`. Every assessed word, phrase, grammar structure and Chinese translation target must be taught in that permanent lesson before it enters the Quiz bank.
 2. Run `node scripts/quiz/validate-question-bank.mjs`. This checks required bilingual fields, four unique options, one matching answer key, unique IDs/prompts, source lesson/topic/difficulty mappings and a valid learning-objective link for every question.
-3. Run `node scripts/quiz/validate-question-bank.mjs --emit-sql` to generate SQL for the 114 knowledge questions as `draft`. The exporter deliberately omits all 85 non-knowledge assessment questions (15 word-definition and 70 Chinese-translation items) until backend question-type support is implemented. The exporter never approves content.
-4. Review each question manually for factual accuracy, one unambiguous answer, plausible distractors, appropriate difficulty, natural English, accurate Simplified Chinese and explanation quality. The validator is structural, not a substitute for educational/editorial review. Check that definitions have one defensible meaning, one-word translations are context-specific, distractors are plausible but unambiguously wrong, and every assessed word is taught in its mapped lesson.
-5. Only after explicit content review should a separate reviewed approval migration change selected records from `draft` to `approved`. Never combine import and approval.
+3. Run `node scripts/quiz/validate-question-bank.mjs --emit-sql` to generate a draft-only SQL import containing all 199 questions. The exporter never approves content by default.
+4. For a release explicitly authorized by the owner, run `node scripts/quiz/validate-question-bank.mjs --emit-sql --approve-for-release`. This generates approved rows with `approved_at`; it must only be used for the owner-authorized release migration. The source JSON remains draft. Never use this flag as part of routine content editing.
+5. Human bilingual review is deferred for the current 2.4.0 live-testing release. Friends' and owner's feedback will inform later corrections. Structural validation is not a substitute for checking factual accuracy, natural English/Chinese, one unambiguous answer, plausible distractors, difficulty and explanations.
 6. Run the database eligibility checks and the full Quiz RPC test suite before making a difficulty available.
 
 ## Availability gates
@@ -40,6 +40,6 @@ The minimum and target checks are per selected difficulty. Because question IDs 
 
 - Draft packs and generated SQL do not change production by themselves.
 - Do not import Quiz content into production until the Quiz schema/RPC migrations are approved and applied.
-- Do not approve content until human editorial review is complete.
+- The current 2.4.0 production content release is explicitly owner-authorized with human review deferred. Do not infer that structural validation certifies educational accuracy; record and correct issues found during live testing.
 - No learner personal data is part of this content pack.
 - This batch introduces original authored educational text; maintain a provenance note for future additions.
