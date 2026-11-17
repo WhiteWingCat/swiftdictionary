@@ -35,10 +35,10 @@ Use the existing tested sequence from `.github/workflows/quiz-db-foundation.yml`
 5. `20261114082328_swiftdictionary_update_2_3_0_daily_activity_sessions.sql`
 6. `20261114082332_swiftdictionary_update_2_3_0_current_window_allowance_ledger.sql`
 7. `20261114082335_swiftdictionary_update_2_3_0_learning_history_deletion.sql`
-8. `20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql`
-9. `20261114120000_swiftdictionary_update_2_4_0_quiz_question_bank_foundation.sql`
-10. `20261114160000_swiftdictionary_update_2_4_0_quiz_authenticated_rpcs.sql`
-11. `20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
+8. `20261114120000_swiftdictionary_update_2_4_0_quiz_question_bank_foundation.sql`
+9. `20261114160000_swiftdictionary_update_2_4_0_quiz_authenticated_rpcs.sql`
+10. `20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
+11. `20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql`
 12. `20261117180000_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql`
 
 The sequence must be run in the same order in staging and CI. Any change to it requires rerunning the clean-bootstrap integration checks.
