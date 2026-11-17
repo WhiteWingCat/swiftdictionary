@@ -394,6 +394,8 @@ $chinese_mix$;
 
 update public.user_preferences set translation_language='en'
 where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
+select set_config('request.jwt.claim.sub','bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',true);
+select set_config('request.jwt.claims','{"sub":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"}',true);
 
 -- Premium user: exactly three completions/day, no same-day reuse between sessions,
 -- and a fourth start is blocked by the server-side completion allowance.
