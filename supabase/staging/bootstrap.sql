@@ -10,8 +10,6 @@
 -- This is intentionally separate from supabase/migrations: it is a one-time
 -- staging-only baseline, not a production migration and not for main deployment.
 
-begin;
-
 -- Match Supabase's post-2026-10-30 least-privilege default for new public objects.
 alter default privileges for role postgres in schema public
   revoke select, insert, update, delete on tables from anon, authenticated, service_role;
@@ -285,4 +283,3 @@ values
   ('premium', 'quiz', 12),
   ('premium', 'flashcard', 12);
 
-commit;
