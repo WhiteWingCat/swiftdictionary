@@ -276,6 +276,8 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(submitted.data.questions[0].correct_option_id,draftById.get(submitted.data.questions[0].question_id).correct_option_id);
   const history=await client.rpc("get_my_quiz_history",{p_limit:20});
   assert.equal(history.data.length,1);
+  assert.equal(history.data[0].correct_count,10,"Mock history must return the actual correct-answer count");
+  assert.equal(history.data[0].question_count,10);
   const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
   assert.equal(review.data.questions.length,10);
   availability=await client.rpc("get_my_quiz_availability");
