@@ -19084,6 +19084,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function initialiseQuizPage(){
       if(currentUser)quizPageState.userId=currentUser.id;
+      quizApplyPageTranslation();
       if(quizPageState.loading)return;quizPageState.loading=true;
       try{
         if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access Quiz.");return;}
