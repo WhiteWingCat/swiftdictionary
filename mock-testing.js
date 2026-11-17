@@ -216,36 +216,60 @@
           : dailyRows(db,activity_type).length
     }));
   }
-  function quizMockQuestions(sessionId,difficulty,count) {
-    const sourceLevels=difficulty==="beginner"
-      ? Array(count).fill("beginner")
+  let quizDraftBankPromise=null;
+  async function loadQuizDraftBank() {
+    if(!quizDraftBankPromise) {
+      quizDraftBankPromise=(async()=>{
+        const [bankResponse,mapResponse]=await Promise.all([
+          fetch("/content/quiz/questions.en-zh.draft.json",{cache:"no-store"}),
+          fetch("/content/quiz/curriculum-map.en.json",{cache:"no-store"})
+        ]);
+        if(!bankResponse.ok||!mapResponse.ok) throw new Error("The draft Quiz question bank could not be loaded in Mock Test Mode.");
+        const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
+        if(!Array.isArray(bank.questions)||bank.questions.length!==114) throw new Error("The draft Quiz bank must contain exactly 114 questions.");
+        const mapped=bank.questions.map(question=>{
+          const source=curriculum[question.source_lesson_id];
+          if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty)) throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
+          if(!question.question_id||!question.prompt_learning||!question.prompt_translation||!Array.isArray(question.options)||question.options.length!==4) throw new Error("A draft Quiz question is incomplete: "+question.question_id);
+          if(!question.options.some(option=>option.id===question.correct_option_id)) throw new Error("A draft Quiz answer key is invalid: "+question.question_id);
+          if(question.options.some(option=>!option.id||!option.learning_text||!option.translation_text)) throw new Error("A draft Quiz option is incomplete: "+question.question_id);
+          return {...question,topic_id:source.topic_id,source_difficulty:source.difficulty};
+        });
+        const counts=mapped.reduce((result,question)=>(result[question.source_difficulty]++,result),{beginner:0,intermediate:0,advanced:0});
+        if(counts.beginner!==30||counts.intermediate!==36||counts.advanced!==48) throw new Error("The draft Quiz bank difficulty totals do not match the expected 30/36/48 distribution.");
+        return {questions:mapped,counts};
+      })().catch(error=>{quizDraftBankPromise=null;throw error;});
+    }
+    return quizDraftBankPromise;
+  }
+  function shuffled(items) {
+    const result=items.slice();
+    for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}
+    return result;
+  }
+  async function quizMockQuestions(sessionId,difficulty) {
+    const bank=await loadQuizDraftBank();
+    const composition=difficulty==="beginner"
+      ? {beginner:10}
       : difficulty==="intermediate"
-        ? [...Array(12).fill("intermediate"),...Array(3).fill("beginner")]
-        : [...Array(12).fill("advanced"),...Array(6).fill("intermediate"),...Array(2).fill("beginner")];
-    return Array.from({length:count},(_,index)=>{
-      const number=index+1, id="mock-quiz-question-"+sessionId+"-"+number;
-      const options=[
-        {id:"a",learning_text:"Correct mock answer "+number,translation_text:"模拟正确答案 "+number},
-        {id:"b",learning_text:"Alternative answer B",translation_text:"备选答案 B"},
-        {id:"c",learning_text:"Alternative answer C",translation_text:"备选答案 C"},
-        {id:"d",learning_text:"Alternative answer D",translation_text:"备选答案 D"}
-      ];
-      const correctOptionId="a";
-      // Shuffle the complete option set and retain the correct option identity.
-      for(let i=options.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        [options[i],options[j]]=[options[j],options[i]];
-      }
+        ? {intermediate:12,beginner:3}
+        : {advanced:12,intermediate:6,beginner:2};
+    const selected=[];
+    for(const [level,amount] of Object.entries(composition)) {
+      const pool=bank.questions.filter(question=>question.source_difficulty===level);
+      if(pool.length<amount) throw new Error("Not enough draft Quiz questions for "+level+" difficulty.");
+      selected.push(...shuffled(pool).slice(0,amount));
+    }
+    return shuffled(selected).map((question,index)=>{
+      const options=shuffled(question.options).map(option=>({
+        id:option.id,learning_text:option.learning_text,translation_text:option.translation_text
+      }));
       return {
-        question_id:id,source_lesson_id:"mock-approved-lesson-"+number,
-        topic_id:["greetings","daily-life","places","communication"][index%4],
-        source_difficulty:sourceLevels[index],position:number,
-        prompt_learning:"[Mock] Choose the correct answer for practice question "+number+".",
-        prompt_translation:"[模拟] 请选择第"+number+"题的正确答案。",
-        options,
-        selected_option_id:null,correct_option_id:correctOptionId,
-        explanation_learning:"This is synthetic mock content used to test the Quiz interface.",
-        explanation_translation:"这是用于测试测验界面的模拟内容。"
+        question_id:question.question_id,source_lesson_id:question.source_lesson_id,
+        topic_id:question.topic_id,source_difficulty:question.source_difficulty,position:index+1,
+        prompt_learning:question.prompt_learning,prompt_translation:question.prompt_translation,
+        options,selected_option_id:null,correct_option_id:question.correct_option_id,
+        explanation_learning:question.explanation_learning,explanation_translation:question.explanation_translation
       };
     });
   }
@@ -269,7 +293,7 @@
       })
     };
   }
-  function quizMockAvailability(db,user) {
+  function quizMockAvailability(db,user,bankCounts) {
     const pref=db.tables.user_preferences?.[0]||{},timezone=pref.allowance_timezone||pref.timezone||"UTC";
     const day=today(timezone),plan=(db.tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
     const limit=(db.tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="quiz")?.daily_limit??(plan==="premium"?3:1);
@@ -279,18 +303,21 @@
     const remaining=Math.max(0,limit-used);
     const difficulties=["beginner","intermediate","advanced"].map(difficulty=>({
       difficulty,question_count:difficulty==="beginner"?10:difficulty==="intermediate"?15:20,
-      // The mock adapter does not inspect or approve any real question-bank rows.
-      bank_minimum_met:false,bank_target_met:false,bank_counts:{},remaining_counts:{},
+      // Counts describe draft availability only; they do not imply editorial approval.
+      bank_minimum_met:true,bank_target_met:false,bank_counts:bankCounts||{},remaining_counts:bankCounts||{},
       available:!active&&remaining>0,
-      reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":"mock_simulation_only"
+      reason:active?"active_session_exists":remaining<=0?"allowance_exhausted":"draft_content_mock_only"
     }));
     return {mock_simulation:true,timezone,local_date:day,plan_code:plan,
       allowance:{daily_limit:limit,used_count:used,remaining_count:remaining},
       active_session_id:active?.session_id||null,difficulties};
   }
-  function mockRpc(name,args) {
+  async function mockRpc(name,args) {
     const db=state(), tables=db.tables, user=activeUser;
-    if (name==="get_my_quiz_availability") return {data:quizMockAvailability(db,user),error:null};
+    if (name==="get_my_quiz_availability") {
+      const bank=await loadQuizDraftBank();
+      return {data:quizMockAvailability(db,user,bank.counts),error:null};
+    }
     if (name==="get_my_active_quiz") {
       const active=(tables.quiz_sessions||[]).find(row=>row.status==="in_progress");
       return {data:quizMockPayload(active),error:null};
@@ -304,7 +331,8 @@
       if(!["beginner","intermediate","advanced"].includes(difficulty))return {data:null,error:error("Invalid Quiz difficulty.","22023")};
       const count=difficulty==="beginner"?10:difficulty==="intermediate"?15:20;
       const sessionId="mock-quiz-session-"+(++sequence);
-      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,source_composition:difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10",started_at:now(),completed_at:null,questions:quizMockQuestions(sessionId,difficulty,count)};
+      const questions=await quizMockQuestions(sessionId,difficulty);
+      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,source_composition:difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10",started_at:now(),completed_at:null,questions};
       (tables.quiz_sessions||=[]).push(session);persist(db);
       return {data:quizMockPayload(session),error:null};
     }
@@ -407,7 +435,7 @@
   const adapter = {
     auth,
     from(table) { return new MockQuery(table); },
-    async rpc(name,args={}) { try { return mockRpc(name,args); } catch (err) { return {data:null,error:error(err.message || "Mock RPC failed.")}; } },
+    async rpc(name,args={}) { try { return await mockRpc(name,args); } catch (err) { return {data:null,error:error(err.message || "Mock RPC failed.")}; } },
     storage: { from() { return {upload:async()=>({data:null,error:error("Storage is not supported in mock mode.")}),download:async()=>({data:null,error:error("Storage is not supported in mock mode.")})}; } }
   };
   if (!window.supabase || typeof window.supabase.createClient!=="function") return;
