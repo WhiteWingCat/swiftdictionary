@@ -133,7 +133,7 @@ if (emitSql) {
     "begin;",
     "insert into private.quiz_question_bank (",
     "  question_id, revision, learning_language_code, translation_language_code,",
-    "  source_lesson_id, topic_id, difficulty, question_type, answer_language_code, learning_objective_id, prompt_learning, prompt_translation,
+    "  source_lesson_id, topic_id, difficulty, question_type, answer_language_code, learning_objective_id, prompt_learning, prompt_translation,",
     "  options, correct_option_id, explanation_learning, explanation_translation, status",
     ") values",
     rows.join(",\n"),
