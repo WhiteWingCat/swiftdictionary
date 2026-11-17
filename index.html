@@ -430,17 +430,16 @@
 
     /* Compact language controls follow the account/Profile navigation pill style. */
     #globalCourseControls.course-controls { display:flex; align-items:center; gap:7px; margin:0; padding:0; border:0; background:transparent; box-shadow:none; }
-    .course-selector-wrap { position:relative; }
-    .course-control-trigger { min-height:40px; padding:5px 10px 5px 7px; font-size:.9rem; font-weight:750; white-space:nowrap; }
-    .course-control-icon { width:27px; height:27px; display:grid; place-items:center; border-radius:50%; background:var(--accent-bg); font-size:1rem; }
-    .course-selector-menu { display:grid; gap:9px; padding:12px; }
-    .course-selector-label { display:block; color:var(--muted); font-size:.75rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
-    .course-selector-menu select { width:100%; min-width:160px; padding:9px 32px 9px 11px; border:1px solid var(--border); border-radius:10px; background:var(--panel); color:var(--text); font-size:.92rem; font-weight:700; }
-    .course-selector-menu select:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .course-selector-pill { display:flex; align-items:center; gap:7px; min-height:40px; padding:5px 9px 5px 7px; border:1px solid var(--border); border-radius:999px; background:var(--panel); color:var(--text); }
+    .course-control-icon { width:27px; height:27px; flex:0 0 27px; display:grid; place-items:center; border-radius:50%; background:var(--accent-bg); font-size:1rem; }
+    .course-selector-pill select { min-width:90px; max-width:150px; border:0; outline:0; padding:4px 19px 4px 0; background:transparent; color:var(--text); font-size:.88rem; font-weight:750; cursor:pointer; }
+    .course-selector-pill:focus-within { outline:2px solid var(--accent); outline-offset:2px; }
+    .course-selector-pill select:focus-visible { outline:0; }
     @media(max-width:760px) {
       #globalCourseControls.course-controls { width:auto; gap:6px; }
-      .course-control-trigger { min-height:38px; padding:4px 8px 4px 6px; font-size:.82rem; }
-      .course-control-icon { width:25px; height:25px; }
+      .course-selector-pill { min-height:38px; gap:5px; padding:4px 7px 4px 5px; }
+      .course-control-icon { width:25px; height:25px; flex-basis:25px; }
+      .course-selector-pill select { min-width:76px; max-width:112px; font-size:.8rem; }
     }
     .quiz-difficulty-heading { align-items:center; gap:18px; }
     .quiz-allowance-card { flex:0 0 auto; display:flex; align-items:center; gap:14px; min-width:220px; margin:0; padding:10px 13px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
@@ -470,14 +469,8 @@
     <div class="wrap topbar">
       <div class="brand"><div class="brand-icon">S</div><span>SwiftDictionary</span></div>
       <div class="top-actions"><div class="course-controls" id="globalCourseControls" aria-label="Learning language settings">
-          <div class="course-selector-wrap">
-            <button id="courseControlTrigger" class="account-menu-trigger course-control-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="courseControlMenu"><span class="course-control-icon" aria-hidden="true">📘</span><span id="courseControlValue">English</span><span aria-hidden="true">⌄</span></button>
-            <div id="courseControlMenu" class="account-menu course-selector-menu" hidden><label class="course-selector-label" for="courseSelect">Learning course</label><select id="courseSelect"><option value="en">English</option><option value="zh">简体中文</option></select></div>
-          </div>
-          <div class="course-selector-wrap">
-            <button id="translationControlTrigger" class="account-menu-trigger course-control-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="translationControlMenu"><span class="course-control-icon" aria-hidden="true">🌐</span><span id="translationControlValue">简体中文</span><span aria-hidden="true">⌄</span></button>
-            <div id="translationControlMenu" class="account-menu course-selector-menu" hidden><label class="course-selector-label" for="translationSelect">Translate into</label><select id="translationSelect"><option value="en">English</option><option value="zh">简体中文</option></select></div>
-          </div>
+          <label class="course-selector-wrap course-selector-pill" for="courseSelect"><span class="course-control-icon" aria-hidden="true">📘</span><span class="sr-only">Learning course</span><select id="courseSelect" aria-label="Learning course"><option value="en">English</option><option value="zh">简体中文</option></select></label>
+          <label class="course-selector-wrap course-selector-pill" for="translationSelect"><span class="course-control-icon" aria-hidden="true">🌐</span><span class="sr-only">Translate into</span><select id="translationSelect" aria-label="Translation language"><option value="en">English</option><option value="zh">简体中文</option></select></label>
         </div>
         <div class="account-menu-wrap"><button id="accountButton" class="account-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu"><span id="accountAvatar" class="account-avatar" aria-hidden="true">🐦</span><span id="accountButtonLabel">Account</span><span aria-hidden="true">⌄</span></button>
           <div id="accountMenu" class="account-menu" hidden>
@@ -17839,30 +17832,11 @@
       }
     }
     function updateGlobalCourseControlLabels() {
-      const courseValue=document.getElementById("courseControlValue");
-      const translationValue=document.getElementById("translationControlValue");
-      if(courseValue)courseValue.textContent=course==="zh"?"简体中文":"English";
-      if(translationValue)translationValue.textContent=translationLanguage==="zh"?"简体中文":"English";
+      const courseSelect=document.getElementById("courseSelect");
+      const translationSelect=document.getElementById("translationSelect");
+      if(courseSelect)courseSelect.value=course;
+      if(translationSelect)translationSelect.value=translationLanguage;
     }
-    function closeGlobalCourseMenus() {
-      for(const [triggerId,menuId] of [["courseControlTrigger","courseControlMenu"],["translationControlTrigger","translationControlMenu"]]) {
-        const trigger=document.getElementById(triggerId),menu=document.getElementById(menuId);
-        if(trigger&&menu){menu.hidden=true;trigger.setAttribute("aria-expanded","false");}
-      }
-    }
-    function toggleGlobalCourseMenu(triggerId,menuId) {
-      const trigger=document.getElementById(triggerId),menu=document.getElementById(menuId);
-      if(!trigger||!menu)return;
-      const shouldOpen=menu.hidden;
-      closeGlobalCourseMenus();
-      menu.hidden=!shouldOpen;
-      trigger.setAttribute("aria-expanded",String(shouldOpen));
-      if(shouldOpen)menu.querySelector("select")?.focus();
-    }
-    document.getElementById("courseControlTrigger").addEventListener("click",()=>toggleGlobalCourseMenu("courseControlTrigger","courseControlMenu"));
-    document.getElementById("translationControlTrigger").addEventListener("click",()=>toggleGlobalCourseMenu("translationControlTrigger","translationControlMenu"));
-    document.addEventListener("click",event=>{if(!event.target.closest("#globalCourseControls"))closeGlobalCourseMenus();});
-    document.addEventListener("keydown",event=>{if(event.key==="Escape")closeGlobalCourseMenus();});
     updateGlobalCourseControlLabels();
 
     function rememberCoursePreferences() {
@@ -17883,7 +17857,7 @@
         }).catch(error => console.warn("Could not save course preferences:", error));
       }
     }
-    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; updateGlobalCourseControlLabels(); closeGlobalCourseMenus(); rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
+    document.getElementById("courseSelect").addEventListener("change", e => { document.getElementById("preferenceLearning").value=e.target.value; course=e.target.value; updateGlobalCourseControlLabels(); rememberCoursePreferences(); categoryRow.hidden = course === "zh"; grid.classList.toggle("character-grid", course === "zh"); words=course === "zh" ? chineseWords : englishWords; activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; search.value=""; search.placeholder=course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word..."; currentPage=1; makeAlphabet(); updateLetterButtons(); categoryButtons.forEach((b,i)=>{ const active=i===0; b.classList.toggle("active",active); b.setAttribute("aria-pressed",String(active)); }); render(); if (currentUser) syncCurrentCourseFromCloud({ mergeLocal: false }); });
     function refreshTranslationViews(nextLanguage) {
       const selector=document.getElementById("translationSelect");
       translationLanguage=nextLanguage || selector.value || "en";
@@ -17919,7 +17893,6 @@
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);
       updateGlobalCourseControlLabels();
-      closeGlobalCourseMenus();
       rememberCoursePreferences();
     });
     search.addEventListener("input", () => { currentPage = 1; render(); });
@@ -18218,7 +18191,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     const pageButtons = [...document.querySelectorAll("[data-page]")];
     const pageIds = { dictionary:"dictionaryPage", lessons:"lessonsPage", lessonDetail:"lessonDetailPage", quiz:"quizPage", flashcards:"flashcardsPage", profile:"profilePage", preferences:"preferencesPage" };
     let profilePreferences = null;
-    function showPage(page, updateHash = true) {
+    function showPage(page, updateHash = true, options = {}) {
       if ((page === "profile" || page === "preferences") && !currentUser) page = "dictionary";
       if (!pageIds[page]) page = "dictionary";
       if (updateHash && location.hash !== `#${page}`) history.pushState(null, "", `#${page}`);
@@ -18229,7 +18202,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
       if (page === "lessons") { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
-      if (page === "quiz" && typeof initialiseQuizPage === "function") initialiseQuizPage();
+      if (page === "quiz" && !options.skipQuizInitialise && typeof initialiseQuizPage === "function") initialiseQuizPage();
       window.scrollTo({top:0,behavior:"instant"});
     }
     pageButtons.forEach(button => button.addEventListener("click", () => showPage(button.dataset.page)));
@@ -18736,7 +18709,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     // Update 2.4.0 Quiz frontend. All question data and answer keys are served
     // by authenticated RPCs; the browser never queries the private Quiz tables.
-    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null };
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
@@ -18916,9 +18889,12 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         }).join("");
         return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
       }).join("")+'</div>';
+      quizEl("quizResultsHome").textContent=quizPageState.returnPage==="profile"?"← Back to Dashboard":"← Back to Quiz";
       quizEl("quizResults").hidden=false;quizStatus("");
     }
-    async function quizReview(sessionId){
+    async function quizReview(sessionId,returnPage="quiz"){
+      quizPageState.returnPage=returnPage;
+      quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
       try{quizStatus("Loading answer review…");const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;quizRenderResult(data);}
       catch(error){quizStatus("Could not load this Quiz review: "+error.message,true);}
     }
@@ -18970,7 +18946,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
     quizEl("quizDifficultyGrid").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-start]");if(button&&!button.disabled)quizStart(button.dataset.quizStart);});
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
-    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz");quizReview(button.dataset.dashboardQuizReview);}});
+    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
     quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
     quizEl("quizQuestionArea").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-option]");if(button)quizChooseOption(button.dataset.quizOption);});
     quizEl("quizPrevious").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)-1));
@@ -18978,14 +18954,14 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     quizEl("quizSubmit").addEventListener("click",quizSubmit);
     quizEl("quizAbandon").addEventListener("click",quizAbandon);
     quizEl("quizBackHome").addEventListener("click",async()=>{await quizLoadHome();});
-    quizEl("quizResultsHome").addEventListener("click",async()=>{quizPageState.result=null;await quizLoadHome();});
+    quizEl("quizResultsHome").addEventListener("click",async()=>{const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();});
     window.addEventListener("swift-auth-updated",()=>{
       const nextUserId=currentUser?.id||null;
       // Supabase emits INITIAL_SESSION after page load. Do not reset a Quiz
       // session that the learner has already resumed when that same account's
       // delayed auth notification arrives. Reset only when identity changes.
       if(quizPageState.userId===nextUserId)return;
-      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null};
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
