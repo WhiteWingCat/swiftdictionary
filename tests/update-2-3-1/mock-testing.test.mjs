@@ -254,6 +254,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(first.prompt_learning,firstDraft.prompt_learning);
   assert.equal(first.prompt_translation,firstDraft.prompt_translation);
   assert.equal(first.source_lesson_id,firstDraft.source_lesson_id);
+  assert.equal(first.learning_objective_id,firstDraft.learning_objective_id,"Mock Quiz snapshots must retain the mapped permanent lesson objective.");
   assert.equal(first.correct_option_id,undefined,"Answer keys must stay hidden before submission");
   assert.deepEqual(Array.from(first.options,option=>option.id).sort(),["a","b","c","d"]);
   const firstCorrectOption=first.options.find(option=>option.id===firstDraft.correct_option_id);

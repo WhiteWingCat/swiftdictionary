@@ -233,6 +233,7 @@
         const mapped=bank.questions.map(question=>{
           const source=curriculum[question.source_lesson_id];
           if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty)) throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
+          if(!Array.isArray(source.objectives)||!source.objectives.some(objective=>objective.id===question.learning_objective_id)) throw new Error("A draft Quiz question has no matching permanent lesson objective: "+question.question_id);
           if(!question.question_id||!question.prompt_learning||!question.prompt_translation||!Array.isArray(question.options)||question.options.length!==4) throw new Error("A draft Quiz question is incomplete: "+question.question_id);
           if(new Set(question.options.map(option=>option.id)).size!==4) throw new Error("A draft Quiz question contains duplicate option IDs: "+question.question_id);
           if(!question.options.some(option=>option.id===question.correct_option_id)) throw new Error("A draft Quiz answer key is invalid: "+question.question_id);
