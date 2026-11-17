@@ -226,12 +226,15 @@
         ]);
         if(!bankResponse.ok||!mapResponse.ok) throw new Error("The draft Quiz question bank could not be loaded in Mock Test Mode.");
         const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
+        if(bank.status!=="draft") throw new Error("Mock Quiz may load only content explicitly marked as draft.");
         if(!Array.isArray(bank.questions)||bank.questions.length!==114) throw new Error("The draft Quiz bank must contain exactly 114 questions.");
         const mapped=bank.questions.map(question=>{
           const source=curriculum[question.source_lesson_id];
           if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty)) throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
           if(!question.question_id||!question.prompt_learning||!question.prompt_translation||!Array.isArray(question.options)||question.options.length!==4) throw new Error("A draft Quiz question is incomplete: "+question.question_id);
+          if(new Set(question.options.map(option=>option.id)).size!==4) throw new Error("A draft Quiz question contains duplicate option IDs: "+question.question_id);
           if(!question.options.some(option=>option.id===question.correct_option_id)) throw new Error("A draft Quiz answer key is invalid: "+question.question_id);
+          if(!question.explanation_learning||!question.explanation_translation) throw new Error("A draft Quiz explanation is incomplete: "+question.question_id);
           if(question.options.some(option=>!option.id||!option.learning_text||!option.translation_text)) throw new Error("A draft Quiz option is incomplete: "+question.question_id);
           return {...question,topic_id:source.topic_id,source_difficulty:source.difficulty};
         });
