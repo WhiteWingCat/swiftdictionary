@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-16  
+> **Last consolidated:** 2026-11-17  
 > **Current baseline:** Update 2.3.0 merged to main on 2026-11-13  
 > **Current work:** Update 2.4.0 Quiz on feature/update-2-4-0-quiz; local Supabase CI is the only approved backend test environment (no Supabase Development Branch); latest first-visit-guide regression fixes are undergoing CI validation  
-> **Record status:** Updated 2026-11-16 with Quiz frontend, owner-approved introduction/FAQ and Chinese-course availability requirements, account-scoped dismissal design, and latest validation boundary. Re-check repository, Supabase and deployment state before further changes.
+> **Record status:** Updated 2026-11-17 with SwiftDictionary Indie staging-project creation, owner approval for test-only use of 114 draft Quiz questions, and the clean-database bootstrap blocker. Re-check repository, Supabase and deployment state before further changes.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
@@ -1074,3 +1074,44 @@ A real end-to-end website test requires a separate temporary Supabase staging pr
 - Dashboard history reads only the signed-in user's Quiz history through the existing owner-scoped authenticated `get_my_quiz_history` RPC. It adds no new stored personal data; it displays existing account-linked scores and completion history.
 - Malaysia PDPA and applicable international/teen privacy review, including retention and deletion disclosures for Quiz history and the temporary no-repeat reservation ledger, remains a release gate.
 - PR #8 remains **draft, open and unmerged**. The 114 authored questions remain drafts. No production Quiz schema/RPC migration, question import, main merge or production website deployment has been performed as part of this feedback round.
+
+
+---
+
+## 27. SwiftDictionary Indie staging environment — 2026-11-17
+
+The owner confirmed the previously proposed temporary real Quiz testing environment:
+- Create a separate Supabase staging project, not a Development Branch, with no production connection and no paid-plan activation.
+- Load the 114 authored Quiz questions (30 Beginner, 36 Intermediate, 48 Advanced) into staging for testing only. This is not production publication approval.
+- The owner specifically accepted the quoted project cost of US$0/month; no paid upgrade or paid add-on is authorised.
+- The owner requests an archive for every meaningful conversation related to SwiftDictionary.
+
+### Created project
+
+- Supabase organisation: **SwiftDictionary Indie** (`nnwaeapbmlgmmxbmkumb`)
+- Project: **SwiftDictionary Indie Staging**
+- Project ref: `ivatvkfrtifgfheeaelj`
+- Region: Singapore (`ap-southeast-1`)
+- Created 2026-11-17 02:57:54 UTC; initial status `ACTIVE_HEALTHY`
+- PostgreSQL 17.12
+- Organisation-specific cost quote: **US$0/month**; zero-cost confirmation obtained before creation.
+- Existing production project `pzymiesazmpyvnfvsbsc` was not modified or connected.
+- No Development Branch, paid plan, or paid add-on was created or activated.
+
+### Current state — important blocker
+
+The staging project is healthy but empty. Its migration history is empty. No schema migrations have been applied and no draft questions have been imported.
+
+The current feature branch contains the Quiz migrations and content, but its 2.2.0 migration is a reconciliation assertion, not a clean-database bootstrap. It expects existing lesson tables, triggers and functions. The 2.3.0 migrations also depend on the pre-existing user, preference, entitlement, learning-limit and activity-log schema. Therefore, do not simply apply the feature-branch migrations in sequence to the empty staging project.
+
+**Next required stage:** construct and review a complete clean-project bootstrap from verified schema definitions, without copying production user data. Read-only production schema inspection may inform the baseline, but no production writes are authorised. Only after that baseline is validated should the team apply ordered 2.2.0/2.3.0/2.4.0 changes, run advisors/tests, import the 114 questions as test-only content, create a separate staging Auth test account, and point a dedicated Pages preview at staging.
+
+The previous Cloudflare preview must remain mock-only until a separate staging-configured preview is verified. Never expose service-role/secret keys in frontend code.
+
+### Cost, privacy and release limits
+
+US$0/month is the current project-creation quote, not a guarantee that all usage remains within free-plan limits. Monitor project usage and stop before any paid upgrade, add-on or nonzero charge. Use fictional test data only; do not copy production accounts or learner data. Malaysia PDPA applicability, international/teen privacy, retention/deletion disclosures and cross-border processing remain release-planning gates; this is not legal advice.
+
+No production schema/data, production hosting, main branch or PR #8 state was changed by creating this staging project. The 114 questions remain drafts and are approved for this staging test purpose only.
+
+**Session archive:** `docs/conversation-archive/2026-11-17-swiftdictionary-indie-staging-approval-and-creation.md`.
