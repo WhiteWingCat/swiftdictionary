@@ -44,6 +44,8 @@ for (const [index, q] of questions.entries()) {
     fail.push(at + " source lesson has an invalid difficulty");
   }
   if (source && !source.topic_id) fail.push(at + " source lesson has no topic_id");
+  if (!Array.isArray(source?.objectives) || source.objectives.length === 0) fail.push(at + " source lesson has no defined learning objectives");
+  if (source && (!q.learning_objective_id || !source.objectives.some(objective => objective.id === q.learning_objective_id))) fail.push(at + " has no valid learning_objective_id for its source lesson");
   const questionType = q.question_type ?? "knowledge";
   if (!["knowledge", "word_definition", "chinese_translation"].includes(questionType)) fail.push(at + " has an unsupported question_type");
   if (questionType === "chinese_translation" && q.answer_language_code !== "zh") fail.push(at + " Chinese translation questions must set answer_language_code to zh");

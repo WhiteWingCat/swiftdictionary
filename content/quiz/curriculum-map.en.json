@@ -1,62 +1,156 @@
 {
   "b-verb-combinations": {
     "topic_id": "everyday-vocabulary",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "everyday-collocations",
+        "outcome": "Use common everyday verb–noun combinations naturally."
+      },
+      {
+        "id": "descriptive-adjectives",
+        "outcome": "Understand and use the descriptive adjectives assessed in the Quiz, including their English meanings and Simplified Chinese equivalents."
+      }
+    ]
   },
   "b-articles": {
     "topic_id": "nouns-and-articles",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "article-use-and-sound",
+        "outcome": "Choose a, an and the using identifiability and initial sounds, with the vocabulary used in lesson examples."
+      }
+    ]
   },
   "b-countable-nouns": {
     "topic_id": "nouns-and-quantity",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "countable-and-uncountable",
+        "outcome": "Distinguish countable and uncountable nouns and use their quantity expressions, including advice, information, equipment and furniture."
+      }
+    ]
   },
   "b-sentence": {
     "topic_id": "sentence-basics",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "basic-sentence-structure",
+        "outcome": "Recognise subject, verb and object roles, basic word order and simple question patterns."
+      }
+    ]
   },
   "b-present": {
     "topic_id": "verb-tenses",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "present-simple-routines",
+        "outcome": "Use the present simple for routines and repeated actions, including third-person singular forms."
+      }
+    ]
   },
   "i-collocations": {
     "topic_id": "collocations",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "natural-collocations",
+        "outcome": "Recognise and use common word partnerships such as make a decision and take responsibility."
+      }
+    ]
   },
   "i-conditionals": {
     "topic_id": "conditional-sentences",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "conditional-meaning-and-forms",
+        "outcome": "Use first, second and related conditional clauses, including unless and even if, and understand hypothetical and realistic situations."
+      }
+    ]
   },
   "i-phrasal": {
     "topic_id": "phrasal-verbs",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "phrasal-verbs-in-context",
+        "outcome": "Understand and use phrasal verbs including give up, put off, look after and run into."
+      }
+    ]
   },
   "i-perfect": {
     "topic_id": "verb-tenses",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "perfect-aspect",
+        "outcome": "Use perfect forms to connect earlier actions with a later reference point."
+      }
+    ]
   },
   "i-word-families": {
     "topic_id": "word-formation",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "word-formation-and-confusable-forms",
+        "outcome": "Recognise word families, prefixes, suffixes and commonly confused forms such as affect/effect and convince/convincing."
+      }
+    ]
   },
   "a-hedging": {
     "topic_id": "academic-professional-english",
-    "difficulty": "advanced"
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "qualified-academic-claims",
+        "outcome": "Qualify claims and understand related academic vocabulary used to describe certainty, evidence, effects and causation."
+      }
+    ]
   },
   "a-inversion": {
     "topic_id": "advanced-grammar",
-    "difficulty": "advanced"
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "formal-inversion",
+        "outcome": "Recognise and use formal inversion after negative or restrictive expressions."
+      }
+    ]
   },
   "a-mixed-conditionals": {
     "topic_id": "advanced-grammar",
-    "difficulty": "advanced"
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "mixed-conditional-meaning",
+        "outcome": "Interpret and form mixed conditionals connecting unreal past conditions with present results, or present conditions with past results."
+      }
+    ]
   },
   "a-idioms": {
     "topic_id": "idioms-fixed-expressions",
-    "difficulty": "advanced"
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "figurative-idioms",
+        "outcome": "Interpret the figurative meanings of idioms used in the lesson and Quiz."
+      }
+    ]
   },
   "a-near-synonyms": {
     "topic_id": "precise-vocabulary",
-    "difficulty": "advanced"
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "precise-word-choice",
+        "outcome": "Distinguish near-synonyms and precise vocabulary for tone, evidence, judgement and disclosure."
+      }
+    ]
   }
 }

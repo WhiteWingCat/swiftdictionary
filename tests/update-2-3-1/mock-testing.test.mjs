@@ -238,6 +238,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   const started=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
   assert.equal(started.error,null);
   assert.equal(started.data.questions.length,10);
+  assert.equal(started.data.questions.filter(question=>question.question_type==="word_definition").length,1);
   const beginnerChineseCount=started.data.questions.filter(question=>question.question_type==="chinese_translation").length;
   assert.ok(beginnerChineseCount>=1&&beginnerChineseCount<=7,"Daily Beginner Chinese mix must be randomized from one to seven");
   assert.ok(started.data.questions.some(question=>question.question_type==="word_definition")||draftBank.questions.some(question=>question.question_type==="word_definition"),"The expanded bank must include word-definition items");
@@ -301,6 +302,7 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   assert.equal(availability.data.allowance.daily_limit,3);
   const abandoned=await client.rpc("start_my_quiz",{p_difficulty:"advanced"});
   assert.equal(abandoned.data.questions.length,20);
+  assert.equal(abandoned.data.questions.filter(question=>question.question_type==="word_definition").length,1);
   const abandonedChineseCount=abandoned.data.questions.filter(question=>question.question_type==="chinese_translation").length;
   assert.ok(abandonedChineseCount>=1&&abandonedChineseCount<=7,"Daily Advanced Chinese mix must be between one and seven");
   assert.deepEqual(

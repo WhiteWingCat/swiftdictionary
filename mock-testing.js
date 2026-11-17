@@ -228,6 +228,7 @@
         const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
         if(bank.status!=="draft") throw new Error("Mock Quiz may load only content explicitly marked as draft.");
         if(!Array.isArray(bank.questions)||bank.questions.length!==199) throw new Error("The draft Quiz bank must contain exactly 199 questions.");
+        if(bank.questions.some(question=>!question.learning_objective_id)) throw new Error("Every draft Quiz question must link to a permanent lesson learning objective.");
         const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
         const mapped=bank.questions.map(question=>{
           const source=curriculum[question.source_lesson_id];
@@ -278,6 +279,10 @@
         : {advanced:12,intermediate:6,beginner:2};
     const selected=[];
     const reserved=new Set(reservedIds);
+    const definitionPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="word_definition"&&!reserved.has(question.question_id));
+    if(definitionPool.length<1) throw new Error("Not enough unseen lesson-aligned definition questions for "+difficulty+" Quiz today.");
+    selected.push(...shuffled(definitionPool).slice(0,1));
+    composition[difficulty]-=1;
     const chineseTargetCount=translationLanguageCode==="zh"?dailyChineseQuestionCount(userId,localDate,difficulty):0;
     if(chineseTargetCount){
       const translationPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="chinese_translation"&&!reserved.has(question.question_id));
@@ -286,8 +291,8 @@
       composition[difficulty]-=chineseTargetCount;
     }
     for(const [level,amount] of Object.entries(composition)) {
-      const pool=bank.questions.filter(question=>question.source_difficulty===level&&(question.question_type||"knowledge")!=="chinese_translation"&&!reserved.has(question.question_id));
-      if(pool.length<amount) throw new Error("Not enough unseen draft Quiz questions for "+level+" difficulty.");
+      const pool=bank.questions.filter(question=>question.source_difficulty===level&&(question.question_type||"knowledge")==="knowledge"&&!reserved.has(question.question_id));
+      if(pool.length<amount) throw new Error("Not enough unseen lesson-aligned knowledge questions for "+level+" difficulty.");
       selected.push(...shuffled(pool).slice(0,amount));
     }
     return shuffled(selected).map((question,index)=>{
