@@ -1132,3 +1132,8 @@ The owner approved using the existing 114 draft Quiz questions in Mock User test
 - No Supabase staging or production database, Auth, migration, question import, production hosting or main-branch changes were made. Draft content remains unapproved for learner-facing publication. Existing Malaysia PDPA and applicable international/teen privacy, retention and deletion review remain release gates.
 
 Session archive: `docs/conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md`.
+
+
+### Mock Quiz follow-up validation
+
+The Mock Quiz draft-bank integration was extended with a persistent warning visible during active sessions/results and the static Quiz validator was updated to enforce the draft-only loader and answer-key privacy. The isolated mock test suite passed 12/12 on commit `2a9173a`; the Quiz frontend validator passed on `ce606a7`. Cloudflare Pages reports success for application commit `ccd4bc5`; the separate Workers Builds check remains failed and is not the Pages deployment. The 2.3.x PostgreSQL regression job passed on `ccd4bc5`; 2.3.x browser/Auth and 2.4.0 local Auth/RPC jobs were still running at the latest check. See the [session archive](conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md) for details. Mock content remains draft-only and PR #8 remains unmerged.
