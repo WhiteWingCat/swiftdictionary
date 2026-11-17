@@ -56,7 +56,7 @@ insert into private.quiz_question_bank(
   options,correct_option_id,explanation_learning,explanation_translation,status
 )
 select
-  prefix||'-'||n,1,'en','zh',
+  prefix||'-'||n,1,'en','en',
   prefix||'-lesson-'||(((n-1)%5)+1),
   'topic-'||(((n-1)%5)+1),
   difficulty,
