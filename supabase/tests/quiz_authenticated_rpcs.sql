@@ -345,7 +345,7 @@ $ownership$;
 update public.user_preferences set translation_language='zh'
 where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
-select set_config('request.jwt.claims','{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc","session_id":"eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee"}',true);
+select set_config('request.jwt.claims','{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc"}',true);
 do $chinese_mix$
 declare
   v_session jsonb;
