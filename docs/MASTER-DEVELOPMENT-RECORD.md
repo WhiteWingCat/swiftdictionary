@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-17  
-> **Current baseline:** Update 2.3.0 merged to main on 2026-11-13  
-> **Current work:** Update 2.4.0 Quiz on feature/update-2-4-0-quiz; local Supabase CI is the only approved backend test environment (no Supabase Development Branch); latest first-visit-guide regression fixes are undergoing CI validation  
-> **Record status:** Updated 2026-11-17 with SwiftDictionary Indie staging-project creation, owner approval for test-only use of 114 draft Quiz questions, and the clean-database bootstrap blocker. Re-check repository, Supabase and deployment state before further changes.
+> **Last consolidated:** 2026-11-17 (Update 2.4.0 Mock Quiz draft-bank integration, Chinese-translation question mix and CI verification)  
+> **Current baseline:** Update 2.3.3 is merged to main; six 2.3.0 Supabase migrations are applied to production. The separately approved Quiz allowance change is live at Free 1/day and Premium 3/day.  
+> **Current work:** Update 2.4.0 is on `feature/update-2-4-0-quiz`; PR #8 remains open and draft. The authenticated Quiz schema/RPC and frontend foundation are implemented on the branch. The 150-item bilingual draft bank contains 114 knowledge questions and 36 Chinese-translation assessment questions; the latter are Mock User preview-only until backend question-type support is added. A separate Supabase staging project exists but remains empty while a safe clean-schema bootstrap is unresolved.  
+> **Record status:** Quiz workflow #417 and 2.3.x regression workflow #974 passed. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged. The latest Cloudflare Pages preview deployment still requires confirmation before sharing a test link.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
@@ -38,6 +38,8 @@ Prefer workflows that respect free-plan/service constraints and avoid unnecessar
 7. **No production deployment or destructive database action without explicit owner approval.** Review migrations and live schema first. Never expose Supabase service-role credentials or OAuth client secrets in browser code or repository files.
 8. **Verify before claiming completion.** Separate static checks, automated tests, mocked browser tests, real browser tests, live Supabase validation and production deployment. Passing one does not imply the others passed.
 9. **Release naming:** After existing v19, release ZIP names use “SwiftDictionary Update X.Y.Z”: X = major feature, Y = additions, Z = emergency quick patch. Existing v19 naming remains unchanged.
+10. **Development-session records are mandatory.** For every meaningful SwiftDictionary conversation or development session, update the Master Development Record and create a dated, structured Markdown archive in `docs/conversation-archive/`. Record owner decisions, scope, implementation/files, branch/commit/PR references, test evidence (including failures and corrections), outstanding risks and the exact recovery point. Update the archive index. Archive only SwiftDictionary-relevant user-visible material; never include hidden reasoning, credentials, secrets or unrelated personal information. Treat GitHub repository content as potentially public. Keep the documentation branch for durable project records; keep application implementation on feature branches and production code on `main`.
+11. **Course/translation selection refresh and translation QA are mandatory.** Whenever a user changes the learning-course language or translation language, verify that the relevant page and all dependent content refresh to reflect the new selection without requiring unrelated navigation or leaving stale text, labels, explanations, feedback or cached content visible. Test both selection controls and their interactions, including switching back and forth and changing selections from relevant learning pages. Verify that translations are complete, accurate, context-appropriate and consistent with the selected language pair; do not treat a changed language label or a partial string swap as proof. Include these checks in feature-specific regression testing for Lessons, Quiz, Flashcards and any future course/translation-aware feature.
 
 ## 3. Product and interface baseline
 
@@ -206,13 +208,13 @@ Historical note: the PR state above describes the repository at the time of the 
 9. Complete real Google OAuth callback and cross-device/account saved-word sync manual tests.
 10. Consolidate, review and explicitly approve the release candidate before production migration or Pages deployment.
 
-### Current roadmap
+### Future roadmap
 
-- **Update 2.3.1 — Bug Fix & Changes:** **In progress on the feature branch.** Scope and acceptance criteria are recorded above. Includes Lessons/Daily Learning integration, Dashboard and Preferences separation, allowance visualisation, saved-word panels and practice insights. Isolated mock testing mode (Option B) is implemented on this branch and passed automated CI run #456; real preview-host manual verification remains pending. Do not merge or deploy without owner approval.
-- **Update 2.4.0 — Quiz:** **Planned.** Dedicated Quiz experience, progress tracking and allowance integration.
-- **Update 2.5.0 — Flashcards:** **Planned.** Flashcard learning experience, review progress and allowance integration.
+- **Update 2.4.0 — Quiz:** **Technical specification finalised; implementation authorised to proceed on a dedicated feature branch.** See Sections 29–33 and `docs/UPDATE-2.4.0-QUIZ-TECHNICAL-SPECIFICATION.md`.
+- **Update 2.5.0 — Flashcards:** Flashcard learning experience, review progress and allowance integration.
+- **Proposed Update 2.6.0 — Legal, Privacy & Terms Foundation:** deferred until after Update 2.5.0 is released to `main`; scope and legal requirements will be researched and approved closer to that release.
 
-These roadmap statuses must be refreshed whenever work changes. Planned features are not implemented or released; preserve Coming Soon behaviour until each feature is ready.
+These are roadmap targets, not implemented or released features. Preserve Coming Soon behaviour until each feature is ready.
 
 ## 6. Privacy, legal and content licensing checklist
 
@@ -248,27 +250,26 @@ For detailed historical reasoning, refer to the original ChatGPT conversations b
 
 A conversation title is a useful locator, but does not guarantee access to every historical message. If a decision is not present in this record or retrievable from the referenced conversation, verify it from repository history or ask the owner rather than guessing.
 
-## 9. Mandatory Master Development Record maintenance protocol
+## 9. Record maintenance protocol
 
-**This is a standing, mandatory development rule: every meaningful SwiftDictionary development action must be reflected in this file. The Master Development Record is the project's living source of truth and must be kept current throughout development, not only at release or handover time.**
+Update this file at meaningful milestones:
+- When a feature's design is confirmed.
+- When implementation is completed and tested.
+- When a PR is opened, retargeted, merged or closed.
+- When migrations are applied to a specific environment.
+- When a release is approved and deployed.
+- When a bug is found, fixed and regression-tested.
 
-Update this record:
-- **Before or at the start of a new milestone/task:** record the approved scope, roadmap impact, branch and relevant safety constraints when they are known.
-- **After every meaningful implementation step:** record what changed, which files/modules were affected, and the branch/commit containing the work. Do not wait until an entire feature is finished.
-- **Whenever the roadmap changes:** update the relevant milestone status, dependencies, scope, priority, blockers and next steps immediately.
-- When a design or owner decision is confirmed, changed or superseded.
-- When a bug is discovered, diagnosed, fixed, deferred or regression-tested.
-- When automated, local, mocked, manual-browser, staging or production tests are run; record exact results and limitations.
-- When a branch or pull request is created, updated, retargeted, reviewed, merged or closed.
-- When a migration or configuration change is prepared, applied, rolled back or verified, identifying the environment precisely.
-- When deployment is started, succeeds, fails or is rolled back.
-- At the end of each development session, record the last known good state, unfinished work, blockers and the exact next action. If an error interrupts work, record the error and recovery point as soon as possible.
+Every update must distinguish:
+- Planned
+- Implemented on a branch
+- Automated tests passed
+- Manual browser tests passed
+- Production database migrated
+- Merged
+- Deployed
 
-For every roadmap milestone, keep a clear status such as **Planned**, **Design approved**, **In progress**, **Implemented on branch**, **Automated tests passed**, **Manual tests passed**, **Blocked**, **Merged**, or **Deployed**. These are distinct states: never imply that one proves another. Record dates, commit hashes, PR numbers, test-run links and deployment environment/URL where available.
-
-Keep a concise chronological progress log under the active milestone so a future conversation can resume without reconstructing the entire Git history. Update the top-level current-work summary and roadmap whenever the active milestone or its status changes. If repository access or a tool error prevents an update, explicitly report that the record could not be updated and make it the first recovery task; do not silently continue as though the record is current.
-
-Never include secrets, service-role keys, OAuth secrets, private account identifiers, personal allowlist values or real user data. Record only the minimum technical detail needed for continuity.
+Do not collapse these into a single “completed” status. Keep dates, commit hashes, PR numbers and test-run links where available. Never include secrets, service-role keys, private account identifiers or personal allowlist values.
 
 
 ## 10. Audit and privacy-first decision addendum — 13 November 2026
@@ -459,122 +460,320 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
 - After implementation, prepare one consolidated Update 2.3.1 candidate and update this record with exact commit, PR, CI and test evidence.
 
 
----
+## 14. Documentation continuity system — established 2026-11-13
 
-## 14. Free-first development, hosting and testing policy
+**Authoritative documentation branch:** `docs/master-development-record`.
 
-**Owner preference:** SwiftDictionary should be developed, hosted, tested and maintained using free alternatives wherever reasonably practical. Avoid recurring payments, paid tiers, paid domains, paid developer tools and unnecessary infrastructure. Do not recommend a paid upgrade as the default solution. If a paid service appears necessary, first investigate a genuinely free alternative or a lower-cost workflow, explain the trade-offs and obtain the owner's approval before any commitment.
+- The Master Development Record is the current concise handover and roadmap authority.
+- Each meaningful SwiftDictionary development conversation/session is archived as a dated Markdown file under `docs/conversation-archive/`.
+- `docs/conversation-archive/README.md` is the chronological archive index.
+- Archives preserve the purpose, exact owner decisions, implementation/files, branches/commits/PRs, tests (including failures and fixes), legal/privacy considerations, outstanding work and recovery instructions.
+- Archives are structured summaries of relevant user-visible project discussion, not unfiltered transcripts. Never store hidden reasoning, credentials, secrets or unrelated personal information. Assume repository contents may be public.
+- Keep this branch documentation-only. Implement application changes on feature branches; `main` remains the production-code branch. Do not duplicate application implementation onto the documentation branch.
+- At the end of each meaningful session, update both this record and the relevant dated archive/index entry. Record interruptions and the precise next recovery step.
+- A future conversation should read this record and relevant archive(s), then independently verify live GitHub branch/PR/CI and deployment state before acting.
 
-This is a standing project constraint, not a guarantee that every free service will remain free or have sufficient quotas. Check current provider pricing, free-tier limits, usage caps, project sleep/pause rules, storage/egress limits and terms at the time of use. Never enable billing, add a payment method, purchase a domain or upgrade a plan without explicit approval.
+### Current handover — Update 2.3.1 mock testing (2026-11-13)
 
-### Preferred free-first choices and alternatives
-
-- **Source control:** Continue using the existing GitHub repository and branches. Prefer GitHub's free features and ordinary pull requests; do not assume paid team or enterprise features.
-- **Production hosting:** Keep the existing GitHub Pages deployment unless the owner explicitly approves a migration. Do not disrupt the live URL or its integrations in order to experiment.
-- **Testing/preview hosting:** Use the existing Cloudflare Pages project `swiftdictionary-testing` and its automatically generated branch preview URLs. The project is connected to `WhiteWingCat/wordbook`; production branch is `main`; preview branches are configured for all non-production branches. This is a separate test host and does not replace GitHub Pages.
-- **Free preview URLs:** Prefer the supplied `.pages.dev` and `.github.io` hostnames. A custom domain generally requires domain registration/renewal fees; do not buy one just to remove a username or use a branded URL until free options have been assessed.
-- **Build and CI:** Prefer static hosting with no build step where suitable, and free GitHub Actions allowances. Keep workflows efficient and check current minutes/concurrency quotas. Do not introduce paid build services without approval.
-- **Database/authentication:** Prefer the existing Supabase setup while protecting production data. For isolated integration tests, investigate a separate free Supabase project if the current free-plan project allowance and quotas permit, or use a local Supabase stack through the CLI/Docker where practical. Do not assume paid Supabase Branching or paid compute is available.
-- **Local testing:** Prefer browser automation, local static hosting, deterministic fixtures, mock service adapters and local database tests before using live services. Use existing tools and free/open-source tooling where practical.
-- **Secrets and configuration:** Never copy production service-role keys, OAuth client secrets or private credentials into source control, browser bundles, test fixtures or public preview settings. Use separate test credentials and redirect URLs for an isolated environment.
-- **Alternatives review:** Before proposing a new paid dependency, compare at least one free/open-source, local, or existing-provider alternative. Record why it is sufficient or why it does not meet the requirement.
-
-### Testing levels and what a “mock account” means
-
-A mock account can mean two different things; do not conflate them:
-
-1. **Frontend mock user (no real Supabase account):** A deterministic test fixture or mocked Supabase client returns a synthetic user/session and simulated profile, preferences, saved words and activity data. This is suitable for testing UI states, navigation, account-menu behaviour, empty/loading/error states and basic account-isolation logic. It does **not** prove real Google OAuth, Supabase Auth, JWT/session handling, Row Level Security (RLS), database triggers, RPC permissions or cross-device synchronisation. Label these tests as mocked.
-2. **Real test user in an isolated backend:** Create a dedicated test identity in a separate local or staging Supabase project. This can exercise real authentication, database policies, migrations, RPCs and account data without touching production. Prefer this for end-to-end integration testing. Use synthetic data only and keep test credentials separate from production.
-
-**Do not create a mock/test user in the production Supabase project as a substitute for an isolated test environment.** A real Auth user in production is still a production account; its records, quotas, logs, email/identity provider behaviour and cleanup may affect the live project. A separate email/password test identity in production would not isolate database changes or prove the preview is using a separate backend.
-
-### Current Cloudflare preview / Supabase separation status (13 November 2026)
-
-- Cloudflare Pages project `swiftdictionary-testing` has successfully deployed the `main` production branch and the non-production feature-branch preview for `feature/update-2-3-1-bug-fix-and-changes`. The owner confirmed the preview deployment updated and the `.pages.dev` preview website opens.
-- The feature branch preview is a separate frontend deployment only. It must **not** be assumed to have a separate Supabase database or Auth tenant.
-- The application configuration may still point to the existing production Supabase project. This must be checked read-only before testing sign-in, account switching, saved-word writes, preferences, learning completions, allowance usage, history deletion or any other data-changing flow.
-- Until backend separation is confirmed, limit preview testing to static layout, navigation and safe read-only checks. Do not use real user accounts or submit test activity that could alter production data.
-- Next environment audit: inspect the branch's Supabase URL/public key configuration and Cloudflare environment-variable settings without exposing secrets; identify the exact Supabase project reference used by the preview; inspect Auth URL allowlists and redirect configuration read-only. Do not change production Site URL, redirect URLs, database schema or data as part of this audit.
-- If the preview currently points to production, choose between (a) a separate free staging Supabase project, subject to current free-tier availability/limits, or (b) a local Supabase stack for isolated integration tests. A frontend mock can be used in parallel for fast UI tests, but is not a replacement for backend integration tests.
-- Before configuring a separate backend, inventory the minimum schema/migrations, Auth provider setup, OAuth redirect URLs, RLS policies, RPCs and synthetic seed data needed. Do not copy production personal data into staging. Do not expose or duplicate production secrets.
-- No production Supabase configuration, production data, GitHub Pages deployment or PR merge was changed merely by creating the Cloudflare Pages preview or by adding this record section.
-
-### Free-first decision checklist
-
-Before adopting any service or workflow, record:
-- What exact capability is needed?
-- Can the existing GitHub, Cloudflare Pages, Supabase, browser or local development setup already provide it?
-- Is there a free/open-source/local alternative?
-- What are the current free-tier quotas, limitations, data-retention and inactivity rules?
-- Does the option require a payment method, billing activation, domain purchase or future recurring payment?
-- Could it affect production data, user privacy, account isolation, security or legal obligations?
-- What is the migration/exit path if the free tier changes or is discontinued?
-
-Default decision: choose the safest adequate free option; keep production isolated; document limitations; ask before incurring any cost.
+- **Feature branch:** `feature/update-2-3-1-bug-fix-and-changes`.
+- **Pull request:** [#5](https://github.com/WhiteWingCat/wordbook/pull/5), base `main`, head feature branch, open and unmerged at the latest recorded check.
+- **Latest recorded feature commit:** `c55d05fe196811903f2c358f090eebed6893b3ff`.
+- **Owner-approved direction:** Option B — isolated browser-only mock testing with fictional Test User A and Test User B, explicitly entered only on the dedicated Cloudflare Pages preview.
+- **Implementation:** `mock-testing.js`, loaded by `index.html`; mock-specific tests under `tests/update-2-3-1/`; browser smoke coverage under `tests/browser/`; CI updates in the existing workflow.
+- **Isolation design:** namespaced session storage per fictional identity; mock adapter intercepts app Supabase client creation only when the preview-host guard and `?swiftMock=1` are both satisfied; Google OAuth is unavailable in mock mode; scoped reset/exit; visible mock-mode indicator; production/unknown hosts fail closed.
+- **CI evidence:** workflow run [#456](https://github.com/WhiteWingCat/wordbook/actions/runs/43413625418) passed mock adapter syntax/unit tests, PostgreSQL 17 migration/allowance checks, Chromium browser regression and disposable local Supabase Auth compatibility checks.
+- **Not yet verified:** actual Cloudflare preview-host manual test. Expected preview host is `feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev`; append `/?swiftMock=1` to the actual preview URL. If the hostname differs, the exact-host guard will fail closed and must be reviewed before testing. Do not use a real account as a workaround.
+- **Backend limitation:** the Cloudflare preview frontend still points to the production Supabase project. Do not run real-account or data-changing tests from preview until backend isolation is independently confirmed. Mock mode does not validate real OAuth/JWT/RLS/database functions/triggers or cross-device sync.
+- **Production safety:** no production Supabase schema/data/settings/credentials were changed; no PR merge or production deployment was performed. Do not merge PR #5, apply migrations or deploy without explicit owner approval.
+- **Next technical step:** verify the actual Cloudflare Pages preview hostname, then manually confirm the mock indicator, A/B identity isolation, scoped reset and exit, and absence of Supabase Auth/database/network calls while mock mode is active. Before claiming full app coverage, inspect every direct Supabase table/RPC/auth call and compare its query shape with the mock adapter.
+- **Conversation archive:** see [2026-11-13 Update 2.3.1 mock testing and documentation continuity](conversation-archive/2026-11-13-update-2-3-1-mock-testing.md).
 
 
-### Read-only Supabase environment audit — 13 November 2026
 
-- Connected Supabase organization: `SwiftDictionary Indie`.
-- Connected project: `SwiftDictionary`, project reference `pzymiesazmpyvnfvsbsc`, region `ap-northeast-1` (Tokyo), status reported as healthy.
-- Read-only inspection of `supabase-config.js` on both `main` and `feature/update-2-3-1-bug-fix-and-changes` found the exact same file blob and the same Supabase project URL/reference. Therefore, the feature-branch frontend is configured for the **same production Supabase project**, not an isolated test backend. The public publishable key is also configured in this static file; no secret/service-role key was intentionally exposed or added.
-- The live project's migration history currently ends at `20261110041007` (`swiftdictionary_update_2_2_0_reconciliation_baseline`). The 2.3.0 Daily Learning and allowance migrations and 2.3.1 read RPC are not present in the recorded migration history.
-- The public schema currently lists saved words, languages, profiles, preferences, entitlements, plan limits, learning activity, lesson progress and practice results; RLS is enabled on the listed tables. Row counts were inspected only as a structural check and should not be treated as a full security audit.
-- This inspection was read-only. No Auth users, rows, schema, migrations, project settings or credentials were changed.
-- The connected Supabase tools did not expose the project's Auth URL-configuration settings or Cloudflare Pages environment-variable settings. These still require a manual dashboard inspection. The source configuration finding is already sufficient to treat the preview as production-backend-connected unless a verified Cloudflare runtime override is found.
-- **Immediate safety rule:** do not use the preview for real sign-in, account switching, saved-word writes, learning completions, allowance consumption or deletion testing until a separate backend is configured and verified. Use deterministic frontend mocks for UI-only testing in the meantime.
+### 2026-11-13 preview-host correction
 
-
-### Owner decision: isolated mock testing mode (13 November 2026)
-
-The owner selected **Option B: a separate testing mode that simulates multiple users without changing the normal sign-in interface**.
-
-Implementation requirements for the feature branch:
-
-- Activate only through an explicit testing-mode entry mechanism (for example a dedicated preview-only query parameter or local test launcher); never show a mock-mode switch in the normal sign-in/account interface.
-- Only enable on the Cloudflare Pages preview host and the feature branch. Fail closed on GitHub Pages, the production hostname, and unknown hosts. Do not rely on a query parameter alone as a security boundary.
-- Use clearly fictional identities (for example Test User A and Test User B), with switch-user controls in a separate test panel.
-- Simulated user data must be isolated per mock identity and stored only in a clearly namespaced browser test store (prefer session-scoped storage for the initial version). Switching identities must not leak saved words, preferences, progress, or activity between them.
-- In mock mode, route all supported account/data operations to the mock adapter and prevent Supabase Auth, database, RPC, and storage network requests. Do not merely replace the displayed email while leaving production writes enabled.
-- Show a persistent, unmistakable “MOCK TEST MODE — no real account / no cloud sync” indicator while active. Mock mode must never claim that data is synced to Supabase.
-- Provide reset/clear test data controls, scoped only to the mock store. Do not clear browser-wide storage or real Supabase sessions.
-- Keep the real Google sign-in flow unchanged and inaccessible as an action while mock mode is active; provide a safe exit back to normal mode.
-- Mock mode is for frontend and client-side workflow validation only. It does not validate real Google OAuth, Supabase JWT/session behaviour, RLS, SQL functions, database triggers, or cross-device sync. Those require a separately isolated backend or local Supabase stack.
-- Add automated checks proving (a) mock mode is disabled on production hosts, (b) the mock adapter makes no Supabase network/auth calls, (c) switching between at least two mock users isolates state, and (d) exit/reset does not modify production session/storage.
-- Do not modify production Supabase settings, data or migrations. Do not add test-mode code to `main` until the owner approves the eventual PR merge.
-- Before coding, map all Supabase calls used by `index.html` and `daily-learning.js`; the current app uses tables `user_preferences`, `saved_words`, `profiles`, `lesson_progress`, `user_entitlements`, `learning_plan_limits`, `learning_activity_log`, `lesson_practice_results`, `daily_activity_sessions` and RPCs `record_completed_lesson_practice_result`, `complete_permanent_lesson`, `delete_my_learning_history`, `is_personal_learning_test_access`, `get_my_learning_allowance_usage`, `start_daily_activity_session`, `abandon_daily_activity_session`, `complete_daily_activity_session`. The adapter must support only the subset actually needed for the intended UI tests and return explicit unsupported-operation errors for anything else; do not silently fake unimplemented server guarantees.
-- Legal/privacy check: keep mock identities fictional, avoid real personal data, keep the mock store local to the browser session, and ensure test-mode controls cannot be enabled on production. This is a development tool, not a user-facing account feature.
-- This is an approved design direction, not yet an implementation or validation claim. Record implementation commit and test evidence after the work is completed.
+- The owner supplied the actual Cloudflare Pages preview URL: `https://feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev/#dictionary`.
+- Investigation confirmed the mock adapter had allowlisted the wrong hostname: `feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev`.
+- Corrected `mock-testing.js` on the Update 2.3.1 feature branch to allow only the actual owner-supplied preview hostname `feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev`, still requiring the explicit `?swiftMock=1` parameter.
+- Updated `tests/update-2-3-1/mock-testing.test.mjs` to activate on the corrected host and explicitly reject the former incorrect hostname as an unknown host. Production/root Pages/other-host fail-closed tests remain.
+- Commits: adapter correction `ca30d3394dcde2057d11b698f2e66bb15b1e55b4`; regression-test correction `54c11c221fb3199a655d849444182077e4b53e95`.
+- CI status for these new commits has not yet been confirmed. The earlier passing run #456 predates this hostname correction and is not evidence for these changes.
+- Next step: wait for/check the latest branch CI, then the owner can open `https://feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev/?swiftMock=1` (or add `&swiftMock=1` if the URL already contains another query parameter). Confirm the mock warning panel appears. Do not sign in with a real account or use the preview for real data changes.
+- The Cloudflare preview still shares the production Supabase project configuration. While mock mode is active, verify no Supabase requests are made; do not run real-account/data-changing tests until backend isolation is confirmed.
 
 
-### Development progress log — isolated mock testing mode — 13 November 2026
+## 15. Update 2.3.1 — owner feedback and dashboard / Daily Learning refinements (2026-11-14)
 
-**Current status: implemented on the 2.3.1 feature branch; automated CI passed; real Cloudflare preview-host manual verification is pending.**
+### Owner-approved requirements from the latest live preview review
 
-- Updated this record's maintenance protocol to make it mandatory to update the Master Development Record after every meaningful development step, roadmap change, bug/test result, branch/PR change and at the end of each development session. It now explicitly requires recording interruptions/errors and a recovery point. Commit: `877c2ed778db8f1b1510ef9f8059c60607a6332d`.
-- Added `mock-testing.js` as a separate, isolated mock adapter rather than placing the test framework inside the large `index.html`. It activates only when the explicit `?swiftMock=1` opt-in is present on the exact feature-branch preview hostname `feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev`. Other hosts, including the Pages project root, GitHub Pages and unknown branch previews, fail closed.
-- The adapter replaces the app's Supabase `createClient` only while this guarded mode is active. It provides fictional Test User A and B identities, a namespaced sessionStorage data store, separate saved words/preferences/progress per identity, simulated supported table operations and the required lesson/daily-learning RPC subset. Unsupported RPCs return an explicit mock error.
-- The separate panel is visibly labelled **MOCK TEST MODE — NO REAL ACCOUNT / NO CLOUD SYNC**. It provides mock identity switching, scoped reset and exit. Google OAuth is disabled while mock mode is active. The app's legacy saved-word localStorage key is intercepted while mock mode is active so mock favourites are not written into the real browser-local favourites store.
-- `index.html` loads `mock-testing.js` after `supabase-config.js` and before the main application script, so the mock client is selected before account initialisation.
-- Added `tests/update-2-3-1/mock-testing.test.mjs` covering exact-host opt-in, production/unknown-host fail-closed behaviour, two-user data isolation, session-only storage, mock OAuth blocking, daily session completion and allowance counting.
-- Added a browser smoke test proving that the explicit query parameter does not activate mock mode on the local test server.
-- Added the isolated mock unit tests and JavaScript syntax check to the existing branch-scoped GitHub Actions workflow. No new paid service, package or backend project was introduced.
-- CI run #446 (workflow run ID 43413175601) found a test assertion issue caused by cross-realm arrays. CI run #450 (workflow run ID 43413358201) found the headless test document lacked a DOM lookup method; the adapter's panel renderer was guarded for headless contexts. CI run #452 (workflow run ID 43413462404) then exposed two remaining cross-realm array assertions in the second-user checks; all matching assertions were normalised to host-realm arrays. These were test-harness compatibility issues, not evidence of a production app failure. Latest CI run #456 (workflow run ID 43413625418) is running against the corrected commit; obtain a passing result before calling the adapter validated.
-- Latest CI run #456 (workflow run ID 43413625418) completed successfully: the mock adapter syntax check and all 5 mock unit tests passed; the PostgreSQL 17 migration/allowance job passed; the Chromium browser regression job passed, including the local-host fail-closed check; and the disposable local Supabase Auth compatibility job passed. This is CI evidence only. Real Cloudflare preview-host interaction has not yet been manually tested.
-- The mock adapter does not test Google OAuth, JWT/session security, RLS, real SQL/RPC behaviour, database triggers or cross-device sync. It does not remove the need for an isolated Supabase staging project or local Supabase integration tests.
-- No Supabase project, Auth user, production data, schema, migration, setting, GitHub Pages production deployment or PR merge was changed by this implementation. PR #5 remains open and unmerged.
+1. Active learning course recency must use relative elapsed time (for example, “Last active 3 days ago”) rather than a full date/time string.
+2. Dashboard Activity overview must become a visual summary rather than a text-only list of counts.
+3. When a daily activity allowance is exhausted, do not reveal the next activity's content preview during the cooldown period.
+4. Daily Discovery is a globally shared daily subject: every user sees the same word on the same global day. Daily Topic, Daily Application and Daily Revision remain account-personalised.
+5. Daily Discovery should focus on dictionary-style recognition of less-common English vocabulary. The previous mixed grammar/facts discovery collection is retained in source as a future backlog candidate, not used by the new selector.
+6. Daily activity readers should open in a left-side slide-in panel following the Dictionary detail-panel interaction pattern.
+7. Add more examples across relevant daily activity readers.
 
-### Repository tidiness review — 13 November 2026
+### Implementation now on the feature branch
 
-The repository was reviewed at the root and within the main `docs`, `tests` and `.github/workflows` areas. **No existing files were deleted or moved.** The current non-Master-Record files have distinct purposes:
+- **Feature branch:** `feature/update-2-3-1-bug-fix-and-changes`.
+- **PR:** [#5](https://github.com/WhiteWingCat/wordbook/pull/5), still intended to target `main`; no merge or production deployment authorised.
+- **Latest recorded feature commit:** `c2f7ab612e1d3f773eb5322296b77240e8a36e24`.
+- **Files changed:** `index.html` and `daily-learning.js`.
+- Dashboard course recency now displays relative elapsed time in minutes, hours, days, weeks or months.
+- Activity overview now displays a bar for each tracked activity category, with accessible text labels and completion counts. Bars are scaled against the largest category in the current account history; they are comparative counts, not a percentage-of-goal measure.
+- Daily activity cards replace the next-content preview with a cooldown message when the next slot is blocked by an exhausted allowance. The already-completed content remains reviewable according to the existing free-replay rule.
+- Daily Discovery now selects a deterministic vocabulary entry by UTC calendar date, so users see the same word regardless of account, preference or allowance timezone. The daily session remains per-user and existing per-user allowance enforcement is retained.
+- The new shared-word pilot currently uses a curated set of 12 less-common words with original explanations/examples, translation text, part of speech and pronunciation. The UI explicitly says the frequency classification is curated, not a live conversational-corpus ranking. **Statistical spoken-frequency ranking is not yet implemented** and must not be claimed as complete.
+- The prior mixed Daily Discovery array remains unused by the current selector and should be considered backlog material for possible future reuse in another activity.
+- Daily activity readers now use a modal backdrop and left slide-in panel with back, close and backdrop-dismiss controls. The reader includes dictionary-style definition/part-of-speech/pronunciation presentation for Daily Discovery.
+- Existing examples are expanded into individual examples where available; practice question blanks are also shown as completed example sentences. More authored examples can be added during content QA.
+- Existing allowance semantics, adaptive revision, account preferences, aggregate-only practice summaries and daily local-time reset rules are intended to remain unchanged.
 
-- Keep application/runtime files such as `index.html`, `daily-learning.js`, `supabase-config.js`, `mock-testing.js`, `banner.svg` and `feedback.html`.
-- Keep `tests/`, `playwright.config.js` and `.github/workflows/`: they provide automated regression, browser checks and local database validation. The new mock test is intentionally separate from the production app code.
-- Keep `README.md`, `RELEASE-QA.md`, `THIRD_PARTY_NOTICES.md`, `ARPHICPL.TXT` and `PRIVACY-POLICY-DRAFT.md`: these serve setup/release, licensing, attribution and privacy-review purposes.
-- Keep the `docs/` design decisions, technical notes, legal/privacy review, manual staging checklist and SQL migration drafts. They document different decisions, environments and migration layers; a SQL draft is not equivalent to an applied migration.
-- Keep the older `UPDATE-2.1.0-TECHNICAL-PLAN.md`, `UPDATE-2.3.0-PLANNING.md` and 2.2.0 migration files as historical/release traceability until their references and relevance have been checked. Do not delete or relocate them merely because a newer Master Development Record exists.
+### Validation evidence and current limitation
 
-**Tidy-up conclusion:** the branch needs supporting source, tests, workflows and technical/legal records in addition to the Master Development Record. The Master Development Record should be the single current roadmap and handover authority; specialised files remain as supporting detail. Revisit consolidation only after checking all internal links, workflow references and historical migration evidence.
+- JavaScript syntax validation passed for `daily-learning.js` and the inline application script in `index.html` after the final JavaScript changes.
+- Static assertions passed for relative timestamps, activity bars, UTC-shared discovery selection, cooldown preview suppression, drawer open/close controls, additional examples and dictionary-style discovery definition.
+- An early syntax check caught an unescaped apostrophe in the cooldown message. It was corrected and syntax validation passed afterward.
+- Latest GitHub Actions run observed: [run #486](https://github.com/WhiteWingCat/wordbook/actions/runs/43549929803), triggered from the latest feature commit and still queued at the time of this record update. It contains Chromium browser regression, PostgreSQL 17 migration/allowance and disposable local Supabase Auth compatibility jobs. Do not claim CI passed until all three finish successfully.
+- Owner has not yet tested these new changes. Do not mark Update 2.3.1 complete until owner preview testing and CI both pass.
+
+### Frequency-data research and legal/content notes
+
+- A candidate source for a future statistical spoken-frequency ranking is the OANC-derived spoken frequency list published by Lingevo. Lingevo states that its spoken list is counted from about 3.1 million words of Switchboard and Charlotte telephone/face-to-face conversation transcripts, and offers the derived lists for unrestricted use including commercial use, with credit to Lingevo and the Open American National Corpus.
+- Source references: [Lingevo English word lists and licensing](https://lingevo.com/resources/), [Open American National Corpus](https://anc.org/data/oanc/), [OANC spoken corpus composition](https://anc.org/OANC/index.html).
+- The OANC spoken data is a limited American-English conversation sample, not a universal measure of all spoken English. Any future label should explain the corpus and avoid implying a globally representative ranking.
+- The current 12-word pilot is curated, not derived from those frequency counts. Before claiming statistical selection, obtain the frequency file, validate its fields and counts, select a defensible frequency band, document attribution and add source notices. Do not redistribute any data until its actual terms and attribution are checked.
+- No new personal-data category or table was introduced for global discovery. The shared word is selected client-side by UTC date; each user's session, completion and allowance remain private and account-scoped.
+- Malaysia PDPA and global privacy review remains required for the wider project, but this change does not add new learner profiling or raw-answer collection. Preserve RLS, aggregate-only practice data and the existing account isolation. This is planning, not legal advice or a compliance certification.
+
+### Exact recovery point
+
+1. Continue from `feature/update-2-3-1-bug-fix-and-changes`; do not recreate it.
+2. Latest application commit recorded here: `562f9ad6c594083ddef064d3764d791681341170`.
+3. Check the latest run #486 and inspect any failed job logs before proceeding.
+4. Verify Cloudflare has rebuilt the preview for the latest branch commit. The owner-confirmed preview host remains `feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev`; use `?swiftMock=1` and fictional Test User A/B only.
+5. Test relative active timestamps, activity overview bars, free and Premium cooldown states, same global Daily Discovery word across mock identities, personalised Topic/Application/Revision, drawer open/close/backdrop behavior, translation, examples, completion, replay and abandon.
+6. The statistical frequency ranking remains an explicit content-quality follow-up; do not describe the curated pilot as corpus-ranked.
+7. Wait for the owner's testing feedback before further application changes. Do not merge PR #5, apply production migrations, change production data/settings or deploy without explicit approval.
+
+
+### Follow-up validation and server-catalogue correction — 2026-11-14
+
+- A first CI attempt failed because `tests/update-2-3-0/check-frontend.mjs` still expected the old `dailyDiscoveries` array. The test was updated to validate `dailyDiscoveryVocabulary` and its dictionary metadata.
+- Further review found that dynamically generated global discovery IDs would be rejected by the server-side approved content catalogue. Corrected this before owner testing:
+  - Each of the 12 vocabulary entries now has a stable approved base ID.
+  - Session IDs use `approved-word-id:YYYY-MM-DD`, with the date based on the shared UTC day.
+  - The private validator accepts only a valid date suffix whose base ID is active in the private catalogue, with null topic and difficulty.
+  - The content-catalogue migration draft replaces the old 27 discovery rows with 12 approved vocabulary IDs.
+  - Catalogue checker expectations now total 80 entries (28 Topic + 25 Application + 12 Discovery + 15 permanent lessons).
+  - SQL assertions test valid date-scoped IDs, unknown IDs, malformed dates and forged topic metadata. The allowance test fixture was updated to use a date-scoped ID.
+- Latest PR #5 head confirmed: `c2f7ab612e1d3f773eb5322296b77240e8a36e24`.
+- Latest CI run [#499](https://github.com/WhiteWingCat/wordbook/actions/runs/43550190284) completed successfully: Chromium browser regression, PostgreSQL 17 migration/allowance tests and disposable local Supabase Auth compatibility all passed.
+- The earlier run #495 failure was confined to the stale frontend checker expectation; run #499 includes the corrected checker, catalogue migration, date-scoped validator and updated allowance assertion.
+- Static JavaScript syntax and catalogue matching checks also passed.
+- This CI evidence does not replace owner preview testing. Cloudflare preview deployment for the latest commit has not been independently confirmed in this record.
+- The current Daily Discovery set is still a curated pilot, not statistically ranked by spoken-corpus frequency. This remains a known content-quality limitation.
+
+
+## 16. Update 2.3.1 — second owner preview review and refinement pass (2026-11-14)
+
+### Owner's latest feedback and scope
+
+The owner reviewed the prior Update 2.3.1 preview and requested:
+
+1. Fix permanent-lesson translation refresh when changing translation language.
+2. Improve Simplified Chinese translation coverage throughout Daily Learning while preserving English learning context (grammar prompts, example sentences and answer choices).
+3. Remove the dark translucent backdrop behind the left-side activity panel and add sufficient inset spacing around the panel content.
+4. Present Daily Discovery in dictionary-style detail layout, without previous/next navigation.
+5. Make Daily Topic, Daily Application and Daily Revision more clearly personalised by account; switching mock identities must show distinct content, and resetting mock data must rotate the selections. Daily Discovery remains globally shared for the same UTC day.
+6. Combine all relevant examples into one Examples box; remove the separate “More examples” treatment.
+7. Open permanent lessons on a dedicated page instead of expanding the lesson reader inside the lesson library.
+
+**Dashboard scope freeze:** the owner explicitly confirmed that the Dashboard is in a good place and requested no further Dashboard changes for now. No Dashboard layout, statistics or visualisation changes were made in this pass.
+
+### Implementation on the existing feature branch
+
+- **Branch:** `feature/update-2-3-1-bug-fix-and-changes`.
+- **PR:** [#5](https://github.com/WhiteWingCat/wordbook/pull/5), still open and unmerged; base remains `main`.
+- **Latest application commit:** `d1af4357fdbca0b86765ebba22750457eb9b62a5`.
+- **Files changed in this pass:** `index.html`, `daily-learning.js`, `mock-testing.js`, `tests/browser/update-2-3-0-smoke.spec.js`, `tests/update-2-3-0/check-frontend.mjs`, and `tests/update-2-3-1/mock-testing.test.mjs`.
+
+#### Translation and Daily Learning
+
+- Added a shared translation-view refresh path. Changing the top translation selector now refreshes the open dictionary entry, permanent lesson, Daily Learning cards and an open Daily Activity reader. Saving Profile preferences uses the same refresh path.
+- Fixed an activity-reader state-reference error found during browser regression testing so checked answers and their English/Chinese explanations remain visible after switching languages.
+- Added Chinese translations for all 28 Daily Topic titles and all 25 Daily Application titles, plus Daily Learning headings, preference labels, card metadata, status messages, reader controls and Daily Discovery usage notes.
+- English sentence prompts, answer options, grammar terms and examples remain in English as learning context. Chinese explanations are shown alongside the relevant material or after answer checking.
+- Daily Discovery retains its English headword and examples, while showing the Chinese definition and Chinese usage note when Simplified Chinese is selected.
+- Daily Discovery start RPC arguments now explicitly send null topic and difficulty metadata, matching the approved server catalogue's global-word contract.
+
+#### Activity reader and examples
+
+- The activity backdrop is transparent; the left-side panel itself remains interactive and dismissible.
+- Added internal panel padding and separate inset spacing for the dictionary-style Daily Discovery content.
+- Daily Discovery now uses dictionary-style headword, pronunciation, part-of-speech, definition, examples and usage-note sections, without previous/next controls.
+- Relevant examples are combined into one Examples box. The separate “More examples” treatment has been removed.
+
+#### Personalised activity selection and mock reset
+
+- Daily Topic, Daily Application and Daily Revision now include a stable account-derived selection offset, while Daily Discovery is selected solely by the global UTC date and remains identical across accounts on that date.
+- Adaptive revision still prioritises the best-ranked weakness group; account-derived selection chooses within equally ranked candidates, including unseen topics for new accounts.
+- Mock mode exposes a session-storage selection-generation counter. Resetting mock data increments the generation while preserving unrelated session-storage keys, then clears the mock user stores. The new generation rotates the personalised Topic/Application/Revision selection after reload.
+- The selection-generation counter is test-only and stays in the exact-host, explicit-opt-in mock environment. It is not a new production preference, table or account-data field.
+
+#### Permanent lesson navigation
+
+- Moved the permanent lesson reader to a separate `lessonDetailPage` page panel.
+- Opening a lesson now navigates away from the lesson library; the dedicated back control returns to Lessons. Browser hash handling recognises the lesson-detail route and safely falls back to Lessons when no active lesson is loaded.
+- Translation changes rerender the active lesson from its source record while preserving practice state.
+
+### Validation and CI evidence
+
+- Latest GitHub Actions run: [run #549](https://github.com/WhiteWingCat/wordbook/actions/runs/43553866219).
+- **All three CI jobs passed**:
+  - Chromium browser regression: 15 tests passed, including bilingual Daily Learning refresh, dictionary-style Discovery, transparent panel inset, and dedicated permanent lesson page.
+  - PostgreSQL 17 migration and allowance tests passed, including frontend/RPC integration checks and mock-adapter unit tests.
+  - Disposable local Supabase Auth compatibility and security-advisor checks passed.
+- Earlier CI attempts exposed test/implementation issues which were corrected before run #549:
+  - Mock reset tests now verify unrelated session-storage values remain intact while the generation counter advances.
+  - Existing browser assertions were updated for Chinese UI text when the fixture preference is Simplified Chinese.
+  - The translation-refresh feedback renderer now references the preserved reader state correctly.
+  - Discovery padding assertions inspect the inner dictionary content panel, where the padding is applied.
+  - The frontend timezone-helper test boundary was updated after adding the bilingual UI helpers.
+- Static checks also confirmed all 28 Topic and 25 Application title translations exist, all 12 Discovery words have Chinese usage notes, mock A/B selection offsets differ for Topic/Application/Revision, and reset changes all three offsets.
+- No production database migration, production data mutation, PR merge or production deployment was performed.
+
+### Legal, privacy and data-safety review
+
+- This pass adds no new production personal-data field, table, raw-answer collection or learner-profiling category.
+- The account-derived offset is calculated client-side from the signed-in account identifier and is not persisted or sent as a new field. Keep it out of logs and analytics.
+- The mock selection-generation counter is stored only in session storage within the explicitly enabled mock preview.
+- Existing account isolation, RLS, aggregate-only practice results, allowance rules and global UTC Daily Discovery selection remain intact.
+- The work is a UI/selection bug-fix pass, not a legal-compliance certification. Malaysia PDPA and global privacy/age obligations remain project-wide review requirements.
+
+### Exact recovery and next testing point
+
+1. Continue from `feature/update-2-3-1-bug-fix-and-changes`; do not recreate the branch.
+2. Latest PR #5 head: `d1af4357fdbca0b86765ebba22750457eb9b62a5`.
+3. CI run #549 passed all three jobs. The browser suite passed 15 tests.
+4. The owner-confirmed Cloudflare preview host remains `feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev`. The latest Cloudflare deployment itself has not been independently confirmed; allow it to rebuild before owner testing.
+5. Use `?swiftMock=1` and fictional Test User A/B only. The preview frontend still references the production Supabase configuration outside the mock adapter; do not use real accounts or real data-changing tests.
+6. Owner retest priorities: switch translation while a permanent lesson is open; switch translation while a Daily Activity is open and after checking answers; verify English learning context remains English; inspect activity panel backdrop/insets; verify Discovery layout; compare A/B Topic/Application/Revision and shared Discovery; reset mock data and verify the personalised selections rotate; open/back from a permanent lesson page.
+7. Dashboard is frozen unless the owner raises a new issue. Statistical spoken-frequency ranking for Daily Discovery remains future work; the current 12-word set is curated, not corpus-ranked.
+8. Wait for owner testing feedback before any further app changes. Do not merge PR #5 or deploy without explicit approval.
+
+
+## 17. Update 2.3.1 — final daily activity polish and rollover handling (2026-11-14)
+
+### Owner feedback
+
+The owner requested six final refinements before considering Update 2.3.1 ready for main: remove the activity reader outline; translate the Daily Learning reset/plan/context status when the translation language changes; remove duplicate cooldown text; improve definition contrast to white in Daily Discovery and lessons; ensure unfinished activities reset after the daily boundary; and close the reader after successful completion. The Dashboard remains explicitly out of scope.
+
+### Implementation
+
+All application work stayed on feature/update-2-3-1-bug-fix-and-changes, PR #5, targeting main.
+
+- Removed the activity reader border while retaining its transparent backdrop, spacing, rounded outer corners and shadow.
+- Added a shared renderDailyStatus() path. The reset timezone, plan, English-context note, deferred timezone-change notice and English-course guidance now refresh in the selected translation language whenever the global translation selector changes.
+- Retained the cooldown preview and removed the second repeated allowance-exhaustion message.
+- Set lesson definition text and Daily Discovery definition text to the primary foreground colour (var(--text)).
+- After the server confirms complete_daily_activity_session, the reader closes immediately. The activity list and remaining allowance then refresh. Completion confirmation and refresh-error messages use the selected translation language.
+- On Daily Learning load, each in-progress session's started_at timestamp is compared with the current allowance-day interval in the user's effective allowance timezone. Sessions outside that interval, including malformed timestamps, are marked abandoned through the existing abandon_daily_activity_session RPC before cards render. Only sessions started within the current allowance day remain resumable. Abandonment does not count as completion or consume allowance.
+
+### Daily reset and allowance clarification
+
+The reset is based on the configured allowance timezone, not on whether the learner completed the activity. At the next local midnight, a completed activity remains recorded as completed for its original day, while an unfinished session is marked abandoned on the next Daily Learning load. The user can then start the new day's activity without resuming yesterday's session. Only successful completion consumes the daily allowance.
+
+This is a lazy rollover cleanup, not a background job at the exact stroke of midnight. If the user does not open Daily Learning, the old database row may remain in_progress until the next load; that load performs cleanup before rendering resumable sessions.
+
+### Tests and validation
+
+Latest application commit: 99dc69446ca56459c344915711ed2169c909b0c4.
+
+Browser regression coverage now checks:
+- Daily Learning status switching Chinese → English → Chinese while a reader is open.
+- Reader border removal and primary-foreground definition colour.
+- Reader closure after successful completion.
+- Automatic abandonment of a previous-day unfinished session, followed by creation of a fresh session.
+
+Latest GitHub Actions run: [run #557](https://github.com/WhiteWingCat/wordbook/actions/runs/43556612276).
+
+- Chromium browser regression: 16 tests passed.
+- PostgreSQL 17 migration and allowance tests passed.
+- Disposable local Supabase Auth compatibility and security-advisor checks passed.
+- All three CI jobs passed on commit 99dc69446ca56459c344915711ed2169c909b0c4.
+
+An earlier browser attempt failed only because an existing test expected an English completion confirmation while the fixture selected Simplified Chinese. The implementation correctly returned the Chinese confirmation; the assertion was corrected and the subsequent full CI run passed.
+
+### Legal, privacy and data-safety review
+
+- No new personal-data fields, tables, raw-answer collection, tracking or learner-profile categories were added; no database migration was introduced.
+- Rollover cleanup changes only the status of the signed-in user's existing expired activity session through the existing account-scoped server RPC and access controls.
+- No additional learner data is collected, exposed or logged.
+- This is not a legal-compliance certification. Malaysia PDPA and applicable global privacy/age obligations remain project-wide review requirements.
+
+### Current branch and recovery point
+
+1. Feature branch: feature/update-2-3-1-bug-fix-and-changes.
+2. PR #5: https://github.com/WhiteWingCat/wordbook/pull/5 — open, targets main, not merged.
+3. Latest feature head: 99dc69446ca56459c344915711ed2169c909b0c4.
+4. CI run #557 passed all three jobs; browser suite passed 16 tests.
+5. No production database migration, production data operation, PR merge or production deployment was performed.
+6. The owner-confirmed Cloudflare preview host remains feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev. Confirm Cloudflare rebuilt the latest commit before testing. Use the explicit mock opt-in and fictional Test User A/B only; do not use real accounts or real data-changing tests.
+7. Owner retest priorities: inspect the reader edge; switch translation while the Daily Learning status is visible; verify only one cooldown explanation; inspect definition contrast in Discovery and permanent lessons; leave an activity unfinished across local midnight and verify it is abandoned before a fresh session starts; complete an activity and confirm the reader closes.
+8. Dashboard remains frozen unless the owner raises a new issue. Do not merge PR #5 or deploy without explicit owner approval.
+
+
+## 18. Update 2.3.1 — Daily Discovery visibility and global rotation plan (2026-11-14)
+
+### Owner decision
+
+The owner explicitly selected **Option A** for Free-plan Daily Discovery visibility:
+
+- The global schedule contains three distinct Daily Discovery entries per UTC day.
+- Free users see and can complete only the first entry in that day's schedule.
+- Premium users see and can complete all three entries.
+- Do not show the second and third entries as locked cards or previews to Free users. They are not displayed in the Free experience.
+- Existing completion allowances remain unchanged: Free = 1 completion/day; Premium = 3 completions/day.
+
+### Global schedule and account isolation
+
+- Daily Discovery remains globally shared: every user receives the same scheduled entries for a given UTC date, subject to plan visibility.
+- The global schedule advances by UTC date, never according to any user's completion, account, timezone, or activity.
+- A user's completion state and allowance remain account-scoped. One learner completing, abandoning, or skipping an entry must not change another learner's schedule or availability.
+- Keep the existing allowance-day timezone behavior for per-user quota resets. Do not conflate the user's local allowance reset with the UTC global content assignment.
+- Use stable approved content IDs and date-scoped session IDs. The server-side private catalogue validator must approve every scheduled entry.
+
+### Backlog and rotation
+
+- Expand the curated Daily Discovery vocabulary backlog from the current 12 entries to a target of at least 90 reviewed entries before enabling the full three-entry schedule.
+- At three entries per UTC day, 90 entries provide a 30-day initial rotation without reusing an entry.
+- Assign three distinct entries to each UTC date. Avoid repeats within a daily set and do not immediately repeat the previous rotation's final entries at the start of the next cycle.
+- Rotation must be deterministic and versioned so that users opening the activity on different devices receive the same daily set.
+- Adding or editing backlog content must not silently change assignments already published for a date. Any schedule revision must be explicit and versioned.
+- If the approved backlog is temporarily insufficient, do not silently repeat or generate unapproved content. Keep the schedule within the available approved entries and surface an operational/content-readiness issue for review.
+- The 90-entry target is a planning threshold, not a claim that the current 12-entry pilot already supports 30 days.
+
+### Implementation sequence
+
+1. Audit the current client-side UTC selector, daily Discovery rendering, stable IDs, allowance display, and server-side catalogue validation.
+2. Prepare and editorially review the expanded vocabulary backlog, including accurate definitions, pronunciation, Chinese translations, examples, usage notes, and source/licensing review where external corpus data is used.
+3. Implement a deterministic, UTC-date-based three-entry schedule with a versioned rotation and no per-user influence.
+4. Update plan-aware rendering: Free receives only schedule position 1; Premium receives positions 1–3. Do not render locked placeholders for positions 2–3 to Free users.
+5. Update the private approved-content catalogue and server validation so every scheduled stable ID is approved. Preserve null topic/difficulty metadata for Discovery and existing account-scoped completion RPCs.
+6. Add automated tests for global schedule consistency across accounts, UTC date rollover, rotation uniqueness and boundary behavior, Free visibility of exactly one item, Premium visibility of exactly three items, per-user completion isolation, and allowance enforcement.
+7. Run the existing browser, PostgreSQL and disposable local Supabase validation suites. Retest only with the explicit mock preview and fictional Test User A/B.
+8. Update the Master Development Record and conversation archive with the final implementation, validation evidence, and any remaining content limitations.
+
+### Non-regression and release boundaries
+
+- Do not change Daily Topic, Daily Application, Daily Revision, the Dashboard, or the existing lesson experience as part of this work unless a directly related regression requires it and the owner approves the scope.
+- Preserve aggregate-only practice outcomes, existing RLS/account isolation, and the privacy-first catalogue design. Do not introduce answer-level telemetry or a global user completion table.
+- Do not claim statistically ranked spoken-frequency selection unless the corpus data, methodology, reuse terms and attribution have been verified. Curated content must continue to be labelled as curated.
+- Perform the standing Malaysia and general legal/privacy review for any new data source, corpus reuse, or feature expansion. This planning decision does not constitute legal compliance certification.
+- Continue on feature/update-2-3-1-bug-fix-and-changes and PR #5. The plan update does not authorize merging, production database changes, production data operations, or production deployment.
+
 
 ## 19. Update 2.3.1 — Daily Discovery three-slot global schedule implementation (2026-11-14)
 
@@ -617,7 +816,7 @@ The owner selected **Option A**:
 ### Current recovery point and next actions
 
 1. Continue on feature/update-2-3-1-bug-fix-and-changes; PR #5 remains open and unmerged.
-2. Latest implementation commit at this record update: 6bc0791116ca0a96410a84a3e3fe6953943b2ae3.
+2. Latest application/code commit: 6bc0791116ca0a96410a84a3e3fe6953943b2ae3. Latest feature branch head after the handover-record update: e1039bed85ed6f65514699f30cda8a06d2df0214.
 3. Obtain full CI execution and inspect any failures before owner preview testing.
 4. Confirm Cloudflare Pages has rebuilt the current head. Use only ?swiftMock=1 and fictional Free/Premium Test User accounts; do not use real accounts or production data-changing tests.
 5. Verify Free sees exactly one Discovery card; Premium sees exactly three; both accounts share the same words for the UTC date; complete/abandon flows consume allowances correctly; translation switching updates definitions and usage notes; UTC rollover and local allowance reset remain understandable.
@@ -826,325 +1025,711 @@ All three jobs passed:
 6. The preceding Update 2.3.1 content-quality/allowance work remains in force and is recorded in the prior archive. This layout change does not reverse those fixes.
 
 
-## 24. Update 2.4.0 — Quiz frontend foundation (2026-11-16)
 
-### Implementation
+## 24. Update 2.3.1 — owner feedback: activity rows, allowance indicator and Premium mock allowance (2026-11-14)
 
-The Quiz placeholder in `index.html` has been replaced on `feature/update-2-4-0-quiz` with an authenticated Quiz interface.
+### Owner feedback and final acceptance
 
-- Signed-out users are prompted to sign in. Quiz history and sessions remain account-scoped.
-- The overview reads allowance, timezone, difficulty readiness, active-session state and completed history from authenticated RPCs.
-- Difficulty session sizes are Beginner 10, Intermediate 15 and Advanced 20 questions.
-- Approved bank counts and backend availability reasons are shown for each difficulty.
-- An unfinished session can be resumed; one active session per account remains enforced by the database.
-- Four shuffled answer options are rendered. Answers and current position are saved through RPCs and may be changed until submission.
-- Submission requires all answers and explicit confirmation.
-- Completed results show score and percentage, without pass/fail, and include the complete answer/explanation review.
-- Completed history entries can be reopened for review.
-- Explicit abandonment warns that issued questions cannot be reused that local day.
-- Session translation uses the language pair frozen by the backend session snapshot. Current draft pack supports English + Simplified Chinese only.
-- Account refresh events clear Quiz UI state and reload the active account's data when the Quiz page is open.
+The owner requested five final refinements to the Daily Learning category tabs:
+1. Premium activity cards must each occupy one full-width row; three columns caused text crowding beside the Review completed content action.
+2. Numeric allowance must appear only beside the category title, not inside activity cards.
+3. The title-side allowance indicator should be clean, centered and color-coded according to remaining allowance.
+4. Premium mock account must show the established 15 permanent lesson completions, not the Free limit of 5.
+5. Category tabs should be slightly larger with white text.
 
-### Security and privacy
+The corrected preview was deployed for commit `8c4c4949be68f2b372def13ce75c8ec67b67405e`. The owner retested it and confirmed that all requested changes were present, then approved Update 2.3.1 for merge.
 
-- The frontend calls only the public authenticated RPC wrappers: `get_my_quiz_availability`, `start_my_quiz`, `get_my_active_quiz`, `save_my_quiz_answer`, `submit_my_quiz`, `abandon_my_quiz`, `get_my_quiz_history`, and `get_my_quiz_review`.
-- It does not query private Quiz tables directly and does not submit a user ID; the backend derives ownership from `auth.uid()`.
-- Answer keys and explanations are only returned through the completed review RPC.
-- No analytics, advertising tracker or external content source was added.
-- Quiz answers/selections, session state, score and history are account-linked learning data. The temporary same-day no-repeat reservation ledger remains separate and minimal.
-- Malaysia PDPA and general privacy planning remains mandatory before release. The privacy notice should explain Quiz progress/answer storage, history deletion and temporary reservation retention. This is not legal advice or a compliance certification.
+### Implementation confirmed in the final feature commit
 
-### Validation and release status
+- Premium continues to receive up to three activity cards per category, but the cards stack vertically in one full-width column. Free remains one card.
+- Card actions remain right-aligned. Numeric remaining-allowance text was removed from unstarted activity cards; those cards use a neutral “New activity” label. In-progress and completed/review statuses remain.
+- The category allowance count is displayed in a centered compact indicator beside the category title. The indicator uses green, amber and red states according to remaining allowance.
+- Category tabs have increased padding/font size/weight and white text.
+- Account refresh now reinitializes lesson progress and reloads allowance for the active identity, preventing a stale Free/Premium lesson allowance from remaining visible after account switching.
+- Frontend regression assertions cover the layout, allowance presentation and account-refresh behavior. The isolated mock fixture records Free 5 and Premium 15; the earlier Premium completion-enforcement test was present in the preceding validation work.
+- No database schema, allowance values or production data were changed by these presentation/account-refresh refinements.
 
-- Added `scripts/quiz/validate-quiz-frontend.mjs`, which extracts and parses the main inline application JavaScript, asserts required screens/RPCs, checks answer-review/save/abandon flows and prevents direct private-table access.
-- Added this validator to `.github/workflows/quiz-db-foundation.yml`.
-- The inline application script was independently parsed during development and returned no syntax errors. The GitHub Actions run for the updated workflow still needs to be confirmed; no runtime browser test is claimed yet.
-- Added `docs/UPDATE-2.4.0-QUIZ-FRONTEND-IMPLEMENTATION.md` with the screen/RPC map, data boundaries and next validation steps.
-- All 114 question records remain draft. No Quiz schema/RPC migration or content was applied to production.
-- The only production Quiz change remains the separately applied and verified allowance update: Free 1/day and Premium 3/day.
-- PR #8 remains draft and unmerged. No website deployment or production schema change was performed.
+### Correction to the earlier validation record
 
-### Next actions
+A source rollback incident was identified after the first attempted fix: a stale Git tree reference had caused older CSS and Daily Learning JavaScript to be restored, despite earlier commit-history inspection and a successful CI run. The earlier report that the five final visual changes were implemented was incorrect, and CI run #763 on commit `d1c9be67` did **not** validate the final five refinements.
 
-1. Confirm the frontend validation workflow passes.
-2. Add authenticated browser coverage using disposable local Supabase and synthetic users; use a separate test-only approved fixture, not the 114 production draft questions.
-3. Verify signed-out gating, allowance/difficulty states, answer saving and changing, resume after reload, abandonment, submission/scoring, complete review, history, translation snapshot and account switching.
-4. Keep PR #8 draft until automated runtime validation and owner review are complete.
-5. Do not merge, deploy or apply production Quiz schema/content without explicit owner approval.
+The branch was corrected by updating the actual current file versions sequentially. The corrected implementation and regression assertions are in commit **`8c4c4949be68f2b372def13ce75c8ec67b67405e`**. Raw branch-file inspection confirmed the requested source changes before the owner was asked to retest.
 
+### Final validation and merge
 
-### CI troubleshooting record — Quiz allowance and isolated Auth tests (2026-11-16)
+Both GitHub Actions runs below completed successfully against commit `8c4c4949be68f2b372def13ce75c8ec67b67405e`, with all three jobs passing in each run (Chromium browser regression, PostgreSQL 17 migration/allowance tests, and disposable local Supabase Auth compatibility):
 
-This is a reusable diagnostic for future feature work, especially Update 2.5.0 Flashcards, whenever authenticated browser tests unexpectedly report legacy allowance values or behave inconsistently across retries.
+- Run #771: https://github.com/WhiteWingCat/wordbook/actions/runs/43571579491
+- Run #772: https://github.com/WhiteWingCat/wordbook/actions/runs/43571583586
 
-- **Symptom:** Quiz browser tests reported the legacy Free/Premium allowance values (5/12) instead of the approved Quiz limits (1/3), while the separate PostgreSQL foundation workflow passed.
-- **Root cause:** The Local Supabase Auth/RPC CI job built its disposable database from prerequisite migrations but omitted the dedicated Quiz allowance migration `supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`. The browser test therefore observed the synthetic baseline's legacy 5/12 limits. This was a local CI fixture/migration-order problem, not evidence that production Supabase needed repair.
-- **Repair:** Apply the exact feature-specific allowance migration to the disposable local Supabase database in the Auth/RPC workflow before authenticated browser runtime tests. Keep the production database untouched unless a separately approved production migration is genuinely required.
-- **Test isolation lesson:** Create fresh synthetic Free and Premium Auth users for every browser-test attempt/retry, seed their test-only preferences and entitlements, and verify a newly created user has no active session. Do not reuse static account IDs across retries.
-- **Invariant to preserve:** Do not weaken the server-enforced one-active-session-per-user rule to make tests pass. Do not silently change approved Free/Premium allowance policy.
-- **Flashcards reuse checklist:** When building Flashcards CI, inspect every workflow job (especially local Auth/browser jobs) for complete prerequisite migration coverage; verify the intended Flashcard allowance migration is applied to the disposable database; use fresh synthetic accounts per retry; keep test content/account fixtures separate; and assert allowance values through authenticated RPCs rather than assuming a foundation-only SQL test covers the browser workflow.
-- **Validation boundary:** A passing schema/foundation job does not prove the authenticated browser job uses the same migration set. Confirm each job's migration sequence and inspect its own logs. Run security advisors against the disposable local schema after runtime tests. No production migration, main-branch merge, deployment or Mock User preview is implied by this troubleshooting record.
+Cloudflare's pull-request deployment status reported a successful preview deployment for commit `8c4c494`. The owner confirmed all five requested changes in the preview.
 
+**PR #5 was merged into `main` on 2026-11-14 at 07:52:23 UTC.**
+- PR: https://github.com/WhiteWingCat/wordbook/pull/5
+- Feature head: `8c4c4949be68f2b372def13ce75c8ec67b67405e`
+- Merge commit and verified `main` HEAD: `3ca194f908356f85aed1c143c647ebf488e9a353`
 
+### Privacy and release boundaries
 
-### Quiz CI follow-up — resume race, fixture parity and mock adapter (2026-11-16)
+- The final changes are presentation, account-refresh and mock-test changes; they add no personal-data fields, analytics, tracking or third-party content.
+- No production Supabase migration or production data operation was run as part of this merge.
+- The merge itself is not proof that the production database has been migrated or that the main-branch site deployment has completed. Verify the main-branch deployment and production schema separately before treating the live production service as fully released.
+- Malaysia PDPA and general privacy planning remains applicable to future feature expansion; this update does not constitute a legal-compliance certification.
 
-This section supersedes the earlier statement above that authenticated runtime validation was still pending. It records the next fixes and validation boundary.
+## 25. Update 2.3.1 — final approval, merge and recovery point (2026-11-14)
 
-- **Resume UI race:** authenticated Chromium tests showed that a delayed Supabase INITIAL_SESSION notification could reset the Quiz UI after a user resumed an active session. The Quiz page now tracks the current account ID and only resets its page state when the authenticated identity changes. The one-active-session server rule is unchanged.
-- **Saved-word fixture parity:** the disposable Auth/RPC baseline omitted the existing course-aware saved_words.course field and (user_id, course, word) uniqueness key. This produced a cloud-sync error during the browser test. The synthetic baseline now matches the course-aware app schema; no production table was changed.
-- **Verified authenticated runtime:** the corrected run passed Free-user resume after reload, answer navigation/change, submission, score/review/history; Premium allowance 3/day, abandonment without allowance use, and active-session enforcement; and signed-out Quiz restrictions. The local Auth/RPC workflow also passed the Quiz session/allowance integration tests and Supabase security advisors against the disposable local Quiz schema.
-- **Regression validation:** the 2.3.x Chromium signed-out checks and PostgreSQL migration/allowance tests passed on the corrected branch. The mock adapter's existing test suite was expanded to exercise Free 1/day and Premium 3/day Quiz flows, session resume, answer saving, submission, review/history, abandonment and active-session enforcement.
-- **Mock-mode scope:** mock Quiz content and state are fictional and stored in sessionStorage. Mock mode does not exercise Supabase Auth, RLS, real database persistence, production question-bank readiness or cross-device sync. It is for UI/interaction review only; authenticated disposable-Supabase tests remain the source of truth for backend validation.
-- **Preview boundary:** the mock adapter now has an exact allowlisted host for the 2.4.0 Quiz preview and still requires the explicit ?swiftMock=1 opt-in. The feature preview must actually be deployed before an interactive user test link can be provided. No deployment, merge, production migration or production question publication is implied.
-- **Flashcards reuse:** carry forward the delayed-auth-event identity guard, course-aware saved-word baseline parity, complete local migration coverage, and separate synthetic-account vs mock-UI test layers. Keep Mock User tests clearly labelled as frontend-only and never treat them as evidence of backend security or persistence.
+### Current project state
 
-### Current Quiz gate
+- Update 2.3.1 is approved by the owner and merged to `main`.
+- PR #5 is closed as merged.
+- Verified `main` HEAD: `3ca194f908356f85aed1c143c647ebf488e9a353`.
+- The final feature commit is `8c4c4949be68f2b372def13ce75c8ec67b67405e`.
+- The feature branch preview was deployed successfully for the final commit and manually accepted by the owner.
+- CI runs #771 and #772 passed all three jobs on the final feature commit.
+- Do not repeat the earlier incorrect CI #763 claim as validation of the final five layout refinements.
 
-1. The feature-branch authenticated browser/runtime suite has passed against disposable local Supabase.
-2. The Quiz database foundation and RPC lifecycle/allowance tests have passed.
-3. Supabase security advisors have passed against the disposable local Quiz schema.
-4. The 2.3.x regression suite, expanded Mock User unit tests, PostgreSQL migration/allowance checks and local Supabase security advisors passed on the latest validated branch tip. The feature preview has not yet been deployed, so owner-facing interactive Mock User testing is not available yet.
-5. PR #8 remains draft and unmerged. Do not deploy to the live site, apply Quiz schema/content to production, or merge without explicit owner approval.
+### Next development milestone
 
-## 14. Update 2.4.0 — learning-page introductions, Chinese availability and translation fallback (2026-11-16)
+The next active milestone is **Update 2.4.0 — Quiz**:
+- Dedicated Quiz experience.
+- Quiz progress tracking.
+- Quiz allowance integration using the established completion-based allowance principles.
+- Preserve free dictionary search and account isolation.
+- Before planning or implementing any new feature, perform the standing Malaysia-specific and general legal/privacy review. Re-check content licensing and data minimisation if the Quiz introduces new question content, answer telemetry or analytics.
 
-### Owner-approved behaviour
+Update 2.5.0 — Flashcards remains planned after Quiz. Proposed Update 2.6.0 — Legal, Privacy & Terms Foundation is deferred until after Flashcards is released to `main`. Do not treat any roadmap item as implemented until released.
 
-The owner approved the fallback rule for Quiz translation preference changes:
-- When the requested translation is already represented in the active session snapshot, refresh the active Quiz display immediately.
-- When the requested translation is not represented in the snapshot, preserve the session's original translation and all answers/progress; clearly explain that the new preference applies to the next Quiz.
-- Persist the new translation preference through the existing account preference flow.
+### Release safeguards
 
-The owner also confirmed:
-- Dismissing a first-visit introduction saves that choice to the learner's account.
-- Lessons, Quiz and Flashcards each need a consistently placed, noticeable ? help control.
-- The help control reopens the introduction and relevant FAQs at any time.
-- If the learner selects Chinese, each of Lessons, Quiz and Flashcards must clearly state that no Chinese learning course is currently available. Do not silently show English learning content as if it were Chinese content.
-- The owner clarified that development should continue using normal GitHub/Supabase authorization prompts when required; this is not permission to merge, deploy or modify production Quiz schema/content.
-
-### Implementation on feature/update-2-4-0-quiz
-
-- Updated index.html to add a reusable introduction/FAQ dialog for Lessons, Quiz and Flashcards, with consistently positioned ? controls.
-- Each page has its own dismissal key. Local fallback storage is separated by signed-in user ID (and guest browser), signed-in dismissal writes use the new account-scoped Supabase table, and guest dismissals are copied into the learner account after sign-in when the table is available.
-- Added Quiz-specific FAQs covering untimed sessions, resume/change-answer behaviour, allowance and frozen translation snapshots.
-- Added explicit Chinese-course-unavailable states for Lessons, Quiz and Flashcards. The Lessons library and Daily Learning content are hidden while Chinese is selected; Quiz session/results are hidden while Chinese is selected; Flashcards retains its Coming Soon state while showing the Chinese availability notice.
-- Added the approved Quiz translation fallback: use the learning-language text when requested, immediately show a translation only when it is included in the active session snapshot, otherwise retain the snapshot translation and show a clear next-Quiz notice. Quiz start waits for the existing preference-write queue so the new preference is persisted before requesting the next session.
-- Added supabase/migrations/20261116090000_swiftdictionary_update_2_4_0_learning_page_introduction_preferences.sql. It creates a minimal account/page-key dismissal table with a dismissal timestamp, composite account/page primary key, RLS and owner-scoped CRUD policies. No answer or behavioural tracking is added by this feature.
-- Added supabase/tests/learning_page_introduction_preferences.sql to assert RLS, policy count, anonymous access denial, authenticated grants and the primary key.
-- Extended scripts/quiz/validate-quiz-frontend.mjs to check the new UI, account-scoped dismissal integration, Chinese availability and Quiz translation fallback.
-- Updated .github/workflows/quiz-db-foundation.yml to apply the new migration and run its security assertions only in disposable CI databases.
-
-### Repository state and validation boundary
-
-- Feature branch: feature/update-2-4-0-quiz.
-- PR #8 remains draft and unmerged.
-- Relevant implementation commits include 70d165a (draft preference migration), 7d6c64e (introduction/availability UI), a41fe28 (language refresh hardening), dd850d6 (Quiz snapshot translation fallback), cbe64de (frontend validator expansion), c5ea9dd (CI migration application), f32a3ea (RLS assertions), 58d64a7 (CI assertion wiring), b53e2c6 (browser tests for account-scoped introductions, Chinese availability and translation refresh), 97dce04 (dismiss first-visit guides before language transition tests), 8497e86 (carry pre-sign-in dismissals into the account), 6c586e3 (dialog heading polish), 95898b9 (record browser test coverage and CI state), and 8b784d8 (archive test coverage and guest-dismissal sync). Later commits may supersede these hashes; inspect branch HEAD before resuming.
-- Static inspection confirmed no duplicate HTML IDs and confirmed the expected feature hooks/markup are present. The main inline JavaScript parser and full CI results are being exercised by GitHub Actions; Quiz workflow run #224 (head 6c586e3) completed its PostgreSQL job successfully, including inline JavaScript parsing, the new preference migration/RLS assertions, Quiz schema/RPC checks and draft-content assertions. Its disposable local Supabase Auth/RPC/browser job was still in progress at the time of the update. Later branch-head runs #227–#229 were queued for documentation-only follow-up commits. No full-suite pass is claimed until the local Auth/RPC/browser job completes.
-- New Playwright runtime coverage was added for first-visit dismissal persistence to the signed-in account, per-page independence, help-button reopening, account isolation, Chinese availability transitions and the active Quiz language refresh. These tests have not yet been confirmed passing; run #224's local Supabase job is the pending runtime gate. No real hosted browser test has yet been performed for the new intro/FAQ, account sync, Chinese availability or translation fallback.
-- Supabase project discovery found the SwiftDictionary production project only and no Supabase development branches. The new migration is a repository draft and was not applied to production.
-- No production schema/data changes, website deployment, merge or question publication occurred. All 114 Quiz question records remain drafts.
+1. Verify the main-branch hosting deployment independently; merge confirmation alone is not deployment confirmation.
+2. Confirm production Supabase migration state read-only before proposing any production migration. No production migration or production data operation was performed in this session.
+3. Do not initiate a production migration, destructive operation or additional deployment without explicit owner approval.
+4. Continue using isolated mock identities for future browser tests; never use real user accounts or production data in automated tests.
 
 
-- **Runtime CI recovery:** Quiz workflow run #224 completed the PostgreSQL job successfully but its disposable local Supabase browser job failed all five browser tests because the new introduction dialog markup had been placed after the main inline application script. The application registered dialog handlers before the markup existed, so route initialisation stopped and Quiz remained hidden. Fixed by moving the dialog markup before application script initialization (commit b8830b0). The corrected branch-head run #234 completed PostgreSQL validation successfully and its disposable Supabase/Auth/browser job was still running at the latest check.
-- **Mock User compatibility:** Added learning_page_introduction_preferences to the isolated mock adapter's supported tables and per-user sessionStorage fixture, so first-visit dismissals can be tested without real Supabase. Extended the frontend validator to enforce this adapter support (commits 83ee304 and d3d7e45).
+## 26. Update 2.3.2 — Favorite Words course isolation hotfix and Daily Learning database diagnosis (2026-11-14)
 
+### Owner request
 
-- **Second authenticated browser run (Quiz workflow #234, commit b8830b0):** PostgreSQL/frontend validation passed. The local Supabase browser suite passed the independent introduction/dismissal/help-reopen test, Chinese/English availability transitions, and the Premium allowance/session test. Two tests failed: the initial Quiz translation did not reflect the account's saved translation preference, and the signed-out empty session panel was incorrectly visible.
-- **Follow-up fixes:** Added an explicit account preference read before Quiz initialization, so the Quiz renderer uses the signed-in account's saved learning/translation language rather than relying only on the broader Profile load side effect. Gated session/results panels on authenticated session/result data. Added static-validator requirements for Quiz account preference sync and translation notice updates (commits f259af6 and 4284857).
-- **Translation fallback coverage:** Added a disposable English-only question fixture and a browser test that changes the preference to Chinese during an English-only active snapshot, verifies the old translation and saved answer are preserved with a next-Quiz notice, abandons without consuming allowance, then starts a new Quiz using the new Chinese preference (commits fec34b6 and d2eacc0). This test is awaiting CI.
-- **Mock User validation:** The mock adapter now supports account/page introduction preferences in per-user sessionStorage. The 2.3.x workflow run #893 passed its PostgreSQL job including the expanded Node mock-adapter unit suite; the remaining local Auth and Chromium regression jobs were still in progress at the last check.
+The owner reported that most Update 2.3.1 features were available on the live website, but Daily Learning was waiting for a server database update. The owner also observed English and Simplified Chinese saved words appearing in the wrong Favorite Words category on the Dashboard. The owner requested a quick Update 2.3.2 hotfix and explicitly authorised merging it to `main` after validation.
 
+### Production Supabase diagnosis — read-only
 
-- **Translation fallback runtime result (Quiz workflow #254, commit d2eacc0):** The dedicated English-only snapshot test passed end-to-end: it preserved the active English snapshot and saved answer, displayed the unavailable-translation/next-Quiz notice, allowed abandonment without allowance use, and started a subsequent Quiz using the updated Chinese preference. Chinese availability, Premium session/allowance behaviour and signed-out gating also passed.
-- The same run exposed two test assertions to correct, not product regressions: the existing Free-session test checked the answer on question 2 even though its saved answer was on question 1; the test now navigates back to question 1 to verify persistence. The introduction test queried the flashcards dismissal row before awaiting the dialog's asynchronous close/persist operation; it now waits for the dialog to close before checking the database.
-- Corrected browser assertions are in commit 67a8254. Quiz workflow #262 was queued for the corrected test suite; do not mark the complete browser gate passed until it finishes.
+The connected SwiftDictionary Supabase project was healthy and running PostgreSQL 17.11.0.003. Its migration history ended at `20261110041007` (`swiftdictionary_update_2_2_0_reconciliation_baseline`). The 2.3.0 server migrations had not been applied.
 
+Read-only schema checks confirmed the following were absent:
+- `public.daily_activity_sessions`
+- `private.learning_content_catalog`
+- `private.learning_allowance_usage`
+- RPCs `public.start_daily_activity_session`, `public.complete_daily_activity_session` and `public.get_my_learning_allowance_usage()`
 
-- **Third runtime validation (Quiz workflow #262, commit 67a8254):** The disposable local Supabase/Auth/RPC/browser job completed successfully. All six browser tests passed on final attempts, including the unavailable-snapshot fallback and the corrected answer/dismissal assertions; one navigation assertion was flaky on its first attempt because async answer persistence took longer than Playwright's default 5-second expectation, then passed on retry. The Supabase security advisor step also passed.
-- The separate PostgreSQL foundation job in run #262 failed in an existing Premium multi-session RPC assertion with topic_coverage_unavailable on the third 15-question session. This is a disposable fixture-capacity/diversity issue, not a production migration change. Expanded the synthetic browser fixture to 10 topics and 60 questions per difficulty (and 30 English-only Beginner rows for the fallback test) in commit f753e40.
-- Increased navigation assertion timeouts to 15 seconds to avoid the observed transient async persistence flake (commit e9ca861). Re-run both jobs on the latest branch head before considering the CI gate green.
+The 2.3.0 server-side fields were also missing: daily activity preference flags and allowance-timezone fields on `user_preferences`, completion event fields on `learning_activity_log`, and the Daily Learning category rows in `learning_plan_limits`. The live limits table still had only `lesson`, `quiz` and `flashcard`.
 
+This is the direct reason the live website reports that Daily Learning is waiting for the matching server database update. It is a production schema/migration gap, not a browser cache problem.
 
-- **Full green CI run:** Quiz workflow run #269 (commit f753e40) completed successfully across both jobs. PostgreSQL 17 foundation/migration/RPC/allowance tests passed; disposable local Supabase Auth/RPC and authenticated Chromium browser tests passed; the account-scoped introduction table/RLS assertions passed; the English-only snapshot fallback test and next-session preference application passed; Chinese availability and account isolation passed; Supabase security advisors passed. This is the first complete green run for the new feature set.
-- Run #271 (commit e9ca861) re-runs the same code with longer Playwright navigation waits to remove the transient question-navigation flake; it was still in progress at the time of the update. Latest branch-head run #274 was queued after documentation-only updates.
+### Pending production migration sequence
 
+The repository currently contains these 2.3.0 SQL drafts under `docs/`; they are not yet timestamped deployment files under `supabase/migrations/`:
+1. Saved-words least-privilege hardening (independent, review before applying).
+2. Approved learning content catalogue.
+3. Completion-based allowance foundation.
+4. Daily activity session foundation.
+5. Separate current-window allowance ledger.
+6. Learning-history deletion implementation.
 
-- **Stabilized and latest-code green runs:** Quiz workflow run #271 (commit e9ca861) completed successfully after extending Playwright navigation waits. Run #274 (commit 0cc4822) also completed successfully across both PostgreSQL and disposable local Supabase/Auth/Chromium jobs, including security advisors. All application, migration, RLS, browser and fallback tests are green on the same application code now at the branch head.
-- The current branch head advanced afterward only through Master Development Record/archive/PR documentation updates (no application, migration or test-source changes). Documentation-only CI reruns #278–#279 were in progress at the latest check.
+The dependency order is important: the content catalogue precedes the allowance foundation; Daily Activity follows the allowance foundation; the ledger follows both allowance and Daily Activity; learning-history deletion follows allowance, Daily Activity and ledger. The drafts have passed the repository's disposable PostgreSQL 17 and local Supabase CLI compatibility workflows, but this is not a production migration.
 
-### Privacy/legal planning
+No production migration, production SQL write, or production saved-word bulk update was executed in this session. Before changing production, create proper timestamped migration files, review the exact SQL and historical data backfill, verify backups/rollback strategy and apply in order only after explicit owner approval. Afterward, verify migration history, schema objects, RLS/grants, allowance RPC results and Daily Learning start/complete/resume/review behavior with synthetic test identities.
 
-The new preference table stores only the learner's account ID, one of three page keys and a dismissal timestamp. This is still account-linked personal data. Before release, include it in the Malaysia PDPA and international privacy review, update the retention/deletion inventory, confirm account deletion cascades remove these rows, and ensure the privacy notice explains saved page preferences and cross-device synchronisation. Do not treat a free educational project as automatically outside PDPA scope; obtain Malaysian legal advice on applicability. This is planning guidance, not legal advice or a compliance certification.
+### Favorite Words root cause and fix
 
-### Next gates
+The Dashboard grouped saved words by the database `course` field, but the dictionary's in-memory saved-state set was keyed only by the word text. This allowed identical text values to share saved state across English and Chinese. The live `saved_words` table already had a `course` column, a unique key on `(user_id, course, word)`, and owner-scoped RLS policies. Read-only inspection also found legacy rows whose stored course did not agree with the script/catalogue; no word contents or user IDs were copied into the development record.
 
-1. Confirm the documentation-only GitHub Actions reruns on the latest branch head complete successfully; application code already passed full CI in Quiz run #274.
-2. Add browser/runtime tests for first visit, dismissal persistence across reload, reopening via ?, independent per-page dismissals, account isolation/switching and signed-out fallback.
-3. Add/verify active Quiz tests for translation available in snapshot, translation unavailable in snapshot, unchanged answers/session state and preference application to the next session.
-4. Verify Chinese selection never exposes English lesson/Quiz/Flashcard content as Chinese learning content, and switching back to English restores the available experience.
-5. Check current Supabase migration history before any staging/production migration. Do not apply this migration to production without explicit release approval.
-6. Verify the Cloudflare Pages branch preview for feature-update-2-4-0-quiz and test ?swiftMock=1 with both mock identities before offering the preview to the owner. The preview URL could not be verified from this session, so do not claim it is live or safe to use yet.
-7. Keep PR #8 draft until owner review and the preview check are complete. No merge, production migration or website deployment without explicit approval.
+The Update 2.3.2 hotfix:
+- Keys in-memory favorites by both course and word.
+- Persists signed-out local favorites as explicit course/word pairs while accepting legacy string-only local entries.
+- On a signed-in user's Dashboard load, identifies clearly classifiable legacy mismatches using Han-script code points and exact dictionary-catalogue membership.
+- Repairs only the authenticated user's own rows: insert the correctly classified `(user_id, course, word)` row first, then delete the old course row. If insertion fails, preserve the original. Unknown entries are not guessed or moved.
+- Uses the existing authenticated INSERT/DELETE permissions and RLS; it does not require a new schema migration or a privileged cross-user operation.
+- Adds browser regression coverage for legacy mixed-course rows and static checks that course and word are both part of saved-state identity.
 
+### Branch, CI and merge
 
-## 25. Update 2.4.0 — No Supabase Development Branch; regression recovery (2026-11-16)
+- Branch: `hotfix/update-2-3-2-favorite-words-course-isolation`
+- PR #6: https://github.com/WhiteWingCat/wordbook/pull/6
+- Final hotfix head: `b50f0cc7b6ec74b065342c1e953d2f6d85d44fcd`
+- GitHub Actions run #774 passed all three jobs: 22 Chromium browser regression tests, PostgreSQL 17 migration/allowance tests, and disposable local Supabase Auth compatibility.
+- An earlier run #773 exposed two test-harness issues (a strict locator assertion after adding multiple saved rows, and changed mock INSERT timing). Both were corrected; run #774 passed.
+- PR #6 merged on 2026-11-14 at 08:10:27 UTC.
+- Merge commit and verified `main` HEAD: `60904fb77fec0c3757e8aa1947439440954ae385`.
+- Main GitHub Pages deployment workflow #43574533852 was queued immediately after merge. Verify its completion before describing the live site as updated.
 
-### Owner decision and approved environment
+### Privacy and legal-risk review
 
-The owner explicitly declined use of a Supabase Development Branch. Do not create, enable, configure, or rely on Supabase Branching for this project. This also does not authorize a paid Supabase plan or any new recurring infrastructure.
-
-Continue with the existing free-first approach:
-- Keep implementation on `feature/update-2-4-0-quiz` and PR #8 draft.
-- Use disposable local Supabase services (Supabase CLI + Docker) and PostgreSQL 17 in GitHub Actions for schema, Auth, RPC, RLS and authenticated browser integration.
-- Use synthetic Free/Premium identities and synthetic approved test-only question fixtures. The 114 authored curriculum questions remain draft and are not approved by this testing decision.
-- Use the existing Cloudflare Pages feature preview with the explicitly gated, fictional Mock User mode for UI-only owner testing after deployment is verified. The preview frontend must not be treated as backend-isolated: source configuration still points at production Supabase. Do not sign in with real accounts or perform data-changing tests there.
-- Keep GitHub Pages production, live Supabase schema/data, PR merge and release deployment unchanged unless separately approved.
-
-### CI diagnosis and fixes
-
-- The latest branch head before recovery was `a51e0ee2111e65a03541911298157c9896dc2c28`.
-- Quiz workflow run #314 (run ID 43848032541) had a passing PostgreSQL foundation job, but the disposable local Supabase Auth/Chromium job failed one browser test. The failure was not caused by a Supabase Development Branch or backend schema: the test navigated from Quiz to Lessons, and the new first-visit Lessons introduction overlay intercepted the lesson-card click. Other Quiz runtime tests in that job passed, including translation snapshot fallback, introduction/account persistence, Chinese-course gating, Premium allowance/active-session behaviour and signed-out gating.
-- The companion 2.3.x run #926 exposed the same new first-visit overlay blocking unrelated legacy Lessons/Daily Learning smoke tests (13 affected tests); its PostgreSQL and local Supabase compatibility jobs passed.
-- Updated `tests/browser/update-2-3-0-smoke.spec.js` to dismiss the new guide in the shared setup for this legacy regression suite, keeping the dedicated introduction tests in the Quiz runtime suite responsible for testing guide behaviour.
-- Updated `tests/browser/update-2-4-0-quiz-runtime.spec.js` to explicitly wait for and dismiss the independent Lessons introduction before opening a permanent lesson in the authenticated translation/Quiz end-to-end test.
-- Commits: `f1ffc99d387899af8e06ff71a63196188b31bc8e` (legacy smoke-suite isolation) and `47ed08907d0b91dcb41d2f9cd196309326a997b7` (authenticated Quiz test dismissal). Both changes are test-only; application, migrations, content and production settings were not modified.
-- New branch-head CI checks for `47ed08907d0b91dcb41d2f9cd196309326a997b7` were observed running. Follow-up status: PostgreSQL 17 foundation and the companion 2.3.x PostgreSQL job passed; the 2.3.x local Supabase Auth compatibility job passed; the Quiz local Supabase Auth/RPC/Chromium job and 2.3.x Chromium regression remained in progress at the latest check. Cloudflare Pages successfully deployed the feature preview at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev` (latest preview commit `283d2e0`). A separate Cloudflare Workers Builds check reported failure; this is distinct from the successful Pages deployment and still needs diagnosis. Do not mark the overall validation gate passed until the remaining browser jobs complete.
-
-### Privacy, legal and release boundaries
-
-The selected alternative creates ephemeral synthetic test data in disposable local environments; it does not require copying production personal data or creating cloud test accounts. Continue to keep production secrets out of test fixtures and logs. The existing Quiz privacy/legal review remains in force: Quiz selections, progress, scores, history and the temporary no-repeat reservation ledger are account-linked learning data; Malaysia PDPA and applicable international/teen privacy review, retention disclosure and deletion behaviour must be addressed before release. This is planning guidance, not legal advice.
+- No new personal-data fields, analytics, tracking, raw answer telemetry or third-party content were added.
+- Favorite-word correction processes existing saved-word data within the authenticated user's own RLS scope. It does not collect additional information or inspect other users' word contents in the browser.
+- Unknown saved entries are left unchanged rather than inferred. Insert-before-delete avoids losing a saved word if the first write fails.
+- Malaysia PDPA and general privacy obligations remain applicable. The correction is a limited data-quality operation on existing user-owned records, not a new purpose or new data collection category. Review the privacy notice if future changes introduce broader profiling or analytics. This is planning guidance, not legal-compliance certification.
+- Daily Learning's production migration remains separate and pending explicit owner approval. No production schema or data operation was performed here.
 
 ### Recovery point and next actions
 
-1. Check all CI runs/checks on branch head `47ed08907d0b91dcb41d2f9cd196309326a997b7`; investigate any remaining failure from logs rather than assuming a product regression.
-2. If the overlay-related tests pass, continue authenticated Quiz edge-case coverage and content readiness review using disposable local Supabase only.
-3. Cloudflare Pages branch preview is now confirmed deployed at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev`. Before owner testing, confirm the mock-mode allowlist and that the preview loads the latest commit; use only `?swiftMock=1` and fictional Test User A (Free) / Test User B (Premium). Never use real accounts or data-changing flows because the preview frontend is still configured for production Supabase.
-4. Keep all 114 authored questions in draft until the owner separately reviews and approves content. No production Quiz schema/RPC migration or content import.
-5. Keep PR #8 draft and unmerged. No production deployment, database migration or release without explicit owner approval.
+1. Confirm GitHub Pages deployment #43574533852 completed successfully for merge commit `60904fb77fec0c3757e8aa1947439440954ae385`.
+2. The Favorite Words hotfix is merged. After the new main deployment is live, the owner can refresh the site and open Dashboard; the signed-in account's clearly identifiable legacy saved-word course mismatches will be repaired on that Dashboard load.
+3. Prepare the six Update 2.3.0 production migration files in the dependency order above, using proper Supabase-generated timestamps and preserving the tested SQL.
+4. Before applying production migrations, present the exact migration list, data backfill effects, security/RLS changes and rollback/backup plan, then obtain explicit owner approval.
+5. Verify production migration history and schema after approval; then retest Daily Learning start, resume, completion, review, timezone reset and Free/Premium allowance behavior.
+6. Update 2.4.0 Quiz is the next feature after the 2.3.3 rollout; product decisions and technical specification are now final.
+
+## 27. Update 2.3.3 — production Daily Learning database rollout and Dashboard Favorite Words details (2026-11-14)
+
+### Owner request and release scope
+
+The owner authorised preparing and applying the reviewed 2.3.0 database migrations to the live Supabase project and requested that the combined work be tracked as **Update 2.3.3**. The additional interface change is that selecting a saved Favorite Word from the Dashboard must open its expanded details without navigating to Dictionary.
+
+### Production Supabase migration rollout
+
+All six reviewed migrations were applied successfully to the live SwiftDictionary Supabase project on 2026-11-14 using the connected Supabase integration, in this dependency order:
+
+| Migration version | Migration |
+|---|---|
+| 20261114082303 | `swiftdictionary_update_2_3_0_saved_words_privilege_hardening` |
+| 20261114082311 | `swiftdictionary_update_2_3_0_learning_content_catalog` |
+| 20261114082324 | `swiftdictionary_update_2_3_0_completion_based_allowance` |
+| 20261114082328 | `swiftdictionary_update_2_3_0_daily_activity_sessions` |
+| 20261114082332 | `swiftdictionary_update_2_3_0_current_window_allowance_ledger` |
+| 20261114082335 | `swiftdictionary_update_2_3_0_learning_history_deletion` |
+
+The exact SQL bodies are now recorded under `supabase/migrations/` with the same timestamp versions as the live migration history. Their statements match the reviewed drafts applied to production; migration-file headers identify them as applied source, not pending drafts. The six original review drafts remain in `docs/` as historical review artifacts.
+
+### Preflight and post-migration verification
+
+Before applying the migrations, read-only checks confirmed:
+- Historical `lesson_progress` and lesson `learning_activity_log` rows reconciled one-to-one (13 rows in each project-wide relation at the time of preflight).
+- No per-user historical count mismatches.
+- No historical start-timestamp mismatches beyond the five-second tolerance.
+- No duplicate practice-summary groups that would block the new uniqueness/summary rules.
+- Required Supabase Auth session columns were present.
+
+After applying the migrations, the production migration history listed all six versions. Schema verification confirmed:
+- `public.daily_activity_sessions`, `private.learning_content_catalog` and `private.learning_allowance_usage` exist.
+- Daily start, complete, allowance-usage and learning-history-deletion RPCs exist.
+- Free permanent lessons = 5/day; proposed Premium permanent lessons = 15/day.
+- Free daily Topic/Application/Discovery/Revision = 1 each/day; proposed Premium = 3 each/day.
+- 161 approved catalogue rows are active.
+- Historical completion reconciliation remains represented as 13 completed events.
+- The migrations themselves created no daily sessions or current-window ledger rows.
+
+Security/grant verification confirmed:
+- `public.saved_words` retains RLS and its three existing owner-scoped policies.
+- Anonymous SELECT is denied; authenticated SELECT/INSERT/DELETE are allowed; authenticated UPDATE is denied.
+- Authenticated users cannot directly SELECT the private catalogue or allowance ledger.
+- Authenticated users can execute the intended Daily Activity, allowance read and own-history deletion RPCs.
+
+The post-migration Security Advisor reported INFO findings for private tables with RLS enabled and no policies (intentional deny-by-default private tables), WARN findings for authenticated execution of two SECURITY DEFINER RPCs (including the new authenticated practice-summary RPC, which checks `auth.uid()` and is intentionally exposed to signed-in callers), and the existing Auth leaked-password-protection setting. These notices were not silently expanded into unrelated changes. Review the advisor again if the security model changes.
+
+No production test account, synthetic user, or test session was inserted. No personal saved-word contents were copied into the development record. The current-window ledger remains private and stores category-level counts, not per-word or answer-level telemetry.
+
+### Update 2.3.3 Dashboard Favorite Words detail behavior
+
+- Branch: `feature/update-2-3-3-dashboard-favorite-details`.
+- PR #7: https://github.com/WhiteWingCat/wordbook/pull/7.
+- Current recorded feature head at archive time: `b09f10aa1fa22ea3ba4209408758cb2325eba4ae`.
+- Selecting an English or Chinese saved word opens the existing expanded detail drawer while the Dashboard page remains visible.
+- Previous/next dictionary navigation controls and arrow-key navigation are suppressed while a Dashboard favorite is open; normal dictionary modal behavior is restored after closing.
+- Closing the drawer returns focus to the originating Dashboard favorite when it remains in the document.
+- A legacy saved row absent from the current dictionary catalogue remains on the Dashboard and receives a status message; it is not silently redirected to Dictionary or guessed.
+- A new Chromium browser regression covers both English and Simplified Chinese favorites and verifies Dashboard remains visible.
+
+### Validation and deployment state
+
+- GitHub Actions run #775 passed PostgreSQL 17 migration/allowance tests, Chromium browser regression tests (including the new Dashboard favorite detail test), and disposable local Supabase Auth compatibility.
+- GitHub Actions run #780 passed all three jobs on final branch head `b09f10aa1fa22ea3ba4209408758cb2325eba4ae`: PostgreSQL 17 migration/allowance tests, Chromium browser regression and disposable local Supabase Auth compatibility.
+- Cloudflare Pages reported a successful branch preview build for final PR head `b09f10a`: https://feature-update-2-3-3-dashboa.swiftdictionary-testing.pages.dev.
+- PR #7 was squash-merged into `main` as commit `90dc73a9b65fc3af713fefab4955057026089b96` on 2026-11-14 at 08:38:54 UTC. Main GitHub Pages deployment run #79 (`43576812434`) completed successfully at 08:39:35 UTC. Update 2.3.3 frontend and the six database migrations are now live. The owner should refresh the live site and test Daily Learning start/resume/completion/allowance behavior and Dashboard favorite details.
+
+### Privacy and legal-risk review
+
+The rollout uses the already reviewed data model: stable approved content identifiers, completion event metadata, per-category allowance counts and user-owned daily sessions. The catalogue does not store question text or answers; the allowance ledger does not store word IDs or answer-level events. No new tracking, third-party content or payment functionality was introduced. Saved-word least-privilege grants were tightened without removing owner-scoped RLS.
+
+Malaysia PDPA and general international privacy obligations remain relevant to account-linked preferences and learning records. The current change does not add new personal-data categories. Review privacy notices and cross-border processing disclosures before future monetisation or broader analytics. This is planning guidance, not legal advice or a compliance certification.
+
+### Recovery point and next actions
+
+1. Owner refreshes the live website and tests Daily Learning start/resume/completion/allowance behaviour.
+2. Owner tests English and Simplified Chinese Dashboard Favorite Word details, including close/return focus, on desktop and mobile.
+3. Record any production-only bugs as a small 2.3.3 follow-up patch if needed.
+4. Proceed with Update 2.4.0 Quiz implementation on a dedicated branch after the final source/schema checks.
 
 
-### 25.1 Authenticated Quiz browser follow-up and Mock User preview readiness (2026-11-16)
+## 28. Update 2.4.0 — Quiz planning and multilingual learning/translation rules (2026-11-14)
 
-- Branch head advanced to `8b70b0765395bd726e797d0313c42293ad55c1d1`. The only change after `0b44b852b9f62f14b3b28e2c30bbc79f10247f74` is test-only: the authenticated Free-user browser test now explicitly settles the disposable account's Chinese translation preference through the local test API before the Quiz session snapshots its language pair. The UI selector change is still exercised. No product source, schema, migration, fixture content, production configuration or production data changed in this commit.
-- Latest completed Quiz workflow run `43868129521`: PostgreSQL 17 foundation passed; local Supabase Auth contract, synthetic account setup, prerequisite migrations, introduction-preference migration, Quiz migrations, authenticated RPC tests and disposable draft-content validation/import all passed. The authenticated Chromium job failed one end-to-end Free-user test (5 other tests passed). First attempt did not render the session; retry rendered the session but did not show the expected Chinese translation. The security-advisor step was skipped because the browser step failed. Do not mark authenticated runtime/security validation complete until a successful rerun and advisor result are recorded.
-- The companion 2.3.x regression workflow on `0b44b852b9f62f14b3b28e2c30bbc79f10247f74` passed all three jobs: Chromium regression, Supabase CLI local Auth compatibility, and PostgreSQL 17 allowance tests.
-- The branch preview had a successful Cloudflare Pages deployment at `0b44b852b9f62f14b3b28e2c30bbc79f10247f74`. The later `8b70b07` commit changes only a browser test file, not deployed application assets. The verified preview host is `feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev`.
-- Inspected `mock-testing.js`: activation requires both the exact feature-preview hostname and `?swiftMock=1`; the fictional identities are Test User A (Free) and Test User B (Premium); the adapter replaces Supabase JS client creation with in-memory/sessionStorage simulation, blocks Google OAuth in mock mode, and labels the panel as no real account/no cloud sync. This is UI simulation only, not proof of backend, RLS, Auth, cross-device sync or production isolation. The preview still has production Supabase configuration in its source, so owner must not use real accounts or run data-changing/real-account flows there.
-- Owner may begin explicitly limited Mock User UI testing at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev/?swiftMock=1`, using only the two fictional identities. This does not close the authenticated CI/security gate, approve the 114 draft questions, or authorize production changes.
-- The separate Cloudflare Workers Builds failure remains unclassified and must not be conflated with the successful Pages deployment unless evidence shows a required Workers/Pages Functions dependency.
+### Planning status
 
-**Next gates:** (1) confirm CI reruns on `8b70b076` and fix the authenticated Free-user test from observed evidence; (2) pass the local Supabase security advisor; (3) verify owner Mock User feedback and any resulting UI corrections; (4) complete Malaysia PDPA and relevant international/teen privacy, retention and deletion review before release. Keep PR #8 draft/unmerged. No live Supabase migration/content import, main merge or production deployment without separate explicit approval.
+Update 2.4.0 Quiz is in product-planning only. No Quiz frontend, question bank, schema migration, allowance configuration, production data change or deployment has been implemented or authorised by this planning discussion. Preserve the existing Coming Soon state until implementation is separately approved and validated.
 
+### Owner-confirmed Quiz product decisions
 
-## 26. Update 2.4.0 — Owner feedback: language controls, Quiz allowance placement and Dashboard history (2026-11-17)
+- Quiz is an assessment experience, distinct from Lessons: Lessons teach knowledge; Quiz tests knowledge learned through the lesson curriculum.
+- Quiz tests vocabulary knowledge and definitions (for example, asking for the definition of “Ability”), and may use independently authored questions based on lesson knowledge.
+- Quiz questions must not be direct one-to-one copies of Lesson practice questions. Quiz must have its own question wording, answer choices and distractors while assessing related knowledge.
+- No user-facing Quiz topic/category selection is required. Questions are drawn from mixed topics within the selected difficulty. Internal topic and lesson metadata remains necessary for progress analysis and Dashboard recommendations.
+- One difficulty is selected per quiz session:
+  - Beginner: 10 questions.
+  - Intermediate: 15 questions.
+  - Advanced: 20 questions.
+- Question difficulty and eligibility must be aligned with the relevant lesson curriculum, avoiding assessment of knowledge outside the learner's applicable course scope. **Eligibility mode: curriculum** — draw from all approved curriculum lessons within the selected difficulty, regardless of whether the individual learner has personally completed each lesson. Do not draw from unapproved or out-of-scope content. Difficulty composition is now owner-defined: Beginner = 100% Beginner; Intermediate = either 50% Intermediate / 50% Beginner or 80% Intermediate / 20% Beginner; Advanced = 60–80% Advanced, exactly 20% Intermediate and 0–20% Beginner. The selected proportions must total 100%. Higher-level quizzes may include lower-level material, never the reverse.
+- Update 2.4.0 uses multiple-choice questions only. Fill-in-the-blank is deliberately deferred to a later update until flexible answer evaluation can be designed reliably.
+- Answer options are randomly arranged. Randomisation should be fixed for the lifetime of a quiz session so that resuming or navigating does not unexpectedly reorder options.
+- No correct-answer reveal, correctness feedback or result disclosure before the learner submits the completed quiz. Wrong answers are included in the results. **Answer navigation: change** — learners may navigate between questions and revise their selections any time before final submission. After submission, answers are locked and the result is immutable.
+- Completed results must include all questions, the learner's selected answers, correct answers and explanations.
+- Quiz feedback and explanations follow the user's selected translation language.
+- Unfinished quiz progress is saved and can be resumed. Only one quiz may be in progress for an account at a time; a learner cannot start another while one remains active.
+- Free plan: one completed quiz per local day. Proposed Premium plan: three different completed quizzes per local day. Only successful submission/completion consumes an allowance; abandoning or resuming does not. Reviewing a completed quiz is free and does not count as a retake.
+- Completed quizzes can be reviewed, but cannot be retaken. Review is read-only.
+- Quiz results should inform Dashboard learning recommendations and weak-topic prioritisation for relevant Lessons/Daily Revision. Avoid treating one quiz result as definitive mastery.
+- Visual direction: clean, organised layout; question text in bold white; answer cards arranged adaptively in a row or two columns when answer text is sufficiently short, otherwise use a readable wider layout.
+- **Timer: none.** Quiz has no countdown, time limit or time-pressure mechanic, consistent with the Lessons experience.
 
-### Owner feedback addressed
+### Multilingual course and translation architecture — standing future rule
 
-- Replaced the large, high-contrast course/translation panels with compact Profile-style navigation pills. The Learning Course pill uses a book icon and the translation pill uses a globe icon; the selected language is shown beside its icon, while the labels “Learning course” and “Translate into” appear inside the corresponding dropdown panel.
-- Moved Daily Quiz allowance into the right side of the “Choose a difficulty” heading. The compact card stacks beneath the heading on narrower screens. Server-provided allowance values and reset-time behaviour are unchanged.
-- Added recent Quiz history to Dashboard > Learning progress, including difficulty, correct/total answers, completion date, percentage and a Review action that opens the completed answer review.
-- Hardened permanent-lesson translation refresh. The translation preference is global, but Daily Learning and permanent lessons have separate renderers. The selector now refreshes the active permanent lesson directly in place and preserves its current practice selection/progress rather than rebuilding the lesson library as part of the translation change.
+This is a cross-feature, long-term product rule for every language added to SwiftDictionary, not a Quiz-only requirement:
 
-### Root causes found during regression
+- Keep **learning course language** and **selected translation language** as distinct settings and inputs.
+- The learning course determines the knowledge, vocabulary, curriculum and source language being taught or assessed.
+- The selected translation language determines the language used for translations, explanations, feedback and other learner-support content where appropriate.
+- Content must be authored or adapted for the actual learning-course/translation-language combination. Do not assume that translating or swapping labels on one language pair is sufficient.
+- For translation-assessment questions, ask in the learning course language and provide answer choices in the selected translation language where that is the learning objective. Example: English course + Chinese translation may ask “What is the Chinese translation of ‘Ability’?” with Chinese answer choices.
+- For ordinary knowledge/definition questions, retain the learning course language for the question and answer choices unless the question is specifically testing translation; provide explanations and feedback in the selected translation language.
+- Explanations and feedback must follow the selected translation language, as explicitly confirmed by the owner.
+- Apply this design consistently across Lessons, Quiz and Flashcards when Chinese becomes a full learning course, and to every additional language introduced in future. Support combinations in both directions where the product offers them (for example, Chinese learning with English translation as well as English learning with Chinese translation).
+- Avoid ambiguous translation keys. Where a source word has multiple senses, tie the question and accepted answer(s) to the intended sense/context.
+- Persist the course and translation language combination with an active learning session so a preference change does not silently mutate an in-progress session. A new session should use the newly selected preferences.
+- Question/content catalogues should identify supported course and translation language pairs and retain stable links to the relevant lesson/topic concepts. Do not expose internal topic metadata as a required user-facing category system.
 
-- The authenticated Dashboard test exposed that `ensureProfileRows()` performed an `upsert(... ignoreDuplicates)` against `user_preferences` on every Dashboard load. PostgreSQL still evaluated the INSERT policy for the upsert, so an existing row could trigger an RLS denial. Replaced the redundant upserts with owner-scoped existence checks and inserts only when a row is genuinely absent.
-- The disposable CI baseline's `profiles` table does not include the optional `avatar_icon` column present in the full app schema. Dashboard loading now falls back to `display_name` when that optional column is unavailable; it continues to use the avatar when the column exists.
-- Stabilised the authenticated Quiz browser test by waiting for each saved question-position transition before advancing again.
+This rule is a future architecture requirement. It does **not** mean a full Chinese learning curriculum is part of Update 2.4.0. The current Quiz scope must be explicitly limited to the language/course combinations whose content is actually available and reviewed.
 
-### Verified branch-head validation
+### Remaining design and implementation questions
 
-Latest branch head: `525e160a00dc8c0febf648dff6bca133df44725e`.
+Before implementation, settle:
+1. How to handle an unfinished active session across a daily allowance reset, content retirement or a change in course/translation preferences — session persistence and abandonment are resolved in Section 31; content retirement and preference snapshots remain subject to the existing versioning/language-pair rules.
+2. Whether results include a pass threshold or only score, percentage and per-question review — resolved in Section 31: score and percentage only; no pass/fail threshold.
+3. Exact daily quiz uniqueness/allowance enforcement, including prevention of duplicate or cloned sessions while allowing resume and read-only review.
+4. Which result fields are required to reproduce completed reviews if catalogue content changes. Prefer storing stable question/version references and the minimum answer/result snapshot needed for review.
+5. How question selection guarantees a balanced enough curriculum sample despite mixed-topic random selection and limited eligible content — minimum question-bank availability gates are approved in principle; numeric thresholds must be set from the approved content inventory and validated before a difficulty is enabled (Section 31).
 
-- Authenticated local Supabase Quiz runtime: **passed, 6/6 Chromium tests**. This includes the open permanent-lesson translation switch (English ↔ Chinese) while preserving the learner's selected practice answer; Free Quiz completion and history; Dashboard Quiz history and Dashboard Review navigation; unavailable-translation snapshot fallback; account-specific introductions; Premium allowance/active-session behaviour; Chinese-course gating; and signed-out restrictions.
-- Supabase security advisors on the disposable local Quiz schema: **passed, no issues found**.
-- Quiz PostgreSQL 17 foundation and RPC/session/allowance assertions: **passed**.
-- Companion 2.3.x PostgreSQL allowance tests, Chromium regression smoke tests and local Supabase Auth compatibility: **all passed**.
-- Cloudflare Pages feature preview: **successfully deployed for commit `525e160`** at `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev`.
-- The separate Cloudflare Workers Builds check still reports failure. Cloudflare Pages deployment is independently successful; no evidence currently shows that this static Pages application depends on the failing Workers build.
+### Data, security and legal planning notes
 
-### Real Quiz testing request and safety boundary
-
-The current Cloudflare Pages preview remains a UI-only Mock User environment. Removing or bypassing the mock adapter on this preview would expose the frontend to the production Supabase configuration; it is not a safe route to real Quiz testing. The 114 authored questions (30 Beginner, 36 Intermediate, 48 Advanced) remain draft and are not approved for production publication.
-
-A real end-to-end website test requires a separate temporary Supabase staging project (not a Supabase Development Branch), with the 2.4.0 migrations and isolated test accounts/content. This would require separate owner approval and the necessary Supabase write permissions. The owner must also explicitly approve using the 114 draft questions in that staging environment for test-only evaluation. No staging project has been created, no live production schema/content has been changed, and no real account has been used for testing.
-
-### Release, privacy and repository boundaries
-
-- Dashboard history reads only the signed-in user's Quiz history through the existing owner-scoped authenticated `get_my_quiz_history` RPC. It adds no new stored personal data; it displays existing account-linked scores and completion history.
-- Malaysia PDPA and applicable international/teen privacy review, including retention and deletion disclosures for Quiz history and the temporary no-repeat reservation ledger, remains a release gate.
-- PR #8 remains **draft, open and unmerged**. The 114 authored questions remain drafts. No production Quiz schema/RPC migration, question import, main merge or production website deployment has been performed as part of this feedback round.
-
-
----
-
-## 27. SwiftDictionary Indie staging environment — 2026-11-17
-
-The owner confirmed the previously proposed temporary real Quiz testing environment:
-- Create a separate Supabase staging project, not a Development Branch, with no production connection and no paid-plan activation.
-- Load the 114 authored Quiz questions (30 Beginner, 36 Intermediate, 48 Advanced) into staging for testing only. This is not production publication approval.
-- The owner specifically accepted the quoted project cost of US$0/month; no paid upgrade or paid add-on is authorised.
-- The owner requests an archive for every meaningful conversation related to SwiftDictionary.
-
-### Created project
-
-- Supabase organisation: **SwiftDictionary Indie** (`nnwaeapbmlgmmxbmkumb`)
-- Project: **SwiftDictionary Indie Staging**
-- Project ref: `ivatvkfrtifgfheeaelj`
-- Region: Singapore (`ap-southeast-1`)
-- Created 2026-11-17 02:57:54 UTC; initial status `ACTIVE_HEALTHY`
-- PostgreSQL 17.12
-- Organisation-specific cost quote: **US$0/month**; zero-cost confirmation obtained before creation.
-- Existing production project `pzymiesazmpyvnfvsbsc` was not modified or connected.
-- No Development Branch, paid plan, or paid add-on was created or activated.
-
-### Current state — important blocker
-
-The staging project is healthy but empty. Its migration history is empty. No schema migrations have been applied and no draft questions have been imported.
-
-The current feature branch contains the Quiz migrations and content, but its 2.2.0 migration is a reconciliation assertion, not a clean-database bootstrap. It expects existing lesson tables, triggers and functions. The 2.3.0 migrations also depend on the pre-existing user, preference, entitlement, learning-limit and activity-log schema. Therefore, do not simply apply the feature-branch migrations in sequence to the empty staging project.
-
-**Next required stage:** construct and review a complete clean-project bootstrap from verified schema definitions, without copying production user data. Read-only production schema inspection may inform the baseline, but no production writes are authorised. Only after that baseline is validated should the team apply ordered 2.2.0/2.3.0/2.4.0 changes, run advisors/tests, import the 114 questions as test-only content, create a separate staging Auth test account, and point a dedicated Pages preview at staging.
-
-The previous Cloudflare preview must remain mock-only until a separate staging-configured preview is verified. Never expose service-role/secret keys in frontend code.
-
-### Cost, privacy and release limits
-
-US$0/month is the current project-creation quote, not a guarantee that all usage remains within free-plan limits. Monitor project usage and stop before any paid upgrade, add-on or nonzero charge. Use fictional test data only; do not copy production accounts or learner data. Malaysia PDPA applicability, international/teen privacy, retention/deletion disclosures and cross-border processing remain release-planning gates; this is not legal advice.
-
-No production schema/data, production hosting, main branch or PR #8 state was changed by creating this staging project. The 114 questions remain drafts and are approved for this staging test purpose only.
-
-**Session archive:** `docs/conversation-archive/2026-11-17-swiftdictionary-indie-staging-approval-and-creation.md`.
+- Reuse the established completion-based allowance principles, but inspect the live `learning_plan_limits`, activity categories, RPCs and private allowance ledger before designing or applying Quiz-specific configuration. Do not assume that the existing presence of a `quiz` activity type means daily Quiz limits are already configured.
+- The existing personal testing exemption is lesson-only. Do not extend it to Quiz without explicit owner approval.
+- Enforce one-active-session-per-account and ownership checks server-side; do not rely only on browser state.
+- Do not reveal correct answers or answer keys to the browser before final submission. Evaluate submissions through a trusted server-side path.
+- Preserve sufficient versioned result information for read-only review while minimising stored personal data. Align Quiz history with the existing learning-history deletion model and ensure deletion does not accidentally reset allowance ledgers.
+- Keep account isolation, shared-device account switching, timezone-based midnight reset and free dictionary search intact.
+- Perform the mandatory Malaysia PDPA and international privacy review before implementation. Review content licensing/originality, retention and deletion, security, age-related obligations and cross-border processing as relevant. This is planning guidance, not legal advice or a compliance certification.
 
 
-## 28. Update 2.4.0 — Mock Quiz uses the 114 bilingual draft questions (2026-11-17)
+## 29. Update 2.4.0 — confirmed Quiz interaction decisions and global language-refresh QA rule (2026-11-14)
 
-The owner approved using the existing 114 draft Quiz questions in Mock User testing now, accepting that some wording or answers may be inaccurate so they can provide meaningful feedback. This approval is limited to the isolated Mock Quiz preview and is not approval to publish the content to learners.
+The owner confirmed the remaining interaction choices for the Quiz implementation plan:
 
-- `mock-testing.js` now loads `content/quiz/questions.en-zh.draft.json` and `content/quiz/curriculum-map.en.json` only in the preview-only Mock Test Mode. The loader requires the pack to remain marked `draft`, validates the 114-question count, bilingual prompts/options/explanations, unique option IDs, correct-answer keys and curriculum mappings, and checks the expected 30 Beginner / 36 Intermediate / 48 Advanced distribution.
-- Mock sessions sample from the actual pools with the approved compositions: Beginner 10; Intermediate 12 Intermediate + 3 Beginner; Advanced 12 Advanced + 6 Intermediate + 2 Beginner (60% Advanced). Question order and answer options are shuffled without changing option IDs or answer identity.
-- Active-session responses do not reveal correct answers or explanations. Those are returned only after completion for review. Scoring, session state, history, resume/abandonment and daily allowances remain local simulations.
-- `index.html` now labels the feature as a draft question-bank preview and warns that question content, answer keys and explanations are not accuracy-approved for learners.
-- `tests/update-2-3-1/mock-testing.test.mjs` now loads the real draft fixtures and verifies real question identity/content, hidden answer keys before submission, preserved correct keys after submission and Advanced difficulty composition.
-- Independent structural inspection found all 114 draft items mapped and complete, with 30/36/48 difficulty counts. This is a structural check, not editorial accuracy approval.
-- Branch: `feature/update-2-4-0-quiz`; latest implementation commit before this record update: `2a9173abe13b3c0405a34e5267c180349e542f97`. PR #8 remains draft/open/unmerged.
-- GitHub Actions on that branch head were still running at the time of the archive update. Do not mark validation complete until the mock-adapter tests and relevant CI jobs pass. Latest Cloudflare Pages deployment also needs confirmation before handing over the updated preview.
-- No Supabase staging or production database, Auth, migration, question import, production hosting or main-branch changes were made. Draft content remains unapproved for learner-facing publication. Existing Malaysia PDPA and applicable international/teen privacy, retention and deletion review remain release gates.
+- **Lesson eligibility: curriculum.** The quiz may sample all approved lessons/content within the selected difficulty, whether or not the learner has personally completed each lesson. It must not include unapproved material or content outside the selected difficulty's curriculum. The owner-defined cross-level question ratios are recorded in Section 30.
+- **Timer: none.** There is no countdown or time limit.
+- **Answer navigation: change.** Learners may navigate between questions and change their selected answers until they submit the complete quiz. After submission, answers are locked and the completed result is read-only.
 
-Session archive: `docs/conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md`.
+### New standing course/translation refresh and QA rule
+
+This rule applies across SwiftDictionary, not only Quiz:
+
+- Whenever a user changes either the learning-course selection or translation-language selection, the relevant page and all dependent content must refresh to the newly selected state. The user must not need to navigate away and back to see the change.
+- Verify that controls, page content, question/lesson text, answer choices where language-dependent, explanations, feedback, labels, status text and other dependent UI update consistently. No stale language or mixed-language remnants should remain.
+- Test both course and translation selectors, switching between available values and switching back, including while viewing relevant learning content.
+- Verify translation quality, not just refresh mechanics: content must be accurate, complete, context-appropriate and correct for the selected course/translation pair. A language label changing or only some strings updating is not sufficient.
+- Persisted preferences and active-session snapshots must remain coherent: a new session uses the new selection; an existing in-progress session retains the course/translation pair it started with unless the product explicitly provides a safe, tested transition.
+- Add explicit refresh and translation-quality checks to the regression suite for Lessons, Quiz, Flashcards and future language-aware features.
+
+### Scope and implementation status
+
+These are planning and QA requirements only. No application source, question content, migration, production database setting or live deployment was changed in this session. The next implementation phase still requires explicit owner authorisation, a feature branch, source/schema inspection, and the mandatory Malaysia/international legal and privacy review.
+
+### Recovery point
+
+- Documentation branch: `docs/master-development-record`.
+- Production baseline remains Update 2.3.3; merge commit `90dc73a9b65fc3af713fefab4955057026089b96`.
+- Quiz remains unimplemented; the existing Coming Soon state must remain until a separately approved and validated release.
 
 
-### Mock Quiz follow-up validation
+## 30. Update 2.4.0 — owner-defined difficulty composition (2026-11-14)
 
-The Mock Quiz draft-bank integration was extended with a persistent warning visible during active sessions/results and the static Quiz validator was updated to enforce the draft-only loader and answer-key privacy. The isolated mock test suite passed 12/12 on commit `2a9173a`; the Quiz frontend validator passed on `ce606a7`. Cloudflare Pages reports success for application commit `ccd4bc5`; the separate Workers Builds check remains failed and is not the Pages deployment. The 2.3.x PostgreSQL regression job passed on `ccd4bc5`; 2.3.x browser/Auth and 2.4.0 local Auth/RPC jobs were still running at the latest check. See the [session archive](conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md) for details. Mock content remains draft-only and PR #8 remains unmerged.
+The owner confirmed the curriculum difficulty mix for Quiz. A higher-difficulty quiz may include lower-difficulty curriculum material as reinforcement, but a lower-difficulty quiz must not include higher-difficulty material.
+
+| Selected Quiz difficulty | Approved question composition |
+|---|---|
+| Beginner | 100% Beginner |
+| Intermediate | Either 50% Intermediate / 50% Beginner or 80% Intermediate / 20% Beginner. These are the two approved mixes. |
+| Advanced | 60–80% Advanced, exactly 20% Intermediate, and 0–20% Beginner. |
+
+All percentages for an individual quiz must total 100%. Question counts are fixed by the existing plan (Beginner 10, Intermediate 15, Advanced 20). For a 15-question Intermediate quiz, 80/20 maps exactly to 12 Intermediate and 3 Beginner questions; 50/50 cannot be represented exactly with an odd count, so use a balanced 7/8 split and alternate which level receives 8 across quizzes to avoid systematic bias. For a 20-question Advanced quiz, 4 questions are Intermediate and 0–4 are Beginner, with the remaining 16–12 questions Advanced (80/20/0 through 60/20/20). Beginner remains 10 Beginner questions. The implementation must never silently produce a ratio outside the approved compositions. The question bank must contain enough approved questions at each source difficulty to satisfy the selected composition; if it does not, the system should not quietly substitute out-of-scope questions.
+
+This resolves the previously open question about cumulative difficulty composition. It does not change the separate rule that questions may come from all approved curriculum lessons within the selected difficulty scope regardless of the learner's personal lesson-completion history.
+
+No application implementation, question-bank content, migration, production data or deployment was changed by this planning decision.
 
 
-## 29. Mock Quiz feedback and follow-up UI fixes (2026-11-17)
+## 31. Update 2.4.0 — approved final pre-development decisions (2026-11-14)
 
-The owner tested the draft-bank Mock User preview and requested: duplicate-option checks as a mandatory part of the future accuracy audit; direct Dashboard Quiz-history review with return to the originating page; correct-answer counts in Dashboard history; and one-interaction learning/translation selectors.
+The owner explicitly approved the following three decisions to close the remaining product-level questions before Quiz development:
 
-A structural scan across all 114 draft items found 9 questions with duplicate Chinese translation options: `quiz-beginner-012`, `quiz-beginner-015`, `quiz-beginner-018`, `quiz-beginner-019`, `quiz-beginner-027`, `quiz-beginner-030`, `quiz-intermediate-028`, `quiz-intermediate-029`, and `quiz-advanced-019`. No duplicate English learning-option strings were detected in this scan. The draft source has not been silently edited; these are editorial blockers for the complete bilingual accuracy review.
+### Scoring: score and percentage, no pass/fail
 
-Implemented: Mock history now returns `correct_count`; Dashboard review enters the result view directly and remembers the Dashboard return destination; language selectors are direct compact native selects beside their icons; unit/browser tests and the frontend validator were updated. Static Quiz validation passed on `17ace8e`; companion PostgreSQL and Chromium regression jobs passed, but the 2.4.0 runtime browser cases were skipped in that companion workflow and Auth/RPC CI was still pending at the latest check. Do not claim all gates passed until current CI and Pages deployment are confirmed.
+- A completed Quiz displays the raw score (for example, 12/15) and percentage.
+- Do not assign a pass/fail status, passing grade or pass threshold in Update 2.4.0.
+- Retain per-question review with the learner's selected answer, correct answer and explanation, as already specified.
+- Results may inform topic-level revision recommendations, but must not be represented as a pass/fail judgement or definitive proof of mastery.
 
-Session archive: `docs/conversation-archive/2026-11-17-quiz-mock-draft-question-bank.md`.
+### Unfinished-session persistence: no automatic expiry
+
+- Preserve an unfinished Quiz session until the learner completes it or explicitly abandons it.
+- Do not expire or discard an unfinished session solely because the user's local daily allowance window resets.
+- Resuming an existing session remains free and must not consume another Quiz allowance.
+- Explicit abandonment releases the account's single-active-session slot and does not consume an allowance.
+- Preserve the session under its owning account; signing out or switching accounts must not transfer or expose it to another account.
+- Retain the session's original difficulty, question order, fixed answer-option order and course/translation language pair when resumed.
+- Content retirement or catalogue updates must not silently mutate an active session; use stable/versioned question references or an equivalent reviewed snapshot strategy.
+
+### Question-bank availability: minimum content gate
+
+- A difficulty must not be presented as available or allowed to start a Quiz until its approved question bank meets a defined minimum-content requirement.
+- Availability checks must account for the complete session length, approved difficulty composition, distinct-question selection, curriculum/topic coverage and the supported course/translation language pair.
+- The system must detect insufficient eligible content before session creation. It must not silently lower the session length, violate the approved ratios, reuse a question within the same session, or substitute out-of-scope content.
+- The numeric minimum bank size is not yet fixed. Set it after inspecting the approved question inventory and sampling/reuse policy; document and test the chosen threshold before enabling each difficulty. If a difficulty fails the gate, clearly mark it unavailable or otherwise prevent starting it with a clear user-facing explanation.
+- Adding content or approving a new language pair may make a previously unavailable difficulty eligible, but availability must be re-evaluated against the same gate.
+
+### Planning status and recovery point
+
+- These decisions complete the three product-level items raised in the pre-development review.
+- Remaining work is technical specification and evidence-based content threshold setting, followed by source-code and Supabase inspection, legal/privacy review, implementation and validation.
+- No application source, question bank, Supabase schema/migration, production data, allowance setting or deployment was changed by this approval.
+- Production remains Update 2.3.3 (main merge commit `90dc73a9b65fc3af713fefab4955057026089b96`). Quiz remains Coming Soon.
+- Documentation branch: `docs/master-development-record`.
+
+
+## 32. Update 2.4.0 — technical preparation and read-only architecture inspection (2026-11-14)
+
+### Preparation status
+
+The owner asked to proceed to the next stage after approving the Quiz scoring, unfinished-session persistence and minimum question-bank availability principles. The technical specification is recorded at \`docs/UPDATE-2.4.0-QUIZ-TECHNICAL-SPECIFICATION.md\`; the session archive is \`docs/conversation-archive/2026-11-14-update-2-4-0-quiz-technical-preparation.md\`.
+
+This is technical preparation only. No implementation branch was created and no application source, Quiz question bank, schema, migration, production allowance setting, production user data or deployment was changed.
+
+### Current repository and curriculum findings
+
+- Production/main baseline remains Update 2.3.3, merge commit \`90dc73a9b65fc3af713fefab4955057026089b96\`.
+- The static app's main UI and most application logic remain in \`index.html\` (approximately 932 KB / 18,530 lines at inspection); Daily Learning is in \`daily-learning.js\`. Existing Playwright, mock-testing and SQL regression infrastructure can be extended.
+- Quiz navigation and route exist, but Quiz is still Coming Soon.
+- The current Lessons curriculum is English learning with Simplified Chinese translations. It contains 15 lessons and 52 Lesson practice questions: Beginner 5/18, Intermediate 5/17 and Advanced 5/17.
+- No Quiz question bank, Quiz session table or Quiz RPC exists in production. There are zero approved Quiz questions. The Lesson practice bank is not a substitute for the separate Quiz bank. All Quiz difficulties remain unavailable until new approved Quiz content meets the availability gate.
+- A full Chinese-learning Quiz is outside 2.4.0 because the current permanent Lessons curriculum is English learning with Chinese translations, not a Chinese-learning curriculum.
+
+### Supabase architecture findings
+
+Read-only inspection of the connected SwiftDictionary project confirmed PostgreSQL 17.11 in Tokyo (\`ap-northeast-1\`) and 18 applied migrations, including the six Update 2.3.0 migrations.
+
+Existing foundations that can be reused:
+- \`learning_activity_log\` and its activity constraint already include Quiz.
+- \`private.learning_allowance_usage\` already supports Quiz.
+- The server-side activity insert trigger charges only completed events, uses the effective server-owned timezone and plan, serialises per-user completion and updates the private allowance ledger atomically.
+- The personal testing exemption is explicitly lesson-only and must not extend to Quiz.
+- Existing Daily Learning sessions enforce one open session per user/category and use their own rollover behaviour. Quiz needs one active session per account and indefinite persistence; do not reuse the Daily Learning session model unchanged.
+- The existing learning-history deletion implementation must be extended to delete Quiz session/answer/review history while preserving the separate allowance ledger.
+
+**Live Quiz allowance mismatch:** production currently contains Free 5/day and Premium 12/day. The planning target is Free 1/day and proposed Premium 3/day. These values do not match. No live setting was changed; a reviewed migration and explicit owner approval are required before enabling Quiz.
+
+### Technical direction proposed
+
+- Private, versioned Quiz question bank with stable question, lesson and topic identifiers.
+- Prefer a dedicated `quiz.js` frontend module with a narrow explicit bridge to the existing inline app state, avoiding further growth of the large `index.html` file.
+- Private session/question snapshots that preserve question version, fixed order, fixed option order, selected answer, correct answer and explanation.
+- Server RPCs for availability, start, resume, save answer, submit, abandon and completed review.
+- Correct answer keys stay server-side until submission. Evaluation, score calculation, session completion and allowance charge occur atomically.
+- One-active-session-per-account database constraint; explicit abandonment frees the slot without charge.
+- Completion charges the current local allowance window at submission time, including a session resumed after midnight.
+- Supported course/translation pairs must have authored and reviewed content. For 2.4.0, English learning is the supported curriculum; Chinese learning remains future scope.
+- Dashboard/Daily Revision use topic-level performance without treating a single wrong answer as definitive mastery.
+
+### Question-bank threshold proposal
+
+The production Quiz bank currently contains zero questions. The technical specification proposes a two-session minimum pool of 20 Beginner; 24 Intermediate + 16 Beginner; and 32 Advanced + 8 Intermediate + 8 Beginner. A three-session pool is proposed as a future Premium quality target if three quizzes/day and same-day non-reuse are confirmed.
+
+These are not yet owner-approved numeric thresholds. The final availability gate depends on confirmation of the cross-session question-reuse policy and Premium allowance. It must also enforce exact source-difficulty ratios, at least three topic IDs per session as a proposed starting rule, no topic supplying more than 40% of a session, and complete reviewed language-pair content.
+
+### Legal and privacy planning
+
+Quiz introduces account-linked selected answer IDs, question snapshots, scores and topic performance. The current privacy-policy draft says individual selected answers are not stored; it must be revised before release if the approved Quiz design stores selected options.
+
+The technical specification records a preliminary Malaysia Act 709/2024 amendment review, JPDP cross-border transfer/DPO/DPIA guidance, GDPR territorial/child-consent scope and US COPPA considerations. Specific release gates include determining Act 709 applicability to the actual public-service activity, identifying the controller and privacy contact, bilingual privacy notice, cross-border processor/location assessment, DPO/DPIA screening for systematic learning-performance monitoring, retention/deletion and breach-response procedures. This is planning guidance, not legal advice or compliance certification.
+
+### Remaining owner confirmations
+
+1. Four answer options where strong distractors exist, with three allowed rather than adding a weak fourth.
+2. Whether same-day repeats across separate completed sessions should be prohibited.
+3. Approve or revise the proposed two-session hard minimum and three-session Premium quality target.
+4. Confirm the proposed Premium Quiz allowance of 3/day; production currently has 12/day.
+5. Confirm nearest-integer percentage rounding.
+
+### Recovery point
+
+- Production remains Update 2.3.3, merge commit \`90dc73a9b65fc3af713fefab4955057026089b96\`.
+- Documentation branch: \`docs/master-development-record\`.
+- Quiz remains Coming Soon.
+- No implementation branch or production change has been made. Wait for owner review of the technical specification and remaining choices before starting feature implementation.
+
+
+## 33. Update 2.4.0 — final product decisions and implementation authorisation (2026-11-14)
+
+### Owner-confirmed final decisions
+
+The owner confirmed all remaining Quiz pre-development decisions:
+
+- Exactly **four answer options** per question. Every approved question must have one correct answer and three strong, plausible distractors; weak or ambiguous questions must be rejected rather than published with fewer options.
+- Do not repeat a question for the same account within the same effective local allowance day, across all Quiz sessions and difficulty levels.
+- Do not repeat the same complete quiz sequence within the same day. The individual-question non-reuse rule also prevents this.
+- A started session reserves all questions issued to it for that local day, even if the learner later abandons it. Abandonment remains free and does not consume a completion allowance.
+- Minimum question-bank capacity: **two complete sessions** per selected difficulty. Preferred target: **three complete sessions** per selected difficulty.
+- Free Quiz allowance: **1 completed Quiz per local day**.
+- Premium Quiz allowance: **3 completed Quizzes per local day**. The 1:3 ratio is confirmed and supersedes the earlier conceptual example.
+- Display percentage rounded to the nearest whole percentage, while retaining exact score and question-count integers.
+
+### Approved question-bank capacity
+
+| Selected difficulty | Two-session minimum | Three-session target |
+|---|---|---|
+| Beginner | 20 Beginner | 30 Beginner |
+| Intermediate | 24 Intermediate + 16 Beginner | 36 Intermediate + 24 Beginner |
+| Advanced | 32 Advanced + 8 Intermediate + 8 Beginner | 48 Advanced + 12 Intermediate + 12 Beginner |
+
+The counts support non-overlapping sessions at each selected difficulty and are based on the largest source-difficulty counts permitted by the approved composition rules. Because lower-difficulty questions can be used in higher-difficulty quizzes, the question pools are shared. The server must exclude all questions already issued to that account on the current effective local day, across difficulty levels. If the remaining unseen inventory cannot support a complete session with the exact composition and coverage rules, the system must block the start rather than repeat or substitute questions.
+
+The three-session target is aligned with Premium's three-completion daily allowance. It is a capacity target per selected difficulty, not a guarantee that every arbitrary mix of difficulty sessions remains possible after lower-level pools have been used. The availability operation must assess the remaining pool before creating each session.
+
+### Technical specification and current implementation baseline
+
+The technical specification at `docs/UPDATE-2.4.0-QUIZ-TECHNICAL-SPECIFICATION.md` has been updated to replace all prior open decisions and proposal wording with the confirmed rules.
+
+Read-only inspection of the connected live Supabase project reconfirmed:
+
+- PostgreSQL 17.11, region Tokyo (`ap-northeast-1`).
+- 18 applied migrations through the six Update 2.3.0 migrations.
+- Existing activity log and private allowance ledger already accept the `quiz` activity type.
+- Current production Quiz limits remain Free 5/day and Premium 12/day. These are not changed; a reviewed migration is required to set Free 1/day and Premium 3/day before Quiz is enabled.
+- No Quiz question-bank table, session table, Quiz RPC or approved Quiz question exists.
+- Existing completion allowance trigger uses the server-owned effective timezone and plan and charges only completed activity events.
+- Existing personal testing exemption remains lesson-only and must not extend to Quiz.
+- Learning-history deletion currently removes Daily Learning sessions, Lesson practice summaries, Lesson progress and activity log. Quiz session/history deletion must be added while preserving the private allowance ledger.
+- Main's Quiz page remains a Coming Soon placeholder. Existing Lesson practice content is not a substitute for the independent Quiz question bank.
+
+No production schema, allowance values, user data, application source or deployment was changed during the read-only inspection.
+
+### Legal and privacy roadmap clarification
+
+The existing privacy-policy draft prepared during Update 2.3.0 is not approved for publication and will need revision to reflect Quiz answer selection, score, session snapshots, topic performance and retention/deletion. This release still requires the mandatory Malaysia and international privacy review.
+
+The owner also raised a broader legal-documentation update. Record this as a **proposed Update 2.6.0 — Legal, Privacy & Terms Foundation**, to begin only after Update 2.5.0 Flashcards has been released to `main`. Candidate scope includes Terms of Service/Use, Privacy Notice, data collection and user-rights disclosures, content and third-party licensing, educational disclaimers, acceptable use, service availability and (if monetisation is later introduced) subscription, payment, renewal, cancellation and refund terms. Scope and legal applicability must be researched and approved closer to that release. This is a planning item, not a legal opinion or compliance certification.
+
+### Recovery point and next actions
+
+1. The owner has authorised the recommended Update 2.4.0 sequence to proceed.
+2. Keep documentation changes on `docs/master-development-record`.
+3. Create the Quiz implementation branch from the current `main` head, not from a stale feature branch.
+4. Implement and test question-bank/session/allowance foundations in isolation. Do not apply production migrations, change live allowance values, merge or deploy without explicit owner approval.
+5. Keep Quiz difficulties unavailable until the independent question bank meets the hard two-session threshold and passes content review.
+6. Continue preserving the Coming Soon production state until the Quiz release is validated and explicitly approved.
+
+
+## 34. Update 2.4.0 — Quiz question-bank and database foundation (2026-11-14)
+
+### Implementation status
+
+The owner declined the estimated hourly cost of a hosted Supabase development branch. No paid branch was created. The database foundation was implemented on `feature/update-2-4-0-quiz` and validated using an ephemeral PostgreSQL 17 service container in GitHub Actions.
+
+Files added to the feature branch:
+
+- `supabase/migrations/20261114120000_swiftdictionary_update_2_4_0_quiz_question_bank_foundation.sql`
+- `supabase/tests/quiz_question_bank_foundation.sql`
+- `.github/workflows/quiz-db-foundation.yml`
+
+The migration adds three private tables: versioned bilingual question bank, account-scoped Quiz sessions, and issued-question/session snapshots. It enforces four unique answer-option IDs with bilingual text, a valid correct option, question revision approval lifecycle, difficulty-specific question counts, one active session per account, immutable issued question identity/snapshots, mutable answer selection before submission, and a unique account/local-day/question constraint that blocks same-day reuse across sessions and after abandonment. RLS is enabled and direct `anon`/`authenticated` table access is revoked.
+
+### Validation
+
+GitHub Actions workflow **Quiz database foundation**, run #7, completed successfully on PostgreSQL 17.12:
+
+- Migration applied successfully.
+- Private tables and RLS flags verified.
+- Direct table privilege revocation verified.
+- Valid bilingual four-option question approved and timestamp assigned.
+- Three-option and duplicate-option questions rejected.
+- Shuffled option-order permutation validation passed.
+- Answer changes before submission passed.
+- Re-issuing the same question to the same account on the same local day after an abandoned session was rejected.
+- Test transaction rolled back; the ephemeral database container was destroyed.
+
+The first CI attempt found an option-ordering bug in the question validation trigger. It was fixed, then the next run found the test fixture needed a synthetic `auth.users` row. Both were corrected; the final run passed. The existing 2.3.x PostgreSQL migration/allowance regression job also passed on the same branch push. Other concurrent regression jobs were still running at the time of this record.
+
+### Validation boundary
+
+This no-cost workflow tests PostgreSQL DDL, constraints, triggers, role grants and core same-day uniqueness. It bootstraps minimal Supabase-compatible `auth.users`, `public.languages`, `anon` and `authenticated` objects. It does not prove full Supabase Auth, PostgREST, JWT, RLS policy or platform RPC integration. Use a disposable local Supabase CLI stack (Docker) if those behaviours need platform-level validation; do not create a paid hosted branch unless the owner later explicitly approves the cost.
+
+### Current safety boundary
+
+- No production Supabase migration was applied.
+- At the time of section 34 (2026-11-14), production Quiz allowance was Free 5/day and Premium 12/day. It was subsequently updated on 2026-11-16 to Free 1/day and Premium 3/day; see section 36.
+- No Quiz content has been approved or seeded. All difficulties remain unavailable.
+- No live user data changed.
+- No merge or deployment occurred.
+- Draft PR #8 is open for validation only: https://github.com/WhiteWingCat/wordbook/pull/8. Do not merge it yet.
+
+### Next implementation stage
+
+Proceed with authenticated, narrowly scoped Quiz RPCs and server-side selection/availability logic. They must enforce the approved source-difficulty ratios, question-bank minimum/target counts, account-local-day question reservation, one active session, session resume/abandon semantics, answer changes before submission, server scoring, completion-based allowance charging, and completed read-only review. Extend learning-history deletion for Quiz data without deleting the private allowance ledger. Keep production Quiz hidden until content minimums and all integration/security checks pass.
+
+
+
+## 35. Update 2.4.0 — authenticated Quiz RPC implementation (2026-11-14)
+
+The next backend stage has been implemented on feature/update-2-4-0-quiz. The new migration is supabase/migrations/20261114160000_swiftdictionary_update_2_4_0_quiz_authenticated_rpcs.sql. It adds authenticated-only availability, start/resume, answer-save, submit, abandon, history and review RPCs, and extends the existing learning-history deletion path to include Quiz sessions.
+
+The implementation enforces the approved difficulty composition rules, two-session minimum bank gates and three-session target gates; selects only approved questions mapped to active permanent lessons with matching topics; randomizes and snapshots question/option order; enforces at least three topics and a 40% per-topic cap; and excludes same-day reserved questions. Intermediate and Advanced compositions are selected only from ratios that the remaining unseen pool can satisfy.
+
+One unfinished session per account is enforced. Unfinished sessions persist without a timer until completion or explicit abandonment. Answers can be changed before submission. Submission requires all answers, calculates score and rounded percentage server-side, and charges the existing quiz completion allowance through the existing learning_activity_log trigger. Repeated submission is idempotent. Correct answers and explanations are hidden until completion.
+
+Security uses auth.uid()-derived ownership, non-exposed private SECURITY DEFINER implementations with fixed empty search_path, public SECURITY INVOKER wrappers, RLS, and revoked direct table access. No user ID is accepted from the client. A separate private.quiz_daily_question_reservations ledger preserves same-day no-repeat after history deletion; it stores only user ID, local date, question ID and reservation time, and is cleaned after a conservative 36-hour window. Learning-history deletion removes sessions, snapshots and completion events but retains the daily allowance ledger and temporary no-repeat reservations. This behaviour must be disclosed in the Privacy Notice before public release.
+
+Validation is implemented in .github/workflows/quiz-db-foundation.yml:
+- Disposable PostgreSQL 17 job applies both Quiz migrations and runs SQL assertions for constraints, availability, selection, answer handling, session lifecycle, scoring, allowances, deletion, ownership and privileges.
+- Disposable local Supabase job uses the real local Auth schema/JWT helpers, the existing synthetic SwiftDictionary baseline, the 2.3.x prerequisite migrations, both Quiz migrations, authenticated integration tests and Supabase security advisors.
+- Both Quiz validation jobs passed on workflow run 66 (2026-11-14). The companion 2.3.x PostgreSQL and Chromium regression checks also passed. A final extra access-control assertion for the reservation table was committed afterward and its follow-up workflow is pending at the time of this record update.
+
+No paid hosted Supabase branch was created. All local Supabase services ran in disposable GitHub Actions containers. At the time of this 2026-11-14 implementation stage, no production migration, production allowance change, merge or deployment had been performed.
+
+Production Quiz allowance was updated on 2026-11-16 by tracked Supabase migration 20261116043139 to Free 1/day and Premium 3/day; the live rows were verified. No other activity limits or usage records were changed. The Quiz schema/RPC migrations and question content remain unapplied to production. The question bank has no approved production questions, and the Quiz frontend is not implemented, so all difficulties remain unavailable. Draft PR #8 remains open and must not be merged without explicit approval.
+
+Preliminary Malaysia privacy review: Quiz stores account-linked answer selections, question/topic/lesson references, scores, timestamps and timezone. Adaptive weak-topic prioritisation may require assessment under the Commissioner's 2026 Automated Decision-Making and Profiling Guideline and the DPO regular/systematic-monitoring criterion. Before release, review Privacy Notice retention/deletion wording, DPO/DPIA requirements, 2026 data-controller registration classes, section 129 cross-border transfers, subprocessors and global age rules. The dedicated Terms and Legal update remains after Flashcards is released to main. See section 13.8 of the Quiz technical specification for official JPDP references and detail.
+
+Next implementation work: build the question-bank authoring/import/approval pipeline and populate sufficient reviewed content, then integrate the Quiz frontend and browser tests. Production migration and release remain separate approval gates.
+
+
+## 36. Update 2.4.0 — Quiz authoring pipeline and production allowance update (2026-11-16)
+
+The user authorized the next Quiz content stage and explicitly requested changing the live Supabase Quiz allowance to Free 1/day and Premium 3/day.
+
+### Production allowance change
+
+Before the change, the live project had exactly two enabled Quiz rows: Free 5/day and Premium 12/day.
+
+A guarded, narrowly scoped migration was added on the feature branch:
+- `supabase/migrations/20261116043139_swiftdictionary_update_2_4_0_quiz_allowance_1_3.sql`
+
+It verifies the exact expected pre-change values and aborts if unexpected Quiz rows or values exist. It changes only the Quiz rows in `public.learning_plan_limits`; all other activity limits and usage ledgers remain untouched.
+
+The migration was applied to live Supabase and recorded as version `20261116043139`, name `swiftdictionary_update_2_4_0_quiz_allowance_1_3`. A follow-up query verified Free Quiz 1/day and Premium Quiz 3/day, both enabled.
+
+No Quiz schema/RPC tables, question content, sessions or frontend were deployed to production. No user data or usage-ledger rows were modified.
+
+### Question-bank authoring pipeline
+
+New feature-branch files:
+- `content/quiz/README.md` — authoring, editorial review, approval and release policy.
+- `content/quiz/curriculum-map.en.json` — stable mapping of 15 English source lesson IDs to topics and difficulty.
+- `content/quiz/questions.en-zh.draft.json` — bilingual draft bank.
+- `scripts/quiz/validate-question-bank.mjs` — structural/curriculum validator and draft-only SQL exporter.
+- `supabase/tests/quiz_draft_content_catalog.sql` — isolated local curriculum fixtures.
+- `supabase/tests/quiz_draft_content_import_assertions.sql` — database import assertions.
+- `.github/workflows/quiz-db-foundation.yml` — PostgreSQL and local Supabase validation/import checks.
+
+The current draft bank contains 114 original English-learning / Simplified-Chinese-translation questions:
+- Beginner: 30 questions, six each across five source lessons.
+- Intermediate: 36 questions across five source lessons (8 + 7 + 7 + 7 + 7).
+- Advanced: 48 questions across four source topics (10 academic/professional, 20 advanced grammar, 9 idioms, 9 precise vocabulary).
+
+Every record has an English prompt, Simplified Chinese translation, four bilingual options, one answer key and bilingual explanations. The material is original SwiftDictionary content, not copied from third-party dictionaries, textbooks or commercial quiz banks.
+
+The validator checks unique IDs/prompts, bilingual fields, four unique English options, answer-key membership and source lesson/topic/difficulty mappings. Its SQL exporter always inserts `status='draft'`; it cannot approve or publish questions. Manual editorial review and a separate approval migration are required.
+
+### Validation
+
+Quiz workflow run [#107](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415258) passed both PostgreSQL 17 and disposable local Supabase jobs for the 66-question Beginner/Intermediate pack, including authenticated RPC/session/allowance tests, draft import, local Auth helper checks and Supabase security advisors. Pinning Supabase CLI 2.81.3 resolved the earlier release API rate-limit issue.
+
+The 48-question Advanced batch and expanded 114-row import assertions have since been added. The structural/curriculum check in this session found 114 unique question IDs and prompts, four unique English options per question, matching answer keys, complete bilingual fields, and valid mappings across all three difficulty levels. The 114-row PostgreSQL/local Supabase CI run is pending.
+
+The companion 2.3.x workflow run [#829](https://github.com/WhiteWingCat/wordbook/actions/runs/43805415257) passed PostgreSQL 17 migration/allowance tests, Chromium browser regression and local Supabase Auth compatibility. A later companion run #839 again passed PostgreSQL 17 and Chromium checks, but its local Supabase setup hit the GitHub release API rate limit before tests started; the earlier full run #829 remains green.
+
+### Content readiness
+
+The draft counts reach the preferred three-session question-bank targets:
+- Beginner: 30 (target 30).
+- Intermediate: 36 Intermediate + 30 Beginner support questions (target 36 + 24).
+- Advanced: 48 Advanced + 12 Intermediate + 12 Beginner support questions (target 48 + 12 + 12).
+
+All content remains draft, so no difficulty is available yet. Availability also requires manual approval, production import, active matching lesson/topic mappings, the selected translation language and enough unseen questions. The current pack supports English learning with Simplified Chinese translation only.
+
+### Legal and content provenance
+
+The content pack adds no learner personal data, tracking or analytics. It uses original authored educational material. Future external-source content requires provenance and licensing review. The broader Quiz feature still processes account-linked learning-performance data, so the standing Malaysia PDPA/general privacy review remains applicable. The dedicated Terms and Legal update remains scheduled after Flashcards is released to main.
+
+### Current release boundaries and next actions
+
+- Production Quiz allowance is Free 1/day and Premium 3/day.
+- Quiz schema/RPC migrations and draft content remain unapplied to production.
+- PR #8 remains draft and unmerged.
+- No merge or deployment occurred.
+- Next, complete the 114-question CI validation, then perform human editorial review and plan a separate approval migration before implementing Quiz frontend and signed-token/PostgREST/browser end-to-end tests.
+
+
+## 37. Update 2.4.0 — Chinese-translation integration questions and Mock Quiz validation (2026-11-17)
+
+The owner approved the proposed Chinese-integration distribution for English-learning Quiz sessions with Simplified Chinese selected as the translation language:
+
+- Beginner: 1 Chinese-translation assessment question in a 10-question session.
+- Intermediate: 4 in a 15-question session.
+- Advanced: 7 in a 20-question session.
+
+These are included within the existing session lengths, not added on top. The approved difficulty composition remains unchanged: Beginner 10 Beginner; Intermediate 12 Intermediate + 3 Beginner; Advanced 12 Advanced + 6 Intermediate + 2 Beginner.
+
+### Draft content and Mock User implementation
+
+- Expanded `content/quiz/questions.en-zh.draft.json` from 114 to 150 original draft questions: 114 knowledge questions (30/36/48 by difficulty) plus 36 Chinese-translation assessment questions (3/12/21 by difficulty). The 3x bank supply is intended to support up to three daily sessions without exhausting the required translation-question pool.
+- Each new assessment question uses an English prompt asking for the most accurate Simplified Chinese translation, with four Chinese answer choices and an English gloss stored as supporting metadata.
+- Mock User sessions select exactly 1/4/7 Chinese-translation questions when the saved translation preference is Simplified Chinese. When English is selected as the translation language, the Mock session uses knowledge questions only. The total session lengths and original source-difficulty composition remain unchanged.
+- The Quiz UI displays Chinese answer choices as the primary options for these assessment questions. If the learner changes the active session's display preference to English, the English gloss is shown as supporting text while the Chinese answer target remains intact.
+- The existing nine questions with duplicate Chinese support-option strings were revised. The content validator and Mock loader now check for four unique English and four unique Chinese option labels after Unicode normalisation, in addition to IDs, answer-key membership, bilingual fields and curriculum mappings.
+- The answer-navigation controls are disabled while an answer-save request is pending. This prevents a rapid Next/Previous action from being silently ignored while the save is in progress.
+
+### Backend and release boundary
+
+The 36 Chinese-translation assessment questions are intentionally Mock User preview-only in this stage. The authenticated Quiz database schema and RPC payloads do not yet carry a `question_type` field. The draft SQL exporter therefore imports only the 114 knowledge questions into disposable CI databases and excludes the 36 translation-assessment questions. A later feature-branch migration and RPC update is required before these question types can be tested against the authenticated backend or considered for release.
+
+The source pack remains `draft`. None of the 150 questions is approved for learner-facing publication. No Quiz schema/RPC migration, question import, staging migration, production data change, production configuration change, main-branch merge or production deployment was performed in this session.
+
+### Validation and current branch state
+
+- Implementation branch: `feature/update-2-4-0-quiz`.
+- Latest implementation commit: `710f043a43e116c90d4b3a6fb779605658bd2333`.
+- PR #8 remains open, draft and unmerged.
+- Quiz database foundation workflow run [#417](https://github.com/WhiteWingCat/wordbook/actions/runs/44047597209) passed PostgreSQL validation, draft import of the 114 supported knowledge questions, disposable local Supabase Auth/RPC/session tests, authenticated Chromium runtime tests and Supabase security advisors.
+- Companion 2.3.x regression workflow run [#974](https://github.com/WhiteWingCat/wordbook/actions/runs/44047597250) passed PostgreSQL, Chromium and Supabase Auth compatibility checks.
+- Earlier run #415 failed because a double-escaped Unicode-normalisation regular expression produced false duplicate-option reports. The regex was corrected in commit `710f043`; the subsequent #417 run passed.
+- Earlier run #413 exposed a navigation/save timing race. Disabling navigation while saving was added; the authenticated Chromium runtime tests passed in #417.
+- The latest Cloudflare Pages deployment for commit `710f043` has not yet been confirmed. Do not provide a preview link or claim the hosted preview contains these changes until deployment is independently verified.
+
+### Legal, privacy and content review
+
+The new questions are original authored learning content; no third-party question bank, dictionary text or external dataset was imported. This content change adds no learner personal-data fields or new tracking. The existing Quiz feature still processes account-linked learning activity, selected answers, scores and history, so the standing Malaysia PDPA and applicable international/16+ privacy review, retention/deletion disclosures and cross-border processing review remain release gates. This is planning guidance, not legal advice. Human editorial review of all bilingual questions remains mandatory before approval.
+
+### Next steps
+
+1. Confirm Cloudflare Pages has deployed the latest feature-branch commit before sharing the Mock User preview.
+2. Let the owner test the 1/4/7 Chinese-integration mix, the question wording and the Chinese answer choices using fictional Mock User accounts only.
+3. Continue the full bilingual accuracy review; do not publish or approve the draft pack based only on structural CI checks.
+4. After the owner accepts the Mock preview, add backend `question_type` support through a reviewed feature-branch migration/RPC update and validate it in the isolated staging environment only after the clean-schema bootstrap is complete.
+5. Keep PR #8 draft and unmerged until explicit owner approval. Keep production `main`, production Quiz schema/content and production data unchanged.
