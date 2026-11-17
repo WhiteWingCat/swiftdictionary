@@ -365,7 +365,7 @@
     }
     if (name==="get_my_quiz_history") {
       const rows=(tables.quiz_sessions||[]).filter(row=>row.status==="completed").sort((a,b)=>String(b.completed_at).localeCompare(String(a.completed_at))).slice(0,Math.max(0,Number(args.p_limit)||20));
-      return {data:rows.map(row=>({session_id:row.session_id,difficulty:row.difficulty,question_count:row.question_count,percentage:row.percentage,completed_at:row.completed_at})),error:null};
+      return {data:rows.map(row=>({session_id:row.session_id,difficulty:row.difficulty,question_count:row.question_count,correct_count:row.correct_count,percentage:row.percentage,completed_at:row.completed_at})),error:null};
     }
     if (name==="get_my_quiz_review") {
       const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.status==="completed");
