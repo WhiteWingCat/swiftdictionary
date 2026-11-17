@@ -493,6 +493,30 @@ test("Quiz overview follows translation preference and selector changes preserve
   await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在使用你选择的翻译语言");
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
 });
+test("Translation changes on the Quiz overview do not auto-open an unfinished session", async ({ page }) => {
+  await updateTranslationPreference(freeUserId,"zh");
+  await openQuiz(page,freeSession);
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await page.locator("#quizBackHome").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizActiveCard")).toBeVisible();
+  await expect(page.locator("#quizSession")).toBeHidden();
+
+  await selectTranslation(page,"en");
+  await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizActiveCard")).toBeVisible();
+  await expect(page.locator("#quizSession")).toBeHidden();
+
+  await page.locator("#quizResume").click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await selectTranslation(page,"zh");
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+});
 test("Learning course selector shows a short refresh confirmation", async ({ page }) => {
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
