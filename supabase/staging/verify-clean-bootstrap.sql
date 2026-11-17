@@ -68,5 +68,11 @@ begin
   if not has_table_privilege('anon','public.languages','SELECT') then
     raise exception 'Anonymous role must be able to read active language references';
   end if;
+
+  if not has_table_privilege('service_role','public.saved_words','SELECT')
+     or not has_table_privilege('service_role','public.user_preferences','UPDATE')
+     or not has_sequence_privilege('service_role','public.lesson_progress_id_seq','USAGE') then
+    raise exception 'Server-side service_role grants are incomplete';
+  end if;
 end
 $$;
