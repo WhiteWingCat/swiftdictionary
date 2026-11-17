@@ -10,11 +10,7 @@
 -- This is intentionally separate from supabase/migrations: it is a one-time
 -- staging-only baseline, not a production migration and not for main deployment.
 
--- Local Supabase application baseline for Update 2.3.0 migration integration tests.
--- Uses Supabase CLI-managed Auth schemas, roles, users, sessions and helper functions.
--- All application data is synthetic and exists only in the disposable local stack.
-
--- Supabase CLI provides auth schema, roles, users, sessions and Auth helpers.
+-- Supabase provides the auth schema, roles, users, sessions and Auth helpers.
 create schema if not exists private;
 create table public.languages (
   code text primary key,
@@ -237,6 +233,10 @@ create policy "Users can read their own preferences"
 on public.user_preferences for select to authenticated
 using ((select auth.uid()) = user_id);
 
+create policy "Users can create their own preferences"
+on public.user_preferences for insert to authenticated
+with check ((select auth.uid()) = user_id);
+
 create policy "Users can update their own preferences"
 on public.user_preferences for update to authenticated
 using ((select auth.uid()) = user_id)
@@ -255,10 +255,11 @@ grant select, insert, delete on public.saved_words to authenticated;
 revoke all on sequence public.saved_words_id_seq from public, anon, authenticated;
 grant usage on sequence public.saved_words_id_seq to authenticated;
 grant select, insert, update on public.lesson_progress to authenticated;
+grant usage, select on sequence public.lesson_progress_id_seq to authenticated;
 grant select, insert on public.learning_activity_log to authenticated;
 grant select, insert on public.lesson_practice_results to authenticated;
 grant usage, select on sequence public.lesson_practice_results_id_seq to authenticated;
-grant select, update on public.user_preferences to authenticated;
+grant select, insert, update on public.user_preferences to authenticated;
 grant select on public.user_entitlements, public.learning_plan_limits to authenticated;
 grant usage, select on sequence public.learning_activity_log_id_seq to authenticated;
 
