@@ -10,8 +10,6 @@
 >
 > This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
 
-This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
-
 ---
 
 ## 1. Project identity and goals
