@@ -66,11 +66,9 @@ async function installLocalSupabaseConfig(page) {
 }
 
 async function selectCourse(page, language) {
-  await page.locator("#courseControlTrigger").click();
   await page.locator("#courseSelect").selectOption(language);
 }
 async function selectTranslation(page, language) {
-  await page.locator("#translationControlTrigger").click();
   await page.locator("#translationSelect").selectOption(language);
 }
 
@@ -304,6 +302,9 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator("#quizHistory [data-quiz-review]").click();
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
+  await expect(page.locator("#quizResultsHome")).toHaveText("← Back to Quiz");
+  await page.locator("#quizResultsHome").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
 
   // The Dashboard must surface the same completed Quiz history and allow review.
   await page.goto("/#profile");
@@ -312,9 +313,15 @@ test("Free user can switch translation in an open permanent lesson and complete 
   const dashboardProfileStatus = await page.locator("#preferenceStatus").innerText();
   await expect(page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]"), "Dashboard history: "+dashboardHistoryDiagnostics+"; profile status: "+dashboardProfileStatus).toHaveCount(1);
   await expect(page.locator("#dashboardQuizHistory")).toContainText("100%");
+  await expect(page.locator("#dashboardQuizHistory")).toContainText("10/10 correct");
   await page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]").click();
   await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
+  await expect(page.locator("#quizResultsHome")).toHaveText("← Back to Dashboard");
+  await page.locator("#quizResultsHome").click();
+  await expect(page.locator("#profileContent")).toBeVisible();
+  await expect(page).toHaveURL(/#profile$/);
 });
 
 
