@@ -170,6 +170,236 @@ begin
 end;
 $function$;
 
+create or replace function private.get_my_quiz_availability_impl()
+returns jsonb
+language plpgsql
+security definer
+set search_path = ''
+as $function$
+declare
+  v_ctx jsonb := private.quiz_request_context();
+  v_user uuid := (v_ctx ->> 'user_id')::uuid;
+  v_timezone text := v_ctx ->> 'timezone';
+  v_day date := (v_ctx ->> 'local_date')::date;
+  v_translation text;
+  v_learning text;
+  v_active uuid;
+  v_b integer := 0;
+  v_i integer := 0;
+  v_a integer := 0;
+  v_rb integer := 0;
+  v_ri integer := 0;
+  v_ra integer := 0;
+  v_beginner_topics integer := 0;
+  v_intermediate_topics integer := 0;
+  v_advanced_topics integer := 0;
+  v_def_b integer := 0; v_def_i integer := 0; v_def_a integer := 0;
+  v_zh_b integer := 0; v_zh_i integer := 0; v_zh_a integer := 0;
+  v_unseen_def integer := 0; v_unseen_zh integer := 0;
+  v_beginner_min boolean;
+  v_intermediate_min boolean;
+  v_advanced_min boolean;
+  v_beginner_target boolean;
+  v_intermediate_target boolean;
+  v_advanced_target boolean;
+  v_beginner_fresh boolean;
+  v_intermediate_fresh boolean;
+  v_advanced_fresh boolean;
+  v_can_start boolean;
+begin
+  select p.learning_language,p.translation_language
+    into v_learning,v_translation
+  from public.user_preferences p where p.user_id = v_user;
+
+  select s.id into v_active
+  from private.quiz_sessions s
+  where s.user_id = v_user and s.status = 'in_progress';
+
+  select
+    count(*) filter (where q.difficulty = 'beginner' and q.question_type='knowledge')::integer,
+    count(*) filter (where q.difficulty = 'intermediate' and q.question_type='knowledge')::integer,
+    count(*) filter (where q.difficulty = 'advanced' and q.question_type='knowledge')::integer
+  into v_b, v_i, v_a
+  from private.quiz_question_bank q
+  join private.learning_content_catalog c
+    on c.activity_type = 'permanent_lesson'
+   and c.content_id = q.source_lesson_id
+   and c.language_code = q.learning_language_code
+   and c.is_active
+   and c.topic_id = q.topic_id
+  where q.status = 'approved'
+    and q.learning_language_code = 'en'
+    and v_learning = 'en'
+    and q.translation_language_code = v_translation;
+
+  select
+    count(*) filter (where q.question_type='word_definition' and q.difficulty='beginner')::integer,
+    count(*) filter (where q.question_type='word_definition' and q.difficulty='intermediate')::integer,
+    count(*) filter (where q.question_type='word_definition' and q.difficulty='advanced')::integer,
+    count(*) filter (where q.question_type='chinese_translation' and q.difficulty='beginner')::integer,
+    count(*) filter (where q.question_type='chinese_translation' and q.difficulty='intermediate')::integer,
+    count(*) filter (where q.question_type='chinese_translation' and q.difficulty='advanced')::integer
+  into v_def_b,v_def_i,v_def_a,v_zh_b,v_zh_i,v_zh_a
+  from private.quiz_question_bank q
+  join private.learning_content_catalog c
+    on c.activity_type='permanent_lesson'
+   and c.content_id=q.source_lesson_id
+   and c.language_code=q.learning_language_code
+   and c.is_active and c.topic_id=q.topic_id
+  where q.status='approved'
+    and q.learning_language_code='en'
+    and v_learning='en'
+    and q.translation_language_code=v_translation
+    and q.learning_objective_id is not null;
+
+  select count(*) filter (where q.question_type='word_definition')::integer,
+         count(*) filter (where q.question_type='chinese_translation' and q.answer_language_code='zh')::integer
+  into v_unseen_def,v_unseen_zh
+  from private.quiz_question_bank q
+  join private.learning_content_catalog c
+    on c.activity_type='permanent_lesson'
+   and c.content_id=q.source_lesson_id
+   and c.language_code=q.learning_language_code
+   and c.is_active and c.topic_id=q.topic_id
+  where q.status='approved'
+    and q.learning_language_code='en'
+    and v_learning='en'
+    and q.translation_language_code=v_translation
+    and q.learning_objective_id is not null
+    and not exists (
+      select 1 from private.quiz_daily_question_reservations issued
+      where issued.user_id=v_user and issued.local_date=v_day
+        and issued.question_id=q.question_id
+    );
+
+  select
+    count(*) filter (where q.difficulty = 'beginner')::integer,
+    count(*) filter (where q.difficulty = 'intermediate')::integer,
+    count(*) filter (where q.difficulty = 'advanced')::integer,
+    count(distinct q.topic_id) filter (where q.difficulty = 'beginner')::integer,
+    count(distinct q.topic_id) filter (where q.difficulty in ('beginner','intermediate'))::integer,
+    count(distinct q.topic_id)::integer
+  into v_rb, v_ri, v_ra, v_beginner_topics, v_intermediate_topics, v_advanced_topics
+  from private.quiz_question_bank q
+  join private.learning_content_catalog c
+    on c.activity_type = 'permanent_lesson'
+   and c.content_id = q.source_lesson_id
+   and c.language_code = q.learning_language_code
+   and c.is_active
+   and c.topic_id = q.topic_id
+  where q.status = 'approved'
+    and q.learning_language_code = 'en'
+    and v_learning = 'en'
+    and q.translation_language_code = v_translation
+    and not exists (
+      select 1 from private.quiz_daily_question_reservations issued
+      where issued.user_id = v_user
+        and issued.local_date = v_day
+        and issued.question_id = q.question_id
+    );
+
+  v_beginner_min := v_learning='en' and v_b>=20 and v_def_b>=2
+    and (v_translation<>'zh' or v_zh_b>=14);
+  v_intermediate_min := v_learning='en' and v_i>=24 and v_b>=16
+    and v_def_b+v_def_i>=2
+    and (v_translation<>'zh' or v_zh_b+v_zh_i>=14);
+  v_advanced_min := v_learning='en' and v_a>=32 and v_i>=8 and v_b>=8
+    and v_def_b+v_def_i+v_def_a>=2
+    and (v_translation<>'zh' or v_zh_b+v_zh_i+v_zh_a>=14);
+  v_beginner_target := v_learning='en' and v_b>=30 and v_def_b>=3
+    and (v_translation<>'zh' or v_zh_b>=21);
+  v_intermediate_target := v_learning='en' and v_i>=36 and v_b>=24
+    and v_def_b+v_def_i>=3
+    and (v_translation<>'zh' or v_zh_b+v_zh_i>=21);
+  v_advanced_target := v_learning='en' and v_a>=48 and v_i>=12 and v_b>=12
+    and v_def_b+v_def_i+v_def_a>=3
+    and (v_translation<>'zh' or v_zh_b+v_zh_i+v_zh_a>=21);
+
+  v_beginner_fresh := v_rb >= 10 and v_beginner_topics >= 3 and v_unseen_def>=1 and (v_translation<>'zh' or v_unseen_zh>=1);
+  v_intermediate_fresh := v_intermediate_topics >= 3 and v_unseen_def>=1 and (v_translation<>'zh' or v_unseen_zh>=1) and (
+       (v_ri >= 12 and v_rb >= 3)
+    or (v_ri >= 8 and v_rb >= 7)
+    or (v_ri >= 7 and v_rb >= 8)
+  );
+  v_advanced_fresh := v_advanced_topics >= 3 and v_ri >= 4 and v_unseen_def>=1 and (v_translation<>'zh' or v_unseen_zh>=1) and (
+       (v_ra >= 16)
+    or (v_ra >= 15 and v_rb >= 1)
+    or (v_ra >= 14 and v_rb >= 2)
+    or (v_ra >= 13 and v_rb >= 3)
+    or (v_ra >= 12 and v_rb >= 4)
+  );
+
+  v_can_start := coalesce((v_ctx ->> 'plan_enabled')::boolean,false)
+                 and (v_ctx ->> 'remaining_count')::integer > 0
+                 and v_active is null;
+
+  return pg_catalog.jsonb_build_object(
+    'timezone', v_timezone,
+    'local_date', v_day,
+    'plan_code', v_ctx ->> 'plan_code',
+    'allowance', pg_catalog.jsonb_build_object(
+      'daily_limit', (v_ctx ->> 'daily_limit')::integer,
+      'used_count', (v_ctx ->> 'used_count')::integer,
+      'remaining_count', (v_ctx ->> 'remaining_count')::integer
+    ),
+    'active_session_id', v_active,
+    'difficulties', pg_catalog.jsonb_build_array(
+      pg_catalog.jsonb_build_object(
+        'difficulty', 'beginner',
+        'question_count', 10,
+        'bank_minimum_met', v_beginner_min,
+        'bank_target_met', v_beginner_target,
+        'bank_counts', pg_catalog.jsonb_build_object('beginner',v_b,'word_definition',v_def_b,'chinese_translation',v_zh_b),
+        'remaining_counts', pg_catalog.jsonb_build_object('beginner',v_rb),
+        'available', v_beginner_min and v_beginner_fresh and v_can_start,
+        'reason', case
+          when v_active is not null then 'active_session_exists'
+          when v_learning is distinct from 'en' then 'learning_course_not_supported'
+          when not coalesce((v_ctx ->> 'plan_enabled')::boolean,false) then 'plan_not_enabled'
+          when (v_ctx ->> 'remaining_count')::integer < 1 then 'allowance_exhausted'
+          when not v_beginner_min then 'question_bank_below_minimum'
+          when not v_beginner_fresh then 'fresh_questions_unavailable_today'
+          else null end
+      ),
+      pg_catalog.jsonb_build_object(
+        'difficulty', 'intermediate',
+        'question_count', 15,
+        'bank_minimum_met', v_intermediate_min,
+        'bank_target_met', v_intermediate_target,
+        'bank_counts', pg_catalog.jsonb_build_object('beginner',v_b,'intermediate',v_i,'word_definition',v_def_b+v_def_i,'chinese_translation',v_zh_b+v_zh_i),
+        'remaining_counts', pg_catalog.jsonb_build_object('beginner',v_rb,'intermediate',v_ri),
+        'available', v_intermediate_min and v_intermediate_fresh and v_can_start,
+        'reason', case
+          when v_active is not null then 'active_session_exists'
+          when v_learning is distinct from 'en' then 'learning_course_not_supported'
+          when not coalesce((v_ctx ->> 'plan_enabled')::boolean,false) then 'plan_not_enabled'
+          when (v_ctx ->> 'remaining_count')::integer < 1 then 'allowance_exhausted'
+          when not v_intermediate_min then 'question_bank_below_minimum'
+          when not v_intermediate_fresh then 'fresh_questions_unavailable_today'
+          else null end
+      ),
+      pg_catalog.jsonb_build_object(
+        'difficulty', 'advanced',
+        'question_count', 20,
+        'bank_minimum_met', v_advanced_min,
+        'bank_target_met', v_advanced_target,
+        'bank_counts', pg_catalog.jsonb_build_object('beginner',v_b,'intermediate',v_i,'advanced',v_a,'word_definition',v_def_b+v_def_i+v_def_a,'chinese_translation',v_zh_b+v_zh_i+v_zh_a),
+        'remaining_counts', pg_catalog.jsonb_build_object('beginner',v_rb,'intermediate',v_ri,'advanced',v_ra),
+        'available', v_advanced_min and v_advanced_fresh and v_can_start,
+        'reason', case
+          when v_active is not null then 'active_session_exists'
+          when v_learning is distinct from 'en' then 'learning_course_not_supported'
+          when not coalesce((v_ctx ->> 'plan_enabled')::boolean,false) then 'plan_not_enabled'
+          when (v_ctx ->> 'remaining_count')::integer < 1 then 'allowance_exhausted'
+          when not v_advanced_min then 'question_bank_below_minimum'
+          when not v_advanced_fresh then 'fresh_questions_unavailable_today'
+          else null end
+      )
+    )
+  );
+end;
+$function$;
+
 create or replace function private.start_my_quiz_impl(p_difficulty text)
 returns jsonb
 language plpgsql
