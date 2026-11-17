@@ -12,6 +12,19 @@ This directory contains the one-time foundation for the separately hosted **Swif
 - Never place service-role keys, database passwords, Google OAuth secrets, or access tokens in GitHub.
 - Only the public staging anon/publishable key may be used in the browser after the staging schema and RLS are validated.
 
+## Current staging state (2026-11-17)
+
+- The clean bootstrap has been applied to the hosted staging project.
+- All 12 ordered 2.3.x/2.4.0 migrations have been applied successfully after the bootstrap (13 migration records including the baseline).
+- The staging project is healthy in `ap-southeast-1`.
+- The staging database currently has **zero Auth users, zero Quiz questions, zero approved content, zero Quiz sessions and zero learner history**. No production data was copied.
+- The feature-branch `supabase-config.js` now points to the staging project and its public publishable key. Production `main` configuration is unchanged.
+- Cloudflare Pages successfully deployed feature commit `794e8ab` to [the isolated preview](https://a81b4f89.swiftdictionary-testing.pages.dev).
+- Google OAuth is not yet configured in staging. Do not invite testers or expect sign-in to work until a staging-specific Google OAuth client is configured and its redirect URLs are allowlisted.
+- The current branch CI validates the same clean bootstrap, migration order, authenticated RPCs, draft import, browser runtime and security advisors. Check the latest branch-head run before any tester onboarding.
+
+The one-time `verify-clean-bootstrap.sql` is only for the moment immediately after the baseline and **before** application migrations. Do not run it after migrations; its six initial plan-limit-row assertion is expected to change when the 2.3.x migrations add Daily Learning categories. After migrations, use `verify-migration-grants.sql` and the hosted staging data-boundary checks instead.
+
 ## Fresh-project bootstrap
 
 `bootstrap.sql` is a one-time, staging-only app-schema baseline. It is intentionally outside `supabase/migrations`, because it must not be swept into a production migration push.
@@ -56,6 +69,13 @@ Until that separate approval:
 - Synthetic CI-only fixtures may be approved only inside disposable local CI.
 
 ## Authentication and preview
+
+The app currently uses Google OAuth. To enable real staging sign-in, configure a **separate staging Google OAuth client** (do not paste its secret into this repository or chat):
+
+- Supabase Auth provider callback URI to register in Google Cloud: `https://ivatvkfrtifgfheeaelj.supabase.co/auth/v1/callback`.
+- Supabase Auth Site URL: `https://a81b4f89.swiftdictionary-testing.pages.dev`.
+- Add the exact preview origin above to Supabase Auth's additional redirect URLs. If the stable branch alias is used, add `https://feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev/**` as well.
+- Enter the Google client ID and client secret only in the Supabase Dashboard's Google provider settings.
 
 Before inviting friends:
 - Configure a staging-only Google OAuth client and exact staging callback/allowed URLs.
