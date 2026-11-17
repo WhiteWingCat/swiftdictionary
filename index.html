@@ -18536,6 +18536,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     async function loadProfileData() {
       if (!supabaseClient || !currentUser) return;
+      // A profile read can finish after the learner changes a language selector.
+      // Snapshot the selection version so stale account data cannot overwrite that newer choice.
+      const preferenceSelectionVersionAtStart = coursePreferenceSelectionVersion;
       const signedOut = document.getElementById("profileSignedOut");
       const content = document.getElementById("profileContent");
       signedOut.hidden = true; content.hidden = false;
@@ -18583,26 +18586,31 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         const allowanceUsageRows = allowanceUsageQ.error ? null : (allowanceUsageQ.data || []);
         const personalTestAccess = personalTestQ.error ? false : personalTestQ.data === true;
         const prefs = prefsQ.data || {learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()};
-        profilePreferences = prefs;
-        const courseChanged = course !== prefs.learning_language;
-        course = prefs.learning_language;
-        translationLanguage = prefs.translation_language;
-        try { localStorage.setItem(preferenceStorageKey, JSON.stringify({learning_language:course,translation_language:translationLanguage})); } catch {}
-        words = course === "zh" ? chineseWords : englishWords;
-        document.getElementById("categoryRow").hidden = course === "zh";
-        grid.classList.toggle("character-grid", course === "zh");
-        search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
-        if (courseChanged) { activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
+        const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
+        profilePreferences = preferenceSelectionChanged
+          ? {...prefs,learning_language:course,translation_language:translationLanguage}
+          : prefs;
+        if (!preferenceSelectionChanged) {
+          const courseChanged = course !== prefs.learning_language;
+          course = prefs.learning_language;
+          translationLanguage = prefs.translation_language;
+          try { localStorage.setItem(preferenceStorageKey, JSON.stringify({learning_language:course,translation_language:translationLanguage})); } catch {}
+          words = course === "zh" ? chineseWords : englishWords;
+          document.getElementById("categoryRow").hidden = course === "zh";
+          grid.classList.toggle("character-grid", course === "zh");
+          search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
+          if (courseChanged) { activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
+        }
         selectedAvatar = profileQ.data?.avatar_icon || selectedAvatar || "🐦";
         updateAvatarDisplay();
         const correctlyClassifiedSavedWords = await normaliseSavedWordCourses(savedWordsQ.data || []);
         renderFavoriteWords(correctlyClassifiedSavedWords);
         document.getElementById("displayNameInput").value = profileQ.data?.display_name || "";
-        document.getElementById("preferenceLearning").value = prefs.learning_language;
-        document.getElementById("preferenceTranslation").value = prefs.translation_language;
+        document.getElementById("preferenceLearning").value = preferenceSelectionChanged ? course : prefs.learning_language;
+        document.getElementById("preferenceTranslation").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
         document.getElementById("preferenceTimezone").value = prefs.timezone;
-        document.getElementById("courseSelect").value = prefs.learning_language;
-        document.getElementById("translationSelect").value = prefs.translation_language;
+        document.getElementById("courseSelect").value = preferenceSelectionChanged ? course : prefs.learning_language;
+        document.getElementById("translationSelect").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
         updateGlobalCourseControlLabels();
         const completedActivity = (activityQ.data || []).filter(row => legacyActivityLog || row.event_type === "completed");
         const tz = effectiveAllowanceTimezone(prefs);
