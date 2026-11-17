@@ -18804,8 +18804,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       const effectiveTranslation=quizEffectiveTranslationCode(s);
       const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
       quizUpdateTranslationNotice(s);
+      const chineseTranslationQuestion=q.question_type==="chinese_translation";
       quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
-        return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(option.learning_text)+'</span>'+(showTranslation?'<small>'+quizEscape(option.translation_text)+'</small>':'')+'</span></button>';
+        const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
+        const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
+        return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
       }).join("")+'</div>';
       quizEl("quizPrevious").disabled=pos<=1;
       quizEl("quizNext").hidden=pos>=s.question_count;
@@ -18825,11 +18828,18 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     async function quizSaveCurrent(position,selected){
       const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q)return;
       quizPageState.saving=true;quizEl("quizSubmit").disabled=true;
+      quizEl("quizPrevious").disabled=true;quizEl("quizNext").disabled=true;
       try{
         const {data,error}=await quizCall("save_my_quiz_answer",{p_session_id:s.session_id,p_question_id:q.question_id,p_selected_option_id:selected===undefined?q.selected_option_id:selected,p_current_position:position});
         if(error)throw error;quizPageState.session=data;return data;
       }catch(error){quizStatus("Your answer could not be saved: "+error.message,true);throw error;}
-      finally{quizPageState.saving=false;}
+      finally{
+        quizPageState.saving=false;
+        const current=quizPageState.session;
+        const currentPosition=Number(current?.current_position)||1;
+        quizEl("quizPrevious").disabled=!current||currentPosition<=1;
+        quizEl("quizNext").disabled=!current||currentPosition>=Number(current.question_count||0);
+      }
     }
     async function quizChooseOption(optionId){
       const s=quizPageState.session,q=quizCurrentQuestion();if(!s||!q||quizPageState.saving)return;
@@ -18883,9 +18893,12 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       quizUpdateTranslationNotice(data);
       const questions=data.questions||[];
       quizEl("quizResultsContent").innerHTML='<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
+        const chineseTranslationQuestion=q.question_type==="chinese_translation";
         const opts=(q.options||[]).map((o,i)=>{
           const correct=o.id===q.correct_option_id,chosen=o.id===q.selected_option_id;
-          return '<div class="quiz-review-option '+(correct?'correct':chosen?'chosen-wrong':'')+'">'+String.fromCharCode(65+i)+'. '+quizEscape(o.learning_text)+(showTranslation?' · '+quizEscape(o.translation_text):'')+(correct?' — Correct answer':chosen?' — Your answer':'')+'</div>';
+          const primaryText=chineseTranslationQuestion?o.translation_text:o.learning_text;
+          const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?" · "+o.learning_text:""):(showTranslation?" · "+o.translation_text:"");
+          return '<div class="quiz-review-option '+(correct?'correct':chosen?'chosen-wrong':'')+'">'+String.fromCharCode(65+i)+'. '+quizEscape(primaryText)+(secondaryText?quizEscape(secondaryText):'')+(correct?' — Correct answer':chosen?' — Your answer':'')+'</div>';
         }).join("");
         return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
       }).join("")+'</div>';

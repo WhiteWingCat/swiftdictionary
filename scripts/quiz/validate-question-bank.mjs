@@ -15,7 +15,10 @@ const questions = Array.isArray(raw.questions) ? raw.questions : [];
 const seenIds = new Set();
 const seenPrompts = new Set();
 const counts = { beginner: 0, intermediate: 0, advanced: 0 };
+const translationCounts = { beginner: 0, intermediate: 0, advanced: 0 };
+const knowledgeCounts = { beginner: 0, intermediate: 0, advanced: 0 };
 const topics = { beginner: new Set(), intermediate: new Set(), advanced: new Set() };
+const normalizeOption = value => String(value ?? "").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\\s\\p{P}\\p{S}]+/gu, "");
 
 function requireText(value, label, max = 2000) {
   if (typeof value !== "string" || !value.trim() || value.length > max) {
@@ -40,6 +43,9 @@ for (const [index, q] of questions.entries()) {
     fail.push(at + " source lesson has an invalid difficulty");
   }
   if (source && !source.topic_id) fail.push(at + " source lesson has no topic_id");
+  const questionType = q.question_type ?? "knowledge";
+  if (!["knowledge", "chinese_translation"].includes(questionType)) fail.push(at + " has an unsupported question_type");
+  if (questionType === "chinese_translation" && q.answer_language_code !== "zh") fail.push(at + " Chinese translation questions must set answer_language_code to zh");
   requireText(q.prompt_learning, at + ".prompt_learning");
   requireText(q.prompt_translation, at + ".prompt_translation");
   requireText(q.explanation_learning, at + ".explanation_learning");
@@ -58,11 +64,15 @@ for (const [index, q] of questions.entries()) {
     if (optionIds.size !== 4 || !optionIds.has(q.correct_option_id)) {
       fail.push(at + " correct_option_id must match exactly one of four unique option IDs");
     }
-    const labels = q.options.map(o => String(o.learning_text ?? "").trim().toLocaleLowerCase("en"));
+    const labels = q.options.map(o => normalizeOption(o.learning_text));
     if (new Set(labels).size !== 4) fail.push(at + " has duplicate English option labels");
+    const translationLabels = q.options.map(o => normalizeOption(o.translation_text));
+    if (new Set(translationLabels).size !== 4) fail.push(at + " has duplicate Chinese translation option labels");
   }
   if (source) {
     counts[source.difficulty] += 1;
+    if (questionType === "chinese_translation") translationCounts[source.difficulty] += 1;
+    else knowledgeCounts[source.difficulty] += 1;
     topics[source.difficulty].add(source.topic_id);
     q.difficulty = source.difficulty;
     q.topic_id = source.topic_id;
@@ -71,6 +81,9 @@ for (const [index, q] of questions.entries()) {
   if (normalized && seenPrompts.has(normalized)) fail.push(at + " duplicates another normalized English prompt");
   seenPrompts.add(normalized);
 }
+if (questions.length !== 150) fail.push("The current draft pack must contain exactly 150 questions");
+if (counts.beginner !== 33 || counts.intermediate !== 48 || counts.advanced !== 69) fail.push("Difficulty totals must be 33 Beginner / 48 Intermediate / 69 Advanced");
+if (translationCounts.beginner !== 3 || translationCounts.intermediate !== 12 || translationCounts.advanced !== 21) fail.push("Chinese translation question totals must be 3 Beginner / 12 Intermediate / 21 Advanced");
 if (fail.length) {
   console.error("Quiz content validation failed:");
   for (const issue of fail) console.error(" - " + issue);
@@ -79,9 +92,10 @@ if (fail.length) {
 if (!emitSql) console.log("Quiz content validation passed.");
 if (!emitSql) console.log("Draft items: " + questions.length);
 for (const difficulty of ["beginner", "intermediate", "advanced"]) {
-  if (!emitSql) console.log(difficulty + ": " + counts[difficulty] + " questions across " + topics[difficulty].size + " topics");
+  if (!emitSql) console.log(difficulty + ": " + counts[difficulty] + " total (" + knowledgeCounts[difficulty] + " knowledge, " + translationCounts[difficulty] + " Chinese translation) across " + topics[difficulty].size + " topics");
 }
-if (!emitSql) console.log("Availability gates (approved content only; draft counts do not enable any difficulty):");
+if (!emitSql) console.log("The 36 Chinese translation questions are Mock User preview content only until authenticated Quiz question_type support is implemented.");
+if (!emitSql) console.log("Availability gates below use the 114 knowledge questions only; draft counts do not enable any difficulty.");
 if (!emitSql) console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum, " + counts.beginner + "/30 target");
 if (!emitSql) console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
 if (!emitSql) console.log("Advanced minimum 32 advanced + 8 intermediate + 8 beginner; target 48 + 12 + 12.");
@@ -90,7 +104,8 @@ if (!emitSql) console.log("All source content remains draft and must receive hum
 if (emitSql) {
   const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
   const json = value => lit(JSON.stringify(value)) + "::jsonb";
-  const rows = questions.map(q => {
+  const exportQuestions = questions.filter(q => (q.question_type ?? "knowledge") === "knowledge");
+  const rows = exportQuestions.map(q => {
     const source = lessons[q.source_lesson_id];
     return "(" + [
       lit(q.question_id), "1", lit(raw.learning_language_code),
@@ -103,6 +118,7 @@ if (emitSql) {
   });
   const sql = [
     "-- Generated from " + file + ". Drafts only; never auto-approve.",
+    "-- Chinese translation assessment rows are omitted until database question_type support is implemented.",
     "begin;",
     "insert into private.quiz_question_bank (",
     "  question_id, revision, learning_language_code, translation_language_code,",

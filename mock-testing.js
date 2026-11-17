@@ -227,7 +227,8 @@
         if(!bankResponse.ok||!mapResponse.ok) throw new Error("The draft Quiz question bank could not be loaded in Mock Test Mode.");
         const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
         if(bank.status!=="draft") throw new Error("Mock Quiz may load only content explicitly marked as draft.");
-        if(!Array.isArray(bank.questions)||bank.questions.length!==114) throw new Error("The draft Quiz bank must contain exactly 114 questions.");
+        if(!Array.isArray(bank.questions)||bank.questions.length!==150) throw new Error("The draft Quiz bank must contain exactly 150 questions.");
+        const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\\s\\p{P}\\p{S}]+/gu,"");
         const mapped=bank.questions.map(question=>{
           const source=curriculum[question.source_lesson_id];
           if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty)) throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
@@ -236,11 +237,18 @@
           if(!question.options.some(option=>option.id===question.correct_option_id)) throw new Error("A draft Quiz answer key is invalid: "+question.question_id);
           if(!question.explanation_learning||!question.explanation_translation) throw new Error("A draft Quiz explanation is incomplete: "+question.question_id);
           if(question.options.some(option=>!option.id||!option.learning_text||!option.translation_text)) throw new Error("A draft Quiz option is incomplete: "+question.question_id);
-          return {...question,topic_id:source.topic_id,source_difficulty:source.difficulty};
+          if(new Set(question.options.map(option=>normalizeOption(option.learning_text))).size!==4) throw new Error("A draft Quiz question contains duplicate English options: "+question.question_id);
+          if(new Set(question.options.map(option=>normalizeOption(option.translation_text))).size!==4) throw new Error("A draft Quiz question contains duplicate Chinese options: "+question.question_id);
+          const questionType=question.question_type||"knowledge";
+          if(!["knowledge","chinese_translation"].includes(questionType)) throw new Error("A draft Quiz question has an unsupported question type: "+question.question_id);
+          if(questionType==="chinese_translation"&&question.answer_language_code!=="zh") throw new Error("A Chinese translation question must target Simplified Chinese: "+question.question_id);
+          return {...question,question_type:questionType,topic_id:source.topic_id,source_difficulty:source.difficulty};
         });
         const counts=mapped.reduce((result,question)=>(result[question.source_difficulty]++,result),{beginner:0,intermediate:0,advanced:0});
-        if(counts.beginner!==30||counts.intermediate!==36||counts.advanced!==48) throw new Error("The draft Quiz bank difficulty totals do not match the expected 30/36/48 distribution.");
-        return {questions:mapped,counts};
+        const translationCounts=mapped.filter(question=>question.question_type==="chinese_translation").reduce((result,question)=>(result[question.source_difficulty]++,result),{beginner:0,intermediate:0,advanced:0});
+        if(counts.beginner!==33||counts.intermediate!==48||counts.advanced!==69) throw new Error("The draft Quiz bank difficulty totals do not match the expected 33/48/69 distribution.");
+        if(translationCounts.beginner!==3||translationCounts.intermediate!==12||translationCounts.advanced!==21) throw new Error("The Chinese integration bank must contain 3/12/21 questions by difficulty.");
+        return {questions:mapped,counts,translationCounts};
       })().catch(error=>{quizDraftBankPromise=null;throw error;});
     }
     return quizDraftBankPromise;
@@ -250,7 +258,7 @@
     for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}
     return result;
   }
-  async function quizMockQuestions(sessionId,difficulty) {
+  async function quizMockQuestions(sessionId,difficulty,translationLanguageCode="zh") {
     const bank=await loadQuizDraftBank();
     const composition=difficulty==="beginner"
       ? {beginner:10}
@@ -258,18 +266,24 @@
         ? {intermediate:12,beginner:3}
         : {advanced:12,intermediate:6,beginner:2};
     const selected=[];
+    const chineseTargetCount=translationLanguageCode==="zh"?({beginner:1,intermediate:4,advanced:7}[difficulty]||0):0;
+    if(chineseTargetCount){
+      const translationPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="chinese_translation");
+      if(translationPool.length<chineseTargetCount) throw new Error("Not enough Chinese translation questions for "+difficulty+" Quiz.");
+      selected.push(...shuffled(translationPool).slice(0,chineseTargetCount));
+      composition[difficulty]-=chineseTargetCount;
+    }
     for(const [level,amount] of Object.entries(composition)) {
-      const pool=bank.questions.filter(question=>question.source_difficulty===level);
-      if(pool.length<amount) throw new Error("Not enough draft Quiz questions for "+level+" difficulty.");
+      const pool=bank.questions.filter(question=>question.source_difficulty===level&&(question.question_type||"knowledge")==="knowledge");
+      if(pool.length<amount) throw new Error("Not enough draft Quiz knowledge questions for "+level+" difficulty.");
       selected.push(...shuffled(pool).slice(0,amount));
     }
     return shuffled(selected).map((question,index)=>{
-      const options=shuffled(question.options).map(option=>({
-        id:option.id,learning_text:option.learning_text,translation_text:option.translation_text
-      }));
+      const options=shuffled(question.options).map(option=>({id:option.id,learning_text:option.learning_text,translation_text:option.translation_text}));
       return {
         question_id:question.question_id,source_lesson_id:question.source_lesson_id,
-        topic_id:question.topic_id,source_difficulty:question.source_difficulty,position:index+1,
+        topic_id:question.topic_id,source_difficulty:question.source_difficulty,question_type:question.question_type||"knowledge",
+        answer_language_code:question.answer_language_code||null,position:index+1,
         prompt_learning:question.prompt_learning,prompt_translation:question.prompt_translation,
         options,selected_option_id:null,correct_option_id:question.correct_option_id,
         explanation_learning:question.explanation_learning,explanation_translation:question.explanation_translation
@@ -281,7 +295,7 @@
     return {
       session_id:session.session_id,difficulty:session.difficulty,status:session.status,
       question_count:session.question_count,current_position:session.current_position,
-      learning_language_code:"en",translation_language_code:"zh",
+      learning_language_code:session.learning_language_code||"en",translation_language_code:session.translation_language_code||"zh",
       source_composition:session.source_composition,started_at:session.started_at,
       completed_at:session.completed_at||null,correct_count:session.correct_count??null,
       percentage:session.percentage??null,
@@ -334,8 +348,10 @@
       if(!["beginner","intermediate","advanced"].includes(difficulty))return {data:null,error:error("Invalid Quiz difficulty.","22023")};
       const count=difficulty==="beginner"?10:difficulty==="intermediate"?15:20;
       const sessionId="mock-quiz-session-"+(++sequence);
-      const questions=await quizMockQuestions(sessionId,difficulty);
-      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,source_composition:difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10",started_at:now(),completed_at:null,questions};
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const translationLanguageCode=preference.translation_language==="en"?"en":"zh";
+      const questions=await quizMockQuestions(sessionId,difficulty,translationLanguageCode);
+      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,learning_language_code:"en",translation_language_code:translationLanguageCode,source_composition:difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10",started_at:now(),completed_at:null,questions};
       (tables.quiz_sessions||=[]).push(session);persist(db);
       return {data:quizMockPayload(session),error:null};
     }

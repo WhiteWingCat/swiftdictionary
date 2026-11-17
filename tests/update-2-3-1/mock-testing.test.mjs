@@ -238,6 +238,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   const started=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
   assert.equal(started.error,null);
   assert.equal(started.data.questions.length,10);
+  assert.equal(started.data.questions.filter(question=>question.question_type==="chinese_translation").length,1);
   const active=await client.rpc("get_my_active_quiz");
   assert.equal(active.data.session_id,started.data.session_id);
   assert.equal(active.data.questions.length,10);
@@ -294,6 +295,7 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   assert.equal(availability.data.allowance.daily_limit,3);
   const abandoned=await client.rpc("start_my_quiz",{p_difficulty:"advanced"});
   assert.equal(abandoned.data.questions.length,20);
+  assert.equal(abandoned.data.questions.filter(question=>question.question_type==="chinese_translation").length,7);
   assert.deepEqual(
     abandoned.data.questions.reduce((counts,question)=>(counts[question.source_difficulty]=(counts[question.source_difficulty]||0)+1,counts),{}),
     {advanced:12,intermediate:6,beginner:2}
@@ -308,6 +310,8 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   for(const difficulty of ["intermediate","beginner","advanced"]){
     const started=await client.rpc("start_my_quiz",{p_difficulty:difficulty});
     const session=started.data.session||started.data;
+    const expectedChineseQuestions={beginner:1,intermediate:4,advanced:7}[difficulty];
+    assert.equal(session.questions.filter(question=>question.question_type==="chinese_translation").length,expectedChineseQuestions);
     for(const question of session.questions){
       const saved=await client.rpc("save_my_quiz_answer",{
         p_session_id:session.session_id,p_question_id:question.question_id,
@@ -347,4 +351,16 @@ test("learning page introduction dismissals persist per page and mock account",a
   rows=await client.from("learning_page_introduction_preferences")
     .select("page_key").eq("user_id","mock-user-a");
   assert.deepEqual(Array.from(rows.data,row=>row.page_key).sort(),["lessons","quiz"]);
+});
+
+
+test("Mock Quiz includes Chinese integration only when Chinese is the selected translation",async()=>{
+  const env=makeContext("feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const updated=await client.from("user_preferences").update({translation_language:"en"}).eq("user_id","mock-user-a");
+  assert.equal(updated.error,null);
+  const started=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
+  assert.equal(started.error,null);
+  assert.equal(started.data.translation_language_code,"en");
+  assert.equal(started.data.questions.filter(question=>question.question_type==="chinese_translation").length,0);
 });

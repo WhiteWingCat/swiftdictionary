@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "content_pack": "swift-quiz-en-zh-beginner-batch-01",
+  "content_pack": "swift-quiz-en-zh-knowledge-and-translation-draft",
   "learning_language_code": "en",
   "translation_language_code": "zh",
   "status": "draft",
-  "notes": "Authored SwiftDictionary content. Not imported or approved for learner use. Every item requires human review before approval.",
+  "notes": "Authored SwiftDictionary content. Draft only; not approved or published. The original 114 knowledge questions are supplemented by 36 Chinese-translation assessment questions (3 Beginner, 12 Intermediate, 21 Advanced) for Mock User preview. All items require human editorial review before learner use. The SQL exporter deliberately excludes the 36 translation-assessment items until the authenticated Quiz schema and RPCs support question_type.",
   "questions": [
     {
       "question_id": "quiz-beginner-001",
@@ -356,22 +356,22 @@
         {
           "id": "a",
           "learning_text": "many",
-          "translation_text": "许多（可数）"
+          "translation_text": "许多（用于可数名词）"
         },
         {
           "id": "b",
           "learning_text": "a few",
-          "translation_text": "几个"
+          "translation_text": "少数几个"
         },
         {
           "id": "c",
           "learning_text": "much",
-          "translation_text": "多少（不可数）"
+          "translation_text": "多少（用于不可数名词）"
         },
         {
           "id": "d",
           "learning_text": "several",
-          "translation_text": "几个"
+          "translation_text": "好几个"
         }
       ],
       "correct_option_id": "c",
@@ -443,18 +443,18 @@
     {
       "question_id": "quiz-beginner-015",
       "source_lesson_id": "b-sentence",
-      "prompt_learning": "Choose the correct question.",
+      "prompt_learning": "Choose the simple-present question that correctly uses “does” with “he” and asks about working here.",
       "prompt_translation": "选择正确的疑问句。",
       "options": [
         {
           "id": "a",
-          "learning_text": "Does he works here?",
-          "translation_text": "他在这里工作吗？"
+          "learning_text": "Does he work there?",
+          "translation_text": "他在那边工作吗？"
         },
         {
           "id": "b",
-          "learning_text": "Do he work here?",
-          "translation_text": "他在这里工作吗？"
+          "learning_text": "Do they work here?",
+          "translation_text": "他们在这里工作吗？"
         },
         {
           "id": "c",
@@ -463,8 +463,8 @@
         },
         {
           "id": "d",
-          "learning_text": "Does he work at here?",
-          "translation_text": "他在这里工作吗？"
+          "learning_text": "Is he working here?",
+          "translation_text": "他现在正在这里工作吗？"
         }
       ],
       "correct_option_id": "c",
@@ -536,23 +536,23 @@
     {
       "question_id": "quiz-beginner-018",
       "source_lesson_id": "b-present",
-      "prompt_learning": "Choose the correct negative sentence.",
+      "prompt_learning": "Choose the grammatically correct negative sentence about coffee.",
       "prompt_translation": "选择正确的否定句。",
       "options": [
         {
           "id": "a",
-          "learning_text": "They doesn't like coffee.",
-          "translation_text": "他们不喜欢咖啡。"
+          "learning_text": "They doesn't like milk.",
+          "translation_text": "他们不喜欢牛奶。"
         },
         {
           "id": "b",
-          "learning_text": "They not like coffee.",
-          "translation_text": "他们不喜欢咖啡。"
+          "learning_text": "They not like tea.",
+          "translation_text": "他们不喜欢茶。"
         },
         {
           "id": "c",
-          "learning_text": "They don't likes coffee.",
-          "translation_text": "他们不喜欢咖啡。"
+          "learning_text": "They don't likes juice.",
+          "translation_text": "他们不喜欢果汁。"
         },
         {
           "id": "d",
@@ -567,28 +567,28 @@
     {
       "question_id": "quiz-beginner-019",
       "source_lesson_id": "b-present",
-      "prompt_learning": "Choose the correct present simple sentence about a habit.",
+      "prompt_learning": "Choose the correct present-simple sentence that describes a regular habit.",
       "prompt_translation": "选择描述习惯的正确一般现在时句子。",
       "options": [
         {
           "id": "a",
           "learning_text": "She walks to work every day.",
-          "translation_text": "她每天步行上班。"
+          "translation_text": "她每天步行去上班。"
         },
         {
           "id": "b",
-          "learning_text": "She walk to work every day.",
-          "translation_text": "她每天步行上班。"
+          "learning_text": "She walked to work yesterday.",
+          "translation_text": "她昨天步行去上班。"
         },
         {
           "id": "c",
-          "learning_text": "She walking to work every day.",
-          "translation_text": "她每天步行上班。"
+          "learning_text": "She is walking to work now.",
+          "translation_text": "她现在正步行去上班。"
         },
         {
           "id": "d",
-          "learning_text": "She walkes to work every day.",
-          "translation_text": "她每天步行上班。"
+          "learning_text": "She will walk to work tomorrow.",
+          "translation_text": "她明天会步行去上班。"
         }
       ],
       "correct_option_id": "a",
@@ -821,22 +821,22 @@
         {
           "id": "a",
           "learning_text": "There is",
-          "translation_text": "有（单数）"
+          "translation_text": "房间里有一把椅子。"
         },
         {
           "id": "b",
           "learning_text": "It are",
-          "translation_text": "它们是"
+          "translation_text": "它们是三把椅子。"
         },
         {
           "id": "c",
           "learning_text": "There are",
-          "translation_text": "有（复数）"
+          "translation_text": "房间里有三把椅子。"
         },
         {
           "id": "d",
-          "learning_text": "They is",
-          "translation_text": "它们是"
+          "learning_text": "They has",
+          "translation_text": "它们有三把椅子。"
         }
       ],
       "correct_option_id": "c",
@@ -908,28 +908,28 @@
     {
       "question_id": "quiz-beginner-030",
       "source_lesson_id": "b-present",
-      "prompt_learning": "Which sentence places the adverb of frequency before the main verb, its usual position?",
+      "prompt_learning": "Which sentence uses “usually” before the main verb and says that she drinks tea in the evening?",
       "prompt_translation": "哪个句子把频率副词放在主要动词之前，也就是它通常的位置？",
       "options": [
         {
           "id": "a",
-          "learning_text": "She drinks usually tea in the evening.",
-          "translation_text": "她晚上通常喝茶。"
+          "learning_text": "She usually drinks tea in the morning.",
+          "translation_text": "她通常早上喝茶。"
         },
         {
           "id": "b",
-          "learning_text": "She drinks tea usually in the evening.",
-          "translation_text": "她晚上通常喝茶。"
+          "learning_text": "She usually drinks tea in the evening.",
+          "translation_text": "她通常在晚上喝茶。"
         },
         {
           "id": "c",
-          "learning_text": "She usually drinks tea in the evening.",
-          "translation_text": "她晚上通常喝茶。"
+          "learning_text": "She drinks tea usually in the evening.",
+          "translation_text": "她喝茶通常是在晚上。"
         },
         {
           "id": "d",
-          "learning_text": "She drinks tea in the evening usually.",
-          "translation_text": "她晚上通常喝茶。"
+          "learning_text": "She drinks tea in the evening every day.",
+          "translation_text": "她每天晚上喝茶。"
         }
       ],
       "correct_option_id": "c",
@@ -1776,7 +1776,7 @@
     {
       "question_id": "quiz-intermediate-028",
       "source_lesson_id": "i-perfect",
-      "prompt_learning": "Choose the correct sentence using “yet” in a negative present perfect statement.",
+      "prompt_learning": "Choose the negative present-perfect sentence using “yet” to show that the report is still unfinished.",
       "prompt_translation": "选择在现在完成时否定句中正确使用“yet”的句子。",
       "options": [
         {
@@ -1786,18 +1786,18 @@
         },
         {
           "id": "b",
-          "learning_text": "I haven't yet finish the report.",
-          "translation_text": "我还没有完成报告。"
+          "learning_text": "I haven't yet sent the report.",
+          "translation_text": "我还没有发送报告。"
         },
         {
           "id": "c",
-          "learning_text": "I don't have finished the report yet.",
-          "translation_text": "我还没有完成报告。"
+          "learning_text": "I don't have to finish the report yet.",
+          "translation_text": "我现在还不必完成报告。"
         },
         {
           "id": "d",
-          "learning_text": "I hadn't finish the report yet.",
-          "translation_text": "我当时还没有完成报告。"
+          "learning_text": "I hadn't finished the report by noon.",
+          "translation_text": "到中午时我还没有完成报告。"
         }
       ],
       "correct_option_id": "a",
@@ -1807,7 +1807,7 @@
     {
       "question_id": "quiz-intermediate-029",
       "source_lesson_id": "i-perfect",
-      "prompt_learning": "Choose the correct sentence to show that the guests left before now.",
+      "prompt_learning": "Choose the present-perfect sentence showing that all the guests left before now.",
       "prompt_translation": "选择正确的句子，表示客人已经在现在之前离开。",
       "options": [
         {
@@ -1817,18 +1817,18 @@
         },
         {
           "id": "b",
-          "learning_text": "The guests has already left.",
-          "translation_text": "客人已经离开了。"
+          "learning_text": "The guest has already left.",
+          "translation_text": "那位客人已经离开了。"
         },
         {
           "id": "c",
-          "learning_text": "The guests have already leave.",
-          "translation_text": "客人已经离开了。"
+          "learning_text": "The guests have already arrived.",
+          "translation_text": "客人已经到了。"
         },
         {
           "id": "d",
-          "learning_text": "The guests already leaving.",
-          "translation_text": "客人已经离开了。"
+          "learning_text": "The guests were already leaving.",
+          "translation_text": "客人当时已经在离开了。"
         }
       ],
       "correct_option_id": "a",
@@ -2613,28 +2613,28 @@
     {
       "question_id": "quiz-advanced-019",
       "source_lesson_id": "a-inversion",
-      "prompt_learning": "Choose the correct completion: At no point ___ of the change to the contract.",
+      "prompt_learning": "Choose the passive inversion form that correctly completes: “At no point ___ of the change to the contract.”",
       "prompt_translation": "选择正确的补全：在任何时候，客户都没有被告知合同变更。",
       "options": [
         {
           "id": "a",
-          "learning_text": "the client was informed",
-          "translation_text": "客户被告知"
+          "learning_text": "the client received notice",
+          "translation_text": "客户收到了变更通知。"
         },
         {
           "id": "b",
-          "learning_text": "did the client informed",
-          "translation_text": "客户告知"
+          "learning_text": "did the client inform",
+          "translation_text": "客户告知了变更事项。"
         },
         {
           "id": "c",
           "learning_text": "was the client informed",
-          "translation_text": "客户被告知"
+          "translation_text": "客户被告知了合同变更。"
         },
         {
           "id": "d",
-          "learning_text": "the client did informed",
-          "translation_text": "客户确实告知"
+          "learning_text": "the client did inform",
+          "translation_text": "客户确实通知了相关人员。"
         }
       ],
       "correct_option_id": "c",
@@ -3539,6 +3539,1194 @@
       "correct_option_id": "b",
       "explanation_learning": "“Credible” means believable or worthy of trust; “credulous” describes someone too ready to believe things.",
       "explanation_translation": "“Credible”表示可信或值得信赖；“credulous”形容一个人过于轻信。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-001",
+      "source_lesson_id": "b-verb-combinations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “I usually have breakfast at home.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I usually eat breakfast at home.",
+          "translation_text": "我通常在家吃早餐。"
+        },
+        {
+          "id": "b",
+          "learning_text": "I ate breakfast at home yesterday.",
+          "translation_text": "我昨天在家吃了早餐。"
+        },
+        {
+          "id": "c",
+          "learning_text": "I usually cook dinner at home.",
+          "translation_text": "我通常在家做晚餐。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I usually eat lunch at home.",
+          "translation_text": "我通常在家吃午餐。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-002",
+      "source_lesson_id": "b-present",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “She goes to work by bus every day.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She travels to work by bus each day.",
+          "translation_text": "她每天坐公交车去上班。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She travelled to work by bus yesterday.",
+          "translation_text": "她昨天坐公交车去上班。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She takes a bus home from work every day.",
+          "translation_text": "她每天坐公交车下班回家。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She drives to work every day.",
+          "translation_text": "她每天开车去上班。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-beginner-zh-003",
+      "source_lesson_id": "b-articles",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “There is a book on the table.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "A book is under the table.",
+          "translation_text": "桌子下面有一本书。"
+        },
+        {
+          "id": "b",
+          "learning_text": "There are several books on the table.",
+          "translation_text": "桌子上有几本书。"
+        },
+        {
+          "id": "c",
+          "learning_text": "One book is on the table.",
+          "translation_text": "桌子上有一本书。"
+        },
+        {
+          "id": "d",
+          "learning_text": "A book is beside the table.",
+          "translation_text": "桌子旁边有一本书。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-001",
+      "source_lesson_id": "i-collocations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “After considering the options, she made a decision.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "After weighing the choices, she decided.",
+          "translation_text": "她考虑了各种选择后，做出了决定。"
+        },
+        {
+          "id": "b",
+          "learning_text": "After weighing the choices, she changed the plan.",
+          "translation_text": "她考虑了各种选择后，改变了计划。"
+        },
+        {
+          "id": "c",
+          "learning_text": "After weighing the choices, she postponed the meeting.",
+          "translation_text": "她考虑了各种选择后，推迟了会议。"
+        },
+        {
+          "id": "d",
+          "learning_text": "After weighing the choices, she raised a question.",
+          "translation_text": "她考虑了各种选择后，提出了一个问题。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-002",
+      "source_lesson_id": "i-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “If I had more time, I would sign up for the course.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "If I had more time, I would already have finished the course.",
+          "translation_text": "如果我有更多时间，我就已经完成这门课程了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "If I had more time, I would enrol in the course.",
+          "translation_text": "如果我有更多时间，我就会报名参加这门课程。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Because I have more time, I have enrolled in the course.",
+          "translation_text": "因为我有更多时间，所以我已经报名参加这门课程了。"
+        },
+        {
+          "id": "d",
+          "learning_text": "If I had less time, I would teach the course.",
+          "translation_text": "如果我有更少的时间，我就会教授这门课程。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-003",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “The meeting was put off until Friday.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The meeting was moved forward to Monday.",
+          "translation_text": "会议提前到星期一举行。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The meeting was cancelled on Friday.",
+          "translation_text": "会议在星期五被取消了。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The meeting was postponed to Friday.",
+          "translation_text": "会议被推迟到星期五。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The meeting began on Friday as planned.",
+          "translation_text": "会议按计划在星期五开始了。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-004",
+      "source_lesson_id": "i-perfect",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “I have been working here for three years.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I worked here for three years in the past.",
+          "translation_text": "我以前曾在这里工作过三年。"
+        },
+        {
+          "id": "b",
+          "learning_text": "I will work here for another three years.",
+          "translation_text": "我还会在这里工作三年。"
+        },
+        {
+          "id": "c",
+          "learning_text": "I worked here for three years and then left.",
+          "translation_text": "我在这里工作了三年后就离开了。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I started working here three years ago and still work here.",
+          "translation_text": "我已经在这里工作三年了。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-005",
+      "source_lesson_id": "i-word-families",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “The new policy will affect all staff.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The new rule will have an impact on every employee.",
+          "translation_text": "新政策将影响所有员工。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The new rule will replace every employee.",
+          "translation_text": "新政策将取代所有员工。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The new rule will protect every employee.",
+          "translation_text": "新政策将保护所有员工。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The new rule will train every employee.",
+          "translation_text": "新政策将培训所有员工。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-006",
+      "source_lesson_id": "i-collocations",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “We must take responsibility for the mistake.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "We must blame someone else for the mistake.",
+          "translation_text": "我们必须把这个错误归咎于别人。"
+        },
+        {
+          "id": "b",
+          "learning_text": "We must accept that we are accountable for the mistake.",
+          "translation_text": "我们必须为这个错误承担责任。"
+        },
+        {
+          "id": "c",
+          "learning_text": "We must correct the mistake immediately.",
+          "translation_text": "我们必须立即纠正这个错误。"
+        },
+        {
+          "id": "d",
+          "learning_text": "We must report the mistake to the manager.",
+          "translation_text": "我们必须向经理报告这个错误。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-007",
+      "source_lesson_id": "i-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Unless you hurry, you will miss the train.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "If you hurry, you will miss the train.",
+          "translation_text": "如果你快点，就会赶不上火车。"
+        },
+        {
+          "id": "b",
+          "learning_text": "You will miss the train even though you hurry.",
+          "translation_text": "即使你快点，你还是会赶不上火车。"
+        },
+        {
+          "id": "c",
+          "learning_text": "If you do not hurry, you will fail to catch the train.",
+          "translation_text": "除非你快点，否则就会赶不上火车。"
+        },
+        {
+          "id": "d",
+          "learning_text": "You can catch the train because you are not in a hurry.",
+          "translation_text": "因为你不着急，所以你能赶上火车。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-008",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “She ran into an old friend at the station.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She waited for an old friend at the station.",
+          "translation_text": "她在车站等一位老朋友。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She said goodbye to an old friend at the station.",
+          "translation_text": "她在车站向一位老朋友道别。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She called an old friend from the station.",
+          "translation_text": "她在车站给一位老朋友打电话。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She unexpectedly met an old friend at the station.",
+          "translation_text": "她在车站偶然遇见一位老朋友。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-009",
+      "source_lesson_id": "i-perfect",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “By the time we arrived, the film had started.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The film had begun before we got there.",
+          "translation_text": "我们到达时，电影已经开始了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The film ended before we got there.",
+          "translation_text": "我们到达时，电影已经结束了。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The film was about to begin when we got there.",
+          "translation_text": "我们到达时，电影即将开始。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The film was delayed until after we got there.",
+          "translation_text": "电影被推迟到我们到达之后才开始。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-010",
+      "source_lesson_id": "i-word-families",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “His explanation was convincing.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "His explanation was confusing.",
+          "translation_text": "他的解释令人困惑。"
+        },
+        {
+          "id": "b",
+          "learning_text": "His explanation was persuasive.",
+          "translation_text": "他的解释很有说服力。"
+        },
+        {
+          "id": "c",
+          "learning_text": "His explanation was unusually brief.",
+          "translation_text": "他的解释异常简短。"
+        },
+        {
+          "id": "d",
+          "learning_text": "His explanation was incomplete.",
+          "translation_text": "他的解释并不完整。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-011",
+      "source_lesson_id": "i-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Even if it rains, the event will continue.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "If it rains, the event will be cancelled.",
+          "translation_text": "如果下雨，活动就会取消。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The event will continue only if it does not rain.",
+          "translation_text": "只有不下雨，活动才会继续。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The event will go ahead despite the possibility of rain.",
+          "translation_text": "即使下雨，活动也会继续举行。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The event has already ended because it rained.",
+          "translation_text": "因为下雨，活动已经结束了。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-intermediate-zh-012",
+      "source_lesson_id": "i-phrasal",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Please look after my younger brother while I am away.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Please take my younger brother to school while I am away.",
+          "translation_text": "我不在的时候，请送弟弟去学校。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Please call my younger brother while I am away.",
+          "translation_text": "我不在的时候，请给弟弟打电话。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Please look for my younger brother while I am away.",
+          "translation_text": "我不在的时候，请帮我寻找弟弟。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Please take care of my younger brother while I am away.",
+          "translation_text": "我不在的时候，请帮我照看弟弟。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-001",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “The findings appear to suggest that the measure may be effective.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The results seem to indicate that the measure could work.",
+          "translation_text": "研究结果似乎表明，这项措施可能有效。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The results prove that the measure always works.",
+          "translation_text": "研究结果证明，这项措施始终有效。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The results show that the measure has failed completely.",
+          "translation_text": "研究结果显示，这项措施已经彻底失败。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The results are unrelated to whether the measure works.",
+          "translation_text": "研究结果与这项措施是否有效无关。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-002",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “To some extent, the decline may be attributed to reduced demand.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The decline was entirely caused by increased demand.",
+          "translation_text": "这一下降完全是由需求增加造成的。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Part of the decline could be explained by lower demand.",
+          "translation_text": "在某种程度上，这一下降可能归因于需求减少。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The decline had no connection with demand.",
+          "translation_text": "这一下降与需求毫无关系。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Reduced demand was proven to be the only cause of the decline.",
+          "translation_text": "已有证据证明，需求减少是这一下降的唯一原因。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-003",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “These figures are broadly consistent with earlier estimates.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "These figures are completely different from earlier estimates.",
+          "translation_text": "这些数据与先前的估算完全不同。"
+        },
+        {
+          "id": "b",
+          "learning_text": "These figures replace all earlier estimates.",
+          "translation_text": "这些数据取代了所有先前的估算。"
+        },
+        {
+          "id": "c",
+          "learning_text": "These figures generally agree with previous estimates.",
+          "translation_text": "这些数据总体上与先前的估算一致。"
+        },
+        {
+          "id": "d",
+          "learning_text": "These figures cannot be compared with earlier estimates.",
+          "translation_text": "这些数据无法与先前的估算进行比较。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-004",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Further research would be needed to establish whether the intervention caused the improvement.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The intervention has already been proven to cause the improvement.",
+          "translation_text": "这项干预已经被证明导致了改善。"
+        },
+        {
+          "id": "b",
+          "learning_text": "No further research can explain the improvement.",
+          "translation_text": "没有进一步研究能够解释这项改善。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The improvement occurred before the intervention was introduced.",
+          "translation_text": "这项改善发生在干预措施推出之前。"
+        },
+        {
+          "id": "d",
+          "learning_text": "More study is required to determine whether the intervention caused the improvement.",
+          "translation_text": "仍需进一步研究，才能确定这项干预是否导致了改善。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-005",
+      "source_lesson_id": "a-hedging",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “While the evidence is compelling, it does not necessarily prove a causal relationship.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Although the evidence is persuasive, it may not establish cause and effect.",
+          "translation_text": "虽然证据很有说服力，但并不一定能证明因果关系。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The evidence is weak and rules out any possible relationship.",
+          "translation_text": "证据很薄弱，并排除了任何可能的关系。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The evidence conclusively proves that one event caused the other.",
+          "translation_text": "证据确凿地证明一个事件导致了另一个事件。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The evidence is compelling because no causal relationship exists.",
+          "translation_text": "证据很有说服力，因为不存在因果关系。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-006",
+      "source_lesson_id": "a-mixed-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Had I known about the delay, I would have left later.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Because I knew about the delay, I left earlier.",
+          "translation_text": "因为我知道会延误，所以我更早出发了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "If I had known the delay was coming, I would have departed later.",
+          "translation_text": "要是我早知道会延误，我就会晚些出发。"
+        },
+        {
+          "id": "c",
+          "learning_text": "I will leave later if I hear about a delay.",
+          "translation_text": "如果我听说会延误，我就会晚些出发。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I left later even though I knew there would be no delay.",
+          "translation_text": "尽管我知道不会延误，我还是晚些出发了。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-007",
+      "source_lesson_id": "a-inversion",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “No sooner had the announcement been made than the market reacted.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The market reacted long before the announcement was made.",
+          "translation_text": "公告发布很久以前，市场就作出了反应。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The announcement was delayed because the market reacted.",
+          "translation_text": "由于市场作出了反应，公告被推迟了。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The market responded immediately after the announcement was issued.",
+          "translation_text": "公告一发布，市场便立即作出反应。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The market announced that it would react at a later date.",
+          "translation_text": "市场宣布将在之后某个日期作出反应。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-008",
+      "source_lesson_id": "a-inversion",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Not only did the proposal reduce costs, but it also improved service quality.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The proposal reduced costs but made service quality worse.",
+          "translation_text": "该提案降低了成本，却使服务质量变差。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The proposal improved service quality without changing costs.",
+          "translation_text": "该提案提高了服务质量，但没有改变成本。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The proposal increased costs and reduced service quality.",
+          "translation_text": "该提案增加了成本，并降低了服务质量。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The proposal both lowered costs and raised service quality.",
+          "translation_text": "该提案不仅降低了成本，还提高了服务质量。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-009",
+      "source_lesson_id": "a-inversion",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “At no point should confidential information be shared with outsiders.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Confidential information must never be given to people outside the organisation.",
+          "translation_text": "在任何情况下都不应与外部人员分享机密信息。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Confidential information should be shared with all outsiders.",
+          "translation_text": "机密信息应该与所有外部人员分享。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Confidential information may be shared after a public announcement.",
+          "translation_text": "公开宣布之后，可以分享机密信息。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Outsiders are responsible for keeping confidential information secret.",
+          "translation_text": "外部人员有责任对机密信息保密。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-010",
+      "source_lesson_id": "a-mixed-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “If the team had acted sooner, it would not be facing such pressure now.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Because the team acted early, it is under pressure now.",
+          "translation_text": "因为团队很早就采取了行动，所以现在承受着压力。"
+        },
+        {
+          "id": "b",
+          "learning_text": "If the team had taken action earlier, it would not be under so much pressure now.",
+          "translation_text": "如果团队当时采取行动更早，现在就不会面临这么大的压力。"
+        },
+        {
+          "id": "c",
+          "learning_text": "If the team acts sooner tomorrow, it would not have faced pressure yesterday.",
+          "translation_text": "如果团队明天更早采取行动，昨天就不会承受压力。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The team is under pressure because it has already solved the problem.",
+          "translation_text": "团队承受着压力，因为它已经解决了问题。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-011",
+      "source_lesson_id": "a-mixed-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “If I were more organised, I would not have missed the deadline.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I became organised after I missed the deadline.",
+          "translation_text": "错过截止日期后，我才变得有条理。"
+        },
+        {
+          "id": "b",
+          "learning_text": "If I organise my work tomorrow, I will meet the deadline.",
+          "translation_text": "如果我明天安排好工作，就能赶上截止日期。"
+        },
+        {
+          "id": "c",
+          "learning_text": "If I were generally better organised, I would not have missed the deadline.",
+          "translation_text": "如果我平时更有条理，当时就不会错过截止日期。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I did not miss the deadline because I was disorganised.",
+          "translation_text": "我没有错过截止日期，因为我缺乏条理。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-012",
+      "source_lesson_id": "a-mixed-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Had the data been checked, the error would not now be affecting the results.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The data is being checked now, so the results were affected in the past.",
+          "translation_text": "现在正在核查数据，因此结果过去受到了影响。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The data was checked, and the results are now reliable.",
+          "translation_text": "数据已经核查过，因此结果现在可靠。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The error has stopped affecting the results because the data was checked.",
+          "translation_text": "由于数据已经核查，错误不再影响结果。"
+        },
+        {
+          "id": "d",
+          "learning_text": "If the data had been examined, the error would not still be influencing the results.",
+          "translation_text": "如果当时核查过数据，这个错误现在就不会影响结果。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-013",
+      "source_lesson_id": "a-mixed-conditionals",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “If she had accepted the offer, she would be living abroad now.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Had she taken the offer, she would now live in another country.",
+          "translation_text": "如果她当初接受了那份工作邀请，现在就会住在国外。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She accepted the offer and moved abroad last year.",
+          "translation_text": "她接受了邀请，并于去年搬到了国外。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She will accept the offer if she moves abroad.",
+          "translation_text": "如果她搬到国外，她就会接受这份邀请。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She declined the offer because she already lived abroad.",
+          "translation_text": "她拒绝了邀请，因为她当时已经住在国外。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-014",
+      "source_lesson_id": "a-idioms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “After months of negotiations, they finally broke the ice.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "After months of talks, they finally ended the negotiations.",
+          "translation_text": "经过数月谈判，他们终于结束了谈判。"
+        },
+        {
+          "id": "b",
+          "learning_text": "After months of talks, they finally eased the tension and began communicating.",
+          "translation_text": "经过数月谈判，他们终于打破了僵局。"
+        },
+        {
+          "id": "c",
+          "learning_text": "After months of talks, they finally postponed the negotiations.",
+          "translation_text": "经过数月谈判，他们终于推迟了谈判。"
+        },
+        {
+          "id": "d",
+          "learning_text": "After months of talks, they finally refused to meet again.",
+          "translation_text": "经过数月谈判，他们最终拒绝再次会面。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-015",
+      "source_lesson_id": "a-idioms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “His explanation only scratched the surface of the problem.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "His explanation solved every part of the problem.",
+          "translation_text": "他的解释解决了问题的所有方面。"
+        },
+        {
+          "id": "b",
+          "learning_text": "His explanation made the problem much worse.",
+          "translation_text": "他的解释使问题变得更加严重。"
+        },
+        {
+          "id": "c",
+          "learning_text": "His explanation dealt with only the most superficial part of the problem.",
+          "translation_text": "他的解释只是触及了问题的表面。"
+        },
+        {
+          "id": "d",
+          "learning_text": "His explanation avoided mentioning the problem entirely.",
+          "translation_text": "他的解释完全避开了这个问题。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-016",
+      "source_lesson_id": "a-idioms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “She decided to take the plunge and start her own business.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She decided to delay starting her own business.",
+          "translation_text": "她决定推迟创办自己的公司。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She decided to close her business permanently.",
+          "translation_text": "她决定永久关闭自己的公司。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She decided to invest in someone else's business.",
+          "translation_text": "她决定投资别人的公司。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She decided to take a bold step and establish her own company.",
+          "translation_text": "她决定鼓起勇气，创办自己的公司。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-017",
+      "source_lesson_id": "a-idioms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “Let's not jump to conclusions before we hear both sides.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "We should wait for both accounts before making a judgement.",
+          "translation_text": "在听取双方说法之前，我们先不要急于下结论。"
+        },
+        {
+          "id": "b",
+          "learning_text": "We should decide immediately without hearing either side.",
+          "translation_text": "我们应该不听任何一方的说法就立即作出决定。"
+        },
+        {
+          "id": "c",
+          "learning_text": "We should ask both sides to reach a conclusion separately.",
+          "translation_text": "我们应该让双方分别得出结论。"
+        },
+        {
+          "id": "d",
+          "learning_text": "We should ignore both sides and end the discussion.",
+          "translation_text": "我们应该忽略双方的意见并结束讨论。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-018",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “The manager's response was tactful despite the criticism.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The manager replied bluntly without considering anyone's feelings.",
+          "translation_text": "经理的回应很直接，几乎没有顾及他人的感受。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The manager responded with care and consideration despite being criticised.",
+          "translation_text": "尽管受到批评，经理的回应仍然很得体。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The manager became angry and argued with the critics.",
+          "translation_text": "经理变得愤怒，并与批评者争论起来。"
+        },
+        {
+          "id": "d",
+          "learning_text": "The manager refused to respond to the criticism at all.",
+          "translation_text": "经理完全没有回应这次批评。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-019",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “His comments were candid rather than harsh.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "His comments were honest and deliberately insulting.",
+          "translation_text": "他的评论坦率，而且刻意带有侮辱性。"
+        },
+        {
+          "id": "b",
+          "learning_text": "His comments were vague and avoided expressing an opinion.",
+          "translation_text": "他的评论含糊不清，避免表达任何立场。"
+        },
+        {
+          "id": "c",
+          "learning_text": "His comments were frank rather than unkind or severe.",
+          "translation_text": "他的评论是坦率的，而不是尖刻的。"
+        },
+        {
+          "id": "d",
+          "learning_text": "His comments were polite but completely dishonest.",
+          "translation_text": "他的评论虽然礼貌，却完全不诚实。"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-020",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “An incidental remark led to a useful discussion.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "A formal announcement led to a useful discussion.",
+          "translation_text": "一项正式声明引发了一场有益的讨论。"
+        },
+        {
+          "id": "b",
+          "learning_text": "A carefully prepared proposal led to a useful discussion.",
+          "translation_text": "一份经过精心准备的提案引发了一场有益的讨论。"
+        },
+        {
+          "id": "c",
+          "learning_text": "A public criticism led to a useful discussion.",
+          "translation_text": "一场公开批评引发了一场有益的讨论。"
+        },
+        {
+          "id": "d",
+          "learning_text": "A passing comment led to a useful discussion.",
+          "translation_text": "一句随口提及的话引发了一场有益的讨论。"
+        }
+      ],
+      "correct_option_id": "d",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
+    },
+    {
+      "question_id": "quiz-advanced-zh-021",
+      "source_lesson_id": "a-near-synonyms",
+      "question_type": "chinese_translation",
+      "answer_language_code": "zh",
+      "prompt_learning": "Choose the most accurate Simplified Chinese translation of: “She was reluctant to disclose the details before the review.”",
+      "prompt_translation": "请选择最准确、最自然的简体中文翻译。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She was unwilling to reveal the details before the review.",
+          "translation_text": "在审查之前，她不愿透露这些细节。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She willingly published every detail before the review.",
+          "translation_text": "在审查之前，她主动公开了所有细节。"
+        },
+        {
+          "id": "c",
+          "learning_text": "She asked for more details before the review.",
+          "translation_text": "在审查之前，她要求提供更多细节。"
+        },
+        {
+          "id": "d",
+          "learning_text": "She forgot the details before the review took place.",
+          "translation_text": "审查开始之前，她忘记了这些细节。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
+      "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。"
     }
   ]
 }

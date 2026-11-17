@@ -69,6 +69,10 @@ if (!mockTesting.includes("async function loadQuizDraftBank") || !mockTesting.in
 if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
   throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");
 }
+if (!mockTesting.includes('question.question_type==="chinese_translation"') || !html.includes('q.question_type==="chinese_translation"') ||
+    !html.includes("const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text")) {
+  throw new Error("Chinese integration questions must render Chinese answer choices as the primary answer text.");
+}
 if (!html.includes('class="course-selector-wrap course-selector-pill"') ||
     html.includes("courseControlTrigger") || html.includes("translationControlTrigger")) {
   throw new Error("Learning and translation language controls must be directly selectable with one interaction.");
