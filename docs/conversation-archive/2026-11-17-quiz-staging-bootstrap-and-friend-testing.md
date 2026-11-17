@@ -79,7 +79,7 @@ A separate staging OAuth client must be configured in Google Cloud and entered i
 
 An unintended set of three staging-only scaffolding commits briefly advanced `main`. Inspection confirmed they were the only three commits after the prior main head and added only staging bootstrap/verification files. The main ref was safely restored using a force-with-lease to the exact prior main SHA `90dc73a9b65fc3af713fefab4955057026089b96`. The main ref was re-read and confirmed at that SHA. The feature branch retains the staging work.
 
-No production Supabase migration, content import, production learner-data operation, production config change, merge or production deployment occurred. PR #8 remains draft and unmerged.
+No production Supabase migration, content import, production learner-data operation or production config change occurred. **A GitHub Pages production redeployment did occur**: the temporary main commit `287ea014b025ab4a00315510211c6b6bd9542b9e` triggered the `deploy` workflow, which successfully redeployed `https://whitewingcat.github.io/wordbook/`. Inspection of the commit diff confirmed it added only three files under `supabase/staging/`; it did not change `index.html`, `supabase-config.js`, or any deployed website asset, so the published website content/configuration was unchanged. The main ref was then restored using force-with-lease to its exact prior SHA `90dc73a9b65fc3af713fefab4955057026089b96`, and the ref was re-read to confirm. PR #8 remains draft and unmerged.
 
 ## Friend-testing gates
 
