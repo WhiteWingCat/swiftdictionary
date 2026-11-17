@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/wordbook  
-> **Last consolidated:** 2026-11-17 (Update 2.4.0 authenticated Quiz question-type support; 199-question draft bank)  
+> **Last consolidated:** 2026-11-17 (Update 2.4.0 authenticated Quiz question-type support; 199-question draft bank; staging environment bootstrapped)  
 > **Current baseline:** Update 2.3.3 is merged to main; six 2.3.0 Supabase migrations are applied to production. The separately approved Quiz allowance change is live at Free 1/day and Premium 3/day.  
-> **Current work:** Update 2.4.0 is on `feature/update-2-4-0-quiz`; PR #8 remains open and draft. Authenticated Quiz question-type support for knowledge, word-definition and Chinese-translation items has been implemented on the feature branch. The 199-question bilingual bank remains draft. A separate Supabase staging project exists but remains empty while a safe clean-schema bootstrap is unresolved.  
-> **Record status:** Quiz workflow #483 passed PostgreSQL 17, authenticated Chinese-mix and session-lifecycle RPC tests, 199-row draft import, disposable local Supabase Auth/RPC, authenticated Chromium and Supabase security-advisor checks. Companion 2.3.x regression workflow #1003 also passed. No Quiz schema/content was deployed to production, no production user data was changed by this work, and main was not modified or merged.
+> **Current work:** Update 2.4.0 remains on `feature/update-2-4-0-quiz`; PR #8 is open, draft and unmerged. Authenticated question-type support for knowledge, word-definition and Chinese-translation items is implemented. The hosted Indie Staging project has its clean baseline and all 12 ordered 2.3.x/2.4.0 migrations applied, but remains empty: zero Auth users, zero Quiz questions, zero sessions and zero learner data. The feature preview points to staging; Google OAuth setup is pending. The 199-question bank remains draft and has not been imported to hosted staging or production. The owner deferred manual accuracy review until friend testing; staging-only content activation still requires explicit confirmation.  
+> **Record status:** Clean bootstrap and migration CI #44070688629 passed PostgreSQL 17, disposable local Supabase Auth/RPC, authenticated Chromium and security-advisor checks. Hosted staging grant verification passed; its data-boundary check confirms zero users and zero content. Latest branch-head CI after the staging preview config commit was still running at the latest check. No production Quiz schema/content migration, production user-data operation, main merge or production deployment occurred.
 
 This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that the live application or production database matches a draft branch.
 
@@ -1839,3 +1839,23 @@ No production Quiz schema/content migration, production data operation, merge or
 The 199 questions remain draft and require full human bilingual accuracy review and explicit owner approval. The backend work adds no new personal-data category or analytics, but existing Quiz account-linked answers, scores, history and temporary no-repeat reservations remain subject to Malaysia PDPA and applicable international/16+ privacy review, including retention/deletion and cross-border disclosures. This is planning guidance, not legal advice.
 
 Next: confirm workflow #477, resolve any failures, complete human bilingual review before content approval, and keep production/main untouched until separate explicit release approval.
+
+
+## 40. Staging bootstrap and deferred friend-testing review (2026-11-17)
+
+The owner chose to defer the manual accuracy review of all 199 Quiz questions until friends can test the website and provide feedback. The review is postponed, not waived. No production content approval is granted. A separate explicit owner decision is required before the 199 questions are activated for staging-only test sessions.
+
+A clean staging bootstrap and post-migration grant checks were added under `supabase/staging/`; synthetic legacy Auth users and learner-history fixtures were split into a separate CI-only SQL file. The Quiz workflow uses the clean baseline, verifies it before fixtures, applies the 2.3.x/2.4.0 migration sequence and checks the grants. The hosted staging project `ivatvkfrtifgfheeaelj` (ACTIVE_HEALTHY, ap-southeast-1, PostgreSQL 17.12) now has the baseline plus all 12 ordered 2.3.x/2.4.0 migrations (13 migration records including baseline). Hosted grant verification passed. The database remains empty: zero Auth users, zero question-bank rows, zero approved questions, zero Quiz sessions, zero saved words and zero learning-history rows.
+
+The feature-branch `supabase-config.js` now points to staging and the public staging publishable key. Cloudflare Pages successfully deployed commit `794e8ab` to `https://a81b4f89.swiftdictionary-testing.pages.dev`. Production `main` config is unchanged. Staging Google OAuth remains unconfigured; callback URI is `https://ivatvkfrtifgfheeaelj.supabase.co/auth/v1/callback`. A separate Google OAuth client and allowlisted preview redirect URL must be configured before friends can sign in.
+
+CI:
+- Quiz workflow #44070688629 passed PostgreSQL 17 foundation, local Supabase/Auth/RPC, authenticated Chromium runtime and security advisors.
+- Companion 2.3.x workflow #1003 passed.
+- Hosted staging grant verification passed; hosted data-boundary checks confirmed zero users/content.
+- Hosted security advisors reported 7 INFO findings for private-schema RLS tables without policies (intentional, no client access) and 2 WARN findings for reviewed authenticated SECURITY DEFINER RPCs: `is_personal_learning_test_access()` (returns only the caller's own exemption status) and `record_completed_lesson_practice_result(...)` (checks authenticated ownership, approved catalogue membership and completed lesson before inserting a single aggregate summary). No ERROR findings were returned. Re-review if function bodies/grants change.
+- The latest branch-head CI after the preview-config commit was still running at the time of this record update.
+
+An unintended three-commit staging-scaffolding advance to `main` was detected. The commits contained only three staging bootstrap/verification files. The main ref was restored using a force-with-lease to its exact prior SHA `90dc73a9b65fc3af713fefab4955057026089b96`; a subsequent ref read confirmed that exact SHA. Feature branch retains all staging work. No production schema/data/config change, merge or production deployment occurred. PR #8 remains draft/unmerged.
+
+Next: complete latest branch-head CI; configure staging Google OAuth; confirm preview uses only staging; obtain explicit owner approval for staging-only activation of the 199 draft questions; then create isolated tester accounts, validate RLS/session/allowance/history-deletion behaviour, provide a concise privacy/test notice for the intended 16+ audience, and collect feedback for the deferred bilingual review. Malaysia PDPA and applicable international/teen privacy review remains a release gate. This is planning guidance, not legal advice.
