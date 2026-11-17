@@ -4,7 +4,7 @@
 **Repository:** `WhiteWingCat/wordbook`  
 **Production branch:** `main`  
 **Feature PR:** #8 — merged  
-**Follow-up PR:** #9 — open; aligns migration filenames with production-generated migration history
+**Follow-up PR:** #9 — merged as `44f913e6898fbc154105f097fe9501dbdac84ff2`; aligns migration filenames with production-generated migration history
 
 ## Owner decision
 
@@ -44,7 +44,7 @@ The Supabase migration connector records generated timestamp versions. The five 
 
 The existing Quiz allowance migration `20261116043139` was already recorded in production and was not reapplied. Existing 2.3.x migrations were also left untouched.
 
-PR #9 renames the source migration files to the exact generated versions above and updates CI path references. Its SQL contents are unchanged. Do not merge any alternative filenames or reapply the migrations.
+PR #9 merged as `44f913e6898fbc154105f097fe9501dbdac84ff2`, renaming the source migration files to the exact generated versions above and updating CI path references. SQL contents are unchanged. The local source history now matches production migration history; do not reapply these migrations.
 
 ## Production content verification
 
@@ -106,5 +106,5 @@ The current app does not yet contain a formal public Privacy Notice or Terms pag
 1. Owner personally tests the live production website, especially authenticated Quiz start/resume, Chinese translation preference, definition questions, 1–7 Chinese question distribution, session scoring/review, allowances and history deletion.
 2. Collect friend feedback after providing the test/privacy notice. Friends are helping find usability, accuracy and regression issues that the owner may have missed.
 3. Use owner/friend feedback to correct the 199 bilingual questions and mapped lessons. Human accuracy review remains deferred until that feedback phase; it is not claimed complete.
-4. Merge PR #9 after its CI confirms migration filename/version alignment.
+4. PR #9 is merged; migration filenames and CI references now match production history.
 5. Keep Flashcards (2.5.0) and the dedicated Legal/Privacy/Terms foundation on their existing roadmap; do not treat this release as completion of those future items.
