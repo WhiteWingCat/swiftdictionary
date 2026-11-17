@@ -4,7 +4,7 @@
   "learning_language_code": "en",
   "translation_language_code": "zh",
   "status": "draft",
-  "notes": "Authored SwiftDictionary content. Draft only; not approved or published. The original 114 knowledge questions are supplemented by 36 Chinese-translation assessment questions (3 Beginner, 12 Intermediate, 21 Advanced) for Mock User preview. All items require human editorial review before learner use. The SQL exporter deliberately excludes the 36 translation-assessment items until the authenticated Quiz schema and RPCs support question_type.",
+  "notes": "199 original SwiftDictionary questions: 114 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review is deferred until live testing and friend feedback; structural validation does not certify educational accuracy.",
   "questions": [
     {
       "question_id": "quiz-beginner-001",
