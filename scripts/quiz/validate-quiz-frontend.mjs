@@ -73,7 +73,8 @@ if (!appScript.includes("function quizApplyPageTranslation") || !appScript.inclu
 if (!dailyLearning.includes('.select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")')) {
   throw new Error("Daily Learning must select the session ID before attempting expired-session cleanup.");
 }
-if (!appScript.includes("if(quizPageState.session&&sessionIsVisible) quizRenderSession();")) {
+if (!appScript.includes("const sessionIsVisible=!!quizPageState.session&&!quizEl(\"quizSession\").hidden;") ||
+    !appScript.includes("if(sessionIsVisible){quizPageState.sessionView=true;quizRenderSession();}")) {
   throw new Error("Changing translation from the Quiz overview must not auto-open an unfinished session.");
 }
 if (!appScript.includes("const requestedCourse=courseSelector.value||course||\"en\";") ||
