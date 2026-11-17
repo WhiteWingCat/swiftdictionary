@@ -77,6 +77,10 @@ if (!appScript.includes("const sessionIsVisible=!!quizPageState.session&&!quizEl
     !appScript.includes("if(sessionIsVisible){quizPageState.sessionView=true;quizRenderSession();}")) {
   throw new Error("Changing translation from the Quiz overview must not auto-open an unfinished session.");
 }
+if (!appScript.includes("const showQuizSession=quizSignedIn&&!showQuizResults&&!!quizPageState.session&&!!quizPageState.sessionView;") ||
+    !appScript.includes("const showQuizHome=quizSignedIn&&!showQuizResults&&!showQuizSession;")) {
+  throw new Error("Course availability must preserve the learner's selected Quiz subview.");
+}
 if (!appScript.includes('const quizViewBefore=location.hash==="#quiz"') ||
     !appScript.includes('if (quizViewBefore==="session" && quizPageState.session)') ||
     !appScript.includes('else if (quizViewBefore==="home")')) {
