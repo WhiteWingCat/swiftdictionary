@@ -42,3 +42,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [SwiftDictionary Indie staging approval and creation](2026-11-17-swiftdictionary-indie-staging-approval-and-creation.md) — isolated US$0/month staging project approval and creation; clean-schema bootstrap remains a blocker.
 - [Mock Quiz draft question-bank integration](2026-11-17-quiz-mock-draft-question-bank.md) — Mock User preview using the original 114 bilingual draft questions, followed by Dashboard review and selector fixes.
 - [Chinese-translation integration questions and Mock Quiz validation](2026-11-17-quiz-chinese-integration-questions.md) — owner-approved 1/4/7 distribution, 36 additional preview-only questions, duplicate-option validation, backend exclusion guard and passing CI runs #417/#974.
+
+- [Quiz curriculum alignment and expanded question variety](2026-11-17-quiz-lesson-alignment-and-question-variety.md) — full 199-question curriculum audit, bilingual lesson expansions, learning-objective traceability, one-definition-per-session and daily randomized Chinese integration.
