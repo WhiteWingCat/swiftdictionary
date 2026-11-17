@@ -20,7 +20,8 @@ The bootstrap:
 - Creates the base application tables and owner-scoped RLS policies needed by the 2.3.x/2.4.0 migrations.
 - Seeds only public reference rows (English/Simplified Chinese and initial plan-limit rows).
 - Contains no synthetic users, no user-specific rows, and no production data.
-- Uses least-privilege saved-word grants.
+- Uses least-privilege browser grants and explicit server-only `service_role` grants.
+- Revokes broad default privileges for future public tables/sequences, matching Supabase's post-2026-10-30 behavior.
 
 Only run it against the verified empty staging project. Do not rerun it after the application schema exists. If any application table is already present, stop and inspect rather than dropping or resetting anything.
 
