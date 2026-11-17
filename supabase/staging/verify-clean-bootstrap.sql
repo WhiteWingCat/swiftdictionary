@@ -3,9 +3,9 @@
 -- project and must not be run after real tester accounts have been created.
 
 create function public._staging_default_privilege_probe()
-returns void language plpgsql as $ begin return; end $;
+returns void language plpgsql as $staging_probe$ begin return; end $staging_probe$;
 
-do $
+do $verify$
 declare
   v_rls_missing text[];
 begin
@@ -83,6 +83,6 @@ begin
     raise exception 'Server-side service_role grants are incomplete';
   end if;
 end
-$;
+$verify$;
 
 drop function public._staging_default_privilege_probe();
