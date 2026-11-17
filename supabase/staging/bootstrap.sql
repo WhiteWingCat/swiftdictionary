@@ -10,6 +10,8 @@
 -- This is intentionally separate from supabase/migrations: it is a one-time
 -- staging-only baseline, not a production migration and not for main deployment.
 
+begin;
+
 -- Supabase provides the auth schema, roles, users, sessions and Auth helpers.
 create schema if not exists private;
 create table public.languages (
@@ -272,3 +274,4 @@ values
   ('premium', 'quiz', 12),
   ('premium', 'flashcard', 12);
 
+commit;
