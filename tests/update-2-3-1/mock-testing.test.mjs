@@ -4,6 +4,9 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const source = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
+const draftBank = JSON.parse(fs.readFileSync(new URL("../../content/quiz/questions.en-zh.draft.json", import.meta.url), "utf8"));
+const curriculumMap = JSON.parse(fs.readFileSync(new URL("../../content/quiz/curriculum-map.en.json", import.meta.url), "utf8"));
+const draftById = new Map(draftBank.questions.map(question => [question.question_id, question]));
 class FakeStorage {
   constructor(){ this.data=new Map(); }
   get length(){ return this.data.size; }
@@ -23,6 +26,14 @@ function makeContext(hostname,search="?swiftMock=1") {
   const context={
     window,document,location,localStorage,sessionStorage,Storage:FakeStorage,
     URLSearchParams,Intl,Date,JSON,String,Set,Array,Object,Number,Math,Promise,
+    fetch:async url=>({
+      ok:true,
+      async json(){
+        if(String(url).includes("questions.en-zh.draft.json")) return JSON.parse(JSON.stringify(draftBank));
+        if(String(url).includes("curriculum-map.en.json")) return JSON.parse(JSON.stringify(curriculumMap));
+        throw new Error("Unexpected mock fetch URL: "+url);
+      }
+    }),
     console:{log(){},info(){},warn(){},error(){}}
   };
   vm.runInNewContext(source,context,{filename:"mock-testing.js"});
@@ -231,18 +242,29 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(active.data.session_id,started.data.session_id);
   assert.equal(active.data.questions.length,10);
   const first=active.data.questions[0];
+  const firstDraft=draftById.get(first.question_id);
+  assert.ok(firstDraft,"Mock Quiz must use a real draft-bank question ID");
+  assert.equal(first.prompt_learning,firstDraft.prompt_learning);
+  assert.equal(first.prompt_translation,firstDraft.prompt_translation);
+  assert.equal(first.source_lesson_id,firstDraft.source_lesson_id);
+  assert.equal(first.correct_option_id,undefined,"Answer keys must stay hidden before submission");
+  assert.deepEqual(Array.from(first.options,option=>option.id).sort(),["a","b","c","d"]);
+  const firstCorrectOption=first.options.find(option=>option.id===firstDraft.correct_option_id);
+  assert.ok(firstCorrectOption);
   const saved=await client.rpc("save_my_quiz_answer",{
     p_session_id:active.data.session_id,p_question_id:first.question_id,
-    p_selected_option_id:"a",p_current_position:2
+    p_selected_option_id:firstCorrectOption.id,p_current_position:2
   });
-  assert.equal(saved.data.questions[0].selected_option_id,"a");
+  assert.equal(saved.data.questions[0].selected_option_id,firstCorrectOption.id);
   const blocked=await client.rpc("start_my_quiz",{p_difficulty:"intermediate"});
   assert.equal(blocked.data.status,"active_session_exists");
   for(const question of saved.data.questions){
     if(!question.selected_option_id){
+      const draft=draftById.get(question.question_id);
+      const correctOption=question.options.find(option=>option.id===draft.correct_option_id);
       const result=await client.rpc("save_my_quiz_answer",{
         p_session_id:active.data.session_id,p_question_id:question.question_id,
-        p_selected_option_id:"a",p_current_position:question.position
+        p_selected_option_id:correctOption.id,p_current_position:question.position
       });
       assert.equal(result.error,null);
     }
@@ -251,7 +273,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(submitted.error,null);
   assert.equal(submitted.data.status,"completed");
   assert.equal(submitted.data.percentage,100);
-  assert.equal(submitted.data.questions[0].correct_option_id,"a");
+  assert.equal(submitted.data.questions[0].correct_option_id,draftById.get(submitted.data.questions[0].question_id).correct_option_id);
   const history=await client.rpc("get_my_quiz_history",{p_limit:20});
   assert.equal(history.data.length,1);
   const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
@@ -270,6 +292,11 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
   assert.equal(availability.data.allowance.daily_limit,3);
   const abandoned=await client.rpc("start_my_quiz",{p_difficulty:"advanced"});
   assert.equal(abandoned.data.questions.length,20);
+  assert.deepEqual(
+    abandoned.data.questions.reduce((counts,question)=>(counts[question.source_difficulty]=(counts[question.source_difficulty]||0)+1,counts),{}),
+    {advanced:12,intermediate:6,beginner:2}
+  );
+  assert.ok(abandoned.data.questions.every(question=>draftById.has(question.question_id)));
   const activeStart=await client.rpc("start_my_quiz",{p_difficulty:"intermediate"});
   assert.equal(activeStart.data.status,"active_session_exists");
   const abandon=await client.rpc("abandon_my_quiz",{p_session_id:abandoned.data.session_id});
@@ -282,7 +309,7 @@ test("Premium mock Quiz supports abandonment without quota use and three complet
     for(const question of session.questions){
       const saved=await client.rpc("save_my_quiz_answer",{
         p_session_id:session.session_id,p_question_id:question.question_id,
-        p_selected_option_id:"a",p_current_position:question.position
+        p_selected_option_id:question.options.find(option=>option.id===draftById.get(question.question_id).correct_option_id).id,p_current_position:question.position
       });
       assert.equal(saved.error,null);
     }
