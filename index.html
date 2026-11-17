@@ -17367,6 +17367,7 @@
     let translationLanguage = storedCoursePreferences.translation_language === "zh" ? "zh" : "en";
     let words = course === "zh" ? chineseWords : englishWords;
     let preferenceWriteQueue = Promise.resolve();
+    let coursePreferenceSelectionVersion = 0;
     let selectedAvatar = "🐦";
     try { selectedAvatar = localStorage.getItem("swiftdictionary-avatar") || "🐦"; } catch {}
 
@@ -17850,6 +17851,7 @@
     updateGlobalCourseControlLabels();
 
     function rememberCoursePreferences() {
+      coursePreferenceSelectionVersion++;
       updateGlobalCourseControlLabels();
       const value = { learning_language: course, translation_language: translationLanguage };
       try { localStorage.setItem(preferenceStorageKey, JSON.stringify(value)); } catch {}
@@ -19126,15 +19128,16 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     async function quizSyncCoursePreferences(){
       if(!currentUser||!supabaseClient)return;
+      const selectionVersionAtStart=coursePreferenceSelectionVersion;
       const writesSettled=await Promise.race([
         preferenceWriteQueue.then(()=>true),
         new Promise(resolve=>setTimeout(()=>resolve(false),1500))
       ]);
-      if(!writesSettled)return;
+      if(!writesSettled||selectionVersionAtStart!==coursePreferenceSelectionVersion)return;
       const {data,error}=await supabaseClient.from("user_preferences")
         .select("learning_language,translation_language").eq("user_id",currentUser.id).maybeSingle();
       if(error)throw error;
-      if(!data)return;
+      if(!data||selectionVersionAtStart!==coursePreferenceSelectionVersion)return;
       const nextCourse=data.learning_language==="zh"?"zh":"en";
       const nextTranslation=data.translation_language==="zh"?"zh":"en";
       const courseChanged=course!==nextCourse;
