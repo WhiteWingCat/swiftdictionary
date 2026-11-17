@@ -83,3 +83,52 @@ select
   'This synthetic English-only snapshot has no Chinese translation.',
   'approved'
 from generate_series(1,30) n;
+
+
+-- Type-specific synthetic questions for the authenticated runtime tests.
+insert into private.quiz_question_bank(
+  question_id,revision,learning_language_code,translation_language_code,
+  source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,
+  prompt_learning,prompt_translation,options,correct_option_id,
+  explanation_learning,explanation_translation,status
+)
+select
+  d.prefix||'-runtime-def-'||d.lang||'-'||n,1,'en',d.lang,
+  d.prefix||'-runtime-lesson-'||(((n-1)%10)+1),'quiz-runtime-topic-'||(((n-1)%10)+1),
+  d.difficulty,'word_definition','en','runtime-objective-'||d.prefix,
+  'Definition runtime question '||n||' for '||d.lang,
+  'Definition runtime question '||n||' for '||d.lang,
+  jsonb_build_array(
+    jsonb_build_object('id','a','learning_text','Correct meaning','translation_text','正确含义'),
+    jsonb_build_object('id','b','learning_text','Wrong meaning one','translation_text','错误含义一'),
+    jsonb_build_object('id','c','learning_text','Wrong meaning two','translation_text','错误含义二'),
+    jsonb_build_object('id','d','learning_text','Wrong meaning three','translation_text','错误含义三')
+  ),
+  'a','Option A is the intended definition.','选项 A 是正确释义。','approved'
+from (values
+  ('b','beginner','zh'),('i','intermediate','zh'),('a','advanced','zh'),
+  ('b','beginner','en'),('i','intermediate','en'),('a','advanced','en')
+) d(prefix,difficulty,lang)
+cross join generate_series(1,3) n;
+
+insert into private.quiz_question_bank(
+  question_id,revision,learning_language_code,translation_language_code,
+  source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,
+  prompt_learning,prompt_translation,options,correct_option_id,
+  explanation_learning,explanation_translation,status
+)
+select
+  d.prefix||'-runtime-zh-'||n,1,'en','zh',
+  d.prefix||'-runtime-lesson-'||(((n-1)%10)+1),'quiz-runtime-topic-'||(((n-1)%10)+1),
+  d.difficulty,'chinese_translation','zh','runtime-objective-'||d.prefix,
+  'Choose the most accurate Simplified Chinese translation for runtime item '||n||'.',
+  '请选择运行测试题'||n||'最准确的简体中文翻译。',
+  jsonb_build_array(
+    jsonb_build_object('id','a','learning_text','Correct gloss','translation_text','正确翻译'),
+    jsonb_build_object('id','b','learning_text','Wrong gloss one','translation_text','错误翻译一'),
+    jsonb_build_object('id','c','learning_text','Wrong gloss two','translation_text','错误翻译二'),
+    jsonb_build_object('id','d','learning_text','Wrong gloss three','translation_text','错误翻译三')
+  ),
+  'a','Option A is the intended Chinese translation.','选项 A 是准确的中文翻译。','approved'
+from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
+cross join generate_series(1,7) n;
