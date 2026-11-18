@@ -31,7 +31,7 @@ for(const [needle,label] of [
   ["custom","Custom card support"]
 ])if(!flashcards.includes(needle))throw new Error("Missing "+label+".");
 if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="complete_my_flashcard_game"'))throw new Error("Mock User Flashcard game RPC support is missing.");
-if(!html.includes('flashcard:"Flashcards"')||!html.includes('activity_type:type,used_count:todayRows.filter'))throw new Error("Profile progress/allowance integration is missing.");
+if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
 if(!flashcards.includes("allowance.used_count")||!flashcards.includes("allowance.remaining"))throw new Error("Flashcards daily allowance display is missing.");
 if(!migration.includes("private.current_learning_allowance_usage(v_user,'flashcard',v_timezone)")||!migration.includes("public.get_my_flashcard_allowance()")||!migration.includes("delete from private.flashcard_mastery where user_id=v_user"))throw new Error("Server allowance or learning-history deletion integration is missing.");
 console.log("Flashcards page checks passed; syntax-checked "+inlineCount+" inline application script(s).");
