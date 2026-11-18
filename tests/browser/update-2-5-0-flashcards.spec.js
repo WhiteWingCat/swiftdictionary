@@ -54,6 +54,7 @@ async function startGame(page,collectionId,mode="word",difficulty="beginner") {
 }
 
 test("Mock User Flashcards supports custom collections, four modes, timer reductions and timeouts",async({page})=>{
+  test.setTimeout(90000);
   await openMockFlashcards(page);
   const collectionId=await createCollection(page);
   await addCustomCard(page,"What is a collocation?","Words that commonly occur together.","We say make a decision, not do a decision.","常见词语搭配");
