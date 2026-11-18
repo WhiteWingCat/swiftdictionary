@@ -190,6 +190,9 @@ test("Flashcard Mock User supports private collections, custom cards, mastery an
   assert.equal(data.data.cards.length,1);
   assert.equal(data.data.allowance.daily_limit,3);
   assert.equal(data.data.allowance.remaining,3);
+  const allowanceSummary=await client.rpc("get_my_flashcard_allowance");
+  assert.equal(allowanceSummary.data.daily_limit,3);
+  assert.equal(allowanceSummary.data.remaining,3);
 
   const abandoned=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
   assert.equal(abandoned.error,null);
