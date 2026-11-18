@@ -365,7 +365,7 @@
         const card=state.data.cards.find(c=>c.id===value);const choices=state.data.collections.filter(c=>c.id!==card.collection_id);
         if(!choices.length){notice("Create another collection before moving this card.");return;}
         const chosen=prompt("Enter the destination collection name:\n"+choices.map(c=>c.name).join("\n"));
-        const target=choices.find(c=>c.name.toLowerCase()===String(chosen||"").toLowerCase());if(target)await cardAction("move",card,target.id);return;
+        const target=choices.find(c=>c.name.toLowerCase()===String(chosen||"").toLowerCase());if(target){const nextPosition=state.data.cards.filter(item=>item.collection_id===target.id).length;await cardAction("move",{...card,position:nextPosition},target.id);}return;
       }
     }catch(error){notice(error.message||"The action could not be completed.");}
   }
