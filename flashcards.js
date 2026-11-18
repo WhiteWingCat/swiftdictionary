@@ -257,10 +257,16 @@
   async function startGame(){
     const deck=gameDeck();
     if(deck.length<4)throw new Error("Add at least four dictionary words or cards before starting a four-choice game.");
+    // Validate the selected mode, translation and Weak Memory target before
+    // creating a server session. A duplicate-heavy answer set must not leave
+    // behind a session that can only fail immediately.
+    state.deck=deck;
+    try{makeRound(deck);}catch(error){state.deck=null;throw error;}
+    state.round=null;state.phase="idle";state.phaseEnds=0;
     const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty});
-    if(error)throw error;
+    if(error){state.deck=null;throw error;}
     state.game={id:data.session_id,startedAt:Date.now(),translationLanguage};
-    state.deck=deck;state.results=[];state.roundIndex=0;
+    state.results=[];state.roundIndex=0;
     Object.assign(state,{memory:timing[state.difficulty].memory,answer:timing[state.difficulty].answer});
     render();tickGame();showMemory();
   }
