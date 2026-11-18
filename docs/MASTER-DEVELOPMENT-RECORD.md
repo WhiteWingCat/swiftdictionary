@@ -2062,7 +2062,7 @@ This is a repository/documentation-only change, not a new SwiftDictionary produc
 
 - Current `main` HEAD is `686d8743f42ab32e3736c51861a2dbb9b2686420`, the documentation-separation commit.
 - GitHub Pages deployment #44233284108 completed successfully. Build, deploy and report-build-status all passed.
-- Current documentation branch head before this record update: `4aa89535c433c2c6d11398d59ec8ef21c65b0b36`; this branch remains the only location for Master Development Record, conversation archives and supporting notes.
+- The documentation branch remains the only location for the Master Development Record, conversation archives and supporting notes. The branch-hygiene record update was committed as `a24572d35abbdb5b0f86d7c878ecb4e9f007dda4`, followed by archive update `17e40719806a74fd57f6335d9a0195be42e35cd4`.
 - Open PRs #2 and #4 are closed without merging. No open PRs remained at the repository check.
 - The branch refs themselves have not been deleted because no branch-delete action is exposed by the connected GitHub integration. Nine branches associated with merged PRs (#1, #3, #5, #6, #7, #8, #9, #10 and #11) are cleanup candidates. The 2.3.0 planning branch is closed/unmerged and should be inspected before deletion.
 - The old `work/update-2-4-0-quiz-feedback` branch is not a routine stale branch: comparison with current `main` reports 173 commits ahead and 5 behind from merge base `90dc73a9b65fc3af713fefab4955057026089b96`, with unique file changes. Preserve it until its work is audited and reconciled.
