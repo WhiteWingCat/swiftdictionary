@@ -243,7 +243,7 @@ $function$;
 create or replace function private.start_my_flashcard_game_impl(p_mode text,p_difficulty text)
 returns jsonb language plpgsql security definer set search_path = ''
 as $function$
-declare v_user uuid := auth.uid(); v_learning text; v_id uuid; v_plan text; v_status text; v_valid_from timestamptz; v_valid_until timestamptz; v_limit integer; v_used integer;
+declare v_user uuid := auth.uid(); v_learning text; v_id uuid; v_plan text; v_status text; v_valid_from timestamptz; v_valid_until timestamptz; v_limit integer; v_used integer; v_timezone text;
 begin
   if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
   if p_mode not in ('word','definition','translation','sentence')
@@ -266,9 +266,18 @@ begin
   select l.daily_limit into v_limit from public.learning_plan_limits l
     where l.plan_code=v_plan and l.activity_type='flashcard' and l.is_enabled;
   if not found then raise exception 'Flashcards are unavailable for this plan' using errcode='42501'; end if;
-  select coalesce(u.used_count,0) into v_used
-    from public.get_my_learning_allowance_usage() u where u.activity_type='flashcard';
-  v_used := coalesce(v_used,0);
+  select coalesce(
+      case when p.allowance_timezone is not null
+                and p.allowance_timezone_until > pg_catalog.now()
+           then p.allowance_timezone else p.timezone end,
+      'UTC'
+    )
+    into v_timezone
+    from public.user_preferences p where p.user_id=v_user;
+  if v_timezone is null then
+    raise exception 'A saved allowance timezone is required' using errcode='22023';
+  end if;
+  v_used := private.current_learning_allowance_usage(v_user,'flashcard',v_timezone);
   if v_used >= v_limit then
     raise exception 'Daily Flashcard game allowance exhausted'
       using errcode='P0001',detail=jsonb_build_object('activity_type','flashcard','daily_limit',v_limit,'used',v_used)::text;
