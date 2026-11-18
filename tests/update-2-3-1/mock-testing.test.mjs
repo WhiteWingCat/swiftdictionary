@@ -580,3 +580,16 @@ test("Flashcards explains the English-course limitation and resets collection se
   assert.ok(handler.indexOf('state.collectionId="all"')<handler.indexOf('await collectionAction("delete"'),
     "Deleting the selected collection must reset selection before the reload/render");
 });
+
+test("Flash Recall prevents duplicate starts and locks the screen while saving or abandoning",()=>{
+  assert.match(flashcardsSource,/if\(state\.starting\)return/,
+    "A second start request must not create another server session");
+  assert.match(flashcardsSource,/startButton\.disabled=true/,
+    "The start action must be disabled while the session request is pending");
+  assert.match(flashcardsSource,/state\.game=null;state\.finishing=true;render\(\)/,
+    "The gameplay screen must be replaced while a session is being finalised");
+  assert.match(flashcardsSource,/Saving your game/,
+    "The learner must see feedback while results are saved");
+  assert.match(flashcardsSource,/state\.finishing=false;await loadData\(\)/,
+    "The interface must refresh after abandonment or completion");
+});
