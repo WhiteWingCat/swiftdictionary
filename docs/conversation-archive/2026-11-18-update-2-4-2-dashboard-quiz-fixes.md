@@ -53,3 +53,19 @@ The changes add no personal-data fields, tracking, analytics, external content o
 3. Verify the Cloudflare Pages preview build and test both reported behaviours.
 4. Merge only after validation; then verify the main GitHub Pages deployment.
 5. Update this archive and the Master Development Record with final CI run IDs, merge SHA and deployment result.
+
+
+## Final merge and deployment checkpoint — 2026-11-18
+
+This addendum supersedes the earlier open-PR and pending-CI statements above.
+
+- PR #11 was squash-merged successfully into `main`.
+- Merge commit / verified main HEAD: `65d0a35bab577adc15a0b1911661c222ed625739`.
+- Final PR head tested: `3b9d703f2f83a0f188d55acaac6eef788999434e`.
+- Quiz workflow #44229322995: both jobs passed, including frontend validation, local PostgreSQL/Supabase migration and RPC checks, authenticated Chromium Quiz runtime and local security-advisor checks.
+- Companion regression workflow #44229322963: all three jobs passed (PostgreSQL 17, Chromium smoke tests, Supabase CLI local Auth compatibility).
+- Cloudflare Pages preview for final tested feature commit was reported successful: https://feature-update-2-4-2-dashboa.swiftdictionary-testing.pages.dev.
+- GitHub Pages production deployment run #44230831943 was triggered from the merge commit and was still in progress at this checkpoint. Production release is not yet confirmed until this run succeeds.
+- No Supabase migration or production data operation was needed.
+
+Next: poll GitHub Pages deployment run #44230831943, record its final conclusion, then owner hard-refreshes the live website and manually verifies both fixes.
