@@ -286,25 +286,37 @@
     finally{state.starting=false;if(startButton?.isConnected)startButton.disabled=false;}
   }
   async function finishGame(){
-    if(!state.game)return;
-    clearTimers();
+    if(!state.game||state.finishing)return;clearTimers();
     const game=state.game;
-    if(state.round&&(state.phase==="memory"||state.phase==="answer")){
-      state.results.push({card_key:cardKey(state.round.target),correct:false,unanswered:true});
-    }
+    if(state.round&&(state.phase==="memory"||state.phase==="answer"))state.results.push({card_key:cardKey(state.round.target),mode:state.round.mode,correct:false,unanswered:true});
     state.game=null;state.finishing=true;render();
     try{
-      const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});
-      if(error)throw error;
-      state.notice=`Game complete: ${data.words_seen} words seen, ${data.correct_count} correct, ${data.incorrect_count} incorrect. ${data.unanswered_count} timed out.`;
-      state.finishing=false;
-      await loadData();
-    }catch(error){
-      state.notice="The game result could not be saved: "+error.message;
-      try{await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:game.id});}catch(_){}
-      state.finishing=false;
-      await loadData();
-    }
+      const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});if(error)throw error;
+      state.lastResult=data;state.finishing=false;await loadData();showResultPrompt();
+    }catch(error){state.notice="The game result could not be saved: "+error.message;try{await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:game.id});}catch(_){}state.finishing=false;await loadData();}
+  }
+  function showResultPrompt(){
+    const mount=$("#flashOverlayRoot");if(!mount)return;
+    const r=state.lastResult||{},attempted=Number(r.words_seen)||state.results.length,correct=Number(r.correct_count)||state.results.filter(x=>x.correct).length,incorrect=Number(r.incorrect_count)||state.results.filter(x=>!x.correct).length,accuracy=attempted?Math.round(correct/attempted*100):0;
+    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">Your game results</h2><p class="flash-muted">Your 60-second Flash Recall summary.</p><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>Attempted</span></div><div class="flash-stat"><strong>${correct}</strong><span>Correct</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>Incorrect</span></div></div><div class="flash-stat"><strong>${accuracy}%</strong><span>Accuracy</span></div><p class="flash-muted">Unanswered: ${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-primary" data-action="close-result">Close</button></div></section></div>`;
+  }
+  function openSetupPrompt(mode){
+    state.mode=mode;const overlay=$("#flashOverlayRoot");if(!overlay)return;
+    const sets=[["all","All available words"],["common","Common words"],["nouns","Nouns"],["verbs","Verbs"],["adjectives","Adjectives"],["adverbs","Adverbs"],["phrases","Everyday phrases"],["terms","Subject terms"]];
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${mode==="mixed"?"Mixed Recall":mode.charAt(0).toUpperCase()+mode.slice(1)+" Recall"}</h2><p class="flash-muted">A 60-second challenge. The memory and answer windows become shorter after every round, including incorrect answers and timeouts.</p><div class="flash-modal-grid"><label>Difficulty<select id="flashDifficulty"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label><label>Card set<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">Cancel</button><button class="flash-primary" data-action="begin-game">Begin</button></div></section></div>`;
+  }
+  function openReviewPrompt(){
+    state.reviewMode="word";state.reviewSelected=null;renderReviewPrompt();
+  }
+  function renderReviewPrompt(){
+    const overlay=$("#flashOverlayRoot");if(!overlay)return;
+    const labels={word:"Word",definition:"Definition",mixed:"Mixed",sentence:"Sentence"};
+    const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
+    const selected=items.find(item=>item.card_key===state.reviewSelected);
+    const resolve=key=>{if(key.startsWith("dict:"))return words().find(w=>w.word.toLowerCase()===key.slice(5));const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
+    const card=selected?resolve(selected.card_key):null;
+    const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(card.definition)}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}<p class="flash-muted">Missed ${selected.incorrect_count} time(s) in ${labels[state.reviewMode]} Recall.</p></div>`:'<p class="flash-muted">Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.</p>';
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" style="width:min(900px,100%)" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">Review weak memory</h2><div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label} Recall</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<button data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}<small style="display:block;color:#aab8cc">Missed ${item.incorrect_count} time(s)</small></button>`;}).join(""):'<p class="flash-muted">No incorrect answers in this recall mode yet.</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-primary" data-action="close-overlay">Close</button></div></section></div>`;
   }
   async function loadData(){
     if(!currentUser||!supabaseClient)return;
@@ -332,6 +344,7 @@
     await loadData();
   }
   function notice(message){state.notice=message;const n=$("#flashNotice");if(n)n.textContent=message;}
+  function closeOverlay(){const overlay=$("#flashOverlayRoot");if(overlay)overlay.innerHTML="";}
   async function handleClick(event){
     const button=event.target.closest("[data-action]");if(!button)return;
     const action=button.dataset.action,value=button.dataset.value;
