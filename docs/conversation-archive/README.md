@@ -65,3 +65,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Live Supabase staging synchronization](2026-11-18-live-supabase-staging-synchronization.md) — records the staging-only 2.4.0 Quiz content and 2.4.1 translation migration rollout, migration-history reconciliation, exact production/staging content and function checksum parity, clean learner-data boundary and remaining staging test-account setup.
 
 - [Update 2.5.0 Flashcards foundation implementation](2026-11-18-update-2-5-0-flashcards-foundation.md) — records the first implementation, staging authenticated RPC validation, Mock User support, passing CI, production safety boundary, privacy planning and manual testing gates.
+
+- [Update 2.5.0 Flashcards follow-up: preflight validation](2026-11-18-update-2-5-0-flashcards-preflight-validation.md) — records the gameplay startup audit, preflight validation before server-session creation, stale round-state reset, regression coverage and remaining CI/manual browser validation.
