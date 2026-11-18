@@ -368,18 +368,18 @@
     });
     root.addEventListener("input",event=>{if(event.target.id==="flashDictionarySearch")renderDictionarySearch(event.target.value);});
   }
+  async function addDictionaryWord(wordName){
+    const selected=selectedCollection();if(!selected){notice("Create or select a collection first.");return;}
+    const word=words().find(w=>w.word===wordName);if(!word)return;
+    try{await cardAction("create",dictionaryCard(word),selected.id);notice("Dictionary word added.");}catch(error){notice(error.message);}
+  }
   function renderDictionarySearch(query){
     const target=$("#flashDictionaryResults");if(!target)return;
     if(!query.trim()){target.innerHTML="";return;}
     const found=words().filter(w=>w.word.toLowerCase().includes(query.trim().toLowerCase())).slice(0,12);
     target.innerHTML=found.map(w=>`<button type="button" data-add-word="${escapeHtml(w.word)}"><span><strong>${escapeHtml(w.word)}</strong><br><small>${escapeHtml(w.definition)}</small></span><span>＋</span></button>`).join("")||'<p class="flash-muted">No matching words found.</p>';
+    target.querySelectorAll("[data-add-word]").forEach(button=>button.addEventListener("click",()=>addDictionaryWord(button.dataset.addWord)));
   }
-  root.addEventListener("click",async event=>{
-    const add=event.target.closest("[data-add-word]");if(!add)return;
-    const selected=selectedCollection();if(!selected){notice("Create or select a collection first.");return;}
-    const word=words().find(w=>w.word===add.dataset.addWord);if(!word)return;
-    try{await cardAction("create",dictionaryCard(word),selected.id);notice("Dictionary word added.");}catch(error){notice(error.message);}
-  });
   root.addEventListener("click",handleClick);
   attachForms();
   document.getElementById("flashDifficulty")?.addEventListener("change",e=>state.difficulty=e.target.value);
