@@ -100,6 +100,7 @@
       #flashcardsPage .flash-round-gauge .answer{background:linear-gradient(90deg,#ffae55,#f17b36)}
       #flashcardsPage .flash-memory{min-height:174px;background:linear-gradient(145deg,#d8efff,#a9d8f5);color:#17344b;border:1px solid #83b9df;border-radius:18px}
       #flashcardsPage .flash-memory.is-blurred{filter:blur(7px);opacity:.65}
+      #flashcardsPage .flash-memory-overlay{position:relative;margin-top:-106px;min-height:88px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.25rem;text-shadow:0 2px 9px #101827;pointer-events:none;z-index:2}
       #flashcardsPage .flash-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
       #flashcardsPage .flash-option{min-height:68px;border-radius:15px;box-shadow:0 4px 0 #182438}
       #flashcardsPage .flash-option.is-hidden{background:#080c14;color:transparent;border-color:#080c14;box-shadow:0 4px 0 #030509}
@@ -208,7 +209,7 @@
     const modeLabel=state.mode==="mixed"?"Mixed Recall":state.mode.charAt(0).toUpperCase()+state.mode.slice(1)+" Recall";
     mount.innerHTML=`<section class="flash-game">
       <div class="flash-game-top"><span class="flash-pill">${modeLabel} · ${state.difficulty}</span><strong id="flashGameClock">${Math.ceil(remain)}s</strong></div>
-      <div class="flash-round-gauge"><span class="memory" id="flashMemoryGauge" style="width:100%"></span><span class="answer" id="flashAnswerGauge" style="width:0%"></span></div>
+      
       <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||"Get ready")}</div>
       <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>Pick your answers</div>
       <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):"Memorise the card"}</p>
