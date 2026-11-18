@@ -20,13 +20,17 @@ if(inlineCount<1)throw new Error("No inline application script was syntax-checke
 if(!/<script[^>]+src=["']flashcards\.js["']/.test(html))throw new Error("Flashcards runtime is not loaded by index.html.");
 if(!/id=["']flashcardsApp["']/.test(html))throw new Error("Flashcards page mount is missing.");
 if(/Flashcards are being prepared|Flashcards will become available/.test(html))throw new Error("Outdated Coming Soon copy remains.");
-for(const mode of ["word","definition","translation","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
+for(const mode of ["word","definition","mixed","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
 for(const [needle,label] of [
   ["memoryFloor:2,answerFloor:5","Beginner timer floors"],
   ["memoryFloor:1.5,answerFloor:4","Intermediate timer floors"],
   ["memoryFloor:.7,answerFloor:3","Advanced timer floors"],
   ["60000","60-second game duration"],
-  ["review-weak-all","Weak Memory review"],
+  ["Your game results","End-of-game results prompt"],
+  ["setTimeout(showMemory,3000)","Three-second answer feedback"],
+  ["flashMemoryGauge","Memory gauge"],
+  ["flashAnswerGauge","Answer gauge"],
+  ["open-review","Weak Memory review"],
   ["reorder-up","Collection ordering"],
   ["custom","Custom card support"]
 ])if(!flashcards.includes(needle))throw new Error("Missing "+label+".");
