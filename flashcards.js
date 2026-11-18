@@ -125,7 +125,14 @@
   }
   function renderCollectionCards(id){
     const cards=state.data.cards.filter(c=>c.collection_id===id).sort((a,b)=>(Number(a.position)||0)-(Number(b.position)||0)||String(a.created_at||"").localeCompare(String(b.created_at||"")));
-    return cards.length?'<div class="flash-card-list">'+cards.map((c,index)=>\`<div class="flash-card-row"><div><strong>\${escapeHtml(c.front_text)}</strong><small>\${escapeHtml(c.back_text)}</small></div><div class="flash-controls"><button class="flash-secondary" data-action="reorder-up" data-value="\${c.id}" \${index===0?"disabled":""}>↑</button><button class="flash-secondary" data-action="reorder-down" data-value="\${c.id}" \${index===cards.length-1?"disabled":""}>↓</button><button class="flash-secondary" data-action="edit-card" data-value="\${c.id}">Edit</button><button class="flash-secondary" data-action="move-card" data-value="\${c.id}">Move</button><button class="flash-secondary" data-action="remove-card" data-value="\${c.id}">Remove</button></div></div>\`).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
+    return cards.length?'<div class="flash-card-list">'+cards.map((c,index)=>
+      '<div class="flash-card-row"><div><strong>'+escapeHtml(c.front_text)+'</strong><small>'+escapeHtml(c.back_text)+'</small></div><div class="flash-controls">'+
+      '<button class="flash-secondary" data-action="reorder-up" data-value="'+c.id+'" '+(index===0?"disabled":"")+'>&uarr;</button>'+
+      '<button class="flash-secondary" data-action="reorder-down" data-value="'+c.id+'" '+(index===cards.length-1?"disabled":"")+'>&darr;</button>'+
+      '<button class="flash-secondary" data-action="edit-card" data-value="'+c.id+'">Edit</button>'+
+      '<button class="flash-secondary" data-action="move-card" data-value="'+c.id+'">Move</button>'+
+      '<button class="flash-secondary" data-action="remove-card" data-value="'+c.id+'">Remove</button></div></div>'
+    ).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
   }
   function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c};}
   function gameDeck(){
