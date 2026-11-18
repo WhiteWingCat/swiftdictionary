@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-17 (Update 2.4.1 merged to main; production migration verified; GitHub Pages deployment succeeded)  
-> **Current baseline:** Update 2.4.1 is merged to `main`. The 2.4.0 Quiz experience and 199-question English/Simplified Chinese bank remain live. Update 2.4.1 fixes Daily Learning expired-session cleanup, Quiz translation-language eligibility/start, active-session view preservation and stale preference hydration; removes the internal draft-bank notice; adds short-lived selector refresh notices; and translates the Quiz overview into Simplified Chinese. Production Quiz allowances remain Free 1/day and Premium 3/day.  
-> **Current work:** Owner should now test the live production site at `https://whitewingcat.github.io/swiftdictionary/`. The human bilingual accuracy review of the 199 questions remains deferred, not waived; friends are not yet invited to sign in. Two stale Daily Learning sessions remain in production as `in_progress` until the owner next loads Lessons; the corrected frontend now retrieves their IDs and abandons expired sessions. The isolated staging project remains empty and is not the friend-testing target.  
-> **Record status:** Update 2.4.0 PR #8 merged as `01c7c61a9d7c8c91591eeb7f184afdf5c3caf8bf`; migration-filename sync PR #9 merged as `44f913e6898fbc154105f097fe9501dbdac84ff2`; Update 2.4.1 PR #10 merged as `6dfd084fa9b2c1290fb183fbf0862dadec0dd8f7`. GitHub Pages deployment #44098139901 succeeded. Production migration `20261117132100` (`swiftdictionary_update_2_4_1_quiz_translation_language_fix`) was already present in Supabase migration history and was verified after merge; it was not reapplied during release wrap-up. Production still contains 199 approved/selectable questions (114 knowledge, 15 definitions, 70 Chinese translations) mapped to 15 active permanent lessons. Update 2.4.1 Quiz workflow #44097715861 and companion 2.3.x regression workflow #44097715708 both passed. Security advisors returned no health findings and no new Quiz-related warnings; existing private-schema RLS INFO findings and previously reviewed public SECURITY DEFINER/password-protection warnings remain. No new learner personal-data fields, analytics or tracking were introduced. Malaysia PDPA and applicable international/16+ privacy review remains necessary before inviting friends or broader public use.
+> **Last consolidated:** 2026-11-18 (Update 2.4.2 merged, deployed and owner-verified; repository branch/documentation separation review underway)  
+> **Current baseline:** Update 2.4.2 is merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; GitHub Pages deployment #44230831943 succeeded, and the owner manually confirmed both Dashboard fixes on the live site. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
+> **Current work:** Next planned product milestone is Update 2.5.0 — Flashcards; implementation has not started. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before friends are invited to sign in, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review. The staging project is separate and is not the production friend-testing target.  
+> **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.4.2 Quiz workflow #44229322995 and companion 2.3.x regression workflow #44229322963 passed; GitHub Pages deployment #44230831943 passed all three jobs. The owner hard-refreshed and manually confirmed both live Dashboard fixes. No Supabase migration or production database write was required for 2.4.2. Existing Quiz data-processing and privacy considerations remain as recorded below.
 >
 > This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
 
@@ -38,7 +38,7 @@ Prefer workflows that respect free-plan/service constraints and avoid unnecessar
 7. **No production deployment or destructive database action without explicit owner approval.** Review migrations and live schema first. Never expose Supabase service-role credentials or OAuth client secrets in browser code or repository files.
 8. **Verify before claiming completion.** Separate static checks, automated tests, mocked browser tests, real browser tests, live Supabase validation and production deployment. Passing one does not imply the others passed.
 9. **Release naming:** After existing v19, release ZIP names use “SwiftDictionary Update X.Y.Z”: X = major feature, Y = additions, Z = emergency quick patch. Existing v19 naming remains unchanged.
-10. **Development-session records are mandatory.** For every meaningful SwiftDictionary conversation or development session, update the Master Development Record and create a dated, structured Markdown archive in `docs/conversation-archive/`. Record owner decisions, scope, implementation/files, branch/commit/PR references, test evidence (including failures and corrections), outstanding risks and the exact recovery point. Update the archive index. Archive only SwiftDictionary-relevant user-visible material; never include hidden reasoning, credentials, secrets or unrelated personal information. Treat GitHub repository content as potentially public. Keep the documentation branch for durable project records; keep application implementation on feature branches and production code on `main`.
+10. **Development-session records and branch separation are mandatory.** For every meaningful SwiftDictionary conversation or development session, update the Master Development Record and create a dated, structured Markdown archive in `docs/conversation-archive/` on `docs/master-development-record`; update the archive index there as well. Record owner decisions, scope, implementation/files, branch/commit/PR references, test evidence (including failures and corrections), outstanding risks and the exact recovery point. Archive only SwiftDictionary-relevant user-visible material; never include hidden reasoning, credentials, secrets or unrelated personal information. Treat repository content as potentially public. The `main` branch is the production website/source branch and must not receive the Master Development Record, conversation archives or internal planning notes. Documentation-only commits stay on `docs/master-development-record`; never open or merge a documentation PR into `main`. Application changes use one focused temporary feature branch per active task, created from current `main`; merge only after validation and explicit owner approval, then delete the merged feature branch when safe. Close obsolete draft PRs and remove stale branches only after confirming they contain no unmerged work.
 11. **Course/translation selection refresh and translation QA are mandatory.** Whenever a user changes the learning-course language or translation language, verify that the relevant page and all dependent content refresh to reflect the new selection without requiring unrelated navigation or leaving stale text, labels, explanations, feedback or cached content visible. Test both selection controls and their interactions, including switching back and forth and changing selections from relevant learning pages. Verify that translations are complete, accurate, context-appropriate and consistent with the selected language pair; do not treat a changed language label or a partial string swap as proof. Include these checks in feature-specific regression testing for Lessons, Quiz, Flashcards and any future course/translation-aware feature.
 
 ## 3. Product and interface baseline
@@ -195,26 +195,28 @@ Open pull requests observed:
 
 Historical note: the PR state above describes the repository at the time of the earlier record consolidation. PR #3 was later retargeted to main and merged with explicit owner approval on 2026-11-13. See Section 13.
 
-#### Remaining 2.3.0 release gates
+#### Historical 2.3.0 release gates — closed / superseded
 
-1. Finish Adaptive Revision strengthening and test coverage.
-2. Complete full browser regression for lessons, Daily Learning, account switching, saved-word isolation, translation switching, timezone handling, history deletion and quota preservation.
-3. Review the live Supabase Auth/session structure and production migration prerequisites read-only before deployment.
-4. Do not apply production migrations without explicit owner approval.
-5. Decide whether account deletion is in scope for 2.3.0 or a later milestone. Learning-history deletion is not account deletion. If account deletion is implemented, it must use a trusted server-side Auth Admin operation; never expose a service-role key in browser code.
-6. Finalise privacy notices only after confirming controller identity/contact, providers/subprocessors and their locations, retention, cross-border transfer safeguards and applicable Malaysia PDPA obligations. Prepare Bahasa Malaysia and English notices if PDPA applies.
-7. Verify third-party content/source terms before any future commercial use.
-8. Confirm whether a separate Simplified Chinese learning curriculum is in scope. Current lesson content is English learning with Chinese translations.
-9. Complete real Google OAuth callback and cross-device/account saved-word sync manual tests.
-10. Consolidate, review and explicitly approve the release candidate before production migration or Pages deployment.
+The checklist below is retained only as historical planning context. **It is not an active 2.3.0 release gate. Update 2.3.0 was completed, and its later database rollout and follow-up work were delivered through Updates 2.3.1, 2.3.2 and 2.3.3.** The completion and production rollout evidence is recorded in Sections 13, 17 and 27 and the dated archives.
+
+- Adaptive Daily Revision, Daily Learning browser regressions, account isolation, translation switching, timezone handling, history deletion and allowance preservation were implemented and covered by the later 2.3.x validation work.
+- The ordered production database rollout was separately authorised, applied and verified as Update 2.3.3. Do not interpret the old “do not apply” planning warning as a current blocker; the normal rule against unapproved production database changes still applies.
+- Account deletion remained distinct from learning-history deletion and was not silently included in 2.3.0.
+- The privacy-notice, cross-border processing, age-appropriate safeguards and broader Malaysia/international legal review remain **separate public/friend-onboarding safeguards**, not unfinished 2.3.0 implementation gates.
+- The Chinese learning curriculum question was resolved for the delivered scope: the learning course is English with Simplified Chinese translations; a separate Chinese learning curriculum is not part of the released 2.3.x scope.
+- Google OAuth, account switching and cross-device saved-word synchronisation were tested in the established release/regression process. Continue to include them in relevant regression testing.
+
+
 
 ### Future roadmap
 
-- **Update 2.4.0 — Quiz:** **Technical specification finalised; implementation authorised to proceed on a dedicated feature branch.** See Sections 29–33 and `docs/UPDATE-2.4.0-QUIZ-TECHNICAL-SPECIFICATION.md`.
-- **Update 2.5.0 — Flashcards:** Flashcard learning experience, review progress and allowance integration.
-- **Proposed Update 2.6.0 — Legal, Privacy & Terms Foundation:** deferred until after Update 2.5.0 is released to `main`; scope and legal requirements will be researched and approved closer to that release.
+- **Update 2.4.0 — Quiz:** **COMPLETED and released.** PR #8 merged; the 199-question bank and Quiz experience are live. See Sections 34–41 and the 2026-11-17 production-release archive.
+- **Update 2.4.1 — Fix & Changes:** **COMPLETED and released.** PR #10 merged; fixes and selector/translation improvements are live. See Section 42.
+- **Update 2.4.2 — Dashboard Quiz fixes:** **COMPLETED, deployed and owner-verified.** PR #11 merged at `65d0a35`; Pages deployment #44230831943 succeeded, and the owner confirmed both fixes on the live site. See Sections 43–44 and the 2026-11-18 archive.
+- **Update 2.5.0 — Flashcards:** Next planned milestone; Flashcard learning experience, review progress and allowance integration. Not yet started.
+- **Proposed Update 2.6.0 — Legal, Privacy & Terms Foundation:** remains planned after Update 2.5.0, subject to a fresh scope and legal review. Public/friend onboarding privacy safeguards remain important before inviting external users.
 
-These are roadmap targets, not implemented or released features. Preserve Coming Soon behaviour until each feature is ready.
+Only Update 2.5.0 is the next product-development target. Completed releases must not be shown as active work.
 
 ## 6. Privacy, legal and content licensing checklist
 
@@ -1994,3 +1996,44 @@ The code merge is complete. Remaining release gate: confirm GitHub Pages run #44
 ### Production deployment confirmation — 2026-11-18
 
 GitHub Pages deployment run #44230831943 completed successfully for merge commit `65d0a35bab577adc15a0b1911661c222ed625739`. All three deployment jobs passed: build, report-build-status and deploy. The deployment workflow is successful; the live URL remains `https://whitewingcat.github.io/swiftdictionary/`. The web inspection endpoint could not independently load the site, so deployment success is confirmed from GitHub Pages' completed workflow rather than a separate external page fetch. No Supabase migration was required. The owner should hard-refresh and manually check both Dashboard fixes on the live site.
+
+
+## 45. Documentation source of truth and repository branch hygiene (2026-11-18)
+
+### Owner direction
+
+The owner identified two repository-maintenance problems: old 2.3.0 release gates remained visible after the milestone was completed, and the growing collection of feature branches plus development notes on `main` made the repository difficult to manage.
+
+### Record corrections
+
+- The top-level handover now identifies Update 2.4.2 as the current completed production baseline, including merge commit `65d0a35bab577adc15a0b1911661c222ed625739`, passing Quiz/regression workflows #44229322995 and #44229322963, successful Pages deployment #44230831943, and the owner's live confirmation.
+- The old 2.3.0 release checklist is explicitly labelled historical and closed. Its delivered work is covered by the 2.3.0/2.3.1/2.3.2/2.3.3 implementation and release records. Remaining privacy and friend-onboarding safeguards are kept separate from completed engineering gates.
+- Update 2.4.0 Quiz, Update 2.4.1 and Update 2.4.2 are explicitly marked completed/released. Update 2.5.0 Flashcards is the next planned milestone and has not started.
+- This record and its archive index are maintained on `docs/master-development-record`, not on `main`.
+
+### Agreed branch responsibilities
+
+| Branch | Responsibility | Rule |
+|---|---|---|
+| `main` | Production website/source branch | Contains application/runtime assets and the source-controlled build, test, workflow and database-migration assets needed to maintain and release the website. It must not contain the Master Development Record, conversation archives or internal planning notes. |
+| `docs/master-development-record` | Durable project notes | Documentation-only changes: Master Development Record, dated conversation archives, archive index and supporting internal planning records. Never merge this branch into `main`. |
+| Temporary feature branch | One active implementation task | Branch from current `main`; keep scope focused; merge only after validation and explicit approval; delete after merge when no longer needed. |
+
+Documentation work must not create a PR targeting `main`. A PR is not required merely to update the dedicated documentation branch. Close obsolete draft PRs that target `main` with documentation-only or already-completed work. Delete merged feature branches after verifying the PR is merged and no active work depends on the branch. Do not delete unmerged branches until their contents have been inspected and any unique useful work has been preserved.
+
+### Repository audit at this checkpoint
+
+Observed branch heads:
+- `main`: `65d0a35bab577adc15a0b1911661c222ed625739`.
+- `docs/master-development-record`: `724877b82ea0cf0322fbf21db83f13786be9788e`.
+- Old implementation branches still present included the 2.2.0, 2.3.0, 2.3.1, 2.3.2, 2.3.3, 2.4.0, 2.4.1 and 2.4.2 branches, despite their related PRs being merged.
+- Open draft PR #2 is the old 2.3.0 planning PR targeting `main`; open draft PR #4 is the documentation-branch PR targeting `main`. Neither should be merged into production.
+- The standalone `work/update-2-4-0-quiz-feedback` branch also requires inspection before any deletion; do not assume it is merged or disposable.
+
+This section records the intended cleanup policy and the audit snapshot. Branch/PR deletion or closure must be separately confirmed in the live repository after checking exact branch contents and merge status. The documentation branch itself must remain available as the single notes location.
+
+### Recovery point
+
+- Continue documentation edits on `docs/master-development-record`.
+- Do not start Update 2.5.0 as part of this documentation-maintenance task.
+- Before changing `main`, inspect the exact non-runtime documentation paths and verify that the dedicated documentation branch preserves their contents. Do not remove application, test, workflow, migration, licence or attribution assets merely because they are not served as web pages.
