@@ -170,10 +170,10 @@
     const common=new Set("a an the and or but if because as at by for from in into of on to with about after again all also always am are be been before between big can come could day do down each even every find first get give go good great had has have he her here him his how i if in is it just know like little long look make man many may me more most my new no not now number of old on one only other our out over people place same see she so some take than that the their them then there these they thing think this time up us use very want was way we well were what when where which who will with work would year you your".split(" "));
     if(state.cardSet==="common")all=all.filter(w=>common.has(String(w.word).toLowerCase()));
     else if(["nouns","verbs","adjectives","adverbs"].includes(state.cardSet)){
-      const wanted=state.cardSet.slice(0,-1),getPos=w=>String(w.partOfSpeech||w.pos||w.type||"").toLowerCase();
+      const wanted=state.cardSet.slice(0,-1),getPos=w=>String(w.part||w.partOfSpeech||w.pos||w.type||"").toLowerCase();
       all=all.filter(w=>getPos(w).includes(wanted));
     }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
-    else if(state.cardSet==="terms")all=all.filter(w=>/term|technical|subject|science|technology/i.test(String(w.category||w.topic||w.domain||"")));
+    else if(state.cardSet==="terms")all=all.filter(w=>/technical vocabulary|scientific|academic|subject-specific/i.test(String(w.breakdown||"")+" "+String(w.tip||"")));
     const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom").map(mapCustomCard)];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId);
