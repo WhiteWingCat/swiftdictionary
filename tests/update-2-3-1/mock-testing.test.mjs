@@ -300,7 +300,7 @@ test("Premium Mock User can complete ten Flashcard games but not an eleventh",as
     });
     assert.equal(done.error,null);
   }
-  const blocked=await client.rpc("start_my_flashcard_game",{p_mode:"translation",p_difficulty:"advanced"});
+  const blocked=await client.rpc("start_my_flashcard_game",{p_mode:"mixed",p_difficulty:"advanced"});
   assert.equal(blocked.error.code,"P0001");
 });
 
