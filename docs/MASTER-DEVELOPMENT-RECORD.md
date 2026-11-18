@@ -1920,3 +1920,50 @@ Update 2.4.1 has been merged to `main` through PR #10, squash commit `6dfd084fa9
 6. Report any live-test issues before inviting friends. Human bilingual review of the 199-question bank remains deferred, not waived. Before friends sign in, provide a concise test/privacy notice covering stored Quiz data, purposes, retention/deletion, Tokyo hosting/cross-border processing and a contact route. The current website still lacks formal public Privacy Notice/Terms pages. This is planning guidance, not legal advice.
 
 No live Quiz session was started on the owner's production account during release verification, to avoid creating a session or consuming/reserving questions on their behalf. Automated authenticated tests used disposable local Supabase accounts; manual production-account testing remains the owner's next step.
+
+
+## 43. Update 2.4.2 — Dashboard Quiz History rendering and navigation fixes (2026-11-18)
+
+### Owner request
+
+The owner reported two Dashboard-related Quiz defects and requested a minor patch released as Update 2.4.2:
+
+1. Dashboard Quiz History displayed malformed JavaScript expression text instead of the Review button label.
+2. Navigating from the Dashboard to the Quiz page opened a previously completed Quiz review instead of the Quiz overview.
+
+### Investigation and implementation
+
+- Repository: `WhiteWingCat/swiftdictionary`; production baseline was main commit `6dfd084fa9b2c1290fb183fbf0862dadec0dd8f7` (Update 2.4.1).
+- The Dashboard history HTML template incorrectly escaped the JavaScript string concatenation around `quizEscape(quizT("Review","查看"))`. The generated HTML contained literal backslashes/quotes and expression fragments. The template now concatenates the escaped localized label normally.
+- Ordinary navigation to `#quiz` now clears stale completed-result state, resets the return destination and session-view flag, explicitly shows the Quiz overview, and then runs normal Quiz initialization.
+- The dedicated Dashboard Quiz History Review click handler retains its intentional direct-review path by passing `skipQuizInitialise:true` and calling the existing account-scoped `quizReview(...,"profile")` flow. Completed reviews still return to Dashboard.
+- Added browser regression coverage for the visible Review label and for Dashboard-to-Quiz navigation when stale completed-review state is present.
+- Extended the Quiz frontend validator to guard the corrected button template, retained direct-review path and overview-state reset.
+
+### Branch and pull request
+
+- Feature branch: `feature/update-2-4-2-dashboard-quiz-fixes`.
+- PR #11: https://github.com/WhiteWingCat/swiftdictionary/pull/11
+- Current PR head at this archive update: `a2eef0080fa683975d0c96b249e7d3464c15e84f`.
+- PR is open and not merged. Cloudflare Pages preview build was reported as in progress for commit `a2eef00`.
+- Changed files: `index.html`, `scripts/quiz/validate-quiz-frontend.mjs`, `tests/browser/update-2-4-0-quiz-runtime.spec.js`, and `.github/workflows/quiz-db-foundation.yml` (adds the Update 2.4.2 feature branch to the existing Quiz workflow push trigger so the same full regression suite can run for this patch).
+
+### Validation status at handover
+
+- Browser regression cases and static validation guards have been added.
+- GitHub PR metadata reports the head as mergeable on the latest PR fetch.
+- The available GitHub workflow-run/status lookup did not return a run for the current head at this check; do not describe CI as passed until an actual successful run is observed.
+- Cloudflare Pages preview deployment was still in progress at the latest PR comment. Do not share it as a ready preview until a success status and URL are reported.
+- No production merge, GitHub Pages deployment, Supabase migration, production data write or production session operation has occurred for Update 2.4.2.
+
+### Privacy/legal and preservation review
+
+This is a narrowly scoped presentation/navigation repair. It adds no personal-data categories, tracking, analytics, database fields, third-party content or external dependencies. Existing account-scoped Quiz history/review RPCs, saved answers, active-session snapshots, language preferences, allowances, authentication and account isolation are preserved. The existing Malaysia PDPA and applicable international/16+ privacy review remains relevant to the broader Quiz feature, but this patch does not expand its processing purposes or data collection. This is planning guidance, not legal advice or compliance certification.
+
+### Recovery point and next steps
+
+1. Continue on `feature/update-2-4-2-dashboard-quiz-fixes` and PR #11.
+2. Confirm full Quiz workflow and companion regression validation on the final PR head; resolve any failures before merge.
+3. Confirm Cloudflare Pages branch preview success and manually verify the Review label and navigation behaviour if the preview is available.
+4. After validation, merge PR #11 to `main`, then verify the main GitHub Pages deployment before calling Update 2.4.2 live.
+5. Update this record and archive with the final merge SHA, CI run IDs and deployment result. No Supabase migration is expected or required.
