@@ -61,6 +61,7 @@ test("Mock User can build a collection, play Flash Recall and see allowance usag
   await page.locator("#flashDictionarySearch").fill("aberration");
   await expect(page.locator("#flashDictionaryResults [data-add-word]")).toHaveCount(1);
   await page.locator("#flashDictionaryResults [data-add-word]").click();
+  await expect(page.locator("#flashNotice")).toContainText("Dictionary word added.");
   await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:"aberration"})).toHaveCount(1);
 
   const modes=await page.locator('[data-action="mode"]').evaluateAll(elements=>elements.map(element=>element.dataset.value));
