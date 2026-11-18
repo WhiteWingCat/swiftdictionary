@@ -77,6 +77,43 @@ The privacy-first content catalogue is a positive data-minimisation measure: it 
 
 **No production Supabase settings or data were changed during this review. No merge, deployment or production migration is authorised.**
 
+## 6. Update 2.5.0 Flashcards-specific review (18 November 2026)
+
+### New personal-data inventory
+
+Flashcards adds the following account-linked information:
+
+- Collection names and user-authored custom card fronts/answers.
+- Optional user-authored examples and translations.
+- Dictionary word references included in personal collections.
+- Aggregate per-card mastery: correct/incorrect counts, current streak, last result and last-seen timestamp.
+- Game mode, difficulty, completion totals and session timestamps.
+- Completed game activity used by the existing daily allowance ledger.
+
+The design does not store a raw event for every selected answer. It stores aggregate mastery and one summary row per game. User-created collections/cards are private to the authenticated account and are not published or shared between users in Update 2.5.0. The UI should continue to discourage entering sensitive personal data or another person's private details into custom cards.
+
+### Technical safeguards observed in staging
+
+- Four new tables are placed in the non-exposed `private` schema: `flashcard_collections`, `flashcard_cards`, `flashcard_mastery`, and `flashcard_sessions`.
+- RLS is enabled on all four tables. Authenticated and anon have no direct table SELECT/INSERT privileges.
+- Public RPC wrappers are SECURITY INVOKER and executable by authenticated users only; anon execution is denied. Private implementations derive the account owner from `auth.uid()` and validate collection/card ownership.
+- Custom-card mastery results are validated against a card owned by the same user. User deletion cascades through `auth.users`.
+- The existing learning-history deletion RPC now removes Flashcard sessions and mastery but intentionally preserves the user's collections and custom cards. The Profile notice was updated to state this distinction. Daily allowance usage remains charged until its normal reset.
+- A staging-only authenticated SQL integration test passed. Its transaction rolled back; follow-up checks found no retained test account or Flashcard rows.
+- Production was not modified. The production database remains in Tokyo and does not yet contain these Flashcard tables. Staging is in Singapore and contains no learner data.
+
+### Outstanding privacy questions / controls
+
+1. **Retention:** completed game-session summaries currently remain until the user deletes learning history or the account. The interface displays only the latest 30, but this is not a storage-retention limit. Choose and implement a documented retention period before public release. Collection names and user-authored cards remain until the user deletes them or deletes the account.
+2. **User rights:** ensure the privacy notice distinguishes deleting learning history (sessions/mastery) from deleting user-authored collections/cards and account deletion. Provide a practical access/export/correction/deletion request route.
+3. **Cross-border transfers:** production processing is in Tokyo; the staging database is in Singapore. Assess all relevant Supabase processing, backups, logs, support and subprocessors, plus Google OAuth and GitHub Pages/CDN, rather than relying only on the primary database region. Apply the current Section 129 framework and JPDP Cross-Border Transfer Guideline No. 3/2025; retain a transfer record and processor safeguards where required.
+4. **DPO/DPIA:** Weak Memory prioritises review based on observed learning outcomes. This is limited educational progress processing, not a high-stakes decision, but it is still a form of user-behaviour analysis. Screen it against the current DPO appointment guideline and the regular/systematic monitoring threshold; complete DPIA screening before broad public expansion.
+5. **Breach response:** include custom card text, mastery and session metadata in the data inventory and breach-response playbook. Apply the current Commissioner breach-notification circular/guideline if the Act applies.
+6. **Children/global audience:** intended minimum age remains 16+. GDPR Article 8 consent ages vary between 13 and 16 by EU Member State. A 16+ service minimum is at or above that range, but the service still needs clear age-appropriate notices, a country-by-country screen and a procedure for age/rights requests. Do not assume a single age threshold resolves all global child-privacy laws.
+7. **Free/public-service scope:** the project remains free and individually operated. Do not assume that free access automatically removes Malaysia PDPA applicability; the Act's commercial-transaction scope and the narrow personal/household exemption require a fact-specific legal assessment.
+
+This section is a planning checklist, not legal advice or a compliance conclusion. No production schema, data, OAuth or privacy settings were changed during this feature work.
+
 ## Primary sources
 
 - Malaysia, Personal Data Protection Act 2010 [Act 709], reprint as at 15 September 2026: https://lom.agc.gov.my/ilims/upload/portal/akta/outputaktap/3301061_BI/Act%20709%20%28Reprint%202026%29.pdf
@@ -88,3 +125,5 @@ The privacy-first content catalogue is a positive data-minimisation measure: it 
 - JPDP, Automated Decision-Making and Profiling Guideline (30 April 2026): https://www.pdp.gov.my/ppdpv1/wp-content/uploads/2026/04/Automated-Decision-Making-And-Profiling-Guideline-ADMP.pdf
 - EU GDPR, Article 3 territorial scope and Recital 23: https://eur-lex.europa.eu/eli/reg/2016/679
 - JPDP, Circular No. 1/2026 (Registration of Data Controllers): https://www.pdp.gov.my/en/akta/personal-data-protection-commissioners-circular-no-1-2026-registration-of-data-controllers/
+- JPDP, Circular No. 1/2025 (Data Breach Notification): https://www.pdp.gov.my/en/akta/circular-of-personal-data-protection-commissioner-no-1-2025-data-breach-notification/
+- European Commission, safeguards for children's personal data and national consent ages: https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
