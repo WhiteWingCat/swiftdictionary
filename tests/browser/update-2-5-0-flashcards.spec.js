@@ -57,6 +57,7 @@ test("Mock User can build a collection, play Flash Recall and see allowance usag
   await openMockFlashcards(page);
   const collectionId=await createCollection(page);
   await addCustomCard(page,"What is a collocation?","Words that commonly occur together.","We say make a decision, not do a decision.","常见词语搭配");
+  await page.locator("#flashDictionarySearch").evaluate(input=>{input.closest("details").open=true;});
   await page.locator("#flashDictionarySearch").fill("aberration");
   await expect(page.locator("#flashDictionaryResults [data-add-word]")).toHaveCount(1);
   await page.locator("#flashDictionaryResults [data-add-word]").click();
