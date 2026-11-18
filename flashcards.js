@@ -82,7 +82,7 @@
   }
   function render(){
     const mount=shell();style();
-    if(course==="zh"){mount.innerHTML="";return;}
+    if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>English course required</h2><p class="flash-muted">Flashcards currently support the English learning course. Switch your Learning Course to English to use Flashcards.</p></section>';return;}
     if(!currentUser){
       mount.innerHTML='<section class="coming-card"><h2>Sign in to use Flashcards</h2><p class="page-intro" style="margin:0 auto 16px">Your collections and learning progress sync securely with your account.</p><button class="flash-primary" data-action="signin">Sign in</button></section>';
       return;
@@ -154,7 +154,23 @@
       : available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error(state.weakOnly?"There are no weak-memory cards in this card set yet.":"This card set has no available cards.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
-    const target=targets[Math.floor(Math.random()*targets.length)];
+    const optionValue=w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?translationFor(w):w.word;
+    const normalize=value=>String(value||"").normalize("NFKC").trim().toLocaleLowerCase();
+    const viable=targets.filter(target=>{
+      let correct="";
+      if(state.mode==="word")correct=target.definition;
+      else if(state.mode==="definition"||state.mode==="sentence")correct=target.word;
+      else correct=translationFor(target);
+      const correctKey=normalize(correct),distinct=new Set();
+      for(const candidate of available){
+        if(candidate===target)continue;
+        const key=normalize(optionValue(candidate));
+        if(key&&key!==correctKey)distinct.add(key);
+      }
+      return distinct.size>=3;
+    });
+    if(!viable.length)throw new Error("This card set does not contain four distinct answer choices for this mode.");
+    const target=viable[Math.floor(Math.random()*viable.length)];
     let memory="",prompt="",correct="";
     if(state.mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
     else if(state.mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
@@ -165,16 +181,13 @@
       memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";
       prompt="Which word completes the sentence?";correct=target.word;
     }
-    const optionValue=w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?translationFor(w):w.word;
-    const normalize=value=>String(value||"").normalize("NFKC").trim().toLocaleLowerCase();
-    const distinct=new Map();
+    const correctKey=normalize(correct),distinct=new Map();
     for(const candidate of available){
+      if(candidate===target)continue;
       const value=optionValue(candidate),key=normalize(value);
-      if(key&&!distinct.has(key))distinct.set(key,candidate);
+      if(key&&key!==correctKey&&!distinct.has(key))distinct.set(key,candidate);
     }
-    const correctKey=normalize(correct);
-    const distractors=[...distinct.entries()].filter(([key,candidate])=>key!==correctKey&&candidate!==target).map(([,candidate])=>candidate);
-    if(distractors.length<3)throw new Error("This card set does not contain four distinct answer choices for this mode.");
+    const distractors=[...distinct.values()];
     for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
     const chosen=[target,...distractors.slice(0,3)];
     for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
@@ -331,7 +344,7 @@
       if(action==="review-weak"){state.collectionId="all";state.weakOnly=true;state.weakKeys=new Set([value]);state.mode=value.startsWith("dict:")?"word":"definition";await startGame();return;}
       if(action==="review-weak-all"){state.collectionId="all";state.weakOnly=true;state.weakKeys=new Set([...masteryMap().entries()].filter(([,m])=>m.last_result==="incorrect").map(([key])=>key));await startGame();return;}
       if(action==="rename-collection"){const name=prompt("New collection name",selectedCollection().name);if(name!==null)await collectionAction("rename",selectedCollection().id,name);return;}
-      if(action==="delete-collection"){if(confirm("Delete this collection and its cards?")){await collectionAction("delete",selectedCollection().id,null);state.collectionId="all";}return;}
+      if(action==="delete-collection"){if(confirm("Delete this collection and its cards?")){const id=selectedCollection().id;state.collectionId="all";await collectionAction("delete",id,null);}return;}
       if(action==="remove-card"){if(confirm("Remove this card from the collection?"))await cardAction("delete",{id:value},null);return;}
       if(action==="reorder-up"||action==="reorder-down"){
         const card=state.data.cards.find(c=>c.id===value);if(!card)return;
