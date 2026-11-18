@@ -369,8 +369,9 @@
     root.addEventListener("input",event=>{if(event.target.id==="flashDictionarySearch")renderDictionarySearch(event.target.value);});
   }
   async function addDictionaryWord(wordName){
+    notice("Adding dictionary word...");
     const selected=selectedCollection();if(!selected){notice("Create or select a collection first.");return;}
-    const word=words().find(w=>w.word===wordName);if(!word)return;
+    const word=words().find(w=>w.word===wordName);if(!word){notice("Dictionary word could not be found.");return;}
     try{await cardAction("create",dictionaryCard(word),selected.id);notice("Dictionary word added.");}catch(error){notice(error.message);}
   }
   function renderDictionarySearch(query){
