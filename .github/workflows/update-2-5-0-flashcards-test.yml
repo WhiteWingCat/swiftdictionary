@@ -1,5 +1,9 @@
 name: SwiftDictionary Update 2.5.0 Flashcards checks
 
+concurrency:
+  group: update-2-5-0-flashcards-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches:
