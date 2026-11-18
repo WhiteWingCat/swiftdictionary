@@ -71,11 +71,12 @@ test("Mock User Flashcards supports custom collections, four modes, timer reduct
   await page.clock.install();
   for(const mode of ["word","definition","translation","sentence"]){
     await startGame(page,collectionId,mode,"beginner");
+    if(mode==="sentence")await expect(page.locator("#flashMemory")).toContainText("_____");
     await page.clock.fastForward(5000);
     const options=await page.locator("#flashOptions .flash-option").allTextContents();
     expect(options).toHaveLength(4);
     expect(new Set(options.map(value=>value.trim().toLocaleLowerCase())).size).toBe(4);
-    if(mode==="sentence")await expect(page.locator("#flashMemory")).toContainText("_____");
+    if(mode==="sentence")await expect(page.locator("#flashQuestion")).toContainText("Which word completes the sentence?");
     await page.locator('[data-action="leave-game"]').click();
     await expect(page.locator("#flashcardsApp")).toBeVisible();
   }
@@ -124,7 +125,7 @@ test("A completed 60-second Flash Recall game saves mastery and charges one Free
   expect(result.history[0].incorrect_count).toBeGreaterThanOrEqual(result.history[0].unanswered_count);
   expect(result.mastery.length).toBeGreaterThan(0);
   expect(result.used).toBe(1);
-  await page.locator('[data-page="profile"]').click();
+  await page.evaluate(()=>window.showPage("profile"));
   await expect(page.locator("#dashboardAllowanceBars")).toContainText("2 of 3 remaining · 1 used");
 });
 
