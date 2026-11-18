@@ -133,7 +133,7 @@ if (!html.includes('id="practiceQuizWrongAnswers"') ||
 }
 if (!html.includes('data-dashboard-quiz-review=') ||
     !html.includes('escapeHTML(quizT("Review","查看"))') ||
-    html.includes('\\\\'+quizEscape(quizT("Review","查看"))+\\\\') ||
+    html.includes("\\\\'+quizEscape") ||
     !html.includes('quizReview(button.dataset.dashboardQuizReview,"profile")') ||
     !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {
   throw new Error("Dashboard Quiz history must render a valid Review button and retain its direct answer-review action.");
