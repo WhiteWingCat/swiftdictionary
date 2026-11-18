@@ -55,3 +55,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.4.1 fix & changes](2026-11-17-update-2-4-1-fix-and-changes.md) — records the Daily Learning expired-session fix, Quiz translation eligibility/start correction, owner-requested UI changes, CI results, production migration verification and next live-test checklist.
 
 - [Update 2.4.2 Dashboard Quiz fixes](2026-11-18-update-2-4-2-dashboard-quiz-fixes.md) — records both Dashboard fixes, PR #11 merge (`65d0a35`), passing CI workflows #44229322995/#44229322963 and successful GitHub Pages deployment #44230831943.
+
+
+- [Master Development Record correction and branch hygiene review](2026-11-18-master-record-and-branch-hygiene.md) — closes the stale 2.3.0 gate wording, marks 2.4.0/2.4.1/2.4.2 released, confirms 2.5.0 as the next milestone, and records the agreed separation between production `main`, the documentation branch and temporary feature branches. Includes the repository branch/PR audit and safe cleanup requirements.
