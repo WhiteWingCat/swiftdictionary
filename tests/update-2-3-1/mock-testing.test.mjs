@@ -188,6 +188,8 @@ test("Flashcard Mock User supports private collections, custom cards, mastery an
   let data=await client.rpc("get_my_flashcard_data");
   assert.equal(data.data.collections.length,1);
   assert.equal(data.data.cards.length,1);
+  assert.equal(data.data.allowance.daily_limit,3);
+  assert.equal(data.data.allowance.remaining,3);
 
   const abandoned=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
   assert.equal(abandoned.error,null);
@@ -211,6 +213,8 @@ test("Flashcard Mock User supports private collections, custom cards, mastery an
   assert.equal(blocked.error.code,"P0001");
   data=await client.rpc("get_my_flashcard_data");
   assert.equal(data.data.history.length,3);
+  assert.equal(data.data.allowance.used_count,3);
+  assert.equal(data.data.allowance.remaining,0);
   assert.equal(data.data.mastery.find(row=>row.card_key==="custom:"+card.data.id).incorrect_count,2);
 
   env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
@@ -275,6 +279,8 @@ test("Deleting Flashcard learning history preserves collections, custom cards an
   assert.equal(after.data.mastery.length,0);
   assert.equal(after.data.collections.length,1);
   assert.equal(after.data.cards.length,1);
+  assert.equal(after.data.allowance.used_count,1);
+  assert.equal(after.data.allowance.remaining,2);
   const usage=await client.rpc("get_my_learning_allowance_usage");
   assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,1);
 });
