@@ -118,3 +118,22 @@ test("deleting the selected collection returns the manager to the all-words stat
   await expect(page.locator("#flashManageCollection")).toHaveValue("");
   await expect(page.locator("#flashcardsApp")).toContainText("Select a collection above to manage its cards.");
 });
+
+test("edited dictionary cards use their saved content in a selected Flash Recall set",async({page})=>{
+  test.setTimeout(45000);
+  await openMockFlashcards(page);
+  const collectionId=await createCollection(page,"Edited dictionary cards");
+  await page.locator("#flashDictionarySearch").evaluate(input=>{input.closest("details").open=true;});
+  await page.locator("#flashDictionarySearch").fill("aberration");
+  await page.locator("#flashDictionaryResults [data-add-word]").click();
+  await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:"aberration"})).toHaveCount(1);
+  page.once("dialog",dialog=>dialog.accept("edited front"));
+  page.once("dialog",dialog=>dialog.accept("edited definition"));
+  await page.locator('#flashcardsApp [data-action="edit-card"]').click();
+  await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:"edited front"})).toHaveCount(1);
+  await startGame(page,collectionId,"word","beginner");
+  await expect(page.locator("#flashMemory")).toHaveText("edited front");
+  await page.waitForTimeout(5100);
+  await expect(page.locator("#flashOptions")).toContainText("edited definition");
+  await page.locator('[data-action="leave-game"]').click();
+});
