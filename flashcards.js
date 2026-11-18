@@ -25,7 +25,7 @@
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
   function cardKey(card){return card.card_type==="dictionary"?"dict:"+card.dictionary_word.toLowerCase():"custom:"+card.id;}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
-  function translationFor(word){return translationLanguage==="zh"?(word.definitionZh||word.definition):word.definition;}
+  function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;return language==="zh"?(word.definitionZh||word.definition):word.definition;}
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
       example_text:(word.examples||[])[0]||"",translation_text:translationFor(word),position:0};
@@ -226,7 +226,7 @@
     if(deck.length<4)throw new Error("Add at least four dictionary words or cards before starting a four-choice game.");
     const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty});
     if(error)throw error;
-    state.game={id:data.session_id,startedAt:Date.now()};
+    state.game={id:data.session_id,startedAt:Date.now(),translationLanguage};
     state.deck=deck;state.results=[];state.roundIndex=0;
     Object.assign(state,{memory:timing[state.difficulty].memory,answer:timing[state.difficulty].answer});
     render();tickGame();showMemory();
