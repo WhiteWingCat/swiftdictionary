@@ -56,7 +56,8 @@
       lesson_practice_results:[],
       daily_activity_sessions:[],
       learning_page_introduction_preferences:[],
-      quiz_sessions:[],\n      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[]
+      quiz_sessions:[],
+      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[]
     };
   }
   function loadState(user) {
