@@ -4,6 +4,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const source = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
+const flashcardsSource = fs.readFileSync(new URL("../../flashcards.js", import.meta.url), "utf8");
 const draftBank = JSON.parse(fs.readFileSync(new URL("../../content/quiz/questions.en-zh.draft.json", import.meta.url), "utf8"));
 const curriculumMap = JSON.parse(fs.readFileSync(new URL("../../content/quiz/curriculum-map.en.json", import.meta.url), "utf8"));
 const draftById = new Map(draftBank.questions.map(question => [question.question_id, question]));
@@ -137,6 +138,26 @@ test("mock identities represent separate Free and Premium plans",async()=>{
   assert.equal(replay.data.status,"completed");
   const afterReplay=await client.rpc("get_my_learning_allowance_usage");
   assert.equal(afterReplay.data.find(row=>row.activity_type==="daily_discovery").used_count,3);
+});
+
+test("Flash Recall timer starts, fixed reductions and minimum floors match the approved difficulty rules",()=>{
+  const match=flashcardsSource.match(/const timing = \{([\s\S]*?)\n  \};/);
+  assert.ok(match,"Flashcards must define the shared timer configuration");
+  const config={};
+  for(const row of match[1].matchAll(/(beginner|intermediate|advanced):\{memory:([0-9.]+),answer:([0-9.]+),memoryFloor:([0-9.]+),answerFloor:([0-9.]+),memoryStep:([0-9.]+),answerStep:([0-9.]+)\}/g)){
+    config[row[1]]={memory:Number(row[2]),answer:Number(row[3]),memoryFloor:Number(row[4]),answerFloor:Number(row[5]),memoryStep:Number(row[6]),answerStep:Number(row[7])};
+  }
+  assert.deepEqual(config,{
+    beginner:{memory:5,answer:12,memoryFloor:2,answerFloor:5,memoryStep:.5,answerStep:1},
+    intermediate:{memory:3,answer:9,memoryFloor:1.5,answerFloor:4,memoryStep:1.5,answerStep:4},
+    advanced:{memory:2,answer:6,memoryFloor:.7,answerFloor:3,memoryStep:.7,answerStep:3}
+  });
+  for(const [difficulty,t] of Object.entries(config)){
+    let memory=t.memory,answer=t.answer;
+    for(let i=0;i<30;i++){memory=Math.max(t.memoryFloor,Number((memory-t.memoryStep).toFixed(2)));answer=Math.max(t.answerFloor,Number((answer-t.answerStep).toFixed(2)));}
+    assert.equal(memory,t.memoryFloor);
+    assert.equal(answer,t.answerFloor);
+  }
 });
 
 test("Flashcard mock allowance matches the approved Free 3 and Premium 10 games per day",async()=>{
