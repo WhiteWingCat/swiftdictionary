@@ -8,6 +8,7 @@
     "feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev",
     "feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev",
     "feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev",
+    "feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev",
     "127.0.0.1",
     "localhost"
   ]);
