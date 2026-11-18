@@ -127,8 +127,8 @@ test("edited dictionary cards use their saved content in a selected Flash Recall
   await page.locator("#flashDictionarySearch").fill("aberration");
   await page.locator("#flashDictionaryResults [data-add-word]").click();
   await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:"aberration"})).toHaveCount(1);
-  page.once("dialog",dialog=>dialog.accept("edited front"));
-  page.once("dialog",dialog=>dialog.accept("edited definition"));
+  const promptAnswers=["edited front","edited definition"];
+  page.on("dialog",dialog=>dialog.accept(promptAnswers.shift()));
   await page.locator('#flashcardsApp [data-action="edit-card"]').click();
   await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:"edited front"})).toHaveCount(1);
   await startGame(page,collectionId,"word","beginner");
