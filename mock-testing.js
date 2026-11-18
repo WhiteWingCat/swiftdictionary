@@ -6,7 +6,8 @@
   "use strict";
   const PREVIEW_HOSTS = new Set([
     "feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev",
-    "feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev"
+    "feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev",
+    "feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev"
   ]);
   const ACTIVATION_PARAM = "swiftMock";
   const STORAGE_PREFIX = "swiftDictionaryMock:v1:";
@@ -35,7 +36,7 @@
     const lessonLimit = premium ? 15 : 5;
     return [
       ["lesson",lessonLimit],["daily_topic",dailyLimit],["daily_application",dailyLimit],
-      ["daily_discovery",dailyLimit],["daily_revision",dailyLimit],["quiz",dailyLimit],["flashcard",5]
+      ["daily_discovery",dailyLimit],["daily_revision",dailyLimit],["quiz",dailyLimit],["flashcard",premium?10:3]
     ].map(([activity_type,daily_limit]) => ({plan_code:premium?"premium":"free",activity_type,daily_limit,is_enabled:true}));
   }
   function key(userId) { return STORAGE_PREFIX + userId; }
