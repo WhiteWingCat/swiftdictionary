@@ -250,7 +250,7 @@
   }
   function recordAnswer(correct,unanswered=false){
     if(!state.game||state.phase!=="answer")return;clearTimeout(state.phaseTimer);
-    state.results.push({card_key:cardKey(state.round.target),mode:state.round.mode,correct:!!correct,unanswered:!!unanswered});
+    state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:!!correct,unanswered:!!unanswered});
     state.memory=Math.max(timing[state.difficulty].memoryFloor,Number((state.memory-timing[state.difficulty].memoryStep).toFixed(2)));
     state.answer=Math.max(timing[state.difficulty].answerFloor,Number((state.answer-timing[state.difficulty].answerStep).toFixed(2)));
     state.phase="feedback";state.phaseStartedAt=Date.now();state.phaseDuration=3000;
@@ -288,7 +288,7 @@
   async function finishGame(){
     if(!state.game||state.finishing)return;clearTimers();
     const game=state.game;
-    if(state.round&&(state.phase==="memory"||state.phase==="answer"))state.results.push({card_key:cardKey(state.round.target),mode:state.round.mode,correct:false,unanswered:true});
+    if(state.round&&(state.phase==="memory"||state.phase==="answer"))state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:false,unanswered:true});
     state.game=null;state.finishing=true;render();
     try{
       const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});if(error)throw error;
@@ -324,7 +324,7 @@
     const {data,error}=await supabaseClient.rpc("get_my_flashcard_data");
     state.loading=false;
     if(error){state.notice="Flashcards could not load: "+error.message;render();return;}
-    state.data=data||{collections:[],cards:[],mastery:[],history:[]};state.ready=true;render();
+    state.data=data||{collections:[],cards:[],mastery:[],history:[],review_items:[]};state.ready=true;render();
   }
   async function collectionAction(action,id,name){
     const {data,error}=await supabaseClient.rpc("save_my_flashcard_collection",{p_action:action,p_collection_id:id||null,p_name:name||null});
@@ -350,10 +350,17 @@
     const action=button.dataset.action,value=button.dataset.value;
     try{
       if(action==="signin"){document.getElementById("menuSignIn")?.click();return;}
+      if(action==="open-setup"){openSetupPrompt(button.dataset.mode);return;}
+      if(action==="close-overlay"){closeOverlay();return;}
+      if(action==="close-result"){closeOverlay();state.lastResult=null;state.results=[];render();return;}
+      if(action==="begin-game"){state.difficulty=$("#flashDifficulty").value;state.cardSet=$("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
+      if(action==="open-review"){openReviewPrompt();return;}
+      if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
+      if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
       if(action==="mode"){state.mode=value;render();return;}
       if(action==="select-collection"){state.collectionId=value;render();return;}
-      if(action==="start-game"){state.difficulty=$("#flashDifficulty").value;state.collectionId=$("#flashGameCollection").value;state.weakOnly=false;state.weakKeys.clear();await startGame();return;}
-      if(action==="answer"){recordAnswer(state.round.options[Number(button.dataset.index)]===state.round.correct,false);return;}
+      if(action==="start-game"){await startGame();return;}
+      if(action==="answer"){state.selectedAnswerIndex=Number(button.dataset.index);recordAnswer(state.round.options[state.selectedAnswerIndex]===state.round.correct,false);return;}
       if(action==="leave-game"){
         if(!state.game)return;
         clearTimers();const id=state.game.id;state.game=null;state.finishing=true;render();
