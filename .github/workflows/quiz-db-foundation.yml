@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feature/update-2-4-0-quiz
+      - feature/update-2-4-2-dashboard-quiz-fixes
   pull_request:
     branches:
       - main
