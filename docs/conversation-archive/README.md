@@ -60,3 +60,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Master Development Record correction and branch hygiene review](2026-11-18-master-record-and-branch-hygiene.md) — closes the stale 2.3.0 gate wording, marks 2.4.0/2.4.1/2.4.2 released, confirms 2.5.0 as the next milestone, and records the agreed separation between production `main`, the documentation branch and temporary feature branches. Includes the repository branch/PR audit and safe cleanup requirements.
 
 - [Rolling three-branch implementation policy](2026-11-18-rolling-three-branch-policy.md) — records the owner's decision to keep three recent implementation branches, retire the oldest when starting new work, and protect unfinished unique changes.
+
+- [Live Supabase staging synchronization](2026-11-18-live-supabase-staging-synchronization.md) — records the staging-only 2.4.0 Quiz content and 2.4.1 translation migration rollout, migration-history reconciliation, exact production/staging content and function checksum parity, clean learner-data boundary and remaining staging test-account setup.
