@@ -90,6 +90,7 @@
     if(state.loading){mount.innerHTML='<section class="flash-section">Loading your Flashcards…</section>';return;}
     if(state.game){renderGame(mount);return;}
     const counts=masteryMap();
+    const allowance=state.data.allowance||{plan:"free",daily_limit:3,used_count:0,remaining:3};
     const weak=[...counts.entries()].filter(([,m])=>m.last_result==="incorrect").sort((a,b)=>(a[1].last_seen_at||"").localeCompare(b[1].last_seen_at||""));
     const collections=state.data.collections;
     const selected=selectedCollection();
@@ -100,9 +101,10 @@
           <div class="flash-mode-grid">
             ${[["word","Word Recall"],["definition","Definition Recall"],["translation","Translation Recall"],["sentence","Sentence Recall"]].map(([id,label])=>`<button class="flash-mode" data-action="mode" data-value="${id}" aria-pressed="${state.mode===id}"><strong>${label}</strong><small class="flash-muted">${id==="word"?"Remember the word":id==="definition"?"Remember its meaning":id==="translation"?"Remember the translation":"Complete the sentence"}</small></button>`).join("")}
           </div>
+          <p class="flash-muted">Daily allowance: <strong>${allowance.used_count}/${allowance.daily_limit}</strong> games used · <strong>${allowance.remaining}</strong> remaining today</p>
           <div class="flash-controls"><label>Difficulty <select id="flashDifficulty"><option value="beginner" ${state.difficulty==="beginner"?"selected":""}>Beginner</option><option value="intermediate" ${state.difficulty==="intermediate"?"selected":""}>Intermediate</option><option value="advanced" ${state.difficulty==="advanced"?"selected":""}>Advanced</option></select></label>
           <label>Card set <select id="flashGameCollection"><option value="all">All available words</option>${collections.map(c=>`<option value="${c.id}" ${state.collectionId===c.id?"selected":""}>${escapeHtml(c.name)}</option>`).join("")}</select></label>
-          <button class="flash-primary" data-action="start-game">Start 60-second game</button></div>
+          <button class="flash-primary" data-action="start-game" ${allowance.remaining<=0?"disabled":""}>Start 60-second game</button></div>
           <p class="flash-muted">Each game uses one daily Flashcard allowance. Leaving a game early does not consume a game.</p>
         </section>
         <section class="flash-section"><h2>Learning Collections</h2><p class="flash-muted">Choose a collection to practise words saved from the dictionary.</p>
