@@ -152,6 +152,69 @@ test("Flashcard mock allowance matches the approved Free 3 and Premium 10 games 
   assert.equal(premium.data.daily_limit,10);
 });
 
+test("Flashcard Mock User supports private collections, custom cards, mastery and Free allowance",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const created=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"My custom words"});
+  assert.equal(created.error,null);
+  const collectionId=created.data.id;
+  const card=await client.rpc("save_my_flashcard_card",{
+    p_action:"create",p_card_id:null,p_collection_id:collectionId,p_card_type:"custom",
+    p_dictionary_word:null,p_front_text:"What is a collocation?",p_back_text:"Words that commonly occur together.",
+    p_example_text:"make a decision",p_translation_text:"常见搭配",p_position:0
+  });
+  assert.equal(card.error,null);
+  let data=await client.rpc("get_my_flashcard_data");
+  assert.equal(data.data.collections.length,1);
+  assert.equal(data.data.cards.length,1);
+
+  const abandoned=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+  assert.equal(abandoned.error,null);
+  await client.rpc("abandon_my_flashcard_game",{p_session_id:abandoned.data.session_id});
+  let usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,0);
+
+  for(let i=0;i<3;i++){
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+    assert.equal(started.error,null);
+    const completed=await client.rpc("complete_my_flashcard_game",{
+      p_session_id:started.data.session_id,
+      p_results:[{card_key:"custom:"+card.data.id,correct:i===0,unanswered:i===2},{card_key:"dict:hello",correct:true,unanswered:false}]
+    });
+    assert.equal(completed.error,null);
+    assert.equal(completed.data.words_seen,2);
+  }
+  usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,3);
+  const blocked=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+  assert.equal(blocked.error.code,"P0001");
+  data=await client.rpc("get_my_flashcard_data");
+  assert.equal(data.data.history.length,3);
+  assert.equal(data.data.mastery.find(row=>row.card_key==="custom:"+card.data.id).incorrect_count,2);
+
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  data=await client.rpc("get_my_flashcard_data");
+  assert.equal(data.data.collections.length,0);
+  assert.equal(data.data.cards.length,0);
+  assert.equal(data.data.mastery.length,0);
+});
+
+test("Premium Mock User can complete ten Flashcard games but not an eleventh",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  const client=env.window.supabase.createClient();
+  for(let i=0;i<10;i++){
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"translation",p_difficulty:"advanced"});
+    assert.equal(started.error,null);
+    const done=await client.rpc("complete_my_flashcard_game",{
+      p_session_id:started.data.session_id,p_results:[{card_key:"dict:hello",correct:true,unanswered:false}]
+    });
+    assert.equal(done.error,null);
+  }
+  const blocked=await client.rpc("start_my_flashcard_game",{p_mode:"translation",p_difficulty:"advanced"});
+  assert.equal(blocked.error.code,"P0001");
+});
+
 test("Premium mock permanent lesson allowance permits 15 completions and blocks the 16th",async()=>{
   const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
   const client=env.window.supabase.createClient();
