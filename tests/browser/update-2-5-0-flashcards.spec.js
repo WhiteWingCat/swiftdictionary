@@ -108,3 +108,13 @@ test("Flashcard collections remain isolated when Mock User accounts are switched
   await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.activeUser())).toBe("mock-user-a");
   await expect(page.locator("#flashManageCollection option").filter({hasText:"Private A collection"})).toHaveCount(1);
 });
+
+test("deleting the selected collection returns the manager to the all-words state",async({page})=>{
+  await openMockFlashcards(page);
+  await createCollection(page,"Collection to delete");
+  await page.once("dialog",dialog=>dialog.accept());
+  await page.locator('[data-action="delete-collection"]').click();
+  await expect(page.locator("#flashManageCollection option").filter({hasText:"Collection to delete"})).toHaveCount(0);
+  await expect(page.locator("#flashManageCollection")).toHaveValue("");
+  await expect(page.locator("#flashcardsApp")).toContainText("Select a collection above to manage its cards.");
+});
