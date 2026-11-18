@@ -36,14 +36,14 @@ Documentation commit:
 
 ## Branch cleanup status and safeguards
 
-This session completed the audit and documented the policy. It did not yet delete branches, close PRs or remove files from `main`. Before those mutations:
+This session completed the audit and implemented the documentation separation. It did not delete branch refs because the connected GitHub actions do not expose a branch-delete operation. Before the remaining branch cleanup:
 1. Preserve any unique documentation currently present on `main` in the dedicated documentation branch.
 2. Confirm the old feature branches are merged or otherwise contain no unique unmerged work.
 3. Close the obsolete draft PRs #2 and #4 rather than merging them into `main`.
-4. Remove merged feature branches only after confirming their associated PR merge commits.
-5. Remove documentation-only paths from `main` only after verifying the documentation branch contains the preserved content and confirming the exact non-runtime paths. Do not remove tests, workflows, migrations, licences or attribution assets simply because they are not served as pages.
+4. Nine branches associated with already merged PRs remain present; they can be safely deleted in GitHub after confirming the corresponding merged PRs #1, #3, #5–#11. The closed/unmerged planning branch and unassociated work branch must be inspected first.
+5. The documentation-only paths have now been preserved on `docs/master-development-record` and removed from `main` in one commit (`686d874`). Runtime, test, workflow, migration, licence and attribution assets were retained.
 
-No application code, production database, production settings, Supabase project, live website deployment or learner data was changed during this documentation review. Update 2.5.0 implementation was not started.
+No application code, production database, production settings, Supabase project or learner data was changed during this documentation review. The Pages workflow for the main cleanup commit was triggered and was still in progress at the last check. Update 2.5.0 implementation was not started.
 
 ## Next recovery point
 
