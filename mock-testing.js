@@ -57,7 +57,7 @@
       daily_activity_sessions:[],
       learning_page_introduction_preferences:[],
       quiz_sessions:[],
-      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[]
+      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[],flashcard_allowance_events:[]
     };
   }
   function loadState(user) {
@@ -216,7 +216,7 @@
         : activity_type==="quiz"
           ? (db.tables.quiz_sessions||[]).filter(row=>row.status==="completed" && row.completed_at && dateInZone(row.completed_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
           : activity_type==="flashcard"
-          ? (db.tables.learning_activity_log||[]).filter(row=>row.activity_type==="flashcard" && row.event_type==="completed" && row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
+          ? (db.tables.flashcard_allowance_events||[]).filter(row=>row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
           : dailyRows(db,activity_type).length
     }));
   }
@@ -497,6 +497,7 @@
       }
       Object.assign(session,{status:"completed",words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered,completed_at:now()});
       (tables.learning_activity_log||=[]).push({user_id:user.id,activity_type:"flashcard",event_type:"completed",language_code:"en",created_at:now()});
+      (tables.flashcard_allowance_events||=[]).push({user_id:user.id,created_at:now()});
       persist(db);return {data:{completed:true,words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered},error:null};
     }
     if (name==="abandon_my_flashcard_game") {
