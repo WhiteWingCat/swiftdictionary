@@ -25,9 +25,10 @@
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
   function cardKey(card){return card.card_type==="dictionary"?"dict:"+card.dictionary_word.toLowerCase():"custom:"+card.id;}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
+  function translationFor(word){return translationLanguage==="zh"?(word.definitionZh||word.definition):word.definition;}
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
-      example_text:(word.examples||[])[0]||"",translation_text:word.definitionZh||"",position:0};
+      example_text:(word.examples||[])[0]||"",translation_text:translationFor(word),position:0};
   }
   function style(){
     if($("#flashcardsStyles"))return;
@@ -149,9 +150,9 @@
     let memory="",prompt="",correct="";
     if(state.mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
     else if(state.mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
-    else if(state.mode==="translation"){memory=target.word;prompt="Choose the correct translation";correct=target.definitionZh||target.definition;}
+    else if(state.mode==="translation"){memory=target.word;prompt="Choose the correct translation";correct=translationFor(target);}
     else {const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");memory=sentence.replace(new RegExp("\\b"+target.word.replace(/[.*+?^${}()|[\\]\\]/g,"\\$&")+"\\b","i"),"_____");prompt="Which word completes the sentence?";correct=target.word;}
-    const options=chosen.map(w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?(w.definitionZh||w.definition):w.word);
+    const options=chosen.map(w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?translationFor(w):w.word);
     return {target,memory,prompt,correct,options};
   }
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
