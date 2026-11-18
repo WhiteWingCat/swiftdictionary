@@ -7,17 +7,17 @@ const mock=fs.readFileSync("mock-testing.js","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql","utf8");
 
 let inlineCount=0;
-for(const match of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)){
+for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
   const attrs=match[1]||"",body=match[2]||"";
-  if(/\\bsrc\\s*=/.test(attrs)||!body.trim())continue;
-  if(/type\\s*=\\s*["']application\\//i.test(attrs))continue;
+  if(/\bsrc\s*=/.test(attrs)||!body.trim())continue;
+  if(/type\s*=\s*["']application\//i.test(attrs))continue;
   new vm.Script(body,{filename:"index.html inline script"});
   inlineCount++;
 }
 new vm.Script(flashcards,{filename:"flashcards.js"});
 new vm.Script(mock,{filename:"mock-testing.js"});
 if(inlineCount<1)throw new Error("No inline application script was syntax-checked.");
-if(!/<script[^>]+src=["']flashcards\\.js["']/.test(html))throw new Error("Flashcards runtime is not loaded by index.html.");
+if(!/<script[^>]+src=["']flashcards\.js["']/.test(html))throw new Error("Flashcards runtime is not loaded by index.html.");
 if(!/id=["']flashcardsApp["']/.test(html))throw new Error("Flashcards page mount is missing.");
 if(/Flashcards are being prepared|Flashcards will become available/.test(html))throw new Error("Outdated Coming Soon copy remains.");
 for(const mode of ["word","definition","translation","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
