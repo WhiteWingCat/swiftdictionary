@@ -599,7 +599,7 @@
     <section id="flashcardsPage" class="page-panel" hidden aria-labelledby="flashcardsHeading">
       <div class="learning-page-heading"><div><h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p></div><button type="button" class="learning-help-button" data-learning-help="flashcards" aria-label="Flashcards introduction and FAQs" title="Introduction and FAQs">?</button></div>
       <div id="flashcardsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Flashcards are coming soon</h2><p>There is currently no Chinese learning course available in Flashcards. Switch your learning course to English to continue when Flashcards are released.</p></div>
-      <div class="coming-card"><span class="coming-label">Coming Soon</span><h2>Flashcards are being prepared</h2><p class="page-intro" style="margin:0 auto">Flashcard practice will be introduced in a future SwiftDictionary update.</p></div>
+      <div id="flashcardsApp" class="flash-home" aria-live="polite"></div>
     </section>
     <section id="profilePage" class="page-panel" hidden aria-labelledby="profileHeading">
       <div class="dashboard-heading"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div>
@@ -19348,6 +19348,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
   </script>
 
   <script src="daily-learning.js"></script>
+  <script src="flashcards.js"></script>
 <div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
