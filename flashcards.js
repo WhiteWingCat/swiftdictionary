@@ -14,7 +14,7 @@
     ready:false,loading:false,data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
-    selectedWord:null,notice:"",saving:false
+    selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set()
   };
   function words(){return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
@@ -109,7 +109,7 @@
           ${collections.map(c=>`<button class="flash-collection" data-action="select-collection" data-value="${c.id}" aria-pressed="${state.collectionId===c.id}"><strong>${escapeHtml(c.name)}</strong><small>${state.data.cards.filter(card=>card.collection_id===c.id).length} cards</small></button>`).join("")}</div>
         </section>
         <section class="flash-section"><h2>Weak Memory</h2><p class="flash-muted">Cards you answered incorrectly appear here for extra practice.</p>
-          ${weak.length?'<div class="flash-card-list">'+weak.map(([key,m])=>{const card=state.data.cards.find(c=>cardKey(c)===key);const word=key.startsWith("dict:")?words().find(w=>w.word.toLowerCase()===key.slice(5)):null;return `<div class="flash-card-row"><div><strong>${escapeHtml(card?.front_text||word?.word||key.replace(/^custom:/,"Custom card"))}</strong><small>${m.correct_count} correct · ${m.incorrect_count} incorrect · streak ${m.current_streak}</small></div><button class="flash-secondary" data-action="review-weak" data-value="${escapeHtml(key)}">Review</button></div>`;}).join("")+'</div>':'<p class="flash-muted">No weak-memory cards yet. Complete a Flash Recall game to build your review list.</p>'}
+          ${weak.length?'<div class="flash-controls"><button class="flash-primary" data-action="review-weak-all">Review weak memory</button></div><div class="flash-card-list">'+weak.map(([key,m])=>{const card=state.data.cards.find(c=>cardKey(c)===key);const word=key.startsWith("dict:")?words().find(w=>w.word.toLowerCase()===key.slice(5)):null;return `<div class="flash-card-row"><div><strong>${escapeHtml(card?.front_text||word?.word||key.replace(/^custom:/,"Custom card"))}</strong><small>${m.correct_count} correct · ${m.incorrect_count} incorrect · streak ${m.current_streak}</small></div><button class="flash-secondary" data-action="review-weak" data-value="${escapeHtml(key)}">Review</button></div>`;}).join("")+'</div>':'<p class="flash-muted">No weak-memory cards yet. Complete a Flash Recall game to build your review list.</p>'}
         </section>
         <section class="flash-section"><h2>My Collections</h2><p class="flash-muted">Create your own collections, add dictionary words, or write fully custom question-and-answer cards. Your changes sync to your account.</p>
           <form class="flash-form" id="flashCollectionForm"><label>New collection name<input name="name" maxlength="60" placeholder="e.g. Words I want to remember" required></label><div><button class="flash-primary" type="submit">Create collection</button></div></form>
@@ -129,7 +129,7 @@
   }
   function gameDeck(){
     const all=words();
-    if(state.collectionId==="all")return all;
+    if(state.collectionId==="all")return [...all,...state.data.cards.filter(c=>c.card_type==="custom").map(c=>({word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c}))];
     const set=state.data.cards.filter(c=>c.collection_id===state.collectionId);
     return set.map(c=>c.card_type==="dictionary"?all.find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase()):({
       word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,
@@ -139,7 +139,9 @@
   function makeRound(deck){
     const available=deck.filter(w=>w.word&&w.definition);
     if(available.length<4)throw new Error("This card set needs at least four usable cards for four-choice Flash Recall.");
-    const target=available[Math.floor(Math.random()*available.length)];
+    const targets=state.weakOnly?available.filter(w=>state.weakKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase())):available;
+    if(!targets.length)throw new Error("There are no weak-memory cards in this card set yet.");
+    const target=targets[Math.floor(Math.random()*targets.length)];
     const distractors=available.filter(w=>w!==target);
     for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
     const chosen=[target,...distractors.slice(0,3)];
@@ -233,6 +235,9 @@
     if(!state.game)return;
     clearTimers();
     const game=state.game;
+    if(state.round&&(state.phase==="memory"||state.phase==="answer")){
+      state.results.push({card_key:state.round.target._custom?"custom:"+state.round.target._custom.id:"dict:"+state.round.target.word.toLowerCase(),correct:false,unanswered:true});
+    }
     state.game=null;
     try{
       const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});
@@ -254,8 +259,9 @@
     state.data=data||{collections:[],cards:[],mastery:[],history:[]};state.ready=true;render();
   }
   async function collectionAction(action,id,name){
-    const {error}=await supabaseClient.rpc("save_my_flashcard_collection",{p_action:action,p_collection_id:id||null,p_name:name||null});
+    const {data,error}=await supabaseClient.rpc("save_my_flashcard_collection",{p_action:action,p_collection_id:id||null,p_name:name||null});
     if(error)throw error;
+    if(action==="create"&&data?.id)state.collectionId=data.id;
     await loadData();
   }
   async function cardAction(action,card,collectionId){
@@ -277,13 +283,14 @@
       if(action==="signin"){document.getElementById("menuSignIn")?.click();return;}
       if(action==="mode"){state.mode=value;render();return;}
       if(action==="select-collection"){state.collectionId=value;render();return;}
-      if(action==="start-game"){state.difficulty=$("#flashDifficulty").value;state.collectionId=$("#flashGameCollection").value;await startGame();return;}
+      if(action==="start-game"){state.difficulty=$("#flashDifficulty").value;state.collectionId=$("#flashGameCollection").value;state.weakOnly=false;state.weakKeys.clear();await startGame();return;}
       if(action==="answer"){recordAnswer(state.round.options[Number(button.dataset.index)]===state.round.correct,false);return;}
       if(action==="leave-game"){
         clearTimers();const id=state.game.id;state.game=null;
         await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:id});state.notice="Game left. No daily allowance was used.";await loadData();return;
       }
-      if(action==="review-weak"){const m=masteryMap().get(value);const key=value;state.collectionId="all";state.mode=key.startsWith("dict:")?"word":"definition";notice("Start a new game to review this weak-memory item.");return;}
+      if(action==="review-weak"){state.collectionId="all";state.weakOnly=true;state.weakKeys=new Set([value]);state.mode=value.startsWith("dict:")?"word":"definition";await startGame();return;}
+      if(action==="review-weak-all"){state.collectionId="all";state.weakOnly=true;state.weakKeys=new Set([...masteryMap().entries()].filter(([,m])=>m.last_result==="incorrect").map(([key])=>key));await startGame();return;}
       if(action==="rename-collection"){const name=prompt("New collection name",selectedCollection().name);if(name!==null)await collectionAction("rename",selectedCollection().id,name);return;}
       if(action==="delete-collection"){if(confirm("Delete this collection and its cards?")){await collectionAction("delete",selectedCollection().id,null);state.collectionId="all";}return;}
       if(action==="remove-card"){if(confirm("Remove this card from the collection?"))await cardAction("delete",{id:value},null);return;}
