@@ -125,7 +125,8 @@ test("A completed 60-second Flash Recall game saves mastery and charges one Free
   expect(result.history[0].incorrect_count).toBeGreaterThanOrEqual(result.history[0].unanswered_count);
   expect(result.mastery.length).toBeGreaterThan(0);
   expect(result.used).toBe(1);
-  await page.evaluate(()=>window.showPage("profile"));
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
   await expect(page.locator("#dashboardAllowanceBars")).toContainText("2 of 3 remaining · 1 used");
 });
 
