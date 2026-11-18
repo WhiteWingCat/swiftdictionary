@@ -298,7 +298,7 @@ declare
   v_user uuid := auth.uid();
   v_session private.flashcard_sessions%rowtype;
   v_seen integer; v_correct integer; v_incorrect integer; v_unanswered integer;
-  v_item jsonb; v_key text; v_ok boolean; v_unanswered_flag boolean;
+  v_item jsonb; v_key text; v_custom_id uuid; v_ok boolean; v_unanswered_flag boolean;
 begin
   if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
   if p_session_id is null or jsonb_typeof(p_results) <> 'array'
@@ -333,148 +333,15 @@ begin
       raise exception 'A Flashcard result is missing a valid card key' using errcode='22023';
     end if;
     if v_key like 'custom:%' then
-      if substring(v_key from 8) !~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
-    if v_ok and v_unanswered_flag then raise exception 'An unanswered card cannot be correct' using errcode='22023'; end if;
-    if v_ok then v_correct:=v_correct+1; else v_incorrect:=v_incorrect+1; end if;
-    if v_unanswered_flag then v_unanswered:=v_unanswered+1; end if;
-    insert into private.flashcard_mastery(
-      user_id,card_key,correct_count,incorrect_count,current_streak,last_result,last_seen_at,updated_at
-    ) values (
-      v_user,v_key,case when v_ok then 1 else 0 end,
-      case when v_ok then 0 else 1 end,case when v_ok then 1 else 0 end,
-      case when v_ok then 'correct' else 'incorrect' end,now(),now()
-    )
-    on conflict(user_id,card_key) do update set
-      correct_count=private.flashcard_mastery.correct_count+excluded.correct_count,
-      incorrect_count=private.flashcard_mastery.incorrect_count+excluded.incorrect_count,
-      current_streak=case when excluded.last_result='correct'
-        then private.flashcard_mastery.current_streak+1 else 0 end,
-      last_result=excluded.last_result,last_seen_at=now(),updated_at=now();
-  end loop;
-  update private.flashcard_sessions set status='completed',words_seen=v_seen,
-    correct_count=v_correct,incorrect_count=v_incorrect,unanswered_count=v_unanswered,
-    completed_at=now() where id=p_session_id and user_id=v_user;
-  -- This insert invokes the existing server-side completion allowance trigger.
-  -- If the daily limit is exhausted, the whole transaction (including mastery)
-  -- rolls back and the game remains uncharged.
-  insert into public.learning_activity_log(user_id,activity_type,language_code,event_type)
-    values(v_user,'flashcard','en','completed');
-  return jsonb_build_object('completed',true,'words_seen',v_seen,
-    'correct_count',v_correct,'incorrect_count',v_incorrect,'unanswered_count',v_unanswered);
-end;
-$function$;
-
-create or replace function private.abandon_my_flashcard_game_impl(p_session_id uuid)
-returns jsonb language plpgsql security definer set search_path = ''
-as $function$
-declare v_user uuid := auth.uid();
-begin
-  if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
-  update private.flashcard_sessions set status='abandoned'
-    where id=p_session_id and user_id=v_user and status='in_progress';
-  return jsonb_build_object('abandoned',true);
-end;
-$function$;
-
--- Public schema wrappers are SECURITY INVOKER and expose no table access.
-create or replace function public.get_my_flashcard_data()
-returns jsonb language sql security invoker set search_path=''
-as $function$ select private.get_my_flashcard_data_impl(); $function$;
-create or replace function public.save_my_flashcard_collection(p_action text,p_collection_id uuid,p_name text)
-returns jsonb language sql security invoker set search_path=''
-as $function$ select private.save_my_flashcard_collection_impl(p_action,p_collection_id,p_name); $function$;
-create or replace function public.save_my_flashcard_card(
-  p_action text,p_card_id uuid,p_collection_id uuid,p_card_type text,
-  p_dictionary_word text,p_front_text text,p_back_text text,
-  p_example_text text,p_translation_text text,p_position integer
-) returns jsonb language sql security invoker set search_path=''
-as $function$ select private.save_my_flashcard_card_impl(
-  p_action,p_card_id,p_collection_id,p_card_type,p_dictionary_word,
-  p_front_text,p_back_text,p_example_text,p_translation_text,p_position
-); $function$;
-create or replace function public.start_my_flashcard_game(p_mode text,p_difficulty text)
-returns jsonb language sql security invoker set search_path=''
-as $function$ select private.start_my_flashcard_game_impl(p_mode,p_difficulty); $function$;
-create or replace function public.complete_my_flashcard_game(p_session_id uuid,p_results jsonb)
-returns jsonb language sql security invoker set search_path=''
-as $function$ select private.complete_my_flashcard_game_impl(p_session_id,p_results); $function$;
-create or replace function public.abandon_my_flashcard_game(p_session_id uuid)
-returns jsonb language sql security invoker set search_path=''
-as $function$ select private.abandon_my_flashcard_game_impl(p_session_id); $function$;
-
-grant usage on schema private to authenticated;
-grant execute on function private.get_my_flashcard_data_impl() to authenticated;
-grant execute on function private.save_my_flashcard_collection_impl(text,uuid,text) to authenticated;
-grant execute on function private.save_my_flashcard_card_impl(text,uuid,uuid,text,text,text,text,text,text,integer) to authenticated;
-grant execute on function private.start_my_flashcard_game_impl(text,text) to authenticated;
-grant execute on function private.complete_my_flashcard_game_impl(uuid,jsonb) to authenticated;
-grant execute on function private.abandon_my_flashcard_game_impl(uuid) to authenticated;
-revoke all on function private.get_my_flashcard_data_impl() from public,anon;
-revoke all on function private.save_my_flashcard_collection_impl(text,uuid,text) from public,anon;
-revoke all on function private.save_my_flashcard_card_impl(text,uuid,uuid,text,text,text,text,text,text,integer) from public,anon;
-revoke all on function private.start_my_flashcard_game_impl(text,text) from public,anon;
-revoke all on function private.complete_my_flashcard_game_impl(uuid,jsonb) from public,anon;
-revoke all on function private.abandon_my_flashcard_game_impl(uuid) from public,anon;
-
-revoke all on function public.get_my_flashcard_data() from public,anon;
-revoke all on function public.save_my_flashcard_collection(text,uuid,text) from public,anon;
-revoke all on function public.save_my_flashcard_card(text,uuid,uuid,text,text,text,text,text,text,integer) from public,anon;
-revoke all on function public.start_my_flashcard_game(text,text) from public,anon;
-revoke all on function public.complete_my_flashcard_game(uuid,jsonb) from public,anon;
-revoke all on function public.abandon_my_flashcard_game(uuid) from public,anon;
-grant execute on function public.get_my_flashcard_data() to authenticated;
-grant execute on function public.save_my_flashcard_collection(text,uuid,text) to authenticated;
-grant execute on function public.save_my_flashcard_card(text,uuid,uuid,text,text,text,text,text,text,integer) to authenticated;
-grant execute on function public.start_my_flashcard_game(text,text) to authenticated;
-grant execute on function public.complete_my_flashcard_game(uuid,jsonb) to authenticated;
-grant execute on function public.abandon_my_flashcard_game(uuid) to authenticated;
-
--- Update only the Flashcard plan rows; no other learning quotas are changed.
-update public.learning_plan_limits
-set daily_limit=case plan_code when 'free' then 3 when 'premium' then 10 else daily_limit end,
-    is_enabled=true,updated_at=now()
-where activity_type='flashcard' and plan_code in ('free','premium');
-
--- Extend the existing account-level learning-history deletion workflow.
-create or replace function private.delete_my_learning_history_impl()
-returns jsonb language plpgsql security definer set search_path = ''
-as $function$
-declare
-  v_user uuid := auth.uid();
-  v_jwt jsonb;
-  v_session_id uuid;
-  v_session_created_at timestamptz;
-  v_session_not_after timestamptz;
-begin
-  if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
-  v_jwt := auth.jwt();
-  v_session_id := nullif(v_jwt ->> 'session_id', '')::uuid;
-  select s.created_at,s.not_after into v_session_created_at,v_session_not_after
-    from auth.sessions s where s.id=v_session_id and s.user_id=v_user;
-  if not found or v_session_created_at is null
-     or v_session_created_at < pg_catalog.now()-interval '15 minutes'
-     or v_session_created_at > pg_catalog.now()+interval '60 seconds'
-     or (v_session_not_after is not null and v_session_not_after<=pg_catalog.now()) then
-    raise exception 'Recent authentication required to delete learning history' using errcode='42501';
-  end if;
-  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text,0));
-  delete from public.daily_activity_sessions where user_id=v_user;
-  delete from public.lesson_practice_results where user_id=v_user;
-  delete from public.lesson_progress where user_id=v_user;
-  delete from public.learning_activity_log where user_id=v_user;
-  delete from private.flashcard_sessions where user_id=v_user;
-  delete from private.flashcard_mastery where user_id=v_user;
-  return pg_catalog.jsonb_build_object('deleted',true);
-end;
-$function$;
-
-commit;
-
-         or not exists(
-           select 1 from private.flashcard_cards c
-           where c.id=substring(v_key from 8)::uuid
-             and c.user_id=v_user and c.card_type='custom'
-         ) then
+      begin
+        v_custom_id := substring(v_key from 8)::uuid;
+      exception when invalid_text_representation then
+        raise exception 'Custom Flashcard result key is invalid' using errcode='22023';
+      end;
+      if not exists(
+        select 1 from private.flashcard_cards c
+        where c.id=v_custom_id and c.user_id=v_user and c.card_type='custom'
+      ) then
         raise exception 'Custom Flashcard result does not belong to this account' using errcode='42501';
       end if;
     elsif char_length(v_key)<=5 then
