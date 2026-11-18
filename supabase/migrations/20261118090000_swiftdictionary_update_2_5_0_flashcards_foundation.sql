@@ -92,6 +92,20 @@ alter table private.flashcard_collections enable row level security;
 alter table private.flashcard_cards enable row level security;
 alter table private.flashcard_mastery enable row level security;
 alter table private.flashcard_sessions enable row level security;
+
+-- Explicitly deny direct API-role access; account access is only through owner-checking RPCs.
+drop policy if exists flashcard_deny_direct_access on private.flashcard_collections;
+create policy flashcard_deny_direct_access on private.flashcard_collections
+  for all to anon,authenticated using (false) with check (false);
+drop policy if exists flashcard_deny_direct_access on private.flashcard_cards;
+create policy flashcard_deny_direct_access on private.flashcard_cards
+  for all to anon,authenticated using (false) with check (false);
+drop policy if exists flashcard_deny_direct_access on private.flashcard_mastery;
+create policy flashcard_deny_direct_access on private.flashcard_mastery
+  for all to anon,authenticated using (false) with check (false);
+drop policy if exists flashcard_deny_direct_access on private.flashcard_sessions;
+create policy flashcard_deny_direct_access on private.flashcard_sessions
+  for all to anon,authenticated using (false) with check (false);
 revoke all on table private.flashcard_collections,private.flashcard_cards,
   private.flashcard_mastery,private.flashcard_sessions from public,anon,authenticated;
 
