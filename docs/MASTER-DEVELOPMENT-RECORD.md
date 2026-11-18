@@ -1973,3 +1973,19 @@ This is a narrowly scoped presentation/navigation repair. It adds no personal-da
 3. Confirm Cloudflare Pages branch preview success and manually verify the Review label and navigation behaviour if the preview is available.
 4. After validation, merge PR #11 to `main`, then verify the main GitHub Pages deployment before calling Update 2.4.2 live.
 5. Update this record and archive with the final merge SHA, CI run IDs and deployment result. No Supabase migration is expected or required.
+
+
+## 44. Update 2.4.2 — merge and release verification (2026-11-18)
+
+This section supersedes the open-PR/pending-validation statements in Section 43.
+
+- PR #11 was successfully squash-merged to `main` at 2026-11-18 03:29:55 UTC.
+- Merge commit and verified `main` HEAD: `65d0a35bab577adc15a0b1911661c222ed625739`. GitHub reports the merge commit signature as verified.
+- Final tested feature-branch head: `3b9d703f2f83a0f188d55acaac6eef788999434e`.
+- Quiz workflow #44229322995 passed both jobs: Quiz frontend/database foundation and disposable local Supabase Auth/RPC integration, including authenticated Chromium Quiz runtime and local security-advisor checks.
+- Companion 2.3.x workflow #44229322963 passed all three jobs: PostgreSQL 17 migration/allowance tests, Chromium browser regression smoke tests and Supabase CLI local Auth compatibility.
+- Cloudflare Pages preview for the final tested feature-branch commit was reported successful at `https://feature-update-2-4-2-dashboa.swiftdictionary-testing.pages.dev`.
+- GitHub Pages production deployment was triggered for the merge commit as run #44230831943. At the time of this record update it was still building; do not claim the production site is updated until that run completes successfully.
+- No Supabase migration, production database write, production data operation or new personal-data processing was required for 2.4.2.
+
+The code merge is complete. Remaining release gate: confirm GitHub Pages run #44230831943 succeeds, then update the production deployment status here and in the conversation archive. Owner should hard-refresh the live site and manually verify the Dashboard Review label and Dashboard-to-Quiz overview navigation after deployment.
