@@ -220,6 +220,65 @@ test("Flashcard Mock User supports private collections, custom cards, mastery an
   assert.equal(data.data.mastery.length,0);
 });
 
+test("Flashcard collections support editing, moving and deleting cards",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const first=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"First"});
+  const second=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"Second"});
+  const created=await client.rpc("save_my_flashcard_card",{
+    p_action:"create",p_card_id:null,p_collection_id:first.data.id,p_card_type:"dictionary",
+    p_dictionary_word:"hello",p_front_text:"hello",p_back_text:"a greeting",
+    p_example_text:"Hello there.",p_translation_text:"你好",p_position:0
+  });
+  assert.equal(created.error,null);
+  const moved=await client.rpc("save_my_flashcard_card",{
+    p_action:"move",p_card_id:created.data.id,p_collection_id:second.data.id,p_card_type:null,
+    p_dictionary_word:null,p_front_text:null,p_back_text:null,p_example_text:null,p_translation_text:null,p_position:0
+  });
+  assert.equal(moved.error,null);
+  const edited=await client.rpc("save_my_flashcard_card",{
+    p_action:"update",p_card_id:created.data.id,p_collection_id:second.data.id,p_card_type:"dictionary",
+    p_dictionary_word:"hello",p_front_text:"hello!",p_back_text:"an informal greeting",
+    p_example_text:"Hello there.",p_translation_text:"你好",p_position:0
+  });
+  assert.equal(edited.data.front_text,"hello!");
+  const removed=await client.rpc("save_my_flashcard_card",{
+    p_action:"delete",p_card_id:created.data.id,p_collection_id:null,p_card_type:null,
+    p_dictionary_word:null,p_front_text:null,p_back_text:null,p_example_text:null,p_translation_text:null,p_position:0
+  });
+  assert.equal(removed.data.deleted,true);
+  const renamed=await client.rpc("save_my_flashcard_collection",{p_action:"rename",p_collection_id:second.data.id,p_name:"Renamed"});
+  assert.equal(renamed.data.name,"Renamed");
+  const deleted=await client.rpc("save_my_flashcard_collection",{p_action:"delete",p_collection_id:first.data.id,p_name:null});
+  assert.equal(deleted.data.deleted,true);
+});
+
+test("Deleting Flashcard learning history preserves collections, custom cards and today's allowance",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const collection=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"Keep this collection"});
+  const card=await client.rpc("save_my_flashcard_card",{
+    p_action:"create",p_card_id:null,p_collection_id:collection.data.id,p_card_type:"custom",
+    p_dictionary_word:null,p_front_text:"Question",p_back_text:"Answer",
+    p_example_text:null,p_translation_text:null,p_position:0
+  });
+  const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+  await client.rpc("complete_my_flashcard_game",{
+    p_session_id:started.data.session_id,p_results:[{card_key:"custom:"+card.data.id,correct:false,unanswered:true}]
+  });
+  const before=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(before.data.find(row=>row.activity_type==="flashcard").used_count,1);
+  const deleted=await client.rpc("delete_my_learning_history");
+  assert.equal(deleted.data.deleted,true);
+  const after=await client.rpc("get_my_flashcard_data");
+  assert.equal(after.data.history.length,0);
+  assert.equal(after.data.mastery.length,0);
+  assert.equal(after.data.collections.length,1);
+  assert.equal(after.data.cards.length,1);
+  const usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,1);
+});
+
 test("Premium Mock User can complete ten Flashcard games but not an eleventh",async()=>{
   const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
   env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
