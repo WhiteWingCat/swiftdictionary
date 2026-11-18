@@ -2093,6 +2093,27 @@ The audit at Section 47 identified nine implementation branches associated with 
 
 The initial rolling set should be chosen only after that protected work is audited. Do not keep stale merged branches merely to fill the three slots; retain the three most recent useful implementation branches, including active work where applicable.
 
+### Branch register — 2026-11-18 audit
+
+Compared each implementation branch against current `main` at `65d0a35`. Ahead/behind counts are Git commit-graph comparisons; a squash-merged PR can still appear as diverged, so merged PR status and patch equivalence must be checked before deletion.
+
+| Branch | Ahead / behind main | Status / action |
+|---|---:|---|
+| `feature/update-2-5-0-flashcards` | 32 / 0 | Active Update 2.5.0 implementation; retain |
+| `work/update-2-4-0-quiz-feedback` | 173 / 5 | Protected unique work; audit/reconcile before any retirement |
+| `feature/update-2-4-2-dashboard-quiz-fixes` | 8 / 2 | PR #11 merged; retirement candidate after confirming patch equivalence |
+| `feature/update-2-4-1-fix-changes` | 58 / 3 | PR #10 merged; retirement candidate after confirming patch equivalence |
+| `feature/update-2-4-0-quiz` | 322 / 5 | PR #8 merged; large divergent history, verify patch equivalence before retirement |
+| `feature/update-2-3-3-dashboard-favorite-details` | 13 / 6 | PR #7 merged; retirement candidate after confirming patch equivalence |
+| `feature/update-2-3-1-bug-fix-and-changes` | 0 / 13 | No unique commits relative to main; retirement candidate |
+| `hotfix/update-2-3-2-favorite-words-course-isolation` | 0 / 7 | No unique commits relative to main; retirement candidate |
+| `feature/update-2-3-0-allowance-foundation` | 298 / 214 | Associated with merged PR #3 but large divergence; audit patch equivalence before retirement |
+| `feature/update-2-3-0-planning` | 8 / 214 | Closed/unmerged planning branch; useful planning notes preserved on docs branch; verify no unique implementation before retirement |
+| `feature/update-2-2-0-lessons` | 0 / 217 | No unique commits relative to main; retirement candidate |
+
+There are currently 11 implementation branches, exceeding the agreed three-branch target. The available GitHub integration exposes no branch-ref deletion action. No branch has been deleted or claimed retired. Owner-side GitHub cleanup is still required after the listed safety checks; keep the active 2.5.0 branch and protected Quiz-feedback branch.
+
+
 ### Scope
 
 This policy governs future implementation work from Update 2.5.0 onward. It does not change production deployment approvals, testing requirements, the documentation-only branch rule, or the requirement to update this record and the dated conversation archive for meaningful work.
