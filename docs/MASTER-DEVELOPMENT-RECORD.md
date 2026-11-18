@@ -2030,10 +2030,29 @@ Observed branch heads:
 - Open draft PR #2 is the old 2.3.0 planning PR targeting `main`; open draft PR #4 is the documentation-branch PR targeting `main`. Neither should be merged into production.
 - The standalone `work/update-2-4-0-quiz-feedback` branch also requires inspection before any deletion; do not assume it is merged or disposable.
 
-This section records the intended cleanup policy and the audit snapshot. Branch/PR deletion or closure must be separately confirmed in the live repository after checking exact branch contents and merge status. The documentation branch itself must remain available as the single notes location.
+### Cleanup completed in this session
+
+- The full `docs/` directory from the former `main` tree was preserved on `docs/master-development-record` before removal. This includes the previous Master Development Record copy, conversation archives, legal/privacy review, 2.3.x design notes, migration drafts, staging checklist and 2.4.0 Quiz implementation notes.
+- The four root-level internal documents `PRIVACY-POLICY-DRAFT.md`, `RELEASE-QA.md`, `UPDATE-2.1.0-TECHNICAL-PLAN.md` and `UPDATE-2.3.0-PLANNING.md` are preserved on the documentation branch (the privacy draft is under `docs/reference/`).
+- A single commit removed those 30 documentation paths from `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`. No application, runtime, test, workflow, migration, licence or attribution file was removed. GitHub Pages deployment #44233284108 was triggered for this commit and must be checked before declaring the housekeeping deployment complete.
+- Obsolete draft PR #2 (2.3.0 planning) and PR #4 (documentation branch targeting `main`) were closed without merging. There are now no open PRs.
+- The connected GitHub actions available in this session can inspect branches and update refs, but do not expose a branch-delete operation. Therefore, the nine branches whose implementation PRs are already merged, the closed/unmerged 2.3.0 planning branch, and the unassociated `work/update-2-4-0-quiz-feedback` branch remain present. Do not claim they have been deleted. The owner can remove the nine merged branches safely in GitHub's branch list; inspect the planning and work branches first before deletion.
 
 ### Recovery point
 
 - Continue documentation edits on `docs/master-development-record`.
 - Do not start Update 2.5.0 as part of this documentation-maintenance task.
-- Before changing `main`, inspect the exact non-runtime documentation paths and verify that the dedicated documentation branch preserves their contents. Do not remove application, test, workflow, migration, licence or attribution assets merely because they are not served as web pages.
+- Keep `main` free of internal project notes. Future documentation-only updates go directly to the dedicated documentation branch; never merge it into `main`.
+
+
+## 46. Main-branch documentation removal and preservation verification (2026-11-18)
+
+The owner-requested separation was applied in the repository:
+- Main cleanup commit: `686d8743f42ab32e3736c51861a2dbb9b2686420`.
+- 30 paths under `docs/` and four root-level internal planning/QA documents were removed from `main`.
+- Before removal, all 18 files that were present on `main` but missing from the documentation branch were added to `docs/master-development-record` by commit `056e5bf884340e43b84b537dc8bb33d23e9d35a0`. The root privacy-policy draft was also preserved as `docs/reference/PRIVACY-POLICY-DRAFT.md` by commit `4aa89535c433c2c6d11398d59ec8ef21c65b0b36`. Other root planning/QA documents already existed on the documentation branch.
+- The documentation branch now contains 49 documentation files, including the current Master Development Record and all archived/supporting notes removed from `main`.
+- The remaining `main` tree contains the production application, content assets, test fixtures, GitHub Actions workflows, Supabase migrations/tests, and licence/attribution material. No application or database file was removed.
+- Pages workflow #44233284108 was triggered for the housekeeping commit. Its final result must be recorded after it completes. The commit changes no site runtime content; the owner already confirmed the 2.4.2 live application before this cleanup.
+
+This is a repository/documentation-only change, not a new SwiftDictionary product release. No Supabase project, production database, learner data or production configuration was modified.
