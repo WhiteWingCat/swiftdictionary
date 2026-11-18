@@ -557,3 +557,26 @@ test("Flash Recall validates distinct choices before creating a server session a
   assert.match(source,/catch\(error\)\{state\.deck=null;throw error;\}/,
     "A preflight failure must clear the temporary deck and leave the allowance untouched");
 });
+
+test("Flash Recall filters out targets that cannot produce four distinct choices in every mode",()=>{
+  const start=flashcardsSource.indexOf("  function makeRound(deck){");
+  const end=flashcardsSource.indexOf("\n  function durationLabel",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose a round builder");
+  const source=flashcardsSource.slice(start,end);
+  assert.match(source,/const viable=targets\.filter\(target=>/,
+    "Each target must be checked before it can be selected");
+  assert.match(source,/return distinct\.size>=3/,
+    "Only targets with three distinct distractors may be used");
+  assert.match(source,/if\(!viable\.length\)throw new Error/,
+    "A deck with no viable target must fail before the game session starts");
+  assert.match(source,/const target=viable\[Math\.floor\(Math\.random\(\)\*viable\.length\)\]/,
+    "Gameplay must select only from validated targets");
+});
+
+test("Flashcards explains the English-course limitation and resets collection selection after deletion",()=>{
+  assert.match(flashcardsSource,/English course required[\s\S]*Switch your Learning Course to English/,
+    "Chinese-course users must receive a clear explanation instead of a blank page");
+  const handler=flashcardsSource.slice(flashcardsSource.indexOf('if(action==="delete-collection")'),flashcardsSource.indexOf('if(action==="remove-card")'));
+  assert.ok(handler.indexOf('state.collectionId="all"')<handler.indexOf('await collectionAction("delete"'),
+    "Deleting the selected collection must reset selection before the reload/render");
+});
