@@ -36,7 +36,7 @@ Production baseline: `main` at `65d0a35bab577adc15a0b1911661c222ed625739` (Updat
 
 Feature branch: `feature/update-2-5-0-flashcards`
 
-Latest implementation commit at this archive: `4e65a3cf32fdd536533ef536adb9c99f6db3c129`.
+Latest implementation commit at this archive: `58d2ea72ae95997a5261ebd06a34c55ad5639702`.
 
 ### Frontend
 
