@@ -182,123 +182,83 @@
   }
   function makeRound(deck){
     const available=deck.filter(w=>w.word&&w.definition);
-    const targets=state.weakOnly
-      ? available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w)))
-      : available.filter(w=>!w._flashDistractor);
-    if(!targets.length)throw new Error(state.weakOnly?"There are no weak-memory cards in this card set yet.":"This card set has no available cards.");
+    const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
+    if(!targets.length)throw new Error("There are no cards available for this recall mode.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
-    const optionValue=w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?translationFor(w):w.word;
-    const normalize=value=>String(value||"").normalize("NFKC").trim().toLocaleLowerCase();
-    const viable=targets.filter(target=>{
-      let correct="";
-      if(state.mode==="word")correct=target.definition;
-      else if(state.mode==="definition"||state.mode==="sentence")correct=target.word;
-      else correct=translationFor(target);
-      const correctKey=normalize(correct),distinct=new Set();
-      for(const candidate of available){
-        if(candidate===target)continue;
-        const key=normalize(optionValue(candidate));
-        if(key&&key!==correctKey)distinct.add(key);
-      }
-      return distinct.size>=3;
-    });
-    if(!viable.length)throw new Error("This card set does not contain four distinct answer choices for this mode.");
+    const mode=state.mode==="mixed"?["word","definition","sentence"][Math.floor(Math.random()*3)]:state.mode;
+    const optionValue=w=>mode==="word"?w.definition:w.word,normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
+    const viable=targets.filter(target=>{const correct=mode==="word"?target.definition:target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
+    if(!viable.length)throw new Error("This card set does not contain four distinct choices for this recall mode.");
     const target=viable[Math.floor(Math.random()*viable.length)];
     let memory="",prompt="",correct="";
-    if(state.mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
-    else if(state.mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
-    else if(state.mode==="translation"){memory=target.word;prompt="Choose the correct translation";correct=translationFor(target);}
-    else {
-      const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");
-      const index=sentence.toLowerCase().indexOf(target.word.toLowerCase());
-      memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";
-      prompt="Which word completes the sentence?";correct=target.word;
-    }
-    const correctKey=normalize(correct),distinct=new Map();
-    for(const candidate of available){
-      if(candidate===target)continue;
-      const value=optionValue(candidate),key=normalize(value);
-      if(key&&key!==correctKey&&!distinct.has(key))distinct.set(key,candidate);
-    }
-    const distractors=[...distinct.values()];
-    for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
-    const chosen=[target,...distractors.slice(0,3)];
-    for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
-    const options=chosen.map(optionValue);
-    return {target,memory,prompt,correct,options};
+    if(mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
+    else if(mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
+    else{const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");const index=sentence.toLowerCase().indexOf(target.word.toLowerCase());memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";prompt="Which word completes the sentence?";correct=target.word;}
+    const key=normalize(correct),distinct=new Map();for(const c of available){if(c===target)continue;const value=optionValue(c),k=normalize(value);if(k&&k!==key&&!distinct.has(k))distinct.set(k,c);}
+    const distractors=[...distinct.values()];for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
+    const chosen=[target,...distractors.slice(0,3)];for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
+    return {target,mode,memory,prompt,correct,options:chosen.map(optionValue)};
   }
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
   function clearTimers(){clearTimeout(state.gameTimer);clearTimeout(state.phaseTimer);state.gameTimer=null;state.phaseTimer=null;}
   function renderGame(mount){
-    const elapsed=Math.max(0,60-(Date.now()-state.game.startedAt)/1000);
-    const progress=Math.max(0,elapsed/60*100);
-    const round=state.round;
+    const elapsed=Math.max(0,60-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,60-elapsed),round=state.round;
+    const modeLabel=state.mode==="mixed"?"Mixed Recall":state.mode.charAt(0).toUpperCase()+state.mode.slice(1)+" Recall";
     mount.innerHTML=`<section class="flash-game">
-      <div class="flash-game-top"><span>${escapeHtml(state.mode)} · ${escapeHtml(state.difficulty)}</span><strong id="flashGameClock">${Math.ceil(elapsed)}s left</strong></div>
-      <div class="flash-progress"><span id="flashGameProgress" style="width:${progress}%"></span></div>
-      <p id="flashPhaseLabel" class="flash-muted">${state.phase==="memory"?"Memorise this":state.phase==="answer"?"Choose your answer":"Get ready"}</p>
-      <div class="flash-memory" id="flashMemory">${state.phase==="memory"?escapeHtml(round?.memory||""):"Ready?"}</div>
-      <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):""}</p>
-      <div class="flash-options" id="flashOptions">${state.phase==="answer"?(round?.options||[]).map((o,i)=>`<button class="flash-option" data-action="answer" data-index="${i}">${escapeHtml(o)}</button>`).join(""):""}</div>
-      <p class="flash-game-status" id="flashTimerLabel">Memory ${durationLabel(state.memory)} · Answer ${durationLabel(state.answer)}</p>
-      <div class="flash-stats"><div class="flash-stat"><strong>${state.results.length}</strong><span>Words seen</span></div><div class="flash-stat"><strong>${state.results.filter(r=>r.correct).length}</strong><span>Correct</span></div><div class="flash-stat"><strong>${state.results.filter(r=>!r.correct).length}</strong><span>Incorrect</span></div></div>
+      <div class="flash-game-top"><span class="flash-pill">${modeLabel} · ${state.difficulty}</span><strong id="flashGameClock">${Math.ceil(remain)}s</strong></div>
+      <div class="flash-round-gauge"><span class="memory" id="flashMemoryGauge" style="width:100%"></span><span class="answer" id="flashAnswerGauge" style="width:0%"></span></div>
+      <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||"Get ready")}</div>
+      <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>Pick your answers</div>
+      <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):"Memorise the card"}</p>
+      <div class="flash-options" id="flashOptions">${(round?.options||["","","",""]).map((o,i)=>`<button class="flash-option ${state.phase==="memory"?"is-hidden":""}" data-action="answer" data-index="${i}" ${state.phase!=="answer"?"disabled":""}>${state.phase==="memory"?"Hidden answer":escapeHtml(o)}</button>`).join("")}</div>
+      <p id="flashPhaseLabel" class="flash-game-status">${state.phase==="memory"?"Memorise the card":state.phase==="answer"?"Pick your answers":"Round feedback"}</p>
+      <div class="flash-stats"><div class="flash-stat"><strong>${state.results.length}</strong><span>Attempted</span></div><div class="flash-stat"><strong>${state.results.filter(r=>r.correct).length}</strong><span>Correct</span></div><div class="flash-stat"><strong>${state.results.filter(r=>!r.correct).length}</strong><span>Incorrect</span></div></div>
       <button class="flash-secondary" data-action="leave-game">Leave game</button>
     </section>`;
   }
   function tickGame(){
     if(!state.game)return;
-    const elapsed=(Date.now()-state.game.startedAt)/1000;
-    const remain=Math.max(0,60-elapsed);
-    const clock=$("#flashGameClock"),bar=$("#flashGameProgress");
-    if(clock)clock.textContent=Math.ceil(remain)+"s left";
-    if(bar)bar.style.width=(remain/60*100)+"%";
-    if(remain<=0){finishGame();return;}
-    state.gameTimer=setTimeout(tickGame,100);
+    const remain=Math.max(0,60-(Date.now()-state.game.startedAt)/1000);
+    const clock=$("#flashGameClock");if(clock)clock.textContent=Math.ceil(remain)+"s";
+    const elapsed=Date.now()-state.phaseStartedAt,ratio=Math.max(0,Math.min(1,1-elapsed/(state.phaseDuration||1)));
+    const mg=$("#flashMemoryGauge"),ag=$("#flashAnswerGauge");
+    if(mg)mg.style.width=(state.phase==="memory"?ratio*100:0)+"%";
+    if(ag)ag.style.width=(state.phase==="answer"?ratio*100:0)+"%";
+    if(remain<=0){finishGame();return;}state.gameTimer=setTimeout(tickGame,80);
   }
   function showMemory(){
-    if(!state.game)return;
-    if((Date.now()-state.game.startedAt)>=60000){finishGame();return;}
+    if(!state.game)return;if(Date.now()-state.game.startedAt>=60000){finishGame();return;}
     try{state.round=makeRound(state.deck);}catch(e){state.notice=e.message;finishGame();return;}
-    state.phase="memory";
-    const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),timer=$("#flashTimerLabel");
-    if(memory)memory.textContent=state.round.memory;
-    if(label)label.textContent="Memorise this";
-    if(options)options.innerHTML="";
-    if(question)question.textContent="";
-    if(timer)timer.textContent="Memory "+durationLabel(state.memory)+" · Answer "+durationLabel(state.answer);
-    state.phaseEnds=Date.now()+state.memory*1000;
-    state.phaseTimer=setTimeout(showAnswers,state.memory*1000);
+    state.phase="memory";state.phaseStartedAt=Date.now();state.phaseDuration=state.memory*1000;
+    const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
+    if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}
+    if(overlay)overlay.hidden=true;if(label)label.textContent="Memorise the card";
+    if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option is-hidden" data-action="answer" data-index="${i}" disabled>Hidden answer</button>`).join("");
+    if(question)question.textContent=state.round.prompt;
+    state.phaseTimer=setTimeout(showAnswers,state.phaseDuration);
   }
   function showAnswers(){
-    if(!state.game)return;
-    if((Date.now()-state.game.startedAt)>=60000){finishGame();return;}
-    state.phase="answer";
-    const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion");
-    if(memory)memory.innerHTML="<small>RECALL</small>What do you remember?";
-    if(label)label.textContent="Choose before time runs out";
-    if(question)question.textContent=state.round.prompt;
+    if(!state.game)return;if(Date.now()-state.game.startedAt>=60000){finishGame();return;}
+    state.phase="answer";state.phaseStartedAt=Date.now();state.phaseDuration=state.answer*1000;
+    const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
+    if(memory)memory.classList.add("is-blurred");if(overlay)overlay.hidden=false;
+    if(label)label.textContent="Pick your answers";if(question)question.textContent=state.round.prompt;
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option" data-action="answer" data-index="${i}">${escapeHtml(o)}</button>`).join("");
-    state.phaseEnds=Date.now()+state.answer*1000;
-    state.phaseTimer=setTimeout(()=>recordAnswer(false,true),state.answer*1000);
+    state.phaseTimer=setTimeout(()=>recordAnswer(false,true),state.phaseDuration);
   }
   function recordAnswer(correct,unanswered=false){
-    if(!state.game||state.phase!=="answer")return;
-    clearTimeout(state.phaseTimer);
-    state.results.push({card_key:cardKey(state.round.target),correct:!!correct,unanswered:!!unanswered});
-    const statValues=root.querySelectorAll(".flash-stat strong");
-    if(statValues.length===3){
-      statValues[0].textContent=String(state.results.length);
-      statValues[1].textContent=String(state.results.filter(result=>result.correct).length);
-      statValues[2].textContent=String(state.results.filter(result=>!result.correct).length);
-    }
+    if(!state.game||state.phase!=="answer")return;clearTimeout(state.phaseTimer);
+    state.results.push({card_key:cardKey(state.round.target),mode:state.round.mode,correct:!!correct,unanswered:!!unanswered});
     state.memory=Math.max(timing[state.difficulty].memoryFloor,Number((state.memory-timing[state.difficulty].memoryStep).toFixed(2)));
     state.answer=Math.max(timing[state.difficulty].answerFloor,Number((state.answer-timing[state.difficulty].answerStep).toFixed(2)));
-    state.roundIndex++;
-    const options=$("#flashOptions");if(options)options.innerHTML="";
-    const question=$("#flashQuestion");if(question)question.textContent=unanswered?"Time is up.":correct?"Correct!":"Not quite.";
-    const label=$("#flashPhaseLabel");if(label)label.textContent=unanswered?"No answer recorded":correct?"Well remembered":"Keep going";
-    state.phase="feedback";
-    state.phaseTimer=setTimeout(showMemory,450);
+    state.phase="feedback";state.phaseStartedAt=Date.now();state.phaseDuration=3000;
+    const memory=$("#flashMemory"),overlay=$("#flashMemoryOverlay"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion");
+    if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}if(overlay)overlay.hidden=true;
+    if(label)label.textContent=unanswered?"Time expired":correct?"Correct!":"Not quite";
+    if(question)question.textContent="Correct answer: "+state.round.correct;
+    if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option ${o===state.round.correct?"is-correct":i===state.selectedAnswerIndex?"is-wrong":""}" disabled>${escapeHtml(o)}</button>`).join("");
+    const stats=root.querySelectorAll(".flash-stat strong");if(stats.length===3){stats[0].textContent=state.results.length;stats[1].textContent=state.results.filter(r=>r.correct).length;stats[2].textContent=state.results.filter(r=>!r.correct).length;}
+    state.selectedAnswerIndex=undefined;state.phaseTimer=setTimeout(showMemory,3000);
   }
   async function startGame(){
     if(state.starting)return;
