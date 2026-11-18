@@ -124,34 +124,52 @@
       </div>`;
   }
   function renderCollectionCards(id){
-    const cards=state.data.cards.filter(c=>c.collection_id===id);
-    return cards.length?'<div class="flash-card-list">'+cards.map(c=>`<div class="flash-card-row"><div><strong>${escapeHtml(c.front_text)}</strong><small>${escapeHtml(c.back_text)}</small></div><div class="flash-controls"><button class="flash-secondary" data-action="edit-card" data-value="${c.id}">Edit</button><button class="flash-secondary" data-action="move-card" data-value="${c.id}">Move</button><button class="flash-secondary" data-action="remove-card" data-value="${c.id}">Remove</button></div></div>`).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
+    const cards=state.data.cards.filter(c=>c.collection_id===id).sort((a,b)=>(Number(a.position)||0)-(Number(b.position)||0)||String(a.created_at||"").localeCompare(String(b.created_at||"")));
+    return cards.length?'<div class="flash-card-list">'+cards.map((c,index)=>\`<div class="flash-card-row"><div><strong>\${escapeHtml(c.front_text)}</strong><small>\${escapeHtml(c.back_text)}</small></div><div class="flash-controls"><button class="flash-secondary" data-action="reorder-up" data-value="\${c.id}" \${index===0?"disabled":""}>↑</button><button class="flash-secondary" data-action="reorder-down" data-value="\${c.id}" \${index===cards.length-1?"disabled":""}>↓</button><button class="flash-secondary" data-action="edit-card" data-value="\${c.id}">Edit</button><button class="flash-secondary" data-action="move-card" data-value="\${c.id}">Move</button><button class="flash-secondary" data-action="remove-card" data-value="\${c.id}">Remove</button></div></div>\`).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
   }
+  function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c};}
   function gameDeck(){
     const all=words();
-    if(state.collectionId==="all")return [...all,...state.data.cards.filter(c=>c.card_type==="custom").map(c=>({word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c}))];
-    const set=state.data.cards.filter(c=>c.collection_id===state.collectionId);
-    return set.map(c=>c.card_type==="dictionary"?all.find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase()):({
-      word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,
-      examples:c.example_text?[c.example_text]:[],_custom:c
-    })).filter(Boolean);
+    const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom").map(mapCustomCard)];
+    if(state.collectionId==="all")return allCards;
+    const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId);
+    const targets=selected.map(c=>c.card_type==="dictionary"?all.find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase()):mapCustomCard(c)).filter(Boolean);
+    const selectedKeys=new Set(targets.map(w=>w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase()));
+    const distractors=allCards.filter(w=>!selectedKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase())).map(w=>({...w,_flashDistractor:true}));
+    return [...targets,...distractors];
   }
   function makeRound(deck){
     const available=deck.filter(w=>w.word&&w.definition);
-    if(available.length<4)throw new Error("This card set needs at least four usable cards for four-choice Flash Recall.");
-    const targets=state.weakOnly?available.filter(w=>state.weakKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase())):available;
-    if(!targets.length)throw new Error("There are no weak-memory cards in this card set yet.");
+    const targets=state.weakOnly
+      ? available.filter(w=>!w._flashDistractor&&state.weakKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase()))
+      : available.filter(w=>!w._flashDistractor);
+    if(!targets.length)throw new Error(state.weakOnly?"There are no weak-memory cards in this card set yet.":"This card set has no available cards.");
+    if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
     const target=targets[Math.floor(Math.random()*targets.length)];
-    const distractors=available.filter(w=>w!==target);
-    for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
-    const chosen=[target,...distractors.slice(0,3)];
-    for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
     let memory="",prompt="",correct="";
     if(state.mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
     else if(state.mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
     else if(state.mode==="translation"){memory=target.word;prompt="Choose the correct translation";correct=translationFor(target);}
-    else {const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");memory=sentence.replace(new RegExp("\\b"+target.word.replace(/[.*+?^${}()|[\\]\\]/g,"\\$&")+"\\b","i"),"_____");prompt="Which word completes the sentence?";correct=target.word;}
-    const options=chosen.map(w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?translationFor(w):w.word);
+    else {
+      const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");
+      const index=sentence.toLowerCase().indexOf(target.word.toLowerCase());
+      memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";
+      prompt="Which word completes the sentence?";correct=target.word;
+    }
+    const optionValue=w=>state.mode==="word"?w.definition:state.mode==="definition"?w.word:state.mode==="translation"?translationFor(w):w.word;
+    const normalize=value=>String(value||"").normalize("NFKC").trim().toLocaleLowerCase();
+    const distinct=new Map();
+    for(const candidate of available){
+      const value=optionValue(candidate),key=normalize(value);
+      if(key&&!distinct.has(key))distinct.set(key,candidate);
+    }
+    const correctKey=normalize(correct);
+    const distractors=[...distinct.entries()].filter(([key,candidate])=>key!==correctKey&&candidate!==target).map(([,candidate])=>candidate);
+    if(distractors.length<3)throw new Error("This card set does not contain four distinct answer choices for this mode.");
+    for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
+    const chosen=[target,...distractors.slice(0,3)];
+    for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
+    const options=chosen.map(optionValue);
     return {target,memory,prompt,correct,options};
   }
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
