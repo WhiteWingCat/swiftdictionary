@@ -11,7 +11,7 @@
     advanced:{memory:2,answer:6,memoryFloor:.7,answerFloor:3,memoryStep:.7,answerStep:3}
   };
   const state = {
-    ready:false,loading:false,data:{collections:[],cards:[],mastery:[],history:[]},
+    ready:false,loading:false,starting:false,finishing:false,data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set()
@@ -88,6 +88,7 @@
       return;
     }
     if(state.loading){mount.innerHTML='<section class="flash-section">Loading your Flashcards…</section>';return;}
+    if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>Saving your game</h2><p class="flash-muted">Your results and learning progress are being saved. Please wait a moment.</p></section>';return;}
     if(state.game){renderGame(mount);return;}
     const counts=masteryMap();
     const allowance=state.data.allowance||{plan:"free",daily_limit:3,used_count:0,remaining:3};
@@ -268,20 +269,27 @@
     state.phaseTimer=setTimeout(showMemory,450);
   }
   async function startGame(){
-    const deck=gameDeck();
-    if(deck.length<4)throw new Error("Add at least four dictionary words or cards before starting a four-choice game.");
-    // Validate the selected mode, translation and Weak Memory target before
-    // creating a server session. A duplicate-heavy answer set must not leave
-    // behind a session that can only fail immediately.
-    state.deck=deck;
-    try{makeRound(deck);}catch(error){state.deck=null;throw error;}
-    state.round=null;state.phase="idle";state.phaseEnds=0;
-    const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty});
-    if(error){state.deck=null;throw error;}
-    state.game={id:data.session_id,startedAt:Date.now(),translationLanguage};
-    state.results=[];state.roundIndex=0;
-    Object.assign(state,{memory:timing[state.difficulty].memory,answer:timing[state.difficulty].answer});
-    render();tickGame();showMemory();
+    if(state.starting)return;
+    state.starting=true;
+    const startButton=$("#flashcardsApp [data-action='start-game']");
+    if(startButton)startButton.disabled=true;
+    try{
+      const deck=gameDeck();
+      if(deck.length<4)throw new Error("Add at least four dictionary words or cards before starting a four-choice game.");
+      // Validate the selected mode, translation and every eligible target before
+      // creating a server session. Duplicate-heavy answer sets must not leave
+      // behind a session that can only fail after the game has started.
+      state.deck=deck;
+      makeRound(deck);
+      state.round=null;state.phase="idle";state.phaseEnds=0;
+      const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty});
+      if(error)throw error;
+      state.game={id:data.session_id,startedAt:Date.now(),translationLanguage};
+      state.results=[];state.roundIndex=0;
+      Object.assign(state,{memory:timing[state.difficulty].memory,answer:timing[state.difficulty].answer});
+      render();tickGame();showMemory();
+    }catch(error){state.deck=null;throw error;}
+    finally{state.starting=false;if(startButton?.isConnected)startButton.disabled=false;}
   }
   async function finishGame(){
     if(!state.game)return;
@@ -290,16 +298,18 @@
     if(state.round&&(state.phase==="memory"||state.phase==="answer")){
       state.results.push({card_key:state.round.target._custom?"custom:"+state.round.target._custom.id:"dict:"+state.round.target.word.toLowerCase(),correct:false,unanswered:true});
     }
-    state.game=null;
+    state.game=null;state.finishing=true;render();
     try{
       const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});
       if(error)throw error;
       state.notice=`Game complete: ${data.words_seen} words seen, ${data.correct_count} correct, ${data.incorrect_count} incorrect. ${data.unanswered_count} timed out.`;
+      state.finishing=false;
       await loadData();
     }catch(error){
       state.notice="The game result could not be saved: "+error.message;
       try{await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:game.id});}catch(_){}
-      render();
+      state.finishing=false;
+      await loadData();
     }
   }
   async function loadData(){
@@ -338,8 +348,11 @@
       if(action==="start-game"){state.difficulty=$("#flashDifficulty").value;state.collectionId=$("#flashGameCollection").value;state.weakOnly=false;state.weakKeys.clear();await startGame();return;}
       if(action==="answer"){recordAnswer(state.round.options[Number(button.dataset.index)]===state.round.correct,false);return;}
       if(action==="leave-game"){
-        clearTimers();const id=state.game.id;state.game=null;
-        await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:id});state.notice="Game left. No daily allowance was used.";await loadData();return;
+        if(!state.game)return;
+        clearTimers();const id=state.game.id;state.game=null;state.finishing=true;render();
+        try{const {error}=await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:id});if(error)throw error;state.notice="Game left. No daily allowance was used.";}
+        finally{state.finishing=false;await loadData();}
+        return;
       }
       if(action==="review-weak"){state.collectionId="all";state.weakOnly=true;state.weakKeys=new Set([value]);state.mode=value.startsWith("dict:")?"word":"definition";await startGame();return;}
       if(action==="review-weak-all"){state.collectionId="all";state.weakOnly=true;state.weakKeys=new Set([...masteryMap().entries()].filter(([,m])=>m.last_result==="incorrect").map(([key])=>key));await startGame();return;}
