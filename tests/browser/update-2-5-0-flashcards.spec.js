@@ -21,6 +21,8 @@ async function openMockFlashcards(page) {
   await expect.poll(() => page.evaluate(() => window.SWIFT_DICTIONARY_MOCK_MODE)).toBe(true);
   await page.locator('[data-page="flashcards"]').click();
   await expect(page.locator("#flashcardsPage")).toBeVisible();
+  const intro=page.locator("#learningIntroBackdrop");
+  if(await intro.isVisible())await page.locator("#learningIntroDismiss").click();
   await expect(page.locator("#flashCollectionForm")).toBeVisible();
   await expect(page.locator("#flashcardsApp")).toContainText("Daily allowance: 0/3 games used · 3 remaining today");
 }
@@ -99,6 +101,7 @@ test("Mock User Flashcards supports custom collections, four modes, timer reduct
 });
 
 test("A completed 60-second Flash Recall game saves mastery and charges one Free allowance",async({page})=>{
+  test.setTimeout(90000);
   await openMockFlashcards(page);
   const collectionId=await createCollection(page,"Completion test");
   await addCustomCard(page,"What is a synonym?","A word with a similar meaning.","Small is a synonym of little.","同义词");
