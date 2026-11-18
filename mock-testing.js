@@ -416,6 +416,12 @@
       const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.status==="completed");
       return session?{data:quizMockPayload(session,true),error:null}:{data:null,error:error("Completed mock Quiz review not found.")};
     }
+    if (name==="get_my_flashcard_allowance") {
+      const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
+      const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard")?.daily_limit||0;
+      const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
+      return {data:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},error:null};
+    }
     if (name==="get_my_flashcard_data") {
       const own=(table)=> (tables[table]||[]).filter(row=>row.user_id===user.id);
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
