@@ -112,7 +112,7 @@ test("A completed 60-second Flash Recall game saves mastery and charges one Free
   await addCustomCard(page,"What is a synonym?","A word with a similar meaning.","Small is a synonym of little.","同义词");
   await page.clock.install();
   await startGame(page,collectionId,"definition","advanced");
-  await page.clock.fastForward(60000);
+  await page.clock.runFor(60000);
   await expect(page.locator("#flashNotice")).toContainText("Game complete",{timeout:10000});
   await expect(page.locator("#flashcardsApp")).toContainText("Daily allowance: 1/3 games used · 2 remaining today");
   const result=await page.evaluate(async()=>{
