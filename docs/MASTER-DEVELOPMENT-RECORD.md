@@ -3,8 +3,8 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-18 (Update 2.4.2 merged, deployed and owner-verified; repository branch/documentation separation review underway)  
-> **Current baseline:** Update 2.4.2 is merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; GitHub Pages deployment #44230831943 succeeded, and the owner manually confirmed both Dashboard fixes on the live site. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
+> **Last consolidated:** 2026-11-18 (Update 2.4.2 merged, deployed and owner-verified; documentation separation completed and housekeeping deployment passed)  
+> **Current baseline:** Update 2.4.2 is merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; GitHub Pages deployment #44230831943 succeeded, and the owner manually confirmed both Dashboard fixes on the live site. A later documentation-only cleanup commit moved internal notes off `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`; Pages deployment #44233284108 also succeeded. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
 > **Current work:** Next planned product milestone is Update 2.5.0 — Flashcards; implementation has not started. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before friends are invited to sign in, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review. The staging project is separate and is not the production friend-testing target.  
 > **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.4.2 Quiz workflow #44229322995 and companion 2.3.x regression workflow #44229322963 passed; GitHub Pages deployment #44230831943 passed all three jobs. The owner hard-refreshed and manually confirmed both live Dashboard fixes. No Supabase migration or production database write was required for 2.4.2. Existing Quiz data-processing and privacy considerations remain as recorded below.
 >
@@ -2034,9 +2034,9 @@ Observed branch heads:
 
 - The full `docs/` directory from the former `main` tree was preserved on `docs/master-development-record` before removal. This includes the previous Master Development Record copy, conversation archives, legal/privacy review, 2.3.x design notes, migration drafts, staging checklist and 2.4.0 Quiz implementation notes.
 - The four root-level internal documents `PRIVACY-POLICY-DRAFT.md`, `RELEASE-QA.md`, `UPDATE-2.1.0-TECHNICAL-PLAN.md` and `UPDATE-2.3.0-PLANNING.md` are preserved on the documentation branch (the privacy draft is under `docs/reference/`).
-- A single commit removed those 30 documentation paths from `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`. No application, runtime, test, workflow, migration, licence or attribution file was removed. GitHub Pages deployment #44233284108 was triggered for this commit and must be checked before declaring the housekeeping deployment complete.
+- A single commit removed those 30 documentation paths from `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`. No application, runtime, test, workflow, migration, licence or attribution file was removed. GitHub Pages deployment #44233284108 completed successfully; build, deploy and report-build-status jobs all passed.
 - Obsolete draft PR #2 (2.3.0 planning) and PR #4 (documentation branch targeting `main`) were closed without merging. There are now no open PRs.
-- The connected GitHub actions available in this session can inspect branches and update refs, but do not expose a branch-delete operation. Therefore, the nine branches whose implementation PRs are already merged, the closed/unmerged 2.3.0 planning branch, and the unassociated `work/update-2-4-0-quiz-feedback` branch remain present. Do not claim they have been deleted. The owner can remove the nine merged branches safely in GitHub's branch list; inspect the planning and work branches first before deletion.
+- The connected GitHub actions available in this session can inspect branches and update refs, but do not expose a branch-delete operation. Therefore, the nine branches whose implementation PRs are already merged, the closed/unmerged 2.3.0 planning branch, and the unassociated `work/update-2-4-0-quiz-feedback` branch remain present. Do not claim they have been deleted. The nine merged branches can be deleted safely in GitHub's branch list after confirming PRs #1, #3 and #5–#11 are merged. The planning branch is unmerged but its planning document is preserved on the documentation branch; inspect before deleting. The `work/update-2-4-0-quiz-feedback` branch compares as diverged from current `main` (173 commits ahead, 5 behind, merge base `90dc73a`), with unique code/test/content files in its diff; it must not be deleted until its changes are reviewed.
 
 ### Recovery point
 
@@ -2053,6 +2053,18 @@ The owner-requested separation was applied in the repository:
 - Before removal, all 18 files that were present on `main` but missing from the documentation branch were added to `docs/master-development-record` by commit `056e5bf884340e43b84b537dc8bb33d23e9d35a0`. The root privacy-policy draft was also preserved as `docs/reference/PRIVACY-POLICY-DRAFT.md` by commit `4aa89535c433c2c6d11398d59ec8ef21c65b0b36`. Other root planning/QA documents already existed on the documentation branch.
 - The documentation branch now contains 49 documentation files, including the current Master Development Record and all archived/supporting notes removed from `main`.
 - The remaining `main` tree contains the production application, content assets, test fixtures, GitHub Actions workflows, Supabase migrations/tests, and licence/attribution material. No application or database file was removed.
-- Pages workflow #44233284108 was triggered for the housekeeping commit. Its final result must be recorded after it completes. The commit changes no site runtime content; the owner already confirmed the 2.4.2 live application before this cleanup.
+- Pages workflow #44233284108 succeeded for the housekeeping commit (all three jobs passed). The commit changes no site runtime content; the owner already confirmed the 2.4.2 live application before this cleanup.
 
 This is a repository/documentation-only change, not a new SwiftDictionary product release. No Supabase project, production database, learner data or production configuration was modified.
+
+
+## 47. Housekeeping deployment and branch cleanup boundary (2026-11-18)
+
+- Current `main` HEAD is `686d8743f42ab32e3736c51861a2dbb9b2686420`, the documentation-separation commit.
+- GitHub Pages deployment #44233284108 completed successfully. Build, deploy and report-build-status all passed.
+- Current documentation branch head before this record update: `4aa89535c433c2c6d11398d59ec8ef21c65b0b36`; this branch remains the only location for Master Development Record, conversation archives and supporting notes.
+- Open PRs #2 and #4 are closed without merging. No open PRs remained at the repository check.
+- The branch refs themselves have not been deleted because no branch-delete action is exposed by the connected GitHub integration. Nine branches associated with merged PRs (#1, #3, #5, #6, #7, #8, #9, #10 and #11) are cleanup candidates. The 2.3.0 planning branch is closed/unmerged and should be inspected before deletion.
+- The old `work/update-2-4-0-quiz-feedback` branch is not a routine stale branch: comparison with current `main` reports 173 commits ahead and 5 behind from merge base `90dc73a9b65fc3af713fefab4955057026089b96`, with unique file changes. Preserve it until its work is audited and reconciled.
+
+The production website code was not changed by this housekeeping commit. Do not treat this deployment as a product feature release. Update 2.5.0 remains unstarted.
