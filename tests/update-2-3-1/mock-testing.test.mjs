@@ -544,3 +544,16 @@ test("Mock Quiz includes Chinese integration only when Chinese is the selected t
   assert.equal(started.data.questions.filter(question=>question.question_type==="chinese_translation").length,0);
   assert.equal(started.data.questions.filter(question=>question.question_type==="word_definition").length,1);
 });
+
+test("Flash Recall validates distinct choices before creating a server session and resets round state",()=>{
+  const start=flashcardsSource.indexOf("  async function startGame(){");
+  const end=flashcardsSource.indexOf("\n  async function finishGame()",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose a startGame flow");
+  const source=flashcardsSource.slice(start,end);
+  assert.ok(source.indexOf("makeRound(deck)")<source.indexOf('rpc("start_my_flashcard_game"'),
+    "The selected mode must have four distinct choices before a server session is created");
+  assert.match(source,/state\.round=null;state\.phase="idle";state\.phaseEnds=0/,
+    "A new game must not inherit the previous game's round or phase");
+  assert.match(source,/catch\(error\)\{state\.deck=null;throw error;\}/,
+    "A preflight failure must clear the temporary deck and leave the allowance untouched");
+});
