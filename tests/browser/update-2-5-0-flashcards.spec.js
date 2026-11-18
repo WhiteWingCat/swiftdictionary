@@ -67,14 +67,13 @@ test("Mock User can build a collection, play Flash Recall and see allowance usag
   expect(await page.locator("#flashDifficulty option").evaluateAll(elements=>elements.map(element=>element.value))).toEqual(["beginner","intermediate","advanced"]);
   await expect(page.locator("#flashcardsApp")).toContainText("Daily allowance: 0/3 games used · 3 remaining today");
 
-  await page.clock.install();
   await startGame(page,collectionId,"word","beginner");
-  await page.clock.fastForward(5000);
+  await page.waitForTimeout(5100);
   const options=await page.locator("#flashOptions .flash-option").allTextContents();
   expect(options).toHaveLength(4);
   expect(new Set(options.map(value=>value.trim().toLocaleLowerCase())).size).toBe(4);
   await page.locator("#flashOptions .flash-option").first().click();
-  await page.clock.fastForward(450);
+  await page.waitForTimeout(500);
   await expect(page.locator("#flashTimerLabel")).toHaveText("Memory 4.5s · Answer 11s");
   await page.locator('[data-action="leave-game"]').click();
 
