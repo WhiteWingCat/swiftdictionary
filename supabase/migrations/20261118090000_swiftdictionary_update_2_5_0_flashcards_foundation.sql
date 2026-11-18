@@ -237,7 +237,7 @@ $function$;
 create or replace function private.start_my_flashcard_game_impl(p_mode text,p_difficulty text)
 returns jsonb language plpgsql security definer set search_path = ''
 as $function$
-declare v_user uuid := auth.uid(); v_learning text; v_id uuid;
+declare v_user uuid := auth.uid(); v_learning text; v_id uuid; v_plan text; v_status text; v_valid_from timestamptz; v_valid_until timestamptz; v_limit integer; v_used integer;
 begin
   if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
   if p_mode not in ('word','definition','translation','sentence')
@@ -249,6 +249,24 @@ begin
     raise exception 'Flashcards currently support the English learning course only' using errcode='42501';
   end if;
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text,0));
+  select e.plan_code,e.status,e.valid_from,e.valid_until
+    into v_plan,v_status,v_valid_from,v_valid_until
+    from public.user_entitlements e where e.user_id=v_user;
+  if not found or v_status <> 'active'
+     or (v_valid_from is not null and now()<v_valid_from)
+     or (v_valid_until is not null and now()>=v_valid_until) then
+    v_plan := 'free';
+  end if;
+  select l.daily_limit into v_limit from public.learning_plan_limits l
+    where l.plan_code=v_plan and l.activity_type='flashcard' and l.is_enabled;
+  if not found then raise exception 'Flashcards are unavailable for this plan' using errcode='42501'; end if;
+  select coalesce(u.used_count,0) into v_used
+    from public.get_my_learning_allowance_usage() u where u.activity_type='flashcard';
+  v_used := coalesce(v_used,0);
+  if v_used >= v_limit then
+    raise exception 'Daily Flashcard game allowance exhausted'
+      using errcode='P0001',detail=jsonb_build_object('activity_type','flashcard','daily_limit',v_limit,'used',v_used)::text;
+  end if;
   update private.flashcard_sessions set status='abandoned'
     where user_id=v_user and status='in_progress';
   insert into private.flashcard_sessions(user_id,mode,difficulty)
@@ -282,7 +300,7 @@ begin
       'incorrect_count',v_session.incorrect_count,'unanswered_count',v_session.unanswered_count);
   end if;
   if v_session.status <> 'in_progress' then raise exception 'Flashcard game is no longer active' using errcode='42501'; end if;
-  if v_session.started_at > now()-interval '55 seconds' then
+  if v_session.started_at > now()-interval '60 seconds' then
     raise exception 'The 60-second Flash Recall round is not complete yet' using errcode='P0001';
   end if;
   if v_session.started_at < now()-interval '5 minutes' then
@@ -398,5 +416,38 @@ update public.learning_plan_limits
 set daily_limit=case plan_code when 'free' then 3 when 'premium' then 10 else daily_limit end,
     is_enabled=true,updated_at=now()
 where activity_type='flashcard' and plan_code in ('free','premium');
+
+-- Extend the existing account-level learning-history deletion workflow.
+create or replace function private.delete_my_learning_history_impl()
+returns jsonb language plpgsql security definer set search_path = ''
+as $function$
+declare
+  v_user uuid := auth.uid();
+  v_jwt jsonb;
+  v_session_id uuid;
+  v_session_created_at timestamptz;
+  v_session_not_after timestamptz;
+begin
+  if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
+  v_jwt := auth.jwt();
+  v_session_id := nullif(v_jwt ->> 'session_id', '')::uuid;
+  select s.created_at,s.not_after into v_session_created_at,v_session_not_after
+    from auth.sessions s where s.id=v_session_id and s.user_id=v_user;
+  if not found or v_session_created_at is null
+     or v_session_created_at < pg_catalog.now()-interval '15 minutes'
+     or v_session_created_at > pg_catalog.now()+interval '60 seconds'
+     or (v_session_not_after is not null and v_session_not_after<=pg_catalog.now()) then
+    raise exception 'Recent authentication required to delete learning history' using errcode='42501';
+  end if;
+  perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text,0));
+  delete from public.daily_activity_sessions where user_id=v_user;
+  delete from public.lesson_practice_results where user_id=v_user;
+  delete from public.lesson_progress where user_id=v_user;
+  delete from public.learning_activity_log where user_id=v_user;
+  delete from private.flashcard_sessions where user_id=v_user;
+  delete from private.flashcard_mastery where user_id=v_user;
+  return pg_catalog.jsonb_build_object('deleted',true);
+end;
+$function$;
 
 commit;
