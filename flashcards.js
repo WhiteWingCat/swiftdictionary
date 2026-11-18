@@ -23,7 +23,7 @@
     return state.collectionId==="all"?cards:cards.filter(c=>c.collection_id===state.collectionId);
   }
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
-  function cardKey(card){return card._custom?"custom:"+card._custom.id:"dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
+  function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;return "dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
   function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
   function dictionaryCard(word){
