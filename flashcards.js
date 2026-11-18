@@ -12,7 +12,7 @@
   };
   const state = {
     ready:false,loading:false,starting:false,finishing:false,data:{collections:[],cards:[],mastery:[],history:[]},
-    collectionId:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,
+    collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set()
   };
@@ -166,16 +166,18 @@
   }
   function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c};}
   function gameDeck(){
-    const all=words();
+    let all=words();
+    const common=new Set("a an the and or but if because as at by for from in into of on to with about after again all also always am are be been before between big can come could day do down each even every find first get give go good great had has have he her here him his how i if in is it just know like little long look make man many may me more most my new no not now number of old on one only other our out over people place same see she so some take than that the their them then there these they thing think this time up us use very want was way we well were what when where which who will with work would year you your".split(" "));
+    if(state.cardSet==="common")all=all.filter(w=>common.has(String(w.word).toLowerCase()));
+    else if(["nouns","verbs","adjectives","adverbs"].includes(state.cardSet)){
+      const wanted=state.cardSet.slice(0,-1),getPos=w=>String(w.partOfSpeech||w.pos||w.type||"").toLowerCase();
+      all=all.filter(w=>getPos(w).includes(wanted));
+    }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
+    else if(state.cardSet==="terms")all=all.filter(w=>/term|technical|subject|science|technology/i.test(String(w.category||w.topic||w.domain||"")));
     const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom").map(mapCustomCard)];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId);
-    const targets=selected.map(c=>{
-      if(c.card_type==="custom")return mapCustomCard(c);
-      const source=all.find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase());
-      return source?{...source,word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||source.definitionZh,
-        examples:c.example_text?[c.example_text]:source.examples,dictionary_word:c.dictionary_word,_flashCard:c}:null;
-    }).filter(Boolean);
+    const targets=selected.map(c=>{if(c.card_type==="custom")return mapCustomCard(c);const source=words().find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase());return source?{...source,word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||source.definitionZh,examples:c.example_text?[c.example_text]:source.examples,dictionary_word:c.dictionary_word,_flashCard:c}:null;}).filter(Boolean);
     const selectedKeys=new Set(targets.map(w=>w._custom?"custom:"+w._custom.id:"dict:"+String(w.dictionary_word||w.word).toLowerCase()));
     const distractors=allCards.filter(w=>!selectedKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase())).map(w=>({...w,_flashDistractor:true}));
     return [...targets,...distractors];
