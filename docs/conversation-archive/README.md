@@ -15,6 +15,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 | Date | Archive | Coverage |
 |---|---|---|
+| 2026-11-18 | [Update 2.5.0 Flashcards foundation implementation](2026-11-18-update-2-5-0-flashcards-foundation.md) | Records approved timer rules, Flash Recall modes, collections/custom cards, private account-scoped schema/RPCs, staging-only migration and authenticated SQL test, Mock User/CI checks, legal/privacy notes and remaining owner browser tests. |
 | 2026-11-13 | [Update 2.3.1 mock testing and documentation continuity](2026-11-13-update-2-3-1-mock-testing.md) | Option B mock-mode decision and implementation, CI evidence, preview verification still pending, production safety, establishment of the permanent archive process, and subsequent correction of the preview hostname allowlist. |
 | 2026-11-14 | [Update 2.3.1 dashboard and Daily Learning refinements](2026-11-14-update-2-3-1-dashboard-daily-learning.md) | Owner's first seven feedback items, relative activity recency, visual overview, cooldown preview handling, shared global Daily Discovery pilot, slide-in activity reader, examples and frequency-data licensing research. |
 | 2026-11-14 | [Update 2.3.1 second owner review](2026-11-14-update-2-3-1-second-owner-review.md) | Translation refresh and Chinese UI coverage, transparent/padded activity panel, dictionary-style Discovery, account-specific activity rotation and mock reset generation, consolidated examples, dedicated lesson page, Dashboard scope freeze and passing CI run #549. |
@@ -62,3 +63,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Rolling three-branch implementation policy](2026-11-18-rolling-three-branch-policy.md) — records the owner's decision to keep three recent implementation branches, retire the oldest when starting new work, and protect unfinished unique changes.
 
 - [Live Supabase staging synchronization](2026-11-18-live-supabase-staging-synchronization.md) — records the staging-only 2.4.0 Quiz content and 2.4.1 translation migration rollout, migration-history reconciliation, exact production/staging content and function checksum parity, clean learner-data boundary and remaining staging test-account setup.
+
+- [Update 2.5.0 Flashcards foundation implementation](2026-11-18-update-2-5-0-flashcards-foundation.md) — records the first implementation, staging authenticated RPC validation, Mock User support, passing CI, production safety boundary, privacy planning and manual testing gates.
