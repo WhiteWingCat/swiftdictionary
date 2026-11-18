@@ -41,7 +41,7 @@ async function addCustomCard(page,front,back,example,translation) {
   await page.locator('#flashCustomForm textarea[name="example"]').fill(example);
   await page.locator('#flashCustomForm input[name="translation"]').fill(translation);
   await page.locator('#flashCustomForm button[type="submit"]').click();
-  await expect(page.locator("#flashcardsApp .flash-card-row")).toContainText(front);
+  await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:front})).toHaveCount(1);
 }
 
 async function startGame(page,collectionId,mode="word",difficulty="beginner") {
