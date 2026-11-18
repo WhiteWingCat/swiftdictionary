@@ -131,10 +131,17 @@ if (!html.includes('id="practiceQuizWrongAnswers"') ||
     !appScript.includes("openLesson(lessonId)")) {
   throw new Error("Practice Insights must aggregate completed Quiz reviews and link missed questions to their source lessons.");
 }
-if (!html.includes('showPage("quiz",true,{skipQuizInitialise:true})') ||
+if (!html.includes('data-dashboard-quiz-review=') ||
+    !html.includes('escapeHTML(quizT("Review","查看"))') ||
+    html.includes('\\\\'+quizEscape(quizT("Review","查看"))+\\\\') ||
     !html.includes('quizReview(button.dataset.dashboardQuizReview,"profile")') ||
     !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {
-  throw new Error("Dashboard Quiz history must open directly into the review and provide a Dashboard return path.");
+  throw new Error("Dashboard Quiz history must render a valid Review button and retain its direct answer-review action.");
+}
+if (!html.includes('quizPageState.result = null;') ||
+    !html.includes('quizPageState.sessionView = false;') ||
+    !html.includes('if (typeof quizShowHome === "function") quizShowHome();')) {
+  throw new Error("Ordinary navigation to Quiz must reset stale completed-review state and show the Quiz overview.");
 }
 if (!mockTesting.includes("correct_count:row.correct_count")) {
   throw new Error("Mock Quiz history must include the actual correct-answer count.");
