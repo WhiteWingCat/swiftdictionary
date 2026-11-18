@@ -3,9 +3,9 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-18 (Update 2.5.0 Flashcards foundation implemented on a feature branch; staging authenticated RPC validation and CI checks passed; no production release)  
+> **Last consolidated:** 2026-11-18 (Update 2.5.0 Flashcards foundation and implementation hardening completed on its feature branch; staging authenticated RPC validation and CI workflow #77 passed, including four Chromium Mock User browser tests; owner Mock User preview test remains outstanding; no production release)  
 > **Current baseline:** Update 2.4.2 is merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; GitHub Pages deployment #44230831943 succeeded, and the owner manually confirmed both Dashboard fixes on the live site. A later documentation-only cleanup commit moved internal notes off `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`; Pages deployment #44233284108 also succeeded. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
-> **Current work:** Update 2.5.0 — Flashcards is in active implementation on `feature/update-2-5-0-flashcards` (latest implementation commit `58d2ea72ae95997a5261ebd06a34c55ad5639702`); it is not merged and is not ready for release. The initial UI/runtime, private database foundation, account-scoped RPCs, Mock User support, allowance checks and regression checks are in place. Staging authenticated SQL integration and GitHub Actions workflow #44258066606 passed. Manual owner browser testing remains outstanding. Production `main` remains at 2.4.2 commit `65d0a35bab577adc15a0b1911661c222ed625739`; production Supabase remains unchanged with the old Flashcard allowance rows Free 5/Premium 12 and no Flashcard tables. Staging has the new schema and Free 3/Premium 10 rows, zero auth users and zero retained Flashcard test rows. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before public friend onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
+> **Current work:** Update 2.5.0 — Flashcards is in active implementation on `feature/update-2-5-0-flashcards` (latest implementation commit `b48933a2bef3a5affa6b7224c43521fdb3370be3`); it is not merged and is not ready for release. The UI/runtime, private database foundation, account-scoped RPCs, Mock User support, allowance checks and implementation hardening are in place. Staging authenticated SQL integration passed. GitHub Actions run #44270148241 (workflow run #77) passed syntax, page integration, Mock User RPC/regression tests and all four Chromium browser tests. Owner manual preview testing remains outstanding; the Cloudflare branch preview was not independently verified from this session. Production `main` remains at 2.4.2 commit `65d0a35bab577adc15a0b1911661c222ed625739`; production Supabase remains unchanged with the old Flashcard allowance rows Free 5/Premium 12 and no Flashcard tables. Staging has the new schema and Free 3/Premium 10 rows, zero auth users and zero retained Flashcard test rows. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before public friend onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
 > **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.5.0 remains on its temporary feature branch with no PR/merge/production deployment. Update 2.4.2 Quiz workflow #44229322995 and companion 2.3.x regression workflow #44229322963 passed; GitHub Pages deployment #44230831943 passed all three jobs. The owner hard-refreshed and manually confirmed both live Dashboard fixes. No Supabase migration or production database write was required for 2.4.2. Existing Quiz data-processing and privacy considerations remain as recorded below.
 >
 > This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
@@ -2250,3 +2250,75 @@ This policy governs future implementation work from Update 2.5.0 onward. It does
 - Current worktree is recoverable from `feature/update-2-5-0-flashcards` at `58d2ea72ae95997a5261ebd06a34c55ad5639702`.
 - The matching implementation and docs are intentionally separate: this record belongs only on `docs/master-development-record`; do not merge documentation into `main`.
 - Production remains Update 2.4.2 and has not been changed by Update 2.5.0 work.
+
+
+## 26. Update 2.5.0 — Flashcards implementation hardening and automated Mock User validation (2026-11-18)
+
+### Scope and recovery point
+
+- Continue the approved Update 2.5.0 implementation; no product-scope or allowance decision was changed.
+- Implementation branch: `feature/update-2-5-0-flashcards`.
+- Latest implementation commit: `b48933a2bef3a5affa6b7224c43521fdb3370be3`.
+- Production baseline remains `main` at `65d0a35bab577adc15a0b1911661c222ed625739` (Update 2.4.2).
+- No PR, merge, production deployment, production Supabase migration or production data operation was performed.
+
+### Implementation hardening
+
+1. **Round preflight and target eligibility**
+   - Startup validates the selected recall mode and the availability of four distinct answer choices before creating a server session.
+   - Round generation now evaluates every eligible target and only selects targets that can produce three distinct distractors in the selected mode. This prevents a random later round from failing after a session has started.
+   - Failed preflight clears the temporary deck and does not consume allowance or create a server session.
+
+2. **Dictionary-card editing**
+   - Dictionary cards in a selected collection now use their saved front/back/example/translation content during gameplay.
+   - The original dictionary word remains the stable mastery key, so editing its display text does not split or lose learning history.
+   - Translation Recall still uses the selected translation language captured at game start.
+
+3. **Collection management**
+   - Deleting the selected collection resets the collection manager to its neutral state before re-rendering.
+   - Moving a card appends it to the destination collection rather than reusing an arbitrary source position.
+   - Browser regression coverage was added for collection deletion and edited dictionary-card gameplay.
+
+4. **Game lifecycle protection**
+   - Duplicate start requests are guarded while the server session is being created.
+   - The start action is disabled while the request is pending.
+   - During completion or abandonment, the gameplay screen is replaced by a saving state to prevent overlapping game actions.
+   - The page reloads account-scoped data after the session is finalised.
+
+5. **Course availability**
+   - When the learner selects the Chinese learning course, Flashcards now explains that the current release supports the English learning course only, rather than rendering an empty page.
+
+### Automated validation
+
+GitHub Actions workflow run **#77** passed on commit `b48933a2bef3a5affa6b7224c43521fdb3370be3`:
+https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44270148241
+
+Both jobs passed:
+- **Flashcards static and mock regression job:** JavaScript syntax checks, Flashcards page integration/inline script checks, and Mock User account, allowance, collection and timer regression tests.
+- **Chromium Mock User browser job:** all **4 tests passed**:
+  1. Create a collection, add a custom card and dictionary word, play Flash Recall, check four distinct options and timer reduction, abandon without allowance use, then verify completed allowance usage and Profile display.
+  2. Verify collection isolation when switching between Free and Premium Mock Users.
+  3. Verify deleting the selected collection returns the manager to its neutral state.
+  4. Verify edited dictionary-card content appears in the selected Flash Recall set and gameplay.
+
+The browser job ran against the repository's local static preview with the isolated Mock User adapter. It is automated browser evidence, not owner acceptance and not a live Supabase test.
+
+### Database, privacy and legal boundary
+
+- No SQL migration or staging database change was made during this hardening pass; the already-applied staging foundation and authenticated SQL integration evidence remain as recorded in the preceding archive.
+- Production remains untouched and has no Flashcard schema; production Flashcard allowance rows remain Free 5/Premium 12 until an explicitly approved release migration.
+- These code changes introduced no new personal-data categories, external data source, analytics or raw-answer telemetry.
+- Existing data processing remains: private user-authored collection/card text, aggregate mastery and completed session metadata. The retention period for completed sessions is still undecided.
+- The standing Malaysia PDPA and international/16+ privacy review, cross-border processing review, test/privacy notice and public friend-onboarding gates remain outstanding. This is planning, not legal advice or compliance certification.
+
+### Mock User handoff and remaining gates
+
+- The implementation and automated test suite are ready for owner Mock User testing.
+- Expected Cloudflare Pages branch preview host is `feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev`, with explicit mock activation via `?swiftMock=1`. This session could not independently verify that the Cloudflare preview deployment is reachable; do not claim the live preview is confirmed.
+- Owner should test all four modes across Beginner/Intermediate/Advanced, timer reductions/floors, timeouts, 60-second completion, abandonment, Weak Memory, collection CRUD/order/move, selected translation language, account switching, allowances and responsive layouts.
+- Do not create a PR, merge, deploy to production, apply production SQL or change production allowance rows until owner acceptance and explicit approval.
+- Before public friend onboarding, decide completed-session retention and finish the Malaysia/global privacy and public notice review.
+
+### Recovery point
+
+Continue from `feature/update-2-5-0-flashcards` at `b48933a2bef3a5affa6b7224c43521fdb3370be3`. The Master Development Record and this archive remain on `docs/master-development-record`; never merge internal documentation into production `main`.
