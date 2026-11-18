@@ -1956,6 +1956,12 @@ The owner reported two Dashboard-related Quiz defects and requested a minor patc
 - Cloudflare Pages preview deployment was still in progress at the latest PR comment. Do not share it as a ready preview until a success status and URL are reported.
 - No production merge, GitHub Pages deployment, Supabase migration, production data write or production session operation has occurred for Update 2.4.2.
 
+
+
+### Validation update — 2026-11-18
+
+The final current PR head at this check is `9cc1115b4d5379988bf5c54e1343c5107e18fe6b`. Quiz workflow #44228565220 has passed its frontend/static validation job and completed its disposable Auth/schema/migration/question-content preparation; its authenticated Chromium Quiz runtime step is still running, with the Supabase security-advisor step pending. Companion 2.3.x workflow #44228565184 passed all three jobs (PostgreSQL 17, Chromium smoke tests and local Supabase Auth compatibility). Cloudflare Pages preview for `9cc1115` deployed successfully at https://feature-update-2-4-2-dashboa.swiftdictionary-testing.pages.dev. PR #11 remains open and unmerged; do not merge until the remaining Quiz workflow steps pass.
+
 ### Privacy/legal and preservation review
 
 This is a narrowly scoped presentation/navigation repair. It adds no personal-data categories, tracking, analytics, database fields, third-party content or external dependencies. Existing account-scoped Quiz history/review RPCs, saved answers, active-session snapshots, language preferences, allowances, authentication and account isolation are preserved. The existing Malaysia PDPA and applicable international/16+ privacy review remains relevant to the broader Quiz feature, but this patch does not expand its processing purposes or data collection. This is planning guidance, not legal advice or compliance certification.
