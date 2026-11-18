@@ -18256,7 +18256,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
       if (page === "lessons") { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
-      if (page === "quiz" && !options.skipQuizInitialise && typeof initialiseQuizPage === "function") initialiseQuizPage();
+      if (page === "quiz" && !options.skipQuizInitialise) {
+        // Ordinary navigation (including Dashboard's Quiz shortcut) opens the
+        // Quiz overview, never a stale completed-review/results subview.
+        quizPageState.result = null;
+        quizPageState.returnPage = "quiz";
+        quizPageState.sessionView = false;
+        if (typeof quizShowHome === "function") quizShowHome();
+        if (typeof initialiseQuizPage === "function") initialiseQuizPage();
+      }
       window.scrollTo({top:0,behavior:"instant"});
     }
     pageButtons.forEach(button => button.addEventListener("click", () => showPage(button.dataset.page)));
@@ -18673,7 +18681,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
             : quizRows.length?quizRows.map(row=>{
               const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
               const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
-              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">\'+quizEscape(quizT("Review","查看"))+\'</button></div></div>';
+              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">'+escapeHTML(quizT("Review","查看"))+'</button></div></div>';
             }).join("")
             : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
         }

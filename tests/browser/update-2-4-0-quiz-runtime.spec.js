@@ -541,6 +541,46 @@ test("Learning course selector shows a short refresh confirmation", async ({ pag
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 });
+
+test("Dashboard Quiz History renders a clean Review button", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await page.evaluate(() => {
+    showPage("profile", false);
+    document.querySelector("#profileContent").hidden = false;
+  });
+  await page.evaluate(() => {
+    const host = document.querySelector("#dashboardQuizHistory");
+    host.innerHTML = '<div class="quiz-history-row"><button type="button" class="secondary-button" data-dashboard-quiz-review="completed-session-id">Review</button></div>';
+  });
+  const reviewButton = page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]");
+  await expect(reviewButton).toBeVisible();
+  await expect(reviewButton).toHaveText("Review");
+  await expect(reviewButton).not.toContainText("quizEscape");
+});
+
+test("ordinary Dashboard navigation to Quiz opens the overview, not completed review", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await page.evaluate(() => showPage("profile", false));
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.evaluate(() => {
+    quizPageState.result = { session_id: "previously-completed-session" };
+    quizPageState.returnPage = "profile";
+    quizPageState.sessionView = true;
+    document.querySelector("#quizResults").hidden = false;
+    document.querySelector("#quizHome").hidden = true;
+  });
+  await page.evaluate(() => showPage("quiz", false));
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizResults")).toBeHidden();
+  await expect(page.locator("#quizSession")).toBeHidden();
+  const state = await page.evaluate(() => ({
+    result: quizPageState.result,
+    returnPage: quizPageState.returnPage,
+    sessionView: quizPageState.sessionView
+  }));
+  expect(state).toEqual({ result: null, returnPage: "quiz", sessionView: false });
+});
+
 test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
   await installLocalSupabaseConfig(page);
   await page.goto("/#quiz");
