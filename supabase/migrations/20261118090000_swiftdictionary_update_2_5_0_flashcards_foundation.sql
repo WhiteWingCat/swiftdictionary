@@ -100,10 +100,36 @@ revoke all on table private.flashcard_collections,private.flashcard_cards,
 create or replace function private.get_my_flashcard_data_impl()
 returns jsonb language plpgsql security definer set search_path = ''
 as $function$
-declare v_user uuid := auth.uid();
+declare
+  v_user uuid := auth.uid();
+  v_plan text; v_status text; v_valid_from timestamptz; v_valid_until timestamptz;
+  v_limit integer; v_used integer; v_timezone text;
 begin
   if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
+  select e.plan_code,e.status,e.valid_from,e.valid_until
+    into v_plan,v_status,v_valid_from,v_valid_until
+    from public.user_entitlements e where e.user_id=v_user;
+  if not found or v_status <> 'active'
+     or (v_valid_from is not null and now()<v_valid_from)
+     or (v_valid_until is not null and now()>=v_valid_until) then
+    v_plan := 'free';
+  end if;
+  select l.daily_limit into v_limit from public.learning_plan_limits l
+    where l.plan_code=v_plan and l.activity_type='flashcard' and l.is_enabled;
+  v_limit := coalesce(v_limit,0);
+  select coalesce(
+      case when p.allowance_timezone is not null
+                and p.allowance_timezone_until > pg_catalog.now()
+           then p.allowance_timezone else p.timezone end,
+      'UTC'
+    )
+    into v_timezone
+    from public.user_preferences p where p.user_id=v_user;
+  if v_timezone is null then raise exception 'A saved allowance timezone is required' using errcode='22023'; end if;
+  v_used := private.current_learning_allowance_usage(v_user,'flashcard',v_timezone);
   return jsonb_build_object(
+    'allowance',jsonb_build_object('plan',v_plan,'daily_limit',v_limit,
+      'used_count',v_used,'remaining',greatest(v_limit-v_used,0)),
     'collections',coalesce((select jsonb_agg(jsonb_build_object(
       'id',c.id,'name',c.name,'created_at',c.created_at,'updated_at',c.updated_at
     ) order by c.updated_at desc) from private.flashcard_collections c where c.user_id=v_user),'[]'::jsonb),
