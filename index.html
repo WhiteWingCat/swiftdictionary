@@ -18512,8 +18512,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function renderDashboardAllowanceBars(plan,limits,usageRows,timezone,personalLessonExemption) {
       const host = document.getElementById("dashboardAllowanceBars");
       if (!host) return;
-      const types = ["lesson","daily_topic","daily_application","daily_discovery","daily_revision"];
-      const labels = { lesson:"Permanent lessons",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision" };
+      const types = ["lesson","quiz","flashcard","daily_topic","daily_application","daily_discovery","daily_revision"];
+      const labels = { lesson:"Permanent lessons",quiz:"Quiz",flashcard:"Flashcards",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision" };
       host.innerHTML = types.map(type => {
         const row = limits.find(item => item.plan_code === plan && item.activity_type === type);
         if (type === "lesson" && personalLessonExemption) {
@@ -18672,7 +18672,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           const count=counts[type]||0, unavailable=dailyPracticeUnavailable&&type.startsWith("daily_"), width=Math.round(count/maxCount*100);
           return '<div class="activity-overview-row"><div class="activity-overview-heading"><strong>'+activityLabels[type]+'</strong><span>'+(unavailable?"Unavailable":count+(count===1?" completion":" completions"))+'</span></div><div class="activity-overview-track" role="img" aria-label="'+activityLabels[type]+': '+count+' completions"><span style="width:'+(unavailable?0:width)+'%"></span></div></div>';
         }).join(""):'<p class="muted-note">No completed learning activity recorded yet. '+(dailyPracticeUnavailable?"Daily activity history will appear after the server update.":"Your completed lessons and daily activities will appear here.")+'</p>';
-        renderDashboardAllowanceBars(plan,limits,allowanceUsageRows,tz,personalTestAccess);
+        const dashboardAllowanceUsageRows = Array.isArray(allowanceUsageRows)
+          ? [...allowanceUsageRows.filter(row=>!["quiz","flashcard"].includes(row.activity_type)),
+             ...["quiz","flashcard"].map(type=>({activity_type:type,used_count:todayRows.filter(row=>row.activity_type===type).length}))]
+          : null;
+        renderDashboardAllowanceBars(plan,limits,dashboardAllowanceUsageRows,tz,personalTestAccess);
         const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
         if(dashboardQuizHost) {
           const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data:[]);
@@ -19237,10 +19241,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         ["Why does an active Quiz keep its old translation?","The language pair is fixed when a Quiz session starts. A changed preference applies to the next Quiz if the active session does not contain that translation."],
         ["Is Chinese Quiz available?","Not yet. The current approved Quiz content supports the English learning course only."]
       ]},
-      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards will provide focused vocabulary recall and review. This learning experience is still being prepared.",faqs:[
-        ["Can I start a Flashcard session now?","Not yet. Flashcards will become available in a future SwiftDictionary update."],
-        ["Will progress be saved?","The planned experience includes saved review progress and allowance integration."],
-        ["Is Chinese Flashcards available?","Not yet. There is currently no Chinese Flashcards learning course."]
+      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards combines four-choice Flash Recall with personal vocabulary collections. Each game lasts 60 seconds; memory and answer windows shorten after every response, including timeouts.",faqs:[
+        ["What are the four Flash Recall modes?","Word Recall tests a word's meaning, Definition Recall tests the matching word, Translation Recall tests the selected translation, and Sentence Recall asks you to complete a sentence."],
+        ["How do the difficulty timers work?","Beginner starts with 5 seconds to memorise and 12 seconds to answer; Intermediate starts at 3 and 9 seconds; Advanced starts at 2 and 6 seconds. Each answer reduces both timers until their difficulty-specific minimums."],
+        ["How does the daily allowance work?","Free accounts can complete 3 Flashcard games per local day; Premium accounts can complete 10. Only a completed game consumes an allowance. Leaving a game early does not."],
+        ["Can I create and sync my own cards?","Yes. My Collections lets you create collections, add Dictionary entries, and create, edit, move or remove custom question-and-answer cards. Collections and mastery sync to your signed-in account."],
+        ["What is Weak Memory?","Cards answered incorrectly are prioritised for another recall round. Your correct answers, incorrect answers and streaks are saved as mastery progress."],
+        ["Is Chinese Flashcards available?","The current Flashcards learning course is English. Translation Recall uses your selected translation language."]
       ]}
     };
     let learningIntroCurrentPage = null;
