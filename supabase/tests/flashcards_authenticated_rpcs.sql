@@ -52,7 +52,7 @@ where id=(select session_id from pg_temp.flashcard_test_session);
 
 set local role authenticated;
 do $test$
-declare v_result jsonb;
+declare v_result jsonb; v_data jsonb;
 begin
   v_result := public.complete_my_flashcard_game(
     (select session_id from pg_temp.flashcard_test_session),
@@ -64,6 +64,12 @@ begin
      or (v_result->>'incorrect_count')::integer <> 1
      or (v_result->>'unanswered_count')::integer <> 1 then
     raise exception 'Flash Recall aggregate counts are incorrect: %',v_result;
+  end if;
+  v_data := public.get_my_flashcard_data();
+  if (v_data->'allowance'->>'daily_limit')::integer <> 3
+     or (v_data->'allowance'->>'used_count')::integer <> 1
+     or (v_data->'allowance'->>'remaining')::integer <> 2 then
+    raise exception 'Flashcard allowance summary is incorrect: %',v_data->'allowance';
   end if;
 end
 $test$;
