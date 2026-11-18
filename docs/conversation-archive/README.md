@@ -68,3 +68,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [Update 2.5.0 Flashcards follow-up: preflight validation](2026-11-18-update-2-5-0-flashcards-preflight-validation.md) — records the gameplay startup audit, preflight validation before server-session creation, stale round-state reset, regression coverage and remaining CI/manual browser validation.
 - [Update 2.5.0 Flashcards implementation hardening and automated Mock User validation](2026-11-18-update-2-5-0-flashcards-implementation-hardening.md) — records round-target preflight, stable dictionary-card mastery identity, collection and session lifecycle fixes, English-course messaging, and passing workflow #77 with four Chromium Mock User browser tests; Cloudflare preview reachability and owner testing remain outstanding.
+
+- [Update 2.5.0 Flashcards redesign and Mixed Recall](2026-11-18-update-2-5-0-flashcards-redesign-and-mixed-recall.md) — records the redesigned recall home/setup/game/result UI, Mixed Recall, mode-specific Weak Memory history, staging-only migrations, privacy deletion coverage and passing CI workflow #89 with four Chromium Mock User tests.
