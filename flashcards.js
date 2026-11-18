@@ -143,7 +143,7 @@
             <button class="flash-mode" data-action="open-setup" data-mode="mixed"><span class="flash-mode-icon">🎨</span><span>Mixed Recall<small>Word, meaning and sentence prompts</small></span></button>
             <button class="flash-mode" data-action="open-setup" data-mode="sentence"><span class="flash-mode-icon">✍️</span><span>Sentence Recall<small>Complete a sentence with the right word</small></span></button>
           </div>
-          <p class="flash-muted">Daily games: <strong>${allowance.remaining}</strong> remaining of ${allowance.daily_limit}</p>
+          <p class="flash-muted">Daily games: <strong>${allowance.used_count}</strong>/${allowance.daily_limit} used · <strong>${allowance.remaining}</strong> remaining</p>
         </section>
         <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Review weak memory</h2><p class="flash-muted">Revisit answers you missed in previous games.</p></div><button class="flash-primary" data-action="open-review">Review weak memory (${weakItems.length})</button></div></section>
         <section class="flash-section"><h2>Recent games</h2>
