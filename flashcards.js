@@ -271,7 +271,7 @@
       p_card_type:card.card_type||null,p_dictionary_word:card.dictionary_word||null,
       p_front_text:card.front_text||null,p_back_text:card.back_text||null,
       p_example_text:card.example_text||null,p_translation_text:card.translation_text||null,
-      p_position:Number(card.position)||0
+      p_position:action==="create"?state.data.cards.filter(c=>c.collection_id===collectionId).length:(Number(card.position)||0)
     });
     if(error)throw error;
     await loadData();
@@ -295,6 +295,15 @@
       if(action==="rename-collection"){const name=prompt("New collection name",selectedCollection().name);if(name!==null)await collectionAction("rename",selectedCollection().id,name);return;}
       if(action==="delete-collection"){if(confirm("Delete this collection and its cards?")){await collectionAction("delete",selectedCollection().id,null);state.collectionId="all";}return;}
       if(action==="remove-card"){if(confirm("Remove this card from the collection?"))await cardAction("delete",{id:value},null);return;}
+      if(action==="reorder-up"||action==="reorder-down"){
+        const card=state.data.cards.find(c=>c.id===value);if(!card)return;
+        const ordered=state.data.cards.filter(c=>c.collection_id===card.collection_id).sort((a,b)=>(Number(a.position)||0)-(Number(b.position)||0)||String(a.created_at||"").localeCompare(String(b.created_at||"")));
+        const index=ordered.findIndex(c=>c.id===card.id),other=ordered[index+(action==="reorder-up"?-1:1)];
+        if(!other)return;
+        const oldPosition=Number(card.position)||0;
+        await cardAction("move",{...card,position:Number(other.position)||0},card.collection_id);
+        await cardAction("move",{...other,position:oldPosition},other.collection_id);return;
+      }
       if(action==="edit-card"){
         const card=state.data.cards.find(c=>c.id===value);if(!card)return;
         const front=prompt("Front / question",card.front_text);if(front===null)return;
