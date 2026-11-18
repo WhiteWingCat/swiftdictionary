@@ -2322,3 +2322,79 @@ The browser job ran against the repository's local static preview with the isola
 ### Recovery point
 
 Continue from `feature/update-2-5-0-flashcards` at `b48933a2bef3a5affa6b7224c43521fdb3370be3`. The Master Development Record and this archive remain on `docs/master-development-record`; never merge internal documentation into production `main`.
+
+
+## 27. Update 2.5.0 — Flashcards redesign and Mixed Recall (2026-11-18)
+
+### Scope and recovery point
+
+- Owner approved the full Flashcards interface/gameplay redesign after Mock User testing.
+- Implementation branch: `feature/update-2-5-0-flashcards`.
+- Latest implementation commit: `cb9a87eed12c1f8a8a055d5a7095fbc546f118d8`.
+- Production baseline remains `main` at `65d0a35bab577adc15a0b1911661c222ed625739` (Update 2.4.2).
+- No PR, merge, production deployment, production SQL migration or production data operation was performed.
+
+### Owner-approved UI and gameplay changes implemented
+
+1. Replaced the crowded Flashcards home with a dedicated banner and four colour-coded, shadowed recall navigation cards:
+   - Word Recall — light blue.
+   - Definition Recall — blue.
+   - Mixed Recall — magenta.
+   - Sentence Recall — purple.
+2. Removed the Translation Recall mode; Mixed Recall randomly rotates Word, Definition and Sentence mechanics.
+3. Recall navigation opens a compact setup overlay containing difficulty, card set and Begin. Difficulty/card set/start controls are no longer on the home page.
+4. Added contextual card-set filters: all available words, common words, nouns, verbs, adjectives, adverbs, everyday phrases and subject/technical terms. Part-of-speech filters use the dictionary's `part` field.
+5. Hid the My Collections manager UI without deleting its underlying account data or management implementation.
+6. Reworked gameplay so the light-blue flashcard and four answer slots remain visible together. Answer choices are blacked out during memory; the flashcard is blurred and a “Pick your answers” overlay appears during answer time.
+7. Added a yellow/orange combined memory/answer gauge beneath the flashcard.
+8. Added a fixed three-second feedback phase. The flashcard is revealed again and the four choices show green correct / red selected-incorrect feedback without changing the overall layout.
+9. Added an end-of-game result overlay with attempted, correct, incorrect, unanswered and accuracy totals. The learner must close it before returning to the home page.
+10. Moved Weak Memory into a compact home-page action. Its overlay has Word, Definition, Mixed and Sentence tabs; selecting a missed card reveals a separate detail panel. Review is read-only and does not start a game or consume allowance.
+
+### Mode-specific review data and staging
+
+- Added `private.flashcard_review_items`, scoped by user, card key and recall mode. It stores only the minimum review metadata (incorrect count, last incorrect time and session reference), not additional answer text.
+- Extended authenticated Flashcards data/start/complete functions to support Mixed Recall and return/update mode-specific weak-memory history.
+- Extended learning-history deletion to remove the new review-history records as well.
+- Both new migrations were applied to the isolated SwiftDictionary Indie Staging project only:
+  - `20261118143000_flashcards_mixed_recall_and_review_history.sql`
+  - `20261118150000_flashcards_review_history_deletion.sql`
+- Staging SQL verification confirmed the review table, Mixed Recall session constraint, RPC review output, completion tracking and learning-history deletion integration.
+- Security-advisor review showed the new private table as RLS-enabled with no direct policies, consistent with the existing private-schema/server-RPC access pattern. Existing unrelated advisor warnings remain unchanged. Production was not inspected or changed as part of this migration application.
+
+### Automated validation
+
+GitHub Actions workflow **#?** passed on commit `cb9a87eed12c1f8a8a055d5a7095fbc546f118d8`:
+https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44282805958
+
+Both jobs passed:
+- JavaScript syntax and Flashcards page integration checks.
+- Mock account, allowance, collection and timer regression tests.
+- All **4 Chromium Mock User browser tests** passed:
+  1. Simplified, colour-coded home and compact setup overlay.
+  2. Word Recall answer masking, answer reveal and three-second feedback.
+  3. Mixed Recall session and mode-specific weak-memory review.
+  4. 60-second completion results prompt and close-to-return behaviour.
+
+These tests use the isolated Mock User adapter and local static browser environment. They are not owner acceptance or live-authenticated Supabase browser testing.
+
+### Legal and privacy planning
+
+- The new review record is account-linked learning activity data. It is stored in the private schema and is not exposed as a direct public table.
+- The review record is minimal and now participates in the existing authenticated learning-history deletion workflow.
+- Malaysia's PDPA amendment provisions took effect in stages during 2025. The official JPDP materials identify DPO, breach-notification and cross-border-transfer guidance; whether specific duties apply depends on the actual processing/controller/processor circumstances and thresholds. Reassess before public/commercial expansion, subscriptions or broader analytics. This is a planning check, not legal advice or a compliance certification.
+- Official references: [JPDP — PDPA Amendment Act 2024](https://www.pdp.gov.my/en/akta/personal-data-protection-amendment-act-2024/), [JPDP — DPO FAQ](https://www.pdp.gov.my/en/faq/), [JPDP — Data Breach Notification Guidelines](https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-data-breach-notification-dbn/).
+
+### Mock User handoff and remaining gates
+
+- Code and automated tests are ready for owner Mock User testing.
+- Preview host: `feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`.
+- Expected explicit Mock User URL: `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev/?swiftMock=1`.
+- Cloudflare's current deployment was not independently fetched from this session; allow its branch deployment to finish before testing the latest commit. The shortened hostname is allowlisted in the feature branch.
+- Owner should test all four modes, all difficulties and card sets, timer reductions/floors, timeout feedback, 60-second results, abandonment/allowance, weak-review tabs/details, selected translation language, account switching and responsive layout.
+- My Collections remains hidden, not deleted. No production merge or production migration is authorised by this implementation work.
+- Continue to keep the last three feature branches and retire older branches only under the agreed branch-hygiene rule.
+
+### Recovery point
+
+Continue from `feature/update-2-5-0-flashcards` at `cb9a87eed12c1f8a8a055d5a7095fbc546f118d8`. Keep the Master Development Record and conversation archives on `docs/master-development-record`; do not merge internal documentation into production `main`.
