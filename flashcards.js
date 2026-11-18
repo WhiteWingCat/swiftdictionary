@@ -71,6 +71,49 @@
       #flashcardsPage .flash-search-results button{display:flex;justify-content:space-between;gap:12px;text-align:left;border:1px solid var(--border);background:var(--panel-hover);color:var(--text);padding:10px;border-radius:9px}
       @media(max-width:700px){#flashcardsPage .flash-mode-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#flashcardsPage .flash-options{grid-template-columns:1fr}#flashcardsPage .flash-card-row{align-items:flex-start;flex-direction:column}}
     `;
+
+    node.textContent += `
+      #flashcardsPage .flash-banner{border:1px solid #344a68;border-radius:22px;padding:30px;background:radial-gradient(circle at 88% 15%,#7096bd55,transparent 25%),linear-gradient(120deg,#15263b,#203c58 60%,#1b2941);box-shadow:0 16px 30px #0004}
+      #flashcardsPage .flash-banner h2{font-size:2.2rem;margin:0 0 8px;color:#f4f8ff}
+      #flashcardsPage .flash-banner p{margin:0;color:#c4d4ea}
+      #flashcardsPage .flash-section{border-radius:18px;box-shadow:0 8px 22px #0002}
+      #flashcardsPage .flash-mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}
+      #flashcardsPage .flash-mode{display:flex;align-items:center;gap:12px;min-height:88px;border:0;border-radius:17px;color:#fff;padding:15px;text-align:left;font-weight:750;box-shadow:0 7px 0 #0005,0 12px 20px #0003;transition:transform .16s}
+      #flashcardsPage .flash-mode:hover{transform:translateY(-2px)}
+      #flashcardsPage .flash-mode .flash-mode-icon{font-size:1.5rem;background:#ffffff25;padding:10px;border-radius:12px}
+      #flashcardsPage .flash-mode small{display:block;color:#ffffffd9;font-weight:500;margin-top:4px}
+      #flashcardsPage .flash-mode[data-mode=word]{background:#4b91b9;box-shadow:0 7px 0 #28516b,0 12px 20px #0003}
+      #flashcardsPage .flash-mode[data-mode=definition]{background:#2865b2;box-shadow:0 7px 0 #173d70,0 12px 20px #0003}
+      #flashcardsPage .flash-mode[data-mode=mixed]{background:#b33f91;box-shadow:0 7px 0 #70275a,0 12px 20px #0003}
+      #flashcardsPage .flash-mode[data-mode=sentence]{background:#7650b8;box-shadow:0 7px 0 #493176,0 12px 20px #0003}
+      #flashcardsPage .flash-pill{display:inline-flex;border-radius:99px;padding:8px 13px;border:1px solid var(--border);background:var(--panel-hover)}
+      #flashcardsPage .flash-primary{border-radius:999px;padding:11px 22px;box-shadow:0 4px 0 #26385e}
+      #flashcardsPage .flash-modal-backdrop{position:fixed;inset:0;z-index:10050;background:#050910bb;backdrop-filter:blur(7px);display:grid;place-items:center;padding:16px}
+      #flashcardsPage .flash-modal{width:min(540px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#1b202b;border:1px solid #3a4558;border-radius:22px;padding:22px;box-shadow:0 24px 70px #0009}
+      #flashcardsPage .flash-modal select{width:100%;background:#101722;color:#f5f7ff;border:1px solid #414d61;border-radius:12px;padding:11px}
+      #flashcardsPage .flash-modal label{display:grid;gap:7px;margin:14px 0;color:#c8d0df}
+      #flashcardsPage .flash-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+      #flashcardsPage .flash-game{width:min(900px,100%);max-width:900px}
+      #flashcardsPage .flash-round-gauge{height:14px;background:#30394a;border-radius:99px;overflow:hidden;margin:16px 0;display:flex}
+      #flashcardsPage .flash-round-gauge span{height:100%;transition:width .08s linear}
+      #flashcardsPage .flash-round-gauge .memory{background:linear-gradient(90deg,#ffe27b,#f5c344)}
+      #flashcardsPage .flash-round-gauge .answer{background:linear-gradient(90deg,#ffae55,#f17b36)}
+      #flashcardsPage .flash-memory{min-height:174px;background:linear-gradient(145deg,#d8efff,#a9d8f5);color:#17344b;border:1px solid #83b9df;border-radius:18px}
+      #flashcardsPage .flash-memory.is-blurred{filter:blur(7px);opacity:.65}
+      #flashcardsPage .flash-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      #flashcardsPage .flash-option{min-height:68px;border-radius:15px;box-shadow:0 4px 0 #182438}
+      #flashcardsPage .flash-option.is-hidden{background:#080c14;color:transparent;border-color:#080c14;box-shadow:0 4px 0 #030509}
+      #flashcardsPage .flash-option.is-correct{background:#246e4b;border-color:#57c28b;color:#fff}
+      #flashcardsPage .flash-option.is-wrong{background:#873c45;border-color:#e27c84;color:#fff}
+      #flashcardsPage .flash-review-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+      #flashcardsPage .flash-review-tab{border:1px solid #3c4960;border-radius:99px;padding:8px 14px;background:#202a3a;color:#e6edfb}
+      #flashcardsPage .flash-review-tab[aria-selected=true]{background:#344e77}
+      #flashcardsPage .flash-review-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      #flashcardsPage .flash-review-list button{width:100%;text-align:left;margin:5px 0;padding:11px;border-radius:10px;background:#242e40;border:1px solid #3c4a60;color:#eef3ff}
+      #flashcardsPage .flash-review-detail{background:#202a3a;border:1px solid #3b4a62;border-radius:14px;padding:16px;animation:flashSlideIn .22s ease-out}
+      @keyframes flashSlideIn{from{transform:translateX(-18px);opacity:0}to{transform:translateX(0);opacity:1}}
+      @media(max-width:650px){#flashcardsPage .flash-mode-grid{gap:8px}#flashcardsPage .flash-mode{padding:10px;min-height:78px}#flashcardsPage .flash-options{gap:8px}#flashcardsPage .flash-option{font-size:.9rem;padding:9px 6px}#flashcardsPage .flash-review-layout{grid-template-columns:1fr}}
+    `;
     document.head.appendChild(node);
   }
   function shell(){
