@@ -2068,3 +2068,31 @@ This is a repository/documentation-only change, not a new SwiftDictionary produc
 - The old `work/update-2-4-0-quiz-feedback` branch is not a routine stale branch: comparison with current `main` reports 173 commits ahead and 5 behind from merge base `90dc73a9b65fc3af713fefab4955057026089b96`, with unique file changes. Preserve it until its work is audited and reconciled.
 
 The production website code was not changed by this housekeeping commit. Do not treat this deployment as a product feature release. Update 2.5.0 remains unstarted.
+
+
+## 48. Rolling three-branch implementation policy (2026-11-18)
+
+### Owner decision
+
+The owner approved a rolling limit of **three recent implementation branches** to reduce repository clutter. When a new implementation task begins, the oldest of the three retained implementation branches is retired and a fresh task branch is created.
+
+### Operating rules
+
+1. Maintain at most three retained implementation branches across the repository. This count includes branches named `feature/*`, `fix/*`, `hotfix/*`, `chore/*` and `work/*) when they contain application or implementation work.
+2. Exclude `main` and the permanent `docs/master-development-record` branch from the three-branch count.
+3. At the start of a new implementation task, inspect the three retained branches and identify the oldest by task start/last meaningful development activity, not merely the last commit timestamp if a branch was touched only for housekeeping.
+4. Retire the oldest branch before creating the new task branch, so the rolling set remains at three. Create the new branch with a fresh task-specific name from the latest `main`; do not reuse an old branch name or base new work on a stale feature branch.
+5. A merged and verified implementation branch is eligible for retirement. Prefer retiring completed branches first; retain a newer active branch if the oldest branch contains important unfinished work.
+6. **Safety exception:** never delete a branch with unique unmerged work, unresolved review feedback or unreconciled commits. First inspect its diff against current `main`, preserve or merge/cherry-pick any required work with owner approval, and only then retire it. If the oldest branch cannot safely be retired, explain the conflict and ask the owner before exceeding the limit or changing the priority order.
+7. Keep a short branch register in the Master Development Record: branch name, task, status, last meaningful activity, related PR/merge SHA and retirement decision. Update it when a branch is created, merged, retained or retired.
+8. Branch deletion is a repository-maintenance action. If the available GitHub integration cannot delete branch refs, do not claim deletion; provide the exact safe candidates and ask the owner to remove them through GitHub.
+
+### Branches requiring current cleanup
+
+The audit at Section 47 identified nine implementation branches associated with merged PRs (#1, #3 and #5–#11) as safe retirement candidates, subject to checking their current status. The old 2.3.0 planning branch is also a candidate because its useful notes and migration have been preserved elsewhere. The `work/update-2-4-0-quiz-feedback` branch is explicitly protected until its unique 173-ahead/5-behind work has been reviewed and reconciled.
+
+The initial rolling set should be chosen only after that protected work is audited. Do not keep stale merged branches merely to fill the three slots; retain the three most recent useful implementation branches, including active work where applicable.
+
+### Scope
+
+This policy governs future implementation work from Update 2.5.0 onward. It does not change production deployment approvals, testing requirements, the documentation-only branch rule, or the requirement to update this record and the dated conversation archive for meaningful work.
