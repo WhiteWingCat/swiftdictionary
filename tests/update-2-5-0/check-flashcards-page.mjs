@@ -25,7 +25,7 @@ for(const [needle,label] of [
   ["memoryFloor:2,answerFloor:5","Beginner timer floors"],
   ["memoryFloor:1.5,answerFloor:4","Intermediate timer floors"],
   ["memoryFloor:.7,answerFloor:3","Advanced timer floors"],
-  ["duration_seconds:60","60-second game duration"],
+  ["60000","60-second game duration"],
   ["review-weak-all","Weak Memory review"],
   ["reorder-up","Collection ordering"],
   ["custom","Custom card support"]
