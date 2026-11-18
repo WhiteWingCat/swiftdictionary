@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-18 (Update 2.4.2 merged, deployed and owner-verified; production/staging Supabase Quiz synchronization completed)  
+> **Last consolidated:** 2026-11-18 (Update 2.5.0 Flashcards foundation implemented on a feature branch; staging authenticated RPC validation and CI checks passed; no production release)  
 > **Current baseline:** Update 2.4.2 is merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; GitHub Pages deployment #44230831943 succeeded, and the owner manually confirmed both Dashboard fixes on the live site. A later documentation-only cleanup commit moved internal notes off `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`; Pages deployment #44233284108 also succeeded. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
-> **Current work:** Next planned product milestone is Update 2.5.0 — Flashcards; implementation has not started. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before friends are invited to sign in, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review. The staging project is separate and is not the production friend-testing target. Its 2.4.0 Quiz content release and 2.4.1 translation-language database update are now synchronized with main; migration history is aligned to repository versions, and no production learner data was copied. Staging currently has no auth users and requires a dedicated test account/mock-user setup before authenticated end-to-end testing.  
-> **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.4.2 Quiz workflow #44229322995 and companion 2.3.x regression workflow #44229322963 passed; GitHub Pages deployment #44230831943 passed all three jobs. The owner hard-refreshed and manually confirmed both live Dashboard fixes. No Supabase migration or production database write was required for 2.4.2. Existing Quiz data-processing and privacy considerations remain as recorded below.
+> **Current work:** Update 2.5.0 — Flashcards is in active implementation on `feature/update-2-5-0-flashcards` (latest implementation commit `4e65a3cf32fdd536533ef536adb9c99f6db3c129`); it is not merged and is not ready for release. The initial UI/runtime, private database foundation, account-scoped RPCs, Mock User support, allowance checks and regression checks are in place. Staging authenticated SQL integration and GitHub Actions workflow #44258066606 passed. Manual owner browser testing remains outstanding. Production `main` remains at 2.4.2 commit `65d0a35bab577adc15a0b1911661c222ed625739`; production Supabase remains unchanged with the old Flashcard allowance rows Free 5/Premium 12 and no Flashcard tables. Staging has the new schema and Free 3/Premium 10 rows, zero auth users and zero retained Flashcard test rows. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before public friend onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
+> **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.5.0 remains on its temporary feature branch with no PR/merge/production deployment. Update 2.4.2 Quiz workflow #44229322995 and companion 2.3.x regression workflow #44229322963 passed; GitHub Pages deployment #44230831943 passed all three jobs. The owner hard-refreshed and manually confirmed both live Dashboard fixes. No Supabase migration or production database write was required for 2.4.2. Existing Quiz data-processing and privacy considerations remain as recorded below.
 >
 > This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
 
@@ -2146,3 +2146,86 @@ This policy governs future implementation work from Update 2.5.0 onward. It does
 - Keep the staging-only bootstrap record; do not remove it without a separate migration-history review.
 - Treat unused indexes and performance-advisor notices as a separate future review. Do not perform speculative cleanup.
 - Update 2.5.0 remains unstarted.
+
+
+## 50. Update 2.5.0 Flashcards foundation — implementation and staging validation (2026-11-18)
+
+### Scope and owner-approved rules
+
+- Update 2.5.0 is the next feature after the released 2.4.2 baseline.
+- Four Flash Recall modes: Word, Definition, Translation and Sentence Recall. Each has Beginner, Intermediate and Advanced difficulty.
+- Each game lasts 60 seconds and presents four answer choices.
+- Starting timers:
+  - Beginner: memory 5s, answer 12s.
+  - Intermediate: memory 3s, answer 9s.
+  - Advanced: memory 2s, answer 6s.
+- Fixed reduction after every selected answer, including an incorrect answer; a timeout is also incorrect and shortens the next timers:
+  - Beginner: memory −0.5s, answer −1s.
+  - Intermediate: memory −1.5s, answer −4s.
+  - Advanced: memory −0.7s, answer −3s.
+- Minimum timer floors (owner's latest correction):
+  - Beginner: memory 2s, answer 5s.
+  - Intermediate: memory 1.5s, answer 4s.
+  - Advanced: memory 0.7s, answer 3s.
+- Track words seen, correct, incorrect and unanswered (unanswered is included in incorrect). Maintain per-card correct/incorrect totals, streak and last result for Weak Memory prioritisation.
+- Collection areas are Learning Collections, Weak Memory and My Collections. My Collections supports named collections, dictionary entries and fully custom question/answer cards; edit, move, reorder, remove, rename, delete and account sync.
+- Free Flash Recall allowance: 3 completed games per local day. Premium: 10. Abandoning a game does not consume allowance. Only completed games are charged.
+- Current Flashcards learning course remains English; Translation Recall uses the selected translation language. Chinese learning-course Flashcards remain unavailable in this update.
+- Four-choice options are shuffled and deduplicated; if a set cannot provide four distinct choices for the selected mode, the game reports that instead of repeating an option.
+
+### Repository implementation
+
+- Production baseline: `main` at `65d0a35bab577adc15a0b1911661c222ed625739`.
+- Implementation branch: `feature/update-2-5-0-flashcards`.
+- Latest implementation commit at this record: `4e65a3cf32fdd536533ef536adb9c99f6db3c129`.
+- Added `flashcards.js` for the Flashcards page, four game modes, 60-second clock, timer progression/floors, answer-choice generation, Weak Memory review, collection/card management and account RPC calls.
+- Updated `index.html` to load the Flashcards runtime, replace the Coming Soon placeholder, describe the feature, show Flashcard/Quiz allowance usage in Profile and clarify that deleting learning history removes Flashcard game history/mastery but preserves collections and custom cards.
+- Updated `mock-testing.js` with Flashcard collection/card/mastery/session RPC behaviour, Free/Premium limits, account isolation and a separate mock allowance ledger that survives learning-history deletion.
+- Added regression tests for 3/10 allowances, account isolation, collection creation/edit/move/delete, custom cards, mastery, learning-history deletion, daily allowance preservation and all difficulty timer values/floors.
+- Added `tests/update-2-5-0/check-flashcards-page.mjs` to syntax-check inline application scripts and verify Flashcards page integration.
+- Added `.github/workflows/update-2-5-0-flashcards-test.yml`; latest run #44258066606 passed JavaScript syntax, page integration, Mock User RPC, allowance, collection and timer regression checks.
+- Added authenticated SQL integration test `supabase/tests/flashcards_authenticated_rpcs.sql`.
+
+### Database design and staging rollout
+
+- Added migration `supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql`.
+- New storage is in the non-exposed `private` schema:
+  - `flashcard_collections`
+  - `flashcard_cards`
+  - `flashcard_mastery`
+  - `flashcard_sessions`
+- All four tables have RLS enabled, no direct table privileges for authenticated/anon, owner indexes and user ownership enforced by authenticated RPC implementations. Public wrappers are SECURITY INVOKER; anonymous execution is revoked. The private implementation derives the owner only from `auth.uid()`.
+- Custom-card result keys are checked against the authenticated user's actual custom card; session result payload is bounded. Collection/card deletion clears custom-card mastery; learning-history deletion clears game sessions and mastery but leaves the learner's collections/cards intact.
+- Game start checks the same private allowance ledger used by the existing completion trigger, under the user's saved/effective timezone. Completion also writes the existing activity log so the server-side allowance trigger remains authoritative. The game cannot complete before the 60-second server-side window.
+- Staging project only: `ivatvkfrtifgfheeaelj` (Singapore). The migration was applied and refined during implementation; exploratory staging migration records were reconciled to the single canonical version `20261118090000` / `swiftdictionary_update_2_5_0_flashcards_foundation`.
+- Staging Flashcard limits verified: Free 3, Premium 10. Authenticated SQL integration test passed, including collection/custom-card creation, game completion, correct/incorrect/unanswered counts, abandoned-game no-charge behaviour and Free game-four rejection.
+- Test transaction rolled back. Follow-up query verified zero CI auth users and zero rows in all four Flashcard tables.
+- Staging security check: RLS enabled; authenticated has no direct SELECT/INSERT table privileges; anon has no SELECT; authenticated can execute only the six public wrappers; anon cannot execute them. Private schema remains unexposed.
+- Performance advisor has no Flashcard-specific unindexed foreign key remaining after adding the card-owner index. Remaining advisor findings are pre-existing Quiz/application notices and unused indexes on the otherwise empty staging database; no speculative cleanup was performed.
+- Production project `pzymiesazmpyvnfvsbsc` was read-only. It still has no Flashcard tables and retains the old Flashcard allowance values Free 5/Premium 12. Do not apply the migration or update production quotas until owner-approved release preparation.
+
+### Legal/privacy planning update
+
+- Flashcard collections/cards store user-authored text, dictionary references and optional examples/translations. These are private to the signed-in owner and are not shared publicly in this release.
+- Mastery stores aggregate correct/incorrect counts, streak, last result and last-seen timestamp. Game sessions store mode, difficulty, counts and timestamps; raw selected answers are not stored as a per-question event stream.
+- Account deletion cascades through `auth.users`; learning-history deletion removes sessions/mastery and activity history while preserving collections/cards. The UI now explains this distinction. A separate retention period for old completed game sessions has not yet been approved; the database currently retains them until the learner deletes history or the account is deleted.
+- Production database region is Tokyo; staging is Singapore and contains no learner data. Before release, document the cross-border basis and all Supabase backup/log/subprocessor locations, not only the primary database region.
+- Malaysia PDPA applicability remains a fact-specific legal question for a free individually operated public service; the Amendment Act 2024 and current JPDP circulars/guidelines require review of controller registration, breach notification, DPO thresholds and cross-border transfer safeguards. The adaptive weak-memory feature should be included in DPO/DPIA screening.
+- Intended minimum age remains 16+. This is at or above the GDPR Article 8 consent threshold used by EU Member States (which can vary from 13 to 16), but a global country-by-country child-privacy screen and clear age notice are still needed.
+- This remains planning, not legal advice or a compliance determination. No new personal data was created in staging tests.
+
+### Outstanding work and release gates
+
+1. Owner must manually test the branch preview with Mock User: all four modes, all difficulties, timer reductions/floors, 60-second finish, timeout, abandonment, answer variety, Weak Memory, dictionary additions, custom card CRUD, ordering/moving, account switching and daily allowance display.
+2. Confirm the feature-branch Cloudflare Pages preview is available; it has not been browser-verified in this session.
+3. Review UI responsiveness, accessibility, error states, translation quality and profile progress.
+4. Decide an explicit retention period for completed Flashcard game sessions; verify data export/account deletion expectations and privacy notice wording.
+5. Complete Malaysia/global privacy review before public friend onboarding. No legal conclusion is made here.
+6. After owner acceptance, prepare a PR and production migration/deployment plan. Do not merge, deploy or modify production without explicit owner approval.
+7. Branch-cleanup capability remains limited: the available GitHub integration exposes no branch-ref deletion action. The rolling three-branch policy and previously identified protected/retirement candidates remain in force; do not claim any branch was deleted.
+
+### Recovery point
+
+- Current worktree is recoverable from `feature/update-2-5-0-flashcards` at `4e65a3cf32fdd536533ef536adb9c99f6db3c129`.
+- The matching implementation and docs are intentionally separate: this record belongs only on `docs/master-development-record`; do not merge documentation into `main`.
+- Production remains Update 2.4.2 and has not been changed by Update 2.5.0 work.
