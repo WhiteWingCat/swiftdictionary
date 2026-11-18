@@ -43,7 +43,7 @@ This session completed the audit and implemented the documentation separation. I
 4. Nine branches associated with already merged PRs remain present; they can be safely deleted in GitHub after confirming the corresponding merged PRs #1, #3, #5–#11. The closed/unmerged planning branch and unassociated work branch must be inspected first.
 5. The documentation-only paths have now been preserved on `docs/master-development-record` and removed from `main` in one commit (`686d874`). Runtime, test, workflow, migration, licence and attribution assets were retained.
 
-No application code, production database, production settings, Supabase project or learner data was changed during this documentation review. The Pages workflow for the main cleanup commit was triggered and was still in progress at the last check. Update 2.5.0 implementation was not started.
+No application code, production database, production settings, Supabase project or learner data was changed during this documentation review. Pages deployment #44233284108 completed successfully for main commit `686d8743f42ab32e3736c51861a2dbb9b2686420`; all three jobs passed. No open PRs remain. Nine branches associated with merged PRs remain cleanup candidates, but the connected GitHub integration did not expose branch deletion. The unmerged planning branch is preserved pending inspection. The old `work/update-2-4-0-quiz-feedback` branch compares 173 commits ahead and 5 behind current main and contains unique file changes, so it must be preserved until audited. Update 2.5.0 implementation was not started.
 
 ## Next recovery point
 
