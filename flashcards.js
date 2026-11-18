@@ -125,47 +125,31 @@
   }
   function render(){
     const mount=shell();style();
-    if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>English course required</h2><p class="flash-muted">Flashcards currently support the English learning course. Switch your Learning Course to English to use Flashcards.</p></section>';return;}
-    if(!currentUser){
-      mount.innerHTML='<section class="coming-card"><h2>Sign in to use Flashcards</h2><p class="page-intro" style="margin:0 auto 16px">Your collections and learning progress sync securely with your account.</p><button class="flash-primary" data-action="signin">Sign in</button></section>';
-      return;
-    }
+    if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>English course required</h2><p class="flash-muted">Flashcards currently support the English learning course. Switch your Learning Course to English to continue.</p></section>';return;}
+    if(!currentUser){mount.innerHTML='<section class="flash-section"><h2>Sign in to use Flashcards</h2><p class="flash-muted">Your learning progress is saved securely to your account.</p><button class="flash-primary" data-action="signin">Sign in</button></section>';return;}
     if(state.loading){mount.innerHTML='<section class="flash-section">Loading your Flashcards…</section>';return;}
-    if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>Saving your game</h2><p class="flash-muted">Your results and learning progress are being saved. Please wait a moment.</p></section>';return;}
+    if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>Saving your game</h2><p class="flash-muted">Your results are being saved securely.</p></section>';return;}
     if(state.game){renderGame(mount);return;}
-    const counts=masteryMap();
-    const allowance=state.data.allowance||{plan:"free",daily_limit:3,used_count:0,remaining:3};
-    const weak=[...counts.entries()].filter(([,m])=>m.last_result==="incorrect").sort((a,b)=>(a[1].last_seen_at||"").localeCompare(b[1].last_seen_at||""));
-    const collections=state.data.collections;
-    const selected=selectedCollection();
+    const allowance=state.data.allowance||{daily_limit:3,used_count:0,remaining:3};
+    const weakItems=(state.data.review_items||[]).filter(item=>item.incorrect_count>0);
     mount.innerHTML=`
       <div class="flash-home">
+        <section class="flash-banner"><h2>Flashcards</h2><p>Sharpen your recall with quick, focused challenges. Choose a mode, set your pace, and see how much you can remember in 60 seconds.</p></section>
         <section class="flash-section">
-          <h2>Flash Recall</h2><p class="flash-muted">A focused 60-second memory challenge. Every answer makes the next round faster.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Choose your Flash Recall</h2><p class="flash-muted">Four ways to strengthen your memory.</p></div><span class="flash-pill">⚡ 60-second challenge</span></div>
           <div class="flash-mode-grid">
-            ${[["word","Word Recall"],["definition","Definition Recall"],["translation","Translation Recall"],["sentence","Sentence Recall"]].map(([id,label])=>`<button class="flash-mode" data-action="mode" data-value="${id}" aria-pressed="${state.mode===id}"><strong>${label}</strong><small class="flash-muted">${id==="word"?"Remember the word":id==="definition"?"Remember its meaning":id==="translation"?"Remember the translation":"Complete the sentence"}</small></button>`).join("")}
+            <button class="flash-mode" data-action="open-setup" data-mode="word"><span class="flash-mode-icon">🔤</span><span>Word Recall<small>Recall the meaning of a word</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="definition"><span class="flash-mode-icon">📘</span><span>Definition Recall<small>Identify the word from its meaning</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="mixed"><span class="flash-mode-icon">🎨</span><span>Mixed Recall<small>Word, meaning and sentence prompts</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="sentence"><span class="flash-mode-icon">✍️</span><span>Sentence Recall<small>Complete a sentence with the right word</small></span></button>
           </div>
-          <p class="flash-muted">Daily allowance: <strong>${allowance.used_count}/${allowance.daily_limit}</strong> games used · <strong>${allowance.remaining}</strong> remaining today</p>
-          <div class="flash-controls"><label>Difficulty <select id="flashDifficulty"><option value="beginner" ${state.difficulty==="beginner"?"selected":""}>Beginner</option><option value="intermediate" ${state.difficulty==="intermediate"?"selected":""}>Intermediate</option><option value="advanced" ${state.difficulty==="advanced"?"selected":""}>Advanced</option></select></label>
-          <label>Card set <select id="flashGameCollection"><option value="all">All available words</option>${collections.map(c=>`<option value="${c.id}" ${state.collectionId===c.id?"selected":""}>${escapeHtml(c.name)}</option>`).join("")}</select></label>
-          <button class="flash-primary" data-action="start-game" ${allowance.remaining<=0?"disabled":""}>Start 60-second game</button></div>
-          <p class="flash-muted">Each game uses one daily Flashcard allowance. Leaving a game early does not consume a game.</p>
+          <p class="flash-muted">Daily games: <strong>${allowance.remaining}</strong> remaining of ${allowance.daily_limit}</p>
         </section>
-        <section class="flash-section"><h2>Learning Collections</h2><p class="flash-muted">Choose a collection to practise words saved from the dictionary.</p>
-          <div class="flash-collection-list"><button class="flash-collection" data-action="select-collection" data-value="all" aria-pressed="${state.collectionId==="all"}"><strong>All available words</strong><small>${words().length} dictionary entries from the English dictionary</small></button></div>
+        <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Review weak memory</h2><p class="flash-muted">Revisit answers you missed in previous games.</p></div><button class="flash-primary" data-action="open-review">Review weak memory (${weakItems.length})</button></div></section>
+        <section class="flash-section"><h2>Recent games</h2>
+          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-pill">${escapeHtml(g.mode==="mixed"?"Mixed Recall":g.mode.charAt(0).toUpperCase()+g.mode.slice(1)+" Recall")} · ${escapeHtml(g.difficulty)} · ${g.correct_count}/${g.words_seen} correct</div>`).join("")+'</div>':'<p class="flash-muted">Your completed games and scores will appear here.</p>'}
         </section>
-        <section class="flash-section"><h2>Weak Memory</h2><p class="flash-muted">Cards you answered incorrectly appear here for extra practice.</p>
-          ${weak.length?'<div class="flash-controls"><button class="flash-primary" data-action="review-weak-all">Review weak memory</button></div><div class="flash-card-list">'+weak.map(([key,m])=>{const card=state.data.cards.find(c=>cardKey(c)===key);const word=key.startsWith("dict:")?words().find(w=>w.word.toLowerCase()===key.slice(5)):null;return `<div class="flash-card-row"><div><strong>${escapeHtml(card?.front_text||word?.word||key.replace(/^custom:/,"Custom card"))}</strong><small>${m.correct_count} correct · ${m.incorrect_count} incorrect · streak ${m.current_streak}</small></div><button class="flash-secondary" data-action="review-weak" data-value="${escapeHtml(key)}">Review</button></div>`;}).join("")+'</div>':'<p class="flash-muted">No weak-memory cards yet. Complete a Flash Recall game to build your review list.</p>'}
-        </section>
-        <section class="flash-section"><h2>My Collections</h2><p class="flash-muted">Create your own collections, add dictionary words, or write fully custom question-and-answer cards. Your changes sync to your account.</p>
-          <form class="flash-form" id="flashCollectionForm"><label>New collection name<input name="name" maxlength="60" placeholder="e.g. Words I want to remember" required></label><div><button class="flash-primary" type="submit">Create collection</button></div></form>
-          ${selected?'<div class="flash-controls"><strong>'+escapeHtml(selected.name)+'</strong><button class="flash-secondary" data-action="rename-collection">Rename</button><button class="flash-secondary" data-action="delete-collection">Delete collection</button></div>':''}
-          <div class="flash-controls"><label>Manage collection <select id="flashManageCollection"><option value="">Choose a collection</option>${collections.map(c=>`<option value="${c.id}" ${state.collectionId===c.id?"selected":""}>${escapeHtml(c.name)}</option>`).join("")}</select></label></div>
-          ${selected?renderCollectionCards(selected.id):'<p class="flash-muted">Select a collection above to manage its cards.</p>'}
-          <details><summary>Add a dictionary word</summary><form class="flash-form" id="flashDictionaryForm"><label>Search English dictionary<input id="flashDictionarySearch" type="search" placeholder="Search words…" autocomplete="off"></label><div class="flash-search-results" id="flashDictionaryResults"></div></form></details>
-          <details><summary>Create a custom flashcard</summary><p class="flash-muted">Keep cards focused on learning. Do not include sensitive personal information or another person’s private details.</p><form class="flash-form" id="flashCustomForm"><label>Front / question<input name="front" maxlength="500" required></label><label>Back / answer<textarea name="back" rows="3" maxlength="2000" required></textarea></label><label>Example (optional)<textarea name="example" rows="2" maxlength="2000"></textarea></label><label>Translation (optional)<input name="translation" maxlength="1000"></label><button class="flash-primary" type="submit">Save custom card</button></form></details>
-        </section>
-        <section class="flash-section"><h2>Recent Flash Recall</h2>${state.data.history.length?'<div class="flash-card-list">'+state.data.history.slice(0,8).map(s=>`<div class="flash-card-row"><div><strong>${escapeHtml(s.mode)} · ${escapeHtml(s.difficulty)}</strong><small>${s.words_seen} words · ${s.correct_count} correct · ${s.incorrect_count} incorrect</small></div><small>${new Date(s.completed_at).toLocaleString()}</small></div>`).join("")+'</div>':'<p class="flash-muted">Completed games will appear here.</p>'}</section>
+        <div id="flashOverlayRoot"></div>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
   }
