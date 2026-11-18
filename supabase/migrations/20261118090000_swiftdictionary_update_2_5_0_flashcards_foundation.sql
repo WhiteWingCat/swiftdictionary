@@ -531,6 +531,8 @@ begin
     raise exception 'Recent authentication required to delete learning history' using errcode='42501';
   end if;
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text,0));
+  -- Preserve the existing Quiz history deletion when extending this shared workflow.
+  delete from private.quiz_sessions where user_id=v_user;
   delete from public.daily_activity_sessions where user_id=v_user;
   delete from public.lesson_practice_results where user_id=v_user;
   delete from public.lesson_progress where user_id=v_user;
