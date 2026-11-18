@@ -59,6 +59,9 @@ test("Mock User Flashcards supports custom collections, four modes, timer reduct
   const collectionId=await createCollection(page);
   await addCustomCard(page,"What is a collocation?","Words that commonly occur together.","We say make a decision, not do a decision.","常见词语搭配");
   await addCustomCard(page,"What does concise mean?","Using few words while giving the needed information.","A concise explanation is easy to follow.","简洁的");
+  await page.locator("#flashDictionarySearch").fill("hello");
+  await page.locator("#flashDictionaryResults [data-add-word]").first().click();
+  await expect(page.locator("#flashcardsApp .flash-card-row").filter({hasText:"hello"})).toHaveCount(1);
 
   // Collection order can be changed and remains visible after the RPC refresh.
   const before=await page.locator("#flashcardsApp .flash-card-row strong").allTextContents();
