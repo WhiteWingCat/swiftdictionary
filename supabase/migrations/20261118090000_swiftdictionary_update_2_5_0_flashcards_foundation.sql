@@ -97,7 +97,7 @@ revoke all on table private.flashcard_collections,private.flashcard_cards,
 
 -- All private implementations derive the owner from auth.uid(); no caller
 -- supplied user ID is accepted by any RPC.
-create or replace function private.get_my_flashcard_data_impl()
+create or replace function private.get_my_flashcard_allowance_impl()
 returns jsonb language plpgsql security definer set search_path = ''
 as $function$
 declare
@@ -127,9 +127,22 @@ begin
     from public.user_preferences p where p.user_id=v_user;
   if v_timezone is null then raise exception 'A saved allowance timezone is required' using errcode='22023'; end if;
   v_used := private.current_learning_allowance_usage(v_user,'flashcard',v_timezone);
+  return jsonb_build_object('plan',v_plan,'daily_limit',v_limit,
+    'used_count',v_used,'remaining',greatest(v_limit-v_used,0));
+end;
+$function$;
+
+create or replace function private.get_my_flashcard_data_impl()
+returns jsonb language plpgsql security definer set search_path = ''
+as $function$
+declare
+  v_user uuid := auth.uid();
+  v_allowance jsonb;
+begin
+  if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
+  v_allowance := private.get_my_flashcard_allowance_impl();
   return jsonb_build_object(
-    'allowance',jsonb_build_object('plan',v_plan,'daily_limit',v_limit,
-      'used_count',v_used,'remaining',greatest(v_limit-v_used,0)),
+    'allowance',v_allowance,
     'collections',coalesce((select jsonb_agg(jsonb_build_object(
       'id',c.id,'name',c.name,'created_at',c.created_at,'updated_at',c.updated_at
     ) order by c.updated_at desc) from private.flashcard_collections c where c.user_id=v_user),'[]'::jsonb),
@@ -416,6 +429,9 @@ end;
 $function$;
 
 -- Public schema wrappers are SECURITY INVOKER and expose no table access.
+create or replace function public.get_my_flashcard_allowance()
+returns jsonb language sql security invoker set search_path=''
+as $function$ select private.get_my_flashcard_allowance_impl(); $function$;
 create or replace function public.get_my_flashcard_data()
 returns jsonb language sql security invoker set search_path=''
 as $function$ select private.get_my_flashcard_data_impl(); $function$;
@@ -442,12 +458,14 @@ returns jsonb language sql security invoker set search_path=''
 as $function$ select private.abandon_my_flashcard_game_impl(p_session_id); $function$;
 
 grant usage on schema private to authenticated;
+grant execute on function private.get_my_flashcard_allowance_impl() to authenticated;
 grant execute on function private.get_my_flashcard_data_impl() to authenticated;
 grant execute on function private.save_my_flashcard_collection_impl(text,uuid,text) to authenticated;
 grant execute on function private.save_my_flashcard_card_impl(text,uuid,uuid,text,text,text,text,text,text,integer) to authenticated;
 grant execute on function private.start_my_flashcard_game_impl(text,text) to authenticated;
 grant execute on function private.complete_my_flashcard_game_impl(uuid,jsonb) to authenticated;
 grant execute on function private.abandon_my_flashcard_game_impl(uuid) to authenticated;
+revoke all on function private.get_my_flashcard_allowance_impl() from public,anon;
 revoke all on function private.get_my_flashcard_data_impl() from public,anon;
 revoke all on function private.save_my_flashcard_collection_impl(text,uuid,text) from public,anon;
 revoke all on function private.save_my_flashcard_card_impl(text,uuid,uuid,text,text,text,text,text,text,integer) from public,anon;
@@ -455,12 +473,14 @@ revoke all on function private.start_my_flashcard_game_impl(text,text) from publ
 revoke all on function private.complete_my_flashcard_game_impl(uuid,jsonb) from public,anon;
 revoke all on function private.abandon_my_flashcard_game_impl(uuid) from public,anon;
 
+revoke all on function public.get_my_flashcard_allowance() from public,anon;
 revoke all on function public.get_my_flashcard_data() from public,anon;
 revoke all on function public.save_my_flashcard_collection(text,uuid,text) from public,anon;
 revoke all on function public.save_my_flashcard_card(text,uuid,uuid,text,text,text,text,text,text,integer) from public,anon;
 revoke all on function public.start_my_flashcard_game(text,text) from public,anon;
 revoke all on function public.complete_my_flashcard_game(uuid,jsonb) from public,anon;
 revoke all on function public.abandon_my_flashcard_game(uuid) from public,anon;
+grant execute on function public.get_my_flashcard_allowance() to authenticated;
 grant execute on function public.get_my_flashcard_data() to authenticated;
 grant execute on function public.save_my_flashcard_collection(text,uuid,text) to authenticated;
 grant execute on function public.save_my_flashcard_card(text,uuid,uuid,text,text,text,text,text,text,integer) to authenticated;
