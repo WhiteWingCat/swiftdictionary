@@ -18554,7 +18554,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try {
         await preferenceWriteQueue;
         await ensureProfileRows();
-        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ] = await Promise.all([
+        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -18567,7 +18567,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.from("saved_words").select("course,word").eq("user_id",currentUser.id),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
-          supabaseClient.rpc("get_my_quiz_history",{p_limit:5})
+          supabaseClient.rpc("get_my_quiz_history",{p_limit:5}),
+          supabaseClient.rpc("get_my_quiz_availability"),
+          supabaseClient.rpc("get_my_flashcard_allowance")
         ]);
         let profileQ=profileInitialQ;
         if(profileQ.error&&/avatar_icon|PGRST204|42703/i.test(profileQ.error.message||"")) {
@@ -18672,10 +18674,13 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           const count=counts[type]||0, unavailable=dailyPracticeUnavailable&&type.startsWith("daily_"), width=Math.round(count/maxCount*100);
           return '<div class="activity-overview-row"><div class="activity-overview-heading"><strong>'+activityLabels[type]+'</strong><span>'+(unavailable?"Unavailable":count+(count===1?" completion":" completions"))+'</span></div><div class="activity-overview-track" role="img" aria-label="'+activityLabels[type]+': '+count+' completions"><span style="width:'+(unavailable?0:width)+'%"></span></div></div>';
         }).join(""):'<p class="muted-note">No completed learning activity recorded yet. '+(dailyPracticeUnavailable?"Daily activity history will appear after the server update.":"Your completed lessons and daily activities will appear here.")+'</p>';
-        const dashboardAllowanceUsageRows = Array.isArray(allowanceUsageRows)
-          ? [...allowanceUsageRows.filter(row=>!["quiz","flashcard"].includes(row.activity_type)),
-             ...["quiz","flashcard"].map(type=>({activity_type:type,used_count:todayRows.filter(row=>row.activity_type===type).length}))]
-          : null;
+        const dashboardAllowanceUsageRows = [
+          ...(Array.isArray(allowanceUsageRows)?allowanceUsageRows.filter(row=>!["quiz","flashcard"].includes(row.activity_type)):[]),
+          ...(!quizAvailabilityQ.error&&Number.isInteger(Number(quizAvailabilityQ.data?.allowance?.used_count))
+            ? [{activity_type:"quiz",used_count:Number(quizAvailabilityQ.data.allowance.used_count)}] : []),
+          ...(!flashcardAllowanceQ.error&&Number.isInteger(Number(flashcardAllowanceQ.data?.used_count))
+            ? [{activity_type:"flashcard",used_count:Number(flashcardAllowanceQ.data.used_count)}] : [])
+        ];
         renderDashboardAllowanceBars(plan,limits,dashboardAllowanceUsageRows,tz,personalTestAccess);
         const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
         if(dashboardQuizHost) {
