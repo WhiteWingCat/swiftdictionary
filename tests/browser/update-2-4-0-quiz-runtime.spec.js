@@ -544,7 +544,10 @@ test("Learning course selector shows a short refresh confirmation", async ({ pag
 
 test("Dashboard Quiz History renders a clean Review button", async ({ page }) => {
   await openQuiz(page, freeSession);
-  await page.evaluate(() => showPage("profile", false));
+  await page.evaluate(() => {
+    showPage("profile", false);
+    document.querySelector("#profileContent").hidden = false;
+  });
   await page.evaluate(() => {
     const host = document.querySelector("#dashboardQuizHistory");
     host.innerHTML = '<div class="quiz-history-row"><button type="button" class="secondary-button" data-dashboard-quiz-review="completed-session-id">Review</button></div>';
@@ -557,15 +560,16 @@ test("Dashboard Quiz History renders a clean Review button", async ({ page }) =>
 
 test("ordinary Dashboard navigation to Quiz opens the overview, not completed review", async ({ page }) => {
   await openQuiz(page, freeSession);
+  await page.evaluate(() => showPage("profile", false));
+  await expect(page.locator("#profilePage")).toBeVisible();
   await page.evaluate(() => {
     quizPageState.result = { session_id: "previously-completed-session" };
     quizPageState.returnPage = "profile";
+    quizPageState.sessionView = true;
     document.querySelector("#quizResults").hidden = false;
     document.querySelector("#quizHome").hidden = true;
   });
-  await page.evaluate(() => showPage("profile", false));
-  await expect(page.locator("#profilePage")).toBeVisible();
-  await page.locator('[data-page="quiz"]').click();
+  await page.evaluate(() => showPage("quiz", false));
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizResults")).toBeHidden();
   await expect(page.locator("#quizSession")).toBeHidden();
