@@ -293,10 +293,10 @@ test("Premium Mock User can complete ten Flashcard games but not an eleventh",as
   env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
   const client=env.window.supabase.createClient();
   for(let i=0;i<10;i++){
-    const started=await client.rpc("start_my_flashcard_game",{p_mode:"translation",p_difficulty:"advanced"});
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"mixed",p_difficulty:"advanced"});
     assert.equal(started.error,null);
     const done=await client.rpc("complete_my_flashcard_game",{
-      p_session_id:started.data.session_id,p_results:[{card_key:"dict:hello",correct:true,unanswered:false}]
+      p_session_id:started.data.session_id,p_results:[{card_key:"dict:hello",mode:"mixed",correct:true,unanswered:false}]
     });
     assert.equal(done.error,null);
   }
@@ -565,7 +565,7 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
   const source=flashcardsSource.slice(start,end);
   assert.match(source,/const viable=targets\.filter\(target=>/,
     "Each target must be checked before it can be selected");
-  assert.match(source,/return distinct\.size>=3/,
+  assert.match(source,/return d\.size>=3/,
     "Only targets with three distinct distractors may be used");
   assert.match(source,/if\(!viable\.length\)throw new Error/,
     "A deck with no viable target must fail before the game session starts");
