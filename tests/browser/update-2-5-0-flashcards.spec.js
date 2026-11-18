@@ -22,6 +22,7 @@ async function openMockFlashcards(page) {
   await page.locator('[data-page="flashcards"]').click();
   await expect(page.locator("#flashcardsPage")).toBeVisible();
   await expect(page.locator("#flashCollectionForm")).toBeVisible();
+  await expect(page.locator("#flashcardsApp")).toContainText("Daily allowance: 0/3 games used · 3 remaining today");
 }
 
 async function createCollection(page,name="Flashcards CI") {
@@ -105,6 +106,7 @@ test("A completed 60-second Flash Recall game saves mastery and charges one Free
   await startGame(page,collectionId,"definition","advanced");
   await page.clock.fastForward(60000);
   await expect(page.locator("#flashNotice")).toContainText("Game complete",{timeout:10000});
+  await expect(page.locator("#flashcardsApp")).toContainText("Daily allowance: 1/3 games used · 2 remaining today");
   const result=await page.evaluate(async()=>{
     const client=window.__swiftDictionaryMock.getClient();
     const [data,usage]=await Promise.all([client.rpc("get_my_flashcard_data"),client.rpc("get_my_learning_allowance_usage")]);
