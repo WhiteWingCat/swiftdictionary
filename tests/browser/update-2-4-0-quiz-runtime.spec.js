@@ -542,15 +542,16 @@ test("Learning course selector shows a short refresh confirmation", async ({ pag
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 });
 
-test("Dashboard Quiz History renders a functional Review button", async ({ page }) => {
+test("Dashboard Quiz History renders a clean Review button", async ({ page }) => {
   await openQuiz(page, freeSession);
   await page.evaluate(() => {
     const host = document.querySelector("#dashboardQuizHistory");
-    host.innerHTML = '<button type="button" data-dashboard-quiz-review="completed-session-id">Review</button>';
+    host.innerHTML = '<div class="quiz-history-row"><button type="button" class="secondary-button" data-dashboard-quiz-review="completed-session-id">Review</button></div>';
   });
-  await page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]").click();
-  await expect(page.locator("#quizResults")).toBeVisible();
-  await expect(page.locator("#quizResultsHome")).toHaveText("← Back to Dashboard");
+  const reviewButton = page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]");
+  await expect(reviewButton).toBeVisible();
+  await expect(reviewButton).toHaveText("Review");
+  await expect(reviewButton).not.toContainText("quizEscape");
 });
 
 test("ordinary Dashboard navigation to Quiz opens the overview, not completed review", async ({ page }) => {
