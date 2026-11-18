@@ -56,7 +56,7 @@
       lesson_practice_results:[],
       daily_activity_sessions:[],
       learning_page_introduction_preferences:[],
-      quiz_sessions:[]
+      quiz_sessions:[],\n      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[]
     };
   }
   function loadState(user) {
@@ -214,6 +214,8 @@
         ? (db.tables.learning_activity_log||[]).filter(row=>row.activity_type==="lesson" && row.event_type==="completed" && row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
         : activity_type==="quiz"
           ? (db.tables.quiz_sessions||[]).filter(row=>row.status==="completed" && row.completed_at && dateInZone(row.completed_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
+          : activity_type==="flashcard"
+          ? (db.tables.learning_activity_log||[]).filter(row=>row.activity_type==="flashcard" && row.event_type==="completed" && row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
           : dailyRows(db,activity_type).length
     }));
   }
@@ -411,6 +413,95 @@
       const session=(tables.quiz_sessions||[]).find(row=>row.session_id===args.p_session_id&&row.status==="completed");
       return session?{data:quizMockPayload(session,true),error:null}:{data:null,error:error("Completed mock Quiz review not found.")};
     }
+    if (name==="get_my_flashcard_data") {
+      const own=(table)=> (tables[table]||[]).filter(row=>row.user_id===user.id);
+      return {data:{collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
+    }
+    if (name==="save_my_flashcard_collection") {
+      const rows=(tables.flashcard_collections||=[]), action=args.p_action;
+      if(action==="create"){
+        const name=String(args.p_name||"").trim();
+        if(!name||name.length>60)return {data:null,error:error("Collection names must be 1–60 characters.","22023")};
+        if(rows.some(row=>row.user_id===user.id&&row.name.toLowerCase()===name.toLowerCase()))return {data:null,error:error("A collection with that name already exists.","23505")};
+        const row={id:"mock-flash-collection-"+(++sequence),user_id:user.id,name,created_at:now(),updated_at:now()};rows.push(row);persist(db);return {data:clone(row),error:null};
+      }
+      const row=rows.find(item=>item.id===args.p_collection_id&&item.user_id===user.id);
+      if(!row)return {data:null,error:error("Collection not found.","P0002")};
+      if(action==="rename"){
+        const name=String(args.p_name||"").trim();
+        if(!name||name.length>60)return {data:null,error:error("Collection names must be 1–60 characters.","22023")};
+        if(rows.some(item=>item.id!==row.id&&item.user_id===user.id&&item.name.toLowerCase()===name.toLowerCase()))return {data:null,error:error("A collection with that name already exists.","23505")};
+        row.name=name;row.updated_at=now();persist(db);return {data:clone(row),error:null};
+      }
+      if(action==="delete"){
+        tables.flashcard_collections=rows.filter(item=>item!==row);
+        tables.flashcard_cards=(tables.flashcard_cards||[]).filter(card=>card.collection_id!==row.id||card.user_id!==user.id);
+        persist(db);return {data:{deleted:true,id:row.id},error:null};
+      }
+      return {data:null,error:error("Unsupported collection action.","22023")};
+    }
+    if (name==="save_my_flashcard_card") {
+      const rows=(tables.flashcard_cards||=[]), action=args.p_action;
+      const card=rows.find(row=>row.id===args.p_card_id&&row.user_id===user.id);
+      if(action==="delete"){
+        if(!card)return {data:null,error:error("Card not found.","P0002")};
+        tables.flashcard_cards=rows.filter(row=>row!==card);persist(db);return {data:{deleted:true,id:card.id},error:null};
+      }
+      const collection=(tables.flashcard_collections||[]).find(row=>row.id===args.p_collection_id&&row.user_id===user.id);
+      if(!collection)return {data:null,error:error("Collection not found.","P0002")};
+      if(action==="move"){
+        if(!card)return {data:null,error:error("Card not found.","P0002")};
+        card.collection_id=collection.id;card.position=Number(args.p_position)||0;card.updated_at=now();persist(db);return {data:clone(card),error:null};
+      }
+      if(!["create","update"].includes(action))return {data:null,error:error("Unsupported card action.","22023")};
+      const front=String(args.p_front_text||"").trim(),back=String(args.p_back_text||"").trim(),type=args.p_card_type;
+      if(!front||front.length>500||!back||back.length>2000||!["dictionary","custom"].includes(type))return {data:null,error:error("Invalid Flashcard content.","22023")};
+      if(type==="dictionary"&&(rows.some(row=>row.collection_id===collection.id&&row.card_type==="dictionary"&&String(row.dictionary_word).toLowerCase()===String(args.p_dictionary_word).toLowerCase()&&row.id!==card?.id)))return {data:null,error:error("This dictionary word is already in the collection.","23505")};
+      const values={user_id:user.id,collection_id:collection.id,card_type:type,language_code:"en",dictionary_word:type==="dictionary"?args.p_dictionary_word:null,front_text:front,back_text:back,example_text:args.p_example_text||null,translation_text:args.p_translation_text||null,position:Number(args.p_position)||0,updated_at:now()};
+      if(action==="create"){Object.assign(values,{id:"mock-flash-card-"+(++sequence),created_at:now()});rows.push(values);persist(db);return {data:clone(values),error:null};}
+      if(!card)return {data:null,error:error("Card not found.","P0002")};
+      Object.assign(card,values);persist(db);return {data:clone(card),error:null};
+    }
+    if (name==="start_my_flashcard_game") {
+      const difficulty=args.p_difficulty,mode=args.p_mode;
+      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","translation","sentence"].includes(mode))return {data:null,error:error("Invalid Flashcard mode or difficulty.","22023")};
+      const pref=tables.user_preferences?.[0]||{};
+      if((pref.learning_language||"en")!=="en")return {data:null,error:error("Flashcards currently support the English learning course only.")};
+      const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
+      const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard");
+      const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
+      if(!limit?.is_enabled||used>=limit.daily_limit)return {data:null,error:error("Daily Flashcard game allowance exhausted.","P0001")};
+      (tables.flashcard_sessions||[]).filter(row=>row.user_id===user.id&&row.status==="in_progress").forEach(row=>row.status="abandoned");
+      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,status:"in_progress",started_at:now(),completed_at:null};
+      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:60},error:null};
+    }
+    if (name==="complete_my_flashcard_game") {
+      const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id);
+      if(!session||session.status!=="in_progress")return {data:null,error:error("Flashcard game not found.")};
+      if(!Array.isArray(args.p_results)||!args.p_results.length||args.p_results.length>200)return {data:null,error:error("Invalid Flashcard game results.","22023")};
+      const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
+      const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard");
+      const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
+      if(!limit?.is_enabled||used>=limit.daily_limit)return {data:null,error:error("Daily Flashcard game allowance exhausted.","P0001")};
+      let correct=0,incorrect=0,unanswered=0;
+      for(const result of args.p_results){
+        if(!result.card_key)return {data:null,error:error("A Flashcard result is missing its card key.","22023")};
+        if(result.correct)correct++;else incorrect++;
+        if(result.unanswered)unanswered++;
+        let mastery=(tables.flashcard_mastery||[]).find(row=>row.user_id===user.id&&row.card_key===result.card_key);
+        if(!mastery){mastery={user_id:user.id,card_key:result.card_key,correct_count:0,incorrect_count:0,current_streak:0};(tables.flashcard_mastery||[]).push(mastery);}
+        if(result.correct){mastery.correct_count++;mastery.current_streak++;mastery.last_result="correct";}
+        else{mastery.incorrect_count++;mastery.current_streak=0;mastery.last_result="incorrect";}
+        mastery.last_seen_at=now();mastery.updated_at=now();
+      }
+      Object.assign(session,{status:"completed",words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered,completed_at:now()});
+      (tables.learning_activity_log||=[]).push({user_id:user.id,activity_type:"flashcard",event_type:"completed",language_code:"en",created_at:now()});
+      persist(db);return {data:{completed:true,words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered},error:null};
+    }
+    if (name==="abandon_my_flashcard_game") {
+      const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id&&row.status==="in_progress");
+      if(session)session.status="abandoned";persist(db);return {data:{abandoned:true},error:null};
+    }
     if (name==="get_my_learning_allowance_usage") return {data:usageRows(db),error:null};
     if (name==="is_personal_learning_test_access") return {data:false,error:null};
     if (name==="record_completed_lesson_practice_result") {
@@ -463,7 +554,7 @@
       persist(db); return {data:clone(row),error:null};
     }
     if (name==="delete_my_learning_history") {
-      tables.lesson_progress=[]; tables.learning_activity_log=[]; tables.lesson_practice_results=[]; tables.daily_activity_sessions=[];
+      tables.lesson_progress=[]; tables.learning_activity_log=[]; tables.lesson_practice_results=[]; tables.daily_activity_sessions=[]; tables.flashcard_sessions=[]; tables.flashcard_mastery=[];
       persist(db); return {data:{deleted:true},error:null};
     }
     return {data:null,error:error("Mock RPC is not implemented: "+name)};
