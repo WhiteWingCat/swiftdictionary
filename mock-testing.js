@@ -418,7 +418,10 @@
     }
     if (name==="get_my_flashcard_data") {
       const own=(table)=> (tables[table]||[]).filter(row=>row.user_id===user.id);
-      return {data:{collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
+      const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
+      const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard")?.daily_limit||0;
+      const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
+      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
     }
     if (name==="save_my_flashcard_collection") {
       const rows=(tables.flashcard_collections||=[]), action=args.p_action;
