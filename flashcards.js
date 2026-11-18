@@ -364,7 +364,6 @@
     });
     root.addEventListener("change",event=>{
       if(event.target.id==="flashManageCollection"){state.collectionId=event.target.value||"all";render();}
-      if(event.target.id==="flashDictionarySearch")renderDictionarySearch(event.target.value);
     });
     root.addEventListener("input",event=>{if(event.target.id==="flashDictionarySearch")renderDictionarySearch(event.target.value);});
   }
