@@ -237,6 +237,12 @@
     if(!state.game||state.phase!=="answer")return;
     clearTimeout(state.phaseTimer);
     state.results.push({card_key:state.round.target._custom?"custom:"+state.round.target._custom.id:"dict:"+state.round.target.word.toLowerCase(),correct:!!correct,unanswered:!!unanswered});
+    const statValues=root.querySelectorAll(".flash-stat strong");
+    if(statValues.length===3){
+      statValues[0].textContent=String(state.results.length);
+      statValues[1].textContent=String(state.results.filter(result=>result.correct).length);
+      statValues[2].textContent=String(state.results.filter(result=>!result.correct).length);
+    }
     state.memory=Math.max(timing[state.difficulty].memoryFloor,Number((state.memory-timing[state.difficulty].memoryStep).toFixed(2)));
     state.answer=Math.max(timing[state.difficulty].answerFloor,Number((state.answer-timing[state.difficulty].answerStep).toFixed(2)));
     state.roundIndex++;
