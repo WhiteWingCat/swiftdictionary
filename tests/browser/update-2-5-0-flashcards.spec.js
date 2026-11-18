@@ -54,7 +54,7 @@ async function startGame(page,collectionId,mode="word",difficulty="beginner") {
 }
 
 test("Mock User Flashcards supports custom collections, four modes, timer reductions and timeouts",async({page})=>{
-  test.setTimeout(90000);
+  test.setTimeout(45000);
   await openMockFlashcards(page);
   const collectionId=await createCollection(page);
   await addCustomCard(page,"What is a collocation?","Words that commonly occur together.","We say make a decision, not do a decision.","常见词语搭配");
@@ -106,7 +106,7 @@ test("Mock User Flashcards supports custom collections, four modes, timer reduct
 });
 
 test("A completed 60-second Flash Recall game saves mastery and charges one Free allowance",async({page})=>{
-  test.setTimeout(90000);
+  test.setTimeout(45000);
   await openMockFlashcards(page);
   const collectionId=await createCollection(page,"Completion test");
   await addCustomCard(page,"What is a synonym?","A word with a similar meaning.","Small is a synonym of little.","同义词");
