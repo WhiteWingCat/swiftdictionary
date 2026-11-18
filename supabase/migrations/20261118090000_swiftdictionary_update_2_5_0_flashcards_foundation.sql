@@ -40,6 +40,8 @@ create table if not exists private.flashcard_cards (
 );
 create index if not exists flashcard_cards_collection_order_idx
   on private.flashcard_cards(collection_id,position,created_at);
+create index if not exists flashcard_cards_user_id_idx
+  on private.flashcard_cards(user_id);
 create unique index if not exists flashcard_cards_dictionary_once_per_collection
   on private.flashcard_cards(collection_id,lower(dictionary_word))
   where card_type = 'dictionary';
@@ -155,6 +157,9 @@ begin
     if not found then raise exception 'Collection not found' using errcode='P0002'; end if;
   elsif p_action='delete' then
     if p_collection_id is null then raise exception 'Collection ID is required' using errcode='22023'; end if;
+    delete from private.flashcard_mastery m using private.flashcard_cards c
+      where m.user_id=v_user and c.user_id=v_user and c.collection_id=p_collection_id
+        and c.card_type='custom' and m.card_key='custom:'||c.id::text;
     delete from private.flashcard_collections where id=p_collection_id and user_id=v_user;
     if not found then raise exception 'Collection not found' using errcode='P0002'; end if;
     return jsonb_build_object('deleted',true,'id',p_collection_id);
@@ -176,6 +181,7 @@ begin
   if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
   if p_action='delete' then
     if p_card_id is null then raise exception 'Card ID is required' using errcode='22023'; end if;
+    delete from private.flashcard_mastery where user_id=v_user and card_key='custom:'||p_card_id::text;
     delete from private.flashcard_cards where id=p_card_id and user_id=v_user;
     if not found then raise exception 'Card not found' using errcode='P0002'; end if;
     return jsonb_build_object('deleted',true,'id',p_card_id);
