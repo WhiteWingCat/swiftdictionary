@@ -212,6 +212,7 @@
       
       <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||"Get ready")}</div>
       <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>Pick your answers</div>
+      <div class="flash-round-gauge"><span class="memory" id="flashMemoryGauge" style="width:100%"></span><span class="answer" id="flashAnswerGauge" style="width:0%"></span></div>
       <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):"Memorise the card"}</p>
       <div class="flash-options" id="flashOptions">${(round?.options||["","","",""]).map((o,i)=>`<button class="flash-option ${state.phase==="memory"?"is-hidden":""}" data-action="answer" data-index="${i}" ${state.phase!=="answer"?"disabled":""}>${state.phase==="memory"?"Hidden answer":escapeHtml(o)}</button>`).join("")}</div>
       <p id="flashPhaseLabel" class="flash-game-status">${state.phase==="memory"?"Memorise the card":state.phase==="answer"?"Pick your answers":"Round feedback"}</p>
