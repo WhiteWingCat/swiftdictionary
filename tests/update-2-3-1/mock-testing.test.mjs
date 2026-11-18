@@ -139,6 +139,19 @@ test("mock identities represent separate Free and Premium plans",async()=>{
   assert.equal(afterReplay.data.find(row=>row.activity_type==="daily_discovery").used_count,3);
 });
 
+test("Flashcard mock allowance matches the approved Free 3 and Premium 10 games per day",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);
+  const client=env.window.supabase.createClient();
+
+  let free=await client.from("learning_plan_limits").select("daily_limit").eq("plan_code","free").eq("activity_type","flashcard").single();
+  assert.equal(free.data.daily_limit,3);
+
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  const premium=await client.from("learning_plan_limits").select("daily_limit").eq("plan_code","premium").eq("activity_type","flashcard").single();
+  assert.equal(premium.data.daily_limit,10);
+});
+
 test("Premium mock permanent lesson allowance permits 15 completions and blocks the 16th",async()=>{
   const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
   const client=env.window.supabase.createClient();
