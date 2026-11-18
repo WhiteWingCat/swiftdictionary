@@ -60,7 +60,7 @@
       daily_activity_sessions:[],
       learning_page_introduction_preferences:[],
       quiz_sessions:[],
-      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[],flashcard_allowance_events:[]
+      flashcard_collections:[],flashcard_cards:[],flashcard_mastery:[],flashcard_sessions:[],flashcard_review_items:[],flashcard_allowance_events:[]
     };
   }
   function loadState(user) {
@@ -428,7 +428,7 @@
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
       const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard")?.daily_limit||0;
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
-      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
+      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),review_items:own("flashcard_review_items"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
     }
     if (name==="save_my_flashcard_collection") {
       const rows=(tables.flashcard_collections||=[]), action=args.p_action;
@@ -477,7 +477,7 @@
     }
     if (name==="start_my_flashcard_game") {
       const difficulty=args.p_difficulty,mode=args.p_mode;
-      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","translation","sentence"].includes(mode))return {data:null,error:error("Invalid Flashcard mode or difficulty.","22023")};
+      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","mixed","sentence"].includes(mode))return {data:null,error:error("Invalid Flashcard mode or difficulty.","22023")};
       const pref=tables.user_preferences?.[0]||{};
       if((pref.learning_language||"en")!=="en")return {data:null,error:error("Flashcards currently support the English learning course only.")};
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
@@ -501,6 +501,12 @@
         if(!result.card_key)return {data:null,error:error("A Flashcard result is missing its card key.","22023")};
         if(result.correct)correct++;else incorrect++;
         if(result.unanswered)unanswered++;
+        if(!result.correct){
+          const mode=result.mode||session.mode;
+          let review=(tables.flashcard_review_items||[]).find(row=>row.user_id===user.id&&row.card_key===result.card_key&&row.mode===mode);
+          if(!review){review={user_id:user.id,card_key:result.card_key,mode,incorrect_count:0};(tables.flashcard_review_items||[]).push(review);}
+          review.incorrect_count++;review.last_incorrect_at=now();review.last_session_id=session.id;
+        }
         let mastery=(tables.flashcard_mastery||[]).find(row=>row.user_id===user.id&&row.card_key===result.card_key);
         if(!mastery){mastery={user_id:user.id,card_key:result.card_key,correct_count:0,incorrect_count:0,current_streak:0};(tables.flashcard_mastery||[]).push(mastery);}
         if(result.correct){mastery.correct_count++;mastery.current_streak++;mastery.last_result="correct";}
