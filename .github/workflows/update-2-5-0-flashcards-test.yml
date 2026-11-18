@@ -45,6 +45,7 @@ jobs:
           node-version: 22
       - name: Install Playwright and Chromium
         run: |
+          npm init -y
           npm install --no-save @playwright/test
           npx playwright install --with-deps chromium
       - name: Run Mock User Flashcards browser tests
