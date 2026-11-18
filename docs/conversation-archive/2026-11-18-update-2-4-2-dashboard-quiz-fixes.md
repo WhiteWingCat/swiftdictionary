@@ -69,3 +69,10 @@ This addendum supersedes the earlier open-PR and pending-CI statements above.
 - No Supabase migration or production data operation was needed.
 
 Next: poll GitHub Pages deployment run #44230831943, record its final conclusion, then owner hard-refreshes the live website and manually verifies both fixes.
+
+
+## Production deployment confirmation — 2026-11-18
+
+GitHub Pages deployment run #44230831943 completed with conclusion `success` for main commit `65d0a35bab577adc15a0b1911661c222ed625739`. Build, report-build-status and deploy jobs all passed. Production URL: https://whitewingcat.github.io/swiftdictionary/.
+
+The deployment status is confirmed by the completed GitHub Pages workflow. An independent page fetch through the available web inspection endpoint was unavailable, so no claim is made that a separate external page-render check succeeded. Owner's next step is to hard-refresh the live website and manually verify the Review label and Dashboard-to-Quiz overview navigation. No Supabase migration or production data operation was required.
