@@ -541,6 +541,40 @@ test("Learning course selector shows a short refresh confirmation", async ({ pag
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 });
+
+test("Dashboard Quiz History renders a functional Review button", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await page.evaluate(() => {
+    const host = document.querySelector("#dashboardQuizHistory");
+    host.innerHTML = '<button type="button" data-dashboard-quiz-review="completed-session-id">Review</button>';
+  });
+  await page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]").click();
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("#quizResultsHome")).toHaveText("← Back to Dashboard");
+});
+
+test("ordinary Dashboard navigation to Quiz opens the overview, not completed review", async ({ page }) => {
+  await openQuiz(page, freeSession);
+  await page.evaluate(() => {
+    quizPageState.result = { session_id: "previously-completed-session" };
+    quizPageState.returnPage = "profile";
+    document.querySelector("#quizResults").hidden = false;
+    document.querySelector("#quizHome").hidden = true;
+  });
+  await page.locator('[data-page="profile"]').click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-page="quiz"]').click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizResults")).toBeHidden();
+  await expect(page.locator("#quizSession")).toBeHidden();
+  const state = await page.evaluate(() => ({
+    result: quizPageState.result,
+    returnPage: quizPageState.returnPage,
+    sessionView: quizPageState.sessionView
+  }));
+  expect(state).toEqual({ result: null, returnPage: "quiz", sessionView: false });
+});
+
 test("signed-out visitors cannot open Quiz sessions or account history", async ({ page }) => {
   await installLocalSupabaseConfig(page);
   await page.goto("/#quiz");
