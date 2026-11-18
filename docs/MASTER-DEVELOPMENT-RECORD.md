@@ -3,9 +3,9 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-18 (Update 2.4.2 merged, deployed and owner-verified; documentation separation completed and housekeeping deployment passed)  
+> **Last consolidated:** 2026-11-18 (Update 2.4.2 merged, deployed and owner-verified; production/staging Supabase Quiz synchronization completed)  
 > **Current baseline:** Update 2.4.2 is merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; GitHub Pages deployment #44230831943 succeeded, and the owner manually confirmed both Dashboard fixes on the live site. A later documentation-only cleanup commit moved internal notes off `main`: `686d8743f42ab32e3736c51861a2dbb9b2686420`; Pages deployment #44233284108 also succeeded. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
-> **Current work:** Next planned product milestone is Update 2.5.0 — Flashcards; implementation has not started. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before friends are invited to sign in, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review. The staging project is separate and is not the production friend-testing target.  
+> **Current work:** Next planned product milestone is Update 2.5.0 — Flashcards; implementation has not started. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before friends are invited to sign in, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review. The staging project is separate and is not the production friend-testing target. Its 2.4.0 Quiz content release and 2.4.1 translation-language database update are now synchronized with main; migration history is aligned to repository versions, and no production learner data was copied. Staging currently has no auth users and requires a dedicated test account/mock-user setup before authenticated end-to-end testing.  
 > **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.4.2 Quiz workflow #44229322995 and companion 2.3.x regression workflow #44229322963 passed; GitHub Pages deployment #44230831943 passed all three jobs. The owner hard-refreshed and manually confirmed both live Dashboard fixes. No Supabase migration or production database write was required for 2.4.2. Existing Quiz data-processing and privacy considerations remain as recorded below.
 >
 > This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
@@ -2096,3 +2096,53 @@ The initial rolling set should be chosen only after that protected work is audit
 ### Scope
 
 This policy governs future implementation work from Update 2.5.0 onward. It does not change production deployment approvals, testing requirements, the documentation-only branch rule, or the requirement to update this record and the dated conversation archive for meaningful work.
+
+
+## 49. Live Supabase staging synchronization and verification (2026-11-18)
+
+### Scope and safety boundary
+
+- Owner approved proceeding with the recommendation to synchronize staging with the current repository/production Quiz backend state.
+- Production project was inspected read-only and was not modified.
+- All write operations in this task targeted the separate staging project SwiftDictionary Indie Staging (ivatvkfrtifgfheeaelj, Singapore region).
+- No production learner records, profiles, saved words, auth users, or preferences were copied into staging.
+- No production configuration, schema, migration history or data was changed.
+
+### Initial findings
+
+- Production had 25 recorded migrations, with the latest source migration 20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.
+- Staging had a clean, separate bootstrap plus the 2.3.x and most 2.4.0 schema/RPC migrations, but its Quiz question bank was empty and it lacked the 2.4.0 content-release and 2.4.1 translation-language updates.
+- Staging had 15 active permanent-lesson catalogue mappings, satisfying the guarded Quiz content-release preflight.
+- Staging had no auth users and no learner/application records in profiles, saved words, preferences, lesson progress/practice, learning activity log or daily activity sessions. It is not yet ready for real-user testing without a test account.
+- The 2.2.0 reconciliation baseline migration is a verification-only marker. Its historical trigger names have since been superseded by the 2.3.0 completion-based allowance implementation. The current evolved trigger/function equivalents were inspected; the old verification script was not replayed against the newer schema.
+
+### Changes applied to staging
+
+1. Applied the exact repository migration 20261117113917_swiftdictionary_update_2_4_0_quiz_content_release.sql (source blob fdaee41888ca50c35163a6c9d08de5e21a892f3e). Its empty-bank and lesson-mapping guards passed; it inserted the 199 approved Quiz questions.
+2. Applied the exact repository migration 20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql (source blob 887b635c494a66d2bc36ed53060babae0160099d). This updated the Quiz availability/start implementation and the three-selector start_my_quiz RPC.
+3. Reconciled staging migration tracking with the canonical versions/names in main for the migrations already applied there. Added the 2.2.0 verification-only baseline record as applied because the live schema is already beyond that baseline and its original trigger names have been superseded. The staging-only bootstrap record 20261117110818 was retained. No schema/data migration was replayed for the baseline marker.
+
+### Validation evidence
+
+- Staging now records every migration in the current main migration directory, using the exact repository versions and names, plus its retained staging-only bootstrap record.
+- Quiz question bank: 199 total, all 199 approved; zero draft/retired records.
+- Active permanent lessons: 15.
+- Learning content catalogue: 161 entries.
+- Content checksums (excluding generated timestamps) match production exactly:
+  - Quiz bank: 39f935c9266f228b0074e290d103b551
+  - Learning catalogue: 9eb1f62b808f33e5cbe7b52050a53df1
+- Hashes of the Quiz public RPC wrappers and private availability/start implementations match production exactly, including both start_my_quiz overloads.
+- All four private Quiz tables have RLS enabled and no direct table grants to authenticated.
+- Staging auth users: 0. Staging application learner rows: 0.
+- Staging health advisor returned no findings.
+- Staging security/performance advisor still reports fail-closed private tables with RLS/no policies, two authenticated SECURITY DEFINER functions (also present in production), ten unindexed foreign keys, four RLS init-plan notices and eight unused indexes. These are review items, not evidence that staging failed to synchronize. Do not remove indexes solely because staging has no workload.
+- No authenticated end-to-end browser test was performed; staging has no test account. Database schema/content parity for the Quiz feature is verified, but this does not replace an authenticated UI test.
+
+### Current recovery point / next steps
+
+- Staging is synchronized for the current 2.3.x/2.4.0/2.4.1 database migration set and 2.4.0 Quiz content; 2.4.2 required no database migration.
+- Production remains untouched.
+- Before relying on staging for authenticated manual testing, create or configure a dedicated staging test user and configure the staging OAuth callback/redirect URLs as needed. Never copy production user data for this purpose.
+- Keep the staging-only bootstrap record; do not remove it without a separate migration-history review.
+- Treat unused indexes and performance-advisor notices as a separate future review. Do not perform speculative cleanup.
+- Update 2.5.0 remains unstarted.
