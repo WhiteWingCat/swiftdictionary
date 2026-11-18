@@ -23,9 +23,9 @@
     return state.collectionId==="all"?cards:cards.filter(c=>c.collection_id===state.collectionId);
   }
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
-  function cardKey(card){return card.card_type==="dictionary"?"dict:"+card.dictionary_word.toLowerCase():"custom:"+card.id;}
+  function cardKey(card){return card._custom?"custom:"+card._custom.id:"dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
-  function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;return language==="zh"?(word.definitionZh||word.definition):word.definition;}
+  function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
       example_text:(word.examples||[])[0]||"",translation_text:translationFor(word),position:0};
@@ -143,15 +143,20 @@
     const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom").map(mapCustomCard)];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId);
-    const targets=selected.map(c=>c.card_type==="dictionary"?all.find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase()):mapCustomCard(c)).filter(Boolean);
-    const selectedKeys=new Set(targets.map(w=>w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase()));
+    const targets=selected.map(c=>{
+      if(c.card_type==="custom")return mapCustomCard(c);
+      const source=all.find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase());
+      return source?{...source,word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||source.definitionZh,
+        examples:c.example_text?[c.example_text]:source.examples,dictionary_word:c.dictionary_word,_flashCard:c}:null;
+    }).filter(Boolean);
+    const selectedKeys=new Set(targets.map(w=>w._custom?"custom:"+w._custom.id:"dict:"+String(w.dictionary_word||w.word).toLowerCase()));
     const distractors=allCards.filter(w=>!selectedKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase())).map(w=>({...w,_flashDistractor:true}));
     return [...targets,...distractors];
   }
   function makeRound(deck){
     const available=deck.filter(w=>w.word&&w.definition);
     const targets=state.weakOnly
-      ? available.filter(w=>!w._flashDistractor&&state.weakKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase()))
+      ? available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w)))
       : available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error(state.weakOnly?"There are no weak-memory cards in this card set yet.":"This card set has no available cards.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
@@ -252,7 +257,7 @@
   function recordAnswer(correct,unanswered=false){
     if(!state.game||state.phase!=="answer")return;
     clearTimeout(state.phaseTimer);
-    state.results.push({card_key:state.round.target._custom?"custom:"+state.round.target._custom.id:"dict:"+state.round.target.word.toLowerCase(),correct:!!correct,unanswered:!!unanswered});
+    state.results.push({card_key:cardKey(state.round.target),correct:!!correct,unanswered:!!unanswered});
     const statValues=root.querySelectorAll(".flash-stat strong");
     if(statValues.length===3){
       statValues[0].textContent=String(state.results.length);
@@ -296,7 +301,7 @@
     clearTimers();
     const game=state.game;
     if(state.round&&(state.phase==="memory"||state.phase==="answer")){
-      state.results.push({card_key:state.round.target._custom?"custom:"+state.round.target._custom.id:"dict:"+state.round.target.word.toLowerCase(),correct:false,unanswered:true});
+      state.results.push({card_key:cardKey(state.round.target),correct:false,unanswered:true});
     }
     state.game=null;state.finishing=true;render();
     try{
