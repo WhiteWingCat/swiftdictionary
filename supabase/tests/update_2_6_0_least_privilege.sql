@@ -28,6 +28,10 @@ BEGIN
      OR has_function_privilege('authenticated',f_lesson,'EXECUTE') THEN
     RAISE EXCEPTION 'Trigger-only guard functions are directly executable by API roles';
   END IF;
+  IF NOT has_function_privilege('authenticated','public.delete_my_learning_history()','EXECUTE')
+     OR NOT has_function_privilege('authenticated','private.delete_my_learning_history_impl()','EXECUTE') THEN
+    RAISE EXCEPTION 'Recent-authenticated learning-history deletion RPC grants were changed';
+  END IF;
 END;
 $test$;
 
