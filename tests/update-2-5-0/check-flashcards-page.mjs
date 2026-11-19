@@ -74,5 +74,5 @@ if(!flashcards.includes('data-action="phase-action"')||!flashcards.includes('uiT
 for(const id of ["b-greetings-polite-expressions","b-places-getting-around"])if(!html.includes('id:"'+id+'"'))throw new Error("Missing permanent lesson for expanded Flash Recall vocabulary: "+id);
 for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care","station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!html.includes('"word": "'+word+'"'))throw new Error("Missing expanded lesson-linked Flash Recall vocabulary: "+word);
 if(!html.includes("60-second or 120-second challenge")||!html.includes("Mixed Recall combines word, definition and sentence prompts"))throw new Error("Flashcards introduction still contains outdated challenge or mode information.");
-if(!html.includes("translationLanguage==="zh"&&chineseIntroCopy[page]"))throw new Error("Simplified Chinese Quiz/Flashcards introductions are missing.");
+if(!html.includes('translationLanguage==="zh"&&chineseIntroCopy[page]'))throw new Error("Simplified Chinese Quiz/Flashcards introductions are missing.");
 console.log("Flashcards page checks passed; syntax-checked "+inlineCount+" inline application script(s).");
