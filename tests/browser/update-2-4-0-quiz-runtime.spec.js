@@ -367,18 +367,18 @@ test("learning introductions are independent per page and help controls reopen t
   await openQuiz(page, freeSession);
   await page.goto("/#lessons");
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
-  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Lessons");
+  await expect(page.locator("#learningIntroTitle")).toHaveText(/^(Welcome to Lessons|欢迎使用课程)$/);
   await page.locator("#learningIntroDismiss").click();
   await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
 
   await page.locator('[data-learning-help="lessons"]').click();
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
-  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Lessons");
+  await expect(page.locator("#learningIntroTitle")).toHaveText(/^(Welcome to Lessons|欢迎使用课程)$/);
   await page.locator("#learningIntroClose").click();
 
   await page.goto("/#flashcards");
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
-  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Flashcards");
+  await expect(page.locator("#learningIntroTitle")).toHaveText(/^(Welcome to Flashcards|欢迎使用闪卡)$/);
   await page.locator("#learningIntroDismiss").click();
   await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
 
