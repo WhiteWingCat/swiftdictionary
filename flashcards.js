@@ -33,7 +33,7 @@
   }
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
   function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;return "dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
-  function questionKey(card){return String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().toLocaleLowerCase();}
+  function questionKey(card){return String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\\s+/g," ").toLocaleLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
   function uiText(en,zh){return (state.game?.translationLanguage||translationLanguage)==="zh"?zh:en;}
   function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
