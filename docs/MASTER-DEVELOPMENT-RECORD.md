@@ -2563,11 +2563,11 @@ The owner completed the latest testing preview review and requested two final fi
 
 ### Validation and CI status
 
-- Workflow **#44496878670** — Flashcards checks: static JavaScript syntax and page-integration checker passed; Mock account/allowance/collection/timer regression tests passed (25/25). Its Chromium Mock User browser job was automatically triggered by the branch push and was still in progress at the latest status check. The owner did not request another manual Mock User test cycle. The commit push triggered the repository's existing workflow; no separate browser-test run was manually launched.
+- Workflow **#44496878670** — Flashcards checks: static JavaScript syntax and page-integration checker passed; Mock account/allowance/collection/timer regression tests passed (25/25); Chromium Mock User browser tests passed (14/14). The browser job ran automatically because the branch push triggers the repository workflow. No separate manual Mock User test cycle was started.
 - Workflow **#44496878607** — Quiz database foundation: PostgreSQL foundation job passed. Local Supabase Auth/Quiz runtime integration was still running at the latest check. The preceding run had failed because its authenticated browser fixture did not seed three distinct topics for an Advanced Quiz, producing the explicit message `Quiz requires at least three distinct topics`; this is a test-fixture/content-coverage failure, not evidence of a migration failure. The latest rerun must finish before this CI gate can be marked green.
-- Workflow **#44496878563** — 2.3.x allowance/dashboard regression: PostgreSQL 17 migration, policy, allowance-ledger, history-deletion and concurrency checks passed. Browser smoke and local Supabase Auth compatibility jobs were still running at the latest check.
+- Workflow **#44496878563** — 2.3.x allowance/dashboard regression: all jobs passed, including PostgreSQL 17 migration, policy, allowance-ledger, history-deletion, concurrency, browser smoke and local Supabase Auth compatibility.
 - The already-completed prior Flashcards run **#44492546210** passed 25/25 mock account tests and 14/14 Chromium Mock User browser tests; prior 2.3.x workflow **#44492546332** passed all jobs. Those results predate commit `71d8246` and are not a substitute for the current in-progress run.
-- No additional owner-run browser test was performed or requested. The existing automated push workflow may include browser tests; its in-progress status is recorded rather than represented as passed.
+- No additional owner-run browser test was performed or requested. The branch push automatically started the existing Chromium Mock User CI job, which completed successfully; this is recorded as automated CI evidence, not as a new owner testing requirement.
 
 ### Release-readiness and merge decision
 
