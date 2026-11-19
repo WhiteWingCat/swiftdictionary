@@ -101,10 +101,11 @@ jobs:
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118110000_swiftdictionary_update_2_5_0_learning_history_deletion_preserve_quiz.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118143000_flashcards_mixed_recall_and_review_history.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118150000_flashcards_review_history_deletion.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119130000_flashcards_60_120_second_challenges.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118100415_flashcards_mixed_recall_and_review_history.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118100736_flashcards_review_history_deletion.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094011_swiftdictionary_update_2_5_0_flashcards_60_120_second_challenges.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094122_swiftdictionary_update_2_5_0_new_beginner_lessons.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094253_swiftdictionary_update_2_5_0_learning_history_deletion_preserve_quiz.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_authenticated_rpcs.sql"
 
       - name: Verify explicit grants for all staged public tables
