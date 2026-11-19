@@ -182,15 +182,16 @@ test("Lessons and Quiz share the new banner presentation and retain help control
   await expect(page.locator("#quizRefresh")).toBeVisible();
 });
 
-test("Dashboard Weak Memory opens as an overlay and keeps Dashboard as the active page",async({page})=>{
+test("Dashboard Flashcard statistics load and Weak Memory opens without leaving Dashboard",async({page})=>{
   await openMockFlashcards(page);
-  await page.evaluate(()=>{
-    document.getElementById("flashcardsPage").hidden=true;
-    document.getElementById("profilePage").hidden=false;
-  });
-  await page.evaluate(()=>window.SwiftDictionaryFlashcards.openReviewFromDashboard());
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
-  await expect(page.locator("#dashboardFlashcardSection")).toHaveCount(1);
+  await expect(page.locator("#dashboardFlashcardSection")).toBeVisible();
+  await expect(page.locator("#dashboardFlashcardGames")).not.toHaveText("—");
+  await expect(page.locator("#dashboardFlashcardAttempts")).not.toHaveText("—");
+  await page.locator("#dashboardFlashcardSection [data-dashboard-flashcard-review]").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toBeVisible();
   await page.locator('#flashOverlayRoot [data-action="close-overlay"]').click();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toHaveCount(0);
