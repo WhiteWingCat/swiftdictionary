@@ -47,6 +47,7 @@ begin
   delete from public.learning_activity_log where user_id=v_user;
   delete from private.flashcard_sessions where user_id=v_user;
   delete from private.flashcard_mastery where user_id=v_user;
+  delete from private.flashcard_review_items where user_id=v_user;
 
   return pg_catalog.jsonb_build_object('deleted',true);
 end;
