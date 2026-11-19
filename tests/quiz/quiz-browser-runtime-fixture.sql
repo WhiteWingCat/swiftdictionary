@@ -67,7 +67,7 @@ select
   'en',
   'en',
   'b-runtime-lesson-' || (((n-1)%20)+1),
-  'quiz-runtime-topic-' || d.prefix || '-' || (((n-1)%20)+1),
+  'quiz-runtime-topic-b-' || (((n-1)%20)+1),
   'beginner',
   'runtime-objective-b',
   'English snapshot test question ' || n || ': choose the correct answer.',
@@ -94,7 +94,7 @@ insert into private.quiz_question_bank(
 )
 select
   d.prefix||'-runtime-def-'||d.lang||'-'||n,1,'en',d.lang,
-  d.prefix||'-runtime-lesson-'||(((n-1)%20)+1),'quiz-runtime-topic-'||(((n-1)%20)+1),
+  d.prefix||'-runtime-lesson-'||(((n-1)%20)+1),'quiz-runtime-topic-'||d.prefix||'-'||(((n-1)%20)+1),
   d.difficulty,'word_definition','en','runtime-objective-'||d.prefix,
   'Definition runtime question '||n||' for '||d.lang,
   case when d.lang='zh' then '定义运行测试题'||n||'：请选择正确释义。'
