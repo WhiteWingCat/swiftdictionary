@@ -8,7 +8,7 @@ The owner instructed completion of the Quiz local Supabase Auth/runtime workflow
 
 - Feature branch: `feature/update-2-5-0-flashcards`.
 - Current head: `1c6e5e779d154195652014150a6225a2ee1ddc9c`.
-- PR #12: open, mergeable, target `main`; 192 commits, 28 changed files, no review submissions.
+- PR #12: merged into `main` on 2026-11-19; merge commit `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`.
 - Earlier UI fixes remain in place: localized Lessons library refresh and route-independent first-entry Quiz/Flashcards guides.
 - Quiz test fixture was corrected so synthetic question topics match their catalogue entries for each difficulty; the Chinese prompt in the definition fixture is genuinely Simplified Chinese. The fixture asserts minimum question count, topic diversity and catalogue linkage.
 
@@ -56,11 +56,13 @@ Cloudflare Pages checks succeeded for both `swiftdictionary-testing` and `swiftd
 
 ## Production release and merge decision
 
-Production project `SwiftDictionary` (`pzymiesazmpyvnfvsbsc`, ap-northeast-1) is currently migrated through the 2.4.1 Quiz translation-language fix. It does not yet have any of the eight 2.5.0 migrations listed above.
+Production project `SwiftDictionary` (`pzymiesazmpyvnfvsbsc`, ap-northeast-1) has now received all eight 2.5.0 migrations successfully. Supabase assigned production history versions `20261119101050`, `20261119101053`, `20261119101056`, `20261119101058`, `20261119101101`, `20261119101104`, `20261119101108`, and `20261119101111`; each recorded name retains the corresponding source migration filename. Read-back verified all five private Flashcards tables, both new active Beginner lesson catalogue entries, the duration constraint/column and review-session index. All five Flashcards tables have RLS enabled and no direct `anon` or `authenticated` SELECT grants.
 
-Cloudflare Pages is configured with `main` as its production branch and automatic production deployments enabled. Therefore, merging PR #12 publishes the frontend to the public site. The feature's new RPCs/tables and new lesson catalogue entries must exist in production before that frontend deployment.
+After the owner explicitly approved the production migrations and merge, PR #12 was successfully merged into `main` on 2026-11-19. Merge commit: `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`. PR state is `closed`, `merged=true`.
 
-**Decision: hold PR #12 open until the owner explicitly approves the eight validated 2.5.0 migrations on production.** The owner has already requested the merge; the outstanding approval is specifically the production database migration set needed to avoid publishing a frontend whose Flashcards backend schema is absent. No production migration, production data operation, PR merge or production deployment has occurred.
+Cloudflare Pages is configured with `main` as its production branch and automatic production deployments enabled. The merge triggered production Pages workflow #44503335368; it was `in_progress` at the latest status check. Feature-head Pages checks for both `swiftdictionary-testing` and `swiftdictionary` had succeeded. Separate Cloudflare Workers Build preview checks failed because the Worker preview target does not exist; these are distinct from the Pages deployments.
+
+**Decision: PR #12 is merged and the production database is migrated.** Production website publication is awaiting confirmation that Cloudflare Pages workflow #44503335368 completes successfully. No further schema migration is pending for Update 2.5.0.
 
 ## Legal and privacy
 
