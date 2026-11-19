@@ -22,6 +22,32 @@ The review uses the currently recorded product intent:
 
 Do not add analytics, advertising, sale of user data, behavioural advertising, location tracking, public user-to-user content sharing, payment processing or new personal-data categories without a separate privacy/legal review.
 
+## 1.1 Confirmed operator facts and proposed 16+ gate (19 November 2026)
+
+The owner has confirmed that SwiftDictionary is operated personally by the owner as an individual, not through a registered company or other incorporated business. This is an important factual input for the Malaysian Act 709 assessment, but it does not by itself establish that the Act is inapplicable or that the personal/family/household exemption applies. SwiftDictionary is a public-facing service that processes other people's account and learning data; the commercial-transaction scope and exemption remain matters for qualified Malaysian legal advice. Do not publish the owner's private legal name or home address merely to fill a policy template. A suitable public controller/contact route must be agreed before publication.
+
+### Proposed age-confirmation experience
+
+The product's intended minimum age remains 16+. A proportionate self-declaration is a reasonable initial control to consider, but it is an age assertion, not reliable age verification and not proof that the person is actually 16 or older.
+
+Proposed flow for legal review and owner approval:
+
+1. Before starting Google OAuth or creating a SwiftDictionary account, show: **“Are you 16 years of age or older?”**
+2. **Yes:** continue to sign-in. After successful authentication, record the affirmative declaration against the authenticated account.
+3. **No:** do not start sign-in or provide account access; explain that the service is intended for people aged 16 or older and they may return when eligible.
+4. Record only the account ID, affirmative declaration, timestamp and age-notice/policy version. Do not collect a full date of birth, identity document, selfie or other age-verification data unless a documented legal requirement and proportionate method justify it.
+5. Re-confirm only when the minimum-age wording or material policy changes, not on every ordinary visit. Provide a clear route for a user to correct an accidental response.
+
+The gate should appear before OAuth because a post-login prompt would occur after Google/Supabase account data has already been processed. A client-side bypass is possible, so this control must not be described as proof of age or as a guarantee that underage access is prevented.
+
+### Important Malaysia 16–17-year-old issue
+
+The Personal Data Protection Regulations 2013, Regulation 3(3), provides that consent under Regulation 3 for a data subject under 18 is to be given by a parent, guardian or person with parental responsibility; Regulation 3(5) places the burden of proving that consent on the data user. Therefore, a 16+ self-declaration does not resolve the separate parental-consent question for 16- and 17-year-olds where consent under Regulation 3 is the applicable processing basis. The legal basis for each processing purpose, the application of Regulation 3(3), and any alternative lawful basis must be assessed by Malaysian counsel before the age gate or privacy notice is finalised. Do not assume that a checkbox from the teenager satisfies parental consent.
+
+The Malaysian online-safety age-verification requirements discussed in the June 2026 government materials concern licensed social-media service providers. SwiftDictionary's current private dictionary/learning-service design does not obviously fall into that category; do not import those verification duties automatically. Reassess if public posting, messaging, public user-to-user content or other platform-like features are introduced.
+
+**Decision status:** the owner has confirmed the individual-operator fact and the intended 16+ audience. The exact prompt and flow above are a proposal for review, not yet an approved implementation or a legal conclusion. No age gate has been implemented.
+
 ## 2. Review method and limits
 
 Read-only checks were performed against the documentation branch, the current main-branch source at the Update 2.5.0 release baseline, the connected production Supabase project and its staging counterpart.
