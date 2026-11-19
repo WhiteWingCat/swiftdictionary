@@ -5,9 +5,9 @@ const html=fs.readFileSync("index.html","utf8");
 const flashcards=fs.readFileSync("flashcards.js","utf8");
 const mock=fs.readFileSync("mock-testing.js","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql","utf8");
-const recallMigration=fs.readFileSync("supabase/migrations/20261118143000_flashcards_mixed_recall_and_review_history.sql","utf8");
-const deletionMigration=fs.readFileSync("supabase/migrations/20261118150000_flashcards_review_history_deletion.sql","utf8");
-const durationMigration=fs.readFileSync("supabase/migrations/20261119130000_flashcards_60_120_second_challenges.sql","utf8");
+const recallMigration=fs.readFileSync("supabase/migrations/20261118100415_flashcards_mixed_recall_and_review_history.sql","utf8");
+const deletionMigration=fs.readFileSync("supabase/migrations/20261118100736_flashcards_review_history_deletion.sql","utf8");
+const durationMigration=fs.readFileSync("supabase/migrations/20261119094011_swiftdictionary_update_2_5_0_flashcards_60_120_second_challenges.sql","utf8");
 
 let inlineCount=0;
 for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
