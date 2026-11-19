@@ -140,7 +140,7 @@ test("60-second completion shows results and requires closing the prompt to retu
   await expect(page.locator("#flashResultTitle")).toBeVisible();
   await expect(page.locator(".flash-modal")).toContainText("60-second Flash Recall summary");
   await expect(page.locator(".flash-modal")).toContainText("Accuracy");
-  await expect(page.locator(".flash-accuracy-hero strong")).toHaveText(/\\d+%/);
+  await expect(page.locator(".flash-accuracy-hero strong")).toHaveText(/\d+%/);
   await expect(page.locator(".flash-accuracy-hero span")).toHaveText("Accuracy");
   await expect(page.locator(".flash-result-modal .flash-stats .flash-stat")).toHaveCount(3);
   await expect(page.locator(".flash-result-modal .flash-stat")).toHaveCSS("padding-top","16px");
