@@ -222,3 +222,64 @@ test("Flashcards main page and English recall prompts use Simplified Chinese tra
   await page.locator('[data-action="close-overlay"]').click();
   await page.locator("#translationSelect").selectOption("en");
 });
+
+
+test("An unanswered question at challenge timeout is saved to Weak Memory",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await beginRecall(page,"word","beginner","all",60);
+  await page.clock.fastForward(61000);
+  await expect(page.locator("#flashResultTitle")).toBeVisible();
+  const data=await page.evaluate(async()=>{
+    const result=await window.__swiftDictionaryMock.getClient().rpc("get_my_flashcard_data");
+    return result.data;
+  });
+  expect(data.history[0].unanswered_count).toBeGreaterThanOrEqual(1);
+  expect(data.review_items.length).toBeGreaterThan(0);
+  await page.locator('[data-action="close-result"]').click();
+});
+
+test("Translation changes do not reopen a previously closed Dictionary definition panel",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator('[data-page="dictionary"]').click();
+  await page.locator(".word-card").first().click();
+  await expect(page.locator("#backdrop")).toHaveClass(/open/);
+  await page.locator("#closeButton").click();
+  await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
+  for(const target of ["lessons","quiz","flashcards"]){
+    await page.locator('[data-page="'+target+'"]').click();
+    await page.locator("#translationSelect").selectOption("zh");
+    await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
+    await page.locator("#translationSelect").selectOption("en");
+    await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
+  }
+});
+
+test("Weak Memory review keeps the list scroll position when selecting an item",async({page})=>{
+  await openMockFlashcards(page);
+  const result=await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const words=["aberration","abandon","ability","able","about","above","absence","absolute","absorb","abstract","abuse","academic"];
+    for(const word of words){
+      const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+      if(started.error)throw new Error(started.error.message);
+      const completed=await client.rpc("complete_my_flashcard_game",{
+        p_session_id:started.data.session_id,
+        p_results:[{card_key:"dict:"+word,mode:"word",correct:false,unanswered:false}]
+      });
+      if(completed.error)throw new Error(completed.error.message);
+    }
+    return (await client.rpc("get_my_flashcard_data")).data.review_items.length;
+  });
+  expect(result).toBeGreaterThanOrEqual(12);
+  await page.locator('[data-action="open-review"]').click();
+  const list=page.locator(".flash-review-list");
+  await expect(list.locator("button")).toHaveCount(12);
+  await list.evaluate(el=>{el.scrollTop=el.scrollHeight;});
+  const before=await list.evaluate(el=>el.scrollTop);
+  await list.locator("button").first().click();
+  const after=await list.evaluate(el=>el.scrollTop);
+  expect(after).toBe(before);
+  await expect(page.locator(".flash-review-detail")).toBeVisible();
+  await expect(page.locator(".flash-review-detail")).not.toContainText("Missed");
+});
