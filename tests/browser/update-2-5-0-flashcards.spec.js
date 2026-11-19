@@ -229,6 +229,8 @@ test("An unanswered question at challenge timeout is saved to Weak Memory",async
   await openMockFlashcards(page);
   await beginRecall(page,"word","beginner","all",60);
   await page.clock.fastForward(61000);
+  await expect(page.locator(".flash-times-up-text")).toBeVisible();
+  await page.clock.fastForward(2000);
   await expect(page.locator("#flashResultTitle")).toBeVisible();
   const data=await page.evaluate(async()=>{
     const result=await window.__swiftDictionaryMock.getClient().rpc("get_my_flashcard_data");
