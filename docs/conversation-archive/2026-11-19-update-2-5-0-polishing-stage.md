@@ -51,13 +51,13 @@ The work was performed on `feature/update-2-5-0-flashcards`. PR #12 remains open
 
 ## Automated validation
 
-- **SwiftDictionary Update 2.5.0 Flashcards checks — workflow #44491878289:** all jobs passed.
+- **SwiftDictionary Update 2.5.0 Flashcards checks — workflow #44492546210:** all jobs passed.
   - JavaScript syntax and page integration checks passed.
   - Mock account, allowance, collection and timer regression tests: **25/25 passed**.
   - Chromium Mock User Flashcards browser tests: **14/14 passed**, including first-entry Quiz/Flashcards guides, Answer now, Next, mixed-mode uniqueness, 60/120-second challenge behaviour, Chinese UI and existing round-4 refinements.
 - **SwiftDictionary 2.3.x allowance and dashboard regression checks — workflow #44491878344:** all jobs passed, including the exact 163-entry approved content catalogue check, PostgreSQL migration/allowance assertions, local Supabase Auth compatibility, security advisor and signed-out browser regression smoke tests.
-- **Quiz database foundation — workflow #44491878440:** the PostgreSQL Quiz foundation passed. The companion local Supabase Auth/Quiz runtime job was still running when this archive was first written; its final status is to be appended after completion.
-- Cloudflare Pages testing preview successfully deployed the application changes at commit `173e753fc79cf84d25d1c24c860f52f5025f9eef`. Subsequent feature-branch commit `541c6d3e27f998dcc2d1209d2264d07b0bcdccee` only updated test harness coverage and did not change the deployed application code.
+- **Quiz database foundation — workflow #44492546233:** the PostgreSQL Quiz foundation passed. The companion local Supabase Auth/Quiz runtime job was still running at the latest check. Its preceding attempt stopped at a test-only expectation that the Flashcards guide title would always be English; the authenticated browser test was updated to accept the localized Chinese title and the rerun is underway.
+- Cloudflare Pages testing preview successfully deployed the application changes at commit `173e753fc79cf84d25d1c24c860f52f5025f9eef`. The latest feature-branch commit `35a22712d2674221cc75f10312cedd5290c908bd` only updated browser-test expectations for localized guide titles and did not change the deployed application code.
 - Verified branch preview: https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev
 - Mock User entry: https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev/?swiftMock=1
 
