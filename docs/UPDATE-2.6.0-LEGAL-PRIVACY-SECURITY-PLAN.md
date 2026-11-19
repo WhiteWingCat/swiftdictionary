@@ -449,10 +449,41 @@ These require facts, legal advice or owner decisions. Do not invent operator ide
 - [UK ICO — Children's Code standards](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/code-standards/)
 - [US FTC — COPPA Rule](https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa)
 
+
+### 7.5 Phase D — private feedback inbox proposal and staging environment verification (19 November 2026)
+
+#### Feedback without requiring GitHub accounts — recommended design, not implemented
+
+The current `feedback.html` is a static form that prepares a GitHub issue. It explicitly tells visitors that submitting requires a GitHub account, and on the Cloudflare Pages hostname its old GitHub Pages host/path detection cannot identify the repository, so the form falls back to a generic GitHub Issues page. This is not a good public feedback experience.
+
+Recommended replacement:
+
+- Keep **Feedback & Suggestions** as a public footer link and public submission page. Visitors should be able to submit feedback without a GitHub account or SwiftDictionary account.
+- Store feedback privately in Supabase, not as a public GitHub issue. A submission should contain only the category, optional word/page, message, timestamp and status. Do not collect a name or account identifier by default. An optional reply email may be offered only if the user wants a response.
+- Build a **Feedback Inbox** section inside Profile, but render it only for the project owner. Authorise the owner using a trusted `app_metadata` role/claim configured server-side; never use editable `user_metadata`, a client-supplied UID, or a hard-coded email comparison as the security boundary.
+- Do not grant ordinary users SELECT access to the feedback table. Route submission through a small server-side Edge Function with JWT verification for signed-in submitters, optional anonymous submission, input validation, spam/rate limiting and a challenge such as Cloudflare Turnstile. The function should insert a sanitised record. Owner reads/updates/deletes should use a verified owner claim and narrowly scoped server-side access or a private-schema/RPC design.
+- Add a short notice explaining that the message is visible to the SwiftDictionary operator, what fields are collected, that feedback is not public, and that users should not include passwords or sensitive personal data. If reply email is offered, explain its purpose and retain it only as long as needed to respond.
+- Define a retention and deletion process for feedback. The message may contain personal data even if the form does not ask for it; private storage does not remove applicable data-protection obligations. Keep provider request logs and abuse-prevention metadata separate from the feedback content and disclose provider retention accurately.
+- Add abuse handling, report/delete controls, and a practical way for a submitter to request correction/deletion. Consider anonymous feedback availability alongside signed-in feedback, rather than forcing account creation.
+
+**Privacy assessment:** collecting feedback privately is not inherently a personal-data violation. However, free-text messages and optional contact details may contain personal data. The operator still needs an appropriate notice, purpose limitation, security, retention and request-handling process, and the applicability of Malaysia's PDPA and any other relevant laws must be confirmed. This is safer than sending feedback into a public repository, but not automatically exempt from privacy law.
+
+The design is a proposal only. No feedback table, Edge Function, Profile inbox or UI change has been implemented. The user has not yet approved the exact form fields, optional reply-email field or retention period.
+
+#### Staging project and preview findings
+
+- Supabase project `SwiftDictionary Indie Staging` exists, is `ACTIVE_HEALTHY`, and is hosted in Singapore (`ap-southeast-1`). It was created on 17 November 2026; a second staging project is not needed.
+- Production remains the separate `SwiftDictionary` project in Tokyo (`ap-northeast-1`).
+- Staging currently has zero Auth users and no deployed Edge Functions. Its schema and content catalogue/Quiz bank are populated with release data; no real learner accounts were copied.
+- Staging has the Update 2.6.0 migration recorded. Its project-specific publishable key is available and distinct from production. Only a public publishable key may be placed in a browser preview; service-role/secret keys must never be used client-side.
+- GitHub Actions run [#44514979573](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44514979573) completed successfully. Both jobs passed, including local Supabase Auth/RPC integration, applying the 2.6.0 migration, privilege assertions, authenticated Chromium Quiz runtime tests and local security-advisor checks.
+- A dedicated Cloudflare Pages preview configured to use staging has **not** yet been verified. The repository's current `supabase-config.js` hard-codes the production project URL and public key. Do not deploy the implementation branch as a browser preview until a separate preview configuration explicitly selects the staging project and the resulting hostname is verified. The Cloudflare Pages project name/settings and preview environment configuration must be inspected in the owner's Cloudflare dashboard; the connected tools available in this session do not expose that account configuration.
+- Staging remains safe for the next test, but owner-run browser tests still need a confirmed staging-configured preview. Do not point the production site at staging credentials.
+
 ## 12. Release position
 
 The current application has meaningful privacy protections already: account-scoped data, RLS on application tables, private-schema tables without direct browser grants, owner-scoped RPC patterns, no analytics/ad-tracking code found in the source reviewed, and a user-facing learning-history deletion control.
 
-However, this is not yet a complete legal/privacy/security foundation. The privacy notice is stale, Terms of Service are absent, account deletion is not self-service, retention and provider transfer details remain unresolved, and the anonymous grant on daily_activity_sessions should be hardened.
+However, this is not yet a complete legal/privacy/security foundation. The privacy notice is stale, Terms of Service are absent, account deletion is not self-service, retention and provider transfer details remain unresolved, and the anonymous grant on daily_activity_sessions has been removed in staging but remains unchanged in production pending approval.
 
-**No production settings, schema, data, OAuth configuration, deployments or branches were changed by this review.** The next implementation work must proceed through reviewed code changes and staging validation; no production migration or deployment is authorised by this document.
+**No production settings, schema, data, OAuth configuration or deployments were changed by this review.** The staging-only migration and implementation branch are recorded above. The next implementation work must proceed through reviewed code changes and staging validation; no production migration or deployment is authorised by this document.
