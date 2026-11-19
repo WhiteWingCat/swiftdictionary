@@ -5,16 +5,21 @@
   if (!root) return;
   const $ = (selector, scope=root) => scope.querySelector(selector);
   const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+  // Mode-specific start windows and minimum caps. Both windows reduce by 0.2s per completed round.
+  const REDUCTION_STEP = 0.2;
   const timing = {
-    beginner:{memory:5,answer:12,memoryFloor:2,answerFloor:5,memoryStep:.5,answerStep:1},
-    intermediate:{memory:3,answer:9,memoryFloor:1.5,answerFloor:4,memoryStep:1.5,answerStep:4},
-    advanced:{memory:2,answer:6,memoryFloor:.7,answerFloor:3,memoryStep:.7,answerStep:3}
+    word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9},intermediate:{memory:5,answer:10,memoryFloor:2,answerFloor:7},advanced:{memory:3,answer:9,memoryFloor:1,answerFloor:5}},
+    definition:{beginner:{memory:6,answer:5,memoryFloor:4,answerFloor:3},intermediate:{memory:5,answer:4,memoryFloor:3,answerFloor:3},advanced:{memory:4,answer:4,memoryFloor:2,answerFloor:3}},
+    sentence:{beginner:{memory:7,answer:10,memoryFloor:5,answerFloor:7},intermediate:{memory:6,answer:8,memoryFloor:4,answerFloor:6},advanced:{memory:5,answer:6,memoryFloor:3,answerFloor:3}},
+    mixed:{beginner:{memory:8,answer:12,memoryFloor:6,answerFloor:9},intermediate:{memory:7,answer:10,memoryFloor:5,answerFloor:7},advanced:{memory:6,answer:8,memoryFloor:4,answerFloor:5}}
   };
+  const timingFor=(mode,difficulty)=>timing[mode]?.[difficulty]||timing.word[difficulty];
   const state = {
     ready:false,loading:false,starting:false,finishing:false,data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
-    selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set()
+    selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),
+    helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
   function words(){return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
@@ -112,6 +117,23 @@
       #flashcardsPage .flash-review-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
       #flashcardsPage .flash-review-list button{width:100%;text-align:left;margin:5px 0;padding:11px;border-radius:10px;background:#242e40;border:1px solid #3c4a60;color:#eef3ff}
       #flashcardsPage .flash-review-detail{background:#202a3a;border:1px solid #3b4a62;border-radius:14px;padding:16px;animation:flashSlideIn .22s ease-out}
+      #flashcardsPage .flash-banner{position:relative;padding-right:76px}
+      #flashcardsPage .flash-banner .learning-help-button{position:absolute;top:18px;right:18px;margin:0}
+      #flashcardsPage .flash-game-clock{display:inline-flex;align-items:center;justify-content:center;min-width:76px;padding:8px 15px;border-radius:12px;background:#2459a6;color:#fff;font-size:1.25rem;font-weight:850;line-height:1.1;box-shadow:0 5px 0 #14366b,0 8px 16px #0005;font-variant-numeric:tabular-nums}
+      #flashcardsPage .flash-game-clock.is-warning{background:#d97706;box-shadow:0 5px 0 #92400e,0 8px 16px #0005}
+      #flashcardsPage .flash-game-clock.is-danger{background:#c83232;box-shadow:0 5px 0 #7f1d1d,0 8px 16px #0005}
+      #flashcardsPage .flash-memory-overlay[hidden]{display:none!important}
+      #flashcardsPage .flash-review-modal{width:min(1000px,100%);height:min(700px,calc(100dvh - 32px));min-height:min(540px,calc(100dvh - 32px));display:flex;flex-direction:column}
+      #flashcardsPage .flash-review-modal .flash-review-tabs{flex-shrink:0}
+      #flashcardsPage .flash-review-modal .flash-review-layout{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+      #flashcardsPage .flash-review-modal .flash-review-list,#flashcardsPage .flash-review-modal #flashReviewDetail{min-height:0;overflow:auto}
+      #flashcardsPage .flash-review-modal .flash-review-tab{border:0;border-radius:12px;color:#fff;font-weight:750;box-shadow:0 4px 0 #0005,0 7px 12px #0003}
+      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=word]{background:#4b91b9;box-shadow:0 4px 0 #28516b,0 7px 12px #0003}
+      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=definition]{background:#2865b2;box-shadow:0 4px 0 #173d70,0 7px 12px #0003}
+      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=mixed]{background:#b33f91;box-shadow:0 4px 0 #70275a,0 7px 12px #0003}
+      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=sentence]{background:#7650b8;box-shadow:0 4px 0 #493176,0 7px 12px #0003}
+      #flashcardsPage .flash-review-modal .flash-review-tab[aria-selected=true]{filter:brightness(1.18);transform:translateY(-1px)}
+      @media(max-width:650px){#flashcardsPage .flash-review-modal{min-height:min(620px,calc(100dvh - 32px));height:calc(100dvh - 32px)}#flashcardsPage .flash-review-modal .flash-review-layout{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}}
       @keyframes flashSlideIn{from{transform:translateX(-18px);opacity:0}to{transform:translateX(0);opacity:1}}
       @media(max-width:650px){#flashcardsPage .flash-mode-grid{gap:8px}#flashcardsPage .flash-mode{padding:10px;min-height:78px}#flashcardsPage .flash-options{gap:8px}#flashcardsPage .flash-option{font-size:.9rem;padding:9px 6px}#flashcardsPage .flash-review-layout{grid-template-columns:1fr}}
     `;
@@ -120,6 +142,7 @@
   function shell(){
     const coming=$(".coming-card");
     if(coming)coming.hidden=true;
+    root.querySelector(".learning-page-heading")?.remove();
     let mount=$("#flashcardsApp");
     if(!mount){mount=document.createElement("div");mount.id="flashcardsApp";root.appendChild(mount);}
     return mount;
@@ -153,6 +176,8 @@
         <div id="flashOverlayRoot"></div>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
+    const banner=mount.querySelector(".flash-banner");
+    if(state.helpButton&&banner&&!banner.contains(state.helpButton))banner.appendChild(state.helpButton);
   }
   function renderCollectionCards(id){
     const cards=state.data.cards.filter(c=>c.collection_id===id).sort((a,b)=>(Number(a.position)||0)-(Number(b.position)||0)||String(a.created_at||"").localeCompare(String(b.created_at||"")));
@@ -208,7 +233,7 @@
     const elapsed=Math.max(0,60-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,60-elapsed),round=state.round;
     const modeLabel=state.mode==="mixed"?"Mixed Recall":state.mode.charAt(0).toUpperCase()+state.mode.slice(1)+" Recall";
     mount.innerHTML=`<section class="flash-game">
-      <div class="flash-game-top"><span class="flash-pill">${modeLabel} · ${state.difficulty}</span><strong id="flashGameClock">${Math.ceil(remain)}s</strong></div>
+      <div class="flash-game-top"><span class="flash-pill">${modeLabel} · ${state.difficulty}</span><strong id="flashGameClock" class="flash-game-clock">${Math.ceil(remain)}s</strong></div>
       
       <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||"Get ready")}</div>
       <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>Pick your answers</div>
@@ -223,7 +248,8 @@
   function tickGame(){
     if(!state.game)return;
     const remain=Math.max(0,60-(Date.now()-state.game.startedAt)/1000);
-    const clock=$("#flashGameClock");if(clock)clock.textContent=Math.ceil(remain)+"s";
+    const clock=$("#flashGameClock");
+    if(clock){clock.textContent=Math.ceil(remain)+"s";clock.classList.toggle("is-warning",remain<=20&&remain>10);clock.classList.toggle("is-danger",remain<=10);}
     const elapsed=Date.now()-state.phaseStartedAt,ratio=Math.max(0,Math.min(1,1-elapsed/(state.phaseDuration||1)));
     const mg=$("#flashMemoryGauge"),ag=$("#flashAnswerGauge");
     if(mg)mg.style.width=(state.phase==="memory"?ratio*100:0)+"%";
@@ -253,8 +279,9 @@
   function recordAnswer(correct,unanswered=false){
     if(!state.game||state.phase!=="answer")return;clearTimeout(state.phaseTimer);
     state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:!!correct,unanswered:!!unanswered});
-    state.memory=Math.max(timing[state.difficulty].memoryFloor,Number((state.memory-timing[state.difficulty].memoryStep).toFixed(2)));
-    state.answer=Math.max(timing[state.difficulty].answerFloor,Number((state.answer-timing[state.difficulty].answerStep).toFixed(2)));
+    const limits=timingFor(state.mode,state.difficulty);
+    state.memory=Math.max(limits.memoryFloor,Number((state.memory-REDUCTION_STEP).toFixed(2)));
+    state.answer=Math.max(limits.answerFloor,Number((state.answer-REDUCTION_STEP).toFixed(2)));
     state.phase="feedback";state.phaseStartedAt=Date.now();state.phaseDuration=3000;
     const memory=$("#flashMemory"),overlay=$("#flashMemoryOverlay"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion");
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}if(overlay)overlay.hidden=true;
@@ -282,7 +309,8 @@
       if(error)throw error;
       state.game={id:data.session_id,startedAt:Date.now(),translationLanguage};
       state.results=[];state.roundIndex=0;
-      Object.assign(state,{memory:timing[state.difficulty].memory,answer:timing[state.difficulty].answer});
+      const schedule=timingFor(state.mode,state.difficulty);
+      Object.assign(state,{memory:schedule.memory,answer:schedule.answer});
       render();tickGame();showMemory();
     }catch(error){state.deck=null;throw error;}
     finally{state.starting=false;if(startButton?.isConnected)startButton.disabled=false;}
@@ -318,7 +346,7 @@
     const resolve=key=>{if(key.startsWith("dict:"))return words().find(w=>w.word.toLowerCase()===key.slice(5));const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
     const card=selected?resolve(selected.card_key):null;
     const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(card.definition)}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}<p class="flash-muted">Missed ${selected.incorrect_count} time(s) in ${labels[state.reviewMode]} Recall.</p></div>`:'<p class="flash-muted">Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.</p>';
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" style="width:min(900px,100%)" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">Review weak memory</h2><div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label} Recall</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<button data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}<small style="display:block;color:#aab8cc">Missed ${item.incorrect_count} time(s)</small></button>`;}).join(""):'<p class="flash-muted">No incorrect answers in this recall mode yet.</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-primary" data-action="close-overlay">Close</button></div></section></div>`;
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">Review weak memory</h2><div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label} Recall</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<button data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}<small style="display:block;color:#aab8cc">Missed ${item.incorrect_count} time(s)</small></button>`;}).join(""):'<p class="flash-muted">No incorrect answers in this recall mode yet.</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-primary" data-action="close-overlay">Close</button></div></section></div>`;
   }
   async function loadData(){
     if(!currentUser||!supabaseClient)return;
@@ -437,7 +465,11 @@
   window.addEventListener("hashchange",()=>{if(location.hash==="#flashcards"&&currentUser)loadData();});
   const timerApi={
     config:timing,
-    next(memory,answer,difficulty){const t=timing[difficulty];return {memory:Math.max(t.memoryFloor,Number((memory-t.memoryStep).toFixed(2))),answer:Math.max(t.answerFloor,Number((answer-t.answerStep).toFixed(2)))};}
+    reductionStep:REDUCTION_STEP,
+    next(memory,answer,difficulty,mode="word"){
+      const t=timingFor(mode,difficulty);
+      return {memory:Math.max(t.memoryFloor,Number((memory-REDUCTION_STEP).toFixed(2))),answer:Math.max(t.answerFloor,Number((answer-REDUCTION_STEP).toFixed(2)))};
+    }
   };
   window.SwiftDictionaryFlashcards=timerApi;
   render();
