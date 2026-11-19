@@ -188,6 +188,8 @@ test("Dashboard Flashcard statistics load and Weak Memory opens without leaving 
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#dashboardFlashcardSection")).toBeVisible();
+  await expect(page.locator("#profileContent #allowanceDetails")).toBeVisible();
+  await expect(page.locator("#profileContent #practiceAccuracy")).toBeVisible();
   await expect(page.locator("#dashboardFlashcardGames")).not.toHaveText("—");
   await expect(page.locator("#dashboardFlashcardAttempts")).not.toHaveText("—");
   await page.locator("#dashboardFlashcardSection [data-dashboard-flashcard-review]").click();
