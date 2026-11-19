@@ -138,7 +138,7 @@
       .flash-overlay-root .flash-modal .flash-muted{line-height:1.55;color:#b9c6da}
       .flash-overlay-root .flash-modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin:18px 0}
       .flash-overlay-root .flash-modal-grid label{margin:0;font-size:.88rem;font-weight:750;color:#dbe5f5}
-      .flash-overlay-root .flash-modal select{appearance:none;min-height:46px;padding:11px 40px 11px 13px;border:1px solid #566987;border-radius:12px;background:linear-gradient(145deg,#172236,#101722);color:#fff;font-weight:650;box-shadow:inset 0 1px 2px #0006;cursor:pointer}
+      .flash-overlay-root .flash-modal select{appearance:none;min-height:46px;padding:11px 40px 11px 13px;border:1px solid #566987;border-radius:12px;background-color:#111a2a;background-image:linear-gradient(45deg,transparent 50%,#cbd9f2 50%),linear-gradient(135deg,#cbd9f2 50%,transparent 50%),linear-gradient(145deg,#172236,#101722);background-position:calc(100% - 17px) 19px,calc(100% - 11px) 19px,0 0;background-size:6px 6px,6px 6px,100% 100%;background-repeat:no-repeat;color:#fff;font-weight:650;box-shadow:inset 0 1px 2px #0006;cursor:pointer}
       .flash-overlay-root .flash-modal select:focus-visible{outline:3px solid #9dbbff;outline-offset:2px;border-color:#c5d8ff}
       .flash-overlay-root .flash-modal-actions button{min-height:44px;padding:10px 20px;font-weight:800;transition:transform .15s,filter .15s,box-shadow .15s}
       .flash-overlay-root .flash-modal-actions button:hover{transform:translateY(-1px);filter:brightness(1.12)}
