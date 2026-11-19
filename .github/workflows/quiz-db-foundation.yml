@@ -107,6 +107,7 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094122_swiftdictionary_update_2_5_0_new_beginner_lessons.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094253_swiftdictionary_update_2_5_0_learning_history_deletion_preserve_quiz.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094558_swiftdictionary_update_2_5_0_learning_history_deletion_review_items_fix.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_authenticated_rpcs.sql"
 
       - name: Verify explicit grants for all staged public tables
