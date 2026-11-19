@@ -2504,3 +2504,40 @@ The owner completed the previous Mock User test and supplied four further refine
 - If accepted, begin the planned polishing stage: audit Flash Recall question uniqueness and eligibility, verify answers against the source dictionary, check English/Simplified Chinese translation accuracy and context, and resolve any remaining functional or UI issues before release readiness review.
 - Do not merge PR #12, deploy production, or apply migrations to staging/production without explicit owner approval.
 - Keep development documentation on `docs/master-development-record`; current recovery branch is `feature/update-2-5-0-flashcards`.
+
+## Update 2.5.0 — polishing stage (2026-11-19)
+
+The owner approved moving into polishing and supplied two final feedback items: restore first-entry introductions on Quiz and Flashcards while refreshing outdated Flashcards copy, and add an early-answer/next-round control beside the Flash Recall gauge. Work is complete on the existing feature branch; PR #12 remains open and unmerged.
+
+### Implemented
+
+1. **First-entry guides:** hardened asynchronous introduction-preference loading so lookup failures do not suppress the guide; added an active-page check to prevent delayed guides appearing after navigation. Quiz and Flashcards guides now have Simplified Chinese copy when Chinese is the selected translation language.
+2. **Flashcards description/help:** removed outdated references to the retired Translation Recall mode and removed personal-collection features. Updated the English and Simplified Chinese page descriptions. The guide now accurately describes Word, Definition, Mixed and Sentence Recall, 60/120-second challenge duration, mode/difficulty-specific timing, and the early-proceed controls.
+3. **Answer now / Next:** added an accessible button beside the game gauge. Answer now skips the remaining memory period. After an answer or timeout, it becomes Next; clicking Next starts the next round immediately. The existing automatic feedback transition remains as a fallback.
+4. **Duplicate-question prevention:** challenge uniqueness now uses a normalized prompt key (Unicode normalization, case folding and repeated-whitespace normalization), not internal card IDs. This prevents duplicate visible prompts across dictionary/custom card variants and across Mixed Recall submodes. Weak Memory/mastery continues to use stable card identity.
+5. **Question-bank expansion:** English bank grew from 792 to 810 entries with 18 everyday terms/phrases. All new entries include definitions, Simplified Chinese translations, examples and explicit lesson IDs.
+6. **Permanent lessons:** added Beginner lessons `b-greetings-polite-expressions` (*Use greetings and polite expressions*) and `b-places-getting-around` (*Name everyday places around town*). Both have full Simplified Chinese lesson content and use the existing Everyday vocabulary topic. Updated the content-catalogue migration draft and tests to 163 total entries / 17 permanent lessons.
+
+### Audit and validation
+
+- Full English bank: 810 entries, 810 unique normalized headwords, zero duplicate headwords, zero entries missing a definition, Chinese translation or example.
+- All 18 new terms are linked to one of the two new lessons; all 17 permanent lessons have Simplified Chinese content.
+- **Flashcards workflow #44491878289:** all jobs passed; JavaScript syntax and page integration passed; Mock account/allowance/collection/timer regression tests **25/25**; Chromium Mock User browser tests **14/14**. Browser coverage includes first-entry guides, Answer now/Next, unique rounds, 60/120-second sessions, Chinese integration and previous round-4 refinements.
+- **2.3.x regression workflow #44491878344:** all jobs passed, including exact content-catalogue parity, PostgreSQL migration/allowance assertions, local Supabase Auth compatibility, security advisor and signed-out browser smoke tests.
+- **Quiz database foundation workflow #44491878440:** PostgreSQL Quiz foundation passed. The companion local Supabase Auth/Quiz runtime job was still running at the time of this record update; its final status is recorded in the polishing archive after completion.
+- Cloudflare testing preview successfully deployed the application changes at commit `173e753fc79cf84d25d1c24c860f52f5025f9eef`. The latest feature-branch commit `541c6d3e27f998dcc2d1209d2264d07b0bcdccee` only updated test harness coverage and did not change deployed application code.
+- Verified testing preview: https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev
+- Mock User URL: https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev/?swiftMock=1
+
+### Privacy, legal and release boundary
+
+- UI and educational-content changes only. No new personal-data category, processor, analytics event, raw-answer telemetry, retention period or learning-history record was introduced.
+- New lesson IDs are present in the frontend and the approved-catalogue migration draft, but no staging or production migration was applied. Live completion of these two lessons remains gated on explicit owner approval of the catalogue migration.
+- Continue the standing Malaysia PDPA and applicable international/16+ privacy review before wider public/commercial expansion. This is not a legal compliance certification.
+- No merge to `main`, production deployment, staging migration or production data operation occurred. PR #12 remains open and unmerged.
+
+### Next gate
+
+- Polishing implementation and automated Flashcards validation are complete. Owner's final Mock User review is the remaining acceptance gate before release-readiness review.
+- Do not merge PR #12 or apply staging/production migrations without explicit owner approval.
+- Recovery branch: `feature/update-2-5-0-flashcards`. Keep development documentation on `docs/master-development-record`.
