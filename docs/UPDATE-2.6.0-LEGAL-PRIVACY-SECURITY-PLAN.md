@@ -1,7 +1,7 @@
 # Update 2.6.0 — Legal, Privacy, Safety & Security Blueprint
 
 **Review date:** 19 November 2026  
-**Status:** Initial legal research and read-only technical baseline completed; remediation not yet started.  
+**Status:** Initial legal research and read-only technical baseline completed; provider/data-flow verification is in progress; remediation not yet started.  
 **Production baseline:** Update 2.5.0, released 19 November 2026.  
 **Scope:** Malaysia-first legal review, international applicability screening, privacy/data-flow review, Supabase and frontend security review, and implementation/release gates.
 
@@ -179,6 +179,46 @@ No analytics, ad-tech or marketing tracker was found in the source inspected. No
 
 The feedback page says it prepares a GitHub issue rather than sending feedback to a private server. On the current Cloudflare Pages domain, its legacy GitHub Pages hostname/path detection does not identify the repository, so the submit action currently falls back to a generic GitHub issues page and instructs the user to copy feedback. If the GitHub Pages route is used, submitted issue content may be public. Fix the destination and explain visibility before relying on this as the support channel.
 
+
+### 6.1 Provider and cross-border verification — Phase B (19 November 2026)
+
+This is a provider-document and configuration review, not a contractual legal opinion. Public provider documentation was checked on 19 November 2026. The connected Supabase project metadata was read directly; Cloudflare and Google account dashboards, contract acceptance records and tenant-specific retention settings were not accessible in this review.
+
+| Provider | Verified processing / exposure | What remains unverified or required |
+|---|---|---|
+| Supabase production | Live project metadata confirms Tokyo, Japan (AWS ap-northeast-1). Supabase's current FAQ says the selected region hosts the primary database, Auth, Storage and backups. It also states that customer account/configuration/billing data may be processed centrally outside the region; support personnel are global; operational usage telemetry/logs are processed outside the region and logs are ingested/stored in EU data centres; US-affiliate support/operations may access data when necessary. | Confirm the account's plan-specific backup retention, log retention, exact current subprocessor list, DPA applicability/acceptance and any project-specific support settings. Do not describe all processing as Tokyo-only. |
+| Supabase staging | Live project metadata confirms Singapore (AWS ap-southeast-1), active and healthy. No Edge Functions are deployed in either connected project. | Keep synthetic test data only. Verify staging log/back-up retention and ensure no production learner records are copied into it. |
+| Cloudflare Pages | Main site is hosted on Cloudflare Pages. Cloudflare's public DPA is version 6.4, effective 3 April 2026; Cloudflare operates a global network. | Cloudflare account/dashboard and plan-specific service settings were not inspected. Confirm the DPA's applicability/acceptance, current subprocessor list, request/security-log categories and retention, account data location, Pages build/deployment logs and any support access. Do not invent a fixed global-edge retention period. |
+| Google | Google is the selected OAuth identity provider. The application uses Google sign-in through Supabase; the local app schema stores the Supabase user identity and Google-provided account email/provider metadata. Google documents the standard authentication-only scopes as openid, email and profile. | Actual OAuth consent-screen scopes, brand verification status, redirect/origin configuration, Google Cloud project ownership, token handling and any additional API scopes must be checked in the Google Cloud Console. This connector cannot inspect that console. Confirm no unrelated Google APIs or scopes are enabled. |
+| GitHub | GitHub hosts the source repository and is the intended destination for user-submitted issue feedback. The current feedback page does not transmit its form contents to a private SwiftDictionary endpoint. On Cloudflare Pages, hostname detection fails and the page falls back to generic GitHub Issues instructions; the user must copy/paste the text. | If a user manually creates an issue in a public repository, the issue content is public and is processed by GitHub. Confirm repository visibility and issue settings before changing the form to a direct issue URL. Do not send learner records, authentication details or other sensitive data to GitHub. Consider a private contact route if private support is required. |
+| jsDelivr | The application loads the Supabase JS client and Hanzi Writer library/stroke JSON from jsDelivr. Its published privacy materials describe request metadata such as IP address, browser/version, referrer domain, requested CDN URL, timestamp and diagnostic/device information; its CDN subprocessors include Cloudflare, Fastly and Gcore (plus Bunny for legacy endpoints). A Hanzi Writer stroke-data request URL identifies the requested character asset, but does not include the SwiftDictionary account ID. | Verify current DPA/subprocessor terms and retention with the provider if relying on a formal processor arrangement. Consider self-hosting/pinning the Supabase client and Hanzi Writer assets to reduce third-party request exposure and supply-chain dependence. |
+
+#### Provider-specific conclusions
+
+1. **Tokyo is the primary database region, not a complete data-residency guarantee.** Supabase explicitly describes out-of-region account administration, global support access, EU-based operational logs and possible US-affiliate support/operations. Any privacy notice or transfer assessment must describe these categories accurately.
+2. **Staging is a separate Singapore processing location.** The connected staging project is active and healthy, and currently has no deployed Edge Functions. It must remain synthetic-data-only.
+3. **jsDelivr is a meaningful third-party disclosure point.** Browser requests reveal IP/network metadata and the requested asset URL to the CDN and its listed delivery providers. Character stroke JSON paths can reveal which character asset was requested, but no account identifier is embedded in that URL. Self-hosting is a reasonable privacy and supply-chain improvement, subject to preserving MIT and Arphic notices.
+4. **Google scope minimisation remains a verification task.** Standard authentication-only scopes are appropriate in principle; actual tenant scopes and Google brand verification have not been checked. Google's current policy says production apps using Sign in with Google for authentication only must complete brand verification to display app branding, privacy policy, Terms and scopes in the consent screen.
+5. **GitHub feedback is not a private support channel.** The current Cloudflare-hosted form does not automatically publish the text; the user copies it. If the user later submits an issue to a public repository, it becomes public. The UI must clearly explain this before encouraging submission.
+6. **No tenant-specific provider contract acceptance or exact retention periods have been verified.** These must remain marked as unknown until checked in the relevant dashboards or provider support channels. Public provider documentation alone does not prove that the owner has accepted a DPA or selected a particular retention setting.
+
+#### Evidence checked
+
+- Supabase [Data Residency and Transfers FAQ](https://supabase.com/legal/privacy-resources/data-residency-and-transfers-faq), [Data Processing Addendum](https://supabase.com/legal/customer-resources/data-processing-addendum), [Subprocessor List](https://supabase.com/legal/customer-resources/subprocessor-list), and [available regions](https://supabase.com/docs/guides/platform/regions).
+- Cloudflare [Data Processing Addendum](https://www.cloudflare.com/cloudflare-customer-dpa/) (version 6.4, effective 3 April 2026) and [subprocessor list](https://www.cloudflare.com/gdpr/subprocessors/).
+- Google [OAuth 2.0 Policies](https://developers.google.com/identity/protocols/oauth2/policies), [authentication-only scope guidance](https://developers.google.com/identity/oauth2/web/guides/how-user-authz-works), and [brand verification guidance](https://developers.google.com/identity/verification/authentication-policy-compliance).
+- jsDelivr [Privacy Policy](https://www.jsdelivr.com/terms/privacy-policy), [Data Processing Agreement](https://www.jsdelivr.com/documents/data-processing-agreement.pdf), and [Subprocessor List](https://github.com/jsdelivr/jsdelivr/blob/master/Sub-Processors.md).
+- GitHub [Data Protection Agreement](https://github.com/customer-terms/github-data-protection-agreement) and [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+
+#### Decisions and safeguards
+
+- Do not change the production or staging database region as part of this phase; region changes would be a separate migration and availability decision.
+- Do not copy production user rows to staging.
+- Do not add analytics, tracking pixels or extra Google OAuth scopes.
+- Keep the feedback workflow copy-first until a deliberate public-issue disclosure or private contact process is approved.
+- Prioritise pinning/self-hosting third-party JavaScript and stroke assets in a later implementation branch after compatibility and licensing checks.
+- The privacy notice must distinguish the database's selected region from global support, operational logs, CDN delivery and other provider processing.
+
 ## 7. Current technical security audit
 
 ### 7.1 Supabase baseline
@@ -272,7 +312,7 @@ Priorities are planning labels, not a legal risk rating.
 
 Prepare:
 - Privacy Notice in Bahasa Malaysia and English; Simplified Chinese may be added for accessibility but does not replace the two required languages if Act 709 applies.
-- Terms of Service.
+- Terms of Service. Publish its link in the bottom-page footer alongside **Feedback & Suggestions**, not in the primary navigation; activate the link only after the Terms are reviewed and published.
 - Acceptable-use and user-content rules for private custom Flashcards.
 - Educational-information disclaimer that does not overclaim learning outcomes or certification.
 - Third-party notices/licensing page.
