@@ -1,7 +1,7 @@
 # Update 2.6.0 — Legal, Privacy, Safety & Security Blueprint
 
 **Review date:** 19 November 2026  
-**Status:** Initial legal research and read-only technical baseline completed; provider/data-flow verification is in progress; remediation not yet started.  
+**Status:** Initial legal research and provider/data-flow review completed; first least-privilege database migration applied and verified in staging; production remediation remains pending owner approval.  
 **Production baseline:** Update 2.5.0, released 19 November 2026.  
 **Scope:** Malaysia-first legal review, international applicability screening, privacy/data-flow review, Supabase and frontend security review, and implementation/release gates.
 
@@ -234,6 +234,35 @@ This is a provider-document and configuration review, not a contractual legal op
 - No production Edge Functions were listed during the audit.
 - Leaked-password protection is disabled. The visible application sign-in UI offers Google OAuth only. Verify the actual Supabase Auth provider configuration; enable leaked-password protection if password-based authentication is enabled or will be used. Do not treat this advisor item as a confirmed exploitable password issue in a Google-only flow.
 
+
+### 7.4 Phase C — least-privilege migration (staging only, 19 November 2026)
+
+A first database hardening migration was applied to the isolated Singapore staging project only:
+
+- Migration: `20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions`.
+- Repository migration file: `supabase/migrations/20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions.sql` on `feature/update-2-6-0-legal-privacy-security`.
+- `public.daily_activity_sessions`: revoke all table privileges from `anon`; revoke direct DELETE from `authenticated`; preserve authenticated SELECT/INSERT/UPDATE required by the current application and its RLS policies.
+- Future objects created by `postgres` migrations in `public`: revoke default table CRUD privileges from `anon` and `authenticated`; revoke default sequence USAGE/SELECT (retain UPDATE); revoke global default function EXECUTE from `PUBLIC` and schema-specific EXECUTE from `anon`/`authenticated`. Future RPC migrations must explicitly grant only the needed operations.
+- Remove direct EXECUTE on `public.guard_daily_activity_session_update()` and `public.guard_lesson_progress_update()` from `PUBLIC`, `anon` and `authenticated`; these are trigger-only functions, not RPC endpoints.
+
+#### Validation evidence
+
+- Staging migration history records version `20261119112433` with the expected name.
+- Staging `daily_activity_sessions`: anon SELECT/INSERT/UPDATE/DELETE all false; authenticated SELECT/INSERT/UPDATE true and DELETE false.
+- Staging trigger-only functions: anon/authenticated EXECUTE false.
+- Transactional PostgreSQL tests verified both trigger guards still execute for authenticated-role updates and reject direct/untrusted completion transitions with their expected errors despite direct EXECUTE being revoked.
+- A rollback-only probe created a temporary public table, sequence and function and verified that new objects created by `postgres` no longer inherit anon/authenticated table CRUD, sequence USAGE/SELECT or function EXECUTE. The probe transaction was rolled back.
+- Staging Security Advisor still reports the eight private-schema RLS-enabled/no-policy informational findings (intentional RPC-only access) and two authenticated SECURITY DEFINER warnings (reviewed, retained because the app requires them). No new finding was introduced by this migration.
+
+#### Important limits and follow-up
+
+- Production remains unchanged; the migration has not been applied there.
+- Existing production table/sequence/function grants were not globally rewritten. This migration changes one existing table, trigger-function grants, and defaults for future objects created by `postgres`.
+- The separate `supabase_admin` default-privilege entries remain platform-managed. Supabase's current guidance says these cannot be changed by project SQL and that the Data API default-exposure control changes only the `postgres` defaults. Continue creating app schema objects through controlled `postgres` migrations and inspect object ownership/grants.
+- No authenticated browser Mock User test was performed yet; full app-level staging smoke tests are still required before production rollout.
+- Leaked-password protection remains unverified in the Auth dashboard. The visible app uses Google OAuth only, so the advisor warning should not be treated as proof that a password login path is exposed. Confirm enabled providers before deciding whether to enable the feature.
+- The two SECURITY DEFINER RPCs remain callable by authenticated users by design: they have empty search paths and derive the caller from `auth.uid()`; the personal test exemption is retained. Re-review whenever either function changes.
+
 ### 7.2 Account and learning-history deletion
 
 The Profile currently provides a recent-authentication-gated Delete learning history action. It removes learning history, including lesson/practice records, Daily Learning sessions, Quiz session history, Flashcard sessions/mastery/review records, while preserving the account, saved words, profile/preferences and user-created Flashcard collections/cards. Daily allowance usage already consumed remains unchanged until reset.
@@ -301,8 +330,8 @@ Priorities are planning labels, not a legal risk rating.
 
 ### Phase C — Technical safeguards
 
-1. Revoke unnecessary anonymous privileges on daily_activity_sessions.
-2. Re-review SECURITY DEFINER functions, ownership, search path, EXECUTE grants and caller identity checks.
+1. [Staging migration completed] Revoke unnecessary anonymous privileges on daily_activity_sessions and tighten postgres default privileges; complete authenticated browser smoke tests before production approval.
+2. Re-review SECURITY DEFINER functions, ownership, search path, EXECUTE grants and caller identity checks. The two lesson/test-exemption functions were reviewed and intentionally retained for authenticated callers; their warning remains documented.
 3. Verify Auth provider configuration and harden it appropriately.
 4. Pin CDN dependencies, add integrity protections, review security headers/CSP and remove test-only production code where feasible.
 5. Implement server-side account deletion with recent re-authentication and cascade verification.
