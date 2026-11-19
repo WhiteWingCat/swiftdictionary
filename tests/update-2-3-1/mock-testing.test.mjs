@@ -54,6 +54,14 @@ test("mock adapter activates only on the exact feature preview with explicit opt
   assert.match(oauth.error.message,/disabled in MOCK TEST MODE/);
 });
 
+test("mock adapter fails closed on the base testing domain and unapproved hosts",()=>{
+  for(const host of ["swiftdictionary-testing.pages.dev","example.com"]){
+    const env=makeContext(host);
+    assert.notEqual(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);
+    assert.equal(env.window.__swiftDictionaryMock,undefined);
+  }
+});
+
 test("Quiz feature preview requires explicit opt-in and activates only on its exact host",async()=>{
   const env=makeContext("feature-update-2-4-0-quiz.swiftdictionary-testing.pages.dev");
   assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);

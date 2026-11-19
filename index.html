@@ -18719,13 +18719,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           const count=counts[type]||0, unavailable=dailyPracticeUnavailable&&type.startsWith("daily_"), width=Math.round(count/maxCount*100);
           return '<div class="activity-overview-row"><div class="activity-overview-heading"><strong>'+activityLabels[type]+'</strong><span>'+(unavailable?"Unavailable":count+(count===1?" completion":" completions"))+'</span></div><div class="activity-overview-track" role="img" aria-label="'+activityLabels[type]+': '+count+' completions"><span style="width:'+(unavailable?0:width)+'%"></span></div></div>';
         }).join(""):'<p class="muted-note">No completed learning activity recorded yet. '+(dailyPracticeUnavailable?"Daily activity history will appear after the server update.":"Your completed lessons and daily activities will appear here.")+'</p>';
-        const dashboardAllowanceUsageRows = [
-          ...(Array.isArray(allowanceUsageRows)?allowanceUsageRows.filter(row=>!["quiz","flashcard"].includes(row.activity_type)):[]),
+        const fallbackAllowanceRows = [
           ...(!quizAvailabilityQ.error&&Number.isInteger(Number(quizAvailabilityQ.data?.allowance?.used_count))
             ? [{activity_type:"quiz",used_count:Number(quizAvailabilityQ.data.allowance.used_count)}] : []),
           ...(!flashcardAllowanceQ.error&&Number.isInteger(Number(flashcardAllowanceQ.data?.used_count))
             ? [{activity_type:"flashcard",used_count:Number(flashcardAllowanceQ.data.used_count)}] : [])
         ];
+        const dashboardAllowanceUsageRows = Array.isArray(allowanceUsageRows)
+          ? [...allowanceUsageRows.filter(row=>!["quiz","flashcard"].includes(row.activity_type)),...fallbackAllowanceRows]
+          : (fallbackAllowanceRows.length ? fallbackAllowanceRows : null);
         renderDashboardAllowanceBars(plan,limits,dashboardAllowanceUsageRows,tz,personalTestAccess);
         const flashcardData=flashcardDataQ.error?null:(flashcardDataQ.data||{});
         const flashcardHistory=Array.isArray(flashcardData?.history)?flashcardData.history:[];

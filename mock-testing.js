@@ -1,5 +1,6 @@
 /* SwiftDictionary isolated mock testing adapter.
- * Enabled only on the dedicated Cloudflare Pages preview host with ?swiftMock=1.
+ * Enabled only on explicit Cloudflare preview hosts or local development hosts
+ * (localhost/127.0.0.1), and only with ?swiftMock=1.
  * All simulated account data is held in sessionStorage; no Supabase API calls are made.
  */
 (function () {
