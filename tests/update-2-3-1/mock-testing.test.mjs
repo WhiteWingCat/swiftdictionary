@@ -554,7 +554,7 @@ test("Mock Quiz includes Chinese integration only when Chinese is the selected t
 
 test("Flash Recall validates distinct choices before creating a server session and resets round state",()=>{
   const start=flashcardsSource.indexOf("  async function startGame(){");
-  const end=flashcardsSource.indexOf("\n  async function finishGame()",start);
+  const end=flashcardsSource.indexOf("\n  function finishGame()",start);
   assert.ok(start>=0&&end>start,"Flashcards must expose a startGame flow");
   const source=flashcardsSource.slice(start,end);
   assert.ok(source.indexOf("makeRound(deck)")<source.indexOf('rpc("start_my_flashcard_game"'),
@@ -576,8 +576,10 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
     "Only targets with three distinct distractors may be used");
   assert.match(source,/if\(!viable\.length\)throw new Error/,
     "A deck with no viable target must fail before the game session starts");
-  assert.match(source,/const target=viable\[Math\.floor\(Math\.random\(\)\*viable\.length\)\]/,
-    "Gameplay must select only from validated targets");
+  assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
+    "Gameplay must select only from validated targets that have not already appeared in this cycle");
+  assert.match(source,/state\.usedQuestionKeys\.add\(cardKey\(target\)\)/,
+    "Each selected question must be recorded to prevent repetition until the deck cycle is exhausted");
 });
 
 test("Flashcards explains the English-course limitation and resets collection selection after deletion",()=>{
