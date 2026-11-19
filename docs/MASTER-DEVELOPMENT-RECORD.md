@@ -211,10 +211,14 @@ The checklist below is retained only as historical planning context. **It is not
 - **Update 2.4.0 — Quiz:** **COMPLETED and released.** PR #8 merged; the 199-question bank and Quiz experience are live. See Sections 34–41 and the 2026-11-17 production-release archive.
 - **Update 2.4.1 — Fix & Changes:** **COMPLETED and released.** PR #10 merged; fixes and selector/translation improvements are live. See Section 42.
 - **Update 2.4.2 — Dashboard Quiz fixes:** **COMPLETED, deployed and owner-verified.** PR #11 merged at `65d0a35`; Pages deployment #44230831943 succeeded, and the owner confirmed both fixes on the live site. See Sections 43–44 and the 2026-11-18 archive.
-- **Update 2.5.0 — Flashcards:** Next planned milestone; Flashcard learning experience, review progress and allowance integration. Not yet started.
-- **Proposed Update 2.6.0 — Legal, Privacy & Terms Foundation:** remains planned after Update 2.5.0, subject to a fresh scope and legal review. Public/friend onboarding privacy safeguards remain important before inviting external users.
+- **Update 2.5.0 — Flashcards:** **COMPLETED, merged and deployed on 2026-11-19.** PR #12 merged at `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`; all eight production Supabase migrations were applied and verified; Cloudflare Pages production deployment succeeded. See the 2026-11-19 release archive.
+- **Update 2.6.0 — Legal, Privacy, Safety & Security:** **ACTIVE PLANNING / READ-ONLY BASELINE AUDIT COMPLETED.** Blueprint: `docs/UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md`. Remediation has not started. See `docs/conversation-archive/2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md`.
+- **Update 2.7.0 — Chinese Dictionary Expansion & Chinese course lessons:** planned after 2.6.0.
+- **Update 2.8.0 — Chinese Course Quiz & Flashcards:** planned after 2.7.0.
+- **Update 2.9.0 — English Dictionary, Lesson, Quiz & Flashcard expansion:** planned after 2.8.0.
+- **Update 3.0.0 — Introduction to Malay course:** planned major milestone after 2.9.0.
 
-Only Update 2.5.0 is the next product-development target. Completed releases must not be shown as active work.
+Only Update 2.6.0 is the current product-development target. Later roadmap order remains subject to owner reprioritisation.
 
 ## 6. Privacy, legal and content licensing checklist
 
@@ -2586,3 +2590,40 @@ The owner completed the latest testing preview review and requested two final fi
 ### Recovery
 
 Continue from `feature/update-2-5-0-flashcards` at `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`. Keep all internal development records on `docs/master-development-record`. PR #12 remains open and unmerged.
+
+
+## 2026-11-19 — Update 2.6.0 legal, privacy, safety and security baseline audit
+
+The owner asked to proceed with the post-2.5.0 legal/privacy/security milestone and said they rely on thorough investigation of Malaysian PDPA and other relevant requirements. A read-only baseline audit and initial legal research were completed; the detailed blueprint is `docs/UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md`, with session archive `docs/conversation-archive/2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md`.
+
+### Key legal findings
+
+- Act 709 applies to personal-data processing in connection with commercial transactions. The free, individually operated nature of SwiftDictionary does not automatically resolve applicability; the statutory personal/family/household exemption is not obviously applicable to a public learning service storing other people's account and learning data. Obtain Malaysian legal advice on the actual operator and activity.
+- If Act 709 applies, the Section 7 notice must include the required information and be provided in Bahasa Malaysia and English. The existing English privacy draft is stale and not publication-ready.
+- DPO screening must include the regular/systematic-monitoring criterion. Adaptive revision uses learner-performance data over time; do not assume a small user base removes this criterion.
+- Assess prescribed controller registration classes separately from DPO appointment. Complete current cross-border transfer, breach-notification and DPIA screening.
+- The global 16+ audience requires EU/EEA and UK targeting/applicability screening. UK Children's Code may be relevant to services likely to be accessed by 16–17-year-olds. Do not treat 16+ as a global exemption.
+
+### Key read-only technical findings
+
+- Production Supabase active/healthy, PostgreSQL 17.11, Tokyo primary DB; staging active/healthy, Singapore. Production health advisor returned no health lints.
+- Security advisor reports leaked-password protection disabled, two authenticated-callable SECURITY DEFINER functions and eight private-schema RLS/no-policy INFO notices. Private RPC-only tables have no direct browser-role grants; their no-policy state is intentional and should not be “fixed” with broad policies.
+- The two SECURITY DEFINER functions are `public.is_personal_learning_test_access()` and `public.record_completed_lesson_practice_result(...)`. Their reviewed definitions use empty search_path and caller identity via `auth.uid()`; preserve the owner's test bypass and review grants/callers rather than blindly changing them.
+- `public.daily_activity_sessions` has unnecessary broad privileges for `anon`, although RLS is enabled and no anonymous policy was observed. Prepare a reviewed migration to revoke anon access and validate authenticated workflows in staging.
+- User-owned application tables, including private Quiz and Flashcards tables, reference `auth.users(id)` with `ON DELETE CASCADE`. However, the current application has no self-service account-deletion workflow or account-deletion Edge Function/RPC.
+- Current Quiz schema stores selected option IDs and question/session snapshots. Older statements that individual Quiz answers are not stored are stale and must not be repeated in the next privacy notice.
+- Profile currently supports deletion of learning history while preserving the account, saved words, preferences and user-authored Flashcard collections/cards. This is distinct from account deletion.
+- The main site currently lacks public Privacy Policy and Terms links; feedback-to-GitHub handling on Cloudflare Pages needs review; Supabase JS uses a floating major-version CDN URL; third-party licence notices are present in the repository but not linked in the footer.
+- No analytics/ad-tracking code, document.cookie or geolocation API use was found in the source inspected. Supabase Auth persists its session in browser storage; localStorage is used for preferences/avatar/signed-out saved words. Provider request metadata and retention still need verification.
+
+### Next gates
+
+1. Confirm operator/controller identity and obtain Malaysian legal advice on Act 709 scope, personal/household exemption, DPO criterion and registration class.
+2. Verify provider/subprocessor locations, Auth/log/backup/support processing, contractual safeguards and cross-border transfer basis.
+3. Replace the stale privacy draft with accurate Bahasa Malaysia and English notices; prepare Terms, contact/request route and content/licensing disclosures.
+4. Implement reviewed least-privilege database migration for `daily_activity_sessions` and test in staging.
+5. Define retention, secure account deletion, breach response, DPIA screening and access/correction/export handling.
+6. Pin dependencies and review security headers/CSP, feedback flow, mock test adapter and visible licence notices.
+7. Complete staging tests and owner/legal review before production approval.
+
+No production settings, database schema/data, OAuth configuration, application code, merge or deployment were changed in this audit. No production migration or deployment is authorised by this record.
