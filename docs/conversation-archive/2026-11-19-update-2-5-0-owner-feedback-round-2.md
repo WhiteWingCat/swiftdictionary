@@ -58,14 +58,14 @@ Current branch commit at archive time: `3a96ba41e65da00b0cf5827ac6bbb71159f7c7f3
 ## Validation
 
 - GitHub Actions Flashcards workflow run [#44471295332](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44471295332) passed on commit `3a96ba41e65da00b0cf5827ac6bbb71159f7c7f3`.
-- Both the static/Mock regression job and Chromium Mock User browser job passed. Coverage includes:
+- Both the static/Mock regression job and Chromium Mock User browser job passed. All **10 Chromium Mock User browser tests** passed. Coverage includes:
   - 12 approved timing schedules and 0.2-second reductions/caps.
   - 60-second results flow and two-second Time's Up transition.
   - 120-second challenge remaining active after 60 seconds.
   - Chinese interface and translated English-learning prompts.
   - Dashboard statistics and Weak Memory overlay staying on Dashboard.
   - Lessons/Quiz banners and Dictionary Filters overlay.
-- The disposable local Supabase `quiz-db-foundation` job passed on the current commit, including the new duration migration and authenticated Flashcard RPC SQL test. A separate Quiz runtime job was still running when this archive was written.
+- GitHub Actions local Supabase workflow run [#44471295226](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44471295226) passed both jobs. The `quiz-db-foundation` job applied the new duration migration in its isolated database and passed the authenticated Flashcard RPC SQL test; the companion local Auth/RPC job also passed the authenticated Chromium Quiz runtime tests.
 - The separate 2.3.x regression workflow remains non-green because it expects an internal SQL draft to exist on `main` even though project documentation is maintained on `docs/master-development-record`, and it contains a local test-server Mock-mode expectation. The Dashboard nesting issue was corrected; the dedicated 2.5.0 browser suite passes.
 - Cloudflare Pages branch preview URL was not independently verified. Retrieve the exact latest preview URL from Cloudflare Pages → project → Deployments for `feature/update-2-5-0-flashcards`; do not rely on a guessed hostname.
 
