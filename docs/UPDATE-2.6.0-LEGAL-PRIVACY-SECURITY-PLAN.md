@@ -552,3 +552,16 @@ The current application has meaningful privacy protections already: account-scop
 However, this is not yet a complete legal/privacy/security foundation. The privacy notice is stale, Terms of Service are absent, account deletion is not self-service, retention and provider transfer details remain unresolved, and the anonymous grant on daily_activity_sessions has been removed in staging but remains unchanged in production pending approval.
 
 **No production settings, schema, data, OAuth configuration or deployments were changed by this review.** The staging-only migration and implementation branch are recorded above. The next implementation work must proceed through reviewed code changes and staging validation; no production migration or deployment is authorised by this document.
+
+
+### 7.8 Phase G — ACL re-verification and staging gap analysis (read-only, 19 November 2026)
+
+A targeted re-check of effective PostgreSQL ACLs confirmed the exact staging state and identified one residual gap that the earlier Phase E summary did not isolate:
+
+- Production `public.daily_activity_sessions` still has broad anon/authenticated privileges; staging has only authenticated SELECT/INSERT/UPDATE and no anon grant.
+- Production anon retains SELECT/UPDATE/USAGE on four sequences. Staging has removed anon SELECT/USAGE, but **anon UPDATE remains on three sequences**: `learning_activity_log_id_seq`, `lesson_practice_results_id_seq`, and `lesson_progress_id_seq`. The duplicate `lesson_practice_results_id_seq1` has no anon grant in staging.
+- Production's two trigger-only guard functions still grant EXECUTE to PUBLIC, anon and authenticated. Staging has no PUBLIC/anon/authenticated EXECUTE grant for these guards. Any production revocation must include PUBLIC; removing only the explicit API-role grants would leave inherited execution.
+- Staging still has TRUNCATE/REFERENCES/TRIGGER/MAINTAIN on eight older/bootstrap-created public tables. Review each object individually; do not confuse these object privileges with RLS row visibility, and preserve intentional public SELECT on `languages` and `learning_plan_limits`.
+- Staging's `postgres` default ACLs no longer show the broad anon/authenticated defaults seen in production. Platform-owned `supabase_admin` defaults remain outside project-level control.
+
+No data was read and no database writes or migrations were performed. The follow-up migration must be generated using the Supabase CLI workflow; the CLI is unavailable in this environment, so no migration filename was fabricated. Production remains untouched pending complete staging validation and explicit approval. See [Phase G archive](conversation-archive/2026-11-19-update-2-6-0-phase-g-acl-reverification.md) for the detailed result and revised remediation sequence.
