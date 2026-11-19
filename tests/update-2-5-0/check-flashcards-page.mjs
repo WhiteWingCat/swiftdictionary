@@ -24,9 +24,16 @@ if(!/id=["']flashcardsApp["']/.test(html))throw new Error("Flashcards page mount
 if(/Flashcards are being prepared|Flashcards will become available/.test(html))throw new Error("Outdated Coming Soon copy remains.");
 for(const mode of ["word","definition","mixed","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
 for(const [needle,label] of [
-  ["memoryFloor:2,answerFloor:5","Beginner timer floors"],
-  ["memoryFloor:1.5,answerFloor:4","Intermediate timer floors"],
-  ["memoryFloor:.7,answerFloor:3","Advanced timer floors"],
+  ["const REDUCTION_STEP = 0.2","Fixed 0.2-second timing reduction"],
+  ["word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9}","Word Recall Beginner schedule"],
+  ["word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9},intermediate:{memory:5,answer:10,memoryFloor:2,answerFloor:7},advanced:{memory:3,answer:9,memoryFloor:1,answerFloor:5}","Word Recall schedules"],
+  ["definition:{beginner:{memory:6,answer:5,memoryFloor:4,answerFloor:3}","Definition Recall schedules"],
+  ["sentence:{beginner:{memory:7,answer:10,memoryFloor:5,answerFloor:7}","Sentence Recall schedules"],
+  ["mixed:{beginner:{memory:8,answer:12,memoryFloor:6,answerFloor:9}","Mixed Recall schedules"],
+  ["flash-game-clock.is-warning","20-second orange timer warning"],
+  ["flash-game-clock.is-danger","10-second red timer warning"],
+  ["flash-review-modal","Expanded, fixed-size weak-memory review"],
+  ["flash-review-tab[data-value=word]","Recall-coloured weak-memory navigation"],
   ["60000","60-second game duration"],
   ["Your game results","End-of-game results prompt"],
   ["setTimeout(showMemory,3000)","Three-second answer feedback"],
