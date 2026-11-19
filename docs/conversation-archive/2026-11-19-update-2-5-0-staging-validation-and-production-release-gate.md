@@ -60,9 +60,9 @@ Production project `SwiftDictionary` (`pzymiesazmpyvnfvsbsc`, ap-northeast-1) ha
 
 After the owner explicitly approved the production migrations and merge, PR #12 was successfully merged into `main` on 2026-11-19. Merge commit: `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`. PR state is `closed`, `merged=true`.
 
-Cloudflare Pages is configured with `main` as its production branch and automatic production deployments enabled. The merge triggered production Pages workflow #44503335368; it was `in_progress` at the latest status check. Feature-head Pages checks for both `swiftdictionary-testing` and `swiftdictionary` had succeeded. Separate Cloudflare Workers Build preview checks failed because the Worker preview target does not exist; these are distinct from the Pages deployments.
+Cloudflare Pages is configured with `main` as its production branch and automatic production deployments enabled. The merge triggered production Pages workflow #44503335368, which completed successfully; its build, report-build-status and deploy jobs all passed. Cloudflare Pages check-runs for both `swiftdictionary` and `swiftdictionary-testing` report `Deployed successfully` for merge commit `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`. Deployment preview URLs: production Pages project `https://ddfac324.swiftdictionary.pages.dev`; testing Pages project `https://83cc68b4.swiftdictionary-testing.pages.dev`. The separate GitHub Pages dynamic deployment workflow also completed and reported `https://whitewingcat.github.io/swiftdictionary/`; Cloudflare Pages remains the configured production hosting target. The merge-commit Cloudflare Workers Build checks also completed successfully.
 
-**Decision: PR #12 is merged and the production database is migrated.** Production website publication is awaiting confirmation that Cloudflare Pages workflow #44503335368 completes successfully. No further schema migration is pending for Update 2.5.0.
+**Decision: Update 2.5.0 is merged and deployed.** PR #12 is merged, all eight production Supabase migrations are applied and verified, and the Cloudflare Pages production deployment completed successfully. No further schema migration is pending for Update 2.5.0.
 
 ## Legal and privacy
 
