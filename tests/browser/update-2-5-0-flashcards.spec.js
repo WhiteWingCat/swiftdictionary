@@ -30,7 +30,8 @@ async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",
   await page.locator('[data-action="open-setup"][data-mode="'+mode+'"]').click();
   await expect(page.locator("#flashSetupTitle")).toBeVisible();
   await page.locator("#flashDifficulty").selectOption(difficulty);
-  await page.locator("#flashChallengeDuration").selectOption(String(duration));
+  await page.locator('[data-action="set-duration"][data-value="'+duration+'"]').click();
+  await expect(page.locator('[data-action="set-duration"][data-value="'+duration+'"]')).toHaveAttribute("aria-pressed","true");
   await page.locator("#flashGameCollection").selectOption(cardSet);
   await page.locator('[data-action="begin-game"]').click();
   await expect(page.locator(".flash-game")).toBeVisible();
@@ -68,8 +69,9 @@ test("Flashcards home is simplified, colour-coded and opens a compact setup prom
   await expect(page.locator("#flashcardsApp")).not.toContainText("Start 60 seconds game");
   await page.locator('[data-action="open-setup"][data-mode="mixed"]').click();
   await expect(page.locator("#flashSetupTitle")).toContainText("Mixed Recall");
-  await expect(page.locator("#flashChallengeDuration")).toBeVisible();
-  await expect(page.locator("#flashChallengeDuration")).toHaveValue("60");
+  await expect(page.locator('[data-action="set-duration"][data-value="60"]')).toBeVisible();
+  await expect(page.locator('[data-action="set-duration"][data-value="60"]')).toHaveAttribute("aria-pressed","true");
+  await expect(page.locator("#flashChallengeDuration")).toHaveCount(0);
   await expect(page.locator("#flashGameCollection")).toBeVisible();
   await expect(page.locator('[data-action="begin-game"]')).toBeVisible();
 });
