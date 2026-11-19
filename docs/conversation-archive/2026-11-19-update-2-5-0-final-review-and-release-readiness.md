@@ -39,9 +39,9 @@ The owner requested both fixes plus a release-readiness review and merge decisio
 
 ## Validation and CI evidence
 
-- Workflow #44496878670: JavaScript syntax and Flashcards page-integration checks passed; mock account/allowance/collection/timer regression tests passed (25/25). The Chromium Mock User browser job was automatically triggered by the branch push and remained in progress at the last status check. No separate manual Mock User test was started; the owner did not request another Mock User cycle.
+- Workflow #44496878670: JavaScript syntax and Flashcards page-integration checks passed; mock account/allowance/collection/timer regression tests passed (25/25); Chromium Mock User browser tests passed (14/14). This browser job ran automatically because the branch push triggers the repository workflow. No separate manual Mock User cycle was started.
 - Workflow #44496878607: PostgreSQL Quiz foundation job passed. Local Supabase Auth/Quiz runtime integration was still in progress at the last status check. The preceding attempt's browser fixture failed because it did not provide the required three distinct topics for an Advanced Quiz (`Quiz requires at least three distinct topics`). The latest run is not marked passed until it completes.
-- Workflow #44496878563: PostgreSQL 17 migration, policy, allowance-ledger, deletion and concurrency assertions passed. Browser smoke and local Supabase Auth compatibility jobs were still in progress at the last status check.
+- Workflow #44496878563: all jobs passed, including PostgreSQL 17 migration, policy, allowance-ledger, deletion, concurrency, browser smoke and local Supabase Auth compatibility.
 - Prior workflow #44492546210 passed 25/25 mock account tests and 14/14 Chromium Mock User tests, but it predates commit `71d8246` and is not treated as validation of the latest fixes.
 
 ## Release-readiness review and merge decision
@@ -50,7 +50,7 @@ The owner requested both fixes plus a release-readiness review and merge decisio
 
 Reasons:
 
-1. Current CI workflows were not all complete at the review checkpoint.
+1. The Quiz database foundation workflow was still in progress at the latest check; its companion PostgreSQL foundation job passed.
 2. The Quiz runtime suite previously failed on insufficient synthetic topic coverage; confirm the current run completes and that no product defect remains.
 3. The two new permanent lesson IDs still exist in the frontend and content-catalogue migration draft, but that catalogue migration has not been applied to staging or production. Live lesson completion remains gated on explicit owner approval and the appropriate migration.
 4. Flashcards database migrations need ordered staging validation and explicit owner approval before production rollout.
