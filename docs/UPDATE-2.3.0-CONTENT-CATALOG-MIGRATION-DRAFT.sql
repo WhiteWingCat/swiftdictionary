@@ -204,6 +204,8 @@ values
   ('permanent_lesson','b-articles',null,'nouns-and-articles','beginner','en',true),
   ('permanent_lesson','b-verb-combinations',null,'everyday-vocabulary','beginner','en',true),
   ('permanent_lesson','b-countable-nouns',null,'nouns-and-quantity','beginner','en',true),
+  ('permanent_lesson','b-greetings-polite-expressions',null,'everyday-vocabulary','beginner','en',true),
+  ('permanent_lesson','b-places-getting-around',null,'everyday-vocabulary','beginner','en',true),
   ('permanent_lesson','i-perfect',null,'verb-tenses','intermediate','en',true),
   ('permanent_lesson','i-phrasal',null,'phrasal-verbs','intermediate','en',true),
   ('permanent_lesson','i-collocations',null,'collocations','intermediate','en',true),
