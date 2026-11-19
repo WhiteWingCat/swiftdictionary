@@ -2627,3 +2627,16 @@ The owner asked to proceed with the post-2.5.0 legal/privacy/security milestone 
 7. Complete staging tests and owner/legal review before production approval.
 
 No production settings, database schema/data, OAuth configuration, application code, merge or deployment were changed in this audit. No production migration or deployment is authorised by this record.
+
+
+## 2026-11-19 — Update 2.6.0 Phase A operator and age-gate clarification
+
+The owner confirmed SwiftDictionary is operated personally as an individual, not through a registered company. This fact has been added to the legal/privacy blueprint but does not resolve Act 709 applicability or the personal/household exemption.
+
+A low-data 16+ self-declaration flow is documented as a proposal: show the age question before Google OAuth/account creation, proceed only after an affirmative response, decline access after a negative response, and record only the authenticated account ID, affirmative declaration, timestamp and notice version. This is not age verification and cannot prove actual age. Avoid collecting date of birth or identity documents without a documented legal requirement.
+
+A significant Malaysian issue is recorded: Personal Data Protection Regulations 2013, Regulation 3(3), requires parental/guardian/person-with-parental-responsibility consent for consent under Regulation 3 where the data subject is under 18; Regulation 3(5) places the burden of proof on the data user. The proposed teen self-declaration does not resolve this for 16–17-year-olds where that consent rule applies. Legal advice is required on the processing basis and applicability before implementation. The Malaysian social-media age-verification requirements for licensed providers are not assumed to apply to the current private dictionary/learning service.
+
+Branch housekeeping was confirmed from the owner: seven merged historical branches and the planning-only 2.3.0 branch were deleted. Current retained branches are main, docs/master-development-record, feature/update-2-5-0-flashcards, feature/update-2-4-2-dashboard-quiz-fixes, feature/update-2-4-1-fix-changes and work/update-2-4-0-quiz-feedback. The latter is preserved because it contains unique work.
+
+No age gate, application change, database migration, Auth setting change, merge or deployment was performed. The next 2.6.0 work is legal applicability/DPO/registration assessment, provider/subprocessor and transfer verification, DPIA screening, then prioritised technical remediation and staging tests.
