@@ -225,14 +225,20 @@
     const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
-    const mode=state.mode==="mixed"?["word","definition","sentence"][Math.floor(Math.random()*3)]:state.mode;
-    const optionValue=w=>mode==="word"?translationFor(w):w.word,normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
-    const viable=targets.filter(target=>{const correct=mode==="word"?translationFor(target):target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
-    if(!viable.length)throw new Error("This card set does not contain four distinct choices for this recall mode.");
-    const fresh=viable.filter(item=>!state.usedQuestionKeys.has(cardKey(item)));
-    if(!fresh.length)state.usedQuestionKeys.clear();
-    const questionPool=fresh.length?fresh:viable;
+    const normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
+    const modes=state.mode==="mixed"?["word","definition","sentence"]:[state.mode];
+    const pools=modes.map(mode=>{
+      const optionValue=w=>mode==="word"?translationFor(w):w.word;
+      const viable=targets.filter(target=>{const correct=mode==="word"?translationFor(target):target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
+      return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(cardKey(item)))};
+    }).filter(pool=>pool.viable.length);
+    if(!pools.length)throw new Error("This card set does not contain four distinct choices for any recall mode.");
+    let freshPools=pools.filter(pool=>pool.fresh.length);
+    if(!freshPools.length){state.usedQuestionKeys.clear();freshPools=pools;}
+    const chosenPool=freshPools[Math.floor(Math.random()*freshPools.length)];
+    const mode=chosenPool.mode,viable=chosenPool.viable,questionPool=chosenPool.fresh.length?chosenPool.fresh:viable;
     const target=questionPool[Math.floor(Math.random()*questionPool.length)];
+    const optionValue=w=>mode==="word"?translationFor(w):w.word;
     state.usedQuestionKeys.add(cardKey(target));
     let memory="",prompt="",correct="";
     if(mode==="word"){memory=target.word;prompt=uiText("Choose the correct meaning","请选择正确的中文释义");correct=translationFor(target);}
