@@ -5,6 +5,7 @@ on:
     branches:
       - feature/update-2-4-0-quiz
       - feature/update-2-4-2-dashboard-quiz-fixes
+      - feature/update-2-5-0-flashcards
   pull_request:
     branches:
       - main
@@ -94,6 +95,17 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117113912_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_translation_language_eligibility_fix.sql"
+
+      - name: Apply Flashcards schema, review history and 60/120-second challenge migration
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118110000_swiftdictionary_update_2_5_0_learning_history_deletion_preserve_quiz.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118143000_flashcards_mixed_recall_and_review_history.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261118150000_flashcards_review_history_deletion.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119130000_flashcards_60_120_second_challenges.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_authenticated_rpcs.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase

@@ -25,10 +25,11 @@ async function openMockFlashcards(page) {
   await expect(page.locator(".flash-mode")).toHaveCount(4);
 }
 
-async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all") {
+async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60) {
   await page.locator('[data-action="open-setup"][data-mode="'+mode+'"]').click();
   await expect(page.locator("#flashSetupTitle")).toBeVisible();
   await page.locator("#flashDifficulty").selectOption(difficulty);
+  await page.locator("#flashChallengeDuration").selectOption(String(duration));
   await page.locator("#flashGameCollection").selectOption(cardSet);
   await page.locator('[data-action="begin-game"]').click();
   await expect(page.locator(".flash-game")).toBeVisible();
@@ -66,7 +67,8 @@ test("Flashcards home is simplified, colour-coded and opens a compact setup prom
   await expect(page.locator("#flashcardsApp")).not.toContainText("Start 60 seconds game");
   await page.locator('[data-action="open-setup"][data-mode="mixed"]').click();
   await expect(page.locator("#flashSetupTitle")).toContainText("Mixed Recall");
-  await expect(page.locator("#flashDifficulty")).toBeVisible();
+  await expect(page.locator("#flashChallengeDuration")).toBeVisible();
+  await expect(page.locator("#flashChallengeDuration")).toHaveValue("60");
   await expect(page.locator("#flashGameCollection")).toBeVisible();
   await expect(page.locator('[data-action="begin-game"]')).toBeVisible();
 });
@@ -125,10 +127,40 @@ test("60-second completion shows results and requires closing the prompt to retu
   await expect(page.locator("#flashGameClock")).toHaveClass(/flash-game-clock/);
   await expect(page.locator("#flashGameClock")).toHaveCSS("background-color","rgb(36, 89, 166)");
   await page.clock.fastForward(61000);
+  await expect(page.locator(".flash-times-up-text")).toHaveText("Time's Up!");
+  await page.clock.fastForward(2000);
   await expect(page.locator("#flashResultTitle")).toBeVisible();
+  await expect(page.locator(".flash-modal")).toContainText("60-second Flash Recall summary");
   await expect(page.locator(".flash-modal")).toContainText("Accuracy");
   await expect(page.locator('[data-action="close-result"]')).toBeVisible();
   await page.locator('[data-action="close-result"]').click();
   await expect(page.locator(".flash-banner")).toBeVisible();
   await expect(page.locator("#flashResultTitle")).toHaveCount(0);
+});
+
+test("120-second challenge is available and remains active after the first 60 seconds",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await beginRecall(page,"word","beginner","all",120);
+  await expect(page.locator("#flashGameClock")).toHaveText("120s");
+  await page.clock.fastForward(61000);
+  await expect(page.locator(".flash-game")).toBeVisible();
+  await expect(page.locator("#flashGameClock")).toHaveText("59s");
+  await expect(page.locator(".flash-times-up-text")).toHaveCount(0);
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+});
+
+test("Dashboard Weak Memory opens as an overlay and keeps Dashboard as the active page",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(()=>{
+    document.getElementById("flashcardsPage").hidden=true;
+    document.getElementById("profilePage").hidden=false;
+  });
+  await page.evaluate(()=>window.SwiftDictionaryFlashcards.openReviewFromDashboard());
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toBeVisible();
+  await page.locator('#flashOverlayRoot [data-action="close-overlay"]').click();
+  await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toHaveCount(0);
+  await expect(page.locator("#profilePage")).toBeVisible();
 });

@@ -81,8 +81,28 @@
     .account-status { color:var(--muted); font-size:.85rem; }
 
     .primary-nav { display:flex; gap:8px; align-items:center; overflow-x:auto; padding:0 0 12px; scrollbar-width:thin; }
-    .primary-nav button { flex:0 0 auto; border:1px solid transparent; border-radius:10px; background:transparent; color:var(--muted); padding:9px 14px; }
-    .primary-nav button[aria-current="page"] { color:var(--accent); background:var(--accent-bg); border-color:#4c5b8b; }
+    .primary-nav button { flex:0 0 auto; display:inline-flex;align-items:center;gap:9px;border:1px solid #7185ad;border-radius:12px;background:linear-gradient(145deg,#2b3854,#1d293f);color:#fff;padding:10px 17px;font-weight:850;letter-spacing:.01em;box-shadow:0 5px 0 #111a2b,0 9px 18px #0004;transition:transform .15s,filter .15s; }
+    .primary-nav button:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .primary-nav button[aria-current="page"] { color:#fff;background:linear-gradient(145deg,#526c9f,#30466e);border-color:#9bb5e9;box-shadow:0 5px 0 #17243c,0 10px 20px #0006; }
+    .primary-nav .nav-icon{font-size:1.08rem;line-height:1;filter:drop-shadow(0 2px 2px #0007)}
+    .learning-banner{position:relative;display:flex;justify-content:space-between;align-items:center;gap:18px;margin:0 0 22px;padding:28px 32px;border:1px solid #344a68;border-radius:22px;background:radial-gradient(circle at 88% 15%,#7096bd55,transparent 25%),linear-gradient(120deg,#15263b,#203c58 60%,#1b2941);box-shadow:0 16px 30px #0004;color:#f4f8ff}
+    .learning-banner h1{font-size:clamp(1.8rem,4vw,2.3rem);margin:0 0 8px;color:#f4f8ff}
+    .learning-banner p{margin:0;color:#c4d4ea;max-width:720px}
+    .learning-banner .eyebrow{color:#a9c3e5;font-weight:800;letter-spacing:.1em}
+    .learning-banner-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .learning-banner .learning-help-button{background:#ffffff18;border-color:#ffffff55;color:#fff;box-shadow:0 4px 0 #0c1728}
+    .learning-banner .secondary-button{background:#ffffff18;border-color:#ffffff55;color:#fff;box-shadow:0 4px 0 #0c1728}
+    .category-button,.filter-button,.secondary-button,.difficulty-tabs button,.quiz-session-top button,.quiz-question-actions button,.quiz-results-actions button{box-shadow:0 3px 0 #0004,0 6px 12px #0002;font-weight:700}
+    .dictionary-filter-backdrop{position:fixed;inset:0;z-index:1500;display:grid;place-items:center;padding:16px;background:#050910bb;backdrop-filter:blur(7px)}
+    .dictionary-filter-backdrop[hidden]{display:none}
+    .dictionary-filter-modal{width:min(760px,100%);max-height:min(82vh,760px);overflow:auto;padding:22px;border:1px solid #3a4558;border-radius:20px;background:var(--panel);box-shadow:0 24px 70px #0009}
+    .dictionary-filter-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+    .dictionary-filter-heading h2{margin:0}
+    #dictionaryFiltersContent{display:grid;gap:16px}
+    #dictionaryFiltersContent .category-row{display:flex;flex-wrap:wrap;gap:8px}
+    #dictionaryFiltersContent .category-button,#dictionaryFiltersContent #savedFilter{padding:9px 13px;border-radius:10px}
+    #dictionaryFiltersContent .alphabet{margin:0}
+    @media(max-width:640px){.learning-banner{align-items:flex-start;padding:22px 18px}.learning-banner-actions{gap:5px}.primary-nav button{padding:9px 12px}}
     .top-actions { flex-wrap:wrap; justify-content:flex-end; }
     .course-controls { display:flex; align-items:center; gap:9px; margin:0; padding:7px; border:1px solid #52658f; border-radius:16px; background:linear-gradient(135deg,#202b46 0%,#172033 58%,#20283a 100%); box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.07); }
     .course-controls label { display:grid; gap:5px; min-width:0; padding:7px 10px; border:1px solid rgba(151,174,231,.24); border-radius:11px; background:rgba(8,14,27,.48); color:#dbe5ff; font-size:.72rem; font-weight:800; letter-spacing:.035em; text-transform:uppercase; }
@@ -498,10 +518,10 @@
         </div></div>
     </div>
     <nav class="wrap primary-nav" aria-label="Main navigation">
-      <button type="button" data-page="dictionary" aria-current="page">Dictionary</button>
-      <button type="button" data-page="lessons">Lessons</button>
-      <button type="button" data-page="quiz">Quiz</button>
-      <button type="button" data-page="flashcards">Flashcards</button>
+      <button type="button" data-page="dictionary" aria-current="page"><span class="nav-icon" aria-hidden="true">🔎</span><span>Dictionary</span></button>
+      <button type="button" data-page="lessons"><span class="nav-icon" aria-hidden="true">📖</span><span>Lessons</span></button>
+      <button type="button" data-page="quiz"><span class="nav-icon" aria-hidden="true">🧠</span><span>Quiz</span></button>
+      <button type="button" data-page="flashcards"><span class="nav-icon" aria-hidden="true">🗂️</span><span>Flashcards</span></button>
     </nav>
   </header>
 
@@ -511,22 +531,30 @@
       <div class="hero-banner-content"><div class="eyebrow">English &amp; 简体中文 · Made clear</div><h1>SwiftDictionary</h1><p>Explore vocabulary, pinyin, meanings, examples, and character structure in one clean learning space.</p></div>
     </section>
     <section class="hero">
-      <div id="categoryRow" class="category-row" aria-label="Filter by part of speech">
-        <button class="category-button active" type="button" data-category="all" aria-pressed="true">All categories</button>
-        <button class="category-button" type="button" data-category="noun" aria-pressed="false">Nouns</button>
-        <button class="category-button" type="button" data-category="verb" aria-pressed="false">Verbs</button>
-        <button class="category-button" type="button" data-category="adjective" aria-pressed="false">Adjectives</button>
-        <button class="category-button" type="button" data-category="adverb" aria-pressed="false">Adverbs</button>
-        <button class="category-button" type="button" data-category="other" aria-pressed="false">Other / multiple uses</button>
-      </div>
       <div class="search-row">
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
           <input id="search" type="search" placeholder="Search a word..." autocomplete="off" aria-label="Search words">
         </label>
-        <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
+        <button id="openDictionaryFilters" class="filter-button" type="button" aria-haspopup="dialog" aria-controls="dictionaryFiltersOverlay">☷ Filters</button>
       </div>
-      <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
+      <div id="dictionaryFiltersOverlay" class="dictionary-filter-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="dictionaryFiltersTitle">
+        <section class="dictionary-filter-modal">
+          <div class="dictionary-filter-heading"><h2 id="dictionaryFiltersTitle">Dictionary filters</h2><button id="closeDictionaryFilters" class="secondary-button" type="button" aria-label="Close filters">×</button></div>
+          <div id="dictionaryFiltersContent">
+            <div id="categoryRow" class="category-row" aria-label="Filter by part of speech">
+              <button class="category-button active" type="button" data-category="all" aria-pressed="true">All categories</button>
+              <button class="category-button" type="button" data-category="noun" aria-pressed="false">Nouns</button>
+              <button class="category-button" type="button" data-category="verb" aria-pressed="false">Verbs</button>
+              <button class="category-button" type="button" data-category="adjective" aria-pressed="false">Adjectives</button>
+              <button class="category-button" type="button" data-category="adverb" aria-pressed="false">Adverbs</button>
+              <button class="category-button" type="button" data-category="other" aria-pressed="false">Other / multiple uses</button>
+            </div>
+            <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
+            <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
+          </div>
+        </section>
+      </div>
     </section>
 
     <section aria-labelledby="explore-title">
@@ -544,7 +572,7 @@
     </div>
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
-      <div class="learning-page-heading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div>
+      <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p>Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
     <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
@@ -572,7 +600,7 @@
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
-      <div class="quiz-page-heading"><div><span class="eyebrow">Knowledge check</span><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div style="display:flex;gap:8px;align-items:center"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></div>
+      <section class="learning-banner" aria-labelledby="quizHeading"><div><p class="eyebrow">KNOWLEDGE CHECK</p><h1 id="quizHeading">Quiz</h1><p>Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></section>
       <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
@@ -615,6 +643,12 @@
           <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
           <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-bars"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
           <details open><summary>Quiz history</summary><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></details>
+        </section>
+        <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
+          <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
+          <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
+          <div class="stat-card"><strong id="dashboardFlashcardAccuracy">—</strong><span>Recent accuracy</span></div>
+        </div><div class="profile-card" style="margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h4 style="margin:0 0 5px">Weak Memory</h4><p id="dashboardFlashcardWeakSummary" class="muted-note" style="margin:0">Loading weak-memory summary…</p></div><button type="button" class="primary-button" data-dashboard-flashcard-review>Review weak memory</button></div></div><p id="dashboardFlashcardStatus" class="muted-note">Statistics are based on your recent completed Flashcard games.</p></section>
         </section>
         <section class="profile-card"><h3>Practice insights</h3>
           <div class="profile-grid">
@@ -17976,6 +18010,11 @@
       savedFilter.textContent = onlySaved ? "★ Showing saved" : "☆ Saved words";
       render();
     });
+    const dictionaryFiltersOverlay=document.getElementById("dictionaryFiltersOverlay");
+    document.getElementById("openDictionaryFilters").addEventListener("click",()=>{dictionaryFiltersOverlay.hidden=false;document.getElementById("closeDictionaryFilters").focus();});
+    document.getElementById("closeDictionaryFilters").addEventListener("click",()=>{dictionaryFiltersOverlay.hidden=true;document.getElementById("openDictionaryFilters").focus();});
+    dictionaryFiltersOverlay.addEventListener("click",event=>{if(event.target===dictionaryFiltersOverlay)dictionaryFiltersOverlay.hidden=true;});
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!dictionaryFiltersOverlay.hidden){dictionaryFiltersOverlay.hidden=true;document.getElementById("openDictionaryFilters").focus();}});
     document.getElementById("closeButton").addEventListener("click", closeModal);
     // The dimmed backdrop intentionally blocks the word grid while the detail drawer is open.
     backdrop.addEventListener("click", event => { if (event.target === backdrop) event.preventDefault(); });
@@ -18278,6 +18317,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     window.addEventListener("hashchange", showHashPage);
     window.addEventListener("popstate", showHashPage);
+    document.getElementById("profileContent").addEventListener("click", event => {
+      if (event.target.closest("[data-dashboard-flashcard-review]")) {
+        if (window.SwiftDictionaryFlashcards?.openReviewFromDashboard) window.SwiftDictionaryFlashcards.openReviewFromDashboard();
+      }
+    });
     document.getElementById("profileSignIn").addEventListener("click", () => document.getElementById("accountDialog").classList.add("open"));
     document.getElementById("profileSignOut").addEventListener("click", async () => {
       if (supabaseClient) { const {error} = await supabaseClient.auth.signOut(); if (error) accountStatus.textContent = error.message; }
@@ -18554,7 +18598,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try {
         await preferenceWriteQueue;
         await ensureProfileRows();
-        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ] = await Promise.all([
+        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -18569,7 +18613,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.rpc("is_personal_learning_test_access"),
           supabaseClient.rpc("get_my_quiz_history",{p_limit:5}),
           supabaseClient.rpc("get_my_quiz_availability"),
-          supabaseClient.rpc("get_my_flashcard_allowance")
+          supabaseClient.rpc("get_my_flashcard_allowance"),
+          supabaseClient.rpc("get_my_flashcard_data")
         ]);
         let profileQ=profileInitialQ;
         if(profileQ.error&&/avatar_icon|PGRST204|42703/i.test(profileQ.error.message||"")) {
@@ -18682,6 +18727,20 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
             ? [{activity_type:"flashcard",used_count:Number(flashcardAllowanceQ.data.used_count)}] : [])
         ];
         renderDashboardAllowanceBars(plan,limits,dashboardAllowanceUsageRows,tz,personalTestAccess);
+        const flashcardData=flashcardDataQ.error?null:(flashcardDataQ.data||{});
+        const flashcardHistory=Array.isArray(flashcardData?.history)?flashcardData.history:[];
+        const flashcardAttempts=flashcardHistory.reduce((sum,row)=>sum+Math.max(0,Number(row.words_seen)||0),0);
+        const flashcardCorrect=flashcardHistory.reduce((sum,row)=>sum+Math.max(0,Number(row.correct_count)||0),0);
+        const flashcardWeakItems=(flashcardData?.review_items||[]).filter(row=>Number(row.incorrect_count)>0);
+        document.getElementById("dashboardFlashcardGames").textContent=flashcardData?flashcardHistory.length:"—";
+        document.getElementById("dashboardFlashcardAttempts").textContent=flashcardData?flashcardAttempts:"—";
+        document.getElementById("dashboardFlashcardAccuracy").textContent=flashcardData?(flashcardAttempts?Math.round(flashcardCorrect/flashcardAttempts*100)+"%":"—"):"—";
+        document.getElementById("dashboardFlashcardWeakSummary").textContent=flashcardData
+          ? (flashcardWeakItems.length?flashcardWeakItems.length+" items to revisit across your Flash Recall modes.":"No weak-memory items yet. Complete a game to build your review list.")
+          : "Flashcard statistics are unavailable until the Flashcards database migration is installed.";
+        document.getElementById("dashboardFlashcardStatus").textContent=flashcardData
+          ? "Based on your latest "+flashcardHistory.length+" completed games."
+          : "Flashcard statistics will appear here when the feature is available.";
         const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
         if(dashboardQuizHost) {
           const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data:[]);

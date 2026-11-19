@@ -476,8 +476,8 @@
       Object.assign(card,values);persist(db);return {data:clone(card),error:null};
     }
     if (name==="start_my_flashcard_game") {
-      const difficulty=args.p_difficulty,mode=args.p_mode;
-      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","mixed","sentence"].includes(mode))return {data:null,error:error("Invalid Flashcard mode or difficulty.","22023")};
+      const difficulty=args.p_difficulty,mode=args.p_mode,duration=Number(args.p_duration_seconds)||60;
+      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","mixed","sentence"].includes(mode)||![60,120].includes(duration))return {data:null,error:error("Invalid Flashcard mode, difficulty or challenge duration.","22023")};
       const pref=tables.user_preferences?.[0]||{};
       if((pref.learning_language||"en")!=="en")return {data:null,error:error("Flashcards currently support the English learning course only.")};
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
@@ -485,8 +485,8 @@
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
       if(!limit?.is_enabled||used>=limit.daily_limit)return {data:null,error:error("Daily Flashcard game allowance exhausted.","P0001")};
       (tables.flashcard_sessions||[]).filter(row=>row.user_id===user.id&&row.status==="in_progress").forEach(row=>row.status="abandoned");
-      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,status:"in_progress",started_at:now(),completed_at:null};
-      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:60},error:null};
+      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null};
+      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:duration},error:null};
     }
     if (name==="complete_my_flashcard_game") {
       const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id);

@@ -39,15 +39,16 @@ begin
   );
   if v_card->>'front_text' <> 'Prompt' then raise exception 'Custom card creation failed'; end if;
 
-  v_game := public.start_my_flashcard_game('word','beginner');
+  v_game := public.start_my_flashcard_game('word','beginner',120);
   if v_game->>'session_id' is null then raise exception 'Flash Recall session did not start'; end if;
+  if (v_game->>'duration_seconds')::integer <> 120 then raise exception '120-second challenge duration was not stored'; end if;
   insert into pg_temp.flashcard_test_session values((v_game->>'session_id')::uuid);
 end
 $test$;
 
 reset role;
 update private.flashcard_sessions
-set started_at=now()-interval '61 seconds'
+set started_at=now()-interval '121 seconds'
 where id=(select session_id from pg_temp.flashcard_test_session);
 
 set local role authenticated;
@@ -85,6 +86,7 @@ do $test$
 declare v_game jsonb;
 begin
   v_game := public.start_my_flashcard_game('definition','beginner');
+  if (v_game->>'duration_seconds')::integer <> 60 then raise exception 'Default challenge duration is not 60 seconds'; end if;
   perform public.abandon_my_flashcard_game((v_game->>'session_id')::uuid);
   if (select used_count from public.get_my_learning_allowance_usage() where activity_type='flashcard') <> 1 then
     raise exception 'An abandoned Flashcard game consumed allowance';

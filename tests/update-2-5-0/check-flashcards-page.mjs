@@ -7,6 +7,7 @@ const mock=fs.readFileSync("mock-testing.js","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql","utf8");
 const recallMigration=fs.readFileSync("supabase/migrations/20261118143000_flashcards_mixed_recall_and_review_history.sql","utf8");
 const deletionMigration=fs.readFileSync("supabase/migrations/20261118150000_flashcards_review_history_deletion.sql","utf8");
+const durationMigration=fs.readFileSync("supabase/migrations/20261119130000_flashcards_60_120_second_challenges.sql","utf8");
 
 let inlineCount=0;
 for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
@@ -34,7 +35,12 @@ for(const [needle,label] of [
   ["flash-game-clock.is-danger","10-second red timer warning"],
   ["flash-review-modal","Expanded, fixed-size weak-memory review"],
   ["flash-review-tab[data-value=word]","Recall-coloured weak-memory navigation"],
-  ["60000","60-second game duration"],
+  ["state.usedQuestionKeys","No repeated question targets within a deck cycle"],
+  ["state.usedQuestionKeys.clear()","Question cycle reset after deck exhaustion"],
+  ["durationSeconds","Configurable game duration"],
+  ["flash-times-up-text","Animated Time's Up transition"],
+  ["setTimeout(()=>saveGameResults(),2000)","Two-second end-of-game transition"],
+  ["flashChallengeDuration","60/120-second challenge selector"],
   ["Your game results","End-of-game results prompt"],
   ["setTimeout(showMemory,3000)","Three-second answer feedback"],
   ["flashMemoryGauge","Memory gauge"],
@@ -45,8 +51,18 @@ for(const [needle,label] of [
 ])if(!flashcards.includes(needle))throw new Error("Missing "+label+".");
 if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="complete_my_flashcard_game"'))throw new Error("Mock User Flashcard game RPC support is missing.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
+for(const [needle,label] of [
+  ['data-dashboard-flashcard-review',"Dashboard Weak Memory entry point"],
+  ['rpc("get_my_flashcard_data")',"Dashboard Flashcard statistics source"],
+  ['dashboardFlashcardAccuracy',"Dashboard Flashcard accuracy statistic"],
+  ['learning-banner',"Shared Lessons/Quiz banner style"],
+  ['data-page="dictionary"><span class="nav-icon"',"Icon-based main navigation"],
+  ['id="dictionaryFiltersOverlay"',"Dictionary filter overlay"],
+  ['id="openDictionaryFilters"',"Dictionary Filters navigation"]
+])if(!html.includes(needle))throw new Error("Missing "+label+".");
 if(!flashcards.includes("allowance.used_count")||!flashcards.includes("allowance.remaining"))throw new Error("Flashcards daily allowance display is missing.");
 if(!migration.includes("delete from private.quiz_sessions where user_id=v_user")||!migration.includes("private.current_learning_allowance_usage(v_user,'flashcard',v_timezone)")||!migration.includes("public.get_my_flashcard_allowance()")||!migration.includes("delete from private.flashcard_mastery where user_id=v_user"))throw new Error("Server allowance or learning-history deletion integration is missing.");
 if(!recallMigration.includes("private.flashcard_review_items")||!recallMigration.includes("'mixed'")||!recallMigration.includes("review_items"))throw new Error("Mixed Recall review-history migration is incomplete.");
 if(!deletionMigration.includes("delete from private.flashcard_review_items where user_id=v_user"))throw new Error("Learning-history deletion does not include weak-memory records.");
+if(!durationMigration.includes("duration_seconds in (60,120)")||!durationMigration.includes("p_duration_seconds")||!durationMigration.includes("v_session.duration_seconds"))throw new Error("Server-side 60/120-second challenge validation is incomplete.");
 console.log("Flashcards page checks passed; syntax-checked "+inlineCount+" inline application script(s).");

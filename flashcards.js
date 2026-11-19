@@ -4,6 +4,10 @@
   const root = document.getElementById("flashcardsPage");
   if (!root) return;
   const $ = (selector, scope=root) => scope.querySelector(selector);
+  let overlayRoot=document.getElementById("flashOverlayRoot");
+  if(!overlayRoot){overlayRoot=document.createElement("div");overlayRoot.id="flashOverlayRoot";}
+  overlayRoot.classList.add("flash-overlay-root");
+  document.body.appendChild(overlayRoot);
   const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
   // Mode-specific start windows and minimum caps. Both windows reduce by 0.2s per completed round.
   const REDUCTION_STEP = 0.2;
@@ -15,7 +19,7 @@
   };
   const timingFor=(mode,difficulty)=>timing[mode]?.[difficulty]||timing.word[difficulty];
   const state = {
-    ready:false,loading:false,starting:false,finishing:false,data:{collections:[],cards:[],mastery:[],history:[]},
+    ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,usedQuestionKeys:new Set(),data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),
@@ -93,11 +97,11 @@
       #flashcardsPage .flash-mode[data-mode=sentence]{background:#7650b8;box-shadow:0 7px 0 #493176,0 12px 20px #0003}
       #flashcardsPage .flash-pill{display:inline-flex;border-radius:99px;padding:8px 13px;border:1px solid var(--border);background:var(--panel-hover)}
       #flashcardsPage .flash-primary{border-radius:999px;padding:11px 22px;box-shadow:0 4px 0 #26385e}
-      #flashcardsPage .flash-modal-backdrop{position:fixed;inset:0;z-index:10050;background:#050910bb;backdrop-filter:blur(7px);display:grid;place-items:center;padding:16px}
-      #flashcardsPage .flash-modal{width:min(540px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#1b202b;border:1px solid #3a4558;border-radius:22px;padding:22px;box-shadow:0 24px 70px #0009}
-      #flashcardsPage .flash-modal select{width:100%;background:#101722;color:#f5f7ff;border:1px solid #414d61;border-radius:12px;padding:11px}
-      #flashcardsPage .flash-modal label{display:grid;gap:7px;margin:14px 0;color:#c8d0df}
-      #flashcardsPage .flash-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+      .flash-overlay-root .flash-modal-backdrop{position:fixed;inset:0;z-index:10050;background:#050910bb;backdrop-filter:blur(7px);display:grid;place-items:center;padding:16px}
+      .flash-overlay-root .flash-modal{width:min(540px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#1b202b;border:1px solid #3a4558;border-radius:22px;padding:22px;box-shadow:0 24px 70px #0009}
+      .flash-overlay-root .flash-modal select{width:100%;background:#101722;color:#f5f7ff;border:1px solid #414d61;border-radius:12px;padding:11px}
+      .flash-overlay-root .flash-modal label{display:grid;gap:7px;margin:14px 0;color:#c8d0df}
+      .flash-overlay-root .flash-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
       #flashcardsPage .flash-game{width:min(900px,100%);max-width:900px}
       #flashcardsPage .flash-round-gauge{height:14px;background:#30394a;border-radius:99px;overflow:hidden;margin:16px 0;display:flex}
       #flashcardsPage .flash-round-gauge span{height:100%;transition:width .08s linear}
@@ -111,31 +115,35 @@
       #flashcardsPage .flash-option.is-hidden{background:#080c14;color:transparent;border-color:#080c14;box-shadow:0 4px 0 #030509}
       #flashcardsPage .flash-option.is-correct{background:#246e4b;border-color:#57c28b;color:#fff}
       #flashcardsPage .flash-option.is-wrong{background:#873c45;border-color:#e27c84;color:#fff}
-      #flashcardsPage .flash-review-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-      #flashcardsPage .flash-review-tab{border:1px solid #3c4960;border-radius:99px;padding:8px 14px;background:#202a3a;color:#e6edfb}
-      #flashcardsPage .flash-review-tab[aria-selected=true]{background:#344e77}
-      #flashcardsPage .flash-review-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-      #flashcardsPage .flash-review-list button{width:100%;text-align:left;margin:5px 0;padding:11px;border-radius:10px;background:#242e40;border:1px solid #3c4a60;color:#eef3ff}
-      #flashcardsPage .flash-review-detail{background:#202a3a;border:1px solid #3b4a62;border-radius:14px;padding:16px;animation:flashSlideIn .22s ease-out}
+      .flash-overlay-root .flash-review-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+      .flash-overlay-root .flash-review-tab{border:1px solid #3c4960;border-radius:99px;padding:8px 14px;background:#202a3a;color:#e6edfb}
+      .flash-overlay-root .flash-review-tab[aria-selected=true]{background:#344e77}
+      .flash-overlay-root .flash-review-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      .flash-overlay-root .flash-review-list button{width:100%;text-align:left;margin:5px 0;padding:11px;border-radius:10px;background:#242e40;border:1px solid #3c4a60;color:#eef3ff}
+      .flash-overlay-root .flash-review-detail{background:#202a3a;border:1px solid #3b4a62;border-radius:14px;padding:16px;animation:flashSlideIn .22s ease-out}
       #flashcardsPage .flash-banner{position:relative;padding-right:76px}
       #flashcardsPage .flash-banner .learning-help-button{position:absolute;top:18px;right:18px;margin:0}
       #flashcardsPage .flash-game-clock{display:inline-flex;align-items:center;justify-content:center;min-width:76px;padding:8px 15px;border-radius:12px;background:#2459a6;color:#fff;font-size:1.25rem;font-weight:850;line-height:1.1;box-shadow:0 5px 0 #14366b,0 8px 16px #0005;font-variant-numeric:tabular-nums}
       #flashcardsPage .flash-game-clock.is-warning{background:#d97706;box-shadow:0 5px 0 #92400e,0 8px 16px #0005}
       #flashcardsPage .flash-game-clock.is-danger{background:#c83232;box-shadow:0 5px 0 #7f1d1d,0 8px 16px #0005}
+      .flash-times-up-backdrop{position:fixed;inset:0;z-index:11000;display:grid;place-items:center;background:#05091077;backdrop-filter:blur(9px) brightness(.55);animation:flashTimeBackdrop .25s ease-out}
+      .flash-times-up-text{font-size:clamp(2.8rem,9vw,6rem);font-weight:950;letter-spacing:.04em;color:#fff;text-shadow:0 6px 0 #8b1f1f,0 12px 34px #000b;animation:flashTimeUp .6s cubic-bezier(.2,.9,.25,1.2) both}
+      @keyframes flashTimeBackdrop{from{opacity:0}to{opacity:1}}
+      @keyframes flashTimeUp{0%{opacity:0;transform:scale(.45) translateY(25px)}65%{opacity:1;transform:scale(1.12) translateY(-4px)}100%{opacity:1;transform:scale(1) translateY(0)}}
       #flashcardsPage .flash-memory-overlay[hidden]{display:none!important}
-      #flashcardsPage .flash-review-modal{width:min(1000px,100%);height:min(700px,calc(100dvh - 32px));min-height:min(540px,calc(100dvh - 32px));display:flex;flex-direction:column}
-      #flashcardsPage .flash-review-modal .flash-review-tabs{flex-shrink:0}
-      #flashcardsPage .flash-review-modal .flash-review-layout{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-      #flashcardsPage .flash-review-modal .flash-review-list,#flashcardsPage .flash-review-modal #flashReviewDetail{min-height:0;overflow:auto}
-      #flashcardsPage .flash-review-modal .flash-review-tab{border:0;border-radius:12px;color:#fff;font-weight:750;box-shadow:0 4px 0 #0005,0 7px 12px #0003}
-      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=word]{background:#4b91b9;box-shadow:0 4px 0 #28516b,0 7px 12px #0003}
-      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=definition]{background:#2865b2;box-shadow:0 4px 0 #173d70,0 7px 12px #0003}
-      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=mixed]{background:#b33f91;box-shadow:0 4px 0 #70275a,0 7px 12px #0003}
-      #flashcardsPage .flash-review-modal .flash-review-tab[data-value=sentence]{background:#7650b8;box-shadow:0 4px 0 #493176,0 7px 12px #0003}
-      #flashcardsPage .flash-review-modal .flash-review-tab[aria-selected=true]{filter:brightness(1.18);transform:translateY(-1px)}
-      @media(max-width:650px){#flashcardsPage .flash-review-modal{min-height:min(620px,calc(100dvh - 32px));height:calc(100dvh - 32px)}#flashcardsPage .flash-review-modal .flash-review-layout{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}}
+      .flash-overlay-root .flash-review-modal{width:min(1000px,100%);height:min(700px,calc(100dvh - 32px));min-height:min(540px,calc(100dvh - 32px));display:flex;flex-direction:column}
+      .flash-overlay-root .flash-review-modal .flash-review-tabs{flex-shrink:0}
+      .flash-overlay-root .flash-review-modal .flash-review-layout{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+      .flash-overlay-root .flash-review-modal .flash-review-list,.flash-overlay-root .flash-review-modal #flashReviewDetail{min-height:0;overflow:auto}
+      .flash-overlay-root .flash-review-modal .flash-review-tab{border:0;border-radius:12px;color:#fff;font-weight:750;box-shadow:0 4px 0 #0005,0 7px 12px #0003}
+      .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=word]{background:#4b91b9;box-shadow:0 4px 0 #28516b,0 7px 12px #0003}
+      .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=definition]{background:#2865b2;box-shadow:0 4px 0 #173d70,0 7px 12px #0003}
+      .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=mixed]{background:#b33f91;box-shadow:0 4px 0 #70275a,0 7px 12px #0003}
+      .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=sentence]{background:#7650b8;box-shadow:0 4px 0 #493176,0 7px 12px #0003}
+      .flash-overlay-root .flash-review-modal .flash-review-tab[aria-selected=true]{filter:brightness(1.18);transform:translateY(-1px)}
+      @media(max-width:650px){.flash-overlay-root .flash-review-modal{min-height:min(620px,calc(100dvh - 32px));height:calc(100dvh - 32px)}.flash-overlay-root .flash-review-modal .flash-review-layout{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}}
       @keyframes flashSlideIn{from{transform:translateX(-18px);opacity:0}to{transform:translateX(0);opacity:1}}
-      @media(max-width:650px){#flashcardsPage .flash-mode-grid{gap:8px}#flashcardsPage .flash-mode{padding:10px;min-height:78px}#flashcardsPage .flash-options{gap:8px}#flashcardsPage .flash-option{font-size:.9rem;padding:9px 6px}#flashcardsPage .flash-review-layout{grid-template-columns:1fr}}
+      @media(max-width:650px){#flashcardsPage .flash-mode-grid{gap:8px}#flashcardsPage .flash-mode{padding:10px;min-height:78px}#flashcardsPage .flash-options{gap:8px}#flashcardsPage .flash-option{font-size:.9rem;padding:9px 6px}.flash-overlay-root .flash-review-layout{grid-template-columns:1fr}}
     `;
     document.head.appendChild(node);
   }
@@ -173,7 +181,6 @@
         <section class="flash-section"><h2>Recent games</h2>
           ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-pill">${escapeHtml(g.mode==="mixed"?"Mixed Recall":g.mode.charAt(0).toUpperCase()+g.mode.slice(1)+" Recall")} · ${escapeHtml(g.difficulty)} · ${g.correct_count}/${g.words_seen} correct</div>`).join("")+'</div>':'<p class="flash-muted">Your completed games and scores will appear here.</p>'}
         </section>
-        <div id="flashOverlayRoot"></div>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
     const banner=mount.querySelector(".flash-banner");
@@ -209,7 +216,7 @@
     return [...targets,...distractors];
   }
   function makeRound(deck){
-    const available=deck.filter(w=>w.word&&w.definition);
+    const seenCards=new Set(),available=deck.filter(w=>{if(!w.word||!w.definition)return false;const key=cardKey(w);if(seenCards.has(key))return false;seenCards.add(key);return true;});
     const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
@@ -217,7 +224,11 @@
     const optionValue=w=>mode==="word"?w.definition:w.word,normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
     const viable=targets.filter(target=>{const correct=mode==="word"?target.definition:target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
     if(!viable.length)throw new Error("This card set does not contain four distinct choices for this recall mode.");
-    const target=viable[Math.floor(Math.random()*viable.length)];
+    const fresh=viable.filter(item=>!state.usedQuestionKeys.has(cardKey(item)));
+    if(!fresh.length)state.usedQuestionKeys.clear();
+    const questionPool=fresh.length?fresh:viable;
+    const target=questionPool[Math.floor(Math.random()*questionPool.length)];
+    state.usedQuestionKeys.add(cardKey(target));
     let memory="",prompt="",correct="";
     if(mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
     else if(mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
@@ -230,7 +241,8 @@
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
   function clearTimers(){clearTimeout(state.gameTimer);clearTimeout(state.phaseTimer);state.gameTimer=null;state.phaseTimer=null;}
   function renderGame(mount){
-    const elapsed=Math.max(0,60-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,60-elapsed),round=state.round;
+    const duration=state.game.durationSeconds||state.duration||60;
+    const elapsed=Math.max(0,duration-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,duration-elapsed),round=state.round;
     const modeLabel=state.mode==="mixed"?"Mixed Recall":state.mode.charAt(0).toUpperCase()+state.mode.slice(1)+" Recall";
     mount.innerHTML=`<section class="flash-game">
       <div class="flash-game-top"><span class="flash-pill">${modeLabel} · ${state.difficulty}</span><strong id="flashGameClock" class="flash-game-clock">${Math.ceil(remain)}s</strong></div>
@@ -247,7 +259,8 @@
   }
   function tickGame(){
     if(!state.game)return;
-    const remain=Math.max(0,60-(Date.now()-state.game.startedAt)/1000);
+    const duration=state.game.durationSeconds||state.duration||60;
+    const remain=Math.max(0,duration-(Date.now()-state.game.startedAt)/1000);
     const clock=$("#flashGameClock");
     if(clock){clock.textContent=Math.ceil(remain)+"s";clock.classList.toggle("is-warning",remain<=20&&remain>10);clock.classList.toggle("is-danger",remain<=10);}
     const elapsed=Date.now()-state.phaseStartedAt,ratio=Math.max(0,Math.min(1,1-elapsed/(state.phaseDuration||1)));
@@ -257,7 +270,7 @@
     if(remain<=0){finishGame();return;}state.gameTimer=setTimeout(tickGame,80);
   }
   function showMemory(){
-    if(!state.game)return;if(Date.now()-state.game.startedAt>=60000){finishGame();return;}
+    if(!state.game)return;if(Date.now()-state.game.startedAt>=(state.game.durationSeconds||state.duration||60)*1000){finishGame();return;}
     try{state.round=makeRound(state.deck);}catch(e){state.notice=e.message;finishGame();return;}
     state.phase="memory";state.phaseStartedAt=Date.now();state.phaseDuration=state.memory*1000;
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
@@ -268,7 +281,7 @@
     state.phaseTimer=setTimeout(showAnswers,state.phaseDuration);
   }
   function showAnswers(){
-    if(!state.game)return;if(Date.now()-state.game.startedAt>=60000){finishGame();return;}
+    if(!state.game)return;if(Date.now()-state.game.startedAt>=(state.game.durationSeconds||state.duration||60)*1000){finishGame();return;}
     state.phase="answer";state.phaseStartedAt=Date.now();state.phaseDuration=state.answer*1000;
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
     if(memory)memory.classList.add("is-blurred");if(overlay)overlay.hidden=false;
@@ -304,10 +317,11 @@
       // behind a session that can only fail after the game has started.
       state.deck=deck;
       makeRound(deck);
-      state.round=null;state.phase="idle";state.phaseEnds=0;
-      const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty});
+      state.usedQuestionKeys.clear();
+      state.round=null;state.phase="idle";state.phaseEnds=0;state.ending=false;
+      const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty,p_duration_seconds:state.duration});
       if(error)throw error;
-      state.game={id:data.session_id,startedAt:Date.now(),translationLanguage};
+      state.game={id:data.session_id,startedAt:Date.now(),translationLanguage,durationSeconds:Number(data.duration_seconds)||state.duration};
       state.results=[];state.roundIndex=0;
       const schedule=timingFor(state.mode,state.difficulty);
       Object.assign(state,{memory:schedule.memory,answer:schedule.answer});
@@ -315,31 +329,37 @@
     }catch(error){state.deck=null;throw error;}
     finally{state.starting=false;if(startButton?.isConnected)startButton.disabled=false;}
   }
-  async function finishGame(){
-    if(!state.game||state.finishing)return;clearTimers();
-    const game=state.game;
+  function finishGame(){
+    if(!state.game||state.finishing||state.ending)return;
+    state.ending=true;clearTimers();
     if(state.round&&(state.phase==="memory"||state.phase==="answer"))state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:false,unanswered:true});
-    state.game=null;state.finishing=true;render();
+    const overlay=$("#flashOverlayRoot");
+    if(overlayRoot)overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">Time\'s Up!</div></div>';
+    setTimeout(()=>saveGameResults(),2000);
+  }
+  async function saveGameResults(){
+    if(!state.game||state.finishing)return;
+    const game=state.game;state.game=null;state.finishing=true;render();
     try{
       const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});if(error)throw error;
       state.lastResult=data;state.finishing=false;await loadData();showResultPrompt();
     }catch(error){state.notice="The game result could not be saved: "+error.message;try{await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:game.id});}catch(_){}state.finishing=false;await loadData();}
   }
   function showResultPrompt(){
-    const mount=$("#flashOverlayRoot");if(!mount)return;
+    const mount=overlayRoot;if(!mount)return;
     const r=state.lastResult||{},attempted=Number(r.words_seen)||state.results.length,correct=Number(r.correct_count)||state.results.filter(x=>x.correct).length,incorrect=Number(r.incorrect_count)||state.results.filter(x=>!x.correct).length,accuracy=attempted?Math.round(correct/attempted*100):0;
-    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">Your game results</h2><p class="flash-muted">Your 60-second Flash Recall summary.</p><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>Attempted</span></div><div class="flash-stat"><strong>${correct}</strong><span>Correct</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>Incorrect</span></div></div><div class="flash-stat"><strong>${accuracy}%</strong><span>Accuracy</span></div><p class="flash-muted">Unanswered: ${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-primary" data-action="close-result">Close</button></div></section></div>`;
+    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">Your game results</h2><p class="flash-muted">Your ${state.duration}-second Flash Recall summary.</p><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>Attempted</span></div><div class="flash-stat"><strong>${correct}</strong><span>Correct</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>Incorrect</span></div></div><div class="flash-stat"><strong>${accuracy}%</strong><span>Accuracy</span></div><p class="flash-muted">Unanswered: ${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-primary" data-action="close-result">Close</button></div></section></div>`;
   }
   function openSetupPrompt(mode){
-    state.mode=mode;const overlay=$("#flashOverlayRoot");if(!overlay)return;
+    state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
     const sets=[["all","All available words"],["common","Common words"],["nouns","Nouns"],["verbs","Verbs"],["adjectives","Adjectives"],["adverbs","Adverbs"],["phrases","Everyday phrases"],["terms","Subject terms"]];
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${mode==="mixed"?"Mixed Recall":mode.charAt(0).toUpperCase()+mode.slice(1)+" Recall"}</h2><p class="flash-muted">A 60-second challenge. The memory and answer windows become shorter after every round, including incorrect answers and timeouts.</p><div class="flash-modal-grid"><label>Difficulty<select id="flashDifficulty"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label><label>Card set<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">Cancel</button><button class="flash-primary" data-action="begin-game">Begin</button></div></section></div>`;
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${mode==="mixed"?"Mixed Recall":mode.charAt(0).toUpperCase()+mode.slice(1)+" Recall"}</h2><p class="flash-muted">Choose a 60- or 120-second challenge. The memory and answer windows become shorter after every round, including incorrect answers and timeouts.</p><div class="flash-modal-grid"><label>Challenge duration<select id="flashChallengeDuration"><option value="60" ${state.duration===60?"selected":""}>60 seconds</option><option value="120" ${state.duration===120?"selected":""}>120 seconds</option></select></label><label>Difficulty<select id="flashDifficulty"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label><label>Card set<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">Cancel</button><button class="flash-primary" data-action="begin-game">Begin</button></div></section></div>`;
   }
   function openReviewPrompt(){
     state.reviewMode="word";state.reviewSelected=null;renderReviewPrompt();
   }
   function renderReviewPrompt(){
-    const overlay=$("#flashOverlayRoot");if(!overlay)return;
+    const overlay=overlayRoot;if(!overlay)return;
     const labels={word:"Word",definition:"Definition",mixed:"Mixed",sentence:"Sentence"};
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
     const selected=items.find(item=>item.card_key===state.reviewSelected);
@@ -374,7 +394,7 @@
     await loadData();
   }
   function notice(message){state.notice=message;const n=$("#flashNotice");if(n)n.textContent=message;}
-  function closeOverlay(){const overlay=$("#flashOverlayRoot");if(overlay)overlay.innerHTML="";}
+  function closeOverlay(){if(overlayRoot)overlayRoot.innerHTML="";}
   async function handleClick(event){
     const button=event.target.closest("[data-action]");if(!button)return;
     const action=button.dataset.action,value=button.dataset.value;
@@ -383,7 +403,7 @@
       if(action==="open-setup"){openSetupPrompt(button.dataset.mode);return;}
       if(action==="close-overlay"){closeOverlay();return;}
       if(action==="close-result"){closeOverlay();state.lastResult=null;state.results=[];render();return;}
-      if(action==="begin-game"){state.difficulty=$("#flashDifficulty").value;state.cardSet=$("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
+      if(action==="begin-game"){state.duration=Number($("#flashChallengeDuration")?.value)||60;state.difficulty=$("#flashDifficulty").value;state.cardSet=$("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
       if(action==="open-review"){openReviewPrompt();return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
       if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
@@ -457,6 +477,7 @@
     target.querySelectorAll("[data-add-word]").forEach(button=>button.addEventListener("click",()=>addDictionaryWord(button.dataset.addWord)));
   }
   root.addEventListener("click",handleClick);
+  overlayRoot.addEventListener("click",handleClick);
   attachForms();
   document.getElementById("flashDifficulty")?.addEventListener("change",e=>state.difficulty=e.target.value);
   window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();if(currentUser)loadData();else render();});
@@ -471,6 +492,8 @@
       return {memory:Math.max(t.memoryFloor,Number((memory-REDUCTION_STEP).toFixed(2))),answer:Math.max(t.answerFloor,Number((answer-REDUCTION_STEP).toFixed(2)))};
     }
   };
+  timerApi.openReviewFromDashboard=async()=>{if(!currentUser)return;if(!state.ready)await loadData();openReviewPrompt();};
+  timerApi.refreshDashboardData=async()=>{if(currentUser)await loadData();};
   window.SwiftDictionaryFlashcards=timerApi;
   render();
   if(currentUser)loadData();
