@@ -278,6 +278,38 @@ There is no current user-facing Delete account action or account-deletion Edge F
 
 Deleting a SwiftDictionary account must not be described as deleting the person's Google account.
 
+
+#### Proposed secure account-deletion architecture (design only; not implemented)
+
+Supabase's current User Management guidance warns that deleting an Auth user does not automatically invalidate already-issued JWT access tokens; those tokens can remain valid until expiry. It also warns that deletion can fail if the user owns Storage objects. The current SwiftDictionary application does not currently use a user-uploaded Storage feature in the reviewed product flow, but the deletion workflow must check again before implementation.
+
+Recommended implementation contract:
+
+1. Add a signed-in-only **Delete account** action in Profile, separate from **Delete learning history**. Explain that it permanently deletes the SwiftDictionary account and all account-linked data, including saved words, profile/preferences, lesson progress, Daily Learning history, Quiz history/answer snapshots, Flashcard collections/cards/mastery and allowances. It does not delete the user's Google account.
+2. Require a fresh Google sign-in/re-authentication and an explicit irreversible confirmation. Reuse the existing 15-minute recent-authentication pattern only after confirming that the new session's `session_id` and `created_at` are refreshed by the OAuth flow.
+3. Call a dedicated Supabase Edge Function (proposed name `delete-my-account`, JWT verification enabled). The function must verify the bearer token with Supabase Auth, derive the target UID from the verified user, and reject any client-supplied target UID. The function must use the service-role secret only in server-side environment secrets; never include it in the browser bundle or repository.
+4. Revoke all refreshable sessions before deletion, then call the Auth Admin delete-user operation for the verified UID. Treat partial failure safely: do not show success unless the Auth deletion is confirmed; return a retry-safe error if session revocation succeeded but deletion failed.
+5. Verify every user-owned foreign key uses the intended `ON DELETE CASCADE` behaviour. Handle any future Storage objects explicitly before deleting the Auth user. Never delete or mutate another account's data.
+6. After confirmed deletion, clear the current browser's SwiftDictionary auth session and account-scoped local state, then return to signed-out Dictionary. Decide explicitly whether signed-out local saved words should also be cleared on this browser; that data is browser-local and not deleted by the server cascade.
+7. Document residual access-token lifetime, provider backups, operational logs and backup expiry accurately. Revoking sessions does not justify promising instantaneous erasure of every previously issued access token or every provider backup copy. For strict immediate denial on sensitive server operations, consider validating the JWT `session_id` against `auth.sessions` or checking account existence in addition to `auth.uid()`.
+8. Validate on staging with synthetic accounts: recent-auth requirement, wrong/missing JWT, user-ID spoof attempt, all-session revocation, account deletion, cascade completeness, retry after partial failure, stale-token behaviour, local-state clearing and cross-account isolation.
+
+**Decision gate:** this architecture is a technical proposal, not an approved user-facing flow. No account-deletion function, UI, Auth configuration or production change has been created. The exact local-storage clearing behaviour and reauthentication UX remain owner decisions.
+
+#### Retention schedule — current status
+
+No numeric retention period has been approved. Do not invent one in the Privacy Notice. The schedule must cover at least:
+
+- Auth/account identity, profile and preferences.
+- Saved words and private custom Flashcard collections/cards.
+- Lesson progress, practice summaries and Daily Learning sessions (including abandoned sessions).
+- Quiz question/session snapshots, selected answer IDs and result history.
+- Flashcard mastery, review items and game sessions.
+- Provider access/security logs and CDN request metadata.
+- Supabase database backups, PITR/backups (if enabled), Cloudflare build/request logs, Google account/identity data and GitHub issues.
+
+For each category, record purpose, active-system retention, user deletion control, backup expiry, provider-controlled retention and any legal hold/exception. User-triggered learning-history deletion removes the active history rows but is not a promise of immediate removal from provider backups or logs. GitHub issues manually created in a public repository remain subject to GitHub/repository visibility and retention controls. Final periods require provider-account verification, legal review and owner approval.
+
 ### 7.3 Frontend, dependencies and content injection
 
 - The browser loads @supabase/supabase-js@2 from jsDelivr using a floating major-version URL. Pin an exact tested version and add Subresource Integrity where practical, or self-host the pinned file.
