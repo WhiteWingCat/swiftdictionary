@@ -158,7 +158,7 @@
   function render(){
     const mount=shell();style();
     if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>English course required</h2><p class="flash-muted">Flashcards currently support the English learning course. Switch your Learning Course to English to continue.</p></section>';return;}
-    if(!currentUser){mount.innerHTML='<section class="flash-section"><h2>Sign in to use Flashcards</h2><p class="flash-muted">Your learning progress is saved securely to your account.</p><button class="flash-primary" data-action="signin">Sign in</button></section>';return;}
+    if(!currentUser){mount.innerHTML='<section class="flash-section coming-card"><h2>Sign in to use Flashcards</h2><p class="flash-muted">Your learning progress is saved securely to your account.</p><button class="flash-primary" data-action="signin">Sign in</button></section>';return;}
     if(state.loading){mount.innerHTML='<section class="flash-section">Loading your Flashcards…</section>';return;}
     if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>Saving your game</h2><p class="flash-muted">Your results are being saved securely.</p></section>';return;}
     if(state.game){renderGame(mount);return;}

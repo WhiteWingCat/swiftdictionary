@@ -572,7 +572,7 @@
     </div>
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
-      <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p>Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
+      <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
     <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
@@ -600,7 +600,7 @@
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
-      <section class="learning-banner" aria-labelledby="quizHeading"><div><p class="eyebrow">KNOWLEDGE CHECK</p><h1 id="quizHeading">Quiz</h1><p>Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></section>
+      <section class="learning-banner" aria-labelledby="quizHeading"><div><p class="eyebrow">KNOWLEDGE CHECK</p><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></section>
       <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
@@ -18956,9 +18956,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function quizApplyPageTranslation(){
       const page=quizEl("quizPage");if(!page)return;
       const set=(selector,en,zh)=>{const node=page.querySelector(selector);if(node)node.textContent=quizT(en,zh);};
-      set(".quiz-page-heading .eyebrow","Knowledge check","知识测验");
+      set(".learning-banner .eyebrow","Knowledge check","知识测验");
       set("#quizHeading","Quiz","测验");
-      set(".quiz-page-heading .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
+      set(".learning-banner .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
       set("#quizRefresh","Refresh","刷新");
       set("#quizChineseUnavailable h2","Chinese Quiz is coming soon","中文测验即将推出");
       set("#quizChineseUnavailable p","There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.","测验目前暂不提供中文学习课程。请切换至 English 学习课程以使用测验。你的翻译语言偏好会独立保留。");
