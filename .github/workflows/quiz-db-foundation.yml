@@ -6,6 +6,7 @@ on:
       - feature/update-2-4-0-quiz
       - feature/update-2-4-2-dashboard-quiz-fixes
       - feature/update-2-5-0-flashcards
+      - feature/update-2-6-0-legal-privacy-security
   pull_request:
     branches:
       - main
@@ -109,6 +110,13 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119094558_swiftdictionary_update_2_5_0_learning_history_deletion_review_items_fix.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_authenticated_rpcs.sql"
+
+      - name: Apply Update 2.6.0 least-privilege hardening and verify privileges
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_least_privilege.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
