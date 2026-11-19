@@ -120,7 +120,7 @@ insert into private.quiz_question_bank(
 )
 select
   d.prefix||'-runtime-zh-'||n,1,'en','zh',
-  d.prefix||'-runtime-lesson-'||(((n-1)%20)+1),'quiz-runtime-topic-'||(((n-1)%20)+1),
+  d.prefix||'-runtime-lesson-'||(((n-1)%20)+1),'quiz-runtime-topic-'||d.prefix||'-'||(((n-1)%20)+1),
   d.difficulty,'chinese_translation','zh','runtime-objective-'||d.prefix,
   'Choose the most accurate Simplified Chinese translation for runtime item '||n||'.',
   '请选择运行测试题'||n||'最准确的简体中文翻译。',
