@@ -4,6 +4,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const source = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
+const flashcardsSource = fs.readFileSync(new URL("../../flashcards.js", import.meta.url), "utf8");
 const draftBank = JSON.parse(fs.readFileSync(new URL("../../content/quiz/questions.en-zh.draft.json", import.meta.url), "utf8"));
 const curriculumMap = JSON.parse(fs.readFileSync(new URL("../../content/quiz/curriculum-map.en.json", import.meta.url), "utf8"));
 const draftById = new Map(draftBank.questions.map(question => [question.question_id, question]));
@@ -51,6 +52,14 @@ test("mock adapter activates only on the exact feature preview with explicit opt
   assert.equal(session.data.session.user.id,"mock-user-a");
   const oauth=await client.auth.signInWithOAuth({provider:"google"});
   assert.match(oauth.error.message,/disabled in MOCK TEST MODE/);
+});
+
+test("mock adapter fails closed on the base testing domain and unapproved hosts",()=>{
+  for(const host of ["swiftdictionary-testing.pages.dev","example.com"]){
+    const env=makeContext(host);
+    assert.notEqual(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);
+    assert.equal(env.window.__swiftDictionaryMock,undefined);
+  }
 });
 
 test("Quiz feature preview requires explicit opt-in and activates only on its exact host",async()=>{
@@ -137,6 +146,177 @@ test("mock identities represent separate Free and Premium plans",async()=>{
   assert.equal(replay.data.status,"completed");
   const afterReplay=await client.rpc("get_my_learning_allowance_usage");
   assert.equal(afterReplay.data.find(row=>row.activity_type==="daily_discovery").used_count,3);
+});
+
+test("Flash Recall mode-specific timer starts, fixed 0.2s reductions and caps match approved rules",()=>{
+  const match=flashcardsSource.match(/const timing = \{([\s\S]*?)\n  \};/);
+  assert.ok(match,"Flashcards must define the mode-specific timer configuration");
+  const config={};
+  for(const modeRow of match[1].matchAll(/(word|definition|sentence|mixed):\{((?:[^{}]|\{[^{}]*\})*)\}/g)){
+    const mode=modeRow[1],levels={};
+    for(const row of modeRow[2].matchAll(/(beginner|intermediate|advanced):\{memory:([0-9.]+),answer:([0-9.]+),memoryFloor:([0-9.]+),answerFloor:([0-9.]+)\}/g)){
+      levels[row[1]]={memory:Number(row[2]),answer:Number(row[3]),memoryFloor:Number(row[4]),answerFloor:Number(row[5])};
+    }
+    config[mode]=levels;
+  }
+  assert.deepEqual(config,{
+    word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9},intermediate:{memory:5,answer:10,memoryFloor:2,answerFloor:7},advanced:{memory:3,answer:9,memoryFloor:1,answerFloor:5}},
+    definition:{beginner:{memory:6,answer:5,memoryFloor:4,answerFloor:3},intermediate:{memory:5,answer:4,memoryFloor:3,answerFloor:3},advanced:{memory:4,answer:4,memoryFloor:2,answerFloor:3}},
+    sentence:{beginner:{memory:7,answer:10,memoryFloor:5,answerFloor:7},intermediate:{memory:6,answer:8,memoryFloor:4,answerFloor:6},advanced:{memory:5,answer:6,memoryFloor:3,answerFloor:3}},
+    mixed:{beginner:{memory:8,answer:12,memoryFloor:6,answerFloor:9},intermediate:{memory:7,answer:10,memoryFloor:5,answerFloor:7},advanced:{memory:6,answer:8,memoryFloor:4,answerFloor:5}}
+  });
+  assert.match(flashcardsSource,/const REDUCTION_STEP = 0\.2/);
+  assert.match(flashcardsSource,/state\.memory-REDUCTION_STEP/);
+  assert.match(flashcardsSource,/state\.answer-REDUCTION_STEP/);
+  for(const levels of Object.values(config))for(const t of Object.values(levels)){
+    let memory=t.memory,answer=t.answer;
+    for(let i=0;i<100;i++){memory=Math.max(t.memoryFloor,Number((memory-.2).toFixed(2)));answer=Math.max(t.answerFloor,Number((answer-.2).toFixed(2)));}
+    assert.equal(memory,t.memoryFloor);
+    assert.equal(answer,t.answerFloor);
+  }
+});
+test("Flashcard mock allowance matches the approved Free 3 and Premium 10 games per day",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);
+  const client=env.window.supabase.createClient();
+
+  let free=await client.from("learning_plan_limits").select("daily_limit").eq("plan_code","free").eq("activity_type","flashcard").single();
+  assert.equal(free.data.daily_limit,3);
+
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  const premium=await client.from("learning_plan_limits").select("daily_limit").eq("plan_code","premium").eq("activity_type","flashcard").single();
+  assert.equal(premium.data.daily_limit,10);
+});
+
+test("Flashcard Mock User supports private collections, custom cards, mastery and Free allowance",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const created=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"My custom words"});
+  assert.equal(created.error,null);
+  const collectionId=created.data.id;
+  const card=await client.rpc("save_my_flashcard_card",{
+    p_action:"create",p_card_id:null,p_collection_id:collectionId,p_card_type:"custom",
+    p_dictionary_word:null,p_front_text:"What is a collocation?",p_back_text:"Words that commonly occur together.",
+    p_example_text:"make a decision",p_translation_text:"常见搭配",p_position:0
+  });
+  assert.equal(card.error,null);
+  let data=await client.rpc("get_my_flashcard_data");
+  assert.equal(data.data.collections.length,1);
+  assert.equal(data.data.cards.length,1);
+  assert.equal(data.data.allowance.daily_limit,3);
+  assert.equal(data.data.allowance.remaining,3);
+  const allowanceSummary=await client.rpc("get_my_flashcard_allowance");
+  assert.equal(allowanceSummary.data.daily_limit,3);
+  assert.equal(allowanceSummary.data.remaining,3);
+
+  const abandoned=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+  assert.equal(abandoned.error,null);
+  await client.rpc("abandon_my_flashcard_game",{p_session_id:abandoned.data.session_id});
+  let usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,0);
+
+  for(let i=0;i<3;i++){
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+    assert.equal(started.error,null);
+    const completed=await client.rpc("complete_my_flashcard_game",{
+      p_session_id:started.data.session_id,
+      p_results:[{card_key:"custom:"+card.data.id,correct:i===0,unanswered:i===2},{card_key:"dict:hello",correct:true,unanswered:false}]
+    });
+    assert.equal(completed.error,null);
+    assert.equal(completed.data.words_seen,2);
+  }
+  usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,3);
+  const blocked=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+  assert.equal(blocked.error.code,"P0001");
+  data=await client.rpc("get_my_flashcard_data");
+  assert.equal(data.data.history.length,3);
+  assert.equal(data.data.allowance.used_count,3);
+  assert.equal(data.data.allowance.remaining,0);
+  assert.equal(data.data.mastery.find(row=>row.card_key==="custom:"+card.data.id).incorrect_count,2);
+
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  data=await client.rpc("get_my_flashcard_data");
+  assert.equal(data.data.collections.length,0);
+  assert.equal(data.data.cards.length,0);
+  assert.equal(data.data.mastery.length,0);
+});
+
+test("Flashcard collections support editing, moving and deleting cards",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const first=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"First"});
+  const second=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"Second"});
+  const created=await client.rpc("save_my_flashcard_card",{
+    p_action:"create",p_card_id:null,p_collection_id:first.data.id,p_card_type:"dictionary",
+    p_dictionary_word:"hello",p_front_text:"hello",p_back_text:"a greeting",
+    p_example_text:"Hello there.",p_translation_text:"你好",p_position:0
+  });
+  assert.equal(created.error,null);
+  const moved=await client.rpc("save_my_flashcard_card",{
+    p_action:"move",p_card_id:created.data.id,p_collection_id:second.data.id,p_card_type:null,
+    p_dictionary_word:null,p_front_text:null,p_back_text:null,p_example_text:null,p_translation_text:null,p_position:0
+  });
+  assert.equal(moved.error,null);
+  const edited=await client.rpc("save_my_flashcard_card",{
+    p_action:"update",p_card_id:created.data.id,p_collection_id:second.data.id,p_card_type:"dictionary",
+    p_dictionary_word:"hello",p_front_text:"hello!",p_back_text:"an informal greeting",
+    p_example_text:"Hello there.",p_translation_text:"你好",p_position:0
+  });
+  assert.equal(edited.data.front_text,"hello!");
+  const removed=await client.rpc("save_my_flashcard_card",{
+    p_action:"delete",p_card_id:created.data.id,p_collection_id:null,p_card_type:null,
+    p_dictionary_word:null,p_front_text:null,p_back_text:null,p_example_text:null,p_translation_text:null,p_position:0
+  });
+  assert.equal(removed.data.deleted,true);
+  const renamed=await client.rpc("save_my_flashcard_collection",{p_action:"rename",p_collection_id:second.data.id,p_name:"Renamed"});
+  assert.equal(renamed.data.name,"Renamed");
+  const deleted=await client.rpc("save_my_flashcard_collection",{p_action:"delete",p_collection_id:first.data.id,p_name:null});
+  assert.equal(deleted.data.deleted,true);
+});
+
+test("Deleting Flashcard learning history preserves collections, custom cards and today's allowance",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const collection=await client.rpc("save_my_flashcard_collection",{p_action:"create",p_collection_id:null,p_name:"Keep this collection"});
+  const card=await client.rpc("save_my_flashcard_card",{
+    p_action:"create",p_card_id:null,p_collection_id:collection.data.id,p_card_type:"custom",
+    p_dictionary_word:null,p_front_text:"Question",p_back_text:"Answer",
+    p_example_text:null,p_translation_text:null,p_position:0
+  });
+  const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+  await client.rpc("complete_my_flashcard_game",{
+    p_session_id:started.data.session_id,p_results:[{card_key:"custom:"+card.data.id,correct:false,unanswered:true}]
+  });
+  const before=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(before.data.find(row=>row.activity_type==="flashcard").used_count,1);
+  const deleted=await client.rpc("delete_my_learning_history");
+  assert.equal(deleted.data.deleted,true);
+  const after=await client.rpc("get_my_flashcard_data");
+  assert.equal(after.data.history.length,0);
+  assert.equal(after.data.mastery.length,0);
+  assert.equal(after.data.collections.length,1);
+  assert.equal(after.data.cards.length,1);
+  assert.equal(after.data.allowance.used_count,1);
+  assert.equal(after.data.allowance.remaining,2);
+  const usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="flashcard").used_count,1);
+});
+
+test("Premium Mock User can complete ten Flashcard games but not an eleventh",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-b");
+  const client=env.window.supabase.createClient();
+  for(let i=0;i<10;i++){
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"mixed",p_difficulty:"advanced"});
+    assert.equal(started.error,null);
+    const done=await client.rpc("complete_my_flashcard_game",{
+      p_session_id:started.data.session_id,p_results:[{card_key:"dict:hello",mode:"mixed",correct:true,unanswered:false}]
+    });
+    assert.equal(done.error,null);
+  }
+  const blocked=await client.rpc("start_my_flashcard_game",{p_mode:"mixed",p_difficulty:"advanced"});
+  assert.equal(blocked.error.code,"P0001");
 });
 
 test("Premium mock permanent lesson allowance permits 15 completions and blocks the 16th",async()=>{
@@ -378,4 +558,94 @@ test("Mock Quiz includes Chinese integration only when Chinese is the selected t
   assert.equal(started.data.translation_language_code,"en");
   assert.equal(started.data.questions.filter(question=>question.question_type==="chinese_translation").length,0);
   assert.equal(started.data.questions.filter(question=>question.question_type==="word_definition").length,1);
+});
+
+test("Flash Recall validates distinct choices before creating a server session and resets round state",()=>{
+  const start=flashcardsSource.indexOf("  async function startGame(){");
+  const end=flashcardsSource.indexOf("\n  function finishGame()",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose a startGame flow");
+  const source=flashcardsSource.slice(start,end);
+  assert.ok(source.indexOf("makeRound(deck)")<source.indexOf('rpc("start_my_flashcard_game"'),
+    "The selected mode must have four distinct choices before a server session is created");
+  assert.match(source,/state\.round=null;state\.phase="idle";state\.phaseEnds=0/,
+    "A new game must not inherit the previous game's round or phase");
+  assert.match(source,/catch\(error\)\{state\.deck=null;throw error;\}/,
+    "A preflight failure must clear the temporary deck and leave the allowance untouched");
+});
+
+test("Flash Recall filters out targets that cannot produce four distinct choices in every mode",()=>{
+  const start=flashcardsSource.indexOf("  function makeRound(deck){");
+  const end=flashcardsSource.indexOf("\n  function durationLabel",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose a round builder");
+  const source=flashcardsSource.slice(start,end);
+  assert.match(source,/const viable=targets\.filter\(target=>/,
+    "Each target must be checked before it can be selected");
+  assert.match(source,/return d\.size>=3/,
+    "Only targets with three distinct distractors may be used");
+  assert.match(source,/if\(!pools\.length\)throw new Error/,
+    "A deck with no viable target must fail before the game session starts");
+  assert.match(source,/const freshPools=pools\.filter\(pool=>pool\.fresh\.length\)/,
+    "Mixed Recall must choose a mode that still has unused question targets before repeating a question");
+  assert.match(source,/if\(!freshPools\.length\)return null/,
+    "The game must stop presenting questions rather than recycle a previously seen target");
+  assert.doesNotMatch(source,/usedQuestionKeys\.clear\(\)/,
+    "The used-question set must never be reset mid-game when the deck is exhausted");
+  assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
+    "Gameplay must select only from validated targets that have not already appeared in this challenge");
+  assert.match(source,/state\.usedQuestionKeys\.add\(questionKey\(target\)\)/,
+    "Each selected question must be recorded to prevent repetition for the entire challenge");
+  const showStart=flashcardsSource.indexOf("  function showMemory(){");
+  const showEnd=flashcardsSource.indexOf("function showAnswers()",showStart);
+  const show=flashcardsSource.slice(showStart,showEnd);
+  assert.ok(show.includes("if(!state.round)")&&show.includes('state.phase="exhausted"'),
+    "When unique cards are exhausted, gameplay must wait for the challenge timer instead of repeating a question");
+});
+
+test("Flash Recall never repeats a target within one challenge, even after exhausting a small deck",()=>{
+  const start=flashcardsSource.indexOf("  function makeRound(deck){");
+  const end=flashcardsSource.indexOf("  function durationLabel",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
+  const roundSource=flashcardsSource.slice(start,end);
+  const context=vm.createContext({
+    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set()},
+    cardKey:card=>"dict:"+String(card.word).toLowerCase(),
+    questionKey:card=>String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\s+/g," ").toLocaleLowerCase(),
+    translationFor:card=>card.definitionZh||card.definition,
+    uiText:english=>english
+  });
+  const makeRound=vm.runInContext("("+roundSource+")",context);
+  const deck=["apple","bridge","curious","discover","good morning","station","APPLE","good  morning"].map((word,index)=>({
+    word,definition:"English meaning "+index,definitionZh:"中文释义 "+index,
+    examples:["I "+word+" every day."]
+  }));
+  const seen=new Set();
+  for(let index=0;index<6;index++){
+    const round=makeRound(deck);
+    assert.ok(round,"Every available unique target should be used before exhaustion");
+    assert.ok(!seen.has(round.target.word),"A target must not repeat during the same challenge");
+    seen.add(round.target.word);
+  }
+  assert.equal(seen.size,6,"Case and repeated whitespace variants must collapse to the same question.");
+  assert.equal(makeRound(deck),null,"After all unique targets are used, no repeated question should be returned");
+});
+
+test("Flashcards explains the English-course limitation and resets collection selection after deletion",()=>{
+  assert.match(flashcardsSource,/English course required[\s\S]*Switch your Learning Course to English/,
+    "Chinese-course users must receive a clear explanation instead of a blank page");
+  const handler=flashcardsSource.slice(flashcardsSource.indexOf('if(action==="delete-collection")'),flashcardsSource.indexOf('if(action==="remove-card")'));
+  assert.ok(handler.indexOf('state.collectionId="all"')<handler.indexOf('await collectionAction("delete"'),
+    "Deleting the selected collection must reset selection before the reload/render");
+});
+
+test("Flash Recall prevents duplicate starts and locks the screen while saving or abandoning",()=>{
+  assert.match(flashcardsSource,/if\(state\.starting\)return/,
+    "A second start request must not create another server session");
+  assert.match(flashcardsSource,/startButton\.disabled=true/,
+    "The start action must be disabled while the session request is pending");
+  assert.match(flashcardsSource,/state\.game=null;state\.finishing=true;render\(\)/,
+    "The gameplay screen must be replaced while a session is being finalised");
+  assert.match(flashcardsSource,/Saving your game/,
+    "The learner must see feedback while results are saved");
+  assert.match(flashcardsSource,/state\.finishing=false;await loadData\(\)/,
+    "The interface must refresh after abandonment or completion");
 });

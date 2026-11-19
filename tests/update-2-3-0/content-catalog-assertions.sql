@@ -20,8 +20,8 @@ begin
   if exists (select 1 from private.learning_content_catalog where activity_type <> 'daily_discovery' and rotation_order is not null) then
     raise exception 'Only Daily Discovery entries may have a rotation order';
   end if;
-  if (select count(*) from private.learning_content_catalog where activity_type='permanent_lesson' and is_active) <> 15 then
-    raise exception 'Expected 15 approved permanent lesson IDs';
+  if (select count(*) from private.learning_content_catalog where activity_type='permanent_lesson' and is_active) <> 17 then
+    raise exception 'Expected 17 approved permanent lesson IDs';
   end if;
 
   if has_table_privilege('anon','private.learning_content_catalog','SELECT')

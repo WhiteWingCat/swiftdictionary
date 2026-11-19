@@ -80,9 +80,29 @@
     .tense-card strong { display:block; color:var(--accent); font-size:.76rem; text-transform:uppercase; letter-spacing:.07em; }
     .account-status { color:var(--muted); font-size:.85rem; }
 
-    .primary-nav { display:flex; gap:8px; align-items:center; overflow-x:auto; padding:0 0 12px; scrollbar-width:thin; }
-    .primary-nav button { flex:0 0 auto; border:1px solid transparent; border-radius:10px; background:transparent; color:var(--muted); padding:9px 14px; }
-    .primary-nav button[aria-current="page"] { color:var(--accent); background:var(--accent-bg); border-color:#4c5b8b; }
+    .primary-nav { display:flex; gap:8px; align-items:center; overflow-x:auto; padding:5px 0 12px; scrollbar-width:thin; }
+    .primary-nav button { flex:0 0 auto; display:inline-flex;align-items:center;gap:9px;border:1px solid #7185ad;border-radius:12px;background:linear-gradient(145deg,#2b3854,#1d293f);color:#fff;padding:10px 17px;font-weight:850;letter-spacing:.01em;box-shadow:0 5px 0 #111a2b,0 9px 18px #0004;transition:transform .15s,filter .15s; }
+    .primary-nav button:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .primary-nav button[aria-current="page"] { color:#fff;background:linear-gradient(145deg,#526c9f,#30466e);border-color:#9bb5e9;box-shadow:0 5px 0 #17243c,0 10px 20px #0006; }
+    .primary-nav .nav-icon{display:inline-flex;align-items:center;justify-content:center;width:1.35em;height:1.35em;font-size:1.08rem;line-height:1;filter:drop-shadow(0 2px 2px #0007)}
+    .learning-banner{position:relative;display:flex;justify-content:space-between;align-items:center;gap:18px;margin:0 0 22px;padding:28px 32px;border:1px solid #344a68;border-radius:22px;background:radial-gradient(circle at 88% 15%,#7096bd55,transparent 25%),linear-gradient(120deg,#15263b,#203c58 60%,#1b2941);box-shadow:0 16px 30px #0004;color:#f4f8ff}
+    .learning-banner h1{font-size:clamp(1.8rem,4vw,2.3rem);margin:0 0 8px;color:#f4f8ff}
+    .learning-banner p{margin:0;color:#c4d4ea;max-width:720px}
+    .learning-banner .eyebrow{color:#a9c3e5;font-weight:800;letter-spacing:.1em}
+    .learning-banner-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .learning-banner .learning-help-button{background:#ffffff18;border-color:#ffffff55;color:#fff;box-shadow:0 4px 0 #0c1728}
+    .learning-banner .secondary-button{background:#ffffff18;border-color:#ffffff55;color:#fff;box-shadow:0 4px 0 #0c1728}
+    .category-button,.filter-button,.secondary-button,.difficulty-tabs button,.quiz-session-top button,.quiz-question-actions button,.quiz-results-actions button{box-shadow:0 3px 0 #0004,0 6px 12px #0002;font-weight:700}
+    .dictionary-filter-panel{width:100%;box-sizing:border-box;margin:12px 0 0;padding:18px;border:1px solid #3a4558;border-radius:16px;background:var(--panel);box-shadow:0 10px 24px #0003;animation:dictionaryFilterExpand .18s ease-out}
+    .dictionary-filter-panel[hidden]{display:none}
+    .dictionary-filter-heading{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .dictionary-filter-heading h2{margin:0;font-size:1.05rem}
+    #dictionaryFiltersContent{display:grid;gap:14px}
+    #dictionaryFiltersContent .category-row{display:flex;flex-wrap:wrap;gap:8px}
+    #dictionaryFiltersContent .category-button,#dictionaryFiltersContent #savedFilter{padding:9px 13px;border-radius:10px}
+    #dictionaryFiltersContent .alphabet{margin:0}
+    @keyframes dictionaryFilterExpand{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:640px){.learning-banner{align-items:flex-start;padding:22px 18px}.learning-banner-actions{gap:5px}.primary-nav button{padding:9px 12px}}
     .top-actions { flex-wrap:wrap; justify-content:flex-end; }
     .course-controls { display:flex; align-items:center; gap:9px; margin:0; padding:7px; border:1px solid #52658f; border-radius:16px; background:linear-gradient(135deg,#202b46 0%,#172033 58%,#20283a 100%); box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.07); }
     .course-controls label { display:grid; gap:5px; min-width:0; padding:7px 10px; border:1px solid rgba(151,174,231,.24); border-radius:11px; background:rgba(8,14,27,.48); color:#dbe5ff; font-size:.72rem; font-weight:800; letter-spacing:.035em; text-transform:uppercase; }
@@ -498,10 +518,10 @@
         </div></div>
     </div>
     <nav class="wrap primary-nav" aria-label="Main navigation">
-      <button type="button" data-page="dictionary" aria-current="page">Dictionary</button>
-      <button type="button" data-page="lessons">Lessons</button>
-      <button type="button" data-page="quiz">Quiz</button>
-      <button type="button" data-page="flashcards">Flashcards</button>
+      <button type="button" data-page="dictionary" aria-current="page"><span class="nav-icon" aria-hidden="true">🔎</span><span>Dictionary</span></button>
+      <button type="button" data-page="lessons"><span class="nav-icon" aria-hidden="true">📖</span><span>Lessons</span></button>
+      <button type="button" data-page="quiz"><span class="nav-icon" aria-hidden="true">🧠</span><span>Quiz</span></button>
+      <button type="button" data-page="flashcards"><span class="nav-icon" aria-hidden="true">🗂️</span><span>Flashcards</span></button>
     </nav>
   </header>
 
@@ -511,22 +531,28 @@
       <div class="hero-banner-content"><div class="eyebrow">English &amp; 简体中文 · Made clear</div><h1>SwiftDictionary</h1><p>Explore vocabulary, pinyin, meanings, examples, and character structure in one clean learning space.</p></div>
     </section>
     <section class="hero">
-      <div id="categoryRow" class="category-row" aria-label="Filter by part of speech">
-        <button class="category-button active" type="button" data-category="all" aria-pressed="true">All categories</button>
-        <button class="category-button" type="button" data-category="noun" aria-pressed="false">Nouns</button>
-        <button class="category-button" type="button" data-category="verb" aria-pressed="false">Verbs</button>
-        <button class="category-button" type="button" data-category="adjective" aria-pressed="false">Adjectives</button>
-        <button class="category-button" type="button" data-category="adverb" aria-pressed="false">Adverbs</button>
-        <button class="category-button" type="button" data-category="other" aria-pressed="false">Other / multiple uses</button>
-      </div>
       <div class="search-row">
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
           <input id="search" type="search" placeholder="Search a word..." autocomplete="off" aria-label="Search words">
         </label>
-        <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
+        <button id="openDictionaryFilters" class="filter-button" type="button" aria-expanded="false" aria-controls="dictionaryFiltersPanel">☷ Filters</button>
       </div>
-      <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
+      <section id="dictionaryFiltersPanel" class="dictionary-filter-panel" hidden aria-labelledby="dictionaryFiltersTitle">
+          <div class="dictionary-filter-heading"><h2 id="dictionaryFiltersTitle">Dictionary filters</h2></div>
+          <div id="dictionaryFiltersContent">
+            <div id="categoryRow" class="category-row" aria-label="Filter by part of speech">
+              <button class="category-button active" type="button" data-category="all" aria-pressed="true">All categories</button>
+              <button class="category-button" type="button" data-category="noun" aria-pressed="false">Nouns</button>
+              <button class="category-button" type="button" data-category="verb" aria-pressed="false">Verbs</button>
+              <button class="category-button" type="button" data-category="adjective" aria-pressed="false">Adjectives</button>
+              <button class="category-button" type="button" data-category="adverb" aria-pressed="false">Adverbs</button>
+              <button class="category-button" type="button" data-category="other" aria-pressed="false">Other / multiple uses</button>
+            </div>
+            <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
+            <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
+          </div>
+      </section>
     </section>
 
     <section aria-labelledby="explore-title">
@@ -544,7 +570,7 @@
     </div>
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
-      <div class="learning-page-heading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div>
+      <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
     <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
@@ -572,7 +598,7 @@
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
-      <div class="quiz-page-heading"><div><span class="eyebrow">Knowledge check</span><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div style="display:flex;gap:8px;align-items:center"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></div>
+      <section class="learning-banner" aria-labelledby="quizHeading"><div><p class="eyebrow">KNOWLEDGE CHECK</p><h1 id="quizHeading">Quiz</h1><p class="page-intro">Test your understanding with mixed-topic questions. There is no timer and no pass or fail.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="quiz" aria-label="Quiz introduction and FAQs" title="Introduction and FAQs">?</button><button id="quizRefresh" class="secondary-button" type="button">Refresh</button></div></section>
       <div id="quizChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Quiz is coming soon</h2><p>There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.</p></div>
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
@@ -599,7 +625,7 @@
     <section id="flashcardsPage" class="page-panel" hidden aria-labelledby="flashcardsHeading">
       <div class="learning-page-heading"><div><h1 id="flashcardsHeading">Flashcards</h1><p class="page-intro">Review vocabulary with focused recall practice.</p></div><button type="button" class="learning-help-button" data-learning-help="flashcards" aria-label="Flashcards introduction and FAQs" title="Introduction and FAQs">?</button></div>
       <div id="flashcardsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Flashcards are coming soon</h2><p>There is currently no Chinese learning course available in Flashcards. Switch your learning course to English to continue when Flashcards are released.</p></div>
-      <div class="coming-card"><span class="coming-label">Coming Soon</span><h2>Flashcards are being prepared</h2><p class="page-intro" style="margin:0 auto">Flashcard practice will be introduced in a future SwiftDictionary update.</p></div>
+      <div id="flashcardsApp" class="flash-home" aria-live="polite"></div>
     </section>
     <section id="profilePage" class="page-panel" hidden aria-labelledby="profileHeading">
       <div class="dashboard-heading"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div>
@@ -616,6 +642,11 @@
           <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-bars"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
           <details open><summary>Quiz history</summary><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></details>
         </section>
+        <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
+          <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
+          <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
+          <div class="stat-card"><strong id="dashboardFlashcardAccuracy">—</strong><span>Recent accuracy</span></div>
+        </div><div class="profile-card" style="margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h4 style="margin:0 0 5px">Weak Memory</h4><p id="dashboardFlashcardWeakSummary" class="muted-note" style="margin:0">Loading weak-memory summary…</p></div><button type="button" class="primary-button" data-dashboard-flashcard-review>Review weak memory</button></div></div><p id="dashboardFlashcardStatus" class="muted-note">Statistics are based on your recent completed Flashcard games.</p></section>
         <section class="profile-card"><h3>Practice insights</h3>
           <div class="profile-grid">
             <div class="stat-card"><strong id="practiceAccuracy">—</strong><span>Recent practice accuracy</span></div>
@@ -643,7 +674,7 @@
           <p class="muted-note">Your timezone determines when daily learning allowances reset. If you change it, the new timezone takes effect after the current allowance day ends. It is a timezone setting, not a precise location.</p>
         </section>
         <section class="profile-card"><h3>Privacy and data</h3>
-          <p class="muted-note">Delete your learning history, including lesson progress, practice summaries, Daily Learning sessions and activity history. Your account, saved words, profile and preferences will remain. Completions already used today will still count until the normal allowance reset.</p>
+          <p class="muted-note">Delete your learning history, including lesson progress, practice summaries, Daily Learning sessions, Flashcard game history and Flashcard mastery. Your account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset.</p>
           <p class="muted-note">If your last sign-in was more than 15 minutes ago, sign out and sign in again before requesting deletion.</p>
           <button type="button" id="deleteLearningHistoryButton" class="secondary-button">Delete learning history</button>
           <p id="learningHistoryDeleteStatus" class="muted-note" aria-live="polite"></p>
@@ -14679,7 +14710,278 @@
       }
     ]
   }
-];
+,
+  {
+    "word": "thanks",
+    "lessonId": "b-greetings-polite-expressions",
+    "part": "interjection",
+    "phonetic": "/θæŋks/",
+    "definition": "A polite expression used to show gratitude.",
+    "examples": [
+      "Thanks for helping me carry these bags."
+    ],
+    "tip": "A common informal way to say thank you.",
+    "course": "en",
+    "definitionZh": "谢谢；多谢",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "excuse me",
+    "lessonId": "b-greetings-polite-expressions",
+    "part": "phrase",
+    "phonetic": "/ɪkˈskjuːz miː/",
+    "definition": "A polite expression used to get attention, apologise for a small interruption, or pass someone.",
+    "examples": [
+      "Excuse me, could you tell me where the station is?"
+    ],
+    "tip": "Use it politely before asking a stranger a question.",
+    "course": "en",
+    "definitionZh": "打扰一下；劳驾；对不起",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "good morning",
+    "lessonId": "b-greetings-polite-expressions",
+    "part": "phrase",
+    "phonetic": "/ɡʊd ˈmɔːnɪŋ/",
+    "definition": "A greeting used when meeting someone in the morning.",
+    "examples": [
+      "Good morning, everyone. Are you ready to begin?"
+    ],
+    "tip": "A friendly greeting used in the morning.",
+    "course": "en",
+    "definitionZh": "早上好",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "good afternoon",
+    "lessonId": "b-greetings-polite-expressions",
+    "part": "phrase",
+    "phonetic": "/ɡʊd ˌɑːftəˈnuːn/",
+    "definition": "A greeting used when meeting someone in the afternoon.",
+    "examples": [
+      "Good afternoon, Ms Lee. How are you today?"
+    ],
+    "tip": "A polite greeting for the afternoon.",
+    "course": "en",
+    "definitionZh": "下午好",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "good evening",
+    "lessonId": "b-greetings-polite-expressions",
+    "part": "phrase",
+    "phonetic": "/ɡʊd ˈiːvnɪŋ/",
+    "definition": "A greeting used when meeting someone in the evening.",
+    "examples": [
+      "Good evening, and welcome to the show."
+    ],
+    "tip": "Use it as a greeting when you meet someone in the evening.",
+    "course": "en",
+    "definitionZh": "晚上好",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "take care",
+    "lessonId": "b-greetings-polite-expressions",
+    "part": "phrase",
+    "phonetic": "/teɪk keə/",
+    "definition": "A friendly expression used when saying goodbye and wishing someone well.",
+    "examples": [
+      "Take care, and I hope to see you again soon."
+    ],
+    "tip": "Often used at the end of a conversation or message.",
+    "course": "en",
+    "definitionZh": "保重；多保重",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "station",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈsteɪʃən/",
+    "definition": "A place where trains or buses regularly stop for passengers.",
+    "examples": [
+      "We will meet outside the train station."
+    ],
+    "tip": "Often used in train station and bus station.",
+    "course": "en",
+    "definitionZh": "车站；站",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "market",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈmɑːkɪt/",
+    "definition": "A place where people buy and sell food or other goods.",
+    "examples": [
+      "Mum buys fresh vegetables at the market."
+    ],
+    "tip": "Markets may be indoors, outdoors, or held on certain days.",
+    "course": "en",
+    "definitionZh": "市场；集市",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "library",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈlaɪbrəri/",
+    "definition": "A place where people can read, borrow, or study books and other materials.",
+    "examples": [
+      "I borrowed two books from the library."
+    ],
+    "tip": "A library is usually quieter than a busy public place.",
+    "course": "en",
+    "definitionZh": "图书馆",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "hospital",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈhɒspɪtəl/",
+    "definition": "A place where people receive medical care and treatment.",
+    "examples": [
+      "Her grandfather is staying in hospital for treatment."
+    ],
+    "tip": "A place where doctors and nurses provide medical treatment.",
+    "course": "en",
+    "definitionZh": "医院",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "restaurant",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈrestrɒnt/",
+    "definition": "A place where people pay to sit and eat meals prepared for them.",
+    "examples": [
+      "We chose a small restaurant near the river."
+    ],
+    "tip": "A restaurant serves meals; a café often serves lighter food and drinks.",
+    "course": "en",
+    "definitionZh": "餐厅；饭馆",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "museum",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/mjuːˈziːəm/",
+    "definition": "A place where objects of historical, artistic, or scientific interest are displayed.",
+    "examples": [
+      "The museum has an exhibition about local history."
+    ],
+    "tip": "Visitors usually go to a museum to learn about or view collections.",
+    "course": "en",
+    "definitionZh": "博物馆",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "entrance",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈentrəns/",
+    "definition": "A door, gate, or place through which people enter.",
+    "examples": [
+      "Please wait for me at the main entrance."
+    ],
+    "tip": "The entrance is where you go in; the exit is where you go out.",
+    "course": "en",
+    "definitionZh": "入口；大门",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "exit",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈeksɪt/",
+    "definition": "A door or passage used for leaving a building or area.",
+    "examples": [
+      "The nearest exit is beside the lifts."
+    ],
+    "tip": "Look for exit signs in public buildings.",
+    "course": "en",
+    "definitionZh": "出口",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "corner",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈkɔːnə/",
+    "definition": "The place where two streets meet, or the point where two edges or sides meet.",
+    "examples": [
+      "Turn left at the corner of the street."
+    ],
+    "tip": "At the corner is a useful phrase for giving directions.",
+    "course": "en",
+    "definitionZh": "拐角；街角；角落",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "bridge",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/brɪdʒ/",
+    "definition": "A structure built over a river, road, or other obstacle so people can cross it.",
+    "examples": [
+      "We walked across the bridge to reach the park."
+    ],
+    "tip": "Commonly used with cross, walk across, and under.",
+    "course": "en",
+    "definitionZh": "桥；桥梁",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "ticket",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈtɪkɪt/",
+    "definition": "A printed or digital pass that allows someone to travel or enter an event.",
+    "examples": [
+      "Keep your train ticket until you leave the station."
+    ],
+    "tip": "You can buy a ticket for transport, a performance, or an event.",
+    "course": "en",
+    "definitionZh": "票；车票；入场券",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  },
+  {
+    "word": "platform",
+    "lessonId": "b-places-getting-around",
+    "part": "noun",
+    "phonetic": "/ˈplætfɔːm/",
+    "definition": "A raised area at a railway station where passengers board or leave a train.",
+    "examples": [
+      "The train to the city leaves from platform three."
+    ],
+    "tip": "At a railway station, check the platform before boarding.",
+    "course": "en",
+    "definitionZh": "站台；月台",
+    "breakdown": "Everyday English vocabulary; learn the word or fixed phrase in its common context.",
+    "related": "See the related everyday communication and places lessons."
+  }
+    ];
     const chineseWords = [
   {
     "word": "一",
@@ -17911,7 +18213,23 @@
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
       document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
-      if (activeWord) openWord(activeWord);
+      const lessonsPage=document.getElementById("lessonsPage");
+      if(lessonsPage){
+        const lessonBanner=lessonsPage.querySelector(".learning-banner");
+        const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
+        const lessonTitle=document.getElementById("lessonsHeading");
+        const lessonDescription=lessonBanner?.querySelector(".page-intro");
+        if(lessonEyebrow)lessonEyebrow.textContent=translationLanguage==="zh"?"学习":"LEARNING";
+        if(lessonTitle)lessonTitle.textContent=translationLanguage==="zh"?"课程":"Lessons";
+        if(lessonDescription)lessonDescription.textContent=translationLanguage==="zh"
+          ?"通过引导式讲解、示例和简短练习提升英语能力。"
+          :"Build English skills through guided explanations, examples and short practice.";
+      }
+      if (activeWord && backdrop.classList.contains("open")) openWord(activeWord);
+      // The lesson catalogue uses lessonField() for localized titles, topics and summaries.
+      // Re-render its cards when the translation changes; refreshing only the reader
+      // leaves the library in the previous language until the next navigation.
+      if (lessonsPage && !lessonsPage.hidden && !ls.active) renderLessons();
       // Permanent lessons and Daily Learning share this preference, but their
       // readers have independent renderers. Refresh the open permanent lesson
       // directly instead of routing through the Daily Learning page state.
@@ -17954,6 +18272,7 @@
           ? "翻译语言已更新，当前课程内容已刷新。"
           : "Translation updated. This lesson has been refreshed.";
       }
+      if (typeof window.SwiftDictionaryFlashcards?.refreshTranslation === "function") window.SwiftDictionaryFlashcards.refreshTranslation();
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);
@@ -17976,6 +18295,15 @@
       savedFilter.textContent = onlySaved ? "★ Showing saved" : "☆ Saved words";
       render();
     });
+    const dictionaryFiltersPanel=document.getElementById("dictionaryFiltersPanel");
+    const dictionaryFiltersButton=document.getElementById("openDictionaryFilters");
+    function toggleDictionaryFilters(force){
+      const open=typeof force==="boolean"?force:dictionaryFiltersPanel.hidden;
+      dictionaryFiltersPanel.hidden=!open;
+      dictionaryFiltersButton.setAttribute("aria-expanded",String(open));
+    }
+    dictionaryFiltersButton.addEventListener("click",()=>toggleDictionaryFilters());
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!dictionaryFiltersPanel.hidden)toggleDictionaryFilters(false);});
     document.getElementById("closeButton").addEventListener("click", closeModal);
     // The dimmed backdrop intentionally blocks the word grid while the detail drawer is open.
     backdrop.addEventListener("click", event => { if (event.target === backdrop) event.preventDefault(); });
@@ -18189,6 +18517,9 @@
         {id:"b-articles",topic:"Nouns and articles","title":"Choose a, an or the","summary":"Understand when English nouns need an article.","explanation":"A and an introduce a singular countable noun that is not yet identified. Choose between them by the first sound, not simply the first letter. The introduces a particular noun that the listener can identify from the situation or earlier context. The article examples also include familiar objects. Umbrella begins with the vowel sound /ʌ/, so we say an umbrella when introducing one for the first time. The spelling starts with u, but article choice follows pronunciation.","points":["Use a before a consonant sound and an before a vowel sound.","Use the when the listener can identify the specific thing.","Say an umbrella because umbrella begins with a vowel sound."],"examples":["I saw an owl near the tree.","Please close the door.","She took an umbrella because it looked like rain."],"mistakes":["Use an hour because hour begins with a vowel sound.","Do not use the automatically: it points to a specific, identifiable noun."],"practices":[{"q":"Choose the correct phrase for a first mention.","options":["a apple","an apple","the apple in every context"],"answer":1},{"q":"Choose the article: She waited for ___ bus we had booked.","options":["a","an","the"],"answer":2},{"q":"Choose the natural phrase.","options":["a honest answer","an honest answer","the honest answer in every context"],"answer":1},{"q":"Why do we say an hour?","options":["The letter h is a vowel","The first sound is a vowel sound","All words beginning with h use an"],"answer":1},{"q":"Choose the correct phrase: “She packed ___ umbrella.”","options":["a","an","the"],"answer":1}],"breakdown":{"title":"Notice the article clue","intro":"These examples show whether a noun is new, identifiable, or begins with a vowel sound.","parts":[{"text":"an owl","label":"New noun · vowel sound"},{"text":"the tree","label":"Identifiable from context"},{"text":"an hour","label":"Vowel sound despite the letter h"}]}},
         {id:"b-verb-combinations",topic:"Everyday vocabulary","title":"Build useful everyday vocabulary","summary":"Learn common verb–noun combinations and descriptive words for everyday situations.","explanation":"Many everyday actions are expressed with familiar verb–noun combinations. English speakers say do homework, make breakfast, take a break and catch a bus. The noun helps determine which verb sounds natural, so learn the whole combination rather than translating each word separately. Everyday vocabulary also includes descriptive adjectives. Exciting describes something that creates strong interest or enthusiasm; beautiful describes something very pleasing to look at. Crowded describes a place with many people and little space, comfortable describes something that helps you feel relaxed, and delicious describes food with a very pleasant taste. Descriptive adjectives can also express an unfavourable reaction. Boring describes something that does not hold your interest; it is the opposite of exciting. Friendly describes a kind and welcoming person or manner. Quiet means making little noise, useful means helpful for a purpose, and expensive means costing a lot of money. The core everyday combinations assessed in the Quiz are make a mistake, take a break, have breakfast, do homework, pay attention and keep a promise. These are conventional verb–noun collocations, so learn the complete phrase rather than translating each word separately.","points":["Learn frequent combinations as complete phrases.","The same general idea may use different verbs with different nouns.","Use the surrounding situation to choose the natural combination.","Descriptive adjectives explain how a person, place, food or experience looks or feels.","Exciting means causing strong interest or enthusiasm; beautiful means very pleasing to look at.","Crowded describes a place with many people, while comfortable describes something that makes you feel relaxed.","Delicious describes food or drink that has a very pleasant taste.","Boring means not interesting; exciting means creating interest or enthusiasm.","Friendly describes a kind and welcoming person; quiet describes a place or person with little noise.","Useful means helpful for a purpose; expensive means costing a lot of money.","Make a mistake means do something incorrectly; take a break means stop briefly to rest.","Have breakfast means eat the morning meal; do homework means complete school or study tasks.","Pay attention means focus carefully; keep a promise means do what you said you would do."],"examples":["I need to do my homework before dinner.","We usually catch the bus at the next stop.","Let's take a short break.","The science show was exciting.","We saw a beautiful garden near the station.","The café was crowded, but the seats were comfortable.","The soup was delicious, and the staff were friendly.","The lecture was boring, but the practical activity was exciting.","The staff were friendly, and the library was quiet.","This useful guide is not expensive.","Everyone can make a mistake when they are tired.","Let's take a break after this exercise.","I have breakfast at home and do my homework after dinner.","Please pay attention to the road and keep your promise."],"mistakes":["Incorrect: make homework. Correct: do homework.","Incorrect: do a break. Correct: take a break."],"practices":[{"q":"Choose the natural phrase.","options":["make homework","do homework","take homework"],"answer":1},{"q":"We usually ___ the bus at 8 a.m.","options":["catch","make","do"],"answer":0},{"q":"After two hours of study, let's ___ a break.","options":["do","make","take"],"answer":2},{"q":"Choose the natural combination for preparing the morning meal.","options":["make breakfast","catch breakfast","do breakfast"],"answer":0},{"q":"Which definition best matches “exciting”?","options":["Causing strong interest or enthusiasm","Making someone feel sleepy","Full of people with little space"],"answer":0},{"q":"Choose the best adjective: “We saw a ___ garden.”","options":["beautiful","crowded","delicious"],"answer":0},{"q":"Which word describes a place with many people and little space?","options":["quiet","crowded","comfortable"],"answer":1},{"q":"Which word describes food that tastes very good?","options":["delicious","expensive","exciting"],"answer":0},{"q":"Which word describes something that does not hold your interest?","options":["boring","exciting","delicious"],"answer":0},{"q":"Choose the best word: “The staff were kind and welcoming.” They were ___.","options":["friendly","crowded","expensive"],"answer":0},{"q":"Which word means “helpful for a purpose”?","options":["useful","quiet","boring"],"answer":0},{"q":"Choose the natural phrase: “Please ___ attention to the road.”","options":["pay","make","do"],"answer":0},{"q":"Which phrase means to do what you promised?","options":["keep a promise","take a break","make a mistake"],"answer":0}]},
         {id:"b-countable-nouns",topic:"Nouns and quantity","title":"Use countable and uncountable nouns","summary":"Choose noun forms and quantity words accurately.","explanation":"Countable nouns have singular and plural forms: one book, two books. Uncountable nouns such as information, advice and water are not normally counted directly and do not usually take a plural -s. Use a piece of advice or some information when you need to refer to an amount or item. Some everyday nouns are uncountable even when they refer to objects or collections. Equipment means the tools or items needed for an activity, and furniture means the movable items in a room, such as tables and chairs. In standard English, do not normally say equipments or furnitures. Use some equipment, a piece of equipment, some furniture or an item of furniture. Some countable nouns have irregular plural forms that do not take the regular -s ending. For example, child becomes children. For bread, use a countable unit such as a slice: one slice of bread, two slices of bread. Sugar is uncountable in the recipe context, so ask how much sugar rather than how many sugars.","points":["Use a/an with a singular countable noun: a book.","Use many with plural countable nouns and much with uncountable nouns.","Use expressions such as a piece of advice to count units of an uncountable noun.","Equipment and furniture are normally uncountable nouns in standard English.","Use a piece of equipment or an item of furniture when you need to count one item.","Child has the irregular plural children.","Use a unit such as a slice to count bread: two slices of bread.","Sugar is uncountable in this context, so use much sugar."],"examples":["I received some useful advice.","She bought three notebooks.","Could you give me a piece of information about the course?","The studio bought some new equipment.","We need a piece of equipment for the activity.","There is not much furniture in the room yet.","One child is waiting; two children are playing.","There are two slices of bread on the plate.","How much sugar do we need for the recipe?"],"mistakes":["Incorrect: an advice. Correct: some advice or a piece of advice.","Incorrect: many information. Correct: much information or a lot of information.","Incorrect: two equipments. Correct: two pieces of equipment.","Incorrect: many furnitures. Correct: several items of furniture."],"practices":[{"q":"Choose the correct phrase.","options":["an advice","some advice","many advice"],"answer":1},{"q":"How ___ books did you borrow?","options":["much","many","any of"],"answer":1},{"q":"We do not have ___ information about the event yet.","options":["many","a few","much"],"answer":2},{"q":"Choose the natural expression.","options":["two pieces of advice","two advices","two advice"],"answer":0},{"q":"Choose the correct phrase.","options":["three equipments","three pieces of equipment","three equipment"],"answer":1},{"q":"Which sentence is standard English?","options":["We bought new furnitures.","We bought some new furniture.","We bought many furniture."],"answer":1},{"q":"Choose the correct plural: one child, two ___.","options":["childs","children","childes"],"answer":1},{"q":"Choose the natural phrase.","options":["two breads","two slices of bread","two slice bread"],"answer":1}]}
+        ,
+        {id:"b-greetings-polite-expressions",topic:"Everyday vocabulary","title":"Use greetings and polite expressions","summary":"Choose natural greetings and courteous expressions for everyday conversations.","explanation":"Greetings help us begin conversations in a friendly way. Good morning, good afternoon and good evening match different times of day. Thanks expresses gratitude, while excuse me politely gets someone's attention or introduces a question. Take care is a friendly way to wish someone well when saying goodbye. These expressions are best learned as complete phrases because their social meaning is more important than translating each word separately.","points":["Use good morning in the morning, good afternoon in the afternoon, and good evening in the evening.","Thanks is a common, friendly way to show gratitude.","Use excuse me to get attention politely or before asking a stranger a question.","Take care is a friendly farewell that wishes someone well.","Choose an expression that fits the situation and relationship."],"examples":["Good morning, everyone. How are you?","Good afternoon. Could I speak to Mr Tan?","Good evening, and welcome to our event.","Thanks for waiting for me.","Excuse me, where is the nearest bus stop?","Take care, and see you next week."],"mistakes":["Good night is more often used when leaving or going to sleep, not as the usual greeting when you first meet someone.","Use excuse me to interrupt politely; it does not mean thank you."],"practices":[{"q":"You meet your teacher at 9 a.m. Which greeting is most suitable?","options":["Good evening","Good morning","Take care"],"answer":1},{"q":"Which expression politely gets a stranger's attention before a question?","options":["Excuse me","Thanks","Good night"],"answer":0},{"q":"Someone helps you carry your books. What can you say?","options":["Exit","Thanks","Good evening"],"answer":1},{"q":"Which expression is a friendly way to say goodbye and wish someone well?","options":["Good afternoon","Excuse me","Take care"],"answer":2}]},
+        {id:"b-places-getting-around",topic:"Everyday vocabulary","title":"Name everyday places around town","summary":"Recognise common public places and words used to find your way around.","explanation":"Everyday conversations often involve asking where a place is and understanding simple directions. A station is where passengers catch trains or buses. A market sells food and other goods; a library is a place to read, borrow books and study. A hospital provides medical treatment, a restaurant serves meals, and a museum displays objects for visitors to learn from. When navigating a building or street, the entrance is where you go in and the exit is where you leave. A corner is where streets or edges meet, a bridge lets people cross an obstacle, a ticket gives permission to travel or enter, and a platform is where passengers board a train.","points":["A station is where you catch a train or bus; a platform is where passengers board a train.","A market sells goods, while a library is for reading, borrowing and studying.","A hospital provides medical treatment; a restaurant serves prepared meals.","A museum displays objects and information for visitors.","The entrance is where you go in; the exit is where you leave.","A ticket allows travel or entry, and a bridge lets people cross an obstacle.","Corner can describe where streets or edges meet."],"examples":["The train station is beside the market.","I borrowed a book from the library.","The hospital is across the bridge.","We had dinner at a restaurant near the museum.","Please wait at the main entrance.","The nearest exit is around the corner.","Our train leaves from platform two. Keep your ticket ready."],"mistakes":["Do not confuse entrance and exit: an entrance is for going in, while an exit is for going out.","A platform is not the whole station; it is the area where passengers board or leave a train."],"practices":[{"q":"Where would you go to borrow a book?","options":["A library","A hospital","A restaurant"],"answer":0},{"q":"Which place provides medical treatment?","options":["A museum","A hospital","A market"],"answer":1},{"q":"Where do passengers usually board a train?","options":["At the platform","At a museum entrance","At a market"],"answer":0},{"q":"Which word means the place where you go out of a building?","options":["Entrance","Corner","Exit"],"answer":2}]}
       ],
       intermediate:[
         {id:"i-perfect",topic:"Verb tenses","title":"Connect past actions to the present","summary":"Use the present perfect for experience and present relevance.","explanation":"The present perfect links an earlier event or situation to the present. It commonly describes life experience, a recent result, or a situation that began in the past and continues. A finished time such as yesterday normally calls for the past simple. The perfect aspect includes several useful patterns. The present perfect continuous uses have/has been + verb-ing for an activity that began earlier and continues or has a present result: I have been working here for three years. The past perfect uses had + past participle for an action completed before another past event: the film had started before we arrived. Use since for a starting point and for for a duration. Already often marks a completed action; yet is common in negatives and questions.","points":["Form: have/has + past participle.","Use it when the past event matters to the present.","Present perfect continuous: have/has been + -ing; it emphasises an ongoing activity or its duration.","Past perfect: had + past participle; it marks the earlier of two past events.","Use since + starting point and for + duration.","Use yet in negatives and questions; already often indicates completion."],"examples":["I have visited Penang twice.","She has lost her keys, so she cannot enter.","I have been working here for three years.","Lena has been studying for three hours.","By the time we arrived, the film had started.","I have worked at this school since 2020, but I have not finished the report yet.","The guests have already left."],"mistakes":["Incorrect: I have seen him yesterday. Correct: I saw him yesterday."],"practices":[{"q":"Which sentence uses a finished past-time expression correctly?","options":["I have finished it last night.","I finished it last night.","I has finished it last night."],"answer":1},{"q":"She ___ her report, so she can relax now.","options":["has finished","had finish","finishes yesterday"],"answer":0},{"q":"Which question asks about life experience?","options":["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"],"answer":1},{"q":"Choose the present perfect continuous form.","options":["has studied","has been studying","had study"],"answer":1},{"q":"Which action happened first: the film started or we arrived?","options":["The film had started first.","We arrived first."],"answer":0}]},
@@ -18205,7 +18536,7 @@
         {id:"a-mixed-conditionals",topic:"Advanced grammar","title":"Understand mixed conditionals","summary":"Connect an unreal past condition with a present result, or a present condition with a past result.","explanation":"Mixed conditionals combine different time references. A common pattern uses if + past perfect for an unreal past condition and would + base verb for its present result: If I had studied medicine, I would be a doctor now. Another pattern uses if + past simple for a general present condition and would have + past participle for a past result. Choose the pattern according to the time relationship you mean. A mixed conditional can also use inversion in the conditional clause. In formal style, remove if and place had before the subject: “Had the data been checked, the error would not now be affecting the results.” The past perfect passive condition refers to an earlier check; the result clause describes the present effect. This combines mixed-condition meaning with the inversion pattern taught in the advanced inversion lesson.","points":["Past condition → present result: If I had taken the job, I would live abroad now.","Present condition → past result: If she were more careful, she would not have made that mistake.","The verb forms signal the time of the condition and the result separately.","Inverted mixed conditional: Had + subject + past participle, would + base verb / would be + -ing now.","The condition and result refer to different times; inversion changes word order but keeps the time relationship."],"examples":["If he had saved more money, he would own a house now.","If I were more confident, I would have spoken at the meeting yesterday.","Had the data been checked, the error would not now be affecting the results."],"mistakes":["Do not use a single third-conditional pattern when the result refers to the present.","Check whether each clause refers to the past or the present before choosing its verb form."],"practices":[{"q":"Complete the past condition with a present result: “If I had accepted the offer, I ___ in London now.”","options":["would live","would have lived","will live"],"answer":0},{"q":"Which sentence is a mixed conditional?","options":["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."],"answer":2},{"q":"Complete: “If he had taken the medicine, he ___ better now.”","options":["would feel","would have felt","will feel"],"answer":0},{"q":"In “If she were more patient, she would have handled the call better,” when does the condition apply?","options":["Only in the past","As a general or present characteristic","Only in the future"],"answer":1},{"q":"Which sentence combines an inverted condition with a present result?","options":["Had the data been checked, the error would not now be affecting the results.","If the data is checked, the error disappeared yesterday.","Had the data checked, the error would not now affect."],"answer":0}]}
       ]
     };
-    const lessonZh={"b-sentence":{"topic":"句子基础","title":"构建清晰的基本句子","summary":"学习简单英语句子的常见语序。","explanation":"英语陈述句通常把主语放在动词之前。如果动词需要宾语，宾语通常放在动词之后。这样的语序有助于读者理解是谁执行动作，以及动作作用于什么对象。 基本句型也包括 there is/there are，用来表示某物存在或位于某处。单数名词或不可数名词搭配 there is；复数名词搭配 there are。一般现在时中，主语为 I、you、we、they 的疑问句通常以 do 开头；主语为 he、she、it 的疑问句通常以 does 开头，后面的主要动词使用原形。描述性形容词通常放在名词之前。","points":["基本陈述句通常采用主语 + 动词 + 宾语的语序。","主语说明句子谈论的人或事物。","There is 搭配单数或不可数名词；there are 搭配复数名词。","You 通常搭配 Do you…?；he 通常搭配 Does he…?；does 后面的主要动词使用原形。","描述性形容词通常放在名词前面，例如 a red bag。"],"examples":["Maya 每天晚上读一本书。","那只小狗跟着它的主人。","桌子上有一本书。","房间里有三把椅子。","你喜欢音乐吗？他在这里工作吗？","她有一个红色的包。"],"breakdown":{"title":"认识句子的组成部分","intro":"以下标签说明例句中每个部分的作用。","sentence":[{"text":"Maya","role":"subject"},{"text":"reads","role":"verb"},{"text":"a book every evening.","role":"object"}],"parts":[{"text":"Maya","label":"主语 · 执行动作的人"},{"text":"reads","label":"动词 · 动作"},{"text":"a book","label":"宾语 · 阅读的对象"}]},"mistakes":["错误：Reads Maya a book. 正确：Maya reads a book."],"practices":[{"q":"简单陈述句最常见的语序是什么？","options":["动词 + 主语 + 宾语","主语 + 动词 + 宾语","宾语 + 主语 + 动词"]},{"q":"在句子“The young artist painted a mural”中，哪一部分是主语？","options":["The young artist","painted","a mural"]},{"q":"选择符合常见主语—动词—宾语语序的句子。","options":["The children planted flowers.","Planted the children flowers.","Flowers the children planted."]},{"q":"选择正确的句子。","options":["There is three chairs.","There are three chairs.","There be three chairs."]},{"q":"选择正确的疑问句。","options":["Does he works here?","Does he work here?","Do he work here?"]}]},"b-present":{"topic":"动词时态","title":"使用一般现在时","summary":"描述日常习惯、事实和经常发生的情况。","explanation":"一般现在时用于表达习惯、重复发生的动作和普遍事实。在肯定句中，第三人称单数主语通常需要在动词后加 -s 或 -es。 一般现在时也可以使用 do 或 does 构成否定句和疑问句。I、you、we、they 搭配 do not/don't；he、she、it 搭配 does not/doesn't。疑问句把 do 或 does 放在主语之前，并让主要动词保持原形。Usually 等频率副词通常放在主要动词之前，但放在 be 动词之后。","points":["主语为 I、you、we、they 时使用动词原形。","主语为 he、she、it 时，动词通常加 -s 或 -es。","否定句：They do not like coffee；he does not work here。","疑问句：Do you like music？Does she walk to work？","Usually 通常放在主要动词之前：She usually drinks tea in the evening。"],"examples":["我每天步行上班。","她每周日打网球。","他们不喜欢咖啡。","你哥哥／弟弟乘公共汽车上学吗？","她通常在晚上喝茶。","商店每天早上九点开门。"],"mistakes":["错误：He work here. 正确：He works here.","错误：She drinks tea usually in the evening。更自然的表达：She usually drinks tea in the evening。","Does 后面使用动词原形：Does he work? 而不是 Does he works?"],"practices":[{"q":"选择正确的句子。","options":["She play tennis on Sundays.","She plays tennis on Sundays.","She playing tennis on Sundays."]},{"q":"选择正确的动词形式：My brother ___ to work by train every day.","options":["travel","travels","is travel"]},{"q":"哪一个句子表达普遍事实？","options":["Water boiled at 100°C at sea level.","Water boils at 100°C at sea level.","Water is boil at 100°C at sea level."]},{"q":"选择正确的否定句。","options":["They doesn't like coffee.","They don't like coffee.","They not like coffee."]},{"q":"选择 usually 的自然位置。","options":["She drinks usually tea.","She usually drinks tea.","Usually she drinks usually tea."]}]},"b-articles":{"topic":"名词与冠词","title":"选择 a、an 或 the","summary":"理解英语名词何时需要使用冠词。","explanation":"a 和 an 用于首次提及、尚未明确指向的单数可数名词。两者的选择取决于名词开头的发音，而不只是首字母。the 用于听者能够根据当前情境或前文确定的特定人或事物。 冠词例子也包括常见物品。Umbrella（雨伞）以元音音素 /ʌ/ 开头，因此首次提及时应说 an umbrella。虽然拼写以字母 u 开头，但冠词的选择取决于发音。","points":["辅音音素前使用 a，元音音素前使用 an。","当听者能够确定具体所指时，使用 the。","Umbrella 以元音音素开头，因此使用 an umbrella。"],"examples":["我在那棵树附近看见一只猫头鹰。","请把那扇门关上。","看起来要下雨了，所以她带了一把雨伞。"],"mistakes":["hour 的 h 不发音，因此说 an hour。","不要在所有名词前都使用 the；它表示特定且可识别的对象。"],"breakdown":{"title":"留意冠词提供的线索","intro":"以下例子展示名词是首次提及、已明确所指，还是以元音音素开头。","parts":[{"text":"an owl","label":"首次提及 · 元音音素"},{"text":"the tree","label":"根据语境可以确定"},{"text":"an hour","label":"虽然有字母 h，但以元音音素开头"}]},"practices":[{"q":"首次提及时，应该选择哪一个短语？","options":["a apple","an apple","the apple（任何语境都适用）"]},{"q":"选择冠词：She waited for ___ bus we had booked.","options":["a","an","the"]},{"q":"选择自然的表达。","options":["a honest answer","an honest answer","the honest answer（任何语境都适用）"]},{"q":"为什么使用 an hour？","options":["字母 h 是元音","第一个发音是元音音素","所有以 h 开头的单词都使用 an"]},{"q":"选择正确的表达：“She packed ___ umbrella.”","options":["a","an","the"]}]},"i-perfect":{"topic":"动词时态","title":"将过去的动作与现在联系起来","summary":"使用现在完成时表达经历和与现在相关的结果。","explanation":"现在完成时把较早发生的事件或情况与现在联系起来。它常用于描述人生经历、近期结果，或从过去开始并持续到现在的情况。若句子明确使用 yesterday 等已结束的过去时间，通常应使用一般过去时。 完成时态还包括几种常见结构。现在完成进行时使用 have/has been + 动词-ing，强调较早开始并持续至今或对现在有影响的活动：I have been working here for three years。过去完成时使用 had + 过去分词，表示某个动作在另一个过去事件之前已经完成：我们到达前电影已经开始。Since 后接起点，for 后接持续时间。Already 常表示动作已经完成；yet 常用于否定句和疑问句。","points":["结构：have/has + 过去分词。","当过去发生的事情与现在有关时，考虑使用现在完成时。","现在完成进行时：have/has been + 动词-ing，强调持续中的活动或其时长。","过去完成时：had + 过去分词，表示两个过去事件中较早发生的动作。","Since 后接起点；for 后接持续时间。","Yet 常用于否定句和疑问句；already 常表示已经完成。"],"examples":["我去过槟城两次。","她把钥匙弄丢了，所以现在无法进去。","我在这里工作已经三年了。","Lena 已经学习了三个小时。","我们到达时，电影已经开始了。","我从 2020 年起就在这所学校工作，但我还没有完成报告。","客人们已经离开了。"],"mistakes":["错误：I have seen him yesterday. 正确：I saw him yesterday."],"practices":[{"q":"哪一个句子正确使用了已结束的过去时间表达？","options":["I have finished it last night.","I finished it last night.","I has finished it last night."]},{"q":"选择正确的现在完成时：She ___ her report, so she can relax now.","options":["has finished","had finish","finishes yesterday"]},{"q":"哪一个问题是在询问人生经历？","options":["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"]},{"q":"选择现在完成进行时的正确形式。","options":["has studied","has been studying","had study"]},{"q":"哪个动作先发生：电影开始，还是我们到达？","options":["电影先开始。","我们先到达。"]}]},"i-phrasal":{"topic":"短语动词","title":"结合语境理解短语动词","summary":"了解动词与小品词如何组合成新的含义。","explanation":"学习短语动词时，应把它们作为完整表达并结合语境理解。give up 表示放弃或停止尝试，并不是把某物向上递交。有些短语动词可以分开使用，有些则不能。 其他常见短语动词包括 look after（照顾某人或某物）以及 run into（意外遇见某人）。Put off 表示推迟或延后；postpone 是它常见的单词近义表达。学习时应掌握完整短语及其宾语用法。","points":["短语动词由动词和小品词组合而成。","组合后的意思可能不同于动词本身的字面意思。","Look after 表示照顾，例如：She looks after her younger brother。","Run into 表示意外遇见，例如：I ran into an old friend。","Put off 表示推迟某项活动或事件。"],"examples":["尝试了好几次后，他仍然没有放弃。","离开前请关灯。","这个周末你能帮我照看我的狗吗？","我在车站意外遇见了一位老朋友。","他们把会议推迟到星期五。"],"mistakes":["对于可分开的短语动词，代词宾语应放在中间：turn it off，而不是 turn off it。"],"practices":[{"q":"在“She refused to give up”中，give up 是什么意思？","options":["继续尝试","停止尝试／放弃","把某物交给另一个人"]},{"q":"在“The meeting was put off until Friday”中，put off 是什么意思？","options":["永久取消","推迟","提前开始"]},{"q":"选择代词宾语位置正确的句子。","options":["Please turn off it.","Please turn it off.","Please it turn off."]},{"q":"Look after 是什么意思？","options":["照顾","意外遇见","推迟"]},{"q":"如果你 run into an old friend，会发生什么？","options":["意外遇见对方","照顾对方","推迟会议"]},{"q":"哪个单词最接近 put off 的意思？","options":["postpone（推迟）","discover（发现）","continue（继续）"]}]},"i-collocations":{"topic":"词语搭配","title":"使用自然的词语搭配","summary":"了解为什么某些单词经常一起使用。","explanation":"英语使用者习惯某些固定或常见的词语组合。例如英语通常说 make a decision（作出决定）和 heavy rain（大雨）。其他组合即使在逻辑上似乎说得通，也可能不自然。学习词语搭配能让表达更地道。 常见搭配包括 make a decision（作出决定）和 take responsibility（承担责任）。Collocation 指母语者或熟练使用者经常一起使用的词语组合。英语中通常说 make a decision，而不是 do a decision；take responsibility for something 表示承担某事的责任。 本级别还会学习其他常见搭配，例如 make progress（取得进展）、heavy rain（大雨）、meet a deadline（按时完成）、raise an issue（提出问题）、highly unlikely（极不可能）、pose a problem（造成问题）以及 deeply concerned（非常担忧）。搭配中的词语选择很重要：英语通常说 heavy rain，而不是 strong rain；说 raise an issue，而不是 lift an issue。","points":["词语搭配是经常一起出现的词语组合。","选择自然常见的搭配，而不只是语法上可能成立的组合。","Make a decision 表示在考虑不同选择后作出决定。","Take responsibility for something 表示承认并承担自己的职责或责任。","Make progress 表示取得进展或有所改善。","Heavy rain 表示大雨；meet a deadline 表示按要求按时完成。","Raise an issue 表示提出问题；pose a problem 表示造成困难。","Highly unlikely 表示极不可能；deeply concerned 表示非常担忧。"],"examples":["我们今天需要作出决定。","大雨延误了比赛。","比较各种选择后，她作出了决定。","每位团队成员都应负责检查自己的工作。","这个项目帮助员工取得进展。","由于下大雨，户外活动被取消了。","我们必须按时完成，并尽早提出任何严重问题。","延误可能造成问题，因此经理非常担忧；活动被取消的可能性极低。"],"mistakes":["常见表达：make a mistake（犯错误）。在这个意思下，do a mistake 不自然。"],"practices":[{"q":"选择自然的词语搭配。","options":["do a decision","make a decision","build a decision"]},{"q":"选择自然的词语组合。","options":["strong rain","heavy rain","powerful rain"]},{"q":"完成短语：I made ___ when I copied the wrong number.","options":["a mistake","a decision","an effort"]},{"q":"选择自然的英语搭配。","options":["do a decision","make a decision","take a decisioning"]},{"q":"完成短语：take ___ for your actions。","options":["responsibility","decision","progress"]},{"q":"选择自然的英语搭配。","options":["strong rain","heavy rain","tall rain"]},{"q":"哪个短语表示按要求的时间完成工作？","options":["meet a deadline","raise a deadline","pose a deadline"]}]},"a-inversion":{"topic":"高级语法","title":"使用倒装结构加强语气","summary":"认识否定或限制性表达置于句首后的倒装结构。","explanation":"当 never、rarely 或 not only 等表达被放在句首以加强语气时，助动词通常要置于主语之前。如果原句没有助动词，则需要使用 do、does 或 did 等助动词。 正式倒装也会出现在几种固定结构中：not until + 从句 + did + 主语 + 动词原形；only after + 从句 + did + 主语 + 动词原形；under no circumstances + should + 主语 + 动词原形；no sooner had + 主语 + 过去分词 + than…；little did + 主语 + 动词原形；以及 at no point + 助动词 + 主语。在第三条件句倒装中，省略 if，并把 had 放在主语之前：Had I known…, I would have…。","points":["否定表达置于句首时，可能触发主语与助动词倒装。","这种结构常用于强调，语气通常较正式。","Not until 和 only after 可以触发主句倒装。","Under no circumstances 和 at no point 用于强调否定限制。","No sooner…than 用于连接两个紧接着发生的过去事件。","Had I known… 是第三条件句的倒装形式，使用 had + 主语 + 过去分词。"],"examples":["我们很少见到如此仔细的分析。","她不仅领导团队，还培训了新成员。","直到报告发布后，公众才了解问题的严重性。","在任何情况下，工作人员都不应与外部人士分享机密文件。","我们刚坐下，灯就熄灭了。","如果我当时知道会延误，就会乘坐更早的火车。","客户从未被告知合同变更。"],"mistakes":["错误：Rarely we have seen… 正确：Rarely have we seen…"],"practices":[{"q":"完成句子：Never ___ such a result.","options":["we have seen","have we seen","we saw have"]},{"q":"选择“Rarely”后正确的倒装结构。","options":["Rarely we witness such care.","Rarely do we witness such care.","Rarely witness we such care."]},{"q":"完成句子：Not only ___ the proposal, but she also improved it.","options":["she approved","did she approve","approved she"]},{"q":"选择正确的倒装结构。","options":["Not until the end we understood.","Not until the end did we understand.","Not until did we understood the end."]},{"q":"完成第三条件句倒装：“Had I known, I ___ earlier.”","options":["would leave","would have left","will leave"]}]},"a-idioms":{"topic":"习语与固定表达","title":"理解超越字面意思的习语","summary":"结合语境理解比喻性表达。","explanation":"习语是具有约定俗成含义的固定表达，其意思往往不能从每个单词的字面意思直接推断。学习时应掌握整体含义、语法结构和正式程度，再根据语境判断是否适合使用。 题库中还使用了几种常见习语。Break the ice 表示缓和初次交流时的紧张气氛并开始友好交谈。Scratch the surface 表示只触及某个主题的表面或一小部分。Take the plunge 表示鼓起勇气作出重大决定并开始行动。Jump to conclusions 表示在信息不足时过早下结论。 题库中的核心习语包括：get the ball rolling（开始行动）；the tip of the iceberg（更大问题中可见的一小部分）；cut corners（为了节省时间或金钱而牺牲质量）；back to square one（回到起点）；on the fence（犹豫不决）；a blessing in disguise（表面上不好的事情后来带来意外好处）；under the weather（身体有些不舒服）；以及 in the long run（从长远来看）。","points":["习语具有约定俗成的含义，不一定能从组成单词推断出来。","语域和语境决定习语是否适合使用。","Break the ice 表示打破沉默、缓和紧张并开始交流。","Scratch the surface 表示只触及表面或浅层部分。","Take the plunge 表示鼓起勇气迈出重要的一步。","Jump to conclusions 表示在证据不足时过早下结论。","Get the ball rolling 表示开始行动；the tip of the iceberg 表示更大问题中可见的一小部分。","Cut corners 表示为了节省时间或金钱而降低质量；back to square one 表示回到起点。","On the fence 表示犹豫不决；a blessing in disguise 表示因祸得福。","Under the weather 表示身体不太舒服；in the long run 表示从长远来看。"],"examples":["我们对这个项目的理解是一致的。","这项新证据带来了重大改变。","主持人讲了一个轻松的故事来缓和气氛。","这份报告只是触及了问题的表面。","她鼓起勇气创办了自己的公司。","在听取双方说法之前，不要急于下结论。","让我们先作一个简短介绍，开始今天的活动。","这项投诉只是更大问题的冰山一角。","承包商为了省钱而偷工减料。","更新失败后，我们不得不回到起点。","她还在犹豫是否接受这份邀请。","这次延误后来反而带来了意想不到的好处。","我感觉身体有些不舒服。","这项投资从长远来看会节省成本。"],"mistakes":["在正式报告中避免使用过于口语化的习语，除非文体允许。"],"practices":[{"q":"在工作讨论中，“on the same page”是什么意思？","options":["阅读同一页文件","拥有相同的理解或共识","在不同部门工作"]},{"q":"如果有人在会议上“breaks the ice”，他做了什么？","options":["让大家放松并开始交谈","突然结束会议","反对所有建议"]},{"q":"“hit the nail on the head”是什么意思？","options":["犯了一个小错误","准确地说中要点","回避问题"]},{"q":"Scratch the surface 是什么意思？","options":["只探讨表面部分","理解所有细节","作出大胆决定"]},{"q":"如果某人 takes the plunge，他做了什么？","options":["鼓起勇气迈出重要的一步","避免作出决定","结束对话"]},{"q":"在听取双方意见之前，应该避免做什么？","options":["急于下结论","打破沉默","开始行动"]},{"q":"如果某人 is on the fence，是什么意思？","options":["他／她犹豫不决。","他／她身体不舒服。","他／她已经开始一个项目。"]},{"q":"Cut corners 是什么意思？","options":["为了节省时间或金钱而牺牲质量","认真改进质量","回到起点"]}]},"a-hedging":{"topic":"学术与职场英语","title":"使用准确措辞限定观点","summary":"使用审慎表达来体现适当的确定程度。","explanation":"在学术和职场写作中，作者通常不会把尚不确定的解释说成绝对事实。may、might、appears to 和 is likely to 等表达可以体现审慎程度。使用这些表达时，应让措辞与实际的不确定性相符。 学术写作中常用一些词汇来表达审慎程度。Tentative 表示暂定的、尚未确定的；cautious 表示谨慎的，避免作出超出证据支持范围的断言。Effective 表示能产生预期效果的。Attribute a result to a cause 表示认为某个原因导致了某种结果。Consistent 表示与其他证据相符；compelling 表示有说服力的；causal relationship 表示某个因素导致或促成另一个因素的因果关系。","points":["审慎表达表示观点有所限制、保留或取决于证据。","措辞的确定程度应与证据相匹配。","Tentative 表示暂定的、尚未确定的；cautious 表示谨慎的。","Effective 表示有效的、能产生预期结果的。","Attribute an outcome to something 表示把某个结果归因于某事。","Consistent 表示与其他信息一致；compelling 表示令人信服的。","Causal relationship 表示原因与结果之间的联系。"],"examples":["结果表明，睡眠可能会影响注意力。","这种方法很可能会缩短处理时间。","研究结果仍属暂定，因此应谨慎解读。","这项措施可能有效，但仍需要进一步研究。","需求减少可能是这次下滑的原因。","这些数据与早前的估算大致一致。","证据很有说服力，但并不能证明存在因果关系。"],"mistakes":["不要把 may、might 和 definitely 等确定程度相互冲突的表达随意组合。"],"practices":[{"q":"哪一个短语表达了审慎的判断？","options":["This proves beyond all doubt…","The findings may indicate…","It is certainly impossible…"]},{"q":"由于样本数量较少，研究结果___需要谨慎解读。","options":["may","definitely must","cannot possibly"]},{"q":"哪一种措辞对结论作出了恰当限定？","options":["The treatment always causes improvement.","The treatment appears to be associated with improvement.","The treatment proves every case."]},{"q":"哪个词表示暂定的、尚未确定的？","options":["tentative","permanent","certain"]},{"q":"哪个词表示能够产生预期结果的？","options":["effective","incidental","reluctant"]},{"q":"因果关系连接哪两个概念？","options":["原因与结果","相似的拼写和发音","两个无关事件"]}]},"b-verb-combinations":{"topic":"日常词汇","title":"掌握实用的日常词汇","summary":"学习日常情境中常见的动词搭配和描述性词语。","explanation":"英语中许多日常动作都通过固定的动词与名词组合来表达。英语使用者会说 do homework（做作业）、make breakfast（做早餐）、take a break（休息一下）和 catch a bus（赶／搭公交车）。名词会影响适合搭配的动词，因此应把整个短语一起学习，而不是逐字翻译。 日常词汇也包括描述性形容词。Exciting形容能引起强烈兴趣或热情的事物；beautiful形容看起来非常赏心悦目的事物。Crowded形容人多、空间有限的地方；comfortable形容让人感到放松和舒适的事物；delicious则形容食物或饮料味道很好。 描述性形容词也可以表达负面的感受。Boring 表示某事物缺乏趣味、无法引起兴趣，与 exciting（令人兴奋的）意思相反。Friendly 形容友善、热情待人的人或态度；quiet 表示声音很小或安静；useful 表示对某种用途有帮助；expensive 表示价格昂贵。 题库考查的日常搭配包括 make a mistake（犯错）、take a break（休息一下）、have breakfast（吃早餐）、do homework（做作业）、pay attention（集中注意力）以及 keep a promise（遵守承诺）。这些都是约定俗成的动词与名词搭配，应把完整短语作为一个表达来学习，而不是逐词翻译。","points":["把常见搭配作为完整短语来学习。","表达相近概念时，不同名词可能需要搭配不同动词。","结合具体情境选择自然的搭配。","描述性形容词可以说明人物、地点、食物或经历的外观和感受。","Exciting表示令人兴奋或引起强烈兴趣的；beautiful表示美丽、赏心悦目的。","Crowded形容人多、空间有限的地方；comfortable形容让人感到放松舒适的事物。","Delicious形容食物或饮料味道非常好。","Boring 表示无聊的、缺乏趣味的；exciting 表示令人兴奋或引起兴趣的。","Friendly 形容友善、热情的；quiet 形容安静的。","Useful 表示有用的；expensive 表示昂贵的。","Make a mistake 表示犯错；take a break 表示暂时停下来休息。","Have breakfast 表示吃早餐；do homework 表示完成作业。","Pay attention 表示集中注意力；keep a promise 表示履行承诺。"],"examples":["晚饭前我需要做完作业。","我们通常在下一站搭公交车。","我们休息一会儿吧。","这场科学展演令人兴奋。","我们在车站附近看见一座美丽的花园。","咖啡馆里人很多，但座位很舒适。","汤非常美味，工作人员也很友善。","这场讲座很无聊，但实践活动令人兴奋。","工作人员很友善，图书馆也很安静。","这本实用指南并不贵。","人们疲倦时都可能犯错。","做完这个练习后，我们休息一下吧。","我在家吃早餐，晚饭后做作业。","请注意路况，并遵守你的承诺。"],"mistakes":["错误：make homework。正确：do homework。","错误：do a break。正确：take a break。"],"practices":[{"q":"选择自然的英语表达。","options":["make homework","do homework","take homework"]},{"q":"我们通常早上八点___公交车。","options":["catch","make","do"]},{"q":"学习了两个小时后，我们休息一下吧。","options":["do","make","take"]},{"q":"选择表示准备早晨那一餐的自然搭配。","options":["make breakfast","catch breakfast","do breakfast"]},{"q":"以下哪项最符合“exciting”的含义？","options":["引起强烈兴趣或热情的","让人感到困倦的","人很多、空间很拥挤的"]},{"q":"选择最合适的形容词：“We saw a ___ garden.”","options":["beautiful","crowded","delicious"]},{"q":"哪个词形容人很多、空间很少的地方？","options":["quiet","crowded","comfortable"]},{"q":"哪个词形容味道非常好的食物？","options":["delicious","expensive","exciting"]},{"q":"哪个词形容缺乏趣味、无法引起兴趣的事物？","options":["boring","exciting","delicious"]},{"q":"选择最合适的词：“The staff were kind and welcoming.” 他们很___。","options":["friendly","crowded","expensive"]},{"q":"哪个词表示“对某种用途有帮助”？","options":["useful","quiet","boring"]},{"q":"选择自然的表达：“Please ___ attention to the road.”","options":["pay","make","do"]},{"q":"哪个短语表示履行自己的承诺？","options":["keep a promise","take a break","make a mistake"]}]},"i-word-families":{"topic":"构词法","title":"识别词族与词缀","summary":"利用前缀和后缀理解相关词汇。","explanation":"词族是由同一个词根或基础词构成的一组相关词，例如 decide（决定）、decision（决定／决策）和 decisive（果断的）。前缀加在词根前面，可能改变词义；后缀加在词根后面，通常也会改变词的语法功能。识别这些规律有助于推测词义，但仍须确认词形是否符合句子的语法。 词汇选择也包括辨认容易混淆的词形。Affect 通常是动词，表示影响；effect 通常是名词，表示结果。Convince 是表示说服的动词；convincing 是形容词，表示有说服力、令人信服的。Clarification 是名词，表示让事情更清楚的解释；unclear 表示不清楚、难以理解。 题库会练习以下词族：decide（动词）→ decision（名词）；rely（动词）→ reliable（形容词）；succeed（动词）→ successful（形容词）；create（动词）→ creativity（名词）；persuade（说服，动词）；danger（名词）→ dangerous（形容词）；accurate（形容词）→ accuracy（名词）。请留意后缀如何改变单词的语法功能。Persuade 表示说服某人做某事或相信某个观点。","points":["前缀位于词根之前，例如 un- + certain = uncertain。","后缀位于词根之后，例如 care + -ful = careful。","后缀可能改变词性，例如 decide 是动词，decision 是名词。","Affect（动词）表示影响；effect（名词）表示结果。","Convince 是动词；convincing 是形容词，表示有说服力的或令人信服的。","Clarification 表示澄清或说明；unclear 表示不清楚的。","Decide（动词）→ decision（名词）。","Rely（动词）→ reliable（形容词）；succeed（动词）→ successful（形容词）。","Create（动词）→ creativity（名词）；accurate（形容词）→ accuracy（名词）。","Danger（名词）→ dangerous（形容词）；persuade 表示说服某人。"],"examples":["说明不够清楚，所以我要求对方进一步解释。","她的决定经过了谨慎考虑。","新政策可能会影响所有员工。","这个令人信服的解释帮助澄清了问题。","这项变化带来的影响很明显。","她的决定让所有人感到惊讶。","我们需要一个可靠的信息来源。","这个项目达成了所有目标，因此取得了成功。","这位艺术家以原创想法和创造力闻名。","演讲者试图说服观众支持这项提案。","这条道路夜间很危险，因此驾驶者应减速。","测量结果的准确性很重要。"],"mistakes":["不要认为每个单词都能随意添加任何前缀或后缀；应使用英语中真实存在的词形。","检查句子的语法：名词、动词和形容词不能在所有位置互换。"],"practices":[{"q":"哪个单词表示“不确定的”？","options":["certainly","uncertain","certainty"]},{"q":"decide 词族中的哪一个是名词？","options":["decisive","decide","decision"]},{"q":"选择表示“仔细的”的正确形容词。","options":["careful","carement","carely"]},{"q":"完成句子：The instructions were ___, so nobody knew what to do.","options":["clarity","clarify","unclear"]},{"q":"选择正确的词形：“The new rule may ___ everyone.”","options":["affect","effect","effective"]},{"q":"哪个词形容能够提供有力理由、令人信服的解释？","options":["convincing","convincedly","convince"]},{"q":"Accurate 的名词形式是什么？","options":["accurate","accuracy","accurately"]},{"q":"哪个形容词由 rely 构成？","options":["reliance","reliable","relying"]}]},"a-near-synonyms":{"topic":"精准词汇","title":"准确区分近义词","summary":"根据词义和语境，在相似词语之间作出选择。","explanation":"近义词虽然有部分相似含义，却不一定可以互换。例如 imply 表示说话者或文本间接暗示某事；infer 表示读者或听者根据证据推断结论。economic 与经济相关；economical 则表示节省金钱或资源。准确选择词语能让进阶写作更加清晰。 精准词汇也包括描述语气和判断的词。Tactful 表示说话得体、注意不冒犯他人；candid 表示坦率、诚实直接；harsh 表示严厉、不友善或过于苛刻。Incidental 表示附带的、次要的，并非主要目的。Reluctant 表示不情愿或犹豫。Disclose 表示公开或透露此前未知或未公开的信息。这些词都与精准选词有关，但不能随意互换。 题库还会区分以下容易混淆的词语：historic 表示具有历史意义的；historical 表示与过去或历史有关的。Ensure 表示确保；assure 表示向某人保证。Eminent 表示杰出、受尊敬的；imminent 表示即将发生的。Adopt 表示采用；adapt 表示调整以适应。Complement 表示补充或衬托；compliment 表示赞美。Discreet 表示谨慎、得体；discrete 表示分离、独立的。Credible 表示可信的；credulous 表示轻信的。","points":["区分相似词语时，应检查它们之间的具体含义差异。","imply 描述说话者或文本暗示什么；infer 描述读者或听者推断出什么。","根据想表达的意思和句子语法选择词语。","Tactful 表示得体、考虑周到；candid 表示坦率、诚实；harsh 表示严厉或尖刻。","Incidental 表示附带的、次要的。","Reluctant 表示不情愿或犹豫；disclose 表示透露信息。","Historic 表示具有历史意义的；historical 表示与过去或历史有关的。","Ensure 表示确保；assure 表示向某人保证。","Eminent 表示杰出的；imminent 表示即将发生的。","Adopt 表示采用；adapt 表示调整以适应。","Complement 表示补充或衬托；compliment 表示赞美。","Discreet 表示谨慎、得体；discrete 表示分离、独立的。","Credible 表示可信的；credulous 表示轻信的。"],"examples":["报告暗示明年的成本可能会上升。","分析人员根据缺失的数据推断调查并不完整。","这辆汽车的使用成本很低。","她得体的回应避免让发言者感到尴尬。","他坦率地谈到了风险，但没有显得尖刻。","一句附带的话引发了一场有益的讨论。","她不愿透露这些细节。","这项协议具有历史意义；博物馆展出的是历史文物。","请确保文件已备份；我向你保证流程是安全的。","一位杰出的学者警告说，暴风雨即将来临。","该组织采用了这项政策，并根据当地需求作出调整。","窗帘衬托了房间的色彩；主人赞美了设计师。","请谨慎处理机密信息；数据被储存在不同的独立组别中。","证人作出了可信的陈述；轻信的人可能会接受所有说法。"],"mistakes":["不要把 infer 当作 imply 使用：作者暗示（implies），读者推断（infers）。","economic growth（经济增长）和 economical design（节省资源的设计）含义不同。"],"practices":[{"q":"说话者没有直接说明，而是间接表达一个想法。哪个动词描述说话者的行为？","options":["infer","imply","assume"]},{"q":"读者根据证据得出结论。哪个动词描述读者的行为？","options":["imply","infer","announce"]},{"q":"选择表示耗油量较低的自然表达。","options":["an economic car","an economical car","an economy car"]},{"q":"某项政策涉及国家就业和通货膨胀。应使用哪个形容词？","options":["economical policy","economic policy","economy policy"]},{"q":"哪个词表示诚实、直接、坦率？","options":["candid","tactful","reluctant"]},{"q":"哪个词表示不情愿或犹豫？","options":["reluctant","incidental","precise"]},{"q":"Disclose 是什么意思？","options":["透露信息","隐瞒信息","推迟决定"]},{"q":"哪个词表示“即将发生的”？","options":["eminent","imminent","historic"]},{"q":"哪个词表示“谨慎得体，尤其是在处理私人信息时”？","options":["discreet","discrete","credible"]},{"q":"哪个词表示“调整以适应新情况”？","options":["adopt","adapt","assure"]}]},"b-countable-nouns":{"topic":"名词与数量","title":"正确使用可数名词与不可数名词","summary":"准确选择名词形式和数量表达。","explanation":"可数名词有单数和复数形式，例如 one book、two books。information（信息）、advice（建议）和 water（水）等不可数名词通常不能直接计数，也通常不加复数 -s。需要表达数量或具体项目时，可以使用 a piece of advice（一条建议）或 some information（一些信息）等说法。 有些日常名词即使指具体物品或集合，在英语中仍属于不可数名词。Equipment 指某项活动所需的器材或设备；furniture 指房间里的可移动家具，例如桌子和椅子。在标准英语中，通常不说 equipments 或 furnitures。需要计数时，可以使用 some equipment、a piece of equipment、some furniture 或 an item of furniture。 有些可数名词的复数形式不遵循直接加 -s 的规则。例如 child 的复数是 children。Bread（面包）需要使用可数单位来计数，例如 a slice：one slice of bread、two slices of bread。在食谱语境中，sugar（糖）是不可数名词，因此应使用 how much sugar，而不是 how many sugars。","points":["单数可数名词前使用 a/an，例如 a book。","many 搭配可数名词复数；much 搭配不可数名词。","需要计量不可数名词时，可以使用 a piece of advice 等量词表达。","Equipment 和 furniture 在标准英语中通常是不可数名词。","需要计算单件物品时，可以使用 a piece of equipment 或 an item of furniture。","Child 的不规则复数形式是 children。","Bread 可以用 slice 作为计量单位：two slices of bread。","在此语境中 sugar 是不可数名词，因此使用 much sugar。"],"examples":["我收到了一些有用的建议。","她买了三本笔记本。","你能告诉我一些有关课程的信息吗？","工作室购买了一些新设备。","我们需要一件器材来进行这项活动。","房间里目前没有多少家具。","一个孩子正在等候；两个孩子正在玩耍。","盘子里有两片面包。","这个食谱需要多少糖？"],"mistakes":["错误：an advice。正确：some advice 或 a piece of advice。","错误：many information。正确：much information 或 a lot of information。","错误：two equipments。正确：two pieces of equipment。","错误：many furnitures。正确：several items of furniture。"],"practices":[{"q":"选择正确的表达。","options":["an advice","some advice","many advice"]},{"q":"How ___ books did you borrow?","options":["much","many","any of"]},{"q":"我们目前没有关于该活动的___信息。","options":["many","a few","much"]},{"q":"选择自然的英语表达。","options":["two pieces of advice","two advices","two advice"]},{"q":"选择正确的表达。","options":["three equipments","three pieces of equipment","three equipment"]},{"q":"哪一个句子符合标准英语？","options":["We bought new furnitures.","We bought some new furniture.","We bought many furniture."]},{"q":"选择正确的复数形式：one child, two ___。","options":["childs","children","childes"]},{"q":"选择自然的表达。","options":["two breads","two slices of bread","two slice bread"]}]},"i-conditionals":{"topic":"条件句","title":"选择第一与第二条件句","summary":"区分现实可能发生的未来情况与假设情境。","explanation":"第一条件句描述现实或有可能发生的未来情况：if + 一般现在时，will + 动词原形。第二条件句描述不真实、想象中或可能性较低的情况：if + 一般过去时，would + 动词原形。第二条件句中的过去式通常表示与现实有距离，并不一定表示过去时间。 条件从句也可以使用 unless 或 even if 开头。Unless 表示 if not（如果不）：Unless you hurry, you will miss the train（如果你不快点，就会错过火车）。Even if 表示即使某种情况发生，结果仍然不变：Even if it rains, the event will continue（即使下雨，活动仍会继续）。Hypothetical 表示假设或想象中的；realistic 表示现实可行或符合实际情况的。 本课程也会复习零条件句和第三条件句。零条件句描述普遍事实：if + 一般现在时，一般现在时。第三条件句描述与过去事实相反的假设及结果：if + 过去完成时，would have + 过去分词。Provided that 表示“只要满足某个条件”。中级课程会初步认识混合条件句，即条件与结果指向不同时间；进阶课程会进一步深入讲解。","points":["第一条件句：If it rains, we will stay inside.（如果下雨，我们就待在室内。）","第二条件句：If I had more time, I would learn another language.（如果我有更多时间，我会学习另一种语言。）","这两种结构的 if 从句通常不直接使用 will。","Unless 表示“如果不”，用于引出可能导致某种结果的条件。","Even if 表示“即使”，强调某个条件不会改变结果。","Hypothetical 表示假设的；realistic 表示现实可行的或符合实际的。","零条件句：If you heat ice, it melts。（如果加热冰，冰就会融化。）","第三条件句：If they had booked earlier, they would have paid less。（如果他们早点预订，就会少付一些钱。）","Provided that 表示“只要”，用于提出必须满足的条件。","混合条件句把指向不同时间的条件与结果联系起来。"],"examples":["如果火车晚点，我们就叫出租车。","如果我住在海边，我每天早上都会游泳。","如果我们现在不出发，就会错过火车。","即使下雨，活动仍会继续。","假设例子是想象出来的；现实的计划会考虑实际限制。","如果海平面气压下的水达到 100°C，就会沸腾。","如果他们早点预订，就会少付一些钱。","只要你保持房间整洁，就可以使用会议室。","如果我当时接受了邀请，现在就会住在新加坡。"],"mistakes":["错误：If it will rain, we will stay inside. 正确：If it rains, we will stay inside。","第二条件句使用过去式来表达假设，不一定表示过去发生的事件。"],"practices":[{"q":"完成表示现实未来可能性的句子：If she ___ early, we will have time for coffee.","options":["arrives","will arrive","would arrive"]},{"q":"选择第二条件句。","options":["If I see him, I will tell him.","If I saw him, I would tell him.","If I had seen him, I would have told him."]},{"q":"完成句子：If we had a bigger kitchen, we ___ more often.","options":["cook","will cook","would cook"]},{"q":"哪一个句子描述可能发生的未来结果？","options":["If the weather improves, we will go hiking.","If I were taller, I would play basketball.","If she had called, I would have answered."]},{"q":"Unless you hurry 是什么意思？","options":["如果你不快点","即使你很快","因为你刚才很快"]},{"q":"哪个短语表示即使某个条件发生，结果仍然不变？","options":["even if","only if","as soon as"]},{"q":"哪一个句子表达普遍事实？","options":["If you heat ice, it melts.","If you heated ice, it would melt.","If you had heated ice, it would have melted."]},{"q":"完成第三条件句：If we had left earlier, we ___ the train。","options":["would catch","would have caught","will catch"]}]},"a-mixed-conditionals":{"topic":"高级语法","title":"理解混合条件句","summary":"把不真实的过去条件与现在结果联系起来，或把现在条件与过去结果联系起来。","explanation":"混合条件句会结合不同的时间指向。常见结构之一是 if + 过去完成时，搭配 would + 动词原形，表达不真实的过去条件及其现在结果：If I had studied medicine, I would be a doctor now. 另一种结构使用 if + 一般过去时表达现在的一般情况，并使用 would have + 过去分词表达过去结果。应根据条件和结果之间的时间关系选择结构。 混合条件句也可以在条件从句中使用倒装。正式表达中省略 if，并把 had 放在主语之前：“Had the data been checked, the error would not now be affecting the results.” 过去完成时的被动条件指向较早进行的核查；结果从句描述现在仍然受到的影响。这种结构把混合条件句的时间关系与进阶倒装课中的语序变化结合起来。","points":["过去条件 → 现在结果：If I had taken the job, I would live abroad now.","现在条件 → 过去结果：If she were more careful, she would not have made that mistake.","两个分句的动词形式分别表示条件和结果的时间。","混合条件句倒装：Had + 主语 + 过去分词，结果从句使用 would + 动词原形，或表示现在持续影响的 would be + -ing。","条件与结果指向不同时间；倒装改变语序，但不改变时间关系。"],"examples":["如果他当时存了更多钱，他现在就拥有一套房子了。","如果我更有自信，昨天就会在会议上发言了。","如果当时核查过数据，这个错误现在就不会继续影响结果。"],"mistakes":["如果结果指向现在，不要误用只描述过去结果的第三条件句结构。","选择动词形式前，先确认每个分句指向过去还是现在。"],"practices":[{"q":"完成表示过去条件与现在结果的句子：If I had accepted the offer, I ___ in London now.","options":["would live","would have lived","will live"]},{"q":"哪一个句子是混合条件句？","options":["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."]},{"q":"完成句子：If he had taken the medicine, he ___ better now.","options":["would feel","would have felt","will feel"]},{"q":"在“If she were more patient, she would have handled the call better”中，条件指向什么时候？","options":["只指过去","一般或现在的特征","只指未来"]},{"q":"哪一个句子同时使用倒装条件从句和现在的结果？","options":["Had the data been checked, the error would not now be affecting the results.","If the data is checked, the error disappeared yesterday.","Had the data checked, the error would not now affect."]}]}};
+    const lessonZh={"b-sentence":{"topic":"句子基础","title":"构建清晰的基本句子","summary":"学习简单英语句子的常见语序。","explanation":"英语陈述句通常把主语放在动词之前。如果动词需要宾语，宾语通常放在动词之后。这样的语序有助于读者理解是谁执行动作，以及动作作用于什么对象。 基本句型也包括 there is/there are，用来表示某物存在或位于某处。单数名词或不可数名词搭配 there is；复数名词搭配 there are。一般现在时中，主语为 I、you、we、they 的疑问句通常以 do 开头；主语为 he、she、it 的疑问句通常以 does 开头，后面的主要动词使用原形。描述性形容词通常放在名词之前。","points":["基本陈述句通常采用主语 + 动词 + 宾语的语序。","主语说明句子谈论的人或事物。","There is 搭配单数或不可数名词；there are 搭配复数名词。","You 通常搭配 Do you…?；he 通常搭配 Does he…?；does 后面的主要动词使用原形。","描述性形容词通常放在名词前面，例如 a red bag。"],"examples":["Maya 每天晚上读一本书。","那只小狗跟着它的主人。","桌子上有一本书。","房间里有三把椅子。","你喜欢音乐吗？他在这里工作吗？","她有一个红色的包。"],"breakdown":{"title":"认识句子的组成部分","intro":"以下标签说明例句中每个部分的作用。","sentence":[{"text":"Maya","role":"subject"},{"text":"reads","role":"verb"},{"text":"a book every evening.","role":"object"}],"parts":[{"text":"Maya","label":"主语 · 执行动作的人"},{"text":"reads","label":"动词 · 动作"},{"text":"a book","label":"宾语 · 阅读的对象"}]},"mistakes":["错误：Reads Maya a book. 正确：Maya reads a book."],"practices":[{"q":"简单陈述句最常见的语序是什么？","options":["动词 + 主语 + 宾语","主语 + 动词 + 宾语","宾语 + 主语 + 动词"]},{"q":"在句子“The young artist painted a mural”中，哪一部分是主语？","options":["The young artist","painted","a mural"]},{"q":"选择符合常见主语—动词—宾语语序的句子。","options":["The children planted flowers.","Planted the children flowers.","Flowers the children planted."]},{"q":"选择正确的句子。","options":["There is three chairs.","There are three chairs.","There be three chairs."]},{"q":"选择正确的疑问句。","options":["Does he works here?","Does he work here?","Do he work here?"]}]},"b-present":{"topic":"动词时态","title":"使用一般现在时","summary":"描述日常习惯、事实和经常发生的情况。","explanation":"一般现在时用于表达习惯、重复发生的动作和普遍事实。在肯定句中，第三人称单数主语通常需要在动词后加 -s 或 -es。 一般现在时也可以使用 do 或 does 构成否定句和疑问句。I、you、we、they 搭配 do not/don't；he、she、it 搭配 does not/doesn't。疑问句把 do 或 does 放在主语之前，并让主要动词保持原形。Usually 等频率副词通常放在主要动词之前，但放在 be 动词之后。","points":["主语为 I、you、we、they 时使用动词原形。","主语为 he、she、it 时，动词通常加 -s 或 -es。","否定句：They do not like coffee；he does not work here。","疑问句：Do you like music？Does she walk to work？","Usually 通常放在主要动词之前：She usually drinks tea in the evening。"],"examples":["我每天步行上班。","她每周日打网球。","他们不喜欢咖啡。","你哥哥／弟弟乘公共汽车上学吗？","她通常在晚上喝茶。","商店每天早上九点开门。"],"mistakes":["错误：He work here. 正确：He works here.","错误：She drinks tea usually in the evening。更自然的表达：She usually drinks tea in the evening。","Does 后面使用动词原形：Does he work? 而不是 Does he works?"],"practices":[{"q":"选择正确的句子。","options":["She play tennis on Sundays.","She plays tennis on Sundays.","She playing tennis on Sundays."]},{"q":"选择正确的动词形式：My brother ___ to work by train every day.","options":["travel","travels","is travel"]},{"q":"哪一个句子表达普遍事实？","options":["Water boiled at 100°C at sea level.","Water boils at 100°C at sea level.","Water is boil at 100°C at sea level."]},{"q":"选择正确的否定句。","options":["They doesn't like coffee.","They don't like coffee.","They not like coffee."]},{"q":"选择 usually 的自然位置。","options":["She drinks usually tea.","She usually drinks tea.","Usually she drinks usually tea."]}]},"b-articles":{"topic":"名词与冠词","title":"选择 a、an 或 the","summary":"理解英语名词何时需要使用冠词。","explanation":"a 和 an 用于首次提及、尚未明确指向的单数可数名词。两者的选择取决于名词开头的发音，而不只是首字母。the 用于听者能够根据当前情境或前文确定的特定人或事物。 冠词例子也包括常见物品。Umbrella（雨伞）以元音音素 /ʌ/ 开头，因此首次提及时应说 an umbrella。虽然拼写以字母 u 开头，但冠词的选择取决于发音。","points":["辅音音素前使用 a，元音音素前使用 an。","当听者能够确定具体所指时，使用 the。","Umbrella 以元音音素开头，因此使用 an umbrella。"],"examples":["我在那棵树附近看见一只猫头鹰。","请把那扇门关上。","看起来要下雨了，所以她带了一把雨伞。"],"mistakes":["hour 的 h 不发音，因此说 an hour。","不要在所有名词前都使用 the；它表示特定且可识别的对象。"],"breakdown":{"title":"留意冠词提供的线索","intro":"以下例子展示名词是首次提及、已明确所指，还是以元音音素开头。","parts":[{"text":"an owl","label":"首次提及 · 元音音素"},{"text":"the tree","label":"根据语境可以确定"},{"text":"an hour","label":"虽然有字母 h，但以元音音素开头"}]},"practices":[{"q":"首次提及时，应该选择哪一个短语？","options":["a apple","an apple","the apple（任何语境都适用）"]},{"q":"选择冠词：She waited for ___ bus we had booked.","options":["a","an","the"]},{"q":"选择自然的表达。","options":["a honest answer","an honest answer","the honest answer（任何语境都适用）"]},{"q":"为什么使用 an hour？","options":["字母 h 是元音","第一个发音是元音音素","所有以 h 开头的单词都使用 an"]},{"q":"选择正确的表达：“She packed ___ umbrella.”","options":["a","an","the"]}]},"i-perfect":{"topic":"动词时态","title":"将过去的动作与现在联系起来","summary":"使用现在完成时表达经历和与现在相关的结果。","explanation":"现在完成时把较早发生的事件或情况与现在联系起来。它常用于描述人生经历、近期结果，或从过去开始并持续到现在的情况。若句子明确使用 yesterday 等已结束的过去时间，通常应使用一般过去时。 完成时态还包括几种常见结构。现在完成进行时使用 have/has been + 动词-ing，强调较早开始并持续至今或对现在有影响的活动：I have been working here for three years。过去完成时使用 had + 过去分词，表示某个动作在另一个过去事件之前已经完成：我们到达前电影已经开始。Since 后接起点，for 后接持续时间。Already 常表示动作已经完成；yet 常用于否定句和疑问句。","points":["结构：have/has + 过去分词。","当过去发生的事情与现在有关时，考虑使用现在完成时。","现在完成进行时：have/has been + 动词-ing，强调持续中的活动或其时长。","过去完成时：had + 过去分词，表示两个过去事件中较早发生的动作。","Since 后接起点；for 后接持续时间。","Yet 常用于否定句和疑问句；already 常表示已经完成。"],"examples":["我去过槟城两次。","她把钥匙弄丢了，所以现在无法进去。","我在这里工作已经三年了。","Lena 已经学习了三个小时。","我们到达时，电影已经开始了。","我从 2020 年起就在这所学校工作，但我还没有完成报告。","客人们已经离开了。"],"mistakes":["错误：I have seen him yesterday. 正确：I saw him yesterday."],"practices":[{"q":"哪一个句子正确使用了已结束的过去时间表达？","options":["I have finished it last night.","I finished it last night.","I has finished it last night."]},{"q":"选择正确的现在完成时：She ___ her report, so she can relax now.","options":["has finished","had finish","finishes yesterday"]},{"q":"哪一个问题是在询问人生经历？","options":["Did you ever visit Japan last year?","Have you ever visited Japan?","Have you visit Japan yesterday?"]},{"q":"选择现在完成进行时的正确形式。","options":["has studied","has been studying","had study"]},{"q":"哪个动作先发生：电影开始，还是我们到达？","options":["电影先开始。","我们先到达。"]}]},"i-phrasal":{"topic":"短语动词","title":"结合语境理解短语动词","summary":"了解动词与小品词如何组合成新的含义。","explanation":"学习短语动词时，应把它们作为完整表达并结合语境理解。give up 表示放弃或停止尝试，并不是把某物向上递交。有些短语动词可以分开使用，有些则不能。 其他常见短语动词包括 look after（照顾某人或某物）以及 run into（意外遇见某人）。Put off 表示推迟或延后；postpone 是它常见的单词近义表达。学习时应掌握完整短语及其宾语用法。","points":["短语动词由动词和小品词组合而成。","组合后的意思可能不同于动词本身的字面意思。","Look after 表示照顾，例如：She looks after her younger brother。","Run into 表示意外遇见，例如：I ran into an old friend。","Put off 表示推迟某项活动或事件。"],"examples":["尝试了好几次后，他仍然没有放弃。","离开前请关灯。","这个周末你能帮我照看我的狗吗？","我在车站意外遇见了一位老朋友。","他们把会议推迟到星期五。"],"mistakes":["对于可分开的短语动词，代词宾语应放在中间：turn it off，而不是 turn off it。"],"practices":[{"q":"在“She refused to give up”中，give up 是什么意思？","options":["继续尝试","停止尝试／放弃","把某物交给另一个人"]},{"q":"在“The meeting was put off until Friday”中，put off 是什么意思？","options":["永久取消","推迟","提前开始"]},{"q":"选择代词宾语位置正确的句子。","options":["Please turn off it.","Please turn it off.","Please it turn off."]},{"q":"Look after 是什么意思？","options":["照顾","意外遇见","推迟"]},{"q":"如果你 run into an old friend，会发生什么？","options":["意外遇见对方","照顾对方","推迟会议"]},{"q":"哪个单词最接近 put off 的意思？","options":["postpone（推迟）","discover（发现）","continue（继续）"]}]},"i-collocations":{"topic":"词语搭配","title":"使用自然的词语搭配","summary":"了解为什么某些单词经常一起使用。","explanation":"英语使用者习惯某些固定或常见的词语组合。例如英语通常说 make a decision（作出决定）和 heavy rain（大雨）。其他组合即使在逻辑上似乎说得通，也可能不自然。学习词语搭配能让表达更地道。 常见搭配包括 make a decision（作出决定）和 take responsibility（承担责任）。Collocation 指母语者或熟练使用者经常一起使用的词语组合。英语中通常说 make a decision，而不是 do a decision；take responsibility for something 表示承担某事的责任。 本级别还会学习其他常见搭配，例如 make progress（取得进展）、heavy rain（大雨）、meet a deadline（按时完成）、raise an issue（提出问题）、highly unlikely（极不可能）、pose a problem（造成问题）以及 deeply concerned（非常担忧）。搭配中的词语选择很重要：英语通常说 heavy rain，而不是 strong rain；说 raise an issue，而不是 lift an issue。","points":["词语搭配是经常一起出现的词语组合。","选择自然常见的搭配，而不只是语法上可能成立的组合。","Make a decision 表示在考虑不同选择后作出决定。","Take responsibility for something 表示承认并承担自己的职责或责任。","Make progress 表示取得进展或有所改善。","Heavy rain 表示大雨；meet a deadline 表示按要求按时完成。","Raise an issue 表示提出问题；pose a problem 表示造成困难。","Highly unlikely 表示极不可能；deeply concerned 表示非常担忧。"],"examples":["我们今天需要作出决定。","大雨延误了比赛。","比较各种选择后，她作出了决定。","每位团队成员都应负责检查自己的工作。","这个项目帮助员工取得进展。","由于下大雨，户外活动被取消了。","我们必须按时完成，并尽早提出任何严重问题。","延误可能造成问题，因此经理非常担忧；活动被取消的可能性极低。"],"mistakes":["常见表达：make a mistake（犯错误）。在这个意思下，do a mistake 不自然。"],"practices":[{"q":"选择自然的词语搭配。","options":["do a decision","make a decision","build a decision"]},{"q":"选择自然的词语组合。","options":["strong rain","heavy rain","powerful rain"]},{"q":"完成短语：I made ___ when I copied the wrong number.","options":["a mistake","a decision","an effort"]},{"q":"选择自然的英语搭配。","options":["do a decision","make a decision","take a decisioning"]},{"q":"完成短语：take ___ for your actions。","options":["responsibility","decision","progress"]},{"q":"选择自然的英语搭配。","options":["strong rain","heavy rain","tall rain"]},{"q":"哪个短语表示按要求的时间完成工作？","options":["meet a deadline","raise a deadline","pose a deadline"]}]},"a-inversion":{"topic":"高级语法","title":"使用倒装结构加强语气","summary":"认识否定或限制性表达置于句首后的倒装结构。","explanation":"当 never、rarely 或 not only 等表达被放在句首以加强语气时，助动词通常要置于主语之前。如果原句没有助动词，则需要使用 do、does 或 did 等助动词。 正式倒装也会出现在几种固定结构中：not until + 从句 + did + 主语 + 动词原形；only after + 从句 + did + 主语 + 动词原形；under no circumstances + should + 主语 + 动词原形；no sooner had + 主语 + 过去分词 + than…；little did + 主语 + 动词原形；以及 at no point + 助动词 + 主语。在第三条件句倒装中，省略 if，并把 had 放在主语之前：Had I known…, I would have…。","points":["否定表达置于句首时，可能触发主语与助动词倒装。","这种结构常用于强调，语气通常较正式。","Not until 和 only after 可以触发主句倒装。","Under no circumstances 和 at no point 用于强调否定限制。","No sooner…than 用于连接两个紧接着发生的过去事件。","Had I known… 是第三条件句的倒装形式，使用 had + 主语 + 过去分词。"],"examples":["我们很少见到如此仔细的分析。","她不仅领导团队，还培训了新成员。","直到报告发布后，公众才了解问题的严重性。","在任何情况下，工作人员都不应与外部人士分享机密文件。","我们刚坐下，灯就熄灭了。","如果我当时知道会延误，就会乘坐更早的火车。","客户从未被告知合同变更。"],"mistakes":["错误：Rarely we have seen… 正确：Rarely have we seen…"],"practices":[{"q":"完成句子：Never ___ such a result.","options":["we have seen","have we seen","we saw have"]},{"q":"选择“Rarely”后正确的倒装结构。","options":["Rarely we witness such care.","Rarely do we witness such care.","Rarely witness we such care."]},{"q":"完成句子：Not only ___ the proposal, but she also improved it.","options":["she approved","did she approve","approved she"]},{"q":"选择正确的倒装结构。","options":["Not until the end we understood.","Not until the end did we understand.","Not until did we understood the end."]},{"q":"完成第三条件句倒装：“Had I known, I ___ earlier.”","options":["would leave","would have left","will leave"]}]},"a-idioms":{"topic":"习语与固定表达","title":"理解超越字面意思的习语","summary":"结合语境理解比喻性表达。","explanation":"习语是具有约定俗成含义的固定表达，其意思往往不能从每个单词的字面意思直接推断。学习时应掌握整体含义、语法结构和正式程度，再根据语境判断是否适合使用。 题库中还使用了几种常见习语。Break the ice 表示缓和初次交流时的紧张气氛并开始友好交谈。Scratch the surface 表示只触及某个主题的表面或一小部分。Take the plunge 表示鼓起勇气作出重大决定并开始行动。Jump to conclusions 表示在信息不足时过早下结论。 题库中的核心习语包括：get the ball rolling（开始行动）；the tip of the iceberg（更大问题中可见的一小部分）；cut corners（为了节省时间或金钱而牺牲质量）；back to square one（回到起点）；on the fence（犹豫不决）；a blessing in disguise（表面上不好的事情后来带来意外好处）；under the weather（身体有些不舒服）；以及 in the long run（从长远来看）。","points":["习语具有约定俗成的含义，不一定能从组成单词推断出来。","语域和语境决定习语是否适合使用。","Break the ice 表示打破沉默、缓和紧张并开始交流。","Scratch the surface 表示只触及表面或浅层部分。","Take the plunge 表示鼓起勇气迈出重要的一步。","Jump to conclusions 表示在证据不足时过早下结论。","Get the ball rolling 表示开始行动；the tip of the iceberg 表示更大问题中可见的一小部分。","Cut corners 表示为了节省时间或金钱而降低质量；back to square one 表示回到起点。","On the fence 表示犹豫不决；a blessing in disguise 表示因祸得福。","Under the weather 表示身体不太舒服；in the long run 表示从长远来看。"],"examples":["我们对这个项目的理解是一致的。","这项新证据带来了重大改变。","主持人讲了一个轻松的故事来缓和气氛。","这份报告只是触及了问题的表面。","她鼓起勇气创办了自己的公司。","在听取双方说法之前，不要急于下结论。","让我们先作一个简短介绍，开始今天的活动。","这项投诉只是更大问题的冰山一角。","承包商为了省钱而偷工减料。","更新失败后，我们不得不回到起点。","她还在犹豫是否接受这份邀请。","这次延误后来反而带来了意想不到的好处。","我感觉身体有些不舒服。","这项投资从长远来看会节省成本。"],"mistakes":["在正式报告中避免使用过于口语化的习语，除非文体允许。"],"practices":[{"q":"在工作讨论中，“on the same page”是什么意思？","options":["阅读同一页文件","拥有相同的理解或共识","在不同部门工作"]},{"q":"如果有人在会议上“breaks the ice”，他做了什么？","options":["让大家放松并开始交谈","突然结束会议","反对所有建议"]},{"q":"“hit the nail on the head”是什么意思？","options":["犯了一个小错误","准确地说中要点","回避问题"]},{"q":"Scratch the surface 是什么意思？","options":["只探讨表面部分","理解所有细节","作出大胆决定"]},{"q":"如果某人 takes the plunge，他做了什么？","options":["鼓起勇气迈出重要的一步","避免作出决定","结束对话"]},{"q":"在听取双方意见之前，应该避免做什么？","options":["急于下结论","打破沉默","开始行动"]},{"q":"如果某人 is on the fence，是什么意思？","options":["他／她犹豫不决。","他／她身体不舒服。","他／她已经开始一个项目。"]},{"q":"Cut corners 是什么意思？","options":["为了节省时间或金钱而牺牲质量","认真改进质量","回到起点"]}]},"a-hedging":{"topic":"学术与职场英语","title":"使用准确措辞限定观点","summary":"使用审慎表达来体现适当的确定程度。","explanation":"在学术和职场写作中，作者通常不会把尚不确定的解释说成绝对事实。may、might、appears to 和 is likely to 等表达可以体现审慎程度。使用这些表达时，应让措辞与实际的不确定性相符。 学术写作中常用一些词汇来表达审慎程度。Tentative 表示暂定的、尚未确定的；cautious 表示谨慎的，避免作出超出证据支持范围的断言。Effective 表示能产生预期效果的。Attribute a result to a cause 表示认为某个原因导致了某种结果。Consistent 表示与其他证据相符；compelling 表示有说服力的；causal relationship 表示某个因素导致或促成另一个因素的因果关系。","points":["审慎表达表示观点有所限制、保留或取决于证据。","措辞的确定程度应与证据相匹配。","Tentative 表示暂定的、尚未确定的；cautious 表示谨慎的。","Effective 表示有效的、能产生预期结果的。","Attribute an outcome to something 表示把某个结果归因于某事。","Consistent 表示与其他信息一致；compelling 表示令人信服的。","Causal relationship 表示原因与结果之间的联系。"],"examples":["结果表明，睡眠可能会影响注意力。","这种方法很可能会缩短处理时间。","研究结果仍属暂定，因此应谨慎解读。","这项措施可能有效，但仍需要进一步研究。","需求减少可能是这次下滑的原因。","这些数据与早前的估算大致一致。","证据很有说服力，但并不能证明存在因果关系。"],"mistakes":["不要把 may、might 和 definitely 等确定程度相互冲突的表达随意组合。"],"practices":[{"q":"哪一个短语表达了审慎的判断？","options":["This proves beyond all doubt…","The findings may indicate…","It is certainly impossible…"]},{"q":"由于样本数量较少，研究结果___需要谨慎解读。","options":["may","definitely must","cannot possibly"]},{"q":"哪一种措辞对结论作出了恰当限定？","options":["The treatment always causes improvement.","The treatment appears to be associated with improvement.","The treatment proves every case."]},{"q":"哪个词表示暂定的、尚未确定的？","options":["tentative","permanent","certain"]},{"q":"哪个词表示能够产生预期结果的？","options":["effective","incidental","reluctant"]},{"q":"因果关系连接哪两个概念？","options":["原因与结果","相似的拼写和发音","两个无关事件"]}]},"b-verb-combinations":{"topic":"日常词汇","title":"掌握实用的日常词汇","summary":"学习日常情境中常见的动词搭配和描述性词语。","explanation":"英语中许多日常动作都通过固定的动词与名词组合来表达。英语使用者会说 do homework（做作业）、make breakfast（做早餐）、take a break（休息一下）和 catch a bus（赶／搭公交车）。名词会影响适合搭配的动词，因此应把整个短语一起学习，而不是逐字翻译。 日常词汇也包括描述性形容词。Exciting形容能引起强烈兴趣或热情的事物；beautiful形容看起来非常赏心悦目的事物。Crowded形容人多、空间有限的地方；comfortable形容让人感到放松和舒适的事物；delicious则形容食物或饮料味道很好。 描述性形容词也可以表达负面的感受。Boring 表示某事物缺乏趣味、无法引起兴趣，与 exciting（令人兴奋的）意思相反。Friendly 形容友善、热情待人的人或态度；quiet 表示声音很小或安静；useful 表示对某种用途有帮助；expensive 表示价格昂贵。 题库考查的日常搭配包括 make a mistake（犯错）、take a break（休息一下）、have breakfast（吃早餐）、do homework（做作业）、pay attention（集中注意力）以及 keep a promise（遵守承诺）。这些都是约定俗成的动词与名词搭配，应把完整短语作为一个表达来学习，而不是逐词翻译。","points":["把常见搭配作为完整短语来学习。","表达相近概念时，不同名词可能需要搭配不同动词。","结合具体情境选择自然的搭配。","描述性形容词可以说明人物、地点、食物或经历的外观和感受。","Exciting表示令人兴奋或引起强烈兴趣的；beautiful表示美丽、赏心悦目的。","Crowded形容人多、空间有限的地方；comfortable形容让人感到放松舒适的事物。","Delicious形容食物或饮料味道非常好。","Boring 表示无聊的、缺乏趣味的；exciting 表示令人兴奋或引起兴趣的。","Friendly 形容友善、热情的；quiet 形容安静的。","Useful 表示有用的；expensive 表示昂贵的。","Make a mistake 表示犯错；take a break 表示暂时停下来休息。","Have breakfast 表示吃早餐；do homework 表示完成作业。","Pay attention 表示集中注意力；keep a promise 表示履行承诺。"],"examples":["晚饭前我需要做完作业。","我们通常在下一站搭公交车。","我们休息一会儿吧。","这场科学展演令人兴奋。","我们在车站附近看见一座美丽的花园。","咖啡馆里人很多，但座位很舒适。","汤非常美味，工作人员也很友善。","这场讲座很无聊，但实践活动令人兴奋。","工作人员很友善，图书馆也很安静。","这本实用指南并不贵。","人们疲倦时都可能犯错。","做完这个练习后，我们休息一下吧。","我在家吃早餐，晚饭后做作业。","请注意路况，并遵守你的承诺。"],"mistakes":["错误：make homework。正确：do homework。","错误：do a break。正确：take a break。"],"practices":[{"q":"选择自然的英语表达。","options":["make homework","do homework","take homework"]},{"q":"我们通常早上八点___公交车。","options":["catch","make","do"]},{"q":"学习了两个小时后，我们休息一下吧。","options":["do","make","take"]},{"q":"选择表示准备早晨那一餐的自然搭配。","options":["make breakfast","catch breakfast","do breakfast"]},{"q":"以下哪项最符合“exciting”的含义？","options":["引起强烈兴趣或热情的","让人感到困倦的","人很多、空间很拥挤的"]},{"q":"选择最合适的形容词：“We saw a ___ garden.”","options":["beautiful","crowded","delicious"]},{"q":"哪个词形容人很多、空间很少的地方？","options":["quiet","crowded","comfortable"]},{"q":"哪个词形容味道非常好的食物？","options":["delicious","expensive","exciting"]},{"q":"哪个词形容缺乏趣味、无法引起兴趣的事物？","options":["boring","exciting","delicious"]},{"q":"选择最合适的词：“The staff were kind and welcoming.” 他们很___。","options":["friendly","crowded","expensive"]},{"q":"哪个词表示“对某种用途有帮助”？","options":["useful","quiet","boring"]},{"q":"选择自然的表达：“Please ___ attention to the road.”","options":["pay","make","do"]},{"q":"哪个短语表示履行自己的承诺？","options":["keep a promise","take a break","make a mistake"]}]},"i-word-families":{"topic":"构词法","title":"识别词族与词缀","summary":"利用前缀和后缀理解相关词汇。","explanation":"词族是由同一个词根或基础词构成的一组相关词，例如 decide（决定）、decision（决定／决策）和 decisive（果断的）。前缀加在词根前面，可能改变词义；后缀加在词根后面，通常也会改变词的语法功能。识别这些规律有助于推测词义，但仍须确认词形是否符合句子的语法。 词汇选择也包括辨认容易混淆的词形。Affect 通常是动词，表示影响；effect 通常是名词，表示结果。Convince 是表示说服的动词；convincing 是形容词，表示有说服力、令人信服的。Clarification 是名词，表示让事情更清楚的解释；unclear 表示不清楚、难以理解。 题库会练习以下词族：decide（动词）→ decision（名词）；rely（动词）→ reliable（形容词）；succeed（动词）→ successful（形容词）；create（动词）→ creativity（名词）；persuade（说服，动词）；danger（名词）→ dangerous（形容词）；accurate（形容词）→ accuracy（名词）。请留意后缀如何改变单词的语法功能。Persuade 表示说服某人做某事或相信某个观点。","points":["前缀位于词根之前，例如 un- + certain = uncertain。","后缀位于词根之后，例如 care + -ful = careful。","后缀可能改变词性，例如 decide 是动词，decision 是名词。","Affect（动词）表示影响；effect（名词）表示结果。","Convince 是动词；convincing 是形容词，表示有说服力的或令人信服的。","Clarification 表示澄清或说明；unclear 表示不清楚的。","Decide（动词）→ decision（名词）。","Rely（动词）→ reliable（形容词）；succeed（动词）→ successful（形容词）。","Create（动词）→ creativity（名词）；accurate（形容词）→ accuracy（名词）。","Danger（名词）→ dangerous（形容词）；persuade 表示说服某人。"],"examples":["说明不够清楚，所以我要求对方进一步解释。","她的决定经过了谨慎考虑。","新政策可能会影响所有员工。","这个令人信服的解释帮助澄清了问题。","这项变化带来的影响很明显。","她的决定让所有人感到惊讶。","我们需要一个可靠的信息来源。","这个项目达成了所有目标，因此取得了成功。","这位艺术家以原创想法和创造力闻名。","演讲者试图说服观众支持这项提案。","这条道路夜间很危险，因此驾驶者应减速。","测量结果的准确性很重要。"],"mistakes":["不要认为每个单词都能随意添加任何前缀或后缀；应使用英语中真实存在的词形。","检查句子的语法：名词、动词和形容词不能在所有位置互换。"],"practices":[{"q":"哪个单词表示“不确定的”？","options":["certainly","uncertain","certainty"]},{"q":"decide 词族中的哪一个是名词？","options":["decisive","decide","decision"]},{"q":"选择表示“仔细的”的正确形容词。","options":["careful","carement","carely"]},{"q":"完成句子：The instructions were ___, so nobody knew what to do.","options":["clarity","clarify","unclear"]},{"q":"选择正确的词形：“The new rule may ___ everyone.”","options":["affect","effect","effective"]},{"q":"哪个词形容能够提供有力理由、令人信服的解释？","options":["convincing","convincedly","convince"]},{"q":"Accurate 的名词形式是什么？","options":["accurate","accuracy","accurately"]},{"q":"哪个形容词由 rely 构成？","options":["reliance","reliable","relying"]}]},"a-near-synonyms":{"topic":"精准词汇","title":"准确区分近义词","summary":"根据词义和语境，在相似词语之间作出选择。","explanation":"近义词虽然有部分相似含义，却不一定可以互换。例如 imply 表示说话者或文本间接暗示某事；infer 表示读者或听者根据证据推断结论。economic 与经济相关；economical 则表示节省金钱或资源。准确选择词语能让进阶写作更加清晰。 精准词汇也包括描述语气和判断的词。Tactful 表示说话得体、注意不冒犯他人；candid 表示坦率、诚实直接；harsh 表示严厉、不友善或过于苛刻。Incidental 表示附带的、次要的，并非主要目的。Reluctant 表示不情愿或犹豫。Disclose 表示公开或透露此前未知或未公开的信息。这些词都与精准选词有关，但不能随意互换。 题库还会区分以下容易混淆的词语：historic 表示具有历史意义的；historical 表示与过去或历史有关的。Ensure 表示确保；assure 表示向某人保证。Eminent 表示杰出、受尊敬的；imminent 表示即将发生的。Adopt 表示采用；adapt 表示调整以适应。Complement 表示补充或衬托；compliment 表示赞美。Discreet 表示谨慎、得体；discrete 表示分离、独立的。Credible 表示可信的；credulous 表示轻信的。","points":["区分相似词语时，应检查它们之间的具体含义差异。","imply 描述说话者或文本暗示什么；infer 描述读者或听者推断出什么。","根据想表达的意思和句子语法选择词语。","Tactful 表示得体、考虑周到；candid 表示坦率、诚实；harsh 表示严厉或尖刻。","Incidental 表示附带的、次要的。","Reluctant 表示不情愿或犹豫；disclose 表示透露信息。","Historic 表示具有历史意义的；historical 表示与过去或历史有关的。","Ensure 表示确保；assure 表示向某人保证。","Eminent 表示杰出的；imminent 表示即将发生的。","Adopt 表示采用；adapt 表示调整以适应。","Complement 表示补充或衬托；compliment 表示赞美。","Discreet 表示谨慎、得体；discrete 表示分离、独立的。","Credible 表示可信的；credulous 表示轻信的。"],"examples":["报告暗示明年的成本可能会上升。","分析人员根据缺失的数据推断调查并不完整。","这辆汽车的使用成本很低。","她得体的回应避免让发言者感到尴尬。","他坦率地谈到了风险，但没有显得尖刻。","一句附带的话引发了一场有益的讨论。","她不愿透露这些细节。","这项协议具有历史意义；博物馆展出的是历史文物。","请确保文件已备份；我向你保证流程是安全的。","一位杰出的学者警告说，暴风雨即将来临。","该组织采用了这项政策，并根据当地需求作出调整。","窗帘衬托了房间的色彩；主人赞美了设计师。","请谨慎处理机密信息；数据被储存在不同的独立组别中。","证人作出了可信的陈述；轻信的人可能会接受所有说法。"],"mistakes":["不要把 infer 当作 imply 使用：作者暗示（implies），读者推断（infers）。","economic growth（经济增长）和 economical design（节省资源的设计）含义不同。"],"practices":[{"q":"说话者没有直接说明，而是间接表达一个想法。哪个动词描述说话者的行为？","options":["infer","imply","assume"]},{"q":"读者根据证据得出结论。哪个动词描述读者的行为？","options":["imply","infer","announce"]},{"q":"选择表示耗油量较低的自然表达。","options":["an economic car","an economical car","an economy car"]},{"q":"某项政策涉及国家就业和通货膨胀。应使用哪个形容词？","options":["economical policy","economic policy","economy policy"]},{"q":"哪个词表示诚实、直接、坦率？","options":["candid","tactful","reluctant"]},{"q":"哪个词表示不情愿或犹豫？","options":["reluctant","incidental","precise"]},{"q":"Disclose 是什么意思？","options":["透露信息","隐瞒信息","推迟决定"]},{"q":"哪个词表示“即将发生的”？","options":["eminent","imminent","historic"]},{"q":"哪个词表示“谨慎得体，尤其是在处理私人信息时”？","options":["discreet","discrete","credible"]},{"q":"哪个词表示“调整以适应新情况”？","options":["adopt","adapt","assure"]}]},"b-countable-nouns":{"topic":"名词与数量","title":"正确使用可数名词与不可数名词","summary":"准确选择名词形式和数量表达。","explanation":"可数名词有单数和复数形式，例如 one book、two books。information（信息）、advice（建议）和 water（水）等不可数名词通常不能直接计数，也通常不加复数 -s。需要表达数量或具体项目时，可以使用 a piece of advice（一条建议）或 some information（一些信息）等说法。 有些日常名词即使指具体物品或集合，在英语中仍属于不可数名词。Equipment 指某项活动所需的器材或设备；furniture 指房间里的可移动家具，例如桌子和椅子。在标准英语中，通常不说 equipments 或 furnitures。需要计数时，可以使用 some equipment、a piece of equipment、some furniture 或 an item of furniture。 有些可数名词的复数形式不遵循直接加 -s 的规则。例如 child 的复数是 children。Bread（面包）需要使用可数单位来计数，例如 a slice：one slice of bread、two slices of bread。在食谱语境中，sugar（糖）是不可数名词，因此应使用 how much sugar，而不是 how many sugars。","points":["单数可数名词前使用 a/an，例如 a book。","many 搭配可数名词复数；much 搭配不可数名词。","需要计量不可数名词时，可以使用 a piece of advice 等量词表达。","Equipment 和 furniture 在标准英语中通常是不可数名词。","需要计算单件物品时，可以使用 a piece of equipment 或 an item of furniture。","Child 的不规则复数形式是 children。","Bread 可以用 slice 作为计量单位：two slices of bread。","在此语境中 sugar 是不可数名词，因此使用 much sugar。"],"examples":["我收到了一些有用的建议。","她买了三本笔记本。","你能告诉我一些有关课程的信息吗？","工作室购买了一些新设备。","我们需要一件器材来进行这项活动。","房间里目前没有多少家具。","一个孩子正在等候；两个孩子正在玩耍。","盘子里有两片面包。","这个食谱需要多少糖？"],"mistakes":["错误：an advice。正确：some advice 或 a piece of advice。","错误：many information。正确：much information 或 a lot of information。","错误：two equipments。正确：two pieces of equipment。","错误：many furnitures。正确：several items of furniture。"],"practices":[{"q":"选择正确的表达。","options":["an advice","some advice","many advice"]},{"q":"How ___ books did you borrow?","options":["much","many","any of"]},{"q":"我们目前没有关于该活动的___信息。","options":["many","a few","much"]},{"q":"选择自然的英语表达。","options":["two pieces of advice","two advices","two advice"]},{"q":"选择正确的表达。","options":["three equipments","three pieces of equipment","three equipment"]},{"q":"哪一个句子符合标准英语？","options":["We bought new furnitures.","We bought some new furniture.","We bought many furniture."]},{"q":"选择正确的复数形式：one child, two ___。","options":["childs","children","childes"]},{"q":"选择自然的表达。","options":["two breads","two slices of bread","two slice bread"]}]},"i-conditionals":{"topic":"条件句","title":"选择第一与第二条件句","summary":"区分现实可能发生的未来情况与假设情境。","explanation":"第一条件句描述现实或有可能发生的未来情况：if + 一般现在时，will + 动词原形。第二条件句描述不真实、想象中或可能性较低的情况：if + 一般过去时，would + 动词原形。第二条件句中的过去式通常表示与现实有距离，并不一定表示过去时间。 条件从句也可以使用 unless 或 even if 开头。Unless 表示 if not（如果不）：Unless you hurry, you will miss the train（如果你不快点，就会错过火车）。Even if 表示即使某种情况发生，结果仍然不变：Even if it rains, the event will continue（即使下雨，活动仍会继续）。Hypothetical 表示假设或想象中的；realistic 表示现实可行或符合实际情况的。 本课程也会复习零条件句和第三条件句。零条件句描述普遍事实：if + 一般现在时，一般现在时。第三条件句描述与过去事实相反的假设及结果：if + 过去完成时，would have + 过去分词。Provided that 表示“只要满足某个条件”。中级课程会初步认识混合条件句，即条件与结果指向不同时间；进阶课程会进一步深入讲解。","points":["第一条件句：If it rains, we will stay inside.（如果下雨，我们就待在室内。）","第二条件句：If I had more time, I would learn another language.（如果我有更多时间，我会学习另一种语言。）","这两种结构的 if 从句通常不直接使用 will。","Unless 表示“如果不”，用于引出可能导致某种结果的条件。","Even if 表示“即使”，强调某个条件不会改变结果。","Hypothetical 表示假设的；realistic 表示现实可行的或符合实际的。","零条件句：If you heat ice, it melts。（如果加热冰，冰就会融化。）","第三条件句：If they had booked earlier, they would have paid less。（如果他们早点预订，就会少付一些钱。）","Provided that 表示“只要”，用于提出必须满足的条件。","混合条件句把指向不同时间的条件与结果联系起来。"],"examples":["如果火车晚点，我们就叫出租车。","如果我住在海边，我每天早上都会游泳。","如果我们现在不出发，就会错过火车。","即使下雨，活动仍会继续。","假设例子是想象出来的；现实的计划会考虑实际限制。","如果海平面气压下的水达到 100°C，就会沸腾。","如果他们早点预订，就会少付一些钱。","只要你保持房间整洁，就可以使用会议室。","如果我当时接受了邀请，现在就会住在新加坡。"],"mistakes":["错误：If it will rain, we will stay inside. 正确：If it rains, we will stay inside。","第二条件句使用过去式来表达假设，不一定表示过去发生的事件。"],"practices":[{"q":"完成表示现实未来可能性的句子：If she ___ early, we will have time for coffee.","options":["arrives","will arrive","would arrive"]},{"q":"选择第二条件句。","options":["If I see him, I will tell him.","If I saw him, I would tell him.","If I had seen him, I would have told him."]},{"q":"完成句子：If we had a bigger kitchen, we ___ more often.","options":["cook","will cook","would cook"]},{"q":"哪一个句子描述可能发生的未来结果？","options":["If the weather improves, we will go hiking.","If I were taller, I would play basketball.","If she had called, I would have answered."]},{"q":"Unless you hurry 是什么意思？","options":["如果你不快点","即使你很快","因为你刚才很快"]},{"q":"哪个短语表示即使某个条件发生，结果仍然不变？","options":["even if","only if","as soon as"]},{"q":"哪一个句子表达普遍事实？","options":["If you heat ice, it melts.","If you heated ice, it would melt.","If you had heated ice, it would have melted."]},{"q":"完成第三条件句：If we had left earlier, we ___ the train。","options":["would catch","would have caught","will catch"]}]},"a-mixed-conditionals":{"topic":"高级语法","title":"理解混合条件句","summary":"把不真实的过去条件与现在结果联系起来，或把现在条件与过去结果联系起来。","explanation":"混合条件句会结合不同的时间指向。常见结构之一是 if + 过去完成时，搭配 would + 动词原形，表达不真实的过去条件及其现在结果：If I had studied medicine, I would be a doctor now. 另一种结构使用 if + 一般过去时表达现在的一般情况，并使用 would have + 过去分词表达过去结果。应根据条件和结果之间的时间关系选择结构。 混合条件句也可以在条件从句中使用倒装。正式表达中省略 if，并把 had 放在主语之前：“Had the data been checked, the error would not now be affecting the results.” 过去完成时的被动条件指向较早进行的核查；结果从句描述现在仍然受到的影响。这种结构把混合条件句的时间关系与进阶倒装课中的语序变化结合起来。","points":["过去条件 → 现在结果：If I had taken the job, I would live abroad now.","现在条件 → 过去结果：If she were more careful, she would not have made that mistake.","两个分句的动词形式分别表示条件和结果的时间。","混合条件句倒装：Had + 主语 + 过去分词，结果从句使用 would + 动词原形，或表示现在持续影响的 would be + -ing。","条件与结果指向不同时间；倒装改变语序，但不改变时间关系。"],"examples":["如果他当时存了更多钱，他现在就拥有一套房子了。","如果我更有自信，昨天就会在会议上发言了。","如果当时核查过数据，这个错误现在就不会继续影响结果。"],"mistakes":["如果结果指向现在，不要误用只描述过去结果的第三条件句结构。","选择动词形式前，先确认每个分句指向过去还是现在。"],"practices":[{"q":"完成表示过去条件与现在结果的句子：If I had accepted the offer, I ___ in London now.","options":["would live","would have lived","will live"]},{"q":"哪一个句子是混合条件句？","options":["If I had left earlier, I would have caught the train.","If I leave now, I will catch the train.","If she were more organised, she would not have missed the deadline."]},{"q":"完成句子：If he had taken the medicine, he ___ better now.","options":["would feel","would have felt","will feel"]},{"q":"在“If she were more patient, she would have handled the call better”中，条件指向什么时候？","options":["只指过去","一般或现在的特征","只指未来"]},{"q":"哪一个句子同时使用倒装条件从句和现在的结果？","options":["Had the data been checked, the error would not now be affecting the results.","If the data is checked, the error disappeared yesterday.","Had the data checked, the error would not now affect."]}]},"b-greetings-polite-expressions":{"topic":"日常词汇","title":"使用问候语和礼貌表达","summary":"在日常对话中选择自然的问候语和礼貌用语。","explanation":"问候语帮助我们友好地开始对话。Good morning、good afternoon 和 good evening 分别适用于一天中的不同时段。Thanks 用来表达感谢；excuse me 可以礼貌地引起他人注意或开始提问。Take care 是告别时祝愿对方一切顺利的友好表达。这些表达最好作为完整短语来学习，因为它们的社交含义比逐字翻译更重要。","points":["早上问候可用 good morning，下午用 good afternoon，晚上用 good evening。","Thanks 是表达感谢的常见、友好方式。","在礼貌地打断别人或向陌生人提问前，可以使用 excuse me。","Take care 是一种友好的告别表达，带有祝愿对方保重的意思。","根据场合和双方关系选择合适的表达。"],"examples":["大家早上好。你们好吗？","下午好。我可以和陈先生谈谈吗？","晚上好，欢迎参加我们的活动。","谢谢你等我。","打扰一下，最近的公交车站在哪里？","保重，下周见。"],"mistakes":["Good night 通常不是初次见面时使用的问候语；它更多用于告别或准备睡觉时。","Excuse me 用于礼貌地打断或引起注意，不应直接代替 thank you。"],"practices":[{"q":"早上九点遇到老师，哪种问候最合适？","options":["Good evening","Good morning","Take care"]},{"q":"哪种表达适合在提问前礼貌地引起陌生人的注意？","options":["Excuse me","Thanks","Good night"]},{"q":"有人帮你拿书，你可以说什么？","options":["Exit","Thanks","Good evening"]},{"q":"哪种表达适合在告别时友好地祝愿对方保重？","options":["Good afternoon","Excuse me","Take care"]}]},"b-places-getting-around":{"topic":"日常词汇","title":"认识城镇中的常见地点","summary":"认识常见公共场所，以及在城镇中寻找路线时会用到的词语。","explanation":"日常对话经常涉及询问地点和理解简单路线。Station 是乘客搭乘火车或公交车的地方。Market 出售食品和其他商品；library 是阅读、借书和学习的地方。Hospital 提供医疗服务，restaurant 供应餐食，museum 展示供访客学习和欣赏的物品。寻找建筑物或街道时，entrance 是入口，exit 是出口。Corner 是街道或边缘相交的位置；bridge 让人们跨越障碍；ticket 是乘车或入场凭证；platform 则是乘客上下火车的站台。","points":["Station 是搭乘火车或公交车的地方；platform 是乘客上下火车的站台。","Market 出售商品；library 用于阅读、借书和学习。","Hospital 提供医疗服务；restaurant 供应已准备好的餐食。","Museum 展示物品和信息，供访客参观学习。","Entrance 是入口；exit 是出口。","Ticket 是乘车或入场凭证；bridge 让人们跨越障碍。","Corner 可表示街道或物体边缘相交的位置。"],"examples":["火车站就在市场旁边。","我从图书馆借了一本书。","医院在桥的另一边。","我们在博物馆附近的一家餐厅吃了晚餐。","请在正门入口等候。","最近的出口在拐角处。","我们的火车从二号站台出发。请准备好车票。"],"mistakes":["不要混淆 entrance 和 exit：entrance 是进入的入口，exit 是离开的出口。","Platform 不等于整个车站；它是乘客上下火车的区域。"],"practices":[{"q":"你会去哪里借书？","options":["图书馆","医院","餐厅"]},{"q":"哪个地方提供医疗服务？","options":["博物馆","医院","市场"]},{"q":"乘客通常在哪里上下火车？","options":["站台","博物馆入口","市场"]},{"q":"哪个词表示离开建筑物的地方？","options":["入口","拐角","出口"]}]}};
     const lessonTopicIds={
       "Sentence basics":"sentence-basics",
       "Verb tenses":"verb-tenses",
@@ -18278,6 +18609,11 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     window.addEventListener("hashchange", showHashPage);
     window.addEventListener("popstate", showHashPage);
+    document.getElementById("profileContent").addEventListener("click", event => {
+      if (event.target.closest("[data-dashboard-flashcard-review]")) {
+        if (window.SwiftDictionaryFlashcards?.openReviewFromDashboard) window.SwiftDictionaryFlashcards.openReviewFromDashboard();
+      }
+    });
     document.getElementById("profileSignIn").addEventListener("click", () => document.getElementById("accountDialog").classList.add("open"));
     document.getElementById("profileSignOut").addEventListener("click", async () => {
       if (supabaseClient) { const {error} = await supabaseClient.auth.signOut(); if (error) accountStatus.textContent = error.message; }
@@ -18512,8 +18848,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function renderDashboardAllowanceBars(plan,limits,usageRows,timezone,personalLessonExemption) {
       const host = document.getElementById("dashboardAllowanceBars");
       if (!host) return;
-      const types = ["lesson","daily_topic","daily_application","daily_discovery","daily_revision"];
-      const labels = { lesson:"Permanent lessons",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision" };
+      const types = ["lesson","quiz","flashcard","daily_topic","daily_application","daily_discovery","daily_revision"];
+      const labels = { lesson:"Permanent lessons",quiz:"Quiz",flashcard:"Flashcards",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision" };
       host.innerHTML = types.map(type => {
         const row = limits.find(item => item.plan_code === plan && item.activity_type === type);
         if (type === "lesson" && personalLessonExemption) {
@@ -18554,7 +18890,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       try {
         await preferenceWriteQueue;
         await ensureProfileRows();
-        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ] = await Promise.all([
+        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",currentUser.id).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -18567,7 +18903,10 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.from("saved_words").select("course,word").eq("user_id",currentUser.id),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
-          supabaseClient.rpc("get_my_quiz_history",{p_limit:5})
+          supabaseClient.rpc("get_my_quiz_history",{p_limit:5}),
+          supabaseClient.rpc("get_my_quiz_availability"),
+          supabaseClient.rpc("get_my_flashcard_allowance"),
+          Promise.resolve(supabaseClient.rpc("get_my_flashcard_data")).catch(error=>({data:null,error}))
         ]);
         let profileQ=profileInitialQ;
         if(profileQ.error&&/avatar_icon|PGRST204|42703/i.test(profileQ.error.message||"")) {
@@ -18672,7 +19011,30 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           const count=counts[type]||0, unavailable=dailyPracticeUnavailable&&type.startsWith("daily_"), width=Math.round(count/maxCount*100);
           return '<div class="activity-overview-row"><div class="activity-overview-heading"><strong>'+activityLabels[type]+'</strong><span>'+(unavailable?"Unavailable":count+(count===1?" completion":" completions"))+'</span></div><div class="activity-overview-track" role="img" aria-label="'+activityLabels[type]+': '+count+' completions"><span style="width:'+(unavailable?0:width)+'%"></span></div></div>';
         }).join(""):'<p class="muted-note">No completed learning activity recorded yet. '+(dailyPracticeUnavailable?"Daily activity history will appear after the server update.":"Your completed lessons and daily activities will appear here.")+'</p>';
-        renderDashboardAllowanceBars(plan,limits,allowanceUsageRows,tz,personalTestAccess);
+        const fallbackAllowanceRows = [
+          ...(!quizAvailabilityQ.error&&Number.isInteger(Number(quizAvailabilityQ.data?.allowance?.used_count))
+            ? [{activity_type:"quiz",used_count:Number(quizAvailabilityQ.data.allowance.used_count)}] : []),
+          ...(!flashcardAllowanceQ.error&&Number.isInteger(Number(flashcardAllowanceQ.data?.used_count))
+            ? [{activity_type:"flashcard",used_count:Number(flashcardAllowanceQ.data.used_count)}] : [])
+        ];
+        const dashboardAllowanceUsageRows = Array.isArray(allowanceUsageRows)
+          ? [...allowanceUsageRows.filter(row=>!["quiz","flashcard"].includes(row.activity_type)),...fallbackAllowanceRows]
+          : (fallbackAllowanceRows.length ? fallbackAllowanceRows : null);
+        renderDashboardAllowanceBars(plan,limits,dashboardAllowanceUsageRows,tz,personalTestAccess);
+        const flashcardData=flashcardDataQ.error?null:(flashcardDataQ.data||{});
+        const flashcardHistory=Array.isArray(flashcardData?.history)?flashcardData.history:[];
+        const flashcardAttempts=flashcardHistory.reduce((sum,row)=>sum+Math.max(0,Number(row.words_seen)||0),0);
+        const flashcardCorrect=flashcardHistory.reduce((sum,row)=>sum+Math.max(0,Number(row.correct_count)||0),0);
+        const flashcardWeakItems=(flashcardData?.review_items||[]).filter(row=>Number(row.incorrect_count)>0);
+        document.getElementById("dashboardFlashcardGames").textContent=flashcardData?flashcardHistory.length:"—";
+        document.getElementById("dashboardFlashcardAttempts").textContent=flashcardData?flashcardAttempts:"—";
+        document.getElementById("dashboardFlashcardAccuracy").textContent=flashcardData?(flashcardAttempts?Math.round(flashcardCorrect/flashcardAttempts*100)+"%":"—"):"—";
+        document.getElementById("dashboardFlashcardWeakSummary").textContent=flashcardData
+          ? (flashcardWeakItems.length?flashcardWeakItems.length+" items to revisit across your Flash Recall modes.":"No weak-memory items yet. Complete a game to build your review list.")
+          : "Flashcard statistics are unavailable until the Flashcards database migration is installed.";
+        document.getElementById("dashboardFlashcardStatus").textContent=flashcardData
+          ? "Based on your latest "+flashcardHistory.length+" completed games."
+          : "Flashcard statistics will appear here when the feature is available.";
         const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
         if(dashboardQuizHost) {
           const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data:[]);
@@ -18888,9 +19250,9 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function quizApplyPageTranslation(){
       const page=quizEl("quizPage");if(!page)return;
       const set=(selector,en,zh)=>{const node=page.querySelector(selector);if(node)node.textContent=quizT(en,zh);};
-      set(".quiz-page-heading .eyebrow","Knowledge check","知识测验");
+      set(".learning-banner .eyebrow","Knowledge check","知识测验");
       set("#quizHeading","Quiz","测验");
-      set(".quiz-page-heading .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
+      set(".learning-banner .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
       set("#quizRefresh","Refresh","刷新");
       set("#quizChineseUnavailable h2","Chinese Quiz is coming soon","中文测验即将推出");
       set("#quizChineseUnavailable p","There is currently no Chinese learning course available in Quiz. Switch your learning course to English to use Quiz. Your translation-language preference is separate and will be preserved.","测验目前暂不提供中文学习课程。请切换至 English 学习课程以使用测验。你的翻译语言偏好会独立保留。");
@@ -19237,17 +19599,37 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         ["Why does an active Quiz keep its old translation?","The language pair is fixed when a Quiz session starts. A changed preference applies to the next Quiz if the active session does not contain that translation."],
         ["Is Chinese Quiz available?","Not yet. The current approved Quiz content supports the English learning course only."]
       ]},
-      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards will provide focused vocabulary recall and review. This learning experience is still being prepared.",faqs:[
-        ["Can I start a Flashcard session now?","Not yet. Flashcards will become available in a future SwiftDictionary update."],
-        ["Will progress be saved?","The planned experience includes saved review progress and allowance integration."],
-        ["Is Chinese Flashcards available?","Not yet. There is currently no Chinese Flashcards learning course."]
+      flashcards:{title:"Welcome to Flashcards",intro:"Flashcards offers four-choice Flash Recall using English vocabulary. Choose Word, Definition, Mixed or Sentence Recall, select a 60- or 120-second challenge, and set your difficulty and card range. Memory and answer windows adapt to the selected mode, and you can move on as soon as you are ready.",faqs:[
+        ["What are the four Flash Recall modes?","Word Recall asks you to choose a word's meaning. Definition Recall asks you to identify the matching word. Mixed Recall combines word, definition and sentence prompts. Sentence Recall asks you to complete a sentence."],
+        ["How do the timers work?","Memory and answer durations depend on the selected mode and difficulty. Both windows shorten by 0.2 seconds after each round until they reach their mode-specific minimums. Select Answer now to skip the remaining memory time, or Next to begin another round after answering."],
+        ["How long is a challenge?","Choose either a 60-second or 120-second challenge before starting. The challenge ends when its overall timer reaches zero, then your results are saved and shown for review."],
+        ["How do I choose the vocabulary?","Choose a card range in the setup prompt, such as all available words, common words, parts of speech, everyday phrases or subject terms. A question is not repeated within the same challenge."],
+        ["What is Weak Memory?","Questions answered incorrectly or left unanswered are recorded for review. You can revisit these items from the Weak Memory section on the Flashcards page."],
+        ["Is Chinese Flashcards available?","The Flashcards learning course uses English vocabulary. Your selected translation language controls supported meanings and prompts; it does not change the learning course."]
       ]}
     };
     let learningIntroCurrentPage = null;
     let learningIntroDismissed = new Set();
     function learningIntroStorageKey(userId){return "swiftdictionary-learning-intro-dismissals:"+ (userId||"guest");}
     function learningIntroRender(page){
-      const data=learningIntroCopy[page];if(!data)return;
+      const chineseIntroCopy={
+        quiz:{title:"欢迎使用测验",intro:"测验会提供初级、中级和高级的多主题问题。答题没有计时限制，提交前可以更改答案；结果会显示分数和正确率，不设及格或不及格。",faqs:[
+          ["可以暂停并继续未完成的测验吗？","可以。未完成的测验和已保存的答案会保留，直到你完成测验或主动放弃。"],
+          ["提交前可以更改答案吗？","可以。提交测验前，你可以返回题目并更改答案。"],
+          ["每日次数如何计算？","只有完成测验才会消耗每日次数；未完成或主动放弃的测验不会计入完成次数。"],
+          ["为什么正在进行的测验不会立即切换翻译语言？","测验开始时会固定当次使用的语言设置；新的翻译偏好会应用于之后开始的测验。"],
+          ["目前支持中文学习课程吗？","目前已批准的测验内容仅支持英语学习课程。"]
+        ]},
+        flashcards:{title:"欢迎使用闪卡",intro:"闪卡提供四选一的限时回忆挑战，使用英语词汇进行练习。你可以选择单词、释义、混合或句子回忆模式，设置 60 秒或 120 秒挑战，并选择难度和词汇范围。记忆与答题时间会根据模式调整；准备好时可以提前作答或直接进入下一题。",faqs:[
+          ["四种 Flash Recall 模式有什么区别？","单词回忆要求你选择单词释义；释义回忆要求你找出对应的英文单词；混合回忆结合单词、释义和句子题目；句子回忆要求你选择合适的单词完成句子。"],
+          ["计时规则是什么？","记忆时间和答题时间会根据模式与难度调整。每完成一轮，两段时间都会缩短 0.2 秒，直到达到该模式的最低时间。点击“立即作答”可以跳过剩余记忆时间；答题后点击“下一题”可以提前开始下一轮。"],
+          ["挑战持续多久？","开始前可以选择 60 秒或 120 秒。总计时结束后，系统会保存成绩并显示结果供你查看。"],
+          ["如何选择练习词汇？","在开始设置中选择词汇范围，例如全部可用词汇、常用词、词性、日常短语或学科术语。同一场挑战中不会重复出现同一道题。"],
+          ["什么是薄弱记忆？","答错或未作答的题目会被记录，供你之后复习。你可以在闪卡主页的“复习薄弱记忆”区域重新查看这些内容。"],
+          ["闪卡是否支持中文学习课程？","闪卡目前使用英语词汇。你选择的翻译语言会影响支持的释义和提示，但不会改变学习课程。"]
+        ]}
+      };
+      const data=translationLanguage==="zh"&&chineseIntroCopy[page]?chineseIntroCopy[page]:learningIntroCopy[page];if(!data)return;
       learningIntroCurrentPage=page;
       quizEl("learningIntroTitle").textContent=data.title;
       quizEl("learningIntroContent").innerHTML='<p>'+escapeHTML(data.intro)+'</p><h3>Frequently asked questions</h3>'+data.faqs.map(([q,a])=>'<h3>'+escapeHTML(q)+'</h3><p>'+escapeHTML(a)+'</p>').join("");
@@ -19291,6 +19673,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     function learningIntroMaybeShow(page){
       if(learningIntroDismissed.has(page)){if(learningIntroCurrentPage===page)learningIntroClose();return;}
+      const backdrop=quizEl("learningIntroBackdrop");
+      if(!backdrop.hidden&&learningIntroCurrentPage===page)return;
       learningIntroRender(page);
     }
     document.querySelectorAll("[data-learning-help]").forEach(button=>button.addEventListener("click",()=>learningIntroRender(button.dataset.learningHelp)));
@@ -19323,14 +19707,39 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     const originalShowPage = showPage;
     showPage = function(page,updateHash=true){
       originalShowPage(page,updateHash);
-      if(["lessons","quiz","flashcards"].includes(page)){applyLearningCourseAvailability();learningIntroPreferencesReady.then(()=>learningIntroMaybeShow(page));}
+      if(["lessons","quiz","flashcards"].includes(page)){
+        applyLearningCourseAvailability();
+        const pageElement=quizEl(pageIds[page]);
+        Promise.resolve(learningIntroPreferencesReady).catch(()=>{}).then(()=>{
+          if(pageElement&&!pageElement.hidden)learningIntroMaybeShow(page);
+        }).catch(()=>{if(pageElement&&!pageElement.hidden)learningIntroMaybeShow(page);});
+      }
     };
     window.addEventListener("swift-auth-updated",async()=>{
-      learningIntroPreferencesReady=learningIntroLoadPreferences();
+      learningIntroPreferencesReady=learningIntroLoadPreferences().catch(error=>{console.warn("Learning introduction preferences could not sync:",error);});
       await learningIntroPreferencesReady;
-      if(["lessons","quiz","flashcards"].includes((location.hash||"").slice(1)))learningIntroMaybeShow(location.hash.slice(1));
+      const activePage=["lessons","quiz","flashcards"].find(page=>!quizEl(pageIds[page]).hidden);
+      if(activePage)learningIntroMaybeShow(activePage);
     });
-    let learningIntroPreferencesReady=learningIntroLoadPreferences().then(()=>applyLearningCourseAvailability());
+    let learningIntroPreferencesReady=learningIntroLoadPreferences().catch(error=>{console.warn("Learning introduction preferences could not load:",error);}).then(()=>applyLearningCourseAvailability());
+    // Observe the real page visibility state as a second, route-independent
+    // first-entry trigger. This covers initial hash navigation and any future
+    // navigation path that changes page visibility without calling showPage().
+    if(typeof MutationObserver!=="undefined"){
+      const introPageObserver=new MutationObserver(entries=>{
+        for(const entry of entries){
+          if(entry.target.hidden)continue;
+          const page=entry.target.id==="lessonsPage"?"lessons":entry.target.id==="quizPage"?"quiz":"flashcards";
+          Promise.resolve(learningIntroPreferencesReady).catch(()=>{}).then(()=>{
+            if(!entry.target.hidden)learningIntroMaybeShow(page);
+          });
+        }
+      });
+      ["lessonsPage","quizPage","flashcardsPage"].forEach(id=>{
+        const pageElement=quizEl(id);
+        if(pageElement)introPageObserver.observe(pageElement,{attributes:true,attributeFilter:["hidden"]});
+      });
+    }
     document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
     document.getElementById("courseSelect").addEventListener("change",()=>{
       applyLearningCourseAvailability();
@@ -19348,6 +19757,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
   </script>
 
   <script src="daily-learning.js"></script>
+  <script src="flashcards.js"></script>
 <div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

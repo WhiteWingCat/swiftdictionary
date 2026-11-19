@@ -8,12 +8,12 @@ insert into private.learning_content_catalog(
 select
   'permanent_lesson',
   d.prefix || '-runtime-lesson-' || n,
-  'quiz-runtime-topic-' || n,
+  'quiz-runtime-topic-' || d.prefix || '-' || n,
   d.difficulty,
   'en',
   true
 from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
-cross join generate_series(1,10) n
+cross join generate_series(1,20) n
 on conflict (activity_type,content_id,language_code)
 do update set
   topic_id=excluded.topic_id,
@@ -30,8 +30,8 @@ select
   1,
   'en',
   'zh',
-  d.prefix || '-runtime-lesson-' || (((n-1)%10)+1),
-  'quiz-runtime-topic-' || (((n-1)%10)+1),
+  d.prefix || '-runtime-lesson-' || (((n-1)%20)+1),
+  'quiz-runtime-topic-' || d.prefix || '-' || (((n-1)%20)+1),
   d.difficulty,
   'runtime-objective-' || d.prefix,
   'Runtime test question ' || d.difficulty || ' ' || n || ': choose the correct answer.',
@@ -66,8 +66,8 @@ select
   1,
   'en',
   'en',
-  'b-runtime-lesson-' || (((n-1)%10)+1),
-  'quiz-runtime-topic-' || (((n-1)%10)+1),
+  'b-runtime-lesson-' || (((n-1)%20)+1),
+  'quiz-runtime-topic-b-' || (((n-1)%20)+1),
   'beginner',
   'runtime-objective-b',
   'English snapshot test question ' || n || ': choose the correct answer.',
@@ -94,10 +94,11 @@ insert into private.quiz_question_bank(
 )
 select
   d.prefix||'-runtime-def-'||d.lang||'-'||n,1,'en',d.lang,
-  d.prefix||'-runtime-lesson-'||(((n-1)%10)+1),'quiz-runtime-topic-'||(((n-1)%10)+1),
+  d.prefix||'-runtime-lesson-'||(((n-1)%20)+1),'quiz-runtime-topic-'||d.prefix||'-'||(((n-1)%20)+1),
   d.difficulty,'word_definition','en','runtime-objective-'||d.prefix,
   'Definition runtime question '||n||' for '||d.lang,
-  'Definition runtime question '||n||' for '||d.lang,
+  case when d.lang='zh' then '定义运行测试题'||n||'：请选择正确释义。'
+       else 'Definition runtime question '||n||' for '||d.lang end,
   jsonb_build_array(
     jsonb_build_object('id','a','learning_text','Correct meaning','translation_text','正确含义'),
     jsonb_build_object('id','b','learning_text','Wrong meaning one','translation_text','错误含义一'),
@@ -119,7 +120,7 @@ insert into private.quiz_question_bank(
 )
 select
   d.prefix||'-runtime-zh-'||n,1,'en','zh',
-  d.prefix||'-runtime-lesson-'||(((n-1)%10)+1),'quiz-runtime-topic-'||(((n-1)%10)+1),
+  d.prefix||'-runtime-lesson-'||(((n-1)%20)+1),'quiz-runtime-topic-'||d.prefix||'-'||(((n-1)%20)+1),
   d.difficulty,'chinese_translation','zh','runtime-objective-'||d.prefix,
   'Choose the most accurate Simplified Chinese translation for runtime item '||n||'.',
   '请选择运行测试题'||n||'最准确的简体中文翻译。',
@@ -132,3 +133,40 @@ select
   'a','Option A is the intended Chinese translation.','选项 A 是准确的中文翻译。','approved'
 from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
 cross join generate_series(1,21) n;
+
+
+-- Fail early if the synthetic bank does not satisfy the authenticated runtime
+-- RPC's minimum pool and distinct-topic requirements for every difficulty.
+do $runtime_fixture_assert$
+declare v record;
+begin
+  for v in
+    select d.difficulty,
+           count(q.question_id)::integer as question_count,
+           count(distinct q.topic_id)::integer as topic_count,
+           count(*) filter (where c.content_id is null)::integer as bad_catalogue_links
+    from (values ('beginner'),('intermediate'),('advanced')) d(difficulty)
+    left join private.quiz_question_bank q
+      on q.difficulty=d.difficulty
+     and q.learning_language_code='en'
+     and q.translation_language_code='zh'
+     and q.status='approved'
+     and q.question_id like case d.difficulty
+       when 'beginner' then 'b-runtime-%'
+       when 'intermediate' then 'i-runtime-%'
+       else 'a-runtime-%' end
+    left join private.learning_content_catalog c
+      on c.activity_type='permanent_lesson'
+     and c.content_id=q.source_lesson_id
+     and c.topic_id=q.topic_id
+     and c.language_code=q.learning_language_code
+     and c.is_active
+    group by d.difficulty
+  loop
+    if v.question_count < 20 or v.topic_count < 3 or v.bad_catalogue_links > 0 then
+      raise exception 'Runtime fixture invalid for %: questions %, topics %, bad catalogue links %',
+        v.difficulty,v.question_count,v.topic_count,v.bad_catalogue_links;
+    end if;
+  end loop;
+end;
+$runtime_fixture_assert$;

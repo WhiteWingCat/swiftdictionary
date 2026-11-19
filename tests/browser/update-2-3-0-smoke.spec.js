@@ -884,10 +884,10 @@ test("account switching clears the previous account state before another sign-in
   expect(await page.evaluate(() => localStorage.getItem("swiftdictionary-saved"))).toBeNull();
 });
 
-test("mock mode fails closed on the local test server even with the opt-in query", async ({ page }) => {
+test("mock mode activates on the explicit local test host only with the opt-in query", async ({ page }) => {
   await page.goto("/?swiftMock=1");
-  expect(await page.evaluate(() => window.SWIFT_DICTIONARY_MOCK_MODE === true)).toBeFalsy();
-  await expect(page.locator("#swiftMockPanel")).toHaveCount(0);
+  expect(await page.evaluate(() => window.SWIFT_DICTIONARY_MOCK_MODE === true)).toBeTruthy();
+  await expect(page.locator("#swiftMockPanel")).toBeVisible();
   await expect(page.locator("#dictionaryPage")).toBeVisible();
 });
 
