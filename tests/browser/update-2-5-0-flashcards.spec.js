@@ -260,15 +260,13 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
   const result=await page.evaluate(async()=>{
     const client=window.__swiftDictionaryMock.getClient();
     const words=["aberration","abandon","ability","able","about","above","absence","absolute","absorb","abstract","abuse","academic"];
-    for(const word of words){
-      const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
-      if(started.error)throw new Error(started.error.message);
-      const completed=await client.rpc("complete_my_flashcard_game",{
-        p_session_id:started.data.session_id,
-        p_results:[{card_key:"dict:"+word,mode:"word",correct:false,unanswered:false}]
-      });
-      if(completed.error)throw new Error(completed.error.message);
-    }
+    const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner"});
+    if(started.error)throw new Error(started.error.message);
+    const completed=await client.rpc("complete_my_flashcard_game",{
+      p_session_id:started.data.session_id,
+      p_results:words.map(word=>({card_key:"dict:"+word,mode:"word",correct:false,unanswered:false}))
+    });
+    if(completed.error)throw new Error(completed.error.message);
     return (await client.rpc("get_my_flashcard_data")).data.review_items.length;
   });
   expect(result).toBeGreaterThanOrEqual(12);
