@@ -576,7 +576,7 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
     "Only targets with three distinct distractors may be used");
   assert.match(source,/if\(!pools\.length\)throw new Error/,
     "A deck with no viable target must fail before the game session starts");
-  assert.match(source,/const freshPools=pools\.filter\(pool=>pool\.fresh\.length\)/,
+  assert.match(source,/let freshPools=pools\.filter\(pool=>pool\.fresh\.length\)/,
     "Mixed Recall must choose a mode that still has unused question targets before repeating a question");
   assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
     "Gameplay must select only from validated targets that have not already appeared in this cycle");
