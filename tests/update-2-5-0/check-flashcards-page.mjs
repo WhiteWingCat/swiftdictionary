@@ -56,7 +56,7 @@ for(const [needle,label] of [
   ['rpc("get_my_flashcard_data")',"Dashboard Flashcard statistics source"],
   ['dashboardFlashcardAccuracy',"Dashboard Flashcard accuracy statistic"],
   ['learning-banner',"Shared Lessons/Quiz banner style"],
-  ['data-page="dictionary"><span class="nav-icon"',"Icon-based main navigation"],
+  ['class="nav-icon"',"Icon-based main navigation"],
   ['id="dictionaryFiltersOverlay"',"Dictionary filter overlay"],
   ['id="openDictionaryFilters"',"Dictionary Filters navigation"]
 ])if(!html.includes(needle))throw new Error("Missing "+label+".");

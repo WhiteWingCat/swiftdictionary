@@ -333,8 +333,7 @@
     if(!state.game||state.finishing||state.ending)return;
     state.ending=true;clearTimers();
     if(state.round&&(state.phase==="memory"||state.phase==="answer"))state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:false,unanswered:true});
-    const overlay=$("#flashOverlayRoot");
-    if(overlayRoot)overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">Time\'s Up!</div></div>';
+    overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">Time\'s Up!</div></div>';
     setTimeout(()=>saveGameResults(),2000);
   }
   async function saveGameResults(){
@@ -403,7 +402,7 @@
       if(action==="open-setup"){openSetupPrompt(button.dataset.mode);return;}
       if(action==="close-overlay"){closeOverlay();return;}
       if(action==="close-result"){closeOverlay();state.lastResult=null;state.results=[];render();return;}
-      if(action==="begin-game"){state.duration=Number($("#flashChallengeDuration")?.value)||60;state.difficulty=$("#flashDifficulty").value;state.cardSet=$("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
+      if(action==="begin-game"){state.duration=Number(overlayRoot.querySelector("#flashChallengeDuration")?.value)||60;state.difficulty=overlayRoot.querySelector("#flashDifficulty").value;state.cardSet=overlayRoot.querySelector("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
       if(action==="open-review"){openReviewPrompt();return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
       if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
