@@ -40,7 +40,8 @@ for(const [needle,label] of [
   ["durationSeconds","Configurable game duration"],
   ["flash-times-up-text","Animated Time's Up transition"],
   ["setTimeout(()=>saveGameResults(),2000)","Two-second end-of-game transition"],
-  ["flashChallengeDuration","60/120-second challenge selector"],
+  ["flash-duration-pill","60/120-second challenge pills beside the Flash Recall heading"],
+  ["roundRecorded","Pending questions are recorded as weak memory when the challenge ends"],
   ["function uiText(en,zh)","English/Simplified Chinese Flashcards interface translation"],
   ["translationHint:mode===\"sentence\"","Chinese meaning support for Sentence Recall"],
   ["translationFor(target)","Chinese translation in Word and Definition Recall"],
@@ -63,6 +64,7 @@ for(const [needle,label] of [
   ['id="dictionaryFiltersOverlay"',"Dictionary filter overlay"],
   ['id="openDictionaryFilters"',"Dictionary Filters navigation"]
 ])if(!html.includes(needle))throw new Error("Missing "+label+".");
+if(flashcards.includes("id=\"flashChallengeDuration\""))throw new Error("Challenge duration must be selected beside the Flash Recall heading, not inside setup.");
 if(!flashcards.includes("allowance.used_count")||!flashcards.includes("allowance.remaining"))throw new Error("Flashcards daily allowance display is missing.");
 if(!migration.includes("delete from private.quiz_sessions where user_id=v_user")||!migration.includes("private.current_learning_allowance_usage(v_user,'flashcard',v_timezone)")||!migration.includes("public.get_my_flashcard_allowance()")||!migration.includes("delete from private.flashcard_mastery where user_id=v_user"))throw new Error("Server allowance or learning-history deletion integration is missing.");
 if(!recallMigration.includes("private.flashcard_review_items")||!recallMigration.includes("'mixed'")||!recallMigration.includes("review_items"))throw new Error("Mixed Recall review-history migration is incomplete.");
