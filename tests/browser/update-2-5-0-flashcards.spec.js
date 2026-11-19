@@ -143,7 +143,7 @@ test("60-second completion shows results and requires closing the prompt to retu
   await expect(page.locator(".flash-accuracy-hero strong")).toHaveText(/\d+%/);
   await expect(page.locator(".flash-accuracy-hero span")).toHaveText("Accuracy");
   await expect(page.locator(".flash-result-modal .flash-stats .flash-stat")).toHaveCount(3);
-  await expect(page.locator(".flash-result-modal .flash-stat")).toHaveCSS("padding-top","16px");
+  await expect(page.locator(".flash-result-modal .flash-stat").first()).toHaveCSS("padding-top","16px");
   await expect(page.locator('[data-action="close-result"]')).toBeVisible();
   await page.locator('[data-action="close-result"]').click();
   await expect(page.locator(".flash-banner")).toBeVisible();
