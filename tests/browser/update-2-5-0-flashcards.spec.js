@@ -248,15 +248,15 @@ test("Translation changes do not reopen a previously closed Dictionary definitio
   await page.locator(".word-card").first().click();
   await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
   await page.locator("#closeButton").click();
-  await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
+  await expect(page.locator("#modalBackdrop")).not.toHaveClass(/open/);
   for(const target of ["lessons","quiz","flashcards"]){
     await page.locator('[data-page="'+target+'"]').click();
     const intro=page.locator("#learningIntroBackdrop");
     if(await intro.isVisible())await page.locator("#learningIntroDismiss").click();
     await page.locator("#translationSelect").selectOption("zh");
-    await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
+    await expect(page.locator("#modalBackdrop")).not.toHaveClass(/open/);
     await page.locator("#translationSelect").selectOption("en");
-    await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
+    await expect(page.locator("#modalBackdrop")).not.toHaveClass(/open/);
   }
 });
 
@@ -284,7 +284,7 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
   await expect(list.locator("button")).toHaveCount(12);
   await list.evaluate(el=>{el.scrollTop=el.scrollHeight;});
   const before=await list.evaluate(el=>el.scrollTop);
-  await list.locator("button").first().click();
+  await list.locator("button").first().evaluate(button=>button.click());
   const after=await list.evaluate(el=>el.scrollTop);
   expect(after).toBe(before);
   await expect(page.locator(".flash-review-detail")).toBeVisible();
