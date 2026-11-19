@@ -592,7 +592,7 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
     "The used-question set must never be reset mid-game when the deck is exhausted");
   assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
     "Gameplay must select only from validated targets that have not already appeared in this challenge");
-  assert.match(source,/state\.usedQuestionKeys\.add\(cardKey\(target\)\)/,
+  assert.match(source,/state\.usedQuestionKeys\.add\(questionKey\(target\)\)/,
     "Each selected question must be recorded to prevent repetition for the entire challenge");
   const showStart=flashcardsSource.indexOf("  function showMemory(){");
   const showEnd=flashcardsSource.indexOf("function showAnswers()",showStart);
@@ -609,22 +609,23 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
   const context=vm.createContext({
     state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set()},
     cardKey:card=>"dict:"+String(card.word).toLowerCase(),
+    questionKey:card=>String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\s+/g," ").toLocaleLowerCase(),
     translationFor:card=>card.definitionZh||card.definition,
     uiText:english=>english
   });
   const makeRound=vm.runInContext("("+roundSource+")",context);
-  const deck=["apple","bridge","curious","discover"].map((word,index)=>({
+  const deck=["apple","bridge","curious","discover","good morning","station","APPLE","good  morning"].map((word,index)=>({
     word,definition:"English meaning "+index,definitionZh:"中文释义 "+index,
     examples:["I "+word+" every day."]
   }));
   const seen=new Set();
-  for(let index=0;index<deck.length;index++){
+  for(let index=0;index<6;index++){
     const round=makeRound(deck);
     assert.ok(round,"Every available unique target should be used before exhaustion");
     assert.ok(!seen.has(round.target.word),"A target must not repeat during the same challenge");
     seen.add(round.target.word);
   }
-  assert.equal(seen.size,deck.length);
+  assert.equal(seen.size,6,"Case and repeated whitespace variants must collapse to the same question.");
   assert.equal(makeRound(deck),null,"After all unique targets are used, no repeated question should be returned");
 });
 
