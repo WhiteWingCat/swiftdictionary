@@ -233,8 +233,11 @@
       return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(cardKey(item)))};
     }).filter(pool=>pool.viable.length);
     if(!pools.length)throw new Error("This card set does not contain four distinct choices for any recall mode.");
-    let freshPools=pools.filter(pool=>pool.fresh.length);
-    if(!freshPools.length){state.usedQuestionKeys.clear();freshPools=pools;}
+    const freshPools=pools.filter(pool=>pool.fresh.length);
+    // Never recycle a question within one challenge. A small custom collection
+    // may run out before the timer; in that case the game waits for the timer
+    // and shows a clear message instead of repeating earlier questions.
+    if(!freshPools.length)return null;
     const chosenPool=freshPools[Math.floor(Math.random()*freshPools.length)];
     const mode=chosenPool.mode,viable=chosenPool.viable,questionPool=chosenPool.fresh.length?chosenPool.fresh:viable;
     const target=questionPool[Math.floor(Math.random()*questionPool.length)];
@@ -284,8 +287,17 @@
   function showMemory(){
     if(!state.game)return;if(Date.now()-state.game.startedAt>=(state.game.durationSeconds||state.duration||60)*1000){finishGame();return;}
     try{state.round=makeRound(state.deck);}catch(e){state.notice=e.message;finishGame();return;}
-    state.phase="memory";state.phaseStartedAt=Date.now();state.phaseDuration=state.memory*1000;
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
+    if(!state.round){
+      state.phase="exhausted";state.phaseStartedAt=Date.now();state.phaseDuration=1;
+      if(memory){memory.classList.remove("is-blurred");memory.textContent=uiText("All unique questions completed","已完成所有不重复题目");}
+      if(overlay)overlay.hidden=true;
+      if(label)label.textContent=uiText("You have completed every unique question in this card set. Your results will appear when the challenge ends.","你已完成此卡片范围内所有不重复题目。挑战结束后将显示成绩。");
+      if(question)question.textContent="";
+      if(options)options.innerHTML="";
+      return;
+    }
+    state.phase="memory";state.phaseStartedAt=Date.now();state.phaseDuration=state.memory*1000;
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}
     if(overlay)overlay.hidden=true;if(label)label.textContent=uiText("Memorise the card","请记住卡片内容");
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option is-hidden" data-action="answer" data-index="${i}" disabled>Hidden answer</button>`).join("");
@@ -328,7 +340,8 @@
       // creating a server session. Duplicate-heavy answer sets must not leave
       // behind a session that can only fail after the game has started.
       state.deck=deck;
-      makeRound(deck);
+      state.usedQuestionKeys.clear();
+      if(!makeRound(deck))throw new Error("This card set has no unused questions available. Choose another card set and try again.");
       state.usedQuestionKeys.clear();
       state.round=null;state.phase="idle";state.phaseEnds=0;state.ending=false;
       const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty,p_duration_seconds:state.duration});

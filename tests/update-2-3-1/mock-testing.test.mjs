@@ -576,12 +576,48 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
     "Only targets with three distinct distractors may be used");
   assert.match(source,/if\(!pools\.length\)throw new Error/,
     "A deck with no viable target must fail before the game session starts");
-  assert.match(source,/let freshPools=pools\.filter\(pool=>pool\.fresh\.length\)/,
+  assert.match(source,/const freshPools=pools\.filter\(pool=>pool\.fresh\.length\)/,
     "Mixed Recall must choose a mode that still has unused question targets before repeating a question");
+  assert.match(source,/if\(!freshPools\.length\)return null/,
+    "The game must stop presenting questions rather than recycle a previously seen target");
+  assert.doesNotMatch(source,/usedQuestionKeys\.clear\(\)/,
+    "The used-question set must never be reset mid-game when the deck is exhausted");
   assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
-    "Gameplay must select only from validated targets that have not already appeared in this cycle");
+    "Gameplay must select only from validated targets that have not already appeared in this challenge");
   assert.match(source,/state\.usedQuestionKeys\.add\(cardKey\(target\)\)/,
-    "Each selected question must be recorded to prevent repetition until the deck cycle is exhausted");
+    "Each selected question must be recorded to prevent repetition for the entire challenge");
+  const showStart=flashcardsSource.indexOf("  function showMemory(){");
+  const showEnd=flashcardsSource.indexOf("function showAnswers()",showStart);
+  const show=flashcardsSource.slice(showStart,showEnd);
+  assert.ok(show.includes("if(!state.round)")&&show.includes('state.phase="exhausted"'),
+    "When unique cards are exhausted, gameplay must wait for the challenge timer instead of repeating a question");
+});
+
+test("Flash Recall never repeats a target within one challenge, even after exhausting a small deck",()=>{
+  const start=flashcardsSource.indexOf("  function makeRound(deck){");
+  const end=flashcardsSource.indexOf("  function durationLabel",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
+  const roundSource=flashcardsSource.slice(start,end);
+  const context=vm.createContext({
+    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set()},
+    cardKey:card=>"dict:"+String(card.word).toLowerCase(),
+    translationFor:card=>card.definitionZh||card.definition,
+    uiText:english=>english
+  });
+  const makeRound=vm.runInContext("("+roundSource+")",context);
+  const deck=["apple","bridge","curious","discover"].map((word,index)=>({
+    word,definition:"English meaning "+index,definitionZh:"中文释义 "+index,
+    examples:["I "+word+" every day."]
+  }));
+  const seen=new Set();
+  for(let index=0;index<deck.length;index++){
+    const round=makeRound(deck);
+    assert.ok(round,"Every available unique target should be used before exhaustion");
+    assert.ok(!seen.has(round.target.word),"A target must not repeat during the same challenge");
+    seen.add(round.target.word);
+  }
+  assert.equal(seen.size,deck.length);
+  assert.equal(makeRound(deck),null,"After all unique targets are used, no repeated question should be returned");
 });
 
 test("Flashcards explains the English-course limitation and resets collection selection after deletion",()=>{
