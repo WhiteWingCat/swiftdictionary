@@ -27,11 +27,12 @@ async function openMockFlashcards(page) {
 }
 
 async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60) {
+  // Duration controls live beside the mode heading, outside the setup dialog.
+  await page.locator('[data-action="set-duration"][data-value="'+duration+'"]').click();
+  await expect(page.locator('[data-action="set-duration"][data-value="'+duration+'"]')).toHaveAttribute("aria-pressed","true");
   await page.locator('[data-action="open-setup"][data-mode="'+mode+'"]').click();
   await expect(page.locator("#flashSetupTitle")).toBeVisible();
   await page.locator("#flashDifficulty").selectOption(difficulty);
-  await page.locator('[data-action="set-duration"][data-value="'+duration+'"]').click();
-  await expect(page.locator('[data-action="set-duration"][data-value="'+duration+'"]')).toHaveAttribute("aria-pressed","true");
   await page.locator("#flashGameCollection").selectOption(cardSet);
   await page.locator('[data-action="begin-game"]').click();
   await expect(page.locator(".flash-game")).toBeVisible();
@@ -245,7 +246,7 @@ test("Translation changes do not reopen a previously closed Dictionary definitio
   await openMockFlashcards(page);
   await page.locator('[data-page="dictionary"]').click();
   await page.locator(".word-card").first().click();
-  await expect(page.locator("#backdrop")).toHaveClass(/open/);
+  await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
   await page.locator("#closeButton").click();
   await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
   for(const target of ["lessons","quiz","flashcards"]){
@@ -274,6 +275,10 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
     return (await client.rpc("get_my_flashcard_data")).data.review_items.length;
   });
   expect(result).toBeGreaterThanOrEqual(12);
+  // The RPC fixture writes directly to the Mock adapter; refresh the page's
+  // cached Flashcards data before opening the review UI.
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  await expect.poll(async()=>page.locator("#flashcardsApp").textContent()).toContain("12");
   await page.locator('[data-action="open-review"]').click();
   const list=page.locator(".flash-review-list");
   await expect(list.locator("button")).toHaveCount(12);
