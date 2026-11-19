@@ -83,5 +83,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [Update 2.6.0 legal, privacy, safety and security baseline audit](2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md) — records the Malaysia-first legal research, international/16+ screening, current data inventory, read-only production/staging Supabase audit, identified least-privilege issue, privacy/account-deletion gaps, remediation priorities and docs-only blueprint commit.
 
+- [Update 2.6.0 Phase B — provider and cross-border data-flow review](2026-11-19-update-2-6-0-phase-b-provider-and-cross-border-review.md) — records Supabase region versus out-of-region processing, Cloudflare Pages, Google OAuth, jsDelivr and GitHub feedback data flows, unverified tenant settings/retention, and the owner's Terms footer-placement decision.
+
 - [Update 2.6.0 Phase A — operator and age-gate clarification](2026-11-19-update-2-6-0-phase-a-age-gate-and-operator-clarification.md) — records the owner's confirmation that SwiftDictionary is individually operated, the proposed low-data 16+ self-declaration flow, the Malaysian under-18 parental-consent issue under Regulation 3(3), and the post-cleanup retained branch set.
 
