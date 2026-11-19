@@ -23,6 +23,7 @@ async function openMockFlashcards(page) {
   await expect(page.locator("#flashcardsHeading")).toHaveCount(0);
   await expect(page.locator(".flash-banner .learning-help-button")).toBeVisible();
   await expect(page.locator(".flash-mode")).toHaveCount(4);
+  await page.locator("#translationSelect").selectOption("en");
 }
 
 async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",duration=60) {
@@ -170,9 +171,13 @@ test("Lessons and Quiz share the new banner presentation and retain help control
   await openMockFlashcards(page);
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage .learning-banner h1")).toHaveText("Lessons");
+  const lessonIntro=page.locator("#learningIntroBackdrop");
+  if(await lessonIntro.isVisible())await page.locator("#learningIntroDismiss").click();
   await expect(page.locator('#lessonsPage [data-learning-help="lessons"]')).toBeVisible();
   await page.locator('[data-page="quiz"]').click();
   await expect(page.locator("#quizPage .learning-banner h1")).toHaveText("Quiz");
+  const quizIntro=page.locator("#learningIntroBackdrop");
+  if(await quizIntro.isVisible())await page.locator("#learningIntroDismiss").click();
   await expect(page.locator('#quizPage [data-learning-help="quiz"]')).toBeVisible();
   await expect(page.locator("#quizRefresh")).toBeVisible();
 });
@@ -206,4 +211,5 @@ test("Flashcards main page and English recall prompts use Simplified Chinese tra
   expect(options.some(value=>/[\u3400-\u9fff]/.test(value))).toBe(true);
   await page.locator('[data-action="leave-game"]').click();
   await expect(page.locator(".flash-banner h2")).toHaveText("闪卡");
+  await page.locator("#translationSelect").selectOption("en");
 });
