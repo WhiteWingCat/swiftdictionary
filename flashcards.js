@@ -146,15 +146,20 @@
       .flash-overlay-root .flash-modal-actions .flash-secondary{border:1px solid #56647a;background:linear-gradient(145deg,#2c3749,#202a39);color:#e6edf8;border-radius:999px;box-shadow:0 4px 0 #111925,0 8px 16px #0004}
       .flash-overlay-root .flash-close-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #61718b;border-radius:999px;background:linear-gradient(145deg,#2b374a,#1c2635);color:#edf3ff;padding:10px 19px;font-weight:800;box-shadow:0 4px 0 #101925,0 8px 16px #0004}
       .flash-overlay-root .flash-close-button span{font-size:1.15rem;line-height:.8}
-      .flash-overlay-root .flash-result-modal{width:min(580px,100%);text-align:center}
-      .flash-overlay-root .flash-result-modal .flash-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
-      .flash-overlay-root .flash-result-modal .flash-stat{background:linear-gradient(145deg,#26364e,#1b2738);border-color:#465a78}
+      .flash-overlay-root .flash-result-modal{width:min(620px,100%);text-align:center;padding:28px}
+      .flash-overlay-root .flash-result-modal .flash-accuracy-hero{display:grid;justify-items:center;gap:3px;margin:20px auto 22px;padding:18px 14px;width:min(260px,100%);border:1px solid #617da7;border-radius:18px;background:linear-gradient(145deg,#304b70,#1d2d45);box-shadow:inset 0 1px 0 #ffffff18}
+      .flash-overlay-root .flash-result-modal .flash-accuracy-hero strong{font-size:clamp(2.8rem,8vw,4rem);line-height:1;font-weight:900;letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums}
+      .flash-overlay-root .flash-result-modal .flash-accuracy-hero span{font-size:1rem;font-weight:800;color:#dce8ff;letter-spacing:.02em}
+      .flash-overlay-root .flash-result-modal .flash-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 18px}
+      .flash-overlay-root .flash-result-modal .flash-stat{display:grid;align-content:center;gap:7px;min-height:92px;padding:16px 12px;background:linear-gradient(145deg,#26364e,#1b2738);border:1px solid #465a78;border-radius:15px}
+      .flash-overlay-root .flash-result-modal .flash-stat strong{font-size:1.9rem;line-height:1.1;color:#fff}
+      .flash-overlay-root .flash-result-modal .flash-stat span{font-size:.95rem;color:#cbd8eb}
       .flash-overlay-root .flash-result-modal .flash-modal-actions{justify-content:center}
       .flash-overlay-root .flash-review-modal .flash-modal-actions{justify-content:flex-end}
-      @media(max-width:560px){.flash-overlay-root .flash-modal-grid{grid-template-columns:1fr}#flashcardsPage .flash-banner{padding-right:18px}.flash-overlay-root .flash-result-modal .flash-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media(max-width:560px){.flash-overlay-root .flash-modal-grid{grid-template-columns:1fr}#flashcardsPage .flash-banner{padding-right:18px}.flash-overlay-root .flash-result-modal .flash-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.flash-overlay-root .flash-result-modal .flash-stat{min-height:82px;padding:13px 9px}}
       #flashcardsPage .flash-translation-hint{margin:10px auto 18px;padding:9px 14px;max-width:780px;border-radius:10px;background:#263b55;color:#c9ddf5;text-align:center;font-size:.95rem}
       #flashcardsPage .flash-translation-hint span{font-weight:800;color:#fff;margin-right:5px}
-      #flashcardsPage .flash-banner .learning-help-button{position:absolute;top:18px;right:18px;margin:0}
+      #flashcardsPage .flash-banner .learning-help-button{position:static;align-self:center;margin:0;flex:0 0 auto}
       #flashcardsPage .flash-game-clock{display:inline-flex;align-items:center;justify-content:center;min-width:76px;padding:8px 15px;border-radius:12px;background:#2459a6;color:#fff;font-size:1.25rem;font-weight:850;line-height:1.1;box-shadow:0 5px 0 #14366b,0 8px 16px #0005;font-variant-numeric:tabular-nums}
       #flashcardsPage .flash-game-clock.is-warning{background:#d97706;box-shadow:0 5px 0 #92400e,0 8px 16px #0005}
       #flashcardsPage .flash-game-clock.is-danger{background:#c83232;box-shadow:0 5px 0 #7f1d1d,0 8px 16px #0005}
@@ -399,7 +404,7 @@
   function showResultPrompt(){
     const mount=overlayRoot;if(!mount)return;
     const r=state.lastResult||{},attempted=Number(r.words_seen)||state.results.length,correct=Number(r.correct_count)||state.results.filter(x=>x.correct).length,incorrect=Number(r.incorrect_count)||state.results.filter(x=>!x.correct).length,accuracy=attempted?Math.round(correct/attempted*100):0;
-    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-result-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">${uiText("Your game results","本次游戏结果")}</h2><p class="flash-muted">${uiText("Your "+state.duration+"-second Flash Recall summary.","本次"+state.duration+"秒限时回忆挑战总结。")}</p><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>${uiText("Attempted","已作答")}</span></div><div class="flash-stat"><strong>${correct}</strong><span>${uiText("Correct","正确")}</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>${uiText("Incorrect","错误")}</span></div></div><div class="flash-stat"><strong>${accuracy}%</strong><span>${uiText("Accuracy","正确率")}</span></div><p class="flash-muted">${uiText("Unanswered: ","未作答：")}${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-result"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
+    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-result-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">${uiText("Your game results","本次游戏结果")}</h2><p class="flash-muted">${uiText("Your "+state.duration+"-second Flash Recall summary.","本次"+state.duration+"秒限时回忆挑战总结。")}</p><div class="flash-accuracy-hero"><strong>${accuracy}%</strong><span>${uiText("Accuracy","正确率")}</span></div><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>${uiText("Attempted","已作答")}</span></div><div class="flash-stat"><strong>${correct}</strong><span>${uiText("Correct","正确")}</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>${uiText("Incorrect","错误")}</span></div></div><p class="flash-muted">${uiText("Unanswered: ","未作答：")}${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-result"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
   }
   function openSetupPrompt(mode){
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
