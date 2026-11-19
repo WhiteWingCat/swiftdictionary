@@ -263,6 +263,23 @@ A first database hardening migration was applied to the isolated Singapore stagi
 - Leaked-password protection remains unverified in the Auth dashboard. The visible app uses Google OAuth only, so the advisor warning should not be treated as proof that a password login path is exposed. Confirm enabled providers before deciding whether to enable the feature.
 - The two SECURITY DEFINER RPCs remain callable by authenticated users by design: they have empty search paths and derive the caller from `auth.uid()`; the personal test exemption is retained. Re-review whenever either function changes.
 
+
+#### Required owner-run staging browser smoke test (after CI passes)
+
+Before considering the migration ready for production, the owner must test a dedicated synthetic Google account against a Cloudflare preview explicitly configured to use the Singapore staging Supabase project. Do not use the production site or a real learner account for this test.
+
+1. Confirm the preview is connected to the staging Supabase URL/project, not the Tokyo production project.
+2. Sign in, open Daily Learning and start a session; refresh/reopen and confirm the in-progress session resumes.
+3. Complete a Daily Learning activity and confirm completion, result and allowance are saved once.
+4. Abandon a separate in-progress activity and confirm it does not consume an allowance.
+5. Use **Delete Learning History** after fresh authentication; confirm Daily Activity history is deleted despite direct authenticated DELETE being revoked, while the account, saved words, preferences and custom Flashcard content remain.
+6. Complete a permanent lesson and confirm progress still saves.
+7. Run one Quiz and one Flashcard session; confirm no regressions in results, review history or allowance.
+8. Switch to a second synthetic account; confirm no cross-account data is visible, then switch back.
+9. Sign out and verify the signed-out Dictionary still works and no account-scoped data remains visible.
+
+Record any errors and browser console/network failures before authorising a production migration. If no staging-configured Cloudflare preview exists, stop and configure one before browser testing; never point the production site at staging credentials.
+
 ### 7.2 Account and learning-history deletion
 
 The Profile currently provides a recent-authentication-gated Delete learning history action. It removes learning history, including lesson/practice records, Daily Learning sessions, Quiz session history, Flashcard sessions/mastery/review records, while preserving the account, saved words, profile/preferences and user-created Flashcard collections/cards. Daily allowance usage already consumed remains unchanged until reset.
@@ -373,7 +390,7 @@ Priorities are planning labels, not a legal risk rating.
 
 Prepare:
 - Privacy Notice in Bahasa Malaysia and English; Simplified Chinese may be added for accessibility but does not replace the two required languages if Act 709 applies.
-- Terms of Service. Publish its link in the bottom-page footer alongside **Feedback & Suggestions**, not in the primary navigation; activate the link only after the Terms are reviewed and published.
+- Terms & Conditions (Terms of Service). Publish its link in the bottom-page footer alongside **Feedback & Suggestions**, not in the primary navigation; activate the link only after the Terms are reviewed and published.
 - Acceptable-use and user-content rules for private custom Flashcards.
 - Educational-information disclaimer that does not overclaim learning outcomes or certification.
 - Third-party notices/licensing page.
