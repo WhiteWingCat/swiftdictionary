@@ -214,5 +214,9 @@ test("Flashcards main page and English recall prompts use Simplified Chinese tra
   expect(options.some(value=>/[\u3400-\u9fff]/.test(value))).toBe(true);
   await page.locator('[data-action="leave-game"]').click();
   await expect(page.locator(".flash-banner h2")).toHaveText("闪卡");
+  await page.locator('[data-action="open-review"]').click();
+  await expect(page.locator(".flash-review-tab").first()).toHaveText("单词回忆");
+  await expect(page.locator(".flash-review-tab").nth(1)).toHaveText("释义回忆");
+  await page.locator('[data-action="close-overlay"]').click();
   await page.locator("#translationSelect").selectOption("en");
 });
