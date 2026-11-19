@@ -97,3 +97,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [Update 2.6.0 Phase A — operator and age-gate clarification](2026-11-19-update-2-6-0-phase-a-age-gate-and-operator-clarification.md) — records the owner's confirmation that SwiftDictionary is individually operated, the proposed low-data 16+ self-declaration flow, the Malaysian under-18 parental-consent issue under Regulation 3(3), and the post-cleanup retained branch set.
 
+
+- [Update 2.6.0 Phase G — ACL re-verification and staging gap analysis](2026-11-19-update-2-6-0-phase-g-acl-reverification.md) — confirms the staging daily-session grants, finds residual anonymous UPDATE on three staging sequences, identifies PUBLIC EXECUTE as part of the production trigger-guard issue, and records remaining bootstrap-table ACL review and migration/production gates.
