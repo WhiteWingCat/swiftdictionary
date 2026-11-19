@@ -8,6 +8,7 @@ const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdiction
 const recallMigration=fs.readFileSync("supabase/migrations/20261118100415_flashcards_mixed_recall_and_review_history.sql","utf8");
 const deletionMigration=fs.readFileSync("supabase/migrations/20261118100736_flashcards_review_history_deletion.sql","utf8");
 const durationMigration=fs.readFileSync("supabase/migrations/20261119094011_swiftdictionary_update_2_5_0_flashcards_60_120_second_challenges.sql","utf8");
+const reviewIndexMigration=fs.readFileSync("supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql","utf8");
 
 let inlineCount=0;
 for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
@@ -70,6 +71,7 @@ if(!migration.includes("delete from private.quiz_sessions where user_id=v_user")
 if(!recallMigration.includes("private.flashcard_review_items")||!recallMigration.includes("'mixed'")||!recallMigration.includes("review_items"))throw new Error("Mixed Recall review-history migration is incomplete.");
 if(!deletionMigration.includes("delete from private.flashcard_review_items where user_id=v_user"))throw new Error("Learning-history deletion does not include weak-memory records.");
 if(!durationMigration.includes("duration_seconds in (60,120)")||!durationMigration.includes("p_duration_seconds")||!durationMigration.includes("v_session.duration_seconds"))throw new Error("Server-side 60/120-second challenge validation is incomplete.");
+if(!reviewIndexMigration.includes("flashcard_review_items_last_session_idx")||!reviewIndexMigration.includes("last_session_id"))throw new Error("Flashcards review-session foreign-key index is missing.");
 if(!flashcards.includes('data-action="phase-action"')||!flashcards.includes('uiText("Answer now","立即作答")')||!flashcards.includes('uiText("Next","下一题")'))throw new Error("Early-answer and next-round controls are missing.");
 if(!flashcards.includes("function questionKey(card)")||!flashcards.includes("usedQuestionKeys.has(questionKey(item))")||!flashcards.includes("seenCards.has(key)"))throw new Error("Flash Recall must deduplicate normalized question prompts across card types and modes.");
 for(const id of ["b-greetings-polite-expressions","b-places-getting-around"])if(!html.includes('id:"'+id+'"'))throw new Error("Missing permanent lesson for expanded Flash Recall vocabulary: "+id);
