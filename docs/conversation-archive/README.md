@@ -82,3 +82,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.5.0 staging validation and production release gate](2026-11-19-update-2-5-0-staging-validation-and-production-release-gate.md) — records the final Quiz/Flashcards/2.3.x CI passes, staging migration history and catalogue validation, RLS/grants/advisor review, Cloudflare Pages checks, and the production migration approval gate before merging PR #12.
 
 - [Update 2.6.0 legal, privacy, safety and security baseline audit](2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md) — records the Malaysia-first legal research, international/16+ screening, current data inventory, read-only production/staging Supabase audit, identified least-privilege issue, privacy/account-deletion gaps, remediation priorities and docs-only blueprint commit.
+
+- [Update 2.6.0 Phase A — operator and age-gate clarification](2026-11-19-update-2-6-0-phase-a-age-gate-and-operator-clarification.md) — records the owner's confirmation that SwiftDictionary is individually operated, the proposed low-data 16+ self-declaration flow, the Malaysian under-18 parental-consent issue under Regulation 3(3), and the post-cleanup retained branch set.
+
