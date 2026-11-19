@@ -208,7 +208,7 @@
     const weakItems=(state.data.review_items||[]).filter(item=>item.incorrect_count>0);
     mount.innerHTML=`
       <div class="flash-home">
-        <section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Sharpen your recall with quick, focused challenges. Choose a mode, set your pace, and see how much you can remember.","通过快速、专注的挑战强化记忆。选择回忆模式和节奏，看看你能记住多少内容。")}</p></div></section>
+        <section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Choose a recall mode and a 60- or 120-second challenge. Memory and answer windows adapt to your difficulty, and you can move on as soon as you are ready.","选择回忆模式和 60 秒或 120 秒挑战。记忆与答题时间会根据难度调整，准备好时即可提前进入下一步。")}</p></div></section>
         <section class="flash-section">
           <div class="flash-recall-heading"><div><h2>${uiText("Choose your Flash Recall","选择闪卡回忆模式")}</h2><p class="flash-muted">${uiText("Four ways to strengthen your memory.","通过四种方式强化记忆。")}</p></div><div class="flash-duration-controls" role="group" aria-label="${uiText("Challenge duration","挑战时长")}"><span class="flash-duration-label">${uiText("Duration","时长")}</span><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="60" aria-pressed="${state.duration===60}">60s</button><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="120" aria-pressed="${state.duration===120}">120s</button></div></div>
           <div class="flash-mode-grid">
@@ -327,6 +327,7 @@
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
     if(!state.round){
       state.phase="exhausted";state.phaseStartedAt=Date.now();state.phaseDuration=1;
+      const phaseAction=$("#flashPhaseAction");if(phaseAction){phaseAction.hidden=true;phaseAction.disabled=true;}
       if(memory){memory.classList.remove("is-blurred");memory.textContent=uiText("All unique questions completed","已完成所有不重复题目");}
       if(overlay)overlay.hidden=true;
       if(label)label.textContent=uiText("You have completed every unique question in this card set. Your results will appear when the challenge ends.","你已完成此卡片范围内所有不重复题目。挑战结束后将显示成绩。");
