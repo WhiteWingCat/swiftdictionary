@@ -565,3 +565,14 @@ A targeted re-check of effective PostgreSQL ACLs confirmed the exact staging sta
 - Staging's `postgres` default ACLs no longer show the broad anon/authenticated defaults seen in production. Platform-owned `supabase_admin` defaults remain outside project-level control.
 
 No data was read and no database writes or migrations were performed. The follow-up migration must be generated using the Supabase CLI workflow; the CLI is unavailable in this environment, so no migration filename was fabricated. Production remains untouched pending complete staging validation and explicit approval. See [Phase G archive](conversation-archive/2026-11-19-update-2-6-0-phase-g-acl-reverification.md) for the detailed result and revised remediation sequence.
+
+
+### 7.9 Phase H — Cloudflare Pages project and backend routing (19 November 2026)
+
+The owner supplied the Cloudflare Pages dashboard URL, confirming the project slug `swiftdictionary`. The dashboard settings themselves have not yet been inspected or changed.
+
+To make the eventual preview safe, the implementation branch now contains a build-time router. It uses Cloudflare's `CF_PAGES_BRANCH`: `main` must use the Tokyo production project, while every non-main preview branch must use the Singapore staging project. It requires environment-specific `SWIFT_SUPABASE_URL` and `SWIFT_SUPABASE_PUBLISHABLE_KEY` variables and fails closed on missing variables, wrong project URL, missing branch identity or non-publishable key. Local development keeps the checked-in config unchanged.
+
+Added `build.sh`, `tests/cloudflare-build-routing.sh` and `.github/workflows/cloudflare-build-routing.yml`. Local shell validation passed; GitHub Actions run #44518836358 passed. Commits: `b6d6f697e9bdceb0bcb443a0ece6d8f8caf42246`, `91dcb80a090de67d5eacd115904af5f0999d2993`, `2544083fe67773512f528f2ec941b16d13cf55c8`.
+
+Remaining dashboard work: confirm `main` as production branch; enable preview builds for the 2.6.0 feature branch; set build command `bash build.sh` and output directory `.`; set separate Production and Preview environment values; verify the staging preview hostname and add it to staging Supabase Auth Redirect URLs; add the staging Supabase Auth callback URI to Google OAuth. No Cloudflare settings, Supabase Auth settings, production build or production deployment were changed. See the [Phase H archive](conversation-archive/2026-11-19-update-2-6-0-phase-h-cloudflare-routing.md).
