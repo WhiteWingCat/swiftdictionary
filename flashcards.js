@@ -34,6 +34,9 @@
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
   function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;return "dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
+  function uiText(en,zh){return (state.game?.translationLanguage||translationLanguage)==="zh"?zh:en;}
+  function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
+  function difficultyLabel(level){return ({beginner:uiText("Beginner","初级"),intermediate:uiText("Intermediate","中级"),advanced:uiText("Advanced","高级")})[level]||level;}
   function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
@@ -122,6 +125,8 @@
       .flash-overlay-root .flash-review-list button{width:100%;text-align:left;margin:5px 0;padding:11px;border-radius:10px;background:#242e40;border:1px solid #3c4a60;color:#eef3ff}
       .flash-overlay-root .flash-review-detail{background:#202a3a;border:1px solid #3b4a62;border-radius:14px;padding:16px;animation:flashSlideIn .22s ease-out}
       #flashcardsPage .flash-banner{position:relative;padding-right:76px}
+      #flashcardsPage .flash-translation-hint{margin:10px auto 18px;padding:9px 14px;max-width:780px;border-radius:10px;background:#263b55;color:#c9ddf5;text-align:center;font-size:.95rem}
+      #flashcardsPage .flash-translation-hint span{font-weight:800;color:#fff;margin-right:5px}
       #flashcardsPage .flash-banner .learning-help-button{position:absolute;top:18px;right:18px;margin:0}
       #flashcardsPage .flash-game-clock{display:inline-flex;align-items:center;justify-content:center;min-width:76px;padding:8px 15px;border-radius:12px;background:#2459a6;color:#fff;font-size:1.25rem;font-weight:850;line-height:1.1;box-shadow:0 5px 0 #14366b,0 8px 16px #0005;font-variant-numeric:tabular-nums}
       #flashcardsPage .flash-game-clock.is-warning{background:#d97706;box-shadow:0 5px 0 #92400e,0 8px 16px #0005}
@@ -157,29 +162,29 @@
   }
   function render(){
     const mount=shell();style();
-    if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>English course required</h2><p class="flash-muted">Flashcards currently support the English learning course. Switch your Learning Course to English to continue.</p></section>';return;}
-    if(!currentUser){mount.innerHTML='<section class="flash-section coming-card"><h2>Sign in to use Flashcards</h2><p class="flash-muted">Your learning progress is saved securely to your account.</p><button class="flash-primary" data-action="signin">Sign in</button></section>';return;}
-    if(state.loading){mount.innerHTML='<section class="flash-section">Loading your Flashcards…</section>';return;}
-    if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>Saving your game</h2><p class="flash-muted">Your results are being saved securely.</p></section>';return;}
+    if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>English course required</h2><p class="flash-muted">'+uiText("Flashcards currently support the English learning course. Switch your Learning Course to English to continue.","闪卡目前仅支持英语学习课程。请将学习课程切换为英语后继续。")+'</p></section>';return;}
+    if(!currentUser){mount.innerHTML='<section class="flash-section coming-card"><h2>'+uiText("Sign in to use Flashcards","登录以使用闪卡")+'</h2><p class="flash-muted">'+uiText("Your learning progress is saved securely to your account.","你的学习进度会安全地保存到帐户中。")+'</p><button class="flash-primary" data-action="signin">'+uiText("Sign in","登录")+'</button></section>';return;}
+    if(state.loading){mount.innerHTML='<section class="flash-section">'+uiText("Loading your Flashcards…","正在加载闪卡…")+'</section>';return;}
+    if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>'+uiText("Saving your game","正在保存游戏")+'</h2><p class="flash-muted">'+uiText("Your results are being saved securely.","正在安全地保存你的游戏结果。")+'</p></section>';return;}
     if(state.game){renderGame(mount);return;}
     const allowance=state.data.allowance||{daily_limit:3,used_count:0,remaining:3};
     const weakItems=(state.data.review_items||[]).filter(item=>item.incorrect_count>0);
     mount.innerHTML=`
       <div class="flash-home">
-        <section class="flash-banner"><h2>Flashcards</h2><p>Sharpen your recall with quick, focused challenges. Choose a mode, set your pace, and see how much you can remember in 60 seconds.</p></section>
+        <section class="flash-banner"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Sharpen your recall with quick, focused challenges. Choose a mode, set your pace, and see how much you can remember.","通过快速、专注的挑战强化记忆。选择回忆模式和节奏，看看你能记住多少内容。")}</p></section>
         <section class="flash-section">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Choose your Flash Recall</h2><p class="flash-muted">Four ways to strengthen your memory.</p></div><span class="flash-pill">⚡ 60-second challenge</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>${uiText("Choose your Flash Recall","选择闪卡回忆模式")}</h2><p class="flash-muted">${uiText("Four ways to strengthen your memory.","通过四种方式强化记忆。")}</p></div><span class="flash-pill">⚡ ${state.duration} ${uiText("second challenge","秒挑战")}</span></div>
           <div class="flash-mode-grid">
-            <button class="flash-mode" data-action="open-setup" data-mode="word"><span class="flash-mode-icon">🔤</span><span>Word Recall<small>Recall the meaning of a word</small></span></button>
-            <button class="flash-mode" data-action="open-setup" data-mode="definition"><span class="flash-mode-icon">📘</span><span>Definition Recall<small>Identify the word from its meaning</small></span></button>
-            <button class="flash-mode" data-action="open-setup" data-mode="mixed"><span class="flash-mode-icon">🎨</span><span>Mixed Recall<small>Word, meaning and sentence prompts</small></span></button>
-            <button class="flash-mode" data-action="open-setup" data-mode="sentence"><span class="flash-mode-icon">✍️</span><span>Sentence Recall<small>Complete a sentence with the right word</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="word"><span class="flash-mode-icon">🔤</span><span>${modeLabel("word")}<small>${uiText("Recall the meaning of a word","回忆单词的中文释义")}</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="definition"><span class="flash-mode-icon">📘</span><span>${modeLabel("definition")}<small>${uiText("Identify the word from its meaning","根据中文释义找出英文单词")}</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="mixed"><span class="flash-mode-icon">🎨</span><span>${modeLabel("mixed")}<small>${uiText("Word, meaning and sentence prompts","结合单词、释义和句子进行回忆")}</small></span></button>
+            <button class="flash-mode" data-action="open-setup" data-mode="sentence"><span class="flash-mode-icon">✍️</span><span>${modeLabel("sentence")}<small>${uiText("Complete a sentence with the right word","选择正确的单词完成句子")}</small></span></button>
           </div>
-          <p class="flash-muted">Daily games: <strong>${allowance.used_count}</strong>/${allowance.daily_limit} used · <strong>${allowance.remaining}</strong> remaining</p>
+          <p class="flash-muted">${uiText("Daily games: ","每日游戏：")}<strong>${allowance.used_count}</strong>/${allowance.daily_limit} ${uiText("used","已使用")} · <strong>${allowance.remaining}</strong> ${uiText("remaining","剩余")}</p>
         </section>
-        <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>Review weak memory</h2><p class="flash-muted">Revisit answers you missed in previous games.</p></div><button class="flash-primary" data-action="open-review">Review weak memory (${weakItems.length})</button></div></section>
-        <section class="flash-section"><h2>Recent games</h2>
-          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-pill">${escapeHtml(g.mode==="mixed"?"Mixed Recall":g.mode.charAt(0).toUpperCase()+g.mode.slice(1)+" Recall")} · ${escapeHtml(g.difficulty)} · ${g.correct_count}/${g.words_seen} correct</div>`).join("")+'</div>':'<p class="flash-muted">Your completed games and scores will appear here.</p>'}
+        <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>${uiText("Review weak memory","复习薄弱记忆")}</h2><p class="flash-muted">${uiText("Revisit answers you missed in previous games.","重新复习之前答错的内容。")}</p></div><button class="flash-primary" data-action="open-review">${uiText("Review weak memory","复习薄弱记忆")} (${weakItems.length})</button></div></section>
+        <section class="flash-section"><h2>${uiText("Recent games","最近的游戏")}</h2>
+          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-pill">${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))} · ${g.correct_count}/${g.words_seen} ${uiText("correct","答对")}</div>`).join("")+'</div>':'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
         </section>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
@@ -221,8 +226,8 @@
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
     const mode=state.mode==="mixed"?["word","definition","sentence"][Math.floor(Math.random()*3)]:state.mode;
-    const optionValue=w=>mode==="word"?w.definition:w.word,normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
-    const viable=targets.filter(target=>{const correct=mode==="word"?target.definition:target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
+    const optionValue=w=>mode==="word"?translationFor(w):w.word,normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
+    const viable=targets.filter(target=>{const correct=mode==="word"?translationFor(target):target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
     if(!viable.length)throw new Error("This card set does not contain four distinct choices for this recall mode.");
     const fresh=viable.filter(item=>!state.usedQuestionKeys.has(cardKey(item)));
     if(!fresh.length)state.usedQuestionKeys.clear();
@@ -230,31 +235,32 @@
     const target=questionPool[Math.floor(Math.random()*questionPool.length)];
     state.usedQuestionKeys.add(cardKey(target));
     let memory="",prompt="",correct="";
-    if(mode==="word"){memory=target.word;prompt="Choose the correct meaning";correct=target.definition;}
-    else if(mode==="definition"){memory=target.definition;prompt="Which word matches this meaning?";correct=target.word;}
-    else{const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");const index=sentence.toLowerCase().indexOf(target.word.toLowerCase());memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";prompt="Which word completes the sentence?";correct=target.word;}
+    if(mode==="word"){memory=target.word;prompt=uiText("Choose the correct meaning","请选择正确的中文释义");correct=translationFor(target);}
+    else if(mode==="definition"){memory=translationFor(target);prompt=uiText("Which word matches this meaning?","哪个英文单词符合这个释义？");correct=target.word;}
+    else{const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");const index=sentence.toLowerCase().indexOf(target.word.toLowerCase());memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";prompt=uiText("Which word completes the sentence?","哪个单词最适合填入句子？");correct=target.word;}
     const key=normalize(correct),distinct=new Map();for(const c of available){if(c===target)continue;const value=optionValue(c),k=normalize(value);if(k&&k!==key&&!distinct.has(k))distinct.set(k,c);}
     const distractors=[...distinct.values()];for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
     const chosen=[target,...distractors.slice(0,3)];for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
-    return {target,mode,memory,prompt,correct,options:chosen.map(optionValue)};
+    return {target,mode,memory,prompt,correct,translationHint:mode==="sentence"?translationFor(target):"",options:chosen.map(optionValue)};
   }
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
   function clearTimers(){clearTimeout(state.gameTimer);clearTimeout(state.phaseTimer);state.gameTimer=null;state.phaseTimer=null;}
   function renderGame(mount){
     const duration=state.game.durationSeconds||state.duration||60;
     const elapsed=Math.max(0,duration-(Date.now()-state.game.startedAt)/1000),remain=Math.max(0,duration-elapsed),round=state.round;
-    const modeLabel=state.mode==="mixed"?"Mixed Recall":state.mode.charAt(0).toUpperCase()+state.mode.slice(1)+" Recall";
+    const activeModeLabel=modeLabel(state.mode),activeDifficulty=difficultyLabel(state.difficulty);
+    const translationHint=round?.mode==="sentence"&&state.game.translationLanguage==="zh"&&round.translationHint?'<p class="flash-translation-hint"><span>中文释义：</span>'+escapeHtml(round.translationHint)+'</p>':"";
     mount.innerHTML=`<section class="flash-game">
-      <div class="flash-game-top"><span class="flash-pill">${modeLabel} · ${state.difficulty}</span><strong id="flashGameClock" class="flash-game-clock">${Math.ceil(remain)}s</strong></div>
+      <div class="flash-game-top"><span class="flash-pill">${activeModeLabel} · ${activeDifficulty}</span><strong id="flashGameClock" class="flash-game-clock">${Math.ceil(remain)}s</strong></div>
       
-      <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||"Get ready")}</div>
-      <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>Pick your answers</div>
+      <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||uiText("Get ready","准备开始"))}</div>${translationHint}
+      <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>${uiText("Pick your answers","请选择答案")}</div>
       <div class="flash-round-gauge"><span class="memory" id="flashMemoryGauge" style="width:100%"></span><span class="answer" id="flashAnswerGauge" style="width:0%"></span></div>
-      <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):"Memorise the card"}</p>
-      <div class="flash-options" id="flashOptions">${(round?.options||["","","",""]).map((o,i)=>`<button class="flash-option ${state.phase==="memory"?"is-hidden":""}" data-action="answer" data-index="${i}" ${state.phase!=="answer"?"disabled":""}>${state.phase==="memory"?"Hidden answer":escapeHtml(o)}</button>`).join("")}</div>
-      <p id="flashPhaseLabel" class="flash-game-status">${state.phase==="memory"?"Memorise the card":state.phase==="answer"?"Pick your answers":"Round feedback"}</p>
-      <div class="flash-stats"><div class="flash-stat"><strong>${state.results.length}</strong><span>Attempted</span></div><div class="flash-stat"><strong>${state.results.filter(r=>r.correct).length}</strong><span>Correct</span></div><div class="flash-stat"><strong>${state.results.filter(r=>!r.correct).length}</strong><span>Incorrect</span></div></div>
-      <button class="flash-secondary" data-action="leave-game">Leave game</button>
+      <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):uiText("Memorise the card","请记住卡片内容")}</p>
+      <div class="flash-options" id="flashOptions">${(round?.options||["","","",""]).map((o,i)=>`<button class="flash-option ${state.phase==="memory"?"is-hidden":""}" data-action="answer" data-index="${i}" ${state.phase!=="answer"?"disabled":""}>${state.phase==="memory"?uiText("Hidden answer","隐藏答案"):escapeHtml(o)}</button>`).join("")}</div>
+      <p id="flashPhaseLabel" class="flash-game-status">${state.phase==="memory"?uiText("Memorise the card","请记住卡片内容"):state.phase==="answer"?uiText("Pick your answers","请选择答案"):uiText("Round feedback","本轮反馈")}</p>
+      <div class="flash-stats"><div class="flash-stat"><strong>${state.results.length}</strong><span>${uiText("Attempted","已作答")}</span></div><div class="flash-stat"><strong>${state.results.filter(r=>r.correct).length}</strong><span>${uiText("Correct","正确")}</span></div><div class="flash-stat"><strong>${state.results.filter(r=>!r.correct).length}</strong><span>${uiText("Incorrect","错误")}</span></div></div>
+      <button class="flash-secondary" data-action="leave-game">${uiText("Leave game","退出游戏")}</button>
     </section>`;
   }
   function tickGame(){
@@ -275,7 +281,7 @@
     state.phase="memory";state.phaseStartedAt=Date.now();state.phaseDuration=state.memory*1000;
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}
-    if(overlay)overlay.hidden=true;if(label)label.textContent="Memorise the card";
+    if(overlay)overlay.hidden=true;if(label)label.textContent=uiText("Memorise the card","请记住卡片内容");
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option is-hidden" data-action="answer" data-index="${i}" disabled>Hidden answer</button>`).join("");
     if(question)question.textContent=state.round.prompt;
     state.phaseTimer=setTimeout(showAnswers,state.phaseDuration);
@@ -285,7 +291,7 @@
     state.phase="answer";state.phaseStartedAt=Date.now();state.phaseDuration=state.answer*1000;
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
     if(memory)memory.classList.add("is-blurred");if(overlay)overlay.hidden=false;
-    if(label)label.textContent="Pick your answers";if(question)question.textContent=state.round.prompt;
+    if(label)label.textContent=uiText("Pick your answers","请选择答案");if(overlay)overlay.textContent=uiText("Pick your answers","请选择答案");if(question)question.textContent=state.round.prompt;
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option" data-action="answer" data-index="${i}">${escapeHtml(o)}</button>`).join("");
     state.phaseTimer=setTimeout(()=>recordAnswer(false,true),state.phaseDuration);
   }
@@ -298,8 +304,8 @@
     state.phase="feedback";state.phaseStartedAt=Date.now();state.phaseDuration=3000;
     const memory=$("#flashMemory"),overlay=$("#flashMemoryOverlay"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion");
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}if(overlay)overlay.hidden=true;
-    if(label)label.textContent=unanswered?"Time expired":correct?"Correct!":"Not quite";
-    if(question)question.textContent="Correct answer: "+state.round.correct;
+    if(label)label.textContent=unanswered?uiText("Time expired","答题时间已结束"):correct?uiText("Correct!","回答正确！"):uiText("Not quite","再试一次");
+    if(question)question.textContent=uiText("Correct answer: ","正确答案：")+state.round.correct;
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option ${o===state.round.correct?"is-correct":i===state.selectedAnswerIndex?"is-wrong":""}" disabled>${escapeHtml(o)}</button>`).join("");
     const stats=root.querySelectorAll(".flash-stat strong");if(stats.length===3){stats[0].textContent=state.results.length;stats[1].textContent=state.results.filter(r=>r.correct).length;stats[2].textContent=state.results.filter(r=>!r.correct).length;}
     state.selectedAnswerIndex=undefined;state.phaseTimer=setTimeout(showMemory,3000);
@@ -333,7 +339,7 @@
     if(!state.game||state.finishing||state.ending)return;
     state.ending=true;clearTimers();
     if(state.round&&(state.phase==="memory"||state.phase==="answer"))state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:false,unanswered:true});
-    overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">Time\'s Up!</div></div>';
+    overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">'+uiText("Time's Up!","时间到！")+'</div></div>';
     setTimeout(()=>saveGameResults(),2000);
   }
   async function saveGameResults(){
@@ -347,25 +353,25 @@
   function showResultPrompt(){
     const mount=overlayRoot;if(!mount)return;
     const r=state.lastResult||{},attempted=Number(r.words_seen)||state.results.length,correct=Number(r.correct_count)||state.results.filter(x=>x.correct).length,incorrect=Number(r.incorrect_count)||state.results.filter(x=>!x.correct).length,accuracy=attempted?Math.round(correct/attempted*100):0;
-    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">Your game results</h2><p class="flash-muted">Your ${state.duration}-second Flash Recall summary.</p><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>Attempted</span></div><div class="flash-stat"><strong>${correct}</strong><span>Correct</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>Incorrect</span></div></div><div class="flash-stat"><strong>${accuracy}%</strong><span>Accuracy</span></div><p class="flash-muted">Unanswered: ${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-primary" data-action="close-result">Close</button></div></section></div>`;
+    mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">${uiText("Your game results","本次游戏结果")}</h2><p class="flash-muted">${uiText("Your","本次")} ${state.duration} ${uiText("-second Flash Recall summary.","秒限时回忆挑战总结。")}</p><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>${uiText("Attempted","已作答")}</span></div><div class="flash-stat"><strong>${correct}</strong><span>${uiText("Correct","正确")}</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>${uiText("Incorrect","错误")}</span></div></div><div class="flash-stat"><strong>${accuracy}%</strong><span>${uiText("Accuracy","正确率")}</span></div><p class="flash-muted">${uiText("Unanswered: ","未作答：")}${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-primary" data-action="close-result">${uiText("Close","关闭")}</button></div></section></div>`;
   }
   function openSetupPrompt(mode){
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
-    const sets=[["all","All available words"],["common","Common words"],["nouns","Nouns"],["verbs","Verbs"],["adjectives","Adjectives"],["adverbs","Adverbs"],["phrases","Everyday phrases"],["terms","Subject terms"]];
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${mode==="mixed"?"Mixed Recall":mode.charAt(0).toUpperCase()+mode.slice(1)+" Recall"}</h2><p class="flash-muted">Choose a 60- or 120-second challenge. The memory and answer windows become shorter after every round, including incorrect answers and timeouts.</p><div class="flash-modal-grid"><label>Challenge duration<select id="flashChallengeDuration"><option value="60" ${state.duration===60?"selected":""}>60 seconds</option><option value="120" ${state.duration===120?"selected":""}>120 seconds</option></select></label><label>Difficulty<select id="flashDifficulty"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></label><label>Card set<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">Cancel</button><button class="flash-primary" data-action="begin-game">Begin</button></div></section></div>`;
+    const sets=[["all",uiText("All available words","所有可用单词")],["common",uiText("Common words","常用词")],["nouns",uiText("Nouns","名词")],["verbs",uiText("Verbs","动词")],["adjectives",uiText("Adjectives","形容词")],["adverbs",uiText("Adverbs","副词")],["phrases",uiText("Everyday phrases","日常短语")],["terms",uiText("Subject terms","学科术语")]];
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${modeLabel(mode)}</h2><p class="flash-muted">${uiText("Choose a 60- or 120-second challenge. The memory and answer windows become shorter after every round, including incorrect answers and timeouts.","选择 60 秒或 120 秒挑战。每完成一轮后，记忆和答题时间都会缩短，包括答错或超时。")}</p><div class="flash-modal-grid"><label>${uiText("Challenge duration","挑战时长")}<select id="flashChallengeDuration"><option value="60" ${state.duration===60?"selected":""}>60 ${uiText("seconds","秒")}</option><option value="120" ${state.duration===120?"selected":""}>120 ${uiText("seconds","秒")}</option></select></label><label>${uiText("Difficulty","难度")}<select id="flashDifficulty"><option value="beginner">${difficultyLabel("beginner")}</option><option value="intermediate">${difficultyLabel("intermediate")}</option><option value="advanced">${difficultyLabel("advanced")}</option></select></label><label>${uiText("Card set","卡片范围")}<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">${uiText("Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.","初级提供较长的记忆和答题时间；中级和高级的时间缩短速度更快。")}</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">${uiText("Cancel","取消")}</button><button class="flash-primary" data-action="begin-game">${uiText("Begin","开始")}</button></div></section></div>`;
   }
   function openReviewPrompt(){
     state.reviewMode="word";state.reviewSelected=null;renderReviewPrompt();
   }
   function renderReviewPrompt(){
     const overlay=overlayRoot;if(!overlay)return;
-    const labels={word:"Word",definition:"Definition",mixed:"Mixed",sentence:"Sentence"};
+    const labels={word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
     const selected=items.find(item=>item.card_key===state.reviewSelected);
     const resolve=key=>{if(key.startsWith("dict:"))return words().find(w=>w.word.toLowerCase()===key.slice(5));const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
     const card=selected?resolve(selected.card_key):null;
-    const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(card.definition)}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}<p class="flash-muted">Missed ${selected.incorrect_count} time(s) in ${labels[state.reviewMode]} Recall.</p></div>`:'<p class="flash-muted">Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.</p>';
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">Review weak memory</h2><div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label} Recall</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<button data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}<small style="display:block;color:#aab8cc">Missed ${item.incorrect_count} time(s)</small></button>`;}).join(""):'<p class="flash-muted">No incorrect answers in this recall mode yet.</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-primary" data-action="close-overlay">Close</button></div></section></div>`;
+    const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}<p class="flash-muted">${uiText("Missed","答错")} ${selected.incorrect_count} ${uiText("time(s) in","次，属于")} ${labels[state.reviewMode]} ${uiText("Recall.","回忆。")}</p></div>`:'<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label} Recall</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<button data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}<small style="display:block;color:#aab8cc">${uiText("Missed","答错")} ${item.incorrect_count} ${uiText("time(s)","次")}</small></button>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-primary" data-action="close-overlay">${uiText("Close","关闭")}</button></div></section></div>`;
   }
   async function loadData(){
     if(!currentUser||!supabaseClient)return;
@@ -493,6 +499,13 @@
   };
   timerApi.openReviewFromDashboard=async()=>{if(!currentUser)return;if(!state.ready)await loadData();openReviewPrompt();};
   timerApi.refreshDashboardData=async()=>{if(currentUser)await loadData();};
+  timerApi.refreshTranslation=()=>{
+    if(state.game)return; // Keep the language snapshot stable during an active challenge.
+    if(overlayRoot.querySelector("#flashReviewTitle"))renderReviewPrompt();
+    else if(overlayRoot.querySelector("#flashResultTitle"))showResultPrompt();
+    else if(overlayRoot.querySelector("#flashSetupTitle"))openSetupPrompt(state.mode);
+    else render();
+  };
   window.SwiftDictionaryFlashcards=timerApi;
   render();
   if(currentUser)loadData();

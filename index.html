@@ -17988,6 +17988,7 @@
           ? "翻译语言已更新，当前课程内容已刷新。"
           : "Translation updated. This lesson has been refreshed.";
       }
+      if (typeof window.SwiftDictionaryFlashcards?.refreshTranslation === "function") window.SwiftDictionaryFlashcards.refreshTranslation();
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);

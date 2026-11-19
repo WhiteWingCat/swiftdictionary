@@ -151,6 +151,32 @@ test("120-second challenge is available and remains active after the first 60 se
   await expect(page.locator(".flash-banner")).toBeVisible();
 });
 
+
+test("Dictionary filters are grouped inside a single overlay",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator('[data-page="dictionary"]').click();
+  await page.locator("#openDictionaryFilters").click();
+  await expect(page.locator("#dictionaryFiltersOverlay")).toBeVisible();
+  await expect(page.locator("#categoryRow .category-button")).toHaveCount(6);
+  await expect(page.locator("#savedFilter")).toBeVisible();
+  await expect(page.locator("#alphabet button").first()).toHaveText("All");
+  await page.locator('#categoryRow [data-category="verb"]').click();
+  await expect(page.locator('#categoryRow [data-category="verb"]')).toHaveAttribute("aria-pressed","true");
+  await page.locator("#closeDictionaryFilters").click();
+  await expect(page.locator("#dictionaryFiltersOverlay")).toBeHidden();
+});
+
+test("Lessons and Quiz share the new banner presentation and retain help controls",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage .learning-banner h1")).toHaveText("Lessons");
+  await expect(page.locator('#lessonsPage [data-learning-help="lessons"]')).toBeVisible();
+  await page.locator('[data-page="quiz"]').click();
+  await expect(page.locator("#quizPage .learning-banner h1")).toHaveText("Quiz");
+  await expect(page.locator('#quizPage [data-learning-help="quiz"]')).toBeVisible();
+  await expect(page.locator("#quizRefresh")).toBeVisible();
+});
+
 test("Dashboard Weak Memory opens as an overlay and keeps Dashboard as the active page",async({page})=>{
   await openMockFlashcards(page);
   await page.evaluate(()=>{
@@ -159,8 +185,25 @@ test("Dashboard Weak Memory opens as an overlay and keeps Dashboard as the activ
   });
   await page.evaluate(()=>window.SwiftDictionaryFlashcards.openReviewFromDashboard());
   await expect(page.locator("#profilePage")).toBeVisible();
+  await expect(page.locator("#dashboardFlashcardSection")).toHaveCount(1);
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toBeVisible();
   await page.locator('#flashOverlayRoot [data-action="close-overlay"]').click();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toHaveCount(0);
   await expect(page.locator("#profilePage")).toBeVisible();
+});
+
+test("Flashcards main page and English recall prompts use Simplified Chinese translation",async({page})=>{
+  test.setTimeout(30000);
+  await openMockFlashcards(page);
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator(".flash-banner h2")).toHaveText("闪卡");
+  await expect(page.locator(".flash-mode").first()).toContainText("单词回忆");
+  await beginRecall(page,"word","beginner","all",60);
+  await page.waitForTimeout(5100);
+  await expect(page.locator("#flashPhaseLabel")).toHaveText("请选择答案");
+  await expect(page.locator("#flashQuestion")).toHaveText("请选择正确的中文释义");
+  const options=await page.locator("#flashOptions .flash-option").allTextContents();
+  expect(options.some(value=>/[\u3400-\u9fff]/.test(value))).toBe(true);
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner h2")).toHaveText("闪卡");
 });
