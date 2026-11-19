@@ -2652,3 +2652,12 @@ Cloudflare Pages is the hosting/edge provider; account-specific DPA acceptance, 
 The existing feedback form's Cloudflare Pages fallback to generic GitHub Issues instructions was confirmed. The public notice must not call it private or imply automatic submission. No provider contract acceptance, exact retention periods, Google tenant configuration or Cloudflare tenant settings were confirmed.
 
 No production/staging data rows were read, no user data was copied, and no database settings, migrations, OAuth settings, application code, deployments or branches were changed. Follow-up remains provider-account verification, retention schedule, transfer assessment, and later staging-first technical remediation.
+
+
+## 2026-11-19 — Update 2.6.0 Phase C initial least-privilege remediation
+
+A staging-only database migration was applied and recorded as `20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions`. It removes anon access to `public.daily_activity_sessions`, removes authenticated direct DELETE, tightens default table/sequence/function privileges for future objects created by `postgres`, and removes direct EXECUTE from two trigger-only guard functions. The migration file is on `feature/update-2-6-0-legal-privacy-security`, created from main commit `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`.
+
+Staging privilege read-back matched the intended grants. Rollback-only tests confirmed the trigger guards still execute under the authenticated role and reject untrusted completion changes, and that future postgres-created public tables, sequences and functions do not inherit anon/authenticated table CRUD, sequence USAGE/SELECT or function EXECUTE. The eight private-schema RLS/no-policy INFO findings remain intentional; the two SECURITY DEFINER WARN findings remain because the authenticated lesson replay and owner test-exemption RPCs are required and were reviewed for empty search_path/auth.uid() identity checks.
+
+Production was not changed. Full authenticated browser Mock User staging tests remain outstanding before production approval. Supabase `supabase_admin` default privileges are platform-managed and remain outside the scope of project SQL; existing production sequence and other object grants also require separate inventory. The available GitHub integration cannot delete the oldest retained branch, so the new implementation branch temporarily makes four implementation branches.
