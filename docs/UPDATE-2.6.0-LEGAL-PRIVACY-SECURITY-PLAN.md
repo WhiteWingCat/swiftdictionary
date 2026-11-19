@@ -508,6 +508,43 @@ A second read-only audit compared effective PostgreSQL privileges and ACLs on th
 4. Review existing non-DML table grants across all public tables and remove only those that are confirmed unnecessary. Do not blindly revoke SELECT on public language/plan configuration.
 5. Do not apply any of these changes to production until owner approval and a complete staging/browser regression pass.
 
+
+### 7.7 Phase F — provider processing and cross-border data-flow review (19 November 2026)
+
+This is a public-document review combined with the live project-region/configuration facts confirmed above. It is not a substitute for inspecting the owner's paid/free plan, account agreements, Cloudflare project settings or provider dashboards.
+
+#### Supabase
+
+- Production primary project region: Tokyo, Japan (`ap-northeast-1`). Staging: Singapore (`ap-southeast-1`). Supabase states that the chosen project region hosts the primary Postgres database, Auth service, Storage and backups.
+- Supabase's Data Residency and Transfers FAQ (version 1, 6 October 2026) states that the chosen region is not a promise that all processing remains there. Customer account/configuration/billing data may be processed in central systems outside the project region; support access can be global; usage information, telemetry, logs and service metadata may be processed outside the region (the FAQ identifies EU-based log storage); Storage content may be served/cached globally if Storage is used.
+- Supabase identifies Supabase Pte. Ltd. (Singapore) as the primary processor under its agreements and Supabase, Inc. (US) for technical support/operations where needed. The FAQ says SCCs are used for EU/UK/Swiss transfers to Singapore and the US; this does not automatically settle the Malaysian PDPA Section 129 analysis.
+- Supabase says database retention lasts while the project is active; project deletion removes Customer Data within 30 days. Backup retention depends on plan; paid plans have daily backup periods, while free projects are recommended to export backups. The exact current plan and backup settings for SwiftDictionary have not been verified; do not put numeric backup retention in the Privacy Notice yet.
+- Obtain/download the current DPA, subprocessor list and relevant transfer documentation from the account's legal/trust hub. Confirm plan, backup/PITR configuration, log retention and support access. Do not assume the project region alone resolves cross-border transfer obligations.
+
+#### Cloudflare Pages / network
+
+- Cloudflare's public Privacy Policy describes Cloudflare as a processor for Customer Logs and content that transits or is stored on its network, while Cloudflare also acts as controller for certain account and service data. It says Cloudflare is a US-based global company and information is primarily stored in the US and EEA, with global access/transfers for operations.
+- Cloudflare's Singapore PDPA FAQ says metadata about network activity is processed in US and European data centres and may include visitor IP addresses for a limited period. This is relevant even if SwiftDictionary itself does not use analytics or advertising cookies.
+- Obtain the current Cloudflare DPA and subprocessor list; inspect which Pages/Workers/Turnstile/analytics/logging products are enabled, what request logs are retained, whether Logpush or analytics are configured, and account-level retention. Do not infer exact retention from generic marketing or policy pages.
+- The Cloudflare Pages preview is not yet configured/verified. Do not use a production Supabase config in a preview.
+
+#### Google OAuth
+
+- Google states that Sign in with Google shares the user's name, email address and profile picture after permission; it does not share the Google account password. The app uses these attributes for account identity/profile. No additional Google API scopes should be requested unless a feature genuinely needs them.
+- Verify the actual requested OAuth scopes and the staging OAuth callback/redirect configuration in Google Cloud Console. The connected tools do not expose that project configuration.
+- Account deletion at SwiftDictionary must be explained separately from disconnecting the app in Google Account settings; removing a Google link does not itself delete app-held data.
+
+#### GitHub feedback
+
+- The current feedback page prepares a GitHub issue. This creates a public-repository disclosure path and requires a GitHub account; it is being replaced in the proposal by a private feedback inbox. Until replaced, visitors should be warned not to submit personal/sensitive details through public GitHub issues.
+- GitHub repository visibility, issue retention, moderation and any user-data requests must be checked in the GitHub account. The project should not use public issues as a private support mailbox.
+
+#### Data-flow conclusion and legal action
+
+- The current architecture includes at least Japan (production database/Auth/backups), Singapore (staging database/Auth/backups), the US and EEA (Cloudflare network metadata and provider operational processing; Supabase central operational/log processing), and potentially global support/subprocessor locations. Google OAuth provides basic identity attributes. Exact Cloudflare Pages storage/processing and provider log retention remain account-level verification items.
+- Malaysia PDPA cross-border transfer assessment is still required if Act 709 applies. The chosen database region is only one part of the transfer map; provider support, logs, account metadata and subprocessors also matter. Obtain the actual DPAs/subprocessor lists and record the relevant transfer mechanism/safeguards before finalising the notice.
+- No provider settings or production configuration were changed by this review.
+
 ## 12. Release position
 
 The current application has meaningful privacy protections already: account-scoped data, RLS on application tables, private-schema tables without direct browser grants, owner-scoped RPC patterns, no analytics/ad-tracking code found in the source reviewed, and a user-facing learning-history deletion control.
