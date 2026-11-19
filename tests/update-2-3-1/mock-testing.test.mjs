@@ -141,7 +141,7 @@ test("mock identities represent separate Free and Premium plans",async()=>{
 });
 
 test("Flash Recall mode-specific timer starts, fixed 0.2s reductions and caps match approved rules",()=>{
-  const match=flashcardsSource.match(/const timing = \{([\\s\\S]*?)\n  \};/);
+  const match=flashcardsSource.match(/const timing = \{([\s\S]*?)\n  \};/);
   assert.ok(match,"Flashcards must define the mode-specific timer configuration");
   const config={};
   for(const modeRow of match[1].matchAll(/(word|definition|sentence|mixed):\{((?:[^{}]|\{[^{}]*\})*)\}/g)){
