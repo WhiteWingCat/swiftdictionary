@@ -250,6 +250,8 @@ test("Translation changes do not reopen a previously closed Dictionary definitio
   await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
   for(const target of ["lessons","quiz","flashcards"]){
     await page.locator('[data-page="'+target+'"]').click();
+    const intro=page.locator("#learningIntroBackdrop");
+    if(await intro.isVisible())await page.locator("#learningIntroDismiss").click();
     await page.locator("#translationSelect").selectOption("zh");
     await expect(page.locator("#backdrop")).not.toHaveClass(/open/);
     await page.locator("#translationSelect").selectOption("en");
