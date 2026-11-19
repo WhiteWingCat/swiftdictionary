@@ -2640,3 +2640,15 @@ A significant Malaysian issue is recorded: Personal Data Protection Regulations 
 Branch housekeeping was confirmed from the owner: seven merged historical branches and the planning-only 2.3.0 branch were deleted. Current retained branches are main, docs/master-development-record, feature/update-2-5-0-flashcards, feature/update-2-4-2-dashboard-quiz-fixes, feature/update-2-4-1-fix-changes and work/update-2-4-0-quiz-feedback. The latter is preserved because it contains unique work.
 
 No age gate, application change, database migration, Auth setting change, merge or deployment was performed. The next 2.6.0 work is legal applicability/DPO/registration assessment, provider/subprocessor and transfer verification, DPIA screening, then prioritised technical remediation and staging tests.
+
+## 2026-11-19 — Update 2.6.0 Phase B provider and cross-border review
+
+The owner decided that the future Terms & Conditions link belongs in the bottom-page footer alongside Feedback & Suggestions, not in the primary navigation. Publish the link only after the Terms have been reviewed and published.
+
+Provider documentation and connected Supabase metadata were reviewed. Production Supabase is hosted in Tokyo (ap-northeast-1), staging in Singapore (ap-southeast-1), both active and healthy, and neither currently has deployed Edge Functions. Supabase's current FAQ confirms that database/Auth/Storage/backups are region-hosted but also describes out-of-region account administration, global support access, EU-based operational logs and possible US-affiliate support/operations. Tokyo therefore describes the primary region, not all data processing.
+
+Cloudflare Pages is the hosting/edge provider; account-specific DPA acceptance, log retention, subprocessors and support access remain unverified. Google is the OAuth identity provider; standard authentication-only scopes are openid/email/profile, but actual Google Cloud Console scopes and brand verification remain unverified. jsDelivr serves the Supabase JS and Hanzi Writer assets and processes request metadata including IP/browser/request URL; stroke-data URLs can identify a requested character asset but do not include the SwiftDictionary account ID. GitHub feedback is copy-first and does not automatically send the form to a private endpoint; issues created manually in a public repository are public.
+
+The existing feedback form's Cloudflare Pages fallback to generic GitHub Issues instructions was confirmed. The public notice must not call it private or imply automatic submission. No provider contract acceptance, exact retention periods, Google tenant configuration or Cloudflare tenant settings were confirmed.
+
+No production/staging data rows were read, no user data was copied, and no database settings, migrations, OAuth settings, application code, deployments or branches were changed. Follow-up remains provider-account verification, retention schedule, transfer assessment, and later staging-first technical remediation.
