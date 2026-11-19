@@ -15,6 +15,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 | Date | Archive | Coverage |
 |---|---|---|
+| 2026-11-19 | [Update 2.5.0 owner feedback round 4](2026-11-19-update-2-5-0-owner-feedback-round-4.md) | Records inline Dictionary filters, centred Flashcards help, Accuracy-first results, Lessons Chinese banner translation, corrected test assertions, 13/13 Chromium Mock User tests passing, verified testing preview and pre-polishing handoff. |
 | 2026-11-18 | [Update 2.5.0 Flashcards foundation implementation](2026-11-18-update-2-5-0-flashcards-foundation.md) | Records approved timer rules, Flash Recall modes, collections/custom cards, private account-scoped schema/RPCs, staging-only migration and authenticated SQL test, Mock User/CI checks, legal/privacy notes and remaining owner browser tests. |
 | 2026-11-13 | [Update 2.3.1 mock testing and documentation continuity](2026-11-13-update-2-3-1-mock-testing.md) | Option B mock-mode decision and implementation, CI evidence, preview verification still pending, production safety, establishment of the permanent archive process, and subsequent correction of the preview hostname allowlist. |
 | 2026-11-14 | [Update 2.3.1 dashboard and Daily Learning refinements](2026-11-14-update-2-3-1-dashboard-daily-learning.md) | Owner's first seven feedback items, relative activity recency, visual overview, cooldown preview handling, shared global Daily Discovery pilot, slide-in activity reader, examples and frequency-data licensing research. |
