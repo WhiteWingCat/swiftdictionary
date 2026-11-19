@@ -18615,7 +18615,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.rpc("get_my_quiz_history",{p_limit:5}),
           supabaseClient.rpc("get_my_quiz_availability"),
           supabaseClient.rpc("get_my_flashcard_allowance"),
-          supabaseClient.rpc("get_my_flashcard_data")
+          Promise.resolve(supabaseClient.rpc("get_my_flashcard_data")).catch(error=>({data:null,error}))
         ]);
         let profileQ=profileInitialQ;
         if(profileQ.error&&/avatar_icon|PGRST204|42703/i.test(profileQ.error.message||"")) {
