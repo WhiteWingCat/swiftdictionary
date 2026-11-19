@@ -99,3 +99,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.6.0 Phase G — ACL re-verification and staging gap analysis](2026-11-19-update-2-6-0-phase-g-acl-reverification.md) — confirms the staging daily-session grants, finds residual anonymous UPDATE on three staging sequences, identifies PUBLIC EXECUTE as part of the production trigger-guard issue, and records remaining bootstrap-table ACL review and migration/production gates.
+
+- [Update 2.6.0 Phase H — Cloudflare Pages identification and safe backend routing](2026-11-19-update-2-6-0-phase-h-cloudflare-routing.md) — identifies the `swiftdictionary` Pages project, records the fail-closed production/staging build router, shell tests and passing CI run #44518836358, and lists the outstanding dashboard/OAuth configuration.
