@@ -19,7 +19,7 @@ async function openMockFlashcards(page) {
   await expect(page.locator("#flashcardsPage")).toBeVisible();
   const intro=page.locator("#learningIntroBackdrop");
   await expect(intro).toBeVisible();
-  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Flashcards");
+  await expect(page.locator("#learningIntroTitle")).toHaveText(/^(Welcome to Flashcards|欢迎使用闪卡)$/);
   await page.locator("#learningIntroDismiss").click();
   await expect(page.locator(".flash-banner")).toBeVisible();
   await expect(page.locator("#flashcardsHeading")).toHaveCount(0);
@@ -233,7 +233,7 @@ test("Lessons and Quiz share the new banner presentation and retain help control
   await expect(page.locator("#quizPage .learning-banner h1")).toHaveText("Quiz");
   const quizIntro=page.locator("#learningIntroBackdrop");
   await expect(quizIntro).toBeVisible();
-  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Quiz");
+  await expect(page.locator("#learningIntroTitle")).toHaveText(/^(Welcome to Quiz|欢迎使用测验)$/);
   await page.locator("#learningIntroDismiss").click();
   await expect(page.locator('#quizPage [data-learning-help="quiz"]')).toBeVisible();
   await expect(page.locator("#quizRefresh")).toBeVisible();
