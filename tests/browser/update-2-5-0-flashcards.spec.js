@@ -18,7 +18,9 @@ async function openMockFlashcards(page) {
   await page.locator('[data-page="flashcards"]').click();
   await expect(page.locator("#flashcardsPage")).toBeVisible();
   const intro=page.locator("#learningIntroBackdrop");
-  if(await intro.isVisible()) await page.locator("#learningIntroDismiss").click();
+  await expect(intro).toBeVisible();
+  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Flashcards");
+  await page.locator("#learningIntroDismiss").click();
   await expect(page.locator(".flash-banner")).toBeVisible();
   await expect(page.locator("#flashcardsHeading")).toHaveCount(0);
   const flashHelp=page.locator(".flash-banner .learning-help-button");
@@ -102,6 +104,29 @@ test("Word Recall hides answers during memory, reveals answer phase, and shows t
   await expect(page.locator("#flashOptions .flash-option.is-correct")).toHaveCount(1);
   await page.waitForTimeout(3100);
   await expect(page.locator("#flashPhaseLabel")).toContainText("Memorise");
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+});
+
+test("Answer now skips memory and Next immediately begins another unique round",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await beginRecall(page,"word","beginner","all",60);
+  const action=page.locator("#flashPhaseAction");
+  await expect(action).toBeVisible();
+  await expect(action).toHaveText("Answer now");
+  const firstPrompt=await page.locator("#flashMemory").textContent();
+  await action.click();
+  await expect(page.locator("#flashMemoryOverlay")).toBeVisible();
+  await expect(action).toBeHidden();
+  await page.locator("#flashOptions .flash-option").first().click();
+  await expect(action).toBeVisible();
+  await expect(action).toHaveText("Next");
+  await expect(page.locator("#flashPhaseLabel")).toContainText(/Correct|Not quite/);
+  await action.click();
+  await expect(page.locator("#flashPhaseLabel")).toContainText("Memorise");
+  await expect(action).toHaveText("Answer now");
+  await expect(page.locator("#flashMemory")).not.toHaveText(firstPrompt);
   await page.locator('[data-action="leave-game"]').click();
   await expect(page.locator(".flash-banner")).toBeVisible();
 });
@@ -207,7 +232,9 @@ test("Lessons and Quiz share the new banner presentation and retain help control
   await page.locator('[data-page="quiz"]').click();
   await expect(page.locator("#quizPage .learning-banner h1")).toHaveText("Quiz");
   const quizIntro=page.locator("#learningIntroBackdrop");
-  if(await quizIntro.isVisible())await page.locator("#learningIntroDismiss").click();
+  await expect(quizIntro).toBeVisible();
+  await expect(page.locator("#learningIntroTitle")).toHaveText("Welcome to Quiz");
+  await page.locator("#learningIntroDismiss").click();
   await expect(page.locator('#quizPage [data-learning-help="quiz"]')).toBeVisible();
   await expect(page.locator("#quizRefresh")).toBeVisible();
 });
