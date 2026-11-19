@@ -480,6 +480,34 @@ The design is a proposal only. No feedback table, Edge Function, Profile inbox o
 - A dedicated Cloudflare Pages preview configured to use staging has **not** yet been verified. The repository's current `supabase-config.js` hard-codes the production project URL and public key. Do not deploy the implementation branch as a browser preview until a separate preview configuration explicitly selects the staging project and the resulting hostname is verified. The Cloudflare Pages project name/settings and preview environment configuration must be inspected in the owner's Cloudflare dashboard; the connected tools available in this session do not expose that account configuration.
 - Staging remains safe for the next test, but owner-run browser tests still need a confirmed staging-configured preview. Do not point the production site at staging credentials.
 
+
+### 7.6 Phase E — production-vs-staging privilege comparison (read-only, 19 November 2026)
+
+A second read-only audit compared effective PostgreSQL privileges and ACLs on the two Supabase projects. No SQL changes were made in this phase.
+
+#### Confirmed production residual grants
+
+- `public.daily_activity_sessions` is owned by `postgres` and has broad ALL privileges for both `anon` and `authenticated`, including SELECT/INSERT/UPDATE/DELETE and non-DML privileges. This is the principal existing table-grant issue. The staged migration removed all anon privileges and removed authenticated DELETE; production remains unchanged.
+- Anonymous role has USAGE/SELECT/UPDATE on four public sequences: `learning_activity_log_id_seq`, `lesson_practice_results_id_seq`, `lesson_practice_results_id_seq1`, and `lesson_progress_id_seq`. No anonymous sequence access was observed on `saved_words_id_seq`. These grants appear unnecessary for the current application and should be reviewed for removal in a follow-up migration.
+- Anonymous SELECT on `public.languages` and `public.learning_plan_limits` is intentional/public configuration access; preserve unless application review proves otherwise.
+- Anonymous EXECUTE is limited to the two trigger-only guard functions `guard_daily_activity_session_update()` and `guard_lesson_progress_update()`. The staging migration removes these direct EXECUTE grants and the authenticated grants while preserving trigger execution. Production still has them until a migration is approved and applied.
+- Existing authenticated RPC EXECUTE grants match between production and staging for the reviewed public functions. The two required SECURITY DEFINER RPCs remain authenticated-only.
+- Production `postgres` default privileges in `public` still grant broad table CRUD, sequence privileges and function EXECUTE to API roles. The staging migration tightens these defaults for future objects created by `postgres`; production is unchanged.
+
+#### Staging caveats
+
+- The staging migration is applied and CI has passed, but the staging project is not a perfect byte-for-byte ACL clone of production. Several older/bootstrap-created tables still carry non-DML privileges (TRUNCATE, REFERENCES, TRIGGER and PostgreSQL 17 MAINTAIN) for API roles. These are not the same as row-level Data API CRUD, but should be explicitly reviewed and removed where not required before calling the entire schema least-privilege.
+- Supabase platform-owned `supabase_admin` default ACLs remain outside the project's SQL control. The migration only changes defaults for objects created by `postgres`; object owner and ACL must be inspected for each future migration.
+- The staging project currently has zero Auth users and no deployed Edge Functions. Google OAuth provider configuration and redirect URLs were not verifiable through the available project tools. A real browser smoke test therefore still requires the owner to confirm/configure the staging OAuth callback and Cloudflare preview environment.
+
+#### Next remediation scope — prepare and stage only
+
+1. Add a follow-up migration to revoke the unnecessary anonymous sequence privileges in production and staging, preserving any authenticated sequence permissions proven necessary by actual INSERT paths/triggers.
+2. Revoke all privileges on `daily_activity_sessions` from API roles, then explicitly grant only authenticated SELECT/INSERT/UPDATE. This also removes production's extra TRUNCATE/REFERENCES/TRIGGER/MAINTAIN rights rather than only DELETE.
+3. Remove direct EXECUTE from the two trigger-only guards in production when rollout is approved; retain trigger functionality.
+4. Review existing non-DML table grants across all public tables and remove only those that are confirmed unnecessary. Do not blindly revoke SELECT on public language/plan configuration.
+5. Do not apply any of these changes to production until owner approval and a complete staging/browser regression pass.
+
 ## 12. Release position
 
 The current application has meaningful privacy protections already: account-scoped data, RLS on application tables, private-schema tables without direct browser grants, owner-scoped RPC patterns, no analytics/ad-tracking code found in the source reviewed, and a user-facing learning-history deletion control.
