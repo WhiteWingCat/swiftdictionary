@@ -83,6 +83,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [Update 2.6.0 legal, privacy, safety and security baseline audit](2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md) — records the Malaysia-first legal research, international/16+ screening, current data inventory, read-only production/staging Supabase audit, identified least-privilege issue, privacy/account-deletion gaps, remediation priorities and docs-only blueprint commit.
 
+- [Update 2.6.0 Phase E — production privilege comparison](2026-11-19-update-2-6-0-phase-e-production-privilege-comparison.md) — records residual production grants, staging ACL caveats, and the next least-privilege migration scope.
+
 - [Update 2.6.0 Phase D — feedback inbox proposal and staging verification](2026-11-19-update-2-6-0-phase-d-feedback-and-staging.md) — documents the private, GitHub-free feedback proposal, privacy safeguards, existing Singapore staging project, CI success and the outstanding Cloudflare preview configuration.
 
 - [Update 2.6.0 account deletion and retention design](2026-11-19-update-2-6-0-account-deletion-and-retention-design.md) — records the proposed server-side Auth Admin deletion workflow, JWT/session caveats, cascade and local-state requirements, and the retention schedule framework without inventing periods.
