@@ -21,7 +21,11 @@ async function openMockFlashcards(page) {
   if(await intro.isVisible()) await page.locator("#learningIntroDismiss").click();
   await expect(page.locator(".flash-banner")).toBeVisible();
   await expect(page.locator("#flashcardsHeading")).toHaveCount(0);
-  await expect(page.locator(".flash-banner .learning-help-button")).toBeVisible();
+  const flashHelp=page.locator(".flash-banner .learning-help-button");
+  await expect(flashHelp).toBeVisible();
+  await expect(flashHelp).toHaveCSS("position","static");
+  const bannerBox=await page.locator(".flash-banner").boundingBox(),helpBox=await flashHelp.boundingBox();
+  expect(Math.abs((helpBox.y+helpBox.height/2)-(bannerBox.y+bannerBox.height/2))).toBeLessThanOrEqual(2);
   await expect(page.locator(".flash-mode")).toHaveCount(4);
   await page.locator("#translationSelect").selectOption("en");
 }
@@ -136,6 +140,10 @@ test("60-second completion shows results and requires closing the prompt to retu
   await expect(page.locator("#flashResultTitle")).toBeVisible();
   await expect(page.locator(".flash-modal")).toContainText("60-second Flash Recall summary");
   await expect(page.locator(".flash-modal")).toContainText("Accuracy");
+  await expect(page.locator(".flash-accuracy-hero strong")).toHaveText(/\\d+%/);
+  await expect(page.locator(".flash-accuracy-hero span")).toHaveText("Accuracy");
+  await expect(page.locator(".flash-result-modal .flash-stats .flash-stat")).toHaveCount(3);
+  await expect(page.locator(".flash-result-modal .flash-stat")).toHaveCSS("padding-top","16px");
   await expect(page.locator('[data-action="close-result"]')).toBeVisible();
   await page.locator('[data-action="close-result"]').click();
   await expect(page.locator(".flash-banner")).toBeVisible();
@@ -156,18 +164,32 @@ test("120-second challenge is available and remains active after the first 60 se
 });
 
 
-test("Dictionary filters are grouped inside a single overlay",async({page})=>{
+test("Dictionary filter panel expands below the search row and toggles closed",async({page})=>{
   await openMockFlashcards(page);
   await page.locator('[data-page="dictionary"]').click();
-  await page.locator("#openDictionaryFilters").click();
-  await expect(page.locator("#dictionaryFiltersOverlay")).toBeVisible();
+  const panel=page.locator("#dictionaryFiltersPanel"),button=page.locator("#openDictionaryFilters");
+  await button.click();
+  await expect(panel).toBeVisible();
+  await expect(button).toHaveAttribute("aria-expanded","true");
+  await expect(panel).not.toHaveAttribute("role","dialog");
+  const widths=await page.evaluate(()=>({
+    row:document.querySelector(".search-row").getBoundingClientRect().width,
+    panel:document.querySelector("#dictionaryFiltersPanel").getBoundingClientRect().width,
+    panelTop:document.querySelector("#dictionaryFiltersPanel").getBoundingClientRect().top,
+    rowBottom:document.querySelector(".search-row").getBoundingClientRect().bottom,
+    exploreTop:document.querySelector("#explore-title").getBoundingClientRect().top
+  }));
+  expect(Math.abs(widths.row-widths.panel)).toBeLessThanOrEqual(1);
+  expect(widths.panelTop).toBeGreaterThanOrEqual(widths.rowBottom);
+  expect(widths.exploreTop).toBeGreaterThan(widths.panelTop);
   await expect(page.locator("#categoryRow .category-button")).toHaveCount(6);
   await expect(page.locator("#savedFilter")).toBeVisible();
   await expect(page.locator("#alphabet button").first()).toHaveText("All");
   await page.locator('#categoryRow [data-category="verb"]').click();
   await expect(page.locator('#categoryRow [data-category="verb"]')).toHaveAttribute("aria-pressed","true");
-  await page.locator("#closeDictionaryFilters").click();
-  await expect(page.locator("#dictionaryFiltersOverlay")).toBeHidden();
+  await button.click();
+  await expect(panel).toBeHidden();
+  await expect(button).toHaveAttribute("aria-expanded","false");
 });
 
 test("Lessons and Quiz share the new banner presentation and retain help controls",async({page})=>{
@@ -177,6 +199,11 @@ test("Lessons and Quiz share the new banner presentation and retain help control
   const lessonIntro=page.locator("#learningIntroBackdrop");
   if(await lessonIntro.isVisible())await page.locator("#learningIntroDismiss").click();
   await expect(page.locator('#lessonsPage [data-learning-help="lessons"]')).toBeVisible();
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#lessonsHeading")).toHaveText("课程");
+  await expect(page.locator("#lessonsPage .learning-banner .page-intro")).toHaveText("通过引导式讲解、示例和简短练习提升英语能力。");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator("#lessonsHeading")).toHaveText("Lessons");
   await page.locator('[data-page="quiz"]').click();
   await expect(page.locator("#quizPage .learning-banner h1")).toHaveText("Quiz");
   const quizIntro=page.locator("#learningIntroBackdrop");
