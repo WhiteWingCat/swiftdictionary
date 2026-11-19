@@ -3,12 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-19 (Update 2.5.0 owner feedback round 3 implemented; all 13 Chromium Mock User browser tests and static/Mock integration checks passed in workflow #44483060698; Cloudflare Pages testing preview deployed successfully for commit `8db21bd42405adc3c37ff9764dbe4cc421b70dbf`; owner Mock User retest is the next gate; no production release)  
+> **Last consolidated:** 2026-11-19 (Update 2.5.0 owner feedback round 4 implemented; static/Mock integration checks and all 13 Chromium Mock User browser tests passed in workflow #44487132337; Cloudflare Pages testing preview deployed successfully for commit `ade355db47efc5664b5b2de35a2aa744e2406c9a`; owner Mock User retest is ready; no production release)  
 > **Current baseline:** Update 2.4.2 remains merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; its production deployment and owner-confirmed Dashboard fixes remain as recorded. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
-> **Current work:** Update 2.5.0 — Flashcards remains in active implementation on `feature/update-2-5-0-flashcards`, latest commit `8db21bd42405adc3c37ff9764dbe4cc421b70dbf`, PR #12 open against `main` and unmerged. The implementation includes four Flash Recall modes, 60/120-second challenges, collections, account-scoped progress and Weak Memory review. Round-3 UI/behaviour fixes and test corrections are complete. GitHub Actions workflow #44483060698 passed static syntax, page integration, Mock RPC/regression tests and all 13 Chromium Mock User browser tests. Cloudflare Pages testing deployment succeeded for commit `8db21bd`; the branch preview is `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`. Owner manual Mock User retesting remains outstanding. Production `main` and production Supabase remain unchanged; no production migration or deployment has occurred. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before public friend onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
+> **Current work:** Update 2.5.0 — Flashcards remains in active implementation on `feature/update-2-5-0-flashcards`, latest commit `ade355db47efc5664b5b2de35a2aa744e2406c9a`, PR #12 open against `main` and unmerged. The implementation includes four Flash Recall modes, 60/120-second challenges, collections, account-scoped progress and Weak Memory review. Round-4 Dictionary filter, Flashcards help-button, result-summary and Lessons translation refinements are complete. GitHub Actions workflow #44487132337 passed static syntax, page integration, Mock RPC/regression tests and all 13 Chromium Mock User browser tests. Cloudflare Pages testing deployment succeeded for commit `ade355d`; the branch preview is `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`. Owner manual Mock User retesting is ready. Production `main` and production Supabase remain unchanged; no production migration or deployment has occurred. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before public friend onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
 > **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.5.0 PR #12 remains open/unmerged. No production Supabase migration, production data operation or production deployment was performed for this 2.5.0 work.
->
-> This record combines confirmed owner decisions, repository evidence and the latest development handover. It is not proof that every live UI interaction has been manually tested.
 
 ---
 
@@ -2470,3 +2468,39 @@ The owner tested the latest Update 2.5.0 Flashcards preview and supplied nine fi
 - Owner should manually retest the nine round-3 feedback items and relevant existing Flashcards, Quiz, Lessons, navigation and account-switching regressions using the verified testing preview.
 - Do not merge PR #12, deploy production, or apply migrations to staging/production without explicit owner approval.
 - Recovery branch: `feature/update-2-5-0-flashcards`; current branch head above. Keep all development records on `docs/master-development-record`.
+
+
+## Owner feedback round 4 — final pre-polishing UI refinements (2026-11-19)
+
+The owner completed the previous Mock User test and supplied four further refinements. These are implemented on the existing `feature/update-2-5-0-flashcards` branch; PR #12 remains open and unmerged.
+
+### Changes implemented
+
+1. **Dictionary filters:** replaced the fixed modal/backdrop with an inline expanding panel directly below the search row. The panel spans the same combined width as the search input and Filters button, pushes Explore Words downward, and opens/closes from the same Filters toggle. Escape also closes it; the toggle exposes its state through `aria-expanded`.
+2. **Flashcards help position:** removed the late absolute-positioning override that kept the help button at the top-right. It now remains in the banner flex layout and is vertically centred at the right, consistent with Lessons and Quiz.
+3. **Game result summary:** moved Accuracy to a prominent top-centred percentage display. Attempted, Correct and Incorrect now occupy separate, roomier stat cards with larger values, more padding and spacing. Mobile cards retain a two-column responsive layout.
+4. **Lessons Simplified Chinese banner:** changing the translation language now translates the Lessons banner eyebrow, title and description to Simplified Chinese and restores English when switched back. Existing lesson-reader and Daily Learning translation flows remain intact.
+
+### Files and validation
+
+- Updated `index.html`, `flashcards.js`, `tests/browser/update-2-5-0-flashcards.spec.js`, and `tests/update-2-5-0/check-flashcards-page.mjs`.
+- Browser coverage now verifies inline filter panel placement, width equality with the search row, pushing Explore Words down, toggle state, vertically centred Flashcards help, the enlarged Accuracy-first result summary, and Lessons banner translation.
+- One initial static integration run failed because its assertion still expected the removed overlay. The static checker was updated to assert the new inline panel and its control relationship.
+- The first browser run passed 12/13; the sole failure was a strict-mode ambiguity in the new test assertion (three stat cards matched). The assertion was narrowed to the first stat card; no application defect was found.
+- Final workflow **#44487132337** passed JavaScript syntax, Flashcards page integration, Mock account/allowance/collection/timer regression checks and **all 13 Chromium Mock User browser tests** (25.7 seconds).
+- Latest implementation branch head: `ade355db47efc5664b5b2de35a2aa744e2406c9a`.
+- PR #12 remains open against `main`; it is not merged.
+- Cloudflare Pages testing deployment for commit `ade355d` succeeded. Verified branch preview: `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`; append `?swiftMock=1` to launch isolated Mock User mode.
+- No production deployment, production Supabase migration, staging migration or production data operation was performed. No migration is required for these UI-only refinements.
+
+### Legal and privacy planning
+
+- These changes are presentation, layout and existing translation-preference behaviour only. They add no new personal-data category, processor, analytics event, raw-answer telemetry, retention period or learning-history record.
+- Existing account-scoped Flashcards history and deletion controls are unchanged. Continue the standing Malaysia PDPA and applicable international/16+ privacy review before wider public/commercial expansion; this implementation is not a legal compliance certification.
+
+### Next gate
+
+- Owner Mock User retesting is ready on the verified preview.
+- If accepted, begin the planned polishing stage: audit Flash Recall question uniqueness and eligibility, verify answers against the source dictionary, check English/Simplified Chinese translation accuracy and context, and resolve any remaining functional or UI issues before release readiness review.
+- Do not merge PR #12, deploy production, or apply migrations to staging/production without explicit owner approval.
+- Keep development documentation on `docs/master-development-record`; current recovery branch is `feature/update-2-5-0-flashcards`.
