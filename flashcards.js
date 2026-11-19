@@ -33,6 +33,7 @@
   }
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
   function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;return "dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
+  function questionKey(card){return String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().toLocaleLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
   function uiText(en,zh){return (state.game?.translationLanguage||translationLanguage)==="zh"?zh:en;}
   function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
@@ -258,7 +259,7 @@
     return [...targets,...distractors];
   }
   function makeRound(deck){
-    const seenCards=new Set(),available=deck.filter(w=>{if(!w.word||!w.definition)return false;const key=cardKey(w);if(seenCards.has(key))return false;seenCards.add(key);return true;});
+    const seenCards=new Set(),available=deck.filter(w=>{if(!w.word||!w.definition)return false;const key=questionKey(w);if(!key||seenCards.has(key))return false;seenCards.add(key);return true;});
     const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
     if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
@@ -267,7 +268,7 @@
     const pools=modes.map(mode=>{
       const optionValue=w=>mode==="word"?translationFor(w):w.word;
       const viable=targets.filter(target=>{const correct=mode==="word"?translationFor(target):target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
-      return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(cardKey(item)))};
+      return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(questionKey(item)))};
     }).filter(pool=>pool.viable.length);
     if(!pools.length)throw new Error("This card set does not contain four distinct choices for any recall mode.");
     const freshPools=pools.filter(pool=>pool.fresh.length);
@@ -279,7 +280,7 @@
     const mode=chosenPool.mode,viable=chosenPool.viable,questionPool=chosenPool.fresh.length?chosenPool.fresh:viable;
     const target=questionPool[Math.floor(Math.random()*questionPool.length)];
     const optionValue=w=>mode==="word"?translationFor(w):w.word;
-    state.usedQuestionKeys.add(cardKey(target));
+    state.usedQuestionKeys.add(questionKey(target));
     let memory="",prompt="",correct="";
     if(mode==="word"){memory=target.word;prompt=uiText("Choose the correct meaning","请选择正确的中文释义");correct=translationFor(target);}
     else if(mode==="definition"){memory=translationFor(target);prompt=uiText("Which word matches this meaning?","哪个英文单词符合这个释义？");correct=target.word;}
