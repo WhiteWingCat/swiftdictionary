@@ -2429,3 +2429,44 @@ The owner supplied nine additional requirements after Mock User review. They hav
 ### Recovery point
 
 Continue from `feature/update-2-5-0-flashcards` at `3a96ba41e65da00b0cf5827ac6bbb71159f7c7f3`. Keep the Master Development Record and conversation archives on `docs/master-development-record`; do not merge internal documentation into production `main`.
+
+
+## Owner feedback round 3 — Flashcards fixes (2026-11-19)
+
+The owner tested the latest Update 2.5.0 Flashcards preview and supplied nine fixes. Implementation is on the existing `feature/update-2-5-0-flashcards` branch; no new release branch or production change was created.
+
+### Changes implemented
+
+1. **Challenge duration placement:** moved the 60s/120s choice out of the game setup prompt and into selectable pills on the right side of “Choose your Flash Recall”. The selected duration remains the session setting and is sent to the existing authenticated start RPC.
+2. **Game setup visual refresh:** improved modal hierarchy, spacing, card treatment, dropdown/select appearance and indicators, focus state, and Cancel/Begin button styling.
+3. **Game results visual refresh:** added a dedicated results-modal presentation, clearer score layout, and a more prominent Close control.
+4. **Translation-panel regression:** changing the global translation language now refreshes the dictionary definition only when the definition modal is actually open. A previously viewed but closed word no longer reopens automatically while the learner is on Lessons, Quiz or Flashcards.
+5. **Weak Memory review:** list and detail scroll positions are preserved when selecting an item; removed the redundant missed-count descriptions; redesigned the Close control.
+6. **Unanswered question tracking:** the game now records the current question as unanswered when the challenge ends before the learner can answer. The existing completion RPC already converts incorrect/unanswered results into mode-specific Weak Memory records and mastery updates, so no new migration or data category was required. A round-recorded guard prevents double-counting.
+7. **Navigation hover clipping:** increased the top breathing room around the main navigation so raised hover buttons are not cropped.
+8. **Help-button consistency:** Flashcards help control now sits in the banner layout using the same aligned header approach as Lessons and Quiz.
+9. **Flashcards icon alignment:** primary-navigation icons now share a consistent centered inline-flex box.
+
+### Files and tests
+
+- Updated `flashcards.js`, `index.html`, `tests/browser/update-2-5-0-flashcards.spec.js`, and `tests/update-2-5-0/check-flashcards-page.mjs`.
+- Added browser regression coverage for unanswered timeout-to-Weak-Memory recording, translation changes not reopening a closed Dictionary definition panel across Lessons/Quiz/Flashcards, and Weak Memory list scroll persistence.
+- Static JavaScript syntax, Flashcards page integration checks and Mock account/allowance/collection/timer regression tests passed in dedicated workflow **#44481421287**.
+- Chromium Mock User browser tests for workflow **#44481421287** were still in progress at the time this record was updated. Do not mark the phase ready for owner retest until the browser job reports success; resolve any failure and rerun.
+- Latest implementation branch head at record time: `2aa1dc0eb4b81c452475910eb5f134a665455347`.
+- PR #12 remains open against `main`; it is not merged.
+- No production deployment, production Supabase migration, staging migration or production data operation was performed. No migration is required for these UI/round-state changes.
+
+### Legal and privacy planning
+
+- This is a bug-fix/UI refinement to existing account-scoped Flashcards learning history. It adds no new personal-data category, processor, analytics event, raw-answer telemetry or retention behaviour.
+- Unanswered results feed the already-approved Weak Memory and mastery records; existing account scoping and learning-history deletion remain the applicable controls.
+- Continue the standing Malaysia PDPA and international privacy review before wider public/commercial expansion. This implementation is not a legal compliance certification.
+
+### Next gate and recovery
+
+- Wait for workflow #44481421287 Chromium Mock User browser job to complete successfully.
+- Then update this record with final CI evidence and hand the latest feature-branch preview to the owner for another Mock User test.
+- Cloudflare Pages preview URL must be copied from the Deployments UI; do not guess it.
+- Do not merge PR #12, deploy production, or apply migrations to staging/production without explicit owner approval.
+- Recovery branch: `feature/update-2-5-0-flashcards`; current branch head above. Keep all development records on `docs/master-development-record`.
