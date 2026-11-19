@@ -93,15 +93,15 @@
     .learning-banner .learning-help-button{background:#ffffff18;border-color:#ffffff55;color:#fff;box-shadow:0 4px 0 #0c1728}
     .learning-banner .secondary-button{background:#ffffff18;border-color:#ffffff55;color:#fff;box-shadow:0 4px 0 #0c1728}
     .category-button,.filter-button,.secondary-button,.difficulty-tabs button,.quiz-session-top button,.quiz-question-actions button,.quiz-results-actions button{box-shadow:0 3px 0 #0004,0 6px 12px #0002;font-weight:700}
-    .dictionary-filter-backdrop{position:fixed;inset:0;z-index:1500;display:grid;place-items:center;padding:16px;background:#050910bb;backdrop-filter:blur(7px)}
-    .dictionary-filter-backdrop[hidden]{display:none}
-    .dictionary-filter-modal{width:min(760px,100%);max-height:min(82vh,760px);overflow:auto;padding:22px;border:1px solid #3a4558;border-radius:20px;background:var(--panel);box-shadow:0 24px 70px #0009}
-    .dictionary-filter-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
-    .dictionary-filter-heading h2{margin:0}
-    #dictionaryFiltersContent{display:grid;gap:16px}
+    .dictionary-filter-panel{width:100%;box-sizing:border-box;margin:12px 0 0;padding:18px;border:1px solid #3a4558;border-radius:16px;background:var(--panel);box-shadow:0 10px 24px #0003;animation:dictionaryFilterExpand .18s ease-out}
+    .dictionary-filter-panel[hidden]{display:none}
+    .dictionary-filter-heading{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .dictionary-filter-heading h2{margin:0;font-size:1.05rem}
+    #dictionaryFiltersContent{display:grid;gap:14px}
     #dictionaryFiltersContent .category-row{display:flex;flex-wrap:wrap;gap:8px}
     #dictionaryFiltersContent .category-button,#dictionaryFiltersContent #savedFilter{padding:9px 13px;border-radius:10px}
     #dictionaryFiltersContent .alphabet{margin:0}
+    @keyframes dictionaryFilterExpand{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
     @media(max-width:640px){.learning-banner{align-items:flex-start;padding:22px 18px}.learning-banner-actions{gap:5px}.primary-nav button{padding:9px 12px}}
     .top-actions { flex-wrap:wrap; justify-content:flex-end; }
     .course-controls { display:flex; align-items:center; gap:9px; margin:0; padding:7px; border:1px solid #52658f; border-radius:16px; background:linear-gradient(135deg,#202b46 0%,#172033 58%,#20283a 100%); box-shadow:0 8px 22px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.07); }
@@ -536,11 +536,10 @@
           <span aria-hidden="true">⌕</span>
           <input id="search" type="search" placeholder="Search a word..." autocomplete="off" aria-label="Search words">
         </label>
-        <button id="openDictionaryFilters" class="filter-button" type="button" aria-haspopup="dialog" aria-controls="dictionaryFiltersOverlay">☷ Filters</button>
+        <button id="openDictionaryFilters" class="filter-button" type="button" aria-expanded="false" aria-controls="dictionaryFiltersPanel">☷ Filters</button>
       </div>
-      <div id="dictionaryFiltersOverlay" class="dictionary-filter-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="dictionaryFiltersTitle">
-        <section class="dictionary-filter-modal">
-          <div class="dictionary-filter-heading"><h2 id="dictionaryFiltersTitle">Dictionary filters</h2><button id="closeDictionaryFilters" class="secondary-button" type="button" aria-label="Close filters">×</button></div>
+      <section id="dictionaryFiltersPanel" class="dictionary-filter-panel" hidden aria-labelledby="dictionaryFiltersTitle">
+          <div class="dictionary-filter-heading"><h2 id="dictionaryFiltersTitle">Dictionary filters</h2></div>
           <div id="dictionaryFiltersContent">
             <div id="categoryRow" class="category-row" aria-label="Filter by part of speech">
               <button class="category-button active" type="button" data-category="all" aria-pressed="true">All categories</button>
@@ -553,8 +552,7 @@
             <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
             <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
           </div>
-        </section>
-      </div>
+      </section>
     </section>
 
     <section aria-labelledby="explore-title">
@@ -17944,6 +17942,18 @@
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
       document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
+      const lessonsPage=document.getElementById("lessonsPage");
+      if(lessonsPage){
+        const lessonBanner=lessonsPage.querySelector(".learning-banner");
+        const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
+        const lessonTitle=document.getElementById("lessonsHeading");
+        const lessonDescription=lessonBanner?.querySelector(".page-intro");
+        if(lessonEyebrow)lessonEyebrow.textContent=translationLanguage==="zh"?"学习":"LEARNING";
+        if(lessonTitle)lessonTitle.textContent=translationLanguage==="zh"?"课程":"Lessons";
+        if(lessonDescription)lessonDescription.textContent=translationLanguage==="zh"
+          ?"通过引导式讲解、示例和简短练习提升英语能力。"
+          :"Build English skills through guided explanations, examples and short practice.";
+      }
       if (activeWord && backdrop.classList.contains("open")) openWord(activeWord);
       // Permanent lessons and Daily Learning share this preference, but their
       // readers have independent renderers. Refresh the open permanent lesson
@@ -18010,11 +18020,15 @@
       savedFilter.textContent = onlySaved ? "★ Showing saved" : "☆ Saved words";
       render();
     });
-    const dictionaryFiltersOverlay=document.getElementById("dictionaryFiltersOverlay");
-    document.getElementById("openDictionaryFilters").addEventListener("click",()=>{dictionaryFiltersOverlay.hidden=false;document.getElementById("closeDictionaryFilters").focus();});
-    document.getElementById("closeDictionaryFilters").addEventListener("click",()=>{dictionaryFiltersOverlay.hidden=true;document.getElementById("openDictionaryFilters").focus();});
-    dictionaryFiltersOverlay.addEventListener("click",event=>{if(event.target===dictionaryFiltersOverlay)dictionaryFiltersOverlay.hidden=true;});
-    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!dictionaryFiltersOverlay.hidden){dictionaryFiltersOverlay.hidden=true;document.getElementById("openDictionaryFilters").focus();}});
+    const dictionaryFiltersPanel=document.getElementById("dictionaryFiltersPanel");
+    const dictionaryFiltersButton=document.getElementById("openDictionaryFilters");
+    function toggleDictionaryFilters(force){
+      const open=typeof force==="boolean"?force:dictionaryFiltersPanel.hidden;
+      dictionaryFiltersPanel.hidden=!open;
+      dictionaryFiltersButton.setAttribute("aria-expanded",String(open));
+    }
+    dictionaryFiltersButton.addEventListener("click",()=>toggleDictionaryFilters());
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!dictionaryFiltersPanel.hidden)toggleDictionaryFilters(false);});
     document.getElementById("closeButton").addEventListener("click", closeModal);
     // The dimmed backdrop intentionally blocks the word grid while the detail drawer is open.
     backdrop.addEventListener("click", event => { if (event.target === backdrop) event.preventDefault(); });
