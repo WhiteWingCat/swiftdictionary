@@ -2330,7 +2330,7 @@ Continue from `feature/update-2-5-0-flashcards` at `b48933a2bef3a5affa6b7224c435
 
 - Owner approved the full Flashcards interface/gameplay redesign after Mock User testing.
 - Implementation branch: `feature/update-2-5-0-flashcards`.
-- Latest implementation commit: `cb9a87eed12c1f8a8a055d5a7095fbc546f118d8`.
+- Latest implementation commit: `3a96ba41e65da00b0cf5827ac6bbb71159f7c7f3`.
 - Production baseline remains `main` at `65d0a35bab577adc15a0b1911661c222ed625739` (Update 2.4.2).
 - No PR, merge, production deployment, production SQL migration or production data operation was performed.
 
@@ -2388,13 +2388,44 @@ These tests use the isolated Mock User adapter and local static browser environm
 ### Mock User handoff and remaining gates
 
 - Code and automated tests are ready for owner Mock User testing.
-- Preview host: `feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`.
-- Expected explicit Mock User URL: `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev/?swiftMock=1`.
-- Cloudflare's current deployment was not independently fetched from this session; allow its branch deployment to finish before testing the latest commit. The shortened hostname is allowlisted in the feature branch.
-- Owner should test all four modes, all difficulties and card sets, timer reductions/floors, timeout feedback, 60-second results, abandonment/allowance, weak-review tabs/details, selected translation language, account switching and responsive layout.
+- No Cloudflare Pages branch-preview hostname was independently verified during this work. Open Cloudflare Pages → the SwiftDictionary project → Deployments, select the latest deployment for `feature/update-2-5-0-flashcards`, and use its displayed preview URL. Do not rely on a guessed hostname.
+- Owner should test all four modes, all difficulties and card sets; 60/120-second timing; no repeated question targets before the deck cycle is exhausted (especially Mixed Recall); timeout animation and delayed results; abandonment/allowance; weak-review tabs/details; Chinese translation UI and prompt content; Dashboard statistics and in-place Weak Memory; main navigation, Lessons/Quiz banners, Dictionary filter overlay, account switching and responsive layout.
 - My Collections remains hidden, not deleted. No production merge or production migration is authorised by this implementation work.
 - Continue to keep the last three feature branches and retire older branches only under the agreed branch-hygiene rule.
 
+### Owner feedback round 2 — implementation (2026-11-19)
+
+The owner supplied nine additional requirements after Mock User review. They have been implemented on the existing feature branch:
+
+1. **No repeated questions:** the current game tracks question/card keys and does not reuse a target until the eligible target pool has been exhausted. Mixed Recall selects only a sub-mode that still has unused targets, preventing the same card from repeating merely because the random sub-mode changed. Source deck entries and answer options are deduplicated.
+2. **Simplified Chinese translation:** Flashcards now follows the existing Quiz language model: English remains the learning course, while Simplified Chinese can be selected as the translation language. The home page, setup, game phases, feedback, results and Weak Memory prompt are translated. Word Recall offers Chinese meaning choices; Definition Recall uses Chinese meaning prompts with English word choices; Sentence Recall can show a Chinese meaning hint. The separate Chinese learning course remains unavailable, matching the current Quiz scope.
+3. **60/120-second challenge:** all four recall modes share a 60- or 120-second setup choice. The chosen duration is stored on the session and checked by the authenticated completion RPC. Added migration `20261119130000_flashcards_60_120_second_challenges.sql`; existing sessions default to 60 seconds.
+4. **Time's Up transition:** the game is blurred behind an animated “Time's Up!” overlay for two seconds before the results prompt appears.
+5. **Dashboard integration:** Dashboard now displays recent Flashcard games, attempted questions, recent accuracy and Weak Memory summary. Its Weak Memory action opens the review prompt in a global overlay and leaves Dashboard as the active page.
+6. **Lessons/Quiz banners:** both pages now use banner headers in the same visual family as Flashcards, replacing their previous standalone page headings.
+7. **Navigation styling:** primary navigation now uses bold white labels, contextual icons and drop shadows. Secondary navigation/filter controls also receive consistent shadows.
+8. **Dictionary filters:** part-of-speech filters, saved words and alphabet filtering are grouped in one Filters overlay.
+9. **Dashboard compatibility hardening:** Flashcard statistics now fail gracefully if the Flashcards RPC is not yet deployed. Corrected Dashboard section nesting and added explicit regression assertions for existing allowance and practice-insight content.
+
+### Updated validation and deployment boundary
+
+- Feature branch: `feature/update-2-5-0-flashcards`.
+- Current implementation commit: `3a96ba41e65da00b0cf5827ac6bbb71159f7c7f3`.
+- Pull request #12 remains open against `main`; it has not been merged.
+- SwiftDictionary Update 2.5.0 Flashcards workflow run **#44471295332** passed on the current commit. Both the static/Mock regression job and Chromium Mock User browser job passed. The browser suite covers the 60/120-second selector, Time's Up/result ordering, Chinese UI and English recall prompts, Dashboard Weak Memory overlay, navigation banners and Dictionary Filters overlay.
+- The disposable local Supabase workflow's `quiz-db-foundation` job passed and applied the new duration migration in its isolated database, then ran the authenticated Flashcards RPC SQL test. The companion Quiz runtime job was still running when this record was prepared; it is not required for the Flashcards Mock User handoff.
+- The separate 2.3.x regression workflow is not green. Its logs include a documentation file lookup for a SQL draft that intentionally lives only on `docs/master-development-record`, plus a local test-server Mock-mode expectation. These are workflow/environment alignment issues, not failures in the dedicated 2.5.0 Flashcards workflow. The Dashboard markup nesting issue found during review has been corrected and is covered by the passing 2.5.0 browser test.
+- Mock User testing is ready from the code/CI side. Cloudflare's current branch preview URL is not verified in this session; retrieve it from the Cloudflare Pages Deployments screen rather than assuming a hostname.
+- The new duration migration has **not** been applied to staging or production. Only the disposable CI database received it. No production database, production branch or production deployment was changed.
+- No final ZIP is being issued at this intermediate development stage. The owner should complete the Mock User review before this phase is treated as accepted.
+
+### Legal and privacy planning — this feedback round
+
+- No new personal-data category, third-party processor, analytics event or raw-answer telemetry was added. The new `duration_seconds` value is a game setting attached to the existing private session record; Dashboard statistics aggregate existing session and Weak Memory records; Chinese translation uses existing dictionary content.
+- Dashboard statistics and Weak Memory are a limited form of learning-performance monitoring/profiling. They do not make high-stakes or consequential decisions. Keep the purpose transparent in the privacy notice, preserve account-scoped access and existing learning-history deletion, and screen the feature under current JPDP DPIA/DPO guidance before broad public expansion.
+- The 120-second option does not change the existing session-retention question. Completed session summaries remain until learning-history/account deletion unless a retention period is separately adopted.
+- Malaysia PDPA applicability, the personal/household exemption, the project's free individually operated status, 16+ age gate, and cross-border processing (including production Tokyo and staging Singapore) remain fact-specific review items. No compliance conclusion is claimed; consult Malaysian counsel before public/commercial expansion or subscriptions.
+
 ### Recovery point
 
-Continue from `feature/update-2-5-0-flashcards` at `cb9a87eed12c1f8a8a055d5a7095fbc546f118d8`. Keep the Master Development Record and conversation archives on `docs/master-development-record`; do not merge internal documentation into production `main`.
+Continue from `feature/update-2-5-0-flashcards` at `3a96ba41e65da00b0cf5827ac6bbb71159f7c7f3`. Keep the Master Development Record and conversation archives on `docs/master-development-record`; do not merge internal documentation into production `main`.

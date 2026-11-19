@@ -114,6 +114,16 @@ The design does not store a raw event for every selected answer. It stores aggre
 
 This section is a planning checklist, not legal advice or a compliance conclusion. No production schema, data, OAuth or privacy settings were changed during this feature work.
 
+## 2026-11-19 — Update 2.5.0 owner feedback round 2
+
+- **Processing changes:** Added a `duration_seconds` (60 or 120) setting to the existing private Flashcard game-session record. Dashboard statistics read existing session history and Weak Memory review records. Chinese UI/meaning translation uses existing dictionary translation fields. No new user identifiers, external processors, analytics, raw-answer logs or new categories of personal data were introduced.
+- **Purpose and proportionality:** The Dashboard displays recent game count, question attempts, accuracy and weak-memory count. This is educational progress monitoring and limited profiling of learning outcomes, but it does not make automated decisions about access, eligibility or other consequential outcomes. Keep the purpose clear in the privacy notice and do not repurpose the statistics for advertising or unrelated analytics.
+- **Access and deletion:** The Flashcard data remains account-scoped through the existing authenticated RPC/private-schema model. The duration is part of the session row and follows the existing session deletion path. Weak Memory remains part of the existing learning-history deletion workflow. No new export or retention system was added.
+- **Retention:** Completed game-session summaries still remain until learning-history/account deletion unless a retention period is adopted. The 120-second challenge does not extend the retention period or increase the categories of stored data. Decide and document retention before public friend onboarding.
+- **Malaysia and international scope:** Reassess Act 709's commercial-transaction scope and the personal/household exemption against actual operation, especially before public/commercial expansion, subscriptions or third-party onboarding. Keep the 16+ age scope, cross-border processing assessment (production Tokyo, staging Singapore, and all processors/backups/logs), and current JPDP DPO/DPIA/breach guidance in the legal checklist. Dashboard learning-performance monitoring should receive DPIA screening before broad public expansion; do not treat this planning note as a compliance conclusion.
+- **Deployment:** The 60/120-second migration was run only in the disposable CI Supabase environment for automated validation. It has not been applied to staging or production. No production data, OAuth, privacy settings or hosting configuration was changed.
+
+
 ## Primary sources
 
 - Malaysia, Personal Data Protection Act 2010 [Act 709], reprint as at 15 September 2026: https://lom.agc.gov.my/ilims/upload/portal/akta/outputaktap/3301061_BI/Act%20709%20%28Reprint%202026%29.pdf
