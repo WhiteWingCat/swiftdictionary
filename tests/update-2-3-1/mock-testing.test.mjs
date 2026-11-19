@@ -140,26 +140,33 @@ test("mock identities represent separate Free and Premium plans",async()=>{
   assert.equal(afterReplay.data.find(row=>row.activity_type==="daily_discovery").used_count,3);
 });
 
-test("Flash Recall timer starts, fixed reductions and minimum floors match the approved difficulty rules",()=>{
-  const match=flashcardsSource.match(/const timing = \{([\s\S]*?)\n  \};/);
-  assert.ok(match,"Flashcards must define the shared timer configuration");
+test("Flash Recall mode-specific timer starts, fixed 0.2s reductions and caps match approved rules",()=>{
+  const match=flashcardsSource.match(/const timing = \{([\\s\\S]*?)\n  \};/);
+  assert.ok(match,"Flashcards must define the mode-specific timer configuration");
   const config={};
-  for(const row of match[1].matchAll(/(beginner|intermediate|advanced):\{memory:([0-9.]+),answer:([0-9.]+),memoryFloor:([0-9.]+),answerFloor:([0-9.]+),memoryStep:([0-9.]+),answerStep:([0-9.]+)\}/g)){
-    config[row[1]]={memory:Number(row[2]),answer:Number(row[3]),memoryFloor:Number(row[4]),answerFloor:Number(row[5]),memoryStep:Number(row[6]),answerStep:Number(row[7])};
+  for(const modeRow of match[1].matchAll(/(word|definition|sentence|mixed):\{((?:[^{}]|\{[^{}]*\})*)\}/g)){
+    const mode=modeRow[1],levels={};
+    for(const row of modeRow[2].matchAll(/(beginner|intermediate|advanced):\{memory:([0-9.]+),answer:([0-9.]+),memoryFloor:([0-9.]+),answerFloor:([0-9.]+)\}/g)){
+      levels[row[1]]={memory:Number(row[2]),answer:Number(row[3]),memoryFloor:Number(row[4]),answerFloor:Number(row[5])};
+    }
+    config[mode]=levels;
   }
   assert.deepEqual(config,{
-    beginner:{memory:5,answer:12,memoryFloor:2,answerFloor:5,memoryStep:.5,answerStep:1},
-    intermediate:{memory:3,answer:9,memoryFloor:1.5,answerFloor:4,memoryStep:1.5,answerStep:4},
-    advanced:{memory:2,answer:6,memoryFloor:.7,answerFloor:3,memoryStep:.7,answerStep:3}
+    word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9},intermediate:{memory:5,answer:10,memoryFloor:2,answerFloor:7},advanced:{memory:3,answer:9,memoryFloor:1,answerFloor:5}},
+    definition:{beginner:{memory:6,answer:5,memoryFloor:4,answerFloor:3},intermediate:{memory:5,answer:4,memoryFloor:3,answerFloor:3},advanced:{memory:4,answer:4,memoryFloor:2,answerFloor:3}},
+    sentence:{beginner:{memory:7,answer:10,memoryFloor:5,answerFloor:7},intermediate:{memory:6,answer:8,memoryFloor:4,answerFloor:6},advanced:{memory:5,answer:6,memoryFloor:3,answerFloor:3}},
+    mixed:{beginner:{memory:8,answer:12,memoryFloor:6,answerFloor:9},intermediate:{memory:7,answer:10,memoryFloor:5,answerFloor:7},advanced:{memory:6,answer:8,memoryFloor:4,answerFloor:5}}
   });
-  for(const [difficulty,t] of Object.entries(config)){
+  assert.match(flashcardsSource,/const REDUCTION_STEP = 0\.2/);
+  assert.match(flashcardsSource,/state\.memory-REDUCTION_STEP/);
+  assert.match(flashcardsSource,/state\.answer-REDUCTION_STEP/);
+  for(const levels of Object.values(config))for(const t of Object.values(levels)){
     let memory=t.memory,answer=t.answer;
-    for(let i=0;i<30;i++){memory=Math.max(t.memoryFloor,Number((memory-t.memoryStep).toFixed(2)));answer=Math.max(t.answerFloor,Number((answer-t.answerStep).toFixed(2)));}
+    for(let i=0;i<100;i++){memory=Math.max(t.memoryFloor,Number((memory-.2).toFixed(2)));answer=Math.max(t.answerFloor,Number((answer-.2).toFixed(2)));}
     assert.equal(memory,t.memoryFloor);
     assert.equal(answer,t.answerFloor);
   }
 });
-
 test("Flashcard mock allowance matches the approved Free 3 and Premium 10 games per day",async()=>{
   const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
   assert.equal(env.window.SWIFT_DICTIONARY_MOCK_MODE,true);
