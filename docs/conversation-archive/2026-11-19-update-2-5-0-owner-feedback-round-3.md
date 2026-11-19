@@ -41,16 +41,20 @@ Three new Chromium Mock User regression tests cover:
 - Translation changes do not reopen a previously closed Dictionary definition panel on Lessons, Quiz or Flashcards.
 - Selecting a Weak Memory item preserves the list scroll position and no longer shows missed-count copy.
 
-## Validation status at handoff
+## Final validation and owner handoff
 
-- Dedicated static/Mock checks passed in GitHub Actions workflow #44481421287:
+- Initial browser workflow #44481421287 failed with seven browser-test failures. Diagnosis found stale test setup assumptions after moving duration pills outside the setup modal, a missing Mock UI data refresh in the review fixture, a stale Dictionary modal selector, and Playwright's own automatic scroll-into-view affecting the scroll test.
+- Corrected the shared game helper to choose the duration before opening setup; refreshed Mock UI data after direct RPC fixture writes; corrected the Dictionary definition modal selector to `#modalBackdrop`; and used a DOM click in the scroll test to avoid browser auto-scrolling before the application handler.
+- Follow-up workflow #44482890022 passed 11/13 browser tests. The two remaining test-only issues were corrected.
+- Final workflow **#44483060698** passed:
   - JavaScript syntax.
-  - Flashcards page integration and inline script syntax.
+  - Flashcards page integration and inline application syntax.
   - Mock account, allowance, collection and timer regression tests.
-- Chromium Mock User browser job for workflow #44481421287 was still in progress when this archive was written. It must pass before this feedback round is considered ready for owner retesting.
-- The earlier workflow attempts were cancelled by subsequent commits and are not evidence of a browser-test pass.
-- Latest branch head at handoff: `2aa1dc0eb4b81c452475910eb5f134a665455347`.
-- PR #12 remains open and unmerged.
+  - **All 13 Chromium Mock User browser tests** (25.3 seconds).
+- Latest implementation branch head: `8db21bd42405adc3c37ff9764dbe4cc421b70dbf`.
+- PR #12 remains open against `main` and unmerged.
+- Cloudflare Pages testing deployment for commit `8db21bd` succeeded. Verified branch preview: `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`. Append `?swiftMock=1` to enter isolated Mock User mode.
+- The browser suite is automated Mock User validation, not owner acceptance or a production/live-Supabase test.
 
 ## Data, privacy and legal planning
 
