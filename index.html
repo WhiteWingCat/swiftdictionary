@@ -18226,6 +18226,10 @@
           :"Build English skills through guided explanations, examples and short practice.";
       }
       if (activeWord && backdrop.classList.contains("open")) openWord(activeWord);
+      // The lesson catalogue uses lessonField() for localized titles, topics and summaries.
+      // Re-render its cards when the translation changes; refreshing only the reader
+      // leaves the library in the previous language until the next navigation.
+      if (lessonsPage && !lessonsPage.hidden && !ls.active) renderLessons();
       // Permanent lessons and Daily Learning share this preference, but their
       // readers have independent renderers. Refresh the open permanent lesson
       // directly instead of routing through the Daily Learning page state.
@@ -19669,6 +19673,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     function learningIntroMaybeShow(page){
       if(learningIntroDismissed.has(page)){if(learningIntroCurrentPage===page)learningIntroClose();return;}
+      const backdrop=quizEl("learningIntroBackdrop");
+      if(!backdrop.hidden&&learningIntroCurrentPage===page)return;
       learningIntroRender(page);
     }
     document.querySelectorAll("[data-learning-help]").forEach(button=>button.addEventListener("click",()=>learningIntroRender(button.dataset.learningHelp)));
@@ -19703,18 +19709,37 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       originalShowPage(page,updateHash);
       if(["lessons","quiz","flashcards"].includes(page)){
         applyLearningCourseAvailability();
+        const pageElement=quizEl(pageIds[page]);
         Promise.resolve(learningIntroPreferencesReady).catch(()=>{}).then(()=>{
-          if(location.hash==="#"+page)learningIntroMaybeShow(page);
-        }).catch(()=>{if(location.hash==="#"+page)learningIntroMaybeShow(page);});
+          if(pageElement&&!pageElement.hidden)learningIntroMaybeShow(page);
+        }).catch(()=>{if(pageElement&&!pageElement.hidden)learningIntroMaybeShow(page);});
       }
     };
     window.addEventListener("swift-auth-updated",async()=>{
       learningIntroPreferencesReady=learningIntroLoadPreferences().catch(error=>{console.warn("Learning introduction preferences could not sync:",error);});
       await learningIntroPreferencesReady;
-      const activePage=(location.hash||"").slice(1);
-      if(["lessons","quiz","flashcards"].includes(activePage))learningIntroMaybeShow(activePage);
+      const activePage=["lessons","quiz","flashcards"].find(page=>!quizEl(pageIds[page]).hidden);
+      if(activePage)learningIntroMaybeShow(activePage);
     });
     let learningIntroPreferencesReady=learningIntroLoadPreferences().catch(error=>{console.warn("Learning introduction preferences could not load:",error);}).then(()=>applyLearningCourseAvailability());
+    // Observe the real page visibility state as a second, route-independent
+    // first-entry trigger. This covers initial hash navigation and any future
+    // navigation path that changes page visibility without calling showPage().
+    if(typeof MutationObserver!=="undefined"){
+      const introPageObserver=new MutationObserver(entries=>{
+        for(const entry of entries){
+          if(entry.target.hidden)continue;
+          const page=entry.target.id==="lessonsPage"?"lessons":entry.target.id==="quizPage"?"quiz":"flashcards";
+          Promise.resolve(learningIntroPreferencesReady).catch(()=>{}).then(()=>{
+            if(!entry.target.hidden)learningIntroMaybeShow(page);
+          });
+        }
+      });
+      ["lessonsPage","quizPage","flashcardsPage"].forEach(id=>{
+        const pageElement=quizEl(id);
+        if(pageElement)introPageObserver.observe(pageElement,{attributes:true,attributeFilter:["hidden"]});
+      });
+    }
     document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
     document.getElementById("courseSelect").addEventListener("change",()=>{
       applyLearningCourseAvailability();
