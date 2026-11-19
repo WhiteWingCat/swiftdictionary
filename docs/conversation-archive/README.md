@@ -78,3 +78,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.5.0 Flashcards polishing stage](2026-11-19-update-2-5-0-polishing-stage.md) — records the first-entry Quiz/Flashcards introduction fix, refreshed bilingual help, Answer now/Next controls, normalized cross-mode question deduplication, 18 new lesson-linked vocabulary entries, two permanent Beginner lessons, catalogue draft updates and automated validation.
 
 - [Update 2.5.0 owner final review fixes and release-readiness gate](2026-11-19-update-2-5-0-final-review-and-release-readiness.md) — records Lessons Chinese title/summary refresh, route-independent first-entry Quiz/Flashcards guides, current CI evidence, Supabase source review and the decision to hold PR #12 pending complete checks and migration approval.
+
+- [Update 2.5.0 staging validation and production release gate](2026-11-19-update-2-5-0-staging-validation-and-production-release-gate.md) — records the final Quiz/Flashcards/2.3.x CI passes, staging migration history and catalogue validation, RLS/grants/advisor review, Cloudflare Pages checks, and the production migration approval gate before merging PR #12.
