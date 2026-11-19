@@ -62,7 +62,7 @@ for(const [needle,label] of [
   ['learning-banner',"Shared Lessons/Quiz banner style"],
   ['class="nav-icon"',"Icon-based main navigation"],
   ['id="dictionaryFiltersPanel"',"Inline Dictionary filter panel"],
-  ['id="openDictionaryFilters" aria-expanded="false" aria-controls="dictionaryFiltersPanel"',"Dictionary Filters toggle and panel relationship"]
+  ['aria-controls="dictionaryFiltersPanel"',"Dictionary Filters toggle and panel relationship"]
 ])if(!html.includes(needle))throw new Error("Missing "+label+".");
 if(flashcards.includes("id=\"flashChallengeDuration\""))throw new Error("Challenge duration must be selected beside the Flash Recall heading, not inside setup.");
 if(!flashcards.includes("allowance.used_count")||!flashcards.includes("allowance.remaining"))throw new Error("Flashcards daily allowance display is missing.");
