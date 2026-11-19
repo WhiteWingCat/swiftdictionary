@@ -3,9 +3,9 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-19 (Update 2.5.0 owner feedback round 4 implemented; static/Mock integration checks and all 13 Chromium Mock User browser tests passed in workflow #44487132337; Cloudflare Pages testing preview deployed successfully for commit `ade355db47efc5664b5b2de35a2aa744e2406c9a`; owner Mock User retest is ready; no production release)  
+> **Last consolidated:** 2026-11-19 (Update 2.5.0 owner review completed; owner reported two remaining defects; fixes committed as `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`; static integration checks passed; CI browser workflow was automatically triggered by the branch push and was still running at archive time; no production release)  
 > **Current baseline:** Update 2.4.2 remains merged to `main` at `65d0a35bab577adc15a0b1911661c222ed625739`; its production deployment and owner-confirmed Dashboard fixes remain as recorded. Updates 2.4.0 (Quiz), 2.4.1 and 2.4.2 are completed and released. The live Quiz contains 199 selectable English-learning questions with Simplified Chinese integration; Free Quiz allowance is 1/day and proposed Premium allowance is 3/day.  
-> **Current work:** Update 2.5.0 — Flashcards remains in active implementation on `feature/update-2-5-0-flashcards`, latest commit `ade355db47efc5664b5b2de35a2aa744e2406c9a`, PR #12 open against `main` and unmerged. The implementation includes four Flash Recall modes, 60/120-second challenges, collections, account-scoped progress and Weak Memory review. Round-4 Dictionary filter, Flashcards help-button, result-summary and Lessons translation refinements are complete. GitHub Actions workflow #44487132337 passed static syntax, page integration, Mock RPC/regression tests and all 13 Chromium Mock User browser tests. Cloudflare Pages testing deployment succeeded for commit `ade355d`; the branch preview is `https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev`. Owner manual Mock User retesting is ready. Production `main` and production Supabase remain unchanged; no production migration or deployment has occurred. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before public friend onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
+> **Current work:** Update 2.5.0 — Flashcards remains in active implementation on `feature/update-2-5-0-flashcards`, latest commit `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`, PR #12 open against `main` and unmerged. The owner completed preview testing and reported two remaining issues: lesson-library titles/descriptions did not refresh into Chinese, and Quiz/Flashcards first-entry introductions still failed to appear. Both fixes are committed: `refreshTranslationViews()` now re-renders the lesson library when its page is visible, and first-entry guide triggering now checks actual page visibility with a MutationObserver fallback while retaining stored dismissals. The lesson catalogue audit found 17 permanent lesson IDs with Chinese title and summary metadata. Static syntax/page-integration checks passed in workflow #44496878670; the 25-test mock account/allowance/collection/timer suite also passed. The push automatically triggered repository CI including Chromium Mock User tests; that browser job and the companion local Supabase/Quiz runtime jobs were still in progress at the latest check. No additional owner Mock User test was requested. Release-readiness review is in progress; merge is on hold pending complete CI evidence and explicit approval. Production `main`, production Supabase and staging Supabase remain unchanged; no production deployment or migration has occurred. The two new permanent lesson IDs still require the approved content-catalogue migration before live completion is enabled. Human bilingual accuracy review of the 199 Quiz questions remains deferred, not waived. Before wider public onboarding, provide a clear test/privacy notice and complete the outstanding Malaysia PDPA and applicable international/16+ privacy review.  
 > **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10 and Update 2.4.2 PR #11 are merged. Update 2.5.0 PR #12 remains open/unmerged. No production Supabase migration, production data operation or production deployment was performed for this 2.5.0 work.
 
 ---
@@ -2541,3 +2541,48 @@ The owner approved moving into polishing and supplied two final feedback items: 
 - Polishing implementation and automated Flashcards validation are complete. Owner's final Mock User review is the remaining acceptance gate before release-readiness review.
 - Do not merge PR #12 or apply staging/production migrations without explicit owner approval.
 - Recovery branch: `feature/update-2-5-0-flashcards`. Keep development documentation on `docs/master-development-record`.
+
+
+
+## Update 2.5.0 — owner final review fixes and release-readiness gate (2026-11-19)
+
+The owner completed the latest testing preview review and requested two final fixes. The owner explicitly said no additional Mock User testing was needed, and asked for the fixes to be combined with release-readiness review and a merge decision.
+
+### Owner feedback and implementation
+
+1. **Lessons Chinese titles and descriptions:** The permanent lesson catalogue already contained Simplified Chinese metadata for all 17 permanent lesson IDs (audit: no missing title or summary entries). The defect was in the translation refresh path: it refreshed the active lesson reader but did not re-render the lesson-library cards. `refreshTranslationViews()` now calls `renderLessons()` when the Lessons page is visible and no lesson reader is active, so localized topics, titles and summaries update immediately when the translation language changes.
+2. **Quiz/Flashcards first-entry introductions:** The previous navigation wrapper depended on `location.hash` matching the requested page, which could miss a first-entry guide when navigation and page visibility were out of sync. The wrapper now checks the actual target page's visibility, the auth-refresh path identifies the visible learning page, and a `MutationObserver` watches visibility changes on Lessons, Quiz and Flashcards as a route-independent fallback. The guide helper also avoids rendering the same guide twice while it is already open. Existing per-user/guest dismissal preferences remain respected; closing a guide is not treated as dismissal.
+
+### Implementation checkpoint
+
+- Branch: `feature/update-2-5-0-flashcards`
+- Commit: `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`
+- Changed file: `index.html`
+- PR: [#12](https://github.com/WhiteWingCat/swiftdictionary/pull/12), still open, unmerged, targeting `main`.
+- No schema, RPC, personal-data category, processor, analytics event, raw-answer telemetry or retention behaviour was added by these two UI fixes.
+
+### Validation and CI status
+
+- Workflow **#44496878670** — Flashcards checks: static JavaScript syntax and page-integration checker passed; Mock account/allowance/collection/timer regression tests passed (25/25). Its Chromium Mock User browser job was automatically triggered by the branch push and was still in progress at the latest status check. The owner did not request another manual Mock User test cycle. The commit push triggered the repository's existing workflow; no separate browser-test run was manually launched.
+- Workflow **#44496878607** — Quiz database foundation: PostgreSQL foundation job passed. Local Supabase Auth/Quiz runtime integration was still running at the latest check. The preceding run had failed because its authenticated browser fixture did not seed three distinct topics for an Advanced Quiz, producing the explicit message `Quiz requires at least three distinct topics`; this is a test-fixture/content-coverage failure, not evidence of a migration failure. The latest rerun must finish before this CI gate can be marked green.
+- Workflow **#44496878563** — 2.3.x allowance/dashboard regression: PostgreSQL 17 migration, policy, allowance-ledger, history-deletion and concurrency checks passed. Browser smoke and local Supabase Auth compatibility jobs were still running at the latest check.
+- The already-completed prior Flashcards run **#44492546210** passed 25/25 mock account tests and 14/14 Chromium Mock User browser tests; prior 2.3.x workflow **#44492546332** passed all jobs. Those results predate commit `71d8246` and are not a substitute for the current in-progress run.
+- No additional owner-run browser test was performed or requested. The existing automated push workflow may include browser tests; its in-progress status is recorded rather than represented as passed.
+
+### Release-readiness and merge decision
+
+- PR #12 currently reports `open`, `mergeable=true`, 171 commits and 24 changed files. GitHub's mergeable flag is not itself a release approval.
+- **Decision: HOLD merge for now.** The current commit's full CI evidence was incomplete at the review checkpoint, and the companion Quiz runtime workflow had a prior fixture failure that must be distinguished from application defects. Reassess after all current required checks complete.
+- The two new permanent lesson IDs are in frontend content and the approved-catalogue migration draft, but the catalogue migration has not been applied to staging or production. Live lesson completion remains gated on explicit owner approval and application of the appropriate migration. The current PR includes Flashcards database migrations; those require ordered staging validation and owner-approved rollout before production use.
+- Database review found Flashcards tables in the non-exposed `private` schema with RLS enabled and no direct browser-role table grants; RPC implementations derive ownership from `auth.uid()`, use an empty `search_path`, and expose narrow authenticated wrappers. The mode-specific review table is RLS-enabled with no direct API policies/grants. Existing CI SQL tests cover allowance enforcement, ownership, deletion and session lifecycle. This source review is not a substitute for the pending Supabase security-advisor result or live staging verification.
+- Supabase's current CLI v3 breaking-change notice (2026-11-04) changes hosted/local command targeting and confirmation behaviour. The current CI workflow still uses Supabase CLI v2.81.3, so this does not directly block this PR, but CLI v3 must not be adopted without updating deployment scripts and checking explicit `--remote`/confirmation behaviour.
+- No PR merge, production deployment, staging migration, production migration or production data operation has occurred. Merge/deployment/migration remain separate owner-approval gates.
+
+### Legal and privacy planning
+
+- The final fixes only affect page rendering and first-entry guide presentation. No new personal data is collected or transmitted, and existing account-scoped guide-dismissal preferences remain unchanged.
+- Existing Flashcards history and deletion controls remain in scope for the previously reviewed feature. Continue the standing Malaysia PDPA and applicable international/16+ privacy review before wider public/commercial expansion; this is planning, not legal advice or a compliance certification.
+
+### Recovery
+
+Continue from `feature/update-2-5-0-flashcards` at `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`. Keep all internal development records on `docs/master-development-record`. PR #12 remains open and unmerged.
