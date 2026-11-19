@@ -106,7 +106,12 @@
       .flash-overlay-root .flash-modal label{display:grid;gap:7px;margin:14px 0;color:#c8d0df}
       .flash-overlay-root .flash-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
       #flashcardsPage .flash-game{width:min(900px,100%);max-width:900px}
-      #flashcardsPage .flash-round-gauge{height:14px;background:#30394a;border-radius:99px;overflow:hidden;margin:16px 0;display:flex}
+      #flashcardsPage .flash-gauge-row{display:flex;align-items:center;gap:12px;margin:16px 0}
+      #flashcardsPage .flash-round-gauge{height:14px;background:#30394a;border-radius:99px;overflow:hidden;margin:0;display:flex;flex:1;min-width:0}
+      #flashcardsPage .flash-phase-action{flex:0 0 auto;min-width:112px;min-height:40px;border:1px solid #91b4f5;border-radius:999px;padding:8px 15px;background:linear-gradient(145deg,#4f70ad,#304c80);color:#fff;font-weight:800;box-shadow:0 3px 0 #182d51,0 6px 12px #0004}
+      #flashcardsPage .flash-phase-action[hidden]{display:none!important}
+      #flashcardsPage .flash-phase-action:focus-visible{outline:3px solid #d5e3ff;outline-offset:3px}
+      @media(max-width:420px){#flashcardsPage .flash-gauge-row{gap:8px}#flashcardsPage .flash-phase-action{min-width:92px;padding:8px 10px;font-size:.88rem}}
       #flashcardsPage .flash-round-gauge span{height:100%;transition:width .08s linear}
       #flashcardsPage .flash-round-gauge .memory{background:linear-gradient(90deg,#ffe27b,#f5c344)}
       #flashcardsPage .flash-round-gauge .answer{background:linear-gradient(90deg,#ffae55,#f17b36)}
@@ -296,7 +301,7 @@
       
       <div class="flash-memory" id="flashMemory">${escapeHtml(round?.memory||uiText("Get ready","准备开始"))}</div>${translationHint}
       <div id="flashMemoryOverlay" class="flash-memory-overlay" ${state.phase==="answer"?"":"hidden"}>${uiText("Pick your answers","请选择答案")}</div>
-      <div class="flash-round-gauge"><span class="memory" id="flashMemoryGauge" style="width:100%"></span><span class="answer" id="flashAnswerGauge" style="width:0%"></span></div>
+      <div class="flash-gauge-row"><div class="flash-round-gauge"><span class="memory" id="flashMemoryGauge" style="width:100%"></span><span class="answer" id="flashAnswerGauge" style="width:0%"></span></div><button type="button" id="flashPhaseAction" class="flash-phase-action" data-action="phase-action">${uiText("Answer now","立即作答")}</button></div>
       <p id="flashQuestion" class="flash-game-status">${state.phase==="answer"?escapeHtml(round?.prompt||""):uiText("Memorise the card","请记住卡片内容")}</p>
       <div class="flash-options" id="flashOptions">${(round?.options||["","","",""]).map((o,i)=>`<button class="flash-option ${state.phase==="memory"?"is-hidden":""}" data-action="answer" data-index="${i}" ${state.phase!=="answer"?"disabled":""}>${state.phase==="memory"?uiText("Hidden answer","隐藏答案"):escapeHtml(o)}</button>`).join("")}</div>
       <p id="flashPhaseLabel" class="flash-game-status">${state.phase==="memory"?uiText("Memorise the card","请记住卡片内容"):state.phase==="answer"?uiText("Pick your answers","请选择答案"):uiText("Round feedback","本轮反馈")}</p>
@@ -332,14 +337,16 @@
     state.roundRecorded=false;state.phase="memory";state.phaseStartedAt=Date.now();state.phaseDuration=state.memory*1000;
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}
     if(overlay)overlay.hidden=true;if(label)label.textContent=uiText("Memorise the card","请记住卡片内容");
+    const phaseAction=$("#flashPhaseAction");if(phaseAction){phaseAction.hidden=false;phaseAction.disabled=false;phaseAction.textContent=uiText("Answer now","立即作答");}
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option is-hidden" data-action="answer" data-index="${i}" disabled>Hidden answer</button>`).join("");
     if(question)question.textContent=state.round.prompt;
     state.phaseTimer=setTimeout(showAnswers,state.phaseDuration);
   }
   function showAnswers(){
-    if(!state.game)return;if(Date.now()-state.game.startedAt>=(state.game.durationSeconds||state.duration||60)*1000){finishGame();return;}
+    if(!state.game)return;clearTimeout(state.phaseTimer);state.phaseTimer=null;if(Date.now()-state.game.startedAt>=(state.game.durationSeconds||state.duration||60)*1000){finishGame();return;}
     state.phase="answer";state.phaseStartedAt=Date.now();state.phaseDuration=state.answer*1000;
     const memory=$("#flashMemory"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion"),overlay=$("#flashMemoryOverlay");
+    const phaseAction=$("#flashPhaseAction");if(phaseAction){phaseAction.hidden=true;phaseAction.disabled=true;}
     if(memory)memory.classList.add("is-blurred");if(overlay)overlay.hidden=false;
     if(label)label.textContent=uiText("Pick your answers","请选择答案");if(overlay)overlay.textContent=uiText("Pick your answers","请选择答案");if(question)question.textContent=state.round.prompt;
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option" data-action="answer" data-index="${i}">${escapeHtml(o)}</button>`).join("");
@@ -352,6 +359,7 @@
     state.memory=Math.max(limits.memoryFloor,Number((state.memory-REDUCTION_STEP).toFixed(2)));
     state.answer=Math.max(limits.answerFloor,Number((state.answer-REDUCTION_STEP).toFixed(2)));
     state.phase="feedback";state.phaseStartedAt=Date.now();state.phaseDuration=3000;
+    const phaseAction=$("#flashPhaseAction");if(phaseAction){phaseAction.hidden=false;phaseAction.disabled=false;phaseAction.textContent=uiText("Next","下一题");}
     const memory=$("#flashMemory"),overlay=$("#flashMemoryOverlay"),label=$("#flashPhaseLabel"),options=$("#flashOptions"),question=$("#flashQuestion");
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}if(overlay)overlay.hidden=true;
     if(label)label.textContent=unanswered?uiText("Time expired","答题时间已结束"):correct?uiText("Correct!","回答正确！"):uiText("Not quite","再试一次");
@@ -473,6 +481,10 @@
       if(action==="select-collection"){state.collectionId=value;render();return;}
       if(action==="start-game"){await startGame();return;}
       if(action==="answer"){state.selectedAnswerIndex=Number(button.dataset.index);recordAnswer(state.round.options[state.selectedAnswerIndex]===state.round.correct,false);return;}
+      if(action==="phase-action"){
+        if(state.phase==="memory"){showAnswers();return;}
+        if(state.phase==="feedback"){clearTimeout(state.phaseTimer);state.phaseTimer=null;showMemory();return;}
+      }
       if(action==="leave-game"){
         if(!state.game)return;
         clearTimers();const id=state.game.id;state.game=null;state.finishing=true;render();
