@@ -33,7 +33,7 @@ This is an internal project-control document, not legal advice. Owner decisions 
 - Incident response playbook: created; not yet approved or rehearsed.
 - Staging ACL follow-up: applied and verified in Singapore staging.
 - Production security remediation: pending separate owner approval.
-- Cloudflare staging preview/OAuth: owner dashboard configuration still pending.
+- Cloudflare staging preview/OAuth: owner confirmed preview sign-in works with both test accounts, account data/progress is isolated, and all three expected OAuth scopes are visible. Account-deletion staging validation remains open.
 - Mock User testing: not yet declared ready.
 
 ## Do not close this register until
