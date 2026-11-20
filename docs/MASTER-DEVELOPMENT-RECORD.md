@@ -2572,3 +2572,17 @@ Implementation is on `feature/update-2-6-0-legal-privacy-security`, not `main`.
 5. Keep production unchanged. Production ACL review/remediation, provider/data-flow checks, full DPIA, legal approvals, privacy-contact verification and unpublished legal-document review remain outstanding.
 
 No account was deleted during this implementation. No production data, schema, migration, provider settings, Cloudflare production deployment or legal publication changed.
+
+
+## 31. Update 2.6.0 — Owner feedback: deletion clarity and signed-out Flashcards banner (2026-11-20)
+
+The owner reported confusion between account deletion and learning-history deletion, a browser-native confirmation prompt that could not show the account-deletion checkbox, and a missing Flashcards banner/title for signed-out visitors. The fixes are implemented on `feature/update-2-6-0-legal-privacy-security` only; see the [owner feedback archive](conversation-archive/2026-11-20-update-2-6-0-owner-feedback-ui-fixes.md).
+
+- Preferences now presents a distinct **Delete Account** card immediately before a separately labelled **Learning history** card. The account action permanently deletes the SwiftDictionary account/cloud data; the history action only removes learning records and preserves the account, saved words, Flashcard collections/custom cards, profile and preferences.
+- Learning-history confirmation now uses an in-site accessible dialog rather than `window.confirm()`. It clearly explains the narrower scope and does not clear local saved words.
+- The optional local saved-word checkbox remains exclusively in the **Delete Account** dialog. It is unchecked by default and appears only when signed-out anonymous saved words exist in the current browser; it affects only that anonymous local collection.
+- Signed-out Flashcards visitors now see the Flashcards banner/title and help control above the sign-in prompt.
+- Added static regression assertions in `tests/update-2-6-0/account-deletion-static.test.mjs` for the two distinct deletion actions, in-site confirmation and signed-out Flashcards banner.
+- Implementation files: `account-deletion.js`, `index.html`, `flashcards.js`, and the static regression test.
+- Latest feedback implementation commit: `85965e1f70335b3ac85292d165bbe0584494f181`. GitHub Actions results for this push were not retrievable in the session; do not mark tests as passed until the branch workflow run is checked. No PR, merge or deployment was performed.
+- No schema, migration, provider setting, personal-data category or retention behaviour changed. No account was deleted and production remains untouched. Existing legal/DPIA/provider and synthetic staging validation gates remain open.
