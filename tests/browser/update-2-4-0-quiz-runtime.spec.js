@@ -536,7 +536,8 @@ test("Learning course selector shows a short refresh confirmation", async ({ pag
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
   await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
-  await expect(page.locator("#quizChineseUnavailable h2")).toHaveText("中文测验即将推出");
+  // The learning course is Chinese, but the selected interface/translation language remains English.
+  await expect(page.locator("#quizChineseUnavailable h2")).toHaveText("Chinese Quiz is coming soon");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await selectCourse(page,"en");
   await expect(page.locator("#quizHome")).toBeVisible();
