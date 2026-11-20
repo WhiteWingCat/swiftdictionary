@@ -147,7 +147,10 @@ test("deletion errors remain visible and do not trigger a browser form navigatio
 
 test("account deletion reports confirmed success with a visible five-second toast", () => {
   assert.match(frontend, /Your SwiftDictionary account was successfully deleted/);
-  assert.match(frontend, /showSwiftDictionaryToast\(successMessage, "success", 5000\)/);
+  assert.match(frontend, /window\.dispatchEvent\(new Event\("swift-account-deleted"\)\)/);
+  assert.match(frontend, /window\.setTimeout\(\(\) => \{/);
+  assert.match(frontend, /swiftDictionaryDeletionSuccess/);
+  assert.match(frontend, /window\.setTimeout\(\(\) => toast\.remove\(\), 5000\)/);
 });
 
 test("Lessons, Quiz and Flashcards show a five-second toast only after successful exhaustion", () => {
