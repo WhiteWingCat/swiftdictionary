@@ -1,4 +1,4 @@
-import { decodeJwtPayload, hasRecentAuthTime, isAllowedOrigin, MAX_AUTH_AGE_SECONDS } from "./security.ts";
+import { decodeJwtPayload, hasRecentAuthentication, isAllowedOrigin, MAX_AUTH_AGE_SECONDS } from "./security.ts";
 
 function assert(condition: boolean, message: string) {
   if (!condition) throw new Error(message);
@@ -12,9 +12,12 @@ function tokenWithPayload(payload: Record<string, unknown>): string {
   return `header.${encoded}.signature`;
 }
 
-Deno.test("decodes a JWT auth_time claim", () => {
-  const payload = decodeJwtPayload(tokenWithPayload({ sub: "synthetic-user", auth_time: 1700000000 }));
-  assert(payload?.auth_time === 1700000000, "auth_time should be decoded");
+Deno.test("decodes a JWT AMR claim with its authentication timestamp", () => {
+  const payload = decodeJwtPayload(tokenWithPayload({
+    sub: "synthetic-user",
+    amr: [{ method: "oauth", timestamp: 1700000000 }],
+  }));
+  assert(Array.isArray(payload?.amr), "AMR should be decoded");
 });
 
 Deno.test("rejects malformed and missing JWT payloads", () => {
@@ -22,14 +25,16 @@ Deno.test("rejects malformed and missing JWT payloads", () => {
   assert(decodeJwtPayload("missing-payload") === null, "missing payload must fail closed");
 });
 
-Deno.test("accepts only authentication within the 15-minute window", () => {
+Deno.test("accepts only interactive authentication within the 15-minute window", () => {
   const now = 1700001000;
-  assert(hasRecentAuthTime({ auth_time: now - 899 }, now), "899-second-old auth should pass");
-  assert(hasRecentAuthTime({ auth_time: now }, now), "current auth should pass");
-  assert(!hasRecentAuthTime({ auth_time: now - 901 }, now), "stale auth should fail");
-  assert(!hasRecentAuthTime({ auth_time: 0 }, now), "zero auth_time should fail");
-  assert(!hasRecentAuthTime({ auth_time: now + 61 }, now), "future auth_time should fail");
-  assert(!hasRecentAuthTime(null, now), "missing auth payload should fail");
+  assert(hasRecentAuthentication({ amr: [{ method: "oauth", timestamp: now - 899 }] }, now), "899-second-old OAuth should pass");
+  assert(hasRecentAuthentication({ amr: [{ method: "oauth", timestamp: now }] }, now), "current OAuth should pass");
+  assert(!hasRecentAuthentication({ amr: [{ method: "oauth", timestamp: now - 901 }] }, now), "stale OAuth should fail");
+  assert(!hasRecentAuthentication({ amr: [{ method: "token_refresh", timestamp: now }] }, now), "token refresh must not count as fresh authentication");
+  assert(!hasRecentAuthentication({ amr: [{ method: "oauth", timestamp: now + 61 }] }, now), "future timestamp should fail");
+  assert(!hasRecentAuthentication({ amr: [] }, now), "empty AMR should fail");
+  assert(!hasRecentAuthentication({ auth_time: now }, now), "OIDC auth_time alone should fail closed");
+  assert(!hasRecentAuthentication(null, now), "missing payload should fail");
   assert(MAX_AUTH_AGE_SECONDS === 900, "max age should remain 15 minutes");
 });
 
