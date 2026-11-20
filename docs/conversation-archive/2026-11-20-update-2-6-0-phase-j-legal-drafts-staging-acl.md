@@ -87,3 +87,13 @@ Production Supabase remains untouched. No production SQL, OAuth, Cloudflare sett
 5. Implement account deletion securely and test history/account deletion semantics.
 6. Revise the working Privacy Notice and Terms based on decisions; add footer links and versioned acceptance only after approval.
 7. Only then prepare Mock User testing. Keep production untouched until separately approved.
+
+
+## 8. Additional governance drafts
+
+Two more internal documents were created:
+
+- `docs/reference/DPIA-SCREENING-DRAFT-2026-11-20.md` — preliminary screening of quantitative and qualitative risk factors. It recommends completing a full DPIA before broader public onboarding as a precaution, while not claiming that the statutory threshold has been conclusively met.
+- `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — incident detection, containment, provider escalation, notification assessment, user communications, evidence preservation and recovery.
+
+Both remain drafts. An incident owner, provider escalation contacts and a restricted incident register still need to be assigned and verified.
