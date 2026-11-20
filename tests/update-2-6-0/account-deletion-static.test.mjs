@@ -98,7 +98,7 @@ test("Lessons are gated behind sign-in and expose a dedicated sign-in panel", ()
   assert.ok(index.includes('id="lessonsSignedOut"'));
   assert.ok(index.includes('id="lessonsSignIn"'));
   assert.match(index, /learning-signed-out #dailyLearningPage/);
-  assert.match(index, /lessonsSignedOut\.hidden=lessonsSignedIn/);
+  assert.match(index, /lessonsSignedOut"\)\.hidden=lessonsSignedIn/);
   assert.match(index, /lessonsSignIn.*menuSignIn/);
 });
 
