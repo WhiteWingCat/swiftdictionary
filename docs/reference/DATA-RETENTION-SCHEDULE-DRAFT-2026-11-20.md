@@ -110,3 +110,47 @@ Sources:
 7. Only then propose operator-controlled retention periods for application records. Provider-controlled logs/backups must be described separately and accurately.
 
 **No retention setting was changed during this review. No fixed numeric retention period is approved by this evidence snapshot.**
+
+
+## Owner dashboard inspection — production and staging (20 November 2026)
+
+This section records owner-reported observations from the Cloudflare and Supabase dashboards. It is an account-configuration snapshot, not a provider-wide retention guarantee or independent audit. No settings were changed.
+
+### Supabase production
+
+- Project: SwiftDictionary; reference `pzymiesazmpyvnfvsbsc`; Tokyo (`ap-northeast-1`).
+- Owner reports that database backups require the Pro plan to configure. No configurable backup was set up during this inspection. The actual production plan label was not separately confirmed in this dashboard report; do not infer it solely from the backup screen.
+- Google sign-in is enabled.
+- “Skip nonce checks” is disabled.
+- “Allow users without an email” is disabled.
+- Auth log retention was not exposed in the inspected dashboard view. This does not establish that no Auth logs exist or that they are not retained.
+
+### Supabase staging
+
+- Project: SwiftDictionary staging; reference `ivatvkfrtifgfheeaelj`; Singapore (`ap-southeast-1`).
+- Owner confirms the project is on the Free plan.
+- Owner confirms no database backups are configured/available on this plan.
+- No PITR configuration was reported as enabled. Do not claim a recovery window.
+
+### Cloudflare Pages production
+
+- Pages project: `swiftdictionary`.
+- Production is connected to the `main` branch; automatic production branch deployments are enabled.
+- Preview deployments are enabled for all non-production branches.
+- Owner observed 236 deployments at the time of inspection. This is a point-in-time count, not a retention duration.
+- Build command and build output directory are blank. This is recorded as observed; do not infer an error or claim a specific build process from these fields alone.
+- Cloudflare Web Analytics is not configured.
+- An Observability/Logs area is present, but no logs were displayed. This does not prove that Cloudflare has no operational, security, request or platform logs.
+- Turnstile was not found in the inspected dashboard. Record as not found/not confirmed, not as a definitive statement that no Turnstile integration exists anywhere in the account or application.
+- No Logpush section/configuration was found by the owner. Record as not found/not confirmed; do not claim that all Cloudflare logging is disabled.
+
+### Retention and privacy implications
+
+- No configurable Supabase database backup/PITR recovery period is confirmed for either project from this inspection. Do not publish a numeric backup-retention promise or imply that account deletion immediately removes backup copies.
+- Cloudflare Pages deployment count and published deployment-version retention are separate from visitor request-log and build-log retention.
+- Web Analytics being unconfigured does not establish zero collection by the hosting provider or other infrastructure.
+- The existence of a Logs interface without displayed records does not establish absence of logging or retention.
+- Continue to treat Supabase Auth log retention, Cloudflare operational/request/build log retention, and account-specific provider retention as unverified until provider documentation or account-specific evidence establishes them.
+- No numeric application-data retention periods are approved by this inspection.
+
+**Evidence type:** Owner-reported dashboard observations, 20 November 2026. No provider settings, deployments, database contents, user records or logs were modified or inspected beyond the observations explicitly reported above.
