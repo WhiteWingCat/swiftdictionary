@@ -157,6 +157,7 @@ test("Lessons, Quiz and Flashcards show a five-second toast only after successfu
   assert.match(dailyLearning, /complete_my_flashcard_game: "flashcard"/);
   assert.match(dailyLearning, /allowance\.remaining !== 0/);
   assert.match(dailyLearning, /showSwiftDictionaryToast\(message, "warning", 5000\)/);
-  assert.match(dailyLearning, /return request\.then\(result => \{/);
+  assert.match(dailyLearning, /request\.then = function swiftAllowanceAwareThen/);
+  assert.match(dailyLearning, /const originalThen = request\.then\.bind\(request\)/);
   assert.match(dailyLearning, /if \(!result\?\.error\) \{/);
 });
