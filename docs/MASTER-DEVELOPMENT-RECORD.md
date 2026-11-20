@@ -2744,3 +2744,5 @@ A follow-up read-only staging query verified the preserved DML/RLS matrix after 
 Final migration-path CI check: after aligning the repository migration filename with staging history version `20261120023718`, GitHub Actions run [#44662308530](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44662308530) passed with the exact committed file, local Supabase ACL assertions and authenticated Quiz/RPC/Chromium regression. The Cloudflare build-routing guard also passed on the same commit lineage.
 
 The legal release gate is consolidated in `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md` (16 open owner/legal decisions). The register must be resolved before public legal-document release and before Mock User testing is declared ready.
+
+A proposed legal-document acceptance and age-gate design is at `docs/reference/LEGAL-DOCUMENT-ACCEPTANCE-AND-AGE-GATE-DESIGN.md`. It is design-only; it does not implement an age gate, parental consent, Terms acceptance or Privacy Notice acknowledgement. The design requires legal resolution of the Regulation 3(3) issue before implementation.
