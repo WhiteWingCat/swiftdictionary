@@ -6,7 +6,6 @@
 
   const ANONYMOUS_SAVED_KEY = "swiftdictionary-anonymous-saved";
   const LEGACY_SAVED_KEY = "swiftdictionary-saved";
-  const MAX_AUTH_AGE_SECONDS = 15 * 60;
 
   function readAnonymousEntries() {
     try {
@@ -38,22 +37,6 @@
     entries.forEach((entry) => saved.add(savedKey(entry.course, entry.word)));
     if (typeof activeWord !== "undefined" && activeWord) updateSaveButton();
     render();
-  }
-
-  function currentAuthAgeSeconds() {
-    try {
-      const session = supabaseClient?.auth ? null : null;
-      void session;
-      const raw = localStorage.getItem("sb-" + new URL(window.SWIFT_SUPABASE_CONFIG.url).hostname.split(".")[0] + "-auth-token");
-      if (!raw) return Infinity;
-      const parsed = JSON.parse(raw);
-      const token = parsed?.access_token;
-      if (!token) return Infinity;
-      const payload = JSON.parse(atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
-      return Math.floor(Date.now() / 1000) - Number(payload.auth_time || 0);
-    } catch {
-      return Infinity;
-    }
   }
 
   function addStyles() {
