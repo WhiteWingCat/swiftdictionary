@@ -2748,3 +2748,20 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and
 - Formal legal/privacy review remains deferred at the owner's request, not completed or waived. The Terms page remains a non-binding unpublished placeholder. No production deployment or Tokyo production changes were made.
 
 Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
+
+
+### 36.2. Browser regression alignment (2026-11-20)
+
+- General Chromium smoke run on commit `9660345` reported 37 passed and 4 failed.
+- Two failures were stale signed-out Lessons expectations. The established U2.6.0 decision is to show a Lessons sign-in panel and hide Daily Learning, lesson library, difficulty tabs and lesson details until sign-in. Application gating was preserved; the tests were updated to verify it.
+- One failure expected the old `Privacy and data` heading. The test now verifies the separate `Delete Account` and `Learning history` controls in Preferences.
+- One account-switching failure came from the minimal test-only Supabase auth mock having no `tables` fixture. The mock now seeds profile/preferences rows for initial and switched accounts and provides an empty saved-words table.
+- Test update commit: `bf93bf925c489433f4cfde0add3748d992f25dd2`.
+- Latest Pages preview deployed successfully: `https://d4db4cd1.swiftdictionary.pages.dev`.
+- PostgreSQL 17 migration/allowance tests passed; Quiz database foundation passed; Flashcards static/mock and Chromium browser tests passed; Cloudflare build-routing guard passed.
+- The general Chromium smoke suite and full local Supabase/Auth/RPC integration were rerun for `bf93bf9`; results were pending at this record update.
+- Cloudflare Worker build check `Workers Builds: swiftdictionary-testing` failed again on `bf93bf9`; Cloudflare Pages deployment succeeded. No Wrangler configuration or Worker entrypoint exists in the repository; owner confirmation is required before disconnecting or ignoring that external service.
+- Draft PR #13 remains open, draft and unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/13.
+- Formal legal/privacy review remains deferred at the owner's request, not completed or waived. Terms publication remains deferred. Tokyo production remains untouched.
+
+Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
