@@ -2713,3 +2713,23 @@ No production database, Cloudflare, Google OAuth or deployment changes were made
 
 
 Phase I follow-up validation update (20 November 2026): the draft ACL SQL and assertion test were executed successfully in disposable local Supabase CI, with the full authenticated Quiz RPC, content, Chromium runtime and local security-advisor jobs passing in [run #44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925). The hosted staging database remains unchanged. A subsequent CI run is using the Supabase CLI to produce the timestamped migration filename before it is committed.
+
+
+## Update 2.6.0 legal/privacy and staging ACL checkpoint — 20 November 2026
+
+The second staging ACL migration was applied to Singapore staging only and verified:
+
+- Migration history version: `20261120023718_update_2_6_0_remove_residual_api_privileges`.
+- It removes unnecessary TRUNCATE/REFERENCES/TRIGGER/MAINTAIN grants from eight reviewed legacy tables for anon/authenticated, and anonymous UPDATE on three sequences.
+- Existing DML/RLS access was preserved; the hosted staging assertion test passed; the post-migration effective ACL query returned no targeted residual grants.
+- Security Advisor after the migration reports eight intentional private-schema RLS/no-policy INFO findings, two reviewed authenticated SECURITY DEFINER RPC WARN findings, no health lints, and separate performance suggestions. See the full 2.6.0 legal/security plan for details.
+- Production remains untouched.
+
+Legal-document drafting has begun but is not complete. New internal working drafts are:
+- `docs/reference/PRIVACY-NOTICE-DRAFT-2026-11-20.md` (Bahasa Malaysia + English)
+- `docs/reference/TERMS-OF-USE-DRAFT-2026-11-20.md`
+- `docs/reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md`
+
+The historical `docs/reference/PRIVACY-POLICY-DRAFT.md` is marked superseded and must not be published. The new documents are not approved for publication. Outstanding legal/owner decisions include Act 709 applicability, processing basis, Regulation 3(3) for users aged 16–17, controller identity/contact route, DPO/DPIA screening, cross-border assessment, verified provider contracts/subprocessors, numeric retention periods, account deletion, and final legal review. Do not publish legal links or add acceptance UI until those are resolved and reviewed.
+
+Current official Malaysian sources were rechecked: the 2026 Act 709 reprint, Personal Data Protection Regulations 2013, and JPDP guidance for DPO, cross-border transfers, breach notification and DPIA. The current Act 709 Section 7 notice language requirement and the Regulation 3(3) under-18 consent issue are reflected in the new bilingual notice draft.
