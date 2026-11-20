@@ -97,3 +97,8 @@ Two more internal documents were created:
 - `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — incident detection, containment, provider escalation, notification assessment, user communications, evidence preservation and recovery.
 
 Both remain drafts. An incident owner, provider escalation contacts and a restricted incident register still need to be assigned and verified.
+
+
+## 9. Additional Malaysia contract-law scope
+
+The Terms working draft was expanded to flag review under the Electronic Commerce Act 2006 (Act 658), including clear electronic acceptance and version/timestamp records, and the Consumer Protection Act 1999 (Act 599), including scrutiny of standard-form unfair terms and non-excludable rights. Copyright Act 1987 and the provenance/licensing of dictionary content and third-party assets also remain in scope. Applicability to the actual free service must be determined by counsel.
