@@ -661,3 +661,8 @@ Additional internal governance drafts created in Phase J:
 - `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — incident containment, provider escalation, notification assessment, evidence preservation, user communications and recovery checklist.
 
 These are internal drafts, not approved procedures. Assign an incident owner, confirm provider contacts, approve the request/incident register and review current JPDP notification criteria before relying on the playbook.
+
+
+#### Additional Terms review scope
+
+The Terms working draft now includes explicit counsel-review points for the Electronic Commerce Act 2006 (Act 658), including a clear versioned electronic acceptance record, and the Consumer Protection Act 1999 (Act 599), including scrutiny of standard-form unfair terms and non-excludable rights. Copyright Act 1987 and the licences/provenance of dictionary content, translations, Hanzi Writer and stroke-order assets also remain in scope. This is an issue list, not a finding that every statute applies to every aspect of the current free service.
