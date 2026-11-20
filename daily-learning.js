@@ -1204,7 +1204,7 @@
       const [usage, entitlement, pref, testAccess] = await Promise.all([
         originalRpc("get_my_learning_allowance_usage"),
         supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id", userId).maybeSingle(),
-        supabaseClient.from("user_preferences").select("timezone,allowance_timezone,allowance_timezone_until").eq("user_id", currentUser.id).maybeSingle(),
+        supabaseClient.from("user_preferences").select("timezone,allowance_timezone,allowance_timezone_until").eq("user_id", userId).maybeSingle(),
         activityType === "lesson" ? originalRpc("is_personal_learning_test_access") : Promise.resolve({data:false,error:null})
       ]);
       if (usage.error || entitlement.error || pref.error || testAccess.error || (activityType === "lesson" && testAccess.data === true)) return null;
