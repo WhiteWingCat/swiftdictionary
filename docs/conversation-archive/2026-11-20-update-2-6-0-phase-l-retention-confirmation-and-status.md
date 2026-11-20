@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Continue the read-only owner dashboard inspection and consolidate provider-retention evidence, then identify the remaining Update 2.6.0 work. This archive records only general configuration and product findings. It intentionally excludes any client-specific network identifier or other identifying value from the supplied screenshot.
+Continue the read-only owner dashboard inspection and consolidate provider-retention evidence, then identify the remaining Update 2.6.0 work. This archive records only general configuration and product findings.
 
 ## Owner confirmations
 
@@ -83,7 +83,6 @@ The Privacy Notice and Terms remain internal drafts. No numeric application-data
 - Documentation-only updates on `docs/master-development-record`.
 - Updated Phase L archive, Data Retention Schedule, Master Development Record and archive index.
 - No source code, migrations, database schema/data, provider settings, Cloudflare deployments, production configuration or legal publication changed.
-- No client-specific network identifier from the supplied screenshot is included in this archive.
 
 ## Recovery point
 
