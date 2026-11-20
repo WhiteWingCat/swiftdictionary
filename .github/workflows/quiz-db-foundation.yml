@@ -117,10 +117,9 @@ jobs:
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_least_privilege.sql"
-          # Apply the unnumbered Phase I draft only inside this disposable CI
-          # database to validate syntax and its narrowly scoped ACL assertions.
-          # Replace this draft invocation with the generated migration once the
-          # Supabase CLI is available for the permanent migration workflow.
+          # Validate the reviewed SQL draft only inside this disposable CI
+          # database. The Supabase CLI below generates the permanent timestamped
+          # migration filename; this temporary workspace is never hosted staging/prod.
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/docs/UPDATE-2.6.0-STAGING-ACL-FOLLOW-UP-DRAFT.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_staging_acl_followup.sql"
           # Use the installed Supabase CLI to generate the permanent migration
