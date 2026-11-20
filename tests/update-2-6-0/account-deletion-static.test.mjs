@@ -31,7 +31,7 @@ test("account deletion derives its target from a verified user session", () => {
   assert.match(edge, /adminClient\.auth\.admin\.signOut\(accessToken, "global"\)/);
   assert.match(edge, /adminClient\.auth\.admin\.deleteUser\(user\.id, false\)/);
   assert.match(edge, /getUserById\(user\.id\)/);
-  assert.match(edge, /hasRecentAuthTime\(payload, nowSeconds, MAX_AUTH_AGE_SECONDS\)/);
+  assert.match(edge, /hasRecentAuthentication\(payload, nowSeconds, MAX_AUTH_AGE_SECONDS\)/);
   assert.doesNotMatch(edge, /body\s*as Record<string, unknown>\)\.user_id/);
 });
 
@@ -130,4 +130,13 @@ test("account-deletion dialog stays hidden until explicitly opened", () => {
   assert.match(frontend, /overlay\.hidden = true/);
   assert.match(frontend, /overlay\.hidden = false/);
   assert.match(frontend, /swiftDeleteCancel.*closeDialog/s);
+});
+
+test("deletion errors remain visible and do not trigger a browser form navigation", () => {
+  assert.match(frontend, /confirm\.addEventListener\("click", async \(event\) => \{/);
+  assert.match(frontend, /event\.preventDefault\(\)/);
+  assert.match(frontend, /event\.stopPropagation\(\)/);
+  assert.match(frontend, /response\.status === 401/);
+  assert.match(frontend, /Your account and data have not been deleted/);
+  assert.match(frontend, /overlay\.hidden = false/);
 });
