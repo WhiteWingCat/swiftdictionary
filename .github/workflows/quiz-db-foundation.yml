@@ -125,6 +125,8 @@ jobs:
           # Use the installed Supabase CLI to generate the permanent migration
           # filename. Copy only the already-tested SQL draft into that file;
           # this disposable workspace is not connected to hosted staging/prod.
+          supabase migration --help
+          supabase migration new --help
           supabase migration new update_2_6_0_remove_residual_api_privileges
           migration_file="$(find supabase/migrations -maxdepth 1 -type f -name '*_update_2_6_0_remove_residual_api_privileges.sql' -print -quit)"
           test -n "$migration_file"
