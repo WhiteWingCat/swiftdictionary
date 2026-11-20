@@ -21,7 +21,7 @@ for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
 new vm.Script(flashcards,{filename:"flashcards.js"});
 new vm.Script(mock,{filename:"mock-testing.js"});
 if(inlineCount<1)throw new Error("No inline application script was syntax-checked.");
-if(!/<script[^>]+src=["']flashcards\.js["']/.test(html))throw new Error("Flashcards runtime is not loaded by index.html.");
+if(!/<script\b[^>]*\bsrc=["']flashcards\.js(?:\?[^"']*)?["']/i.test(html))throw new Error("Flashcards runtime is not loaded by index.html.");
 if(!/id=["']flashcardsApp["']/.test(html))throw new Error("Flashcards page mount is missing.");
 if(/Flashcards are being prepared|Flashcards will become available/.test(html))throw new Error("Outdated Coming Soon copy remains.");
 for(const mode of ["word","definition","mixed","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
