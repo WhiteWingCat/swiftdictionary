@@ -2746,3 +2746,18 @@ Final migration-path CI check: after aligning the repository migration filename 
 The legal release gate is consolidated in `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md` (16 open owner/legal decisions). The register must be resolved before public legal-document release and before Mock User testing is declared ready.
 
 A proposed legal-document acceptance and age-gate design is at `docs/reference/LEGAL-DOCUMENT-ACCEPTANCE-AND-AGE-GATE-DESIGN.md`. It is design-only; it does not implement an age gate, parental consent, Terms acceptance or Privacy Notice acknowledgement. The design requires legal resolution of the Regulation 3(3) issue before implementation.
+
+
+## 26. Update 2.6.0 — Tuta contact setup and staging account-deletion audit (2026-11-20)
+
+- Owner created a dedicated Tuta Mail contact address and completed most mailbox security/configuration steps. Tuta's first-24-hour sending restriction delays external send/receive verification. Treat the mailbox as configured but unverified; do not publish it as an operational privacy/support route until both directions are tested.
+- The mailbox does not resolve controller/operator legal identity/capacity, Act 709 applicability, the possible personal/household exemption, or any address-disclosure question. Do not expose a private home address merely to fill a draft placeholder.
+- Read-only Supabase inspection confirmed production project `pzymiesazmpyvnfvsbsc` (Tokyo) and staging project `ivatvkfrtifgfheeaelj` (Singapore) were ACTIVE_HEALTHY. All account-deletion schema inspection was against staging.
+- Staging has no deployed Edge Functions and no account-deletion RPC. Existing deletion-related RPCs are only the learning-history wrapper/implementation; keep learning-history deletion separate from account deletion.
+- All 18 application tables with direct user ownership reference `auth.users(id)` using `ON DELETE CASCADE`. Flashcard child cards cascade through collections; Quiz session-question snapshots cascade through their composite session/user FK. Staging has no Storage buckets.
+- Account deletion still requires a dedicated JWT-verified server-side Edge Function, fresh reauthentication, explicit irreversible confirmation, refresh-session revocation, trusted Auth Admin deletion, retry-safe partial-failure handling, post-confirmation client cleanup and validation of already-issued JWT behaviour. No implementation was started.
+- Owner decision still needed: should account deletion also clear device-local signed-out saved words on the current browser/device? This may affect another person on a shared device, so do not assume.
+- Staging advisor snapshot: eight documented INFO notices for private RPC-only RLS tables; two previously documented SECURITY DEFINER WARN findings; no health findings. This is not a penetration test or security certification.
+- No production database, Auth setting, Cloudflare setting, deployment, merge or application source was changed. No user rows or message contents were inspected.
+- Recovery archive: [2026-11-20 Tuta contact and account-deletion audit](conversation-archive/2026-11-20-update-2-6-0-tuta-contact-and-account-deletion-audit.md). Continue provider/retention verification and legal review; do not publish legal drafts or onboard real users until the controlling legal gates are resolved.
+
