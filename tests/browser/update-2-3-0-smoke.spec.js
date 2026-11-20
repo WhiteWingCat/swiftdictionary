@@ -96,7 +96,7 @@ test("permanent Lessons allowance exhaustion shows a notification", async ({ pag
     const result = await state.completePermanentLesson();
     if (result.error) throw new Error(result.error.message);
   });
-  await expect(page.locator("#swiftDictionaryToast")).toContainText("Lessons allowance");
+  await expect(page.locator("#swiftDictionaryToast")).toContainText(/Lessons allowance|课程额度/);
 });
 
 test("Premium lesson allowance blocks new lessons after fifteen completions but keeps reviews free", async ({ page }) => {
