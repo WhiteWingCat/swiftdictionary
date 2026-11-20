@@ -27,7 +27,7 @@ test("account deletion derives its target from a verified user session", () => {
   assert.match(edge, /adminClient\.auth\.admin\.signOut\(accessToken, "global"\)/);
   assert.match(edge, /adminClient\.auth\.admin\.deleteUser\(user\.id, false\)/);
   assert.match(edge, /getUserById\(user\.id\)/);
-  assert.match(edge, /auth_time/);
+  assert.match(edge, /hasRecentAuthTime\(payload, nowSeconds, MAX_AUTH_AGE_SECONDS\)/);
   assert.doesNotMatch(edge, /body\s*as Record<string, unknown>\)\.user_id/);
 });
 
