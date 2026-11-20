@@ -1186,7 +1186,6 @@
 
   async function readExhaustedAllowance(activityType, originalRpc) {
     if (!currentUser || !supabaseClient) return null;
-    const chinese = (() => { try { return translationLanguage === "zh"; } catch { return false; } })();
     if (activityType === "quiz") {
       const { data, error } = await originalRpc("get_my_quiz_availability");
       if (error || !data?.allowance) return null;
