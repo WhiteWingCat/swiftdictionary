@@ -74,7 +74,7 @@ test("signed-out Flashcards visitors still see the page banner and title", () =>
 });
 
 test("account deletion loads after the main app, without an async config-loader race", () => {
-  assert.ok(index.indexOf('<script src="flashcards.js?v=2.6.0-r3"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r3"></script>'));
+  assert.ok(index.indexOf('<script src="flashcards.js?v=2.6.0-r3"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.doesNotMatch(config, /moduleScript\\.async\\s*=\\s*true/);
   assert.doesNotMatch(build, /moduleScript\\.async\\s*=\\s*true/);
   assert.match(build, /Account deletion is loaded explicitly after the main app script/);
@@ -122,7 +122,7 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
 
 test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="flashcards.js?v=2.6.0-r3"></script>'));
-  assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r3"></script>'));
+  assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
 });
 
 test("account-deletion dialog stays hidden until explicitly opened", () => {
