@@ -15,6 +15,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: quiz-db-foundation-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   quiz-local-supabase:
     name: Local Supabase Auth and RPC integration
