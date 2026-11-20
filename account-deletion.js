@@ -221,21 +221,22 @@
         const accountStatusNode = document.getElementById("accountStatus");
         if (accountStatusNode) accountStatusNode.textContent = successMessage;
         if (typeof window !== "undefined") {
-          if (typeof window.showSwiftDictionaryToast === "function") {
-            window.showSwiftDictionaryToast(successMessage, "success", 5000);
-          } else {
+          window.dispatchEvent(new Event("swift-account-deleted"));
+          // Render after sign-out listeners finish refreshing the page shell.
+          window.setTimeout(() => {
+            const previousToast = document.getElementById("swiftDictionaryDeletionSuccess");
+            if (previousToast) previousToast.remove();
             const toast = document.createElement("div");
             toast.id = "swiftDictionaryDeletionSuccess";
             toast.setAttribute("role", "status");
             toast.setAttribute("aria-live", "polite");
+            toast.setAttribute("aria-atomic", "true");
             toast.textContent = successMessage;
-            toast.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:20000;max-width:calc(100vw - 32px);padding:14px 18px;border:1px solid #47785f;border-radius:13px;background:#1d342a;color:#f5f7fb;box-shadow:0 12px 32px #0006;text-align:center";
+            toast.style.cssText = "position:fixed;left:50%;bottom:max(22px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:25000;width:max-content;max-width:calc(100vw - 32px);padding:13px 18px;border:1px solid #47785f;border-radius:13px;background:#1d342a;color:#f5f7fb;box-shadow:0 12px 32px #0006;text-align:center;font-size:.94rem;line-height:1.45;pointer-events:none";
             document.body.appendChild(toast);
             window.setTimeout(() => toast.remove(), 5000);
-          }
-          window.dispatchEvent(new Event("swift-account-deleted"));
-        }
-      } catch (error) {
+          }, 0);
+        }      } catch (error) {
         status.textContent = error?.message || "Account deletion failed. Your account has not been confirmed as deleted.";
         overlay.hidden = false;
       } finally {
