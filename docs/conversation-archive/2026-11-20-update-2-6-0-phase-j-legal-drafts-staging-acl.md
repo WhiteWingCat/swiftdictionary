@@ -102,3 +102,8 @@ Both remain drafts. An incident owner, provider escalation contacts and a restri
 ## 9. Additional Malaysia contract-law scope
 
 The Terms working draft was expanded to flag review under the Electronic Commerce Act 2006 (Act 658), including clear electronic acceptance and version/timestamp records, and the Consumer Protection Act 1999 (Act 599), including scrutiny of standard-form unfair terms and non-excludable rights. Copyright Act 1987 and the provenance/licensing of dictionary content and third-party assets also remain in scope. Applicability to the actual free service must be determined by counsel.
+
+
+## 10. Consolidated legal approval register
+
+Created `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md` with 16 open decisions and evidence gates. It tracks Act 709 scope, operator/contact identity, processing basis, the under-18 consent issue, DPO/DPIA, cross-border transfers, retention, account deletion, privacy requests, Terms enforceability, content licensing, feedback visibility, versioned acceptance and target-market screening. This register is the controlling checklist for legal-document completion and must be resolved before public legal-document release or declaring Mock User testing ready.
