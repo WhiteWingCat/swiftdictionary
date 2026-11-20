@@ -126,6 +126,7 @@ test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
   assert.match(build, /daily-learning\[\.\]js.*2\.6\.0-r1/);
+  assert.match(build, /flashcards\[\.\]js.*2\.6\.0-r4/);
 });
 
 test("account-deletion dialog stays hidden until explicitly opened", () => {
@@ -154,7 +155,8 @@ test("Lessons, Quiz and Flashcards show a five-second toast only after successfu
   assert.match(dailyLearning, /name === "complete_daily_activity_session"/);
   assert.match(dailyLearning, /daily_topic: chinese \? "每日主题" : "Daily Topic"/);
   assert.match(dailyLearning, /submit_my_quiz: "quiz"/);
-  assert.match(dailyLearning, /complete_my_flashcard_game: "flashcard"/);
+  assert.match(flashcards, /notifyFlashcardAllowanceExhausted/);
+  assert.match(flashcards, /showSwiftDictionaryToast\(message, "warning", 5000\)/);
   assert.match(dailyLearning, /allowance\.remaining !== 0/);
   assert.match(dailyLearning, /showSwiftDictionaryToast\(message, "warning", 5000\)/);
   assert.match(dailyLearning, /request\.then = function swiftAllowanceAwareThen/);
