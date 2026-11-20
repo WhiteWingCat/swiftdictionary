@@ -2586,3 +2586,22 @@ The owner reported confusion between account deletion and learning-history delet
 - Implementation files: `account-deletion.js`, `index.html`, `flashcards.js`, and the static regression test.
 - Latest feedback implementation commit: `85965e1f70335b3ac85292d165bbe0584494f181`. GitHub Actions results for this push were not retrievable in the session; do not mark tests as passed until the branch workflow run is checked. No PR, merge or deployment was performed.
 - No schema, migration, provider setting, personal-data category or retention behaviour changed. No account was deleted and production remains untouched. Existing legal/DPIA/provider and synthetic staging validation gates remain open.
+
+
+## 32. Update 2.6.0 — Owner feedback round 2: sign-in, deletion UI and Terms page (2026-11-20)
+
+The owner reported first-attempt Google sign-in failure, missing Delete Account Preferences UI, the learning-history action still displaying a browser-native prompt in the preview, and requested a Terms & Conditions page. See the [round 2 owner-feedback archive](conversation-archive/2026-11-20-update-2-6-0-owner-feedback-round-2-auth-deletion-terms.md).
+
+### Corrective implementation on the feature branch
+
+- **Google sign-in timing:** the sign-in/sign-out and Supabase auth-state listeners are now registered before the first awaited, network-backed account refresh. The first click is therefore not lost while account/profile/learning data is loading. OAuth startup errors are shown, and the sign-in control is protected from duplicate clicks and re-enabled on failure. The initial auth-state notification is ignored in the listener to avoid duplicate concurrent refreshes.
+- **Delete Account rendering:** the root cause found in source ordering was a dynamically injected asynchronous `account-deletion.js` script loaded from `supabase-config.js` before the main inline app script had completed establishing its lexical bindings. This could race module initialisation and prevent the Preferences card from mounting. Removed the dynamic loader from `supabase-config.js` and Cloudflare `build.sh`; `index.html` now loads the module explicitly after the app, Daily Learning and Flashcards scripts.
+- **Learning-history prompt:** current source uses the in-site `confirmLearningHistoryDeletion()` dialog, and the deletion handler does not call native `confirm()`. A preview still showing a browser prompt indicates stale/older preview source or a different event path; a targeted test now inspects the handler itself. Re-test the latest deployed preview before closing this defect.
+- **Checkbox semantics:** the optional local saved-word checkbox is only in the separate Delete Account dialog, unchecked by default and conditional on anonymous saved words existing in the current browser. Learning-history deletion does not clear local saved words or the account.
+- **Terms & Conditions:** added `terms.html` and a footer link. The public page is a noindex publication placeholder only; it explicitly says Terms are not yet published or binding and that no acceptance is collected. The full internal Terms draft remains unpublished pending Malaysian legal review and owner approval.
+
+Files changed: `index.html`, `supabase-config.js`, `build.sh`, `terms.html`, and `tests/update-2-6-0/account-deletion-static.test.mjs`. Latest source commit for the test additions: `375f02ff0afd49c05bcc35bee4ec6ce00b7447b7`. No PR, merge or deployment was performed. Automated checks have not been confirmed: push-run results were unavailable through the current workflow retrieval, and a local clone/test attempt failed because GitHub hostname resolution was unavailable.
+
+### Legal, privacy and release boundary
+
+No new data category, analytics, tracking, processor, schema, migration, retention rule or provider permission was introduced. Terms publication and acceptance remain blocked on existing legal review, including controller identity/capacity, Malaysia PDPA applicability/legal basis, age 16–17 requirements, international transfers, contact route, retention, licensing, liability and dispute wording. Production remains untouched; no account was deleted or real learner data used. All destructive staging checks must use synthetic accounts. No merge or production deployment without explicit owner approval and completion of the existing Update 2.6.0 gates.
