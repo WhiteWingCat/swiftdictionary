@@ -27,7 +27,7 @@ Implementation remains on `feature/update-2-6-0-legal-privacy-security`; no PR, 
   - Registered Google sign-in, sign-out and Supabase auth-state handlers before the first network-backed `refreshAccount()`.
   - Added safe handling for Google sign-in errors and prevents double-clicking while OAuth is starting.
   - Ignores the initial `INITIAL_SESSION` callback in the listener to avoid duplicate concurrent initial profile refreshes.
-  - Loads `account-deletion.js` explicitly after the main application script.
+  - Loads `account-deletion.js?v=2.6.0-r2` explicitly after the main application script, including a cache-busting version query so the preview does not reuse the earlier module.
   - Adds a **Terms & Conditions** link to the main site footer.
   - Retains the in-site learning-history confirmation dialog; the learning-history handler awaits that dialog and does not invoke native `confirm()`.
 - `supabase-config.js`: removed the asynchronous dynamic account-deletion loader; it still preserves the dedicated anonymous saved-word collection.
@@ -49,7 +49,7 @@ The optional local saved-word checkbox belongs to **Delete Account**, not **Dele
 
 ## Verification and handover
 
-- GitHub source edits succeeded. The latest implementation commit for this round is recorded after the final test change below.
+- GitHub source edits succeeded. Latest implementation/test commit: `40f6a27014a26b73dfb03ac7913fa6541d03fff5`. Feature-branch pushes may trigger the configured Cloudflare preview deployment automatically; its completion and deployed commit were not independently verified in this session. No PR, merge or production deployment was performed.
 - GitHub Actions run retrieval did not expose push-triggered runs in this environment. A local clone/test attempt failed because `github.com` hostname resolution was unavailable. Do not claim automated tests passed until the branch workflow is checked.
 - The owner should wait for the latest Cloudflare feature deployment and test with synthetic staging accounts only:
   1. Click Google sign-in once from a fresh signed-out session; confirm redirect, return callback and session persistence.
