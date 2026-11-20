@@ -683,3 +683,6 @@ A read-only privilege matrix and `pg_policies` query confirmed that the follow-u
 - All eight tables retain RLS enabled. No anon INSERT/UPDATE/DELETE privileges were found.
 
 The test did not read learner rows. It inspected effective table privileges and policy definitions only.
+
+
+A consolidated owner/legal approval tracker is now maintained at `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md`. It records 16 open decisions and release gates, including Act 709 applicability, operator/contact identity, processing basis, 16–17-year-old consent, DPO/DPIA, cross-border transfers, retention, account deletion, privacy requests, Terms enforceability, licensing, feedback visibility and versioned acceptance. The legal work must not be marked complete until the register's required approvals/evidence are resolved.
