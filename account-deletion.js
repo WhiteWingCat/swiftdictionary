@@ -153,7 +153,9 @@
       }
     });
 
-    confirm.addEventListener("click", async () => {
+    confirm.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
       if (!supabaseClient || !currentUser) {
         status.textContent = "Your signed-in session is no longer available. Sign in again before retrying.";
         return;
@@ -176,9 +178,12 @@
           body: JSON.stringify({ confirm: true })
         });
         const result = await response.json().catch(() => ({}));
-        if (response.status === 401 && result.error === "reauthentication_required") {
-          status.textContent = "For your security, sign in again with Google before deleting your account.";
+        if (response.status === 401) {
+          status.textContent = result.error === "reauthentication_required"
+            ? "For your security, sign in again with Google before deleting your account. Your account and data have not been deleted."
+            : "The server rejected this deletion request. Your account and data have not been deleted. Please sign in again before retrying.";
           reauth.hidden = false;
+          overlay.hidden = false;
           return;
         }
         if (!response.ok || result.success !== true) {
@@ -216,7 +221,8 @@
         }
         if (typeof window !== "undefined") window.dispatchEvent(new Event("swift-account-deleted"));
       } catch (error) {
-        status.textContent = error?.message || "Account deletion failed. Please try again.";
+        status.textContent = error?.message || "Account deletion failed. Your account has not been confirmed as deleted.";
+        overlay.hidden = false;
       } finally {
         confirm.disabled = false;
       }
