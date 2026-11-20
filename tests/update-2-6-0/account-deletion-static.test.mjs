@@ -55,7 +55,11 @@ test("learning-history confirmation uses an in-site dialog, not the browser prom
   assert.ok(index.includes("confirmLearningHistoryDeletion"));
   assert.ok(index.includes('role="dialog" aria-modal="true"'));
   assert.ok(index.includes("Delete learning history?"));
-  assert.ok(!index.includes("window.confirm("));
+  const handlerStart = index.indexOf('document.getElementById("deleteLearningHistoryButton").addEventListener');
+  const handlerEnd = index.indexOf("function browserTimezone", handlerStart);
+  const handler = index.slice(handlerStart, handlerEnd);
+  assert.ok(handler.includes("await confirmLearningHistoryDeletion()"));
+  assert.doesNotMatch(handler, /(?<![A-Za-z])confirm\\s*\\(/);
 });
 
 test("signed-out Flashcards visitors still see the page banner and title", () => {
