@@ -125,7 +125,7 @@ test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="flashcards.js?v=2.6.0-r3"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
-  assert.match(build, /daily-learning\[\.\]js.*2\.6\.0-r4/);
+  assert.match(build, /daily-learning\[\.\]js.*2\.6.0-r5/);
   assert.match(build, /flashcards\[\.\]js.*2\.6\.0-r4/);
 });
 
@@ -153,7 +153,7 @@ test("account deletion reports confirmed success with a visible five-second toas
 test("Lessons, Quiz and Flashcards show a five-second toast only after successful exhaustion", () => {
   assert.match(dailyLearning, /complete_permanent_lesson: "lesson"/);
   assert.match(dailyLearning, /name === "complete_daily_activity_session"/);
-  assert.match(dailyLearning, /daily_topic: chinese \? "每日主题" : "Daily Topic"/);
+  assert.match(dailyLearning, /daily_topic: chinese \? "主题学习" : "Daily Topic"/);
   assert.match(dailyLearning, /submit_my_quiz: "quiz"/);
   assert.match(flashcards, /notifyFlashcardAllowanceExhausted/);
   assert.match(flashcards, /showSwiftDictionaryToast\(message, "warning", 5000\)/);
@@ -161,5 +161,5 @@ test("Lessons, Quiz and Flashcards show a five-second toast only after successfu
   assert.match(dailyLearning, /showSwiftDictionaryToast\(message, "warning", 5000\)/);
   assert.match(dailyLearning, /request\.then = function swiftAllowanceAwareThen/);
   assert.match(dailyLearning, /const originalThen = request\.then\.bind\(request\)/);
-  assert.match(dailyLearning, /if \(!result\?\.error\) \{/);
+  assert.match(dailyLearning, /if \(result\?\.error\) return/);
 });
