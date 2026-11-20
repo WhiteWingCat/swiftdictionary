@@ -72,7 +72,7 @@ test("signed-out Flashcards visitors still see the page banner and title", () =>
 });
 
 test("account deletion loads after the main app, without an async config-loader race", () => {
-  assert.ok(index.indexOf('<script src="flashcards.js"></script>') < index.indexOf('<script src="account-deletion.js"></script>'));
+  assert.ok(index.indexOf('<script src="flashcards.js"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r2"></script>'));
   assert.doesNotMatch(config, /moduleScript\\.async\\s*=\\s*true/);
   assert.doesNotMatch(build, /moduleScript\\.async\\s*=\\s*true/);
   assert.match(build, /Account deletion is loaded explicitly after the main app script/);
