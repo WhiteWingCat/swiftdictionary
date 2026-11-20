@@ -20,6 +20,7 @@ test("anonymous saves are stored separately from account cloud saves", () => {
   assert.match(frontend, /swiftdictionary-anonymous-saved/);
   assert.match(frontend, /if \(currentUser\)/);
   assert.match(frontend, /applyAnonymousSavedWords/);
+  assert.match(frontend, /onAuthStateChange\((_event, session\)/);
 });
 
 test("account deletion derives its target from a verified user session", () => {
