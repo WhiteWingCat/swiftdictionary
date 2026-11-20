@@ -123,6 +123,15 @@ jobs:
           # Supabase CLI is available for the permanent migration workflow.
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/docs/UPDATE-2.6.0-STAGING-ACL-FOLLOW-UP-DRAFT.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_staging_acl_followup.sql"
+          # Use the installed Supabase CLI to generate the permanent migration
+          # filename. Copy only the already-tested SQL draft into that file;
+          # this disposable workspace is not connected to hosted staging/prod.
+          supabase migration new update_2_6_0_remove_residual_api_privileges
+          migration_file="$(find supabase/migrations -maxdepth 1 -type f -name '*_update_2_6_0_remove_residual_api_privileges.sql' -print -quit)"
+          test -n "$migration_file"
+          cp "$GITHUB_WORKSPACE/docs/UPDATE-2.6.0-STAGING-ACL-FOLLOW-UP-DRAFT.sql" "$migration_file"
+          echo "Generated migration path: $migration_file"
+          cat "$migration_file"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
