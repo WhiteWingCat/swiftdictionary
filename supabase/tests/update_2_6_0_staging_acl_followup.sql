@@ -48,8 +48,11 @@ BEGIN
   IF NOT has_table_privilege('anon', 'public.languages', 'SELECT') THEN
     RAISE EXCEPTION 'anon SELECT on public.languages was unintentionally removed';
   END IF;
-  IF NOT has_table_privilege('anon', 'public.learning_plan_limits', 'SELECT') THEN
-    RAISE EXCEPTION 'anon SELECT on public.learning_plan_limits was unintentionally removed';
+  IF NOT has_table_privilege('authenticated', 'public.learning_plan_limits', 'SELECT') THEN
+    RAISE EXCEPTION 'authenticated SELECT on public.learning_plan_limits was unintentionally removed';
+  END IF;
+  IF has_table_privilege('anon', 'public.learning_plan_limits', 'SELECT') THEN
+    RAISE EXCEPTION 'anon unexpectedly has SELECT on public.learning_plan_limits';
   END IF;
 END;
 $test$;
