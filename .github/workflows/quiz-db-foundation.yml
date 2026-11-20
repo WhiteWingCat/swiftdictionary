@@ -121,7 +121,7 @@ jobs:
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_least_privilege.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261120013731_update_2_6_0_remove_residual_api_privileges.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261120023718_update_2_6_0_remove_residual_api_privileges.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_staging_acl_followup.sql"
 
       - name: Verify explicit grants for all staged public tables
