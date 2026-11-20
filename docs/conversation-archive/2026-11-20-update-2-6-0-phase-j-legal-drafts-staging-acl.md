@@ -80,7 +80,7 @@ Production Supabase remains untouched. No production SQL, OAuth, Cloudflare sett
 
 ## 7. Next steps
 
-1. Correct and validate the migration filename in the implementation branch against staging history; ensure CI references the exact file.
+1. **Completed:** align the implementation migration filename with the hosted staging history version `20261120023718` and update the CI workflow to use that exact file. A new CI run was triggered for the corrected path.
 2. Continue the remaining technical staging smoke test after Cloudflare preview and Google OAuth are configured by the owner.
 3. Verify the public controller/contact route and obtain legal review of Act 709 applicability, age/consent, DPO/DPIA and cross-border transfers.
 4. Verify provider contracts, subprocessor lists and retention settings; complete the retention schedule.
