@@ -1134,6 +1134,149 @@
     });
   }
 
+
+  // A shared, accessible five-second toast for daily allowance exhaustion.
+  let allowanceToastTimer = null;
+  const allowanceToastShown = new Set();
+
+  function showSwiftDictionaryToast(message, kind = "info", duration = 5000) {
+    if (!document.body) return;
+    let toast = document.getElementById("swiftDictionaryToast");
+    if (!toast) {
+      if (!document.getElementById("swiftDictionaryToastStyles")) {
+        const style = document.createElement("style");
+        style.id = "swiftDictionaryToastStyles";
+        style.textContent = `
+          #swiftDictionaryToast{position:fixed;left:50%;bottom:max(22px,env(safe-area-inset-bottom));z-index:20000;max-width:min(560px,calc(100vw - 32px));padding:13px 18px;border:1px solid #52627b;border-radius:13px;background:#202a3a;color:#f5f7fb;box-shadow:0 12px 32px #0006;font-size:.94rem;line-height:1.45;text-align:center;opacity:0;transform:translate(-50%,12px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+          #swiftDictionaryToast[data-kind="success"]{border-color:#47785f;background:#1d342a}
+          #swiftDictionaryToast[data-kind="warning"]{border-color:#8a7443;background:#3a3020}
+          #swiftDictionaryToast.is-visible{opacity:1;transform:translate(-50%,0)}
+          @media(prefers-reduced-motion:reduce){#swiftDictionaryToast{transition:none}}
+        `;
+        document.head.appendChild(style);
+      }
+      toast = document.createElement("div");
+      toast.id = "swiftDictionaryToast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      toast.setAttribute("aria-atomic", "true");
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.dataset.kind = kind;
+    toast.classList.add("is-visible");
+    if (allowanceToastTimer) window.clearTimeout(allowanceToastTimer);
+    allowanceToastTimer = window.setTimeout(() => {
+      toast.classList.remove("is-visible");
+    }, duration);
+  }
+  window.showSwiftDictionaryToast = showSwiftDictionaryToast;
+
+  function allowanceDayKey(timezone) {
+    try {
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: timezone || "UTC", year: "numeric", month: "2-digit", day: "2-digit"
+      }).formatToParts(new Date());
+      const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+      return values.year + "-" + values.month + "-" + values.day;
+    } catch {
+      return new Date().toISOString().slice(0, 10);
+    }
+  }
+
+  async function readExhaustedAllowance(activityType, originalRpc) {
+    if (!currentUser || !supabaseClient) return null;
+    const chinese = (() => { try { return translationLanguage === "zh"; } catch { return false; } })();
+    if (activityType === "quiz") {
+      const { data, error } = await originalRpc("get_my_quiz_availability");
+      if (error || !data?.allowance) return null;
+      return {
+        remaining: Number(data.allowance.remaining_count),
+        timezone: data.timezone || "UTC"
+      };
+    }
+    if (activityType === "flashcard") {
+      const { data, error } = await originalRpc("get_my_flashcard_data");
+      if (error || !data?.allowance) return null;
+      const pref = await supabaseClient.from("user_preferences")
+        .select("timezone,allowance_timezone,allowance_timezone_until")
+        .eq("user_id", currentUser.id).maybeSingle();
+      const p = pref.data || {};
+      const timezone = p.allowance_timezone && Date.parse(p.allowance_timezone_until || "") > Date.now()
+        ? p.allowance_timezone : (p.timezone || "UTC");
+      return { remaining: Number(data.allowance.remaining), timezone };
+    }
+    if (activityType === "lesson") {
+      const [usage, entitlement, pref, testAccess] = await Promise.all([
+        originalRpc("get_my_learning_allowance_usage"),
+        supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id", currentUser.id).maybeSingle(),
+        supabaseClient.from("user_preferences").select("timezone,allowance_timezone,allowance_timezone_until").eq("user_id", currentUser.id).maybeSingle(),
+        originalRpc("is_personal_learning_test_access")
+      ]);
+      if (usage.error || entitlement.error || pref.error || testAccess.error || testAccess.data === true) return null;
+      const now = Date.now();
+      const e = entitlement.data;
+      const active = e?.status === "active"
+        && (!e.valid_from || Date.parse(e.valid_from) <= now)
+        && (!e.valid_until || Date.parse(e.valid_until) > now);
+      const plan = active ? e.plan_code : "free";
+      const limitResult = await supabaseClient.from("learning_plan_limits")
+        .select("daily_limit,is_enabled").eq("plan_code", plan).eq("activity_type", "lesson").maybeSingle();
+      if (limitResult.error || !limitResult.data?.is_enabled) return null;
+      const used = Number((usage.data || []).find(row => row.activity_type === "lesson")?.used_count || 0);
+      const p = pref.data || {};
+      const timezone = p.allowance_timezone && Date.parse(p.allowance_timezone_until || "") > now
+        ? p.allowance_timezone : (p.timezone || "UTC");
+      return { remaining: Math.max(0, Number(limitResult.data.daily_limit) - used), timezone };
+    }
+    return null;
+  }
+
+  function installAllowanceNotifications() {
+    if (typeof supabaseClient === "undefined" || !supabaseClient || typeof supabaseClient.rpc !== "function"
+        || supabaseClient.__swiftAllowanceNotificationsInstalled) return;
+    const originalRpc = supabaseClient.rpc.bind(supabaseClient);
+    const watched = {
+      complete_permanent_lesson: "lesson",
+      submit_my_quiz: "quiz",
+      complete_my_flashcard_game: "flashcard"
+    };
+    supabaseClient.rpc = function swiftAllowanceAwareRpc(name, ...args) {
+      const request = originalRpc(name, ...args);
+      const activityType = watched[name];
+      if (activityType && request && typeof request.then === "function") {
+        request.then(async result => {
+          if (result?.error) return;
+          try {
+            const allowance = await readExhaustedAllowance(activityType, originalRpc);
+            if (!allowance || allowance.remaining !== 0) return;
+            const day = allowanceDayKey(allowance.timezone);
+            const key = activityType + ":" + day;
+            if (allowanceToastShown.has(key)) return;
+            allowanceToastShown.add(key);
+            const chinese = (() => { try { return translationLanguage === "zh"; } catch { return false; } })();
+            const labels = {
+              lesson: chinese ? "课程" : "Lessons",
+              quiz: chinese ? "测验" : "Quiz",
+              flashcard: chinese ? "闪卡" : "Flashcards"
+            };
+            const message = chinese
+              ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
+              : "You have used all of today's " + labels[activityType] + " allowance. It resets at midnight in your allowance timezone.";
+            showSwiftDictionaryToast(message, "warning", 5000);
+          } catch (error) {
+            console.warn("Could not check the remaining learning allowance for its notification.", error);
+          }
+        }).catch(() => {});
+      }
+      return request;
+    };
+    supabaseClient.__swiftAllowanceNotificationsInstalled = true;
+  }
+
+  installAllowanceNotifications();
+  window.addEventListener("swift-auth-updated", installAllowanceNotifications);
+
   window.initialiseDailyLearning = initialiseDailyLearning;
   bindPreferenceControls();
   window.addEventListener("swift-auth-updated",() => {
