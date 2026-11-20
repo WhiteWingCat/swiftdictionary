@@ -626,3 +626,8 @@ The Advisor also reports eight informational `rls_enabled_no_policy` findings fo
 - The repository's Quiz database workflow already applies the initial 2.6.0 migration and runs the existing least-privilege assertions. Extend that workflow with the follow-up migration and assertion test only after the migration is generated and validated.
 - Continue to leave production ACLs, Cloudflare settings, Google OAuth settings and production deployments untouched pending explicit owner approval.
 - Malaysia legal review remains necessary for Act 709 applicability, the under-18 parental-consent issue, DPO screening, cross-border transfer basis, retention and public controller contact route. The current technical work does not constitute legal compliance advice.
+
+
+#### Private-schema exposure verification (20 November 2026)
+
+A separate effective-privilege query resolved the eight private-schema Advisor INFO findings: `anon` has no USAGE on `private`; `authenticated` has USAGE but no direct SELECT/INSERT/UPDATE/DELETE privileges on any of the 12 audited private tables. This matches the intended design in which private data is accessed only through explicitly granted, reviewed RPCs. Keep this boundary in future migrations and re-check any new private-schema grants.
