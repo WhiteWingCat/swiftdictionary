@@ -40,8 +40,9 @@ test("no privileged key is embedded in browser code", () => {
   assert.doesNotMatch(config, /SUPABASE_SERVICE_ROLE_KEY|sb_secret_/);
 });
 
-test("Cloudflare build routing appends the account-deletion loader after config generation", () => {
-  assert.match(build, /account-deletion\.js/);
+test("Cloudflare build routing preserves anonymous saved words without dynamic module injection", () => {
+  assert.match(build, /swiftdictionary-anonymous-saved/);
+  assert.doesNotMatch(build, /moduleScript/);
 });
 
 test("account deletion is visibly distinct from learning-history deletion", () => {
