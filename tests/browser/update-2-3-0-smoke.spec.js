@@ -97,6 +97,31 @@ test("permanent Lessons allowance exhaustion shows a notification", async ({ pag
     const result = await state.completePermanentLesson();
     if (result.error) throw new Error(result.error.message);
   });
+  const diagnostics = await page.evaluate(async () => {
+    const client = typeof supabaseClient !== "undefined" ? supabaseClient : null;
+    const session = client?.auth?.getSession ? await client.auth.getSession() : null;
+    const uid = session?.data?.session?.user?.id;
+    const usage = client ? await client.rpc("get_my_learning_allowance_usage") : null;
+    const entitlement = client ? await client.from("user_entitlements").select("plan_code,status").eq("user_id", uid).maybeSingle() : null;
+    const preference = client ? await client.from("user_preferences").select("timezone").eq("user_id", uid).maybeSingle() : null;
+    const limit = client ? await client.from("learning_plan_limits").select("daily_limit,is_enabled").eq("plan_code", "free").eq("activity_type", "lesson").maybeSingle() : null;
+    const bypass = client ? await client.rpc("is_personal_learning_test_access") : null;
+    return {
+      installer: typeof window.installSwiftAllowanceNotifications,
+      toast: typeof window.showSwiftDictionaryToast,
+      clientExists: !!client,
+      installed: client?.__swiftAllowanceNotificationsInstalled || false,
+      currentUser: typeof currentUser !== "undefined" ? currentUser?.id || null : null,
+      sessionUser: uid || null,
+      usage: usage?.data || null,
+      entitlement: entitlement?.data || null,
+      preference: preference?.data || null,
+      limit: limit?.data || null,
+      bypass: bypass?.data ?? null,
+      rpc: client?.rpc?.toString().slice(0,120) || null
+    };
+  });
+  console.log("Lessons allowance toast diagnostics", diagnostics);
   await expect(page.locator("#swiftDictionaryToast")).toContainText(/Lessons allowance|课程额度/);
 });
 
