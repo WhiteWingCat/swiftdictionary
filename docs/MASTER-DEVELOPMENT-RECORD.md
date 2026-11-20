@@ -2733,3 +2733,8 @@ Legal-document drafting has begun but is not complete. New internal working draf
 The historical `docs/reference/PRIVACY-POLICY-DRAFT.md` is marked superseded and must not be published. The new documents are not approved for publication. Outstanding legal/owner decisions include Act 709 applicability, processing basis, Regulation 3(3) for users aged 16–17, controller identity/contact route, DPO/DPIA screening, cross-border assessment, verified provider contracts/subprocessors, numeric retention periods, account deletion, and final legal review. Do not publish legal links or add acceptance UI until those are resolved and reviewed.
 
 Current official Malaysian sources were rechecked: the 2026 Act 709 reprint, Personal Data Protection Regulations 2013, and JPDP guidance for DPO, cross-border transfers, breach notification and DPIA. The current Act 709 Section 7 notice language requirement and the Regulation 3(3) under-18 consent issue are reflected in the new bilingual notice draft.
+
+Additional Phase J governance drafts:
+- `docs/reference/DPIA-SCREENING-DRAFT-2026-11-20.md` — preliminary screen; recommends a full DPIA before broader public onboarding as a precaution, subject to formal assessment.
+- `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — draft incident response and breach-notification workflow.
+These are internal working documents, not approved legal procedures. Assign the responsible incident/DPIA leads and verify current provider escalation contacts.
