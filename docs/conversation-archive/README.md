@@ -118,3 +118,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.6.0 owner feedback: deletion clarity and signed-out Flashcards banner](2026-11-20-update-2-6-0-owner-feedback-ui-fixes.md) — records the distinct Delete Account/Learning history controls, in-site history confirmation, retained optional anonymous-saved-word checkbox semantics, signed-out Flashcards banner restoration, branch/test status and production safety boundary.
 
 - [Update 2.6.0 owner feedback round 2: sign-in, deletion UI and Terms page](2026-11-20-update-2-6-0-owner-feedback-round-2-auth-deletion-terms.md) — records first-click Google sign-in timing, deterministic account-deletion module loading, in-site learning-history prompt verification, Terms publication placeholder and remaining legal/staging checks.
+
+
+- [Update 2.6.0 owner feedback round 3: learning auth UI and preview regressions](2026-11-20-update-2-6-0-owner-feedback-round-3-learning-auth-ui-and-preview-regressions.md) — records the signed-out Lessons gate, shared Lessons/Quiz sign-in design, immediate Flashcards sign-out rendering, static Delete Account visibility, in-site Learning History browser test, Terms-link test, cache-busted scripts, preview deployment and current validation status.

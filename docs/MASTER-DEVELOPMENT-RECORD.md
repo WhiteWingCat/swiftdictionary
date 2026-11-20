@@ -2605,3 +2605,29 @@ Files changed: `index.html`, `supabase-config.js`, `build.sh`, `terms.html`, and
 ### Legal, privacy and release boundary
 
 No new data category, analytics, tracking, processor, schema, migration, retention rule or provider permission was introduced. Terms publication and acceptance remain blocked on existing legal review, including controller identity/capacity, Malaysia PDPA applicability/legal basis, age 16–17 requirements, international transfers, contact route, retention, licensing, liability and dispute wording. Production remains untouched; no account was deleted or real learner data used. All destructive staging checks must use synthetic accounts. No merge or production deployment without explicit owner approval and completion of the existing Update 2.6.0 gates.
+
+
+## 33. Update 2.6.0 — Owner feedback round 3: learning auth UI and preview regressions (2026-11-20)
+
+The owner reported that the previous round's changes still appeared absent in the preview and requested a signed-out Lessons gate, consistent Lessons/Quiz sign-in UI following Flashcards, and restoration of the Flashcards banner/title after sign-out. The prior first-click sign-in, Delete Account visibility, Learning History confirmation and Terms-link feedback remains in scope. See the [round 3 owner-feedback archive](conversation-archive/2026-11-20-update-2-6-0-owner-feedback-round-3-learning-auth-ui-and-preview-regressions.md).
+
+### Implementation and regression safeguards
+
+- Added a static **Delete Account** card in Preferences before the distinct Learning history card. The account-deletion module now enhances a pre-existing card rather than returning early when it finds one. This removes a dependency on dynamic card creation for basic visibility.
+- Kept Learning History deletion on the in-site dialog path; added a browser test that detects native browser dialogs and verifies none is raised by the Learning History action. The Terms & Conditions footer link is also checked in the browser test. The linked Terms page remains a non-binding placeholder.
+- Added a Lessons signed-out panel and gate. While signed out, Daily Learning, lesson difficulty tabs, lesson library and lesson detail content are hidden, and signed-out users are not sent into lesson initialisation. The sign-in action opens the shared account dialog.
+- Applied shared Flashcards-style sign-in card classes to Lessons and Quiz.
+- Flashcards now responds directly to Supabase `SIGNED_OUT`, clears in-memory account-specific Flashcards data and renders the signed-out banner/title and sign-in panel immediately, without depending solely on a later app-level refresh event.
+- Bumped the cache-busting query for `flashcards.js` and `account-deletion.js` to `v=2.6.0-r3` so browsers and edge caches request the revised modules.
+
+### Files, commits and validation
+
+- Files changed: `index.html`, `flashcards.js`, `account-deletion.js`, `tests/update-2-6-0/account-deletion-static.test.mjs`, `tests/browser/update-2-4-0-quiz-runtime.spec.js`, `tests/browser/update-2-5-0-flashcards.spec.js`, and `.github/workflows/quiz-db-foundation.yml`.
+- Implementation commit: `2ea1ef3a05ceaa8decc53f50116613272b53bdbd`; browser test commit: `7ca090707b59b568bfda18dc5c4ad9bf1e954c51`; assertion correction: `cbaa404a6d5728bdff9bf9e819a952c2c8ad8399`; latest cache-bust/workflow commit: `52aa7a0b74a74f36c619c7e607fb501798dc7aa1`.
+- Cloudflare build-routing guard run `44692571488` passed. The Quiz database foundation job passed. At the time of writing, the local Supabase/Auth/Chromium workflow was still running: authenticated Quiz runtime tests were in progress and the targeted Flashcards/Preferences browser tests were pending.
+- Cloudflare Pages successfully deployed commit `52aa7a0` to the `swiftdictionary` Pages project. Immutable preview URL: https://ab8b4065.swiftdictionary.pages.dev . Branch preview alias: https://feature-update-2-6-0-legal-p.swiftdictionary.pages.dev .
+- The earlier successful Cloudflare check on commit `7ca0907` also confirmed the branch alias was served by the `swiftdictionary` Pages project. The separate `swiftdictionary-testing` Worker build status must not be confused with the app's Pages preview.
+
+### Legal, privacy and release boundary
+
+No new data category, analytics, tracking, processor, schema, migration, retention rule or provider permission was introduced. Lessons now requires sign-in to access its learning content, using the existing account model. Terms publication and acceptance remain blocked on legal review and owner approval. Production remains untouched; no account was deleted and no real learner data was used. No PR, merge or production deployment occurred.
