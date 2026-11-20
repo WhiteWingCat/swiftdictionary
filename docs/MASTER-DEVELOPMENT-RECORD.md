@@ -2782,3 +2782,20 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and
 - Formal legal/privacy review remains deferred at the owner's request, not completed or waived; Terms publication remains deferred.
 
 Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
+
+
+## 37. Update 2.6.0 — current handover, PR correction and production ACL audit (2026-11-20)
+
+- Owner confirmed GitHub was disconnected from the Cloudflare `SwiftDictionary-testing` project and that it is no longer used. Treat its old separate Worker build check as obsolete; the active Cloudflare Pages project remains separate.
+- Current feature head remains `bf93bf925c489433f4cfde0add3748d992f25dd2`; draft PR #13 remains open, unmerged and unapproved. Its body was corrected to remove any suggestion that the current account-deletion flow had passed owner testing.
+- Latest PR checks passed: Cloudflare build routing guard `44733764948`, Quiz database foundation `44733764841`, 2.3.x allowance/dashboard regression `44733764944`, and Flashcards checks `44733765083`. Recorded local Supabase/Auth/RPC integration and local security-advisor checks passed. These results do not replace hosted production verification.
+- Owner confirms Google sign-in and account isolation work in Singapore staging. The current account-deletion flow remains untested by the owner. Use a disposable synthetic staging account; do not use the owner's personal account.
+- Read-only comparison of Tokyo production and Singapore staging found RLS enabled on inspected public application tables in both, but residual production grants remain: broad anon/authenticated access on `daily_activity_sessions`, anon SELECT on `learning_plan_limits`, anon privileges on several identity sequences, PUBLIC/anon/authenticated EXECUTE on two trigger-only guard functions, and broader `postgres` default privileges. Staging has the intended narrower grants/defaults.
+- Production also has a legacy `lesson_practice_results_id_seq` without an ownership dependency; the production-owned sequence is `lesson_practice_results_id_seq1`. Do not drop the apparent orphan as part of this update.
+- Staging has U2.6.0 migrations `20261119112433` and `20261120023718`; production does not. A separate unapproved SQL remediation and rollout draft was added at `docs/reference/UPDATE-2.6.0-PRODUCTION-ACL-REMEDIATION-DRAFT.md`. No production grants or defaults were changed.
+- Hosted Security Advisor findings include eight intentional private-schema RLS/no-policy INFO findings, two intentional SECURITY DEFINER RPC warnings, and one leaked-password-protection warning. Do not treat these as a clean security certification.
+- Formal legal/privacy review remains deferred at the owner's request, not completed, waived or cleared. The internal Privacy Notice/Terms drafts remain unpublished; the public Terms page remains a non-binding placeholder.
+- Supabase changelog reviewed: Data API table exposure defaults were enforced for existing projects on 2026-10-30; Supabase CLI v3 changed local/hosted targeting and confirmation behaviour in November. Future CLI upgrades require explicit remote targeting/approval safeguards.
+- No production migration, ACL change, Edge Function change, OAuth setting, Cloudflare Pages configuration, deployment or data mutation was performed.
+
+Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md`.
