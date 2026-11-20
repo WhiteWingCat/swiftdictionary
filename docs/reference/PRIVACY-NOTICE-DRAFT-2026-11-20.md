@@ -76,6 +76,8 @@ Information may be processed outside Malaysia, including in Japan, Singapore, th
 
 The Tokyo production database and Singapore staging database are separate. Production learner records must not be copied into staging.
 
+The provider review also found that selecting a Supabase database region does not mean every Supabase activity stays in that region. Supabase's published materials describe global support/operations and certain account-administration, telemetry and operational-log processing outside the selected database region. Cloudflare and jsDelivr use distributed CDN networks. The exact Google processing locations and account-specific provider settings have not been verified. This notice must be updated if the provider's current documentation, contract or the operator's settings show different or more specific arrangements.
+
 ## 5. Disclosure and sharing
 
 SwiftDictionary does not intend to sell personal data or share it for third-party advertising. Data is made available to providers only to the extent needed for hosting, authentication, database operation, content delivery, security and support, or where disclosure is required or permitted by law.
@@ -214,6 +216,8 @@ Peta penyedia semasa:
 Maklumat mungkin diproses di luar Malaysia, termasuk di Jepun, Singapura, Amerika Syarikat, Kesatuan Eropah dan lokasi lain yang digunakan oleh penyedia atau subpemproses mereka. Ini ialah lokasi pemprosesan penyedia yang mungkin, bukan dakwaan bahawa data setiap pengguna disimpan di semua negara tersebut. Penerima sebenar, lokasi pemprosesan, asas pemindahan, perlindungan dan senarai subpemproses semasa mesti disahkan sebelum penerbitan.
 
 Pangkalan data produksi di Tokyo dan pangkalan data staging di Singapura adalah berasingan. Rekod pengguna produksi tidak boleh disalin ke staging.
+
+Semakan penyedia juga mendapati bahawa pemilihan rantau pangkalan data Supabase tidak bermaksud semua aktiviti Supabase kekal di rantau tersebut. Bahan terbitan Supabase menerangkan sokongan/operasi global serta pemprosesan pentadbiran akaun, telemetri dan log operasi tertentu di luar rantau pangkalan data yang dipilih. Cloudflare dan jsDelivr menggunakan rangkaian CDN teragih. Lokasi pemprosesan Google yang tepat dan tetapan khusus akaun belum disahkan. Notis ini mesti dikemas kini jika dokumentasi, kontrak atau tetapan penyedia semasa menunjukkan aturan yang berbeza atau lebih khusus.
 
 ## 5. Pendedahan dan perkongsian
 
