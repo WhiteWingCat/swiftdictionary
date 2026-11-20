@@ -35,7 +35,7 @@ These were direct grants from `postgres`, not inherited from PUBLIC. Preserve an
 - `docs/UPDATE-2.6.0-STAGING-ACL-FOLLOW-UP-DRAFT.sql` — narrowly revokes only the identified extra table privileges and anonymous sequence UPDATE.
 - `supabase/tests/update_2_6_0_staging_acl_followup.sql` — asserts those privileges are absent and intentional public SELECT grants remain.
 
-These are draft/review artifacts, not an applied migration. The permanent migration must be generated using `supabase migration new`. The Supabase CLI, Docker and local PostgreSQL client were unavailable in the execution environment, so the draft was not locally executed. Do not apply to staging or production until generated, reviewed, and validated.
+The SQL draft remains as a review reference. The permanent migration `supabase/migrations/20261120013731_update_2_6_0_remove_residual_api_privileges.sql` was generated with `supabase migration new` using Supabase CLI v2.81.3 in GitHub Actions and committed to the feature branch. The interactive environment itself has no Supabase CLI, Docker or local PostgreSQL client. Disposable CI run #44654816904 successfully executed the draft SQL and assertions; a newer run is validating the committed migration file directly plus the full regression suite. The hosted staging database remains unchanged until this passes.
 
 ## Live Security Advisor review
 
