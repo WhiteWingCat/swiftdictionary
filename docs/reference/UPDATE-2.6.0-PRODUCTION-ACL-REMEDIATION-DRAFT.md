@@ -1,0 +1,129 @@
+# Update 2.6.0 — Production ACL remediation draft
+
+Date: 2026-11-20  
+Status: **Read-only findings and proposed SQL only. Not approved or applied.**  
+Target: Tokyo production Supabase project  
+Comparison baseline: Singapore staging after the two Update 2.6.0 ACL migrations
+
+## Safety boundary
+
+This is a review document, not a migration. Do not run the SQL below against production until the owner explicitly approves a production change window, the complete migration set is reviewed, and a fresh backup/export and recovery plan are confirmed. Both Supabase projects are on the Free plan; no paid backup or PITR capability should be assumed. Do not change production as part of the current feature PR.
+
+No learner rows were selected or modified during this audit. The comparison used read-only queries against effective grants, RLS flags, policies, trigger function metadata, default privileges, migration history and sequence ownership.
+
+## Environment and migration state
+
+- Production: Tokyo, PostgreSQL 17.11, ACTIVE_HEALTHY.
+- Staging: Singapore, PostgreSQL 17.12, ACTIVE_HEALTHY.
+- Both projects were confirmed by the owner to be on Supabase Free.
+- Staging has applied:
+  - `20261119112433` — `swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions`
+  - `20261120023718` — `update_2_6_0_remove_residual_api_privileges`
+- Production has not applied either Update 2.6.0 migration.
+- Both environments have RLS enabled on the inspected public application tables. The inspected account-owner policies are present in both; several policy names differ, but the user ownership predicates and intended DML scope are materially aligned.
+
+## Confirmed production/staging differences
+
+### 1. Daily activity sessions
+
+Production grants `anon` broad table privileges (including SELECT/INSERT/UPDATE/DELETE and non-DML privileges). Production also grants `authenticated` DELETE, REFERENCES, TRIGGER and TRUNCATE in addition to INSERT/SELECT/UPDATE.
+
+Staging grants no table privileges to `anon`; `authenticated` has only INSERT, SELECT and UPDATE. Its RLS policies constrain all three operations to the authenticated owner. Learning-history deletion is handled through the controlled RPC path, not direct table DELETE.
+
+The first U2.6.0 migration revokes all privileges from `anon` and DELETE from `authenticated`, but it does not explicitly revoke the remaining non-DML privileges from `authenticated`. A production follow-up should remove those remaining privileges to match staging.
+
+### 2. Learning plan limits
+
+Production has an anonymous SELECT grant and a policy permitting active plan-limit rows. Staging has no anonymous grant and its policy is authenticated-only. The current second U2.6.0 migration does not revoke this anonymous SELECT grant. Confirm that no signed-out page needs this table; the current signed-out learning gates and dictionary-only public experience do not appear to require it.
+
+### 3. Sequences
+
+Production has anonymous privileges on:
+- `learning_activity_log_id_seq`
+- `lesson_progress_id_seq`
+- `lesson_practice_results_id_seq1` (the sequence actually owned by `lesson_practice_results.id` in production)
+
+Staging has no anonymous privileges on those sequences. The existing follow-up migration revokes only UPDATE from anon, leaving SELECT/USAGE potentially granted; it does not fully match staging.
+
+Production also contains `lesson_practice_results_id_seq`, an apparently orphaned sequence with no ownership dependency and no matching column default observed. Staging instead has `lesson_practice_results_id_seq` as the owned sequence for its table. Do not drop the production orphan as part of this ACL patch. A separate dependency/reference audit is required before any cleanup. The safe immediate least-privilege action is to revoke API-role privileges from the orphan while retaining the object.
+
+Authenticated sequence privileges on the sequences actually used by identity columns are present in both environments and should be preserved.
+
+### 4. Trigger-only functions
+
+Production grants EXECUTE to PUBLIC, anon and authenticated on:
+- `public.guard_daily_activity_session_update()`
+- `public.guard_lesson_progress_update()`
+
+Staging has no client-role EXECUTE grants on these trigger-only functions. The first U2.6.0 migration already includes the required revokes; production should receive that migration rather than an unrelated hand-edited function change.
+
+### 5. Default privileges
+
+For objects created by role `postgres` in schema `public`, production default privileges still grant broad table, sequence and function privileges to anon/authenticated (and function EXECUTE to PUBLIC). Staging's postgres defaults revoke these client-role defaults and leave only postgres/service_role privileges.
+
+The first U2.6.0 migration includes the intended default-privilege changes. The `supabase_admin` default ACLs are broad in both environments and were not modified in staging; do not alter those platform-role defaults as part of this application migration.
+
+## Proposed production-only follow-up SQL
+
+This SQL is deliberately limited to the observed residual differences that the current two U2.6.0 migrations do not fully remove. It is not a substitute for applying and validating the two reviewed U2.6.0 migrations first.
+
+```sql
+-- Do not run until separately approved for Tokyo production.
+
+-- Match staging: authenticated users may INSERT/SELECT/UPDATE their own
+-- daily activity sessions through RLS, but may not DELETE, TRUNCATE,
+-- create references or attach triggers.
+REVOKE DELETE, REFERENCES, TRIGGER, TRUNCATE
+  ON TABLE public.daily_activity_sessions
+  FROM authenticated;
+
+-- Match staging: plan limits are not exposed to anonymous visitors.
+REVOKE ALL PRIVILEGES
+  ON TABLE public.learning_plan_limits
+  FROM anon;
+
+-- Match staging: no anonymous access to identity sequences.
+REVOKE ALL PRIVILEGES
+  ON SEQUENCE
+    public.learning_activity_log_id_seq,
+    public.lesson_progress_id_seq,
+    public.lesson_practice_results_id_seq1
+  FROM anon;
+
+-- Retain the apparently orphaned legacy sequence for now, but remove
+-- direct API-role access. Do not DROP it without a separate dependency audit.
+REVOKE ALL PRIVILEGES
+  ON SEQUENCE public.lesson_practice_results_id_seq
+  FROM anon, authenticated;
+```
+
+Note: PostgreSQL/Supabase versions may expose additional privilege types. Re-run the grant comparison after applying the existing migrations and this approved follow-up; compare the exact role ACLs rather than relying only on this abbreviated SQL.
+
+## Existing security-advisor findings
+
+Both production and staging currently report the same broad categories:
+
+- Eight INFO findings for private-schema tables with RLS enabled and no policies. This is intentional because the private schema is not exposed to anon/authenticated and access is through narrowly granted RPCs.
+- Two WARN findings for authenticated execution of `public.is_personal_learning_test_access()` and `public.record_completed_lesson_practice_result(...)`. These are existing intentional SECURITY DEFINER RPCs; keep their owner checks, fixed search paths and explicit grants under regression coverage rather than revoking them solely to silence the generic advisor.
+- One WARN for leaked-password protection being disabled. Google OAuth is the current sign-in route; assess the dashboard setting if password-based sign-in is enabled in future.
+- No health-lint conclusion is implied by this document.
+
+The current local CI security advisor for the U2.6.0 branch reported no issues in its disposable local Supabase environment. That result is not the same as a clean hosted-project advisor report.
+
+## Recommended production rollout sequence (future, owner approval required)
+
+1. Confirm current production migration history and compare it to the expected 2.5.0 baseline.
+2. Export schema and available data, record the Free-plan backup limitation, and confirm a tested recovery path. Do not assume point-in-time recovery.
+3. Review the two existing U2.6.0 migrations and this residual-grant SQL together.
+4. Apply the exact reviewed migrations and follow-up SQL in a controlled production window only after explicit owner approval.
+5. Re-run table/sequence/function grants, default ACL, RLS and policy queries.
+6. Run production Security Advisor and inspect all findings; distinguish intentional private-schema/SECURITY DEFINER findings from new issues.
+7. Run read-only application smoke checks and verify Google sign-in, saved words, learning progress, Quiz, Flashcards and account switching.
+8. Keep production account deletion disabled until the Edge Function is deliberately deployed and separately verified against production configuration.
+
+## Sources and limitations
+
+- Current Supabase Data API access model: https://supabase.com/changelog/45329-breaking-change-tables-not-exposed-to-data-and-graphql-api-automatically
+- Supabase's October 30, 2026 Data API exposure rollout: new public tables require explicit grants; RLS remains a separate control.
+- Supabase CLI v3 changed hosted/local targeting and confirmation behavior on November 4, 2026: https://supabase.com/changelog?next=Y3Vyc29yOnYyOpK0MjAyNS0wMS0xM1QyMDo1OTowOFrOAHdWlQ%3D%3D&restPage=2 . Any future CLI rollout must explicitly target the hosted project and include the required confirmation flags; do not casually upgrade the existing CI CLI workflow.
+- This audit did not inspect user rows, execute a production migration, alter grants, change Auth/Edge Function configuration or modify provider settings.
