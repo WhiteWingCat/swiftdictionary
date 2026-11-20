@@ -2695,3 +2695,36 @@ A code and test audit confirmed the requested behaviour already exists on the fe
 ### Legal and release boundary
 
 No new data category, analytics, tracking, processor, schema, migration, retention rule or provider permission was introduced. Tokyo production remains untouched. Malaysia PDPA applicability, controller identity, 16–17-year-old safeguards, international transfers, provider contracts, DPIA and legal approval remain open. No merge or production deployment is authorised by this update.
+
+
+## 36. Update 2.6.0 — allowance notification CI compatibility and legal-review deferral (2026-11-20)
+
+### Owner confirmation
+- The owner tested the updated Singapore staging preview and reported no issues.
+- Account deletion completes and signs the user out as intended. This is the owner’s manual staging acceptance for the tested flow.
+
+### Allowance notification CI diagnosis and fix
+- The earlier Local Supabase/Auth/RPC browser workflow failed two Daily Learning notification assertions: permanent Lessons allowance exhaustion and Daily Topic allowance exhaustion.
+- Root cause: the browser test adapter returns native JavaScript Promises from `rpc()`, while the application observer previously decorated only Supabase’s custom thenable RPC builder. Awaiting a native Promise bypasses an overridden `.then()` method.
+- Feature branch fix commit: `5345c78ae6db1162118e777ecde329e75ec22cd9`. Native Promise results now receive a passive observer; the custom Supabase thenable path remains unchanged, avoiding duplicate RPC execution.
+- Cloudflare build-routing guard passed on the fix commit (run `44731349283`).
+- Cloudflare Pages deployed the fix commit successfully to preview `https://0416a496.swiftdictionary.pages.dev`; branch alias remains `https://feature-update-2-6-0-legal-p.swiftdictionary.pages.dev`.
+- Local Supabase/Auth/RPC integration workflow run `44731349080` was pending at archive time; do not mark the full integration suite as passed until its final result is checked.
+- A separate Cloudflare Workers build check for service `swiftdictionary-testing` failed on the same commit. The Pages preview itself succeeded. Triage whether this Worker service is part of the active product deployment before treating the check as a release blocker.
+
+### Terms and legal/privacy status
+- The owner requested deferral of formal legal/privacy review because external legal assistance is currently unavailable.
+- Terms page wording was updated in commit `919a63c839cafad37d8f52bdbaad4184238da2ea` to state that publication is deferred while operator identity, contact details and data-handling disclosures are confirmed. It remains a non-binding placeholder and does not request or record acceptance.
+- No complete Terms & Conditions or Privacy Notice is represented as legally reviewed. No unverified operator identity, address or operational contact has been invented or published.
+- Formal review is **deferred, not completed or waived**. The owner’s decision does not remove applicable legal obligations or establish compliance.
+- Open items: Malaysia PDPA applicability to actual operating circumstances; controller/operator identity and reliable contact; safeguards for users aged 16–17; data-flow and processor/subprocessor inventory; cross-border transfer basis; DPIA/DPO applicability; final Terms and Privacy Notice review.
+- Official Malaysian Commissioner resources describe the PDPA as regulating personal-data processing in commercial transactions and provide privacy-notice and cross-border-transfer guidance. Applicability is fact-specific; this record is not a legal determination.
+
+### Release boundary
+- Feature branch: `feature/update-2-6-0-legal-privacy-security`.
+- Latest known feature commit at archive time: `919a63c839cafad37d8f52bdbaad4184238da2ea`.
+- No pull request or merge to `main` has been made.
+- Tokyo production remains untouched. Singapore staging account-deletion Edge Function remains version 3.
+- Legal/privacy risk remains visible in the release record. Terms publication and broad public onboarding are not represented as legally cleared.
+
+Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
