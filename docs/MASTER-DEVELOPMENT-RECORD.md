@@ -2658,3 +2658,40 @@ The owner reported that a Singapore-staging account-deletion attempt refreshed t
 Do not repeat destructive testing with the owner's personal account. Next, verify the feature preview points to Singapore staging, then use a disposable synthetic staging account and seeded synthetic data to test recent OAuth authentication, stale/refresh-only rejection, global session revocation, all cascade deletions, final Auth absence, browser sign-out and truthful error/success feedback. Test anonymous local-word checkbox behaviour separately on a synthetic browser profile.
 
 Tokyo production, production data/schema, migrations, provider settings and public legal documents remain untouched. Malaysia PDPA applicability, controller identity, minors' safeguards, cross-border transfer review, provider contracts, DPIA and legal approval remain open. No merge or production deployment without explicit owner approval and completion of the existing U2.6.0 gates.
+
+
+## 35. Update 2.6.0 — Account-deletion success toast and allowance notifications (2026-11-20)
+
+The owner manually tested account deletion on Singapore staging and confirmed that the account is deleted and the browser signs out. They reported that the success notification did not appear. They also requested a five-second notification when daily allowances are exhausted in Lessons, Quiz and Flashcards.
+
+### Account-deletion success toast correction
+
+- The success path already prepared a success message, but it inserted the toast before dispatching the account-deleted event. Sign-out listeners can refresh the page shell during that event.
+- Updated `account-deletion.js` to dispatch the event first, then append a dedicated accessible success toast on the next event-loop turn. It is positioned above the page, uses `role=status` and `aria-live=polite`, and is removed after five seconds.
+- The message retains the distinction between clearing and preserving signed-out local saved words on the current device.
+- No deletion backend or data-removal behaviour changed.
+
+### Lessons, Quiz and Flashcards allowance notifications
+
+A code and test audit confirmed the requested behaviour already exists on the feature branch:
+- Lessons checks remaining allowance after a successful permanent lesson completion.
+- Quiz checks availability after a successful Quiz submission.
+- Flashcards checks remaining allowance after a successfully saved game and refreshed allowance data.
+- All three use the shared five-second toast, English/Simplified Chinese text and the configured allowance timezone reset explanation. Failed Lessons/Quiz RPCs do not trigger the exhaustion notification.
+- Existing browser regression tests cover all three exhaustion cases; the Flashcards test also checks the toast hides after five seconds.
+
+### Files, commits and validation
+
+- Feature branch: `feature/update-2-6-0-legal-privacy-security`.
+- Account-deletion toast commit: `3d73e488855ebba0b409fd62459ecdc2c04eac80`.
+- Toast-handler correction: `71e78055033e3f1bfc912b84502ac8bd0ca9d0f8`.
+- Static regression test update and final feature-branch head: `6d2c73e8ca2fd1553285e04f67f4af513518e31b`.
+- Cloudflare build-routing guard run `44722035154` passed, including JavaScript syntax, deletion safeguards, allowance notification static assertions and environment routing.
+- Quiz database foundation workflow passed. Companion Local Supabase Auth/RPC/Chromium browser validation was still running at archive time, currently in authenticated Quiz browser tests; no failure was reported in the visible job state.
+- Cloudflare build script refreshes the account-deletion, Daily Learning and Flashcards cache keys to `r5`, `r4` and `r4` respectively.
+- The owner's manual staging test confirms account deletion/sign-out. The revised success toast itself still needs visual confirmation in the updated preview.
+- Singapore staging Edge Function remains version 3. No backend deployment, migration or production change was required.
+
+### Legal and release boundary
+
+No new data category, analytics, tracking, processor, schema, migration, retention rule or provider permission was introduced. Tokyo production remains untouched. Malaysia PDPA applicability, controller identity, 16–17-year-old safeguards, international transfers, provider contracts, DPIA and legal approval remain open. No merge or production deployment is authorised by this update.
