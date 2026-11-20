@@ -1,5 +1,6 @@
 -- SwiftDictionary Update 2.6.0 — remove residual API-role privileges.
--- Generated filename with Supabase CLI v2.81.3 in disposable local CI.
+-- Initial filename generated with Supabase CLI v2.81.3 in disposable CI;
+-- version synchronized to the hosted staging migration history.
 -- Reviewed against the live Singapore staging ACL and validated in CI.
 --
 -- Scope:
