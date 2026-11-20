@@ -13,16 +13,32 @@ export function decodeJwtPayload(token: string): Record<string, unknown> | null 
   }
 }
 
-export function hasRecentAuthTime(
+/**
+ * Supabase access tokens carry authentication freshness in the AMR claim.
+ * auth_time is an OIDC ID-token claim and is not a standard Supabase
+ * access-token claim. Ignore token_refresh entries: refreshing a token must
+ * never make an old interactive sign-in appear recent.
+ */
+export function hasRecentAuthentication(
   payload: Record<string, unknown> | null,
   nowSeconds: number,
   maxAgeSeconds = MAX_AUTH_AGE_SECONDS,
 ): boolean {
-  const authTime = Number(payload?.auth_time);
-  return Number.isFinite(authTime)
-    && authTime > 0
-    && authTime <= nowSeconds + 60
-    && nowSeconds - authTime <= maxAgeSeconds;
+  const amr = payload?.amr;
+  if (!Array.isArray(amr) || amr.length === 0) return false;
+
+  const authenticationTimes = amr
+    .filter((entry): entry is Record<string, unknown> =>
+      !!entry && typeof entry === "object" && entry.method !== "token_refresh")
+    .map((entry) => Number(entry.timestamp))
+    .filter((timestamp) =>
+      Number.isSafeInteger(timestamp)
+      && timestamp > 0
+      && timestamp <= nowSeconds + 60);
+
+  if (authenticationTimes.length === 0) return false;
+  const latestAuthentication = Math.max(...authenticationTimes);
+  return nowSeconds - latestAuthentication <= maxAgeSeconds;
 }
 
 export function isAllowedOrigin(origin: string | null): boolean {
