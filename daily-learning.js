@@ -1276,6 +1276,19 @@
         return request;
       }
 
+      // The production Supabase RPC builder is a custom thenable. Some
+      // lightweight adapters and browser-test clients return native Promises;
+      // Promise assimilation during await bypasses an overridden .then method,
+      // so attach a passive observer for those without executing the RPC twice.
+      if (request instanceof Promise) {
+        request.then(result => {
+          scheduleAllowanceNotification(activityType, result, originalRpc);
+        }).catch(error => {
+          console.warn("Could not observe the learning allowance RPC result.", error);
+        });
+        return request;
+      }
+
       // Decorate the builder's own then method. This preserves Supabase's
       // fluent RPC filters and avoids executing the same request twice.
       const originalThen = request.then.bind(request);
