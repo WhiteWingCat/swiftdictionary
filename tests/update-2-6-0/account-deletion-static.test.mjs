@@ -6,6 +6,8 @@ const frontend = readFileSync("account-deletion.js", "utf8");
 const edge = readFileSync("supabase/functions/delete-account/index.ts", "utf8");
 const config = readFileSync("supabase-config.js", "utf8");
 const build = readFileSync("build.sh", "utf8");
+const index = readFileSync("index.html", "utf8");
+const flashcards = readFileSync("flashcards.js", "utf8");
 
 test("optional local saved-word clearing is opt-in and scoped to its dedicated key", () => {
   assert.match(frontend, /id="swiftDeleteLocalCheckbox" type="checkbox"/);
@@ -39,4 +41,25 @@ test("no privileged key is embedded in browser code", () => {
 
 test("Cloudflare build routing appends the account-deletion loader after config generation", () => {
   assert.match(build, /account-deletion\.js/);
+});
+
+test("account deletion is visibly distinct from learning-history deletion", () => {
+  assert.match(frontend, /<h3>Delete account<\\/h3>/);
+  assert.match(frontend, /host\\.insertBefore\\(card, historyCard\\)/);
+  assert.match(index, /<h3>Learning history<\\/h3>/);
+  assert.match(index, /separate Delete account option above/);
+});
+
+test("learning-history confirmation uses an in-site dialog, not the browser prompt", () => {
+  assert.match(index, /confirmLearningHistoryDeletion/);
+  assert.match(index, /role="dialog" aria-modal="true"/);
+  assert.match(index, /Delete learning history\\?/);
+  assert.doesNotMatch(index, /window\\.confirm\\s*\\(/);
+});
+
+test("signed-out Flashcards visitors still see the page banner and title", () => {
+  const signedOut = flashcards.slice(flashcards.indexOf("if(!currentUser){"), flashcards.indexOf("if(state.loading)", flashcards.indexOf("if(!currentUser){")));
+  assert.match(signedOut, /flash-banner/);
+  assert.match(signedOut, /Flashcards/);
+  assert.match(signedOut, /data-action="signin"/);
 });
