@@ -2631,3 +2631,30 @@ The owner reported that the previous round's changes still appeared absent in th
 ### Legal, privacy and release boundary
 
 No new data category, analytics, tracking, processor, schema, migration, retention rule or provider permission was introduced. Lessons now requires sign-in to access its learning content, using the existing account model. Terms publication and acceptance remain blocked on legal review and owner approval. Production remains untouched; no account was deleted and no real learner data was used. No PR, merge or production deployment occurred.
+
+
+## 34. Update 2.6.0 — Account-deletion auth freshness and failure feedback correction (2026-11-20)
+
+The owner reported that a Singapore-staging account-deletion attempt refreshed the page without signing out or removing saved words/progress, and authorised a code fix. The investigation confirmed two HTTP 401 responses from the Singapore `delete-account` Edge Function. The valid Google OAuth access tokens had no `auth_time` claim, while the function incorrectly required that claim within 15 minutes. Supabase's current JWT Claims Reference documents `amr` authentication-method entries with timestamps; it does not list `auth_time` as a standard access-token claim.
+
+### Changes on the feature branch
+
+- Replaced the `auth_time` freshness check with Supabase `amr[].timestamp` validation. Entries for `token_refresh` are ignored, preserving the 15-minute recent interactive-authentication requirement and fail-closed behaviour for missing/stale timestamps.
+- Kept platform JWT verification enabled and preserved verified bearer-user lookup, server-derived deletion UID, global refresh-session revocation, Auth Admin deletion and final user-absence verification.
+- Hardened the browser confirmation handler against default event navigation; 401 and other failures remain visible in the dialog and state clearly that account/data were not deleted. The account-deletion script cache key was bumped to `v=2.6.0-r4`.
+- Added/updated AMR unit tests and static regression assertions.
+- Detailed session record: [Account deletion auth freshness fix](conversation-archive/2026-11-20-update-2-6-0-account-deletion-auth-freshness-fix.md).
+
+### Commits and validation
+
+- Final feature-branch head recorded: `1676e65f19decb935e05f0aa26c78d8657fe623b`.
+- Cloudflare build-routing guard run `44714423795` passed on that head, including JavaScript/static safeguards, Deno type check/unit tests and environment-routing checks. Intermediate failures were incorrect test expectations and were corrected before the passing run.
+- Singapore staging Edge Function `delete-account` is now version 3, ACTIVE, with `verify_jwt=true`. Production function/configuration was not changed.
+- The separate Quiz database foundation workflow was still running at archive time. Cloudflare Pages preview deployment was triggered by the feature-branch push, but its exact deployed commit was not independently verified.
+- No synthetic end-to-end deletion test has yet been performed.
+
+### Safety, legal and recovery gates
+
+Do not repeat destructive testing with the owner's personal account. Next, verify the feature preview points to Singapore staging, then use a disposable synthetic staging account and seeded synthetic data to test recent OAuth authentication, stale/refresh-only rejection, global session revocation, all cascade deletions, final Auth absence, browser sign-out and truthful error/success feedback. Test anonymous local-word checkbox behaviour separately on a synthetic browser profile.
+
+Tokyo production, production data/schema, migrations, provider settings and public legal documents remain untouched. Malaysia PDPA applicability, controller identity, minors' safeguards, cross-border transfer review, provider contracts, DPIA and legal approval remain open. No merge or production deployment without explicit owner approval and completion of the existing U2.6.0 gates.
