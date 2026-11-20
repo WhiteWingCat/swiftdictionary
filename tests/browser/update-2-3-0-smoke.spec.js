@@ -43,7 +43,8 @@ test("dictionary loads and remains usable in signed-out mode", async ({ page }) 
   await expect(page.locator(".word-card").filter({ hasText: /^hello$/i })).toBeVisible();
 });
 
-test("lesson library renders and difficulty tabs switch independently", async ({ page }) => {
+test("signed-in lesson library renders and difficulty tabs switch independently", async ({ page }) => {
+  await installDailyLearningMock(page, "lesson-library-user");
   await page.goto("/");
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage")).toBeVisible();
@@ -57,10 +58,9 @@ test("lesson library renders and difficulty tabs switch independently", async ({
     await expect(page.locator("#lessonDifficultySummary")).toContainText("lessons");
   }
 
-  // Opening a lesson without an account must not create local progress.
   await page.locator("#lessonCards .lesson-card").first().click();
-  await expect(page.locator("#accountDialog")).toHaveClass(/open/);
-  await expect(page.locator("#lessonReader")).toBeHidden();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonReader")).toBeVisible();
 });
 
 test("exhausted lesson allowance blocks new lessons but preserves completed lesson review", async ({ page }) => {
@@ -143,21 +143,20 @@ test("Premium lesson allowance blocks new lessons after fifteen completions but 
   await expect(page.locator("#lessonCards .lesson-card").nth(1)).toBeDisabled();
 });
 
-test("Daily Learning is integrated into Lessons and does not expose account progress while signed out", async ({ page }) => {
+test("signed-out Lessons shows a sign-in panel and hides progress-bearing content", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator('[data-page="daily-learning"]')).toHaveCount(0);
   await page.locator('[data-page="lessons"]').click();
-  await expect(page.locator("#dailyLearningPage")).toBeVisible();
-  const order = await page.evaluate(() => document.getElementById("dailyLearningPage").compareDocumentPosition(document.querySelector(".difficulty-tabs")));
-  expect(order & 4).toBeTruthy();
-  await expect(page.locator("#dailyLearningStatus")).toContainText("Sign in");
-  await expect(page.locator("#dailyActivityGrid [role=tab]")).toHaveCount(4);
-  await expect(page.locator("#dailyActivityPanel [data-activity-card]")).toHaveCount(1);
-  await expect(page.locator("#dailyActivityPanel [data-start-daily]:disabled")).toHaveCount(1);
-  await expect(page.locator('[data-daily-pref="daily_topic_enabled"]')).toBeChecked();
-  await expect(page.locator('[data-daily-pref="daily_application_enabled"]')).toBeChecked();
-  await expect(page.locator('[data-daily-pref="daily_discovery_enabled"]')).toBeChecked();
-  await expect(page.locator('[data-daily-pref="daily_revision_enabled"]')).toBeChecked();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  await expect(page.locator("#lessonsSignedOut")).toBeVisible();
+  await expect(page.locator("#lessonsSignIn")).toBeVisible();
+  await expect(page.locator("#dailyLearningPage")).toBeHidden();
+  await expect(page.locator("#lessonLibrary")).toBeHidden();
+  await expect(page.locator(".difficulty-tabs")).toBeHidden();
+  await expect(page.locator("#lessonDetailPage")).toBeHidden();
+
+  await page.locator("#lessonsSignIn").click();
+  await expect(page.locator("#accountDialog")).toHaveClass(/open/);
 });
 
 test("signed-out Dashboard route safely redirects to Dictionary", async ({ page }) => {
@@ -289,8 +288,37 @@ window.__SWIFT_TEST_INITIAL_USER = ${JSON.stringify(initialUser)};`
         initialized: false,
         listeners: [],
         oauthCalls: [],
+        tables: {
+          profiles: [],
+          user_preferences: [],
+          saved_words: [],
+          user_entitlements: [],
+          learning_plan_limits: [],
+          lesson_progress: [],
+          learning_activity_log: [],
+          lesson_practice_results: [],
+          daily_activity_sessions: []
+        },
+        ensureUserRows(user) {
+          if (!user) return;
+          if (!this.tables.profiles.some(row => row.user_id === user.id)) {
+            this.tables.profiles.push({ user_id:user.id, display_name:"Test Learner", avatar_icon:"📘", saved_words:[] });
+          }
+          if (!this.tables.user_preferences.some(row => row.user_id === user.id)) {
+            this.tables.user_preferences.push({
+              user_id:user.id, learning_language:"en", translation_language:"zh",
+              timezone:"Asia/Kuala_Lumpur", saved_words:[],
+              daily_topic_enabled:true, daily_application_enabled:true,
+              daily_discovery_enabled:true, daily_revision_enabled:true
+            });
+          }
+          if (!this.tables.user_entitlements.some(row => row.user_id === user.id)) {
+            this.tables.user_entitlements.push({ user_id:user.id, plan_code:"free", status:"active", valid_from:null, valid_until:null });
+          }
+        },
         setUser(user) {
           this.user = user;
+          this.ensureUserRows(user);
           const session = user ? { user } : null;
           this.listeners.forEach(listener => listener(user ? "SIGNED_IN" : "SIGNED_OUT", session));
         }
@@ -318,7 +346,7 @@ window.__SWIFT_TEST_INITIAL_USER = ${JSON.stringify(initialUser)};`
       }
       const client = {
         auth: {
-          async getSession() { if (!state.initialized) { state.user = window.__SWIFT_TEST_INITIAL_USER || null; state.initialized = true; } return { data: { session: state.user ? { user: state.user } : null }, error: null }; },
+          async getSession() { if (!state.initialized) { state.user = window.__SWIFT_TEST_INITIAL_USER || null; state.ensureUserRows(state.user); state.initialized = true; } return { data: { session: state.user ? { user: state.user } : null }, error: null }; },
           onAuthStateChange(callback) { state.listeners.push(callback); return { data: { subscription: { unsubscribe() {} } } }; },
           async signInWithOAuth(options) { state.oauthCalls.push(options); return { data: {}, error: null }; },
           async signOut() { state.setUser(null); return { error: null }; }
@@ -867,7 +895,8 @@ test("Dashboard shows saved words, course recency, ledger allowances and practic
   await page.locator("#menuPreferences").click();
   await expect(page.locator("#preferencesPage")).toBeVisible();
   await expect(page.locator("#preferencesPage")).toContainText("Account preferences");
-  await expect(page.locator("#preferencesPage")).toContainText("Privacy and data");
+  await expect(page.locator("#preferencesPage")).toContainText("Delete Account");
+  await expect(page.locator("#preferencesPage")).toContainText("Learning history");
   await expect(page.locator("#profilePage")).toBeHidden();
 });
 
