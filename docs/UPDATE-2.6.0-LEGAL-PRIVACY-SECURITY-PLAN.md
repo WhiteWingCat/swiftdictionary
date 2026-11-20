@@ -631,3 +631,14 @@ The Advisor also reports eight informational `rls_enabled_no_policy` findings fo
 #### Private-schema exposure verification (20 November 2026)
 
 A separate effective-privilege query resolved the eight private-schema Advisor INFO findings: `anon` has no USAGE on `private`; `authenticated` has USAGE but no direct SELECT/INSERT/UPDATE/DELETE privileges on any of the 12 audited private tables. This matches the intended design in which private data is accessed only through explicitly granted, reviewed RPCs. Keep this boundary in future migrations and re-check any new private-schema grants.
+
+
+#### Preserved DML and RLS matrix (20 November 2026)
+
+The staging ACL and `pg_policies` review confirmed the follow-up draft does not need to revoke normal Data API DML. Across the eight legacy tables, `anon` has no INSERT/UPDATE/DELETE privileges. The expected reads are: `languages` is readable by anon and authenticated users under the active-language policy; `learning_plan_limits` is readable by authenticated users only. Authenticated access is:
+
+- SELECT only: `learning_activity_log`, `learning_plan_limits`, `lesson_practice_results`, and `user_entitlements`.
+- SELECT/INSERT/UPDATE: `lesson_progress`, `profiles`, and `user_preferences`, with owner predicates using `auth.uid()` in SELECT/UPDATE and matching `WITH CHECK` on INSERT/UPDATE.
+- `languages`: SELECT only for anon and authenticated roles, limited by the active-language policy.
+
+The follow-up SQL revokes only TRUNCATE/REFERENCES/TRIGGER/MAINTAIN on these tables. It leaves all above DML grants and RLS policies unchanged. The test was corrected to reflect the exact effective read matrix: anonymous SELECT on `languages`, authenticated-only SELECT on `learning_plan_limits`.
