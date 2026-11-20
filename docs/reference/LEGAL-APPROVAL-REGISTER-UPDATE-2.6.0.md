@@ -44,3 +44,8 @@ This is an internal project-control document, not legal advice. Owner decisions 
 4. Account deletion and privacy-request procedures match the actual product.
 5. Final bilingual notice and Terms are reviewed, published and accepted through a tested versioned flow.
 6. All remaining technical staging and browser smoke tests pass.
+
+
+## Acceptance implementation design
+
+A separate proposed technical design is recorded at `docs/reference/LEGAL-DOCUMENT-ACCEPTANCE-AND-AGE-GATE-DESIGN.md`. It separates Terms acceptance, Privacy Notice acknowledgement and any consent that must be separately obtained; uses server-derived identity and timestamps; preserves versioned records; and explicitly leaves the 16–17-year-old consent approach unresolved pending Malaysian legal advice. No acceptance UI, age gate or schema has been implemented.
