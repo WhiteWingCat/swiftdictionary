@@ -2761,3 +2761,16 @@ A proposed legal-document acceptance and age-gate design is at `docs/reference/L
 - No production database, Auth setting, Cloudflare setting, deployment, merge or application source was changed. No user rows or message contents were inspected.
 - Recovery archive: [2026-11-20 Tuta contact and account-deletion audit](conversation-archive/2026-11-20-update-2-6-0-tuta-contact-and-account-deletion-audit.md). Continue provider/retention verification and legal review; do not publish legal drafts or onboard real users until the controlling legal gates are resolved.
 
+
+
+## 27. Update 2.6.0 — Phase K: provider retention evidence and account-deletion UX (2026-11-20)
+
+- Owner approved placing **Delete account** under **Profile → Preferences**. Selecting it opens a permanent-deletion warning describing possible removal of account-linked personal data, with **Confirm** and **Cancel**. Cancel makes no change; Confirm proceeds to a secure deletion flow. Fresh reauthentication, server-derived verified UID, server-side Auth Admin deletion, session revocation, retry-safe handling and truthful completion status remain mandatory engineering safeguards.
+- Warning copy must distinguish SwiftDictionary account data from the user's Google account and explain that provider logs/backups may not disappear immediately. No immediate backup-erasure promise is approved.
+- Signed-out browser-local saved words remain a separate unresolved scope decision. Do not silently erase local words on a shared browser when deleting a cloud account.
+- Public provider-documentation review recorded in the retention schedule. Supabase public docs distinguish active-project data, project-deletion data (up to 30 days), customer account data (up to 60 days in relevant cases), plan-specific backups (Pro 7 days, Team 14, Enterprise up to 30), and configurable paid PITR. These are not individual SwiftDictionary account-deletion periods. Actual project plans and settings remain unverified.
+- Cloudflare Pages deployment retention is 30 days except 100 most recent/current production; this is not visitor request-log retention. GitHub Actions logs/artifacts default to 90 days, configurable 1–90 days for public repositories; actual repository setting remains unverified. Repository visibility was confirmed public.
+- Google Sign-In ID tokens may include `sub` and profile claims; use `sub` as identity key. Revoking Google consent does not erase data already stored in Supabase. Actual OAuth scopes remain unverified.
+- jsDelivr's published 2023 policy describes IP/browser/request metadata and shorter non-aggregated usage retention without a fixed period; its subprocessor page lists Cloudflare, Fastly and Gcore. Current asset use/policy applicability must be confirmed.
+- No numeric retention period approved; no provider settings, application code, schema, Auth configuration, production data or deployments changed. No user data or provider log contents inspected.
+- See [Phase K provider-retention and deletion UX archive](conversation-archive/2026-11-20-update-2-6-0-phase-k-provider-retention-and-deletion-ux.md) and updated [Data Retention Schedule](reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md).
