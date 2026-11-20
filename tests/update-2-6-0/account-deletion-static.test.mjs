@@ -44,7 +44,7 @@ test("Cloudflare build routing appends the account-deletion loader after config 
 });
 
 test("account deletion is visibly distinct from learning-history deletion", () => {
-  assert.ok(frontend.includes("<h3>Delete account</h3>"));
+  assert.ok(frontend.includes("<h3>Delete Account</h3>"));
   assert.ok(frontend.includes("host.insertBefore(card, historyCard)"));
   assert.ok(index.includes("<h3>Learning history</h3>"));
   assert.ok(index.includes("separate Delete account option above"));
