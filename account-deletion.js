@@ -264,6 +264,11 @@
     }
     installAnonymousStorageIsolation();
     if (currentUser) mountAccountDeletion();
+    // Listen directly for INITIAL_SESSION as well: the app's first getSession()
+    // is asynchronous and may finish after this module has initialised.
+    supabaseClient.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) mountAccountDeletion();
+    });
     window.addEventListener("swift-auth-updated", () => {
       if (currentUser) mountAccountDeletion();
     });
