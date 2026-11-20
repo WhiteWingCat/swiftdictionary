@@ -429,7 +429,7 @@
       "今日闪卡额度已用完，将在你的额度时区午夜重置。"
     );
     if(typeof window.showSwiftDictionaryToast==="function"){
-      window.showSwiftDictionaryToast(message,"warning",5000);
+      window.showSwiftDictionaryToast(message, "warning", 5000);
     }
   }
 
