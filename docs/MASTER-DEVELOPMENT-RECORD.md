@@ -2728,3 +2728,23 @@ No new data category, analytics, tracking, processor, schema, migration, retenti
 - Legal/privacy risk remains visible in the release record. Terms publication and broad public onboarding are not represented as legally cleared.
 
 Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
+
+
+### 36.1. Follow-up validation and draft PR (2026-11-20)
+
+- Additional test-maintenance commits: `a86a36989f7650c57130b15a90548f5e692e4673` (cache-busted Flashcards script assertion) and `d2cb49d12d7808fc58d401b873bcf53091e6041b` (update older Preferences regression assertions to verify distinct Delete Account and Learning history controls).
+- Latest feature branch head: `d2cb49d12d7808fc58d401b873bcf53091e6041b`.
+- Latest Cloudflare Pages preview deployed successfully: `https://43934340.swiftdictionary.pages.dev`.
+- Cloudflare build-routing guard passed.
+- Quiz database foundation passed.
+- PostgreSQL 17 migration/allowance suite passed, including allowance ledger, data preservation and concurrency checks.
+- Supabase CLI local Auth compatibility suite passed, including its security-advisor check.
+- Flashcards static/mock checks passed; Chromium Mock User Flashcards browser suite passed all 17 tests.
+- Local Supabase/Auth/RPC integration passed: Auth contract, prerequisite and U2.6.0 migrations, explicit least-privilege grants, Quiz RPC integration, 199-question export validation, authenticated Quiz browser tests, signed-out Flashcards/Preferences regressions, and permanent Lessons allowance-exhaustion regression.
+- U2.6.0 local Supabase security advisor completed successfully with output `No issues found`.
+- General Chromium browser smoke workflow `44732605727` remained in Playwright dependency installation at this record update; its test step had not started.
+- Separate Cloudflare Worker check `Workers Builds: swiftdictionary-testing` failed (check run `136276269890`) while Pages deployment succeeded. No Wrangler configuration or Worker entrypoint exists in the repository. Confirm whether this external Worker service is still used before treating the check as irrelevant or disconnecting it.
+- Draft PR #13 is open at https://github.com/WhiteWingCat/swiftdictionary/pull/13, targeting `main`; it is not merged. At update time it contained 147 commits and 25 changed files.
+- Formal legal/privacy review remains deferred at the owner's request, not completed or waived. The Terms page remains a non-binding unpublished placeholder. No production deployment or Tokyo production changes were made.
+
+Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
