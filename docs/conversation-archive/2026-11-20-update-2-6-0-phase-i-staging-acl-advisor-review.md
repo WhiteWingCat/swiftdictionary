@@ -28,7 +28,7 @@ The anonymous role retains UPDATE (sequence `setval`) on three sequences:
 - `lesson_practice_results_id_seq`
 - `lesson_progress_id_seq`
 
-These were direct grants from `postgres`, not inherited from PUBLIC. Preserve public SELECT on `languages` and `learning_plan_limits`, all normal DML grants needed by the application, and existing RLS policies.
+These were direct grants from `postgres`, not inherited from PUBLIC. Preserve anon/authenticated SELECT on `languages` and authenticated-only SELECT on `learning_plan_limits`, all normal DML grants needed by the application, and existing RLS policies.
 
 ## Draft artifacts committed to implementation branch
 
