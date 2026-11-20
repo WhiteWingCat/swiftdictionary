@@ -2699,3 +2699,14 @@ A fresh read-only query against production and Singapore staging confirmed that 
 ## 2026-11-19 — Update 2.6.0 Phase H: Cloudflare project identification and safe backend routing
 
 The owner identified the Cloudflare Pages project as `swiftdictionary`. A fail-closed build-time router was added to the 2.6.0 feature branch: `main` is pinned to Tokyo production; non-main preview branches are pinned to Singapore staging; environment-specific Supabase URL and publishable-key variables are required. Added shell tests and a dedicated GitHub Actions workflow. Local tests and workflow run #44518836358 passed. No Cloudflare dashboard or Supabase Auth settings were changed, and no production deployment occurred. Dashboard configuration and OAuth/redirect allowlisting remain outstanding. Full detail: [Phase H archive](conversation-archive/2026-11-19-update-2-6-0-phase-h-cloudflare-routing.md).
+
+
+## Update 2.6.0 — Phase I status (20 November 2026)
+
+The 20 November staging ACL and Security Advisor review is archived at [Phase I — staging ACL follow-up and live advisor review](conversation-archive/2026-11-20-update-2-6-0-phase-i-staging-acl-advisor-review.md) and incorporated into [the 2.6.0 legal/privacy/security plan](UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md).
+
+The implementation branch now contains a narrow ACL cleanup draft and assertion test. The draft targets four unnecessary table privileges on eight legacy public tables and anonymous UPDATE on three sequences. It preserves intentional public SELECT on `languages` and `learning_plan_limits`. These are un-applied review artifacts, not a generated or applied migration. The Supabase CLI and local PostgreSQL tooling were unavailable, so no local SQL validation was claimed.
+
+Staging Security Advisor's two authenticated SECURITY DEFINER warnings were reviewed against function definitions and effective ACLs. Both functions require an authenticated identity, scope operations to `auth.uid()`, use an empty search_path and deny anon/PUBLIC execution. Authenticated execution is intentional for current features; do not revoke it merely to clear generic warnings. Eight private-schema RLS-without-policy informational findings and performance suggestions are recorded for review.
+
+No production database, Cloudflare, Google OAuth or deployment changes were made. Next gate: generate the migration with Supabase CLI, validate in disposable local Supabase CI, then apply and verify on Singapore staging. Production remains approval-gated.
