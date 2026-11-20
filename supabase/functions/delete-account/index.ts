@@ -17,19 +17,6 @@ const corsHeadersFor = (origin: string | null): Record<string, string> => {
   };
 };
 
-function decodeJwtPayload(token: string): Record<string, unknown> | null {
-  try {
-    const segment = token.split(".")[1];
-    if (!segment) return null;
-    const normalized = segment.replace(/-/g, "+").replace(/_/g, "/");
-    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
-    const bytes = Uint8Array.from(atob(padded), (char) => char.charCodeAt(0));
-    return JSON.parse(new TextDecoder().decode(bytes));
-  } catch {
-    return null;
-  }
-}
-
 function jsonResponse(
   body: Record<string, unknown>,
   status: number,
@@ -72,10 +59,8 @@ Deno.serve(async (req: Request) => {
   }
 
   const payload = decodeJwtPayload(accessToken);
-  const authTime = Number(payload?.auth_time);
   const nowSeconds = Math.floor(Date.now() / 1000);
-  if (!Number.isFinite(authTime) || authTime <= 0 || authTime > nowSeconds + 60
-      || nowSeconds - authTime > MAX_AUTH_AGE_SECONDS) {
+  if (!hasRecentAuthTime(payload, nowSeconds, MAX_AUTH_AGE_SECONDS)) {
     return jsonResponse({ error: "reauthentication_required", max_auth_age_seconds: MAX_AUTH_AGE_SECONDS }, 401, cors);
   }
 
