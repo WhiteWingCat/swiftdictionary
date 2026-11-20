@@ -71,12 +71,12 @@
     card.id = "accountDeletionCard";
     card.className = "profile-card swift-delete-card";
     card.innerHTML = `
-      <h3>Delete account</h3>
+      <h3>Delete Account</h3>
       <p class="muted-note">Permanently delete your SwiftDictionary account and its cloud-synchronised data, including saved words, profile, preferences and learning records. This does not delete your Google account. Choose this option only when you want to close the account permanently; deleting learning history alone is a separate action below.</p>
       <p class="muted-note">Other devices will lose refresh access immediately; an access token already issued to another device can remain valid until it expires.</p>
-      <button type="button" id="openAccountDeletion" class="secondary-button swift-delete-button">Delete account</button>
+      <button type="button" id="openAccountDeletion" class="secondary-button swift-delete-button">Delete Account</button>
     `;
-    const historyCard = [...host.querySelectorAll(".profile-card")].find(section => section.querySelector("h3")?.textContent.trim() === "Privacy and data");
+    const historyCard = [...host.querySelectorAll(".profile-card")].find(section => section.querySelector("h3")?.textContent.trim() === "Learning history");
     if (historyCard) host.insertBefore(card, historyCard);
     else host.appendChild(card);
 
