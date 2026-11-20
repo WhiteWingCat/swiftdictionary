@@ -29,6 +29,7 @@ jobs:
         run: |
           node --check account-deletion.js
           node --test tests/update-2-6-0/account-deletion-static.test.mjs
+          deno check supabase/functions/delete-account/index.ts
           deno test supabase/functions/delete-account/deno.test.ts
       - name: Verify environment routing safeguards
         run: bash tests/cloudflare-build-routing.sh
