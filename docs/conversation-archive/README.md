@@ -128,3 +128,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.6.0 — account-deletion success toast and allowance notification verification](2026-11-20-update-2-6-0-deletion-success-toast-and-allowance-notifications.md) — records the owner's successful Singapore-staging deletion/sign-out test, the post-sign-out five-second success-toast fix, verification of five-second Lessons/Quiz/Flashcards exhaustion notifications and current CI status.
 
 - [Update 2.6.0 — allowance notification CI compatibility and legal-review deferral](2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md) — records the native-Promise test-adapter diagnosis and fix, Cloudflare Pages preview deployment, remaining CI status, owner-requested deferral of formal legal/privacy review, and the unchanged production boundary.
+
+
+- [Update 2.6.0 — current handover, PR correction and production ACL audit](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — records the owner's retirement of the separate Cloudflare testing Worker, corrected PR #13 status, latest CI results, current account-deletion test gap, read-only production/staging ACL differences, proposed production remediation draft and continued legal/privacy deferral.
