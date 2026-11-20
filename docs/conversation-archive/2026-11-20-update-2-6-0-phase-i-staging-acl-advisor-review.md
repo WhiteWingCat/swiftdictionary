@@ -76,3 +76,6 @@ A separate ACL/policy read confirmed that `anon` has no INSERT/UPDATE/DELETE on 
 ## Disposable CI validation result
 
 The first CI attempt correctly caught a mistaken assertion in the test: it expected anonymous SELECT on `learning_plan_limits`, while the live staging ACL shows authenticated-only SELECT. The test was corrected to assert the actual ACL. GitHub Actions run [#44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925) then completed successfully, including the follow-up draft SQL execution and ACL assertions, existing least-privilege tests, authenticated Quiz RPC integration, content-catalogue checks, authenticated Chromium Quiz runtime tests and local Supabase security-advisor check. This validates the draft in disposable local Supabase CI only; the hosted staging database remains unchanged.
+
+
+A direct ACL expansion query also confirmed there are no PUBLIC grants on the eight targeted tables or the three targeted sequences. Therefore the follow-up's explicit revocations from `anon` and `authenticated` remove the observed grants without leaving a PUBLIC-inherited copy of those privileges.
