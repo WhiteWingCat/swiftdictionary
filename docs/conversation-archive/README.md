@@ -101,3 +101,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.6.0 Phase G — ACL re-verification and staging gap analysis](2026-11-19-update-2-6-0-phase-g-acl-reverification.md) — confirms the staging daily-session grants, finds residual anonymous UPDATE on three staging sequences, identifies PUBLIC EXECUTE as part of the production trigger-guard issue, and records remaining bootstrap-table ACL review and migration/production gates.
 
 - [Update 2.6.0 Phase H — Cloudflare Pages identification and safe backend routing](2026-11-19-update-2-6-0-phase-h-cloudflare-routing.md) — identifies the `swiftdictionary` Pages project, records the fail-closed production/staging build router, shell tests and passing CI run #44518836358, and lists the outstanding dashboard/OAuth configuration.
+
+
+- [Update 2.6.0 — Tuta contact setup and staging account-deletion audit](2026-11-20-update-2-6-0-tuta-contact-and-account-deletion-audit.md) — records the unverified Tuta mailbox status, read-only Singapore staging account-deletion audit, cascading ownership relationships, absence of an account-deletion Edge Function/Storage buckets, security-advisor snapshot and remaining owner/legal decisions.
