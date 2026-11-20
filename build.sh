@@ -22,6 +22,12 @@ else
   environment_name="preview/staging"
 fi
 
+# Refresh browser caches for the account-deletion success toast and allowance notifications.
+if [[ -f index.html ]]; then
+  sed -i -E 's#(account-deletion\\.js)(\\?v=[^"]*)?#\\1?v=2.6.0-r5#g' index.html
+  sed -i -E 's#(daily-learning\\.js)(\\?v=[^"]*)?#\\1?v=2.6.0-r1#g' index.html
+fi
+
 : "${SWIFT_SUPABASE_URL:?Set SWIFT_SUPABASE_URL in the matching Cloudflare Pages environment}"
 : "${SWIFT_SUPABASE_PUBLISHABLE_KEY:?Set SWIFT_SUPABASE_PUBLISHABLE_KEY in the matching Cloudflare Pages environment}"
 
