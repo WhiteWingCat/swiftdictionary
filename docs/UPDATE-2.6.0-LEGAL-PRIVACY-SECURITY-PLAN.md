@@ -686,3 +686,6 @@ The test did not read learner rows. It inspected effective table privileges and 
 
 
 A consolidated owner/legal approval tracker is now maintained at `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md`. It records 16 open decisions and release gates, including Act 709 applicability, operator/contact identity, processing basis, 16–17-year-old consent, DPO/DPIA, cross-border transfers, retention, account deletion, privacy requests, Terms enforceability, licensing, feedback visibility and versioned acceptance. The legal work must not be marked complete until the register's required approvals/evidence are resolved.
+
+
+A proposed versioned acceptance and age-gate implementation design is documented at `docs/reference/LEGAL-DOCUMENT-ACCEPTANCE-AND-AGE-GATE-DESIGN.md`. It keeps Terms acceptance, Privacy Notice acknowledgement and any separate consent distinct; records versions using server-derived identity/time; and makes no assumption that a 16+ self-declaration resolves Regulation 3(3). It is design-only pending legal and owner approval.
