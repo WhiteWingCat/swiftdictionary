@@ -67,7 +67,7 @@ It revokes TRUNCATE/REFERENCES/TRIGGER/MAINTAIN from anon/authenticated on eight
 
 The hosted staging assertion test ran and passed. A targeted effective ACL query returned no remaining targeted privileges. The repository migration filename was aligned to the exact hosted version: `supabase/migrations/20261120023718_update_2_6_0_remove_residual_api_privileges.sql`.
 
-GitHub Actions run [#44655246355](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44655246355) completed successfully after testing the committed migration in disposable local Supabase CI and running authenticated Quiz/RPC/Chromium tests.
+GitHub Actions run [#44662308530](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44662308530) completed successfully after the repository migration filename was aligned with the hosted staging version. It tested the exact committed migration file in disposable local Supabase CI and ran authenticated Quiz/RPC/Chromium tests. Earlier run [#44655246355](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44655246355) also passed before the filename alignment.
 
 ## 6. Post-migration advisor result
 
