@@ -1230,52 +1230,58 @@
     return null;
   }
 
+  function scheduleAllowanceNotification(activityType, result, originalRpc) {
+    if (result?.error) return;
+    (async () => {
+      const allowance = await readExhaustedAllowance(activityType, originalRpc);
+      if (!allowance || allowance.remaining !== 0) return;
+      const day = allowanceDayKey(allowance.timezone);
+      const key = activityType + ":" + day;
+      if (allowanceToastShown.has(key)) return;
+      allowanceToastShown.add(key);
+      const chinese = (() => { try { return translationLanguage === "zh"; } catch { return false; } })();
+      const labels = {
+        lesson: chinese ? "课程" : "Lessons",
+        quiz: chinese ? "测验" : "Quiz",
+        daily_topic: chinese ? "主题学习" : "Daily Topic",
+        daily_application: chinese ? "应用练习" : "Daily Application",
+        daily_discovery: chinese ? "探索发现" : "Daily Discovery",
+        daily_revision: chinese ? "复习活动" : "Daily Revision"
+      };
+      const message = chinese
+        ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
+        : "You have used all of today's " + labels[activityType] + " allowance. It resets at midnight in your allowance timezone.";
+      showSwiftDictionaryToast(message, "warning", 5000);
+    })().catch(error => {
+      console.warn("Could not check the remaining learning allowance for its notification.", error);
+    });
+  }
+
   function installAllowanceNotifications() {
     if (typeof supabaseClient === "undefined" || !supabaseClient || typeof supabaseClient.rpc !== "function"
         || supabaseClient.__swiftAllowanceNotificationsInstalled) return;
     const originalRpc = supabaseClient.rpc.bind(supabaseClient);
     const watched = {
       complete_permanent_lesson: "lesson",
-      submit_my_quiz: "quiz",
+      submit_my_quiz: "quiz"
     };
     supabaseClient.rpc = function swiftAllowanceAwareRpc(name, ...args) {
       const request = originalRpc(name, ...args);
       const activityType = name === "complete_daily_activity_session"
         ? readerState?.activityType
         : watched[name];
-      if (!activityType || !request || typeof request.then !== "function") return request;
+      if (!activityType || !request) return request;
+      if (typeof request.then !== "function") {
+        scheduleAllowanceNotification(activityType, request, originalRpc);
+        return request;
+      }
 
       // Decorate the builder's own then method. This preserves Supabase's
       // fluent RPC filters and avoids executing the same request twice.
       const originalThen = request.then.bind(request);
       request.then = function swiftAllowanceAwareThen(onFulfilled, onRejected) {
         return originalThen(result => {
-          if (!result?.error) {
-            (async () => {
-              const allowance = await readExhaustedAllowance(activityType, originalRpc);
-              if (!allowance || allowance.remaining !== 0) return;
-              const day = allowanceDayKey(allowance.timezone);
-              const key = activityType + ":" + day;
-              if (allowanceToastShown.has(key)) return;
-              allowanceToastShown.add(key);
-              const chinese = (() => { try { return translationLanguage === "zh"; } catch { return false; } })();
-              const labels = {
-                lesson: chinese ? "课程" : "Lessons",
-                quiz: chinese ? "测验" : "Quiz",
-                flashcard: chinese ? "闪卡" : "Flashcards",
-                daily_topic: chinese ? "每日主题" : "Daily Topic",
-                daily_application: chinese ? "每日应用" : "Daily Application",
-                daily_discovery: chinese ? "每日发现" : "Daily Discovery",
-                daily_revision: chinese ? "每日复习" : "Daily Revision"
-              };
-              const message = chinese
-                ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
-                : "You have used all of today's " + labels[activityType] + " allowance. It resets at midnight in your allowance timezone.";
-              showSwiftDictionaryToast(message, "warning", 5000);
-            })().catch(error => {
-              console.warn("Could not check the remaining learning allowance for its notification.", error);
-            });
-          }
+          scheduleAllowanceNotification(activityType, result, originalRpc);
           return typeof onFulfilled === "function" ? onFulfilled(result) : result;
         }, onRejected);
       };
