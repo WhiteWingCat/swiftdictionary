@@ -1,3 +1,5 @@
+> **SUPERSEDED — DO NOT PUBLISH.** This is a historical 2.3.0-era draft. Its data inventory and provider/deployment details are stale, including its statement that individual Quiz selected answers are not stored. Use `docs/reference/PRIVACY-NOTICE-DRAFT-2026-11-20.md` as the current working draft instead. That newer draft is also not approved for publication and still requires legal, operator, provider and retention review.
+
 # SwiftDictionary Privacy Policy — Draft for Review
 
 **Draft only — not approved for publication. This is the English draft only; prepare a Bahasa Malaysia companion version before publication if the Malaysian PDPA applies.** This document is a proposed notice for the 2.3.0 design, not a description of every feature currently deployed. On 10 November 2026, the connected production database was still on the pre-2.3.0 schema; the proposed current-window allowance ledger and Daily Activity session table were not live. Update this notice to match the actual release deployed at publication time, and check the provider settings and applicable law.
