@@ -46,6 +46,7 @@
     style.textContent = `
       .swift-delete-card{border:1px solid #704747!important}
       .swift-delete-button{border:1px solid #a65c5c!important;color:#ffb4b4!important}
+      .swift-delete-overlay[hidden]{display:none!important}
       .swift-delete-overlay{position:fixed;inset:0;z-index:10050;background:rgba(0,0,0,.76);display:grid;place-items:center;padding:18px}
       .swift-delete-dialog{width:min(560px,100%);max-height:90dvh;overflow:auto;background:#191c23;color:#f3f4f6;border:1px solid #454b58;border-radius:18px;padding:24px;box-shadow:0 18px 55px rgba(0,0,0,.45)}
       .swift-delete-dialog h2{margin:0 0 12px;font-size:1.35rem}
