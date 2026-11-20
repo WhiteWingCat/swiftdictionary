@@ -140,3 +140,18 @@ These Terms are intended to be governed by the laws of Malaysia, subject to any 
 - [ ] Review disclaimers, liability and governing-law wording for enforceability.
 - [ ] Publish the final Terms and Privacy Notice together with version history.
 - [ ] Implement a recorded, versioned acceptance flow before treating these Terms as accepted.
+
+
+## 17. Additional Malaysian contract and consumer-law review
+
+Before approval, Malaysian counsel should also assess:
+
+- **Electronic Commerce Act 2006 (Act 658):** electronic messages may form and evidence a contract. The final acceptance flow should present the Terms before account use, require a clear affirmative action where appropriate, retain the accepted version and timestamp, and make the referenced Terms accessible for later review. Do not rely on a hidden footer link or a pre-ticked box as proof of informed acceptance.
+- **Consumer Protection Act 1999 (Act 599):** counsel should assess applicability to the actual free service and any future paid offering. Standard-form terms, unilateral changes, suspension/termination and liability wording must not create unfair or misleading terms or purport to remove mandatory rights. The draft intentionally avoids an absolute exclusion of liability.
+- **Copyright Act 1987 and third-party licences:** verify the provenance and permitted use of dictionary data, examples, translations, Hanzi Writer, stroke-order datasets and all bundled assets. Third-party licence terms remain applicable.
+
+Official/reference materials:
+- [Electronic Commerce Act 2006 (Act 658), AGC](https://lom.agc.gov.my/ilims/upload/portal/akta/LOM/EN/Act%20658.pdf)
+- [Consumer Protection Act 1999 (Act 599), KPDN](https://www.kpdn.gov.my/images/2024/awam/akta/ttpm/Act%20599.pdf)
+
+These are review topics, not a conclusion that every cited statute applies to every aspect of the current free project.
