@@ -39,6 +39,12 @@ Depending on whether you sign in and which features you use, SwiftDictionary may
 
 The application uses browser local storage for certain preferences, signed-out saved words and its authentication session. This is not the same as using GPS or collecting a precise physical location. The reviewed source did not show a GPS/geolocation API, advertising tracker or analytics package; this must be rechecked against the production build before publication.
 
+### Sources of data and whether it is required
+
+Data may come directly from you (for example, saved words, preferences and custom Flashcard text), from Google when you choose Google sign-in (for example, account identity and email information returned through the sign-in flow), from your use of SwiftDictionary (for example, progress, selected Quiz options and Flashcard review results), or from service providers' ordinary network/security operations.
+
+Signing in is needed for features that save account-linked information and synchronise it across devices. The public dictionary word-grid is intended to remain available without an account. Display names, avatars, saved words, preferences and custom Flashcard content are supplied at your choice, subject to the feature you choose to use. If you do not sign in, account synchronisation and other account-dependent features may not be available; if you do not provide optional content, that content will not be stored. The exact obligatory/voluntary status of each field must be confirmed against the final deployed interface before publication.
+
 ## 3. How we use personal data
 
 The current purposes are to:
@@ -92,7 +98,7 @@ A self-service account-deletion control is not currently confirmed as implemente
 
 ## 7. Your privacy choices and requests
 
-Subject to applicable law, you may have rights to request access to personal data, correction of inaccurate data, information about processing, and data portability where the statutory conditions and technical feasibility requirements are met. You may also raise a concern about processing or ask about deletion.
+Subject to applicable law, you may have rights to request access to personal data, correction of inaccurate data, information about processing, and data portability where the statutory conditions and technical feasibility requirements are met. Where consent is the applicable basis, you may also be able to withdraw consent, subject to legal requirements and the effect this may have on features that depend on the relevant processing. You may raise a concern about processing or ask about deletion.
 
 **Privacy request contact:** [Insert monitored privacy contact route after owner approval.]
 
@@ -172,6 +178,12 @@ Bergantung pada sama ada anda log masuk dan ciri yang digunakan, SwiftDictionary
 
 Aplikasi menggunakan storan tempatan pelayar untuk tetapan tertentu, perkataan tersimpan semasa tidak log masuk dan sesi pengesahan. Ini bukan penggunaan GPS atau pengumpulan lokasi fizikal tepat. Kod sumber yang disemak tidak menunjukkan API GPS/geolokasi, penjejak pengiklanan atau pakej analitik; perkara ini mesti disemak semula terhadap binaan produksi sebelum penerbitan.
 
+### Sumber data dan sama ada data diperlukan
+
+Data mungkin diperoleh terus daripada anda (contohnya perkataan tersimpan, tetapan dan teks Flashcard ciptaan sendiri), daripada Google apabila anda memilih log masuk Google (contohnya identiti akaun dan maklumat e-mel yang dikembalikan melalui proses log masuk), daripada penggunaan SwiftDictionary (contohnya kemajuan, pilihan Quiz yang dipilih dan keputusan ulang kaji Flashcard), atau daripada operasi rangkaian/keselamatan biasa penyedia perkhidmatan.
+
+Log masuk diperlukan bagi ciri yang menyimpan maklumat berkaitan akaun dan menyegerakkannya antara peranti. Grid carian kamus awam bertujuan kekal tersedia tanpa akaun. Nama paparan, avatar, perkataan tersimpan, tetapan dan kandungan Flashcard tersuai diberikan atas pilihan anda, tertakluk pada ciri yang digunakan. Jika anda tidak log masuk, penyegerakan akaun dan ciri lain yang bergantung pada akaun mungkin tidak tersedia; jika anda tidak memberikan kandungan pilihan, kandungan tersebut tidak akan disimpan. Status wajib/sukarela bagi setiap medan mesti disahkan berdasarkan antara muka produksi akhir sebelum penerbitan.
+
 ## 3. Cara data peribadi digunakan
 
 Tujuan semasa termasuk:
@@ -225,7 +237,7 @@ Kawalan pemadaman akaun kendiri belum disahkan sebagai ciri yang telah dilaksana
 
 ## 7. Pilihan dan permintaan privasi anda
 
-Tertakluk kepada undang-undang yang terpakai, anda mungkin mempunyai hak untuk meminta akses kepada data peribadi, pembetulan data yang tidak tepat, maklumat tentang pemprosesan dan kemudahalihan data jika syarat statutori serta keperluan kebolehlaksanaan teknikal dipenuhi. Anda juga boleh membangkitkan kebimbangan tentang pemprosesan atau bertanya tentang pemadaman.
+Tertakluk kepada undang-undang yang terpakai, anda mungkin mempunyai hak untuk meminta akses kepada data peribadi, pembetulan data yang tidak tepat, maklumat tentang pemprosesan dan kemudahalihan data jika syarat statutori serta keperluan kebolehlaksanaan teknikal dipenuhi. Jika persetujuan ialah asas pemprosesan yang terpakai, anda juga mungkin boleh menarik balik persetujuan, tertakluk kepada keperluan undang-undang dan kesannya terhadap ciri yang bergantung pada pemprosesan tersebut. Anda boleh membangkitkan kebimbangan tentang pemprosesan atau bertanya tentang pemadaman.
 
 **Hubungan permintaan privasi:** [Masukkan saluran hubungan privasi yang dipantau selepas kelulusan pengendali.]
 
