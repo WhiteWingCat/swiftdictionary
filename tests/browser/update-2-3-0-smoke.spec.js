@@ -86,6 +86,19 @@ test("exhausted lesson allowance blocks new lessons but preserves completed less
   await expect(page.locator("#lessonStatus")).toContainText("已完成的课程已重新打开，可免费重温。");
 });
 
+test("permanent Lessons allowance exhaustion shows a notification", async ({ page }) => {
+  await installDailyLearningMock(page, "lesson-toast-user", "free");
+  await page.goto("/");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-toast-user");
+  await page.evaluate(async () => {
+    const state = window.__swiftDailyMock;
+    state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 4;
+    const result = await state.completePermanentLesson();
+    if (result.error) throw new Error(result.error.message);
+  });
+  await expect(page.locator("#swiftDictionaryToast")).toContainText("Lessons allowance");
+});
+
 test("Premium lesson allowance blocks new lessons after fifteen completions but keeps reviews free", async ({ page }) => {
   await installDailyLearningMock(page,"premium-lesson-limit-user","premium");
   await page.goto("/");
@@ -428,6 +441,13 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
             ? { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } }
             : { data: state.allowanceUsage, error: null };
           if (name === "is_personal_learning_test_access") return { data: false, error: null };
+          if (name === "complete_permanent_lesson") {
+            const usage = state.allowanceUsage.find(row => row.activity_type === "lesson");
+            const limit = state.tables.learning_plan_limits.find(row => row.plan_code === ${JSON.stringify(plan)} && row.activity_type === "lesson");
+            if (!usage || !limit || usage.used_count >= limit.daily_limit) return { data:null, error:{code:"P0001",message:"Daily learning completion limit reached"} };
+            usage.used_count += 1;
+            return { data:{status:"completed"}, error:null };
+          }
           if (name === "start_daily_activity_session") {
             const completed = state.sessions.find(row => row.activity_type === args.p_activity_type && row.content_id === args.p_content_id && row.status === "completed");
             if (completed) return { data: completed, error: null };
@@ -483,6 +503,7 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
           return { data: null, error: null };
         }
       };
+      state.completePermanentLesson = () => client.rpc("complete_permanent_lesson", {});
       window.__swiftDailyMock = state;
       window.supabase = { createClient() { return client; } };
     })();`
