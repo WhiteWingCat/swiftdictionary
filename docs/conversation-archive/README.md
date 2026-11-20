@@ -13,6 +13,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 ## Archives
 
+| 2026-11-20 | [Update 2.6.0 account deletion auth freshness fix](2026-11-20-update-2-6-0-account-deletion-auth-freshness-fix.md) | Corrects the unsupported auth_time freshness gate to use Supabase AMR timestamps (excluding token refresh), hardens visible 401/no-navigation feedback, records Singapore staging Edge Function v3 and passing account-deletion guard, and preserves synthetic-only destructive testing and production/legal gates. |
 | Date | Archive | Coverage |
 |---|---|---|
 | 2026-11-19 | [Update 2.5.0 owner feedback round 4](2026-11-19-update-2-5-0-owner-feedback-round-4.md) | Records inline Dictionary filters, centred Flashcards help, Accuracy-first results, Lessons Chinese banner translation, corrected test assertions, 13/13 Chromium Mock User tests passing, verified testing preview and pre-polishing handoff. |
