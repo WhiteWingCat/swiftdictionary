@@ -151,6 +151,7 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
   await page.locator("#dailyActivityReader [data-complete-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
+  await expect(page.locator("#swiftDictionaryToast")).toContainText("每日主题额度");
 
   const dailyRpcNames = () => page.evaluate(() => window.__swiftDailyMock.rpcCalls
     .filter(call => ["start_daily_activity_session","complete_daily_activity_session"].includes(call.name))
