@@ -589,7 +589,7 @@ The follow-up ACL migration has now been applied to the isolated Singapore stagi
 - The migration revokes TRUNCATE, REFERENCES, TRIGGER and MAINTAIN from `anon` and `authenticated` on the eight reviewed legacy tables, and revokes anonymous UPDATE on the three identified sequences.
 - It preserves the existing DML grants and RLS policies, anonymous/authenticated SELECT on `languages`, and authenticated-only SELECT on `learning_plan_limits`.
 - The post-migration ACL assertion test ran directly against hosted staging and passed. A separate effective-ACL query returned no remaining targeted grants.
-- GitHub Actions run [#44655246355](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44655246355) passed after applying the committed migration in disposable local Supabase CI and running the authenticated Quiz/RPC/Chromium regression workflow.
+- GitHub Actions run [#44662308530](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44662308530) passed after the repository migration filename was aligned with the hosted staging version. The exact committed migration file was applied in disposable local Supabase CI, followed by the authenticated Quiz/RPC/Chromium regression workflow. Earlier run [#44655246355](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44655246355) also passed before the filename alignment.
 - A repository filename mismatch was caught and corrected: the migration file now uses the exact version recorded in hosted staging, `20261120023718`, so future CLI migration history will not treat it as a separate pending migration.
 
 #### Current staging Security Advisor
