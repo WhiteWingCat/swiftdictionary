@@ -44,21 +44,23 @@ test("Cloudflare build routing appends the account-deletion loader after config 
 });
 
 test("account deletion is visibly distinct from learning-history deletion", () => {
-  assert.match(frontend, /<h3>Delete account<\\/h3>/);
-  assert.match(frontend, /host\\.insertBefore\\(card, historyCard\\)/);
-  assert.match(index, /<h3>Learning history<\\/h3>/);
-  assert.match(index, /separate Delete account option above/);
+  assert.ok(frontend.includes("<h3>Delete account</h3>"));
+  assert.ok(frontend.includes("host.insertBefore(card, historyCard)"));
+  assert.ok(index.includes("<h3>Learning history</h3>"));
+  assert.ok(index.includes("separate Delete account option above"));
 });
 
 test("learning-history confirmation uses an in-site dialog, not the browser prompt", () => {
-  assert.match(index, /confirmLearningHistoryDeletion/);
-  assert.match(index, /role="dialog" aria-modal="true"/);
-  assert.match(index, /Delete learning history\\?/);
-  assert.doesNotMatch(index, /window\\.confirm\\s*\\(/);
+  assert.ok(index.includes("confirmLearningHistoryDeletion"));
+  assert.ok(index.includes('role="dialog" aria-modal="true"'));
+  assert.ok(index.includes("Delete learning history?"));
+  assert.ok(!index.includes("window.confirm("));
 });
 
 test("signed-out Flashcards visitors still see the page banner and title", () => {
-  const signedOut = flashcards.slice(flashcards.indexOf("if(!currentUser){"), flashcards.indexOf("if(state.loading)", flashcards.indexOf("if(!currentUser){")));
+  const start = flashcards.indexOf("if(!currentUser){");
+  const end = flashcards.indexOf("if(state.loading)", start);
+  const signedOut = flashcards.slice(start, end);
   assert.match(signedOut, /flash-banner/);
   assert.match(signedOut, /Flashcards/);
   assert.match(signedOut, /data-action="signin"/);
