@@ -18627,23 +18627,23 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           <section role="dialog" aria-modal="true" aria-labelledby="learningHistoryConfirmTitle" style="width:min(540px,100%);max-height:90dvh;overflow:auto;background:#191c23;color:#f3f4f6;border:1px solid #454b58;border-radius:18px;padding:24px;box-shadow:0 18px 55px rgba(0,0,0,.45)">
             <h2 id="learningHistoryConfirmTitle" style="margin:0 0 12px">Delete learning history?</h2>
             <p style="line-height:1.55;color:#c3c8d2">This removes lesson progress, practice summaries, Daily Learning sessions, Flashcard game history and Flashcard mastery for this account.</p>
-            <p style="line-height:1.55;color:#c3c8d2">Your SwiftDictionary account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset.</p>
+            <p style="line-height:1.55;color:#c3c8d2">Your SwiftDictionary account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset. This action does not clear signed-out saved words stored locally on this device.</p>
             <p style="line-height:1.55;color:#f6caca">This action cannot be undone. To permanently delete your account and its associated cloud data, use the separate <strong>Delete account</strong> option in Preferences.</p>
             <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px">
               <button type="button" data-history-cancel class="secondary-button">Cancel</button>
               <button type="button" data-history-confirm class="secondary-button" style="border:1px solid #a65c5c;color:#ffb4b4">Delete learning history</button>
             </div>
           </section>`;
-        const finish = value => { overlay.remove(); resolve(value); };
+        const onKey = event => { if (event.key === "Escape" && document.body.contains(overlay)) finish(false); };
+        const finish = value => {
+          document.removeEventListener("keydown", onKey);
+          overlay.remove();
+          resolve(value);
+        };
         overlay.addEventListener("click", event => { if (event.target === overlay) finish(false); });
         overlay.querySelector("[data-history-cancel]").addEventListener("click", () => finish(false));
         overlay.querySelector("[data-history-confirm]").addEventListener("click", () => finish(true));
-        document.addEventListener("keydown", function onKey(event) {
-          if (event.key === "Escape" && document.body.contains(overlay)) {
-            document.removeEventListener("keydown", onKey);
-            finish(false);
-          }
-        });
+        document.addEventListener("keydown", onKey);
         document.body.appendChild(overlay);
         overlay.querySelector("[data-history-cancel]").focus();
       });
