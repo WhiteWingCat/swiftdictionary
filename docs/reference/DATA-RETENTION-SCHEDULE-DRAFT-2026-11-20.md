@@ -37,3 +37,76 @@ Do not publish retention promises until each period is checked against the live 
 - [ ] Implement and test account deletion, including Auth sessions, foreign-key cascades and residual JWT behaviour.
 - [ ] Document exceptions for security incidents, legal claims and mandatory retention.
 - [ ] Ensure the Privacy Notice describes the verified periods and limitations accurately.
+
+
+## Provider-documentation evidence snapshot — 20 November 2026
+
+This section records public provider documentation, not verified tenant settings. Do not convert these provider defaults into a SwiftDictionary retention promise until the relevant account dashboard, contract and enabled products have been checked.
+
+### Supabase
+
+- Production project: `pzymiesazmpyvnfvsbsc`, Tokyo (`ap-northeast-1`); staging project: `ivatvkfrtifgfheeaelj`, Singapore (`ap-southeast-1`). Both were reported `ACTIVE_HEALTHY` during this review.
+- Supabase's current Data Residency and Transfers FAQ says database data is retained while a project is active; when a project is deleted, Customer Data is deleted within 30 days. Customer account information may be retained where required by law, including tax, billing or legal obligations; the FAQ says personal information is deleted up to 60 days after account closure. Usage logs and telemetry have specific operational/security retention periods, but the FAQ does not state a universal fixed period.
+- Supabase's Backup documentation (updated 12 November 2026) says Pro projects have 7 days of daily backups, Team 14 days and Enterprise up to 30 days. PITR is a separate paid add-on with configurable recovery retention; enabling PITR replaces daily backups. Free-tier projects are advised to export data regularly rather than being promised a daily-backup period.
+- **Not verified:** actual billing plan for each SwiftDictionary project; whether PITR is enabled; current PITR recovery window; exact Auth, Postgres, Edge Function and platform log retention; project-specific DPA/subprocessors; account support access.
+- **Important distinction:** the public 30-day project-deletion statement concerns deleting an entire Supabase project, not the self-service deletion of one SwiftDictionary learner account. Do not describe it as an individual account-deletion period.
+
+Sources:
+- https://supabase.com/legal/privacy-resources/data-residency-and-transfers-faq
+- https://supabase.com/docs/guides/platform/backups
+
+### Cloudflare Pages
+
+- Cloudflare's 19 November 2026 changelog and current Pages limits documentation state that deployments are kept for 30 days, except the 100 most recent deployments and the current production deployment. Production deployment is retained while current; older deployments/preview URLs can disappear after the applicable threshold.
+- This is **deployment/version retention**, not a stated retention period for visitor IP addresses, HTTP request logs, build logs, security events or account metadata.
+- Pages Functions logging documentation describes request/error/custom logs and dashboard/Wrangler access, but the public documentation reviewed here does not establish a universal retention duration for SwiftDictionary's Pages build or request logs.
+- **Not verified:** exact enabled Cloudflare products (Pages Functions, Workers, Turnstile, Web Analytics, Logpush); request-log settings; build-log retention; account metadata retention; active DPA and subprocessor version.
+
+Sources:
+- https://developers.cloudflare.com/changelog/post/2026-11-19-workers-pages-version-retention/
+- https://developers.cloudflare.com/pages/platform/limits/
+- https://developers.cloudflare.com/pages/functions/debugging-and-logging/
+
+### GitHub
+
+- Repository `WhiteWingCat/swiftdictionary` was confirmed public during this review.
+- GitHub documentation states that Actions workflow logs and artifacts default to 90 days. For public repositories, the configured retention period can be from 1 to 90 days. GitHub's 2026 documentation also describes retention for checks, workflow runs and commit statuses; the policy applies to new objects and does not retroactively change existing ones.
+- **Not verified:** repository's Actions retention setting; organization-level overrides; whether any workflow artifact or log includes personal data; repository issue and discussion retention. Public issues remain visible according to repository visibility and should not be used for private support.
+- Public source code and project-development documentation are separate from learner records; never commit learner data, secrets, OAuth tokens, or private support messages to the repository.
+
+Sources:
+- https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository
+- https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
+
+### Google Sign-In
+
+- Google's current web identity documentation confirms that ID tokens can include a stable Google subject identifier (`sub`) and profile claims such as email, name and picture, depending on what is requested/available. The project must use the stable subject rather than email as the external identity key.
+- Google account consent can be revoked separately from deleting a SwiftDictionary account. Revocation does not delete profile or learning data already stored in Supabase.
+- **Not verified:** actual OAuth scopes configured in Google Cloud Console; exact attributes stored by Supabase Auth; Google Cloud project/account settings; token retention/revocation implementation; provider-side retention applicable to this exact authentication setup.
+- Do not state that deleting a SwiftDictionary account deletes the user's Google account.
+
+Sources:
+- https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
+- https://developers.google.com/identity/oauth2/web/guides/how-user-authz-works
+
+### jsDelivr
+
+- The published jsDelivr Privacy Policy describes CDN usage metadata including IP address, browser information, referrer domain, requested CDN URL and request time. It says non-aggregated usage data is kept for a shorter period and deleted after analysis unless needed for security/functionality or legal obligations; it does not specify a fixed number of days.
+- jsDelivr's published subprocessor page lists CDN providers including Cloudflare, Fastly and Gcore, which may receive IP and browser request information for delivery, analytics and security.
+- **Not verified:** whether all current SwiftDictionary assets are still loaded from jsDelivr; current subprocessor list and provider terms; any fixed request-log retention periods. The reviewed policy is dated 23 November 2023 and should be rechecked before the Privacy Notice is finalised.
+
+Sources:
+- https://github.com/jsdelivr/jsdelivr/blob/master/Privacy%20Policy.md
+- https://github.com/jsdelivr/jsdelivr/blob/master/Sub-Processors.md
+
+## Evidence still required before numeric retention approval
+
+1. Check both Supabase project plans and backup/PITR screens; record the exact setting for production and staging separately.
+2. Obtain current Supabase DPA, subprocessor list and account-specific retention/support details from the dashboard/legal hub.
+3. Inspect Cloudflare Pages project settings and account logs/analytics/Logpush configuration. Record enabled products, not just available products.
+4. Inspect GitHub repository Actions retention settings and workflow artifacts/logs. Confirm no workflow prints user data or secrets.
+5. Inspect Google Cloud OAuth consent/scopes and Supabase Auth provider configuration; do not infer scopes from default examples.
+6. Verify whether jsDelivr is still loaded in the current production build and whether a self-hosted asset alternative is feasible without breaking licensing or updates.
+7. Only then propose operator-controlled retention periods for application records. Provider-controlled logs/backups must be described separately and accurately.
+
+**No retention setting was changed during this review. No fixed numeric retention period is approved by this evidence snapshot.**
