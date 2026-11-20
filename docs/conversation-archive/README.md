@@ -104,3 +104,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.6.0 — Tuta contact setup and staging account-deletion audit](2026-11-20-update-2-6-0-tuta-contact-and-account-deletion-audit.md) — records the unverified Tuta mailbox status, read-only Singapore staging account-deletion audit, cascading ownership relationships, absence of an account-deletion Edge Function/Storage buckets, security-advisor snapshot and remaining owner/legal decisions.
+
+
+- [Update 2.6.0 — Phase K: provider retention evidence and account-deletion UX](2026-11-20-update-2-6-0-phase-k-provider-retention-and-deletion-ux.md) — records the owner's approved Profile → Preferences deletion-warning flow, required security safeguards, provider-published retention facts versus unverified tenant settings, public GitHub repository status and remaining legal/privacy gates.
