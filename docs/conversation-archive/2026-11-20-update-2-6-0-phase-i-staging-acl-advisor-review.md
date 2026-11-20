@@ -66,3 +66,8 @@ The Advisor also reports eight informational RLS-enabled/no-policy findings for 
 6. Keep production untouched until the owner explicitly approves a separately reviewed rollout.
 
 Malaysia legal review remains required for Act 709 applicability, consent for users aged 16–17, DPO screening, cross-border transfers, retention and the public controller contact route. This technical phase is not legal advice or a compliance certification.
+
+
+## Preserved DML and RLS matrix
+
+A separate ACL/policy read confirmed that `anon` has no INSERT/UPDATE/DELETE on any of the eight tables. `languages` is readable by anon and authenticated roles under the active-language policy. `learning_plan_limits` is readable by authenticated users only. Authenticated roles have SELECT only on `learning_activity_log`, `learning_plan_limits`, `lesson_practice_results`, and `user_entitlements`; SELECT/INSERT/UPDATE on `lesson_progress`, `profiles`, and `user_preferences`, with owner checks based on `auth.uid()`. The draft revokes only non-DML privileges and preserves these existing grants and policies. The regression test was corrected to assert the exact read matrix.
