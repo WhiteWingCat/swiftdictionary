@@ -1205,14 +1205,14 @@
         ? p.allowance_timezone : (p.timezone || "UTC");
       return { remaining: Number(data.allowance.remaining), timezone };
     }
-    if (activityType === "lesson") {
+    if (activityType === "lesson" || activityType.startsWith("daily_")) {
       const [usage, entitlement, pref, testAccess] = await Promise.all([
         originalRpc("get_my_learning_allowance_usage"),
         supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id", currentUser.id).maybeSingle(),
         supabaseClient.from("user_preferences").select("timezone,allowance_timezone,allowance_timezone_until").eq("user_id", currentUser.id).maybeSingle(),
-        originalRpc("is_personal_learning_test_access")
+        activityType === "lesson" ? originalRpc("is_personal_learning_test_access") : Promise.resolve({data:false,error:null})
       ]);
-      if (usage.error || entitlement.error || pref.error || testAccess.error || testAccess.data === true) return null;
+      if (usage.error || entitlement.error || pref.error || testAccess.error || (activityType === "lesson" && testAccess.data === true)) return null;
       const now = Date.now();
       const e = entitlement.data;
       const active = e?.status === "active"
@@ -1220,9 +1220,9 @@
         && (!e.valid_until || Date.parse(e.valid_until) > now);
       const plan = active ? e.plan_code : "free";
       const limitResult = await supabaseClient.from("learning_plan_limits")
-        .select("daily_limit,is_enabled").eq("plan_code", plan).eq("activity_type", "lesson").maybeSingle();
+        .select("daily_limit,is_enabled").eq("plan_code", plan).eq("activity_type", activityType).maybeSingle();
       if (limitResult.error || !limitResult.data?.is_enabled) return null;
-      const used = Number((usage.data || []).find(row => row.activity_type === "lesson")?.used_count || 0);
+      const used = Number((usage.data || []).find(row => row.activity_type === activityType)?.used_count || 0);
       const p = pref.data || {};
       const timezone = p.allowance_timezone && Date.parse(p.allowance_timezone_until || "") > now
         ? p.allowance_timezone : (p.timezone || "UTC");
@@ -1242,7 +1242,9 @@
     };
     supabaseClient.rpc = function swiftAllowanceAwareRpc(name, ...args) {
       const request = originalRpc(name, ...args);
-      const activityType = watched[name];
+      const activityType = name === "complete_daily_activity_session"
+        ? readerState?.activityType
+        : watched[name];
       if (!activityType || !request || typeof request.then !== "function") return request;
       // Return a single chained thenable. Attaching a second observer to a
       // Supabase PostgREST builder can execute its request twice.
@@ -1259,7 +1261,11 @@
             const labels = {
               lesson: chinese ? "课程" : "Lessons",
               quiz: chinese ? "测验" : "Quiz",
-              flashcard: chinese ? "闪卡" : "Flashcards"
+              flashcard: chinese ? "闪卡" : "Flashcards",
+              daily_topic: chinese ? "每日主题" : "Daily Topic",
+              daily_application: chinese ? "每日应用" : "Daily Application",
+              daily_discovery: chinese ? "每日发现" : "Daily Discovery",
+              daily_revision: chinese ? "每日复习" : "Daily Revision"
             };
             const message = chinese
               ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
