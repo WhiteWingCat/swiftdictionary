@@ -576,3 +576,53 @@ To make the eventual preview safe, the implementation branch now contains a buil
 Added `build.sh`, `tests/cloudflare-build-routing.sh` and `.github/workflows/cloudflare-build-routing.yml`. Local shell validation passed; GitHub Actions run #44518836358 passed. Commits: `b6d6f697e9bdceb0bcb443a0ece6d8f8caf42246`, `91dcb80a090de67d5eacd115904af5f0999d2993`, `2544083fe67773512f528f2ec941b16d13cf55c8`.
 
 Remaining dashboard work: confirm `main` as production branch; enable preview builds for the 2.6.0 feature branch; set build command `bash build.sh` and output directory `.`; set separate Production and Preview environment values; verify the staging preview hostname and add it to staging Supabase Auth Redirect URLs; add the staging Supabase Auth callback URI to Google OAuth. No Cloudflare settings, Supabase Auth settings, production build or production deployment were changed. See the [Phase H archive](conversation-archive/2026-11-19-update-2-6-0-phase-h-cloudflare-routing.md).
+
+
+### 7.10 Phase I — staging ACL follow-up and live advisor review (20 November 2026)
+
+This phase used read-only Supabase queries against the Singapore staging project `ivatvkfrtifgfheeaelj`. No production project was queried or changed, no learner rows were read, and no database writes or migrations were executed.
+
+#### Effective staging ACL confirmation
+
+The effective ACL query confirmed that eight legacy/bootstrap-created public tables are owned by `postgres` and still grant both `anon` and `authenticated` the non-DML privileges TRUNCATE, REFERENCES, TRIGGER and MAINTAIN:
+
+- `languages`
+- `learning_activity_log`
+- `learning_plan_limits`
+- `lesson_practice_results`
+- `lesson_progress`
+- `profiles`
+- `user_entitlements`
+- `user_preferences`
+
+The anonymous role also retains UPDATE (the sequence `setval` privilege) on three sequences:
+
+- `learning_activity_log_id_seq`
+- `lesson_practice_results_id_seq`
+- `lesson_progress_id_seq`
+
+The grants were confirmed as granted by `postgres`, not inherited from PUBLIC. Public SELECT on `languages` and `learning_plan_limits` is intentional and must be preserved. Existing normal DML grants and RLS policies must also be preserved.
+
+A narrowly scoped follow-up SQL draft was added at `docs/UPDATE-2.6.0-STAGING-ACL-FOLLOW-UP-DRAFT.sql`. It revokes only the four extra table privileges on the eight listed tables and anonymous UPDATE on the three sequences. A separate assertion file was added at `supabase/tests/update_2_6_0_staging_acl_followup.sql`. It asserts the unwanted grants are absent and the two intentional public SELECT grants remain.
+
+These are review artifacts, not an applied migration. The permanent migration filename must be created with `supabase migration new`; the CLI was not available in the execution environment, so no timestamped migration was fabricated. The assertions have not yet been run against a disposable local database or staging. Do not apply the draft to staging or production until the migration is generated, its target object existence is verified, and the full authenticated application regression suite passes.
+
+#### Security Advisor review
+
+The live staging Security Advisor returned two WARN findings for authenticated execution of SECURITY DEFINER functions:
+
+- `public.is_personal_learning_test_access()` checks `auth.uid() is not null` and looks up only that same authenticated user's ID in `private.learning_limit_exemptions`.
+- `public.record_completed_lesson_practice_result(...)` rejects a null authenticated user, validates the supplied aggregate and approved lesson identity, takes a per-user advisory transaction lock, requires a previously completed lesson owned by the same user, and inserts the replay summary for that user.
+
+Both functions are owned by `postgres`, set an empty search_path, deny anonymous EXECUTE, and have no PUBLIC EXECUTE grant in the effective ACL check. Authenticated EXECUTE is required by the current application design. Do not revoke authenticated execution merely to silence the generic advisor warning; retain the checks and document the intentional privileged RPC exposure. Review future edits for search-path safety, explicit object qualification, caller identity and user ownership checks.
+
+The Advisor also reports eight informational `rls_enabled_no_policy` findings for private-schema tables. They are not exposed to browser roles through the Data API and are intentionally accessed only through controlled database functions; confirm schema exposure and grants remain restricted. Performance findings (unindexed foreign keys, RLS initplan suggestions and unused indexes) are separate follow-up optimisation work, not security incidents. Do not drop indexes solely because the staging project's synthetic test workload has not used them.
+
+#### Tooling and next steps
+
+- GitHub repository branch `feature/update-2-6-0-legal-privacy-security` remains the implementation branch. There is no open pull request to main.
+- GitHub Actions workflow `Cloudflare build routing guard` passed on commit `2544083fe67773512f528f2ec941b16d13cf55c8`.
+- Supabase CLI, Docker and local PostgreSQL client were not available in this execution environment; therefore the draft SQL was not locally executed.
+- The repository's Quiz database workflow already applies the initial 2.6.0 migration and runs the existing least-privilege assertions. Extend that workflow with the follow-up migration and assertion test only after the migration is generated and validated.
+- Continue to leave production ACLs, Cloudflare settings, Google OAuth settings and production deployments untouched pending explicit owner approval.
+- Malaysia legal review remains necessary for Act 709 applicability, the under-18 parental-consent issue, DPO screening, cross-border transfer basis, retention and public controller contact route. The current technical work does not constitute legal compliance advice.
