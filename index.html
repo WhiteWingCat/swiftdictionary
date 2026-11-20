@@ -18444,39 +18444,59 @@
         // Refresh the permanent lesson allowance whenever the active account changes.
         if (typeof initialiseLessons === "function") await initialiseLessons();
       }
-      await refreshAccount();
+      // Register interactive auth controls before the first account refresh.
+      // refreshAccount() performs several network requests; binding afterwards
+      // made the first click silently do nothing on slower connections.
       supabaseClient.auth.onAuthStateChange((event, session) => {
         const nextUser = session?.user || null;
         const previousUserId = currentUser?.id || null;
         currentUser = nextUser;
-        // Clear cached favorites immediately on sign-out or account change.
         if (!nextUser || (previousUserId && previousUserId !== nextUser.id)) {
           saved.clear();
           try { localStorage.removeItem("swiftdictionary-saved"); } catch {}
           if (activeWord) updateSaveButton();
           render();
         }
-        // Defer database work outside the auth callback to avoid locking auth state changes.
-        setTimeout(async () => { await refreshAccount(); window.dispatchEvent(new Event("swift-auth-updated")); }, 0);
-      });
-      google.addEventListener("click", async () => {
-        accountStatus.textContent = "Opening Google sign-in…";
-        // Use the stable page URL, excluding query/hash parameters that may be left
-        // behind by a previous OAuth callback or browser navigation.
-        const redirectTo = window.location.origin + window.location.pathname;
-        const { error } = await supabaseClient.auth.signInWithOAuth({
-          provider: "google",
-          options: {
-            redirectTo,
-            queryParams: { prompt: "select_account" }
+        // Keep asynchronous database work outside Supabase's auth callback.
+        Promise.resolve().then(async () => {
+          try {
+            await refreshAccount();
+            window.dispatchEvent(new Event("swift-auth-updated"));
+          } catch (error) {
+            accountStatus.textContent = `Account refresh failed: ${error.message || error}`;
+            console.error("SwiftDictionary account refresh failed:", error);
           }
         });
-        if (error) accountStatus.textContent = error.message;
+      });
+      google.addEventListener("click", async () => {
+        if (google.disabled) return;
+        google.disabled = true;
+        accountStatus.textContent = "Opening Google sign-in…";
+        try {
+          const redirectTo = window.location.origin + window.location.pathname;
+          const { error } = await supabaseClient.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+              redirectTo,
+              queryParams: { prompt: "select_account" }
+            }
+          });
+          if (error) throw error;
+          // A successful OAuth call normally navigates away. Re-enable if the
+          // browser remains on this page (for example, blocked navigation).
+          window.setTimeout(() => { google.disabled = false; }, 8000);
+        } catch (error) {
+          accountStatus.textContent = `Google sign-in could not start: ${error.message || error}`;
+          google.disabled = false;
+          console.error("SwiftDictionary Google sign-in failed:", error);
+        }
       });
       signout.addEventListener("click", async () => {
         const { error } = await supabaseClient.auth.signOut();
         if (error) accountStatus.textContent = `Sign-out failed: ${error.message}`;
       });
+      // Do the initial refresh only after the first-click handlers are ready.
+      await refreshAccount();
     }
     const accountMenu = document.getElementById("accountMenu");
     const accountButton = document.getElementById("accountButton");
