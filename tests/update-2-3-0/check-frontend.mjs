@@ -437,7 +437,7 @@ const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"');
 if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || difficultyNavStart < dailySectionStart) {
   throw new Error("Daily Learning must appear inside Lessons above the difficulty navigation.");
 }
-for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','Privacy and data','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
+for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','id="accountDeletionCard"','Learning history','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
   if (!html.includes(fragment)) throw new Error(`Update 2.3.1 dashboard/navigation check failed: missing ${fragment}`);
 }
 for (const fragment of [
