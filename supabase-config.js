@@ -16,12 +16,4 @@ try {
   }
 } catch {}
 
-// Load the Update 2.6.0 account-deletion module after the main app script has
-// established its global lexical bindings. The module waits for DOMContentLoaded.
-(() => {
-  const current = document.currentScript;
-  const moduleScript = document.createElement("script");
-  moduleScript.src = new URL("account-deletion.js", current.src).href;
-  moduleScript.async = true;
-  document.head.appendChild(moduleScript);
-})();
+// account-deletion.js is loaded explicitly after the main app script in index.html.
