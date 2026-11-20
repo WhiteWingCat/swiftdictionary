@@ -93,3 +93,29 @@ test("Terms & Conditions has a footer link and does not publish an unapproved le
   assert.match(terms, /not a contract or a binding set of Terms/);
   assert.match(terms, /No acceptance of Terms is being requested or recorded/);
 });
+
+test("Lessons are gated behind sign-in and expose a dedicated sign-in panel", () => {
+  assert.ok(index.includes('id="lessonsSignedOut"'));
+  assert.ok(index.includes('id="lessonsSignIn"'));
+  assert.match(index, /learning-signed-out #dailyLearningPage/);
+  assert.match(index, /lessonsSignedOut\.hidden=lessonsSignedIn/);
+  assert.match(index, /lessonsSignIn.*menuSignIn/);
+});
+
+test("Lessons and Quiz use the shared Flashcards-style signed-out card treatment", () => {
+  assert.match(index, /id="quizSignedOut" class="coming-card learning-auth-card"/);
+  assert.match(index, /id="lessonsSignedOut" class="learning-auth-card"/);
+  assert.match(index, /class="primary-button learning-auth-button"/);
+  assert.match(flashcards, /flash-section coming-card learning-auth-card/);
+});
+
+test("Delete Account card is present in Preferences before Learning history", () => {
+  assert.ok(index.includes('id="accountDeletionCard"'));
+  assert.ok(index.indexOf('id="accountDeletionCard"') < index.indexOf("<h3>Learning history</h3>"));
+  assert.match(frontend, /if \(!document\.getElementById\("accountDeletionCard"\)\)/);
+});
+
+test("Flashcards resets and re-renders its signed-out view immediately on sign-out", () => {
+  assert.match(flashcards, /event==="SIGNED_OUT"\|\|!session\?\.user/);
+  assert.match(flashcards, /state\.data=\{collections:\[\],cards:\[\],mastery:\[\],history:\[\],review_items:\[\]\}/);
+});

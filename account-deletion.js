@@ -62,24 +62,24 @@
   }
 
   function mountAccountDeletion() {
-    if (document.getElementById("accountDeletionCard")) return;
     const host = document.getElementById("preferencesSignedIn");
     if (!host) return;
-
     addStyles();
-    const card = document.createElement("section");
-    card.id = "accountDeletionCard";
-    card.className = "profile-card swift-delete-card";
-    card.innerHTML = `
-      <h3>Delete Account</h3>
-      <p class="muted-note">Permanently delete your SwiftDictionary account and its cloud-synchronised data, including saved words, profile, preferences and learning records. This does not delete your Google account. Choose this option only when you want to close the account permanently; deleting learning history alone is a separate action below.</p>
-      <p class="muted-note">Other devices will lose refresh access immediately; an access token already issued to another device can remain valid until it expires.</p>
-      <button type="button" id="openAccountDeletion" class="secondary-button swift-delete-button">Delete Account</button>
-    `;
-    const historyCard = [...host.querySelectorAll(".profile-card")].find(section => section.querySelector("h3")?.textContent.trim() === "Learning history");
-    if (historyCard) host.insertBefore(card, historyCard);
-    else host.appendChild(card);
-
+    if (!document.getElementById("accountDeletionCard")) {
+      const card = document.createElement("section");
+      card.id = "accountDeletionCard";
+      card.className = "profile-card swift-delete-card";
+      card.innerHTML = `
+        <h3>Delete Account</h3>
+        <p class="muted-note">Permanently delete your SwiftDictionary account and its cloud-synchronised data, including saved words, profile, preferences and learning records. This does not delete your Google account. Choose this option only when you want to close the account permanently; deleting learning history alone is a separate action.</p>
+        <p class="muted-note">Other devices will lose refresh access immediately; an access token already issued to another device can remain valid until it expires.</p>
+        <button type="button" id="openAccountDeletion" class="secondary-button swift-delete-button">Delete Account</button>
+      `;
+      const historyCard = [...host.querySelectorAll(".profile-card")].find(section => section.querySelector("h3")?.textContent.trim() === "Learning history");
+      if (historyCard) host.insertBefore(card, historyCard);
+      else host.appendChild(card);
+    }
+    if (document.getElementById("accountDeletionDialog")) return;
     const overlay = document.createElement("div");
     overlay.id = "accountDeletionDialog";
     overlay.className = "swift-delete-overlay";

@@ -490,6 +490,11 @@
     .quiz-mock-notice { display:flex; flex-direction:column; gap:4px; margin:14px 0; padding:13px 16px; border:1px solid #d69b43; border-left:4px solid #d69b43; border-radius:12px; background:#342719; color:#ffe8bd; }
     .quiz-mock-notice strong { font-weight:850; }
     .quiz-mock-notice span { font-size:.9rem; line-height:1.45; }
+      .learning-auth-card{border:1px solid var(--border);background:var(--panel);border-radius:16px;padding:24px;max-width:760px;margin:20px auto;text-align:center;box-shadow:var(--shadow)}
+    .learning-auth-card h2{margin:0 0 8px;font-size:1.2rem}
+    .learning-auth-card p{max-width:560px;margin:0 auto 16px;color:var(--muted)}
+    .learning-auth-button{border:1px solid #718ac7!important;background:#34446b!important;color:#fff!important;border-radius:10px!important;padding:11px 20px!important;font-weight:700}
+    #lessonsPage.learning-signed-out #dailyLearningPage,#lessonsPage.learning-signed-out .difficulty-tabs,#lessonsPage.learning-signed-out #lessonLibrary,#lessonsPage.learning-signed-out #lessonsChineseUnavailable,#lessonDetailPage.learning-signed-out #lessonReader,#lessonDetailPage.learning-signed-out #lessonStatus{display:none!important}
   </style>
 </head>
 <body>
@@ -571,6 +576,11 @@
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
       <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
+      <section id="lessonsSignedOut" class="learning-auth-card" hidden>
+        <h2>Sign in to use Lessons</h2>
+        <p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p>
+        <button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button>
+      </section>
     <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
@@ -603,7 +613,7 @@
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
       
-      <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
+      <section id="quizSignedOut" class="coming-card learning-auth-card" hidden><h2>Sign in to use Quiz</h2><p>Your Quiz sessions and progress are saved securely to your account, so you can continue across devices.</p><button id="quizSignIn" class="primary-button learning-auth-button" type="button">Sign in</button></section>
       <section id="quizHome" hidden>
         <div class="quiz-overview-grid">
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
@@ -673,7 +683,13 @@
           <div class="profile-actions"><button type="button" id="savePreferences" class="primary-button">Save preferences</button><span id="preferenceStatus" class="muted-note" aria-live="polite"></span></div>
           <p class="muted-note">Your timezone determines when daily learning allowances reset. If you change it, the new timezone takes effect after the current allowance day ends. It is a timezone setting, not a precise location.</p>
         </section>
-        <section class="profile-card"><h3>Learning history</h3>
+        <section id="accountDeletionCard" class="profile-card swift-delete-card">
+  <h3>Delete Account</h3>
+  <p class="muted-note">Permanently delete your SwiftDictionary account and its cloud-synchronised data, including saved words, profile, preferences and learning records. This does not delete your Google account. Choose this option only when you want to close the account permanently; deleting learning history alone is a separate action.</p>
+  <p class="muted-note">Other devices will lose refresh access immediately; an access token already issued to another device can remain valid until it expires.</p>
+  <button type="button" id="openAccountDeletion" class="secondary-button swift-delete-button">Delete Account</button>
+</section>
+<section class="profile-card"><h3>Learning history</h3>
           <p class="muted-note">Delete learning history only: lesson progress, practice summaries, Daily Learning sessions, Flashcard game history and Flashcard mastery. Your SwiftDictionary account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset. To permanently close your account and delete its associated cloud data, use the separate Delete account option above.</p>
           <p class="muted-note">If your last sign-in was more than 15 minutes ago, sign out and sign in again before requesting deletion.</p>
           <button type="button" id="deleteLearningHistoryButton" class="secondary-button">Delete learning history</button>
@@ -18442,7 +18458,8 @@
           document.getElementById("profileSignedOut").hidden = false;
         }
         // Refresh the permanent lesson allowance whenever the active account changes.
-        if (typeof initialiseLessons === "function") await initialiseLessons();
+        if (typeof initialiseLessons === "function" && currentUser) await initialiseLessons();
+        if (typeof applyLearningCourseAvailability === "function") applyLearningCourseAvailability();
       }
       // Register interactive auth controls before the first account refresh.
       // refreshAccount() performs several network requests; binding afterwards
@@ -18454,6 +18471,7 @@
         const nextUser = session?.user || null;
         const previousUserId = currentUser?.id || null;
         currentUser = nextUser;
+        if (typeof applyLearningCourseAvailability === "function") applyLearningCourseAvailability();
         if (!nextUser || (previousUserId && previousUserId !== nextUser.id)) {
           saved.clear();
           try { localStorage.removeItem("swiftdictionary-saved"); } catch {}
@@ -18601,6 +18619,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     let profilePreferences = null;
     function showPage(page, updateHash = true, options = {}) {
       if ((page === "profile" || page === "preferences") && !currentUser) page = "dictionary";
+      if (page === "lessonDetail" && !currentUser) page = "lessons";
       if (!pageIds[page]) page = "dictionary";
       if (updateHash && location.hash !== `#${page}`) history.pushState(null, "", `#${page}`);
       Object.entries(pageIds).forEach(([key,id]) => document.getElementById(id).hidden = key !== page);
@@ -18609,7 +18628,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         else button.removeAttribute("aria-current");
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
-      if (page === "lessons") { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
+      if (page === "lessons" && currentUser) { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
       if (page === "quiz" && !options.skipQuizInitialise) {
         // Ordinary navigation (including Dashboard's Quiz shortcut) opens the
         // Quiz overview, never a stale completed-review/results subview.
@@ -19612,6 +19631,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     quizEl("quizRefresh").addEventListener("click",()=>{quizPageState.loaded=false;initialiseQuizPage();});
     quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
+    quizEl("lessonsSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
 
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
     quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
@@ -19736,10 +19756,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!quizEl("learningIntroBackdrop").hidden)learningIntroClose();});
     function applyLearningCourseAvailability(){
       const chinese=course==="zh";
-      quizEl("lessonsChineseUnavailable").hidden=!chinese;
-      quizEl("dailyLearningPage").hidden=chinese;
-      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese;
-      quizEl("lessonLibrary").hidden=chinese;
+      const lessonsSignedIn=!!currentUser;
+      quizEl("lessonsSignedOut").hidden=lessonsSignedIn;
+      quizEl("lessonsPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
+      quizEl("lessonDetailPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
+      if(!lessonsSignedIn&&!quizEl("lessonDetailPage").hidden){quizEl("lessonDetailPage").hidden=true;quizEl("lessonsPage").hidden=false;}
+      quizEl("lessonsChineseUnavailable").hidden=!chinese||!lessonsSignedIn;
+      quizEl("dailyLearningPage").hidden=chinese||!lessonsSignedIn;
+      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese||!lessonsSignedIn;
+      quizEl("lessonLibrary").hidden=chinese||!lessonsSignedIn;
       quizEl("quizChineseUnavailable").hidden=!chinese;
       const quizSignedIn=!chinese&&!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
@@ -19770,6 +19795,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     window.addEventListener("swift-auth-updated",async()=>{
       learningIntroPreferencesReady=learningIntroLoadPreferences().catch(error=>{console.warn("Learning introduction preferences could not sync:",error);});
       await learningIntroPreferencesReady;
+      applyLearningCourseAvailability();
       const activePage=["lessons","quiz","flashcards"].find(page=>!quizEl(pageIds[page]).hidden);
       if(activePage)learningIntroMaybeShow(activePage);
     });
