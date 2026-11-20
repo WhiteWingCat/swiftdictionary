@@ -1271,32 +1271,7 @@
                   daily_discovery: chinese ? "每日发现" : "Daily Discovery",
                   daily_revision: chinese ? "每日复习" : "Daily Revision"
                 };
-                const message = chinese
-                  ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
-                  : "You have used all of today's " + labels[activityType] + " allowance. It resets at midnight in your allowance timezone.";
-                showSwiftDictionaryToast(message, "warning", 5000);
-              })().catch(error => {
-                console.warn("Could not check the remaining learning allowance for its notification.", error);
-              });
-            }
-            return typeof onFulfilled === "function" ? onFulfilled(result) : result;
-          }, onRejected);
-        };
-      }
-      return request;
-    };
-            const message = chinese
-              ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
-              : "You have used all of today's " + labels[activityType] + " allowance. It resets at midnight in your allowance timezone.";
-            showSwiftDictionaryToast(message, "warning", 5000);
-          })().catch(error => {
-            console.warn("Could not check the remaining learning allowance for its notification.", error);
-          });
-        }
-        return result;
-      });
-    };
-    supabaseClient.__swiftAllowanceNotificationsInstalled = true;
+        supabaseClient.__swiftAllowanceNotificationsInstalled = true;
   }
 
   installAllowanceNotifications();
