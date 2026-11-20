@@ -46,3 +46,23 @@ window.SWIFT_SUPABASE_CONFIG = {
 EOF
 
 echo "Configured SwiftDictionary for the $environment_name Supabase project."
+
+# Preserve the anonymous saved-word collection and load account deletion in
+# both production and preview builds. This is appended after the generated
+# environment-specific Supabase config so the build cannot overwrite it.
+cat >> supabase-config.js <<'EOF'
+try {
+  if (!localStorage.getItem("swiftdictionary-anonymous-saved")) {
+    const legacy = localStorage.getItem("swiftdictionary-saved");
+    if (legacy) localStorage.setItem("swiftdictionary-anonymous-saved", legacy);
+  }
+} catch {}
+(() => {
+  const current = document.currentScript;
+  const moduleScript = document.createElement("script");
+  moduleScript.src = new URL("account-deletion.js", current.src).href;
+  moduleScript.async = true;
+  document.head.appendChild(moduleScript);
+})();
+EOF
+
