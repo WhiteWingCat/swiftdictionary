@@ -71,3 +71,8 @@ Malaysia legal review remains required for Act 709 applicability, consent for us
 ## Preserved DML and RLS matrix
 
 A separate ACL/policy read confirmed that `anon` has no INSERT/UPDATE/DELETE on any of the eight tables. `languages` is readable by anon and authenticated roles under the active-language policy. `learning_plan_limits` is readable by authenticated users only. Authenticated roles have SELECT only on `learning_activity_log`, `learning_plan_limits`, `lesson_practice_results`, and `user_entitlements`; SELECT/INSERT/UPDATE on `lesson_progress`, `profiles`, and `user_preferences`, with owner checks based on `auth.uid()`. The draft revokes only non-DML privileges and preserves these existing grants and policies. The regression test was corrected to assert the exact read matrix.
+
+
+## Disposable CI validation result
+
+The first CI attempt correctly caught a mistaken assertion in the test: it expected anonymous SELECT on `learning_plan_limits`, while the live staging ACL shows authenticated-only SELECT. The test was corrected to assert the actual ACL. GitHub Actions run [#44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925) then completed successfully, including the follow-up draft SQL execution and ACL assertions, existing least-privilege tests, authenticated Quiz RPC integration, content-catalogue checks, authenticated Chromium Quiz runtime tests and local Supabase security-advisor check. This validates the draft in disposable local Supabase CI only; the hosted staging database remains unchanged.
