@@ -2,7 +2,7 @@
 
 <mark>NOT APPROVED FOR PUBLICATION — legal, operator, provider and retention review required.</mark>
 
-**Version:** Working draft 0.2  
+**Version:** Working draft 0.3  
 **Effective date:** [Set after approval]  
 **Data controller / operator:** [Legal identity and capacity to be confirmed]  
 **Privacy contact:** [Create and verify a monitored contact route]  
