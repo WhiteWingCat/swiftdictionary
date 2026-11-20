@@ -270,16 +270,24 @@ window.__SWIFT_TEST_INITIAL_USER = ${JSON.stringify(initialUser)};`
           this.listeners.forEach(listener => listener(user ? "SIGNED_IN" : "SIGNED_OUT", session));
         }
       };
-      function query() {
+      function query(table) {
+        const filters = [];
+        const rows = () => Array.isArray(state.tables[table]) ? state.tables[table] : [];
+        const matches = row => filters.every(([column,value]) => row[column] === value);
         const q = {
-          select() { return q; }, eq() { return q; }, neq() { return q; },
+          select() { return q; },
+          eq(column,value) { filters.push([column,value]); return q; },
+          neq() { return q; },
           gte() { return q; }, gt() { return q; }, lte() { return q; }, lt() { return q; },
           order() { return q; }, limit() { return q; }, insert() { return q; },
           update() { return q; }, delete() { return q; },
           upsert() { return Promise.resolve({ data: null, error: null }); },
-          maybeSingle() { return Promise.resolve({ data: null, error: null }); },
-          single() { return Promise.resolve({ data: null, error: null }); },
-          then(resolve, reject) { return Promise.resolve({ data: [], error: null, count: 0 }).then(resolve, reject); }
+          maybeSingle() { return Promise.resolve({ data: rows().find(matches) || null, error: null }); },
+          single() { return Promise.resolve({ data: rows().find(matches) || null, error: null }); },
+          then(resolve, reject) {
+            const data = rows().filter(matches);
+            return Promise.resolve({ data, error: null, count: data.length }).then(resolve, reject);
+          }
         };
         return q;
       }
@@ -290,7 +298,7 @@ window.__SWIFT_TEST_INITIAL_USER = ${JSON.stringify(initialUser)};`
           async signInWithOAuth(options) { state.oauthCalls.push(options); return { data: {}, error: null }; },
           async signOut() { state.setUser(null); return { error: null }; }
         },
-        from() { return query(); },
+        from(table) { return query(table); },
         async rpc() { return { data: false, error: null }; }
       };
       window.__swiftTestAuth = state;
