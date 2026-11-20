@@ -359,3 +359,23 @@ test("signing out restores the Flashcards banner, title and sign-in panel",async
   await expect(page.locator("#flashcardsApp .learning-auth-button")).toBeVisible();
   await expect(page.locator(".flash-mode")).toHaveCount(0);
 });
+
+
+test("Preferences deletion controls are distinct and learning history uses an in-site dialog",async({page})=>{
+  await openMockFlashcards(page);
+  const nativeDialogs=[];
+  page.on("dialog",async dialog=>{nativeDialogs.push(dialog.message());await dialog.dismiss();});
+  await page.evaluate(()=>showPage("preferences"));
+  await expect(page.locator("#preferencesPage")).toBeVisible();
+  await expect(page.locator("#accountDeletionCard")).toBeVisible();
+  await expect(page.locator("#accountDeletionDialog")).toHaveCount(1);
+  await page.locator("#openAccountDeletion").click();
+  await expect(page.locator("#accountDeletionDialog [role='dialog']")).toBeVisible();
+  await page.locator("#swiftDeleteCancel").click();
+  await page.locator("#deleteLearningHistoryButton").click();
+  await expect(page.locator('[aria-labelledby="learningHistoryConfirmTitle"]')).toBeVisible();
+  expect(nativeDialogs).toEqual([]);
+  await page.locator("[data-history-cancel]").click();
+  await expect(page.locator('[aria-labelledby="learningHistoryConfirmTitle"]')).toHaveCount(0);
+  await expect(page.locator('footer a[href="terms.html"]')).toHaveText("Terms & Conditions");
+});

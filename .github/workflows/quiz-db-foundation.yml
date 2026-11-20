@@ -176,6 +176,8 @@ jobs:
           export API_URL ANON_KEY SERVICE_ROLE_KEY
           cd "$GITHUB_WORKSPACE"
           CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
+      - name: Run signed-out Flashcards and Preferences browser regressions
+        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls"
 
       - name: Run Supabase security advisors against the local Quiz schema
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
