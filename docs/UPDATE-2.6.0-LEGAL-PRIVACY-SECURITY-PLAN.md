@@ -642,3 +642,8 @@ The staging ACL and `pg_policies` review confirmed the follow-up draft does not 
 - `languages`: SELECT only for anon and authenticated roles, limited by the active-language policy.
 
 The follow-up SQL revokes only TRUNCATE/REFERENCES/TRIGGER/MAINTAIN on these tables. It leaves all above DML grants and RLS policies unchanged. The test was corrected to reflect the exact effective read matrix: anonymous SELECT on `languages`, authenticated-only SELECT on `learning_plan_limits`.
+
+
+#### Disposable CI validation (20 November 2026)
+
+The first run caught an incorrect test expectation for `anon` SELECT on `learning_plan_limits`; the live staging ACL showed this is authenticated-only. The assertion was corrected. GitHub Actions run [#44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925) completed successfully, covering the follow-up draft SQL and ACL assertions, existing least-privilege tests, authenticated Quiz RPC integration, Quiz content checks, authenticated Chromium Quiz runtime tests and local Supabase security-advisor validation. This was disposable local CI only; no hosted staging writes were performed.
