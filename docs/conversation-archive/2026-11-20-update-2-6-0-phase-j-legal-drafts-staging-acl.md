@@ -107,3 +107,8 @@ The Terms working draft was expanded to flag review under the Electronic Commerc
 ## 10. Consolidated legal approval register
 
 Created `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md` with 16 open decisions and evidence gates. It tracks Act 709 scope, operator/contact identity, processing basis, the under-18 consent issue, DPO/DPIA, cross-border transfers, retention, account deletion, privacy requests, Terms enforceability, content licensing, feedback visibility, versioned acceptance and target-market screening. This register is the controlling checklist for legal-document completion and must be resolved before public legal-document release or declaring Mock User testing ready.
+
+
+## 11. Legal acceptance and age-gate design
+
+Created `docs/reference/LEGAL-DOCUMENT-ACCEPTANCE-AND-AGE-GATE-DESIGN.md`. It proposes public versioned legal pages, separate Terms acceptance and Privacy Notice acknowledgement, separate consent where required, server-derived acceptance records, version history, and test cases for existing users/account switching. It explicitly leaves the age/guardian-consent path unresolved until Malaysian counsel reviews Regulation 3(3). No UI, schema, RPC or age gate was implemented.
