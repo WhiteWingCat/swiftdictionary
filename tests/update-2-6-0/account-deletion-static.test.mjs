@@ -151,6 +151,8 @@ test("account deletion reports confirmed success with a visible five-second toas
 
 test("Lessons, Quiz and Flashcards show a five-second toast only after successful exhaustion", () => {
   assert.match(dailyLearning, /complete_permanent_lesson: "lesson"/);
+  assert.match(dailyLearning, /name === "complete_daily_activity_session"/);
+  assert.match(dailyLearning, /daily_topic: chinese \? "每日主题" : "Daily Topic"/);
   assert.match(dailyLearning, /submit_my_quiz: "quiz"/);
   assert.match(dailyLearning, /complete_my_flashcard_game: "flashcard"/);
   assert.match(dailyLearning, /allowance\.remaining !== 0/);
