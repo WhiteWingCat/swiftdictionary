@@ -379,3 +379,25 @@ test("Preferences deletion controls are distinct and learning history uses an in
   await expect(page.locator('[aria-labelledby="learningHistoryConfirmTitle"]')).toHaveCount(0);
   await expect(page.locator('footer a[href="terms.html"]')).toHaveText("Terms & Conditions");
 });
+
+
+test("Flashcards shows a five-second toast when the daily allowance is exhausted",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    for(let i=0;i<3;i++){
+      const started=await client.rpc("start_my_flashcard_game",{p_mode:"word",p_difficulty:"beginner",p_duration_seconds:60});
+      if(started.error)throw new Error(started.error.message);
+      const completed=await client.rpc("complete_my_flashcard_game",{
+        p_session_id:started.data.session_id,
+        p_results:[{card_key:"dict:hello",mode:"word",correct:true,unanswered:false}]
+      });
+      if(completed.error)throw new Error(completed.error.message);
+    }
+  });
+  await expect(page.locator("#swiftDictionaryToast")).toContainText("Flashcards allowance");
+  await expect(page.locator("#swiftDictionaryToast")).toHaveClass(/is-visible/);
+  await page.waitForTimeout(5200);
+  await expect(page.locator("#swiftDictionaryToast")).not.toHaveClass(/is-visible/);
+});
+
