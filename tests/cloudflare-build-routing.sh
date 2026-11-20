@@ -18,7 +18,10 @@ env CF_PAGES=1 CF_PAGES_BRANCH=feature/test \
   SWIFT_SUPABASE_URL=https://ivatvkfrtifgfheeaelj.supabase.co \
   SWIFT_SUPABASE_PUBLISHABLE_KEY=sb_publishable_test bash build.sh >/dev/null
 grep -q 'ivatvkfrtifgfheeaelj.supabase.co' supabase-config.js
-grep -q 'account-deletion.js' supabase-config.js
+if grep -q 'account-deletion.js' supabase-config.js; then
+  echo "ERROR: build injected account-deletion.js before the main app script" >&2
+  exit 1
+fi
 grep -q 'swiftdictionary-anonymous-saved' supabase-config.js
 
 # The production branch must receive the Tokyo production project.
@@ -26,7 +29,10 @@ env CF_PAGES=1 CF_PAGES_BRANCH=main \
   SWIFT_SUPABASE_URL=https://pzymiesazmpyvnfvsbsc.supabase.co \
   SWIFT_SUPABASE_PUBLISHABLE_KEY=sb_publishable_test bash build.sh >/dev/null
 grep -q 'pzymiesazmpyvnfvsbsc.supabase.co' supabase-config.js
-grep -q 'account-deletion.js' supabase-config.js
+if grep -q 'account-deletion.js' supabase-config.js; then
+  echo "ERROR: build injected account-deletion.js before the main app script" >&2
+  exit 1
+fi
 grep -q 'swiftdictionary-anonymous-saved' supabase-config.js
 
 # Cross-environment mistakes and invalid keys must fail closed.
