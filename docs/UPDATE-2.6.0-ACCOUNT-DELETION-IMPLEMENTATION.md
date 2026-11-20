@@ -38,3 +38,11 @@ A read-only foreign-key inspection of the Singapore staging project found that a
 - Deploy the Edge Function to Singapore staging only and verify it is listed/serving.
 - Create a disposable synthetic staging Auth user with associated rows; test stale-auth rejection, session revocation, full cascade deletion, retry/partial-failure handling, and local checkbox checked/unchecked behaviour.
 - Confirm the Cloudflare preview uses the staging Supabase URL before any destructive staging test. Do not test against production or the owner's personal accounts.
+
+
+## Implementation validation update
+
+- The client module also registers its own Supabase `onAuthStateChange` listener for the initial session event. This handles the race where the first asynchronous `getSession()` resolves after the module initialises; the deletion controls therefore mount on initial sign-in as well as later account changes.
+- The latest branch commit `d65dacfdeca8559fe08e284c715631316ae39f31` passed GitHub Actions: Node syntax/static safeguards, Deno type check and unit tests for the production auth-time/origin helpers, and Cloudflare build-routing tests.
+- Singapore staging currently has Edge Function `delete-account` version 2 ACTIVE with `verify_jwt=true`.
+- This is still an implementation foundation, not end-to-end release validation. The Cloudflare preview UI and destructive account deletion have not yet been manually tested with a disposable synthetic account.
