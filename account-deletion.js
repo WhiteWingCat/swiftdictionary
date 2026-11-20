@@ -236,7 +236,8 @@
             document.body.appendChild(toast);
             window.setTimeout(() => toast.remove(), 5000);
           }, 0);
-        }      } catch (error) {
+        }
+      } catch (error) {
         status.textContent = error?.message || "Account deletion failed. Your account has not been confirmed as deleted.";
         overlay.hidden = false;
       } finally {
