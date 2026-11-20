@@ -107,3 +107,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.6.0 — Phase K: provider retention evidence and account-deletion UX](2026-11-20-update-2-6-0-phase-k-provider-retention-and-deletion-ux.md) — records the owner's approved Profile → Preferences deletion-warning flow, required security safeguards, provider-published retention facts versus unverified tenant settings, public GitHub repository status and remaining legal/privacy gates.
+
+- [Update 2.6.0 — Phase L: owner dashboard inspection](2026-11-20-update-2-6-0-phase-l-owner-dashboard-inspection.md) — records owner-reported production/staging Supabase backup and Auth settings, Cloudflare Pages deployment/preview configuration, unconfigured Web Analytics, and the careful distinction between dashboard visibility and provider logging/retention.
