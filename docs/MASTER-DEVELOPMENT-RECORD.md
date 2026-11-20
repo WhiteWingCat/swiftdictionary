@@ -2738,3 +2738,5 @@ Additional Phase J governance drafts:
 - `docs/reference/DPIA-SCREENING-DRAFT-2026-11-20.md` — preliminary screen; recommends a full DPIA before broader public onboarding as a precaution, subject to formal assessment.
 - `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — draft incident response and breach-notification workflow.
 These are internal working documents, not approved legal procedures. Assign the responsible incident/DPIA leads and verify current provider escalation contacts.
+
+A follow-up read-only staging query verified the preserved DML/RLS matrix after the ACL cleanup: languages SELECT-only for anon/authenticated with active-language policy; learning_activity_log and lesson_practice_results authenticated SELECT-only and owner-scoped; learning_plan_limits authenticated SELECT-only; lesson_progress, profiles and user_preferences authenticated SELECT/INSERT/UPDATE with owner-scoped policies; user_entitlements authenticated SELECT-only and owner-scoped. All eight tables retain RLS, and no anon DML was found. No learner rows were read.
