@@ -18448,6 +18448,9 @@
       // refreshAccount() performs several network requests; binding afterwards
       // made the first click silently do nothing on slower connections.
       supabaseClient.auth.onAuthStateChange((event, session) => {
+        // The explicit initial refresh below owns INITIAL_SESSION; ignoring it
+        // here avoids running two concurrent profile/learning-data refreshes.
+        if (event === "INITIAL_SESSION") return;
         const nextUser = session?.user || null;
         const previousUserId = currentUser?.id || null;
         currentUser = nextUser;
