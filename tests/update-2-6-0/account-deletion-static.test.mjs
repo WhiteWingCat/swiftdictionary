@@ -8,6 +8,7 @@ const config = readFileSync("supabase-config.js", "utf8");
 const build = readFileSync("build.sh", "utf8");
 const index = readFileSync("index.html", "utf8");
 const flashcards = readFileSync("flashcards.js", "utf8");
+const terms = readFileSync("terms.html", "utf8");
 
 test("optional local saved-word clearing is opt-in and scoped to its dedicated key", () => {
   assert.match(frontend, /id="swiftDeleteLocalCheckbox" type="checkbox"/);
@@ -64,4 +65,25 @@ test("signed-out Flashcards visitors still see the page banner and title", () =>
   assert.match(signedOut, /flash-banner/);
   assert.match(signedOut, /Flashcards/);
   assert.match(signedOut, /data-action="signin"/);
+});
+
+test("account deletion loads after the main app, without an async config-loader race", () => {
+  assert.ok(index.indexOf('<script src="flashcards.js"></script>') < index.indexOf('<script src="account-deletion.js"></script>'));
+  assert.doesNotMatch(config, /moduleScript\\.async\\s*=\\s*true/);
+  assert.doesNotMatch(build, /moduleScript\\.async\\s*=\\s*true/);
+  assert.match(build, /Account deletion is loaded explicitly after the main app script/);
+});
+
+test("Google sign-in is bound before the initial network-backed account refresh", () => {
+  const authBlock = index.slice(index.indexOf("async function initAccount"), index.indexOf("const accountMenu", index.indexOf("async function initAccount")));
+  assert.ok(authBlock.indexOf('google.addEventListener("click"') < authBlock.lastIndexOf("await refreshAccount();"));
+  assert.match(authBlock, /Google sign-in could not start/);
+});
+
+test("Terms & Conditions has a footer link and does not publish an unapproved legal draft", () => {
+  assert.ok(index.includes('<a href="terms.html">Terms &amp; Conditions</a>'));
+  assert.match(terms, /Terms &amp; Conditions/);
+  assert.match(terms, /Not yet published/);
+  assert.match(terms, /not a contract or a binding set of Terms/);
+  assert.match(terms, /No acceptance of Terms is being requested or recorded/);
 });
