@@ -48,3 +48,34 @@ The Malaysian Personal Data Protection Commissioner describes the PDPA as regula
 - Tokyo production remains untouched.
 - Singapore staging account-deletion Edge Function remains version 3.
 - The owner’s request is to defer the formal legal/privacy review from this update. The risk must remain visible in the release record; Terms publication and broad public onboarding should not be presented as legally cleared.
+
+
+## Follow-up validation and draft pull request
+
+The feature branch received two additional test-maintenance corrections:
+- Commit `a86a36989f7650c57130b15a90548f5e692e4673` updates the Flashcards page check to accept the cache-busted runtime script URL used by the build.
+- Commit `d2cb49d12d7808fc58d401b873bcf53091e6041b` updates the older 2.3.x frontend regression assertion to reflect the U2.6.0 Preferences layout: the Delete Account and Learning history controls are separate and both remain in Preferences.
+
+Latest application branch head: `d2cb49d12d7808fc58d401b873bcf53091e6041b`.
+
+### Confirmed passing checks on the latest head
+- Cloudflare Pages deployed successfully to preview `https://43934340.swiftdictionary.pages.dev`.
+- Cloudflare build-routing guard passed.
+- Quiz database foundation passed.
+- PostgreSQL 17 migration and allowance suite passed, including ledger, data-preservation and concurrency assertions.
+- Supabase CLI local Auth compatibility suite passed, including its local security-advisor check.
+- Flashcards static/mock regression suite passed.
+- Chromium Mock User Flashcards browser suite passed all 17 tests.
+- Local Supabase/Auth/RPC integration passed, including Auth contract, migrations, least-privilege grants, Quiz RPC integration, 199-question export validation, authenticated Quiz browser runtime, signed-out Flashcards/Preferences regressions, and permanent Lessons allowance exhaustion notification regression.
+- The U2.6.0 local Supabase security-advisor command completed successfully and reported: `No issues found`.
+
+### Remaining automated check / Cloudflare integration
+- The separate general Chromium browser smoke workflow `44732605727` was still in its Playwright dependency-install step at archive update time; its test step had not started.
+- Cloudflare's separate `Workers Builds: swiftdictionary-testing` check failed (check run `136276269890`) while the Cloudflare Pages deployment succeeded. The repository contains no Wrangler configuration or Worker entrypoint, so this appears separate from the active Pages application, but the owner should confirm whether that Worker service is still used before disconnecting or ignoring it.
+
+### Draft pull request
+- Draft PR #13 opened: https://github.com/WhiteWingCat/swiftdictionary/pull/13
+- Title: `U2.6.0 — Account deletion and privacy/security safeguards`.
+- Base: `main`; head: `feature/update-2-6-0-legal-privacy-security`.
+- At creation/update time it contained 147 commits and 25 changed files.
+- PR remains draft, unmerged and not approved for production deployment. Its description records that formal legal/privacy review is deferred at the owner's request, not completed or waived.
