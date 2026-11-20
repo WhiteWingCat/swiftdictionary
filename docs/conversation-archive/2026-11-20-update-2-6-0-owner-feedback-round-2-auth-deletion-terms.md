@@ -49,8 +49,8 @@ The optional local saved-word checkbox belongs to **Delete Account**, not **Dele
 
 ## Verification and handover
 
-- GitHub source edits succeeded. Latest implementation/test commit: `40f6a27014a26b73dfb03ac7913fa6541d03fff5`. Feature-branch pushes may trigger the configured Cloudflare preview deployment automatically; its completion and deployed commit were not independently verified in this session. No PR, merge or production deployment was performed.
-- GitHub Actions run retrieval did not expose push-triggered runs in this environment. A local clone/test attempt failed because `github.com` hostname resolution was unavailable. Do not claim automated tests passed until the branch workflow is checked.
+- GitHub source edits succeeded. Latest implementation/test commit: `a1a438b121f37f5af46da4a33417e3fa7d013214`. Feature-branch pushes may trigger the configured Cloudflare preview deployment automatically; its completion and deployed commit were not independently verified in this session. No PR, merge or production deployment was performed.
+- GitHub Actions Cloudflare build routing guard run #62 passed on commit `a1a438b121f37f5af46da4a33417e3fa7d013214`: JavaScript syntax/account-deletion safeguards passed, all 11 static regression tests passed, Deno type-check passed, all 4 Edge Function unit tests passed, and local/staging/production environment-routing safeguards passed. The separate Quiz database foundation workflow for the same commit was still running at the time of this archive update. Cloudflare preview deployment completion and deployed commit were not independently verified.
 - The owner should wait for the latest Cloudflare feature deployment and test with synthetic staging accounts only:
   1. Click Google sign-in once from a fresh signed-out session; confirm redirect, return callback and session persistence.
   2. Open Preferences after sign-in; confirm **Delete Account** appears above **Learning history**.
