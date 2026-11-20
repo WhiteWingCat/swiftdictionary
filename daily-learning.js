@@ -1243,10 +1243,12 @@
     supabaseClient.rpc = function swiftAllowanceAwareRpc(name, ...args) {
       const request = originalRpc(name, ...args);
       const activityType = watched[name];
-      if (activityType && request && typeof request.then === "function") {
-        request.then(async result => {
-          if (result?.error) return;
-          try {
+      if (!activityType || !request || typeof request.then !== "function") return request;
+      // Return a single chained thenable. Attaching a second observer to a
+      // Supabase PostgREST builder can execute its request twice.
+      return request.then(result => {
+        if (!result?.error) {
+          (async () => {
             const allowance = await readExhaustedAllowance(activityType, originalRpc);
             if (!allowance || allowance.remaining !== 0) return;
             const day = allowanceDayKey(allowance.timezone);
@@ -1263,12 +1265,12 @@
               ? "今日" + labels[activityType] + "额度已用完，将在你的额度时区午夜重置。"
               : "You have used all of today's " + labels[activityType] + " allowance. It resets at midnight in your allowance timezone.";
             showSwiftDictionaryToast(message, "warning", 5000);
-          } catch (error) {
+          })().catch(error => {
             console.warn("Could not check the remaining learning allowance for its notification.", error);
-          }
-        }).catch(() => {});
-      }
-      return request;
+          });
+        }
+        return result;
+      });
     };
     supabaseClient.__swiftAllowanceNotificationsInstalled = true;
   }
