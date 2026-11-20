@@ -456,10 +456,12 @@ const dashboardStart = html.indexOf('<section id="profilePage"');
 const preferencesStart = html.indexOf('<section id="preferencesPage"');
 const dashboardShell = html.slice(dashboardStart,preferencesStart);
 const preferencesShell = html.slice(preferencesStart);
-if (/Account preferences|Privacy and data/i.test(dashboardShell)
+if (/Account preferences|Delete Account|Learning history/i.test(dashboardShell)
     || !/Account preferences/i.test(preferencesShell)
-    || !/Privacy and data/i.test(preferencesShell)) {
-  throw new Error("Account preferences and Privacy and Data must live in the dedicated Preferences page.");
+    || !/id="accountDeletionCard"/i.test(preferencesShell)
+    || !/Delete Account/i.test(preferencesShell)
+    || !/Learning history/i.test(preferencesShell)) {
+  throw new Error("Account preferences, the distinct Delete Account control and the separate Learning history control must live in the dedicated Preferences page.");
 }
 for (const fragment of ["dailyTopics","dailyApplications","dailyDiscoveryVocabulary","legacyDailyDiscoveriesBacklog","sourceUrl","get_my_learning_allowance_usage","lesson_practice_results"]) {
   if (!dailyScript.includes(fragment)) throw new Error(`Daily Learning content check failed: missing ${fragment}`);
