@@ -8,6 +8,7 @@ const config = readFileSync("supabase-config.js", "utf8");
 const build = readFileSync("build.sh", "utf8");
 const index = readFileSync("index.html", "utf8");
 const flashcards = readFileSync("flashcards.js", "utf8");
+const dailyLearning = readFileSync("daily-learning.js", "utf8");
 const terms = readFileSync("terms.html", "utf8");
 
 test("optional local saved-word clearing is opt-in and scoped to its dedicated key", () => {
@@ -123,6 +124,10 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
 test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="flashcards.js?v=2.6.0-r3"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
+  assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
+  assert.match(build, /daily-learning\[\.\]js.*2\.6\.0-r1/);
+  assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
+  assert.match(build, /daily-learning\[\.\]js.*2\.6\.0-r1/);
 });
 
 test("account-deletion dialog stays hidden until explicitly opened", () => {
@@ -139,4 +144,19 @@ test("deletion errors remain visible and do not trigger a browser form navigatio
   assert.match(frontend, /response\.status === 401/);
   assert.match(frontend, /Your account and data have not been deleted/);
   assert.match(frontend, /overlay\.hidden = false/);
+});
+
+test("account deletion reports confirmed success with a visible five-second toast", () => {
+  assert.match(frontend, /Your SwiftDictionary account was successfully deleted/);
+  assert.match(frontend, /showSwiftDictionaryToast\(successMessage, "success", 5000\)/);
+});
+
+test("Lessons, Quiz and Flashcards show a five-second toast only after successful exhaustion", () => {
+  assert.match(dailyLearning, /complete_permanent_lesson: "lesson"/);
+  assert.match(dailyLearning, /submit_my_quiz: "quiz"/);
+  assert.match(dailyLearning, /complete_my_flashcard_game: "flashcard"/);
+  assert.match(dailyLearning, /allowance\.remaining !== 0/);
+  assert.match(dailyLearning, /showSwiftDictionaryToast\(message, "warning", 5000\)/);
+  assert.match(dailyLearning, /request\.then\(async result => \{/);
+  assert.match(dailyLearning, /if \(result\?\.error\) return/);
 });
