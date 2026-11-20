@@ -137,3 +137,19 @@ This section is a planning checklist, not legal advice or a compliance conclusio
 - JPDP, Circular No. 1/2026 (Registration of Data Controllers): https://www.pdp.gov.my/en/akta/personal-data-protection-commissioners-circular-no-1-2026-registration-of-data-controllers/
 - JPDP, Circular No. 1/2025 (Data Breach Notification): https://www.pdp.gov.my/en/akta/circular-of-personal-data-protection-commissioner-no-1-2025-data-breach-notification/
 - European Commission, safeguards for children's personal data and national consent ages: https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data/are-there-any-specific-safeguards-data-about-children_en
+
+
+## Update 20 November 2026 — legal-document drafting status
+
+This review remains a planning assessment, not a legal opinion or compliance sign-off. It is supplemented by `docs/UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md` and the Phase J archive.
+
+Current working documents:
+- `docs/reference/PRIVACY-NOTICE-DRAFT-2026-11-20.md` — bilingual Bahasa Malaysia/English working draft.
+- `docs/reference/TERMS-OF-USE-DRAFT-2026-11-20.md` — Terms of Use working draft.
+- `docs/reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md` — retention inventory with periods deliberately left unapproved.
+
+The older `docs/reference/PRIVACY-POLICY-DRAFT.md` is now marked superseded because it contains stale provider/deployment details and an incorrect statement about Quiz answer storage.
+
+The current official Act 709 reprint and JPDP materials were rechecked on 20 November 2026. The notice drafts reflect Section 7's Bahasa Malaysia/English requirement (if Act 709 applies), Regulation 3(3)'s parental-consent requirement where Regulation 3 consent is used for under-18 data subjects, Section 43A data portability, Section 129 cross-border transfer framework, and current DPO/DPIA/breach guidance.
+
+The legal work is not cleared. Outstanding matters include Act 709 applicability to the individually operated free public service; processing basis for each purpose; the 16–17-year-old consent approach; DPO/DPIA screening for adaptive learning; controller identity and safe public contact; provider contracts/subprocessors and international transfer assessment; exact retention periods; account deletion; and legal review of the Terms. Neither document has been published, no acceptance UI exists, and no age gate has been implemented. Do not describe the project as legally compliant or ready for public legal-document release.
