@@ -1,5 +1,5 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { MAX_AUTH_AGE_SECONDS, decodeJwtPayload, hasRecentAuthTime, isAllowedOrigin } from "./security.ts";
+import { MAX_AUTH_AGE_SECONDS, decodeJwtPayload, hasRecentAuthentication, isAllowedOrigin } from "./security.ts";
 
 const corsHeadersFor = (origin: string | null): Record<string, string> => {
   const allowed = isAllowedOrigin(origin);
@@ -55,7 +55,7 @@ Deno.serve(async (req: Request) => {
 
   const payload = decodeJwtPayload(accessToken);
   const nowSeconds = Math.floor(Date.now() / 1000);
-  if (!hasRecentAuthTime(payload, nowSeconds, MAX_AUTH_AGE_SECONDS)) {
+  if (!hasRecentAuthentication(payload, nowSeconds, MAX_AUTH_AGE_SECONDS)) {
     return jsonResponse({ error: "reauthentication_required", max_auth_age_seconds: MAX_AUTH_AGE_SECONDS }, 401, cors);
   }
 
