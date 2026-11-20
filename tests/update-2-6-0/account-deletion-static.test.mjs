@@ -126,7 +126,7 @@ test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
 });
 
 test("account-deletion dialog stays hidden until explicitly opened", () => {
-  assert.match(frontend, /\.swift-delete-overlay\\[hidden\\]\\{display:none!important\\}/);
+  assert.match(frontend, /\.swift-delete-overlay\[hidden\]\{display:none!important\}/);
   assert.match(frontend, /overlay\.hidden = true/);
   assert.match(frontend, /overlay\.hidden = false/);
   assert.match(frontend, /swiftDeleteCancel.*closeDialog/s);
