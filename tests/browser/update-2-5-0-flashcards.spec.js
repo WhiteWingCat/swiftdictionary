@@ -344,3 +344,18 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
   await expect(page.locator(".flash-review-detail")).toBeVisible();
   await expect(page.locator(".flash-review-detail")).not.toContainText("Missed");
 });
+
+test("signing out restores the Flashcards banner, title and sign-in panel",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const result=await client.auth.signOut();
+    if(result.error)throw new Error(result.error.message);
+  });
+  await expect(page.locator("#flashcardsPage")).toBeVisible();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+  await expect(page.locator(".flash-banner h2")).toHaveText("Flashcards");
+  await expect(page.locator("#flashcardsApp .learning-auth-card")).toBeVisible();
+  await expect(page.locator("#flashcardsApp .learning-auth-button")).toBeVisible();
+  await expect(page.locator(".flash-mode")).toHaveCount(0);
+});

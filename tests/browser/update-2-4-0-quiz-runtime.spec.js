@@ -589,3 +589,24 @@ test("signed-out visitors cannot open Quiz sessions or account history", async (
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizSession")).toBeHidden();
 });
+
+test("signed-out Lessons shows the same account gate and hides lesson content",async({page})=>{
+  await installLocalSupabaseConfig(page);
+  await page.goto("/#lessons");
+  await expect(page.locator("#lessonsPage")).toBeVisible({timeout:20000});
+  await expect(page.locator("#lessonsSignedOut")).toBeVisible();
+  await expect(page.locator("#lessonsSignIn")).toBeVisible();
+  await expect(page.locator("#dailyLearningPage")).toBeHidden();
+  await expect(page.locator(".difficulty-tabs")).toBeHidden();
+  await expect(page.locator("#lessonLibrary")).toBeHidden();
+  await expect(page.locator("#lessonsSignedOut")).toHaveClass(/learning-auth-card/);
+});
+
+test("signed-out Quiz uses the shared Flashcards-style sign-in card",async({page})=>{
+  await installLocalSupabaseConfig(page);
+  await page.goto("/#quiz");
+  await expect(page.locator("#quizPage")).toBeVisible({timeout:20000});
+  await expect(page.locator("#quizSignedOut")).toBeVisible();
+  await expect(page.locator("#quizSignedOut")).toHaveClass(/learning-auth-card/);
+  await expect(page.locator("#quizSignIn")).toHaveClass(/learning-auth-button/);
+});
