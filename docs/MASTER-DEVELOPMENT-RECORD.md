@@ -2506,3 +2506,40 @@ The owner completed a read-only inspection of the production/staging Supabase da
 - The detailed owner-reported observations and caveats are recorded in [Phase L archive](conversation-archive/2026-11-20-update-2-6-0-phase-l-owner-dashboard-inspection.md) and the [Data Retention Schedule](reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md).
 
 No production or staging database changes, source-code edits, migrations, deployments, legal approvals or user-data inspections occurred. Existing legal publication and Mock User readiness gates remain open.
+
+
+## 29. Update 2.6.0 — Phase L retention confirmation and remaining-work handover (2026-11-20)
+
+The owner confirmed the production Supabase subscription is Free using the Subscription Plan page; Project Settings → General did not show the plan label. Production and staging are both Free. The owner supplied further Cloudflare Observability screenshots. This follow-up is documentation/research only.
+
+### Provider retention evidence
+
+- Supabase's current [pricing page](https://supabase.com/pricing) lists **24 hours** of Auth Audit Logs and **1 day** of API & Database log retention on Free. Platform Audit Logs are not included on Free. The public plan comparison lists longer windows for paid plans, but SwiftDictionary will remain on Free for this work.
+- Supabase's [Auth Audit Logs guide](https://supabase.com/docs/guides/auth/audit-logs) says authentication events are captured and stored by default in both external dashboard log storage and the project's Postgres `auth.audit_log_entries` table. Disabling Postgres writes does not disable external log storage. Auth Audit Logs and API/Database logs are distinct categories; Platform Audit Logs are a separate administrative feature.
+- These published windows describe plan-level log history/retention. They do not prove physical erasure of every provider-held operational/security copy, nor define retention for every service-specific log or support record.
+- Cloudflare Observability → Usage displayed **7 days** retention for the logs/traces represented on that page, 0.00/0.50 GB ingested that day, zero days at cap, and no dataset data for the selected period. Cloudflare Observability Events displayed no matching events in its selected view and a Workers Free allowance of 200,000 events/day.
+- Cloudflare Observability → Logs showed HTTP request records for the SwiftDictionary Pages hostname in the selected last-hour view (43 served by Cloudflare, zero mitigated, zero served by origin; visible examples were GET `/favicon.ico`, 200 OK). This confirms request-log visibility in that view, not unique visitor counts or total traffic.
+- It remains unverified whether Cloudflare's seven-day Observability Usage retention applies to the separate Pages HTTP request-log view, build logs, or every Cloudflare security/platform record. Web Analytics was not configured; Turnstile and Logpush were not found/not confirmed.
+- The owner-confirmed Free plan means no configurable Supabase database backup/PITR window is available for the reviewed projects. Do not publish a numeric backup-retention promise or imply immediate backup erasure on individual account deletion.
+
+### Documentation updated
+
+- Updated [Phase L owner dashboard inspection](conversation-archive/2026-11-20-update-2-6-0-phase-l-owner-dashboard-inspection.md) with the production Free-plan confirmation and the Cloudflare request-log/Usage findings.
+- Updated [Data Retention Schedule](reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md) with plan-level Supabase log history, Auth Audit Log storage distinctions, Cloudflare observations and remaining scope limitations.
+- Created and indexed [Phase L retention confirmation and remaining-work handover](conversation-archive/2026-11-20-update-2-6-0-phase-l-retention-confirmation-and-status.md).
+- Privacy Notice and Terms remain internal drafts. No numeric operator-controlled application retention periods are approved.
+
+### Remaining Update 2.6.0 work
+
+1. **Owner decision:** decide whether account deletion should offer a separate optional action to clear signed-out browser-local saved words on the current device. Do not silently clear local saved words because devices may be shared.
+2. **Contact channel:** verify external send/receive for the Tuta privacy mailbox and establish a monitored public privacy/support route. Do not publish it until verified.
+3. **Technical account deletion:** implement the approved Profile → Preferences warning flow and trusted server-side Auth Admin deletion in isolated staging; require fresh reauthentication, derive UID from verified session, make partial failure retry-safe, revoke refreshable sessions, account for remaining access-JWT lifetime, verify all data cascades and report success only after Auth deletion is confirmed.
+4. **Staging end-to-end validation:** use synthetic accounts through the Cloudflare preview; test Google OAuth, account deletion, saved-word/account isolation, shared-device behaviour and all existing feature regressions. No real learner data.
+5. **Production security:** review production privilege differences and prepare a separately reviewed ACL remediation plan. Production remains untouched until explicit owner approval.
+6. **Provider/data-flow verification:** inspect actual Google OAuth scopes and Supabase provider attributes; verify whether jsDelivr remains in the deployed asset path; check GitHub Actions retention and ensure logs/artifacts contain no personal data or secrets.
+7. **Retention and deletion:** define operator-controlled application retention periods and event-based deletion rules after implementation/deletion coverage is verified. Keep provider logs/backups distinct from app records; retain Cloudflare's seven-day request-log scope as unverified pending clarification.
+8. **Legal approval:** resolve the 16 open decisions in the Legal Approval Register, including Act 709 applicability/exemption, controller identity/capacity, processing basis, 16–17-year-old Regulation 3(3), DPO/DPIA, cross-border transfers, privacy requests, Terms enforceability and content licensing.
+9. **DPIA and incident readiness:** complete the full DPIA recommended by the preliminary screening before broader public onboarding; assign an incident owner, verify provider escalation contacts and approve/rehearse the incident playbook.
+10. **Publication/acceptance:** revise and obtain review of the bilingual Privacy Notice and Terms, then implement versioned Terms acceptance and separate Privacy Notice acknowledgement/consent as legally approved. Do not publish drafts or treat Mock User testing as release-ready until legal gates are resolved or a limited synthetic-only exception is explicitly approved.
+
+No application source, migrations, schema/data, provider settings, Cloudflare deployment, production configuration or legal publication changed in this follow-up. All work remains on `docs/master-development-record`; implementation must use a focused feature branch from current `main`, with staging synthetic-only and production changes behind explicit approval.
