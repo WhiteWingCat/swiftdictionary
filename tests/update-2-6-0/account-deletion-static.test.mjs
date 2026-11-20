@@ -59,7 +59,8 @@ test("learning-history confirmation uses an in-site dialog, not the browser prom
   const handlerEnd = index.indexOf("function browserTimezone", handlerStart);
   const handler = index.slice(handlerStart, handlerEnd);
   assert.ok(handler.includes("await confirmLearningHistoryDeletion()"));
-  assert.doesNotMatch(handler, /(?<![A-Za-z])confirm\\s*\\(/);
+  assert.ok(!handler.includes("confirm("));
+  assert.ok(!handler.includes("confirm ("));
 });
 
 test("signed-out Flashcards visitors still see the page banner and title", () => {
