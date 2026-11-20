@@ -119,43 +119,44 @@ Sources:
 
 ## Owner dashboard inspection — production and staging (20 November 2026)
 
-This section records owner-reported observations from the Cloudflare and Supabase dashboards. It is an account-configuration snapshot, not a provider-wide retention guarantee or independent audit. No settings were changed.
+This section consolidates owner-reported observations from the Supabase and Cloudflare dashboards and current provider documentation. It is an account-configuration snapshot, not an independent audit or a provider-wide deletion guarantee. No settings were changed.
 
 ### Supabase production
 
 - Project: SwiftDictionary; reference `pzymiesazmpyvnfvsbsc`; Tokyo (`ap-northeast-1`).
-- Owner reports that database backups require the Pro plan to configure. No configurable backup was set up during this inspection. The actual production plan label was not separately confirmed in this dashboard report; do not infer it solely from the backup screen.
-- Google sign-in is enabled.
-- “Skip nonce checks” is disabled.
-- “Allow users without an email” is disabled.
-- Auth log retention was not exposed in the inspected dashboard view. This does not establish that no Auth logs exist or that they are not retained.
+- Owner confirms the organization subscription is **Free**, using the Subscription Plan page. Project Settings → General did not display the plan label.
+- Google sign-in is enabled; “Skip nonce checks” is disabled; “Allow users without an email” is disabled.
+- No configurable database backup/PITR recovery period is available/confirmed on the Free plan.
+- Current Supabase pricing lists 24 hours of Auth Audit Logs and 1 day of API & Database log retention on Free. Platform Audit Logs are not included on Free. These are separate product categories.
+- The Auth Audit Logs guide states that events are stored by default in external dashboard log storage and the project's Postgres `auth.audit_log_entries` table. The project-specific storage toggle and actual records were not inspected.
 
 ### Supabase staging
 
 - Project: SwiftDictionary staging; reference `ivatvkfrtifgfheeaelj`; Singapore (`ap-southeast-1`).
 - Owner confirms the project is on the Free plan.
-- Owner confirms no database backups are configured/available on this plan.
-- No PITR configuration was reported as enabled. Do not claim a recovery window.
+- Owner confirms no database backups are configured/available on this plan and no PITR recovery window is confirmed.
+- Plan-level log history values above are published Free-plan specifications; staging-specific log rows and settings were not independently queried in this phase.
 
 ### Cloudflare Pages production
 
-- Pages project: `swiftdictionary`.
-- Production is connected to the `main` branch; automatic production branch deployments are enabled.
-- Preview deployments are enabled for all non-production branches.
-- Owner observed 236 deployments at the time of inspection. This is a point-in-time count, not a retention duration.
-- Build command and build output directory are blank. This is recorded as observed; do not infer an error or claim a specific build process from these fields alone.
-- Cloudflare Web Analytics is not configured.
-- An Observability/Logs area is present, but no logs were displayed. This does not prove that Cloudflare has no operational, security, request or platform logs.
-- Turnstile was not found in the inspected dashboard. Record as not found/not confirmed, not as a definitive statement that no Turnstile integration exists anywhere in the account or application.
-- No Logpush section/configuration was found by the owner. Record as not found/not confirmed; do not claim that all Cloudflare logging is disabled.
+- Pages project: `swiftdictionary`; production is connected to `main`; automatic production deployments and non-production branch previews are enabled.
+- Owner previously observed 236 deployments at the inspection time. This is a point-in-time count, not a retention duration.
+- Build command and build output directory are blank.
+- Cloudflare Web Analytics was not configured. Turnstile and Logpush were not found/not confirmed.
+- Observability Events showed no matching events in the selected view; the dashboard notice stated a Workers Free allowance of 200,000 events/day.
+- Observability Usage displayed a 1–30 November 2026 cycle at day 20/30, 0.00/0.50 GB ingested that day, zero days at the cap, no dataset data for the selected period, and 7 days retention for the logs/traces represented on that page.
+- Observability Logs showed actual HTTP request records for the SwiftDictionary Pages hostname in the selected Last 1 hour view. The summary showed 43 served by Cloudflare, zero mitigated and zero served by origin; visible sample entries were GET requests for `/favicon.ico` with edge status 200 OK.
+- The seven-day Usage retention display has **not** been proven to cover this separate Pages HTTP request-log view, Pages build logs or every Cloudflare security/platform record.
 
 ### Retention and privacy implications
 
-- No configurable Supabase database backup/PITR recovery period is confirmed for either project from this inspection. Do not publish a numeric backup-retention promise or imply that account deletion immediately removes backup copies.
-- Cloudflare Pages deployment count and published deployment-version retention are separate from visitor request-log and build-log retention.
+- Supabase Free plan log history is documented as 24 hours for Auth Audit Logs and one day for API & Database logs. These plan-level accessible-history values do not prove physical erasure of every provider-held operational/security copy.
+- Supabase Platform Audit Logs are a separate feature and are not included on Free.
+- No configurable Supabase database backup/PITR recovery period is confirmed for either project. Do not publish a numeric backup-retention promise or imply individual account deletion immediately removes backup copies.
+- Cloudflare request-log visibility is confirmed for the selected view, but the seven-day retention scope for that separate request-log interface remains unverified.
+- The limited Cloudflare request sample is not a unique-visitor count or total traffic measurement.
+- Deployment count/version retention is distinct from visitor request logs, build logs and security logs.
 - Web Analytics being unconfigured does not establish zero collection by the hosting provider or other infrastructure.
-- The existence of a Logs interface without displayed records does not establish absence of logging or retention.
-- Continue to treat Supabase Auth log retention, Cloudflare operational/request/build log retention, and account-specific provider retention as unverified until provider documentation or account-specific evidence establishes them.
-- No numeric application-data retention periods are approved by this inspection.
+- No numeric operator-controlled application-data retention periods are approved.
 
-**Evidence type:** Owner-reported dashboard observations, 20 November 2026. No provider settings, deployments, database contents, user records or logs were modified or inspected beyond the observations explicitly reported above.
+**Evidence type:** Owner-reported dashboard observations plus current public provider documentation, 20 November 2026. No provider settings, deployments, database contents, user records or logs were modified or queried beyond the observations explicitly recorded above.
