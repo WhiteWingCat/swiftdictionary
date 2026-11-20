@@ -2710,3 +2710,6 @@ The implementation branch now contains a narrow ACL cleanup draft and assertion 
 Staging Security Advisor's two authenticated SECURITY DEFINER warnings were reviewed against function definitions and effective ACLs. Both functions require an authenticated identity, scope operations to `auth.uid()`, use an empty search_path and deny anon/PUBLIC execution. Authenticated execution is intentional for current features; do not revoke it merely to clear generic warnings. Eight private-schema RLS-without-policy informational findings and performance suggestions are recorded for review.
 
 No production database, Cloudflare, Google OAuth or deployment changes were made. Next gate: generate the migration with Supabase CLI, validate in disposable local Supabase CI, then apply and verify on Singapore staging. Production remains approval-gated.
+
+
+Phase I follow-up validation update (20 November 2026): the draft ACL SQL and assertion test were executed successfully in disposable local Supabase CI, with the full authenticated Quiz RPC, content, Chromium runtime and local security-advisor jobs passing in [run #44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925). The hosted staging database remains unchanged. A subsequent CI run is using the Supabase CLI to produce the timestamped migration filename before it is committed.
