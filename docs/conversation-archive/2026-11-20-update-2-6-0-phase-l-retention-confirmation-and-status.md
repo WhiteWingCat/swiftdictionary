@@ -8,6 +8,7 @@ Continue the read-only owner dashboard inspection and consolidate provider-reten
 
 - Production Supabase organization subscription plan is **Free**. The owner confirmed this on the Subscription Plan page; Project Settings → General did not display the plan label. Do not ask the owner to search that General page again.
 - Staging Supabase is also Free, as recorded in the preceding Phase L inspection.
+- Owner tested the current Cloudflare staging preview and confirmed Google sign-in worked with both test accounts, account data/progress remained isolated, and all three expected OAuth scopes were visible in the provider configuration. Record this as owner-reported staging OAuth/account-isolation validation; the exact scope names were not supplied in this handover.
 - No paid plans, paid backup features or paid logging services are to be introduced as part of this work.
 
 ## Supabase retention research
@@ -64,7 +65,7 @@ The Privacy Notice and Terms remain internal drafts. No numeric application-data
 
 1. Complete account deletion in isolated staging: server-side trusted Auth Admin deletion, fresh reauthentication, UID derived from verified session, retry-safe partial-failure handling, refresh-session revocation, access-JWT lifetime caveat, all owned-data cascades, and success only after confirmed Auth deletion.
 2. Test account deletion with synthetic accounts across all feature tables and verify account isolation, sign-out/account switching and shared-device local-storage behaviour.
-3. Complete staging end-to-end smoke tests through the Cloudflare preview, including Google OAuth, account deletion and regression checks. Do not use real learner data.
+3. Complete the remaining staging end-to-end smoke tests through the Cloudflare preview, focusing on account deletion and its failure/retry cases plus regression checks. Google sign-in with both test accounts, account isolation and visibility of the three expected OAuth scopes have already been owner-tested successfully. Do not use real learner data.
 4. Review production privilege differences and prepare a separate, reviewed production ACL remediation plan. Production must remain unchanged until explicit approval.
 5. Inspect the deployed asset path for jsDelivr use and confirm current Google OAuth scopes/Supabase provider attributes. Keep provider locations, subprocessors and retention facts distinct.
 6. Verify GitHub Actions retention settings and ensure workflows/artifacts do not contain personal data or secrets.
