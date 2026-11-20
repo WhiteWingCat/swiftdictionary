@@ -647,3 +647,6 @@ The follow-up SQL revokes only TRUNCATE/REFERENCES/TRIGGER/MAINTAIN on these tab
 #### Disposable CI validation (20 November 2026)
 
 The first run caught an incorrect test expectation for `anon` SELECT on `learning_plan_limits`; the live staging ACL showed this is authenticated-only. The assertion was corrected. GitHub Actions run [#44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925) completed successfully, covering the follow-up draft SQL and ACL assertions, existing least-privilege tests, authenticated Quiz RPC integration, Quiz content checks, authenticated Chromium Quiz runtime tests and local Supabase security-advisor validation. This was disposable local CI only; no hosted staging writes were performed.
+
+
+A direct ACL expansion query also confirmed there are no PUBLIC grants on the eight targeted tables or the three targeted sequences. Therefore the follow-up's explicit revocations from `anon` and `authenticated` remove the observed grants without leaving a PUBLIC-inherited copy of those privileges.
