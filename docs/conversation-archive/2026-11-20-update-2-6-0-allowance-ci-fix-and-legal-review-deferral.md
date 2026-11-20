@@ -99,3 +99,19 @@ Commit `bf93bf925c489433f4cfde0add3748d992f25dd2` updates those browser assertio
 - The Cloudflare Worker build check for `swiftdictionary-testing` failed again on `bf93bf9`, while Pages deployment succeeded.
 
 Draft PR #13 remains open and unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/13.
+
+
+## Final U2.6.0 integration result for the current feature head
+
+On feature head `bf93bf925c489433f4cfde0add3748d992f25dd2`:
+- Local Supabase/Auth/RPC integration workflow `44733764841` completed successfully.
+- This includes the U2.6.0 least-privilege migration and explicit grant checks, authenticated Quiz runtime, signed-out Flashcards/Preferences regressions, permanent Lessons allowance exhaustion regression, and local Supabase security advisors.
+- The security-advisor command completed with `No issues found`.
+- Quiz database foundation passed.
+- PostgreSQL 17 migration/allowance tests passed.
+- Flashcards static/mock checks and Chromium browser suite passed.
+- Cloudflare build-routing guard passed and Pages preview deployed successfully to `https://d4db4cd1.swiftdictionary.pages.dev`.
+- The general Chromium browser regression workflow `44733764944` was still in its Node setup step at the time of this update; its browser test step had not started.
+- The separate Cloudflare Worker build check failed again. This remains distinct from the successful Pages deployment and requires owner confirmation about whether `swiftdictionary-testing` is still used.
+
+Draft PR #13 remains open and unmerged. No Tokyo production change or production deployment has occurred.
