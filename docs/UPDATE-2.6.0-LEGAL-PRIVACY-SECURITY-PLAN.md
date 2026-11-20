@@ -1,7 +1,7 @@
 # Update 2.6.0 — Legal, Privacy, Safety & Security Blueprint
 
 **Review date:** 19 November 2026  
-**Status:** Initial legal research and provider/data-flow review completed; first least-privilege database migration applied and verified in staging; production remediation remains pending owner approval.  
+**Status:** Initial legal research and provider/data-flow review completed; both least-privilege staging migrations applied and verified; bilingual Privacy Notice, Terms of Use and retention schedule working drafts created; legal/operator decisions and production remediation remain open.  
 **Production baseline:** Update 2.5.0, released 19 November 2026.  
 **Scope:** Malaysia-first legal review, international applicability screening, privacy/data-flow review, Supabase and frontend security review, and implementation/release gates.
 
@@ -580,73 +580,76 @@ Remaining dashboard work: confirm `main` as production branch; enable preview bu
 
 ### 7.10 Phase I — staging ACL follow-up and live advisor review (20 November 2026)
 
-This phase used read-only Supabase queries against the Singapore staging project `ivatvkfrtifgfheeaelj`. No production project was queried or changed, no learner rows were read, and no database writes or migrations were executed.
+The follow-up ACL migration has now been applied to the isolated Singapore staging project `ivatvkfrtifgfheeaelj`. Production was not modified.
 
-#### Effective staging ACL confirmation
+#### Migration and validation
 
-The effective ACL query confirmed that eight legacy/bootstrap-created public tables are owned by `postgres` and still grant both `anon` and `authenticated` the non-DML privileges TRUNCATE, REFERENCES, TRIGGER and MAINTAIN:
+- Repository migration: `supabase/migrations/20261120023718_update_2_6_0_remove_residual_api_privileges.sql`.
+- Staging migration history records `20261120023718_update_2_6_0_remove_residual_api_privileges`.
+- The migration revokes TRUNCATE, REFERENCES, TRIGGER and MAINTAIN from `anon` and `authenticated` on the eight reviewed legacy tables, and revokes anonymous UPDATE on the three identified sequences.
+- It preserves the existing DML grants and RLS policies, anonymous/authenticated SELECT on `languages`, and authenticated-only SELECT on `learning_plan_limits`.
+- The post-migration ACL assertion test ran directly against hosted staging and passed. A separate effective-ACL query returned no remaining targeted grants.
+- GitHub Actions run [#44655246355](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44655246355) passed after applying the committed migration in disposable local Supabase CI and running the authenticated Quiz/RPC/Chromium regression workflow.
+- A repository filename mismatch was caught and corrected: the migration file now uses the exact version recorded in hosted staging, `20261120023718`, so future CLI migration history will not treat it as a separate pending migration.
 
-- `languages`
-- `learning_activity_log`
-- `learning_plan_limits`
-- `lesson_practice_results`
-- `lesson_progress`
-- `profiles`
-- `user_entitlements`
-- `user_preferences`
+#### Current staging Security Advisor
 
-The anonymous role also retains UPDATE (the sequence `setval` privilege) on three sequences:
+After the migration, the Security Advisor reports:
 
-- `learning_activity_log_id_seq`
-- `lesson_practice_results_id_seq`
-- `lesson_progress_id_seq`
+- Eight INFO findings for private-schema tables with RLS enabled and no policies. This is intentional: `anon` has no USAGE on `private`, and authenticated users have no direct table DML grants; access remains through narrowly granted RPCs.
+- Two WARN findings for authenticated execution of `public.is_personal_learning_test_access()` and `public.record_completed_lesson_practice_result(...)`. Both are intentional SECURITY DEFINER RPCs required by the application. Their caller identity, empty search path, ownership checks and grants must remain covered by regression tests; do not revoke them just to silence a generic warning.
+- No health lints.
+- Performance findings: ten unindexed foreign keys, four RLS initplan suggestions and ten unused-index suggestions. These are not evidence of an ACL regression. Do not drop indexes based only on synthetic staging usage; assess query plans and workload before making changes.
 
-The grants were confirmed as granted by `postgres`, not inherited from PUBLIC. Public SELECT on `languages` and `learning_plan_limits` is intentional and must be preserved. Existing normal DML grants and RLS policies must also be preserved.
+The migration removes the specific residual privileges in scope; it does not make staging a byte-for-byte ACL clone of production or complete the entire security review. Production still requires its own separate, reviewed remediation and explicit owner approval.
 
-A narrowly scoped follow-up SQL draft was added at `docs/UPDATE-2.6.0-STAGING-ACL-FOLLOW-UP-DRAFT.sql`. It revokes only the four extra table privileges on the eight listed tables and anonymous UPDATE on the three sequences. A separate assertion file was added at `supabase/tests/update_2_6_0_staging_acl_followup.sql`. It asserts the unwanted grants are absent and the two intentional public SELECT grants remain.
+#### Preserved DML and RLS matrix
 
-These are review artifacts, not an applied migration. The permanent migration filename must be created with `supabase migration new`; the CLI was not available in the execution environment, so no timestamped migration was fabricated. The assertions have not yet been run against a disposable local database or staging. Do not apply the draft to staging or production until the migration is generated, its target object existence is verified, and the full authenticated application regression suite passes.
+The migration does not change ordinary Data API DML or RLS policies. `languages` remains readable by anon and authenticated users under the active-language policy. `learning_plan_limits` remains readable by authenticated users only. Authenticated SELECT-only access remains on `learning_activity_log`, `learning_plan_limits`, `lesson_practice_results` and `user_entitlements`; authenticated SELECT/INSERT/UPDATE remains on `lesson_progress`, `profiles` and `user_preferences`, with owner checks based on `auth.uid()`.
 
-#### Security Advisor review
+#### Remaining staging work
 
-The live staging Security Advisor returned two WARN findings for authenticated execution of SECURITY DEFINER functions:
+- Confirm Cloudflare Pages Preview settings and a dedicated staging preview hostname in the owner's dashboard.
+- Add the preview hostname to the staging Supabase Auth redirect allowlist and configure the Google OAuth callback through the owner's own Google Cloud Console.
+- Run owner-led browser smoke tests with synthetic accounts only.
+- Continue the separate account-deletion implementation and retention verification before the legal-document release gate.
 
-- `public.is_personal_learning_test_access()` checks `auth.uid() is not null` and looks up only that same authenticated user's ID in `private.learning_limit_exemptions`.
-- `public.record_completed_lesson_practice_result(...)` rejects a null authenticated user, validates the supplied aggregate and approved lesson identity, takes a per-user advisory transaction lock, requires a previously completed lesson owned by the same user, and inserts the replay summary for that user.
+No production SQL, Auth settings, Cloudflare settings, OAuth configuration, merge or deployment was changed.
 
-Both functions are owned by `postgres`, set an empty search_path, deny anonymous EXECUTE, and have no PUBLIC EXECUTE grant in the effective ACL check. Authenticated EXECUTE is required by the current application design. Do not revoke authenticated execution merely to silence the generic advisor warning; retain the checks and document the intentional privileged RPC exposure. Review future edits for search-path safety, explicit object qualification, caller identity and user ownership checks.
+### 7.11 Phase J — legal-document drafting and release-readiness review (20 November 2026)
 
-The Advisor also reports eight informational `rls_enabled_no_policy` findings for private-schema tables. They are not exposed to browser roles through the Data API and are intentionally accessed only through controlled database functions; confirm schema exposure and grants remain restricted. Performance findings (unindexed foreign keys, RLS initplan suggestions and unused indexes) are separate follow-up optimisation work, not security incidents. Do not drop indexes solely because the staging project's synthetic test workload has not used them.
+#### Work completed
 
-#### Tooling and next steps
+Three new working documents were created on `docs/master-development-record`:
 
-- GitHub repository branch `feature/update-2-6-0-legal-privacy-security` remains the implementation branch. There is no open pull request to main.
-- GitHub Actions workflow `Cloudflare build routing guard` passed on commit `2544083fe67773512f528f2ec941b16d13cf55c8`.
-- Supabase CLI, Docker and local PostgreSQL client were not available in this execution environment; therefore the draft SQL was not locally executed.
-- The repository's Quiz database workflow already applies the initial 2.6.0 migration and runs the existing least-privilege assertions. Extend that workflow with the follow-up migration and assertion test only after the migration is generated and validated.
-- Continue to leave production ACLs, Cloudflare settings, Google OAuth settings and production deployments untouched pending explicit owner approval.
-- Malaysia legal review remains necessary for Act 709 applicability, the under-18 parental-consent issue, DPO screening, cross-border transfer basis, retention and public controller contact route. The current technical work does not constitute legal compliance advice.
+- `docs/reference/PRIVACY-NOTICE-DRAFT-2026-11-20.md` — bilingual Bahasa Malaysia/English working draft using the current Update 2.5.0 data inventory, including Quiz selected option IDs and question snapshots, Flashcard user-created content/mastery, browser local storage and the current Cloudflare/Supabase/Google/jsDelivr/GitHub provider map.
+- `docs/reference/TERMS-OF-USE-DRAFT-2026-11-20.md` — service scope, 16+ eligibility, accounts, current free model and learning limits, acceptable use, private user-created Flashcard content, intellectual property, educational limitations, availability, privacy separation, termination and Malaysia governing-law proposal.
+- `docs/reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md` — category-by-category retention register covering account data, saved words, learning history, Quiz answer snapshots, Flashcards, allowance state, provider logs, CDN requests, feedback, builds and backups.
 
+The earlier `docs/reference/PRIVACY-POLICY-DRAFT.md` is a superseded 2.3.0-era draft and must not be published. It contains inaccurate statements about Quiz answer storage and older provider/deployment details.
 
-#### Private-schema exposure verification (20 November 2026)
+#### Legal baseline rechecked
 
-A separate effective-privilege query resolved the eight private-schema Advisor INFO findings: `anon` has no USAGE on `private`; `authenticated` has USAGE but no direct SELECT/INSERT/UPDATE/DELETE privileges on any of the 12 audited private tables. This matches the intended design in which private data is accessed only through explicitly granted, reviewed RPCs. Keep this boundary in future migrations and re-check any new private-schema grants.
+The current official Act 709 reprint (15 September 2026), JPDP guidance and the 2013 Regulations were rechecked. The draft work reflects:
 
+- Section 7 notice content and the Bahasa Malaysia/English language requirement, if Act 709 applies.
+- Regulation 3(3): where consent under Regulation 3 is required for a data subject under 18, it must be obtained from a parent, guardian or person with parental responsibility; a 16+ self-declaration does not resolve this.
+- The DPO criteria, including regular and systematic monitoring as a distinct criterion not tied to a minimum user count.
+- Section 43A data portability, subject to statutory conditions and technical feasibility.
+- Section 129 cross-border transfer conditions under the amended Act, together with JPDP guidance.
+- Data-breach notification and DPIA screening requirements under current JPDP materials.
 
-#### Preserved DML and RLS matrix (20 November 2026)
+Primary sources include the [2026 Act 709 reprint](https://www.pdp.gov.my/en/akta/personal-data-protection-act-2010-reprint/), [2013 Regulations](https://www.pdp.gov.my/en/akta/personal-data-protection-regulations-2013/), [DPO guidance](https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-the-appointment-of-data-protection-officer-dpo/), [cross-border transfer guidance](https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-cross-border-transfer-of-personal-data-cbpdt/), [breach-notification guidance](https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-data-breach-notification-dbn/) and [DPIA guidance](https://www.pdp.gov.my/en/akta/data-protection-impact-assessment-guideline-dpia/).
 
-The staging ACL and `pg_policies` review confirmed the follow-up draft does not need to revoke normal Data API DML. Across the eight legacy tables, `anon` has no INSERT/UPDATE/DELETE privileges. The expected reads are: `languages` is readable by anon and authenticated users under the active-language policy; `learning_plan_limits` is readable by authenticated users only. Authenticated access is:
+#### Items deliberately not finalised
 
-- SELECT only: `learning_activity_log`, `learning_plan_limits`, `lesson_practice_results`, and `user_entitlements`.
-- SELECT/INSERT/UPDATE: `lesson_progress`, `profiles`, and `user_preferences`, with owner predicates using `auth.uid()` in SELECT/UPDATE and matching `WITH CHECK` on INSERT/UPDATE.
-- `languages`: SELECT only for anon and authenticated roles, limited by the active-language policy.
+- Whether Act 709 applies to this free, individually operated public service and whether any exemption applies.
+- The processing basis for each purpose and the Regulation 3(3) approach for users aged 16–17.
+- Controller identity/capacity and a safe, monitored public privacy contact route.
+- Verified provider contract status, exact subprocessors, transfer assessment and provider-specific log/backup retention.
+- Numeric retention periods and operational account-deletion workflow.
+- Whether a DPO is required due to adaptive learning/progress monitoring and whether a DPIA is required.
+- Final enforceability review of Terms, limitation clauses, governing law and user-content licence.
+- Publication and acceptance UX. Neither document is published or accepted by users.
 
-The follow-up SQL revokes only TRUNCATE/REFERENCES/TRIGGER/MAINTAIN on these tables. It leaves all above DML grants and RLS policies unchanged. The test was corrected to reflect the exact effective read matrix: anonymous SELECT on `languages`, authenticated-only SELECT on `learning_plan_limits`.
-
-
-#### Disposable CI validation (20 November 2026)
-
-The first run caught an incorrect test expectation for `anon` SELECT on `learning_plan_limits`; the live staging ACL showed this is authenticated-only. The assertion was corrected. GitHub Actions run [#44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925) completed successfully, covering the follow-up draft SQL and ACL assertions, existing least-privilege tests, authenticated Quiz RPC integration, Quiz content checks, authenticated Chromium Quiz runtime tests and local Supabase security-advisor validation. This was disposable local CI only; no hosted staging writes were performed.
-
-
-A direct ACL expansion query also confirmed there are no PUBLIC grants on the eight targeted tables or the three targeted sequences. Therefore the follow-up's explicit revocations from `anon` and `authenticated` remove the observed grants without leaving a PUBLIC-inherited copy of those privileges.
+The drafts are internal review artifacts only. Do not add them to the public footer or present them as final legal advice until owner decisions and qualified legal review are complete.
