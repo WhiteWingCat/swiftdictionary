@@ -666,3 +666,20 @@ These are internal drafts, not approved procedures. Assign an incident owner, co
 #### Additional Terms review scope
 
 The Terms working draft now includes explicit counsel-review points for the Electronic Commerce Act 2006 (Act 658), including a clear versioned electronic acceptance record, and the Consumer Protection Act 1999 (Act 599), including scrutiny of standard-form unfair terms and non-excludable rights. Copyright Act 1987 and the licences/provenance of dictionary content, translations, Hanzi Writer and stroke-order assets also remain in scope. This is an issue list, not a finding that every statute applies to every aspect of the current free service.
+
+
+#### Post-migration DML/RLS verification against hosted staging (20 November 2026)
+
+A read-only privilege matrix and `pg_policies` query confirmed that the follow-up migration preserved the intended ordinary access:
+
+- `languages`: anon/authenticated SELECT only; RLS policy limits rows to `is_active = true`.
+- `learning_activity_log`: authenticated SELECT only, with `auth.uid() = user_id`.
+- `learning_plan_limits`: authenticated SELECT only; anon has no SELECT.
+- `lesson_practice_results`: authenticated SELECT only, with `auth.uid() = user_id`.
+- `lesson_progress`: authenticated SELECT/INSERT/UPDATE, owner-scoped; INSERT permits only an in-progress row with no completion timestamp.
+- `profiles`: authenticated SELECT/INSERT/UPDATE, owner-scoped.
+- `user_entitlements`: authenticated SELECT only, owner-scoped.
+- `user_preferences`: authenticated SELECT/INSERT/UPDATE, owner-scoped.
+- All eight tables retain RLS enabled. No anon INSERT/UPDATE/DELETE privileges were found.
+
+The test did not read learner rows. It inspected effective table privileges and policy definitions only.
