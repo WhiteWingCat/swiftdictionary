@@ -301,7 +301,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
 
   await page.locator("#quizResultsHome").click();
   await expect(page.locator("#quizAllowanceText")).toHaveText("0 of 1 remaining");
-  await expect(page.locator("#swiftDictionaryToast")).toContainText("Quiz allowance");
+  await expect(page.locator("#swiftDictionaryToast")).toContainText(/Quiz allowance|测验额度/);
   await expect(page.locator("#quizHistory [data-quiz-review]")).toHaveCount(1);
   await page.locator("#quizHistory [data-quiz-review]").click();
   await expect(page.locator("#quizResults")).toBeVisible();
