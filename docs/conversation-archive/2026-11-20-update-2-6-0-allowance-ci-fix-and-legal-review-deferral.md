@@ -79,3 +79,23 @@ Latest application branch head: `d2cb49d12d7808fc58d401b873bcf53091e6041b`.
 - Base: `main`; head: `feature/update-2-6-0-legal-privacy-security`.
 - At creation/update time it contained 147 commits and 25 changed files.
 - PR remains draft, unmerged and not approved for production deployment. Its description records that formal legal/privacy review is deferred at the owner's request, not completed or waived.
+
+
+## Additional browser-regression alignment (latest head `bf93bf9`)
+
+The general Chromium smoke run on commit `9660345` executed 37 tests successfully and exposed four failures:
+- Two tests expected signed-out users to see the Lessons library and Daily Learning interface. This contradicted the already-agreed U2.6.0 behaviour: signed-out users see a Lessons sign-in panel, while Daily Learning, the lesson library, difficulty tabs and lesson details stay hidden until sign-in.
+- One test still expected the old combined `Privacy and data` heading rather than the separate `Delete Account` and `Learning history` controls.
+- The account-switching test's minimal mock Supabase client had no `tables` fixture, causing its `saved_words` query to throw. This was a test-fixture gap, not a staging account-switching failure.
+
+Commit `bf93bf925c489433f4cfde0add3748d992f25dd2` updates those browser assertions and supplies profile/preferences/saved-word rows in the test-only mock. It preserves the intended signed-out Lessons gate rather than weakening the application behaviour.
+
+- Latest feature head: `bf93bf925c489433f4cfde0add3748d992f25dd2`.
+- Latest Cloudflare Pages preview: `https://d4db4cd1.swiftdictionary.pages.dev` (deployment succeeded).
+- Cloudflare build-routing guard passed.
+- PostgreSQL 17 migration/allowance tests passed; Quiz database foundation passed.
+- Flashcards static/mock suite passed and its Chromium browser suite passed.
+- The general Chromium smoke workflow and the full local Supabase/Auth/RPC integration were re-triggered for `bf93bf9`; results were pending at this record update.
+- The Cloudflare Worker build check for `swiftdictionary-testing` failed again on `bf93bf9`, while Pages deployment succeeded.
+
+Draft PR #13 remains open and unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/13.
