@@ -1,7 +1,6 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { MAX_AUTH_AGE_SECONDS, decodeJwtPayload, hasRecentAuthTime, isAllowedOrigin } from "./security.ts";
 
-const MAX_AUTH_AGE_SECONDS = 15 * 60;
 const corsHeadersFor = (origin: string | null): Record<string, string> => {
   const allowed = isAllowedOrigin(origin);
   return {
