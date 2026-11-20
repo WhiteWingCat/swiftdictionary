@@ -112,3 +112,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.6.0 — Phase L retention confirmation and remaining-work handover](2026-11-20-update-2-6-0-phase-l-retention-confirmation-and-status.md) — records owner confirmation of both Supabase Free plans, current Supabase Auth/API log-history limits, Cloudflare Observability Usage and HTTP request-log findings, retention caveats, and the remaining technical/legal gates.
+
+- [Update 2.6.0 — Account-deletion foundation implementation](2026-11-20-update-2-6-0-account-deletion-foundation.md) — records the owner's approved optional local saved-word clearing behaviour, the isolated anonymous-storage implementation, server-side Auth Admin deletion safeguards, staging Edge Function version 2, CI checks, verified cascade relationships and outstanding synthetic end-to-end validation.
