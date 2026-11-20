@@ -1200,6 +1200,10 @@
         const authResult = await supabaseClient.auth.getUser();
         userId = authResult.data?.user?.id || null;
       }
+      if (!userId && supabaseClient.auth?.getSession) {
+        const sessionResult = await supabaseClient.auth.getSession();
+        userId = sessionResult.data?.session?.user?.id || null;
+      }
       if (!userId) return null;
       const [usage, entitlement, pref, testAccess] = await Promise.all([
         originalRpc("get_my_learning_allowance_usage"),
