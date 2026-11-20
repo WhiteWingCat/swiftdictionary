@@ -213,13 +213,28 @@
         try { await supabaseClient.auth.signOut({ scope: "local" }); } catch { /* local sign-out may still have cleared storage */ }
         overlay.hidden = true;
         if (typeof showPage === "function") showPage("dictionary");
+        const successMessage = localClearSucceeded
+          ? (checkbox.checked
+            ? "Your SwiftDictionary account was successfully deleted. Signed-out saved words on this device were also cleared."
+            : "Your SwiftDictionary account was successfully deleted. Signed-out saved words on this device were preserved.")
+          : "Your SwiftDictionary account was successfully deleted, but signed-out saved words may still remain on this device.";
         const accountStatusNode = document.getElementById("accountStatus");
-        if (accountStatusNode) {
-          accountStatusNode.textContent = localClearSucceeded
-            ? (checkbox.checked ? "Your account was deleted and this device's signed-out local saved words were cleared." : "Your account was deleted. Signed-out local saved words on this device were preserved.")
-            : "Your account was deleted, but this browser could not clear the optional local saved words. They may still remain on this device.";
+        if (accountStatusNode) accountStatusNode.textContent = successMessage;
+        if (typeof window !== "undefined") {
+          if (typeof window.showSwiftDictionaryToast === "function") {
+            window.showSwiftDictionaryToast(successMessage, "success", 5000);
+          } else {
+            const toast = document.createElement("div");
+            toast.id = "swiftDictionaryDeletionSuccess";
+            toast.setAttribute("role", "status");
+            toast.setAttribute("aria-live", "polite");
+            toast.textContent = successMessage;
+            toast.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:20000;max-width:calc(100vw - 32px);padding:14px 18px;border:1px solid #47785f;border-radius:13px;background:#1d342a;color:#f5f7fb;box-shadow:0 12px 32px #0006;text-align:center";
+            document.body.appendChild(toast);
+            window.setTimeout(() => toast.remove(), 5000);
+          }
+          window.dispatchEvent(new Event("swift-account-deleted"));
         }
-        if (typeof window !== "undefined") window.dispatchEvent(new Event("swift-account-deleted"));
       } catch (error) {
         status.textContent = error?.message || "Account deletion failed. Your account has not been confirmed as deleted.";
         overlay.hidden = false;
