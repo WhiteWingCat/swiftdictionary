@@ -1275,6 +1275,7 @@
   }
 
   installAllowanceNotifications();
+  window.installSwiftAllowanceNotifications = installAllowanceNotifications;
   window.addEventListener("swift-auth-updated", installAllowanceNotifications);
 
   window.initialiseDailyLearning = initialiseDailyLearning;
