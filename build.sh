@@ -25,7 +25,7 @@ fi
 # Refresh browser caches for the account-deletion success toast and allowance notifications.
 if [[ -f index.html ]]; then
   sed -i -E 's#(account-deletion[.]js)([?]v=[^"]*)?#\1?v=2.6.0-r5#g' index.html
-  sed -i -E 's#(daily-learning[.]js)([?]v=[^"]*)?#\1?v=2.6.0-r2#g' index.html
+  sed -i -E 's#(daily-learning[.]js)([?]v=[^"]*)?#\1?v=2.6.0-r3#g' index.html
   sed -i -E 's#(flashcards[.]js)([?]v=[^"]*)?#\1?v=2.6.0-r4#g' index.html
 fi
 
