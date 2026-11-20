@@ -2765,3 +2765,20 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and
 - Formal legal/privacy review remains deferred at the owner's request, not completed or waived. Terms publication remains deferred. Tokyo production remains untouched.
 
 Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
+
+
+### 36.3. Final U2.6.0 integration result for current feature head (2026-11-20)
+
+- On feature head `bf93bf925c489433f4cfde0add3748d992f25dd2`, Local Supabase/Auth/RPC integration workflow `44733764841` completed successfully.
+- Passed: U2.6.0 least-privilege migration and explicit grant checks; authenticated Quiz runtime; signed-out Flashcards/Preferences regressions; permanent Lessons allowance-exhaustion regression; local Supabase security advisors.
+- Security-advisor output: `No issues found`.
+- Quiz database foundation passed.
+- PostgreSQL 17 migration/allowance tests passed.
+- Flashcards static/mock and Chromium browser checks passed.
+- Cloudflare build-routing guard passed; Pages preview deployed successfully at `https://d4db4cd1.swiftdictionary.pages.dev`.
+- General Chromium browser regression workflow `44733764944` was still in Node setup at this record update; its test step had not started.
+- Separate Cloudflare Worker check failed again; Pages deployment succeeded. Owner confirmation is still required on whether `swiftdictionary-testing` is a legacy/unused Worker service.
+- Draft PR #13 remains open, draft and unmerged. No production deployment or Tokyo production change has occurred.
+- Formal legal/privacy review remains deferred at the owner's request, not completed or waived; Terms publication remains deferred.
+
+Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and-legal-review-deferral.md`.
