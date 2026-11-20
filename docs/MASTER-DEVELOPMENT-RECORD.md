@@ -2531,9 +2531,9 @@ The owner confirmed the production Supabase subscription is Free using the Subsc
 
 ### Remaining Update 2.6.0 work
 
-1. **Owner decision:** decide whether account deletion should offer a separate optional action to clear signed-out browser-local saved words on the current device. Do not silently clear local saved words because devices may be shared.
+1. **Owner decision:** RESOLVED — owner approved a separate optional checkbox, unchecked by default and shown only when signed-out local saved words exist, to clear only that browser's designated anonymous saved-word collection. Preserve by default; never clear other accounts or unrelated browser storage.
 2. **Contact channel:** verify external send/receive for the Tuta privacy mailbox and establish a monitored public privacy/support route. Do not publish it until verified.
-3. **Technical account deletion:** implement the approved Profile → Preferences warning flow and trusted server-side Auth Admin deletion in isolated staging; require fresh reauthentication, derive UID from verified session, make partial failure retry-safe, revoke refreshable sessions, account for remaining access-JWT lifetime, verify all data cascades and report success only after Auth deletion is confirmed.
+3. **Technical account deletion:** initial implementation is on `feature/update-2-6-0-legal-privacy-security`; Singapore staging Edge Function `delete-account` version 2 is ACTIVE with JWT verification. The client dialog, optional local-clear checkbox, anonymous-storage separation, 15-minute auth-time check, verified-session UID derivation, global refresh-session revocation, Auth Admin deletion and final Auth lookup are implemented. Still required: hosted synthetic-account end-to-end tests, reauthentication/stale-session tests, cascade verification using seeded rows, failure/retry tests and interactive preview QA.
 4. **Staging end-to-end validation:** use synthetic accounts through the Cloudflare preview; test Google OAuth, account deletion, saved-word/account isolation, shared-device behaviour and all existing feature regressions. No real learner data.
 5. **Production security:** review production privilege differences and prepare a separately reviewed ACL remediation plan. Production remains untouched until explicit owner approval.
 6. **Provider/data-flow verification:** inspect actual Google OAuth scopes and Supabase provider attributes; verify whether jsDelivr remains in the deployed asset path; check GitHub Actions retention and ensure logs/artifacts contain no personal data or secrets.
@@ -2543,3 +2543,32 @@ The owner confirmed the production Supabase subscription is Free using the Subsc
 10. **Publication/acceptance:** revise and obtain review of the bilingual Privacy Notice and Terms, then implement versioned Terms acceptance and separate Privacy Notice acknowledgement/consent as legally approved. Do not publish drafts or treat Mock User testing as release-ready until legal gates are resolved or a limited synthetic-only exception is explicitly approved.
 
 No application source, migrations, schema/data, provider settings, Cloudflare deployment, production configuration or legal publication changed in this follow-up. All work remains on `docs/master-development-record`; implementation must use a focused feature branch from current `main`, with staging synthetic-only and production changes behind explicit approval.
+
+
+## 30. Update 2.6.0 — Account-deletion foundation implementation (2026-11-20)
+
+### Owner-approved behaviour
+
+The owner approved an optional signed-out local saved-word clearing checkbox in the Profile → Preferences account-deletion confirmation dialog. It is unchecked by default, appears only when the current browser has anonymous saved words, and clears only that browser's dedicated anonymous saved-word collection. Account deletion must proceed independently of optional local clearing; if local clearing fails after account deletion, report the partial outcome. Other accounts and unrelated browser storage must not be cleared.
+
+### Implementation status
+
+Implementation is on `feature/update-2-6-0-legal-privacy-security`, not `main`.
+
+- Added `account-deletion.js` with the Profile → Preferences deletion card/dialog, explicit confirmation, optional checkbox, reauthentication prompt, function invocation and truthful post-delete/local-clear messaging.
+- Separated signed-out saved words into `swiftdictionary-anonymous-saved`. The loader preserves the old local key before the existing auth refresh handler clears it; anonymous saves are hidden while signed in and restored after sign-out. They are never merged into a signed-in account.
+- Added `supabase/functions/delete-account/index.ts` and testable `security.ts`. The server requires a valid user JWT, explicit confirmation and an `auth_time` within 15 minutes; derives UID from verified Auth user; revokes refreshable sessions globally; deletes through Auth Admin; and verifies the user is no longer returned before success. Service-role access remains server-only. Already-issued access JWTs can remain valid until expiry.
+- Deployed Edge Function `delete-account` to Singapore staging project `ivatvkfrtifgfheeaelj`, version 2, ACTIVE, with `verify_jwt=true`. No production Edge Function deployment occurred.
+- Read-only staging FK inspection found SwiftDictionary application tables reference `auth.users` with `ON DELETE CASCADE`, including saved words, profile/preferences/entitlements, lesson and daily-learning records, Quiz sessions/questions/reservations, Flashcard collections/cards/mastery/review/session records and private learning allowance/test-access records. Supabase-owned Auth records also cascade. Supabase's own SCIM reference uses SET NULL; SwiftDictionary does not use SCIM.
+- Added Node static safeguards, Deno tests for shared auth/origin helpers, Deno type checking and Cloudflare build-routing checks. GitHub Actions run for commit `cdfef0b6090935bae04c8f7c853855c93356bb6d` passed all steps.
+- The current implementation and recovery instructions are recorded in [the account-deletion implementation archive](conversation-archive/2026-11-20-update-2-6-0-account-deletion-foundation.md).
+
+### Remaining validation and release gates
+
+1. Confirm the Cloudflare preview is using the Singapore staging backend, then manually test the new UI. Do not use production or personal accounts.
+2. Create a disposable synthetic staging account and seed synthetic rows; test recent-auth acceptance/rejection, global refresh-session revocation, full cascade deletion, Auth absence verification, and partial-failure/retry handling.
+3. Test anonymous saved words across signed-out → sign-in → account switch → sign-out; confirm they remain hidden while signed in and return afterward. Test checkbox unchecked (preserve) and checked (clear only anonymous key) on a synthetic browser profile.
+4. Complete mobile/desktop accessibility and regression checks; inspect browser console and Edge Function logs.
+5. Keep production unchanged. Production ACL review/remediation, provider/data-flow checks, full DPIA, legal approvals, privacy-contact verification and unpublished legal-document review remain outstanding.
+
+No account was deleted during this implementation. No production data, schema, migration, provider settings, Cloudflare production deployment or legal publication changed.
