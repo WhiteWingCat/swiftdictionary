@@ -653,3 +653,11 @@ Primary sources include the [2026 Act 709 reprint](https://www.pdp.gov.my/en/akt
 - Publication and acceptance UX. Neither document is published or accepted by users.
 
 The drafts are internal review artifacts only. Do not add them to the public footer or present them as final legal advice until owner decisions and qualified legal review are complete.
+
+
+Additional internal governance drafts created in Phase J:
+
+- `docs/reference/DPIA-SCREENING-DRAFT-2026-11-20.md` — preliminary quantitative/qualitative screening. It recommends a full DPIA before broader public onboarding as a precaution, while leaving the statutory determination to the responsible controller/DPO and qualified counsel.
+- `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — incident containment, provider escalation, notification assessment, evidence preservation, user communications and recovery checklist.
+
+These are internal drafts, not approved procedures. Assign an incident owner, confirm provider contacts, approve the request/incident register and review current JPDP notification criteria before relying on the playbook.
