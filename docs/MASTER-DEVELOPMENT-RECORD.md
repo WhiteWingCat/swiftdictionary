@@ -497,8 +497,7 @@ The 13 November legal review was refined to clarify the PDPA personal/household 
 ### 2026-11-13 preview-host correction
 
 - The owner supplied the actual Cloudflare Pages preview URL: `https://feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev/#dictionary`.
-- Investigation confirmed the mock adapter had allowlisted the wrong hostname: `feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev`.
-- Corrected `mock-testing.js` on the Update 2.3.1 feature branch to allow only the actual owner-supplied preview hostname `feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev`, still requiring the explicit `?swiftMock=1` parameter.
+- Investigation confirmed the mock adapter had allowlisted the wrong hostname: `feature-update-2-3-1-bug-fix-and-changes.swiftdictionary-testing.pages.dev`.- Corrected `mock-testing.js` on the Update 2.3.1 feature branch to allow only the actual owner-supplied preview hostname `feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev`, still requiring the explicit `?swiftMock=1` parameter.
 - Updated `tests/update-2-3-1/mock-testing.test.mjs` to activate on the corrected host and explicitly reject the former incorrect hostname as an unknown host. Production/root Pages/other-host fail-closed tests remain.
 - Commits: adapter correction `ca30d3394dcde2057d11b698f2e66bb15b1e55b4`; regression-test correction `54c11c221fb3199a655d849444182077e4b53e95`.
 - CI status for these new commits has not yet been confirmed. The earlier passing run #456 predates this hostname correction and is not evidence for these changes.
@@ -997,7 +996,6 @@ No allowance amount, course, content-library or Dashboard scope decision was cha
 
 GitHub Actions run **#749** completed successfully against code/test commit **55ad7a12abaa462142a7c6e88b8466d11851040a**:
 https://github.com/WhiteWingCat/swiftdictionary/actions/runs/43568453615
-
 All three jobs passed:
 - **Chromium browser regression:** 22 tests passed. New coverage verifies all four tabs, Free one-card and Premium three-card rows for every category, right-side row actions, reset-message placement after Daily Topic completion, and Discovery review across UTC rollover. Existing content-quality, lesson/daily allowance, completed-review, translation, Dashboard, sign-in and account-switching tests passed.
 - **PostgreSQL 17 migration and allowance tests:** passed. The layout change did not alter the database schema or allowance ledger. Frontend syntax/integration, catalogue validation, direct-RPC checks, completion/review, concurrency and deletion tests passed.
@@ -1497,8 +1495,7 @@ The owner confirmed all remaining Quiz pre-development decisions:
 
 - Exactly **four answer options** per question. Every approved question must have one correct answer and three strong, plausible distractors; weak or ambiguous questions must be rejected rather than published with fewer options.
 - Do not repeat a question for the same account within the same effective local allowance day, across all Quiz sessions and difficulty levels.
-- Do not repeat the same complete quiz sequence within the same day. The individual-question non-reuse rule also prevents this.
-- A started session reserves all questions issued to it for that local day, even if the learner later abandons it. Abandonment remains free and does not consume a completion allowance.
+- Do not repeat the same complete quiz sequence within the same day. The individual-question non-reuse rule also prevents this.- A started session reserves all questions issued to it for that local day, even if the learner later abandons it. Abandonment remains free and does not consume a completion allowance.
 - Minimum question-bank capacity: **two complete sessions** per selected difficulty. Preferred target: **three complete sessions** per selected difficulty.
 - Free Quiz allowance: **1 completed Quiz per local day**.
 - Premium Quiz allowance: **3 completed Quizzes per local day**. The 1:3 ratio is confirmed and supersedes the earlier conceptual example.
@@ -1999,7 +1996,6 @@ The code merge is complete. Remaining release gate: confirm GitHub Pages run #44
 
 GitHub Pages deployment run #44230831943 completed successfully for merge commit `65d0a35bab577adc15a0b1911661c222ed625739`. All three deployment jobs passed: build, report-build-status and deploy. The deployment workflow is successful; the live URL remains `https://whitewingcat.github.io/swiftdictionary/`. The web inspection endpoint could not independently load the site, so deployment success is confirmed from GitHub Pages' completed workflow rather than a separate external page fetch. No Supabase migration was required. The owner should hard-refresh and manually check both Dashboard fixes on the live site.
 
-
 ## 45. Documentation source of truth and repository branch hygiene (2026-11-18)
 
 ### Owner direction
@@ -2499,278 +2495,14 @@ The owner completed the previous Mock User test and supplied four further refine
 
 ### Legal and privacy planning
 
-- These changes are presentation, layout and existing translation-preference behaviour only. They add no new personal-data category, processor, analytics event, raw-answer telemetry, retention period or learning-history record.
-- Existing account-scoped Flashcards history and deletion controls are unchanged. Continue the standing Malaysia PDPA and applicable international/16+ privacy review before wider public/commercial expansion; this implementation is not a legal compliance certification.
+## 28. Update 2.6.0 — Phase L: owner dashboard inspection (2026-11-20)
 
-### Next gate
+The owner completed a read-only inspection of the production/staging Supabase dashboards and the Cloudflare Pages production project. No TinyFish or temporary browser service was used; no provider settings or deployments were changed.
 
-- Owner Mock User retesting is ready on the verified preview.
-- If accepted, begin the planned polishing stage: audit Flash Recall question uniqueness and eligibility, verify answers against the source dictionary, check English/Simplified Chinese translation accuracy and context, and resolve any remaining functional or UI issues before release readiness review.
-- Do not merge PR #12, deploy production, or apply migrations to staging/production without explicit owner approval.
-- Keep development documentation on `docs/master-development-record`; current recovery branch is `feature/update-2-5-0-flashcards`.
+- Supabase production: project `pzymiesazmpyvnfvsbsc`, Tokyo (`ap-northeast-1`). Owner reports configurable database backups require Pro; no backup/PITR recovery period was confirmed. Production plan label was not separately reported. Google sign-in is enabled; “Skip nonce checks” and “Allow users without an email” are disabled. Auth log retention was not exposed in the inspected view.
+- Supabase staging: project `ivatvkfrtifgfheeaelj`, Singapore (`ap-southeast-1`), Free plan; owner confirms no database backups. No PITR recovery window confirmed.
+- Cloudflare Pages `swiftdictionary`: production connected to `main`; automatic production deployment enabled; preview deployments enabled for all non-production branches. Owner observed 236 deployments at inspection time. Build command and output directory are blank. Web Analytics is not configured. Observability/Logs area exists but no logs were displayed. Turnstile and Logpush were not found/not confirmed; do not infer all logging is disabled.
+- Interpretation: no configurable database backup/PITR period is confirmed for either project; do not promise backup retention or immediate backup erasure on learner account deletion. Deployment retention/count is distinct from request/build/security-log retention. No visible logs does not prove no logs are retained. No numeric application-data retention periods are approved.
+- The detailed owner-reported observations and caveats are recorded in [Phase L archive](conversation-archive/2026-11-20-update-2-6-0-phase-l-owner-dashboard-inspection.md) and the [Data Retention Schedule](reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md).
 
-## Update 2.5.0 — polishing stage (2026-11-19)
-
-The owner approved moving into polishing and supplied two final feedback items: restore first-entry introductions on Quiz and Flashcards while refreshing outdated Flashcards copy, and add an early-answer/next-round control beside the Flash Recall gauge. Work is complete on the existing feature branch; PR #12 remains open and unmerged.
-
-### Implemented
-
-1. **First-entry guides:** hardened asynchronous introduction-preference loading so lookup failures do not suppress the guide; added an active-page check to prevent delayed guides appearing after navigation. Quiz and Flashcards guides now have Simplified Chinese copy when Chinese is the selected translation language.
-2. **Flashcards description/help:** removed outdated references to the retired Translation Recall mode and removed personal-collection features. Updated the English and Simplified Chinese page descriptions. The guide now accurately describes Word, Definition, Mixed and Sentence Recall, 60/120-second challenge duration, mode/difficulty-specific timing, and the early-proceed controls.
-3. **Answer now / Next:** added an accessible button beside the game gauge. Answer now skips the remaining memory period. After an answer or timeout, it becomes Next; clicking Next starts the next round immediately. The existing automatic feedback transition remains as a fallback.
-4. **Duplicate-question prevention:** challenge uniqueness now uses a normalized prompt key (Unicode normalization, case folding and repeated-whitespace normalization), not internal card IDs. This prevents duplicate visible prompts across dictionary/custom card variants and across Mixed Recall submodes. Weak Memory/mastery continues to use stable card identity.
-5. **Question-bank expansion:** English bank grew from 792 to 810 entries with 18 everyday terms/phrases. All new entries include definitions, Simplified Chinese translations, examples and explicit lesson IDs.
-6. **Permanent lessons:** added Beginner lessons `b-greetings-polite-expressions` (*Use greetings and polite expressions*) and `b-places-getting-around` (*Name everyday places around town*). Both have full Simplified Chinese lesson content and use the existing Everyday vocabulary topic. Updated the content-catalogue migration draft and tests to 163 total entries / 17 permanent lessons.
-
-### Audit and validation
-
-- Full English bank: 810 entries, 810 unique normalized headwords, zero duplicate headwords, zero entries missing a definition, Chinese translation or example.
-- All 18 new terms are linked to one of the two new lessons; all 17 permanent lessons have Simplified Chinese content.
-- **Flashcards workflow #44492546210:** all jobs passed; JavaScript syntax and page integration passed; Mock account/allowance/collection/timer regression tests **25/25**; Chromium Mock User browser tests **14/14**. Browser coverage includes first-entry guides, Answer now/Next, unique rounds, 60/120-second sessions, Chinese integration and previous round-4 refinements.
-- **2.3.x regression workflow #44492546332:** all jobs passed, including exact content-catalogue parity, PostgreSQL migration/allowance assertions, local Supabase Auth compatibility, security advisor and signed-out browser smoke tests.
-- **Quiz database foundation workflow #44492546233:** PostgreSQL Quiz foundation passed. The companion local Supabase Auth/Quiz runtime job was still running at the time of this record update. Its previous attempt stopped at a test-only expectation that the Flashcards guide title would always be English; the authenticated browser test was updated to accept the selected Chinese title and the rerun is underway.
-- Cloudflare testing preview successfully deployed the application changes at commit `173e753fc79cf84d25d1c24c860f52f5025f9eef`. The latest feature-branch commit `35a22712d2674221cc75f10312cedd5290c908bd` only updated browser-test expectations for localized guide titles and did not change deployed application code.
-- Verified testing preview: https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev
-- Mock User URL: https://feature-update-2-5-0-flashca.swiftdictionary-testing.pages.dev/?swiftMock=1
-
-### Privacy, legal and release boundary
-
-- UI and educational-content changes only. No new personal-data category, processor, analytics event, raw-answer telemetry, retention period or learning-history record was introduced.
-- New lesson IDs are present in the frontend and the approved-catalogue migration draft, but no staging or production migration was applied. Live completion of these two lessons remains gated on explicit owner approval of the catalogue migration.
-- Continue the standing Malaysia PDPA and applicable international/16+ privacy review before wider public/commercial expansion. This is not a legal compliance certification.
-- No merge to `main`, production deployment, staging migration or production data operation occurred. PR #12 remains open and unmerged.
-
-### Next gate
-
-- Polishing implementation and automated Flashcards validation are complete. Owner's final Mock User review is the remaining acceptance gate before release-readiness review.
-- Do not merge PR #12 or apply staging/production migrations without explicit owner approval.
-- Recovery branch: `feature/update-2-5-0-flashcards`. Keep development documentation on `docs/master-development-record`.
-
-
-
-## Update 2.5.0 — owner final review fixes and release-readiness gate (2026-11-19)
-
-The owner completed the latest testing preview review and requested two final fixes. The owner explicitly said no additional Mock User testing was needed, and asked for the fixes to be combined with release-readiness review and a merge decision.
-
-### Owner feedback and implementation
-
-1. **Lessons Chinese titles and descriptions:** The permanent lesson catalogue already contained Simplified Chinese metadata for all 17 permanent lesson IDs (audit: no missing title or summary entries). The defect was in the translation refresh path: it refreshed the active lesson reader but did not re-render the lesson-library cards. `refreshTranslationViews()` now calls `renderLessons()` when the Lessons page is visible and no lesson reader is active, so localized topics, titles and summaries update immediately when the translation language changes.
-2. **Quiz/Flashcards first-entry introductions:** The previous navigation wrapper depended on `location.hash` matching the requested page, which could miss a first-entry guide when navigation and page visibility were out of sync. The wrapper now checks the actual target page's visibility, the auth-refresh path identifies the visible learning page, and a `MutationObserver` watches visibility changes on Lessons, Quiz and Flashcards as a route-independent fallback. The guide helper also avoids rendering the same guide twice while it is already open. Existing per-user/guest dismissal preferences remain respected; closing a guide is not treated as dismissal.
-
-### Implementation checkpoint
-
-- Branch: `feature/update-2-5-0-flashcards`
-- Commit: `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`
-- Changed file: `index.html`
-- PR: [#12](https://github.com/WhiteWingCat/swiftdictionary/pull/12), still open, unmerged, targeting `main`.
-- No schema, RPC, personal-data category, processor, analytics event, raw-answer telemetry or retention behaviour was added by these two UI fixes.
-
-### Validation and CI status
-
-- Workflow **#44496878670** — Flashcards checks: static JavaScript syntax and page-integration checker passed; Mock account/allowance/collection/timer regression tests passed (25/25); Chromium Mock User browser tests passed (14/14). The browser job ran automatically because the branch push triggers the repository workflow. No separate manual Mock User test cycle was started.
-- Workflow **#44496878607** — Quiz database foundation: PostgreSQL foundation job passed. Local Supabase Auth/Quiz runtime integration was still running at the latest check. The preceding run had failed because its authenticated browser fixture did not seed three distinct topics for an Advanced Quiz, producing the explicit message `Quiz requires at least three distinct topics`; this is a test-fixture/content-coverage failure, not evidence of a migration failure. The latest rerun must finish before this CI gate can be marked green.
-- Workflow **#44496878563** — 2.3.x allowance/dashboard regression: all jobs passed, including PostgreSQL 17 migration, policy, allowance-ledger, history-deletion, concurrency, browser smoke and local Supabase Auth compatibility.
-- The already-completed prior Flashcards run **#44492546210** passed 25/25 mock account tests and 14/14 Chromium Mock User browser tests; prior 2.3.x workflow **#44492546332** passed all jobs. Those results predate commit `71d8246` and are not a substitute for the current in-progress run.
-- No additional owner-run browser test was performed or requested. The branch push automatically started the existing Chromium Mock User CI job, which completed successfully; this is recorded as automated CI evidence, not as a new owner testing requirement.
-
-### Release-readiness and merge decision
-
-- PR #12 currently reports `open`, `mergeable=true`, 171 commits and 24 changed files. GitHub's mergeable flag is not itself a release approval.
-- **Decision: HOLD merge for now.** The current commit's full CI evidence was incomplete at the review checkpoint, and the companion Quiz runtime workflow had a prior fixture failure that must be distinguished from application defects. Reassess after all current required checks complete.
-- The two new permanent lesson IDs are in frontend content and the approved-catalogue migration draft, but the catalogue migration has not been applied to staging or production. Live lesson completion remains gated on explicit owner approval and application of the appropriate migration. The current PR includes Flashcards database migrations; those require ordered staging validation and owner-approved rollout before production use.
-- Database review found Flashcards tables in the non-exposed `private` schema with RLS enabled and no direct browser-role table grants; RPC implementations derive ownership from `auth.uid()`, use an empty `search_path`, and expose narrow authenticated wrappers. The mode-specific review table is RLS-enabled with no direct API policies/grants. Existing CI SQL tests cover allowance enforcement, ownership, deletion and session lifecycle. This source review is not a substitute for the pending Supabase security-advisor result or live staging verification.
-- Supabase's current CLI v3 breaking-change notice (2026-11-04) changes hosted/local command targeting and confirmation behaviour. The current CI workflow still uses Supabase CLI v2.81.3, so this does not directly block this PR, but CLI v3 must not be adopted without updating deployment scripts and checking explicit `--remote`/confirmation behaviour.
-- No PR merge, production deployment, staging migration, production migration or production data operation has occurred. Merge/deployment/migration remain separate owner-approval gates.
-
-### Legal and privacy planning
-
-- The final fixes only affect page rendering and first-entry guide presentation. No new personal data is collected or transmitted, and existing account-scoped guide-dismissal preferences remain unchanged.
-- Existing Flashcards history and deletion controls remain in scope for the previously reviewed feature. Continue the standing Malaysia PDPA and applicable international/16+ privacy review before wider public/commercial expansion; this is planning, not legal advice or a compliance certification.
-
-### Recovery
-
-Continue from `feature/update-2-5-0-flashcards` at `71d8246fab2ef6f2d1d50109d1a0cee3d0420ad7`. Keep all internal development records on `docs/master-development-record`. PR #12 remains open and unmerged.
-
-
-## 2026-11-19 — Update 2.6.0 legal, privacy, safety and security baseline audit
-
-The owner asked to proceed with the post-2.5.0 legal/privacy/security milestone and said they rely on thorough investigation of Malaysian PDPA and other relevant requirements. A read-only baseline audit and initial legal research were completed; the detailed blueprint is `docs/UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md`, with session archive `docs/conversation-archive/2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md`.
-
-### Key legal findings
-
-- Act 709 applies to personal-data processing in connection with commercial transactions. The free, individually operated nature of SwiftDictionary does not automatically resolve applicability; the statutory personal/family/household exemption is not obviously applicable to a public learning service storing other people's account and learning data. Obtain Malaysian legal advice on the actual operator and activity.
-- If Act 709 applies, the Section 7 notice must include the required information and be provided in Bahasa Malaysia and English. The existing English privacy draft is stale and not publication-ready.
-- DPO screening must include the regular/systematic-monitoring criterion. Adaptive revision uses learner-performance data over time; do not assume a small user base removes this criterion.
-- Assess prescribed controller registration classes separately from DPO appointment. Complete current cross-border transfer, breach-notification and DPIA screening.
-- The global 16+ audience requires EU/EEA and UK targeting/applicability screening. UK Children's Code may be relevant to services likely to be accessed by 16–17-year-olds. Do not treat 16+ as a global exemption.
-
-### Key read-only technical findings
-
-- Production Supabase active/healthy, PostgreSQL 17.11, Tokyo primary DB; staging active/healthy, Singapore. Production health advisor returned no health lints.
-- Security advisor reports leaked-password protection disabled, two authenticated-callable SECURITY DEFINER functions and eight private-schema RLS/no-policy INFO notices. Private RPC-only tables have no direct browser-role grants; their no-policy state is intentional and should not be “fixed” with broad policies.
-- The two SECURITY DEFINER functions are `public.is_personal_learning_test_access()` and `public.record_completed_lesson_practice_result(...)`. Their reviewed definitions use empty search_path and caller identity via `auth.uid()`; preserve the owner's test bypass and review grants/callers rather than blindly changing them.
-- `public.daily_activity_sessions` has unnecessary broad privileges for `anon`, although RLS is enabled and no anonymous policy was observed. Prepare a reviewed migration to revoke anon access and validate authenticated workflows in staging.
-- User-owned application tables, including private Quiz and Flashcards tables, reference `auth.users(id)` with `ON DELETE CASCADE`. However, the current application has no self-service account-deletion workflow or account-deletion Edge Function/RPC.
-- Current Quiz schema stores selected option IDs and question/session snapshots. Older statements that individual Quiz answers are not stored are stale and must not be repeated in the next privacy notice.
-- Profile currently supports deletion of learning history while preserving the account, saved words, preferences and user-authored Flashcard collections/cards. This is distinct from account deletion.
-- The main site currently lacks public Privacy Policy and Terms links; feedback-to-GitHub handling on Cloudflare Pages needs review; Supabase JS uses a floating major-version CDN URL; third-party licence notices are present in the repository but not linked in the footer.
-- No analytics/ad-tracking code, document.cookie or geolocation API use was found in the source inspected. Supabase Auth persists its session in browser storage; localStorage is used for preferences/avatar/signed-out saved words. Provider request metadata and retention still need verification.
-
-### Next gates
-
-1. Confirm operator/controller identity and obtain Malaysian legal advice on Act 709 scope, personal/household exemption, DPO criterion and registration class.
-2. Verify provider/subprocessor locations, Auth/log/backup/support processing, contractual safeguards and cross-border transfer basis.
-3. Replace the stale privacy draft with accurate Bahasa Malaysia and English notices; prepare Terms, contact/request route and content/licensing disclosures.
-4. Implement reviewed least-privilege database migration for `daily_activity_sessions` and test in staging.
-5. Define retention, secure account deletion, breach response, DPIA screening and access/correction/export handling.
-6. Pin dependencies and review security headers/CSP, feedback flow, mock test adapter and visible licence notices.
-7. Complete staging tests and owner/legal review before production approval.
-
-No production settings, database schema/data, OAuth configuration, application code, merge or deployment were changed in this audit. No production migration or deployment is authorised by this record.
-
-
-## 2026-11-19 — Update 2.6.0 Phase A operator and age-gate clarification
-
-The owner confirmed SwiftDictionary is operated personally as an individual, not through a registered company. This fact has been added to the legal/privacy blueprint but does not resolve Act 709 applicability or the personal/household exemption.
-
-A low-data 16+ self-declaration flow is documented as a proposal: show the age question before Google OAuth/account creation, proceed only after an affirmative response, decline access after a negative response, and record only the authenticated account ID, affirmative declaration, timestamp and notice version. This is not age verification and cannot prove actual age. Avoid collecting date of birth or identity documents without a documented legal requirement.
-
-A significant Malaysian issue is recorded: Personal Data Protection Regulations 2013, Regulation 3(3), requires parental/guardian/person-with-parental-responsibility consent for consent under Regulation 3 where the data subject is under 18; Regulation 3(5) places the burden of proof on the data user. The proposed teen self-declaration does not resolve this for 16–17-year-olds where that consent rule applies. Legal advice is required on the processing basis and applicability before implementation. The Malaysian social-media age-verification requirements for licensed providers are not assumed to apply to the current private dictionary/learning service.
-
-Branch housekeeping was confirmed from the owner: seven merged historical branches and the planning-only 2.3.0 branch were deleted. Current retained branches are main, docs/master-development-record, feature/update-2-5-0-flashcards, feature/update-2-4-2-dashboard-quiz-fixes, feature/update-2-4-1-fix-changes and work/update-2-4-0-quiz-feedback. The latter is preserved because it contains unique work.
-
-No age gate, application change, database migration, Auth setting change, merge or deployment was performed. The next 2.6.0 work is legal applicability/DPO/registration assessment, provider/subprocessor and transfer verification, DPIA screening, then prioritised technical remediation and staging tests.
-
-## 2026-11-19 — Update 2.6.0 Phase B provider and cross-border review
-
-The owner decided that the future Terms & Conditions link belongs in the bottom-page footer alongside Feedback & Suggestions, not in the primary navigation. Publish the link only after the Terms have been reviewed and published.
-
-Provider documentation and connected Supabase metadata were reviewed. Production Supabase is hosted in Tokyo (ap-northeast-1), staging in Singapore (ap-southeast-1), both active and healthy, and neither currently has deployed Edge Functions. Supabase's current FAQ confirms that database/Auth/Storage/backups are region-hosted but also describes out-of-region account administration, global support access, EU-based operational logs and possible US-affiliate support/operations. Tokyo therefore describes the primary region, not all data processing.
-
-Cloudflare Pages is the hosting/edge provider; account-specific DPA acceptance, log retention, subprocessors and support access remain unverified. Google is the OAuth identity provider; standard authentication-only scopes are openid/email/profile, but actual Google Cloud Console scopes and brand verification remain unverified. jsDelivr serves the Supabase JS and Hanzi Writer assets and processes request metadata including IP/browser/request URL; stroke-data URLs can identify a requested character asset but do not include the SwiftDictionary account ID. GitHub feedback is copy-first and does not automatically send the form to a private endpoint; issues created manually in a public repository are public.
-
-The existing feedback form's Cloudflare Pages fallback to generic GitHub Issues instructions was confirmed. The public notice must not call it private or imply automatic submission. No provider contract acceptance, exact retention periods, Google tenant configuration or Cloudflare tenant settings were confirmed.
-
-No production/staging data rows were read, no user data was copied, and no database settings, migrations, OAuth settings, application code, deployments or branches were changed. Follow-up remains provider-account verification, retention schedule, transfer assessment, and later staging-first technical remediation.
-
-
-## 2026-11-19 — Update 2.6.0 Phase C initial least-privilege remediation
-
-A staging-only database migration was applied and recorded as `20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions`. It removes anon access to `public.daily_activity_sessions`, removes authenticated direct DELETE, tightens default table/sequence/function privileges for future objects created by `postgres`, and removes direct EXECUTE from two trigger-only guard functions. The migration file is on `feature/update-2-6-0-legal-privacy-security`, created from main commit `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`.
-
-Staging privilege read-back matched the intended grants. Rollback-only tests confirmed the trigger guards still execute under the authenticated role and reject untrusted completion changes, and that future postgres-created public tables, sequences and functions do not inherit anon/authenticated table CRUD, sequence USAGE/SELECT or function EXECUTE. The eight private-schema RLS/no-policy INFO findings remain intentional; the two SECURITY DEFINER WARN findings remain because the authenticated lesson replay and owner test-exemption RPCs are required and were reviewed for empty search_path/auth.uid() identity checks.
-
-Production was not changed. Full authenticated browser Mock User staging tests remain outstanding before production approval. Supabase `supabase_admin` default privileges are platform-managed and remain outside the scope of project SQL; existing production sequence and other object grants also require separate inventory. The available GitHub integration cannot delete the oldest retained branch, so the new implementation branch temporarily makes four implementation branches.
-
-
-## 2026-11-19 — Update 2.6.0 account deletion and retention design
-
-A proposed secure account-deletion architecture is now documented in the 2.6.0 blueprint. It separates Delete Account from Delete Learning History; requires fresh authentication and explicit confirmation; uses a JWT-verified server-side Edge Function and service-role secret; derives the target user from the verified token; revokes sessions before Auth Admin deletion; verifies cascade behaviour; clears local app state; and documents that JWTs/backups/logs may persist for their applicable expiry windows. Supabase's current docs warn that deleting an Auth user does not itself invalidate already-issued JWTs and that Storage ownership can block deletion. The proposal remains design-only; no function/UI/Auth change was implemented.
-
-A retention schedule framework is also documented. No numeric periods have been invented or approved. The owner/provider/legal review must establish active-record retention, user deletion controls, backup expiry and provider log retention separately for Auth, profile/preferences, saved words, learning history, Quiz snapshots/answer IDs, Flashcard content/mastery, provider logs, backups and public GitHub feedback issues.
-
-
-## 2026-11-19 — Update 2.6.0 Phase D: feedback inbox proposal and staging verification
-
-The current public feedback form was inspected. It only prepares a GitHub issue, requires a GitHub account to submit, and its old GitHub Pages hostname/path detection does not work on the Cloudflare Pages host. A private Supabase-backed feedback inbox is recommended: public anonymous submission without GitHub; minimal fields; optional reply email only by choice; no public issue; owner-only Profile inbox protected by trusted server-managed `app_metadata`; no direct ordinary-user SELECT; server-side validation/rate limiting/anti-spam; clear notice and retention/request process. This is not inherently a PDPA violation, but free text/contact details may contain personal data and must be handled under applicable privacy requirements. Design only; no feature implementation.
-
-Staging verification: the active Singapore Supabase project `SwiftDictionary Indie Staging` already exists, has zero Auth users and no deployed Edge Functions, and has the 2.6.0 migration. It is distinct from Tokyo production. GitHub Actions run #44514979573 passed both jobs, including the authenticated Chromium Quiz tests and local security-advisor stage. A Cloudflare Pages preview wired to staging is not yet verified; current `supabase-config.js` hardcodes production. The preview must not be deployed until its config explicitly uses the staging URL and publishable key. Cloudflare project settings require inspection in the owner's dashboard, which is not exposed by the current connected tools.
-
-The owner requested that Terms & Conditions appear in the bottom-page footer beside Feedback & Suggestions, not in primary navigation. This placement is now recorded as the release requirement.
-
-
-## 2026-11-19 — Update 2.6.0 Phase E: production privilege comparison
-
-A read-only ACL comparison confirmed production `public.daily_activity_sessions` has ALL privileges granted to anon and authenticated, while staging has the intended anon-none/authenticated SELECT+INSERT+UPDATE profile after Phase C. Production also grants anon USAGE/SELECT/UPDATE on four public sequences (`learning_activity_log_id_seq`, `lesson_practice_results_id_seq`, `lesson_practice_results_id_seq1`, `lesson_progress_id_seq`); staging does not grant anon USAGE/SELECT on these sequences. Production anonymous SELECT on `languages` and `learning_plan_limits` is intentional public configuration. Production anonymous EXECUTE is limited to two trigger-only guards; staging has removed those direct grants. Production `postgres` default privileges remain broad; staging has tightened those defaults. No production SQL was run.
-
-The staging ACL baseline still has non-DML TRUNCATE/REFERENCES/TRIGGER/MAINTAIN privileges on some bootstrap-created public tables. These require a separate object-by-object review; do not claim the entire schema is fully least-privilege yet. Follow-up work should add a carefully tested migration for anonymous sequence grants and full daily-session privilege reset, inspect non-DML grants, then run browser tests after staging OAuth and Cloudflare preview configuration are verified.
-
-
-## 2026-11-19 — Update 2.6.0 Phase F: provider data flows and cross-border review
-
-Public provider documentation and live project-region facts were added to the 2.6.0 plan. Supabase primary project regions are Tokyo (production) and Singapore (staging), but Supabase's 6 Oct 2026 Data Residency FAQ confirms account/configuration/billing data, support access, usage telemetry/logs and some Storage delivery can involve processing outside the selected region; it identifies Singapore and US entities and SCCs for EU/UK/Swiss transfers. Cloudflare's policy and Singapore PDPA FAQ describe global network processing and US/European metadata processing including IP addresses. Google Sign in with Google shares name/email/profile picture after consent and not the Google password. GitHub feedback currently opens a public issue and is not suitable as a private inbox. Exact provider plan, DPA, subprocessor list, log retention, Cloudflare Pages products and OAuth scopes still require owner-dashboard verification. No provider settings or production configuration were changed.
-
-
-## 2026-11-19 — Update 2.6.0 Phase G: ACL re-verification and staging gap analysis
-
-A fresh read-only query against production and Singapore staging confirmed that the Phase C daily-session grants are correctly narrowed in staging, but found residual anonymous UPDATE on three staging sequences. Production still has anonymous SELECT/UPDATE/USAGE on four sequences and broad daily-session grants. Production's two trigger-only guard functions still grant EXECUTE to PUBLIC (as well as anon/authenticated); staging has no API/PUBLIC EXECUTE grant for those guards. This confirms that a production fix must revoke PUBLIC too, not only named API roles. Eight older/bootstrap staging tables retain non-DML API privileges and need individual review. No data or database settings were changed. A follow-up migration was not created because the Supabase CLI is unavailable; no migration filename was invented. Production remains untouched pending staging browser validation and explicit approval.
-
-
-## 2026-11-19 — Update 2.6.0 Phase H: Cloudflare project identification and safe backend routing
-
-The owner identified the Cloudflare Pages project as `swiftdictionary`. A fail-closed build-time router was added to the 2.6.0 feature branch: `main` is pinned to Tokyo production; non-main preview branches are pinned to Singapore staging; environment-specific Supabase URL and publishable-key variables are required. Added shell tests and a dedicated GitHub Actions workflow. Local tests and workflow run #44518836358 passed. No Cloudflare dashboard or Supabase Auth settings were changed, and no production deployment occurred. Dashboard configuration and OAuth/redirect allowlisting remain outstanding. Full detail: [Phase H archive](conversation-archive/2026-11-19-update-2-6-0-phase-h-cloudflare-routing.md).
-
-
-## Update 2.6.0 — Phase I status (20 November 2026)
-
-The 20 November staging ACL and Security Advisor review is archived at [Phase I — staging ACL follow-up and live advisor review](conversation-archive/2026-11-20-update-2-6-0-phase-i-staging-acl-advisor-review.md) and incorporated into [the 2.6.0 legal/privacy/security plan](UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md).
-
-The implementation branch contains a narrow ACL cleanup migration and assertion test. The migration targets four unnecessary table privileges on eight legacy public tables and anonymous UPDATE on three sequences. It preserves anon/authenticated SELECT on `languages` and authenticated-only SELECT on `learning_plan_limits`. The timestamped file `supabase/migrations/20261120013731_update_2_6_0_remove_residual_api_privileges.sql` was generated with Supabase CLI v2.81.3 in GitHub Actions and committed to the feature branch. The interactive execution environment lacks local Supabase tooling, so disposable GitHub Actions CI is used for SQL execution and validation.
-
-Staging Security Advisor's two authenticated SECURITY DEFINER warnings were reviewed against function definitions and effective ACLs. Both functions require an authenticated identity, scope operations to `auth.uid()`, use an empty search_path and deny anon/PUBLIC execution. Authenticated execution is intentional for current features; do not revoke it merely to clear generic warnings. Eight private-schema RLS-without-policy informational findings and performance suggestions are recorded for review.
-
-No production database, Cloudflare, Google OAuth or deployment changes were made. Next gate: generate the migration with Supabase CLI, validate in disposable local Supabase CI, then apply and verify on Singapore staging. Production remains approval-gated.
-
-
-Phase I follow-up validation update (20 November 2026): the draft ACL SQL and assertion test were executed successfully in disposable local Supabase CI, with the full authenticated Quiz RPC, content, Chromium runtime and local security-advisor jobs passing in [run #44654740925](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44654740925). The hosted staging database remains unchanged. A subsequent CI run is using the Supabase CLI to produce the timestamped migration filename before it is committed.
-
-
-## Update 2.6.0 legal/privacy and staging ACL checkpoint — 20 November 2026
-
-The second staging ACL migration was applied to Singapore staging only and verified:
-
-- Migration history version: `20261120023718_update_2_6_0_remove_residual_api_privileges`.
-- It removes unnecessary TRUNCATE/REFERENCES/TRIGGER/MAINTAIN grants from eight reviewed legacy tables for anon/authenticated, and anonymous UPDATE on three sequences.
-- Existing DML/RLS access was preserved; the hosted staging assertion test passed; the post-migration effective ACL query returned no targeted residual grants.
-- Security Advisor after the migration reports eight intentional private-schema RLS/no-policy INFO findings, two reviewed authenticated SECURITY DEFINER RPC WARN findings, no health lints, and separate performance suggestions. See the full 2.6.0 legal/security plan for details.
-- Production remains untouched.
-
-Legal-document drafting has begun but is not complete. New internal working drafts are:
-- `docs/reference/PRIVACY-NOTICE-DRAFT-2026-11-20.md` (Bahasa Malaysia + English)
-- `docs/reference/TERMS-OF-USE-DRAFT-2026-11-20.md`
-- `docs/reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md`
-
-The historical `docs/reference/PRIVACY-POLICY-DRAFT.md` is marked superseded and must not be published. The new documents are not approved for publication. Outstanding legal/owner decisions include Act 709 applicability, processing basis, Regulation 3(3) for users aged 16–17, controller identity/contact route, DPO/DPIA screening, cross-border assessment, verified provider contracts/subprocessors, numeric retention periods, account deletion, and final legal review. Do not publish legal links or add acceptance UI until those are resolved and reviewed.
-
-Current official Malaysian sources were rechecked: the 2026 Act 709 reprint, Personal Data Protection Regulations 2013, and JPDP guidance for DPO, cross-border transfers, breach notification and DPIA. The current Act 709 Section 7 notice language requirement and the Regulation 3(3) under-18 consent issue are reflected in the new bilingual notice draft.
-
-Additional Phase J governance drafts:
-- `docs/reference/DPIA-SCREENING-DRAFT-2026-11-20.md` — preliminary screen; recommends a full DPIA before broader public onboarding as a precaution, subject to formal assessment.
-- `docs/reference/PERSONAL-DATA-INCIDENT-PLAYBOOK-DRAFT-2026-11-20.md` — draft incident response and breach-notification workflow.
-These are internal working documents, not approved legal procedures. Assign the responsible incident/DPIA leads and verify current provider escalation contacts.
-
-A follow-up read-only staging query verified the preserved DML/RLS matrix after the ACL cleanup: languages SELECT-only for anon/authenticated with active-language policy; learning_activity_log and lesson_practice_results authenticated SELECT-only and owner-scoped; learning_plan_limits authenticated SELECT-only; lesson_progress, profiles and user_preferences authenticated SELECT/INSERT/UPDATE with owner-scoped policies; user_entitlements authenticated SELECT-only and owner-scoped. All eight tables retain RLS, and no anon DML was found. No learner rows were read.
-
-Final migration-path CI check: after aligning the repository migration filename with staging history version `20261120023718`, GitHub Actions run [#44662308530](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44662308530) passed with the exact committed file, local Supabase ACL assertions and authenticated Quiz/RPC/Chromium regression. The Cloudflare build-routing guard also passed on the same commit lineage.
-
-The legal release gate is consolidated in `docs/reference/LEGAL-APPROVAL-REGISTER-UPDATE-2.6.0.md` (16 open owner/legal decisions). The register must be resolved before public legal-document release and before Mock User testing is declared ready.
-
-A proposed legal-document acceptance and age-gate design is at `docs/reference/LEGAL-DOCUMENT-ACCEPTANCE-AND-AGE-GATE-DESIGN.md`. It is design-only; it does not implement an age gate, parental consent, Terms acceptance or Privacy Notice acknowledgement. The design requires legal resolution of the Regulation 3(3) issue before implementation.
-
-
-## 26. Update 2.6.0 — Tuta contact setup and staging account-deletion audit (2026-11-20)
-
-- Owner created a dedicated Tuta Mail contact address and completed most mailbox security/configuration steps. Tuta's first-24-hour sending restriction delays external send/receive verification. Treat the mailbox as configured but unverified; do not publish it as an operational privacy/support route until both directions are tested.
-- The mailbox does not resolve controller/operator legal identity/capacity, Act 709 applicability, the possible personal/household exemption, or any address-disclosure question. Do not expose a private home address merely to fill a draft placeholder.
-- Read-only Supabase inspection confirmed production project `pzymiesazmpyvnfvsbsc` (Tokyo) and staging project `ivatvkfrtifgfheeaelj` (Singapore) were ACTIVE_HEALTHY. All account-deletion schema inspection was against staging.
-- Staging has no deployed Edge Functions and no account-deletion RPC. Existing deletion-related RPCs are only the learning-history wrapper/implementation; keep learning-history deletion separate from account deletion.
-- All 18 application tables with direct user ownership reference `auth.users(id)` using `ON DELETE CASCADE`. Flashcard child cards cascade through collections; Quiz session-question snapshots cascade through their composite session/user FK. Staging has no Storage buckets.
-- Account deletion still requires a dedicated JWT-verified server-side Edge Function, fresh reauthentication, explicit irreversible confirmation, refresh-session revocation, trusted Auth Admin deletion, retry-safe partial-failure handling, post-confirmation client cleanup and validation of already-issued JWT behaviour. No implementation was started.
-- Owner decision still needed: should account deletion also clear device-local signed-out saved words on the current browser/device? This may affect another person on a shared device, so do not assume.
-- Staging advisor snapshot: eight documented INFO notices for private RPC-only RLS tables; two previously documented SECURITY DEFINER WARN findings; no health findings. This is not a penetration test or security certification.
-- No production database, Auth setting, Cloudflare setting, deployment, merge or application source was changed. No user rows or message contents were inspected.
-- Recovery archive: [2026-11-20 Tuta contact and account-deletion audit](conversation-archive/2026-11-20-update-2-6-0-tuta-contact-and-account-deletion-audit.md). Continue provider/retention verification and legal review; do not publish legal drafts or onboard real users until the controlling legal gates are resolved.
-
-
-
-## 27. Update 2.6.0 — Phase K: provider retention evidence and account-deletion UX (2026-11-20)
-
-- Owner approved placing **Delete account** under **Profile → Preferences**. Selecting it opens a permanent-deletion warning describing possible removal of account-linked personal data, with **Confirm** and **Cancel**. Cancel makes no change; Confirm proceeds to a secure deletion flow. Fresh reauthentication, server-derived verified UID, server-side Auth Admin deletion, session revocation, retry-safe handling and truthful completion status remain mandatory engineering safeguards.
-- Warning copy must distinguish SwiftDictionary account data from the user's Google account and explain that provider logs/backups may not disappear immediately. No immediate backup-erasure promise is approved.
-- Signed-out browser-local saved words remain a separate unresolved scope decision. Do not silently erase local words on a shared browser when deleting a cloud account.
-- Public provider-documentation review recorded in the retention schedule. Supabase public docs distinguish active-project data, project-deletion data (up to 30 days), customer account data (up to 60 days in relevant cases), plan-specific backups (Pro 7 days, Team 14, Enterprise up to 30), and configurable paid PITR. These are not individual SwiftDictionary account-deletion periods. Actual project plans and settings remain unverified.
-- Cloudflare Pages deployment retention is 30 days except 100 most recent/current production; this is not visitor request-log retention. GitHub Actions logs/artifacts default to 90 days, configurable 1–90 days for public repositories; actual repository setting remains unverified. Repository visibility was confirmed public.
-- Google Sign-In ID tokens may include `sub` and profile claims; use `sub` as identity key. Revoking Google consent does not erase data already stored in Supabase. Actual OAuth scopes remain unverified.
-- jsDelivr's published 2023 policy describes IP/browser/request metadata and shorter non-aggregated usage retention without a fixed period; its subprocessor page lists Cloudflare, Fastly and Gcore. Current asset use/policy applicability must be confirmed.
-- No numeric retention period approved; no provider settings, application code, schema, Auth configuration, production data or deployments changed. No user data or provider log contents inspected.
-- See [Phase K provider-retention and deletion UX archive](conversation-archive/2026-11-20-update-2-6-0-phase-k-provider-retention-and-deletion-ux.md) and updated [Data Retention Schedule](reference/DATA-RETENTION-SCHEDULE-DRAFT-2026-11-20.md).
+No production or staging database changes, source-code edits, migrations, deployments, legal approvals or user-data inspections occurred. Existing legal publication and Mock User readiness gates remain open.
