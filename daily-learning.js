@@ -1194,17 +1194,6 @@
         timezone: data.timezone || "UTC"
       };
     }
-    if (activityType === "flashcard") {
-      const { data, error } = await originalRpc("get_my_flashcard_data");
-      if (error || !data?.allowance) return null;
-      const pref = await supabaseClient.from("user_preferences")
-        .select("timezone,allowance_timezone,allowance_timezone_until")
-        .eq("user_id", currentUser.id).maybeSingle();
-      const p = pref.data || {};
-      const timezone = p.allowance_timezone && Date.parse(p.allowance_timezone_until || "") > Date.now()
-        ? p.allowance_timezone : (p.timezone || "UTC");
-      return { remaining: Number(data.allowance.remaining), timezone };
-    }
     if (activityType === "lesson" || activityType.startsWith("daily_")) {
       const [usage, entitlement, pref, testAccess] = await Promise.all([
         originalRpc("get_my_learning_allowance_usage"),
@@ -1238,7 +1227,6 @@
     const watched = {
       complete_permanent_lesson: "lesson",
       submit_my_quiz: "quiz",
-      complete_my_flashcard_game: "flashcard"
     };
     supabaseClient.rpc = function swiftAllowanceAwareRpc(name, ...args) {
       const request = originalRpc(name, ...args);
