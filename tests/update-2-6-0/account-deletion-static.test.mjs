@@ -124,3 +124,10 @@ test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="flashcards.js?v=2.6.0-r3"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r3"></script>'));
 });
+
+test("account-deletion dialog stays hidden until explicitly opened", () => {
+  assert.match(frontend, /\.swift-delete-overlay\\[hidden\\]\\{display:none!important\\}/);
+  assert.match(frontend, /overlay\.hidden = true/);
+  assert.match(frontend, /overlay\.hidden = false/);
+  assert.match(frontend, /swiftDeleteCancel.*closeDialog/s);
+});
