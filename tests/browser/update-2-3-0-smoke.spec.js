@@ -90,6 +90,7 @@ test("permanent Lessons allowance exhaustion shows a notification", async ({ pag
   await installDailyLearningMock(page, "lesson-toast-user", "free");
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-toast-user");
+  await page.evaluate(() => window.installSwiftAllowanceNotifications?.());
   await page.evaluate(async () => {
     const state = window.__swiftDailyMock;
     state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 4;
@@ -147,6 +148,7 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   await expect(page.locator("#dailyLearningPage")).toBeVisible();
   const start = page.locator('#dailyActivityGrid [data-start-daily="daily_topic"]');
   await expect(start).toBeEnabled();
+  await page.evaluate(() => window.installSwiftAllowanceNotifications?.());
   await start.click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
   await page.locator("#dailyActivityReader [data-complete-daily]").click();
