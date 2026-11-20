@@ -1,13 +1,9 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { MAX_AUTH_AGE_SECONDS, decodeJwtPayload, hasRecentAuthTime, isAllowedOrigin } from "./security.ts";
 
 const MAX_AUTH_AGE_SECONDS = 15 * 60;
 const corsHeadersFor = (origin: string | null): Record<string, string> => {
-  const allowed = origin === null
-    || origin === "http://localhost:3000"
-    || origin === "http://127.0.0.1:5500"
-    || origin === "https://swiftdictionary.pages.dev"
-    || /^https:\/\/[a-z0-9-]+\.swiftdictionary\.pages\.dev$/i.test(origin)
-    || /^https:\/\/[a-z0-9-]+\.swiftdictionary-testing\.pages\.dev$/i.test(origin);
+  const allowed = isAllowedOrigin(origin);
   return {
     "Access-Control-Allow-Origin": allowed && origin ? origin : "null",
     "Access-Control-Allow-Headers": "authorization, apikey, content-type, x-client-info",
