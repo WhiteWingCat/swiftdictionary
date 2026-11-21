@@ -2833,3 +2833,15 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 - Cloudflare build routing guard, Flashcards checks, and 2.3.x allowance/dashboard regression checks have passed on the same head. Quiz database/Auth integration is still running at the time of this record update.
 - PR #13 remains open/draft/unmerged while the remaining checks finish. Owner approval is recorded; merge is not yet performed.
 - Formal legal/privacy review remains deferred, not cleared. Production ACL rollout remains separate and unapproved.
+
+
+## 41. Update 2.6.0 — PR #13 merged to main (2026-11-21)
+
+- Owner explicitly approved the merge after the release checks passed.
+- PR #13, “U2.6.0 — Account deletion and privacy/security safeguards”, was marked ready and squash-merged into `main` on 2026-11-21 at 02:20:20 UTC.
+- Merge commit: `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- Verified GitHub reports PR #13 closed/merged and `main` points to the merge commit.
+- Latest feature-head CI passed: Cloudflare build routing, 2.3.x allowance/dashboard, Quiz DB/Auth/RPC integration, Flashcards, and U2.6.0 ACL/static regression. Local Supabase security advisor reported “No issues found”.
+- Account deletion remains owner-confirmed passed on Singapore staging; not a production test.
+- No manual production deployment, Tokyo production database migration, ACL change or Edge Function deployment was performed. Merging may cause Cloudflare Pages to automatically build/deploy if the configured production branch is `main`; that platform-side deployment status was not independently verified here.
+- Production ACL remediation remains a separate task and is not approved for execution. Formal legal/privacy review remains deferred, not cleared; Terms placeholder remains non-binding and unpublished.
