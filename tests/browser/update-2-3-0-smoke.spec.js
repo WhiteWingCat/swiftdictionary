@@ -293,7 +293,12 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   await expect(start).toBeEnabled();
   await page.evaluate(() => window.installSwiftAllowanceNotifications?.());
   await start.click();
-  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  const reader=page.locator("#dailyActivityReader");
+  await expect(reader).toBeVisible();
+  await expect(reader.locator(".daily-activity-modal")).toBeVisible();
+  await expect(reader.locator(".daily-drawer-actions")).toBeVisible();
+  await expect(reader.locator("h2").first()).not.toBeEmpty();
+  expect(await reader.evaluate(el=>el.parentElement===document.body)).toBeTruthy();
   await page.locator("#dailyActivityReader [data-complete-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
   await expect(page.locator("#swiftDictionaryToast")).toContainText("主题学习额度");
@@ -790,9 +795,15 @@ test("Daily activity tabs show one Free card or three Premium cards with row act
     await page.goto("/");
     await page.locator('[data-page="lessons"]').click();
     await expect(page.locator("#dailyActivityGrid [role='tab']")).toHaveCount(4);
+    const tabStrip=page.locator(".daily-activity-tabs");
+    const tabLayout=await tabStrip.evaluate(el=>({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,overflowX:getComputedStyle(el).overflowX}));
+    expect(tabLayout.scrollWidth).toBeLessThanOrEqual(tabLayout.clientWidth+1);
+    expect(tabLayout.overflowX).not.toMatch(/auto|scroll/);
     for (const type of ["daily_topic","daily_application","daily_discovery","daily_revision"]) {
       await page.locator('[data-daily-tab="' + type + '"]').click();
       const panel = page.locator("#dailyActivityPanel");
+      await expect(panel.locator(".daily-activity-heading-kicker")).toBeVisible();
+      await expect(panel.locator(".daily-activity-allowance")).toBeVisible();
       await expect(panel.locator('[data-activity-card="' + type + '"]')).toHaveCount(page===freePage?1:3);
       await expect(page.locator('[data-daily-tab="' + type + '"]')).toHaveAttribute("aria-selected","true");
       const card = panel.locator('[data-activity-card="' + type + '"]').first();
