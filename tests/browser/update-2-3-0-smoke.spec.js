@@ -126,7 +126,7 @@ test("Chinese course completion stores progress separately from English", async 
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
   const answers = await page.evaluate(() => {
     const item = window.SWIFT_CHINESE_LESSONS.beginner.find(x => x.id === "zh-b-pinyin-foundations");
-    return item.practices.map(q => q.options[q.answer].zh);
+    return item.practices.map(q => ({zh:q.options[q.answer].zh,pinyin:q.options[q.answer].pinyin}));
   });
   for (let i=0; i<answers.length; i++) {
     const question = page.locator(".lesson-question").nth(i);
@@ -134,7 +134,8 @@ test("Chinese course completion stores progress separately from English", async 
     let index = -1;
     for (let j=0; j<await labels.count(); j++) {
       const value = (await labels.nth(j).locator(".lesson-chinese-line").textContent())?.trim();
-      if (value === answers[i]) { index = j; break; }
+      const pinyin = (await labels.nth(j).locator(".lesson-pinyin-line").textContent())?.trim();
+      if (value === answers[i].zh && pinyin === answers[i].pinyin) { index = j; break; }
     }
     expect(index).toBeGreaterThanOrEqual(0);
     await labels.nth(index).locator("input").check();
@@ -169,7 +170,7 @@ test("exhausted lesson allowance blocks new lessons but preserves completed less
   await expect(notStarted).toBeDisabled();
   await completed.click();
   await expect(page.locator("#lessonReader")).toBeVisible();
-  await expect(page.locator("#lessonStatus")).toContainText("已完成的课程已重新打开，可免费重温。");
+  await expect(page.locator("#lessonStatus")).toContainText("已完成课程已重新打开，可免费复习。");
 });
 
 test("permanent Lessons allowance exhaustion shows a notification", async ({ page }) => {
