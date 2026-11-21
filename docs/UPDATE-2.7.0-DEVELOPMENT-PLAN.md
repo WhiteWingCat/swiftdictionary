@@ -393,7 +393,7 @@ This is a product-planning risk review, not legal advice or a compliance certifi
 
 ### Remaining release gates
 
-1. <strike>Complete the remaining local Auth/RPC integration workflow.</strike> Completed successfully in run 44881091714.
+1. Local Auth/RPC integration workflow completed successfully in run 44881091714.
 2. Conduct manual linguistic review. Automated checks confirm structure and coverage, not the correctness of every pinyin reading, tone-sandhi choice, definition or category. Review the 80 new polyphonic entries especially; some secondary readings are restricted to names, literary forms or specific words and must be labelled clearly or removed if not useful to learners.
 3. Review Simplified Chinese character forms and the HSK level assignments against the pinned sources.
 4. Deploy/test the feature branch preview against the Singapore staging project only after the owner approves the staging migration. The migration has only been applied in disposable CI; no staging or production database was changed in this checkpoint.
