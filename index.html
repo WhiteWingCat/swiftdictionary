@@ -17699,6 +17699,15 @@
   },
   ...(window.SWIFT_CHINESE_WORDS || [])
 ];
+    // Apply learner categories and verified additional readings to the original Chinese entries.
+    // Grid cards remain character-only; this metadata is used for filtering and pinyin search.
+    const chineseMetadata = window.SWIFT_CHINESE_METADATA || {};
+    chineseWords.forEach(item => {
+      const metadata = chineseMetadata[item.word];
+      if (!metadata) return;
+      if (Array.isArray(metadata.categories)) item.categories = metadata.categories;
+      if (metadata.phonetic) item.phonetic = metadata.phonetic;
+    });
     const preferenceStorageKey = "swiftdictionary-course-preferences";
     let storedCoursePreferences = {};
     try { storedCoursePreferences = JSON.parse(localStorage.getItem(preferenceStorageKey) || "{}"); } catch {}
