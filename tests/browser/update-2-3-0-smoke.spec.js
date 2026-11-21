@@ -61,6 +61,28 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await page.locator("#lessonCards .lesson-card").first().click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
   await expect(page.locator("#lessonReader")).toBeVisible();
+
+  const keyPoints=page.locator("#lessonReaderContent .lesson-key-point");
+  await expect(keyPoints).toHaveCount(5);
+  const pointExtras=page.locator("#lessonReaderContent .lesson-key-point[data-expandable-extra]");
+  await expect(pointExtras).toHaveCount(2);
+  await expect(pointExtras.first()).toBeHidden();
+  const pointToggle=page.locator("#lessonReaderContent .lesson-expandable-group").first().locator("[data-lesson-list-toggle]");
+  await pointToggle.click();
+  await expect(pointExtras.first()).toBeVisible();
+  await expect(pointToggle).toHaveAttribute("aria-expanded","true");
+  await pointToggle.click();
+  await expect(pointExtras.first()).toBeHidden();
+  await expect(pointToggle).toHaveAttribute("aria-expanded","false");
+
+  const examples=page.locator("#lessonReaderContent .lesson-example");
+  await expect(examples).toHaveCount(6);
+  const exampleExtras=page.locator("#lessonReaderContent .lesson-example[data-expandable-extra]");
+  await expect(exampleExtras).toHaveCount(3);
+  await expect(exampleExtras.first()).toBeHidden();
+  await page.locator("#lessonReaderContent .lesson-expandable-group").nth(1).locator("[data-lesson-list-toggle]").click();
+  await expect(exampleExtras.first()).toBeVisible();
+  await expect(page.locator("#lessonReaderContent .lesson-answer-options.compact").first()).toBeVisible();
 });
 
 test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
