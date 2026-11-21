@@ -840,7 +840,7 @@
     const allowanceCount=isEnabled&&availableForPlan
       ? '<span class="daily-activity-count '+allowanceTone+'" aria-label="'+esc(Math.max(0,remaining)+" of "+limit+" activities remaining today")+'"><strong>'+esc(Math.max(0,remaining)+" / "+limit)+'</strong><small>'+esc(dailyUi("remaining today","今日剩余"))+'</small></span>'
       : '<span class="daily-activity-count" aria-hidden="true"></span>';
-    grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelStatus) + '</p></div>' + allowanceCount + '</header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
+    grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" data-activity-theme="' + type + '" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelStatus) + '</p></div>' + allowanceCount + '</header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
     grid.querySelectorAll("[data-daily-tab]").forEach(button => button.addEventListener("click",() => { selectedDailyTab=button.dataset.dailyTab; renderCards(); }));
     grid.querySelectorAll("[data-start-daily]").forEach(button => button.addEventListener("click",() => startDailyActivity(button.dataset.startDaily,button.dataset.discoveryIndex===undefined?0:Number(button.dataset.discoveryIndex),contentByKey.get(button.dataset.startDaily+"|"+button.dataset.contentId)||null,button)));
   }
@@ -885,6 +885,8 @@
     const completed = session.status === "completed";
     const isQuiz = activityType === "daily_application" || activityType === "daily_revision";
     reader.hidden = false;
+    reader.classList.remove("closing");
+    reader.removeAttribute("aria-hidden");
     reader.classList.add("open");
     document.body.style.overflow = "hidden";
     readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false) };
@@ -989,11 +991,19 @@
 
   function closeDailyReader() {
     const reader=byId("dailyActivityReader");
+    if(reader.classList.contains("closing")||reader.hidden)return;
+    const closingMarkup=reader.innerHTML;
     reader.classList.remove("open");
-    reader.hidden=true;
-    reader.innerHTML="";
+    reader.classList.add("closing");
+    reader.setAttribute("aria-hidden","true");
     readerState=null;
     document.body.style.overflow="";
+    window.setTimeout(()=>{
+      if(!reader.classList.contains("closing")||reader.innerHTML!==closingMarkup)return;
+      reader.hidden=true;
+      reader.innerHTML="";
+      reader.classList.remove("closing");
+    },240);
   }
 
   function checkDailyAnswers() {

@@ -513,6 +513,7 @@
     .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
     .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
 </style>
+<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui1">
 </head>
 <body>
   <header>
@@ -608,35 +609,25 @@
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
       <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
-      <section id="lessonsSignedOut" class="learning-auth-card" hidden>
-        <h2>Sign in to use Lessons</h2>
-        <p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p>
-        <button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button>
+      <section id="lessonsSignedOut" class="learning-auth-card" hidden><h2>Sign in to use Lessons</h2><p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p><button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button></section>
+      <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
+      <section id="permanentLessonsPanel" class="permanent-lessons-panel" aria-labelledby="permanentLessonsHeading">
+        <div class="permanent-lessons-heading"><div><p class="eyebrow">COURSE LIBRARY</p><h2 id="permanentLessonsHeading">Permanent Lessons</h2><p>Explore structured lessons at your own pace. Your progress is saved separately for each difficulty and learning course.</p></div><span class="permanent-lessons-mark" aria-hidden="true">✦</span></div>
+        <div class="difficulty-tabs" role="group" aria-label="Lesson difficulty"><button class="difficulty-tab active" data-difficulty="beginner">Beginner</button><button class="difficulty-tab" data-difficulty="intermediate">Intermediate</button><button class="difficulty-tab" data-difficulty="advanced">Advanced</button></div>
+        <div id="lessonLibrary">
+          <div id="lessonAllowance" class="lesson-allowance" aria-live="polite"><div><strong>Daily lesson allowance</strong><small id="lessonAllowanceNote">Sign in to view your daily lesson completions.</small></div><span id="lessonAllowanceCount" class="lesson-allowance-count">—</span></div>
+          <div class="lesson-library-toolbar"><p id="lessonDifficultySummary" class="lesson-muted"></p><div class="lesson-library-filters"><label class="lesson-filter">Topic <select id="lessonTopicFilter"><option value="all">All topics</option></select></label><span id="lessonProgressSummary" class="lesson-muted"></span></div></div>
+          <div id="lessonCards" class="lesson-card-grid"></div>
+        </div>
       </section>
-    <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
-    <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
-      <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
-      <h2 id="dailyLearningHeading">Daily Learning</h2>
-      <p class="page-intro" id="dailyLearningIntro">Build consistency with personalised activities and a shared daily dictionary word for everyone.</p>
-      <p id="dailyLearningStatus" role="status" aria-live="polite" class="page-intro">Sign in to save daily activity progress across devices.</p>
-      <fieldset class="daily-preferences">
-        <legend id="dailyPreferencesLegend">My daily activities</legend>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_topic_enabled" checked><span data-daily-pref-label="daily_topic">Daily Topic</span></label>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_application_enabled" checked><span data-daily-pref-label="daily_application">Daily Application</span></label>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_discovery_enabled" checked><span data-daily-pref-label="daily_discovery">Daily Discovery</span></label>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_revision_enabled" checked><span data-daily-pref-label="daily_revision">Daily Revision</span></label>
-      </fieldset>
-      <div id="dailyActivityGrid" class="daily-activity-grid"></div>
-      <article id="dailyActivityReader" class="daily-reader-card" hidden></article>
-    </section>
-      <div class="difficulty-tabs" role="group" aria-label="Lesson difficulty"><button class="difficulty-tab active" data-difficulty="beginner">Beginner</button><button class="difficulty-tab" data-difficulty="intermediate">Intermediate</button><button class="difficulty-tab" data-difficulty="advanced">Advanced</button></div>
-      <div id="lessonLibrary"><div id="lessonAllowance" class="lesson-allowance" aria-live="polite"><div><strong>Daily lesson allowance</strong><small id="lessonAllowanceNote">Sign in to view your daily lesson completions.</small></div><span id="lessonAllowanceCount" class="lesson-allowance-count">—</span></div><p id="lessonDifficultySummary" class="lesson-muted"></p><label class="lesson-filter">Topic <select id="lessonTopicFilter"><option value="all">All topics</option></select></label><span id="lessonProgressSummary" class="lesson-muted"></span><div id="lessonCards" class="lesson-card-grid"></div></div>
+      <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
+        <div class="daily-learning-section-heading"><div><p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p><h2 id="dailyLearningHeading">Daily Learning</h2><p class="page-intro" id="dailyLearningIntro">Build consistency with personalised activities and a shared daily dictionary word for everyone.</p></div><span class="daily-learning-heading-mark" aria-hidden="true">✧</span></div>
+        <p id="dailyLearningStatus" role="status" aria-live="polite" class="page-intro">Sign in to save daily activity progress across devices.</p>
+        <div id="dailyActivityGrid" class="daily-activity-grid"></div><article id="dailyActivityReader" class="daily-reader-card" hidden></article>
+      </section>
     </section>
     <section id="lessonDetailPage" class="page-panel lesson-detail-page" hidden aria-labelledby="lessonDetailHeading">
-      <article id="lessonReader" class="lesson-detail-reader">
-        <button id="lessonBack" class="secondary-button">← Back to lessons</button>
-        <div id="lessonReaderContent"></div>
-      </article>
+      <article id="lessonReader" class="lesson-detail-reader"><button id="lessonBack" class="secondary-button">← Back to lessons</button><div id="lessonReaderContent"></div></article>
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
@@ -714,6 +705,17 @@
           </form>
           <div class="profile-actions"><button type="button" id="savePreferences" class="primary-button">Save preferences</button><span id="preferenceStatus" class="muted-note" aria-live="polite"></span></div>
           <p class="muted-note">Your timezone determines when daily learning allowances reset. If you change it, the new timezone takes effect after the current allowance day ends. It is a timezone setting, not a precise location.</p>
+        </section>
+        <section class="profile-card daily-preferences-card">
+          <h3 id="dailyPreferencesHeading">My daily activities</h3>
+          <p class="muted-note">Choose which daily learning activities appear in your Lessons workspace. You can change these preferences at any time.</p>
+          <fieldset class="daily-preferences">
+            <legend id="dailyPreferencesLegend">My daily activities</legend>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_topic_enabled" checked><span data-daily-pref-label="daily_topic">Daily Topic</span></label>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_application_enabled" checked><span data-daily-pref-label="daily_application">Daily Application</span></label>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_discovery_enabled" checked><span data-daily-pref-label="daily_discovery">Daily Discovery</span></label>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_revision_enabled" checked><span data-daily-pref-label="daily_revision">Daily Revision</span></label>
+          </fieldset>
         </section>
         <section id="accountDeletionCard" class="profile-card swift-delete-card">
   <h3>Delete Account</h3>
@@ -18751,7 +18753,7 @@ function lessonTopicKey(x){
         :"";
       const done=progressFor(x.id)?.status==="completed";
       const topicHtml=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
-      const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3><ul>'+lessonField(x,"points").map(p=>'<li>'+lessonRenderText(p)+'</li>').join("")+'</ul><h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+lessonRenderText(m)+'</li>').join("")+'</ul></div>';
+      const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3><ul>'+lessonField(x,"points").map(p=>'<li class="lesson-key-point"><span class="lesson-key-point-label">'+(zh?"重点":"KEY IDEA")+'</span><div class="lesson-key-point-copy">'+lessonRenderText(p)+'</div></li>').join("")+'</ul><h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+lessonRenderText(m)+'</li>').join("")+'</ul></div>';
       const practiceBox='<div class="lesson-practice-box"><h3>'+(zh?"练习":"Practice")+'</h3><p class="lesson-practice-intro">'+(zh?"完成所有题目并答对，才能结束本课。":"Answer each question correctly. You can retry a question at any time.")+'</p><div class="lesson-practice-progress"><span>'+(zh?"练习进度":"Practice progress")+'</span><strong id="lessonPracticeProgress">0 / '+qs.length+' correct</strong></div>'+qs.map((q,i)=>'<fieldset class="lesson-question"><legend>'+(i+1)+'. '+lessonRenderText(q.q)+'</legend>'+q.options.map((o,j)=>'<label><input type="radio" name="lessonAnswer'+i+'" value="'+j+'"> '+lessonRenderText(o)+'</label>').join("")+'<button class="secondary-button check-lesson-answer" type="button" data-question="'+i+'">'+(zh?"检查答案":"Check answer")+'</button><p class="lesson-question-feedback" id="lessonAnswerFeedback'+i+'" role="status"></p></fieldset>').join("")+'</div>';
       el("lessonReaderContent").innerHTML='<p class="eyebrow">'+ls.difficulty.toUpperCase()+' · '+topicHtml+'</p><h2>'+lessonRenderText(lessonField(x,"title"))+'</h2><p class="page-intro">'+lessonRenderText(lessonField(x,"summary"))+'</p>'+contentBox+practiceBox+'<div class="lesson-completion-state" id="lessonCompletionState" aria-live="polite"><span class="lesson-completion-icon">'+(done?"✓":"○")+'</span><p class="lesson-finish-note" id="lessonFinishNote" role="status">'+(done?(zh?"本课已完成。你可以随时免费重新学习。":"Lesson completed. You can revisit it for free."):(zh?"答对所有练习题后，本课会自动标记为已完成。":"Answer every practice question correctly. Your lesson will then be marked complete automatically."))+'</p></div>'+(done?'<div class="lesson-reader-bottom-actions"><button type="button" class="secondary-button" id="lessonBackBottom">'+(zh?"返回课程列表":"Back to lessons")+' →</button></div>':"");
       if(done)el("lessonBackBottom").onclick=closeLesson;
@@ -18827,6 +18829,9 @@ async function openLesson(id){
         if(!lesson)throw new Error("This lesson is not available in the selected course.");
         shuffleLessonOptionOrders(lesson);
         showPage("lessonDetail");
+        el("lessonReader").classList.remove("lesson-enter");
+        void el("lessonReader").offsetWidth;
+        el("lessonReader").classList.add("lesson-enter");
         el("lessonReader").hidden=false;
         el("lessonBack").textContent=zh?"← 返回课程列表":"← Back to lessons";
         renderLesson(lesson);
