@@ -9600,6 +9600,1138 @@ window.SWIFT_CHINESE_WORDS = [
       "hsk30-pleco"
     ],
     "course": "zh"
+  },
+  {
+    "word": "按",
+    "part": "汉语词汇",
+    "phonetic": "àn",
+    "definition": "to press; to push; according to; to check or refer to",
+    "definitionZh": "按下、压住；也表示按照或依据。",
+    "examples": [
+      "请按这个按钮。"
+    ],
+    "breakdown": "常用于指示按压动作，也可表示依照某种标准。",
+    "related": "按时 àn shí；按照 àn zhào",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "搬",
+    "part": "汉语词汇",
+    "phonetic": "bān",
+    "definition": "to move; to carry or shift something relatively heavy",
+    "definitionZh": "移动、搬运；常指搬家或搬动较重的物品。",
+    "examples": [
+      "我们明天搬家。"
+    ],
+    "breakdown": "常与“家”“东西”等词搭配，表示搬迁或搬运。",
+    "related": "搬家 bān jiā；搬运 bān yùn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "保",
+    "part": "汉语词汇",
+    "phonetic": "bǎo",
+    "definition": "to protect; to defend; to keep; to guarantee",
+    "definitionZh": "保护、保卫；也表示保持或保证。",
+    "examples": [
+      "我会保护你。"
+    ],
+    "breakdown": "常见于保护、保持和保证等词语。",
+    "related": "保护 bǎo hù；保证 bǎo zhèng",
+    "categories": [
+      "actions",
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "被",
+    "part": "汉语词汇",
+    "phonetic": "bèi",
+    "definition": "quilt; to cover; marker of the passive voice",
+    "definitionZh": "被子；也用作被动句标记，表示动作承受者。",
+    "examples": [
+      "我的手机被弟弟拿走了。"
+    ],
+    "breakdown": "作被动标记时通常放在动作动词前，说明主语承受动作。",
+    "related": "被子 bèi zi；被动 bèi dòng",
+    "categories": [
+      "grammar-function",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "币",
+    "part": "汉语词汇",
+    "phonetic": "bì",
+    "definition": "currency; money; coin",
+    "definitionZh": "货币、钱币的统称。",
+    "examples": [
+      "这种货币很常见。"
+    ],
+    "breakdown": "常见于货币名称和金融相关词语。",
+    "related": "货币 huò bì；硬币 yìng bì",
+    "categories": [
+      "objects",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "标",
+    "part": "汉语词汇",
+    "phonetic": "biāo",
+    "definition": "mark; sign; label; to mark; target or standard",
+    "definitionZh": "标记、标志；也可表示用符号标出或作为标准。",
+    "examples": [
+      "请在地图上标出学校。"
+    ],
+    "breakdown": "常用于标记位置、名称或重要信息。",
+    "related": "标准 biāo zhǔn；标记 biāo jì",
+    "categories": [
+      "objects",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "并",
+    "part": "汉语词汇",
+    "phonetic": "bìng",
+    "definition": "and; furthermore; also; together; to combine; not at all",
+    "definitionZh": "并且、同时；也可表示合并或加强否定语气。",
+    "examples": [
+      "这两条路并不远。"
+    ],
+    "breakdown": "常作副词或连词；“并不”用于加强否定。",
+    "related": "并且 bìng qiě；合并 hé bìng",
+    "categories": [
+      "grammar-function",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "播",
+    "part": "汉语词汇",
+    "phonetic": "bō",
+    "definition": "to sow; to spread; to broadcast",
+    "definitionZh": "播种、传播；也指广播或播放。",
+    "examples": [
+      "电台每天播新闻。"
+    ],
+    "breakdown": "常见于播种、传播和广播等词语。",
+    "related": "广播 guǎng bō；播放 bō fàng",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "补",
+    "part": "汉语词汇",
+    "phonetic": "bǔ",
+    "definition": "to repair; to patch; to make up for; to supplement",
+    "definitionZh": "修补、补充；也表示弥补不足。",
+    "examples": [
+      "我需要补一张照片。"
+    ],
+    "breakdown": "常表示补足缺少的部分或修复损坏之处。",
+    "related": "补充 bǔ chōng；补习 bǔ xí",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "布",
+    "part": "汉语词汇",
+    "phonetic": "bù",
+    "definition": "cloth; to spread; to announce",
+    "definitionZh": "布料；也表示铺开、分布或宣布。",
+    "examples": [
+      "桌上有一块布。"
+    ],
+    "breakdown": "作名词时常指布料，也可出现在“分布”“宣布”等词中。",
+    "related": "布料 bù liào；宣布 xuān bù",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "步",
+    "part": "汉语词汇",
+    "phonetic": "bù",
+    "definition": "step; pace; walk; stage in a process",
+    "definitionZh": "脚步、步伐；也表示过程中的阶段。",
+    "examples": [
+      "他向前走了一步。"
+    ],
+    "breakdown": "常与数量词搭配，也用于表示步骤和进度。",
+    "related": "一步 yí bù；步骤 bù zhòu",
+    "categories": [
+      "actions",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "材",
+    "part": "汉语词汇",
+    "phonetic": "cái",
+    "definition": "material; timber; ability or aptitude",
+    "definitionZh": "材料、木材；也可指人的才能。",
+    "examples": [
+      "这种材料很轻。"
+    ],
+    "breakdown": "常见于材料、教材和人才等词语。",
+    "related": "材料 cái liào；木材 mù cái",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "采",
+    "part": "汉语词汇",
+    "phonetic": "cǎi",
+    "definition": "to pick; to pluck; to collect; to choose",
+    "definitionZh": "采摘、采集；也表示选择或收集。",
+    "examples": [
+      "我们去山上采茶。"
+    ],
+    "breakdown": "常用于采摘植物或收集资料。",
+    "related": "采茶 cǎi chá；采取 cǎi qǔ",
+    "categories": [
+      "actions",
+      "nature"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "彩",
+    "part": "汉语词汇",
+    "phonetic": "cǎi",
+    "definition": "colour; variety; applause; prize",
+    "definitionZh": "颜色、色彩；也可指彩头或奖品。",
+    "examples": [
+      "彩虹有很多颜色。"
+    ],
+    "breakdown": "常见于颜色、彩色和庆祝相关词语。",
+    "related": "彩色 cǎi sè；彩虹 cǎi hóng",
+    "categories": [
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "曾",
+    "part": "汉语词汇",
+    "phonetic": "céng",
+    "definition": "once; already; ever in the past; formerly",
+    "definitionZh": "曾经、以前；表示过去有过某种经历。",
+    "examples": [
+      "我曾经住在这里。"
+    ],
+    "breakdown": "常作副词，表示过去发生过；姓氏读音另有区别。",
+    "related": "曾经 céng jīng；未曾 wèi céng",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "察",
+    "part": "汉语词汇",
+    "phonetic": "chá",
+    "definition": "to examine; to observe; to inspect; to look into",
+    "definitionZh": "观察、考察、审查；仔细了解情况。",
+    "examples": [
+      "警察正在调查这件事。"
+    ],
+    "breakdown": "常见于观察、调查和考察等词语。",
+    "related": "观察 guān chá；调查 diào chá",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "产",
+    "part": "汉语词汇",
+    "phonetic": "chǎn",
+    "definition": "to produce; to give birth; product; property",
+    "definitionZh": "生产、产生；也指生育或产品。",
+    "examples": [
+      "这个工厂生产汽车。"
+    ],
+    "breakdown": "常见于生产、产品和产业等词语。",
+    "related": "生产 shēng chǎn；产品 chǎn pǐn",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "厂",
+    "part": "汉语词汇",
+    "phonetic": "chǎng",
+    "definition": "factory; plant; depot or works",
+    "definitionZh": "工厂、厂房；用于生产或加工的场所。",
+    "examples": [
+      "他在一家工厂工作。"
+    ],
+    "breakdown": "常见于工厂名称和工业生产相关词语。",
+    "related": "工厂 gōng chǎng；厂房 chǎng fáng",
+    "categories": [
+      "places",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "朝",
+    "part": "汉语词汇",
+    "phonetic": "cháo / zhāo",
+    "definition": "toward; facing; dynasty; morning",
+    "definitionZh": "读 cháo 表示朝向或朝代；读 zhāo 常指早晨。",
+    "examples": [
+      "太阳朝东边升起。"
+    ],
+    "breakdown": "注意两种常见读音：“朝向”读 cháo，“朝阳”读 zhāo。",
+    "related": "朝向 cháo xiàng；朝阳 zhāo yáng",
+    "categories": [
+      "places",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "吵",
+    "part": "汉语词汇",
+    "phonetic": "chǎo",
+    "definition": "noisy; loud; to quarrel or argue",
+    "definitionZh": "声音大、吵闹；也表示争吵。",
+    "examples": [
+      "他们不要在图书馆吵闹。"
+    ],
+    "breakdown": "可形容声音嘈杂，也可表示人与人争论。",
+    "related": "吵架 chǎo jià；吵闹 chǎo nào",
+    "categories": [
+      "communication",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "衬",
+    "part": "汉语词汇",
+    "phonetic": "chèn",
+    "definition": "to line; lining; to set off or complement",
+    "definitionZh": "衬里、衬托；也表示使某物更突出。",
+    "examples": [
+      "这件衬衫很合身。"
+    ],
+    "breakdown": "常见于衣物名称和衬托、衬衣等词语。",
+    "related": "衬衫 chèn shān；衬托 chèn tuō",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "城",
+    "part": "汉语词汇",
+    "phonetic": "chéng",
+    "definition": "city; town; city wall",
+    "definitionZh": "城市、城镇；古代也指城墙。",
+    "examples": [
+      "这座城市很安静。"
+    ],
+    "breakdown": "常见于城市名称和地理相关词语。",
+    "related": "城市 chéng shì；城墙 chéng qiáng",
+    "categories": [
+      "places"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "程",
+    "part": "汉语词汇",
+    "phonetic": "chéng",
+    "definition": "journey; course; procedure; sequence; rule",
+    "definitionZh": "过程、程序、路程；也指规定或次序。",
+    "examples": [
+      "这段旅程很顺利。"
+    ],
+    "breakdown": "常见于过程、课程和行程等词语。",
+    "related": "过程 guò chéng；行程 xíng chéng",
+    "categories": [
+      "time-numbers",
+      "places"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "持",
+    "part": "汉语词汇",
+    "phonetic": "chí",
+    "definition": "to hold; to grasp; to support; to maintain; to persevere",
+    "definitionZh": "拿着、保持；也表示支持或坚持。",
+    "examples": [
+      "请保持安静。"
+    ],
+    "breakdown": "常见于保持、支持和坚持等词语。",
+    "related": "保持 bǎo chí；支持 zhī chí",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "充",
+    "part": "汉语词汇",
+    "phonetic": "chōng",
+    "definition": "to fill; to be full or sufficient; to serve as",
+    "definitionZh": "充满、充足；也表示充当或担任。",
+    "examples": [
+      "请把水充满瓶子。"
+    ],
+    "breakdown": "常见于充满、充足和充当等词语。",
+    "related": "充满 chōng mǎn；充足 chōng zú",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "初",
+    "part": "汉语词汇",
+    "phonetic": "chū",
+    "definition": "at first; initial; early; beginning",
+    "definitionZh": "开始、最初；也表示初步或早期。",
+    "examples": [
+      "这是我初次来到这里。"
+    ],
+    "breakdown": "常见于初次、初学和初期等词语。",
+    "related": "初次 chū cì；初学 chū xué",
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "除",
+    "part": "汉语词汇",
+    "phonetic": "chú",
+    "definition": "to remove; to eliminate; except; to divide",
+    "definitionZh": "去掉、清除；也用于表示除……以外或数学除法。",
+    "examples": [
+      "除了周末，我每天都工作。"
+    ],
+    "breakdown": "可作动词表示去除，也可用于“除了……”结构。",
+    "related": "除了 chú le；删除 shān chú",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "础",
+    "part": "汉语词汇",
+    "phonetic": "chǔ",
+    "definition": "foundation; base",
+    "definitionZh": "基础、根基；通常出现在复合词中。",
+    "examples": [
+      "数学是学习科学的基础。"
+    ],
+    "breakdown": "常见于“基础”，单独使用较少。",
+    "related": "基础 jī chǔ；根基 gēn jī",
+    "categories": [
+      "descriptions",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "传",
+    "part": "汉语词汇",
+    "phonetic": "chuán / zhuàn",
+    "definition": "to pass on; to spread; to transmit; biography or historical narrative",
+    "definitionZh": "读 chuán 表示传递、传播；读 zhuàn 常指传记或史书。",
+    "examples": [
+      "请把这个消息传给大家。"
+    ],
+    "breakdown": "注意读音随词义变化：“传递”读 chuán，“传记”读 zhuàn。",
+    "related": "传递 chuán dì；传记 zhuàn jì",
+    "categories": [
+      "communication",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "创",
+    "part": "汉语词汇",
+    "phonetic": "chuàng / chuāng",
+    "definition": "to create; to initiate; wound",
+    "definitionZh": "读 chuàng 表示创造、开创；读 chuāng 常指伤口。",
+    "examples": [
+      "她创作了一首歌。"
+    ],
+    "breakdown": "常用读音 chuàng 表示创造；表示伤口时读 chuāng。",
+    "related": "创造 chuàng zào；创新 chuàng xīn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "此",
+    "part": "汉语词汇",
+    "phonetic": "cǐ",
+    "definition": "this; these; here; the foregoing",
+    "definitionZh": "这、这个；常用于较正式的表达。",
+    "examples": [
+      "此处禁止停车。"
+    ],
+    "breakdown": "常见于书面语，表示这里、这个或前述内容。",
+    "related": "此处 cǐ chù；因此 yīn cǐ",
+    "categories": [
+      "grammar-function",
+      "places"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "村",
+    "part": "汉语词汇",
+    "phonetic": "cūn",
+    "definition": "village; rural settlement",
+    "definitionZh": "村庄、乡村；较小的居民聚居地。",
+    "examples": [
+      "我爷爷住在一个小村庄。"
+    ],
+    "breakdown": "常用于村庄名称和乡村生活相关词语。",
+    "related": "村庄 cūn zhuāng；农村 nóng cūn",
+    "categories": [
+      "places"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "存",
+    "part": "汉语词汇",
+    "phonetic": "cún",
+    "definition": "to exist; to deposit; to store; to keep; to survive",
+    "definitionZh": "存在、保存；也表示把钱存入账户。",
+    "examples": [
+      "我把钱存在银行里。"
+    ],
+    "breakdown": "常见于保存、存放和存款等词语。",
+    "related": "保存 bǎo cún；存款 cún kuǎn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "达",
+    "part": "汉语词汇",
+    "phonetic": "dá",
+    "definition": "to reach; to attain; to achieve; to communicate",
+    "definitionZh": "到达、达到；也表示实现目标或表达清楚。",
+    "examples": [
+      "我们终于到达车站。"
+    ],
+    "breakdown": "常见于到达、达到和表达等词语。",
+    "related": "到达 dào dá；达到 dá dào",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "代",
+    "part": "汉语词汇",
+    "phonetic": "dài",
+    "definition": "generation; era; period; to replace or act on behalf of",
+    "definitionZh": "时代、年代；也表示代替或代表。",
+    "examples": [
+      "我们这一代喜欢用手机。"
+    ],
+    "breakdown": "可指一代人或某个时期，也可表示替代。",
+    "related": "时代 shí dài；代表 dài biǎo",
+    "categories": [
+      "time-numbers",
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "待",
+    "part": "汉语词汇",
+    "phonetic": "dài / dāi",
+    "definition": "to wait; to treat; to deal with; to stay or remain",
+    "definitionZh": "读 dài 表示等待或对待；读 dāi 表示停留。",
+    "examples": [
+      "请在这里等待。"
+    ],
+    "breakdown": "注意读音随词语变化：“等待”读 dài，“待在家”读 dāi。",
+    "related": "等待 děng dài；待在家 dài zài jiā",
+    "categories": [
+      "actions",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "刀",
+    "part": "汉语词汇",
+    "phonetic": "dāo",
+    "definition": "knife; blade; cutting tool",
+    "definitionZh": "刀具、刀片；用于切割的工具。",
+    "examples": [
+      "请用这把刀切菜。"
+    ],
+    "breakdown": "常与量词“把”搭配。",
+    "related": "小刀 xiǎo dāo；刀子 dāo zi",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "导",
+    "part": "汉语词汇",
+    "phonetic": "dǎo",
+    "definition": "to lead; to guide; to direct; to conduct",
+    "definitionZh": "引导、指导；带领或帮助他人完成某事。",
+    "examples": [
+      "老师指导我们完成练习。"
+    ],
+    "breakdown": "常见于指导、引导和导演等词语。",
+    "related": "指导 zhǐ dǎo；引导 yǐn dǎo",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "底",
+    "part": "汉语词汇",
+    "phonetic": "dǐ",
+    "definition": "bottom; base; foundation; background",
+    "definitionZh": "底部、底面；也指基础或背景。",
+    "examples": [
+      "杯子底下有一张纸。"
+    ],
+    "breakdown": "常与“上”形成位置对比，也可指基础。",
+    "related": "底下 dǐ xià；海底 hǎi dǐ",
+    "categories": [
+      "places",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "调",
+    "part": "汉语词汇",
+    "phonetic": "diào / tiáo",
+    "definition": "to transfer; to investigate; tune; to adjust or regulate",
+    "definitionZh": "读 diào 表示调动或调查；读 tiáo 表示调整、调和。",
+    "examples": [
+      "请调整一下音量。"
+    ],
+    "breakdown": "注意读音随词义变化：“调动”读 diào，“调整”读 tiáo。",
+    "related": "调整 tiáo zhěng；调动 diào dòng",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "订",
+    "part": "汉语词汇",
+    "phonetic": "dìng",
+    "definition": "to agree; to conclude; to order; to subscribe or book",
+    "definitionZh": "订立、预订；也表示约定或订购。",
+    "examples": [
+      "我订了两张车票。"
+    ],
+    "breakdown": "常见于订票、订购和订合同等词语。",
+    "related": "订票 dìng piào；订购 dìng gòu",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "断",
+    "part": "汉语词汇",
+    "phonetic": "duàn",
+    "definition": "to break; to snap; to cut off; to stop; to judge",
+    "definitionZh": "断开、折断；也表示中止或判断。",
+    "examples": [
+      "这根绳子断了。"
+    ],
+    "breakdown": "常用于表示物体断开或事情中断。",
+    "related": "断开 duàn kāi；判断 pàn duàn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "顿",
+    "part": "汉语词汇",
+    "phonetic": "dùn",
+    "definition": "to pause; to stop; classifier for meals or bouts",
+    "definitionZh": "停顿、暂停；也作一顿饭等的量词。",
+    "examples": [
+      "我们一起吃了一顿饭。"
+    ],
+    "breakdown": "常见于“一顿饭”“停顿”等表达。",
+    "related": "一顿饭 yí dùn fàn；停顿 tíng dùn",
+    "categories": [
+      "time-numbers",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "烦",
+    "part": "汉语词汇",
+    "phonetic": "fán",
+    "definition": "to feel vexed; to bother; troublesome",
+    "definitionZh": "烦恼、心烦；也表示麻烦或打扰。",
+    "examples": [
+      "别为这件事烦恼。"
+    ],
+    "breakdown": "常用于描述心情，也可用于礼貌地表示打扰。",
+    "related": "烦恼 fán nǎo；麻烦 má fan",
+    "categories": [
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "反",
+    "part": "汉语词汇",
+    "phonetic": "fǎn",
+    "definition": "opposite; reverse; to turn back; to oppose",
+    "definitionZh": "相反、反面；也表示反转或反对。",
+    "examples": [
+      "请把这句话反过来读。"
+    ],
+    "breakdown": "常见于相反、反方向和反对等词语。",
+    "related": "相反 xiāng fǎn；反对 fǎn duì",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "范",
+    "part": "汉语词汇",
+    "phonetic": "fàn",
+    "definition": "model; example; pattern; standard",
+    "definitionZh": "典范、范例；可指值得学习的榜样或标准。",
+    "examples": [
+      "他是大家学习的典范。"
+    ],
+    "breakdown": "常见于典范、范围和规范等词语。",
+    "related": "典范 diǎn fàn；规范 guī fàn",
+    "categories": [
+      "descriptions",
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "防",
+    "part": "汉语词汇",
+    "phonetic": "fáng",
+    "definition": "to protect; to defend; to guard against; to prevent",
+    "definitionZh": "防备、防护；预先采取措施避免危险或问题。",
+    "examples": [
+      "戴口罩可以预防疾病。"
+    ],
+    "breakdown": "常见于防止、预防和防护等词语。",
+    "related": "防止 fáng zhǐ；预防 yù fáng",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "访",
+    "part": "汉语词汇",
+    "phonetic": "fǎng",
+    "definition": "to visit; to call on; to seek by inquiry",
+    "definitionZh": "访问、拜访；也指采访或探访。",
+    "examples": [
+      "记者采访了这位作家。"
+    ],
+    "breakdown": "常见于访问、采访和拜访等词语。",
+    "related": "访问 fǎng wèn；采访 cǎi fǎng",
+    "categories": [
+      "communication",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "啡",
+    "part": "汉语词汇",
+    "phonetic": "fēi",
+    "definition": "phonetic character used in loanwords, especially 咖啡",
+    "definitionZh": "主要用于外来词的音译字，常见于“咖啡”。",
+    "examples": [
+      "我每天早上喝咖啡。"
+    ],
+    "breakdown": "单独使用较少，主要作为“咖啡”等词语的一部分。",
+    "related": "咖啡 kā fēi；咖啡馆 kā fēi guǎn",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "费",
+    "part": "汉语词汇",
+    "phonetic": "fèi",
+    "definition": "to cost; to spend; fee; expense; wasteful",
+    "definitionZh": "费用、花费；也表示耗费或支出。",
+    "examples": [
+      "这次旅行花费不多。"
+    ],
+    "breakdown": "可作动词表示耗费，也可作名词表示费用。",
+    "related": "费用 fèi yòng；花费 huā fèi",
+    "categories": [
+      "objects",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
   }
 ];
 
