@@ -2974,3 +2974,16 @@ The current English Lessons library contains 17 permanent lessons and 112 questi
 The current progress and practice-result tables have no language field; the content catalogue is English-only; lesson-start validation, completion/replay RPCs and completion activity logging hardcode `en`. A backward-compatible additive migration must add language-scoped progress and practice records, support Chinese catalogue rows and use the correct language in validation/activity logging while preserving existing English progress. Existing allowance logic counts the shared lesson activity type across languages; preserve Free 5 / Premium 15 shared daily permanent-lesson limit unless the owner explicitly approves a change.
 
 Phase 0 confirms the Chinese course target should be at least 17 lessons and 112 practice questions, matching the audited English library. Current CI build/deploy, Chromium smoke, PostgreSQL allowance/ACL, local Auth, Quiz and Flashcard jobs were inspected and passed. Dedicated Chinese course tests remain to be added. No app source, database or deployment changes were made during this audit.
+
+
+## Update 2.7.0 — implementation checkpoint (2026-11-21)
+
+Reviewed feature branch `feature/update-2-7-0-chinese-dictionary-lessons` at `c8c6e72e92a0fac2b1be4d8454c25a1227053a36`. The branch contains 519 new Chinese character entries plus the 206-entry legacy catalogue (725 unique total), Pinyin A–Z and semantic category filters with combined filtering, and a separate Chinese Lessons library of 17 lessons/112 questions. The Dictionary grid retains its existing character-only cards; no pinyin was added to grid cards. Chinese Lessons render Chinese text with pinyin directly underneath and English support always available.
+
+Language-aware progress and practice-result migration, Chinese catalogue rows and completion/replay RPCs are present. The existing Free 5 / Premium 15 permanent-lesson daily allowance remains shared across both courses. U2.7 static/Chromium workflow passed at the reviewed head. The local Supabase database foundation job, including the U2.7 migration regression, passed; local Auth/Quiz/Flashcard integration was still running at the checkpoint.
+
+During review, 17 practice question prompts containing Chinese text inside English-only strings were converted to bilingual Chinese/pinyin/English objects. Static tests now reject unpaired Chinese strings. Browser tests verify pinyin appears directly below Chinese text on desktop and mobile. Dictionary volume tests enforce at least 500 new entries and 700 total unique entries. Attribution was extended to include the pinyin-data MIT licence and the correct Unihan copyright period.
+
+Public source notices cover CC-CEDICT (CC BY-SA 4.0), Unicode Unihan (Unicode License v3), mozillazg/pinyin-data (MIT) and HSK 3.0 source data (MIT). CC-CEDICT-derived dictionary content remains free and unrestricted. Formal Malaysia/general legal and privacy review remains deferred, not cleared.
+
+Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, especially 80 polyphonic new entries, definitions, Simplified forms and category assignments; owner-approved Singapore staging migration and preview test; then explicit owner approval before production migration, merge or deployment. No staging or production database was changed in this checkpoint.
