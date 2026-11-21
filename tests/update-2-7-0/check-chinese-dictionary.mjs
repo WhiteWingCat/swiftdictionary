@@ -4,10 +4,10 @@ import assert from "node:assert/strict";
 
 const html = fs.readFileSync("index.html", "utf8");
 let inlineScripts = 0;
-for (const match of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)) {
+for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
   const attrs = match[1] || "";
   const body = match[2] || "";
-  if (/\\bsrc\\s*=/.test(attrs) || !body.trim() || /type\\s*=\\s*["']application\\//i.test(attrs)) continue;
+  if (/\bsrc\s*=/.test(attrs) || !body.trim() || /type\s*=\s*["']application\//i.test(attrs)) continue;
   new vm.Script(body, { filename: "index.html inline script" });
   inlineScripts++;
 }
