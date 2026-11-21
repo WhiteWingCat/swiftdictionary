@@ -3075,3 +3075,14 @@ All latest-head PR workflows completed successfully:
 - Cloudflare build-routing guard #44886855624.
 
 The latest Cloudflare Pages preview for app head 0e0d0b5 deployed successfully at https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (deployment https://8dfdd54f.swiftdictionary.pages.dev). PR #14 body was updated with completed CI evidence and remains draft/open/unmerged. No production migration, merge or deployment occurred. Owner visual acceptance of the updated preview remains outstanding; no technical manual action is required from the owner.
+
+
+## Update 2.7.0 — Lessons UI owner feedback round 1 (2026-11-21)
+
+Owner-tested staging feedback has been implemented on the existing U2.7.0 feature branch for English and Chinese Lessons. “What you will learn” and “Examples in context” now use localized expand/collapse controls after the first three entries. Practice prompts are contained inside their own question panels; short answer sets use responsive columns while longer choices remain stacked. The Lessons landing page order is restored to Daily Learning followed by Permanent Lessons. The Daily Activities reader is portalled to the document-level overlay to prevent clipping/stacking issues. Activity tabs wrap in a responsive grid without a horizontal scrollbar. Each activity panel now has a redesigned localized title and daily allowance card with remaining count and progress bar.
+
+The responsive drawer widths are explicitly retained at 50vw desktop, 62vw medium and 100vw narrow mobile. Asset cache-busting is `2.7.0-ui3`. Dictionary grid remains unchanged and does not display pinyin.
+
+Latest app head: `b98980dc5eae5ffea4cdb482c126fbb529daa739`; PR #14 remains draft/open/unmerged. U2.7.0 static/data/accessibility/browser suite #44889504955 and Cloudflare build-routing guard #44889504919 passed. The 2.3.x, Flashcards, U2.6 ACL and Quiz database/Auth/RPC compatibility workflows were still running at the latest check. Latest branch preview URL remains https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev; the newest Cloudflare Pages deployment ID was not independently verified. No production deployment or migration occurred. No new personal-data processing or schema change was introduced. Formal Malaysia PDPA/international legal review remains deferred, not cleared.
+
+Detailed session archive: [Update 2.7.0 — Lessons UI redesign and owner feedback round 1](conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md).
