@@ -136,3 +136,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.6.0 — account deletion confirmation and ACL second review](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — follow-up: owner-confirmed staging account deletion, sequence-name drift discovery, corrective ACL migration/test/workflow, and outstanding production default-privilege impact review.
 
 - [Update 2.6.0 — ACL regression passed and merge approval received](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — follow-up: records owner approval to merge PR #13 after validation, passing PostgreSQL 17 ACL drift regression, the production-shaped identity-sequence test, successful ancillary checks and the separate production rollout boundary.
+
+- [Update 2.6.0 — PR #13 merged to main](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — follow-up: records owner-approved squash merge, merge commit, passing final CI suite, and the separate unapproved production ACL rollout boundary.
