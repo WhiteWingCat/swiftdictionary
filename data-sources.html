@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Dictionary Data Sources — SwiftDictionary</title>
+  <style>
+    :root{color-scheme:dark;--bg:#11151d;--panel:#1b2230;--border:#344156;--text:#f3f6fc;--muted:#bac5d6;--accent:#b8cdfb}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 80% 0,#263b5b 0,transparent 36%),var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+    .wrap{width:min(900px,calc(100% - 32px));margin:0 auto}
+    header{padding:24px 0;border-bottom:1px solid var(--border)}
+    a{color:var(--accent);overflow-wrap:anywhere}
+    main{padding:42px 0 72px}
+    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:0 0 12px}
+    h2{font-size:1.35rem;margin:32px 0 8px}
+    p,li{color:var(--muted)}
+    .intro{max-width:740px}
+    .panel{margin-top:22px;padding:20px;border:1px solid var(--border);border-radius:16px;background:var(--panel)}
+    .license{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.88rem;color:var(--muted)}
+    footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a href="./">← Back to SwiftDictionary</a></div></header>
+  <main class="wrap">
+    <h1>Dictionary Data Sources</h1>
+    <p class="intro">This page identifies third-party data used to support the Chinese single-character dictionary. Individual records may combine source reference data with SwiftDictionary-authored categories, examples, explanations and learning notes. The page is an attribution notice, not a legal compliance certification.</p>
+
+    <section class="panel">
+      <h2>CC-CEDICT Chinese–English dictionary</h2>
+      <p>Selected single-character entries and adapted English glosses are based on CC-CEDICT, a community-maintained Chinese–English dictionary originally made available through MDBG. SwiftDictionary has selected, curated and modified entries and adapted some glosses into concise Simplified Chinese explanations. This content is not endorsed by CC-CEDICT or MDBG.</p>
+      <ul>
+        <li>Source: <a href="https://cc-cedict.org/">CC-CEDICT</a> · <a href="https://www.mdbg.net/chinese/dictionary?page=cc-cedict">MDBG project page</a></li>
+        <li>Snapshot: 20 November 2026; mirror commit <code>9f027e342cc57310780f4db0355f54f90d33674d</code></li>
+        <li>Licence: <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a></li>
+      </ul>
+      <p>CC-CEDICT-derived dictionary data and adapted glosses are provided under CC BY-SA 4.0. The Chinese Dictionary remains free and unrestricted; no additional access restrictions are imposed on this licensed data.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Unicode Unihan 18.0.0</h2>
+      <p>Mandarin pronunciation reference data is based on the Unicode Unihan Database, including the <code>kMandarin</code>, <code>kHanyuPinyin</code> and <code>kHanyuPinlu</code> properties. Readings may vary by word and context, so the data is checked against common usage.</p>
+      <ul>
+        <li>Data: <a href="https://www.unicode.org/Public/18.0.0/ucd/Unihan.zip">Unicode 18.0.0 Unihan data</a></li>
+        <li>Property documentation: <a href="https://www.unicode.org/reports/tr38/">Unicode Standard Annex #38</a></li>
+        <li>Licence: <a href="https://www.unicode.org/license.txt">Unicode License v3</a></li>
+      </ul>
+      <div class="license">Copyright © 1991-2026 Unicode, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of data files and any associated documentation (the "Data Files") or software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that either (a) this copyright and permission notice appear with all copies of the Data Files or Software, or (b) this copyright and permission notice appear in associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.</div>
+    </section>
+
+    <section class="panel">
+      <h2>HSK 3.0 character list</h2>
+      <p>The HSK 3.0 character list is used only as a candidate-selection reference and to record HSK level metadata. The source itself warns that the list was OCR-processed and not extensively proofread; selected characters and levels are independently checked before inclusion.</p>
+      <ul>
+        <li>Source: <a href="https://github.com/elkmovie/hsk30">elkmovie/hsk30</a></li>
+        <li>Snapshot commit: <code>7f3d4fdcfcb6e826001df062747c943d1fa8160e</code></li>
+        <li>Original file notice: Copyright © 2021 Pleco Inc.</li>
+        <li>Licence: MIT</li>
+      </ul>
+      <div class="license">Copyright (c) 2021 Pleco Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</div>
+    </section>
+
+    <section class="panel">
+      <h2>SwiftDictionary contributions</h2>
+      <p>Category assignments, learning examples, mnemonic breakdown notes and lesson curriculum are authored or curated separately by SwiftDictionary. Breakdown notes are learning associations, not claims of historical character etymology. CC-CEDICT-derived gloss adaptations retain the CC BY-SA 4.0 provenance described above.</p>
+    </section>
+  </main>
+  <footer><div class="wrap">SwiftDictionary · <a href="terms.html">Terms &amp; Conditions</a> · <a href="feedback.html">Feedback &amp; suggestions</a></div></footer>
+</body>
+</html>
