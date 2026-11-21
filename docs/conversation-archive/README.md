@@ -131,3 +131,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.6.0 — current handover, PR correction and production ACL audit](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — records the owner's retirement of the separate Cloudflare testing Worker, corrected PR #13 status, latest CI results, current account-deletion test gap, read-only production/staging ACL differences, proposed production remediation draft and continued legal/privacy deferral.
+
+
+- [Update 2.6.0 — account deletion confirmation and ACL second review](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — follow-up: owner-confirmed staging account deletion, sequence-name drift discovery, corrective ACL migration/test/workflow, and outstanding production default-privilege impact review.
