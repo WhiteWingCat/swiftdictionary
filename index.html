@@ -18329,12 +18329,12 @@
       }
       if(typeof quizRefreshVisibleTranslation==="function")quizRefreshVisibleTranslation();
       if(typeof quizApplyPageTranslation==="function")quizApplyPageTranslation();
-      if(quizViewBefore==="session"&&quizPageState.session){
+      if (quizViewBefore==="session" && quizPageState.session) {
         quizPageState.sessionView=true;
         quizRenderSession();
-      }else if(quizViewBefore==="results"&&quizPageState.result){
+      } else if (quizViewBefore==="results" && quizPageState.result) {
         quizRenderResult(quizPageState.result);
-      }else if(quizViewBefore==="home"){
+      } else if (quizViewBefore==="home") {
         quizPageState.sessionView=false;
         document.getElementById("quizHome").hidden=false;
         document.getElementById("quizSession").hidden=true;
