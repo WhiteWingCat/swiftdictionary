@@ -2821,3 +2821,15 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 - Latest isolated workflow run at the time of this update is pending/in progress; no passing result is claimed yet.
 - Owner confirmed account deletion works in Singapore staging. PR #13 now records this as an owner-reported staging pass, not a production test.
 - PR #13 remains draft/open/unmerged. No production or staging DB changes were made.
+
+
+## 40. Update 2.6.0 — ACL regression passes; merge approval received (2026-11-21)
+
+- Owner explicitly approved merging PR #13 to main after remaining checks pass.
+- The isolated PostgreSQL 17 ACL drift regression passed on current feature head 6314c15d9eae801ef64ba00bce7b41d27fb168cd: PR run 44854645412 and push run 44854640598 both succeeded.
+- The test builds a synthetic baseline matching audited staging, then overlays the known production ACL differences, renames the owned practice-results identity sequence to production's name, applies the corrective migration and verifies final grants/defaults.
+- Verified: anonymous access removed from Daily Learning sessions and plan limits; authenticated sessions retain only SELECT/INSERT/UPDATE; anonymous privileges removed from all three relevant identity sequences; public function defaults remain restricted; extensions function defaults retain prior PUBLIC EXECUTE behavior.
+- CI changes were limited to disposable local Supabase/PostgreSQL. No hosted staging or production database was modified.
+- Cloudflare build routing guard, Flashcards checks, and 2.3.x allowance/dashboard regression checks have passed on the same head. Quiz database/Auth integration is still running at the time of this record update.
+- PR #13 remains open/draft/unmerged while the remaining checks finish. Owner approval is recorded; merge is not yet performed.
+- Formal legal/privacy review remains deferred, not cleared. Production ACL rollout remains separate and unapproved.
