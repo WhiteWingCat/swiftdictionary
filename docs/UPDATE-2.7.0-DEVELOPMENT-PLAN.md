@@ -113,7 +113,7 @@ This is a planning safeguard, not legal advice or a compliance certification. Fo
 
 ## 8. Initial development starting point
 
-Phase 0 audit completed on 2026-11-21. The source and database findings are recorded below. Next begin Phase 1 design/implementation only after confirming the remaining product decision on whether English and Chinese permanent lessons share the existing daily lesson allowance; the current database naturally counts lesson completions together by activity type.
+Phase 0 audit completed on 2026-11-21. Core dictionary filters/content expansion, Chinese Lessons, language-aware progress migration, source attribution and automated QA are now implemented on the feature branch. The existing Free 5 / Premium 15 permanent-lesson daily allowance is preserved as a shared allowance across English and Chinese, consistent with the existing activity-type accounting and regression tests. Continue with final manual linguistic review and owner-approved staging validation.
 
 
 ## 9. Phase 0 baseline audit — verified findings (2026-11-21)
