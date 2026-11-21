@@ -111,3 +111,14 @@ No production data, schema, grants, OAuth configuration, Edge Function, Cloudfla
 - Added ACL regression assertions at `supabase/tests/update_2_6_0_acl_drift_correction.sql` and a dedicated local Supabase CI workflow at `.github/workflows/update-2-6-0-acl-test.yml`. The workflow's new run is pending; do not treat the migration as validated until it passes.
 - The old production ACL SQL remains a draft only. The global default-function privilege revoke in the first U2.6.0 migration still requires impact review across postgres-owned schemas before production rollout.
 - PR #13 description now records account-deletion staging confirmation and the new ACL correction; PR remains draft/open/unmerged. No production or staging database changes were made by this follow-up.
+
+
+## 2026-11-21 follow-up — isolated ACL CI passes; merge approval received
+
+- The owner explicitly approved merging PR #13 to main once the remaining validation passes. This is merge approval only; it is not approval to run the production ACL migration or make direct production database/Edge Function changes.
+- The dedicated PostgreSQL 17 ACL workflow passed on the latest feature head (6314c15d9eae801ef64ba00bce7b41d27fb168cd): PR run https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44854645412 and push run https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44854640598.
+- The final regression uses a synthetic baseline aligned to audited Singapore staging, applies the known production-shaped grants, renames the practice-results sequence to lesson_practice_results_id_seq1, runs the corrective migration and verifies table, sequence and default function privileges.
+- Both failed intermediate runs were test-fixture issues and were corrected: the production-only grants are now applied after the staging baseline assertions, and the fixture explicitly removes the Supabase-local anonymous plan-limit grant before modelling staging.
+- Other checks on this head: Cloudflare build routing guard, Flashcards tests and 2.3.x allowance/dashboard tests passed. Quiz database/Auth integration remained in progress at the time of writing.
+- CI used disposable local services only. No Singapore staging or Tokyo production database changes occurred. The production ACL rollout remains a separate, unapproved operation.
+- Formal legal/privacy review remains deferred, not cleared. The Terms placeholder remains non-binding and unpublished.
