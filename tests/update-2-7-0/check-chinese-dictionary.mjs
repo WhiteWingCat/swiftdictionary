@@ -6,10 +6,10 @@ const html = fs.readFileSync("index.html", "utf8");
 const dataFile = fs.readFileSync("data/chinese-characters.js", "utf8");
 
 let inlineScripts = 0;
-for (const match of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)) {
+for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
   const attrs = match[1] || "";
   const body = match[2] || "";
-  if (/\\bsrc\\s*=/.test(attrs) || !body.trim() || /type\\s*=\\s*["']application\\//i.test(attrs)) continue;
+  if (/\bsrc\s*=/.test(attrs) || !body.trim() || /type\s*=\s*["']application\//i.test(attrs)) continue;
   new vm.Script(body, { filename: "index.html inline script" });
   inlineScripts++;
 }
@@ -23,9 +23,9 @@ assert.notEqual(markerAt, -1, "Chinese dictionary declaration is missing.");
 const arrayStart = html.indexOf("[", markerAt);
 const spreadAt = html.indexOf("...(window.SWIFT_CHINESE_WORDS || [])", arrayStart);
 assert.ok(spreadAt > arrayStart, "External Chinese character data is not merged into the dictionary.");
-const baseLiteral = html.slice(arrayStart, spreadAt).replace(/,\\s*$/, "") + "]";
+const baseLiteral = html.slice(arrayStart, spreadAt).replace(/,\s*$/, "") + "]";
 const baseWords = vm.runInNewContext("(" + baseLiteral + ")");
-const dataMatch = dataFile.match(/window\\.SWIFT_CHINESE_WORDS\\s*=\\s*(\\[[\\s\\S]*?\\]);/);
+const dataMatch = dataFile.match(/window\.SWIFT_CHINESE_WORDS\s*=\s*(\[[\s\S]*?\]);/);
 assert.ok(dataMatch, "External Chinese character array is missing.");
 const additions = vm.runInNewContext("(" + dataMatch[1] + ")");
 const words = [...baseWords, ...additions];
