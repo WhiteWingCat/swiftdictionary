@@ -130,3 +130,4 @@
 #lessonReader.lesson-enter,#dailyActivityReader.open .daily-activity-modal,#dailyActivityReader.closing .daily-activity-modal{animation:none!important}
 #permanentLessonsPanel *, .daily-activity-tabs *, #lessonLibrary .lesson-card, #lessonReader *, #dailyActivityReader *{transition:none!important;scroll-behavior:auto!important}
 }
+.daily-preferences-card .daily-preferences legend{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
