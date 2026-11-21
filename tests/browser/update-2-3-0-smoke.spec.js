@@ -141,7 +141,12 @@ test("Chinese course completion stores progress separately from English", async 
     expect(index).toBeGreaterThanOrEqual(0);
     await labels.nth(index).locator("input").check();
     await question.locator(".check-lesson-answer").click();
-    await expect(question.locator(".lesson-question-feedback")).toContainText("Correct");
+    if (i === answers.length - 1) {
+      // Successful completion re-renders the reader, so the final feedback node is replaced.
+      await expect(page.locator("#lessonFinishNote")).toContainText("Lesson completed");
+    } else {
+      await expect(question.locator(".lesson-question-feedback")).toContainText("Correct");
+    }
   }
   await expect(page.locator("#lessonFinishNote")).toContainText("Lesson completed");
   const rows = await page.evaluate(id => window.__swiftDailyMock.tables.lesson_progress
