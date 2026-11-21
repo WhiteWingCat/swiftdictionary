@@ -2987,3 +2987,6 @@ During review, 17 practice question prompts containing Chinese text inside Engli
 Public source notices cover CC-CEDICT (CC BY-SA 4.0), Unicode Unihan (Unicode License v3), mozillazg/pinyin-data (MIT) and HSK 3.0 source data (MIT). CC-CEDICT-derived dictionary content remains free and unrestricted. Formal Malaysia/general legal and privacy review remains deferred, not cleared.
 
 Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, especially 80 polyphonic new entries, definitions, Simplified forms and category assignments; owner-approved Singapore staging migration and preview test; then explicit owner approval before production migration, merge or deployment. No staging or production database was changed in this checkpoint.
+
+
+**U2.7 CI completion follow-up (2026-11-21):** The U2.7 dictionary static/Chromium workflow passed at feature branch head `c8c6e72e92a0fac2b1be4d8454c25a1227053a36` (run 44881091752). The local Supabase Auth/Quiz/Flashcard integration workflow completed with both jobs successful, including the U2.7 database foundation/migration regression (run 44881091714). No staging or production database changes were made.
