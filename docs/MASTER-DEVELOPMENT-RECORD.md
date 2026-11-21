@@ -3008,3 +3008,21 @@ Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, espe
 - No hosted staging or production migration, settings change, merge or deployment occurred.
 - The current next technical gate is Singapore staging validation of the language-aware Lessons migration and Cloudflare preview. The owner must explicitly approve applying the migration to hosted Singapore staging. Production migration, merge to `main` and production deployment require separate approval.
 - Detailed session archive: [U2.7.0 linguistic QA and staging gate](conversation-archive/2026-11-21-update-2-7-0-linguistic-qa-and-staging-gate.md).
+
+
+
+
+## Update 2.7.0 — Singapore staging migration and preview validation (2026-11-21)
+
+- Owner approved applying the U2.7.0 language-aware Lessons migration to Singapore staging, preferring automated work where possible.
+- Confirmed target project `SwiftDictionary Indie Staging`, ref `ivatvkfrtifgfheeaelj`, region `ap-southeast-1`, status `ACTIVE_HEALTHY`. Tokyo production project was not targeted.
+- Read-only preflight confirmed the `zh` language code existed, the preceding migrations were present, there were no duplicate lesson-progress or practice-result identities that would conflict with language-scoped uniqueness, and existing lesson rows were present.
+- Applied `supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql` to Singapore staging. Supabase recorded version `20261121074834` named `swiftdictionary_update_2_7_0_language_aware_lessons`; the hosted version is assigned by the migration service and differs from the repository filename timestamp.
+- Post-checks: 17 active Chinese permanent lessons, 17 active English permanent lessons, zero Chinese Daily Learning activities, both language columns present, unique language-scoped practice index present, and existing lesson rows preserved as English.
+- Security Advisor reports the expected private-schema RLS INFO findings, leaked-password protection WARN, and two authenticated SECURITY DEFINER RPC findings. The language-aware replay-summary RPC is SECURITY DEFINER with explicit `auth.uid()` check, rejects anon execution, and uses a fixed search path; keep this under test/security review. The completion RPC is SECURITY INVOKER and rejects anon execution. Performance Advisor reports existing unindexed-FK/RLS-initplan warnings and new indexes unused on the small staging dataset. No unrelated advisor fixes were applied.
+- Created draft PR #14: https://github.com/WhiteWingCat/swiftdictionary/pull/14. It remains open, draft and unmerged.
+- Initial PR CI found a stale U2.3.0 test assertion that expected the English-only lesson RPC names. Updated `tests/update-2-3-0/check-frontend.mjs` to expect the language-aware completion and replay RPC names. New application commit: `ff4c1c4bda297a58bc0403d9795c0dbd75c2f254`.
+- Initial U2.7.0 static, content/pinyin and full Lessons/Daily Learning browser regression stages passed; isolated dictionary browser checks also passed on the initial PR head. The initial general PR CI run had one failure caused by the stale RPC-name assertion; the test has been corrected and new workflows are running on the updated head. Do not declare the whole suite green until they finish.
+- Cloudflare Pages bot started a preview build for `ff4c1c4`; latest observed status was in progress with no preview URL yet. A separate older Cloudflare Workers build on `e7d911f` failed; it is not evidence of the current Pages preview result. Cloudflare build-routing guard passed on the initial head and reran on the updated head.
+- No production migration, deployment, OAuth/configuration change, or merge occurred.
+- Detailed archive: [U2.7.0 Singapore staging migration and preview](conversation-archive/2026-11-21-update-2-7-0-singapore-staging-migration-and-preview.md).
