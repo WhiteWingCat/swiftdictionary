@@ -58,6 +58,14 @@ test("polyphonic characters are discoverable under each pinyin initial", async (
 
   await page.locator("#alphabet button[data-letter='K']").click();
   await expect(page.locator(".word-card .word-name").filter({ hasText: "会" })).toHaveCount(1);
+
+  await page.locator("#alphabet button[data-letter='C']").click();
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "朝" })).toHaveCount(1);
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "曾" })).toHaveCount(1);
+
+  await page.locator("#alphabet button[data-letter='Z']").click();
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "朝" })).toHaveCount(1);
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "曾" })).toHaveCount(1);
 });
 
 test("Chinese category and pinyin filters combine", async ({ page }) => {
