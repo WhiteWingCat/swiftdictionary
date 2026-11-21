@@ -23,11 +23,16 @@ function validateBilingual(value, path) {
   assert.ok(typeof value.en === "string" && value.en.trim(), path + " is missing English support.");
 }
 
-function walk(value, path) {
-  if (Array.isArray(value)) { value.forEach((item, index) => walk(item, path + "[" + index + "]")); return; }
+function walk(value, path, insideBilingualBlock = false) {
+  if (Array.isArray(value)) { value.forEach((item, index) => walk(item, path + "[" + index + "]", insideBilingualBlock)); return; }
+  if (typeof value === "string") {
+    assert.ok(insideBilingualBlock || !han.test(value), "Chinese text must be paired with pinyin and English support: " + path);
+    return;
+  }
   if (!value || typeof value !== "object") return;
-  if (Object.prototype.hasOwnProperty.call(value, "zh")) validateBilingual(value, path);
-  for (const [key, child] of Object.entries(value)) walk(child, path + "." + key);
+  const isBilingualBlock = Object.prototype.hasOwnProperty.call(value, "zh");
+  if (isBilingualBlock) validateBilingual(value, path);
+  for (const [key, child] of Object.entries(value)) walk(child, path + "." + key, insideBilingualBlock || isBilingualBlock);
 }
 
 for (const [difficulty, rule] of Object.entries(expected)) {
