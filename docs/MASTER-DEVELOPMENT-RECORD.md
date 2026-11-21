@@ -2990,3 +2990,21 @@ Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, espe
 
 
 **U2.7 CI completion follow-up (2026-11-21):** The U2.7 dictionary static/Chromium workflow passed at feature branch head `c8c6e72e92a0fac2b1be4d8454c25a1227053a36` (run 44881091752). The local Supabase Auth/Quiz/Flashcard integration workflow completed with both jobs successful, including the U2.7 database foundation/migration regression (run 44881091714). No staging or production database changes were made.
+
+
+
+
+## Update 2.7.0 — linguistic QA continuation and staging gate (2026-11-21)
+
+- Reviewed the latest U2.7.0 plan and conversation archives before continuing.
+- Current application feature branch: `feature/update-2-7-0-chinese-dictionary-lessons`.
+- Retrieved the full application `index.html` Git blob after the connector's file-content endpoint returned an empty body for the large file.
+- Audited the 519 new Chinese dictionary records: 519 unique single-character identities, no missing core fields, all 11 category values valid, and 80 entries with multiple readings.
+- Audited the separate Chinese lesson dataset: 17 lessons / 112 questions and 716 bilingual text objects with Chinese, pinyin and English fields. Field presence is not proof of pinyin accuracy; manual linguistic review remains required.
+- Corrected two verified dictionary issues against the Ministry of Education's Revised Mandarin Chinese Dictionary: removed unsupported `wéi` from `喂` (retaining `wèi`), and corrected `待在家` to `dāi zài jiā`. The `等待` reading remains `dài`.
+- Application commit: `e7d911f72d443e07eb6aa47a80229711a9288c05`; changed file `data/chinese-characters.js`. These data-only edits have not yet been confirmed by a new CI run.
+- The reference confirms `跑` / `pǎo, páo` with the secondary reading restricted to animals digging the ground. The readings `骑 jì` and `玩 wàn` require clear modern-standard/literary labelling and remain in the manual review queue.
+- Previously recorded U2.7.0 static/Chromium and disposable local Supabase/Auth/RPC workflows passed at earlier commits (#44881091752 and #44881091714). Do not imply these results validate the new commit.
+- No hosted staging or production migration, settings change, merge or deployment occurred.
+- The current next technical gate is Singapore staging validation of the language-aware Lessons migration and Cloudflare preview. The owner must explicitly approve applying the migration to hosted Singapore staging. Production migration, merge to `main` and production deployment require separate approval.
+- Detailed session archive: [U2.7.0 linguistic QA and staging gate](conversation-archive/2026-11-21-update-2-7-0-linguistic-qa-and-staging-gate.md).
