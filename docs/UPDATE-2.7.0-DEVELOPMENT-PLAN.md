@@ -23,7 +23,7 @@ Expand the Simplified Chinese dictionary and introduce a substantial Chinese lea
   - Character category filter. Initial categories: Actions; Expressions; Communication; People; Objects; Nature; Places; Time & Numbers; Emotions & States; Descriptions; Grammar & Function.
   - Combined filtering, with text/character/pinyin search remaining usable while filters are active.
 - A character may belong to multiple justified categories. Polyphonic characters should be discoverable under each relevant pinyin initial where supported by the data model.
-- Preserve one Chinese character per grid card. Multi-character vocabulary remains in related-word/detail content, not as grid cards.
+- Preserve one Chinese character per grid card. The Dictionary grid remains character-only: do not add pinyin to grid cards. Multi-character vocabulary remains in related-word/detail content, not as grid cards. Keep existing pinyin search and pinyin in character details.
 - Preserve the existing grid presentation: **do not add pinyin to Chinese Dictionary grid cards**. Keep the existing character-only card display and preserve character/pinyin search, stroke-order interactions, detail-panel behavior and unlimited free dictionary access.
 - The strict character-above-pinyin layout rule applies specifically to **Chinese Lessons**. Whenever lesson content presents Chinese text with pinyin, pinyin must appear directly below its corresponding character/text, never above or beside it. Test this in lesson readers and responsive layouts.
 
@@ -34,7 +34,7 @@ Expand the Simplified Chinese dictionary and introduce a substantial Chinese lea
 - Initial minimum catalogue: **at least 17 permanent lessons and 112 practice questions**, matching the current English library (7 Beginner / 5 Intermediate / 5 Advanced; 44 / 34 / 34 questions respectively). The target may be exceeded if quality permits. This is a minimum, not a cap; expand when quality and validation permit.
 - Reuse existing reader, practice, completion, progress and allowance behavior. No timer or time pressure.
 - Guarantee English support for Chinese lessons regardless of the user's selected translation language. English must remain available as a reliable support language, not be replaced by the selected translation.
-- Always include accurate tone-marked Hanyu Pinyin for Chinese lesson content: vocabulary, individual examples, full Chinese sentences, expressions, idioms, proverbs, quotations and poetry. For longer passages, align pinyin clearly with the Chinese text.
+- Always include accurate tone-marked Hanyu Pinyin for Chinese lesson content: vocabulary, individual examples, full Chinese sentences, expressions, idioms, proverbs, quotations and poetry. **Strict Lessons layout invariant:** show the Chinese text first and its pinyin immediately underneath; never place pinyin to the left, right or above. Put English support after the pinyin. For longer passages, align pinyin clearly with each Chinese sentence or passage block.
 - Integrate English-to-Chinese practice, including converting familiar English words, phrases and sentences into natural Chinese.
 - Teach meaningful English/Chinese structural comparisons: word order, measure words, time/tense expression, questions, negation, particles and natural phrasing versus literal translation.
 - Content areas may include grammar, vocabulary, common expressions/phrases, 成语 (idioms), 谚语 (proverbs), 名言警句 (notable sayings/quotes) and selected 诗词 (poetry). Clearly distinguish these forms; do not treat them as interchangeable.
@@ -83,7 +83,7 @@ Balance grammar, vocabulary and practical comprehension. Avoid making every less
 ### Lessons and account behavior
 - At least 17 Chinese lessons and 112 practice questions, with at least five lessons per difficulty; target the current English distribution of 7 Beginner / 5 Intermediate / 5 Advanced and 44 / 34 / 34 questions.
 - English support always available; selected translation language refreshes correctly.
-- Pinyin present and aligned across all Chinese lesson content.
+- Pinyin present and aligned across all Chinese lesson content; every Chinese lesson text block displays Chinese first, pinyin directly below, then English support.
 - English-to-Chinese exercises and comparisons are pedagogically correct.
 - Answer shuffling preserves correct-answer mapping; answer state survives translation switching.
 - Completion is saved only after successful practice; progress remains independent by difficulty.
