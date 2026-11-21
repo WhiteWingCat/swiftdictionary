@@ -238,3 +238,16 @@ The following implementation results supersede the earlier Phase 0-only starting
 4. Conduct a final linguistic review of pinyin, examples, translations, idioms, proverb classifications and classical-source attribution.
 5. Complete content-source/licensing review and owner preview testing.
 6. Only then prepare release notes and a consolidated release package. Do not merge to `main`, apply the migration to hosted Supabase, or deploy without explicit owner approval.
+
+
+### Verification update — full browser regression passed (2026-11-21)
+
+- Latest application feature-branch head: `27739f86162ddd2b7251ebe52ca98490f224782e`.
+- U2.7.0 workflow **#44876433048** completed successfully:
+  - Dictionary static/data checks: 725 unique characters, 519 new; inline script syntax check passed.
+  - Chinese Lessons content validation: 17 lessons / 112 questions; bilingual/pinyin field checks passed.
+  - Full English Lessons and Daily Learning browser regression: **26/26 passed**. This includes the Chinese lesson completion/progress-isolation test.
+  - Chinese Dictionary filter browser checks: **5/5 passed**.
+  - Chinese Lessons bilingual vertical-layout browser check: **1/1 passed**.
+- Quiz database foundation workflow **#44876433049**: PostgreSQL/CI job passed. Companion local Supabase Auth/RPC integration job was still in progress at this snapshot.
+- The full suite verified the corrected distinction: Dictionary grid cards remain character-only; Chinese Lessons render Chinese text, then pinyin directly below, then English support.
