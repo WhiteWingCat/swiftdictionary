@@ -96,3 +96,14 @@ The owner clarified that pinyin must **not** be added to Chinese Dictionary grid
 - No Chinese dictionary content expansion, category assignments, lesson code or hosted database changes have been made yet.
 - The detailed technical progress is recorded in Section 10 of `docs/UPDATE-2.7.0-DEVELOPMENT-PLAN.md`. Next: build a source-backed Chinese character dataset in small batches, adding categories and provenance while preserving quality.
 
+
+
+## Chinese dictionary content batches (2026-11-21)
+
+- Added the first 100 HSK Level 1 candidate characters to `data/chinese-characters.js`; current combined count is 306 unique single-character entries.
+- New records include pinyin, English and Chinese meanings, example sentences, related vocabulary, learning notes, category tags, HSK level and provenance source IDs.
+- Category filter now has 11 categories: Actions, Expressions, Communication, People, Objects, Nature, Places, Time & Numbers, Emotions & States, Descriptions, Grammar & Function.
+- Published a user-facing attribution page at `data-sources.html` and linked it from the app footer and Terms placeholder. Detailed source registry is `data/CHINESE-DICTIONARY-SOURCES.md`.
+- Static checks and four Chromium tests passed in GitHub Actions run [44868243733](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44868243733).
+- The Chinese grid remains character-only. The pinyin-below-character rule is reserved for Chinese Lessons.
+- Next: add the remaining 48 Level 1 candidates, then proceed through HSK Levels 2–5 in reviewed batches. Lessons and Supabase migration work remain pending.
