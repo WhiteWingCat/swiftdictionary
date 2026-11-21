@@ -72,3 +72,15 @@ test("Chinese category and pinyin filters combine", async ({ page }) => {
   await expect(page.locator(".word-card .word-name").filter({ hasText: "帮" })).toHaveCount(1);
   await expect(page.locator(".word-card .word-name").filter({ hasText: "打" })).toHaveCount(0);
 });
+test("legacy Chinese dictionary entries are included in category filters", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#openDictionaryFilters").click();
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#chineseCategoryRow button[data-chinese-category='actions']").click();
+
+  const words = page.locator(".word-card .word-name");
+  await expect(words.filter({ hasText: "买" })).toHaveCount(1);
+  await expect(words.filter({ hasText: "卖" })).toHaveCount(1);
+  await expect(words.filter({ hasText: "吃" })).toHaveCount(1);
+  await expect(page.locator(".word-card .pinyin-line")).toHaveCount(0);
+});
