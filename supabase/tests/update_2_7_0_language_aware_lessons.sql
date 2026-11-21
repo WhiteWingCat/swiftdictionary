@@ -232,7 +232,7 @@ begin
     perform public.complete_permanent_lesson_for_language(
       'zh','beginner','b-sentence','zh-test-topic',4,4
     );
-  exception when insufficient_privilege then
+  exception when raise_exception then
     if position('Daily learning completion limit reached' in sqlerrm)=0 then
       raise;
     end if;
