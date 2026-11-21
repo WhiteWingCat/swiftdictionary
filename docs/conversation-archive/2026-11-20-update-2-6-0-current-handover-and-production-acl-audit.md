@@ -100,3 +100,14 @@ Sources:
 6. Preserve all production data, configuration and deployment state until explicit owner approval.
 
 No production data, schema, grants, OAuth configuration, Edge Function, Cloudflare Pages configuration or deployment was changed in this session.
+
+
+## 2026-11-21 follow-up — account deletion confirmed; ACL review and corrective migration
+
+- Owner confirmed account deletion works in the current Singapore staging preview. Treat this as an owner-reported staging pass, not a production test. Earlier archive text saying deletion was untested is superseded by this update.
+- Owner asked whether they needed to review the production ACL remediation plan. Technical review is my responsibility; the plan is linked here: https://github.com/WhiteWingCat/swiftdictionary/blob/docs/master-development-record/docs/reference/UPDATE-2.6.0-PRODUCTION-ACL-REMEDIATION-DRAFT.md
+- Second review found that production and staging use different sequences for `lesson_practice_results.id`. The earlier follow-up migration revokes UPDATE from the staging sequence name, which is not the production-owned sequence. The new correction uses `pg_get_serial_sequence('public.lesson_practice_results','id')` and fails closed if it cannot resolve the owned sequence.
+- New feature-branch migration: `supabase/migrations/20261121090000_update_2_6_0_acl_drift_correction.sql`. It removes anonymous access to `daily_activity_sessions` and `learning_plan_limits`, removes unintended authenticated non-DML privileges from `daily_activity_sessions`, and revokes anonymous privileges from the actual owned identity sequences without renaming or dropping any sequence.
+- Added ACL regression assertions at `supabase/tests/update_2_6_0_acl_drift_correction.sql` and a dedicated local Supabase CI workflow at `.github/workflows/update-2-6-0-acl-test.yml`. The workflow's new run is pending; do not treat the migration as validated until it passes.
+- The old production ACL SQL remains a draft only. The global default-function privilege revoke in the first U2.6.0 migration still requires impact review across postgres-owned schemas before production rollout.
+- PR #13 description now records account-deletion staging confirmation and the new ACL correction; PR remains draft/open/unmerged. No production or staging database changes were made by this follow-up.
