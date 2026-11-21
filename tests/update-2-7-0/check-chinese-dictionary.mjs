@@ -59,7 +59,16 @@ for (const item of words) {
   }
 }
 
-assert.ok(additions.length >= 50, "Expected at least one validated 50-character content batch.");
+assert.ok(additions.length >= 500, "Expected at least 500 new Chinese character entries.");
+assert.ok(words.length >= 700, "Combined Chinese dictionary should contain at least 700 unique characters.");
+const sourcesPage = fs.readFileSync("data-sources.html", "utf8");
+const thirdPartyNotices = fs.readFileSync("THIRD_PARTY_NOTICES.md", "utf8");
+assert.ok(html.includes('href="data-sources.html"'), "The application footer must link to dictionary data sources.");
+for (const [label, source] of [["public data-sources page", sourcesPage], ["repository third-party notices", thirdPartyNotices]]) {
+  assert.ok(source.includes("CC BY-SA 4.0"), label + " must attribute CC-CEDICT and its share-alike licence.");
+  assert.ok(source.includes("Unicode License v3"), label + " must include the Unicode Unihan licence notice.");
+  assert.ok(source.includes("Pleco Inc."), label + " must include the HSK 3.0 source attribution.");
+}
 assert.ok(html.includes("function chinesePinyinInitials(item)"), "Pinyin initial extraction helper is missing.");
 assert.ok(html.includes("chinesePinyinInitials(item).includes(activeLetter)"), "Chinese pinyin initial filtering is not wired into the result filter.");
 assert.ok(html.includes("item.categories.includes(activeChineseCategory)"), "Chinese category filtering is not wired into the result filter.");
