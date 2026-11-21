@@ -63,7 +63,7 @@ Balance grammar, vocabulary and practical comprehension. Avoid making every less
 2. **Phase 1 — Data model and dictionary filter foundation.** Design/extend character metadata for pinyin initials and multi-category membership. Implement A–Z/category/combined filters while preserving the character-only grid cards. Add/validate the pinyin-below-Chinese-text presentation in the Chinese Lessons reader, not the dictionary grid.
 3. **Phase 2 — Chinese dictionary content expansion.** Add content in small sequential batches. Validate uniqueness, Simplified Chinese form, pinyin tones and polyphonic readings, meanings, category assignment and source/licensing notes. Do not deliver intermediate ZIPs; consolidate after phase validation.
 4. **Phase 3 — Chinese Lessons framework integration.** Add course selection and difficulty-specific lesson catalogue using existing lesson infrastructure. Preserve English lessons and existing progress/allowance behavior.
-5. **Phase 4 — Bilingual curriculum and practice content.** Author and validate Chinese lessons, pinyin alignment, English support, English-to-Chinese exercises and language comparisons. Meet the minimum 15 lessons/52 questions before release candidate.
+5. **Phase 4 — Bilingual curriculum and practice content.** Author and validate Chinese lessons, pinyin alignment, English support, English-to-Chinese exercises and language comparisons. Meet the minimum 17 lessons/112 questions before release candidate.
 6. **Phase 5 — Automated and manual QA.** Run syntax/static/data/catalogue checks, unit/integration tests, Chromium/browser tests, responsive checks and owner preview testing. Verify translations refresh on every relevant page/state and preserve practice answers. Test English Lessons for regressions.
 7. **Phase 6 — Release readiness.** Consolidate content, update README/release notes/third-party notices as required, complete the legal/content-risk checklist, confirm CI and preview evidence, and present a single consolidated release package only when requested. Merge/deploy only with explicit owner approval.
 
@@ -113,7 +113,7 @@ This is a planning safeguard, not legal advice or a compliance certification. Fo
 
 ## 8. Initial development starting point
 
-Begin with Phase 0 only. Do not begin bulk data entry or lesson authoring until the current source/data structure has been audited. The current GitHub connector returned an empty body for `index.html` in the initial fetch attempt, so retrieve/inspect the application source through a suitable repository workflow before making technical assumptions. The README on `main` appears older than the current deployed application and must not be treated as a complete current implementation specification.
+Phase 0 audit completed on 2026-11-21. The source and database findings are recorded below. Next begin Phase 1 design/implementation only after confirming the remaining product decision on whether English and Chinese permanent lessons share the existing daily lesson allowance; the current database naturally counts lesson completions together by activity type.
 
 
 ## 9. Phase 0 baseline audit — verified findings (2026-11-21)
@@ -323,3 +323,44 @@ This is a product-planning risk review, not legal advice or a compliance certifi
 - Registration of Data Controller classes: https://www.pdp.gov.my/en/registration-of-data-controller/
 - UK ICO Children’s Code: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-code/
 - GDPR Article 8: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=celex%3A32016R0679
+
+
+## 9. Phase 0 baseline audit — completed 2026-11-21
+
+### Application source and dictionary
+
+- Audited the actual `main` application Git blob, not the stale README. Base commit: `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- Current Chinese dictionary contains 206 unique entries; every entry is a single character. No duplicate character identities were found.
+- All 206 entries currently contain the expected core fields: `word`, `phonetic`, `definition`, `definitionZh`, `examples`, `breakdown`, `related`, `course` and `part`.
+- Twelve entries have multiple readings represented in the `phonetic` field (for example 中, 了, 会, 只, 少, 差, 当, 得, 没, 还, 长 and 答). Pinyin A–Z filtering must index every supported reading, not only the first.
+- Existing `part` values are only `汉语词汇` and `汉字`; there is no useful semantic category taxonomy yet. New category metadata must be designed and authored; do not mistake the existing `part` field for the planned categories.
+- Current data has pinyin initials for 22 letters. A–Z filter must handle letters with no current matches gracefully and must not fabricate results.
+- **Dictionary layout correction:** current Chinese grid cards intentionally display the character only (plus saved marker). Preserve this layout exactly; do not add pinyin to dictionary grid cards.
+- The application already has pinyin rendering helpers for Chinese dictionary detail content. They are not a substitute for manually validated, context-sensitive pinyin in the new lesson dataset.
+
+### Existing Lessons architecture
+
+- Audited current English lesson data: 17 permanent lessons and 112 practice questions across Beginner, Intermediate and Advanced.
+- The `lessonZh` object provides Chinese translations for those 17 English lessons and their 112 questions. These are translations of English learning content, not an independent Chinese course.
+- Lesson data is currently structured as English `lessonData[difficulty]`; `lessonField()` optionally substitutes `lessonZh` based on the selected translation language. There is no independent course-specific Chinese lesson catalogue.
+- The global learning-course selector already stores `en` or `zh`, but `applyLearningCourseAvailability()` deliberately hides the permanent lesson library for Chinese and displays the Chinese-unavailable notice.
+- Current lesson reader renders text fields and practice directly. It has no structured, authored pinyin pairing for a separate Chinese course. The new Chinese course needs explicit pinyin fields and a renderer that pairs every taught Chinese item/sentence with its pinyin underneath.
+- Translation refresh currently re-renders the English lesson catalogue/reader using `lessonZh`; new Chinese lesson rendering must retain English support even when the selected translation language is Chinese and must preserve selected answers/practice state on refresh.
+
+### Progress, content catalogue and allowance architecture
+
+- Current `public.lesson_progress` is keyed by user, difficulty and lesson ID; it has no course/language column. Its uniqueness constraint therefore cannot safely represent the same lesson ID across English and Chinese without a migration.
+- `public.lesson_practice_results` likewise has no language column; the current one-per-lesson unique index is keyed by user, difficulty and lesson ID.
+- `private.learning_content_catalog.language_code` is constrained to `en`. The lesson-start guard and the permanent-lesson completion/replay RPCs explicitly validate `en`.
+- Lesson completion trigger writes `learning_activity_log.language_code = 'en'` regardless of course.
+- Recommended additive database design: add `language_code` (default `en`, allowed `en`/`zh`) to progress and practice-result rows; replace uniqueness with user + language + difficulty + lesson ID; allow `zh` permanent lesson catalogue rows; validate the row's language in start/completion/replay paths; and write the correct language to the activity log. Preserve existing English rows as `en`. Keep existing English RPC signatures working or provide safe compatibility wrappers while the frontend transitions.
+- Current lesson completion allowance is stored as one `lesson` activity type and counted by activity type, not by language. Existing Free 5 / Premium 15 permanent-lesson daily limits can therefore remain a shared allowance across both courses without changing the existing policy. Confirm with the owner before altering this behavior; no allowance expansion is assumed.
+- Existing learning-history deletion deletes progress and practice rows by user ID, so adding a language column does not require a separate deletion path. Re-test deletion behavior after migration.
+- Do not apply any migration to staging or production during this phase.
+
+### Test and release baseline
+
+- Existing automated checks include the U2.3 frontend/content checker, Chromium browser smoke tests, PostgreSQL allowance/catalogue tests, Quiz/Flashcard tests and U2.6 ACL tests.
+- The inspected latest main-branch CI workflow jobs completed successfully (build/deploy, Chromium smoke, PostgreSQL allowance and ACL checks, local Supabase Auth compatibility, Quiz and Flashcards).
+- There is no dedicated Chinese permanent-lessons test suite yet. U2.7 must add static content/pinyin checks, database language-isolation and allowance tests, and browser tests for Chinese course navigation, bilingual content, pinyin placement, answer shuffling, translation refresh and independent progress.
+- Third-party source licensing/provenance for new Chinese definitions, examples, idioms, quotations and poetry remains to be reviewed before release.
