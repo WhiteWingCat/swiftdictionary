@@ -2845,3 +2845,25 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 - Account deletion remains owner-confirmed passed on Singapore staging; not a production test.
 - No manual production deployment, Tokyo production database migration, ACL change or Edge Function deployment was performed. Merging may cause Cloudflare Pages to automatically build/deploy if the configured production branch is `main`; that platform-side deployment status was not independently verified here.
 - Production ACL remediation remains a separate task and is not approved for execution. Formal legal/privacy review remains deferred, not cleared; Terms placeholder remains non-binding and unpublished.
+
+
+## Update 2.7.0 — planning finalized and development prepared (2026-11-21)
+
+**Status: planning finalized; application development prepared, Phase 0 audit not yet started.**
+
+- Scope: Chinese Dictionary Expansion & Chinese course lessons, following the roadmap and the completed U2.6.0 merge.
+- Application baseline: `main` at `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- Application feature branch created from main: `feature/update-2-7-0-chinese-dictionary-lessons`.
+- Full approved scope, phased implementation sequence, QA gates and legal/content-risk checklist: [Update 2.7.0 Development Plan](UPDATE-2.7.0-DEVELOPMENT-PLAN.md).
+- Dated session archive: [2026-11-21 planning finalization](conversation-archive/2026-11-21-update-2-7-0-planning-finalization.md).
+- Owner-approved dictionary work: initial target at least 500–700 new unique characters with no hard cap if quality permits; replace the ineffective Chinese filter with Pinyin A–Z and multi-category filters; allow combined filtering; preserve one character per grid card and existing search.
+- Permanent visual invariant: Chinese character above, pinyin directly underneath; never pinyin to the left, right or above. Apply and test across desktop/mobile responsive layouts.
+- Owner-approved Chinese Lessons work: reuse existing lesson architecture; Beginner/Intermediate/Advanced; minimum 15 permanent lessons and 52 practice questions; English support always available; pinyin throughout; English-to-Chinese practice and English/Chinese structural comparisons; grammar, vocabulary, expressions, idioms, proverbs, verified quotations and selected poetry.
+- No timer. Preserve existing translation refresh, answer state, progress, completion, allowance, account isolation and sync behavior. Prepare reusable content for U2.8.0.
+- Legal/privacy review remains deferred, not cleared. Review Malaysia and general international risks and all dictionary/quote/poetry/translation licensing; do not claim legal compliance.
+- Initial source retrieval limitation: GitHub connector fetches of `index.html` returned empty content, including line-range requests. This does not mean the file is empty. The main-branch README also appears stale (2.2.0); inspect actual application source through an alternate workflow during Phase 0.
+- No application files, database, production settings or deployment were changed during planning preparation.
+
+### Next recovery step
+
+Start Phase 0 only: retrieve and audit the current app source, dictionary catalogue/data structure and counts, filter implementation, lesson architecture, translation refresh path, allowance/progress integration, tests, CI and third-party notices. Do not bulk-add content or author the lesson library until this audit is complete. Keep implementation on the feature branch and internal documentation on this branch.
