@@ -52,8 +52,8 @@ test("polyphonic characters are discoverable under each pinyin initial", async (
   await page.locator("#courseSelect").selectOption("zh");
 
   await page.locator("#alphabet button[data-letter='H']").click();
-  await expect(page.locator(".word-card .word-name")).toContainText("会");
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "会" })).toHaveCount(1);
 
   await page.locator("#alphabet button[data-letter='K']").click();
-  await expect(page.locator(".word-card .word-name")).toContainText("会");
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "会" })).toHaveCount(1);
 });
