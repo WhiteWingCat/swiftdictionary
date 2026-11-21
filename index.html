@@ -20074,15 +20074,12 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       });
     }
     document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
-document.getElementById("courseSelect").addEventListener("change",async()=>{
+    document.getElementById("courseSelect").addEventListener("change",async()=>{
       const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
       ls.topic="all";
       if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
       applyLearningCourseAvailability();
       try{await initialiseLessons();}catch(error){el("lessonStatus").textContent=error.message||"Could not refresh lesson progress.";}
-      if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
-    });
-      applyLearningCourseAvailability();
       if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
     });
 
