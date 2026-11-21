@@ -83,3 +83,20 @@ Do not claim every workflow is green until the remaining local Auth/ACL/Quiz int
 - Owner has already tested the previous staging preview; the new UI preview is available for visual review.
 - Continue to hold further Chinese dictionary/content expansion while the owner reviews the shared Lessons UI. Existing Chinese foundation and course-specific progress remain in place.
 - After UI acceptance, resume the remaining U2.7.0 QA/content review and separately request approval for PR readiness/merge and any production rollout.
+
+
+
+
+## Final CI completion (2026-11-21)
+
+All relevant latest-head PR workflows completed successfully:
+- U2.7.0 dictionary, Chinese Lessons, new UI static/accessibility and browser regression suite: #44886855621 — success.
+- Update 2.3.x PostgreSQL 17 migration/allowance, Supabase CLI Auth compatibility and Chromium browser regression: #44886855634 — all jobs success.
+- Update 2.5.0 Flashcards: #44886855618 — all jobs success.
+- Update 2.6.0 ACL regression: #44886855686 — success.
+- Quiz database foundation and local Supabase Auth/RPC/Chromium integration, including signed-out Flashcards/Preferences and permanent Lessons allowance notification regressions: #44886855646 — all jobs success.
+- Cloudflare build-routing guard: #44886855624 — success.
+
+The earlier failures were regression expectations that still assumed the previous layout/cache version; those assertions were updated to match the intended redesigned UI. The corrected latest-head suite is green.
+
+PR #14 body was updated with the completed CI run IDs and latest Pages preview URLs. PR remains draft/open/unmerged. Production remains untouched. The only outstanding owner-facing step is optional visual acceptance of the new preview; no code, GitHub, or Supabase manual operation is required from the owner.
