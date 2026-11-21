@@ -153,3 +153,10 @@ Begin with Phase 0 only. Do not begin bulk data entry or lesson authoring until 
 
 ### Phase 0 conclusion
 The application source is now accessible and the current baseline is sufficiently understood to design Phase 1. The key technical dependency is a language-aware but backward-compatible Lessons progress/catalogue layer. The Chinese Dictionary grid must remain character-only; the new A–Z and category filters operate on metadata without changing card presentation. The Chinese Lessons reader needs an explicit pinyin-aligned rendering model.
+
+
+### Preliminary open-data source and Malaysia copyright note
+
+- CC-CEDICT is a candidate source for single-character pinyin and English glosses, not yet approved or ingested. Its official project download page identifies the data as CC BY-SA 4.0 and states that commercial and non-commercial reuse is allowed subject to attribution and ShareAlike. If adopted, retain source/version attribution, link the licence, mark modifications, and distribute adapted CC-CEDICT data under CC BY-SA 4.0. Keep that dataset clearly separable from original SwiftDictionary lesson content; do not impose access restrictions on the licensed dictionary-derived data. Sources: https://cc-cedict.org/editor/editor.php?handler=Download and https://creativecommons.org/licenses/by-sa/4.0/.
+- The MyIPO-hosted updated text of Malaysia's Copyright Act 1987 (Act 332), stated as at 30 June 2022, includes dictionaries among literary works and addresses derivative works including translations/adaptations and qualifying compilations of data through selection/arrangement. This is a relevant risk flag for copied dictionary text, translations and curated compilations, not a legal determination. Verify the latest law and actual licensing implications before release: https://www.myipo.gov.my/wp-content/uploads/2025/09/Copyright-Act-1987-Act-332.pdf.
+- CC-CEDICT's licence does not automatically clear the existing 206 entries or any other source. Track provenance per imported/adapted field and do not assume character facts, pinyin readings, example sentences and explanatory definitions all have identical copyright status.
