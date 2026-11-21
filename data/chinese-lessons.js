@@ -4257,32 +4257,173 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "mistakes": [
         {
-          "zh": "麻烦你了，谢谢。",
-          "pinyin": "má fan nǐ le, xiè xie.",
-          "en": "Sorry to trouble you; thank you."
+          "zh": "不要把不客气用作回应道歉；没关系更自然。",
+          "pinyin": "bú yào bǎ bú kè qi yòng zuò huí yìng dào qiàn; méi guān xi gèng zì rán.",
+          "en": "Do not use 不客气 to respond to an apology; 没关系 is more natural."
         },
         {
-          "zh": "这次真的辛苦你了。",
-          "pinyin": "zhè cì zhēn de xīn kǔ nǐ le.",
-          "en": "I really appreciate all your effort this time."
-        },
-        {
-          "zh": "李白在《静夜思》中写道：“床前明月光，疑是地上霜。”",
-          "pinyin": "Lǐ Bái zài 《Jìng Yè Sī》 zhōng xiě dào: “chuáng qián míng yuè guāng, yí shì dì shàng shuāng.”",
-          "en": "Li Bai wrote: “Before my bed, the bright moonlight; I suspect it is frost on the ground.”"
+          "zh": "引用诗词或名句时，不要自行改写原文却仍标成直接引文。",
+          "pinyin": "yǐn yòng shī cí huò míng jù shí, bú yào zì xíng gǎi xiě yuán wén què réng biāo chéng zhí jiē yǐn wén.",
+          "en": "Do not alter a poem or quotation and still present it as a direct quote."
         }
       ],
       "practices": [
-        [
-          "不要把不客气用作回应道歉；没关系更自然。",
-          "bú yào bǎ bú kè qi yòng zuò huí yìng dào qiàn; méi guān xi gèng zì rán.",
-          "Do not use 不客气 to respond to an apology; 没关系 is more natural."
-        ],
-        [
-          "引用诗词或名句时，不要自行改写原文却仍标成直接引文。",
-          "yǐn yòng shī cí huò míng jù shí, bú yào zì xíng gǎi xiě yuán wén què réng biāo chéng zhí jiē yǐn wén.",
-          "Do not alter a poem or quotation and still present it as a direct quote."
-        ]
+        {
+          "q": "Which expression naturally responds to an apology?",
+          "options": [
+            {
+              "zh": "没关系",
+              "pinyin": "méi guān xi",
+              "en": "That's okay; no problem"
+            },
+            {
+              "zh": "不客气",
+              "pinyin": "bú kè qi",
+              "en": "You're welcome"
+            },
+            {
+              "zh": "辛苦了",
+              "pinyin": "xīn kǔ le",
+              "en": "Thanks for your hard work"
+            },
+            {
+              "zh": "再见",
+              "pinyin": "zài jiàn",
+              "en": "Goodbye"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression acknowledges someone's effort?",
+          "options": [
+            {
+              "zh": "辛苦了",
+              "pinyin": "xīn kǔ le",
+              "en": "Thanks for your hard work"
+            },
+            {
+              "zh": "没关系",
+              "pinyin": "méi guān xi",
+              "en": "No problem"
+            },
+            {
+              "zh": "请问",
+              "pinyin": "qǐng wèn",
+              "en": "May I ask"
+            },
+            {
+              "zh": "晚安",
+              "pinyin": "wǎn ān",
+              "en": "Good night"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which poem contains the line 床前明月光，疑是地上霜？",
+          "options": [
+            {
+              "zh": "静夜思",
+              "pinyin": "Jìng Yè Sī",
+              "en": "Quiet Night Thought"
+            },
+            {
+              "zh": "春晓",
+              "pinyin": "Chūn Xiǎo",
+              "en": "Spring Dawn"
+            },
+            {
+              "zh": "登鹳雀楼",
+              "pinyin": "Dēng Guàn Què Lóu",
+              "en": "Ascending Stork Tower"
+            },
+            {
+              "zh": "悯农",
+              "pinyin": "Mǐn Nóng",
+              "en": "Sympathy for Peasants"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Who wrote the Tang-dynasty poem 静夜思?",
+          "options": [
+            {
+              "zh": "李白",
+              "pinyin": "Lǐ Bái",
+              "en": "Li Bai"
+            },
+            {
+              "zh": "杜甫",
+              "pinyin": "Dù Fǔ",
+              "en": "Du Fu"
+            },
+            {
+              "zh": "白居易",
+              "pinyin": "Bái Jū Yì",
+              "en": "Bai Juyi"
+            },
+            {
+              "zh": "王维",
+              "pinyin": "Wáng Wéi",
+              "en": "Wang Wei"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What does the opening couplet of 静夜思 compare?",
+          "options": [
+            {
+              "zh": "Moonlight to frost",
+              "pinyin": "yuè guāng hé shuāng",
+              "en": "Moonlight and frost"
+            },
+            {
+              "zh": "Rain to snow",
+              "pinyin": "yǔ hé xuě",
+              "en": "Rain and snow"
+            },
+            {
+              "zh": "A river to a mountain",
+              "pinyin": "hé hé shān",
+              "en": "A river and a mountain"
+            },
+            {
+              "zh": "A flower to a bird",
+              "pinyin": "huā hé niǎo",
+              "en": "A flower and a bird"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which classical saying is from Xunzi's Encouraging Learning and stresses gradual accumulation?",
+          "options": [
+            {
+              "zh": "不积跬步，无以至千里",
+              "pinyin": "bù jī kuǐ bù, wú yǐ zhì qiān lǐ",
+              "en": "Without small steps, one cannot travel a thousand miles"
+            },
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "Add feet to a snake"
+            },
+            {
+              "zh": "入乡随俗",
+              "pinyin": "rù xiāng suí sú",
+              "en": "Follow local customs"
+            },
+            {
+              "zh": "一举两得",
+              "pinyin": "yì jǔ liǎng dé",
+              "en": "Achieve two things at once"
+            }
+          ],
+          "answer": 0
+        }
       ]
     }
   ]
