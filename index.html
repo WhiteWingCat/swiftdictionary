@@ -764,6 +764,7 @@
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script src="supabase-config.js"></script>
   <script src="mock-testing.js"></script>
+  <script src="data/chinese-characters.js"></script>
   <script>
     // Starter vocabulary. Add more entries by following this same object structure.
     const englishWords = [
@@ -17694,7 +17695,8 @@
     "breakdown": "上下结构。注意“背”有 bèi、bēi 两种常见读音，句中“背着书包”读 bēi。",
     "related": "后背 hòubèi；背包 bēibāo；背诵 bèisòng",
     "course": "zh"
-  }
+  },
+  ...(window.SWIFT_CHINESE_WORDS || [])
 ];
     const preferenceStorageKey = "swiftdictionary-course-preferences";
     let storedCoursePreferences = {};
