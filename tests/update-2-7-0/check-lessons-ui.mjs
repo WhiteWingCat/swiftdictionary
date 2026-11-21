@@ -18,7 +18,7 @@ assert(daily.includes("function setDailyPreferenceStatus"));
 assert(daily.includes('byId("dailyPreferencesStatus")'));
 const permanent=html.slice(l0,l1);
 for(const id of ['class="difficulty-tabs"','id="lessonAllowance"','id="lessonCards"'])assert(permanent.includes(id));
-assert(html.includes("lessons-ui.css?v=2.7.0-ui3")); assert(html.includes('class="lesson-key-point"'));
+assert(html.includes("lessons-ui.css?v=2.7.0-ui3")); assert(html.includes('class="lesson-key-point lesson-expandable-item"'));
 for(const key of ["daily_topic","daily_application","daily_discovery","daily_revision"])assert(css.includes('.daily-activity-tab[data-daily-tab="'+key+'"]'));
 assert(css.includes("border-bottom-color:var(--daily-theme-bg)")); assert(css.includes("grid-template-columns:repeat(4,minmax(0,1fr))")); assert(css.includes("overflow:visible!important")); assert(css.includes("width:50vw")); assert(css.includes("max-width:1320px"));
 assert(css.includes("overflow:hidden")); assert(css.includes("min-inline-size:0"));
