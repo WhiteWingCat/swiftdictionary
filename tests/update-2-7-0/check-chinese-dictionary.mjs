@@ -68,6 +68,8 @@ for (const [label, source] of [["public data-sources page", sourcesPage], ["repo
   assert.ok(source.includes("CC BY-SA 4.0"), label + " must attribute CC-CEDICT and its share-alike licence.");
   assert.ok(source.includes("Unicode License v3"), label + " must include the Unicode Unihan licence notice.");
   assert.ok(source.includes("Pleco Inc."), label + " must include the HSK 3.0 source attribution.");
+  assert.ok(source.includes("mozillazg") && source.includes("Copyright (c) 2016"), label + " must include the pinyin-data MIT attribution.");
+  assert.ok(source.includes("Copyright © 2021-2026 Unicode, Inc."), label + " must include the Unihan copyright notice.");
 }
 assert.ok(html.includes("function chinesePinyinInitials(item)"), "Pinyin initial extraction helper is missing.");
 assert.ok(html.includes("chinesePinyinInitials(item).includes(activeLetter)"), "Chinese pinyin initial filtering is not wired into the result filter.");
