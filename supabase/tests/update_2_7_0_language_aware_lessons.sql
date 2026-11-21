@@ -296,7 +296,7 @@ begin
   begin
     insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
     values (auth.uid(),'fr','beginner','unsupported-language-test','in_progress');
-  exception when check_violation then
+  exception when invalid_parameter_value or check_violation then
     v_failed := true;
   end;
   if not v_failed then
