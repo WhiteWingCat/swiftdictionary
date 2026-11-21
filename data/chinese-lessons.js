@@ -804,22 +804,22 @@ window.SWIFT_CHINESE_LESSONS = {
           "q": "What is the usual Chinese date order?",
           "options": [
             {
-              "zh": "Year, month, day",
+              "zh": "年、月、日",
               "pinyin": "nián, yuè, rì",
               "en": "Year, month, day"
             },
             {
-              "zh": "Month, day, year",
+              "zh": "月、日、年",
               "pinyin": "yuè, rì, nián",
               "en": "Month, day, year"
             },
             {
-              "zh": "Day, month, year",
+              "zh": "日、月、年",
               "pinyin": "rì, yuè, nián",
               "en": "Day, month, year"
             },
             {
-              "zh": "Year, day, month",
+              "zh": "年、日、月",
               "pinyin": "nián, rì, yuè",
               "en": "Year, day, month"
             }
@@ -2434,23 +2434,23 @@ window.SWIFT_CHINESE_LESSONS = {
           "q": "Where does 明天 usually appear in 我明天去学校?",
           "options": [
             {
-              "zh": "Before the main verb 去",
-              "pinyin": "zài dòng cí qù zhī qián",
+              "zh": "在主要动词之前",
+              "pinyin": "zài zhǔ yào dòng cí zhī qián",
               "en": "Before the main verb"
             },
             {
-              "zh": "After 学校",
-              "pinyin": "xué xiào zhī hòu",
-              "en": "After the destination"
+              "zh": "在学校之后",
+              "pinyin": "zài xué xiào zhī hòu",
+              "en": "After the school"
             },
             {
-              "zh": "Between 去 and 学校",
-              "pinyin": "qù hé xué xiào zhī jiān",
-              "en": "Between verb and destination"
+              "zh": "在动词和地点之间",
+              "pinyin": "zài dòng cí hé dì diǎn zhī jiān",
+              "en": "Between the verb and place"
             },
             {
-              "zh": "At the end only",
-              "pinyin": "jù zi mò wěi",
+              "zh": "只放在句末",
+              "pinyin": "zhǐ fàng zài jù mò",
               "en": "Only at the end"
             }
           ],
@@ -3234,23 +3234,23 @@ window.SWIFT_CHINESE_LESSONS = {
           "q": "What is the main function of 被 in a 被 sentence?",
           "options": [
             {
-              "zh": "To mark a passive construction",
-              "pinyin": "bèi",
+              "zh": "表示被动",
+              "pinyin": "biǎo shì bèi dòng",
               "en": "To mark that the subject receives an action"
             },
             {
-              "zh": "To mark possession",
-              "pinyin": "de",
+              "zh": "表示所属",
+              "pinyin": "biǎo shì suǒ shǔ",
               "en": "To mark possession"
             },
             {
-              "zh": "To form a yes/no question",
-              "pinyin": "ma",
+              "zh": "构成是非问句",
+              "pinyin": "gòu chéng shì fēi wèn jù",
               "en": "To form a yes/no question"
             },
             {
-              "zh": "To mark a comparison",
-              "pinyin": "bǐ",
+              "zh": "表示比较",
+              "pinyin": "biǎo shì bǐ jiào",
               "en": "To mark a comparison"
             }
           ],
@@ -3844,23 +3844,23 @@ window.SWIFT_CHINESE_LESSONS = {
           "q": "What is a key difference between 成语 and 谚语?",
           "options": [
             {
-              "zh": "成语 are fixed idiomatic expressions; 谚语 are folk sayings or proverbs",
-              "pinyin": "chéng yǔ hé yàn yǔ",
+              "zh": "成语是固定的惯用表达；谚语是民间格言或俗语",
+              "pinyin": "chéng yǔ shì gù dìng de guàn yòng biǎo dá; yàn yǔ shì mín jiān gé yán huò sú yǔ",
               "en": "Idioms are fixed expressions; proverbs express folk wisdom"
             },
             {
-              "zh": "They are exactly the same category",
-              "pinyin": "tā men wán quán xiāng tóng",
+              "zh": "两者完全相同",
+              "pinyin": "liǎng zhě wán quán xiāng tóng",
               "en": "They are identical"
             },
             {
-              "zh": "成语 are always modern slang",
-              "pinyin": "chéng yǔ",
+              "zh": "成语都是现代俚语",
+              "pinyin": "chéng yǔ dōu shì xiàn dài lǐ yǔ",
               "en": "Idioms are always modern slang"
             },
             {
-              "zh": "谚语 are always four characters",
-              "pinyin": "yàn yǔ",
+              "zh": "谚语都只有四个字",
+              "pinyin": "yàn yǔ dōu zhǐ yǒu sì ge zì",
               "en": "Proverbs are always four characters"
             }
           ],
@@ -4376,22 +4376,22 @@ window.SWIFT_CHINESE_LESSONS = {
           "q": "What does the opening couplet of 静夜思 compare?",
           "options": [
             {
-              "zh": "Moonlight to frost",
+              "zh": "月光和霜",
               "pinyin": "yuè guāng hé shuāng",
               "en": "Moonlight and frost"
             },
             {
-              "zh": "Rain to snow",
+              "zh": "雨和雪",
               "pinyin": "yǔ hé xuě",
               "en": "Rain and snow"
             },
             {
-              "zh": "A river to a mountain",
+              "zh": "河和山",
               "pinyin": "hé hé shān",
               "en": "A river and a mountain"
             },
             {
-              "zh": "A flower to a bird",
+              "zh": "花和鸟",
               "pinyin": "huā hé niǎo",
               "en": "A flower and a bird"
             }
