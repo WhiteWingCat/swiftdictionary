@@ -5891,13 +5891,13 @@ window.SWIFT_CHINESE_WORDS = [
   {
     "word": "喂",
     "part": "汉语词汇",
-    "phonetic": "wèi / wéi",
+    "phonetic": "wèi",
     "definition": "hey; hello (phone); to feed; give food to",
     "definitionZh": "喂食、饲养；也可作招呼语，或用于接电话时说“喂”。",
     "examples": [
       "我每天喂猫吃饭。"
     ],
-    "breakdown": "多音字；表示喂食或电话招呼时常读 wèi，口语招呼也可读 wéi。",
+    "breakdown": "读 wèi，既可作招呼语，也可表示喂养。",
     "related": "喂养 wèi yǎng；喂食 wèi shí",
     "categories": [
       "actions",
@@ -10404,7 +10404,7 @@ window.SWIFT_CHINESE_WORDS = [
       "请在这里等待。"
     ],
     "breakdown": "注意读音随词语变化：“等待”读 dài，“待在家”读 dāi。",
-    "related": "等待 děng dài；待在家 dài zài jiā",
+    "related": "等待 děng dài；待在家 dāi zài jiā",
     "categories": [
       "actions",
       "time-numbers"
