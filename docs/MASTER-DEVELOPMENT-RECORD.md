@@ -2858,10 +2858,10 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 - Dated session archive: [2026-11-21 planning finalization](conversation-archive/2026-11-21-update-2-7-0-planning-finalization.md).
 - Owner-approved dictionary work: initial target at least 500–700 new unique characters with no hard cap if quality permits; replace the ineffective Chinese filter with Pinyin A–Z and multi-category filters; allow combined filtering; preserve one character per grid card and existing search.
 - Permanent Chinese Lessons visual invariant: when Chinese lesson content displays pinyin, place it directly below the corresponding Chinese character/text; never above or beside it. **Do not add pinyin to Chinese Dictionary grid cards**; preserve their existing character-only presentation.
-- Owner-approved Chinese Lessons work: reuse existing lesson architecture; Beginner/Intermediate/Advanced; minimum 15 permanent lessons and 52 practice questions; English support always available; pinyin throughout; English-to-Chinese practice and English/Chinese structural comparisons; grammar, vocabulary, expressions, idioms, proverbs, verified quotations and selected poetry.
+- Owner-approved Chinese Lessons work: reuse existing lesson architecture; Beginner/Intermediate/Advanced; minimum 17 permanent lessons and 112 practice questions, matching the actual English library (7/5/5 lessons and 44/34/34 questions by difficulty); English support always available; pinyin throughout; English-to-Chinese practice and English/Chinese structural comparisons; grammar, vocabulary, expressions, idioms, proverbs, verified quotations and selected poetry.
 - No timer. Preserve existing translation refresh, answer state, progress, completion, allowance, account isolation and sync behavior. Prepare reusable content for U2.8.0.
 - Legal/privacy review remains deferred, not cleared. Review Malaysia and general international risks and all dictionary/quote/poetry/translation licensing; do not claim legal compliance.
-- Initial source retrieval limitation: GitHub connector fetches of `index.html` returned empty content, including line-range requests. This does not mean the file is empty. The main-branch README also appears stale (2.2.0); inspect actual application source through an alternate workflow during Phase 0.
+- Initial source retrieval limitation was resolved during Phase 0 by retrieving the actual Git blob for `index.html`; the older README is stale and was not used as the implementation specification.
 - No application files, database, production settings or deployment were changed during planning preparation.
 
 ### Next recovery step
@@ -2869,3 +2869,21 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 Start Phase 0: retrieve and audit the current app source, dictionary catalogue/data structure and counts, filter implementation, lesson architecture, translation refresh path, allowance/progress integration, tests, CI and third-party notices. Do not bulk-add content or author the lesson library until this audit is complete. Keep implementation on the feature branch and internal documentation on this branch.
 
 Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid cards. The character-above-pinyin layout requirement applies to Chinese Lessons only.
+
+
+### Update 2.7.0 — Phase 0 baseline audit completed (2026-11-21)
+
+- Audited application source on `main` at `ba580c3f43e8b34f79205b69ae9f858186759036`; actual `index.html` Git blob was retrieved and inspected. Earlier empty file-content responses were a connector limitation, not an empty source file.
+- Current Chinese dictionary: 206 unique single-character entries, all with pinyin; 12 polyphonic entries (221 listed readings); no multi-character grid entries; no category metadata. Existing broad `part` values are `汉语词汇` (187) and `汉字` (19), not useful learning categories.
+- Chinese A–Z filter is currently hidden/disabled, and the existing English part-of-speech category row is hidden for Chinese. Character and pinyin search already work.
+- Owner correction: keep Dictionary grid cards character-only; do not add pinyin to grid cards. The vertical character-above-pinyin layout rule applies specifically to Chinese Lessons.
+- Current English Lessons baseline: 17 lessons and 112 questions — Beginner 7/44, Intermediate 5/34, Advanced 5/34. Existing `lessonZh` contains translations of those English lessons, not a Chinese-language course. U2.7.0 Chinese Lessons target is therefore at least 17 lessons/112 questions.
+- Current lesson reader has no pinyin rendering. New Chinese course needs its own lesson dataset and pinyin-aligned reader; use authored phrase/sentence-level pinyin to handle polyphonic characters and context-dependent readings.
+- Supabase `lesson_progress` and `lesson_practice_results` have no learning-language identity; unique keys and catalogue validation assume English. The private content catalogue check permits only `en`, and completion/replay functions hardcode English. A backward-compatible additive migration is required to support Chinese course identity while preserving legacy rows as English.
+- Existing completion quota counts by user and activity type across language codes; keep the same shared lesson allowance rather than creating a separate Chinese quota. Preserve atomic completion, authenticated RPCs, RLS and personal testing exemption.
+- Existing tests include static checks, Playwright Chromium, PostgreSQL 17 and disposable local Supabase Auth/RPC integration. Dedicated Chinese dictionary filter and Chinese lesson tests must be added.
+- Third-party notices identify Hanzi Writer 3.7.3 (MIT) and Hanzi Writer stroke data (Arphic Public License). Current dictionary entries lack per-entry source/provenance metadata; content sourcing and licensing must be recorded before release.
+- Detailed findings and scope are in [Update 2.7.0 Development Plan](UPDATE-2.7.0-DEVELOPMENT-PLAN.md), Section 9.
+- No application code, hosted Supabase schema, production settings or deployment changed during Phase 0.
+
+**Next step:** proceed to Phase 1 design and implementation on `feature/update-2-7-0-chinese-dictionary-lessons`. Add a dedicated Chinese filter UI/state while preserving character-only cards, then design the additive language-aware Lessons migration and pinyin-aware reader. Any SQL migration remains local/CI-only until explicitly approved for hosted environments.
