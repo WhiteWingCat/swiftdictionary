@@ -3026,3 +3026,17 @@ Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, espe
 - Cloudflare Pages bot started a preview build for `ff4c1c4`; latest observed status was in progress with no preview URL yet. A separate older Cloudflare Workers build on `e7d911f` failed; it is not evidence of the current Pages preview result. Cloudflare build-routing guard passed on the initial head and reran on the updated head.
 - No production migration, deployment, OAuth/configuration change, or merge occurred.
 - Detailed archive: [U2.7.0 Singapore staging migration and preview](conversation-archive/2026-11-21-update-2-7-0-singapore-staging-migration-and-preview.md).
+
+
+
+
+### U2.7.0 Pages deployment and CI follow-up (2026-11-21)
+
+- Cloudflare Pages deployed application head `ff4c1c4` successfully:
+  - https://06110066.swiftdictionary.pages.dev
+  - https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev
+- CI passes: Cloudflare build-routing guard #44882082871; U2.7.0 Chinese dictionary and Lessons suite #44882082850; Update 2.3.x migration/Auth/Chromium suite #44882082837; Update 2.5.0 Flashcards #44882082822; Update 2.6.0 ACL drift regression #44882082838.
+- Quiz database foundation job in run #44882082923 passed; its Local Supabase Auth/RPC integration job was still running authenticated Chromium Quiz runtime tests at the latest check. Do not claim the entire run passed until it completes.
+- The separate Cloudflare Workers build for the retired `swiftdictionary-testing` Worker failed; this is distinct from the successful active Pages preview.
+- The Pages private build log could not be inspected through available connected tools. Keep the staging-backend routing check in the final preview verification before signing in.
+- Updated detailed archive: [U2.7.0 Singapore staging migration and preview](conversation-archive/2026-11-21-update-2-7-0-singapore-staging-migration-and-preview.md).
