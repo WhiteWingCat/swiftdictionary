@@ -122,3 +122,14 @@ No production data, schema, grants, OAuth configuration, Edge Function, Cloudfla
 - Other checks on this head: Cloudflare build routing guard, Flashcards tests and 2.3.x allowance/dashboard tests passed. Quiz database/Auth integration remained in progress at the time of writing.
 - CI used disposable local services only. No Singapore staging or Tokyo production database changes occurred. The production ACL rollout remains a separate, unapproved operation.
 - Formal legal/privacy review remains deferred, not cleared. The Terms placeholder remains non-binding and unpublished.
+
+
+## 2026-11-21 follow-up — PR #13 merged to main
+
+- Owner approved merging PR #13 after the final CI checks passed.
+- PR #13 was marked ready and squash-merged on 2026-11-21 at 02:20:20 UTC. Merge commit: `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- GitHub verification confirms PR #13 is closed/merged and `main` points to that merge commit.
+- All latest-head pull-request workflows passed: Cloudflare build-routing guard, Update 2.3.x allowance/dashboard tests, Quiz database/Auth/RPC integration, Update 2.5.0 Flashcards checks, and Update 2.6.0 ACL/static regression. The local Supabase security advisor reported no issues.
+- Account deletion was owner-confirmed working on Singapore staging. This is not a production test.
+- No manual production deployment, Tokyo production database migration, ACL change or production Edge Function deployment was performed. A merge may trigger Cloudflare Pages auto-deployment if `main` is configured as the production branch; this platform-side status was not verified.
+- Production ACL remediation remains separate and unapproved. Formal legal/privacy review remains deferred, not cleared; the Terms placeholder remains non-binding and unpublished.
