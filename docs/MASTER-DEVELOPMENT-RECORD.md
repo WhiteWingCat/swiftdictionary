@@ -2953,3 +2953,13 @@ Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid c
 ### U2.7.0 legal/privacy review note (2026-11-21)
 
 A current Malaysia PDPA and general international risk check was added to [the U2.7.0 Development Plan](UPDATE-2.7.0-DEVELOPMENT-PLAN.md), Section 12. It covers the phased 2024 PDPA amendments, DPO thresholds (including regular/systematic monitoring), 72-hour breach notification guidance, data portability, 13-class registration, cross-border transfers for the existing Singapore/Tokyo service regions, 16+ audience considerations under GDPR/UK Children's Code, and dictionary/poetry licensing. U2.7.0 adds only a course-language dimension to existing user-linked progress; no new identity fields, sensitive data or telemetry were added. This is risk planning only; formal legal review remains deferred and no legal clearance is claimed.
+
+
+### Update 2.7.0 — local Supabase integration and security checks passed (2026-11-21)
+
+- Current application feature branch head: `c0d986a31b2905639c5ddd28b59e63d4c217edf2`.
+- Quiz database foundation workflow #44876788818 and companion local Supabase Auth/RPC integration both passed against the current branch.
+- The companion job applied the U2.7.0 language-aware lesson migration to an ephemeral local Supabase instance only; Auth contract and SQL regression passed.
+- Authenticated Chromium regression results: Quiz runtime 12 passed, Flashcards 3 passed, Lessons/Daily Learning allowance 2 passed.
+- Supabase security advisors reported “No issues found.”
+- This was local CI only. No migration was applied to hosted Singapore staging or Tokyo production; no merge or deployment occurred.
