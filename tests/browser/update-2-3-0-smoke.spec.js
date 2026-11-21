@@ -113,17 +113,18 @@ test("Chinese course completion stores progress separately from English", async 
   await installDailyLearningMock(page, userId);
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe(userId);
-  await page.evaluate(id => {
-    window.__swiftDailyMock.tables.lesson_progress = [{
-      user_id:id, learning_language:"en", difficulty:"beginner",
-      lesson_id:"zh-b-pinyin-foundations", status:"in_progress",
-      started_at:new Date().toISOString(), completed_at:null, updated_at:new Date().toISOString()
-    }];
-  }, userId);
   await page.locator("#courseSelect").selectOption("zh");
   await page.locator('[data-page="lessons"]').click();
   await page.locator("#lessonCards .lesson-card").first().click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  // Insert the English row after the mock has returned the newly inserted zh row.
+  await page.evaluate(id => {
+    window.__swiftDailyMock.tables.lesson_progress.push({
+      user_id:id, learning_language:"en", difficulty:"beginner",
+      lesson_id:"zh-b-pinyin-foundations", status:"in_progress",
+      started_at:new Date().toISOString(), completed_at:null, updated_at:new Date().toISOString()
+    });
+  }, userId);
   const answers = await page.evaluate(() => {
     const item = window.SWIFT_CHINESE_LESSONS.beginner.find(x => x.id === "zh-b-pinyin-foundations");
     return item.practices.map(q => ({zh:q.options[q.answer].zh,pinyin:q.options[q.answer].pinyin}));
