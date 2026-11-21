@@ -54,7 +54,12 @@ for (const [difficulty, rule] of Object.entries(expected)) {
     walk(lesson, lesson.id);
 
     for (const [index, question] of lesson.practices.entries()) {
-      assert.ok(typeof question.q === "string" && question.q.trim(), "Question prompt missing: " + lesson.id + "[" + index + "]");
+      if (typeof question.q === "string") {
+        assert.ok(question.q.trim(), "Question prompt missing: " + lesson.id + "[" + index + "]");
+        assert.ok(!han.test(question.q), "Chinese question prompt must include pinyin and English support: " + lesson.id + "[" + index + "]");
+      } else {
+        validateBilingual(question.q, lesson.id + ".practices[" + index + "].q");
+      }
       assert.ok(Array.isArray(question.options) && question.options.length === 4, "Every practice question needs four options: " + lesson.id + "[" + index + "]");
       assert.ok(Number.isInteger(question.answer) && question.answer >= 0 && question.answer < 4, "Invalid answer index: " + lesson.id + "[" + index + "]");
       question.options.forEach((option, optionIndex) => validateBilingual(option, lesson.id + ".practices[" + index + "].options[" + optionIndex + "]"));
