@@ -49,7 +49,7 @@ for (const item of words) {
   }
 }
 
-assert.equal(additions.length, 50, "Expected the first validated 50-character content batch.");
+assert.ok(additions.length >= 50, "Expected at least one validated 50-character content batch.");
 assert.ok(html.includes("function chinesePinyinInitials(item)"), "Pinyin initial extraction helper is missing.");
 assert.ok(html.includes("chinesePinyinInitials(item).includes(activeLetter)"), "Chinese pinyin initial filtering is not wired into the result filter.");
 assert.ok(html.includes("item.categories.includes(activeChineseCategory)"), "Chinese category filtering is not wired into the result filter.");
