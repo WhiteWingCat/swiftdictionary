@@ -420,7 +420,8 @@
       dailyLearningEyebrow: zh ? "每日练习" : "DAILY PRACTICE",
       dailyLearningHeading: zh ? "每日学习" : "Daily Learning",
       dailyLearningIntro: zh ? "通过个性化活动和全球共享的每日词汇，建立持续学习的习惯。" : "Build consistency with personalised activities and a shared daily dictionary word for everyone.",
-      dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities"
+      dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities",
+      dailyPreferencesHeading: zh ? "我的每日活动" : "My daily activities"
     };
     Object.entries(labels).forEach(([id,value]) => { const node=byId(id); if(node) node.textContent=value; });
     const names = {
