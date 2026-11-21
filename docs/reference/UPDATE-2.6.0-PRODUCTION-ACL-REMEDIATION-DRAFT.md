@@ -216,3 +216,12 @@ The disposable test environment reproduced the audited Singapore staging baselin
 Two earlier attempts exposed test-fixture modelling issues (fixture ordering and Supabase-local default grants); those were corrected. The final run passed. This is CI validation against a disposable local PostgreSQL 17/Supabase environment, not a hosted staging or production migration. No hosted database was changed. The production rollout remains a separate, unapproved task.
 
 The owner has explicitly approved merging PR #13 to main after remaining release checks pass. That approval does not authorize applying SQL to Tokyo production or manually deploying a production Edge Function/database change.
+
+
+## 2026-11-21 merge status — feature merged; production rollout still separate
+
+The feature-branch implementation and regression tests described above were merged into `main` through PR #13 on 2026-11-21. The PR passed the dedicated PostgreSQL 17 ACL regression and all associated release workflows before merge. Merge commit: `ba580c3f43e8b34f79205b69ae9f858186759036`.
+
+This does **not** authorize running the production ACL remediation. The migration is now part of the repository history, but no Tokyo production database migration, ACL mutation, sequence rename/drop, or Edge Function deployment was performed as part of the merge. The proposed production rollout remains a separate, unapproved operational change requiring its own backup, exact SQL review, controlled application, post-apply verification and owner approval. Do not treat a GitHub merge or a possible Cloudflare Pages auto-deployment as evidence that the hosted production database was migrated.
+
+The owner-confirmed Singapore staging account-deletion test remains a staging result only. Formal legal/privacy review remains deferred, not cleared; the Terms placeholder is non-binding and unpublished.
