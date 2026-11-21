@@ -2887,3 +2887,17 @@ Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid c
 - No application code, hosted Supabase schema, production settings or deployment changed during Phase 0.
 
 **Next step:** proceed to Phase 1 design and implementation on `feature/update-2-7-0-chinese-dictionary-lessons`. Add a dedicated Chinese filter UI/state while preserving character-only cards, then design the additive language-aware Lessons migration and pinyin-aware reader. Any SQL migration remains local/CI-only until explicitly approved for hosted environments.
+
+
+### Update 2.7.0 — Phase 1 dictionary filter foundation (2026-11-21)
+
+- Application feature branch head: `510954a3e2c037ab7f231ddaeec3247299c08181`.
+- Implemented Chinese Pinyin A–Z initial filtering across every slash-separated reading; combines with existing character/pinyin search and supports polyphonic entries.
+- Added multi-category filter UI/state with ten agreed categories. The row remains hidden until `categories` metadata is populated; the current 206 Chinese entries are not yet categorized.
+- Preserved character-only Chinese Dictionary grid cards. Pinyin is not displayed on the grid; the pinyin-below-Chinese rule remains specific to Chinese Lessons.
+- Added static/data checks, three Chromium tests and dedicated CI workflow. Final CI run [44867027510](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44867027510) passed.
+- No dictionary expansion/category assignment, Chinese Lessons implementation, hosted Supabase schema change or production deployment has occurred yet.
+- Data-source research: Unicode Unihan 18.0.0 is the primary candidate for character definitions/readings and core-priority signals under Unicode License v3; CC-CEDICT is an optional secondary CC BY-SA 4.0 source. Licensing and validation notes are in Section 9 of the U2.7.0 plan.
+- Language-aware lesson progress design is documented in [U2.7.0 lesson-language schema design](reference/UPDATE-2.7.0-LESSON-LANGUAGE-SCHEMA-DESIGN.md). It remains proposed only; no SQL has been applied to hosted environments.
+
+**Next:** source-backed Chinese dictionary expansion and category classification in small validated batches. Keep the pinyin display rule scoped to Lessons only.
