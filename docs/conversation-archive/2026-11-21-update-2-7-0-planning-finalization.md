@@ -84,3 +84,15 @@ The owner clarified that pinyin must **not** be added to Chinese Dictionary grid
 - Third-party notices cover Hanzi Writer MIT and separately licensed Arphic Public License stroke data. The current Chinese dictionary data lacks per-entry provenance/licensing metadata; establish content sourcing records before release.
 - No application code, hosted Supabase schema, production settings or deployment has been changed during Phase 0.
 - The detailed audit is recorded in Section 9 of `docs/UPDATE-2.7.0-DEVELOPMENT-PLAN.md`.
+
+
+## Phase 1 implementation progress (2026-11-21)
+
+- Added Chinese Pinyin A–Z filtering to the feature branch. It uses all slash-separated pinyin readings, so polyphonic characters are discoverable under each initial. Existing pinyin/character search combines with the initial filter.
+- Added category filter UI/state for Actions, Expressions, People, Objects, Nature, Places, Time & Numbers, Emotions & States, Descriptions, and Grammar & Function. It reads a multi-value `categories` array. Category controls stay hidden until category metadata is present; the current 206 entries still need classification.
+- Kept dictionary grid cards character-only; no pinyin is displayed on the grid.
+- Added static data/script assertions, three Chromium tests (including polyphonic H/K filtering) and a dedicated Actions workflow.
+- Final CI run [44867027510](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44867027510) passed all checks at feature-branch head `510954a3e2c037ab7f231ddaeec3247299c08181`.
+- No Chinese dictionary content expansion, category assignments, lesson code or hosted database changes have been made yet.
+- The detailed technical progress is recorded in Section 10 of `docs/UPDATE-2.7.0-DEVELOPMENT-PLAN.md`. Next: build a source-backed Chinese character dataset in small batches, adding categories and provenance while preserving quality.
+
