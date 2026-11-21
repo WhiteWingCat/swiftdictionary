@@ -9125,5 +9125,1129 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ]
+  },
+  {
+    "word": "啊",
+    "part": "汉语词汇",
+    "phonetic": "a / ā / á / ǎ / à",
+    "definition": "interjection or sentence particle expressing surprise, emphasis, agreement or a response",
+    "definitionZh": "语气词或感叹词，用来表达惊讶、确认、提醒等语气。",
+    "examples": [
+      "你怎么不说话啊？"
+    ],
+    "breakdown": "语气和读音会随上下文变化；常用于口语句末。",
+    "related": "好啊 hǎo a；啊呀 ā yā",
+    "categories": [
+      "communication",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "安",
+    "part": "汉语词汇",
+    "phonetic": "ān",
+    "definition": "calm; peaceful; safe; to settle or put at ease",
+    "definitionZh": "平安、安定；也可表示使人安心或安排妥当。",
+    "examples": [
+      "这里很安全。"
+    ],
+    "breakdown": "常见于表示平安、稳定的词语。",
+    "related": "安全 ān quán；安静 ān jìng",
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "背",
+    "part": "汉语词汇",
+    "phonetic": "bèi / bēi",
+    "definition": "back; to carry on one's back; to recite from memory",
+    "definitionZh": "身体后侧；也可表示用背负起，或凭记忆诵读。",
+    "examples": [
+      "他背着书包去学校。"
+    ],
+    "breakdown": "读 bèi 常指背部或背诵；读 bēi 常表示用背负起。",
+    "related": "后背 hòu bèi；背包 bēi bāo",
+    "categories": [
+      "people",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "笔",
+    "part": "汉语词汇",
+    "phonetic": "bǐ",
+    "definition": "pen; writing implement; brushstroke or written stroke",
+    "definitionZh": "书写工具，也可指笔画或书写。",
+    "examples": [
+      "这支笔是我的。"
+    ],
+    "breakdown": "常与量词“支”搭配，也用于书写和笔画相关词语。",
+    "related": "铅笔 qiān bǐ；笔记 bǐ jì",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "草",
+    "part": "汉语词汇",
+    "phonetic": "cǎo",
+    "definition": "grass; straw; draft; rough or careless",
+    "definitionZh": "草本植物；也指草稿、粗略。",
+    "examples": [
+      "公园里有很多草。"
+    ],
+    "breakdown": "常见于植物名称，也用于草稿、草地等词语。",
+    "related": "草地 cǎo dì；草原 cǎo yuán",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "长",
+    "part": "汉语词汇",
+    "phonetic": "cháng / zhǎng",
+    "definition": "long; length; to grow; to develop; elder or head",
+    "definitionZh": "长度大；也表示成长、增加或年长。",
+    "examples": [
+      "这条路很长。"
+    ],
+    "breakdown": "读 cháng 表示长度；读 zhǎng 常表示成长或担任负责人。",
+    "related": "长大 zhǎng dà；长度 cháng dù",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "当",
+    "part": "汉语词汇",
+    "phonetic": "dāng / dàng",
+    "definition": "to be; to act as; to serve as; when; to regard as; suitable",
+    "definitionZh": "作为、担任；也可表示在某个时候、应当或把……看作。",
+    "examples": [
+      "他想当老师。"
+    ],
+    "breakdown": "读 dāng 常表示担任或处于某时；读 dàng 常见于“恰当”“上当”等词。",
+    "related": "当时 dāng shí；当然 dāng rán；上当 shàng dàng",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "灯",
+    "part": "汉语词汇",
+    "phonetic": "dēng",
+    "definition": "lamp; light; lantern",
+    "definitionZh": "用来照明的器具。",
+    "examples": [
+      "请把灯打开。"
+    ],
+    "breakdown": "常见于照明设备和光线相关词语。",
+    "related": "电灯 diàn dēng；灯光 dēng guāng",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "懂",
+    "part": "汉语词汇",
+    "phonetic": "dǒng",
+    "definition": "to understand; to comprehend",
+    "definitionZh": "明白、理解。",
+    "examples": [
+      "我听懂了。"
+    ],
+    "breakdown": "常与“懂得”“听懂”搭配，表示理解内容。",
+    "related": "听懂 tīng dǒng；懂得 dǒng de",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "更",
+    "part": "汉语词汇",
+    "phonetic": "gèng / gēng",
+    "definition": "more; even more; further; to change or replace",
+    "definitionZh": "读 gèng 表示程度加深；读 gēng 表示改变或替换。",
+    "examples": [
+      "今天比昨天更冷。"
+    ],
+    "breakdown": "读 gèng 常作程度副词；读 gēng 常见于“更换”“更新”。",
+    "related": "更加 gèng jiā；更新 gēng xīn",
+    "categories": [
+      "grammar-function",
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "合",
+    "part": "汉语词汇",
+    "phonetic": "hé",
+    "definition": "to join; to close; to fit; to suit; together",
+    "definitionZh": "合在一起；关闭；符合或适合。",
+    "examples": [
+      "请把门合上。"
+    ],
+    "breakdown": "常表示结合、闭合或符合条件。",
+    "related": "合作 hé zuò；合适 hé shì",
+    "categories": [
+      "actions",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "脚",
+    "part": "汉语词汇",
+    "phonetic": "jiǎo",
+    "definition": "foot; leg; base or bottom of an object",
+    "definitionZh": "人或动物的足部，也可指物体底部。",
+    "examples": [
+      "我的脚有点痛。"
+    ],
+    "breakdown": "常见于身体部位和行走相关词语。",
+    "related": "脚步 jiǎo bù；脚印 jiǎo yìn",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "力",
+    "part": "汉语词汇",
+    "phonetic": "lì",
+    "definition": "power; force; strength; ability; exertion",
+    "definitionZh": "力量、能力；也表示尽力。",
+    "examples": [
+      "他很有力气。"
+    ],
+    "breakdown": "常用于表示力量、能力或努力程度。",
+    "related": "力气 lì qi；努力 nǔ lì",
+    "categories": [
+      "actions",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "卖",
+    "part": "汉语词汇",
+    "phonetic": "mài",
+    "definition": "to sell; to betray; to spare no effort",
+    "definitionZh": "把商品出售；也可指背叛或不遗余力地做某事。",
+    "examples": [
+      "这家店卖水果。"
+    ],
+    "breakdown": "常与买形成对比，表示把商品出售。",
+    "related": "买卖 mǎi mai；卖出 mài chū",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "猫",
+    "part": "汉语词汇",
+    "phonetic": "māo",
+    "definition": "cat",
+    "definitionZh": "常见的家养哺乳动物。",
+    "examples": [
+      "那只猫在睡觉。"
+    ],
+    "breakdown": "常见动物名称；量词常用“只”。",
+    "related": "小猫 xiǎo māo；猫咪 māo mī",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "鸟",
+    "part": "汉语词汇",
+    "phonetic": "niǎo",
+    "definition": "bird",
+    "definitionZh": "有羽毛、翅膀和喙的动物。",
+    "examples": [
+      "树上有一只鸟。"
+    ],
+    "breakdown": "常见动物名称；量词常用“只”或“群”。",
+    "related": "小鸟 xiǎo niǎo；鸟类 niǎo lèi",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "它",
+    "part": "汉语词汇",
+    "phonetic": "tā",
+    "definition": "it; pronoun for a thing or an animal",
+    "definitionZh": "指代人以外的事物或动物。",
+    "examples": [
+      "它是一只小猫。"
+    ],
+    "breakdown": "常用作第三人称代词，指事物或动物。",
+    "related": "它们 tā men；其它 qí tā",
+    "categories": [
+      "grammar-function",
+      "people"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "头",
+    "part": "汉语词汇",
+    "phonetic": "tóu",
+    "definition": "head; top; beginning or end; chief; classifier for livestock",
+    "definitionZh": "身体上部；也可指顶部、开端或负责人。",
+    "examples": [
+      "我的头有点痛。"
+    ],
+    "breakdown": "可指身体部位、物体顶端或负责人；也常作量词。",
+    "related": "头发 tóu fa；头脑 tóu nǎo",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "鞋",
+    "part": "汉语词汇",
+    "phonetic": "xié",
+    "definition": "shoe; footwear",
+    "definitionZh": "穿在脚上保护脚的物品。",
+    "examples": [
+      "这双鞋很舒服。"
+    ],
+    "breakdown": "常与量词“双”搭配。",
+    "related": "鞋子 xié zi；皮鞋 pí xié",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "心",
+    "part": "汉语词汇",
+    "phonetic": "xīn",
+    "definition": "heart; mind; intention; feeling; centre or core",
+    "definitionZh": "心脏；也常指思想、感情或中心。",
+    "examples": [
+      "我很开心。"
+    ],
+    "breakdown": "除身体器官外，也常用于表达感受和想法。",
+    "related": "心情 xīn qíng；关心 guān xīn",
+    "categories": [
+      "people",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "雪",
+    "part": "汉语词汇",
+    "phonetic": "xuě",
+    "definition": "snow; to wipe away a humiliation (literary)",
+    "definitionZh": "从云中降落的冰晶，也指雪白。",
+    "examples": [
+      "今天下雪了。"
+    ],
+    "breakdown": "常见于天气和季节相关词语。",
+    "related": "下雪 xià xuě；雪花 xuě huā",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "言",
+    "part": "汉语词汇",
+    "phonetic": "yán",
+    "definition": "words; speech; to say; to talk",
+    "definitionZh": "话语、言论；也可表示说。",
+    "examples": [
+      "他说话算数，不会食言。"
+    ],
+    "breakdown": "常见于书面语和表达、言论相关词语。",
+    "related": "语言 yǔ yán；发言 fā yán",
+    "categories": [
+      "communication"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "眼",
+    "part": "汉语词汇",
+    "phonetic": "yǎn",
+    "definition": "eye; glance; small hole; salient point",
+    "definitionZh": "视觉器官；也指孔洞或观察的目光。",
+    "examples": [
+      "我的眼睛有点累。"
+    ],
+    "breakdown": "常与“睛”组成“眼睛”，也可表示观察或孔洞。",
+    "related": "眼睛 yǎn jing；眼前 yǎn qián",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "药",
+    "part": "汉语词汇",
+    "phonetic": "yào",
+    "definition": "medicine; drug; substance used for a specific purpose",
+    "definitionZh": "用于预防、治疗疾病或产生特定作用的物质。",
+    "examples": [
+      "我需要吃药。"
+    ],
+    "breakdown": "常见于医疗、健康和药品相关词语。",
+    "related": "药店 yào diàn；药物 yào wù",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "椅",
+    "part": "汉语词汇",
+    "phonetic": "yǐ",
+    "definition": "chair",
+    "definitionZh": "供人坐的家具。",
+    "examples": [
+      "请坐在这把椅子上。"
+    ],
+    "breakdown": "通常与“子”组成“椅子”，常与量词“把”搭配。",
+    "related": "椅子 yǐ zi；桌椅 zhuō yǐ",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "鱼",
+    "part": "汉语词汇",
+    "phonetic": "yú",
+    "definition": "fish; aquatic animal",
+    "definitionZh": "生活在水中的动物，通常有鳃和鳍。",
+    "examples": [
+      "我喜欢吃鱼。"
+    ],
+    "breakdown": "常见动物名称；量词常用“条”。",
+    "related": "鱼肉 yú ròu；金鱼 jīn yú",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "原",
+    "part": "汉语词汇",
+    "phonetic": "yuán",
+    "definition": "original; former; primary; source; cause; plain",
+    "definitionZh": "原本、原先；也可指原因、来源或平坦的地方。",
+    "examples": [
+      "这是原来的计划。"
+    ],
+    "breakdown": "常见于表示原先状态、原因或来源的词语。",
+    "related": "原来 yuán lái；原因 yuán yīn",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "愿",
+    "part": "汉语词汇",
+    "phonetic": "yuàn",
+    "definition": "wish; hope; desire; to be willing",
+    "definitionZh": "希望、心愿；也表示乐意。",
+    "examples": [
+      "我愿意帮你。"
+    ],
+    "breakdown": "常见于表达意愿、希望和心愿。",
+    "related": "愿意 yuàn yì；心愿 xīn yuàn",
+    "categories": [
+      "emotions-states",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "越",
+    "part": "汉语词汇",
+    "phonetic": "yuè",
+    "definition": "to exceed; to cross; the more... the more",
+    "definitionZh": "超过、跨过；也用于“越……越……”结构。",
+    "examples": [
+      "天气越来越冷。"
+    ],
+    "breakdown": "常见于比较和递进结构“越……越……”。",
+    "related": "越来越 yuè lái yuè；超越 chāo yuè",
+    "categories": [
+      "grammar-function",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "云",
+    "part": "汉语词汇",
+    "phonetic": "yún",
+    "definition": "cloud; (classical) to say",
+    "definitionZh": "天空中的水滴或冰晶聚集形成的可见物。",
+    "examples": [
+      "天空有很多云。"
+    ],
+    "breakdown": "现代常用义为云；古文中也可作“说”。",
+    "related": "白云 bái yún；云朵 yún duǒ",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "运",
+    "part": "汉语词汇",
+    "phonetic": "yùn",
+    "definition": "to move; to transport; to use; fortune; luck; fate",
+    "definitionZh": "移动、运输；也指运气或命运。",
+    "examples": [
+      "他每天运动。"
+    ],
+    "breakdown": "常见于运动、运输和运气相关词语。",
+    "related": "运动 yùn dòng；运气 yùn qi",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "咱",
+    "part": "汉语词汇",
+    "phonetic": "zán",
+    "definition": "we; us (often including both speaker and listener); I or me in some dialects",
+    "definitionZh": "口语代词，常指说话人和听话人双方。",
+    "examples": [
+      "咱们一起走吧。"
+    ],
+    "breakdown": "常见于口语“咱们”，语气较亲近。",
+    "related": "咱们 zán men；咱家 zán jiā",
+    "categories": [
+      "people",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "脏",
+    "part": "汉语词汇",
+    "phonetic": "zāng / zàng",
+    "definition": "dirty; filthy; internal organs (zàng)",
+    "definitionZh": "读 zāng 表示不干净；读 zàng 指内脏。",
+    "examples": [
+      "这件衣服很脏。"
+    ],
+    "breakdown": "注意两种常见读音和意义不同。",
+    "related": "肮脏 āng zāng；内脏 nèi zàng",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "澡",
+    "part": "汉语词汇",
+    "phonetic": "zǎo",
+    "definition": "bath; bathing",
+    "definitionZh": "洗浴；常见于“洗澡”。",
+    "examples": [
+      "我每天晚上洗澡。"
+    ],
+    "breakdown": "通常出现在“洗澡”“澡堂”等词语中。",
+    "related": "洗澡 xǐ zǎo；澡堂 zǎo táng",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "占",
+    "part": "汉语词汇",
+    "phonetic": "zhàn / zhān",
+    "definition": "to occupy; to take up; to divine",
+    "definitionZh": "读 zhàn 表示占据、占用；读 zhān 表示占卜。",
+    "examples": [
+      "这个座位有人占了。"
+    ],
+    "breakdown": "读音随词义变化；“占用”读 zhàn，“占卜”读 zhān。",
+    "related": "占用 zhàn yòng；占卜 zhān bǔ",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "照",
+    "part": "汉语词汇",
+    "phonetic": "zhào",
+    "definition": "to shine; to illuminate; to photograph; according to; to look after",
+    "definitionZh": "发光、照亮；也指依照、拍摄或照料。",
+    "examples": [
+      "请照一下这张照片。"
+    ],
+    "breakdown": "常见于照明、摄影、照顾和依照等语境。",
+    "related": "照片 zhào piàn；照顾 zhào gù",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "者",
+    "part": "汉语词汇",
+    "phonetic": "zhě",
+    "definition": "person who; one who; suffix marking a person or thing involved",
+    "definitionZh": "接在动词、形容词或名词后，表示某类人或事物。",
+    "examples": [
+      "读者喜欢这本书。"
+    ],
+    "breakdown": "常见于书面语，构成表示身份或参与者的名词。",
+    "related": "读者 dú zhě；作者 zuò zhě",
+    "categories": [
+      "grammar-function",
+      "people"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "直",
+    "part": "汉语词汇",
+    "phonetic": "zhí",
+    "definition": "straight; direct; frank; continuously",
+    "definitionZh": "不弯曲；也表示直接、坦率或持续。",
+    "examples": [
+      "请一直往前走。"
+    ],
+    "breakdown": "可表示方向、态度或动作持续。",
+    "related": "一直 yì zhí；直接 zhí jiē",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "只",
+    "part": "汉语词汇",
+    "phonetic": "zhǐ / zhī",
+    "definition": "only; merely; classifier for certain animals and paired objects",
+    "definitionZh": "读 zhǐ 表示仅仅；读 zhī 常作动物等的量词。",
+    "examples": [
+      "我只有一本书。"
+    ],
+    "breakdown": "读 zhǐ 常表示限制；读 zhī 常作量词，如“一只猫”。",
+    "related": "只有 zhǐ yǒu；一只 yì zhī",
+    "categories": [
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "纸",
+    "part": "汉语词汇",
+    "phonetic": "zhǐ",
+    "definition": "paper; sheet of paper",
+    "definitionZh": "用植物纤维制成的薄片，可供书写、包装等。",
+    "examples": [
+      "请给我一张纸。"
+    ],
+    "breakdown": "常与量词“张”搭配。",
+    "related": "纸张 zhǐ zhāng；白纸 bái zhǐ",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "钟",
+    "part": "汉语词汇",
+    "phonetic": "zhōng",
+    "definition": "clock; bell; o'clock; unit of time",
+    "definitionZh": "计时器或发声器；也用于表示整点和时长。",
+    "examples": [
+      "现在三点钟。"
+    ],
+    "breakdown": "常见于时间表达，也可指钟或铃。",
+    "related": "时钟 shí zhōng；钟表 zhōng biǎo",
+    "categories": [
+      "time-numbers",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "周",
+    "part": "汉语词汇",
+    "phonetic": "zhōu",
+    "definition": "week; cycle; circumference; all around",
+    "definitionZh": "一轮、环绕；也表示星期或周期。",
+    "examples": [
+      "我下周有考试。"
+    ],
+    "breakdown": "常见于“周末”“每周”等时间表达。",
+    "related": "周末 zhōu mò；每周 měi zhōu",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "主",
+    "part": "汉语词汇",
+    "phonetic": "zhǔ",
+    "definition": "main; owner; host; principal party",
+    "definitionZh": "主要的；也指主人、主持者或主体。",
+    "examples": [
+      "这是我的主要工作。"
+    ],
+    "breakdown": "常见于表示主要部分、主人或主持者的词语。",
+    "related": "主要 zhǔ yào；主人 zhǔ rén",
+    "categories": [
+      "people",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "助",
+    "part": "汉语词汇",
+    "phonetic": "zhù",
+    "definition": "to help; to assist",
+    "definitionZh": "帮助、协助。",
+    "examples": [
+      "谢谢你的帮助。"
+    ],
+    "breakdown": "常见于“帮助”“助手”等词语。",
+    "related": "帮助 bāng zhù；助手 zhù shǒu",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "装",
+    "part": "汉语词汇",
+    "phonetic": "zhuāng",
+    "definition": "to dress; to install; to pack; to pretend",
+    "definitionZh": "穿戴、装入、安装；也可表示假装。",
+    "examples": [
+      "请把书装进包里。"
+    ],
+    "breakdown": "可表示装载、安装或装扮，需结合词语理解。",
+    "related": "安装 ān zhuāng；服装 fú zhuāng",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "自",
+    "part": "汉语词汇",
+    "phonetic": "zì",
+    "definition": "self; oneself; from; since; naturally",
+    "definitionZh": "自己；也表示从、由或自然地。",
+    "examples": [
+      "我们要自己完成。"
+    ],
+    "breakdown": "常见于“自己”“自然”“自从”等词语。",
+    "related": "自己 zì jǐ；自然 zì rán",
+    "categories": [
+      "grammar-function",
+      "people"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "租",
+    "part": "汉语词汇",
+    "phonetic": "zū",
+    "definition": "to rent; to hire; to lease; rent",
+    "definitionZh": "租用或出租；也指租金。",
+    "examples": [
+      "我想租一辆车。"
+    ],
+    "breakdown": "可作动词表示租用或出租，也可作名词表示租金。",
+    "related": "租车 zū chē；房租 fáng zū",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "组",
+    "part": "汉语词汇",
+    "phonetic": "zǔ",
+    "definition": "to form; to organize; group; team; set",
+    "definitionZh": "组合、组织；也指群体或一组事物。",
+    "examples": [
+      "我们分成两组。"
+    ],
+    "breakdown": "既可表示组成，也可指一个小组或一组物品。",
+    "related": "小组 xiǎo zǔ；组成 zǔ chéng",
+    "categories": [
+      "people",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "嘴",
+    "part": "汉语词汇",
+    "phonetic": "zuǐ",
+    "definition": "mouth; beak; nozzle or spout",
+    "definitionZh": "口部；也指器物的口或尖端。",
+    "examples": [
+      "她的嘴很小。"
+    ],
+    "breakdown": "常见于身体部位和器物开口相关词语。",
+    "related": "嘴巴 zuǐ ba；张嘴 zhāng zuǐ",
+    "categories": [
+      "people",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "座",
+    "part": "汉语词汇",
+    "phonetic": "zuò",
+    "definition": "seat; base; classifier for large immovable objects",
+    "definitionZh": "座位或底座；也作大型建筑、山等的量词。",
+    "examples": [
+      "这座山很高。"
+    ],
+    "breakdown": "常用作大型固定物体的量词，如山、桥和建筑。",
+    "related": "座位 zuò wèi；一座 yí zuò",
+    "categories": [
+      "grammar-function",
+      "places"
+    ],
+    "hskLevel": 2,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
   }
 ];
