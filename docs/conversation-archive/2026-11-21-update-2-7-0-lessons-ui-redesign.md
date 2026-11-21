@@ -130,7 +130,7 @@ Responsive drawer widths are preserved explicitly: 50vw desktop, 62vw medium scr
 - U2.7.0 Chinese dictionary/Lessons/UI/browser suite #44889504955 — success.
 - Cloudflare build-routing guard #44889504919 — success.
 - 2.3.x allowance/dashboard, 2.5.0 Flashcards, 2.6.0 ACL and Quiz database/Auth/RPC regression workflows were still running at the latest check. Do not claim all ancillary CI is green until those jobs complete.
-- Branch preview URL: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev. Cloudflare Pages should rebuild from the feature-branch push; the latest deployment identifier was not independently verified through available tools. The prior deployment ID must not be described as the current revision.
+- Branch preview URL: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev. Cloudflare Pages deployment check #136802063112 completed successfully for app head `b98980d`: https://42daddd5.swiftdictionary.pages.dev. Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev.
 
 ### Data, legal and release boundaries
 
