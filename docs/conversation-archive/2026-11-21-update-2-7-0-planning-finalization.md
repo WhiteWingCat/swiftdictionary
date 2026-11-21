@@ -19,7 +19,7 @@ Finalize the owner-approved scope for Update 2.7.0 and prepare a clean applicati
 1. Expand the Simplified Chinese single-character dictionary. Initial target at least 500–700 new unique characters, no hard cap if quality and validation permit.
 2. Replace the ineffective Chinese filter with Pinyin A–Z initial filtering and useful character categories. Allow filters to be combined. Suggested categories: Actions, People, Objects, Nature, Places, Time & Numbers, Emotions & States, Descriptions, Grammar & Function, Communication. Characters may have multiple valid categories.
 3. Preserve one character per grid card, keep the grid character-only (no pinyin displayed on cards), and retain existing character/pinyin search and detail pinyin.
-4. Permanent layout rule: character above pinyin, pinyin directly underneath. Never left, right or above. This applies to desktop, mobile and responsive layouts.
+4. Preserve the Chinese Dictionary grid exactly as it is: one character per card, with no pinyin added to the grid. The pinyin placement rule applies specifically to Chinese Lessons: pinyin must appear directly underneath the corresponding Chinese character/text, never above or beside it.
 5. Add a Simplified Chinese course to the existing Lessons framework; do not rebuild the framework.
 6. Initial minimum at least 17 lessons and 112 practice questions, matching the actual English library (7/5/5 lessons and 44/34/34 questions across Beginner/Intermediate/Advanced); may exceed if quality permits.
 7. English support is guaranteed for Chinese lessons regardless of selected translation language.
