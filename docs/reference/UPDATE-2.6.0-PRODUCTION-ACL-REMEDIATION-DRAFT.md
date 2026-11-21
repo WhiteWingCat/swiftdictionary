@@ -148,3 +148,16 @@ The proposed SQL above remains a draft. A second review of both existing migrati
 Do not run the current proposed SQL verbatim. First revise the feature migrations so they are safe against the known sequence-name drift, remove the anonymous `learning_plan_limits` grant, and remove all unintended non-DML `daily_activity_sessions` grants. Add CI assertions for the exact final table, sequence, function and default ACLs. Review the global default-function change across schemas. Then apply and verify the same migration set on staging before preparing a separate, owner-approved production rollout.
 
 No production or staging changes were made during this second review.
+
+
+## 2026-11-21 second-review implementation status
+
+A second technical review identified the production/staging identity-sequence naming difference and the residual anonymous plan-limit/session grants. The feature branch now contains:
+
+- `supabase/migrations/20261121090000_update_2_6_0_acl_drift_correction.sql`: removes anon access to Daily Learning sessions and plan limits; removes authenticated non-DML privileges from Daily Learning sessions; dynamically resolves the practice-results identity sequence with `pg_get_serial_sequence` and removes anon privileges from the actual owned sequence. It does not rename or drop any sequence.
+- `supabase/tests/update_2_6_0_acl_drift_correction.sql`: asserts those effective grants.
+- `.github/workflows/update-2-6-0-acl-test.yml`: runs the full migration chain and ACL tests on disposable local Supabase/PostgreSQL.
+
+The new workflow has not yet been observed passing at the time of this document update. Do not apply the migrations to staging or production until the CI run is green and the owner approves the staging test sequence. The global default-function EXECUTE revoke in the first U2.6.0 migration still needs cross-schema impact review.
+
+The owner confirmed account deletion works on Singapore staging on 2026-11-21. This does not imply production deletion has been deployed or tested.
