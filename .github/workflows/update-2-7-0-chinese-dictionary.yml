@@ -33,3 +33,7 @@ jobs:
         env:
           CI: "true"
         run: npx playwright test tests/browser/update-2-7-0-chinese-filters.spec.js --config=playwright.config.js
+      - name: Run Chinese Lessons bilingual layout browser check
+        env:
+          CI: "true"
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --grep "Chinese Lessons keep English support" --config=playwright.config.js
