@@ -3,6 +3,7 @@ import vm from "node:vm";
 
 const html = fs.readFileSync("index.html", "utf8");
 const dailyScript = fs.readFileSync("daily-learning.js", "utf8");
+const lessonsCss = fs.readFileSync("lessons-ui.css", "utf8");
 
 new vm.Script(dailyScript, { filename: "daily-learning.js" });
 
@@ -288,7 +289,10 @@ if (!html.includes(".daily-activity-cards.premium { grid-template-columns:minmax
     || !html.includes('if (typeof initialiseLessons === "function") await initialiseLessons();')
     || !dailyScript.includes('dailyUi("New activity","新活动")')
     || !dailyScript.includes("const allowanceTone=remaining<=0")
-    || !dailyScript.includes("daily-activity-count '+allowanceTone")) {
+    || !dailyScript.includes("const allowancePercent=")
+    || !dailyScript.includes("daily-activity-allowance")
+    || !lessonsCss.includes(".daily-activity-allowance{")
+    || !lessonsCss.includes(".daily-activity-tabs{display:grid!important;")) {
   throw new Error("Update 2.3.1 category layout, title-side allowance indicator, neutral card status, or account-switch lesson refresh is missing.");
 }
 if (!html.includes(".daily-activity-backdrop{background:transparent}")
