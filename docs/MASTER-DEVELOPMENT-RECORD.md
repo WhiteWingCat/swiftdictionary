@@ -2799,3 +2799,15 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-allowance-ci-fix-and
 - No production migration, ACL change, Edge Function change, OAuth setting, Cloudflare Pages configuration, deployment or data mutation was performed.
 
 Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md`.
+
+
+## 38. Update 2.6.0 — account deletion confirmation and ACL second review (2026-11-21)
+
+- Owner confirmed that account deletion works in the current Singapore staging preview. Mark the current staging deletion test as owner-confirmed passed; do not infer production readiness.
+- Technical ACL review is being handled by the assistant; the owner can review the written plan but is not expected to inspect or author SQL. Plan: `docs/reference/UPDATE-2.6.0-PRODUCTION-ACL-REMEDIATION-DRAFT.md`.
+- Second review found environment-specific identity sequence naming for `lesson_practice_results.id`: staging uses `lesson_practice_results_id_seq`, production uses `lesson_practice_results_id_seq1`. The existing migration's static name would target the wrong production sequence.
+- Added feature-branch migration `20261121090000_update_2_6_0_acl_drift_correction.sql`, dynamically resolving the owned sequence via `pg_get_serial_sequence`, removing anonymous access to plan limits and account sessions, and removing unintended authenticated non-DML privileges on sessions. No sequence is renamed or dropped.
+- Added `supabase/tests/update_2_6_0_acl_drift_correction.sql` and dedicated workflow `.github/workflows/update-2-6-0-acl-test.yml`. Await CI before claiming validation.
+- The initial migration's global `postgres` default-function EXECUTE revoke still requires a cross-schema impact review before production rollout.
+- PR #13 remains draft/open/unmerged. No production or staging database changes have been made.
+- Account deletion staging test is now marked passed in the PR body; remaining checks include the new ACL CI run and any outstanding staging regression checks.
