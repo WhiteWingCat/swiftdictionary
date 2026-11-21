@@ -36,6 +36,7 @@ jobs:
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-3-0/supabase-local-app-baseline.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-6-0/daily-session-acl-objects.sql"
       - name: Apply U2.6.0 least-privilege migrations to disposable schema
         working-directory: ${{ runner.temp }}/swiftdictionary-acl
         run: |
