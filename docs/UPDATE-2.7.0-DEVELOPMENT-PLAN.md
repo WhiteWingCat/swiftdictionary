@@ -422,3 +422,21 @@ The local Auth/Quiz/Flashcard integration workflow subsequently completed succes
 - No hosted staging or production migration has been applied. The next technical gate is owner-approved Singapore staging migration plus Cloudflare preview testing. Do not apply the hosted migration until the owner explicitly approves that action. Production migration, merge and deployment remain separate approval gates.
 - Formal legal/privacy review remains deferred, not cleared; consult Section 12 and do not claim legal compliance.
 - Session detail: `docs/conversation-archive/2026-11-21-update-2-7-0-linguistic-qa-and-staging-gate.md`.
+
+
+
+
+## 14. Singapore staging migration and preview validation (2026-11-21)
+
+- Owner approved applying the language-aware Lessons migration to Singapore staging.
+- Confirmed target: `SwiftDictionary Indie Staging` (`ivatvkfrtifgfheeaelj`, `ap-southeast-1`); production Tokyo project was not targeted.
+- Applied migration file `20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql`; Supabase migration history records version `20261121074834` with name `swiftdictionary_update_2_7_0_language_aware_lessons`.
+- Post-migration verification: 17 active Chinese permanent lessons, 17 active English permanent lessons, no Chinese Daily Learning rows, language columns present on progress/practice tables, unique index present, and pre-existing rows retained as English.
+- Draft PR #14 is open and unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/14.
+- Initial CI detected a stale Update 2.3.0 frontend assertion that expected English-only RPC names. Updated that regression check to expect `complete_permanent_lesson_for_language` and `record_completed_lesson_practice_result_for_language`. New application head: `ff4c1c4bda297a58bc0403d9795c0dbd75c2f254`.
+- U2.7.0 dictionary static/data, Chinese Lessons content/pinyin, full Lessons/Daily Learning browser regression, and isolated Chinese dictionary browser checks passed at the preceding head. The corrected latest-head CI runs are pending/in progress; full CI is not yet green.
+- Cloudflare Pages preview for `ff4c1c4` is building; no preview URL has been published yet. The older failed Workers build for `e7d911f` is separate and should not be conflated with the current Pages build.
+- Supabase Advisor findings were reviewed. Existing private-schema RLS INFO and password-protection WARN remain. The new replay-summary SECURITY DEFINER RPC explicitly checks `auth.uid()`, rejects anon execution, and uses a fixed search path; preserve these controls and keep regression coverage. No unrelated security/performance advisor remediation was made.
+- No production migration, production deployment, merge, or OAuth/configuration change was performed.
+- Next gates: wait for corrected CI and Pages preview; test preview with a disposable synthetic staging account; complete manual native-speaker review; obtain separate explicit approval before PR merge and again before production migration/deployment.
+- Session archive: `docs/conversation-archive/2026-11-21-update-2-7-0-singapore-staging-migration-and-preview.md`.
