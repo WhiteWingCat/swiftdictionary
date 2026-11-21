@@ -127,3 +127,24 @@ The current local CI security advisor for the U2.6.0 branch reported no issues i
 - Supabase's October 30, 2026 Data API exposure rollout: new public tables require explicit grants; RLS remains a separate control.
 - Supabase CLI v3 changed hosted/local targeting and confirmation behavior on November 4, 2026: https://supabase.com/changelog?next=Y3Vyc29yOnYyOpK0MjAyNS0wMS0xM1QyMDo1OTowOFrOAHdWlQ%3D%3D&restPage=2 . Any future CLI rollout must explicitly target the hosted project and include the required confirmation flags; do not casually upgrade the existing CI CLI workflow.
 - This audit did not inspect user rows, execute a production migration, alter grants, change Auth/Edge Function configuration or modify provider settings.
+
+
+## Second technical review — corrections required before rollout (2026-11-21)
+
+The proposed SQL above remains a draft. A second review of both existing migrations against the observed production/staging schema found additional rollout hazards:
+
+1. **Sequence-name drift affects migration portability.** Staging's `lesson_practice_results.id` uses `lesson_practice_results_id_seq`; production's column uses `lesson_practice_results_id_seq1`. The second migration revokes anonymous UPDATE on `lesson_practice_results_id_seq`. In production that name identifies the apparent orphan, not the sequence owned by the identity column. Applying the migration unchanged would therefore fail to remove UPDATE from the actual production-owned sequence. Resolve this with a schema-aware migration that discovers the sequence using `pg_get_serial_sequence('public.lesson_practice_results','id')` (and validates the result), or a carefully reviewed environment-specific migration. Do not rename or drop either sequence as part of this fix.
+
+2. **Second migration preserves an anonymous plan-limit read contrary to the staging comparison.** Its header says it preserves authenticated-only SELECT on `learning_plan_limits`, but the SQL does not revoke anon SELECT. The production/staging comparison confirms anon SELECT exists in production and no anon table grant exists in staging. The proposed production follow-up revokes it; add a regression assertion so the drift cannot recur.
+
+3. **Daily-session authenticated non-DML privileges are not fully revoked by migration one.** It removes authenticated DELETE, but the production comparison found residual REFERENCES, TRIGGER and TRUNCATE. The follow-up SQL revokes those privileges. Include them in a common migration or production follow-up and assert the final role ACLs.
+
+4. **Orphan sequence handling must remain conservative.** The production `lesson_practice_results_id_seq` appears unowned, but this alone does not prove there are no dynamic SQL, external scripts or application references. Retain it; revoke client access only after checking all dependencies and confirming no runtime path requires it. Do not drop it in this release.
+
+5. **Global function default-privilege revoke needs impact review.** Migration one uses `ALTER DEFAULT PRIVILEGES FOR ROLE postgres REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC` without an `IN SCHEMA` clause. This changes defaults for future functions created by `postgres` across schemas, not only `public`. That may be intentional to prevent PostgreSQL's default PUBLIC EXECUTE, but inventory other postgres-owned schemas and expected RPCs before production rollout. Explicitly grant EXECUTE to intended client-callable functions and test them after applying the change. Do not replace this with a schema-scoped revoke and assume it overrides a global grant; PostgreSQL default-privilege semantics do not work that way.
+
+### Revised recommendation
+
+Do not run the current proposed SQL verbatim. First revise the feature migrations so they are safe against the known sequence-name drift, remove the anonymous `learning_plan_limits` grant, and remove all unintended non-DML `daily_activity_sessions` grants. Add CI assertions for the exact final table, sequence, function and default ACLs. Review the global default-function change across schemas. Then apply and verify the same migration set on staging before preparing a separate, owner-approved production rollout.
+
+No production or staging changes were made during this second review.
