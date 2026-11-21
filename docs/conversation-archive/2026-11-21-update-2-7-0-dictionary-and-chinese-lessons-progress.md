@@ -1,0 +1,72 @@
+# SwiftDictionary Update 2.7.0 — Dictionary Expansion and Chinese Lessons Progress
+
+Date: 2026-11-21
+
+## Current state
+
+- Application repository: `WhiteWingCat/swiftdictionary`.
+- Application branch: `feature/update-2-7-0-chinese-dictionary-lessons`.
+- Current application branch head at archive time: `006871a1ed42947a277c89b70965ee277e3c5e22`.
+- Production base: `main` at U2.6.0 merge `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- Documentation branch: `docs/master-development-record`.
+- No merge to main, hosted Supabase migration, production database change or deployment has occurred.
+
+## Owner clarification — pinyin display
+
+The user clarified that pinyin must **not** be added to Chinese Dictionary grid cards. Preserve the existing one-character, character-only grid. The vertical rule applies only to Chinese Lessons: show Chinese text first, pinyin directly underneath, and English support after it. Never put lesson pinyin above or beside the corresponding Chinese text.
+
+## Dictionary progress
+
+- 519 new unique single-character records added to the existing 206, bringing the combined Chinese dictionary to 725 unique entries.
+- Pinyin A–Z initial filter implemented; all slash-separated readings are considered, so polyphonic characters can appear under multiple initials.
+- Eleven category filters implemented with combined category + initial filtering.
+- Existing character and pinyin search, stroke order, detail presentation and character-only grid retained.
+- New records include pinyin, English/Chinese meanings, examples, related vocabulary, learning notes, categories, HSK candidate level and source IDs.
+- Data-source notices committed: `data-sources.html`, `data/CHINESE-DICTIONARY-SOURCES.md`, `THIRD_PARTY_NOTICES.md`.
+- Static checks passed for 725 unique characters, including 519 additions, category/provenance metadata and one-character-per-entry constraints.
+
+## Chinese Lessons progress
+
+- Separate Chinese course dataset and pinyin-aware renderer integrated with existing Lessons architecture.
+- 17 permanent lessons and 112 practice questions:
+  - Beginner: 7 lessons / 44 questions.
+  - Intermediate: 5 lessons / 34 questions.
+  - Advanced: 5 lessons / 34 questions.
+- Each Chinese lesson text block carries Simplified Chinese, tone-marked pinyin and English support. English support remains visible regardless of selected translation language.
+- Content includes pinyin foundations, greetings, numbers/dates, pronouns, actions, places, questions/negation, measure words, particles, time expressions, comparisons, sentence expansion, complex structures, connectors, idioms, proverbs, nuanced vocabulary and selected classical literature.
+- Dedicated content validator checks 17/112 totals, 7/5/5 difficulty counts, unique lesson IDs, Supabase catalogue IDs, bilingual fields, pinyin presence, and four-option question structure.
+- Browser test verifies 7/5/5 lesson library counts and Chinese → pinyin → English vertical order.
+
+## Language-aware lesson progress
+
+- Additive migration: `supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql`.
+- SQL regression test: `supabase/tests/update_2_7_0_language_aware_lessons.sql`.
+- The PostgreSQL/CI database foundation job passed the U2.7.0 migration and SQL regression suite, including English compatibility, separate English/Chinese progress identity, shared lesson allowance and catalogue checks.
+- The companion local Supabase Auth/RPC integration and security-advisor job was still running at the time of this archive.
+- **The migration has not been applied to hosted staging or production.**
+
+## Verification
+
+- U2.7.0 dictionary/lesson workflow run #44875595145 passed:
+  - 725 unique Chinese dictionary entries (519 new)
+  - 17 Chinese lessons / 112 practice questions
+  - Five dictionary Chromium tests
+  - One Chinese Lessons layout browser test
+- Quiz/database foundation workflow run #44875595192: PostgreSQL/CI job passed; local Supabase Auth/RPC companion job still running at archive time.
+- Earlier failed runs were used to correct the duplicate lesson-renderer structure, restore the full Lessons renderer, and fix the static Quiz translation-continuity assertion formatting. The final dictionary/lesson workflow above passed.
+
+## Legal, privacy and content-quality notes
+
+- Formal legal/privacy review remains deferred, not cleared. Do not claim legal compliance.
+- CC-CEDICT-derived gloss adaptations are identified as CC BY-SA 4.0; Unihan 18.0.0 and HSK candidate-list notices are included.
+- Existing 206 dictionary entries still need their own provenance review.
+- Chinese Lessons explanations and examples are authored separately from CC-CEDICT. Classical excerpts used are attributed to their historic sources; verify attribution and keep modern copyrighted content out unless licensed.
+- Final linguistic review of pinyin, polyphonic readings, examples, idioms/proverbs and English translations remains part of release QA.
+
+## Next steps
+
+1. Complete local Supabase Auth/RPC integration and local security advisors.
+2. Run the full English Lessons and Daily Learning browser regression suite.
+3. Add/verify Chinese course progress completion in browser tests, including English/Chinese progress isolation.
+4. Complete linguistic and licensing review and owner preview.
+5. Prepare release notes and one consolidated release package only after QA. Do not merge, apply hosted migrations or deploy without explicit owner approval.
