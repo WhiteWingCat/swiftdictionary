@@ -2948,3 +2948,8 @@ Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid c
 - The original 206 Chinese dictionary entries receive their 11 category labels and additional pinyin readings through `window.SWIFT_CHINESE_METADATA` in `data/chinese-characters.js`; the app applies this metadata at runtime. The 519 additions have categories in their own records. All 725 are therefore covered; no duplicate inline mapping is required.
 - Quiz database foundation job #44876788818 passed. Companion local Supabase Auth/RPC integration run #44876433049 previously passed the U2.7.0 migration and SQL regression, authenticated Quiz/Flashcards/Lessons regressions, and local Supabase security advisors (“No issues found”). The same integration is being rerun against the latest branch head.
 - No hosted migration, merge or deployment has occurred.
+
+
+### U2.7.0 legal/privacy review note (2026-11-21)
+
+A current Malaysia PDPA and general international risk check was added to [the U2.7.0 Development Plan](UPDATE-2.7.0-DEVELOPMENT-PLAN.md), Section 12. It covers the phased 2024 PDPA amendments, DPO thresholds (including regular/systematic monitoring), 72-hour breach notification guidance, data portability, 13-class registration, cross-border transfers for the existing Singapore/Tokyo service regions, 16+ audience considerations under GDPR/UK Children's Code, and dictionary/poetry licensing. U2.7.0 adds only a course-language dimension to existing user-linked progress; no new identity fields, sensitive data or telemetry were added. This is risk planning only; formal legal review remains deferred and no legal clearance is claimed.
