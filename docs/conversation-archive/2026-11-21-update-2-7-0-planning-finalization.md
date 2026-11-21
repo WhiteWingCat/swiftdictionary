@@ -18,12 +18,12 @@ Finalize the owner-approved scope for Update 2.7.0 and prepare a clean applicati
 
 1. Expand the Simplified Chinese single-character dictionary. Initial target at least 500–700 new unique characters, no hard cap if quality and validation permit.
 2. Replace the ineffective Chinese filter with Pinyin A–Z initial filtering and useful character categories. Allow filters to be combined. Suggested categories: Actions, People, Objects, Nature, Places, Time & Numbers, Emotions & States, Descriptions, Grammar & Function, Communication. Characters may have multiple valid categories.
-3. Preserve one character per grid card and existing character/pinyin search.
+3. Preserve one character per grid card, keep the grid character-only (no pinyin displayed on cards), and retain existing character/pinyin search and detail pinyin.
 4. Permanent layout rule: character above pinyin, pinyin directly underneath. Never left, right or above. This applies to desktop, mobile and responsive layouts.
 5. Add a Simplified Chinese course to the existing Lessons framework; do not rebuild the framework.
 6. Initial minimum at least 17 lessons and 112 practice questions, matching the actual English library (7/5/5 lessons and 44/34/34 questions across Beginner/Intermediate/Advanced); may exceed if quality permits.
 7. English support is guaranteed for Chinese lessons regardless of selected translation language.
-8. Pinyin is mandatory throughout Chinese lesson content, including sentences, expressions, idioms, proverbs, quotations and poetry; align pinyin clearly with longer passages.
+8. Pinyin is mandatory throughout Chinese lesson content, including sentences, expressions, idioms, proverbs, quotations and poetry. In Lessons only, Chinese text must appear above pinyin directly underneath; never beside or above the Chinese text. English support follows the pinyin.
 9. Include grammar, vocabulary, common expressions, 成语, 谚语, 名言警句 and selected 诗词; distinguish each content type and verify quote attribution.
 10. Integrate English-to-Chinese exercises and English/Chinese structural comparisons.
 11. Reuse existing lesson reader, practice, progress, completion, translation refresh, allowance and account-synchronisation behavior. No timer or time pressure.
@@ -107,3 +107,10 @@ The owner clarified that pinyin must **not** be added to Chinese Dictionary grid
 - Static checks and four Chromium tests passed in GitHub Actions run [44868243733](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44868243733).
 - The Chinese grid remains character-only. The pinyin-below-character rule is reserved for Chinese Lessons.
 - Next: add the remaining 48 Level 1 candidates, then proceed through HSK Levels 2–5 in reviewed batches. Lessons and Supabase migration work remain pending.
+
+
+## Post-planning correction (2026-11-21)
+
+The owner clarified that the pinyin-under-character rule applies specifically to **Chinese Lessons**, not to the Dictionary grid. The Chinese Dictionary grid must remain character-only; do not add pinyin to its cards. Keep existing pinyin search and detail-panel pinyin. In Chinese Lessons, every Chinese text block must be followed immediately by its pinyin on the next line, with English support below; pinyin must never appear above or beside the Chinese text.
+
+The source audit also found the current English Lessons baseline is 17 lessons and 112 questions, distributed 7/5/5 lessons and 44/34/34 questions by difficulty. The Chinese course target was raised from the preliminary 15/52 estimate to match this actual baseline.
