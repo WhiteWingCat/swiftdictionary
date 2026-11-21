@@ -127,9 +127,7 @@ Responsive drawer widths are preserved explicitly: 50vw desktop, 62vw medium scr
 - Application branch: `feature/update-2-7-0-chinese-dictionary-lessons`.
 - Latest app head at this documentation update: `b98980dc5eae5ffea4cdb482c126fbb529daa739`.
 - PR #14 remains draft/open/unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/14.
-- U2.7.0 Chinese dictionary/Lessons/UI/browser suite #44889504955 — success.
-- Cloudflare build-routing guard #44889504919 — success.
-- 2.3.x allowance/dashboard, 2.5.0 Flashcards, 2.6.0 ACL and Quiz database/Auth/RPC regression workflows were still running at the latest check. Do not claim all ancillary CI is green until those jobs complete.
+- All latest-head compatibility workflows completed successfully: U2.7.0 dictionary/Chinese Lessons/UI/browser suite #44889504955; 2.3.x PostgreSQL 17 migration/allowance, Auth compatibility and Chromium suite #44889505053; Update 2.5.0 Flashcards #44889505023; Update 2.6.0 ACL regression #44889505006; Quiz database foundation and Local Supabase Auth/RPC/Chromium integration #44889505105; Cloudflare build-routing guard #44889504919. Cloudflare Pages deployment check #136802063112 also succeeded for app head `b98980d`, with deployment URL https://42daddd5.swiftdictionary.pages.dev and branch preview https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev.
 - Branch preview URL: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev. Cloudflare Pages deployment check #136802063112 completed successfully for app head `b98980d`: https://42daddd5.swiftdictionary.pages.dev. Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev.
 
 ### Data, legal and release boundaries
