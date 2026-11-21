@@ -114,3 +114,20 @@ The owner clarified that pinyin must **not** be added to Chinese Dictionary grid
 The owner clarified that the pinyin-under-character rule applies specifically to **Chinese Lessons**, not to the Dictionary grid. The Chinese Dictionary grid must remain character-only; do not add pinyin to its cards. Keep existing pinyin search and detail-panel pinyin. In Chinese Lessons, every Chinese text block must be followed immediately by its pinyin on the next line, with English support below; pinyin must never appear above or beside the Chinese text.
 
 The source audit also found the current English Lessons baseline is 17 lessons and 112 questions, distributed 7/5/5 lessons and 44/34/34 questions by difficulty. The Chinese course target was raised from the preliminary 15/52 estimate to match this actual baseline.
+
+
+## Phase 0 audit results (2026-11-21)
+
+- Actual main source audited at `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- Chinese Dictionary: 206 unique single-character entries, no duplicates; core fields are populated. Twelve entries have multiple readings. Existing `part` field only distinguishes `汉语词汇` and `汉字`, so planned semantic categories require new metadata.
+- Preserve current Chinese Dictionary grid design. It displays the character only (plus saved marker); **do not add pinyin to grid cards**.
+- Existing English Lessons contain 17 permanent lessons and 112 questions. The 17 `lessonZh` records are Chinese translations of English lessons, not a standalone Chinese course. U2.7.0 Chinese Lessons must be independently authored and at least match 17/112.
+- Current course selector hides the Lessons library when Chinese is selected. The new course needs to be wired into that availability logic.
+- Current reader has no authored Chinese lesson-pinyin pairing. Add explicit pinyin fields and render Chinese text with its pinyin directly below in Lessons only.
+- Progress and practice-result tables lack language/course columns; content catalogue is English-only; start guards, completion/replay RPCs and completion activity logging hardcode English. Additive language-scoped migration is required for independent Chinese progress and correct activity history. Preserve existing English records as `en`.
+- Existing daily lesson allowance counts the single lesson activity type across languages. Preserve the Free 5 / Premium 15 shared daily limit unless the owner explicitly changes this.
+- Existing CI jobs for build/deploy, browser smoke, PostgreSQL allowance/ACL, local Supabase Auth, Quiz and Flashcards passed in the inspected main baseline. New Chinese-specific tests are required.
+- Phase 0 did not change application code, database state or deployment.
+
+### Next step
+Proceed to Phase 1 after confirming whether the current shared English/Chinese permanent-lesson daily allowance should remain shared. Keep all database migrations as draft until explicit approval for staging execution.
