@@ -206,11 +206,10 @@ end;
 $chinese_replay$;
 
 -- User 666 has one shared Free lesson completion across both learning languages.
-set local role service_role;
+reset role;
 update public.learning_plan_limits
 set daily_limit=1,is_enabled=true,updated_at=now()
 where plan_code='free' and activity_type='lesson';
-reset role;
 set local role authenticated;
 
 select set_config('request.jwt.claim.sub','66666666-6666-4666-8666-666666666666',true);
