@@ -494,3 +494,19 @@ All latest-head PR workflows passed:
 - Cloudflare build-routing guard #44886855624.
 
 Cloudflare Pages deployment for latest app head 0e0d0b5 succeeded: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (deployment URL https://8dfdd54f.swiftdictionary.pages.dev). PR #14 remains draft/open/unmerged. The only outstanding owner step is optional visual acceptance of the new preview; no technical manual work is required. Production remains untouched.
+
+
+### Owner feedback round 1 — Lessons UI correction pass (2026-11-21)
+
+Implemented after owner staging review:
+- First three entries visible by default in “What you will learn” and “Examples in context”, with accessible expand/collapse controls for the rest.
+- Practice question text is placed fully inside the question panel. Short answer options form responsive columns; longer options remain stacked.
+- Restore Daily Learning above Permanent Lessons on the main Lessons page.
+- Portal the Daily Activities reader to the document-level overlay to correct the blank/hidden side panel.
+- Replace horizontal tab scrolling with a responsive wrapping grid.
+- Redesign each activity panel’s title and allowance display, including remaining count and a visual progress bar.
+- Keep drawer widths responsive (50vw desktop / 62vw medium / 100vw mobile); keep Dictionary grid unchanged and pinyin-free.
+
+New static and Playwright coverage checks expand/collapse behaviour, question and option layout, visible reader content and document-level overlay, no horizontal tab overflow, heading/allowance display and mobile drawer width. U2.7.0 suite #44889504955 and Cloudflare routing guard #44889504919 passed at the latest check. Ancillary 2.3.x, 2.5.0, 2.6.0 and Quiz/Auth regression workflows were still running. App branch head: `b98980dc5eae5ffea4cdb482c126fbb529daa739`; PR #14 remains draft. Latest branch preview URL: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (latest deployment ID not independently verified). No schema/data-processing change; legal review remains deferred, not cleared; production remains untouched.
+
+See [the detailed U2.7.0 session archive](conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md).
