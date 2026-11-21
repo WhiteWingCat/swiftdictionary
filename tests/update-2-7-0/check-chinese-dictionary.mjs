@@ -39,6 +39,7 @@ for (const item of words) {
     assert.ok(Array.isArray(item.categories) && item.categories.length > 0, "New entry must have at least one category: " + item.word);
     assert.ok(Array.isArray(item.sourceIds) && item.sourceIds.length >= 3, "New entry must retain field provenance source IDs: " + item.word);
     assert.ok(Number.isInteger(item.hskLevel) && item.hskLevel >= 1 && item.hskLevel <= 5, "New entry must retain its HSK candidate level: " + item.word);
+    assert.ok(Array.isArray(item.examples) && item.examples.length > 0 && item.examples.some(sentence => sentence.includes(item.word)), "New entry example must demonstrate its character: " + item.word);
   }
   if (item.categories !== undefined) {
     assert.ok(Array.isArray(item.categories), "Categories must be an array: " + item.word);
