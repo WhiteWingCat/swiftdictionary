@@ -70,3 +70,16 @@ The user clarified that pinyin must **not** be added to Chinese Dictionary grid 
 3. Add/verify Chinese course progress completion in browser tests, including English/Chinese progress isolation.
 4. Complete linguistic and licensing review and owner preview.
 5. Prepare release notes and one consolidated release package only after QA. Do not merge, apply hosted migrations or deploy without explicit owner approval.
+
+
+## Subsequent verification (2026-11-21)
+
+- Latest app branch head: `27739f86162ddd2b7251ebe52ca98490f224782e`.
+- U2.7.0 workflow #44876433048 passed:
+  - 725 dictionary entries / 519 additions and script syntax check.
+  - 17 Chinese lessons / 112 questions and bilingual/pinyin validation.
+  - Full English Lessons and Daily Learning browser regression: 26/26 passed.
+  - Chinese Dictionary filter browser tests: 5/5 passed.
+  - Chinese Lessons vertical bilingual layout: 1/1 passed.
+- The 26-test regression includes the Chinese lesson completion and English/Chinese progress-isolation check.
+- Quiz database foundation workflow #44876433049 PostgreSQL job passed. Local Supabase Auth/RPC integration remained in progress at this update.
