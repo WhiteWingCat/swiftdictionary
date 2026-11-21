@@ -11,6 +11,7 @@ test.beforeEach(async ({ page }) => {
 
 test("Chinese dictionary filters by pinyin initial and keeps cards character-only", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#openDictionaryFilters").click();
   await page.locator("#courseSelect").selectOption("zh");
 
   await expect(page.locator("#chinesePinyinFilterLabel")).toBeVisible();
@@ -31,6 +32,7 @@ test("Chinese dictionary filters by pinyin initial and keeps cards character-onl
 
 test("switching back to English restores the English alphabet and part-of-speech filters", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#openDictionaryFilters").click();
   await page.locator("#courseSelect").selectOption("zh");
   await page.locator("#alphabet button[data-letter='B']").click();
   await page.locator("#courseSelect").selectOption("en");
