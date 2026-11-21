@@ -1,6 +1,14 @@
 name: SwiftDictionary 2.6.0 ACL drift regression
 
 on:
+  push:
+    branches:
+      - "feature/update-2-6-0-legal-privacy-security"
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/tests/update_2_6_0_*.sql"
+      - "tests/update-2-6-0/**"
+      - ".github/workflows/update-2-6-0-acl-test.yml"
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
