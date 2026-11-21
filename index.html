@@ -18698,54 +18698,6 @@ async function loadLessonProgress(){
     }
 function renderLessons(){
       const zh=course==="en"&&translationLanguage==="zh";
-      const topic=el("lessonTopicFilter");
-      const topics=[...new Set(lessons().map(x=>lessonField(x,"topic")))];
-      topic.innerHTML='<option value="all">'+(zh?"全部主题":"All topics")+'</option>'+topics.map(t=>'<option>'+escapeHTML(t)+'</option>').join("");
-      topic.value=ls.topic;
-      const done=lessons().filter(x=>progressFor(x.id)?.status==="completed").length;
-      el("lessonDifficultySummary").textContent=zh
-        ?lessons().length+" 节课程 · 已完成 "+done+" 节。每个课程和难度分别保存学习进度。"
-        :lessons().length+" lessons · "+done+" completed. Progress is saved separately for each course and difficulty.";
-      el("lessonProgressSummary").textContent=currentUser?(zh?done+" / "+lessons().length+" 已完成":done+" of "+lessons().length+" completed"):(zh?"登录后即可保存进度":"Sign in to save progress");
-      el("lessonCards").innerHTML="";
-      lessons().filter(x=>ls.topic==="all"||lessonField(x,"topic")===ls.topic).forEach(x=>{
-        const p=progressFor(x.id);
-        const status=p?.status==="completed"?(zh?"已完成":"Completed"):p?(zh?"进行中":"In progress"):(zh?"未开始":"Not started");
-        const cls=p?.status==="completed"?"completed":p?"in-progress":"not-started";
-        const blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;
-        const topicHtml=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
-        const b=document.createElement("button");
-        b.className="lesson-card";
-        b.disabled=blocked;
-        b.innerHTML='<span class="lesson-card-main"><span class="lesson-chip">'+topicHtml+'</span><h3>'+lessonRenderText(lessonField(x,"title"))+'</h3><p>'+lessonRenderText(lessonField(x,"summary"))+'</p></span><span class="lesson-status '+cls+'">'+(blocked?(zh?"今日额度已用完":"Daily limit reached"):status)+'</span>';
-        if(blocked)b.title=zh?"今日课程完成额度已用完。已完成课程仍可复习。":"Your daily lesson-completion allowance has been used. Completed lessons remain available to review.";
-        b.onclick=()=>openLesson(x.id);
-        el("lessonCards").appendChild(b);
-      });
-    }
-      const topic=el("lessonTopicFilter");
-      const topics=[...new Set(lessons().map(x=>lessonField(x,"topic")))];
-      topic.innerHTML='<option value="all">All topics</option>'+topics.map(t=>'<option>'+escapeHTML(t)+'</option>').join("");
-      topic.value=ls.topic;
-      const done=lessons().filter(x=>progressFor(x.id)?.status==="completed").length;
-      el("lessonDifficultySummary").textContent=lessons().length+" lessons · "+done+" completed. Progress is saved separately for each course and difficulty.";
-      el("lessonProgressSummary").textContent=currentUser?done+" of "+lessons().length+" completed":"Sign in to save progress";
-      el("lessonCards").innerHTML="";
-      lessons().filter(x=>ls.topic==="all"||lessonField(x,"topic")===ls.topic).forEach(x=>{
-        const p=progressFor(x.id);
-        const status=p?.status==="completed"?"Completed":p?"In progress":"Not started";
-        const cls=p?.status==="completed"?"completed":p?"in-progress":"not-started";
-        const blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;
-        const topicHtml=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
-        const b=document.createElement("button");
-        b.className="lesson-card";
-        b.disabled=blocked;
-        b.innerHTML='<span class="lesson-card-main"><span class="lesson-chip">'+topicHtml+'</span><h3>'+lessonRenderText(lessonField(x,"title"))+'</h3><p>'+lessonRenderText(lessonField(x,"summary"))+'</p></span><span class="lesson-status '+cls+'">'+(blocked?"Daily limit reached":status)+'</span>';
-        if(blocked)b.title="Your daily lesson-completion allowance has been used. Completed lessons remain available to review.";
-        b.onclick=()=>openLesson(x.id);
-        el("lessonCards").appendChild(b);
-      });
-    }
 function renderLesson(x,preservePractice=false){
       ls.active=x;
       const qs=lessonPractice(x);
