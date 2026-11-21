@@ -20,7 +20,7 @@ Expand the Simplified Chinese dictionary and introduce a substantial Chinese lea
 - Prioritise useful, common characters and learner value rather than raw volume.
 - Replace the ineffective Chinese filter with:
   - Pinyin A–Z initial filter, based on the first letter of each valid Mandarin reading.
-  - Character category filter. Initial categories: Actions; People; Objects; Nature; Places; Time & Numbers; Emotions & States; Descriptions; Grammar & Function; Communication.
+  - Character category filter. Initial categories: Actions; Expressions; Communication; People; Objects; Nature; Places; Time & Numbers; Emotions & States; Descriptions; Grammar & Function.
   - Combined filtering, with text/character/pinyin search remaining usable while filters are active.
 - A character may belong to multiple justified categories. Polyphonic characters should be discoverable under each relevant pinyin initial where supported by the data model.
 - Preserve one Chinese character per grid card. Multi-character vocabulary remains in related-word/detail content, not as grid cards.
@@ -173,7 +173,7 @@ The application source is now accessible and the current baseline is sufficientl
 - Application branch head: `510954a3e2c037ab7f231ddaeec3247299c08181`.
 - Pinyin A–Z filter is enabled for the Chinese course. It matches the first letter of any slash-separated pinyin reading, strips tone diacritics for initial detection, disables letters with no matching entries, and combines with the existing character/pinyin search.
 - Polyphonic characters can appear under each listed pinyin initial. Browser coverage explicitly checks the character 会 under H and K.
-- Added Chinese category-filter controls and category matching against an entry's `categories` array. Supported category slugs: actions, expressions, people, objects, nature, places, time-numbers, emotions-states, descriptions, grammar-function. A character can have multiple categories.
+- Added Chinese category-filter controls and category matching against an entry's `categories` array. Supported category slugs: actions, expressions, communication, people, objects, nature, places, time-numbers, emotions-states, descriptions, grammar-function. A character can have multiple categories.
 - Category controls remain hidden until the dictionary has category metadata. The current 206-entry dataset has no category arrays, so classification and category-filter browser coverage remain outstanding.
 - Dictionary cards remain character-only. No pinyin was added to grid cards; the new A–Z filter uses the existing `phonetic` data without changing card presentation.
 - Added explicit hidden-state CSS for category rows inside the filter panel, so hidden category controls do not remain displayed because of a more-specific flex rule.
