@@ -499,7 +499,20 @@
     .learning-auth-card p{max-width:560px;margin:0 auto 16px;color:var(--muted)}
     .learning-auth-button{border:1px solid #718ac7!important;background:#34446b!important;color:#fff!important;border-radius:10px!important;padding:11px 20px!important;font-weight:700}
     #lessonsPage.learning-signed-out #dailyLearningPage,#lessonsPage.learning-signed-out .difficulty-tabs,#lessonsPage.learning-signed-out #lessonLibrary,#lessonsPage.learning-signed-out #lessonsChineseUnavailable,#lessonDetailPage.learning-signed-out #lessonReader,#lessonDetailPage.learning-signed-out #lessonStatus{display:none!important}
-  </style>
+  
+    /* Chinese Lessons typography: Chinese first, pinyin immediately below, English support after. */
+    .lesson-bilingual-block{display:block;width:100%;white-space:normal;line-height:1.5}
+    .lesson-chinese-line{display:block;order:0;line-height:1.55}
+    .lesson-pinyin-line{display:block;order:1;margin:0.08rem 0 0;color:var(--muted,#87939b);font-size:.9em;line-height:1.35}
+    .lesson-english-line{display:block;order:2;margin-top:.16rem;color:var(--muted,#87939b);font-size:.92em;line-height:1.45}
+    .lesson-selected-translation{display:block;margin-top:.14rem;font-size:.9em;color:var(--muted,#87939b)}
+    .lesson-breakdown-sentence{display:flex;flex-wrap:wrap;align-items:flex-start;gap:.55rem;margin:.65rem 0}
+    .lesson-breakdown-token{display:inline-flex;flex-direction:column;align-items:center;min-width:2.2rem}
+    .lesson-breakdown-token mark{display:block}
+    .lesson-question label{align-items:flex-start}
+    .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
+    .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
+</style>
 </head>
 <body>
   <header>
