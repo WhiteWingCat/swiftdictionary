@@ -3380,5 +3380,1157 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ]
+  },
+  {
+    "word": "般",
+    "part": "汉语词汇",
+    "phonetic": "bān",
+    "definition": "kind; sort; class; way; manner",
+    "definitionZh": "种类、方式或样子；常见于“一般”等词。",
+    "examples": [
+      "他用平常的方式做事。"
+    ],
+    "breakdown": "整体记忆；常用于表示方式或类别。",
+    "related": "一般 yì bān；这般 zhè bān",
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "板",
+    "part": "汉语词汇",
+    "phonetic": "bǎn",
+    "definition": "board; plank; plate; table tennis bat; stiff; serious",
+    "definitionZh": "木板、板子；也可指黑板、球拍或严肃的表情。",
+    "examples": [
+      "请把书放在木板上。"
+    ],
+    "breakdown": "整体记忆；常见于木板、黑板和板面等词。",
+    "related": "黑板 hēi bǎn；木板 mù bǎn",
+    "categories": [
+      "objects",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "办",
+    "part": "汉语词汇",
+    "phonetic": "bàn",
+    "definition": "to handle; deal with; organize; establish; manage",
+    "definitionZh": "处理、办理；组织或设立某项事务。",
+    "examples": [
+      "我去银行办理业务。"
+    ],
+    "breakdown": "整体记忆；常用于处理事务或组织活动。",
+    "related": "办法 bàn fǎ；办公 bàn gōng",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "饱",
+    "part": "汉语词汇",
+    "phonetic": "bǎo",
+    "definition": "to eat until full; satisfied; full",
+    "definitionZh": "吃饱、满足；表示不再需要进食。",
+    "examples": [
+      "我已经吃饱了。"
+    ],
+    "breakdown": "整体记忆；常用于表达吃饭后的状态。",
+    "related": "吃饱 chī bǎo；饱满 bǎo mǎn",
+    "categories": [
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "报",
+    "part": "汉语词汇",
+    "phonetic": "bào",
+    "definition": "to report; inform; announce; repay; newspaper; journal",
+    "definitionZh": "报告、通知；报答；也指报纸或刊物。",
+    "examples": [
+      "我每天早上看报纸。"
+    ],
+    "breakdown": "整体记忆；常见于新闻、报告和回应相关词语。",
+    "related": "报纸 bào zhǐ；报告 bào gào",
+    "categories": [
+      "communication",
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "必",
+    "part": "汉语词汇",
+    "phonetic": "bì",
+    "definition": "must; necessarily; certainly; if (literary)",
+    "definitionZh": "必须、一定、必然；表示事情不可避免或有必要。",
+    "examples": [
+      "我们必须准时到达。"
+    ],
+    "breakdown": "整体记忆；常用于“必须”“必要”“必定”等词。",
+    "related": "必须 bì xū；必要 bì yào",
+    "categories": [
+      "grammar-function",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "变",
+    "part": "汉语词汇",
+    "phonetic": "biàn",
+    "definition": "to change; become different; transform; vary",
+    "definitionZh": "改变、变化；变成另一种状态或形式。",
+    "examples": [
+      "天气突然变冷了。"
+    ],
+    "breakdown": "整体记忆；常用于描述状态或情况发生变化。",
+    "related": "变化 biàn huà；变成 biàn chéng",
+    "categories": [
+      "actions",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "便",
+    "part": "汉语词汇",
+    "phonetic": "biàn / pián",
+    "definition": "convenient; suitable; then; in that case; cheap (pián)",
+    "definitionZh": "方便、便利；表示随后或于是；读 pián 时常见于“便宜”。",
+    "examples": [
+      "这里交通很方便。"
+    ],
+    "breakdown": "多音字；表示方便、于是时读 biàn，“便宜”中读 pián。",
+    "related": "方便 fāng biàn；便宜 pián yi",
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "遍",
+    "part": "汉语词汇",
+    "phonetic": "biàn",
+    "definition": "everywhere; all over; classifier for one complete action",
+    "definitionZh": "遍及、到处；也作量词，表示动作从头到尾完成一次。",
+    "examples": [
+      "请再读一遍。"
+    ],
+    "breakdown": "整体记忆；常用于表示动作的次数或范围。",
+    "related": "一遍 yí biàn；遍地 biàn dì",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "表",
+    "part": "汉语词汇",
+    "phonetic": "biǎo",
+    "definition": "surface; to show; table; form; meter; watch",
+    "definitionZh": "表面、表示；表格、表单；也指手表或测量仪表。",
+    "examples": [
+      "请填好这张表。"
+    ],
+    "breakdown": "整体记忆；常见于表格、手表和表达相关词语。",
+    "related": "表格 biǎo gé；手表 shǒu biǎo",
+    "categories": [
+      "objects",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "部",
+    "part": "汉语词汇",
+    "phonetic": "bù",
+    "definition": "ministry; department; section; part; troops; classifier for works",
+    "definitionZh": "部门、部分、部队；也作电影、书籍等作品的量词。",
+    "examples": [
+      "我看了一部电影。"
+    ],
+    "breakdown": "整体记忆；可表示组织部门、组成部分或作品数量。",
+    "related": "部分 bù fen；部门 bù mén",
+    "categories": [
+      "people",
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "才",
+    "part": "汉语词汇",
+    "phonetic": "cái",
+    "definition": "ability; talent; only; just now; then and only then",
+    "definitionZh": "才能、才华；也作副词，表示刚刚、只有或直到某时才发生。",
+    "examples": [
+      "他刚才来了。"
+    ],
+    "breakdown": "整体记忆；注意“才”可表示时间较晚或数量较少。",
+    "related": "才能 cái néng；刚才 gāng cái",
+    "categories": [
+      "people",
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "参",
+    "part": "汉语词汇",
+    "phonetic": "cān / cēn / shēn",
+    "definition": "to take part; participate; attend; ginseng; uneven (bound form)",
+    "definitionZh": "参加、参与；读 shēn 时可指人参，读 cēn 时见于“参差”。",
+    "examples": [
+      "我想参加这个活动。"
+    ],
+    "breakdown": "多音字；参加读 cān，人参读 shēn，参差读 cēn。",
+    "related": "参加 cān jiā；参观 cān guān",
+    "categories": [
+      "actions",
+      "communication",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "餐",
+    "part": "汉语词汇",
+    "phonetic": "cān",
+    "definition": "meal; to eat; classifier for meals",
+    "definitionZh": "餐饭、用餐；也作一顿饭的量词。",
+    "examples": [
+      "我们一起吃午餐。"
+    ],
+    "breakdown": "整体记忆；常用于早餐、午餐和晚餐。",
+    "related": "早餐 zǎo cān；午餐 wǔ cān",
+    "categories": [
+      "objects",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "层",
+    "part": "汉语词汇",
+    "phonetic": "céng",
+    "definition": "layer; stratum; floor; story; level; classifier for layers",
+    "definitionZh": "层次、层面；建筑物的楼层；也作层状事物的量词。",
+    "examples": [
+      "我住在五层。"
+    ],
+    "breakdown": "整体记忆；常用于楼层、层次和分层结构。",
+    "related": "楼层 lóu céng；一层 yì céng",
+    "categories": [
+      "places",
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "查",
+    "part": "汉语词汇",
+    "phonetic": "chá / zhā",
+    "definition": "to check; research; investigate; examine; look up",
+    "definitionZh": "检查、查找、调查；也可表示查阅资料。",
+    "examples": [
+      "我在字典里查这个字。"
+    ],
+    "breakdown": "多音字；表示检查、查找时读 chá，作姓氏时读 zhā。",
+    "related": "查找 chá zhǎo；检查 jiǎn chá",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "超",
+    "part": "汉语词汇",
+    "phonetic": "chāo",
+    "definition": "to exceed; surpass; overtake; transcend; ultra-; super-",
+    "definitionZh": "超过、超越、超出；也可作前缀表示超级或超常。",
+    "examples": [
+      "他很快就超过了我。"
+    ],
+    "breakdown": "整体记忆；常用于比较和表示程度超出。",
+    "related": "超过 chāo guò；超市 chāo shì",
+    "categories": [
+      "actions",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "晨",
+    "part": "汉语词汇",
+    "phonetic": "chén",
+    "definition": "morning; dawn; daybreak",
+    "definitionZh": "早晨、清晨；一天刚开始的时段。",
+    "examples": [
+      "我每天早晨跑步。"
+    ],
+    "breakdown": "整体记忆；常见于“早晨”“清晨”等时间词。",
+    "related": "早晨 zǎo chen；清晨 qīng chén",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "称",
+    "part": "汉语词汇",
+    "phonetic": "chēng / chèn / chèng",
+    "definition": "to weigh; call; name; praise; suitable; scales",
+    "definitionZh": "称重、称呼、称赞；读 chèn 时表示相称、合适。",
+    "examples": [
+      "请称一下这些水果。"
+    ],
+    "breakdown": "多音字；称重、称呼读 chēng，相称读 chèn，秤类用法读 chèng。",
+    "related": "称呼 chēng hu；名称 míng chēng",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "成",
+    "part": "汉语词汇",
+    "phonetic": "chéng",
+    "definition": "to succeed; finish; complete; accomplish; become; turn into",
+    "definitionZh": "成功、完成；成为或转变成某种状态。",
+    "examples": [
+      "他终于完成了工作。"
+    ],
+    "breakdown": "整体记忆；常见于“成功”“完成”“成为”等词。",
+    "related": "成功 chéng gōng；完成 wán chéng",
+    "categories": [
+      "actions",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "楚",
+    "part": "汉语词汇",
+    "phonetic": "chǔ",
+    "definition": "distinct; clear; orderly; pain; Chu state",
+    "definitionZh": "清楚、明白；也指古代楚国或相关地名。",
+    "examples": [
+      "请说清楚一点。"
+    ],
+    "breakdown": "整体记忆；现代常见于“清楚”“楚楚”等词。",
+    "related": "清楚 qīng chu；楚楚 chǔ chǔ",
+    "categories": [
+      "descriptions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "处",
+    "part": "汉语词汇",
+    "phonetic": "chù / chǔ",
+    "definition": "place; location; department; to reside; deal with; get along",
+    "definitionZh": "读 chù 时表示地点、方面或部门；读 chǔ 时表示居住、相处或处理。",
+    "examples": [
+      "请把东西放在原处。"
+    ],
+    "breakdown": "多音字；表示地点时读 chù，表示处理或相处时读 chǔ。",
+    "related": "到处 dào chù；处理 chǔ lǐ",
+    "categories": [
+      "places",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "船",
+    "part": "汉语词汇",
+    "phonetic": "chuán",
+    "definition": "boat; vessel; ship",
+    "definitionZh": "船只、船舶；在水上航行的交通工具。",
+    "examples": [
+      "我们坐船去岛上。"
+    ],
+    "breakdown": "整体记忆；常与水上交通相关。",
+    "related": "船票 chuán piào；船长 chuán zhǎng",
+    "categories": [
+      "objects",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "吹",
+    "part": "汉语词汇",
+    "phonetic": "chuī",
+    "definition": "to blow; play a wind instrument; boast; brag",
+    "definitionZh": "吹气、吹风；吹奏管乐器；也可表示吹牛、夸口。",
+    "examples": [
+      "风在轻轻地吹。"
+    ],
+    "breakdown": "整体记忆；可描述空气流动或吹奏动作。",
+    "related": "吹风 chuī fēng；吹牛 chuī niú",
+    "categories": [
+      "actions",
+      "nature",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "春",
+    "part": "汉语词汇",
+    "phonetic": "chūn",
+    "definition": "spring; springtime; youth; love; life",
+    "definitionZh": "春天、春季；也可象征青春、生机或爱情。",
+    "examples": [
+      "春天花开了。"
+    ],
+    "breakdown": "整体记忆；常见于季节和节日相关词语。",
+    "related": "春天 chūn tiān；春节 chūn jié",
+    "categories": [
+      "nature",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "词",
+    "part": "汉语词汇",
+    "phonetic": "cí",
+    "definition": "word; statement; speech; lyrics; lyric poetry form",
+    "definitionZh": "词语、言辞；歌词；也指一种古典诗歌形式。",
+    "examples": [
+      "请用这个词造句。"
+    ],
+    "breakdown": "整体记忆；常见于词语、词汇和歌词。",
+    "related": "词语 cí yǔ；歌词 gē cí",
+    "categories": [
+      "communication",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "带",
+    "part": "汉语词汇",
+    "phonetic": "dài",
+    "definition": "belt; ribbon; area; to wear; carry; bring; lead; look after",
+    "definitionZh": "带子、区域；携带、带领、带来；也可表示照看。",
+    "examples": [
+      "请带上你的护照。"
+    ],
+    "breakdown": "整体记忆；可表示物品、区域或带着某人某物。",
+    "related": "带来 dài lái；皮带 pí dài",
+    "categories": [
+      "actions",
+      "objects",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "单",
+    "part": "汉语词汇",
+    "phonetic": "dān / shàn / chán",
+    "definition": "single; only; list; form; bill; surname Shan; used in 单于",
+    "definitionZh": "单独、单一；名单、单据；读 shàn 时作姓氏，读 chán 时用于“单于”。",
+    "examples": [
+      "请把你的名字写在这张单上。"
+    ],
+    "breakdown": "多音字；常用“单独、名单”读 dān，姓氏读 shàn，“单于”读 chán。",
+    "related": "单独 dān dú；名单 míng dān",
+    "categories": [
+      "descriptions",
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "但",
+    "part": "汉语词汇",
+    "phonetic": "dàn",
+    "definition": "but; yet; however; still; merely; only",
+    "definitionZh": "但是、然而；也可表示仅仅、只是。",
+    "examples": [
+      "我很想去，但今天没时间。"
+    ],
+    "breakdown": "整体记忆；常用于转折句。",
+    "related": "但是 dàn shì；不但 bù dàn",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "倒",
+    "part": "汉语词汇",
+    "phonetic": "dào / dǎo",
+    "definition": "to pour; invert; reverse; fall; collapse; contrary to expectation",
+    "definitionZh": "倒置、倒下；把液体倒出；也可表示与预期相反。",
+    "examples": [
+      "请把水倒进杯子里。"
+    ],
+    "breakdown": "多音字；表示倾倒、反向时读 dào，表示倒下、倒塌时读 dǎo。",
+    "related": "倒水 dào shuǐ；倒下 dǎo xià",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "低",
+    "part": "汉语词汇",
+    "phonetic": "dī",
+    "definition": "low; beneath; to lower; hang down; droop",
+    "definitionZh": "低、矮；降低；也可表示声音小或位置较低。",
+    "examples": [
+      "这张桌子太低了。"
+    ],
+    "breakdown": "整体记忆；常与“高”形成对比。",
+    "related": "低头 dī tóu；降低 jiàng dī",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "典",
+    "part": "汉语词汇",
+    "phonetic": "diǎn",
+    "definition": "canon; standard work; literary quotation; ceremony; to pawn",
+    "definitionZh": "典籍、标准；典礼、典故；也可表示典当。",
+    "examples": [
+      "我在字典里查这个词。"
+    ],
+    "breakdown": "整体记忆；常见于“字典”“经典”“典礼”等词。",
+    "related": "词典 cí diǎn；经典 jīng diǎn",
+    "categories": [
+      "objects",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "掉",
+    "part": "汉语词汇",
+    "phonetic": "diào",
+    "definition": "to fall; drop; lose; go missing; turn; change; shed",
+    "definitionZh": "掉落、掉下来；失去或遗失；也可表示转向或变化。",
+    "examples": [
+      "我的钥匙掉在地上了。"
+    ],
+    "breakdown": "整体记忆；常用于描述物品脱落或失去。",
+    "related": "掉下 diào xià；丢掉 diū diào",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "定",
+    "part": "汉语词汇",
+    "phonetic": "dìng",
+    "definition": "to fix; set; decide; subscribe; book; congeal; definitely",
+    "definitionZh": "确定、规定、决定；预订或固定；也可表示一定。",
+    "examples": [
+      "我们已经定好时间了。"
+    ],
+    "breakdown": "整体记忆；常用于决定、安排和确定。",
+    "related": "决定 jué dìng；一定 yí dìng",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "冬",
+    "part": "汉语词汇",
+    "phonetic": "dōng",
+    "definition": "winter",
+    "definitionZh": "冬天、冬季；一年四季中的寒冷季节。",
+    "examples": [
+      "冬天这里很冷。"
+    ],
+    "breakdown": "整体记忆；常见于季节和时间词语。",
+    "related": "冬天 dōng tiān；冬季 dōng jì",
+    "categories": [
+      "nature",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "度",
+    "part": "汉语词汇",
+    "phonetic": "dù / duó",
+    "definition": "degree; extent; measure; to spend time; estimate",
+    "definitionZh": "程度、度数、限度；也可表示度过；读 duó 时表示估量。",
+    "examples": [
+      "今天的温度很高。"
+    ],
+    "breakdown": "多音字；表示程度、度数时读 dù，表示估量时读 duó。",
+    "related": "温度 wēn dù；速度 sù dù",
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "短",
+    "part": "汉语词汇",
+    "phonetic": "duǎn",
+    "definition": "short; brief; to lack; weak point; fault",
+    "definitionZh": "长度短、时间短；也可表示不足或缺点。",
+    "examples": [
+      "这条裙子有点短。"
+    ],
+    "breakdown": "整体记忆；常与“长”形成对比。",
+    "related": "短信 duǎn xìn；长短 cháng duǎn",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "段",
+    "part": "汉语词汇",
+    "phonetic": "duàn",
+    "definition": "paragraph; section; segment; stage; classifier for periods and lengths",
+    "definitionZh": "段落、部分、阶段；也作一段时间或长度的量词。",
+    "examples": [
+      "请读第一段。"
+    ],
+    "breakdown": "整体记忆；常用于文章、过程和时间的分段。",
+    "related": "段落 duàn luò；阶段 jiē duàn",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "队",
+    "part": "汉语词汇",
+    "phonetic": "duì",
+    "definition": "team; group; squad; troop",
+    "definitionZh": "队伍、团队或小组；也可指军队。",
+    "examples": [
+      "我们学校有一支足球队。"
+    ],
+    "breakdown": "整体记忆；常用于团队、运动和组织。",
+    "related": "队伍 duì wu；队员 duì yuán",
+    "categories": [
+      "people",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "而",
+    "part": "汉语词汇",
+    "phonetic": "ér",
+    "definition": "and; as well as; but; yet; therefore; connective particle",
+    "definitionZh": "连接词语或分句，表示并列、转折、因果或递进关系。",
+    "examples": [
+      "他聪明而且努力。"
+    ],
+    "breakdown": "整体记忆；多用于书面语连接词语或句子。",
+    "related": "而且 ér qiě；然而 rán ér",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "发",
+    "part": "汉语词汇",
+    "phonetic": "fā / fà",
+    "definition": "to send out; issue; develop; happen; hair",
+    "definitionZh": "发送、发出、发生、发展；读 fà 时表示头发。",
+    "examples": [
+      "他给我发了一条消息。"
+    ],
+    "breakdown": "多音字；表示发送、发生时读 fā，头发读 fà。",
+    "related": "发短信 fā duǎn xìn；头发 tóu fa",
+    "categories": [
+      "actions",
+      "communication",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "法",
+    "part": "汉语词汇",
+    "phonetic": "fǎ",
+    "definition": "law; method; way; rule; France; Dharma",
+    "definitionZh": "法律、方法、法则；也可作为法国的简称组成部分。",
+    "examples": [
+      "我们需要一个简单的方法。"
+    ],
+    "breakdown": "整体记忆；常见于法律、规则和做事方法。",
+    "related": "方法 fāng fǎ；法律 fǎ lǜ",
+    "categories": [
+      "grammar-function",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "份",
+    "part": "汉语词汇",
+    "phonetic": "fèn",
+    "definition": "share; portion; classifier for gifts, papers, reports and contracts",
+    "definitionZh": "份额、部分；也作礼物、文件、报告等的量词。",
+    "examples": [
+      "请给我一份菜单。"
+    ],
+    "breakdown": "整体记忆；常用于表示一份文件、食物或工作。",
+    "related": "一份 yí fèn；份额 fèn é",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "封",
+    "part": "汉语词汇",
+    "phonetic": "fēng",
+    "definition": "to seal; close; confer a title; classifier for sealed objects and letters",
+    "definitionZh": "封闭、封口；封授；也作信件等的量词。",
+    "examples": [
+      "我收到一封信。"
+    ],
+    "breakdown": "整体记忆；常见于信件、包装和封闭动作。",
+    "related": "信封 xìn fēng；封面 fēng miàn",
+    "categories": [
+      "objects",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "复",
+    "part": "汉语词汇",
+    "phonetic": "fù",
+    "definition": "to return; resume; repeat; recover; reply; complex; duplicate",
+    "definitionZh": "返回、恢复；重复；回复；也可表示复杂或复合。",
+    "examples": [
+      "考试前我要复习。"
+    ],
+    "breakdown": "整体记忆；常见于“复习”“恢复”“回复”等词。",
+    "related": "复习 fù xí；回复 huí fù",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "该",
+    "part": "汉语词汇",
+    "phonetic": "gāi",
+    "definition": "should; ought to; probably; must; to deserve; be one's turn",
+    "definitionZh": "应该、应当；表示责任、建议或轮到某人。",
+    "examples": [
+      "你该休息了。"
+    ],
+    "breakdown": "整体记忆；常用于表达应该做的事。",
+    "related": "应该 yīng gāi；该当 gāi dāng",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "改",
+    "part": "汉语词汇",
+    "phonetic": "gǎi",
+    "definition": "to change; alter; transform; correct; improve",
+    "definitionZh": "改变、修改、改正或改进。",
+    "examples": [
+      "我想改一下这个句子。"
+    ],
+    "breakdown": "整体记忆；常用于修改内容或改变状态。",
+    "related": "改变 gǎi biàn；改正 gǎi zhèng",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "感",
+    "part": "汉语词汇",
+    "phonetic": "gǎn",
+    "definition": "to feel; move; touch; affect; feeling; emotion; sense",
+    "definitionZh": "感觉、感受；感动、影响；也可表示情感或感觉。",
+    "examples": [
+      "我感觉今天很冷。"
+    ],
+    "breakdown": "整体记忆；常见于“感觉”“感动”“感谢”等词。",
+    "related": "感觉 gǎn jué；感谢 gǎn xiè",
+    "categories": [
+      "emotions-states",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "刚",
+    "part": "汉语词汇",
+    "phonetic": "gāng",
+    "definition": "just; only just; a short while ago; hard; firm; strong",
+    "definitionZh": "刚刚、刚才；表示动作发生不久；也可表示坚硬、刚强。",
+    "examples": [
+      "我刚到家。"
+    ],
+    "breakdown": "整体记忆；常放在动词前表示事情刚发生。",
+    "related": "刚才 gāng cái；刚刚 gāng gāng",
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "公",
+    "part": "汉语词汇",
+    "phonetic": "gōng",
+    "definition": "public; common; fair; just; male animal; duke",
+    "definitionZh": "公共、公有；公平、公正；也可表示雄性动物或公爵。",
+    "examples": [
+      "公园里有很多人。"
+    ],
+    "breakdown": "整体记忆；常见于公共场所和公共事务相关词语。",
+    "related": "公共 gōng gòng；公园 gōng yuán",
+    "categories": [
+      "places",
+      "people",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
   }
 ];
