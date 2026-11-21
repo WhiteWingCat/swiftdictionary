@@ -440,3 +440,14 @@ The local Auth/Quiz/Flashcard integration workflow subsequently completed succes
 - No production migration, production deployment, merge, or OAuth/configuration change was performed.
 - Next gates: wait for corrected CI and Pages preview; test preview with a disposable synthetic staging account; complete manual native-speaker review; obtain separate explicit approval before PR merge and again before production migration/deployment.
 - Session archive: `docs/conversation-archive/2026-11-21-update-2-7-0-singapore-staging-migration-and-preview.md`.
+
+
+
+
+### Final Pages deployment and CI follow-up (2026-11-21)
+
+- Cloudflare Pages deployment for `ff4c1c4` succeeded: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (deployment URL: https://06110066.swiftdictionary.pages.dev).
+- Passed latest-head workflows: U2.7.0 Chinese dictionary/Lessons #44882082850; 2.3.x PostgreSQL/Auth/Chromium #44882082837; Flashcards #44882082822; U2.6.0 ACL regression #44882082838; Cloudflare build-routing guard #44882082871.
+- Quiz database foundation job passed in run #44882082923; its Local Supabase Auth/RPC job remained in authenticated Chromium Quiz runtime testing at the latest check.
+- The retired `swiftdictionary-testing` Workers build failure is separate from the successful Pages preview.
+- The private Cloudflare Pages build log was not accessible through current connected tools. Confirm staging backend routing in the final preview check before signing in.
