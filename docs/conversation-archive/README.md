@@ -148,3 +148,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.6.0 — PR #13 merged to main](2026-11-20-update-2-6-0-current-handover-and-production-acl-audit.md) — follow-up: records owner-approved squash merge, merge commit, passing final CI suite, and the separate unapproved production ACL rollout boundary.
 
 - [Update 2.7.0 — Lessons UI redesign and content pause](2026-11-21-update-2-7-0-lessons-ui-redesign.md) — records the owner-approved temporary pause on further Chinese expansion, shared English/Chinese Lessons redesign, moved activity preferences, accessibility/contrast improvements, preview deployment, regression fixes and current release gates.
+
+- [Update 2.7.0 — Lessons UI redesign and owner feedback round 1](2026-11-21-update-2-7-0-lessons-ui-redesign.md) — follow-up: records expandable lesson content, revised practice answer layout, restored page order, document-level Daily Activities drawer, non-scrolling responsive tabs, redesigned activity allowance UI, and expanded browser verification.
