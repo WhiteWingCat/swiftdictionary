@@ -12,6 +12,10 @@ const l0=html.indexOf('<section id="permanentLessonsPanel"'); const l1=html.inde
 assert(d0>=0&&d1>d0&&p0>=0&&p1>p0&&l0>=0&&l1>l0);
 assert(!html.slice(d0,d1).includes("daily-preferences"));
 assert(html.slice(p0,p1).includes('id="dailyPreferencesLegend"'));
+assert(html.slice(p0,p1).includes('id="dailyPreferencesStatus"'));
+assert(html.includes('page === "preferences" && currentUser && typeof initialiseDailyLearning'));
+assert(daily.includes("function setDailyPreferenceStatus"));
+assert(daily.includes('byId("dailyPreferencesStatus")'));
 const permanent=html.slice(l0,l1);
 for(const id of ['class="difficulty-tabs"','id="lessonAllowance"','id="lessonCards"'])assert(permanent.includes(id));
 assert(html.includes("lessons-ui.css?v=2.7.0-ui2")); assert(html.includes('class="lesson-key-point"'));
