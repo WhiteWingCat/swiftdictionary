@@ -24,8 +24,8 @@ Expand the Simplified Chinese dictionary and introduce a substantial Chinese lea
   - Combined filtering, with text/character/pinyin search remaining usable while filters are active.
 - A character may belong to multiple justified categories. Polyphonic characters should be discoverable under each relevant pinyin initial where supported by the data model.
 - Preserve one Chinese character per grid card. Multi-character vocabulary remains in related-word/detail content, not as grid cards.
-- Preserve existing character/pinyin search, stroke-order interactions, detail-panel behavior and unlimited free dictionary access.
-- **Strict layout invariant:** render the Chinese character above its pinyin, with pinyin directly below it. Never position pinyin to the left, right or above the character. Enforce this in desktop, mobile and responsive layouts and test it explicitly.
+- Preserve the existing grid presentation: **do not add pinyin to Chinese Dictionary grid cards**. Keep the existing character-only card display and preserve character/pinyin search, stroke-order interactions, detail-panel behavior and unlimited free dictionary access.
+- The strict character-above-pinyin layout rule applies specifically to **Chinese Lessons**. Whenever lesson content presents Chinese text with pinyin, pinyin must appear directly below its corresponding character/text, never above or beside it. Test this in lesson readers and responsive layouts.
 
 ### B. Chinese Lessons course
 
@@ -60,7 +60,7 @@ Balance grammar, vocabulary and practical comprehension. Avoid making every less
 ## 4. Implementation phases and gates
 
 1. **Phase 0 — Baseline audit and technical design.** Inspect current main source, dictionary data shape and counts, existing filter UI/state, lesson catalogue/schema, translation refresh path, progress/allowance integration, tests and third-party notices. Record exact baseline commit and data counts. No content additions until the data model and validation approach are understood.
-2. **Phase 1 — Data model and dictionary filter foundation.** Design/extend character metadata for pinyin initials and multi-category membership. Implement A–Z/category/combined filters and responsive character-over-pinyin layout. Validate existing entries before bulk expansion.
+2. **Phase 1 — Data model and dictionary filter foundation.** Design/extend character metadata for pinyin initials and multi-category membership. Implement A–Z/category/combined filters while preserving the character-only grid cards. Add/validate the pinyin-below-Chinese-text presentation in the Chinese Lessons reader, not the dictionary grid.
 3. **Phase 2 — Chinese dictionary content expansion.** Add content in small sequential batches. Validate uniqueness, Simplified Chinese form, pinyin tones and polyphonic readings, meanings, category assignment and source/licensing notes. Do not deliver intermediate ZIPs; consolidate after phase validation.
 4. **Phase 3 — Chinese Lessons framework integration.** Add course selection and difficulty-specific lesson catalogue using existing lesson infrastructure. Preserve English lessons and existing progress/allowance behavior.
 5. **Phase 4 — Bilingual curriculum and practice content.** Author and validate Chinese lessons, pinyin alignment, English support, English-to-Chinese exercises and language comparisons. Meet the minimum 15 lessons/52 questions before release candidate.
@@ -76,7 +76,8 @@ Balance grammar, vocabulary and practical comprehension. Avoid making every less
 - Pinyin A–Z initial and multi-category filters return correct results; combined filters intersect predictably.
 - Search works with characters, pinyin with tones and pinyin without tones.
 - One character per grid card; related words remain detail content.
-- Character is always above pinyin, which is directly below it, on desktop/mobile and all responsive breakpoints.
+- Dictionary grid cards remain character-only; no pinyin is added to the cards.
+- In Chinese Lessons, pinyin is directly below the corresponding Chinese character/text on desktop/mobile and all responsive breakpoints.
 - Stroke-order controls and detail-panel translation switching remain functional.
 
 ### Lessons and account behavior
