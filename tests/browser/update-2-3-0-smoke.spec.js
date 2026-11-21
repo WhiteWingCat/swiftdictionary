@@ -107,6 +107,48 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   expect(layout.englishTop).toBeGreaterThanOrEqual(layout.pinyinBottom-1);
 });
 
+
+test("Chinese course completion stores progress separately from English", async ({ page }) => {
+  const userId = "chinese-progress-isolation-user";
+  await installDailyLearningMock(page, userId);
+  await page.goto("/");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe(userId);
+  await page.evaluate(id => {
+    window.__swiftDailyMock.tables.lesson_progress = [{
+      user_id:id, learning_language:"en", difficulty:"beginner",
+      lesson_id:"zh-b-pinyin-foundations", status:"in_progress",
+      started_at:new Date().toISOString(), completed_at:null, updated_at:new Date().toISOString()
+    }];
+  }, userId);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator('[data-page="lessons"]').click();
+  await page.locator("#lessonCards .lesson-card").first().click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  const answers = await page.evaluate(() => {
+    const item = window.SWIFT_CHINESE_LESSONS.beginner.find(x => x.id === "zh-b-pinyin-foundations");
+    return item.practices.map(q => q.options[q.answer].zh);
+  });
+  for (let i=0; i<answers.length; i++) {
+    const question = page.locator(".lesson-question").nth(i);
+    const labels = question.locator("label");
+    let index = -1;
+    for (let j=0; j<await labels.count(); j++) {
+      const value = (await labels.nth(j).locator(".lesson-chinese-line").textContent())?.trim();
+      if (value === answers[i]) { index = j; break; }
+    }
+    expect(index).toBeGreaterThanOrEqual(0);
+    await labels.nth(index).locator("input").check();
+    await question.locator(".check-lesson-answer").click();
+    await expect(question.locator(".lesson-question-feedback")).toContainText("Correct");
+  }
+  await expect(page.locator("#lessonFinishNote")).toContainText("Lesson completed");
+  const rows = await page.evaluate(id => window.__swiftDailyMock.tables.lesson_progress
+    .filter(row => row.user_id === id && row.lesson_id === "zh-b-pinyin-foundations")
+    .map(row => [row.learning_language,row.status])
+    .sort((a,b) => a[0].localeCompare(b[0])), userId);
+  expect(rows).toEqual([["en","in_progress"],["zh","completed"]]);
+});
+
 test("exhausted lesson allowance blocks new lessons but preserves completed lesson review", async ({ page }) => {
   await installDailyLearningMock(page,"lesson-limit-user","free");
   await page.goto("/");
