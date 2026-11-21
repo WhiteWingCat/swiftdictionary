@@ -269,7 +269,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which syllable in 妈妈 is normally pronounced with the neutral tone?",
+          "q": {
+            "zh": "在“妈妈”中，哪个音节通常读轻声？",
+            "pinyin": "zài “mā ma” zhōng, nǎ ge yīn jié tōng cháng dú qīng shēng?",
+            "en": "Which syllable in 妈妈 is normally pronounced with the neutral tone?"
+          },
           "options": [
             {
               "zh": "第一个“妈”",
@@ -295,7 +299,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 1
         },
         {
-          "q": "Which spelling is the standard written pinyin for 你好?",
+          "q": {
+            "zh": "“你好”的标准拼音写法是什么？",
+            "pinyin": "“nǐ hǎo” de biāo zhǔn pīn yīn xiě fǎ shì shén me?",
+            "en": "Which spelling is the standard written pinyin for 你好?"
+          },
           "options": [
             {
               "zh": "你好",
@@ -509,7 +517,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which is a natural reply to 谢谢?",
+          "q": {
+            "zh": "回应“谢谢”时，哪种说法最自然？",
+            "pinyin": "huí yìng “xiè xie” shí, nǎ zhǒng shuō fǎ zuì zì rán?",
+            "en": "Which is a natural reply to 谢谢?"
+          },
           "options": [
             {
               "zh": "不客气",
@@ -1041,7 +1053,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word links a person to an identity, as in 我是学生?",
+          "q": {
+            "zh": "在“我是学生”这样的句子中，哪个词用来说明身份？",
+            "pinyin": "zài “wǒ shì xué shēng” zhè yàng de jù zi zhōng, nǎ ge cí yòng lái shuō míng shēn fèn?",
+            "en": "Which word links a person to an identity, as in 我是学生?"
+          },
           "options": [
             {
               "zh": "是",
@@ -2165,7 +2181,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which particle commonly marks possession in 我的书?",
+          "q": {
+            "zh": "在“我的书”中，哪个助词通常表示所属关系？",
+            "pinyin": "zài “wǒ de shū” zhōng, nǎ ge zhù cí tōng cháng biǎo shì suǒ shǔ guān xì?",
+            "en": "Which particle commonly marks possession in 我的书?"
+          },
           "options": [
             {
               "zh": "的",
@@ -2217,7 +2237,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which particle often marks an experience, as in 我去过北京?",
+          "q": {
+            "zh": "在“我去过北京”中，哪个助词表示曾经有过某种经历？",
+            "pinyin": "zài “wǒ qù guo běi jīng” zhōng, nǎ ge zhù cí biǎo shì céng jīng yǒu guo mǒu zhǒng jīng lì?",
+            "en": "Which particle often marks an experience, as in 我去过北京?"
+          },
           "options": [
             {
               "zh": "过",
@@ -2269,7 +2293,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which particle can mark a suggestion in 我们走吧?",
+          "q": {
+            "zh": "在“我们走吧”中，哪个助词可以表示建议？",
+            "pinyin": "zài “wǒ men zǒu ba” zhōng, nǎ ge zhù cí kě yǐ biǎo shì jiàn yì?",
+            "en": "Which particle can mark a suggestion in 我们走吧?"
+          },
           "options": [
             {
               "zh": "吧",
@@ -2321,7 +2349,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence uses 得 to describe how someone runs?",
+          "q": {
+            "zh": "下面哪句话用“得”来补充说明一个人跑步的状态？",
+            "pinyin": "xià miàn nǎ jù huà yòng “de” lái bǔ chōng shuō míng yí ge rén pǎo bù de zhuàng tài?",
+            "en": "Which sentence uses 得 to describe how someone runs?"
+          },
           "options": [
             {
               "zh": "他跑得很快",
@@ -2431,7 +2463,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Where does 明天 usually appear in 我明天去学校?",
+          "q": {
+            "zh": "在“我明天去学校”中，“明天”通常放在什么位置？",
+            "pinyin": "zài “wǒ míng tiān qù xué xiào” zhōng, “míng tiān” tōng cháng fàng zài shén me wèi zhì?",
+            "en": "Where does 明天 usually appear in 我明天去学校?"
+          },
           "options": [
             {
               "zh": "在主要动词之前",
@@ -3205,7 +3241,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which sentence uses 把 to show how an object is handled?",
+          "q": {
+            "zh": "下面哪句话使用“把”字句来说明如何处理一个物品？",
+            "pinyin": "xià miàn nǎ jù huà shǐ yòng “bǎ” zì jù lái shuō míng rú hé chǔ lǐ yí ge wù pǐn?",
+            "en": "Which sentence uses 把 to show how an object is handled?"
+          },
           "options": [
             {
               "zh": "请把门关上",
@@ -3231,7 +3271,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "What is the main function of 被 in a 被 sentence?",
+          "q": {
+            "zh": "“被”字句中的“被”主要起什么作用？",
+            "pinyin": "“bèi” zì jù zhōng de “bèi” zhǔ yào qǐ shén me zuò yòng?",
+            "en": "What is the main function of 被 in a 被 sentence?"
+          },
           "options": [
             {
               "zh": "表示被动",
@@ -3361,7 +3405,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which is a natural 把 sentence?",
+          "q": {
+            "zh": "下面哪一句是自然、正确的“把”字句？",
+            "pinyin": "xià miàn nǎ yí jù shì zì rán, zhèng què de “bǎ” zì jù?",
+            "en": "Which is a natural 把 sentence?"
+          },
           "options": [
             {
               "zh": "我把作业写完了",
@@ -3601,7 +3649,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence uses 然而 naturally?",
+          "q": {
+            "zh": "下面哪句话自然地使用了表示转折的连接词“然而”？",
+            "pinyin": "xià miàn nǎ jù huà zì rán de shǐ yòng le biǎo shì zhuǎn zhé de lián jiē cí “rán ér”?",
+            "en": "Which sentence uses 然而 naturally?"
+          },
           "options": [
             {
               "zh": "天气很冷，然而他还是出门了",
@@ -3841,7 +3893,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "What is a key difference between 成语 and 谚语?",
+          "q": {
+            "zh": "成语和谚语之间最重要的区别是什么？",
+            "pinyin": "chéng yǔ hé yàn yǔ zhī jiān zuì zhòng yào de qū bié shì shén me?",
+            "en": "What is a key difference between 成语 and 谚语?"
+          },
           "options": [
             {
               "zh": "成语是固定的惯用表达；谚语是民间格言或俗语",
@@ -4321,7 +4377,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which poem contains the line 床前明月光，疑是地上霜？",
+          "q": {
+            "zh": "哪一首诗包含“床前明月光，疑是地上霜”这一句？",
+            "pinyin": "nǎ yì shǒu shī bāo hán “chuáng qián míng yuè guāng, yí shì dì shàng shuāng” zhè yí jù?",
+            "en": "Which poem contains the line 床前明月光，疑是地上霜？"
+          },
           "options": [
             {
               "zh": "静夜思",
@@ -4347,7 +4407,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Who wrote the Tang-dynasty poem 静夜思?",
+          "q": {
+            "zh": "唐代诗歌《静夜思》的作者是谁？",
+            "pinyin": "táng dài shī gē “jìng yè sī” de zuò zhě shì shéi?",
+            "en": "Who wrote the Tang-dynasty poem 静夜思?"
+          },
           "options": [
             {
               "zh": "李白",
@@ -4373,7 +4437,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "What does the opening couplet of 静夜思 compare?",
+          "q": {
+            "zh": "《静夜思》的开头两句把什么事物进行比较？",
+            "pinyin": "“jìng yè sī” de kāi tóu liǎng jù bǎ shén me shì wù jìn xíng bǐ jiào?",
+            "en": "What does the opening couplet of 静夜思 compare?"
+          },
           "options": [
             {
               "zh": "月光和霜",
