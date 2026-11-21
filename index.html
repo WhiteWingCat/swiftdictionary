@@ -228,6 +228,8 @@
     .filter-button, .secondary-button { border: 1px solid var(--border); border-radius: 12px; background: var(--panel); color: var(--text); padding: 0 16px; }
     .filter-button[aria-pressed="true"] { background: var(--accent-bg); border-color: #4c5b8b; color: var(--accent); }
     .alphabet { display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0 0; }
+    .filter-group-label { margin: 18px 0 7px; color: var(--muted); font-size: .72rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+    #chinesePinyinFilterLabel + .alphabet { margin-top: 0; }
     .letter { width: 33px; height: 33px; border-radius: 9px; border: 1px solid transparent; color: var(--muted); background: transparent; }
     .letter:hover, .letter.active { color: var(--text); background: var(--panel-hover); border-color: var(--border); }
     .letter:disabled { opacity: .27; cursor: default; }
@@ -554,7 +556,21 @@
               <button class="category-button" type="button" data-category="adverb" aria-pressed="false">Adverbs</button>
               <button class="category-button" type="button" data-category="other" aria-pressed="false">Other / multiple uses</button>
             </div>
+            <div id="chineseCategoryRow" class="category-row" aria-label="Filter Chinese characters by category" hidden>
+              <button class="category-button active" type="button" data-chinese-category="all" aria-pressed="true">All categories</button>
+              <button class="category-button" type="button" data-chinese-category="actions" aria-pressed="false">Actions</button>
+              <button class="category-button" type="button" data-chinese-category="expressions" aria-pressed="false">Expressions</button>
+              <button class="category-button" type="button" data-chinese-category="people" aria-pressed="false">People</button>
+              <button class="category-button" type="button" data-chinese-category="objects" aria-pressed="false">Objects</button>
+              <button class="category-button" type="button" data-chinese-category="nature" aria-pressed="false">Nature</button>
+              <button class="category-button" type="button" data-chinese-category="places" aria-pressed="false">Places</button>
+              <button class="category-button" type="button" data-chinese-category="time-numbers" aria-pressed="false">Time &amp; Numbers</button>
+              <button class="category-button" type="button" data-chinese-category="emotions-states" aria-pressed="false">Emotions &amp; States</button>
+              <button class="category-button" type="button" data-chinese-category="descriptions" aria-pressed="false">Descriptions</button>
+              <button class="category-button" type="button" data-chinese-category="grammar-function" aria-pressed="false">Grammar &amp; Function</button>
+            </div>
             <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
+            <div id="chinesePinyinFilterLabel" class="filter-group-label" hidden>Pinyin A–Z</div>
             <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
           </div>
       </section>
@@ -17694,8 +17710,11 @@
     const count = document.getElementById("count");
     const alphabet = document.getElementById("alphabet");
     const savedFilter = document.getElementById("savedFilter");
-    const categoryButtons = [...document.querySelectorAll(".category-button")];
+    const categoryButtons = [...document.querySelectorAll("#categoryRow .category-button")];
     const categoryRow = document.getElementById("categoryRow");
+    const chineseCategoryButtons = [...document.querySelectorAll("#chineseCategoryRow .category-button")];
+    const chineseCategoryRow = document.getElementById("chineseCategoryRow");
+    const chinesePinyinFilterLabel = document.getElementById("chinesePinyinFilterLabel");
     const previousPage = document.getElementById("previousPage");
     const nextPage = document.getElementById("nextPage");
     const pageStatus = document.getElementById("pageStatus");
@@ -17716,6 +17735,7 @@
     }).filter(Boolean));
     let activeLetter = "";
     let activeCategory = "all";
+    let activeChineseCategory = "all";
     let currentPage = 1;
     let pageSize = 100;
     let onlySaved = false;
@@ -17744,8 +17764,15 @@
     function escapeHTML(value) {
       return String(value).replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[char]));
     }
+    function chinesePinyinInitials(item) {
+      return [...new Set(String(item.phonetic || "").split(/\s*\/\s*/).map(reading =>
+        reading.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").charAt(0).toUpperCase()
+      ).filter(letter => /^[A-Z]$/.test(letter)))];
+    }
     function makeAlphabet() {
-      alphabet.style.display = course === "zh" ? "none" : "flex";
+      alphabet.style.display = "flex";
+      alphabet.setAttribute("aria-label", course === "zh" ? "Filter Chinese characters by pinyin initial" : "Filter words by first letter");
+      chinesePinyinFilterLabel.hidden = course !== "zh";
       const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
       alphabet.innerHTML = "";
       const all = document.createElement("button");
@@ -17757,7 +17784,9 @@
         const button = document.createElement("button");
         button.type = "button"; button.className = "letter"; button.textContent = letter;
         button.dataset.letter = letter;
-        button.disabled = !words.some(item => item.word.toUpperCase().startsWith(letter));
+        button.disabled = !words.some(item => course === "zh"
+          ? chinesePinyinInitials(item).includes(letter)
+          : item.word.toUpperCase().startsWith(letter));
         button.setAttribute("aria-pressed", "false");
         button.addEventListener("click", () => {
           activeLetter = activeLetter === letter ? "" : letter;
@@ -17781,9 +17810,13 @@
         const normalizedQuery = query.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const normalizedPinyin = (item.phonetic || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const matchesQuery = !query || item.word.toLowerCase().includes(query) || (course === "zh" && normalizedPinyin.includes(normalizedQuery));
-        const matchesLetter = course === "zh" || !activeLetter || item.word.toUpperCase().startsWith(activeLetter);
+        const matchesLetter = !activeLetter || (course === "zh"
+          ? chinesePinyinInitials(item).includes(activeLetter)
+          : item.word.toUpperCase().startsWith(activeLetter));
         const parts = item.part.toLowerCase().split(/\s*\/\s*/).map(part => part.trim());
-        const matchesCategory = course === "zh" || activeCategory === "all" || (activeCategory === "other" ? parts.length > 1 || !["noun","verb","adjective","adverb"].includes(parts[0]) : parts.includes(activeCategory));
+        const matchesCategory = course === "zh"
+          ? activeChineseCategory === "all" || (Array.isArray(item.categories) && item.categories.includes(activeChineseCategory))
+          : activeCategory === "all" || (activeCategory === "other" ? parts.length > 1 || !["noun","verb","adjective","adverb"].includes(parts[0]) : parts.includes(activeCategory));
         const matchesSaved = !onlySaved || saved.has(savedKey(course,item.word));
         return matchesQuery && matchesLetter && matchesSaved && matchesCategory;
       }).sort((a,b) => a.word.localeCompare(b.word, course === "zh" ? "zh-CN" : "en"));
@@ -17793,6 +17826,9 @@
       pageSize = course === "zh" ? 144 : 100;
       grid.classList.toggle("character-grid", course === "zh");
       categoryRow.hidden = course === "zh";
+      const hasChineseCategories = words.some(item => Array.isArray(item.categories) && item.categories.length > 0);
+      chineseCategoryRow.hidden = course !== "zh" || !hasChineseCategories;
+      chinesePinyinFilterLabel.hidden = course !== "zh";
       const pageCount = Math.max(1, Math.ceil(list.length / pageSize));
       currentPage = Math.min(currentPage, pageCount);
       const start = (currentPage - 1) * pageSize;
@@ -18207,13 +18243,14 @@
       categoryRow.hidden=course==="zh";
       grid.classList.toggle("character-grid",course==="zh");
       words=course==="zh"?chineseWords:englishWords;
-      activeLetter="";activeCategory="all";onlySaved=false;
+      activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;
       savedFilter.setAttribute("aria-pressed","false");
       savedFilter.textContent="☆ Saved words";
       search.value="";
       search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
       currentPage=1;makeAlphabet();updateLetterButtons();
       categoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+      chineseCategoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
       render();
       if(currentUser)syncCurrentCourseFromCloud({mergeLocal:false});
       showPreferenceRefreshToast("course");
@@ -18300,6 +18337,11 @@
     categoryButtons.forEach(button => button.addEventListener("click", () => {
       activeCategory = button.dataset.category;
       categoryButtons.forEach(item => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
+      currentPage = 1; render();
+    }));
+    chineseCategoryButtons.forEach(button => button.addEventListener("click", () => {
+      activeChineseCategory = button.dataset.chineseCategory;
+      chineseCategoryButtons.forEach(item => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
       currentPage = 1; render();
     }));
     previousPage.addEventListener("click", () => { if (currentPage > 1) { currentPage--; render(); window.scrollTo({top: 0, behavior: "smooth"}); } });
@@ -18906,7 +18948,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         grid.classList.toggle("character-grid",course === "zh");
         search.value = "";
         search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
-        activeLetter = ""; activeCategory = "all"; onlySaved = false; currentPage = 1;
+        activeLetter = ""; activeCategory = "all"; activeChineseCategory = "all"; onlySaved = false; currentPage = 1;
         savedFilter.setAttribute("aria-pressed","false");
         savedFilter.textContent = "☆ Saved words";
         makeAlphabet(); updateLetterButtons(); render();
@@ -19017,7 +19059,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           document.getElementById("categoryRow").hidden = course === "zh";
           grid.classList.toggle("character-grid", course === "zh");
           search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
-          if (courseChanged) { activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
+          if (courseChanged) { activeLetter=""; activeCategory="all"; activeChineseCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
         }
         selectedAvatar = profileQ.data?.avatar_icon || selectedAvatar || "🐦";
         updateAvatarDisplay();
@@ -19271,7 +19313,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         document.getElementById("categoryRow").hidden=course==="zh";
         grid.classList.toggle("character-grid",course==="zh");
         search.value=""; search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
-        activeLetter=""; activeCategory="all"; currentPage=1; makeAlphabet(); updateLetterButtons(); render();
+        activeLetter=""; activeCategory="all"; activeChineseCategory="all"; currentPage=1; makeAlphabet(); updateLetterButtons(); render();
         refreshTranslationViews();
         profilePreferences={learning_language:learning,translation_language:translation,timezone};
         rememberCoursePreferences();
@@ -19611,7 +19653,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       grid.classList.toggle("character-grid",course==="zh");
       search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
       if(courseChanged){
-        activeLetter="";activeCategory="all";onlySaved=false;currentPage=1;
+        activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;currentPage=1;
         savedFilter.setAttribute("aria-pressed","false");savedFilter.textContent="☆ Saved words";
         search.value="";makeAlphabet();updateLetterButtons();render();
       }
