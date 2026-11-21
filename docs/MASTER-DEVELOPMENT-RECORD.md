@@ -2811,3 +2811,13 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 - The initial migration's global `postgres` default-function EXECUTE revoke still requires a cross-schema impact review before production rollout.
 - PR #13 remains draft/open/unmerged. No production or staging database changes have been made.
 - Account deletion staging test is now marked passed in the PR body; remaining checks include the new ACL CI run and any outstanding staging regression checks.
+
+
+## 39. Update 2.6.0 — ACL workflow isolation and default-privilege compatibility (2026-11-21)
+
+- Read-only inventory in Tokyo production and Singapore staging shows 49 postgres-owned functions in `extensions`, 32 in `private`, and 31/29 in `public` (production/staging). A global default-function EXECUTE revoke affects future functions created by postgres across schemas, not only public.
+- The new ACL correction migration now restores the historical default PUBLIC EXECUTE only for future functions in `extensions`, while public/private application defaults remain restricted. Added local regression probes for public and extensions function defaults.
+- The first ACL CI workflow attempt replayed the entire historical migration chain and failed at an unrelated pre-existing 2.2.0 reconciliation assertion before reaching U2.6.0. The dedicated workflow was redesigned to create an isolated Supabase workspace, apply a synthetic app baseline, apply the U2.6.0 ACL migrations, rename the practice-results identity sequence to production's name, and assert the corrected grants.
+- Latest isolated workflow run at the time of this update is pending/in progress; no passing result is claimed yet.
+- Owner confirmed account deletion works in Singapore staging. PR #13 now records this as an owner-reported staging pass, not a production test.
+- PR #13 remains draft/open/unmerged. No production or staging DB changes were made.
