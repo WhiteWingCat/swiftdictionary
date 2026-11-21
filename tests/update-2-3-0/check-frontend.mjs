@@ -436,12 +436,12 @@ if (html.includes('data-page="daily-learning"')) {
   throw new Error("Daily Learning must not be a separate top-level navigation destination.");
 }
 const lessonsShellStart = html.indexOf('<section id="lessonsPage"');
-const permanentPanelStart = html.indexOf('<section id="permanentLessonsPanel"');
 const dailySectionStart = html.indexOf('<section id="dailyLearningPage"');
-const permanentPanelEnd = html.indexOf('<section id="dailyLearningPage"', permanentPanelStart);
+const permanentPanelStart = html.indexOf('<section id="permanentLessonsPanel"');
+const permanentPanelEnd = html.indexOf('\n      </section>\n    </section>\n    <section id="lessonDetailPage"', permanentPanelStart);
 const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"', permanentPanelStart);
-if (lessonsShellStart < 0 || permanentPanelStart < lessonsShellStart || dailySectionStart <= permanentPanelStart || difficultyNavStart < permanentPanelStart || difficultyNavStart >= permanentPanelEnd) {
-  throw new Error("Permanent Lessons must contain the difficulty navigation and appear before Daily Learning inside Lessons.");
+if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || permanentPanelStart <= dailySectionStart || difficultyNavStart < permanentPanelStart || difficultyNavStart >= permanentPanelEnd) {
+  throw new Error("Daily Learning must appear before Permanent Lessons, which must contain the difficulty navigation, inside Lessons.");
 }
 for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','id="accountDeletionCard"','Learning history','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
   if (!html.includes(fragment)) throw new Error(`Update 2.3.1 dashboard/navigation check failed: missing ${fragment}`);
