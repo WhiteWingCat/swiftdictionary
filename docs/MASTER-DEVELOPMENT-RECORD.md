@@ -2930,3 +2930,12 @@ Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid c
 - No hosted Supabase migration has been applied. No production settings, production database or deployment have been changed.
 
 **Next:** complete local Supabase Auth/RPC and advisor checks; run the full English Lessons/Daily Learning browser regression; test Chinese completion/progress isolation; complete linguistic and licensing review; then owner preview. Do not merge, apply the migration to hosted environments, or deploy without explicit approval.
+
+
+### Update 2.7.0 — full browser regression passed (2026-11-21)
+
+- Application feature branch head: `27739f86162ddd2b7251ebe52ca98490f224782e`.
+- U2.7.0 workflow #44876433048 passed all checks: dictionary static/data (725 total, 519 new), Chinese Lessons content validator (17/112), full English Lessons/Daily Learning regression **26/26**, dictionary filters **5/5**, Chinese Lessons bilingual layout **1/1**.
+- The full suite includes Chinese lesson completion and English/Chinese progress isolation.
+- Quiz database foundation workflow #44876433049 PostgreSQL job passed. Local Supabase Auth/RPC integration was still in progress at this snapshot.
+- Dictionary grid remains character-only; the Chinese text → pinyin → English vertical layout is specific to Lessons.
