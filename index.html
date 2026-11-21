@@ -20025,6 +20025,17 @@ async function completeLesson(x){
     function applyLearningCourseAvailability(){
       const chinese=course==="zh";
       const lessonsSignedIn=!!currentUser;
+      const lessonsPage=quizEl("lessonsPage");
+      const lessonBanner=lessonsPage?.querySelector(".learning-banner");
+      const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
+      const lessonTitle=quizEl("lessonsHeading");
+      const lessonDescription=lessonBanner?.querySelector(".page-intro");
+      if(lessonEyebrow)lessonEyebrow.textContent=!chinese&&translationLanguage==="zh"?"学习":"LEARNING";
+      if(lessonTitle)lessonTitle.textContent=chinese?"Chinese Lessons":translationLanguage==="zh"?"课程":"Lessons";
+      if(lessonDescription)lessonDescription.textContent=chinese
+        ?"Learn Simplified Chinese with pinyin, clear explanations, examples and interactive practice."
+        :translationLanguage==="zh"?"通过引导式讲解、示例和简短练习提升英语能力。":"Build English skills through guided explanations, examples and short practice.";
+      if(quizEl("lessonBack"))quizEl("lessonBack").textContent=!chinese&&translationLanguage==="zh"?"← 返回课程列表":"← Back to lessons";
       quizEl("lessonsSignedOut").hidden=lessonsSignedIn;
       quizEl("lessonsPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
       quizEl("lessonDetailPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
