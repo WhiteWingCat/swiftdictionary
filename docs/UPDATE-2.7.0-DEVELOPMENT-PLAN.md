@@ -386,14 +386,14 @@ This is a product-planning risk review, not legal advice or a compliance certifi
 ### QA and recent corrections
 
 - U2.7 dictionary static + Chromium workflow passed at reviewed head: [run 44881091752](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091752).
-- The local Supabase database foundation job, including the U2.7 language-aware lesson migration regression, passed in [run 44881091714](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091714). The separate local Auth/Quiz/Flashcard integration job was still running at the time of this checkpoint.
+- The local Supabase database foundation job, including the U2.7 language-aware lesson migration regression, passed in [run 44881091714](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091714). The separate local Auth/Quiz/Flashcard integration workflow also completed successfully; both jobs passed.
 - The dictionary static test now enforces at least 500 new entries and 700 total unique entries and checks public source attributions.
 - The Chinese lesson browser test checks pinyin stacking on desktop and narrow mobile layouts.
 - Unicode Unihan copyright notice corrected to Copyright © 2021-2026 Unicode, Inc.; mozillazg/pinyin-data MIT attribution was added alongside the upstream Unicode notice.
 
 ### Remaining release gates
 
-1. Complete the remaining local Auth/RPC integration workflow.
+1. <strike>Complete the remaining local Auth/RPC integration workflow.</strike> Completed successfully in run 44881091714.
 2. Conduct manual linguistic review. Automated checks confirm structure and coverage, not the correctness of every pinyin reading, tone-sandhi choice, definition or category. Review the 80 new polyphonic entries especially; some secondary readings are restricted to names, literary forms or specific words and must be labelled clearly or removed if not useful to learners.
 3. Review Simplified Chinese character forms and the HSK level assignments against the pinned sources.
 4. Deploy/test the feature branch preview against the Singapore staging project only after the owner approves the staging migration. The migration has only been applied in disposable CI; no staging or production database was changed in this checkpoint.
@@ -403,3 +403,8 @@ This is a product-planning risk review, not legal advice or a compliance certifi
 ### Privacy and legal boundary
 
 No new tracking or unrelated personal-data collection was introduced. The migration adds a language discriminator to existing user-linked lesson progress and practice records. Review the privacy notice when the owner next updates it. Malaysia-specific and general international legal/privacy review remains deferred; source notices are attribution measures, not a legal compliance certification.
+
+
+### CI completion follow-up — 2026-11-21
+
+The local Auth/Quiz/Flashcard integration workflow subsequently completed successfully. Both `Local Supabase Auth and RPC integration` and `quiz-db-foundation` jobs passed in [run 44881091714](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091714). The U2.7 dictionary static/Chromium workflow also passed in [run 44881091752](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091752). All inspected automated U2.7 and local database integration checks are now green at feature branch head `c8c6e72e92a0fac2b1be4d8454c25a1227053a36`. Staging and production remain untouched.
