@@ -2857,7 +2857,7 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 - Full approved scope, phased implementation sequence, QA gates and legal/content-risk checklist: [Update 2.7.0 Development Plan](UPDATE-2.7.0-DEVELOPMENT-PLAN.md).
 - Dated session archive: [2026-11-21 planning finalization](conversation-archive/2026-11-21-update-2-7-0-planning-finalization.md).
 - Owner-approved dictionary work: initial target at least 500–700 new unique characters with no hard cap if quality permits; replace the ineffective Chinese filter with Pinyin A–Z and multi-category filters; allow combined filtering; preserve one character per grid card and existing search.
-- Permanent visual invariant: Chinese character above, pinyin directly underneath; never pinyin to the left, right or above. Apply and test across desktop/mobile responsive layouts.
+- Permanent Chinese Lessons visual invariant: when Chinese lesson content displays pinyin, place it directly below the corresponding Chinese character/text; never above or beside it. **Do not add pinyin to Chinese Dictionary grid cards**; preserve their existing character-only presentation.
 - Owner-approved Chinese Lessons work: reuse existing lesson architecture; Beginner/Intermediate/Advanced; minimum 15 permanent lessons and 52 practice questions; English support always available; pinyin throughout; English-to-Chinese practice and English/Chinese structural comparisons; grammar, vocabulary, expressions, idioms, proverbs, verified quotations and selected poetry.
 - No timer. Preserve existing translation refresh, answer state, progress, completion, allowance, account isolation and sync behavior. Prepare reusable content for U2.8.0.
 - Legal/privacy review remains deferred, not cleared. Review Malaysia and general international risks and all dictionary/quote/poetry/translation licensing; do not claim legal compliance.
@@ -2866,4 +2866,6 @@ Archive: `docs/conversation-archive/2026-11-20-update-2-6-0-current-handover-and
 
 ### Next recovery step
 
-Start Phase 0 only: retrieve and audit the current app source, dictionary catalogue/data structure and counts, filter implementation, lesson architecture, translation refresh path, allowance/progress integration, tests, CI and third-party notices. Do not bulk-add content or author the lesson library until this audit is complete. Keep implementation on the feature branch and internal documentation on this branch.
+Start Phase 0: retrieve and audit the current app source, dictionary catalogue/data structure and counts, filter implementation, lesson architecture, translation refresh path, allowance/progress integration, tests, CI and third-party notices. Do not bulk-add content or author the lesson library until this audit is complete. Keep implementation on the feature branch and internal documentation on this branch.
+
+Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid cards. The character-above-pinyin layout requirement applies to Chinese Lessons only.
