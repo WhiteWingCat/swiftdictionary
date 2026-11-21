@@ -2284,5 +2284,1101 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ]
+  },
+  {
+    "word": "体",
+    "part": "汉语词汇",
+    "phonetic": "tǐ",
+    "definition": "body; form; style; system; substance; to experience",
+    "definitionZh": "身体、形体；形式、体制；也可指亲身体验。",
+    "examples": [
+      "运动对身体很好。"
+    ],
+    "breakdown": "整体记忆；常见于身体、体形和整体结构相关词语。",
+    "related": "身体 shēn tǐ；体重 tǐ zhòng",
+    "categories": [
+      "people",
+      "objects"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "条",
+    "part": "汉语词汇",
+    "phonetic": "tiáo",
+    "definition": "strip; item; article; clause; classifier for long thin things",
+    "definitionZh": "条状物；用于细长事物的量词，也用于条款或项目。",
+    "examples": [
+      "桌上有一条鱼。"
+    ],
+    "breakdown": "整体记忆；常作细长物品的量词。",
+    "related": "一条 yì tiáo；条件 tiáo jiàn",
+    "categories": [
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "同",
+    "part": "汉语词汇",
+    "phonetic": "tóng / tòng",
+    "definition": "same; similar; together; with; used in 胡同",
+    "definitionZh": "相同、一样；一起；与……相同；读 tòng 时用于“胡同”。",
+    "examples": [
+      "我们在同一个学校学习。"
+    ],
+    "breakdown": "多音字；通常读 tóng，少数词语如“胡同”读 tòng。",
+    "related": "同学 tóng xué；同时 tóng shí",
+    "categories": [
+      "grammar-function",
+      "descriptions",
+      "communication"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "图",
+    "part": "汉语词汇",
+    "phonetic": "tú",
+    "definition": "picture; diagram; drawing; chart; map; to plan",
+    "definitionZh": "图画、地图、图表；也可表示计划或谋求。",
+    "examples": [
+      "请看这张地图。"
+    ],
+    "breakdown": "整体记忆；常用于图片、地图和图表。",
+    "related": "图片 tú piàn；地图 dì tú",
+    "categories": [
+      "objects",
+      "communication"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "玩",
+    "part": "汉语词汇",
+    "phonetic": "wán / wàn",
+    "definition": "to play; have fun; toy; to trifle with",
+    "definitionZh": "玩耍、娱乐；玩具；也可表示戏弄。",
+    "examples": [
+      "孩子们在公园里玩。"
+    ],
+    "breakdown": "整体记忆；常用于游戏、娱乐和休闲活动。",
+    "related": "玩具 wán jù；好玩 hǎo wán",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "网",
+    "part": "汉语词汇",
+    "phonetic": "wǎng",
+    "definition": "net; web; network; to catch with a net",
+    "definitionZh": "网、网络；用网捕捉。",
+    "examples": [
+      "我在网上买了这本书。"
+    ],
+    "breakdown": "整体记忆；可指实体网，也可指互联网。",
+    "related": "网络 wǎng luò；上网 shàng wǎng",
+    "categories": [
+      "objects",
+      "communication"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "忘",
+    "part": "汉语词汇",
+    "phonetic": "wàng",
+    "definition": "to forget; overlook; neglect",
+    "definitionZh": "忘记、没能记住；忽略。",
+    "examples": [
+      "我忘了带钥匙。"
+    ],
+    "breakdown": "整体记忆；常与“记”形成对比。",
+    "related": "忘记 wàng jì；难忘 nán wàng",
+    "categories": [
+      "actions",
+      "emotions-states"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "文",
+    "part": "汉语词汇",
+    "phonetic": "wén",
+    "definition": "language; culture; writing; literary; formal; gentle",
+    "definitionZh": "文字、语言、文化；文章；文雅或正式。",
+    "examples": [
+      "我喜欢读中文文章。"
+    ],
+    "breakdown": "整体记忆；常见于文字、文化和语言相关词语。",
+    "related": "中文 zhōng wén；文化 wén huà",
+    "categories": [
+      "communication",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "五",
+    "part": "汉语词汇",
+    "phonetic": "wǔ",
+    "definition": "five; 5",
+    "definitionZh": "数字5。",
+    "examples": [
+      "我有五个苹果。"
+    ],
+    "breakdown": "整体记忆；用于表示数量、日期和时间。",
+    "related": "五点 wǔ diǎn；五月 wǔ yuè",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "午",
+    "part": "汉语词汇",
+    "phonetic": "wǔ",
+    "definition": "noon; 11 a.m. to 1 p.m.; seventh earthly branch",
+    "definitionZh": "中午、午时；也用于表示一天中的时间。",
+    "examples": [
+      "我们中午一起吃饭。"
+    ],
+    "breakdown": "整体记忆；常见于“上午”“中午”“下午”等词。",
+    "related": "中午 zhōng wǔ；下午 xià wǔ",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "息",
+    "part": "汉语词汇",
+    "phonetic": "xī",
+    "definition": "breath; rest; cease; news; interest (on money)",
+    "definitionZh": "呼吸；休息；停止；消息；利息。",
+    "examples": [
+      "我想休息一下。"
+    ],
+    "breakdown": "整体记忆；常见于“休息”“消息”“利息”等词。",
+    "related": "休息 xiū xi；消息 xiāo xi",
+    "categories": [
+      "nature",
+      "actions",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "习",
+    "part": "汉语词汇",
+    "phonetic": "xí",
+    "definition": "to practice; study; habit; custom",
+    "definitionZh": "练习、学习；习惯或风俗。",
+    "examples": [
+      "每天练习中文很重要。"
+    ],
+    "breakdown": "整体记忆；常见于“学习”“练习”“习惯”等词。",
+    "related": "学习 xué xí；练习 liàn xí",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "洗",
+    "part": "汉语词汇",
+    "phonetic": "xǐ",
+    "definition": "to wash; bathe; develop photographs; shuffle cards",
+    "definitionZh": "洗涤、清洗；洗澡；也可表示洗牌或冲洗照片。",
+    "examples": [
+      "我每天晚上洗澡。"
+    ],
+    "breakdown": "整体记忆；常用于清洁身体、衣物和物品。",
+    "related": "洗手 xǐ shǒu；洗衣服 xǐ yī fu",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "喜",
+    "part": "汉语词汇",
+    "phonetic": "xǐ",
+    "definition": "to like; enjoy; be happy; happiness; delight",
+    "definitionZh": "喜欢、喜爱；高兴、喜悦。",
+    "examples": [
+      "我很喜欢这首歌。"
+    ],
+    "breakdown": "整体记忆；常用于表达喜爱或喜悦。",
+    "related": "喜欢 xǐ huan；喜事 xǐ shì",
+    "categories": [
+      "emotions-states",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "系",
+    "part": "汉语词汇",
+    "phonetic": "xì / jì",
+    "definition": "to connect; relate; tie; bind; system; department",
+    "definitionZh": "连接、系住；系统、院系；读 jì 时表示系上或扣好。",
+    "examples": [
+      "请把鞋带系好。"
+    ],
+    "breakdown": "多音字；表示关系或系统时读 xì，表示系紧时读 jì。",
+    "related": "关系 guān xì；系鞋带 jì xié dài",
+    "categories": [
+      "actions",
+      "grammar-function",
+      "people"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "先",
+    "part": "汉语词汇",
+    "phonetic": "xiān",
+    "definition": "first; beforehand; earlier; at first; for the time being",
+    "definitionZh": "先前、首先；在时间或顺序上靠前。",
+    "examples": [
+      "你先吃饭，我等一下。"
+    ],
+    "breakdown": "整体记忆；常用于表示动作顺序。",
+    "related": "先生 xiān sheng；先后 xiān hòu",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "现",
+    "part": "汉语词汇",
+    "phonetic": "xiàn",
+    "definition": "to appear; present; now; existing; current",
+    "definitionZh": "出现；现在、当前；现有的。",
+    "examples": [
+      "他现在在家。"
+    ],
+    "breakdown": "整体记忆；常见于“现在”“发现”“出现”等词。",
+    "related": "现在 xiàn zài；发现 fā xiàn",
+    "categories": [
+      "descriptions",
+      "time-numbers"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "笑",
+    "part": "汉语词汇",
+    "phonetic": "xiào",
+    "definition": "to laugh; smile; laugh at",
+    "definitionZh": "笑、微笑；也可表示嘲笑。",
+    "examples": [
+      "她看到朋友就笑了。"
+    ],
+    "breakdown": "整体记忆；常用于表达快乐或反应。",
+    "related": "笑话 xiào hua；微笑 wēi xiào",
+    "categories": [
+      "expressions",
+      "emotions-states"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "些",
+    "part": "汉语词汇",
+    "phonetic": "xiē",
+    "definition": "some; a few; several; classifier for a small amount",
+    "definitionZh": "一些、几个；表示少量或不确定的数量。",
+    "examples": [
+      "我买了一些水果。"
+    ],
+    "breakdown": "整体记忆；常放在数量词或指示词后。",
+    "related": "一些 yì xiē；这些 zhè xiē",
+    "categories": [
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "谢",
+    "part": "汉语词汇",
+    "phonetic": "xiè",
+    "definition": "to thank; apologize; decline; wither",
+    "definitionZh": "感谢、道谢；道歉、拒绝；也可表示花叶凋谢。",
+    "examples": [
+      "谢谢你的帮助。"
+    ],
+    "breakdown": "整体记忆；常见于礼貌表达“谢谢”。",
+    "related": "谢谢 xiè xie；感谢 gǎn xiè",
+    "categories": [
+      "expressions",
+      "communication"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "新",
+    "part": "汉语词汇",
+    "phonetic": "xīn",
+    "definition": "new; newly; fresh; recent",
+    "definitionZh": "新的、刚出现的；新近。",
+    "examples": [
+      "我买了一件新衣服。"
+    ],
+    "breakdown": "整体记忆；常与“旧”形成对比。",
+    "related": "新年 xīn nián；新闻 xīn wén",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "星",
+    "part": "汉语词汇",
+    "phonetic": "xīng",
+    "definition": "star; celestial body; satellite",
+    "definitionZh": "星星、天体；也可指卫星或星状物。",
+    "examples": [
+      "今晚的星星很亮。"
+    ],
+    "breakdown": "整体记忆；常用于天体和时间词语。",
+    "related": "星星 xīng xing；星期 xīng qī",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "行",
+    "part": "汉语词汇",
+    "phonetic": "xíng / háng / héng",
+    "definition": "to walk; go; travel; row; line; profession; capable; okay",
+    "definitionZh": "行走、进行；行列、行业；也可表示可以、可行。",
+    "examples": [
+      "这样做也行。"
+    ],
+    "breakdown": "多音字；表示行动、可以时常读 xíng，表示行列、行业时读 háng。",
+    "related": "行走 xíng zǒu；行业 háng yè",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "兴",
+    "part": "汉语词汇",
+    "phonetic": "xīng / xìng",
+    "definition": "to rise; flourish; become popular; interest; excitement",
+    "definitionZh": "兴起、兴盛；兴趣、兴致。",
+    "examples": [
+      "他对音乐很有兴趣。"
+    ],
+    "breakdown": "多音字；表示兴起、兴盛时读 xīng，表示兴趣、兴致时读 xìng。",
+    "related": "兴趣 xìng qù；高兴 gāo xìng",
+    "categories": [
+      "emotions-states",
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "休",
+    "part": "汉语词汇",
+    "phonetic": "xiū",
+    "definition": "to rest; stop; cease; don't (imperative)",
+    "definitionZh": "休息、停止；也可用于表示不要。",
+    "examples": [
+      "我们休息十分钟。"
+    ],
+    "breakdown": "整体记忆；常见于“休息”“休假”等词。",
+    "related": "休息 xiū xi；休假 xiū jià",
+    "categories": [
+      "actions",
+      "time-numbers"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "样",
+    "part": "汉语词汇",
+    "phonetic": "yàng",
+    "definition": "manner; pattern; way; appearance; shape; kind; type",
+    "definitionZh": "样子、形状；方式、种类。",
+    "examples": [
+      "这两件衣服的样子不一样。"
+    ],
+    "breakdown": "整体记忆；常用于描述外观、方式和种类。",
+    "related": "样子 yàng zi；一样 yí yàng",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "爷",
+    "part": "汉语词汇",
+    "phonetic": "yé",
+    "definition": "grandpa; old gentleman",
+    "definitionZh": "爷爷；也可作为对年长男性的称呼。",
+    "examples": [
+      "我爷爷喜欢种花。"
+    ],
+    "breakdown": "整体记忆；常用于家庭称谓。",
+    "related": "爷爷 yé ye；大爷 dà yé",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "页",
+    "part": "汉语词汇",
+    "phonetic": "yè",
+    "definition": "page; leaf",
+    "definitionZh": "书本、文件的一页；也可指叶片。",
+    "examples": [
+      "请翻到第十页。"
+    ],
+    "breakdown": "整体记忆；常用于书本、文件和页码。",
+    "related": "页面 yè miàn；页码 yè mǎ",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "影",
+    "part": "汉语词汇",
+    "phonetic": "yǐng",
+    "definition": "image; film; movie; photograph; reflection; shadow",
+    "definitionZh": "影子、影像；电影、照片；反射出的形象。",
+    "examples": [
+      "树下有一个影子。"
+    ],
+    "breakdown": "整体记忆；常见于影像、电影和阴影相关词语。",
+    "related": "电影 diàn yǐng；影子 yǐng zi",
+    "categories": [
+      "objects",
+      "nature"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "用",
+    "part": "汉语词汇",
+    "phonetic": "yòng",
+    "definition": "to use; employ; need; with; use; utility",
+    "definitionZh": "使用、运用；需要；也可表示采用某种方式。",
+    "examples": [
+      "我用手机查字典。"
+    ],
+    "breakdown": "整体记忆；常用于表示工具、方法或用途。",
+    "related": "使用 shǐ yòng；有用 yǒu yòng",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "右",
+    "part": "汉语词汇",
+    "phonetic": "yòu",
+    "definition": "right; right-hand side; the political right",
+    "definitionZh": "右边、右侧；与“左”相对。",
+    "examples": [
+      "银行在学校的右边。"
+    ],
+    "breakdown": "整体记忆；常用于表示方向和位置。",
+    "related": "右边 yòu biān；左右 zuǒ yòu",
+    "categories": [
+      "places",
+      "descriptions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "语",
+    "part": "汉语词汇",
+    "phonetic": "yǔ / yù",
+    "definition": "language; speech; dialect; to tell (literary)",
+    "definitionZh": "语言、话语、方言；读 yù 时可表示告诉。",
+    "examples": [
+      "我正在学习汉语。"
+    ],
+    "breakdown": "多音字；现代常用词中通常读 yǔ。",
+    "related": "汉语 hàn yǔ；语言 yǔ yán",
+    "categories": [
+      "communication",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "元",
+    "part": "汉语词汇",
+    "phonetic": "yuán",
+    "definition": "currency unit; first; original; basic; constituent; era",
+    "definitionZh": "元；货币单位；最初、基本的。",
+    "examples": [
+      "这本书三十元。"
+    ],
+    "breakdown": "整体记忆；可表示货币单位，也可表示开始或基本。",
+    "related": "元旦 yuán dàn；一元 yì yuán",
+    "categories": [
+      "time-numbers",
+      "objects"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "远",
+    "part": "汉语词汇",
+    "phonetic": "yuǎn / yuàn",
+    "definition": "far; distant; remote; to distance oneself",
+    "definitionZh": "距离大、遥远；也可表示关系疏远。",
+    "examples": [
+      "我家离学校很远。"
+    ],
+    "breakdown": "多音字；表示距离远时读 yuǎn，少数文言用法读 yuàn。",
+    "related": "远方 yuǎn fāng；远近 yuǎn jìn",
+    "categories": [
+      "descriptions",
+      "places"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "怎",
+    "part": "汉语词汇",
+    "phonetic": "zěn",
+    "definition": "how; in what way",
+    "definitionZh": "怎样、如何；用于疑问句。",
+    "examples": [
+      "你怎么知道的？"
+    ],
+    "breakdown": "整体记忆；常与“么”组成“怎么”。",
+    "related": "怎么 zěn me；怎样 zěn yàng",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "找",
+    "part": "汉语词汇",
+    "phonetic": "zhǎo",
+    "definition": "to look for; seek; find; call on; return; give change",
+    "definitionZh": "寻找、查找；找回；也可表示找零。",
+    "examples": [
+      "我在找我的钥匙。"
+    ],
+    "breakdown": "整体记忆；常用于寻找物品、人或答案。",
+    "related": "找到 zhǎo dào；找人 zhǎo rén",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "着",
+    "part": "汉语词汇",
+    "phonetic": "zhe / zháo / zhāo / zhuó",
+    "definition": "aspect particle; to touch; catch; wear; move or strategy",
+    "definitionZh": "表示动作或状态持续；也可表示触及、穿着、着落或办法。",
+    "examples": [
+      "门开着。"
+    ],
+    "breakdown": "多音字；作持续状态助词时读轻声 zhe，其他读音依词语而定。",
+    "related": "看着 kàn zhe；着急 zháo jí",
+    "categories": [
+      "grammar-function",
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "真",
+    "part": "汉语词汇",
+    "phonetic": "zhēn",
+    "definition": "real; true; genuine; really; truly; indeed",
+    "definitionZh": "真实、真正；确实、很。",
+    "examples": [
+      "这是真的。"
+    ],
+    "breakdown": "整体记忆；常用于判断真假或加强语气。",
+    "related": "真的 zhēn de；真正 zhēn zhèng",
+    "categories": [
+      "descriptions",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "正",
+    "part": "汉语词汇",
+    "phonetic": "zhèng / zhēng",
+    "definition": "straight; upright; correct; main; exactly; first lunar month",
+    "definitionZh": "端正、正确；正在、正好；也可表示主要或正月。",
+    "examples": [
+      "他正在看书。"
+    ],
+    "breakdown": "多音字；常用“正确、正在”读 zhèng，正月读 zhēng。",
+    "related": "正在 zhèng zài；正常 zhèng cháng",
+    "categories": [
+      "descriptions",
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "知",
+    "part": "汉语词汇",
+    "phonetic": "zhī",
+    "definition": "to know; be aware; understand",
+    "definitionZh": "知道、了解；认识到。",
+    "examples": [
+      "我知道答案。"
+    ],
+    "breakdown": "整体记忆；常见于“知道”“知识”等词。",
+    "related": "知道 zhī dào；知识 zhī shi",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "重",
+    "part": "汉语词汇",
+    "phonetic": "zhòng / chóng",
+    "definition": "heavy; serious; important; to repeat; again",
+    "definitionZh": "重量大；严重、重要；读 chóng 时表示重复或再次。",
+    "examples": [
+      "这个箱子很重。"
+    ],
+    "breakdown": "多音字；表示重量、重要时读 zhòng，表示重复时读 chóng。",
+    "related": "重要 zhòng yào；重新 chóng xīn",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "准",
+    "part": "汉语词汇",
+    "phonetic": "zhǔn",
+    "definition": "accurate; standard; to allow; in accordance with; certainly",
+    "definitionZh": "准确、标准；允许；按照或依据。",
+    "examples": [
+      "这个时间很准。"
+    ],
+    "breakdown": "整体记忆；常见于“准确”“准备”“标准”等词。",
+    "related": "准确 zhǔn què；准备 zhǔn bèi",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "子",
+    "part": "汉语词汇",
+    "phonetic": "zǐ / zi",
+    "definition": "son; child; seed; egg; noun suffix; midnight",
+    "definitionZh": "孩子、儿子；种子；也常作名词后缀。",
+    "examples": [
+      "桌子上有一本书。"
+    ],
+    "breakdown": "多音用法；单独作名词时读 zǐ，许多名词后缀中读轻声 zi。",
+    "related": "孩子 hái zi；桌子 zhuō zi",
+    "categories": [
+      "people",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "最",
+    "part": "汉语词汇",
+    "phonetic": "zuì",
+    "definition": "most; highest degree; best; extreme",
+    "definitionZh": "程度最高；用于构成“最……”的最高级表达。",
+    "examples": [
+      "这是我最喜欢的书。"
+    ],
+    "breakdown": "整体记忆；常放在形容词或动词前表示最高程度。",
+    "related": "最好 zuì hǎo；最多 zuì duō",
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "昨",
+    "part": "汉语词汇",
+    "phonetic": "zuó",
+    "definition": "yesterday; of yesterday",
+    "definitionZh": "昨天；表示过去的一天。",
+    "examples": [
+      "我昨天去了公园。"
+    ],
+    "breakdown": "整体记忆；常与“天、晚”等字组成时间词。",
+    "related": "昨天 zuó tiān；昨晚 zuó wǎn",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "左",
+    "part": "汉语词汇",
+    "phonetic": "zuǒ",
+    "definition": "left; left-hand side; east; political left",
+    "definitionZh": "左边、左侧；与“右”相对。",
+    "examples": [
+      "书店在银行的左边。"
+    ],
+    "breakdown": "整体记忆；常用于表示方向和位置。",
+    "related": "左边 zuǒ biān；左右 zuǒ yòu",
+    "categories": [
+      "places",
+      "descriptions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "作",
+    "part": "汉语词汇",
+    "phonetic": "zuò / zuō",
+    "definition": "to do; engage in; write; compose; pretend; work; writings",
+    "definitionZh": "做、从事；写作、创作；假装；也可表示作品。",
+    "examples": [
+      "他喜欢写作。"
+    ],
+    "breakdown": "多音字；常用动词读 zuò，表示作坊或工人等少数词语读 zuō。",
+    "related": "工作 gōng zuò；作文 zuò wén",
+    "categories": [
+      "actions",
+      "expressions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "做",
+    "part": "汉语词汇",
+    "phonetic": "zuò",
+    "definition": "to make; produce; do; engage in; hold; become; serve as",
+    "definitionZh": "制作、进行、从事；成为或担任。",
+    "examples": [
+      "我会做中国菜。"
+    ],
+    "breakdown": "整体记忆；常用于表示制作、行动和工作。",
+    "related": "做饭 zuò fàn；做事 zuò shì",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 1,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
   }
 ];
