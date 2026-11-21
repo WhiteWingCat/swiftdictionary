@@ -9922,7 +9922,7 @@ window.SWIFT_CHINESE_WORDS = [
   {
     "word": "曾",
     "part": "汉语词汇",
-    "phonetic": "céng",
+    "phonetic": "céng / zēng",
     "definition": "once; already; ever in the past; formerly",
     "definitionZh": "曾经、以前；表示过去有过某种经历。",
     "examples": [
