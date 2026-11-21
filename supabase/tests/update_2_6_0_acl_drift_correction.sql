@@ -72,3 +72,32 @@ BEGIN
   END IF;
 END;
 $test$;
+
+
+-- Verify default function privileges remain least-privilege in public while
+-- preserving extension-schema compatibility after the global PUBLIC revoke.
+CREATE FUNCTION public.__swift_2_6_public_default_probe()
+RETURNS integer LANGUAGE sql AS $$ SELECT 1 $$;
+CREATE FUNCTION extensions.__swift_2_6_extension_default_probe()
+RETURNS integer LANGUAGE sql AS $$ SELECT 1 $$;
+
+DO $test$
+BEGIN
+  IF has_function_privilege(
+    'anon', 'public.__swift_2_6_public_default_probe()', 'EXECUTE'
+  ) OR has_function_privilege(
+    'authenticated', 'public.__swift_2_6_public_default_probe()', 'EXECUTE'
+  ) THEN
+    RAISE EXCEPTION 'New public function unexpectedly inherits client EXECUTE';
+  END IF;
+
+  IF NOT has_function_privilege(
+    'anon', 'extensions.__swift_2_6_extension_default_probe()', 'EXECUTE'
+  ) THEN
+    RAISE EXCEPTION 'New extensions function lost its pre-existing PUBLIC EXECUTE default';
+  END IF;
+END;
+$test$;
+
+DROP FUNCTION public.__swift_2_6_public_default_probe();
+DROP FUNCTION extensions.__swift_2_6_extension_default_probe();
