@@ -12,6 +12,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - Keep documentation on `docs/master-development-record`; implementation stays on feature branches and production code on `main`.
 
 ## Archives
+- [Update 2.7.0 dictionary expansion and Chinese Lessons progress](2026-11-21-update-2-7-0-dictionary-and-chinese-lessons-progress.md) — records 519 new Chinese characters, 725 total, the 17-lesson/112-question Chinese course, language-aware migration CI and remaining QA gates.
+
 - [Update 2.7.0 planning finalization and development handover](2026-11-21-update-2-7-0-planning-finalization.md) — records the approved Chinese dictionary expansion, Pinyin A–Z/category filters, strict character-above-pinyin layout, Chinese Lessons scope, feature branch and Phase 0 audit starting point.
 
 
