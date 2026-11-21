@@ -46,3 +46,8 @@ Date: 2026-11-21
 - No staging or production database was changed during this checkpoint. Do not merge to main or deploy production without explicit owner approval.
 - No new tracking was introduced. The new language discriminator is attached to existing user-linked lesson progress and practice records; update privacy disclosures when next revised.
 - Malaysia-specific and general legal/privacy review remains deferred, not cleared. Source attribution is not a legal compliance certification.
+
+
+## CI completion follow-up
+
+After this checkpoint was written, the separate local Auth/Quiz/Flashcard integration workflow completed successfully. Both jobs passed, including the U2.7 language-aware migration regression: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091714. The U2.7 dictionary static/Chromium workflow passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091752. No staging or production database changes were made.
