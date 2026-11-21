@@ -106,3 +106,13 @@ A current risk-planning review was added to Section 12 of the U2.7.0 Development
 - GDPR Article 8 and the UK Children's Code require separate attention for a global 16+ audience, especially UK 16–17-year-olds if likely to access the service.
 - CC-CEDICT-derived content remains under CC BY-SA 4.0 with attribution/share-alike; older 206-entry provenance is still an audit item. Classical Li Bai/Xunzi excerpts are attributed; modern copyrighted texts are excluded unless licensed.
 - This is risk planning only. Formal legal/privacy review remains deferred; no compliance or legal clearance is claimed.
+
+
+## Local Supabase integration — final pass (2026-11-21)
+
+- Current app branch head: `c0d986a31b2905639c5ddd28b59e63d4c217edf2`.
+- Quiz database foundation workflow #44876788818 and its companion local Supabase Auth/RPC job passed.
+- U2.7.0 language-aware lesson migration and SQL regression passed on an ephemeral local Supabase instance; Auth contract passed.
+- Authenticated Chromium regressions: Quiz runtime 12 passed, Flashcards 3 passed, Lessons/Daily Learning allowance 2 passed.
+- Supabase security advisors: “No issues found.”
+- This did not modify hosted staging or production; no merge/deploy occurred.
