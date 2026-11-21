@@ -28,6 +28,15 @@ const baseWords = vm.runInNewContext("(" + baseLiteral + ")");
 const dataMatch = dataFile.match(/window\.SWIFT_CHINESE_WORDS\s*=\s*(\[[\s\S]*?\]);/);
 assert.ok(dataMatch, "External Chinese character array is missing.");
 const additions = vm.runInNewContext("(" + dataMatch[1] + ")");
+const metadataMatch = dataFile.match(/window\\.SWIFT_CHINESE_METADATA\\s*=\\s*(\\{[\\s\\S]*?\\});/);
+assert.ok(metadataMatch, "Chinese legacy-entry metadata is missing.");
+const metadata = vm.runInNewContext("(" + metadataMatch[1] + ")");
+for (const item of baseWords) {
+  const record = metadata[item.word];
+  assert.ok(record && Array.isArray(record.categories) && record.categories.length > 0, "Existing Chinese entry lacks categories: " + item.word);
+  item.categories = record.categories;
+  if (record.phonetic) item.phonetic = record.phonetic;
+}
 const words = [...baseWords, ...additions];
 assert.ok(Array.isArray(words) && words.length >= 250, "Combined Chinese dictionary dataset unexpectedly small.");
 assert.equal(new Set(words.map(item => item.word)).size, words.length, "Chinese dictionary contains duplicate character entries.");
