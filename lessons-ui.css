@@ -104,7 +104,7 @@
 #dailyActivityReader .daily-question label{display:flex;align-items:flex-start;gap:10px;min-width:0;color:#eef4ff;line-height:1.65}
 #dailyActivityReader .daily-question label input{flex:0 0 auto;margin-top:5px}
 #dailyActivityReader .modal-head{background:transparent}
-#dailyActivityReader .daily-discovery-modal{width:50vw;max-width:900px;padding:0}
+#dailyActivityReader .daily-discovery-modal{width:50vw;max-width:900px;padding:0;border:0}
 #dailyActivityReader .daily-discovery-modal .modal-head{padding:25px 28px 18px}
 #dailyActivityReader .daily-discovery-modal .modal-content{padding:24px 30px 34px}
 #dailyActivityReader .daily-discovery-modal .definition{color:#f3f6fc;line-height:1.8}
