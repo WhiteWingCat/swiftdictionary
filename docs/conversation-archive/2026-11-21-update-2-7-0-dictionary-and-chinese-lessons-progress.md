@@ -83,3 +83,12 @@ The user clarified that pinyin must **not** be added to Chinese Dictionary grid 
   - Chinese Lessons vertical bilingual layout: 1/1 passed.
 - The 26-test regression includes the Chinese lesson completion and English/Chinese progress-isolation check.
 - Quiz database foundation workflow #44876433049 PostgreSQL job passed. Local Supabase Auth/RPC integration remained in progress at this update.
+
+
+## Latest category and integration verification (2026-11-21)
+
+- Current app branch head: `c0d986a31b2905639c5ddd28b59e63d4c217edf2`.
+- U2.7.0 workflow #44876788816 passed: 725 dictionary entries (519 new), 17 lessons / 112 questions, 26/26 full Lessons/Daily Learning regressions, 5/5 dictionary filter checks and 1/1 Chinese Lessons bilingual layout check.
+- The original 206 dictionary entries are categorized through the legacy metadata map `window.SWIFT_CHINESE_METADATA` in `data/chinese-characters.js`; the 519 additions carry their own categories. All 725 are covered by the category filter.
+- Quiz database foundation #44876788818 passed. Companion local Supabase Auth/RPC run #44876433049 passed the U2.7.0 migration and SQL tests, authenticated Quiz runtime, Flashcards and Lessons allowance regressions, and local security advisors. A rerun against the current head is in progress.
+- No hosted Supabase migration, merge or deployment has occurred.
