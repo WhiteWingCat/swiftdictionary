@@ -408,3 +408,17 @@ No new tracking or unrelated personal-data collection was introduced. The migrat
 ### CI completion follow-up — 2026-11-21
 
 The local Auth/Quiz/Flashcard integration workflow subsequently completed successfully. Both `Local Supabase Auth and RPC integration` and `quiz-db-foundation` jobs passed in [run 44881091714](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091714). The U2.7 dictionary static/Chromium workflow also passed in [run 44881091752](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091752). All inspected automated U2.7 and local database integration checks are now green at feature branch head `c8c6e72e92a0fac2b1be4d8454c25a1227053a36`. Staging and production remain untouched.
+
+
+
+
+## 13. Linguistic QA continuation and current staging gate (2026-11-21)
+
+- The latest continuation reviewed the 519 new dictionary records: all 519 are unique single-character entries, all have required core fields, and all use valid values from the 11-category taxonomy. Eighty records contain multiple listed readings.
+- A separate audit found 17 Chinese lessons / 112 questions and 716 bilingual text objects containing Chinese, pinyin and English fields. Automated field-presence checks do not verify the accuracy or sentence-level alignment of pinyin; native-speaker/manual review remains necessary.
+- Two dictionary corrections were committed to the feature branch in `e7d911f72d443e07eb6aa47a80229711a9288c05`: remove unsupported `wéi` from `喂` and correct the related phrase `待在家` to `dāi zài jiā` (while `等待` remains `dài`). Reference: Ministry of Education Revised Mandarin Chinese Dictionary, https://dict.revised.moe.edu.tw/dictView.jsp?ID=11450 and https://dict.revised.moe.edu.tw/dictView.jsp?ID=687.
+- The reference records `跑` as `pǎo` and `páo`, the latter being a restricted animal-hoof digging sense. It also records `骑` as `qí/jì` and `玩` as `wán/wàn`; these require clear notes about current standard usage or literary/restricted senses before they are treated as ordinary learner readings.
+- The new data commit has not yet been confirmed by a new CI run. Earlier runs #44881091752 and #44881091714 passed at earlier feature-branch commits only.
+- No hosted staging or production migration has been applied. The next technical gate is owner-approved Singapore staging migration plus Cloudflare preview testing. Do not apply the hosted migration until the owner explicitly approves that action. Production migration, merge and deployment remain separate approval gates.
+- Formal legal/privacy review remains deferred, not cleared; consult Section 12 and do not claim legal compliance.
+- Session detail: `docs/conversation-archive/2026-11-21-update-2-7-0-linguistic-qa-and-staging-gate.md`.
