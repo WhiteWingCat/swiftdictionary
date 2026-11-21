@@ -197,3 +197,22 @@ This preserves the previous default for future extension-schema functions while 
 The first attempt at a local CI workflow tried to replay the entire historical migration chain and failed in an older Update 2.2.0 reconciliation migration before reaching U2.6.0. This is an unrelated pre-existing fixture/chain issue, not evidence of a failure in the new ACL migration. The workflow was isolated from that historical chain: it now builds the synthetic application baseline, applies the two existing U2.6.0 migrations, verifies their baseline grants, renames the practice-results sequence to mimic production, applies the corrective migration and tests the final ACLs/defaults.
 
 The isolated workflow is currently running. No result should be treated as passing until the final run completes successfully.
+
+
+## 2026-11-21 isolated ACL regression — passed
+
+The dedicated PostgreSQL 17 ACL regression now passes on the current Update 2.6.0 feature head. GitHub Actions results:
+
+- Pull-request run: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44854645412 — success.
+- Feature-branch push run: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44854640598 — success.
+
+The disposable test environment reproduced the audited Singapore staging baseline, then overlaid the known production-shaped ACL differences. It applied the two existing U2.6.0 ACL migrations, renamed the practice-results identity sequence to production's lesson_practice_results_id_seq1 shape, applied the corrective migration, and passed assertions for:
+
+- No anonymous access to daily_activity_sessions or learning_plan_limits.
+- Authenticated session access limited to SELECT/INSERT/UPDATE, with DELETE/TRUNCATE/REFERENCES/TRIGGER/MAINTAIN removed.
+- Anonymous access removed from all three identity sequences, including the dynamically resolved practice-results sequence.
+- New public functions remain non-executable by anon/authenticated by default, while new extensions functions retain the historical PUBLIC EXECUTE default.
+
+Two earlier attempts exposed test-fixture modelling issues (fixture ordering and Supabase-local default grants); those were corrected. The final run passed. This is CI validation against a disposable local PostgreSQL 17/Supabase environment, not a hosted staging or production migration. No hosted database was changed. The production rollout remains a separate, unapproved task.
+
+The owner has explicitly approved merging PR #13 to main after remaining release checks pass. That approval does not authorize applying SQL to Tokyo production or manually deploying a production Edge Function/database change.
