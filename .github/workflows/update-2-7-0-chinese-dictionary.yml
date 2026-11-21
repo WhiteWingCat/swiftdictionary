@@ -24,6 +24,8 @@ jobs:
           node-version: 22
       - name: Run Chinese dictionary data and static checks
         run: node tests/update-2-7-0/check-chinese-dictionary.mjs
+      - name: Run Chinese Lessons content and pinyin checks
+        run: node tests/update-2-7-0/check-chinese-lessons.mjs
       - name: Install Playwright and Chromium
         run: |
           npm init -y
