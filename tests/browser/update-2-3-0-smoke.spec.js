@@ -105,6 +105,32 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   expect(layout.pinyinDisplay).toBe("block");
   expect(layout.pinyinTop).toBeGreaterThanOrEqual(layout.chineseBottom-1);
   expect(layout.englishTop).toBeGreaterThanOrEqual(layout.pinyinBottom-1);
+
+  // Check every visible bilingual block, including examples and practice
+  // options, at both desktop and narrow mobile widths.
+  const assertAllPinyinBlocksStacked = async () => {
+    const layouts = await page.locator("#lessonReaderContent .lesson-bilingual-block").evaluateAll(nodes =>
+      nodes.map(node => {
+        const chinese=node.querySelector(".lesson-chinese-line");
+        const pinyin=node.querySelector(".lesson-pinyin-line");
+        const english=node.querySelector(".lesson-english-line");
+        if(!chinese||!pinyin||!english||!node.getClientRects().length)return null;
+        const c=chinese.getBoundingClientRect();
+        const p=pinyin.getBoundingClientRect();
+        const e=english.getBoundingClientRect();
+        return {chineseBottom:c.bottom,pinyinTop:p.top,pinyinBottom:p.bottom,englishTop:e.top,pinyinDisplay:getComputedStyle(pinyin).display};
+      }).filter(Boolean)
+    );
+    expect(layouts.length).toBeGreaterThan(0);
+    for(const item of layouts){
+      expect(item.pinyinDisplay).toBe("block");
+      expect(item.pinyinTop).toBeGreaterThanOrEqual(item.chineseBottom-1);
+      expect(item.englishTop).toBeGreaterThanOrEqual(item.pinyinBottom-1);
+    }
+  };
+  await assertAllPinyinBlocksStacked();
+  await page.setViewportSize({width:390,height:844});
+  await assertAllPinyinBlocksStacked();
 });
 
 
