@@ -26,6 +26,8 @@ jobs:
         run: node tests/update-2-7-0/check-chinese-dictionary.mjs
       - name: Run Chinese Lessons content and pinyin checks
         run: node tests/update-2-7-0/check-chinese-lessons.mjs
+      - name: Run full Lessons and Daily Learning browser regression suite
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0
       - name: Install Playwright and Chromium
         run: |
           npm init -y
