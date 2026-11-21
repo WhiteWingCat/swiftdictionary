@@ -18697,6 +18697,32 @@ async function loadLessonProgress(){
       ls.progress=data||[];
     }
 function renderLessons(){
+      const zh=course==="en"&&translationLanguage==="zh";
+      const topic=el("lessonTopicFilter");
+      const topics=[...new Set(lessons().map(x=>lessonField(x,"topic")))];
+      topic.innerHTML='<option value="all">'+(zh?"全部主题":"All topics")+'</option>'+topics.map(t=>'<option>'+escapeHTML(t)+'</option>').join("");
+      topic.value=ls.topic;
+      const done=lessons().filter(x=>progressFor(x.id)?.status==="completed").length;
+      el("lessonDifficultySummary").textContent=zh
+        ?lessons().length+" 节课程 · 已完成 "+done+" 节。每个课程和难度分别保存学习进度。"
+        :lessons().length+" lessons · "+done+" completed. Progress is saved separately for each course and difficulty.";
+      el("lessonProgressSummary").textContent=currentUser?(zh?done+" / "+lessons().length+" 已完成":done+" of "+lessons().length+" completed"):(zh?"登录后即可保存进度":"Sign in to save progress");
+      el("lessonCards").innerHTML="";
+      lessons().filter(x=>ls.topic==="all"||lessonField(x,"topic")===ls.topic).forEach(x=>{
+        const p=progressFor(x.id);
+        const status=p?.status==="completed"?(zh?"已完成":"Completed"):p?(zh?"进行中":"In progress"):(zh?"未开始":"Not started");
+        const cls=p?.status==="completed"?"completed":p?"in-progress":"not-started";
+        const blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;
+        const topicHtml=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
+        const b=document.createElement("button");
+        b.className="lesson-card";
+        b.disabled=blocked;
+        b.innerHTML='<span class="lesson-card-main"><span class="lesson-chip">'+topicHtml+'</span><h3>'+lessonRenderText(lessonField(x,"title"))+'</h3><p>'+lessonRenderText(lessonField(x,"summary"))+'</p></span><span class="lesson-status '+cls+'">'+(blocked?(zh?"今日额度已用完":"Daily limit reached"):status)+'</span>';
+        if(blocked)b.title=zh?"今日课程完成额度已用完。已完成课程仍可复习。":"Your daily lesson-completion allowance has been used. Completed lessons remain available to review.";
+        b.onclick=()=>openLesson(x.id);
+        el("lessonCards").appendChild(b);
+      });
+    }
       const topic=el("lessonTopicFilter");
       const topics=[...new Set(lessons().map(x=>lessonField(x,"topic")))];
       topic.innerHTML='<option value="all">All topics</option>'+topics.map(t=>'<option>'+escapeHTML(t)+'</option>').join("");
@@ -18777,6 +18803,57 @@ function renderLesson(x,preservePractice=false){
       }
     }
 async function openLesson(id){
+      const zh=course==="en"&&translationLanguage==="zh";
+      if(ls.busy)return;
+      if(!currentUser||!supabaseClient){
+        showPage("lessons");
+        el("lessonStatus").textContent=zh?"请登录后开始课程。":"Sign in to start a lesson. The library can be browsed without signing in.";
+        el("accountDialog").classList.add("open");
+        return;
+      }
+      ls.busy=true;
+      try{
+        let p=progressFor(id);
+        if(!p){
+          const allowance=await loadLessonAllowance();
+          if(!allowance.known||(!allowance.unlimited&&allowance.remaining<=0)){
+            el("lessonStatus").textContent=allowance.known
+              ?(zh?"今日课程完成额度已用完。你仍可复习已完成的课程。":"Your daily lesson-completion allowance has been used. You can still review completed lessons; new lessons unlock after the daily reset.")
+              :(zh?"无法确认课程额度，请刷新页面后再试。":"Your lesson allowance could not be verified. Refresh the page before starting a new lesson.");
+            renderLessons();
+            return;
+          }
+          const {data,error}=await supabaseClient.from("lesson_progress").insert({
+            user_id:currentUser.id,learning_language:course,difficulty:ls.difficulty,lesson_id:id,status:"in_progress"
+          }).select("learning_language,difficulty,lesson_id,status,started_at,completed_at,updated_at").single();
+          if(error){
+            if(error.code==="23505"){
+              const again=await supabaseClient.from("lesson_progress")
+                .select("learning_language,difficulty,lesson_id,status,started_at,completed_at,updated_at")
+                .eq("user_id",currentUser.id).eq("learning_language",course)
+                .eq("difficulty",ls.difficulty).eq("lesson_id",id).single();
+              if(again.error)throw error;
+              p=again.data;
+            }else throw error;
+          }else p=data;
+          ls.progress=ls.progress.filter(a=>!(a.learning_language===course&&a.lesson_id===id&&a.difficulty===ls.difficulty)).concat(p);
+        }
+        const lesson=lessons().find(x=>x.id===id);
+        if(!lesson)throw new Error("This lesson is not available in the selected course.");
+        shuffleLessonOptionOrders(lesson);
+        showPage("lessonDetail");
+        el("lessonReader").hidden=false;
+        el("lessonBack").textContent=zh?"← 返回课程列表":"← Back to lessons";
+        renderLesson(lesson);
+        el("lessonStatus").textContent=p.status==="completed"?(zh?"已完成课程已重新打开，可免费复习。":"Completed lesson reopened — free revisit."):(zh?"课程已打开，继续学习无需额外额度。":"Lesson opened. Resuming is free.");
+        await loadLessonAllowance();
+        renderLessons();
+        window.scrollTo({top:0,behavior:"instant"});
+      }catch(e){
+        const m=(e.message||"").toLowerCase();
+        el("lessonStatus").textContent=m.includes("quota")||m.includes("limit")||m.includes("allowance")?(zh?"无法打开课程。已保存的进度仍可使用，请稍后再试。":"Could not open lesson. Your saved progress remains available; please try again."):(e.message||"Could not open lesson.");
+      }finally{ls.busy=false;}
+    }
       if(ls.busy)return;
       if(!currentUser||!supabaseClient){
         showPage("lessons");
@@ -18827,6 +18904,28 @@ async function openLesson(id){
     }
 async function saveCompletedLessonPractice(x){
       if(ls.completing)return;
+      const zh=course==="en"&&translationLanguage==="zh";
+      ls.completing=true;
+      document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);
+      try{
+        const topicId=lessonTopicIdFor(x),practice=lessonPractice(x),firstTryCorrect=ls.practiceFirstTry.filter(value=>value===true).length;
+        if(!topicId||!practice.length)throw new Error("This lesson is missing its stable topic or practice metadata.");
+        const {data,error}=await supabaseClient.rpc("record_completed_lesson_practice_result_for_language",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_correct_count:firstTryCorrect,p_question_count:practice.length
+        });
+        if(error)throw error;
+        el("lessonStatus").textContent=data===true
+          ?(zh?"复习练习记录已保存，不会消耗课程额度。":"Practice summary saved for adaptive revision. No lesson allowance was used.")
+          :(zh?"本课程的练习记录已存在，不会消耗课程额度。":"This lesson's practice summary was already recorded. No lesson allowance was used.");
+      }catch(e){
+        el("lessonStatus").textContent=(zh?"无法保存练习记录：":"Could not save the practice summary: ")+(e.message||"Please try again.");
+      }finally{
+        document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=false);
+        ls.completing=false;
+      }
+    }
+      if(ls.completing)return;
       ls.completing=true;
       document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);
       try{
@@ -18846,6 +18945,41 @@ async function saveCompletedLessonPractice(x){
       }
     }
 async function completeLesson(x){
+      if(ls.completing)return;
+      const zh=course==="en"&&translationLanguage==="zh";
+      const p=progressFor(x.id);
+      if(!p||p.status==="completed"){el("lessonStatus").textContent=zh?"课程已完成，复习无需额度。":"Already completed. Revisiting is free.";return;}
+      ls.completing=true;
+      document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);
+      const note=el("lessonFinishNote");
+      if(note)note.textContent=zh?"正在保存课程完成状态……":"Saving lesson completion…";
+      try{
+        const topicId=lessonTopicIdFor(x),practice=lessonPractice(x),firstTryCorrect=ls.practiceFirstTry.filter(value=>value===true).length;
+        if(!topicId||!practice.length)throw new Error("This lesson is missing its stable topic or practice metadata.");
+        const {data,error}=await supabaseClient.rpc("complete_permanent_lesson_for_language",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_correct_count:firstTryCorrect,p_question_count:practice.length
+        });
+        if(error)throw error;
+        const saved=Array.isArray(data)?data[0]:data;
+        if(!saved)throw new Error("The completion service returned no saved progress.");
+        Object.assign(p,saved);
+        el("lessonStatus").textContent=zh?"课程已完成，可免费复习。":"Lesson completed. You may revisit it for free.";
+        await loadLessonAllowance();
+        renderLessons();
+        renderLesson(x);
+      }catch(e){
+        const message=(e.message||"").toLowerCase();
+        const quotaReached=message.includes("daily learning completion limit reached")||message.includes("daily learning limit reached");
+        el("lessonStatus").textContent=quotaReached
+          ?(zh?"今日课程完成额度已用完。课程仍处于进行中，请在本地日期重置后完成。":"Today's lesson-completion allowance has been used. Your lesson remains in progress; resume it after your local-day reset.")
+          :(zh?"无法保存课程完成状态：":"Could not save lesson completion: ")+(e.message||"Please try again.");
+        if(note)note.textContent=quotaReached
+          ?(zh?"答案已全部正确，但今日完成额度已用完。你的进度不会丢失。":"Your answers are correct, but today's completion allowance is used. Your progress has not been lost.")
+          :(zh?"答案已全部正确，但保存失败。请重新检查任意答案以重试。":"All answers are correct, but saving failed. Check any answer again to retry saving.");
+        document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=false);
+      }finally{ls.completing=false;}
+    }
       if(ls.completing)return;
       const p=progressFor(x.id);
       if(!p||p.status==="completed"){el("lessonStatus").textContent="Already completed. Revisiting is free.";return;}
