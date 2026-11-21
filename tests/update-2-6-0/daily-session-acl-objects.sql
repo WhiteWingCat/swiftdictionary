@@ -31,3 +31,7 @@ GRANT SELECT, INSERT, UPDATE ON TABLE public.daily_activity_sessions TO authenti
 GRANT USAGE, SELECT ON SEQUENCE public.daily_activity_sessions_id_seq TO authenticated;
 GRANT EXECUTE ON FUNCTION public.guard_daily_activity_session_update()
 TO PUBLIC, anon, authenticated;
+
+-- Match the audited Singapore staging baseline: plan-limit configuration is
+-- readable by authenticated users but not by anonymous visitors.
+REVOKE ALL PRIVILEGES ON TABLE public.learning_plan_limits FROM anon;
