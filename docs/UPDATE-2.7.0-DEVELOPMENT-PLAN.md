@@ -185,3 +185,56 @@ The application source is now accessible and the current baseline is sufficientl
 - Early CI attempts exposed a CSS specificity issue with the `hidden` attribute, a Playwright locator assertion issue, a missing course marker on imported records and a category slug mismatch. These were corrected; the final recorded run is green.
 - Continue the remaining 48 HSK Level 1 candidates and then Levels 2–5 in small, reviewed batches. No Chinese Lessons implementation or hosted Supabase migration has occurred yet.
 
+
+
+## 11. Development progress — verified snapshot (2026-11-21)
+
+The following implementation results supersede the earlier Phase 0-only starting point and the initial 100-character Phase 1 milestone recorded above.
+
+### Phase 0 — baseline audit
+- Complete. The actual application Git blob was retrieved and audited; the earlier empty connector response was an access-method limitation, not an empty application file.
+- Baseline: `main` at `ba580c3f43e8b34f79205b69ae9f858186759036`.
+- Existing English Lessons baseline confirmed as 17 lessons and 112 questions (Beginner 7/44, Intermediate 5/34, Advanced 5/34).
+- Existing Chinese Dictionary baseline confirmed as 206 unique single-character entries. The Dictionary grid is intentionally character-only; pinyin must not be added to its cards.
+
+### Phase 1 — dictionary filter foundation
+- Implemented Pinyin A–Z initial filtering, category filtering and combined filtering with existing character/pinyin search.
+- Implemented 11 learning categories and support for polyphonic readings under their applicable initials.
+- Dictionary grid remains unchanged and character-only. Existing pinyin search and detail presentation remain.
+- The dedicated U2.7.0 browser suite passed all five dictionary tests.
+
+### Phase 2 — Chinese Dictionary expansion
+- Current dataset contains **519 new entries**, bringing the combined Chinese Dictionary to **725 unique single-character entries** (206 existing + 519 new).
+- The 519 additions include pinyin, definitions, examples, related vocabulary, learning notes, categories, HSK candidate level and per-entry source IDs.
+- Static checks confirm unique single-character records, required metadata, category validity, source identifiers and no duplicate entries.
+- Data-source and attribution notices are present in `data-sources.html`, `data/CHINESE-DICTIONARY-SOURCES.md` and `THIRD_PARTY_NOTICES.md`. This is not a legal clearance; review the licensing notes in Section 6 before release.
+
+### Phase 3 — Chinese Lessons framework integration
+- Chinese Lessons now use a separate Chinese course dataset and language-aware progress/catalogue model, while reusing the existing reader, practice, allowance and progress architecture.
+- The additive Supabase migration is committed at `supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql`.
+- The migration and its regression SQL have passed the PostgreSQL/CI database foundation job. The local Supabase Auth/RPC integration workflow is tracked separately.
+- **The migration has not been applied to hosted staging or production.** No hosted database or production deployment was changed.
+
+### Phase 4 — Chinese lesson content
+- Chinese lesson catalogue contains **17 permanent lessons and 112 practice questions**, matching the actual English course volume:
+  - Beginner: 7 lessons / 44 questions.
+  - Intermediate: 5 lessons / 34 questions.
+  - Advanced: 5 lessons / 34 questions.
+- English support is included in every bilingual lesson text block and remains visible independently of the selected translation language.
+- Pinyin is authored at phrase/sentence level and is rendered directly below Chinese lesson text. This layout requirement applies to Lessons only, never to Dictionary grid cards.
+- Curriculum includes pronunciation, greetings, numbers/dates, pronouns, actions, places, questions/negation, measure words, particles, time, comparisons, sentence patterns, complex structures, connectors, idioms, proverbs, nuanced vocabulary and selected classical literature.
+- A dedicated content validator checks lesson counts, question counts, stable IDs against the Supabase content catalogue, English support, pinyin presence and four-option practice structure.
+- The Chinese lesson layout browser test passed, including the Chinese-text / pinyin / English vertical order and the 7/5/5 difficulty library counts.
+
+### Verified CI snapshot
+- U2.7.0 dictionary/lesson workflow run **#44875595145** passed: 725 unique dictionary characters (519 new), 17 lessons, 112 practice questions, five dictionary Chromium tests and one Chinese Lessons layout test.
+- Quiz/database foundation job in workflow **#44875595192** passed, including the U2.7.0 language-aware lesson migration and SQL regression tests.
+- Await the companion local Supabase Auth/RPC integration job and complete broader Lessons/Daily Learning browser regression before release readiness.
+
+### Current next steps
+1. Complete the local Supabase Auth/RPC integration and security-advisor checks.
+2. Run the full English Lessons and Daily Learning browser regression suite, not only the Chinese-specific smoke test.
+3. Add/verify Chinese course progress completion in browser tests, including English/Chinese progress isolation.
+4. Conduct a final linguistic review of pinyin, examples, translations, idioms, proverb classifications and classical-source attribution.
+5. Complete content-source/licensing review and owner preview testing.
+6. Only then prepare release notes and a consolidated release package. Do not merge to `main`, apply the migration to hosted Supabase, or deploy without explicit owner approval.
