@@ -18280,14 +18280,18 @@
       translationLanguage=nextLanguage || selector.value || "en";
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
-      document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
+document.getElementById("lessonBack").textContent = course==="en"&&translationLanguage==="zh" ? "← 返回课程列表" : "← Back to lessons";
       const lessonsPage=document.getElementById("lessonsPage");
       if(lessonsPage){
         const lessonBanner=lessonsPage.querySelector(".learning-banner");
         const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
         const lessonTitle=document.getElementById("lessonsHeading");
         const lessonDescription=lessonBanner?.querySelector(".page-intro");
-        if(lessonEyebrow)lessonEyebrow.textContent=translationLanguage==="zh"?"学习":"LEARNING";
+if(lessonEyebrow)lessonEyebrow.textContent=course==="zh"?"LEARNING":translationLanguage==="zh"?"学习":"LEARNING";
+// The Chinese course keeps English support visible even when the translation preference changes.
+
+          ?"Learn Simplified Chinese with pinyin, clear explanations, examples and interactive practice."
+          :translationLanguage==="zh"?"通过引导式讲解、示例和简短练习提升英语能力。":"Build English skills through guided explanations, examples and short practice.";
         if(lessonTitle)lessonTitle.textContent=translationLanguage==="zh"?"课程":"Lessons";
         if(lessonDescription)lessonDescription.textContent=translationLanguage==="zh"
           ?"通过引导式讲解、示例和简短练习提升英语能力。"
@@ -18303,7 +18307,7 @@
       // directly instead of routing through the Daily Learning page state.
       if (ls.active) {
         const activeLessonId=ls.active.id;
-        const activeLesson=(lessonData[ls.difficulty]||[]).find(item=>item.id===activeLessonId);
+const activeLesson=(lessons()||[]).find
         if(activeLesson) {
           const reader=document.getElementById("lessonReader");
           const wasOpen=reader&&!reader.hidden;
@@ -20023,10 +20027,10 @@ async function completeLesson(x){
       quizEl("lessonsPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
       quizEl("lessonDetailPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
       if(!lessonsSignedIn&&!quizEl("lessonDetailPage").hidden){quizEl("lessonDetailPage").hidden=true;quizEl("lessonsPage").hidden=false;}
-      quizEl("lessonsChineseUnavailable").hidden=!chinese||!lessonsSignedIn;
+quizEl("lessonsChineseUnavailable").hidden=true;
       quizEl("dailyLearningPage").hidden=chinese||!lessonsSignedIn;
-      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese||!lessonsSignedIn;
-      quizEl("lessonLibrary").hidden=chinese||!lessonsSignedIn;
+quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=!lessonsSignedIn;
+quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       quizEl("quizChineseUnavailable").hidden=!chinese;
       const quizSignedIn=!chinese&&!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
@@ -20081,7 +20085,14 @@ async function completeLesson(x){
       });
     }
     document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
-    document.getElementById("courseSelect").addEventListener("change",()=>{
+document.getElementById("courseSelect").addEventListener("change",async()=>{
+      const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
+      ls.topic="all";
+      if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
+      applyLearningCourseAvailability();
+      try{await initialiseLessons();}catch(error){el("lessonStatus").textContent=error.message||"Could not refresh lesson progress.";}
+      if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
+    });
       applyLearningCourseAvailability();
       if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
     });
