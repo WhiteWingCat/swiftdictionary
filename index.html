@@ -18280,71 +18280,60 @@
       translationLanguage=nextLanguage || selector.value || "en";
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
-document.getElementById("lessonBack").textContent = course==="en"&&translationLanguage==="zh" ? "← 返回课程列表" : "← Back to lessons";
+      const chineseCourse=course==="zh";
+      document.getElementById("lessonBack").textContent=!chineseCourse&&translationLanguage==="zh"?"← 返回课程列表":"← Back to lessons";
       const lessonsPage=document.getElementById("lessonsPage");
       if(lessonsPage){
         const lessonBanner=lessonsPage.querySelector(".learning-banner");
         const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
         const lessonTitle=document.getElementById("lessonsHeading");
         const lessonDescription=lessonBanner?.querySelector(".page-intro");
-if(lessonEyebrow)lessonEyebrow.textContent=course==="zh"?"LEARNING":translationLanguage==="zh"?"学习":"LEARNING";
-// The Chinese course keeps English support visible even when the translation preference changes.
-
+        if(lessonEyebrow)lessonEyebrow.textContent=!chineseCourse&&translationLanguage==="zh"?"学习":"LEARNING";
+        if(lessonTitle)lessonTitle.textContent=chineseCourse?"Chinese Lessons":!chineseCourse&&translationLanguage==="zh"?"课程":"Lessons";
+        if(lessonDescription)lessonDescription.textContent=chineseCourse
           ?"Learn Simplified Chinese with pinyin, clear explanations, examples and interactive practice."
           :translationLanguage==="zh"?"通过引导式讲解、示例和简短练习提升英语能力。":"Build English skills through guided explanations, examples and short practice.";
-        if(lessonTitle)lessonTitle.textContent=translationLanguage==="zh"?"课程":"Lessons";
-        if(lessonDescription)lessonDescription.textContent=translationLanguage==="zh"
-          ?"通过引导式讲解、示例和简短练习提升英语能力。"
-          :"Build English skills through guided explanations, examples and short practice.";
       }
-      if (activeWord && backdrop.classList.contains("open")) openWord(activeWord);
-      // The lesson catalogue uses lessonField() for localized titles, topics and summaries.
-      // Re-render its cards when the translation changes; refreshing only the reader
-      // leaves the library in the previous language until the next navigation.
-      if (lessonsPage && !lessonsPage.hidden && !ls.active) renderLessons();
-      // Permanent lessons and Daily Learning share this preference, but their
-      // readers have independent renderers. Refresh the open permanent lesson
-      // directly instead of routing through the Daily Learning page state.
-      if (ls.active) {
+      if(activeWord&&backdrop.classList.contains("open"))openWord(activeWord);
+      if(lessonsPage&&!lessonsPage.hidden&&!ls.active)renderLessons();
+      if(ls.active){
         const activeLessonId=ls.active.id;
-const activeLesson=(lessons()||[]).find
-        if(activeLesson) {
+        const activeLesson=(lessons()||[]).find(item=>item.id===activeLessonId);
+        if(activeLesson){
           const reader=document.getElementById("lessonReader");
           const wasOpen=reader&&!reader.hidden;
           renderLesson(activeLesson,true);
           if(reader&&wasOpen)reader.hidden=false;
-        } else {
+        }else{
           ls.active=null;
           document.getElementById("lessonReader").hidden=true;
         }
       }
-      if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
-      if (typeof quizRenderAvailability === "function" && quizPageState.availability && location.hash==="#quiz") {
+      if(typeof window.refreshDailyLearningTranslation==="function")window.refreshDailyLearningTranslation();
+      if(typeof quizRenderAvailability==="function"&&quizPageState.availability&&location.hash==="#quiz"){
         quizRenderAvailability(quizPageState.availability);
         quizRenderHistory(quizPageState.history);
       }
-      if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
-      if (typeof quizApplyPageTranslation === "function") quizApplyPageTranslation();
-      // Keep the exact Quiz subview the learner was looking at before the
-      // language refresh. The overview's Resume card must not open the session.
-      if (quizViewBefore==="session" && quizPageState.session) {
+      if(typeof quizRefreshVisibleTranslation==="function")quizRefreshVisibleTranslation();
+      if(typeof quizApplyPageTranslation==="function")quizApplyPageTranslation();
+      if(quizViewBefore==="session"&&quizPageState.session){
         quizPageState.sessionView=true;
         quizRenderSession();
-      } else if (quizViewBefore==="results" && quizPageState.result) {
+      }else if(quizViewBefore==="results"&&quizPageState.result){
         quizRenderResult(quizPageState.result);
-      } else if (quizViewBefore==="home") {
+      }else if(quizViewBefore==="home"){
         quizPageState.sessionView=false;
         document.getElementById("quizHome").hidden=false;
         document.getElementById("quizSession").hidden=true;
         document.getElementById("quizResults").hidden=true;
       }
-      if (ls.active) {
+      if(ls.active){
         const status=document.getElementById("lessonStatus");
-        if(status) status.textContent=translationLanguage==="zh"
-          ? "翻译语言已更新，当前课程内容已刷新。"
-          : "Translation updated. This lesson has been refreshed.";
+        if(status)status.textContent=!chineseCourse&&translationLanguage==="zh"
+          ?"翻译语言已更新，当前课程内容已刷新。"
+          :"Translation updated. This lesson has been refreshed.";
       }
-      if (typeof window.SwiftDictionaryFlashcards?.refreshTranslation === "function") window.SwiftDictionaryFlashcards.refreshTranslation();
+      if(typeof window.SwiftDictionaryFlashcards?.refreshTranslation==="function")window.SwiftDictionaryFlashcards.refreshTranslation();
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);
