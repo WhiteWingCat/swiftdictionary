@@ -3040,3 +3040,23 @@ Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, espe
 - The separate Cloudflare Workers build for the retired `swiftdictionary-testing` Worker failed; this is distinct from the successful active Pages preview.
 - The Pages private build log could not be inspected through available connected tools. Keep the staging-backend routing check in the final preview verification before signing in.
 - Updated detailed archive: [U2.7.0 Singapore staging migration and preview](conversation-archive/2026-11-21-update-2-7-0-singapore-staging-migration-and-preview.md).
+
+
+
+
+## Update 2.7.0 — shared Lessons UI redesign and Chinese expansion pause (2026-11-21)
+
+- Owner requested a temporary pause on further Chinese dictionary/content expansion while the Lessons UI is reworked. This is a scope adjustment, not cancellation or a delay to Update 2.7.0; existing Chinese dictionary and Lessons foundations remain.
+- Redesigned the Lessons landing UI for both English and Chinese. New Permanent Lessons container now holds difficulty tabs, daily lesson allowance and permanent lesson library; Daily Learning follows below it.
+- Moved the existing My daily activities preferences to Preferences. Existing user_preferences fields, sync and completion rules remain unchanged. Added visible save/error feedback on Preferences and initialization when Preferences is opened directly.
+- Daily activity tabs now use distinct category colours, drop shadows and connected active-panel styling.
+- Widened permanent lesson reader to 1320px maximum/full parent width; improved Chinese/pinyin/English line spacing and contrast; added KEY IDEA / 重点 emphasis to curated lesson points in both courses.
+- Practice panels and question fieldsets now constrain width, wrap long bilingual text and clip overflow. Daily Learning reader is now a left drawer: half viewport on desktop, 62% medium and full-screen on narrow mobile.
+- Added smooth reader/drawer entry/exit and interaction transitions, with prefers-reduced-motion support.
+- No database schema/migration, new personal data collection or new processing purpose was introduced. Singapore staging retains the previously applied U2.7.0 language-aware Lessons migration; production remains untouched. Formal Malaysia PDPA/international legal review remains deferred, not cleared.
+- Application branch: feature/update-2-7-0-chinese-dictionary-lessons. Latest app head: 0e0d0b520f8d763dbb9839deda36085ded759082. PR #14 remains draft/open/unmerged; title/body now record the revised scope.
+- Latest preview deployment for 0e0d0b5 succeeded: https://8dfdd54f.swiftdictionary.pages.dev; branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev.
+- Latest U2.7.0 suite #44886855621 passed all static/data, Chinese lesson content/pinyin, new UI structure/accessibility, full Lessons/Daily Learning browser regression, Chinese dictionary browser and bilingual layout checks. Cloudflare build-routing guard #44886855624 passed. Flashcards suite #44886855618 passed.
+- Latest 2.3.x PostgreSQL and Chromium jobs passed in #44886855634; local Supabase Auth compatibility was completing cleanup at last check. U2.6 ACL disposable Supabase cleanup and Quiz Auth/RPC integration were still running. The prior 2.3.x ordering assertion failure was corrected and its latest run passed the PostgreSQL and Chromium jobs.
+- A separate Cloudflare Workers build for retired swiftdictionary-testing failed; it is not the active Pages deployment. Do not conflate it with the successful Pages preview.
+- Detailed archive: [Update 2.7.0 — Lessons UI redesign and content pause](conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md).
