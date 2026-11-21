@@ -3121,5 +3121,1169 @@ window.SWIFT_CHINESE_LESSONS = {
       ]
     }
   ],
-  "advanced": []
+  "advanced": [
+    {
+      "id": "zh-a-complex-sentences",
+      "topic_id": "zh-complex-sentences",
+      "topicDisplay": {
+        "zh": "复杂句式",
+        "pinyin": "fù zá jù shì",
+        "en": "Complex sentence patterns"
+      },
+      "title": {
+        "zh": "把、被与复合条件句",
+        "pinyin": "bǎ, bèi yǔ fù hé tiáo jiàn jù",
+        "en": "把, 被 and complex conditional patterns"
+      },
+      "summary": {
+        "zh": "学习把字句、被字句，以及只有……才、无论……都等复合结构。",
+        "pinyin": "xué xí bǎ zì jù, bèi zì jù, yǐ jí zhǐ yǒu……cái, wú lùn……dōu děng fù hé jié gòu.",
+        "en": "Study 把 and 被 constructions and patterns such as only if... and no matter... all..."
+      },
+      "explanation": [
+        {
+          "zh": "把字句把受影响的对象提前，常用于说明对事物进行的处理。",
+          "pinyin": "bǎ zì jù bǎ shòu yǐng xiǎng de duì xiàng tí qián, cháng yòng yú shuō míng duì shì wù jìn xíng de chǔ lǐ.",
+          "en": "The 把 construction moves the affected object before the verb and often describes how it is handled."
+        },
+        {
+          "zh": "被字句突出承受动作的人或事物，常表示被动。",
+          "pinyin": "bèi zì jù tū chū chéng shòu dòng zuò de rén huò shì wù, cháng biǎo shì bèi dòng.",
+          "en": "The 被 construction highlights the person or thing receiving an action."
+        },
+        {
+          "zh": "只有……才表示必要条件；无论……都表示条件变化时结果仍然成立。",
+          "pinyin": "zhǐ yǒu……cái biǎo shì bì yào tiáo jiàn; wú lùn……dōu biǎo shì tiáo jiàn biàn huà shí jié guǒ réng rán chéng lì.",
+          "en": "只有…才 marks a necessary condition; 无论…都 says the result holds regardless of conditions."
+        }
+      ],
+      "points": [
+        {
+          "zh": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
+          "pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
+          "en": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+        },
+        {
+          "zh": "被后面可以接施事者，也可以省略。",
+          "pinyin": "bèi hòu miàn kě yǐ jiē shī shì zhě, yě kě yǐ shěng lüè.",
+          "en": "The agent after 被 can be included or omitted."
+        },
+        {
+          "zh": "既然……就常把已知事实作为后续结论的依据。",
+          "pinyin": "jì rán……jiù cháng bǎ yǐ zhī shì shí zuò wéi hòu xù jié lùn de yī jù.",
+          "en": "既然…就 uses an established fact as the basis for a conclusion."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "请把门关上。",
+          "pinyin": "qǐng bǎ mén guān shàng.",
+          "en": "Please close the door."
+        },
+        {
+          "zh": "我的手机被弟弟拿走了。",
+          "pinyin": "wǒ de shǒu jī bèi dì di ná zǒu le.",
+          "en": "My phone was taken away by my younger brother."
+        },
+        {
+          "zh": "只有认真练习，才能进步。",
+          "pinyin": "zhǐ yǒu rèn zhēn liàn xí, cái néng jìn bù.",
+          "en": "Only by practising seriously can you improve."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "把字句通常需要明确的受影响对象，不是所有动词句都适合改成把字句。",
+          "pinyin": "bǎ zì jù tōng cháng xū yào míng què de shòu yǐng xiǎng duì xiàng, bú shì suǒ yǒu dòng cí jù dōu shì hé gǎi chéng bǎ zì jù.",
+          "en": "A 把 sentence usually needs a clear affected object; not every verb sentence fits."
+        },
+        {
+          "zh": "只有……才的顺序不能随意颠倒，否则条件关系会改变。",
+          "pinyin": "zhǐ yǒu……cái de shùn xù bù néng suí yì diān dǎo, fǒu zé tiáo jiàn guān xì huì gǎi biàn.",
+          "en": "Do not casually reverse 只有…才; it changes the condition relationship."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which sentence uses 把 to show how an object is handled?",
+          "options": [
+            {
+              "zh": "请把门关上",
+              "pinyin": "qǐng bǎ mén guān shàng",
+              "en": "Please close the door"
+            },
+            {
+              "zh": "门在这里",
+              "pinyin": "mén zài zhè lǐ",
+              "en": "The door is here"
+            },
+            {
+              "zh": "我看见门",
+              "pinyin": "wǒ kàn jiàn mén",
+              "en": "I see the door"
+            },
+            {
+              "zh": "门很大",
+              "pinyin": "mén hěn dà",
+              "en": "The door is big"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What is the main function of 被 in a 被 sentence?",
+          "options": [
+            {
+              "zh": "To mark a passive construction",
+              "pinyin": "bèi",
+              "en": "To mark that the subject receives an action"
+            },
+            {
+              "zh": "To mark possession",
+              "pinyin": "de",
+              "en": "To mark possession"
+            },
+            {
+              "zh": "To form a yes/no question",
+              "pinyin": "ma",
+              "en": "To form a yes/no question"
+            },
+            {
+              "zh": "To mark a comparison",
+              "pinyin": "bǐ",
+              "en": "To mark a comparison"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pattern means “Only if... can...”?",
+          "options": [
+            {
+              "zh": "只有……才……",
+              "pinyin": "zhǐ yǒu……cái……",
+              "en": "Only if... then..."
+            },
+            {
+              "zh": "无论……都……",
+              "pinyin": "wú lùn……dōu……",
+              "en": "No matter... all..."
+            },
+            {
+              "zh": "既然……就……",
+              "pinyin": "jì rán……jiù……",
+              "en": "Since... then..."
+            },
+            {
+              "zh": "虽然……但是……",
+              "pinyin": "suī rán……dàn shì……",
+              "en": "Although... however..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pattern means “No matter what the conditions are, the result still holds”?",
+          "options": [
+            {
+              "zh": "无论……都……",
+              "pinyin": "wú lùn……dōu……",
+              "en": "No matter... all..."
+            },
+            {
+              "zh": "只有……才……",
+              "pinyin": "zhǐ yǒu……cái……",
+              "en": "Only if... then..."
+            },
+            {
+              "zh": "因为……所以……",
+              "pinyin": "yīn wèi……suǒ yǐ……",
+              "en": "Because... therefore..."
+            },
+            {
+              "zh": "不但……而且……",
+              "pinyin": "bú dàn……ér qiě……",
+              "en": "Not only... but also..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence means “My phone was taken away by my younger brother”?",
+          "options": [
+            {
+              "zh": "我的手机被弟弟拿走了",
+              "pinyin": "wǒ de shǒu jī bèi dì di ná zǒu le",
+              "en": "My phone was taken away by my younger brother"
+            },
+            {
+              "zh": "我把弟弟拿走了",
+              "pinyin": "wǒ bǎ dì di ná zǒu le",
+              "en": "I took my younger brother away"
+            },
+            {
+              "zh": "弟弟把手机看见了",
+              "pinyin": "dì di bǎ shǒu jī kàn jiàn le",
+              "en": "My younger brother saw the phone"
+            },
+            {
+              "zh": "手机在弟弟旁边",
+              "pinyin": "shǒu jī zài dì di páng biān",
+              "en": "The phone is beside my younger brother"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pattern uses an established fact as the reason for a conclusion?",
+          "options": [
+            {
+              "zh": "既然……就……",
+              "pinyin": "jì rán……jiù……",
+              "en": "Since... then..."
+            },
+            {
+              "zh": "一边……一边……",
+              "pinyin": "yì biān……yì biān……",
+              "en": "While... at the same time..."
+            },
+            {
+              "zh": "先……然后……",
+              "pinyin": "xiān……rán hòu……",
+              "en": "First... then..."
+            },
+            {
+              "zh": "越……越……",
+              "pinyin": "yuè……yuè……",
+              "en": "The more... the more..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which is a natural 把 sentence?",
+          "options": [
+            {
+              "zh": "我把作业写完了",
+              "pinyin": "wǒ bǎ zuò yè xiě wán le",
+              "en": "I finished writing the homework"
+            },
+            {
+              "zh": "我把很高兴",
+              "pinyin": "wǒ bǎ hěn gāo xìng",
+              "en": "I把 very happy"
+            },
+            {
+              "zh": "我把是学生",
+              "pinyin": "wǒ bǎ shì xué sheng",
+              "en": "I把 am a student"
+            },
+            {
+              "zh": "我把昨天",
+              "pinyin": "wǒ bǎ zuó tiān",
+              "en": "I把 yesterday"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-a-connectors",
+      "topic_id": "zh-connectors",
+      "topicDisplay": {
+        "zh": "连接词与篇章逻辑",
+        "pinyin": "lián jiē cí yǔ piān zhāng luó jí",
+        "en": "Connectors and discourse logic"
+      },
+      "title": {
+        "zh": "连接词与语气关系",
+        "pinyin": "lián jiē cí yǔ yǔ qì guān xì",
+        "en": "Connectors and logical relationships"
+      },
+      "summary": {
+        "zh": "学习因此、然而、此外、尽管等连接词，理解它们如何组织较长表达。",
+        "pinyin": "xué xí yīn cǐ, rán ér, cǐ wài, jǐn guǎn děng lián jiē cí, lǐ jiě tā men rú hé zǔ zhī jiào cháng biǎo dá.",
+        "en": "Use connectors such as therefore, however, in addition and although to organise longer discourse."
+      },
+      "explanation": [
+        {
+          "zh": "因此引出结果或结论；然而引出转折。",
+          "pinyin": "yīn cǐ yǐn chū jié guǒ huò jié lùn; rán ér yǐn chū zhuǎn zhé.",
+          "en": "因此 introduces a result or conclusion; 然而 introduces contrast."
+        },
+        {
+          "zh": "此外用于补充信息；于是常引出随后发生的行动或结果。",
+          "pinyin": "cǐ wài yòng yú bǔ chōng xìn xī; yú shì cháng yǐn chū suí hòu fā shēng de xíng dòng huò jié guǒ.",
+          "en": "此外 adds information; 于是 often introduces a subsequent action or result."
+        },
+        {
+          "zh": "总之用于概括；尽管常与仍然、还是等表达形成让步关系。",
+          "pinyin": "zǒng zhī yòng yú gài kuò; jǐn guǎn cháng yǔ réng rán, hái shi děng biǎo dá xíng chéng ràng bù guān xì.",
+          "en": "总之 summarises; 尽管 often introduces a concession followed by a contrasting outcome."
+        }
+      ],
+      "points": [
+        {
+          "zh": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
+          "pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
+          "en": "Connectors clarify relationships between ideas, not just words."
+        },
+        {
+          "zh": "反而表示结果与预期相反。",
+          "pinyin": "fǎn ér biǎo shì jié guǒ yǔ yù qī xiāng fǎn.",
+          "en": "反而 marks a result opposite to expectation."
+        },
+        {
+          "zh": "尽管常置于让步内容前，后面再说明实际结果。",
+          "pinyin": "jǐn guǎn cháng zhì yú ràng bù nèi róng qián, hòu miàn zài shuō míng shí jì jié guǒ.",
+          "en": "尽管 introduces a concession before the actual outcome."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "天气很冷，然而他还是出门了。",
+          "pinyin": "tiān qì hěn lěng, rán ér tā hái shi chū mén le.",
+          "en": "The weather was cold; however, he still went out."
+        },
+        {
+          "zh": "此外，我们还需要检查数据。",
+          "pinyin": "cǐ wài, wǒ men hái xū yào jiǎn chá shù jù.",
+          "en": "In addition, we need to check the data."
+        },
+        {
+          "zh": "总之，计划需要更多时间。",
+          "pinyin": "zǒng zhī, jì huà xū yào gèng duō shí jiān.",
+          "en": "In short, the plan needs more time."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把然而和因此混用；前者转折，后者引出结果。",
+          "pinyin": "bú yào bǎ rán ér hé yīn cǐ hùn yòng; qián zhě zhuǎn zhé, hòu zhě yǐn chū jié guǒ.",
+          "en": "然而 signals contrast; 因此 signals a result."
+        },
+        {
+          "zh": "此外通常补充同一主题的信息，不表示相反结果。",
+          "pinyin": "cǐ wài tōng cháng bǔ chōng tóng yì zhǔ tí de xìn xī, bù biǎo shì xiāng fǎn jié guǒ.",
+          "en": "此外 adds related information rather than a contrasting result."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which connector introduces a result or conclusion?",
+          "options": [
+            {
+              "zh": "因此",
+              "pinyin": "yīn cǐ",
+              "en": "Therefore"
+            },
+            {
+              "zh": "然而",
+              "pinyin": "rán ér",
+              "en": "However"
+            },
+            {
+              "zh": "此外",
+              "pinyin": "cǐ wài",
+              "en": "In addition"
+            },
+            {
+              "zh": "反而",
+              "pinyin": "fǎn ér",
+              "en": "Instead; contrary to expectation"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which connector means “however”?",
+          "options": [
+            {
+              "zh": "然而",
+              "pinyin": "rán ér",
+              "en": "However"
+            },
+            {
+              "zh": "因此",
+              "pinyin": "yīn cǐ",
+              "en": "Therefore"
+            },
+            {
+              "zh": "总之",
+              "pinyin": "zǒng zhī",
+              "en": "In short"
+            },
+            {
+              "zh": "于是",
+              "pinyin": "yú shì",
+              "en": "Thereupon; so"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which connector adds information, meaning “in addition”?",
+          "options": [
+            {
+              "zh": "此外",
+              "pinyin": "cǐ wài",
+              "en": "In addition"
+            },
+            {
+              "zh": "反而",
+              "pinyin": "fǎn ér",
+              "en": "Instead"
+            },
+            {
+              "zh": "因此",
+              "pinyin": "yīn cǐ",
+              "en": "Therefore"
+            },
+            {
+              "zh": "尽管",
+              "pinyin": "jǐn guǎn",
+              "en": "Although"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word summarises a discussion as “in short”?",
+          "options": [
+            {
+              "zh": "总之",
+              "pinyin": "zǒng zhī",
+              "en": "In short"
+            },
+            {
+              "zh": "于是",
+              "pinyin": "yú shì",
+              "en": "Thereupon"
+            },
+            {
+              "zh": "然而",
+              "pinyin": "rán ér",
+              "en": "However"
+            },
+            {
+              "zh": "尤其",
+              "pinyin": "yóu qí",
+              "en": "Especially"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which connector marks a result opposite to expectation?",
+          "options": [
+            {
+              "zh": "反而",
+              "pinyin": "fǎn ér",
+              "en": "Instead; contrary to expectation"
+            },
+            {
+              "zh": "此外",
+              "pinyin": "cǐ wài",
+              "en": "In addition"
+            },
+            {
+              "zh": "因此",
+              "pinyin": "yīn cǐ",
+              "en": "Therefore"
+            },
+            {
+              "zh": "总之",
+              "pinyin": "zǒng zhī",
+              "en": "In short"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence uses 然而 naturally?",
+          "options": [
+            {
+              "zh": "天气很冷，然而他还是出门了",
+              "pinyin": "tiān qì hěn lěng, rán ér tā hái shi chū mén le",
+              "en": "It was cold; however, he still went out"
+            },
+            {
+              "zh": "天气很冷，因此他还是出门了",
+              "pinyin": "tiān qì hěn lěng, yīn cǐ tā hái shi chū mén le",
+              "en": "It was cold; therefore, he still went out"
+            },
+            {
+              "zh": "天气很冷，总之他还是出门了",
+              "pinyin": "tiān qì hěn lěng, zǒng zhī tā hái shi chū mén le",
+              "en": "It was cold; in short, he still went out"
+            },
+            {
+              "zh": "天气很冷，此外他还是出门了",
+              "pinyin": "tiān qì hěn lěng, cǐ wài tā hái shi chū mén le",
+              "en": "It was cold; in addition, he still went out"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which connector can introduce an action that follows a situation, similar to “thereupon”?",
+          "options": [
+            {
+              "zh": "于是",
+              "pinyin": "yú shì",
+              "en": "Thereupon; so"
+            },
+            {
+              "zh": "尽管",
+              "pinyin": "jǐn guǎn",
+              "en": "Although"
+            },
+            {
+              "zh": "然而",
+              "pinyin": "rán ér",
+              "en": "However"
+            },
+            {
+              "zh": "尤其",
+              "pinyin": "yóu qí",
+              "en": "Especially"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-a-idioms-proverbs",
+      "topic_id": "zh-idioms-proverbs",
+      "topicDisplay": {
+        "zh": "成语与谚语",
+        "pinyin": "chéng yǔ yǔ yàn yǔ",
+        "en": "Idioms and proverbs"
+      },
+      "title": {
+        "zh": "成语、谚语与传统智慧",
+        "pinyin": "chéng yǔ, yàn yǔ yǔ chuán tǒng zhì huì",
+        "en": "Idioms, proverbs and traditional wisdom"
+      },
+      "summary": {
+        "zh": "区分成语与谚语，学习常见表达的比喻意义和自然使用场景。",
+        "pinyin": "qū fēn chéng yǔ yǔ yàn yǔ, xué xí cháng jiàn biǎo dá de bǐ yù yì yì hé zì rán shǐ yòng chǎng jǐng.",
+        "en": "Distinguish idioms from proverbs and learn their figurative meanings and contexts."
+      },
+      "explanation": [
+        {
+          "zh": "成语通常是固定形式的熟语，常浓缩一个故事、经验或比喻。",
+          "pinyin": "chéng yǔ tōng cháng shì gù dìng xíng shì de shú yǔ, cháng nóng suō yí ge gù shi, jīng yàn huò bǐ yù.",
+          "en": "成语 are fixed expressions that often condense a story, experience or metaphor."
+        },
+        {
+          "zh": "谚语通常是完整的民间说法，用来表达经验、劝告或生活智慧。",
+          "pinyin": "yàn yǔ tōng cháng shì wán zhěng de mín jiān shuō fǎ, yòng lái biǎo dá jīng yàn, quàn gào huò shēng huó zhì huì.",
+          "en": "谚语 are often complete folk sayings that express experience, advice or wisdom."
+        },
+        {
+          "zh": "理解成语时，要区分字面画面与实际引申意义。",
+          "pinyin": "lǐ jiě chéng yǔ shí, yào qū fēn zì miàn huà miàn yǔ shí jì yǐn shēn yì yì.",
+          "en": "For idioms, distinguish the literal image from the intended figurative meaning."
+        }
+      ],
+      "points": [
+        {
+          "zh": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
+          "pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
+          "en": "画蛇添足 means ruining something by adding unnecessary details."
+        },
+        {
+          "zh": "亡羊补牢比喻出了问题后及时补救，仍然有价值。",
+          "pinyin": "wáng yáng bǔ láo bǐ yù chū le wèn tí hòu jí shí bǔ jiù, réng rán yǒu jià zhí.",
+          "en": "亡羊补牢 means taking corrective action after a loss."
+        },
+        {
+          "zh": "一分耕耘，一分收获表达努力与成果之间的关系。",
+          "pinyin": "yì fēn gēng yún, yì fēn shōu huò biǎo dá nǔ lì yǔ chéng guǒ zhī jiān de guān xì.",
+          "en": "一分耕耘，一分收获 says effort brings corresponding results."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "他已经完成了计划，不需要再画蛇添足。",
+          "pinyin": "tā yǐ jīng wán chéng le jì huà, bù xū yào zài huà shé tiān zú.",
+          "en": "He has completed the plan; there is no need to overdo it."
+        },
+        {
+          "zh": "发现错误后马上修正，也算亡羊补牢。",
+          "pinyin": "fā xiàn cuò wù hòu mǎ shàng xiū zhèng, yě suàn wáng yáng bǔ láo.",
+          "en": "Correcting a mistake promptly is an example of 亡羊补牢."
+        },
+        {
+          "zh": "一分耕耘，一分收获，学习也需要持续努力。",
+          "pinyin": "yì fēn gēng yún, yì fēn shōu huò, xué xí yě xū yào chí xù nǔ lì.",
+          "en": "You reap what you sow; learning also requires steady effort."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把成语的字面意思直接当作它的实际含义。",
+          "pinyin": "bú yào bǎ chéng yǔ de zì miàn yì si zhí jiē dàng zuò tā de shí jì hán yì.",
+          "en": "Do not assume an idiom's literal words are its intended meaning."
+        },
+        {
+          "zh": "成语和谚语有关联，但不是同一种表达形式。",
+          "pinyin": "chéng yǔ hé yàn yǔ yǒu guān lián, dàn bú shì tóng yì zhǒng biǎo dá xíng shì.",
+          "en": "Idioms and proverbs are related but are not interchangeable categories."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which expression means ruining something by adding unnecessary details?",
+          "options": [
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "To ruin something by overdoing it"
+            },
+            {
+              "zh": "亡羊补牢",
+              "pinyin": "wáng yáng bǔ láo",
+              "en": "To mend the fold after a sheep is lost"
+            },
+            {
+              "zh": "一举两得",
+              "pinyin": "yì jǔ liǎng dé",
+              "en": "To achieve two things at once"
+            },
+            {
+              "zh": "入乡随俗",
+              "pinyin": "rù xiāng suí sú",
+              "en": "When in Rome, do as the Romans do"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which idiom means taking corrective action after a problem has occurred?",
+          "options": [
+            {
+              "zh": "亡羊补牢",
+              "pinyin": "wáng yáng bǔ láo",
+              "en": "Mend the fold after losing a sheep"
+            },
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "Add feet to a snake"
+            },
+            {
+              "zh": "一举两得",
+              "pinyin": "yì jǔ liǎng dé",
+              "en": "Two gains from one action"
+            },
+            {
+              "zh": "守株待兔",
+              "pinyin": "shǒu zhū dài tù",
+              "en": "Wait idly for luck"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression means “to achieve two things with one action”?",
+          "options": [
+            {
+              "zh": "一举两得",
+              "pinyin": "yì jǔ liǎng dé",
+              "en": "Achieve two things at once"
+            },
+            {
+              "zh": "入乡随俗",
+              "pinyin": "rù xiāng suí sú",
+              "en": "Follow local customs"
+            },
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "Overdo something"
+            },
+            {
+              "zh": "亡羊补牢",
+              "pinyin": "wáng yáng bǔ láo",
+              "en": "Correct a problem afterwards"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which saying is a proverb about effort and results?",
+          "options": [
+            {
+              "zh": "一分耕耘，一分收获",
+              "pinyin": "yì fēn gēng yún, yì fēn shōu huò",
+              "en": "You reap what you sow"
+            },
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "An idiom about overdoing"
+            },
+            {
+              "zh": "一举两得",
+              "pinyin": "yì jǔ liǎng dé",
+              "en": "An idiom about double benefit"
+            },
+            {
+              "zh": "入乡随俗",
+              "pinyin": "rù xiāng suí sú",
+              "en": "An idiom about local customs"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "What is a key difference between 成语 and 谚语?",
+          "options": [
+            {
+              "zh": "成语 are fixed idiomatic expressions; 谚语 are folk sayings or proverbs",
+              "pinyin": "chéng yǔ hé yàn yǔ",
+              "en": "Idioms are fixed expressions; proverbs express folk wisdom"
+            },
+            {
+              "zh": "They are exactly the same category",
+              "pinyin": "tā men wán quán xiāng tóng",
+              "en": "They are identical"
+            },
+            {
+              "zh": "成语 are always modern slang",
+              "pinyin": "chéng yǔ",
+              "en": "Idioms are always modern slang"
+            },
+            {
+              "zh": "谚语 are always four characters",
+              "pinyin": "yàn yǔ",
+              "en": "Proverbs are always four characters"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression advises people to follow local customs?",
+          "options": [
+            {
+              "zh": "入乡随俗",
+              "pinyin": "rù xiāng suí sú",
+              "en": "When in Rome, do as the Romans do"
+            },
+            {
+              "zh": "亡羊补牢",
+              "pinyin": "wáng yáng bǔ láo",
+              "en": "Correct a problem after it happens"
+            },
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "Overdo something"
+            },
+            {
+              "zh": "一举两得",
+              "pinyin": "yì jǔ liǎng dé",
+              "en": "Achieve two things at once"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression best fits someone adding unnecessary features to an already good design?",
+          "options": [
+            {
+              "zh": "画蛇添足",
+              "pinyin": "huà shé tiān zú",
+              "en": "Adding unnecessary details"
+            },
+            {
+              "zh": "一分耕耘，一分收获",
+              "pinyin": "yì fēn gēng yún, yì fēn shōu huò",
+              "en": "Effort brings results"
+            },
+            {
+              "zh": "入乡随俗",
+              "pinyin": "rù xiāng suí sú",
+              "en": "Follow local customs"
+            },
+            {
+              "zh": "亡羊补牢",
+              "pinyin": "wáng yáng bǔ láo",
+              "en": "Fix a problem afterwards"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-a-nuanced-vocabulary",
+      "topic_id": "zh-nuanced-vocabulary",
+      "topicDisplay": {
+        "zh": "近义词与语义差别",
+        "pinyin": "jìn yì cí yǔ yǔ yì chā bié",
+        "en": "Nuanced vocabulary"
+      },
+      "title": {
+        "zh": "近义词的语气与使用差别",
+        "pinyin": "jìn yì cí de yǔ qì yǔ shǐ yòng chā bié",
+        "en": "Nuance and differences between near-synonyms"
+      },
+      "summary": {
+        "zh": "比较才、就、终于、总算等近义表达，理解语境、语气与搭配。",
+        "pinyin": "bǐ jiào cái, jiù, zhōng yú, zǒng suàn děng jìn yì biǎo dá, lǐ jiě yǔ jìng, yǔ qì yǔ dā pèi.",
+        "en": "Compare near-synonyms and learn how context, tone and collocation affect meaning."
+      },
+      "explanation": [
+        {
+          "zh": "才常表示时间较晚、数量较少或条件刚刚达到；就常表示较早、迅速或顺承。",
+          "pinyin": "cái cháng biǎo shì shí jiān jiào wǎn, shù liàng jiào shǎo huò tiáo jiàn gāng gāng dá dào; jiù cháng biǎo shì jiào zǎo, xùn sù huò shùn chéng.",
+          "en": "才 can suggest lateness, small quantity or a condition just being met; 就 often suggests earlier timing or promptness."
+        },
+        {
+          "zh": "终于强调经过等待或过程后达到结果；总算常带有松一口气的语气。",
+          "pinyin": "zhōng yú qiáng diào jīng guò děng dài huò guò chéng hòu dá dào jié guǒ; zǒng suàn cháng dài yǒu sōng yì kǒu qì de yǔ qì.",
+          "en": "终于 stresses a result after a process; 总算 often conveys relief."
+        },
+        {
+          "zh": "了解偏向熟悉事实或情况；理解偏向明白意义、原因或想法。",
+          "pinyin": "liǎo jiě piān xiàng shú xī shì shí huò qíng kuàng; lǐ jiě piān xiàng míng bai yì yì, yuán yīn huò xiǎng fǎ.",
+          "en": "了解 means to be familiar with facts; 理解 means to understand meaning or reasoning."
+        }
+      ],
+      "points": [
+        {
+          "zh": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
+          "pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
+          "en": "发现 means discover something that exists; 发明 means invent something new."
+        },
+        {
+          "zh": "适合常作动词，表示适宜某人或某情况；合适常作形容词，表示恰当。",
+          "pinyin": "shì hé cháng zuò dòng cí, biǎo shì shì yí mǒu rén huò mǒu qíng kuàng; hé shì cháng zuò xíng róng cí, biǎo shì qià dàng.",
+          "en": "适合 means to suit; 合适 means suitable or appropriate."
+        },
+        {
+          "zh": "甚至用于强调程度或意外情况；尤其用于突出某个特别对象。",
+          "pinyin": "shèn zhì yòng yú qiáng diào chéng dù huò yì wài qíng kuàng; yóu qí yòng yú tū chū mǒu ge tè bié duì xiàng.",
+          "en": "甚至 emphasises an extreme or surprising case; 尤其 singles out something in particular."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "我等了很久，终于收到消息。",
+          "pinyin": "wǒ děng le hěn jiǔ, zhōng yú shōu dào xiāo xi.",
+          "en": "I waited a long time and finally received the message."
+        },
+        {
+          "zh": "这本书适合初学者。",
+          "pinyin": "zhè běn shū shì hé chū xué zhě.",
+          "en": "This book is suitable for beginners."
+        },
+        {
+          "zh": "我了解情况，也理解你的担心。",
+          "pinyin": "wǒ liǎo jiě qíng kuàng, yě lǐ jiě nǐ de dān xīn.",
+          "en": "I know the situation and understand your concern."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把发现和发明混用；发现不是创造新事物。",
+          "pinyin": "bú yào bǎ fā xiàn hé fā míng hùn yòng; fā xiàn bú shì chuàng zào xīn shì wù.",
+          "en": "发现 means discovering, not creating something new."
+        },
+        {
+          "zh": "总算常带有如释重负的语气，不只是中性的 finally。",
+          "pinyin": "zǒng suàn cháng dài yǒu rú shì zhòng fù de yǔ qì, bù zhǐ shì zhōng xìng de finally.",
+          "en": "总算 often carries relief, not just a neutral sense of finally."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which word often suggests that something happened later than expected?",
+          "options": [
+            {
+              "zh": "才",
+              "pinyin": "cái",
+              "en": "Only then; not until"
+            },
+            {
+              "zh": "就",
+              "pinyin": "jiù",
+              "en": "Already; then; soon"
+            },
+            {
+              "zh": "最",
+              "pinyin": "zuì",
+              "en": "Most"
+            },
+            {
+              "zh": "更",
+              "pinyin": "gèng",
+              "en": "Even more"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word stresses that a result was reached after a long process?",
+          "options": [
+            {
+              "zh": "终于",
+              "pinyin": "zhōng yú",
+              "en": "Finally; at last"
+            },
+            {
+              "zh": "马上",
+              "pinyin": "mǎ shàng",
+              "en": "Immediately"
+            },
+            {
+              "zh": "尤其",
+              "pinyin": "yóu qí",
+              "en": "Especially"
+            },
+            {
+              "zh": "可能",
+              "pinyin": "kě néng",
+              "en": "Possibly"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word often means understanding facts or becoming familiar with a situation?",
+          "options": [
+            {
+              "zh": "了解",
+              "pinyin": "liǎo jiě",
+              "en": "Know about; be familiar with"
+            },
+            {
+              "zh": "理解",
+              "pinyin": "lǐ jiě",
+              "en": "Understand meaning or reasoning"
+            },
+            {
+              "zh": "发明",
+              "pinyin": "fā míng",
+              "en": "Invent"
+            },
+            {
+              "zh": "发现",
+              "pinyin": "fā xiàn",
+              "en": "Discover"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which verb means to create something new, such as a device?",
+          "options": [
+            {
+              "zh": "发明",
+              "pinyin": "fā míng",
+              "en": "Invent"
+            },
+            {
+              "zh": "发现",
+              "pinyin": "fā xiàn",
+              "en": "Discover"
+            },
+            {
+              "zh": "了解",
+              "pinyin": "liǎo jiě",
+              "en": "Be familiar with"
+            },
+            {
+              "zh": "适合",
+              "pinyin": "shì hé",
+              "en": "Suit"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression means “This book is suitable for beginners”?",
+          "options": [
+            {
+              "zh": "这本书适合初学者",
+              "pinyin": "zhè běn shū shì hé chū xué zhě",
+              "en": "This book is suitable for beginners"
+            },
+            {
+              "zh": "这本书发现初学者",
+              "pinyin": "zhè běn shū fā xiàn chū xué zhě",
+              "en": "This book discovers beginners"
+            },
+            {
+              "zh": "这本书发明初学者",
+              "pinyin": "zhè běn shū fā míng chū xué zhě",
+              "en": "This book invents beginners"
+            },
+            {
+              "zh": "这本书终于初学者",
+              "pinyin": "zhè běn shū zhōng yú chū xué zhě",
+              "en": "This book finally beginners"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word highlights a particularly notable item or person?",
+          "options": [
+            {
+              "zh": "尤其",
+              "pinyin": "yóu qí",
+              "en": "Especially"
+            },
+            {
+              "zh": "甚至",
+              "pinyin": "shèn zhì",
+              "en": "Even; to the extent that"
+            },
+            {
+              "zh": "才",
+              "pinyin": "cái",
+              "en": "Only then"
+            },
+            {
+              "zh": "总算",
+              "pinyin": "zǒng suàn",
+              "en": "At last; thankfully"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word can introduce an extreme or surprising example, meaning “even”?",
+          "options": [
+            {
+              "zh": "甚至",
+              "pinyin": "shèn zhì",
+              "en": "Even; to the extent that"
+            },
+            {
+              "zh": "尤其",
+              "pinyin": "yóu qí",
+              "en": "Especially"
+            },
+            {
+              "zh": "了解",
+              "pinyin": "liǎo jiě",
+              "en": "Know about"
+            },
+            {
+              "zh": "合适",
+              "pinyin": "hé shì",
+              "en": "Appropriate"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-a-natural-expression-literature",
+      "topic_id": "zh-natural-expression-literature",
+      "topicDisplay": {
+        "zh": "自然表达与文学语言",
+        "pinyin": "zì rán biǎo dá yǔ wén xué yǔ yán",
+        "en": "Natural expression and literary language"
+      },
+      "title": {
+        "zh": "自然表达、名句与古典诗词",
+        "pinyin": "zì rán biǎo dá, míng jù yǔ gǔ diǎn shī cí",
+        "en": "Natural expressions, quotations and classical poetry"
+      },
+      "summary": {
+        "zh": "学习自然礼貌表达，并认识古典诗词与名句中的语言和文化信息。",
+        "pinyin": "xué xí zì rán lǐ mào biǎo dá, bìng rèn shi gǔ diǎn shī cí yǔ míng jù zhōng de yǔ yán hé wén huà xìn xī.",
+        "en": "Practise natural polite expressions and explore language and culture in classical poetry and sayings."
+      },
+      "explanation": [
+        {
+          "zh": "自然表达不一定逐字对应英语；应根据场合、关系和语气选择说法。",
+          "pinyin": "zì rán biǎo dá bù yí dìng zhú zì duì yìng yīng yǔ; yīng gēn jù chǎng hé, guān xì hé yǔ qì xuǎn zé shuō fǎ.",
+          "en": "Natural Chinese does not always map word-for-word to English; choose expressions for the context."
+        },
+        {
+          "zh": "辛苦了常用于感谢或体谅别人的付出；麻烦你了用于礼貌地请人帮忙。",
+          "pinyin": "xīn kǔ le cháng yòng yú gǎn xiè huò tǐ liàng bié rén de fù chū; má fan nǐ le yòng yú lǐ mào de qǐng rén bāng máng.",
+          "en": "辛苦了 acknowledges someone's effort; 麻烦你了 politely asks for help or recognises an inconvenience."
+        },
+        {
+          "zh": "古典诗词常使用凝练意象；引用时应保留原文并注明作者和作品。",
+          "pinyin": "gǔ diǎn shī cí cháng shǐ yòng níng liàn yì xiàng; yǐn yòng shí yīng bǎo liú yuán wén bìng zhù míng zuò zhě hé zuò pǐn.",
+          "en": "Classical poetry uses compact imagery; quote the original and identify its author and work."
+        }
+      ],
+      "points": [
+        {
+          "zh": "没关系可回应道歉；不客气常回应感谢。",
+          "pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
+          "en": "没关系 responds to an apology; 不客气 responds to thanks."
+        },
+        {
+          "zh": "静夜思是唐代诗人李白的作品。",
+          "pinyin": "jìng yè sī shì Táng dài shī rén Lǐ Bái de zuò pǐn.",
+          "en": "静夜思 is a poem by the Tang-dynasty poet Li Bai."
+        },
+        {
+          "zh": "床前明月光，疑是地上霜。以月光和霜的相似形象表达夜间思绪。",
+          "pinyin": "chuáng qián míng yuè guāng, yí shì dì shàng shuāng. yǐ yuè guāng hé shuāng de xiāng sì xíng xiàng biǎo dá yè jiān sī xù.",
+          "en": "The opening couplet of 静夜思 compares moonlight with frost to evoke a night-time reflection."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "麻烦你了，可以礼貌地提出请求。",
+          "pinyin": "má fan nǐ le, kě yǐ lǐ mào de tí chū qǐng qiú.",
+          "en": "麻烦你了 is a polite way to ask someone for help."
+        },
+        {
+          "zh": "不积跬步，无以至千里出自《荀子·劝学》，强调积累的重要性。",
+          "pinyin": "bù jī kuǐ bù, wú yǐ zhì qiān lǐ chū zì 《Xún Zǐ · Quàn Xué》, qiáng diào jī lěi de zhòng yào xìng.",
+          "en": "不积跬步，无以至千里 is from Xunzi's Encouraging Learning and stresses gradual accumulation."
+        },
+        {
+          "zh": "名言警句、谚语和诗句的来源与形式不同，引用时要准确标注。",
+          "pinyin": "míng yán jǐng jù, yàn yǔ hé shī jù de lái yuán yǔ xíng shì bù tóng, yǐn yòng shí yào zhǔn què biāo zhù.",
+          "en": "Quotes, proverbs and poetic lines have different forms and sources; cite them accurately."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "麻烦你了，谢谢。",
+          "pinyin": "má fan nǐ le, xiè xie.",
+          "en": "Sorry to trouble you; thank you."
+        },
+        {
+          "zh": "这次真的辛苦你了。",
+          "pinyin": "zhè cì zhēn de xīn kǔ nǐ le.",
+          "en": "I really appreciate all your effort this time."
+        },
+        {
+          "zh": "李白在《静夜思》中写道：“床前明月光，疑是地上霜。”",
+          "pinyin": "Lǐ Bái zài 《Jìng Yè Sī》 zhōng xiě dào: “chuáng qián míng yuè guāng, yí shì dì shàng shuāng.”",
+          "en": "Li Bai wrote: “Before my bed, the bright moonlight; I suspect it is frost on the ground.”"
+        }
+      ],
+      "practices": [
+        [
+          "不要把不客气用作回应道歉；没关系更自然。",
+          "bú yào bǎ bú kè qi yòng zuò huí yìng dào qiàn; méi guān xi gèng zì rán.",
+          "Do not use 不客气 to respond to an apology; 没关系 is more natural."
+        ],
+        [
+          "引用诗词或名句时，不要自行改写原文却仍标成直接引文。",
+          "yǐn yòng shī cí huò míng jù shí, bú yào zì xíng gǎi xiě yuán wén què réng biāo chéng zhí jiē yǐn wén.",
+          "Do not alter a poem or quotation and still present it as a direct quote."
+        ]
+      ]
+    }
+  ]
 };
