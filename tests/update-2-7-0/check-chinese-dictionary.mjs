@@ -28,7 +28,7 @@ const baseWords = vm.runInNewContext("(" + baseLiteral + ")");
 const dataMatch = dataFile.match(/window\.SWIFT_CHINESE_WORDS\s*=\s*(\[[\s\S]*?\]);/);
 assert.ok(dataMatch, "External Chinese character array is missing.");
 const additions = vm.runInNewContext("(" + dataMatch[1] + ")");
-const metadataMatch = dataFile.match(/window\\.SWIFT_CHINESE_METADATA\\s*=\\s*(\\{[\\s\\S]*?\\});/);
+const metadataMatch = dataFile.match(/window\.SWIFT_CHINESE_METADATA\s*=\s*(\{[\s\S]*?\});/);
 assert.ok(metadataMatch, "Chinese legacy-entry metadata is missing.");
 const metadata = vm.runInNewContext("(" + metadataMatch[1] + ")");
 for (const item of baseWords) {
