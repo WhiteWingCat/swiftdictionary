@@ -5679,5 +5679,1158 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ]
+  },
+  {
+    "word": "腿",
+    "part": "汉语词汇",
+    "phonetic": "tuǐ",
+    "definition": "leg; classifier for long objects",
+    "definitionZh": "腿；也可作细长物品的量词。",
+    "examples": [
+      "我的腿有点疼。"
+    ],
+    "breakdown": "整体记忆；常用于身体部位和动作表达。",
+    "related": "腿疼 tuǐ téng；腿脚 tuǐ jiǎo",
+    "categories": [
+      "people",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "完",
+    "part": "汉语词汇",
+    "phonetic": "wán",
+    "definition": "to finish; be over; whole; complete; entire",
+    "definitionZh": "完成、结束；完整、全部。",
+    "examples": [
+      "我已经完成作业了。"
+    ],
+    "breakdown": "整体记忆；常用于表示事情结束或全部完成。",
+    "related": "完成 wán chéng；完全 wán quán",
+    "categories": [
+      "actions",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "碗",
+    "part": "汉语词汇",
+    "phonetic": "wǎn",
+    "definition": "bowl; classifier for bowlfuls",
+    "definitionZh": "碗；盛饭、汤或其他食物的容器，也作其量词。",
+    "examples": [
+      "桌上有一碗米饭。"
+    ],
+    "breakdown": "整体记忆；常用于餐具和食物份量。",
+    "related": "碗筷 wǎn kuài；一碗 yì wǎn",
+    "categories": [
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "万",
+    "part": "汉语词汇",
+    "phonetic": "wàn / mò",
+    "definition": "ten thousand; myriad; very many; surname; reading in 万俟",
+    "definitionZh": "数字10000；也表示数量极多；少数姓氏组合中读 mò。",
+    "examples": [
+      "这辆车要一万多元。"
+    ],
+    "breakdown": "多音字；表示一万时读 wàn，姓氏“万俟”中读 mò。",
+    "related": "一万 yí wàn；万一 wàn yī",
+    "categories": [
+      "time-numbers",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "王",
+    "part": "汉语词汇",
+    "phonetic": "wáng",
+    "definition": "king; monarch; best or strongest of its kind; surname Wang",
+    "definitionZh": "国王、君主；也可表示某类事物中最强或最优秀者；常见姓氏。",
+    "examples": [
+      "王先生是我的老师。"
+    ],
+    "breakdown": "整体记忆；可表示君主，也常用作姓氏。",
+    "related": "国王 guó wáng；王子 wáng zǐ",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "往",
+    "part": "汉语词汇",
+    "phonetic": "wǎng",
+    "definition": "to go; towards; in the direction of; past; previous",
+    "definitionZh": "前往、朝向；过去的、以前的。",
+    "examples": [
+      "请一直往前走。"
+    ],
+    "breakdown": "整体记忆；常用于表示方向或过去的时间。",
+    "related": "往前 wǎng qián；往常 wǎng cháng",
+    "categories": [
+      "places",
+      "actions",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "为",
+    "part": "汉语词汇",
+    "phonetic": "wéi / wèi",
+    "definition": "to act as; become; do; serve as; because of; for",
+    "definitionZh": "作为、成为、做；读 wèi 时表示为了、因为或替某人。",
+    "examples": [
+      "我为你准备了礼物。"
+    ],
+    "breakdown": "多音字；表示作为、成为时读 wéi，表示为了、因为时读 wèi。",
+    "related": "因为 yīn wèi；为了 wèi le",
+    "categories": [
+      "grammar-function",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "位",
+    "part": "汉语词汇",
+    "phonetic": "wèi",
+    "definition": "position; location; place; classifier for people (polite)",
+    "definitionZh": "位置、地点；也作人的量词，带有礼貌或尊敬意味。",
+    "examples": [
+      "那位老师很亲切。"
+    ],
+    "breakdown": "整体记忆；常用于礼貌地称呼或计量人物。",
+    "related": "位置 wèi zhì；一位 yí wèi",
+    "categories": [
+      "people",
+      "places",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "味",
+    "part": "汉语词汇",
+    "phonetic": "wèi",
+    "definition": "taste; smell; flavor; character; atmosphere; classifier for ingredients",
+    "definitionZh": "味道、气味；风味、特色；也作中药配方中药材的量词。",
+    "examples": [
+      "这个汤的味道很好。"
+    ],
+    "breakdown": "整体记忆；常用于食物、气味和个人感受。",
+    "related": "味道 wèi dào；口味 kǒu wèi",
+    "categories": [
+      "nature",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "喂",
+    "part": "汉语词汇",
+    "phonetic": "wèi / wéi",
+    "definition": "hey; hello (phone); to feed; give food to",
+    "definitionZh": "喂食、饲养；也可作招呼语，或用于接电话时说“喂”。",
+    "examples": [
+      "我每天喂猫吃饭。"
+    ],
+    "breakdown": "多音字；表示喂食或电话招呼时常读 wèi，口语招呼也可读 wéi。",
+    "related": "喂养 wèi yǎng；喂食 wèi shí",
+    "categories": [
+      "actions",
+      "expressions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "温",
+    "part": "汉语词汇",
+    "phonetic": "wēn",
+    "definition": "warm; lukewarm; temperature; to warm; mild; to review",
+    "definitionZh": "温暖、温和；温度；也可表示温习或复习。",
+    "examples": [
+      "今天的水很温。"
+    ],
+    "breakdown": "整体记忆；常见于温度、温暖和温习等词。",
+    "related": "温度 wēn dù；温暖 wēn nuǎn",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "闻",
+    "part": "汉语词汇",
+    "phonetic": "wén",
+    "definition": "to hear; news; famous; reputation; to smell; sniff",
+    "definitionZh": "听见、听闻；消息、名声；也可表示用鼻子闻气味。",
+    "examples": [
+      "我闻到花香了。"
+    ],
+    "breakdown": "整体记忆；可表示听到消息，也可表示闻气味。",
+    "related": "新闻 xīn wén；听闻 tīng wén",
+    "categories": [
+      "actions",
+      "communication",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "务",
+    "part": "汉语词汇",
+    "phonetic": "wù",
+    "definition": "affair; business; matter; to be engaged in; attend to",
+    "definitionZh": "事务、业务；从事、处理某项工作。",
+    "examples": [
+      "我有很多工作要处理。"
+    ],
+    "breakdown": "整体记忆；常见于“任务”“服务”“业务”等词。",
+    "related": "任务 rèn wu；服务 fú wù",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "物",
+    "part": "汉语词汇",
+    "phonetic": "wù",
+    "definition": "thing; object; substance; the outside world",
+    "definitionZh": "物品、事物；指人以外的物体或对象。",
+    "examples": [
+      "这个物品很重要。"
+    ],
+    "breakdown": "整体记忆；常见于“物品”“动物”“礼物”等词。",
+    "related": "物品 wù pǐn；动物 dòng wù",
+    "categories": [
+      "objects",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "夏",
+    "part": "汉语词汇",
+    "phonetic": "xià",
+    "definition": "summer; Xia dynasty; surname Xia",
+    "definitionZh": "夏天、夏季；也指夏朝或相关姓氏。",
+    "examples": [
+      "夏天我喜欢游泳。"
+    ],
+    "breakdown": "整体记忆；常用于季节和时间词语。",
+    "related": "夏天 xià tiān；夏季 xià jì",
+    "categories": [
+      "nature",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "相",
+    "part": "汉语词汇",
+    "phonetic": "xiāng / xiàng",
+    "definition": "each other; mutually; appearance; portrait; phase; minister",
+    "definitionZh": "相互、彼此；读 xiàng 时表示外貌、样子或形象。",
+    "examples": [
+      "我们互相帮助。"
+    ],
+    "breakdown": "多音字；表示彼此、相互时读 xiāng，表示外貌、形象时读 xiàng。",
+    "related": "相同 xiāng tóng；相貌 xiàng mào",
+    "categories": [
+      "grammar-function",
+      "expressions",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "响",
+    "part": "汉语词汇",
+    "phonetic": "xiǎng",
+    "definition": "echo; sound; noise; to make a sound; loud; ring",
+    "definitionZh": "声音、回响；发出声音、响起；也可表示响亮。",
+    "examples": [
+      "门铃响了。"
+    ],
+    "breakdown": "整体记忆；常用于声音、铃声和回响。",
+    "related": "响声 xiǎng shēng；响亮 xiǎng liàng",
+    "categories": [
+      "nature",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "向",
+    "part": "汉语词汇",
+    "phonetic": "xiàng",
+    "definition": "towards; to face; direction; to support; formerly; always",
+    "definitionZh": "朝向、面向；方向；也可表示支持或一向、从前。",
+    "examples": [
+      "请向右转。"
+    ],
+    "breakdown": "整体记忆；常用于表示方向或动作的对象。",
+    "related": "方向 fāng xiàng；向前 xiàng qián",
+    "categories": [
+      "places",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "像",
+    "part": "汉语词汇",
+    "phonetic": "xiàng",
+    "definition": "to resemble; be like; appearance; image; portrait",
+    "definitionZh": "像、相似；外貌、形象或画像。",
+    "examples": [
+      "他长得像爸爸。"
+    ],
+    "breakdown": "整体记忆；可表示相似，也可表示图像或肖像。",
+    "related": "好像 hǎo xiàng；图像 tú xiàng",
+    "categories": [
+      "descriptions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "信",
+    "part": "汉语词汇",
+    "phonetic": "xìn",
+    "definition": "letter; mail; to trust; believe; faith; confidence",
+    "definitionZh": "信件、邮件；信任、相信；也可表示信心或信仰。",
+    "examples": [
+      "我给朋友写了一封信。"
+    ],
+    "breakdown": "整体记忆；常用于书信、信任和信念。",
+    "related": "信用 xìn yòng；信心 xìn xīn",
+    "categories": [
+      "communication",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "姓",
+    "part": "汉语词汇",
+    "phonetic": "xìng",
+    "definition": "family name; surname; to be surnamed",
+    "definitionZh": "姓氏；表示一个人的家族名称。",
+    "examples": [
+      "我姓王。"
+    ],
+    "breakdown": "整体记忆；常用于自我介绍和询问姓名。",
+    "related": "姓名 xìng míng；姓氏 xìng shì",
+    "categories": [
+      "people",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "须",
+    "part": "汉语词汇",
+    "phonetic": "xū",
+    "definition": "must; have to; beard; mustache; feeler; tassel",
+    "definitionZh": "必须、应当；也指胡须或某些植物、昆虫的须状部分。",
+    "examples": [
+      "你必须完成作业。"
+    ],
+    "breakdown": "整体记忆；现代常见于“必须”“须要”等词。",
+    "related": "必须 bì xū；胡须 hú xū",
+    "categories": [
+      "grammar-function",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "许",
+    "part": "汉语词汇",
+    "phonetic": "xǔ",
+    "definition": "to allow; permit; promise; praise; somewhat; perhaps",
+    "definitionZh": "允许、答应、许诺；也可表示一些或或许。",
+    "examples": [
+      "老师允许我们休息。"
+    ],
+    "breakdown": "整体记忆；常见于“允许”“许多”“也许”等词。",
+    "related": "许多 xǔ duō；允许 yǔn xǔ",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "选",
+    "part": "汉语词汇",
+    "phonetic": "xuǎn",
+    "definition": "to choose; pick; select; elect",
+    "definitionZh": "选择、挑选；从多个选项中决定一个或一些。",
+    "examples": [
+      "请选一个你喜欢的颜色。"
+    ],
+    "breakdown": "整体记忆；常用于选择答案、物品或人员。",
+    "related": "选择 xuǎn zé；选手 xuǎn shǒu",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "颜",
+    "part": "汉语词汇",
+    "phonetic": "yán",
+    "definition": "color; face; countenance; expression",
+    "definitionZh": "颜色；脸色、容貌或表情。",
+    "examples": [
+      "她的脸上露出了笑容。"
+    ],
+    "breakdown": "整体记忆；常见于“颜色”“颜面”“容颜”等词。",
+    "related": "颜色 yán sè；颜料 yán liào",
+    "categories": [
+      "descriptions",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "阳",
+    "part": "汉语词汇",
+    "phonetic": "yáng",
+    "definition": "sun; positive principle; male; south-facing; open; bright",
+    "definitionZh": "太阳、阳光；阴阳中的阳；也可表示向阳、明亮。",
+    "examples": [
+      "太阳出来了。"
+    ],
+    "breakdown": "整体记忆；常与“阴”形成对比。",
+    "related": "太阳 tài yáng；阳光 yáng guāng",
+    "categories": [
+      "nature",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "养",
+    "part": "汉语词汇",
+    "phonetic": "yǎng",
+    "definition": "to raise; bring up; keep; support; nourish; cultivate",
+    "definitionZh": "养育、饲养；供养、照顾；培养习惯或能力。",
+    "examples": [
+      "我家养了一只猫。"
+    ],
+    "breakdown": "整体记忆；常用于照顾人、动物或培养习惯。",
+    "related": "养成 yǎng chéng；养育 yǎng yù",
+    "categories": [
+      "actions",
+      "people",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "业",
+    "part": "汉语词汇",
+    "phonetic": "yè",
+    "definition": "line of business; industry; occupation; studies; enterprise; karma",
+    "definitionZh": "行业、职业、工作；学业、事业；也指佛教中的业力。",
+    "examples": [
+      "他正在做作业。"
+    ],
+    "breakdown": "整体记忆；常见于“作业”“职业”“事业”等词。",
+    "related": "事业 shì yè；作业 zuò yè",
+    "categories": [
+      "people",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "夜",
+    "part": "汉语词汇",
+    "phonetic": "yè",
+    "definition": "night; evening; nighttime",
+    "definitionZh": "夜晚、夜间；太阳落山后的时间。",
+    "examples": [
+      "夜里很安静。"
+    ],
+    "breakdown": "整体记忆；常与“白天”形成对比。",
+    "related": "夜晚 yè wǎn；夜里 yè lǐ",
+    "categories": [
+      "time-numbers",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "宜",
+    "part": "汉语词汇",
+    "phonetic": "yí",
+    "definition": "proper; suitable; appropriate; should",
+    "definitionZh": "适宜、合适；适合某种情况或用途。",
+    "examples": [
+      "这里的天气适宜散步。"
+    ],
+    "breakdown": "整体记忆；常用于“适宜”“不宜”等表达。",
+    "related": "适宜 shì yí；不宜 bù yí",
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "已",
+    "part": "汉语词汇",
+    "phonetic": "yǐ",
+    "definition": "already; to stop; cease; thereafter (literary)",
+    "definitionZh": "已经；表示动作或情况在某个时间之前发生或完成。",
+    "examples": [
+      "我已经吃过饭了。"
+    ],
+    "breakdown": "整体记忆；常见于“已经”“早已”等词。",
+    "related": "已经 yǐ jīng；已知 yǐ zhī",
+    "categories": [
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "以",
+    "part": "汉语词汇",
+    "phonetic": "yǐ",
+    "definition": "to use; by means of; according to; because of; with; in order to",
+    "definitionZh": "用、凭借；按照；因为；表示目的或方式。",
+    "examples": [
+      "我们可以用中文交流。"
+    ],
+    "breakdown": "整体记忆；多用于书面语连接方式、原因和目的。",
+    "related": "以后 yǐ hòu；可以 kě yǐ",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "亿",
+    "part": "汉语词汇",
+    "phonetic": "yì",
+    "definition": "one hundred million; 100,000,000",
+    "definitionZh": "数字100,000,000；表示非常大的数量。",
+    "examples": [
+      "中国有十几亿人口。"
+    ],
+    "breakdown": "整体记忆；用于表示大数量。",
+    "related": "一亿 yí yì；亿万 yì wàn",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "意",
+    "part": "汉语词汇",
+    "phonetic": "yì",
+    "definition": "idea; thought; meaning; intention; feeling; state of mind",
+    "definitionZh": "意思、想法、意义；意图、心情或意愿。",
+    "examples": [
+      "你的意思是什么？"
+    ],
+    "breakdown": "整体记忆；常见于“意思”“意见”“注意”等词。",
+    "related": "意思 yì si；意见 yì jiàn",
+    "categories": [
+      "emotions-states",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "因",
+    "part": "汉语词汇",
+    "phonetic": "yīn",
+    "definition": "cause; reason; because; on account of; to follow",
+    "definitionZh": "原因、因素；因为、由于；表示事情发生的理由。",
+    "examples": [
+      "因为下雨，所以我没出门。"
+    ],
+    "breakdown": "整体记忆；常用于“因为”“原因”等词。",
+    "related": "因为 yīn wèi；原因 yuán yīn",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "阴",
+    "part": "汉语词汇",
+    "phonetic": "yīn",
+    "definition": "overcast; cloudy; shady; Yin; negative; feminine; hidden",
+    "definitionZh": "阴天、阴暗；阴阳中的阴；也可表示隐蔽或负极。",
+    "examples": [
+      "今天是阴天。"
+    ],
+    "breakdown": "整体记忆；常与“阳”形成对比。",
+    "related": "阴天 yīn tiān；阴影 yīn yǐng",
+    "categories": [
+      "nature",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "音",
+    "part": "汉语词汇",
+    "phonetic": "yīn",
+    "definition": "sound; noise; musical note; tone; news; syllable; pronunciation",
+    "definitionZh": "声音、音调；音乐中的音符；字的读音或音节。",
+    "examples": [
+      "这首音乐很好听。"
+    ],
+    "breakdown": "整体记忆；常见于音乐、发音和声音相关词语。",
+    "related": "音乐 yīn yuè；声音 shēng yīn",
+    "categories": [
+      "communication",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "银",
+    "part": "汉语词汇",
+    "phonetic": "yín",
+    "definition": "silver; silver-colored; relating to money or currency",
+    "definitionZh": "银、银色；与货币或金融有关。",
+    "examples": [
+      "这条项链是银的。"
+    ],
+    "breakdown": "整体记忆；常用于金属、颜色和金融相关词语。",
+    "related": "银行 yín háng；银色 yín sè",
+    "categories": [
+      "objects",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "印",
+    "part": "汉语词汇",
+    "phonetic": "yìn",
+    "definition": "to print; mark; engrave; seal; stamp; trace; image",
+    "definitionZh": "印刷、盖印；印章、印记；留下痕迹。",
+    "examples": [
+      "请在这里盖章。"
+    ],
+    "breakdown": "整体记忆；常见于印刷、印章和标记。",
+    "related": "印刷 yìn shuā；印章 yìn zhāng",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "应",
+    "part": "汉语词汇",
+    "phonetic": "yīng / yìng",
+    "definition": "should; ought to; agree; respond; answer; react",
+    "definitionZh": "应该、应当；读 yìng 时表示回应、答应或应对。",
+    "examples": [
+      "你应该早点睡觉。"
+    ],
+    "breakdown": "多音字；表示应该时读 yīng，表示回应、答应时读 yìng。",
+    "related": "应该 yīng gāi；回应 huí yìng",
+    "categories": [
+      "grammar-function",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "英",
+    "part": "汉语词汇",
+    "phonetic": "yīng",
+    "definition": "English; Britain; England; hero; outstanding; flower",
+    "definitionZh": "英国、英语；英雄、杰出的人；也可指花。",
+    "examples": [
+      "我正在学习英语。"
+    ],
+    "breakdown": "整体记忆；常见于“英语”“英雄”等词。",
+    "related": "英语 yīng yǔ；英雄 yīng xióng",
+    "categories": [
+      "people",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "迎",
+    "part": "汉语词汇",
+    "phonetic": "yíng",
+    "definition": "to welcome; meet; go to meet; face; forge ahead",
+    "definitionZh": "欢迎、迎接；面对或主动走向某人某事。",
+    "examples": [
+      "我们去车站迎接朋友。"
+    ],
+    "breakdown": "整体记忆；常用于欢迎来访者或迎面相遇。",
+    "related": "欢迎 huān yíng；迎接 yíng jiē",
+    "categories": [
+      "actions",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "永",
+    "part": "汉语词汇",
+    "phonetic": "yǒng",
+    "definition": "forever; always; perpetual; eternal",
+    "definitionZh": "永远、永久；表示时间持续不变。",
+    "examples": [
+      "我会永远记住这一天。"
+    ],
+    "breakdown": "整体记忆；常用于表示长期或永久。",
+    "related": "永远 yǒng yuǎn；永久 yǒng jiǔ",
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "由",
+    "part": "汉语词汇",
+    "phonetic": "yóu",
+    "definition": "from; by; through; due to; because of; to follow",
+    "definitionZh": "由、从；通过、由于；表示来源、原因或执行者。",
+    "examples": [
+      "这封信由我来写。"
+    ],
+    "breakdown": "整体记忆；常用于表示来源、原因或责任归属。",
+    "related": "由于 yóu yú；自由 zì yóu",
+    "categories": [
+      "grammar-function",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "油",
+    "part": "汉语词汇",
+    "phonetic": "yóu",
+    "definition": "oil; fat; grease; petroleum; oily; to apply oil or paint",
+    "definitionZh": "油、油脂、石油；也可表示涂油或油腻。",
+    "examples": [
+      "请在锅里放一点油。"
+    ],
+    "breakdown": "整体记忆；常见于食物、烹饪和能源相关词语。",
+    "related": "石油 shí yóu；油画 yóu huà",
+    "categories": [
+      "nature",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "游",
+    "part": "汉语词汇",
+    "phonetic": "yóu",
+    "definition": "to swim; travel; wander; roam; move about",
+    "definitionZh": "游泳、游玩、旅行；在水中或某处移动。",
+    "examples": [
+      "我周末喜欢游泳。"
+    ],
+    "breakdown": "整体记忆；常用于水上活动、旅行和游览。",
+    "related": "游泳 yóu yǒng；旅游 lǚ yóu",
+    "categories": [
+      "actions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "又",
+    "part": "汉语词汇",
+    "phonetic": "yòu",
+    "definition": "again; also; both ... and ...; moreover; yet",
+    "definitionZh": "又一次、也；用于连接并列情况或表示重复。",
+    "examples": [
+      "他又迟到了。"
+    ],
+    "breakdown": "整体记忆；常用于表示重复发生或补充信息。",
+    "related": "又一次 yòu yí cì；又快又好 yòu kuài yòu hǎo",
+    "categories": [
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "于",
+    "part": "汉语词汇",
+    "phonetic": "yú",
+    "definition": "in; at; to; from; by; than; preposition (literary)",
+    "definitionZh": "在、向、从、比；常用于书面语表示时间、地点或关系。",
+    "examples": [
+      "这件事对于我很重要。"
+    ],
+    "breakdown": "整体记忆；多用于书面语，常与其他字组成介词结构。",
+    "related": "对于 duì yú；于是 yú shì",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "育",
+    "part": "汉语词汇",
+    "phonetic": "yù",
+    "definition": "to raise; bring up; educate; nurture; give birth",
+    "definitionZh": "养育、教育、培养；照顾成长和发展。",
+    "examples": [
+      "学校重视学生的体育教育。"
+    ],
+    "breakdown": "整体记忆；常见于“教育”“体育”“养育”等词。",
+    "related": "教育 jiào yù；体育 tǐ yù",
+    "categories": [
+      "actions",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "园",
+    "part": "汉语词汇",
+    "phonetic": "yuán",
+    "definition": "garden; park; place for public recreation; orchard",
+    "definitionZh": "园子、花园、公园；种植植物或供人休闲的场所。",
+    "examples": [
+      "孩子们在公园里玩。"
+    ],
+    "breakdown": "整体记忆；常见于公园、花园和校园等场所名称。",
+    "related": "公园 gōng yuán；花园 huā yuán",
+    "categories": [
+      "places",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
   }
 ];
