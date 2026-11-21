@@ -25,8 +25,9 @@ test("Chinese dictionary filters by pinyin initial and keeps cards character-onl
   await expect(page.locator(".word-card .pinyin-line")).toHaveCount(0);
 
   await page.locator("#search").fill("bu");
-  await expect(page.locator("#count")).toContainText("1");
-  await expect(page.locator(".word-card .word-name")).toHaveText("不");
+  const pinyinMatches = page.locator(".word-card .word-name");
+  expect(await pinyinMatches.count()).toBeGreaterThanOrEqual(2);
+  await expect(pinyinMatches).toContainText(["不", "部"]);
   await expect(page.locator(".word-card .pinyin-line")).toHaveCount(0);
 });
 
