@@ -1,0 +1,45 @@
+name: SwiftDictionary U2.7.0 Chinese dictionary filter checks
+
+on:
+  push:
+    branches:
+      - feature/update-2-7-0-chinese-dictionary-lessons
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  chinese-dictionary:
+    name: Chinese dictionary static and Chromium checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+      - name: Run Chinese dictionary data and static checks
+        run: node tests/update-2-7-0/check-chinese-dictionary.mjs
+      - name: Run Chinese Lessons content and pinyin checks
+        run: node tests/update-2-7-0/check-chinese-lessons.mjs
+      - name: Check redesigned Lessons UI structure and accessibility
+        run: node tests/update-2-7-0/check-lessons-ui.mjs
+      - name: Install Playwright and Chromium
+        run: |
+          npm init -y
+          npm install --no-save @playwright/test
+          npx playwright install chromium
+      - name: Run full Lessons and Daily Learning browser regression suite
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0
+      - name: Run isolated Chinese dictionary browser checks
+        env:
+          CI: "true"
+        run: npx playwright test tests/browser/update-2-7-0-chinese-filters.spec.js --config=playwright.config.js
+      - name: Run Chinese Lessons bilingual layout browser check
+        env:
+          CI: "true"
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --grep "Chinese Lessons keep English support" --config=playwright.config.js
