@@ -251,3 +251,17 @@ The following implementation results supersede the earlier Phase 0-only starting
   - Chinese Lessons bilingual vertical-layout browser check: **1/1 passed**.
 - Quiz database foundation workflow **#44876433049**: PostgreSQL/CI job passed. Companion local Supabase Auth/RPC integration job was still in progress at this snapshot.
 - The full suite verified the corrected distinction: Dictionary grid cards remain character-only; Chinese Lessons render Chinese text, then pinyin directly below, then English support.
+
+
+### Latest verification and category coverage clarification (2026-11-21)
+
+- Current application feature branch head: `c0d986a31b2905639c5ddd28b59e63d4c217edf2`.
+- U2.7.0 workflow **#44876788816** passed on the current code:
+  - Dictionary checks: 725 unique characters (519 new), inline JavaScript syntax passed.
+  - Chinese Lessons checks: 17 lessons / 112 questions, all bilingual and pinyin-supported.
+  - Full English Lessons and Daily Learning regression: 26/26 passed.
+  - Chinese Dictionary filter browser tests: 5/5 passed.
+  - Chinese Lessons bilingual layout test: 1/1 passed.
+- Category coverage clarification: the original 206 Chinese entries already receive their 11 learner categories and verified additional pinyin readings from `window.SWIFT_CHINESE_METADATA` in `data/chinese-characters.js`; the app applies this metadata before filtering. The 519 new entries carry their own categories. Therefore all 725 entries are included in the category system. No duplicate inline category map is needed.
+- Quiz database foundation job **#44876788818** passed. A previous full companion local Supabase Auth/RPC integration run **#44876433049** passed, including U2.7.0 migration, SQL regression, authenticated Quiz runtime (13 tests), Flashcards (3 tests), Lessons/Daily Learning allowance (2 tests) and Supabase security advisors (“No issues found”). The companion job is being rerun against the latest branch head.
+- No hosted staging or production Supabase migration has been applied; no merge or deployment has occurred.
