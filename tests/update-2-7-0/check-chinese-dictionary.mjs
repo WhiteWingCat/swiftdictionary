@@ -43,7 +43,7 @@ for (const item of words) {
   if (item.categories !== undefined) {
     assert.ok(Array.isArray(item.categories), "Categories must be an array: " + item.word);
     for (const category of item.categories) assert.ok([
-      "actions", "expressions", "people", "objects", "nature", "places",
+      "actions", "expressions", "communication", "people", "objects", "nature", "places",
       "time-numbers", "emotions-states", "descriptions", "grammar-function"
     ].includes(category), "Unknown Chinese category " + category + " on " + item.word);
   }
