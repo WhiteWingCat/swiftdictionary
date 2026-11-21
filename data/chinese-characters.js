@@ -4532,5 +4532,1152 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ]
+  },
+  {
+    "word": "卡",
+    "part": "汉语词汇",
+    "phonetic": "kǎ",
+    "definition": "card; to block; become stuck; calorie; truck (loanword)",
+    "definitionZh": "卡片、卡车；卡住、阻塞；也可指卡路里。",
+    "examples": [
+      "我用银行卡买东西。"
+    ],
+    "breakdown": "整体记忆；可表示卡片，也可表示阻塞或卡住。",
+    "related": "卡片 kǎ piàn；卡车 kǎ chē",
+    "categories": [
+      "objects",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "康",
+    "part": "汉语词汇",
+    "phonetic": "kāng",
+    "definition": "healthy; peaceful; abundant; surname Kang",
+    "definitionZh": "健康、安康；也可表示安定、富足。",
+    "examples": [
+      "祝你健康平安。"
+    ],
+    "breakdown": "整体记忆；常见于“健康”“安康”等词。",
+    "related": "健康 jiàn kāng；康复 kāng fù",
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "靠",
+    "part": "汉语词汇",
+    "phonetic": "kào",
+    "definition": "to lean against; approach; depend on; rely on; trust",
+    "definitionZh": "倚靠、靠近；依赖、信任。",
+    "examples": [
+      "请不要靠在门上。"
+    ],
+    "breakdown": "整体记忆；可表示身体倚着，也可表示依靠某人或某物。",
+    "related": "靠近 kào jìn；依靠 yī kào",
+    "categories": [
+      "actions",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "科",
+    "part": "汉语词汇",
+    "phonetic": "kē",
+    "definition": "branch of study; department; field; subject; stage direction",
+    "definitionZh": "学科、科目；行政部门或专业领域。",
+    "examples": [
+      "我最喜欢科学课。"
+    ],
+    "breakdown": "整体记忆；常见于学科、科学和部门名称。",
+    "related": "科学 kē xué；科目 kē mù",
+    "categories": [
+      "objects",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "可",
+    "part": "汉语词汇",
+    "phonetic": "kě",
+    "definition": "can; may; able to; possible; to approve; certainly; very",
+    "definitionZh": "可以、能够；表示可能、许可；也可用于加强语气。",
+    "examples": [
+      "这个问题可以解决。"
+    ],
+    "breakdown": "整体记忆；常见于“可以”“可能”“可爱”等词。",
+    "related": "可以 kě yǐ；可爱 kě ài",
+    "categories": [
+      "grammar-function",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "克",
+    "part": "汉语词汇",
+    "phonetic": "kè",
+    "definition": "gram; to overcome; restrain; subdue; Tibetan land unit",
+    "definitionZh": "克，重量单位；克服、克制或战胜。",
+    "examples": [
+      "我们要努力克服困难。"
+    ],
+    "breakdown": "整体记忆；常见于重量单位和“克服”等词。",
+    "related": "克服 kè fú；克制 kè zhì",
+    "categories": [
+      "time-numbers",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "刻",
+    "part": "汉语词汇",
+    "phonetic": "kè",
+    "definition": "quarter of an hour; moment; to carve; engrave; cut",
+    "definitionZh": "刻、雕刻；一刻钟；也表示短暂的时间。",
+    "examples": [
+      "现在是三点一刻。"
+    ],
+    "breakdown": "整体记忆；可表示雕刻动作，也可表示时间单位。",
+    "related": "一刻 yí kè；刻字 kè zì",
+    "categories": [
+      "time-numbers",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "空",
+    "part": "汉语词汇",
+    "phonetic": "kōng / kòng",
+    "definition": "empty; air; sky; in vain; vacant; free time; to empty",
+    "definitionZh": "空的、没有东西；天空、空气；读 kòng 时表示空闲或腾出空间。",
+    "examples": [
+      "天空中有很多云。"
+    ],
+    "breakdown": "多音字；表示空无、天空时读 kōng，表示空闲或腾出时读 kòng。",
+    "related": "空气 kōng qì；空间 kōng jiān",
+    "categories": [
+      "nature",
+      "descriptions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "哭",
+    "part": "汉语词汇",
+    "phonetic": "kū",
+    "definition": "to cry; weep; sob",
+    "definitionZh": "哭泣、流泪；表达悲伤或强烈情绪。",
+    "examples": [
+      "小孩子因为想妈妈而哭了。"
+    ],
+    "breakdown": "整体记忆；常用于表达悲伤或疼痛时的反应。",
+    "related": "哭泣 kū qì；大哭 dà kū",
+    "categories": [
+      "expressions",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "筷",
+    "part": "汉语词汇",
+    "phonetic": "kuài",
+    "definition": "chopsticks (bound form)",
+    "definitionZh": "筷子；用于夹取食物的餐具。",
+    "examples": [
+      "请给我一双筷子。"
+    ],
+    "breakdown": "整体记忆；通常与“子”组成“筷子”。",
+    "related": "筷子 kuài zi；一双筷子 yì shuāng kuài zi",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "拉",
+    "part": "汉语词汇",
+    "phonetic": "lā",
+    "definition": "to pull; drag; draw; play a bowed instrument; chat",
+    "definitionZh": "拉、拖、牵引；拉奏弦乐器；也可表示交谈。",
+    "examples": [
+      "请把椅子拉过来。"
+    ],
+    "breakdown": "整体记忆；常用于表示向自己方向牵引。",
+    "related": "拉开 lā kāi；拉手 lā shǒu",
+    "categories": [
+      "actions",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "蓝",
+    "part": "汉语词汇",
+    "phonetic": "lán",
+    "definition": "blue; indigo plant",
+    "definitionZh": "蓝色；也指可提取蓝色染料的植物。",
+    "examples": [
+      "天空是蓝色的。"
+    ],
+    "breakdown": "整体记忆；常用于颜色和自然景物。",
+    "related": "蓝色 lán sè；蓝天 lán tiān",
+    "categories": [
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "篮",
+    "part": "汉语词汇",
+    "phonetic": "lán",
+    "definition": "basket; receptacle; basketball basket",
+    "definitionZh": "篮子、篮筐；用于装物品或篮球比赛。",
+    "examples": [
+      "篮球在篮子里。"
+    ],
+    "breakdown": "整体记忆；常见于“篮子”“篮球”等词。",
+    "related": "篮子 lán zi；篮球 lán qiú",
+    "categories": [
+      "objects",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "乐",
+    "part": "汉语词汇",
+    "phonetic": "lè / yuè",
+    "definition": "happy; joyful; to enjoy; music",
+    "definitionZh": "快乐、喜悦；读 yuè 时表示音乐或乐曲。",
+    "examples": [
+      "听音乐让我很快乐。"
+    ],
+    "breakdown": "多音字；表示快乐时读 lè，表示音乐时读 yuè。",
+    "related": "快乐 kuài lè；音乐 yīn yuè",
+    "categories": [
+      "emotions-states",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "离",
+    "part": "汉语词汇",
+    "phonetic": "lí",
+    "definition": "to leave; depart; be away from; distance; separate",
+    "definitionZh": "离开、分开；表示与某地或某人之间的距离。",
+    "examples": [
+      "我家离学校很近。"
+    ],
+    "breakdown": "整体记忆；常用于表示距离或离开某处。",
+    "related": "离开 lí kāi；距离 jù lí",
+    "categories": [
+      "places",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "礼",
+    "part": "汉语词汇",
+    "phonetic": "lǐ",
+    "definition": "gift; present; rite; ceremony; propriety; etiquette",
+    "definitionZh": "礼物、礼节、礼仪；表示尊重和礼貌。",
+    "examples": [
+      "谢谢你的礼物。"
+    ],
+    "breakdown": "整体记忆；常见于礼物、礼貌和礼仪相关词语。",
+    "related": "礼物 lǐ wù；礼貌 lǐ mào",
+    "categories": [
+      "expressions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "理",
+    "part": "汉语词汇",
+    "phonetic": "lǐ",
+    "definition": "reason; logic; principle; to manage; handle; tidy; science",
+    "definitionZh": "道理、逻辑、原则；处理、管理；也可指科学或事理。",
+    "examples": [
+      "请你理解我的意思。"
+    ],
+    "breakdown": "整体记忆；常见于“理解”“理由”“整理”等词。",
+    "related": "理解 lǐ jiě；理由 lǐ yóu",
+    "categories": [
+      "actions",
+      "grammar-function",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "利",
+    "part": "汉语词汇",
+    "phonetic": "lì",
+    "definition": "sharp; favorable; benefit; profit; advantage; to benefit",
+    "definitionZh": "锋利、有利；利益、好处；也可表示获利。",
+    "examples": [
+      "这项活动对健康有利。"
+    ],
+    "breakdown": "整体记忆；常见于利益、便利和有利等词。",
+    "related": "利益 lì yì；利用 lì yòng",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "例",
+    "part": "汉语词汇",
+    "phonetic": "lì",
+    "definition": "example; precedent; rule; case; instance",
+    "definitionZh": "例子、实例；可供说明或参考的情况。",
+    "examples": [
+      "请看这个例子。"
+    ],
+    "breakdown": "整体记忆；常见于例子、例句和举例等词。",
+    "related": "例子 lì zi；举例 jǔ lì",
+    "categories": [
+      "communication",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "脸",
+    "part": "汉语词汇",
+    "phonetic": "liǎn",
+    "definition": "face; countenance; reputation; prestige",
+    "definitionZh": "脸、面部；也可表示面子或名声。",
+    "examples": [
+      "她的脸红了。"
+    ],
+    "breakdown": "整体记忆；常见于身体部位和表情相关词语。",
+    "related": "脸色 liǎn sè；洗脸 xǐ liǎn",
+    "categories": [
+      "people",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "练",
+    "part": "汉语词汇",
+    "phonetic": "liàn",
+    "definition": "to practice; train; drill; perfect a skill",
+    "definitionZh": "练习、训练；通过反复活动提高技能。",
+    "examples": [
+      "我每天练习写汉字。"
+    ],
+    "breakdown": "整体记忆；常见于学习、训练和技能提升。",
+    "related": "练习 liàn xí；训练 xùn liàn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "凉",
+    "part": "汉语词汇",
+    "phonetic": "liáng / liàng",
+    "definition": "cool; cold; to make cool; disappointed; desolate",
+    "definitionZh": "凉爽、微冷；也可表示使东西变凉或心情失望。",
+    "examples": [
+      "今天晚上有点凉。"
+    ],
+    "breakdown": "多音字；表示凉爽时读 liáng，少数词语中读 liàng。",
+    "related": "凉快 liáng kuai；凉水 liáng shuǐ",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "亮",
+    "part": "汉语词汇",
+    "phonetic": "liàng",
+    "definition": "bright; light; to shine; clear and loud; to show",
+    "definitionZh": "明亮、光亮；发光；也可表示公开展示。",
+    "examples": [
+      "房间里的灯很亮。"
+    ],
+    "breakdown": "整体记忆；常与光线、颜色和声音相关。",
+    "related": "明亮 míng liàng；亮光 liàng guāng",
+    "categories": [
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "辆",
+    "part": "汉语词汇",
+    "phonetic": "liàng",
+    "definition": "classifier for vehicles",
+    "definitionZh": "车辆的量词，用于汽车、自行车等交通工具。",
+    "examples": [
+      "门口停着两辆车。"
+    ],
+    "breakdown": "整体记忆；通常放在数字后面计量车辆。",
+    "related": "车辆 chē liàng；两辆 liǎng liàng",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "量",
+    "part": "汉语词汇",
+    "phonetic": "liàng / liáng",
+    "definition": "amount; quantity; capacity; to measure; estimate",
+    "definitionZh": "数量、容量；测量、估量；读 liáng 时常作动词。",
+    "examples": [
+      "请先量一下桌子的长度。"
+    ],
+    "breakdown": "多音字；表示数量时读 liàng，表示测量时读 liáng。",
+    "related": "数量 shù liàng；测量 cè liáng",
+    "categories": [
+      "time-numbers",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "留",
+    "part": "汉语词汇",
+    "phonetic": "liú",
+    "definition": "to leave; retain; stay; remain; keep; preserve",
+    "definitionZh": "留下、保留；停留、保持；也可表示留给某人。",
+    "examples": [
+      "请给我留一个座位。"
+    ],
+    "breakdown": "整体记忆；常用于表示保留或停留。",
+    "related": "留下 liú xià；保留 bǎo liú",
+    "categories": [
+      "actions",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "流",
+    "part": "汉语词汇",
+    "phonetic": "liú",
+    "definition": "to flow; stream; circulate; spread; drift; current",
+    "definitionZh": "流动、流淌；传播、扩散；也指水流或潮流。",
+    "examples": [
+      "河水慢慢地流。"
+    ],
+    "breakdown": "整体记忆；常用于水、空气、信息和人群的流动。",
+    "related": "流水 liú shuǐ；流动 liú dòng",
+    "categories": [
+      "nature",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "旅",
+    "part": "汉语词汇",
+    "phonetic": "lǚ",
+    "definition": "trip; travel; journey; brigade",
+    "definitionZh": "旅行、旅途；也可指军队编制中的旅。",
+    "examples": [
+      "我们计划暑假去旅行。"
+    ],
+    "breakdown": "整体记忆；常见于旅行、旅游和旅客等词。",
+    "related": "旅行 lǚ xíng；旅游 lǚ yóu",
+    "categories": [
+      "places",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "绿",
+    "part": "汉语词汇",
+    "phonetic": "lǜ / lù",
+    "definition": "green; to turn green; used in names",
+    "definitionZh": "绿色；也可作少数专名中的读音。",
+    "examples": [
+      "树叶是绿色的。"
+    ],
+    "breakdown": "多音字；表示颜色时读 lǜ，少数专名中读 lù。",
+    "related": "绿色 lǜ sè；绿叶 lǜ yè",
+    "categories": [
+      "nature",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "论",
+    "part": "汉语词汇",
+    "phonetic": "lùn / lún",
+    "definition": "opinion; view; theory; doctrine; to discuss; to regard; per",
+    "definitionZh": "观点、理论；讨论、论述；也见于《论语》等专名。",
+    "examples": [
+      "我们在课堂上讨论这个问题。"
+    ],
+    "breakdown": "多音字；讨论、理论读 lùn，《论语》中读 lún。",
+    "related": "讨论 tǎo lùn；论文 lùn wén",
+    "categories": [
+      "communication",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "满",
+    "part": "汉语词汇",
+    "phonetic": "mǎn",
+    "definition": "full; filled; packed; completely; to satisfy; contented",
+    "definitionZh": "装满、充满；完全；也可表示满足或满意。",
+    "examples": [
+      "杯子里装满了水。"
+    ],
+    "breakdown": "整体记忆；常与“空”形成对比。",
+    "related": "满足 mǎn zú；满意 mǎn yì",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "末",
+    "part": "汉语词汇",
+    "phonetic": "mò",
+    "definition": "tip; end; final stage; latter part; powder; dust",
+    "definitionZh": "末尾、最后阶段；也可表示细末或粉末。",
+    "examples": [
+      "这个月末我要回家。"
+    ],
+    "breakdown": "整体记忆；常与“初”形成时间或顺序上的对比。",
+    "related": "月底 yuè dǐ；末尾 mò wěi",
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "目",
+    "part": "汉语词汇",
+    "phonetic": "mù",
+    "definition": "eye; to look; item; section; catalogue; order; title",
+    "definitionZh": "眼睛；项目、条目；目录或分类。",
+    "examples": [
+      "请看第二项目。"
+    ],
+    "breakdown": "整体记忆；常见于“目录”“目标”“项目”等词。",
+    "related": "目录 mù lù；目标 mù biāo",
+    "categories": [
+      "people",
+      "objects",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "弄",
+    "part": "汉语词汇",
+    "phonetic": "nòng / lòng",
+    "definition": "to do; handle; manage; play with; mess with; lane; alley",
+    "definitionZh": "做、处理、摆弄；读 lòng 时表示小巷或弄堂。",
+    "examples": [
+      "别把房间弄乱了。"
+    ],
+    "breakdown": "多音字；表示处理、摆弄时读 nòng，表示小巷时读 lòng。",
+    "related": "弄清 nòng qīng；弄好 nòng hǎo",
+    "categories": [
+      "actions",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "努",
+    "part": "汉语词汇",
+    "phonetic": "nǔ",
+    "definition": "to exert; strive; make an effort",
+    "definitionZh": "努力、尽力；用力去完成某件事。",
+    "examples": [
+      "他努力学习中文。"
+    ],
+    "breakdown": "整体记忆；常见于“努力”等词。",
+    "related": "努力 nǔ lì；努力学习 nǔ lì xué xí",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "爬",
+    "part": "汉语词汇",
+    "phonetic": "pá",
+    "definition": "to crawl; climb; creep; get up or sit up",
+    "definitionZh": "爬行、攀爬；也可表示从躺卧姿势起身。",
+    "examples": [
+      "孩子正在爬楼梯。"
+    ],
+    "breakdown": "整体记忆；常用于动物或人向上移动。",
+    "related": "爬山 pá shān；爬行 pá xíng",
+    "categories": [
+      "actions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "怕",
+    "part": "汉语词汇",
+    "phonetic": "pà",
+    "definition": "to be afraid; fear; dread; perhaps; unable to endure",
+    "definitionZh": "害怕、畏惧；也可表示担心或恐怕。",
+    "examples": [
+      "我有点怕黑。"
+    ],
+    "breakdown": "整体记忆；常用于表达恐惧或担忧。",
+    "related": "害怕 hài pà；怕生 pà shēng",
+    "categories": [
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "排",
+    "part": "汉语词汇",
+    "phonetic": "pái",
+    "definition": "to arrange; line up; exclude; repel; row; line; classifier",
+    "definitionZh": "排列、排队；排除、排斥；也指一排或一行。",
+    "examples": [
+      "请排好队。"
+    ],
+    "breakdown": "整体记忆；可表示排列动作，也可表示队列。",
+    "related": "排队 pái duì；排列 pái liè",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "碰",
+    "part": "汉语词汇",
+    "phonetic": "pèng",
+    "definition": "to touch; bump; meet with; run into; encounter",
+    "definitionZh": "触碰、碰撞；偶然遇到或碰见。",
+    "examples": [
+      "小心不要碰到桌子。"
+    ],
+    "breakdown": "整体记忆；常用于身体或物体接触。",
+    "related": "碰到 pèng dào；碰面 pèng miàn",
+    "categories": [
+      "actions",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "篇",
+    "part": "汉语词汇",
+    "phonetic": "piān",
+    "definition": "piece of writing; article; chapter; classifier for written works",
+    "definitionZh": "篇章、文章；也作文章、报道等文字作品的量词。",
+    "examples": [
+      "我写了一篇短文。"
+    ],
+    "breakdown": "整体记忆；常用于文章、故事和书面作品。",
+    "related": "篇章 piān zhāng；短篇 duǎn piān",
+    "categories": [
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "片",
+    "part": "汉语词汇",
+    "phonetic": "piàn / piān",
+    "definition": "thin piece; slice; film; area; partial; classifier for slices and scenes",
+    "definitionZh": "薄片、片段；电影；也作薄片、区域或场景的量词。",
+    "examples": [
+      "请给我一片面包。"
+    ],
+    "breakdown": "多音字；表示片状物或电影时读 piàn，少数词语读 piān。",
+    "related": "一片 yí piàn；片段 piàn duàn",
+    "categories": [
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "漂",
+    "part": "汉语词汇",
+    "phonetic": "piāo / piǎo / piào",
+    "definition": "to float; drift; bleach; beautiful (in 漂亮)",
+    "definitionZh": "漂浮、漂流；漂白；读 piào 时用于“漂亮”。",
+    "examples": [
+      "树叶在水面上漂着。"
+    ],
+    "breakdown": "多音字；漂浮读 piāo，漂白读 piǎo，“漂亮”读 piào。",
+    "related": "漂流 piāo liú；漂浮 piāo fú",
+    "categories": [
+      "actions",
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "平",
+    "part": "汉语词汇",
+    "phonetic": "píng",
+    "definition": "flat; level; smooth; equal; fair; average; calm; peaceful",
+    "definitionZh": "平坦、平整；公平、平等；平静或普通。",
+    "examples": [
+      "这条路很平。"
+    ],
+    "breakdown": "整体记忆；常与“高、低”或“不平”形成对比。",
+    "related": "平安 píng ān；水平 shuǐ píng",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "瓶",
+    "part": "汉语词汇",
+    "phonetic": "píng",
+    "definition": "bottle; vase; pitcher; classifier for bottles",
+    "definitionZh": "瓶子、瓶状容器；也作瓶装液体的量词。",
+    "examples": [
+      "桌上有一瓶水。"
+    ],
+    "breakdown": "整体记忆；常用于装水、饮料和其他液体的容器。",
+    "related": "瓶子 píng zi；一瓶 yì píng",
+    "categories": [
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "普",
+    "part": "汉语词汇",
+    "phonetic": "pǔ",
+    "definition": "general; universal; common; everywhere; widespread",
+    "definitionZh": "普遍、普通；广泛存在或适用于多数情况。",
+    "examples": [
+      "这是一种很普遍的现象。"
+    ],
+    "breakdown": "整体记忆；常见于“普通”“普遍”等词。",
+    "related": "普遍 pǔ biàn；普通 pǔ tōng",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "其",
+    "part": "汉语词汇",
+    "phonetic": "qí",
+    "definition": "his; her; its; their; that; such; it (referring to something previously mentioned)",
+    "definitionZh": "他、她、它的；那、其中；常用于书面语指代前文内容。",
+    "examples": [
+      "请在其中选择一个。"
+    ],
+    "breakdown": "整体记忆；多用于书面语，常与其他字组成代词或连接词。",
+    "related": "其他 qí tā；其中 qí zhōng",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "骑",
+    "part": "汉语词汇",
+    "phonetic": "qí / jì",
+    "definition": "to ride (a horse, bicycle etc.); mounted soldier; classifier for saddle horses",
+    "definitionZh": "骑马、骑车；骑乘；也可指骑兵或坐骑。",
+    "examples": [
+      "我每天骑自行车上学。"
+    ],
+    "breakdown": "多音字；现代常用动词读 qí，少数旧读或地区读音为 jì。",
+    "related": "骑车 qí chē；骑马 qí mǎ",
+    "categories": [
+      "actions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "千",
+    "part": "汉语词汇",
+    "phonetic": "qiān",
+    "definition": "thousand; 1,000; many; numerous",
+    "definitionZh": "数字1000；也可表示数量很多。",
+    "examples": [
+      "这里有一千个人。"
+    ],
+    "breakdown": "整体记忆；用于表示数量、金额和距离。",
+    "related": "千米 qiān mǐ；一千 yì qiān",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "墙",
+    "part": "汉语词汇",
+    "phonetic": "qiáng",
+    "definition": "wall; partition; barrier",
+    "definitionZh": "墙壁、围墙；用于分隔或围住空间的结构。",
+    "examples": [
+      "墙上挂着一张照片。"
+    ],
+    "breakdown": "整体记忆；常用于房屋、建筑和空间分隔。",
+    "related": "墙壁 qiáng bì；墙上 qiáng shàng",
+    "categories": [
+      "objects",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "且",
+    "part": "汉语词汇",
+    "phonetic": "qiě",
+    "definition": "and; moreover; yet; for the time being; about to",
+    "definitionZh": "而且、并且；表示递进、并列或暂时。",
+    "examples": [
+      "这个方法简单而且有效。"
+    ],
+    "breakdown": "整体记忆；多用于书面语连接词语或分句。",
+    "related": "而且 ér qiě；并且 bìng qiě",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
   }
 ];
