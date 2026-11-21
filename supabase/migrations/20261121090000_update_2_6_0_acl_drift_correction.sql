@@ -45,3 +45,10 @@ BEGIN
   );
 END;
 $migration$;
+
+-- Migration 20261119112433 intentionally removes PostgreSQL's global
+-- PUBLIC EXECUTE default for postgres-created functions. Preserve the
+-- pre-existing extension-schema default for future extension functions,
+-- while keeping public/private application schemas explicitly restricted.
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA extensions
+  GRANT EXECUTE ON FUNCTIONS TO PUBLIC;
