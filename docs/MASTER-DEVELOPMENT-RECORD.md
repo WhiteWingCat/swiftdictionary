@@ -2901,3 +2901,14 @@ Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid c
 - Language-aware lesson progress design is documented in [U2.7.0 lesson-language schema design](reference/UPDATE-2.7.0-LESSON-LANGUAGE-SCHEMA-DESIGN.md). It remains proposed only; no SQL has been applied to hosted environments.
 
 **Next:** source-backed Chinese dictionary expansion and category classification in small validated batches. Keep the pinyin display rule scoped to Lessons only.
+
+
+### Update 2.7.0 — first Chinese dictionary content batches (2026-11-21)
+
+- Feature branch now contains 100 new HSK Level 1 character records in `data/chinese-characters.js`; combined dictionary count is 306 unique characters (206 existing + 100 additions).
+- Each new entry has course marker, pinyin, English/Chinese definitions, example, related terms, learning note, one or more of 11 category tags, HSK level and source IDs.
+- Chinese Pinyin A–Z, polyphonic initials, category filtering and combined filters are implemented. Dictionary grid remains character-only; do not add pinyin to grid.
+- Added a user-facing [Dictionary Data Sources](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-2-7-0-chinese-dictionary-lessons/data-sources.html) attribution page and source registry. CC-CEDICT-derived dictionary glosses are attributed and kept free under CC BY-SA 4.0; Unihan 18.0.0 pinyin and the HSK candidate list have their own notices.
+- CI run [44868243733](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44868243733) passed the static/data checks and four Chromium browser tests.
+- Current target candidate pool: up to 1,295 new characters from HSK 3.0 Levels 1–5 after deduplication, subject to validation. The HSK source warns it was OCR-processed and not extensively proofread.
+- Next: complete the remaining 48 HSK Level 1 candidates, then continue Levels 2–5 in small reviewed batches. No Chinese Lessons code or hosted Supabase schema changes yet.
