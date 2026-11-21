@@ -10732,6 +10732,1135 @@ window.SWIFT_CHINESE_WORDS = [
       "hsk30-pleco"
     ],
     "course": "zh"
+  },
+  {
+    "word": "仅",
+    "part": "汉语词汇",
+    "phonetic": "jǐn",
+    "definition": "only; merely; barely",
+    "definitionZh": "仅仅、只有；表示数量或范围受到限制。",
+    "examples": [
+      "他仅用了十分钟。"
+    ],
+    "breakdown": "常作副词，表示范围有限或数量不多。",
+    "related": "仅仅 jǐn jǐn；不仅 bù jǐn",
+    "categories": [
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "尽",
+    "part": "汉语词汇",
+    "phonetic": "jǐn / jìn",
+    "definition": "to the greatest extent; to use up; to exhaust; to finish",
+    "definitionZh": "读 jǐn 常表示尽量；读 jìn 表示用完或达到极限。",
+    "examples": [
+      "我会尽力帮助你。"
+    ],
+    "breakdown": "读音随词义变化：“尽量”读 jǐn，“尽力”读 jìn。",
+    "related": "尽力 jìn lì；尽快 jǐn kuài",
+    "categories": [
+      "actions",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "紧",
+    "part": "汉语词汇",
+    "phonetic": "jǐn",
+    "definition": "tight; close; strict; urgent; to tighten",
+    "definitionZh": "紧密、紧张；也表示时间急迫或使其更紧。",
+    "examples": [
+      "请把安全带系紧。"
+    ],
+    "breakdown": "可形容物体不松，也可形容时间或关系紧迫。",
+    "related": "紧张 jǐn zhāng；抓紧 zhuā jǐn",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "精",
+    "part": "汉语词汇",
+    "phonetic": "jīng",
+    "definition": "essence; energy; highly refined; proficient; excellent",
+    "definitionZh": "精细、精华；也表示精神充沛或技艺熟练。",
+    "examples": [
+      "这件事需要精心准备。"
+    ],
+    "breakdown": "常见于精心、精神和精彩等词语。",
+    "related": "精彩 jīng cǎi；精神 jīng shén",
+    "categories": [
+      "descriptions",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "景",
+    "part": "汉语词汇",
+    "phonetic": "jǐng",
+    "definition": "scenery; scene; view; circumstances",
+    "definitionZh": "景色、风景；也指场景或情况。",
+    "examples": [
+      "这里的风景很美。"
+    ],
+    "breakdown": "常见于自然景色和场景相关词语。",
+    "related": "风景 fēng jǐng；景色 jǐng sè",
+    "categories": [
+      "nature",
+      "places"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "警",
+    "part": "汉语词汇",
+    "phonetic": "jǐng",
+    "definition": "to alert; to warn; police",
+    "definitionZh": "警告、提醒；也用于警察和警务相关词语。",
+    "examples": [
+      "警察正在帮助大家。"
+    ],
+    "breakdown": "常见于警察、警告和警惕等词语。",
+    "related": "警察 jǐng chá；警告 jǐng gào",
+    "categories": [
+      "people",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "境",
+    "part": "汉语词汇",
+    "phonetic": "jìng",
+    "definition": "border; place; condition; circumstances; territory",
+    "definitionZh": "环境、境地；也指边界或某种状态。",
+    "examples": [
+      "我们要保护自然环境。"
+    ],
+    "breakdown": "常见于环境、境地和境界等词语。",
+    "related": "环境 huán jìng；境界 jìng jiè",
+    "categories": [
+      "places",
+      "descriptions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "旧",
+    "part": "汉语词汇",
+    "phonetic": "jiù",
+    "definition": "old; former; worn with age",
+    "definitionZh": "旧的、以前的；也表示使用过或不再新。",
+    "examples": [
+      "这件旧衣服还可以穿。"
+    ],
+    "breakdown": "常与“新”形成对比。",
+    "related": "旧书 jiù shū；旧衣服 jiù yī fu",
+    "categories": [
+      "descriptions",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "救",
+    "part": "汉语词汇",
+    "phonetic": "jiù",
+    "definition": "to save; to rescue; to assist",
+    "definitionZh": "救助、救援；帮助处于危险或困难中的人。",
+    "examples": [
+      "消防员救了那只猫。"
+    ],
+    "breakdown": "常用于救人、救援和急救等语境。",
+    "related": "救人 jiù rén；救援 jiù yuán",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "具",
+    "part": "汉语词汇",
+    "phonetic": "jù",
+    "definition": "tool; device; equipment; to possess; classifier for certain objects",
+    "definitionZh": "工具、器具；也表示具备或拥有。",
+    "examples": [
+      "我们需要准备工具。"
+    ],
+    "breakdown": "常见于工具、家具和具体等词语。",
+    "related": "工具 gōng jù；家具 jiā jù",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "剧",
+    "part": "汉语词汇",
+    "phonetic": "jù",
+    "definition": "play; drama; opera; television series; severe or dramatic",
+    "definitionZh": "戏剧、剧集；也表示程度强烈或变化明显。",
+    "examples": [
+      "我喜欢看历史剧。"
+    ],
+    "breakdown": "常见于戏剧、电视剧和剧烈等词语。",
+    "related": "电视剧 diàn shì jù；戏剧 xì jù",
+    "categories": [
+      "communication",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "据",
+    "part": "汉语词汇",
+    "phonetic": "jù",
+    "definition": "according to; to depend on; to occupy or seize",
+    "definitionZh": "依据、根据；也表示占据或依靠。",
+    "examples": [
+      "根据天气预报，明天会下雨。"
+    ],
+    "breakdown": "常见于“根据”“据说”等表达。",
+    "related": "根据 gēn jù；数据 shù jù",
+    "categories": [
+      "grammar-function",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "决",
+    "part": "汉语词汇",
+    "phonetic": "jué",
+    "definition": "to decide; to determine; to resolve",
+    "definitionZh": "决定、决断；也表示解决问题或作出选择。",
+    "examples": [
+      "我决定明天出发。"
+    ],
+    "breakdown": "常见于决定、解决和决心等词语。",
+    "related": "决定 jué dìng；解决 jiě jué",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "绝",
+    "part": "汉语词汇",
+    "phonetic": "jué",
+    "definition": "to cut off; to disappear; absolutely; by no means",
+    "definitionZh": "断绝、绝对；也表示完全没有或达到极端程度。",
+    "examples": [
+      "这件事绝对不能忘记。"
+    ],
+    "breakdown": "常见于绝对、拒绝和绝望等词语。",
+    "related": "绝对 jué duì；拒绝 jù jué",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "咖",
+    "part": "汉语词汇",
+    "phonetic": "kā",
+    "definition": "bound character used in loanwords, especially coffee and curry",
+    "definitionZh": "主要用于外来词的音译字，常见于“咖啡”“咖喱”。",
+    "examples": [
+      "我想喝一杯咖啡。"
+    ],
+    "breakdown": "单独使用较少，常作为外来词的一部分。",
+    "related": "咖啡 kā fēi；咖喱 kā lí",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "恐",
+    "part": "汉语词汇",
+    "phonetic": "kǒng",
+    "definition": "to fear; afraid; frightened",
+    "definitionZh": "害怕、恐惧；也可表示担心或推测。",
+    "examples": [
+      "她有点恐高。"
+    ],
+    "breakdown": "常见于恐怕、恐惧和恐高等词语。",
+    "related": "恐怕 kǒng pà；恐惧 kǒng jù",
+    "categories": [
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "裤",
+    "part": "汉语词汇",
+    "phonetic": "kù",
+    "definition": "trousers; pants; underpants",
+    "definitionZh": "穿在腰部以下的衣物。",
+    "examples": [
+      "这条裤子很舒服。"
+    ],
+    "breakdown": "常见于裤子、短裤和长裤等词语。",
+    "related": "裤子 kù zi；短裤 duǎn kù",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "况",
+    "part": "汉语词汇",
+    "phonetic": "kuàng",
+    "definition": "situation; condition; moreover",
+    "definitionZh": "情况、状况；也用于“何况”等表达。",
+    "examples": [
+      "情况比我们想象的好。"
+    ],
+    "breakdown": "常见于情况、状况和何况等词语。",
+    "related": "情况 qíng kuàng；何况 hé kuàng",
+    "categories": [
+      "grammar-function",
+      "descriptions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "困",
+    "part": "汉语词汇",
+    "phonetic": "kùn",
+    "definition": "trapped; hard-pressed; sleepy; tired",
+    "definitionZh": "困住、困难；也表示困倦、想睡觉。",
+    "examples": [
+      "我今天很困。"
+    ],
+    "breakdown": "可表示被限制，也可描述疲倦或想睡。",
+    "related": "困难 kùn nán；困倦 kùn juàn",
+    "categories": [
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "浪",
+    "part": "汉语词汇",
+    "phonetic": "làng",
+    "definition": "wave; breaker; unrestrained; to stroll",
+    "definitionZh": "海浪、波浪；也可表示不受约束或随意。",
+    "examples": [
+      "海边的浪很大。"
+    ],
+    "breakdown": "常见于海浪、浪花和浪费等词语。",
+    "related": "海浪 hǎi làng；浪花 làng huā",
+    "categories": [
+      "nature"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "类",
+    "part": "汉语词汇",
+    "phonetic": "lèi",
+    "definition": "kind; type; class; category; to resemble",
+    "definitionZh": "种类、类别；表示具有共同特点的一组事物。",
+    "examples": [
+      "这种鸟属于鸟类。"
+    ],
+    "breakdown": "常作名词或量词，表示类别。",
+    "related": "类型 lèi xíng；人类 rén lèi",
+    "categories": [
+      "grammar-function",
+      "objects"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "李",
+    "part": "汉语词汇",
+    "phonetic": "lǐ",
+    "definition": "plum; plum tree; surname Li",
+    "definitionZh": "李子、李树；也是常见姓氏。",
+    "examples": [
+      "我买了一些李子。"
+    ],
+    "breakdown": "可指水果李子，也常用作姓氏。",
+    "related": "李子 lǐ zi；李树 lǐ shù",
+    "categories": [
+      "nature",
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "历",
+    "part": "汉语词汇",
+    "phonetic": "lì",
+    "definition": "calendar; to experience; past history or course",
+    "definitionZh": "经历、历史；也指历法或日历。",
+    "examples": [
+      "他有丰富的工作经历。"
+    ],
+    "breakdown": "常见于历史、经历和日历等词语。",
+    "related": "历史 lì shǐ；经历 jīng lì",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "立",
+    "part": "汉语词汇",
+    "phonetic": "lì",
+    "definition": "to stand; to establish; to set up; immediately",
+    "definitionZh": "站立、建立；也可表示立即。",
+    "examples": [
+      "请把牌子立起来。"
+    ],
+    "breakdown": "常见于站立、建立和立刻等词语。",
+    "related": "立刻 lì kè；站立 zhàn lì",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "丽",
+    "part": "汉语词汇",
+    "phonetic": "lì",
+    "definition": "beautiful; pretty",
+    "definitionZh": "美丽、秀丽；表示外观漂亮。",
+    "examples": [
+      "这里的风景很美丽。"
+    ],
+    "breakdown": "常见于美丽、秀丽等形容词。",
+    "related": "美丽 měi lì；秀丽 xiù lì",
+    "categories": [
+      "descriptions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "连",
+    "part": "汉语词汇",
+    "phonetic": "lián",
+    "definition": "to link; to join; continuously; including; even",
+    "definitionZh": "连接、连续；也可表示包括或甚至。",
+    "examples": [
+      "请把这些点连起来。"
+    ],
+    "breakdown": "常用于连接事物或表示动作持续。",
+    "related": "连续 lián xù；连接 lián jiē",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "联",
+    "part": "汉语词汇",
+    "phonetic": "lián",
+    "definition": "to unite; to ally; to join; couplet",
+    "definitionZh": "联合、联系；表示彼此连接或合作。",
+    "examples": [
+      "两家公司建立了联系。"
+    ],
+    "breakdown": "常见于联系、联合和联络等词语。",
+    "related": "联系 lián xì；联合 lián hé",
+    "categories": [
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "烈",
+    "part": "汉语词汇",
+    "phonetic": "liè",
+    "definition": "intense; fierce; strong; ardent",
+    "definitionZh": "强烈、猛烈；表示程度或力量很大。",
+    "examples": [
+      "今天的阳光很强烈。"
+    ],
+    "breakdown": "常用于描述强度、情绪或天气。",
+    "related": "强烈 qiáng liè；热烈 rè liè",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "领",
+    "part": "汉语词汇",
+    "phonetic": "lǐng",
+    "definition": "neck; collar; to lead; to receive; classifier for clothing",
+    "definitionZh": "带领、领取；也指脖子或衣领。",
+    "examples": [
+      "请到前台领取号码。"
+    ],
+    "breakdown": "常见于领导、领取和领口等词语。",
+    "related": "领导 lǐng dǎo；领带 lǐng dài",
+    "categories": [
+      "actions",
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "另",
+    "part": "汉语词汇",
+    "phonetic": "lìng",
+    "definition": "other; another; separate; separately",
+    "definitionZh": "另外、另一个；表示不同或额外的对象。",
+    "examples": [
+      "我们需要另一个办法。"
+    ],
+    "breakdown": "常用于区分另一个选择或补充信息。",
+    "related": "另外 lìng wài；另一个 lìng yí ge",
+    "categories": [
+      "grammar-function"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "龙",
+    "part": "汉语词汇",
+    "phonetic": "lóng",
+    "definition": "Chinese dragon; dragon; imperial symbol",
+    "definitionZh": "中国文化中的龙；也用于龙形或龙相关名称。",
+    "examples": [
+      "龙是中国文化中的重要象征。"
+    ],
+    "breakdown": "常见于传统文化、节日和动物名称。",
+    "related": "龙年 lóng nián；龙舟 lóng zhōu",
+    "categories": [
+      "nature",
+      "descriptions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "录",
+    "part": "汉语词汇",
+    "phonetic": "lù",
+    "definition": "to record; to write down; to carve",
+    "definitionZh": "记录、录制；把声音、影像或信息保存下来。",
+    "examples": [
+      "请录下这段声音。"
+    ],
+    "breakdown": "常见于记录、录音和录像等词语。",
+    "related": "记录 jì lù；录音 lù yīn",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "乱",
+    "part": "汉语词汇",
+    "phonetic": "luàn",
+    "definition": "disorder; confusion; messy; arbitrary",
+    "definitionZh": "混乱、杂乱；也表示随意或没有秩序。",
+    "examples": [
+      "请不要把房间弄乱。"
+    ],
+    "breakdown": "常用于描述秩序、状态或行为。",
+    "related": "混乱 hùn luàn；乱说 luàn shuō",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "落",
+    "part": "汉语词汇",
+    "phonetic": "luò / lào",
+    "definition": "to fall; to drop; to leave behind; to lag behind",
+    "definitionZh": "读 luò 常表示落下、降落；读 lào 见于部分固定词语。",
+    "examples": [
+      "树叶慢慢落下来。"
+    ],
+    "breakdown": "常用读音 luò；部分口语词语中读 lào。",
+    "related": "落下 luò xià；落后 luò hòu",
+    "categories": [
+      "actions",
+      "nature"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "麻",
+    "part": "汉语词汇",
+    "phonetic": "má",
+    "definition": "hemp; numb; tingling; troublesome (in 麻烦)",
+    "definitionZh": "麻类植物；也表示麻木或使人感到麻烦。",
+    "examples": [
+      "我不喜欢吃麻辣的食物。"
+    ],
+    "breakdown": "常见于麻烦、麻木和麻辣等词语。",
+    "related": "麻烦 má fan；麻木 má mù",
+    "categories": [
+      "nature",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "冒",
+    "part": "汉语词汇",
+    "phonetic": "mào",
+    "definition": "to emit; to come out; to brave; to risk",
+    "definitionZh": "冒出、冒险；也表示顶着某种困难去做事。",
+    "examples": [
+      "他冒着雨去上班。"
+    ],
+    "breakdown": "常见于冒雨、冒险和冒出等词语。",
+    "related": "冒险 mào xiǎn；冒雨 mào yǔ",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "媒",
+    "part": "汉语词汇",
+    "phonetic": "méi",
+    "definition": "medium; intermediary; matchmaker; media",
+    "definitionZh": "媒介、媒人；也常用于媒体相关词语。",
+    "examples": [
+      "媒体正在报道这件事。"
+    ],
+    "breakdown": "常见于媒体、媒介和媒人等词语。",
+    "related": "媒体 méi tǐ；媒介 méi jiè",
+    "categories": [
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "每",
+    "part": "汉语词汇",
+    "phonetic": "měi",
+    "definition": "each; every",
+    "definitionZh": "每一个、每次；表示逐一或全部成员。",
+    "examples": [
+      "我每天都学习中文。"
+    ],
+    "breakdown": "常放在量词或时间词前，表示逐一重复。",
+    "related": "每天 měi tiān；每次 měi cì",
+    "categories": [
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "美",
+    "part": "汉语词汇",
+    "phonetic": "měi",
+    "definition": "beautiful; good; to beautify; the Americas (bound form)",
+    "definitionZh": "美丽、美好；也可表示令人满意或漂亮。",
+    "examples": [
+      "这幅画很美。"
+    ],
+    "breakdown": "常见于美丽、美好和美术等词语。",
+    "related": "美丽 měi lì；美好 měi hǎo",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "迷",
+    "part": "汉语词汇",
+    "phonetic": "mí",
+    "definition": "to bewilder; to be fascinated by; fan; lost or confused",
+    "definitionZh": "迷路、着迷；也表示困惑或对某事非常喜爱。",
+    "examples": [
+      "我在这座城市迷路了。"
+    ],
+    "breakdown": "可表示找不到方向，也可表示对某事着迷。",
+    "related": "迷路 mí lù；着迷 zháo mí",
+    "categories": [
+      "emotions-states",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "民",
+    "part": "汉语词汇",
+    "phonetic": "mín",
+    "definition": "the people; inhabitants; civilian",
+    "definitionZh": "人民、民众；指一个国家或地区的普通居民。",
+    "examples": [
+      "人民需要安全的生活。"
+    ],
+    "breakdown": "常见于人民、民众和公民等词语。",
+    "related": "人民 rén mín；民众 mín zhòng",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "命",
+    "part": "汉语词汇",
+    "phonetic": "mìng",
+    "definition": "life; fate; destiny; order or command",
+    "definitionZh": "生命、命运；也表示命令或指定。",
+    "examples": [
+      "安全对生命很重要。"
+    ],
+    "breakdown": "常见于生命、命运和命令等词语。",
+    "related": "生命 shēng mìng；命运 mìng yùn",
+    "categories": [
+      "people",
+      "time-numbers"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "某",
+    "part": "汉语词汇",
+    "phonetic": "mǒu",
+    "definition": "some; a certain; unspecified person or thing",
+    "definitionZh": "某个、某人；表示不明确指出的对象。",
+    "examples": [
+      "某个人把门打开了。"
+    ],
+    "breakdown": "常放在量词或名词前，表示对象未具体说明。",
+    "related": "某人 mǒu rén；某些 mǒu xiē",
+    "categories": [
+      "grammar-function"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "母",
+    "part": "汉语词汇",
+    "phonetic": "mǔ",
+    "definition": "mother; female parent; source or origin",
+    "definitionZh": "母亲；也可指动物的雌性或事物的来源。",
+    "examples": [
+      "母亲每天都很忙。"
+    ],
+    "breakdown": "常见于母亲、母校和父母等词语。",
+    "related": "母亲 mǔ qīn；父母 fù mǔ",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "内",
+    "part": "汉语词汇",
+    "phonetic": "nèi",
+    "definition": "inside; inner; internal; within",
+    "definitionZh": "里面、内部；表示空间或范围之内。",
+    "examples": [
+      "请在室内等候。"
+    ],
+    "breakdown": "常与“外”形成对比。",
+    "related": "内部 nèi bù；室内 shì nèi",
+    "categories": [
+      "places"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "念",
+    "part": "汉语词汇",
+    "phonetic": "niàn",
+    "definition": "to read aloud; to study; to miss; thought or remembrance",
+    "definitionZh": "念书、读出；也表示想念或记挂。",
+    "examples": [
+      "她正在念一首诗。"
+    ],
+    "breakdown": "可表示朗读、学习或思念某人。",
+    "related": "念书 niàn shū；想念 xiǎng niàn",
+    "categories": [
+      "communication",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "娘",
+    "part": "汉语词汇",
+    "phonetic": "niáng",
+    "definition": "mother; young woman; bride (in compounds)",
+    "definitionZh": "母亲；也用于姑娘、新娘等称呼。",
+    "examples": [
+      "新娘今天很漂亮。"
+    ],
+    "breakdown": "现代常见于姑娘、新娘等复合词。",
+    "related": "新娘 xīn niáng；姑娘 gū niang",
+    "categories": [
+      "people"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "农",
+    "part": "汉语词汇",
+    "phonetic": "nóng",
+    "definition": "agriculture; farming; farmer (bound form)",
+    "definitionZh": "农业、农民；与耕种和农村生活有关。",
+    "examples": [
+      "农民在田里工作。"
+    ],
+    "breakdown": "常见于农业、农民和农村等词语。",
+    "related": "农民 nóng mín；农业 nóng yè",
+    "categories": [
+      "people",
+      "actions"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "暖",
+    "part": "汉语词汇",
+    "phonetic": "nuǎn",
+    "definition": "warm; to warm; mild",
+    "definitionZh": "温暖、暖和；表示温度适宜或使人感到温暖。",
+    "examples": [
+      "今天的天气很暖和。"
+    ],
+    "breakdown": "常用于天气、温度和感受。",
+    "related": "暖和 nuǎn huo；温暖 wēn nuǎn",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
+  },
+  {
+    "word": "拍",
+    "part": "汉语词汇",
+    "phonetic": "pāi",
+    "definition": "to pat; to clap; to slap; to take a photo or film",
+    "definitionZh": "拍打、拍摄；也表示用手掌轻击或摄影。",
+    "examples": [
+      "我想拍一张照片。"
+    ],
+    "breakdown": "常见于拍照、拍手和拍摄等词语。",
+    "related": "拍照 pāi zhào；拍手 pāi shǒu",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 3,
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ],
+    "course": "zh"
   }
 ];
 
