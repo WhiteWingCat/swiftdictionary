@@ -265,3 +265,61 @@ The following implementation results supersede the earlier Phase 0-only starting
 - Category coverage clarification: the original 206 Chinese entries already receive their 11 learner categories and verified additional pinyin readings from `window.SWIFT_CHINESE_METADATA` in `data/chinese-characters.js`; the app applies this metadata before filtering. The 519 new entries carry their own categories. Therefore all 725 entries are included in the category system. No duplicate inline category map is needed.
 - Quiz database foundation job **#44876788818** passed. A previous full companion local Supabase Auth/RPC integration run **#44876433049** passed, including U2.7.0 migration, SQL regression, authenticated Quiz runtime (13 tests), Flashcards (3 tests), Lessons/Daily Learning allowance (2 tests) and Supabase security advisors (“No issues found”). The companion job is being rerun against the latest branch head.
 - No hosted staging or production Supabase migration has been applied; no merge or deployment has occurred.
+
+
+## 12. Malaysia and international privacy-risk check — 2026-11-21
+
+This is a product-planning risk review, not legal advice or a compliance certification. Formal legal/privacy review remains deferred.
+
+### U2.7.0 data-change assessment
+
+- U2.7.0 adds a `learning_language` dimension to existing lesson progress and practice records so English and Chinese course progress are separate. It does not add new identity fields, sensitive personal data, advertising profiles, analytics SDKs or new telemetry.
+- The new field remains attached to the existing authenticated user record and uses the existing account-scoped RLS, user foreign keys and account-deletion cascade. CI validates the language-aware migration and isolation.
+- This is still user-linked learning-progress data. The Privacy Notice should clearly explain that lesson progress is recorded separately by course language, why it is used, how long it is retained, how a user can request access/correction/deletion, and which processors/locations are involved.
+- The feature does not change the existing Supabase/Cloudflare service providers or data regions. Existing Singapore staging and Tokyo production processing still need a documented cross-border transfer assessment; no new region was introduced by U2.7.0.
+
+### Malaysia — PDPA Act 709 and 2024 amendments
+
+- The Personal Data Protection (Amendment) Act 2024 came into force in phases on 1 January, 1 April and 1 June 2025. It introduces/clarifies data-controller terminology, processor security duties, DPO appointment, breach notification, data portability and cross-border transfer changes.
+- The Act regulates personal-data processing in the context of commercial transactions. SwiftDictionary is currently intended as a free personal learning project and the revenue model is undecided; whether the Act applies to the exact current operating model requires fact-specific review. If subscriptions or other commercial transactions are introduced, reassess before launch.
+- Controller registration applies to specified classes, not automatically every website. The Commissioner’s current materials continue to refer to 13 classes; a general dictionary/learning site does not obviously fall within the listed classes, but confirm the actual business activity and current 2026 circular before relying on that assumption.
+- DPO appointment is required where processing exceeds 20,000 data subjects, exceeds 10,000 sensitive/financial-data subjects, or involves regular and systematic monitoring such as online user-behaviour tracking. The app is intended to minimise tracking, but its ongoing lesson/quiz/flashcard progress records should be assessed against the monitoring criterion if usage grows. Do not assume that a small user count alone removes this criterion.
+- The Commissioner’s breach-notification guideline sets a 72-hour notification period to the Commissioner when the notification criteria are met, with notification to affected individuals where significant harm is caused or likely. Maintain an incident-response and escalation plan before public growth.
+- The amended Act introduces a data-portability right subject to technical feasibility and compatible formats. Account deletion exists, but a user-facing progress export/data-portability workflow has not been implemented in U2.7.0; keep it on the broader legal/product backlog.
+- Cross-border transfer arrangements must be reviewed under the amended section 129 and the Commissioner’s 2025 CBPDT Guidelines. Document the countries, processors/sub-processors, access, safeguards, notice and any transfer-impact assessment or other applicable mechanism for Supabase, Cloudflare and onward processing.
+
+### International and 16+ audience
+
+- GDPR Article 8 uses 16 as the default age for a child’s consent to information-society services, but EU Member States may lower it to no less than 13. A 16+ audience setting is not a substitute for a lawful basis, transparent notice or other GDPR duties.
+- The UK Children’s Code may apply to online services likely to be accessed by under-18s, even where under-18s are not the target audience. If SwiftDictionary is likely to be accessed by UK 16–17-year-olds, assess age-appropriate design, high-privacy defaults, data minimisation, transparency and profiling restrictions.
+- Keep age declarations proportionate; do not collect identity documents or excessive age-verification data without a separate necessity and legal review.
+- If subscriptions, advertising, profiling, public social features or new analytics are introduced, perform a fresh jurisdiction-specific assessment before release.
+
+### Content licensing and copyright
+
+- CC-CEDICT-derived adapted glosses are identified as CC BY-SA 4.0; retain attribution and share-alike notices for the adapted dictionary material.
+- Unihan and HSK candidate-list provenance/licensing are identified in the source registry and third-party notices.
+- The 17 Chinese Lessons use authored explanations/examples and selected classical material attributed to Li Bai and Xunzi. Keep modern copyrighted poetry, quotations and translations out unless appropriately licensed; verify source wording and attribution.
+- Provenance for the original 206 Chinese entries remains a separate audit item; do not assume the new 519-entry source registry retroactively clears the older material.
+
+### Recommended pre-release actions
+
+1. Confirm whether the current free project and any planned subscription model fall within PDPA commercial-transaction scope.
+2. Review the 2026 controller-registration circular and the 13-class schedule against the actual operating entity/business activity.
+3. Assess whether ongoing progress tracking qualifies as regular/systematic monitoring for DPO purposes; document the conclusion.
+4. Complete a cross-border transfer inventory and appropriate transfer assessment for Singapore, Tokyo and service-provider onward processing.
+5. Review/update the Privacy Notice and data-retention wording for course-language-specific progress.
+6. Prepare a breach-response contact and 72-hour escalation procedure.
+7. Keep data portability/export, children’s privacy, and content-source provenance on the release/legal backlog.
+8. Obtain qualified legal/privacy review when feasible. Until then, do not claim legal clearance.
+
+### Official reference material reviewed
+
+- Malaysia PDPA Amendment Act 2024 (Act A1727): https://www.pdp.gov.my/ppdpv1/wp-content/uploads/2024/11/Act-A1727.pdf
+- Commencement Gazette P.U. (B) 522/2024: https://www.pdp.gov.my/ppdpv1/wp-content/uploads/2024/12/PENETAPAN-TARIKH-PERMULAAN-KUAT-KUASA.pdf
+- Commissioner FAQ (DPO thresholds and controller registration): https://www.pdp.gov.my/en/faq/
+- Data Breach Notification Guidelines: https://www.pdp.gov.my/wp-content/uploads/2025/08/GP_DBN_ENG.pdf
+- Cross-Border Transfer Guidelines: https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-cross-border-transfer-of-personal-data-cbpdt/
+- Registration of Data Controller classes: https://www.pdp.gov.my/en/registration-of-data-controller/
+- UK ICO Children’s Code: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-code/
+- GDPR Article 8: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=celex%3A32016R0679
