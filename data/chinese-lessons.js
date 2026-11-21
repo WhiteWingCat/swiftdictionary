@@ -1815,6 +1815,1311 @@ window.SWIFT_CHINESE_LESSONS = {
       ]
     }
   ],
-  "intermediate": [],
+  "intermediate": [
+    {
+      "id": "zh-i-measure-words",
+      "topic_id": "zh-measure-words",
+      "topicDisplay": {
+        "zh": "量词",
+        "pinyin": "liàng cí",
+        "en": "Measure words"
+      },
+      "title": {
+        "zh": "常用量词与数量表达",
+        "pinyin": "cháng yòng liàng cí yǔ shù liàng biǎo dá",
+        "en": "Common measure words and quantities"
+      },
+      "summary": {
+        "zh": "学习个、本、张、杯、条等量词，并理解数字与量词的搭配。",
+        "pinyin": "xué xí ge, běn, zhāng, bēi, tiáo děng liàng cí, bìng lǐ jiě shù zì yǔ liàng cí de dā pèi.",
+        "en": "Learn common measure words and how they combine with numbers."
+      },
+      "explanation": [
+        {
+          "zh": "中文名词前常使用量词；数字或指示词通常放在量词前。",
+          "pinyin": "zhōng wén míng cí qián cháng shǐ yòng liàng cí; shù zì huò zhǐ shì cí tōng cháng fàng zài liàng cí qián.",
+          "en": "Chinese nouns commonly use measure words, usually after a number or demonstrative."
+        },
+        {
+          "zh": "个是常见的通用量词；本常用于书，张常用于纸张或桌子。",
+          "pinyin": "ge shì cháng jiàn de tōng yòng liàng cí; běn cháng yòng yú shū, zhāng cháng yòng yú zhǐ zhāng huò zhuō zi.",
+          "en": "个 is a common general measure word; 本 is used for books and 张 for flat objects."
+        },
+        {
+          "zh": "两通常用于量词前表示 two；单独计数时常用二。",
+          "pinyin": "liǎng tōng cháng yòng yú liàng cí qián biǎo shì two; dān dú jì shù shí cháng yòng èr.",
+          "en": "两 is commonly used before a measure word; 二 is common in counting and numbers."
+        }
+      ],
+      "points": [
+        {
+          "zh": "一个人表示 one person；两本书表示 two books。",
+          "pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
+          "en": "一个人 means one person; 两本书 means two books."
+        },
+        {
+          "zh": "杯用于杯装饮品，条可用于道路、鱼或裤子等细长事物。",
+          "pinyin": "bēi yòng yú bēi zhuāng yǐn pǐn, tiáo kě yòng yú dào lù, yú huò kù zi děng xì cháng shì wù.",
+          "en": "杯 counts drinks in cups; 条 can count long or narrow things."
+        },
+        {
+          "zh": "位是表示人的礼貌量词。",
+          "pinyin": "wèi shì biǎo shì rén de lǐ mào liàng cí.",
+          "en": "位 is a polite measure word for people."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "桌上有两本书。",
+          "pinyin": "zhuō shàng yǒu liǎng běn shū.",
+          "en": "There are two books on the table."
+        },
+        {
+          "zh": "请给我一杯水。",
+          "pinyin": "qǐng gěi wǒ yì bēi shuǐ.",
+          "en": "Please give me a glass of water."
+        },
+        {
+          "zh": "那条路很长。",
+          "pinyin": "nà tiáo lù hěn cháng.",
+          "en": "That road is long."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把所有名词都直接接数字；先选择合适的量词。",
+          "pinyin": "bú yào bǎ suǒ yǒu míng cí dōu zhí jiē jiē shù zì; xiān xuǎn zé hé shì de liàng cí.",
+          "en": "Do not place a number directly before every noun; choose a suitable measure word."
+        },
+        {
+          "zh": "两本书比二本书更自然地表达 two books。",
+          "pinyin": "liǎng běn shū bǐ èr běn shū gèng zì rán de biǎo dá two books.",
+          "en": "两本书 is the natural everyday form for two books."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which measure word is commonly used for books?",
+          "options": [
+            {
+              "zh": "本",
+              "pinyin": "běn",
+              "en": "Measure word for books"
+            },
+            {
+              "zh": "张",
+              "pinyin": "zhāng",
+              "en": "Measure word for flat objects"
+            },
+            {
+              "zh": "杯",
+              "pinyin": "bēi",
+              "en": "Measure word for cups"
+            },
+            {
+              "zh": "条",
+              "pinyin": "tiáo",
+              "en": "Measure word for long objects"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which phrase means “two books”?",
+          "options": [
+            {
+              "zh": "两本书",
+              "pinyin": "liǎng běn shū",
+              "en": "Two books"
+            },
+            {
+              "zh": "两个书",
+              "pinyin": "liǎng ge shū",
+              "en": "Incorrect classifier here"
+            },
+            {
+              "zh": "两杯书",
+              "pinyin": "liǎng bēi shū",
+              "en": "Two cups of books"
+            },
+            {
+              "zh": "两张书",
+              "pinyin": "liǎng zhāng shū",
+              "en": "Two flat sheets of books"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which measure word is suitable for a glass of water?",
+          "options": [
+            {
+              "zh": "杯",
+              "pinyin": "bēi",
+              "en": "Cup or glass"
+            },
+            {
+              "zh": "本",
+              "pinyin": "běn",
+              "en": "Book"
+            },
+            {
+              "zh": "位",
+              "pinyin": "wèi",
+              "en": "Person, polite"
+            },
+            {
+              "zh": "条",
+              "pinyin": "tiáo",
+              "en": "Long object"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which measure word is commonly used for a sheet of paper?",
+          "options": [
+            {
+              "zh": "张",
+              "pinyin": "zhāng",
+              "en": "Flat objects"
+            },
+            {
+              "zh": "本",
+              "pinyin": "běn",
+              "en": "Books"
+            },
+            {
+              "zh": "只",
+              "pinyin": "zhī",
+              "en": "Many animals or single items"
+            },
+            {
+              "zh": "杯",
+              "pinyin": "bēi",
+              "en": "Cups"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which is a polite measure word for a person?",
+          "options": [
+            {
+              "zh": "位",
+              "pinyin": "wèi",
+              "en": "Polite measure word for people"
+            },
+            {
+              "zh": "条",
+              "pinyin": "tiáo",
+              "en": "Long objects"
+            },
+            {
+              "zh": "本",
+              "pinyin": "běn",
+              "en": "Books"
+            },
+            {
+              "zh": "杯",
+              "pinyin": "bēi",
+              "en": "Cups"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which phrase means “one person”?",
+          "options": [
+            {
+              "zh": "一个人",
+              "pinyin": "yí ge rén",
+              "en": "One person"
+            },
+            {
+              "zh": "一张人",
+              "pinyin": "yì zhāng rén",
+              "en": "Incorrect classifier"
+            },
+            {
+              "zh": "一杯人",
+              "pinyin": "yì bēi rén",
+              "en": "Incorrect classifier"
+            },
+            {
+              "zh": "一本人",
+              "pinyin": "yì běn rén",
+              "en": "Incorrect classifier"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which number is commonly used before a measure word to mean “two”?",
+          "options": [
+            {
+              "zh": "两",
+              "pinyin": "liǎng",
+              "en": "Two before a measure word"
+            },
+            {
+              "zh": "二",
+              "pinyin": "èr",
+              "en": "Two in counting and numbers"
+            },
+            {
+              "zh": "十",
+              "pinyin": "shí",
+              "en": "Ten"
+            },
+            {
+              "zh": "几",
+              "pinyin": "jǐ",
+              "en": "How many; a few"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-i-grammar-particles",
+      "topic_id": "zh-grammar-particles",
+      "topicDisplay": {
+        "zh": "结构助词与动态助词",
+        "pinyin": "jié gòu zhù cí yǔ dòng tài zhù cí",
+        "en": "Grammar particles"
+      },
+      "title": {
+        "zh": "的、了、过、着等常见助词",
+        "pinyin": "de, le, guo, zhe děng cháng jiàn zhù cí",
+        "en": "Common particles: 的, 了, 过 and 着"
+      },
+      "summary": {
+        "zh": "理解常见助词如何表示所属、完成、经历、持续状态和语气。",
+        "pinyin": "lǐ jiě cháng jiàn zhù cí rú hé biǎo shì suǒ shǔ, wán chéng, jīng lì, chí xù zhuàng tài hé yǔ qì.",
+        "en": "Understand how common particles mark possession, completion, experience, ongoing states and tone."
+      },
+      "explanation": [
+        {
+          "zh": "的常连接修饰语与名词，也可表示所属。",
+          "pinyin": "de cháng lián jiē xiū shì yǔ yǔ míng cí, yě kě biǎo shì suǒ shǔ.",
+          "en": "的 links modifiers to nouns and can mark possession."
+        },
+        {
+          "zh": "了可标记动作完成或情况发生变化；具体意思要看语境。",
+          "pinyin": "le kě biāo jì dòng zuò wán chéng huò qíng kuàng fā shēng biàn huà; jù tǐ yì si yào kàn yǔ jìng.",
+          "en": "了 can mark completion or a change of situation; context matters."
+        },
+        {
+          "zh": "过常表示曾有某种经历，着常表示持续状态。",
+          "pinyin": "guo cháng biǎo shì céng yǒu mǒu zhǒng jīng lì, zhe cháng biǎo shì chí xù zhuàng tài.",
+          "en": "过 often marks experience; 着 often marks a continuing state."
+        }
+      ],
+      "points": [
+        {
+          "zh": "我的书中的的表示所属。",
+          "pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
+          "en": "In 我的书, 的 marks possession."
+        },
+        {
+          "zh": "我去过北京表示曾经有去北京的经历。",
+          "pinyin": "wǒ qù guo Běi jīng biǎo shì céng jīng yǒu qù Běi jīng de jīng lì.",
+          "en": "我去过北京 means the speaker has been to Beijing."
+        },
+        {
+          "zh": "门开着描述门保持打开的状态。",
+          "pinyin": "mén kāi zhe miáo shù mén bǎo chí dǎ kāi de zhuàng tài.",
+          "en": "门开着 describes the door as remaining open."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "这是我的手机。",
+          "pinyin": "zhè shì wǒ de shǒu jī.",
+          "en": "This is my phone."
+        },
+        {
+          "zh": "我昨天看了电影。",
+          "pinyin": "wǒ zuó tiān kàn le diàn yǐng.",
+          "en": "I watched a movie yesterday."
+        },
+        {
+          "zh": "他去过中国。",
+          "pinyin": "tā qù guo Zhōng guó.",
+          "en": "He has been to China."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把了简单理解成英语过去式；它也可表示变化。",
+          "pinyin": "bú yào bǎ le jiǎn dān lǐ jiě chéng yīng yǔ guò qù shí; tā yě kě biǎo shì biàn huà.",
+          "en": "Do not equate 了 directly with the English past tense; it can also mark change."
+        },
+        {
+          "zh": "过和了的功能不同：过强调经历，了常强调完成或变化。",
+          "pinyin": "guo hé le de gōng néng bù tóng: guo qiáng diào jīng lì, le cháng qiáng diào wán chéng huò biàn huà.",
+          "en": "过 emphasizes experience, while 了 often emphasizes completion or change."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which particle commonly marks possession in 我的书?",
+          "options": [
+            {
+              "zh": "的",
+              "pinyin": "de",
+              "en": "Possessive/attributive particle"
+            },
+            {
+              "zh": "了",
+              "pinyin": "le",
+              "en": "Completion or change"
+            },
+            {
+              "zh": "过",
+              "pinyin": "guo",
+              "en": "Experience"
+            },
+            {
+              "zh": "着",
+              "pinyin": "zhe",
+              "en": "Ongoing state"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence says “I watched a movie yesterday”?",
+          "options": [
+            {
+              "zh": "我昨天看了电影",
+              "pinyin": "wǒ zuó tiān kàn le diàn yǐng",
+              "en": "I watched a movie yesterday"
+            },
+            {
+              "zh": "我昨天看过电影吗",
+              "pinyin": "wǒ zuó tiān kàn guo diàn yǐng ma",
+              "en": "Have I ever watched a movie yesterday?"
+            },
+            {
+              "zh": "我电影昨天看着",
+              "pinyin": "wǒ diàn yǐng zuó tiān kàn zhe",
+              "en": "Incorrect order"
+            },
+            {
+              "zh": "我昨天电影了看",
+              "pinyin": "wǒ zuó tiān diàn yǐng le kàn",
+              "en": "Incorrect order"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which particle often marks an experience, as in 我去过北京?",
+          "options": [
+            {
+              "zh": "过",
+              "pinyin": "guo",
+              "en": "Experience"
+            },
+            {
+              "zh": "的",
+              "pinyin": "de",
+              "en": "Possession"
+            },
+            {
+              "zh": "着",
+              "pinyin": "zhe",
+              "en": "Ongoing state"
+            },
+            {
+              "zh": "吗",
+              "pinyin": "ma",
+              "en": "Yes/no question"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence describes a door remaining open?",
+          "options": [
+            {
+              "zh": "门开着",
+              "pinyin": "mén kāi zhe",
+              "en": "The door is open"
+            },
+            {
+              "zh": "门开了书",
+              "pinyin": "mén kāi le shū",
+              "en": "The door opened book"
+            },
+            {
+              "zh": "门的开",
+              "pinyin": "mén de kāi",
+              "en": "Unnatural phrase"
+            },
+            {
+              "zh": "门开过着",
+              "pinyin": "mén kāi guo zhe",
+              "en": "Incorrect particle combination"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which particle can mark a suggestion in 我们走吧?",
+          "options": [
+            {
+              "zh": "吧",
+              "pinyin": "ba",
+              "en": "Suggestion particle"
+            },
+            {
+              "zh": "的",
+              "pinyin": "de",
+              "en": "Possession"
+            },
+            {
+              "zh": "过",
+              "pinyin": "guo",
+              "en": "Experience"
+            },
+            {
+              "zh": "着",
+              "pinyin": "zhe",
+              "en": "Ongoing state"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence means “What about you?”",
+          "options": [
+            {
+              "zh": "你呢？",
+              "pinyin": "nǐ ne?",
+              "en": "What about you?"
+            },
+            {
+              "zh": "你吗？",
+              "pinyin": "nǐ ma?",
+              "en": "You? (yes/no question form)"
+            },
+            {
+              "zh": "你的？",
+              "pinyin": "nǐ de?",
+              "en": "Yours?"
+            },
+            {
+              "zh": "你了？",
+              "pinyin": "nǐ le?",
+              "en": "Unnatural without context"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence uses 得 to describe how someone runs?",
+          "options": [
+            {
+              "zh": "他跑得很快",
+              "pinyin": "tā pǎo de hěn kuài",
+              "en": "He runs very fast"
+            },
+            {
+              "zh": "他得跑很快",
+              "pinyin": "tā děi pǎo hěn kuài",
+              "en": "He has to run fast"
+            },
+            {
+              "zh": "他跑的很快",
+              "pinyin": "tā pǎo de hěn kuài",
+              "en": "Common informal spelling, but 得 is the standard complement marker"
+            },
+            {
+              "zh": "他很跑快",
+              "pinyin": "tā hěn pǎo kuài",
+              "en": "Incorrect structure"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-i-time-expressions",
+      "topic_id": "zh-time-expressions",
+      "topicDisplay": {
+        "zh": "时间表达与语序",
+        "pinyin": "shí jiān biǎo dá yǔ yǔ xù",
+        "en": "Time expressions and word order"
+      },
+      "title": {
+        "zh": "时间词的位置与频率表达",
+        "pinyin": "shí jiān cí de wèi zhì yǔ pín lǜ biǎo dá",
+        "en": "Time placement and frequency expressions"
+      },
+      "summary": {
+        "zh": "学习中文时间词的位置、频率副词，以及已经和还没的用法。",
+        "pinyin": "xué xí zhōng wén shí jiān cí de wèi zhì, pín lǜ fù cí, yǐ jí yǐ jīng hé hái méi de yòng fǎ.",
+        "en": "Learn where time expressions appear, how to express frequency, and how to use 已经 and 还没."
+      },
+      "explanation": [
+        {
+          "zh": "时间表达通常放在主语之后、主要动词之前，也可以放在句首。",
+          "pinyin": "shí jiān biǎo dá tōng cháng fàng zài zhǔ yǔ zhī hòu, zhǔ yào dòng cí zhī qián, yě kě yǐ fàng zài jù shǒu.",
+          "en": "Time expressions often appear after the subject and before the main verb, or at the beginning."
+        },
+        {
+          "zh": "每天表示 every day；常常表示 often。",
+          "pinyin": "měi tiān biǎo shì every day; cháng cháng biǎo shì often.",
+          "en": "每天 means every day; 常常 means often."
+        },
+        {
+          "zh": "已经表示 already；还没表示 not yet。",
+          "pinyin": "yǐ jīng biǎo shì already; hái méi biǎo shì not yet.",
+          "en": "已经 means already; 还没 means not yet."
+        }
+      ],
+      "points": [
+        {
+          "zh": "我明天去学校把时间放在动词去之前。",
+          "pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
+          "en": "In 我明天去学校, 明天 comes before the verb 去."
+        },
+        {
+          "zh": "早上、下午、晚上可以和具体时间一起使用。",
+          "pinyin": "zǎo shang, xià wǔ, wǎn shang kě yǐ hé jù tǐ shí jiān yì qǐ shǐ yòng.",
+          "en": "早上, 下午 and 晚上 combine with clock times."
+        },
+        {
+          "zh": "还没常与动词搭配，表示事情到目前为止没有发生。",
+          "pinyin": "hái méi cháng yǔ dòng cí dā pèi, biǎo shì shì qíng dào mù qián wéi zhǐ méi yǒu fā shēng.",
+          "en": "还没 with a verb means something has not happened yet."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "我每天早上七点起床。",
+          "pinyin": "wǒ měi tiān zǎo shang qī diǎn qǐ chuáng.",
+          "en": "I get up at seven every morning."
+        },
+        {
+          "zh": "她已经回家了。",
+          "pinyin": "tā yǐ jīng huí jiā le.",
+          "en": "She has already gone home."
+        },
+        {
+          "zh": "我还没吃晚饭。",
+          "pinyin": "wǒ hái méi chī wǎn fàn.",
+          "en": "I have not eaten dinner yet."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把时间词固定放在动词之后；中文常把时间放在动词前。",
+          "pinyin": "bú yào bǎ shí jiān cí gù dìng fàng zài dòng cí zhī hòu; zhōng wén cháng bǎ shí jiān fàng zài dòng cí qián.",
+          "en": "Do not always put time after the verb; Chinese often places it before the verb."
+        },
+        {
+          "zh": "已经和还没表达不同的时间状态，不应随意互换。",
+          "pinyin": "yǐ jīng hé hái méi biǎo dá bù tóng de shí jiān zhuàng tài, bù yīng suí yì hù huàn.",
+          "en": "已经 and 还没 express different time states and are not interchangeable."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Where does 明天 usually appear in 我明天去学校?",
+          "options": [
+            {
+              "zh": "Before the main verb 去",
+              "pinyin": "zài dòng cí qù zhī qián",
+              "en": "Before the main verb"
+            },
+            {
+              "zh": "After 学校",
+              "pinyin": "xué xiào zhī hòu",
+              "en": "After the destination"
+            },
+            {
+              "zh": "Between 去 and 学校",
+              "pinyin": "qù hé xué xiào zhī jiān",
+              "en": "Between verb and destination"
+            },
+            {
+              "zh": "At the end only",
+              "pinyin": "jù zi mò wěi",
+              "en": "Only at the end"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression means “every day”?",
+          "options": [
+            {
+              "zh": "每天",
+              "pinyin": "měi tiān",
+              "en": "Every day"
+            },
+            {
+              "zh": "昨天",
+              "pinyin": "zuó tiān",
+              "en": "Yesterday"
+            },
+            {
+              "zh": "明年",
+              "pinyin": "míng nián",
+              "en": "Next year"
+            },
+            {
+              "zh": "刚才",
+              "pinyin": "gāng cái",
+              "en": "Just now"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression means “already”?",
+          "options": [
+            {
+              "zh": "已经",
+              "pinyin": "yǐ jīng",
+              "en": "Already"
+            },
+            {
+              "zh": "还没",
+              "pinyin": "hái méi",
+              "en": "Not yet"
+            },
+            {
+              "zh": "以后",
+              "pinyin": "yǐ hòu",
+              "en": "Afterwards"
+            },
+            {
+              "zh": "以前",
+              "pinyin": "yǐ qián",
+              "en": "Before; previously"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which expression means “not yet”?",
+          "options": [
+            {
+              "zh": "还没",
+              "pinyin": "hái méi",
+              "en": "Not yet"
+            },
+            {
+              "zh": "已经",
+              "pinyin": "yǐ jīng",
+              "en": "Already"
+            },
+            {
+              "zh": "每天",
+              "pinyin": "měi tiān",
+              "en": "Every day"
+            },
+            {
+              "zh": "马上",
+              "pinyin": "mǎ shàng",
+              "en": "Immediately"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence means “I get up at seven every morning”?",
+          "options": [
+            {
+              "zh": "我每天早上七点起床",
+              "pinyin": "wǒ měi tiān zǎo shang qī diǎn qǐ chuáng",
+              "en": "I get up at seven every morning"
+            },
+            {
+              "zh": "我起床每天七点早上",
+              "pinyin": "wǒ qǐ chuáng měi tiān qī diǎn zǎo shang",
+              "en": "Incorrect order"
+            },
+            {
+              "zh": "我七点每天起床早上",
+              "pinyin": "wǒ qī diǎn měi tiān qǐ chuáng zǎo shang",
+              "en": "Incorrect order"
+            },
+            {
+              "zh": "我每天起床早上七点吗",
+              "pinyin": "wǒ měi tiān qǐ chuáng zǎo shang qī diǎn ma",
+              "en": "Question form, not the statement"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word means “afternoon”?",
+          "options": [
+            {
+              "zh": "下午",
+              "pinyin": "xià wǔ",
+              "en": "Afternoon"
+            },
+            {
+              "zh": "早上",
+              "pinyin": "zǎo shang",
+              "en": "Morning"
+            },
+            {
+              "zh": "晚上",
+              "pinyin": "wǎn shang",
+              "en": "Evening"
+            },
+            {
+              "zh": "中午",
+              "pinyin": "zhōng wǔ",
+              "en": "Noon"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence says “I have not eaten dinner yet”?",
+          "options": [
+            {
+              "zh": "我还没吃晚饭",
+              "pinyin": "wǒ hái méi chī wǎn fàn",
+              "en": "I have not eaten dinner yet"
+            },
+            {
+              "zh": "我已经吃晚饭",
+              "pinyin": "wǒ yǐ jīng chī wǎn fàn",
+              "en": "I have already eaten dinner"
+            },
+            {
+              "zh": "我每天吃晚饭",
+              "pinyin": "wǒ měi tiān chī wǎn fàn",
+              "en": "I eat dinner every day"
+            },
+            {
+              "zh": "我明天吃晚饭",
+              "pinyin": "wǒ míng tiān chī wǎn fàn",
+              "en": "I will eat dinner tomorrow"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-i-comparisons",
+      "topic_id": "zh-comparisons",
+      "topicDisplay": {
+        "zh": "比较句型",
+        "pinyin": "bǐ jiào jù xíng",
+        "en": "Comparisons"
+      },
+      "title": {
+        "zh": "用比、更、最和一样进行比较",
+        "pinyin": "yòng bǐ, gèng, zuì hé yí yàng jìn xíng bǐ jiào",
+        "en": "Comparing with 比, 更, 最 and 一样"
+      },
+      "summary": {
+        "zh": "学习中文常见比较结构，表达高低、程度、最高级和相同程度。",
+        "pinyin": "xué xí zhōng wén cháng jiàn bǐ jiào jié gòu, biǎo dá gāo dī, chéng dù, zuì gāo jí hé xiāng tóng chéng dù.",
+        "en": "Learn common Chinese comparison patterns for difference, degree, superlatives and equality."
+      },
+      "explanation": [
+        {
+          "zh": "A比B加形容词表示A在某方面超过B。",
+          "pinyin": "A bǐ B jiā xíng róng cí biǎo shì A zài mǒu fāng miàn chāo guò B.",
+          "en": "A 比 B + adjective says A is more ... than B."
+        },
+        {
+          "zh": "更加强调程度更高；最表示在某个范围内程度最高。",
+          "pinyin": "gèng jiā qiáng diào chéng dù gèng gāo; zuì biǎo shì zài mǒu ge fàn wéi nèi chéng dù zuì gāo.",
+          "en": "更 intensifies a comparison; 最 marks the highest degree in a group."
+        },
+        {
+          "zh": "跟……一样表示两者相同；没有……那么表示不如某者达到某种程度。",
+          "pinyin": "gēn……yí yàng biǎo shì liǎng zhě xiāng tóng; méi yǒu……nà me biǎo shì bù rú mǒu zhě dá dào mǒu zhǒng chéng dù.",
+          "en": "跟…一样 expresses equality; 没有…那么 expresses a lower degree."
+        }
+      ],
+      "points": [
+        {
+          "zh": "我比他高表示 I am taller than him。",
+          "pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
+          "en": "我比他高 means I am taller than him."
+        },
+        {
+          "zh": "最常放在形容词前，例如最好、最快。",
+          "pinyin": "zuì cháng fàng zài xíng róng cí qián, lì rú zuì hǎo, zuì kuài.",
+          "en": "最 comes before an adjective, as in best or fastest."
+        },
+        {
+          "zh": "比较可以作副词，表示 relatively 或 comparatively。",
+          "pinyin": "bǐ jiào kě yǐ zuò fù cí, biǎo shì relatively huò comparatively.",
+          "en": "比较 can mean relatively or comparatively."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "今天比昨天冷。",
+          "pinyin": "jīn tiān bǐ zuó tiān lěng.",
+          "en": "Today is colder than yesterday."
+        },
+        {
+          "zh": "这是我们班最有趣的书。",
+          "pinyin": "zhè shì wǒ men bān zuì yǒu qù de shū.",
+          "en": "This is the most interesting book in our class."
+        },
+        {
+          "zh": "我的房间跟你的房间一样大。",
+          "pinyin": "wǒ de fáng jiān gēn nǐ de fáng jiān yí yàng dà.",
+          "en": "My room is as large as yours."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "比字句中，比较对象通常放在形容词前。",
+          "pinyin": "bǐ zì jù zhōng, bǐ jiào duì xiàng tōng cháng fàng zài xíng róng cí qián.",
+          "en": "In a 比 sentence, the comparison target comes before the adjective."
+        },
+        {
+          "zh": "表达“不如”时，可用A没有B那么……。",
+          "pinyin": "biǎo dá “bù rú” shí, kě yòng A méi yǒu B nà me……",
+          "en": "Use A 没有 B 那么… to say A is not as ... as B."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which pattern means “A is more ... than B”?",
+          "options": [
+            {
+              "zh": "A比B + adjective",
+              "pinyin": "A bǐ B jiā xíng róng cí",
+              "en": "A is more ... than B"
+            },
+            {
+              "zh": "A跟B一样 + adjective",
+              "pinyin": "A gēn B yí yàng",
+              "en": "A is as ... as B"
+            },
+            {
+              "zh": "A没有B + noun",
+              "pinyin": "A méi yǒu B",
+              "en": "A does not have B"
+            },
+            {
+              "zh": "A在B + adjective",
+              "pinyin": "A zài B",
+              "en": "A is at B"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence means “I am taller than him”?",
+          "options": [
+            {
+              "zh": "我比他高",
+              "pinyin": "wǒ bǐ tā gāo",
+              "en": "I am taller than him"
+            },
+            {
+              "zh": "我跟他一样高",
+              "pinyin": "wǒ gēn tā yí yàng gāo",
+              "en": "I am as tall as him"
+            },
+            {
+              "zh": "我没有他高",
+              "pinyin": "wǒ méi yǒu tā gāo",
+              "en": "I am not as tall as him"
+            },
+            {
+              "zh": "他比我高",
+              "pinyin": "tā bǐ wǒ gāo",
+              "en": "He is taller than me"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word commonly marks a superlative?",
+          "options": [
+            {
+              "zh": "最",
+              "pinyin": "zuì",
+              "en": "Most; -est"
+            },
+            {
+              "zh": "比",
+              "pinyin": "bǐ",
+              "en": "Than; compare"
+            },
+            {
+              "zh": "跟",
+              "pinyin": "gēn",
+              "en": "With; as"
+            },
+            {
+              "zh": "没有",
+              "pinyin": "méi yǒu",
+              "en": "Do not have"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which phrase means “as big as”?",
+          "options": [
+            {
+              "zh": "一样大",
+              "pinyin": "yí yàng dà",
+              "en": "The same size"
+            },
+            {
+              "zh": "更大",
+              "pinyin": "gèng dà",
+              "en": "Bigger"
+            },
+            {
+              "zh": "最大",
+              "pinyin": "zuì dà",
+              "en": "The biggest"
+            },
+            {
+              "zh": "不大",
+              "pinyin": "bú dà",
+              "en": "Not big"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence means “Today is colder than yesterday”?",
+          "options": [
+            {
+              "zh": "今天比昨天冷",
+              "pinyin": "jīn tiān bǐ zuó tiān lěng",
+              "en": "Today is colder than yesterday"
+            },
+            {
+              "zh": "昨天比今天冷",
+              "pinyin": "zuó tiān bǐ jīn tiān lěng",
+              "en": "Yesterday is colder than today"
+            },
+            {
+              "zh": "今天跟昨天一样冷",
+              "pinyin": "jīn tiān gēn zuó tiān yí yàng lěng",
+              "en": "Today is as cold as yesterday"
+            },
+            {
+              "zh": "今天没有昨天冷",
+              "pinyin": "jīn tiān méi yǒu zuó tiān lěng",
+              "en": "Today is not as cold as yesterday"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pattern means “A is not as ... as B”?",
+          "options": [
+            {
+              "zh": "A没有B那么 + adjective",
+              "pinyin": "A méi yǒu B nà me",
+              "en": "A is not as ... as B"
+            },
+            {
+              "zh": "A比B + adjective",
+              "pinyin": "A bǐ B",
+              "en": "A is more ... than B"
+            },
+            {
+              "zh": "A跟B一样 + adjective",
+              "pinyin": "A gēn B yí yàng",
+              "en": "A is as ... as B"
+            },
+            {
+              "zh": "A最 + adjective",
+              "pinyin": "A zuì",
+              "en": "A is the most ..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which word can intensify a comparison, meaning “even more”?",
+          "options": [
+            {
+              "zh": "更",
+              "pinyin": "gèng",
+              "en": "Even more"
+            },
+            {
+              "zh": "最",
+              "pinyin": "zuì",
+              "en": "The most"
+            },
+            {
+              "zh": "跟",
+              "pinyin": "gēn",
+              "en": "With; as"
+            },
+            {
+              "zh": "一样",
+              "pinyin": "yí yàng",
+              "en": "The same"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "zh-i-sentence-expansion",
+      "topic_id": "zh-sentence-expansion",
+      "topicDisplay": {
+        "zh": "扩展句子",
+        "pinyin": "kuò zhǎn jù zi",
+        "en": "Expanding sentences"
+      },
+      "title": {
+        "zh": "用关联结构扩展句子",
+        "pinyin": "yòng guān lián jié gòu kuò zhǎn jù zi",
+        "en": "Expanding sentences with paired structures"
+      },
+      "summary": {
+        "zh": "学习用成对关联结构表达原因、转折、条件、同时进行和先后顺序。",
+        "pinyin": "xué xí yòng chéng duì guān lián jié gòu biǎo dá yuán yīn, zhuǎn zhé, tiáo jiàn, tóng shí jìn xíng hé xiān hòu shùn xù.",
+        "en": "Use paired connectors to express reasons, contrast, conditions, simultaneous actions and sequence."
+      },
+      "explanation": [
+        {
+          "zh": "因为……所以……连接原因与结果。",
+          "pinyin": "yīn wèi……suǒ yǐ……lián jiē yuán yīn yǔ jié guǒ.",
+          "en": "因为…所以… links a reason and its result."
+        },
+        {
+          "zh": "虽然……但是……表示让步或转折。",
+          "pinyin": "suī rán……dàn shì……biǎo shì ràng bù huò zhuǎn zhé.",
+          "en": "虽然…但是… expresses concession or contrast."
+        },
+        {
+          "zh": "如果……就……表示条件与结果；一边……一边……表示同时进行。",
+          "pinyin": "rú guǒ……jiù……biǎo shì tiáo jiàn yǔ jié guǒ; yì biān……yì biān……biǎo shì tóng shí jìn xíng.",
+          "en": "如果…就… gives a condition and result; 一边…一边… marks simultaneous actions."
+        }
+      ],
+      "points": [
+        {
+          "zh": "先……然后……表示动作顺序。",
+          "pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
+          "en": "先…然后… shows sequence."
+        },
+        {
+          "zh": "不但……而且……表示递进，第二部分增加信息。",
+          "pinyin": "bú dàn……ér qiě……biǎo shì dì jìn, dì èr bù fen zēng jiā xìn xī.",
+          "en": "不但…而且… adds a further point."
+        },
+        {
+          "zh": "成对结构的两部分通常各自引出相关内容。",
+          "pinyin": "chéng duì jié gòu de liǎng bù fen tōng cháng gè zì yǐn chū xiāng guān nèi róng.",
+          "en": "Each half of a paired structure introduces related information."
+        }
+      ],
+      "examples": [
+        {
+          "zh": "因为下雨，所以我们在家。",
+          "pinyin": "yīn wèi xià yǔ, suǒ yǐ wǒ men zài jiā.",
+          "en": "Because it is raining, we are at home."
+        },
+        {
+          "zh": "虽然很累，但是她继续学习。",
+          "pinyin": "suī rán hěn lèi, dàn shì tā jì xù xué xí.",
+          "en": "Although she is tired, she continues studying."
+        },
+        {
+          "zh": "他一边听音乐，一边做作业。",
+          "pinyin": "tā yì biān tīng yīn yuè, yì biān zuò zuò yè.",
+          "en": "He listens to music while doing homework."
+        }
+      ],
+      "mistakes": [
+        {
+          "zh": "不要把虽然和所以当作一组；常见搭配是虽然……但是……。",
+          "pinyin": "bú yào bǎ suī rán hé suǒ yǐ dàng zuò yì zǔ; cháng jiàn dā pèi shì suī rán……dàn shì……",
+          "en": "虽然 pairs with 但是, not 所以."
+        },
+        {
+          "zh": "表达同时进行时，不要把一边……一边……误解为先后顺序。",
+          "pinyin": "biǎo dá tóng shí jìn xíng shí, bú yào bǎ yì biān……yì biān……wù jiě wéi xiān hòu shùn xù.",
+          "en": "一边…一边… describes simultaneous actions, not a sequence."
+        }
+      ],
+      "practices": [
+        {
+          "q": "Which pair connects a reason with its result?",
+          "options": [
+            {
+              "zh": "因为……所以……",
+              "pinyin": "yīn wèi……suǒ yǐ……",
+              "en": "Because... therefore..."
+            },
+            {
+              "zh": "虽然……但是……",
+              "pinyin": "suī rán……dàn shì……",
+              "en": "Although... however..."
+            },
+            {
+              "zh": "一边……一边……",
+              "pinyin": "yì biān……yì biān……",
+              "en": "While... at the same time..."
+            },
+            {
+              "zh": "先……然后……",
+              "pinyin": "xiān……rán hòu……",
+              "en": "First... then..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pair expresses contrast or concession?",
+          "options": [
+            {
+              "zh": "虽然……但是……",
+              "pinyin": "suī rán……dàn shì……",
+              "en": "Although... however..."
+            },
+            {
+              "zh": "因为……所以……",
+              "pinyin": "yīn wèi……suǒ yǐ……",
+              "en": "Because... therefore..."
+            },
+            {
+              "zh": "如果……就……",
+              "pinyin": "rú guǒ……jiù……",
+              "en": "If... then..."
+            },
+            {
+              "zh": "不但……而且……",
+              "pinyin": "bú dàn……ér qiě……",
+              "en": "Not only... but also..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pair expresses a condition and its result?",
+          "options": [
+            {
+              "zh": "如果……就……",
+              "pinyin": "rú guǒ……jiù……",
+              "en": "If... then..."
+            },
+            {
+              "zh": "虽然……但是……",
+              "pinyin": "suī rán……dàn shì……",
+              "en": "Although... however..."
+            },
+            {
+              "zh": "先……然后……",
+              "pinyin": "xiān……rán hòu……",
+              "en": "First... then..."
+            },
+            {
+              "zh": "一边……一边……",
+              "pinyin": "yì biān……yì biān……",
+              "en": "Simultaneous actions"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pair shows two actions happening at the same time?",
+          "options": [
+            {
+              "zh": "一边……一边……",
+              "pinyin": "yì biān……yì biān……",
+              "en": "While... at the same time..."
+            },
+            {
+              "zh": "先……然后……",
+              "pinyin": "xiān……rán hòu……",
+              "en": "First... then..."
+            },
+            {
+              "zh": "因为……所以……",
+              "pinyin": "yīn wèi……suǒ yǐ……",
+              "en": "Because... therefore..."
+            },
+            {
+              "zh": "如果……就……",
+              "pinyin": "rú guǒ……jiù……",
+              "en": "If... then..."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which sentence means “Although she is tired, she continues studying”?",
+          "options": [
+            {
+              "zh": "虽然很累，但是她继续学习",
+              "pinyin": "suī rán hěn lèi, dàn shì tā jì xù xué xí",
+              "en": "Although she is tired, she continues studying"
+            },
+            {
+              "zh": "因为很累，所以她继续学习",
+              "pinyin": "yīn wèi hěn lèi, suǒ yǐ tā jì xù xué xí",
+              "en": "Because she is tired, she continues studying"
+            },
+            {
+              "zh": "如果很累，就她继续学习",
+              "pinyin": "rú guǒ hěn lèi, jiù tā jì xù xué xí",
+              "en": "If tired, then she continues studying"
+            },
+            {
+              "zh": "她先很累，然后学习",
+              "pinyin": "tā xiān hěn lèi, rán hòu xué xí",
+              "en": "She is first tired, then studies"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Which pair adds a second, stronger point?",
+          "options": [
+            {
+              "zh": "不但……而且……",
+              "pinyin": "bú dàn……ér qiě……",
+              "en": "Not only... but also..."
+            },
+            {
+              "zh": "虽然……但是……",
+              "pinyin": "suī rán……dàn shì……",
+              "en": "Although... however..."
+            },
+            {
+              "zh": "如果……就……",
+              "pinyin": "rú guǒ……jiù……",
+              "en": "If... then..."
+            },
+            {
+              "zh": "因为……所以……",
+              "pinyin": "yīn wèi……suǒ yǐ……",
+              "en": "Because... therefore..."
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  ],
   "advanced": []
 };
