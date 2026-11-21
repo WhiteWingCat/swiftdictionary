@@ -63,6 +63,44 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await expect(page.locator("#lessonReader")).toBeVisible();
 });
 
+test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
+  await installDailyLearningMock(page,"chinese-lesson-user");
+  await page.goto("/");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("chinese-lesson-user");
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  await expect(page.locator("#lessonLibrary")).toBeVisible();
+  await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#dailyLearningPage")).toBeHidden();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(1);
+
+  const card=page.locator("#lessonCards .lesson-card").first();
+  await expect(card.locator("h3 .lesson-chinese-line")).toHaveText("拼音基础与四声");
+  await expect(card.locator("h3 .lesson-pinyin-line")).toHaveText("pīn yīn jī chǔ yǔ sì shēng");
+  await expect(card.locator("h3 .lesson-english-line")).toContainText("Pinyin foundations");
+
+  await card.click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  const title=page.locator("#lessonReaderContent h2");
+  await expect(title.locator(".lesson-chinese-line")).toHaveText("拼音基础与四声");
+  await expect(title.locator(".lesson-pinyin-line")).toHaveText("pīn yīn jī chǔ yǔ sì shēng");
+  await expect(title.locator(".lesson-english-line")).toContainText("Pinyin foundations");
+
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(title.locator(".lesson-english-line")).toContainText("Pinyin foundations");
+
+  const layout=await title.locator(".lesson-bilingual-block").evaluate(node=>{
+    const chinese=node.querySelector(".lesson-chinese-line").getBoundingClientRect();
+    const pinyin=node.querySelector(".lesson-pinyin-line").getBoundingClientRect();
+    const english=node.querySelector(".lesson-english-line").getBoundingClientRect();
+    return {chineseBottom:chinese.bottom,pinyinTop:pinyin.top,pinyinBottom:pinyin.bottom,englishTop:english.top,pinyinDisplay:getComputedStyle(node.querySelector(".lesson-pinyin-line")).display};
+  });
+  expect(layout.pinyinDisplay).toBe("block");
+  expect(layout.pinyinTop).toBeGreaterThanOrEqual(layout.chineseBottom-1);
+  expect(layout.englishTop).toBeGreaterThanOrEqual(layout.pinyinBottom-1);
+});
+
 test("exhausted lesson allowance blocks new lessons but preserves completed lesson review", async ({ page }) => {
   await installDailyLearningMock(page,"lesson-limit-user","free");
   await page.goto("/");
@@ -71,7 +109,7 @@ test("exhausted lesson allowance blocks new lessons but preserves completed less
     const state = window.__swiftDailyMock;
     state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 5;
     state.tables.lesson_progress = [{
-      user_id:"lesson-limit-user",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
+      user_id:"lesson-limit-user",learning_language:"en",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
       started_at:new Date().toISOString(),completed_at:new Date().toISOString(),updated_at:new Date().toISOString()
     }];
   });
@@ -133,7 +171,7 @@ test("Premium lesson allowance blocks new lessons after fifteen completions but 
     const state = window.__swiftDailyMock;
     state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 15;
     state.tables.lesson_progress = [{
-      user_id:"premium-lesson-limit-user",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
+      user_id:"premium-lesson-limit-user",learning_language:"en",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
       started_at:new Date().toISOString(),completed_at:new Date().toISOString(),updated_at:new Date().toISOString()
     }];
   });
@@ -505,13 +543,17 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
             ? { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } }
             : { data: state.allowanceUsage, error: null };
           if (name === "is_personal_learning_test_access") return { data: false, error: null };
-          if (name === "complete_permanent_lesson") {
+          if (name === "complete_permanent_lesson" || name === "complete_permanent_lesson_for_language") {
             const usage = state.allowanceUsage.find(row => row.activity_type === "lesson");
             const limit = state.tables.learning_plan_limits.find(row => row.plan_code === ${JSON.stringify(plan)} && row.activity_type === "lesson");
             if (!usage || !limit || usage.used_count >= limit.daily_limit) return { data:null, error:{code:"P0001",message:"Daily learning completion limit reached"} };
             usage.used_count += 1;
-            return { data:{status:"completed"}, error:null };
+            const learningLanguage = name === "complete_permanent_lesson" ? "en" : args.p_learning_language;
+            const progress = state.tables.lesson_progress.find(row => row.user_id === state.user.id && row.learning_language === learningLanguage && row.difficulty === args.p_difficulty && row.lesson_id === args.p_lesson_id);
+            if (progress) Object.assign(progress,{status:"completed",completed_at:new Date().toISOString(),updated_at:new Date().toISOString()});
+            return { data:progress||{learning_language:learningLanguage,status:"completed"}, error:null };
           }
+          if (name === "record_completed_lesson_practice_result_for_language") return { data:true, error:null };
           if (name === "start_daily_activity_session") {
             const completed = state.sessions.find(row => row.activity_type === args.p_activity_type && row.content_id === args.p_content_id && row.status === "completed");
             if (completed) return { data: completed, error: null };
