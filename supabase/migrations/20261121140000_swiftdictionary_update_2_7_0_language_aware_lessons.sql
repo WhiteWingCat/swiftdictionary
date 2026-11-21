@@ -110,6 +110,13 @@ $function$;
 revoke all on function public.guard_lesson_progress_update()
   from public, anon, authenticated, service_role;
 
+-- The completion-based allowance design no longer charges or logs lesson starts.
+-- Remove the legacy English-only start trigger so Chinese starts cannot be
+-- mislabeled as English and starting/resuming a lesson remains free.
+drop trigger if exists lesson_progress_charge_on_first_start on public.lesson_progress;
+revoke all on function public.record_lesson_start_allowance()
+  from public, anon, authenticated;
+
 -- Completion events and practice summaries inherit the course from the row.
 -- The lesson allowance remains shared across English and Chinese courses:
 -- enforce_learning_daily_limit still counts activity_type='lesson' without
