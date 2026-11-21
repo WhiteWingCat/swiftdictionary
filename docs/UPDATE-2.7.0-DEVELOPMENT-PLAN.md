@@ -451,3 +451,31 @@ The local Auth/Quiz/Flashcard integration workflow subsequently completed succes
 - Quiz database foundation job passed in run #44882082923; its Local Supabase Auth/RPC job remained in authenticated Chromium Quiz runtime testing at the latest check.
 - The retired `swiftdictionary-testing` Workers build failure is separate from the successful Pages preview.
 - The private Cloudflare Pages build log was not accessible through current connected tools. Confirm staging backend routing in the final preview check before signing in.
+
+
+
+
+## 15. Shared Lessons UI redesign and temporary Chinese expansion pause (2026-11-21)
+
+Owner direction: pause further Chinese dictionary/content expansion temporarily while reworking the Lessons UI. This does not cancel Chinese support or delay the overall update; current Chinese data and language-aware progress foundation remain in scope. The redesign applies to both English and Chinese.
+
+Implemented:
+- Elevated Permanent Lessons container holding difficulty tabs, daily allowance and permanent lesson library.
+- Moved My daily activities settings to Preferences, retaining existing user_preferences storage and sync; added localized heading, preference-page initialization and visible save/error status.
+- Distinct colour, shadow and active-panel connection for Daily Learning tabs.
+- Wider permanent lesson reader (1320px maximum/full available parent width).
+- Higher-contrast Chinese, pinyin and English typography with generous line spacing.
+- Consistent KEY IDEA / 重点 visual emphasis for curated lesson points in both courses.
+- Practice overflow protection and long-text wrapping.
+- Daily Learning left drawer at half desktop viewport, 62% medium and full-screen mobile.
+- Smooth reader/drawer transitions and reduced-motion handling.
+
+Technical changes: new lessons-ui.css; index.html markup/render changes; daily-learning.js panel theme, close animation and preference status; build.sh cache-bust update; new tests/update-2-7-0/check-lessons-ui.mjs wired into the U2.7 workflow. Regression assertions were updated for the new Lessons order, shaded Daily Discovery backdrop and new script cache version.
+
+No database migration/schema change or new personal-data processing was introduced. Existing staging migration is retained; production is untouched. Formal Malaysia PDPA/international legal review remains deferred, not cleared.
+
+Latest app head: 0e0d0b520f8d763dbb9839deda36085ded759082. PR #14 remains draft/open/unmerged. Latest Cloudflare Pages preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (deployment: https://8dfdd54f.swiftdictionary.pages.dev).
+
+Latest U2.7 workflow #44886855621 and Cloudflare routing guard #44886855624 passed. Flashcards suite #44886855618 passed. 2.3.x PostgreSQL and Chromium jobs passed in #44886855634; local Supabase Auth compatibility, U2.6 ACL cleanup and Quiz Auth/RPC integration were still completing at last check. Do not declare the full suite green until those remaining jobs finish.
+
+Detailed session record: docs/conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md.
