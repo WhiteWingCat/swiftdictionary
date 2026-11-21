@@ -92,3 +92,17 @@ The user clarified that pinyin must **not** be added to Chinese Dictionary grid 
 - The original 206 dictionary entries are categorized through the legacy metadata map `window.SWIFT_CHINESE_METADATA` in `data/chinese-characters.js`; the 519 additions carry their own categories. All 725 are covered by the category filter.
 - Quiz database foundation #44876788818 passed. Companion local Supabase Auth/RPC run #44876433049 passed the U2.7.0 migration and SQL tests, authenticated Quiz runtime, Flashcards and Lessons allowance regressions, and local security advisors. A rerun against the current head is in progress.
 - No hosted Supabase migration, merge or deployment has occurred.
+
+
+## Current Malaysia and international legal-risk review (2026-11-21)
+
+A current risk-planning review was added to Section 12 of the U2.7.0 Development Plan. Main findings:
+- U2.7.0 adds only a `learning_language` dimension to existing user-linked lesson progress; no new identity data, sensitive personal data, advertising profile or telemetry.
+- The Malaysia PDPA Amendment Act 2024 took effect in phases during 2025. DPO thresholds include regular/systematic online behaviour monitoring as well as numerical thresholds; the app's progress tracking should be assessed as usage grows.
+- Data-breach notification guidance uses a 72-hour deadline to notify the Commissioner where criteria are met, with affected-user notification for significant harm.
+- The 2024 amendments introduce data portability subject to technical feasibility/compatibility; this is not implemented in U2.7.0 and remains a broader backlog item.
+- Existing Singapore staging and Tokyo production processing, plus Cloudflare and onward processors, require a documented cross-border transfer review under section 129 and the Commissioner's CBPDT Guidelines. U2.7.0 does not change the regions.
+- The 13-class controller registration requirement does not appear to automatically include a general dictionary/learning website, but the actual business activity and current 2026 circular must be checked.
+- GDPR Article 8 and the UK Children's Code require separate attention for a global 16+ audience, especially UK 16–17-year-olds if likely to access the service.
+- CC-CEDICT-derived content remains under CC BY-SA 4.0 with attribution/share-alike; older 206-entry provenance is still an audit item. Classical Li Bai/Xunzi excerpts are attributed; modern copyrighted texts are excluded unless licensed.
+- This is risk planning only. Formal legal/privacy review remains deferred; no compliance or legal clearance is claimed.
