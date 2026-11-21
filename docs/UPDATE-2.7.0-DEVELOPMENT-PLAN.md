@@ -479,3 +479,18 @@ Latest app head: 0e0d0b520f8d763dbb9839deda36085ded759082. PR #14 remains draft/
 Latest U2.7 workflow #44886855621 and Cloudflare routing guard #44886855624 passed. Flashcards suite #44886855618 passed. 2.3.x PostgreSQL and Chromium jobs passed in #44886855634; local Supabase Auth compatibility, U2.6 ACL cleanup and Quiz Auth/RPC integration were still completing at last check. Do not declare the full suite green until those remaining jobs finish.
 
 Detailed session record: docs/conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md.
+
+
+
+
+### Final CI and Pages deployment verification (2026-11-21)
+
+All latest-head PR workflows passed:
+- U2.7.0 dictionary/Chinese Lessons/UI and browser suite #44886855621.
+- Update 2.3.x PostgreSQL/Auth/Chromium #44886855634.
+- Update 2.5.0 Flashcards #44886855618.
+- Update 2.6.0 ACL #44886855686.
+- Quiz database foundation/Auth/RPC/Chromium #44886855646.
+- Cloudflare build-routing guard #44886855624.
+
+Cloudflare Pages deployment for latest app head 0e0d0b5 succeeded: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (deployment URL https://8dfdd54f.swiftdictionary.pages.dev). PR #14 remains draft/open/unmerged. The only outstanding owner step is optional visual acceptance of the new preview; no technical manual work is required. Production remains untouched.
