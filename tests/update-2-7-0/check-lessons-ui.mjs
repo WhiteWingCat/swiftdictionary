@@ -8,7 +8,7 @@ const count=(s,p)=>(s.match(p)||[]).length;
 assert.equal(count(html,/id="dailyPreferencesLegend"/g),1);
 const d0=html.indexOf('<section id="dailyLearningPage"'); const d1=html.indexOf("</section>",d0);
 const p0=html.indexOf('<section id="preferencesPage"'); const p1=html.indexOf("</section>\n  </main>",p0);
-const l0=html.indexOf('<section id="permanentLessonsPanel"'); const l1=html.indexOf('<section id="dailyLearningPage"',l0);
+const l0=html.indexOf('<section id="permanentLessonsPanel"'); const l1=html.indexOf('\n      </section>\n    </section>\n    <section id="lessonDetailPage"',l0);
 assert(d0>=0&&d1>d0&&p0>=0&&p1>p0&&l0>=0&&l1>l0&&d0<l0);
 assert(!html.slice(d0,d1).includes("daily-preferences"));
 assert(html.slice(p0,p1).includes('id="dailyPreferencesLegend"'));
