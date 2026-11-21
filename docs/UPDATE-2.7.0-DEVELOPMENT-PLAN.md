@@ -163,3 +163,21 @@ The application source is now accessible and the current baseline is sufficientl
 - Do not rely on the old Unihan `kFrequency` field; it was removed in Unicode 16.0.0. The current `kHanyuPinlu` property is a distinct readings/frequency source.
 - The MyIPO-hosted updated text of Malaysia's Copyright Act 1987 (Act 332), stated as at 30 June 2022, includes dictionaries among literary works and addresses derivative works including translations/adaptations and qualifying compilations of data through selection/arrangement. This is a relevant risk flag for copied dictionary text, translations and curated compilations, not a legal determination. Verify the latest law and actual licensing implications before release: https://www.myipo.gov.my/wp-content/uploads/2025/09/Copyright-Act-1987-Act-332.pdf.
 - Neither source automatically clears the existing 206 entries or any other source. Track provenance per imported/adapted field and do not assume character facts, pinyin readings, example sentences and explanatory definitions all have identical copyright status.
+
+
+## 10. Phase 1 implementation progress — Chinese dictionary filter foundation
+
+**Current status: partial implementation committed to the application feature branch; CI green.**
+
+- Application branch head: `510954a3e2c037ab7f231ddaeec3247299c08181`.
+- Pinyin A–Z filter is enabled for the Chinese course. It matches the first letter of any slash-separated pinyin reading, strips tone diacritics for initial detection, disables letters with no matching entries, and combines with the existing character/pinyin search.
+- Polyphonic characters can appear under each listed pinyin initial. Browser coverage explicitly checks the character 会 under H and K.
+- Added Chinese category-filter controls and category matching against an entry's `categories` array. Supported category slugs: actions, expressions, people, objects, nature, places, time-numbers, emotions-states, descriptions, grammar-function. A character can have multiple categories.
+- Category controls remain hidden until the dictionary has category metadata. The current 206-entry dataset has no category arrays, so classification and category-filter browser coverage remain outstanding.
+- Dictionary cards remain character-only. No pinyin was added to grid cards; the new A–Z filter uses the existing `phonetic` data without changing card presentation.
+- Added explicit hidden-state CSS for category rows inside the filter panel, so hidden category controls do not remain displayed because of a more-specific flex rule.
+- Added `tests/update-2-7-0/check-chinese-dictionary.mjs`, `tests/browser/update-2-7-0-chinese-filters.spec.js`, and a dedicated GitHub Actions workflow `.github/workflows/update-2-7-0-chinese-dictionary.yml`.
+- GitHub Actions run [44867027510](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44867027510) passed: static/data assertions and all three Chromium browser tests.
+- The first two CI attempts exposed a CSS specificity issue with the `hidden` attribute and a Playwright locator assertion issue. Both were corrected; the final recorded run is green.
+- No new dictionary entries or category assignments have been added yet. The next data phase should use the source/provenance strategy in Section 9, then populate category arrays in sequential, reviewed batches.
+
