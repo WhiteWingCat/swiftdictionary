@@ -64,3 +64,8 @@ Do not start bulk content work before Phase 0 is complete. Do not provide interm
 - Documentation branch: `docs/master-development-record`.
 - Plan document: `docs/UPDATE-2.7.0-DEVELOPMENT-PLAN.md`.
 - Next task: Phase 0 baseline audit only. Do not modify production or merge/deploy without explicit owner approval.
+
+
+## Owner correction — pinyin display scope (2026-11-21)
+
+The owner clarified that pinyin must **not** be added to Chinese Dictionary grid cards. Keep the existing character-only grid presentation. The vertical character-above-pinyin requirement applies specifically to Chinese Lessons content and readers. The development plan was corrected accordingly before implementation; no application source was changed for this clarification.
