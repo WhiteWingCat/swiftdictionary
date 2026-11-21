@@ -1,7 +1,7 @@
 # SwiftDictionary Update 2.7.0 — Development Plan
 
 Date: 2026-11-21  
-Status: Planning finalized; development branch prepared  
+Status: Implementation in progress; automated U2.7 checks pass; staging validation pending  
 Repository: WhiteWingCat/swiftdictionary  
 Application base: main at `ba580c3f43e8b34f79205b69ae9f858186759036`  
 Feature branch: `feature/update-2-7-0-chinese-dictionary-lessons`  
@@ -362,5 +362,44 @@ This is a product-planning risk review, not legal advice or a compliance certifi
 
 - Existing automated checks include the U2.3 frontend/content checker, Chromium browser smoke tests, PostgreSQL allowance/catalogue tests, Quiz/Flashcard tests and U2.6 ACL tests.
 - The inspected latest main-branch CI workflow jobs completed successfully (build/deploy, Chromium smoke, PostgreSQL allowance and ACL checks, local Supabase Auth compatibility, Quiz and Flashcards).
-- There is no dedicated Chinese permanent-lessons test suite yet. U2.7 must add static content/pinyin checks, database language-isolation and allowance tests, and browser tests for Chinese course navigation, bilingual content, pinyin placement, answer shuffling, translation refresh and independent progress.
-- Third-party source licensing/provenance for new Chinese definitions, examples, idioms, quotations and poetry remains to be reviewed before release.
+- A dedicated U2.7 suite is now present: dictionary/content static checks, Chinese lesson bilingual/pinyin checks, Chromium filter and reader tests, language-isolation/allowance SQL tests, and local Supabase Auth/RPC integration.
+- Source attribution pages and notices now cover CC-CEDICT (CC BY-SA 4.0), Unicode Unihan (Unicode License v3), mozillazg/pinyin-data (MIT) and the HSK 3.0 source list (MIT). Formal legal review remains deferred; do not claim legal clearance.
+
+
+## 10. Implementation checkpoint — 2026-11-21
+
+**Feature branch:** `feature/update-2-7-0-chinese-dictionary-lessons`  
+**Reviewed head:** `c8c6e72e92a0fac2b1be4d8454c25a1227053a36`  
+**Status:** Core implementation is on the feature branch; automated U2.7 Chromium/static checks and the U2.7 database migration regression have passed. Staging preview and owner testing remain pending.
+
+### Implemented on the feature branch
+
+- Chinese dictionary: 519 new single-character entries plus 206 existing entries = 725 unique characters; no duplicate identities in the combined catalogue.
+- New character data includes pinyin, meanings, learner examples, source IDs, HSK candidate level and category metadata. Legacy entries use a separate metadata map.
+- Dictionary filters: Pinyin A–Z initial filter, all supported readings for polyphonic characters, semantic categories and combined filtering. Existing dictionary card design is preserved: **no pinyin is added to dictionary grid cards**.
+- Chinese Lessons: 17 permanent lessons and 112 practice questions (Beginner 7/44, Intermediate 5/34, Advanced 5/34), matching the audited English lesson volume.
+- Chinese lesson content provides Simplified Chinese, tone-marked pinyin and English support. The selected translation language does not remove English support. Pinyin is rendered directly below Chinese text in lesson content and practice; it is not placed above or beside the Chinese text.
+- All 17 question prompts that included Chinese inside English-only strings were converted to bilingual Chinese/pinyin/English objects. The static checker now rejects any unpaired Chinese text in lesson data.
+- Language-aware progress and practice-result migration supports separate English/Chinese records, catalogue rows and completion/replay RPCs. The existing Free 5 / Premium 15 permanent-lesson daily allowance remains shared across both courses.
+- Public Dictionary Data Sources page and repository notices cover CC-CEDICT, Unicode Unihan, mozillazg/pinyin-data and HSK 3.0 source licensing. The CC-CEDICT-derived dictionary remains free and unrestricted.
+
+### QA and recent corrections
+
+- U2.7 dictionary static + Chromium workflow passed at reviewed head: [run 44881091752](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091752).
+- The local Supabase database foundation job, including the U2.7 language-aware lesson migration regression, passed in [run 44881091714](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44881091714). The separate local Auth/Quiz/Flashcard integration job was still running at the time of this checkpoint.
+- The dictionary static test now enforces at least 500 new entries and 700 total unique entries and checks public source attributions.
+- The Chinese lesson browser test checks pinyin stacking on desktop and narrow mobile layouts.
+- Unicode Unihan copyright notice corrected to Copyright © 2021-2026 Unicode, Inc.; mozillazg/pinyin-data MIT attribution was added alongside the upstream Unicode notice.
+
+### Remaining release gates
+
+1. Complete the remaining local Auth/RPC integration workflow.
+2. Conduct manual linguistic review. Automated checks confirm structure and coverage, not the correctness of every pinyin reading, tone-sandhi choice, definition or category. Review the 80 new polyphonic entries especially; some secondary readings are restricted to names, literary forms or specific words and must be labelled clearly or removed if not useful to learners.
+3. Review Simplified Chinese character forms and the HSK level assignments against the pinned sources.
+4. Deploy/test the feature branch preview against the Singapore staging project only after the owner approves the staging migration. The migration has only been applied in disposable CI; no staging or production database was changed in this checkpoint.
+5. Complete owner browser testing for course switching, translation refresh, saved progress, independent English/Chinese progress, shared daily allowance, mobile layouts and existing English-course regressions.
+6. Merge to `main` and deploy to production only with explicit owner approval. Apply the migration to production separately and only after approval.
+
+### Privacy and legal boundary
+
+No new tracking or unrelated personal-data collection was introduced. The migration adds a language discriminator to existing user-linked lesson progress and practice records. Review the privacy notice when the owner next updates it. Malaysia-specific and general international legal/privacy review remains deferred; source notices are attribution measures, not a legal compliance certification.
