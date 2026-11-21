@@ -18,7 +18,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "帮",
@@ -40,7 +41,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "包",
@@ -62,7 +64,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "备",
@@ -84,7 +87,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "比",
@@ -106,7 +110,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "边",
@@ -128,7 +133,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "常",
@@ -150,7 +156,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "场",
@@ -172,7 +179,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "唱",
@@ -194,7 +202,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "次",
@@ -216,7 +225,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "打",
@@ -238,7 +248,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "大",
@@ -259,7 +270,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "地",
@@ -282,7 +294,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "弟",
@@ -303,7 +316,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "第",
@@ -325,7 +339,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "点",
@@ -348,7 +363,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "动",
@@ -370,7 +386,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "都",
@@ -392,7 +409,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "饿",
@@ -413,7 +431,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "儿",
@@ -435,7 +454,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "放",
@@ -456,7 +476,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "飞",
@@ -478,7 +499,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "非",
@@ -500,7 +522,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "分",
@@ -523,7 +546,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "干",
@@ -545,7 +569,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "高",
@@ -567,7 +592,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "告",
@@ -589,7 +615,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "歌",
@@ -611,7 +638,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "馆",
@@ -632,7 +660,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "贵",
@@ -654,7 +683,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "国",
@@ -676,7 +706,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "过",
@@ -699,7 +730,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "孩",
@@ -720,7 +752,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "汉",
@@ -742,7 +775,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "号",
@@ -764,7 +798,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "候",
@@ -787,7 +822,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "话",
@@ -809,7 +845,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "坏",
@@ -831,7 +868,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "欢",
@@ -853,7 +891,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "机",
@@ -875,7 +914,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "几",
@@ -897,7 +937,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "记",
@@ -919,7 +960,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "假",
@@ -941,7 +983,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "间",
@@ -963,7 +1006,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "见",
@@ -985,7 +1029,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "教",
@@ -1007,7 +1052,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "叫",
@@ -1030,7 +1076,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "觉",
@@ -1052,7 +1099,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "介",
@@ -1074,7 +1122,8 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   },
   {
     "word": "今",
@@ -1095,6 +1144,7 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
-    ]
+    ],
+    "course": "zh"
   }
 ];
