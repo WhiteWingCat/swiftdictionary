@@ -21,7 +21,7 @@ Finalize the owner-approved scope for Update 2.7.0 and prepare a clean applicati
 3. Preserve one character per grid card and existing character/pinyin search.
 4. Permanent layout rule: character above pinyin, pinyin directly underneath. Never left, right or above. This applies to desktop, mobile and responsive layouts.
 5. Add a Simplified Chinese course to the existing Lessons framework; do not rebuild the framework.
-6. Initial minimum 15 lessons and 52 practice questions, at least five lessons per Beginner/Intermediate/Advanced difficulty; may exceed if quality permits.
+6. Initial minimum at least 17 lessons and 112 practice questions, matching the actual English library (7/5/5 lessons and 44/34/34 questions across Beginner/Intermediate/Advanced); may exceed if quality permits.
 7. English support is guaranteed for Chinese lessons regardless of selected translation language.
 8. Pinyin is mandatory throughout Chinese lesson content, including sentences, expressions, idioms, proverbs, quotations and poetry; align pinyin clearly with longer passages.
 9. Include grammar, vocabulary, common expressions, 成语, 谚语, 名言警句 and selected 诗词; distinguish each content type and verify quote attribution.
@@ -69,3 +69,18 @@ Do not start bulk content work before Phase 0 is complete. Do not provide interm
 ## Owner correction — pinyin display scope (2026-11-21)
 
 The owner clarified that pinyin must **not** be added to Chinese Dictionary grid cards. Keep the existing character-only grid presentation. The vertical character-above-pinyin requirement applies specifically to Chinese Lessons content and readers. The development plan was corrected accordingly before implementation; no application source was changed for this clarification.
+
+
+## Phase 0 audit results (2026-11-21)
+
+- Audited `main` at `ba580c3f43e8b34f79205b69ae9f858186759036`, application entry point `index.html`.
+- Chinese dictionary contains 206 unique single-character entries, all with a pinyin value; 12 are polyphonic (221 slash-separated readings total). There are no multi-character grid entries and no character-category metadata. Existing broad `part` labels are not sufficient as learner categories.
+- Current Chinese A–Z filter is disabled; the alphabet strip is hidden for Chinese. The existing English part-of-speech category row is also hidden for Chinese. Pinyin search already works.
+- Dictionary grid cards intentionally show the character only. Owner clarified: do not add pinyin to grid cards.
+- Current English Lessons baseline is 17 lessons and 112 questions: Beginner 7/44, Intermediate 5/34, Advanced 5/34. The `lessonZh` data translates those English lessons into Chinese; it is not a Chinese learning course. Update 2.7.0 should target at least the same 17/112 volume.
+- The existing Lessons reader does not render pinyin. Chinese course content needs its own lesson dataset and pinyin-aligned reader rendering; pinyin should be authored/validated at phrase and sentence level because character-only automatic transliteration cannot resolve all polyphonic/contextual readings.
+- Supabase progress and practice result tables currently do not identify the learning language. The private approved-content catalogue permits only `en`; validation and completion/replay RPCs hardcode English. A backward-compatible additive migration is needed for language-aware progress and approved Chinese lesson catalogue entries. Existing lesson quota counts completions by user/activity type across language codes; preserve this shared allowance pool.
+- Existing CI includes static checks, Chromium browser tests, PostgreSQL 17 migration tests and disposable local Supabase Auth/RPC integration. Dedicated Chinese filter/lesson tests do not yet exist.
+- Third-party notices cover Hanzi Writer MIT and separately licensed Arphic Public License stroke data. The current Chinese dictionary data lacks per-entry provenance/licensing metadata; establish content sourcing records before release.
+- No application code, hosted Supabase schema, production settings or deployment has been changed during Phase 0.
+- The detailed audit is recorded in Section 9 of `docs/UPDATE-2.7.0-DEVELOPMENT-PLAN.md`.
