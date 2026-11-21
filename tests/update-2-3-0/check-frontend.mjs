@@ -395,8 +395,8 @@ assertTime(
 );
 
 const required = [
-  'rpc("complete_permanent_lesson"',
-  'rpc("record_completed_lesson_practice_result"',
+  'rpc("complete_permanent_lesson_for_language"',
+  'rpc("record_completed_lesson_practice_result_for_language"',
   'rpc("delete_my_learning_history"',
   'id="deleteLearningHistoryButton"',
   'id="learningHistoryDeleteStatus"',
