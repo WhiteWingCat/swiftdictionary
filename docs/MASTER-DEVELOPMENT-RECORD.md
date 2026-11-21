@@ -3060,3 +3060,18 @@ Remaining gates: finish local Auth/RPC CI; manually review pinyin accuracy, espe
 - Latest 2.3.x PostgreSQL and Chromium jobs passed in #44886855634; local Supabase Auth compatibility was completing cleanup at last check. U2.6 ACL disposable Supabase cleanup and Quiz Auth/RPC integration were still running. The prior 2.3.x ordering assertion failure was corrected and its latest run passed the PostgreSQL and Chromium jobs.
 - A separate Cloudflare Workers build for retired swiftdictionary-testing failed; it is not the active Pages deployment. Do not conflate it with the successful Pages preview.
 - Detailed archive: [Update 2.7.0 — Lessons UI redesign and content pause](conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md).
+
+
+
+
+### U2.7.0 Lessons UI — final automated verification (2026-11-21)
+
+All latest-head PR workflows completed successfully:
+- U2.7.0 dictionary/Chinese Lessons/UI static-accessibility/browser suite #44886855621.
+- Update 2.3.x PostgreSQL/Auth/Chromium suite #44886855634.
+- Update 2.5.0 Flashcards suite #44886855618.
+- Update 2.6.0 ACL regression #44886855686.
+- Quiz database foundation and Local Supabase Auth/RPC/Chromium integration #44886855646.
+- Cloudflare build-routing guard #44886855624.
+
+The latest Cloudflare Pages preview for app head 0e0d0b5 deployed successfully at https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev (deployment https://8dfdd54f.swiftdictionary.pages.dev). PR #14 body was updated with completed CI evidence and remains draft/open/unmerged. No production migration, merge or deployment occurred. Owner visual acceptance of the updated preview remains outstanding; no technical manual action is required from the owner.
