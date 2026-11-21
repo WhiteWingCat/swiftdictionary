@@ -6832,5 +6832,1151 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ]
+  },
+  {
+    "word": "共",
+    "part": "汉语词汇",
+    "phonetic": "gòng",
+    "definition": "common; general; together; to share; total; altogether",
+    "definitionZh": "共同、一起；共有；总共、合计。",
+    "examples": [
+      "我们共有五个人。"
+    ],
+    "breakdown": "整体记忆；常见于“共同”“一共”等词。",
+    "related": "共同 gòng tóng；一共 yí gòng",
+    "categories": [
+      "grammar-function",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "狗",
+    "part": "汉语词汇",
+    "phonetic": "gǒu",
+    "definition": "dog; canine",
+    "definitionZh": "狗；常见的家养动物。",
+    "examples": [
+      "我家有一只狗。"
+    ],
+    "breakdown": "整体记忆；常见于动物和宠物相关词语。",
+    "related": "小狗 xiǎo gǒu；狗狗 gǒu gou",
+    "categories": [
+      "nature",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "够",
+    "part": "汉语词汇",
+    "phonetic": "gòu",
+    "definition": "enough; sufficient; to reach by stretching; really (colloquial)",
+    "definitionZh": "足够、充分；伸手能够到；口语中也可加强语气。",
+    "examples": [
+      "这些钱够买一张票。"
+    ],
+    "breakdown": "整体记忆；常用于表示数量或程度足够。",
+    "related": "足够 zú gòu；够用 gòu yòng",
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "故",
+    "part": "汉语词汇",
+    "phonetic": "gù",
+    "definition": "reason; cause; old; former; intentional; therefore; hence",
+    "definitionZh": "原因、缘故；旧的、从前的；因此；也可表示故意。",
+    "examples": [
+      "事故的原因还不清楚。"
+    ],
+    "breakdown": "整体记忆；常见于“故事”“故意”“事故”等词。",
+    "related": "故事 gù shi；故意 gù yì",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "顾",
+    "part": "汉语词汇",
+    "phonetic": "gù",
+    "definition": "to look after; attend to; take into consideration; look back",
+    "definitionZh": "照顾、关照；考虑、顾及；也可表示回头看。",
+    "examples": [
+      "请照顾好自己。"
+    ],
+    "breakdown": "整体记忆；常见于“照顾”“顾客”“顾及”等词。",
+    "related": "照顾 zhào gù；顾客 gù kè",
+    "categories": [
+      "actions",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "观",
+    "part": "汉语词汇",
+    "phonetic": "guān",
+    "definition": "to look at; watch; observe; behold; concept; point of view",
+    "definitionZh": "观看、观察；观点、看法。",
+    "examples": [
+      "我们去动物园观看动物。"
+    ],
+    "breakdown": "整体记忆；常见于“观看”“观察”“观点”等词。",
+    "related": "观看 guān kàn；观点 guān diǎn",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "惯",
+    "part": "汉语词汇",
+    "phonetic": "guàn",
+    "definition": "accustomed to; used to; to indulge; spoil",
+    "definitionZh": "习惯、惯常；也可表示过分宠爱或纵容。",
+    "examples": [
+      "我已经习惯早起了。"
+    ],
+    "breakdown": "整体记忆；常见于“习惯”“惯例”等词。",
+    "related": "习惯 xí guàn；惯例 guàn lì",
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "广",
+    "part": "汉语词汇",
+    "phonetic": "guǎng",
+    "definition": "wide; broad; extensive; numerous; to expand",
+    "definitionZh": "宽广、广大；范围大、数量多。",
+    "examples": [
+      "广场上有很多人。"
+    ],
+    "breakdown": "整体记忆；常见于“广场”“广大”“广告”等词。",
+    "related": "广场 guǎng chǎng；广告 guǎng gào",
+    "categories": [
+      "descriptions",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "海",
+    "part": "汉语词汇",
+    "phonetic": "hǎi",
+    "definition": "sea; ocean; great number; vast",
+    "definitionZh": "海洋、大海；也可表示数量极多或范围广大。",
+    "examples": [
+      "我们暑假去海边。"
+    ],
+    "breakdown": "整体记忆；常用于海洋、海岸和自然景观。",
+    "related": "海边 hǎi biān；海洋 hǎi yáng",
+    "categories": [
+      "nature",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "喊",
+    "part": "汉语词汇",
+    "phonetic": "hǎn",
+    "definition": "to yell; shout; call out for someone",
+    "definitionZh": "喊叫、大声呼喊；叫某人或某物。",
+    "examples": [
+      "请不要大声喊叫。"
+    ],
+    "breakdown": "整体记忆；常用于表达大声呼唤或发出声音。",
+    "related": "喊叫 hǎn jiào；大喊 dà hǎn",
+    "categories": [
+      "actions",
+      "expressions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "河",
+    "part": "汉语词汇",
+    "phonetic": "hé",
+    "definition": "river; stream",
+    "definitionZh": "河流；自然形成的流水通道。",
+    "examples": [
+      "这条河很长。"
+    ],
+    "breakdown": "整体记忆；常用于河流、河岸和水域名称。",
+    "related": "河水 hé shuǐ；河边 hé biān",
+    "categories": [
+      "nature",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "黑",
+    "part": "汉语词汇",
+    "phonetic": "hēi",
+    "definition": "black; dark; sinister; secret; illegal; to hide",
+    "definitionZh": "黑色、黑暗；也可表示秘密、不合法或不光明。",
+    "examples": [
+      "我的猫是黑色的。"
+    ],
+    "breakdown": "整体记忆；常与“白”形成对比。",
+    "related": "黑色 hēi sè；黑板 hēi bǎn",
+    "categories": [
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "红",
+    "part": "汉语词汇",
+    "phonetic": "hóng",
+    "definition": "red; popular; successful; revolutionary",
+    "definitionZh": "红色；也可表示受欢迎、走红或成功。",
+    "examples": [
+      "她穿着一件红衣服。"
+    ],
+    "breakdown": "整体记忆；常用于颜色和受欢迎程度。",
+    "related": "红色 hóng sè；红茶 hóng chá",
+    "categories": [
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "忽",
+    "part": "汉语词汇",
+    "phonetic": "hū",
+    "definition": "suddenly; neglect; overlook; ignore",
+    "definitionZh": "忽然、突然；忽略、疏忽。",
+    "examples": [
+      "他忽然想起一件事。"
+    ],
+    "breakdown": "整体记忆；常见于“忽然”“忽略”等词。",
+    "related": "忽然 hū rán；忽略 hū lüè",
+    "categories": [
+      "time-numbers",
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "湖",
+    "part": "汉语词汇",
+    "phonetic": "hú",
+    "definition": "lake",
+    "definitionZh": "湖泊；被陆地包围的大面积水域。",
+    "examples": [
+      "湖边有很多树。"
+    ],
+    "breakdown": "整体记忆；常用于自然地理和水域名称。",
+    "related": "湖水 hú shuǐ；湖边 hú biān",
+    "categories": [
+      "nature",
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "护",
+    "part": "汉语词汇",
+    "phonetic": "hù",
+    "definition": "to protect; guard; defend; shield",
+    "definitionZh": "保护、守护；防止人或事物受到伤害。",
+    "examples": [
+      "我们要保护环境。"
+    ],
+    "breakdown": "整体记忆；常见于“保护”“护照”“护理”等词。",
+    "related": "保护 bǎo hù；护照 hù zhào",
+    "categories": [
+      "actions",
+      "people"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "划",
+    "part": "汉语词汇",
+    "phonetic": "huá / huà",
+    "definition": "to row; paddle; cut; scratch; draw a line; plan",
+    "definitionZh": "划船、划动；划线、划分；也可表示计划或安排。",
+    "examples": [
+      "请用笔在纸上划一条线。"
+    ],
+    "breakdown": "多音字；划船读 huá，划线、计划等常读 huà。",
+    "related": "划船 huá chuán；计划 jì huà",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "画",
+    "part": "汉语词汇",
+    "phonetic": "huà",
+    "definition": "to draw; paint; picture; painting; stroke of a Chinese character",
+    "definitionZh": "画画、绘画；图画、画作；也指汉字的一笔。",
+    "examples": [
+      "我喜欢画画。"
+    ],
+    "breakdown": "整体记忆；常用于绘画、图像和汉字笔画。",
+    "related": "画画 huà huà；图画 tú huà",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "换",
+    "part": "汉语词汇",
+    "phonetic": "huàn",
+    "definition": "to exchange; change; replace; switch; convert",
+    "definitionZh": "交换、更换、替换；改变原来的物品或状态。",
+    "examples": [
+      "我想换一件衣服。"
+    ],
+    "breakdown": "整体记忆；常用于更换物品、衣服或货币。",
+    "related": "换钱 huàn qián；交换 jiāo huàn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "黄",
+    "part": "汉语词汇",
+    "phonetic": "huáng",
+    "definition": "yellow; to fall through; pornographic (slang)",
+    "definitionZh": "黄色；也可在口语中表示事情失败或不正当内容。",
+    "examples": [
+      "秋天树叶变黄了。"
+    ],
+    "breakdown": "整体记忆；常用于颜色和自然变化。",
+    "related": "黄色 huáng sè；黄河 huáng hé",
+    "categories": [
+      "descriptions",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "活",
+    "part": "汉语词汇",
+    "phonetic": "huó",
+    "definition": "to live; alive; living; work; workmanship; flexible",
+    "definitionZh": "生活、活着；工作、活计；也可表示灵活或生动。",
+    "examples": [
+      "他在这里生活了很多年。"
+    ],
+    "breakdown": "整体记忆；常见于“生活”“活动”“活泼”等词。",
+    "related": "生活 shēng huó；活动 huó dòng",
+    "categories": [
+      "actions",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "或",
+    "part": "汉语词汇",
+    "phonetic": "huò",
+    "definition": "or; perhaps; maybe; possibly",
+    "definitionZh": "或者、或许；表示选择或不确定的可能性。",
+    "examples": [
+      "你可以喝茶或咖啡。"
+    ],
+    "breakdown": "整体记忆；常用于列举选择或表达可能。",
+    "related": "或者 huò zhě；或许 huò xǔ",
+    "categories": [
+      "grammar-function",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "级",
+    "part": "汉语词汇",
+    "phonetic": "jí",
+    "definition": "level; grade; rank; step; classifier for levels",
+    "definitionZh": "级别、等级、年级；也作台阶或层级的量词。",
+    "examples": [
+      "他升到了更高的年级。"
+    ],
+    "breakdown": "整体记忆；常用于学习等级、职级和程度。",
+    "related": "年级 nián jí；高级 gāo jí",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "急",
+    "part": "汉语词汇",
+    "phonetic": "jí",
+    "definition": "urgent; pressing; rapid; hurried; worried; anxious",
+    "definitionZh": "紧急、急迫；着急、焦虑；速度快。",
+    "examples": [
+      "我有急事要先走。"
+    ],
+    "breakdown": "整体记忆；常用于表达紧急情况或焦虑心情。",
+    "related": "急忙 jí máng；着急 zháo jí",
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "己",
+    "part": "汉语词汇",
+    "phonetic": "jǐ",
+    "definition": "self; oneself; sixth of the ten Heavenly Stems",
+    "definitionZh": "自己、本人；也用于天干顺序。",
+    "examples": [
+      "请相信自己。"
+    ],
+    "breakdown": "整体记忆；常见于“自己”“知己”等词。",
+    "related": "自己 zì jǐ；知己 zhī jǐ",
+    "categories": [
+      "people",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "计",
+    "part": "汉语词汇",
+    "phonetic": "jì",
+    "definition": "to calculate; compute; count; plan; scheme; meter; gauge",
+    "definitionZh": "计算、计数；计划、谋划；也指计量仪表。",
+    "examples": [
+      "我们需要计划一下时间。"
+    ],
+    "breakdown": "整体记忆；常见于“计划”“计算”“统计”等词。",
+    "related": "计划 jì huà；计算 jì suàn",
+    "categories": [
+      "actions",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "际",
+    "part": "汉语词汇",
+    "phonetic": "jì",
+    "definition": "border; edge; boundary; between; interval; occasion; time",
+    "definitionZh": "边界、交界；之间；时机或场合。",
+    "examples": [
+      "我们在国际机场见面。"
+    ],
+    "breakdown": "整体记忆；常见于“国际”“实际”“交际”等词。",
+    "related": "国际 guó jì；实际 shí jì",
+    "categories": [
+      "places",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "绩",
+    "part": "汉语词汇",
+    "phonetic": "jì",
+    "definition": "merit; achievement; accomplishment; results",
+    "definitionZh": "成绩、功绩；努力后取得的成果。",
+    "examples": [
+      "她的学习成绩很好。"
+    ],
+    "breakdown": "整体记忆；常见于“成绩”“业绩”等词。",
+    "related": "成绩 chéng jì；业绩 yè jì",
+    "categories": [
+      "people",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "加",
+    "part": "汉语词汇",
+    "phonetic": "jiā",
+    "definition": "to add; plus; increase; augment; apply; impose",
+    "definitionZh": "增加、添加；加上；使数量或程度变大。",
+    "examples": [
+      "请加一点水。"
+    ],
+    "breakdown": "整体记忆；常用于数量、程度和添加动作。",
+    "related": "加入 jiā rù；增加 zēng jiā",
+    "categories": [
+      "actions",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "检",
+    "part": "汉语词汇",
+    "phonetic": "jiǎn",
+    "definition": "to check; examine; inspect; exercise restraint",
+    "definitionZh": "检查、检验、检视；仔细查看是否正确。",
+    "examples": [
+      "老师检查了我的作业。"
+    ],
+    "breakdown": "整体记忆；常见于“检查”“检验”“体检”等词。",
+    "related": "检查 jiǎn chá；检验 jiǎn yàn",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "件",
+    "part": "汉语词汇",
+    "phonetic": "jiàn",
+    "definition": "item; component; classifier for events, things and clothes",
+    "definitionZh": "件；用于衣服、事情、物品等的量词。",
+    "examples": [
+      "我买了两件衣服。"
+    ],
+    "breakdown": "整体记忆；常放在数字后计量衣服或具体事项。",
+    "related": "一件 yí jiàn；文件 wén jiàn",
+    "categories": [
+      "objects",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "健",
+    "part": "汉语词汇",
+    "phonetic": "jiàn",
+    "definition": "healthy; strong; to invigorate; strengthen; good at",
+    "definitionZh": "健康、强健；使身体或能力变得更强。",
+    "examples": [
+      "每天运动有益健康。"
+    ],
+    "breakdown": "整体记忆；常见于“健康”“健身”“健全”等词。",
+    "related": "健康 jiàn kāng；健身 jiàn shēn",
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "讲",
+    "part": "汉语词汇",
+    "phonetic": "jiǎng",
+    "definition": "to speak; explain; lecture; negotiate; emphasize; be particular about",
+    "definitionZh": "讲话、讲解、讲课；说明或强调某件事。",
+    "examples": [
+      "老师正在讲课。"
+    ],
+    "breakdown": "整体记忆；常见于表达、解释和教学活动。",
+    "related": "讲话 jiǎng huà；讲解 jiǎng jiě",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "交",
+    "part": "汉语词汇",
+    "phonetic": "jiāo",
+    "definition": "to hand over; deliver; pay; make friends; intersect; exchange",
+    "definitionZh": "交给、交付、交钱；结交朋友；相交、交换。",
+    "examples": [
+      "请把作业交给老师。"
+    ],
+    "breakdown": "整体记忆；常见于交付、交流和人际关系。",
+    "related": "交朋友 jiāo péng you；交通 jiāo tōng",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "角",
+    "part": "汉语词汇",
+    "phonetic": "jiǎo / jué",
+    "definition": "corner; angle; horn; unit of money; role; character",
+    "definitionZh": "角落、角度、角；读 jué 时表示角色或戏剧人物。",
+    "examples": [
+      "桌子的角有点尖。"
+    ],
+    "breakdown": "多音字；表示角落、角度时读 jiǎo，表示角色时读 jué。",
+    "related": "角落 jiǎo luò；角色 jué sè",
+    "categories": [
+      "objects",
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "饺",
+    "part": "汉语词汇",
+    "phonetic": "jiǎo",
+    "definition": "dumpling (bound form)",
+    "definitionZh": "饺子；一种常见的面食，通常带有馅料。",
+    "examples": [
+      "我喜欢吃饺子。"
+    ],
+    "breakdown": "整体记忆；通常与“子”组成“饺子”。",
+    "related": "饺子 jiǎo zi；水饺 shuǐ jiǎo",
+    "categories": [
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "接",
+    "part": "汉语词汇",
+    "phonetic": "jiē",
+    "definition": "to receive; answer; meet; welcome; connect; catch; take over",
+    "definitionZh": "接收、接听、迎接；连接、接住；接替工作。",
+    "examples": [
+      "我去机场接朋友。"
+    ],
+    "breakdown": "整体记忆；常用于接人、接电话和连接物品。",
+    "related": "接受 jiē shòu；接电话 jiē diàn huà",
+    "categories": [
+      "actions",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "街",
+    "part": "汉语词汇",
+    "phonetic": "jiē",
+    "definition": "street; road; avenue",
+    "definitionZh": "街道、街巷；城市中供人和车辆通行的道路。",
+    "examples": [
+      "这条街很热闹。"
+    ],
+    "breakdown": "整体记忆；常用于街道、街口和商业街。",
+    "related": "街道 jiē dào；街口 jiē kǒu",
+    "categories": [
+      "places"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "节",
+    "part": "汉语词汇",
+    "phonetic": "jié",
+    "definition": "joint; section; segment; festival; season; integrity; classifier for lessons",
+    "definitionZh": "节日、季节；部分、段落；也作课程或课时的量词。",
+    "examples": [
+      "我们今天有两节课。"
+    ],
+    "breakdown": "整体记忆；常用于节日、季节、段落和课时。",
+    "related": "节日 jié rì；季节 jì jié",
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "结",
+    "part": "汉语词汇",
+    "phonetic": "jié / jiē",
+    "definition": "knot; to tie; bond; result; to bear fruit; form",
+    "definitionZh": "打结、结合；结果；读 jiē 时表示植物结果实。",
+    "examples": [
+      "请把绳子结好。"
+    ],
+    "breakdown": "多音字；结成、结婚等读 jié，结果实读 jiē。",
+    "related": "结果 jié guǒ；结婚 jié hūn",
+    "categories": [
+      "actions",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "借",
+    "part": "汉语词汇",
+    "phonetic": "jiè",
+    "definition": "to borrow; lend; make use of; avail oneself of",
+    "definitionZh": "借入、借出；利用某种机会或条件。",
+    "examples": [
+      "我向朋友借了一本书。"
+    ],
+    "breakdown": "整体记忆；注意“借给”和“向……借”的方向不同。",
+    "related": "借书 jiè shū；借用 jiè yòng",
+    "categories": [
+      "actions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "斤",
+    "part": "汉语词汇",
+    "phonetic": "jīn",
+    "definition": "catty; traditional weight unit (500 g in mainland China)",
+    "definitionZh": "斤；中国大陆常用的重量单位，1斤等于500克。",
+    "examples": [
+      "我买了一斤苹果。"
+    ],
+    "breakdown": "整体记忆；常用于买菜和称量食物。",
+    "related": "一斤 yì jīn；公斤 gōng jīn",
+    "categories": [
+      "time-numbers",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "近",
+    "part": "汉语词汇",
+    "phonetic": "jìn",
+    "definition": "near; close to; approximately; intimate",
+    "definitionZh": "距离短、接近；也可表示关系亲近或大约。",
+    "examples": [
+      "我家离学校很近。"
+    ],
+    "breakdown": "整体记忆；常与“远”形成对比。",
+    "related": "附近 fù jìn；近处 jìn chù",
+    "categories": [
+      "places",
+      "descriptions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "经",
+    "part": "汉语词汇",
+    "phonetic": "jīng",
+    "definition": "to pass through; undergo; endure; scripture; longitude; channel",
+    "definitionZh": "经过、经历；经典、经书；也可指经线或传统医学中的经络。",
+    "examples": [
+      "我经常坐公交车上班。"
+    ],
+    "breakdown": "整体记忆；常见于“经过”“经常”“经验”等词。",
+    "related": "经常 jīng cháng；经过 jīng guò",
+    "categories": [
+      "actions",
+      "time-numbers",
+      "communication"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "睛",
+    "part": "汉语词汇",
+    "phonetic": "jīng",
+    "definition": "eyeball; eye (bound form)",
+    "definitionZh": "眼珠、眼睛；通常作为“眼睛”的构词部分。",
+    "examples": [
+      "她的眼睛很漂亮。"
+    ],
+    "breakdown": "整体记忆；常与“眼”组成“眼睛”。",
+    "related": "眼睛 yǎn jing；目不转睛 mù bù zhuǎn jīng",
+    "categories": [
+      "people",
+      "objects"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "静",
+    "part": "汉语词汇",
+    "phonetic": "jìng",
+    "definition": "still; calm; quiet; motionless; silent",
+    "definitionZh": "安静、平静；没有声音或动作。",
+    "examples": [
+      "请保持安静。"
+    ],
+    "breakdown": "整体记忆；常与“动”形成对比。",
+    "related": "安静 ān jìng；平静 píng jìng",
+    "categories": [
+      "descriptions",
+      "emotions-states"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "久",
+    "part": "汉语词汇",
+    "phonetic": "jiǔ",
+    "definition": "long time; for a long time; long-lasting",
+    "definitionZh": "时间长、很久；持续较长的一段时间。",
+    "examples": [
+      "我们很久没见了。"
+    ],
+    "breakdown": "整体记忆；常用于表示时间持续。",
+    "related": "很久 hěn jiǔ；长久 cháng jiǔ",
+    "categories": [
+      "time-numbers"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "酒",
+    "part": "汉语词汇",
+    "phonetic": "jiǔ",
+    "definition": "wine; liquor; spirits; alcoholic beverage",
+    "definitionZh": "酒类饮品；包括米酒、葡萄酒和烈酒等。",
+    "examples": [
+      "他不喝酒。"
+    ],
+    "breakdown": "整体记忆；常用于饮食和文化语境。",
+    "related": "啤酒 pí jiǔ；酒馆 jiǔ guǎn",
+    "categories": [
+      "objects",
+      "nature"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "举",
+    "part": "汉语词汇",
+    "phonetic": "jǔ",
+    "definition": "to lift; hold up; cite; enumerate; act; raise; elect",
+    "definitionZh": "举起、抬起；举例、列举；也可表示行动或推选。",
+    "examples": [
+      "请举手回答问题。"
+    ],
+    "breakdown": "整体记忆；常见于举手、举例和举办等词。",
+    "related": "举手 jǔ shǒu；举例 jǔ lì",
+    "categories": [
+      "actions",
+      "expressions"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
+  },
+  {
+    "word": "句",
+    "part": "汉语词汇",
+    "phonetic": "jù",
+    "definition": "sentence; clause; phrase; classifier for phrases and lines of verse",
+    "definitionZh": "句子、语句；也作句子或诗句的量词。",
+    "examples": [
+      "请用这个词写一句话。"
+    ],
+    "breakdown": "整体记忆；常用于语言、语法和写作。",
+    "related": "句子 jù zi；句号 jù hào",
+    "categories": [
+      "communication",
+      "grammar-function"
+    ],
+    "hskLevel": 2,
+    "course": "zh",
+    "sourceIds": [
+      "cc-cedict-2026-11-20",
+      "unihan-18.0.0",
+      "hsk30-pleco"
+    ]
   }
 ];
