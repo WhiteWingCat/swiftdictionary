@@ -92,3 +92,20 @@ Cloudflare dashboard build logs are not accessible through the currently connect
 3. Once preview is live, test signed-out browsing and dictionary filters; sign in with a disposable synthetic staging account for Chinese Lessons, course-specific progress, shared allowance, replay summaries and account switching. Avoid destructive testing with the owner's personal account.
 4. Keep PR #14 draft until manual content review and owner testing are complete.
 5. Request separate explicit approval before marking PR ready/merging, and separate approval for any production migration or deployment.
+
+
+
+
+## Final follow-up — Pages preview deployed; CI regression suite status
+
+- Cloudflare Pages bot confirmed successful deployment for latest application head `ff4c1c4`:
+  - Deployment: https://06110066.swiftdictionary.pages.dev
+  - Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev
+- Cloudflare build-routing guard run #44882082871 passed.
+- U2.7.0 dictionary static/data, Chinese Lessons content/pinyin, full Lessons/Daily Learning browser regression, isolated dictionary browser checks and bilingual layout browser check all passed in run #44882082850.
+- Update 2.3.x PostgreSQL 17 migration/allowance, Supabase CLI local Auth compatibility, and Chromium smoke jobs all passed in run #44882082837. This also confirms the stale frontend RPC assertion fix.
+- Update 2.5.0 Flashcards jobs passed in run #44882082822.
+- Update 2.6.0 ACL drift regression passed in run #44882082838.
+- Quiz database foundation job passed in run #44882082923. Its companion Local Supabase Auth/RPC integration job was still running the authenticated Chromium Quiz runtime tests at the latest check; the complete run is not yet green.
+- Cloudflare's separate Workers Builds check for the retired `swiftdictionary-testing` Worker failed again. This is distinct from the successful `swiftdictionary` Cloudflare Pages preview and is not treated as the active app deployment.
+- The Pages deployment's private build log was not accessible through the current GitHub/Supabase connectors. The build-routing guard passes and the branch preview is deployed, but the exact generated backend config for this specific build was not independently read from the Cloudflare log. Keep the staging-only environment routing check in the final preview verification before signing in.
