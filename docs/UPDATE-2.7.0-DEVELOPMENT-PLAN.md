@@ -31,7 +31,7 @@ Expand the Simplified Chinese dictionary and introduce a substantial Chinese lea
 
 - Add a Chinese course to the existing Lessons page and reuse the current lesson architecture; do not rebuild the English lesson system.
 - Provide Beginner, Intermediate and Advanced difficulty levels with independent progress.
-- Initial minimum catalogue: 15 permanent lessons (at least five per difficulty) and 52 practice questions. This is a minimum, not a cap; expand when quality and validation permit.
+- Initial minimum catalogue: **at least 17 permanent lessons and 112 practice questions**, matching the current English library (7 Beginner / 5 Intermediate / 5 Advanced; 44 / 34 / 34 questions respectively). The target may be exceeded if quality permits. This is a minimum, not a cap; expand when quality and validation permit.
 - Reuse existing reader, practice, completion, progress and allowance behavior. No timer or time pressure.
 - Guarantee English support for Chinese lessons regardless of the user's selected translation language. English must remain available as a reliable support language, not be replaced by the selected translation.
 - Always include accurate tone-marked Hanyu Pinyin for Chinese lesson content: vocabulary, individual examples, full Chinese sentences, expressions, idioms, proverbs, quotations and poetry. For longer passages, align pinyin clearly with the Chinese text.
@@ -81,7 +81,7 @@ Balance grammar, vocabulary and practical comprehension. Avoid making every less
 - Stroke-order controls and detail-panel translation switching remain functional.
 
 ### Lessons and account behavior
-- At least 15 Chinese lessons and 52 practice questions, with at least five lessons per difficulty.
+- At least 17 Chinese lessons and 112 practice questions, with at least five lessons per difficulty; target the current English distribution of 7 Beginner / 5 Intermediate / 5 Advanced and 44 / 34 / 34 questions.
 - English support always available; selected translation language refreshes correctly.
 - Pinyin present and aligned across all Chinese lesson content.
 - English-to-Chinese exercises and comparisons are pedagogically correct.
@@ -114,3 +114,42 @@ This is a planning safeguard, not legal advice or a compliance certification. Fo
 ## 8. Initial development starting point
 
 Begin with Phase 0 only. Do not begin bulk data entry or lesson authoring until the current source/data structure has been audited. The current GitHub connector returned an empty body for `index.html` in the initial fetch attempt, so retrieve/inspect the application source through a suitable repository workflow before making technical assumptions. The README on `main` appears older than the current deployed application and must not be treated as a complete current implementation specification.
+
+
+## 9. Phase 0 baseline audit — verified findings (2026-11-21)
+
+**Audited source:** `main` at `ba580c3f43e8b34f79205b69ae9f858186759036`; application entry point `index.html` (Git blob `f339021f75c7c92b9ffeaf2461c5c686702c46d3`). Feature branch remains based on this exact commit.
+
+### Chinese dictionary
+- Current dataset: 206 entries, 206 unique single Han characters; no multi-character grid entries.
+- All 206 entries currently contain a `phonetic` value. Twelve entries include multiple slash-separated readings; across the dataset there are 221 listed readings.
+- Existing schema fields: `word`, `part`, `phonetic`, `definition`, `definitionZh`, `examples`, `breakdown`, `related`, `course`.
+- Current `part` values are broad labels (`汉语词汇`: 187; `汉字`: 19), not useful learner categories. No character has a `categories`/category/tag field.
+- Current Chinese alphabet filtering is disabled: `makeAlphabet()` hides the A–Z strip for Chinese, and `filteredWords()` bypasses letter matching for the Chinese course. The existing category row is the English part-of-speech filter and is hidden for Chinese.
+- Character cards currently display only the character and saved marker. This is intentional and must remain unchanged: **do not add pinyin to dictionary grid cards**.
+- Character and pinyin search already work. Pinyin search strips diacritics for matching; retain that behavior. Current data has 22 distinct first-letter values among readings; empty A–Z letters should simply be disabled/empty.
+- Stroke-order and dictionary-detail pinyin helpers already exist. The lesson reader is a separate renderer and does not currently use the pinyin line renderer.
+
+### Existing Lessons baseline
+- Current English permanent lesson library: 17 lessons — Beginner 7, Intermediate 5, Advanced 5.
+- Current English practice bank: 112 questions — Beginner 44, Intermediate 34, Advanced 34.
+- The existing `lessonZh` object contains Simplified Chinese translations for all 17 English lessons and their 112 questions. It is a translation layer for English-learning lessons, **not** a Chinese-language learning course.
+- The current lesson reader renders lesson text, examples and practice through the English lesson data plus optional Chinese translations. It does not render pinyin. A new Chinese course therefore needs its own authored lesson data and pinyin-aware content renderer; do not repurpose `lessonZh` as Chinese course content.
+- The current pinyin lookup map has 1,131 character mappings, but character-by-character lookup cannot reliably resolve context-sensitive polyphonic readings or guarantee correct sentence-level tone changes. Author and validate pinyin at phrase/sentence level for Chinese lesson material; use explicit aligned pinyin rather than assuming automatic transliteration is sufficient.
+
+### Supabase progress, catalogue and allowance architecture
+- `public.lesson_progress` currently has no learning-language column. Its uniqueness key is `(user_id,difficulty,lesson_id)`; English lesson identity is assumed throughout.
+- `public.lesson_practice_results` similarly stores no learning-language identity and deduplicates by `(user_id,difficulty,lesson_id)`.
+- `private.learning_content_catalog.language_code` is constrained to `en`; its permanent-lesson validation trigger and completion/replay RPCs hardcode English.
+- Completion triggers write `learning_activity_log.language_code='en'`. The quota enforcement counts completed activity by user and activity type across language codes, so the existing daily lesson allowance is shared across languages. Preserve that shared limit; adding Chinese must not create a second allowance pool or bypass the existing Free/Premium limits.
+- A backward-compatible additive migration is required to add explicit learning-language identity to lesson progress/practice records, permit approved `zh` permanent lessons in the private catalogue, and update secure validation/completion/replay paths. Preserve all legacy rows as English by default. Do not apply any migration to hosted staging or production without explicit approval.
+- Existing RLS, authenticated-only RPC execution, atomic completion/allowance logging, user-scoped access and personal testing exemption must remain intact.
+
+### Tests, CI and third-party content
+- Existing checks include Node static/frontend assertions, Playwright Chromium smoke/regression suites, PostgreSQL 17 migration tests, disposable local Supabase Auth/RPC integration, and Supabase security-advisor checks.
+- There are no dedicated Chinese dictionary-filter or Chinese Lessons browser/content validation suites yet. Add them during implementation.
+- `THIRD_PARTY_NOTICES.md` identifies Hanzi Writer 3.7.3 under MIT and separately identifies Hanzi Writer stroke data from Make Me a Hanzi under the Arphic Public License. Stroke data is fetched from the upstream CDN at runtime and is not the source of the dictionary headword definitions.
+- The current 206-entry dictionary dataset does not carry per-entry source/provenance/license metadata. Establish and record provenance/licensing for new and retained dictionary definitions, examples, pinyin and related vocabulary before release.
+
+### Phase 0 conclusion
+The application source is now accessible and the current baseline is sufficiently understood to design Phase 1. The key technical dependency is a language-aware but backward-compatible Lessons progress/catalogue layer. The Chinese Dictionary grid must remain character-only; the new A–Z and category filters operate on metadata without changing card presentation. The Chinese Lessons reader needs an explicit pinyin-aligned rendering model.
