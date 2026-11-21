@@ -29,3 +29,55 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 The upstream Hanzi Writer Data project states that its character data is licensed separately from Hanzi Writer's source code, originates from Make Me a Hanzi, and was extracted from fonts by Arphic Technology. SwiftDictionary requests character JSON from `hanzi-writer-data@2.0.1` at runtime; it does not bundle or modify those JSON files in this release. The unmodified license text is supplied as a notice for the upstream data lineage.
 
 The MIT license for the JavaScript library does not replace the separate license for the stroke data. Reassess the exact terms before bundling, modifying, redistributing the data, or introducing paid features that use it.
+
+
+## CC-CEDICT Chinese–English dictionary data (2026-11-20 snapshot)
+
+SwiftDictionary's new Chinese single-character entries use adapted English glosses and pronunciation cross-checks from CC-CEDICT.
+
+- Original project: https://cc-cedict.org/
+- MDBG project page: https://www.mdbg.net/chinese/dictionary?page=cc-cedict
+- Data snapshot mirror: https://github.com/rhcarvalho/cedict
+- Snapshot commit: `9f027e342cc57310780f4db0355f54f90d33674d`
+- Original data licence: [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
+
+Attribution: **CC-CEDICT**, community-maintained Chinese–English dictionary, originally made available through MDBG. SwiftDictionary has selected single-character entries and adapted/translated glosses for learner use; the content has been modified and is not endorsed by the original project. CC-CEDICT-derived dictionary data and adapted glosses are distributed under CC BY-SA 4.0. The Dictionary remains free and unrestricted; no additional access restrictions are imposed on this licensed data.
+
+## Unicode Unihan 18.0.0 pronunciation data
+
+SwiftDictionary uses Unihan 18.0.0 pinyin readings as a reference for new Chinese character records.
+
+- Data: https://www.unicode.org/Public/18.0.0/ucd/Unihan.zip
+- Property documentation: https://www.unicode.org/reports/tr38/
+- Licence: https://www.unicode.org/license.txt
+
+### Unicode License v3 — Copyright and Permission Notice
+
+Copyright © 1991-2026 Unicode, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of data files and any associated documentation (the "Data Files") or software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that either (a) this copyright and permission notice appear with all copies of the Data Files or Software, or (b) this copyright and permission notice appear in associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
+
+## HSK 3.0 character list (candidate selection)
+
+SwiftDictionary uses the HSK 3.0 character list from `elkmovie/hsk30` to prioritize candidate characters and record HSK level metadata.
+
+- Source: https://github.com/elkmovie/hsk30
+- Snapshot commit: `7f3d4fdcfcb6e826001df062747c943d1fa8160e`
+- Original file header: Copyright (c) 2021 Pleco Inc.
+- Licence: MIT (see the source repository's LICENSE file)
+
+The upstream list warns that it was OCRed and not extensively proofread. SwiftDictionary uses it as a candidate-selection reference only and validates selected characters against dictionary and pronunciation sources.
+
+### MIT License — Copyright (c) 2021 Pleco Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+See [data/CHINESE-DICTIONARY-SOURCES.md](data/CHINESE-DICTIONARY-SOURCES.md) for per-entry source identifiers and snapshot hashes.
