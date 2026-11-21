@@ -2963,3 +2963,14 @@ A current Malaysia PDPA and general international risk check was added to [the U
 - Authenticated Chromium regression results: Quiz runtime 12 passed, Flashcards 3 passed, Lessons/Daily Learning allowance 2 passed.
 - Supabase security advisors reported “No issues found.”
 - This was local CI only. No migration was applied to hosted Singapore staging or Tokyo production; no merge or deployment occurred.
+
+
+## U2.7.0 Phase 0 audit findings (2026-11-21)
+
+The actual application source on `main` was retrieved and audited. The Chinese dictionary contains 206 unique single-character entries with no duplicates and populated core fields. Twelve entries have multiple pinyin readings. Existing `part` metadata only distinguishes `汉语词汇` and `汉字`; planned semantic categories require new metadata. Preserve the existing Chinese grid layout: character only plus saved marker; do not add pinyin to dictionary cards.
+
+The current English Lessons library contains 17 permanent lessons and 112 questions. The existing `lessonZh` object translates these English lessons into Chinese; it is not a Chinese course. Chinese Lessons are currently unavailable in the UI. The new course needs its own authored catalogue, with explicit pinyin paired directly below Chinese content in lesson reader/practice UI. English must remain available as support independently of selected translation language.
+
+The current progress and practice-result tables have no language field; the content catalogue is English-only; lesson-start validation, completion/replay RPCs and completion activity logging hardcode `en`. A backward-compatible additive migration must add language-scoped progress and practice records, support Chinese catalogue rows and use the correct language in validation/activity logging while preserving existing English progress. Existing allowance logic counts the shared lesson activity type across languages; preserve Free 5 / Premium 15 shared daily permanent-lesson limit unless the owner explicitly approves a change.
+
+Phase 0 confirms the Chinese course target should be at least 17 lessons and 112 practice questions, matching the audited English library. Current CI build/deploy, Chromium smoke, PostgreSQL allowance/ACL, local Auth, Quiz and Flashcard jobs were inspected and passed. Dedicated Chinese course tests remain to be added. No app source, database or deployment changes were made during this audit.
