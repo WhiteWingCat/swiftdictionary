@@ -12,6 +12,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - Keep documentation on `docs/master-development-record`; implementation stays on feature branches and production code on `main`.
 
 ## Archives
+- [Update 2.7.0 planning finalization and development handover](2026-11-21-update-2-7-0-planning-finalization.md) — records the approved Chinese dictionary expansion, Pinyin A–Z/category filters, strict character-above-pinyin layout, Chinese Lessons scope, feature branch and Phase 0 audit starting point.
+
 
 | 2026-11-20 | [Update 2.6.0 account deletion auth freshness fix](2026-11-20-update-2-6-0-account-deletion-auth-freshness-fix.md) | Corrects the unsupported auth_time freshness gate to use Supabase AMR timestamps (excluding token refresh), hardens visible 401/no-navigation feedback, records Singapore staging Edge Function v3 and passing account-deletion guard, and preserves synthetic-only destructive testing and production/legal gates. |
 | Date | Archive | Coverage |
