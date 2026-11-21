@@ -73,7 +73,13 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await expect(page.locator("#lessonLibrary")).toBeVisible();
   await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
   await expect(page.locator("#dailyLearningPage")).toBeHidden();
-  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(1);
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
+  await page.locator('[data-difficulty="intermediate"]').click();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(5);
+  await page.locator('[data-difficulty="advanced"]').click();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(5);
+  await page.locator('[data-difficulty="beginner"]').click();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
 
   const card=page.locator("#lessonCards .lesson-card").first();
   await expect(card.locator("h3 .lesson-chinese-line")).toHaveText("拼音基础与四声");
