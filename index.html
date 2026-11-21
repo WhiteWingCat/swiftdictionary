@@ -513,7 +513,7 @@
     .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
     .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
 </style>
-<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui1">
+<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui2">
 </head>
 <body>
   <header>
@@ -716,6 +716,7 @@
             <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_discovery_enabled" checked><span data-daily-pref-label="daily_discovery">Daily Discovery</span></label>
             <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_revision_enabled" checked><span data-daily-pref-label="daily_revision">Daily Revision</span></label>
           </fieldset>
+          <p id="dailyPreferencesStatus" class="muted-note" role="status" aria-live="polite"></p>
         </section>
         <section id="accountDeletionCard" class="profile-card swift-delete-card">
   <h3>Delete Account</h3>
@@ -18924,6 +18925,7 @@ async function completeLesson(x){
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
       if (page === "lessons" && currentUser) { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
+      if (page === "preferences" && currentUser && typeof initialiseDailyLearning === "function") initialiseDailyLearning();
       if (page === "quiz" && !options.skipQuizInitialise) {
         // Ordinary navigation (including Dashboard's Quiz shortcut) opens the
         // Quiz overview, never a stale completed-review/results subview.

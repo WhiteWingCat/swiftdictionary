@@ -1113,6 +1113,13 @@
     }
   }
 
+  function setDailyPreferenceStatus(message) {
+    const lessonStatus=byId("dailyLearningStatus");
+    const preferencesStatus=byId("dailyPreferencesStatus");
+    if(lessonStatus)lessonStatus.textContent=message;
+    if(preferencesStatus)preferencesStatus.textContent=message;
+  }
+
   function bindPreferenceControls() {
     if (preferenceListenersReady) return;
     preferenceListenersReady = true;
@@ -1124,7 +1131,7 @@
         if (!currentUser || !supabaseClient) {
           input.checked = previous;
           preferences[key] = previous;
-          byId("dailyLearningStatus").textContent = "Sign in to save daily activity preferences across devices.";
+          setDailyPreferenceStatus("Sign in to save daily activity preferences across devices.");
           return;
         }
         input.disabled = true;
@@ -1133,11 +1140,11 @@
             .update({[key]:input.checked}).eq("user_id",currentUser.id);
           if (error) throw error;
           renderCards();
-          byId("dailyLearningStatus").textContent = "Your daily activity preferences have been saved and will sync across devices.";
+          setDailyPreferenceStatus("Your daily activity preferences have been saved and will sync across devices.");
         } catch (error) {
           input.checked = previous;
           preferences[key] = previous;
-          byId("dailyLearningStatus").textContent = "Preference could not be saved: " + (error.message || "Please try again.");
+          setDailyPreferenceStatus("Preference could not be saved: " + (error.message || "Please try again."));
         } finally {
           input.disabled = false;
         }

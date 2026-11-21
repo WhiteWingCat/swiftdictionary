@@ -14,7 +14,7 @@ assert(!html.slice(d0,d1).includes("daily-preferences"));
 assert(html.slice(p0,p1).includes('id="dailyPreferencesLegend"'));
 const permanent=html.slice(l0,l1);
 for(const id of ['class="difficulty-tabs"','id="lessonAllowance"','id="lessonCards"'])assert(permanent.includes(id));
-assert(html.includes("lessons-ui.css?v=2.7.0-ui1")); assert(html.includes('class="lesson-key-point"'));
+assert(html.includes("lessons-ui.css?v=2.7.0-ui2")); assert(html.includes('class="lesson-key-point"'));
 for(const key of ["daily_topic","daily_application","daily_discovery","daily_revision"])assert(css.includes('.daily-activity-tab[data-daily-tab="'+key+'"]'));
 assert(css.includes("border-bottom-color:var(--daily-theme-bg)")); assert(css.includes("width:50vw")); assert(css.includes("max-width:1320px"));
 assert(css.includes("overflow:hidden")); assert(css.includes("min-inline-size:0"));
