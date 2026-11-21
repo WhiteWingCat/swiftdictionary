@@ -263,7 +263,7 @@ The following implementation results supersede the earlier Phase 0-only starting
   - Chinese Dictionary filter browser tests: 5/5 passed.
   - Chinese Lessons bilingual layout test: 1/1 passed.
 - Category coverage clarification: the original 206 Chinese entries already receive their 11 learner categories and verified additional pinyin readings from `window.SWIFT_CHINESE_METADATA` in `data/chinese-characters.js`; the app applies this metadata before filtering. The 519 new entries carry their own categories. Therefore all 725 entries are included in the category system. No duplicate inline category map is needed.
-- Quiz database foundation job **#44876788818** passed. A previous full companion local Supabase Auth/RPC integration run **#44876433049** passed, including U2.7.0 migration, SQL regression, authenticated Quiz runtime (13 tests), Flashcards (3 tests), Lessons/Daily Learning allowance (2 tests) and Supabase security advisors (“No issues found”). The companion job is being rerun against the latest branch head.
+- Quiz database foundation job **#44876788818** and its companion local Supabase Auth/RPC integration both passed against the current branch head. The local integration applied the U2.7.0 migration to an ephemeral local Supabase instance, passed the Auth contract, SQL regression, authenticated Quiz runtime (12 tests), Flashcards (3 tests), Lessons/Daily Learning allowance (2 tests), and Supabase security advisors (“No issues found”). This was local CI only; no hosted migration was applied.
 - No hosted staging or production Supabase migration has been applied; no merge or deployment has occurred.
 
 
