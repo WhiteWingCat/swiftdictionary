@@ -100,3 +100,40 @@ All relevant latest-head PR workflows completed successfully:
 The earlier failures were regression expectations that still assumed the previous layout/cache version; those assertions were updated to match the intended redesigned UI. The corrected latest-head suite is green.
 
 PR #14 body was updated with the completed CI run IDs and latest Pages preview URLs. PR remains draft/open/unmerged. Production remains untouched. The only outstanding owner-facing step is optional visual acceptance of the new preview; no code, GitHub, or Supabase manual operation is required from the owner.
+
+
+## Owner feedback round 1 — Lessons UI corrections (2026-11-21)
+
+Owner tested the staging preview and requested six corrections. Implemented on the existing U2.7.0 feature branch for both English and Simplified Chinese Lessons:
+
+1. **Expandable lesson sections:** “What you will learn” and “Examples in context” now show the first three entries initially. A localized, accessible expand/collapse control reveals or hides the remaining entries only when there are more than three.
+2. **Practice layout:** Replaced the border-straddling fieldset legend treatment with an in-panel question heading and labelled group. Short answer sets use a responsive grid when space permits; longer answer choices remain vertically stacked.
+3. **Landing page order:** Restored the original sequence: Daily Learning first, Permanent Lessons second.
+4. **Blank Daily Activities reader:** The reader is now moved to a document-level overlay before opening, avoiding parent-page clipping/stacking constraints. The open overlay is explicitly visible and retains its accessible dialog semantics.
+5. **Tab scrolling:** Replaced the horizontal overflow/scrollbar strip with a responsive four-column desktop / two-column compact layout. The tab strip wraps instead of horizontally scrolling.
+6. **Activity heading and allowance:** Each category panel now has a redesigned localized heading and a distinct daily-allowance card showing remaining count, label and a visual remaining-allowance bar.
+
+Responsive drawer widths are preserved explicitly: 50vw desktop, 62vw medium screens and 100vw narrow mobile. Asset cache-busting was advanced to `2.7.0-ui3`. Dictionary grid remains unchanged; no pinyin was added to Dictionary cards.
+
+### Regression coverage
+
+- Expanded the U2.7.0 static UI checks for section order, responsive drawer widths, expandable controls, practice markup, portal behaviour, allowance display and non-scrolling tabs.
+- Added browser assertions that the first three lesson points/examples are visible by default, remaining entries expand and collapse, compact practice options are laid out, the Daily Activities reader contains visible content and is portalled to `document.body`, activity tabs have no horizontal overflow, each panel shows its heading/allowance card, and the drawer fills a 390px mobile viewport.
+- Updated older U2.3.x layout and allowance assertions and the U2.6.0/Cloudflare cache-version assertions to match the intentional UI revision.
+- JavaScript syntax checks passed for the main inline script and `daily-learning.js` during development.
+
+### Current code and validation status
+
+- Application branch: `feature/update-2-7-0-chinese-dictionary-lessons`.
+- Latest app head at this documentation update: `b98980dc5eae5ffea4cdb482c126fbb529daa739`.
+- PR #14 remains draft/open/unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/14.
+- U2.7.0 Chinese dictionary/Lessons/UI/browser suite #44889504955 — success.
+- Cloudflare build-routing guard #44889504919 — success.
+- 2.3.x allowance/dashboard, 2.5.0 Flashcards, 2.6.0 ACL and Quiz database/Auth/RPC regression workflows were still running at the latest check. Do not claim all ancillary CI is green until those jobs complete.
+- Branch preview URL: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev. Cloudflare Pages should rebuild from the feature-branch push; the latest deployment identifier was not independently verified through available tools. The prior deployment ID must not be described as the current revision.
+
+### Data, legal and release boundaries
+
+- This revision is presentation and interaction work only. No database schema/migration, new personal-data collection, or new processing purpose was introduced; existing learning completion, allowance and preference storage rules remain unchanged.
+- Malaysia PDPA and international legal/privacy review remains deferred, not cleared. This UI-only revision does not constitute legal approval.
+- No production migration, merge to main, or production deployment occurred. PR #14 remains draft pending owner visual acceptance and the remaining release gates.
