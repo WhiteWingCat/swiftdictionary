@@ -161,3 +161,39 @@ A second technical review identified the production/staging identity-sequence na
 The new workflow has not yet been observed passing at the time of this document update. Do not apply the migrations to staging or production until the CI run is green and the owner approves the staging test sequence. The global default-function EXECUTE revoke in the first U2.6.0 migration still needs cross-schema impact review.
 
 The owner confirmed account deletion works on Singapore staging on 2026-11-21. This does not imply production deletion has been deployed or tested.
+
+
+## 2026-11-21 schema-wide default-privilege impact review
+
+A read-only schema/function inventory in both hosted environments found the same relevant schema layout:
+
+| Schema | Owner | Functions owned by postgres |
+|---|---|---:|
+| `extensions` | postgres | 49 |
+| `private` | postgres | 32 |
+| `public` | pg_database_owner | 31 production / 29 staging |
+| `supabase_migrations` | postgres | 0 |
+| `auth`, `graphql`, `graphql_public`, `realtime`, `storage`, `vault` | supabase_admin | 0 postgres-owned functions |
+
+This confirms that the global `ALTER DEFAULT PRIVILEGES FOR ROLE postgres REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC` affects future postgres-created functions beyond the application `public` schema, especially `extensions` (49 existing postgres-owned functions) and `private` (32). Existing functions' ACLs are not retroactively changed by a default-privilege command, but future extension functions could lose the historical PUBLIC EXECUTE default and break extension compatibility.
+
+The corrective migration now adds a schema-specific default grant for `extensions`:
+
+```sql
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA extensions
+  GRANT EXECUTE ON FUNCTIONS TO PUBLIC;
+```
+
+This preserves the previous default for future extension-schema functions while retaining the intended restricted defaults for application functions in `public` and internal functions in `private`. A CI regression test creates temporary functions in both schemas and verifies the respective behavior. This is a compatibility-preserving choice based on the current observed schema inventory; re-check it if extension ownership/schema configuration changes.
+
+## Current feature-branch implementation and CI status
+
+- New migration: `supabase/migrations/20261121090000_update_2_6_0_acl_drift_correction.sql`.
+- New ACL assertions: `supabase/tests/update_2_6_0_acl_drift_correction.sql`.
+- Disposable synthetic pre-migration fixture: `tests/update-2-6-0/acl-drift-baseline.sql`.
+- Production-shape identity sequence rename fixture: `tests/update-2-6-0/rename-practice-sequence-to-production-shape.sql`.
+- Dedicated workflow: `.github/workflows/update-2-6-0-acl-test.yml`.
+
+The first attempt at a local CI workflow tried to replay the entire historical migration chain and failed in an older Update 2.2.0 reconciliation migration before reaching U2.6.0. This is an unrelated pre-existing fixture/chain issue, not evidence of a failure in the new ACL migration. The workflow was isolated from that historical chain: it now builds the synthetic application baseline, applies the two existing U2.6.0 migrations, verifies their baseline grants, renames the practice-results sequence to mimic production, applies the corrective migration and tests the final ACLs/defaults.
+
+The isolated workflow is currently running. No result should be treated as passing until the final run completes successfully.
