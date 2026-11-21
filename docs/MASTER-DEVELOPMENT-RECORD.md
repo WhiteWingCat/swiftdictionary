@@ -2912,3 +2912,21 @@ Owner clarification (2026-11-21): do not add pinyin to Chinese Dictionary grid c
 - CI run [44868243733](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/44868243733) passed the static/data checks and four Chromium browser tests.
 - Current target candidate pool: up to 1,295 new characters from HSK 3.0 Levels 1–5 after deduplication, subject to validation. The HSK source warns it was OCR-processed and not extensively proofread.
 - Next: complete the remaining 48 HSK Level 1 candidates, then continue Levels 2–5 in small reviewed batches. No Chinese Lessons code or hosted Supabase schema changes yet.
+
+
+### Update 2.7.0 — dictionary expansion and Chinese Lessons content complete; QA in progress (2026-11-21)
+
+**Current application branch:** `feature/update-2-7-0-chinese-dictionary-lessons`  
+**Current plan:** [UPDATE-2.7.0-DEVELOPMENT-PLAN.md](UPDATE-2.7.0-DEVELOPMENT-PLAN.md)
+
+- Supersedes the earlier initial 100-character milestone: `data/chinese-characters.js` now contributes **519 new single-character records**, bringing the combined dictionary to **725 unique entries** (206 existing + 519 additions).
+- Pinyin A–Z, 11 character categories, combined filtering, polyphonic initial matching and the existing search are implemented and browser-tested.
+- **Dictionary cards remain character-only. Do not add pinyin to the grid.** The character-above-pinyin rule is for Chinese Lessons only.
+- Chinese Lessons content is now **17 lessons / 112 questions**: Beginner 7/44, Intermediate 5/34, Advanced 5/34. English support is always rendered; Chinese text is followed by pinyin directly below, then English support.
+- Lesson data has a dedicated static validator for bilingual text/pinyin, question structure, lesson counts and Supabase catalogue IDs. Browser coverage checks the 7/5/5 difficulty libraries and vertical Chinese/pinyin/English layout.
+- Additive language-aware progress/catalogue migration: `20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql`. PostgreSQL/CI database foundation job passed the migration and its SQL regression suite. The companion local Supabase Auth/RPC integration and security-advisor job is still being monitored.
+- U2.7.0 dictionary/lesson CI workflow **#44875595145** passed: 725 dictionary entries (519 new), 17 lessons, 112 questions, five dictionary Chromium checks and one Chinese lesson layout test.
+- Source notices are committed: `data-sources.html`, `data/CHINESE-DICTIONARY-SOURCES.md`, and `THIRD_PARTY_NOTICES.md`. CC-CEDICT-derived gloss adaptations are identified as CC BY-SA 4.0; Unihan 18.0.0 and HSK candidate-list notices are included. Existing 206 dictionary entries still need their own provenance review. Formal legal/privacy review remains deferred, not cleared.
+- No hosted Supabase migration has been applied. No production settings, production database or deployment have been changed.
+
+**Next:** complete local Supabase Auth/RPC and advisor checks; run the full English Lessons/Daily Learning browser regression; test Chinese completion/progress isolation; complete linguistic and licensing review; then owner preview. Do not merge, apply the migration to hosted environments, or deploy without explicit approval.
