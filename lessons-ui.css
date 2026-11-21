@@ -131,3 +131,53 @@
 #permanentLessonsPanel *, .daily-activity-tabs *, #lessonLibrary .lesson-card, #lessonReader *, #dailyActivityReader *{transition:none!important;scroll-behavior:auto!important}
 }
 .daily-preferences-card .daily-preferences legend{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* U2.7.0 UI revision 3: expandable lesson content, contained questions and clearer daily activity controls. */
+.lesson-expandable-group{min-width:0;margin:0 0 13px}
+.lesson-expandable-items{min-width:0}
+.lesson-expandable-item[hidden]{display:none!important}
+.lesson-list-toggle{display:inline-flex;align-items:center;gap:7px;margin:10px 0 4px;padding:8px 13px;border:1px solid #718bb8;border-radius:9px;background:#314a70;color:#f3f7ff;font-weight:750;box-shadow:0 5px 13px #0002;transition:background .2s,border-color .2s,transform .2s}
+.lesson-list-toggle:hover{transform:translateY(-1px);background:#405d8b;border-color:#a4bee9}
+.lesson-question{padding:17px 18px!important}
+.lesson-question-title{display:block;width:100%;max-width:100%;box-sizing:border-box;margin:0 0 13px;padding:11px 13px;border:1px solid #526b91;border-radius:10px;background:linear-gradient(110deg,#263b58,#1b2b41);color:#f5f8ff;font-size:1.02rem;font-weight:800;line-height:1.65;overflow-wrap:anywhere}
+.lesson-answer-options{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;min-width:0}
+.lesson-answer-options.compact{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.lesson-answer-options label{width:100%;min-width:0;margin:0!important}
+.daily-activity-tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:8px;overflow:visible!important;padding:3px 0 0!important;scrollbar-width:none!important}
+.daily-activity-tabs::-webkit-scrollbar{display:none}
+.daily-activity-tab{width:100%;min-width:0;min-height:48px;flex:none;margin:0;padding:11px 10px;border:1px solid transparent;border-radius:13px;font-size:.94rem;white-space:normal;line-height:1.3}
+.daily-activity-tab.active{border-bottom-color:var(--daily-theme-bg)}
+.daily-activity-panel{border-radius:16px}
+.daily-activity-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 21px;padding:18px 20px;border:1px solid #ffffff38;border-radius:16px;background:linear-gradient(120deg,#080e194f,#ffffff0b);box-shadow:0 9px 22px #0002}
+.daily-activity-heading-copy{min-width:0;flex:1}
+.daily-activity-heading-kicker{margin:0 0 5px;color:#dce8ff!important;font-size:.69rem;font-weight:850;letter-spacing:.14em;line-height:1.3}
+.daily-activity-heading h3{margin:0 0 6px;color:#fff;font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.25}
+.daily-activity-heading-note{margin:0;color:#e0e8f6;line-height:1.55}
+.daily-activity-allowance{flex:0 0 220px;min-width:190px;max-width:260px;padding:13px 15px;border:1px solid #ffffff45;border-radius:13px;background:#080e1952;box-shadow:0 7px 18px #0002}
+.daily-activity-allowance-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.daily-activity-allowance-label{color:#d8e5fb;font-size:.67rem;font-weight:850;letter-spacing:.1em}
+.daily-activity-allowance strong{color:#fff;font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.daily-activity-allowance-track{height:6px;margin:10px 0 7px;overflow:hidden;border-radius:999px;background:#ffffff25}
+.daily-activity-allowance-track span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#b9d4ff,#f1f6ff);transition:width .25s ease}
+.daily-activity-allowance small{display:block;color:#e0e8f6;font-size:.78rem;line-height:1.4}
+.daily-activity-allowance.low .daily-activity-allowance-track span{background:linear-gradient(90deg,#e6bd7b,#ffe2a9)}
+.daily-activity-allowance.exhausted .daily-activity-allowance-track span{background:#df9292}
+.daily-activity-allowance.unavailable .daily-activity-allowance-track{opacity:.3}
+#dailyActivityReader.daily-activity-backdrop.open{display:flex!important;visibility:visible;opacity:1;z-index:3000;isolation:isolate}
+#dailyActivityReader .daily-activity-modal{position:relative;display:block;flex:0 0 min(50vw,900px);width:min(50vw,900px);min-width:0;max-width:900px;transform:translateX(0);visibility:visible;opacity:1}
+@media(max-width:900px){
+ .daily-activity-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .daily-activity-heading{align-items:stretch}
+ .daily-activity-allowance{flex-basis:190px;min-width:170px}
+}
+@media(max-width:650px){
+ .daily-activity-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .daily-activity-tab{min-height:44px;padding:10px 8px;font-size:.86rem}
+ .daily-activity-heading{align-items:stretch;flex-direction:column;padding:15px}
+ .daily-activity-allowance{flex:0 0 auto;width:100%;max-width:none;box-sizing:border-box}
+ .lesson-question{padding:13px!important}
+ .lesson-answer-options.compact{grid-template-columns:minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+ .lesson-list-toggle,.daily-activity-allowance-track span{transition:none!important}
+}
