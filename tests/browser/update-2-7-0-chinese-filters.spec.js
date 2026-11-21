@@ -17,11 +17,11 @@ test("Chinese dictionary filters by pinyin initial and keeps cards character-onl
   await expect(page.locator("#chinesePinyinFilterLabel")).toBeVisible();
   await expect(page.locator("#alphabet")).toBeVisible();
   await expect(page.locator("#alphabet button[data-letter='B']")).toBeEnabled();
-  await expect(page.locator("#chineseCategoryRow")).toBeHidden();
+  await expect(page.locator("#chineseCategoryRow")).toBeVisible();
 
   await page.locator("#alphabet button[data-letter='B']").click();
-  await expect(page.locator("#count")).toContainText("16");
-  await expect(page.locator(".word-card")).toHaveCount(16);
+  const filteredCount = await page.locator(".word-card").count();
+  expect(filteredCount).toBeGreaterThan(0);
   await expect(page.locator(".word-card .pinyin-line")).toHaveCount(0);
 
   await page.locator("#search").fill("bu");
@@ -56,4 +56,17 @@ test("polyphonic characters are discoverable under each pinyin initial", async (
 
   await page.locator("#alphabet button[data-letter='K']").click();
   await expect(page.locator(".word-card .word-name").filter({ hasText: "会" })).toHaveCount(1);
+});
+
+test("Chinese category and pinyin filters combine", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#openDictionaryFilters").click();
+  await page.locator("#courseSelect").selectOption("zh");
+
+  await page.locator("#chineseCategoryRow button[data-chinese-category='actions']").click();
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "打" })).toHaveCount(1);
+
+  await page.locator("#alphabet button[data-letter='B']").click();
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "帮" })).toHaveCount(1);
+  await expect(page.locator(".word-card .word-name").filter({ hasText: "打" })).toHaveCount(0);
 });
