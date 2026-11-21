@@ -344,3 +344,61 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
   await expect(page.locator(".flash-review-detail")).toBeVisible();
   await expect(page.locator(".flash-review-detail")).not.toContainText("Missed");
 });
+
+test("signing out restores the Flashcards banner, title and sign-in panel",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(async()=>{
+    const client=window.__swiftDictionaryMock.getClient();
+    const result=await client.auth.signOut();
+    if(result.error)throw new Error(result.error.message);
+  });
+  await expect(page.locator("#flashcardsPage")).toBeVisible();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+  await expect(page.locator(".flash-banner h2")).toHaveText("Flashcards");
+  await expect(page.locator("#flashcardsApp .learning-auth-card")).toBeVisible();
+  await expect(page.locator("#flashcardsApp .learning-auth-button")).toBeVisible();
+  await expect(page.locator(".flash-mode")).toHaveCount(0);
+});
+
+
+test("Preferences deletion controls are distinct and learning history uses an in-site dialog",async({page})=>{
+  await openMockFlashcards(page);
+  const nativeDialogs=[];
+  page.on("dialog",async dialog=>{nativeDialogs.push(dialog.message());await dialog.dismiss();});
+  await page.evaluate(()=>showPage("preferences"));
+  await expect(page.locator("#preferencesPage")).toBeVisible();
+  await expect(page.locator("#accountDeletionCard")).toBeVisible();
+  await expect(page.locator("#accountDeletionDialog")).toHaveCount(1);
+  await page.locator("#openAccountDeletion").click();
+  await expect(page.locator("#accountDeletionDialog [role='dialog']")).toBeVisible();
+  await page.locator("#swiftDeleteCancel").click();
+  await page.locator("#deleteLearningHistoryButton").click();
+  await expect(page.locator('[aria-labelledby="learningHistoryConfirmTitle"]')).toBeVisible();
+  expect(nativeDialogs).toEqual([]);
+  await page.locator("[data-history-cancel]").click();
+  await expect(page.locator('[aria-labelledby="learningHistoryConfirmTitle"]')).toHaveCount(0);
+  await expect(page.locator('footer a[href="terms.html"]')).toHaveText("Terms & Conditions");
+});
+
+
+test("Flashcards shows a five-second toast when the daily allowance is exhausted",async({page})=>{
+  await openMockFlashcards(page);
+  for(let game=0;game<3;game++){
+    await beginRecall(page,"word","beginner","all",60);
+    await page.evaluate(()=>{
+      window.__swiftOriginalDateNow=Date.now;
+      Date.now=()=>window.__swiftOriginalDateNow()+60000;
+    });
+    await expect(page.locator(".flash-times-up-backdrop")).toBeVisible({timeout:5000});
+    await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:8000});
+    await page.evaluate(()=>{
+      Date.now=window.__swiftOriginalDateNow;
+      delete window.__swiftOriginalDateNow;
+    });
+    if(game<2)await page.locator('[data-action="close-result"]').click();
+  }
+  await expect(page.locator("#swiftDictionaryToast")).toContainText("Flashcards allowance");
+  await expect(page.locator("#swiftDictionaryToast")).toHaveClass(/is-visible/);
+  await page.waitForTimeout(5200);
+  await expect(page.locator("#swiftDictionaryToast")).not.toHaveClass(/is-visible/);
+});

@@ -1,0 +1,35 @@
+name: Cloudflare build routing guard
+
+on:
+  push:
+    branches:
+      - feature/update-2-6-0-legal-privacy-security
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  cloudflare-build-routing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Verify JavaScript syntax and account-deletion safeguards
+        run: |
+          node --check account-deletion.js
+          node --test tests/update-2-6-0/account-deletion-static.test.mjs
+          deno check supabase/functions/delete-account/index.ts
+          deno test supabase/functions/delete-account/deno.test.ts
+      - name: Verify environment routing safeguards
+        run: bash tests/cloudflare-build-routing.sh

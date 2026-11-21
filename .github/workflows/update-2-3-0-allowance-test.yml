@@ -192,10 +192,11 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
-      - name: Install Playwright
+      - name: Install Playwright and Chromium
         run: |
+          npm init -y
           npm install --no-save @playwright/test
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
       - name: Run isolated signed-out browser regression tests
         env:
           CI: "true"

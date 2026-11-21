@@ -1,0 +1,85 @@
+name: SwiftDictionary 2.6.0 ACL drift regression
+
+on:
+  push:
+    branches:
+      - "feature/update-2-6-0-legal-privacy-security"
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/tests/update_2_6_0_*.sql"
+      - "supabase/functions/delete-account/**"
+      - "account-deletion.js"
+      - "index.html"
+      - "supabase-config.js"
+      - "build.sh"
+      - "flashcards.js"
+      - "daily-learning.js"
+      - "terms.html"
+      - "tests/update-2-6-0/**"
+      - ".github/workflows/update-2-6-0-acl-test.yml"
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/tests/update_2_6_0_*.sql"
+      - "supabase/functions/delete-account/**"
+      - "account-deletion.js"
+      - "index.html"
+      - "supabase-config.js"
+      - "build.sh"
+      - "flashcards.js"
+      - "daily-learning.js"
+      - "terms.html"
+      - "tests/update-2-6-0/**"
+      - ".github/workflows/update-2-6-0-acl-test.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acl-regression:
+    name: PostgreSQL 17 ACL migration regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Run account-deletion and frontend static regression tests
+        run: node --test tests/update-2-6-0/account-deletion-static.test.mjs
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.81.3
+      - name: Initialise isolated Supabase workspace
+        run: |
+          mkdir -p "$RUNNER_TEMP/swiftdictionary-acl"
+          cd "$RUNNER_TEMP/swiftdictionary-acl"
+          supabase init
+      - name: Start disposable local Supabase
+        working-directory: ${{ runner.temp }}/swiftdictionary-acl
+        run: supabase start -x studio,edge-runtime,logflare,vector,imgproxy
+      - name: Build synthetic pre-U2.6.0 application schema
+        working-directory: ${{ runner.temp }}/swiftdictionary-acl
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-3-0/supabase-local-app-baseline.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-6-0/daily-session-acl-objects.sql"
+      - name: Apply U2.6.0 least-privilege migrations to disposable schema
+        working-directory: ${{ runner.temp }}/swiftdictionary-acl
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261120023718_update_2_6_0_remove_residual_api_privileges.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_staging_acl_followup.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-6-0/acl-drift-baseline.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/tests/update-2-6-0/rename-practice-sequence-to-production-shape.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261121090000_update_2_6_0_acl_drift_correction.sql"
+      - name: Run ACL drift regression assertions
+        working-directory: ${{ runner.temp }}/swiftdictionary-acl
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_acl_drift_correction.sql"
+      - name: Stop disposable local Supabase
+        if: always()
+        working-directory: ${{ runner.temp }}/swiftdictionary-acl
+        run: supabase stop --no-backup

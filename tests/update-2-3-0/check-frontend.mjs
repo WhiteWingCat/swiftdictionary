@@ -437,7 +437,7 @@ const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"');
 if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || difficultyNavStart < dailySectionStart) {
   throw new Error("Daily Learning must appear inside Lessons above the difficulty navigation.");
 }
-for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','Privacy and data','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
+for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','id="accountDeletionCard"','Learning history','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
   if (!html.includes(fragment)) throw new Error(`Update 2.3.1 dashboard/navigation check failed: missing ${fragment}`);
 }
 for (const fragment of [
@@ -456,10 +456,12 @@ const dashboardStart = html.indexOf('<section id="profilePage"');
 const preferencesStart = html.indexOf('<section id="preferencesPage"');
 const dashboardShell = html.slice(dashboardStart,preferencesStart);
 const preferencesShell = html.slice(preferencesStart);
-if (/Account preferences|Privacy and data/i.test(dashboardShell)
+if (/Account preferences|Delete Account|Learning history/i.test(dashboardShell)
     || !/Account preferences/i.test(preferencesShell)
-    || !/Privacy and data/i.test(preferencesShell)) {
-  throw new Error("Account preferences and Privacy and Data must live in the dedicated Preferences page.");
+    || !/id="accountDeletionCard"/i.test(preferencesShell)
+    || !/Delete Account/i.test(preferencesShell)
+    || !/Learning history/i.test(preferencesShell)) {
+  throw new Error("Account preferences, the distinct Delete Account control and the separate Learning history control must live in the dedicated Preferences page.");
 }
 for (const fragment of ["dailyTopics","dailyApplications","dailyDiscoveryVocabulary","legacyDailyDiscoveriesBacklog","sourceUrl","get_my_learning_allowance_usage","lesson_practice_results"]) {
   if (!dailyScript.includes(fragment)) throw new Error(`Daily Learning content check failed: missing ${fragment}`);

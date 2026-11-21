@@ -6,6 +6,7 @@ on:
       - feature/update-2-4-0-quiz
       - feature/update-2-4-2-dashboard-quiz-fixes
       - feature/update-2-5-0-flashcards
+      - feature/update-2-6-0-legal-privacy-security
   pull_request:
     branches:
       - main
@@ -13,6 +14,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: quiz-db-foundation-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   quiz-local-supabase:
@@ -110,6 +115,15 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_authenticated_rpcs.sql"
 
+      - name: Apply Update 2.6.0 least-privilege hardening and verify privileges
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261119112433_swiftdictionary_2_6_0_least_privilege_defaults_and_daily_sessions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_least_privilege.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261120023718_update_2_6_0_remove_residual_api_privileges.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_staging_acl_followup.sql"
+
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
@@ -162,6 +176,10 @@ jobs:
           export API_URL ANON_KEY SERVICE_ROLE_KEY
           cd "$GITHUB_WORKSPACE"
           CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
+      - name: Run signed-out Flashcards and Preferences browser regressions
+        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast"
+      - name: Run permanent Lessons allowance notification regression
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes"
 
       - name: Run Supabase security advisors against the local Quiz schema
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase

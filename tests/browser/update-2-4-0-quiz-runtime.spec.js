@@ -282,6 +282,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
 
   for (let position = 2; position <= 10; position += 1) {
     await page.locator('[data-quiz-option="a"]').click();
+    await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
     if (position < 10) {
       await page.locator("#quizNext").click();
       await expect(page.locator("#quizQuestionCounter")).toHaveText("Question "+(position+1)+" of 10",{timeout:10000});
@@ -301,6 +302,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
 
   await page.locator("#quizResultsHome").click();
   await expect(page.locator("#quizAllowanceText")).toHaveText("0 of 1 remaining");
+  await expect(page.locator("#swiftDictionaryToast")).toContainText(/Quiz allowance|测验额度/);
   await expect(page.locator("#quizHistory [data-quiz-review]")).toHaveCount(1);
   await page.locator("#quizHistory [data-quiz-review]").click();
   await expect(page.locator("#quizResults")).toBeVisible();
@@ -535,7 +537,8 @@ test("Learning course selector shows a short refresh confirmation", async ({ pag
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
   await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
-  await expect(page.locator("#quizChineseUnavailable h2")).toHaveText("中文测验即将推出");
+  // The learning course is Chinese, but the selected interface/translation language remains English.
+  await expect(page.locator("#quizChineseUnavailable h2")).toHaveText("Chinese Quiz is coming soon");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await selectCourse(page,"en");
   await expect(page.locator("#quizHome")).toBeVisible();
@@ -588,4 +591,25 @@ test("signed-out visitors cannot open Quiz sessions or account history", async (
   await expect(page.locator("#quizSignedOut")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizSession")).toBeHidden();
+});
+
+test("signed-out Lessons shows the same account gate and hides lesson content",async({page})=>{
+  await installLocalSupabaseConfig(page);
+  await page.goto("/#lessons");
+  await expect(page.locator("#lessonsPage")).toBeVisible({timeout:20000});
+  await expect(page.locator("#lessonsSignedOut")).toBeVisible();
+  await expect(page.locator("#lessonsSignIn")).toBeVisible();
+  await expect(page.locator("#dailyLearningPage")).toBeHidden();
+  await expect(page.locator(".difficulty-tabs")).toBeHidden();
+  await expect(page.locator("#lessonLibrary")).toBeHidden();
+  await expect(page.locator("#lessonsSignedOut")).toHaveClass(/learning-auth-card/);
+});
+
+test("signed-out Quiz uses the shared Flashcards-style sign-in card",async({page})=>{
+  await installLocalSupabaseConfig(page);
+  await page.goto("/#quiz");
+  await expect(page.locator("#quizPage")).toBeVisible({timeout:20000});
+  await expect(page.locator("#quizSignedOut")).toBeVisible();
+  await expect(page.locator("#quizSignedOut")).toHaveClass(/learning-auth-card/);
+  await expect(page.locator("#quizSignIn")).toHaveClass(/learning-auth-button/);
 });

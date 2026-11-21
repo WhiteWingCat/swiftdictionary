@@ -490,6 +490,11 @@
     .quiz-mock-notice { display:flex; flex-direction:column; gap:4px; margin:14px 0; padding:13px 16px; border:1px solid #d69b43; border-left:4px solid #d69b43; border-radius:12px; background:#342719; color:#ffe8bd; }
     .quiz-mock-notice strong { font-weight:850; }
     .quiz-mock-notice span { font-size:.9rem; line-height:1.45; }
+      .learning-auth-card{border:1px solid var(--border);background:var(--panel);border-radius:16px;padding:24px;max-width:760px;margin:20px auto;text-align:center;box-shadow:var(--shadow)}
+    .learning-auth-card h2{margin:0 0 8px;font-size:1.2rem}
+    .learning-auth-card p{max-width:560px;margin:0 auto 16px;color:var(--muted)}
+    .learning-auth-button{border:1px solid #718ac7!important;background:#34446b!important;color:#fff!important;border-radius:10px!important;padding:11px 20px!important;font-weight:700}
+    #lessonsPage.learning-signed-out #dailyLearningPage,#lessonsPage.learning-signed-out .difficulty-tabs,#lessonsPage.learning-signed-out #lessonLibrary,#lessonsPage.learning-signed-out #lessonsChineseUnavailable,#lessonDetailPage.learning-signed-out #lessonReader,#lessonDetailPage.learning-signed-out #lessonStatus{display:none!important}
   </style>
 </head>
 <body>
@@ -571,6 +576,11 @@
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
       <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
+      <section id="lessonsSignedOut" class="learning-auth-card" hidden>
+        <h2>Sign in to use Lessons</h2>
+        <p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p>
+        <button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button>
+      </section>
     <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
     <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
       <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
@@ -603,7 +613,7 @@
       <p id="quizTranslationNotice" class="quiz-translation-notice" hidden role="status"></p>
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
       
-      <section id="quizSignedOut" class="coming-card" hidden><h2>Sign in to take a Quiz</h2><p class="page-intro" style="margin:0 auto 16px">Your sessions and progress are saved to your account so you can continue later.</p><button id="quizSignIn" class="primary-button" type="button">Sign in</button></section>
+      <section id="quizSignedOut" class="coming-card learning-auth-card" hidden><h2>Sign in to use Quiz</h2><p>Your Quiz sessions and progress are saved securely to your account, so you can continue across devices.</p><button id="quizSignIn" class="primary-button learning-auth-button" type="button">Sign in</button></section>
       <section id="quizHome" hidden>
         <div class="quiz-overview-grid">
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
@@ -673,8 +683,14 @@
           <div class="profile-actions"><button type="button" id="savePreferences" class="primary-button">Save preferences</button><span id="preferenceStatus" class="muted-note" aria-live="polite"></span></div>
           <p class="muted-note">Your timezone determines when daily learning allowances reset. If you change it, the new timezone takes effect after the current allowance day ends. It is a timezone setting, not a precise location.</p>
         </section>
-        <section class="profile-card"><h3>Privacy and data</h3>
-          <p class="muted-note">Delete your learning history, including lesson progress, practice summaries, Daily Learning sessions, Flashcard game history and Flashcard mastery. Your account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset.</p>
+        <section id="accountDeletionCard" class="profile-card swift-delete-card">
+  <h3>Delete Account</h3>
+  <p class="muted-note">Permanently delete your SwiftDictionary account and its cloud-synchronised data, including saved words, profile, preferences and learning records. This does not delete your Google account. Choose this option only when you want to close the account permanently; deleting learning history alone is a separate action.</p>
+  <p class="muted-note">Other devices will lose refresh access immediately; an access token already issued to another device can remain valid until it expires.</p>
+  <button type="button" id="openAccountDeletion" class="secondary-button swift-delete-button">Delete Account</button>
+</section>
+<section class="profile-card"><h3>Learning history</h3>
+          <p class="muted-note">Delete learning history only: lesson progress, practice summaries, Daily Learning sessions, Flashcard game history and Flashcard mastery. Your SwiftDictionary account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset. To permanently close your account and delete its associated cloud data, use the separate Delete account option above.</p>
           <p class="muted-note">If your last sign-in was more than 15 minutes ago, sign out and sign in again before requesting deletion.</p>
           <button type="button" id="deleteLearningHistoryButton" class="secondary-button">Delete learning history</button>
           <p id="learningHistoryDeleteStatus" class="muted-note" aria-live="polite"></p>
@@ -683,7 +699,7 @@
     </section>
   </main>
 
-  <footer><div class="wrap">SwiftDictionary · English and Simplified Chinese vocabulary · Sign in to sync saved words across devices. <span aria-hidden="true">·</span> <a href="feedback.html">Feedback &amp; suggestions</a></div></footer>
+  <footer><div class="wrap">SwiftDictionary · English and Simplified Chinese vocabulary · Sign in to sync saved words across devices. <span aria-hidden="true">·</span> <a href="feedback.html">Feedback &amp; suggestions</a> <span aria-hidden="true">·</span> <a href="terms.html">Terms &amp; Conditions</a></div></footer>
 
   <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalWord">
     <article class="modal">
@@ -18442,41 +18458,66 @@
           document.getElementById("profileSignedOut").hidden = false;
         }
         // Refresh the permanent lesson allowance whenever the active account changes.
-        if (typeof initialiseLessons === "function") await initialiseLessons();
+        if (typeof initialiseLessons === "function" && currentUser) await initialiseLessons();
+        if (typeof applyLearningCourseAvailability === "function") applyLearningCourseAvailability();
       }
-      await refreshAccount();
+      // Register interactive auth controls before the first account refresh.
+      // refreshAccount() performs several network requests; binding afterwards
+      // made the first click silently do nothing on slower connections.
       supabaseClient.auth.onAuthStateChange((event, session) => {
+        // The explicit initial refresh below owns INITIAL_SESSION; ignoring it
+        // here avoids running two concurrent profile/learning-data refreshes.
+        if (event === "INITIAL_SESSION") return;
         const nextUser = session?.user || null;
         const previousUserId = currentUser?.id || null;
         currentUser = nextUser;
-        // Clear cached favorites immediately on sign-out or account change.
+        if (typeof applyLearningCourseAvailability === "function") applyLearningCourseAvailability();
         if (!nextUser || (previousUserId && previousUserId !== nextUser.id)) {
           saved.clear();
           try { localStorage.removeItem("swiftdictionary-saved"); } catch {}
           if (activeWord) updateSaveButton();
           render();
         }
-        // Defer database work outside the auth callback to avoid locking auth state changes.
-        setTimeout(async () => { await refreshAccount(); window.dispatchEvent(new Event("swift-auth-updated")); }, 0);
-      });
-      google.addEventListener("click", async () => {
-        accountStatus.textContent = "Opening Google sign-in…";
-        // Use the stable page URL, excluding query/hash parameters that may be left
-        // behind by a previous OAuth callback or browser navigation.
-        const redirectTo = window.location.origin + window.location.pathname;
-        const { error } = await supabaseClient.auth.signInWithOAuth({
-          provider: "google",
-          options: {
-            redirectTo,
-            queryParams: { prompt: "select_account" }
+        // Keep asynchronous database work outside Supabase's auth callback.
+        Promise.resolve().then(async () => {
+          try {
+            await refreshAccount();
+            window.dispatchEvent(new Event("swift-auth-updated"));
+          } catch (error) {
+            accountStatus.textContent = `Account refresh failed: ${error.message || error}`;
+            console.error("SwiftDictionary account refresh failed:", error);
           }
         });
-        if (error) accountStatus.textContent = error.message;
+      });
+      google.addEventListener("click", async () => {
+        if (google.disabled) return;
+        google.disabled = true;
+        accountStatus.textContent = "Opening Google sign-in…";
+        try {
+          const redirectTo = window.location.origin + window.location.pathname;
+          const { error } = await supabaseClient.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+              redirectTo,
+              queryParams: { prompt: "select_account" }
+            }
+          });
+          if (error) throw error;
+          // A successful OAuth call normally navigates away. Re-enable if the
+          // browser remains on this page (for example, blocked navigation).
+          window.setTimeout(() => { google.disabled = false; }, 8000);
+        } catch (error) {
+          accountStatus.textContent = `Google sign-in could not start: ${error.message || error}`;
+          google.disabled = false;
+          console.error("SwiftDictionary Google sign-in failed:", error);
+        }
       });
       signout.addEventListener("click", async () => {
         const { error } = await supabaseClient.auth.signOut();
         if (error) accountStatus.textContent = `Sign-out failed: ${error.message}`;
       });
+      // Do the initial refresh only after the first-click handlers are ready.
+      await refreshAccount();
     }
     const accountMenu = document.getElementById("accountMenu");
     const accountButton = document.getElementById("accountButton");
@@ -18578,6 +18619,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     let profilePreferences = null;
     function showPage(page, updateHash = true, options = {}) {
       if ((page === "profile" || page === "preferences") && !currentUser) page = "dictionary";
+      if (page === "lessonDetail" && !currentUser) page = "lessons";
       if (!pageIds[page]) page = "dictionary";
       if (updateHash && location.hash !== `#${page}`) history.pushState(null, "", `#${page}`);
       Object.entries(pageIds).forEach(([key,id]) => document.getElementById(id).hidden = key !== page);
@@ -18586,7 +18628,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         else button.removeAttribute("aria-current");
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
-      if (page === "lessons") { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
+      if (page === "lessons" && currentUser) { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
       if (page === "quiz" && !options.skipQuizInitialise) {
         // Ordinary navigation (including Dashboard's Quiz shortcut) opens the
         // Quiz overview, never a stale completed-review/results subview.
@@ -18618,13 +18660,42 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     document.getElementById("profileSignOut").addEventListener("click", async () => {
       if (supabaseClient) { const {error} = await supabaseClient.auth.signOut(); if (error) accountStatus.textContent = error.message; }
     });
+    function confirmLearningHistoryDeletion() {
+      return new Promise(resolve => {
+        const overlay = document.createElement("div");
+        overlay.className = "swift-delete-overlay";
+        overlay.style.cssText = "position:fixed;inset:0;z-index:10040;background:rgba(0,0,0,.76);display:grid;place-items:center;padding:18px";
+        overlay.innerHTML = `
+          <section role="dialog" aria-modal="true" aria-labelledby="learningHistoryConfirmTitle" style="width:min(540px,100%);max-height:90dvh;overflow:auto;background:#191c23;color:#f3f4f6;border:1px solid #454b58;border-radius:18px;padding:24px;box-shadow:0 18px 55px rgba(0,0,0,.45)">
+            <h2 id="learningHistoryConfirmTitle" style="margin:0 0 12px">Delete learning history?</h2>
+            <p style="line-height:1.55;color:#c3c8d2">This removes lesson progress, practice summaries, Daily Learning sessions, Flashcard game history and Flashcard mastery for this account.</p>
+            <p style="line-height:1.55;color:#c3c8d2">Your SwiftDictionary account, saved words, Flashcard collections, custom cards, profile and preferences will remain. Completions already used today will still count until the normal allowance reset. This action does not clear signed-out saved words stored locally on this device.</p>
+            <p style="line-height:1.55;color:#f6caca">This action cannot be undone. To permanently delete your account and its associated cloud data, use the separate <strong>Delete account</strong> option in Preferences.</p>
+            <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px">
+              <button type="button" data-history-cancel class="secondary-button">Cancel</button>
+              <button type="button" data-history-confirm class="secondary-button" style="border:1px solid #a65c5c;color:#ffb4b4">Delete learning history</button>
+            </div>
+          </section>`;
+        const onKey = event => { if (event.key === "Escape" && document.body.contains(overlay)) finish(false); };
+        const finish = value => {
+          document.removeEventListener("keydown", onKey);
+          overlay.remove();
+          resolve(value);
+        };
+        overlay.addEventListener("click", event => { if (event.target === overlay) finish(false); });
+        overlay.querySelector("[data-history-cancel]").addEventListener("click", () => finish(false));
+        overlay.querySelector("[data-history-confirm]").addEventListener("click", () => finish(true));
+        document.addEventListener("keydown", onKey);
+        document.body.appendChild(overlay);
+        overlay.querySelector("[data-history-cancel]").focus();
+      });
+    }
+
     document.getElementById("deleteLearningHistoryButton").addEventListener("click", async () => {
       if (!supabaseClient || !currentUser) return;
       const button = document.getElementById("deleteLearningHistoryButton");
       const status = document.getElementById("learningHistoryDeleteStatus");
-      const confirmed = window.confirm(
-        "Permanently delete all lesson progress, practice summaries, Daily Learning sessions and learning activity history for this account? Saved words, account details and preferences will remain. Today's used completion allowance will not be restored."
-      );
+      const confirmed = await confirmLearningHistoryDeletion();
       if (!confirmed) return;
       button.disabled = true;
       status.textContent = "Deleting learning history…";
@@ -19560,6 +19631,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     }
     quizEl("quizRefresh").addEventListener("click",()=>{quizPageState.loaded=false;initialiseQuizPage();});
     quizEl("quizSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
+    quizEl("lessonsSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
 
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
     quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
@@ -19684,10 +19756,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!quizEl("learningIntroBackdrop").hidden)learningIntroClose();});
     function applyLearningCourseAvailability(){
       const chinese=course==="zh";
-      quizEl("lessonsChineseUnavailable").hidden=!chinese;
-      quizEl("dailyLearningPage").hidden=chinese;
-      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese;
-      quizEl("lessonLibrary").hidden=chinese;
+      const lessonsSignedIn=!!currentUser;
+      quizEl("lessonsSignedOut").hidden=lessonsSignedIn;
+      quizEl("lessonsPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
+      quizEl("lessonDetailPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
+      if(!lessonsSignedIn&&!quizEl("lessonDetailPage").hidden){quizEl("lessonDetailPage").hidden=true;quizEl("lessonsPage").hidden=false;}
+      quizEl("lessonsChineseUnavailable").hidden=!chinese||!lessonsSignedIn;
+      quizEl("dailyLearningPage").hidden=chinese||!lessonsSignedIn;
+      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese||!lessonsSignedIn;
+      quizEl("lessonLibrary").hidden=chinese||!lessonsSignedIn;
       quizEl("quizChineseUnavailable").hidden=!chinese;
       const quizSignedIn=!chinese&&!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
@@ -19718,6 +19795,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     window.addEventListener("swift-auth-updated",async()=>{
       learningIntroPreferencesReady=learningIntroLoadPreferences().catch(error=>{console.warn("Learning introduction preferences could not sync:",error);});
       await learningIntroPreferencesReady;
+      applyLearningCourseAvailability();
       const activePage=["lessons","quiz","flashcards"].find(page=>!quizEl(pageIds[page]).hidden);
       if(activePage)learningIntroMaybeShow(activePage);
     });
@@ -19757,7 +19835,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
   </script>
 
   <script src="daily-learning.js"></script>
-  <script src="flashcards.js"></script>
+  <script src="flashcards.js?v=2.6.0-r3"></script>
+  <script src="account-deletion.js?v=2.6.0-r4"></script>
 <div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

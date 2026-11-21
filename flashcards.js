@@ -22,7 +22,7 @@
     ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,roundRecorded:false,usedQuestionKeys:new Set(),data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
-    selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),
+    selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
   function words(){return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
@@ -201,7 +201,7 @@
   function render(){
     const mount=shell();style();
     if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>'+uiText("English course required","需要英语学习课程")+'</h2><p class="flash-muted">'+uiText("Flashcards currently support the English learning course. Switch your Learning Course to English to continue.","闪卡目前仅支持英语学习课程。请将学习课程切换为英语后继续。")+'</p></section>';return;}
-    if(!currentUser){mount.innerHTML='<section class="flash-section coming-card"><h2>'+uiText("Sign in to use Flashcards","登录以使用闪卡")+'</h2><p class="flash-muted">'+uiText("Your learning progress is saved securely to your account.","你的学习进度会安全地保存到帐户中。")+'</p><button class="flash-primary" data-action="signin">'+uiText("Sign in","登录")+'</button></section>';return;}
+    if(!currentUser){mount.innerHTML=`<div class="flash-home"><section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Choose a recall mode and a 60- or 120-second challenge. Memory and answer windows adapt to your difficulty, and you can move on as soon as you are ready.","选择回忆模式和 60 秒或 120 秒挑战。记忆与答题时间会根据难度调整，准备好时即可提前进入下一步。")}</p></div></section><section class="flash-section coming-card learning-auth-card"><h2>${uiText("Sign in to use Flashcards","登录以使用闪卡")}</h2><p class="flash-muted">${uiText("Your learning progress is saved securely to your account.","你的学习进度会安全地保存到帐户中。")}</p><button class="flash-primary learning-auth-button" data-action="signin">${uiText("Sign in","登录")}</button></section></div>`;const signedOutBanner=mount.querySelector(".flash-banner");if(state.helpButton&&signedOutBanner&&!signedOutBanner.contains(state.helpButton))signedOutBanner.appendChild(state.helpButton);return;}
     if(state.loading){mount.innerHTML='<section class="flash-section">'+uiText("Loading your Flashcards…","正在加载闪卡…")+'</section>';return;}
     if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>'+uiText("Saving your game","正在保存游戏")+'</h2><p class="flash-muted">'+uiText("Your results are being saved securely.","正在安全地保存你的游戏结果。")+'</p></section>';return;}
     if(state.game){renderGame(mount);return;}
@@ -403,12 +403,42 @@
     overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">'+uiText("Time's Up!","时间到！")+'</div></div>';
     setTimeout(()=>saveGameResults(),2000);
   }
+  async function notifyFlashcardAllowanceExhausted(){
+    if(!currentUser||Number(state.data?.allowance?.remaining)!==0)return;
+    let timezone="UTC";
+    try{
+      const {data,error}=await supabaseClient.from("user_preferences")
+        .select("timezone,allowance_timezone,allowance_timezone_until")
+        .eq("user_id",currentUser.id).maybeSingle();
+      if(!error&&data){
+        timezone=data.allowance_timezone&&Date.parse(data.allowance_timezone_until||"")>Date.now()
+          ?data.allowance_timezone:(data.timezone||"UTC");
+      }
+    }catch(_){}
+    let day=new Date().toISOString().slice(0,10);
+    try{
+      const parts=new Intl.DateTimeFormat("en-CA",{timeZone:timezone,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+      const values=Object.fromEntries(parts.map(part=>[part.type,part.value]));
+      day=values.year+"-"+values.month+"-"+values.day;
+    }catch(_){}
+    const key=currentUser.id+":"+day;
+    if(state.allowanceToastDay===key)return;
+    state.allowanceToastDay=key;
+    const message=uiText(
+      "You have used all of today's Flashcards allowance. It resets at midnight in your allowance timezone.",
+      "今日闪卡额度已用完，将在你的额度时区午夜重置。"
+    );
+    if(typeof window.showSwiftDictionaryToast==="function"){
+      window.showSwiftDictionaryToast(message, "warning", 5000);
+    }
+  }
+
   async function saveGameResults(){
     if(!state.game||state.finishing)return;
     const game=state.game;state.game=null;state.finishing=true;render();
     try{
       const {data,error}=await supabaseClient.rpc("complete_my_flashcard_game",{p_session_id:game.id,p_results:state.results});if(error)throw error;
-      state.lastResult=data;state.finishing=false;await loadData();showResultPrompt();
+      state.lastResult=data;state.finishing=false;await loadData();await notifyFlashcardAllowanceExhausted();showResultPrompt();
     }catch(error){state.notice="The game result could not be saved: "+error.message;try{await supabaseClient.rpc("abandon_my_flashcard_game",{p_session_id:game.id});}catch(_){}state.finishing=false;await loadData();}
   }
   function showResultPrompt(){
@@ -556,7 +586,16 @@
   overlayRoot.addEventListener("click",handleClick);
   attachForms();
   document.getElementById("flashDifficulty")?.addEventListener("change",e=>state.difficulty=e.target.value);
-  window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();if(currentUser)loadData();else render();});
+  window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();if(currentUser)loadData();else{state.ready=false;state.loading=false;state.finishing=false;state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};render();}});
+  if(typeof supabaseClient!=="undefined"&&supabaseClient?.auth?.onAuthStateChange){
+    supabaseClient.auth.onAuthStateChange((event,session)=>{
+      if(event==="SIGNED_OUT"||!session?.user){
+        state.game=null;state.ready=false;state.loading=false;state.finishing=false;
+        state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};
+        clearTimers();render();
+      }
+    });
+  }
   const originalFlashShowPage=window.showPage;
   document.querySelectorAll('[data-page="flashcards"]').forEach(button=>button.addEventListener("click",()=>{if(currentUser&&!state.ready)loadData();else render();}));
   window.addEventListener("hashchange",()=>{if(location.hash==="#flashcards"&&currentUser)loadData();});
