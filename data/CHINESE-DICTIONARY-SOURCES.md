@@ -20,6 +20,7 @@ This file records source provenance for the new Chinese single-character records
 
 - Source: Unicode Unihan Database, Unicode 18.0.0.
 - Official data: https://www.unicode.org/Public/18.0.0/ucd/Unihan.zip.
+- Extracted reference files used: [mozillazg/pinyin-data](https://github.com/mozillazg/pinyin-data), branch `update-unihan-18.0.0`, commit `fe29ad32bdf352b31a02b9936e537f575432e9a6`; `kMandarin.txt` blob `7d4aa1189dce0f8da5f3dc79a8094abc1d73bc31`, `kHanyuPinyin.txt` blob `05579572f51639218e5e23b21594bc63f2d5ec0e`, `kHanyuPinlu.txt` blob `abc37486838a6bcb5b6a619b4a61fee1710dfd59`.
 - Reference property documentation: https://www.unicode.org/reports/tr38/.
 - Licence: Unicode License v3, https://www.unicode.org/license.txt.
 - Fields used: `kMandarin` and related pronunciation data to establish pinyin readings; Unihan readings are reference data, not a guarantee of pronunciation in every word or sentence.
