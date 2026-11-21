@@ -45,3 +45,15 @@ test("switching back to English restores the English alphabet and part-of-speech
   expect(visibleWords.length).toBeGreaterThan(0);
   expect(visibleWords.every(word => word.toUpperCase().startsWith("H"))).toBeTruthy();
 });
+
+test("polyphonic characters are discoverable under each pinyin initial", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#openDictionaryFilters").click();
+  await page.locator("#courseSelect").selectOption("zh");
+
+  await page.locator("#alphabet button[data-letter='H']").click();
+  await expect(page.locator(".word-card .word-name")).toContainText("会");
+
+  await page.locator("#alphabet button[data-letter='K']").click();
+  await expect(page.locator(".word-card .word-name")).toContainText("会");
+});
