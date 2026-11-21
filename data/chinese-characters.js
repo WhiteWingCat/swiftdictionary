@@ -1379,7 +1379,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "old; experienced; venerable; familiar prefix",
     "definitionZh": "年纪大；有经验；也可作亲切或熟悉的称呼前缀。",
     "examples": [
-      "我爷爷年纪很大了。"
+      "这位老人很和蔼。"
     ],
     "breakdown": "整体记忆；可描述年龄，也常用于称呼。",
     "related": "老师 lǎo shī；老人 lǎo rén",
@@ -3388,7 +3388,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "kind; sort; class; way; manner",
     "definitionZh": "种类、方式或样子；常见于“一般”等词。",
     "examples": [
-      "他用平常的方式做事。"
+      "一般来说，这个方法很简单。"
     ],
     "breakdown": "整体记忆；常用于表示方式或类别。",
     "related": "一般 yì bān；这般 zhè bān",
@@ -5919,7 +5919,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "warm; lukewarm; temperature; to warm; mild; to review",
     "definitionZh": "温暖、温和；温度；也可表示温习或复习。",
     "examples": [
-      "今天的水很温。"
+      "这杯水有点温。"
     ],
     "breakdown": "整体记忆；常见于温度、温暖和温习等词。",
     "related": "温度 wēn dù；温暖 wēn nuǎn",
@@ -5966,7 +5966,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "affair; business; matter; to be engaged in; attend to",
     "definitionZh": "事务、业务；从事、处理某项工作。",
     "examples": [
-      "我有很多工作要处理。"
+      "这项任务很重要。"
     ],
     "breakdown": "整体记忆；常见于“任务”“服务”“业务”等词。",
     "related": "任务 rèn wu；服务 fú wù",
@@ -6242,7 +6242,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "color; face; countenance; expression",
     "definitionZh": "颜色；脸色、容貌或表情。",
     "examples": [
-      "她的脸上露出了笑容。"
+      "这幅画的颜色很鲜艳。"
     ],
     "breakdown": "整体记忆；常见于“颜色”“颜面”“容颜”等词。",
     "related": "颜色 yán sè；颜料 yán liào",
@@ -6518,7 +6518,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "sound; noise; musical note; tone; news; syllable; pronunciation",
     "definitionZh": "声音、音调；音乐中的音符；字的读音或音节。",
     "examples": [
-      "这首音乐很好听。"
+      "这个字的发音很重要。"
     ],
     "breakdown": "整体记忆；常见于音乐、发音和声音相关词语。",
     "related": "音乐 yīn yuè；声音 shēng yīn",
@@ -6564,7 +6564,7 @@ window.SWIFT_CHINESE_WORDS = [
     "definition": "to print; mark; engrave; seal; stamp; trace; image",
     "definitionZh": "印刷、盖印；印章、印记；留下痕迹。",
     "examples": [
-      "请在这里盖章。"
+      "请在这里盖一个印章。"
     ],
     "breakdown": "整体记忆；常见于印刷、印章和标记。",
     "related": "印刷 yìn shuā；印章 yìn zhāng",
