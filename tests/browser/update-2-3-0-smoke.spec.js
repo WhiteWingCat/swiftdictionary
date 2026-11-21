@@ -856,10 +856,10 @@ test("Daily Discovery uses dictionary layout and the approved global catalogue m
     border: getComputedStyle(el.querySelector(".daily-discovery-modal")).borderTopWidth,
     definitionColor: getComputedStyle(el.querySelector(".daily-discovery-modal .definition")).color
   }));
-  expect(style.backdrop).toBe("rgba(0, 0, 0, 0)");
+  expect(style.backdrop).toBe("rgba(3, 7, 14, 0.58)");
   expect(style.padding).not.toBe("0px");
   expect(style.border).toBe("0px");
-  expect(style.definitionColor).toBe("rgb(243, 244, 246)");
+  expect(style.definitionColor).toBe("rgb(243, 246, 252)");
 
   const start = await page.evaluate(() => window.__swiftDailyMock.rpcCalls.find(call => call.name === "start_daily_activity_session"));
   expect(start.args.p_activity_type).toBe("daily_discovery");
