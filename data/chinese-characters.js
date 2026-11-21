@@ -9127,589 +9127,6 @@ window.SWIFT_CHINESE_WORDS = [
     ]
   },
   {
-    "word": "啊",
-    "part": "汉语词汇",
-    "phonetic": "a / ā / á / ǎ / à",
-    "definition": "interjection or sentence particle expressing surprise, emphasis, agreement or a response",
-    "definitionZh": "语气词或感叹词，用来表达惊讶、确认、提醒等语气。",
-    "examples": [
-      "你怎么不说话啊？"
-    ],
-    "breakdown": "语气和读音会随上下文变化；常用于口语句末。",
-    "related": "好啊 hǎo a；啊呀 ā yā",
-    "categories": [
-      "communication",
-      "expressions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "安",
-    "part": "汉语词汇",
-    "phonetic": "ān",
-    "definition": "calm; peaceful; safe; to settle or put at ease",
-    "definitionZh": "平安、安定；也可表示使人安心或安排妥当。",
-    "examples": [
-      "这里很安全。"
-    ],
-    "breakdown": "常见于表示平安、稳定的词语。",
-    "related": "安全 ān quán；安静 ān jìng",
-    "categories": [
-      "emotions-states",
-      "descriptions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "背",
-    "part": "汉语词汇",
-    "phonetic": "bèi / bēi",
-    "definition": "back; to carry on one's back; to recite from memory",
-    "definitionZh": "身体后侧；也可表示用背负起，或凭记忆诵读。",
-    "examples": [
-      "他背着书包去学校。"
-    ],
-    "breakdown": "读 bèi 常指背部或背诵；读 bēi 常表示用背负起。",
-    "related": "后背 hòu bèi；背包 bēi bāo",
-    "categories": [
-      "people",
-      "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "笔",
-    "part": "汉语词汇",
-    "phonetic": "bǐ",
-    "definition": "pen; writing implement; brushstroke or written stroke",
-    "definitionZh": "书写工具，也可指笔画或书写。",
-    "examples": [
-      "这支笔是我的。"
-    ],
-    "breakdown": "常与量词“支”搭配，也用于书写和笔画相关词语。",
-    "related": "铅笔 qiān bǐ；笔记 bǐ jì",
-    "categories": [
-      "objects"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "草",
-    "part": "汉语词汇",
-    "phonetic": "cǎo",
-    "definition": "grass; straw; draft; rough or careless",
-    "definitionZh": "草本植物；也指草稿、粗略。",
-    "examples": [
-      "公园里有很多草。"
-    ],
-    "breakdown": "常见于植物名称，也用于草稿、草地等词语。",
-    "related": "草地 cǎo dì；草原 cǎo yuán",
-    "categories": [
-      "nature"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "长",
-    "part": "汉语词汇",
-    "phonetic": "cháng / zhǎng",
-    "definition": "long; length; to grow; to develop; elder or head",
-    "definitionZh": "长度大；也表示成长、增加或年长。",
-    "examples": [
-      "这条路很长。"
-    ],
-    "breakdown": "读 cháng 表示长度；读 zhǎng 常表示成长或担任负责人。",
-    "related": "长大 zhǎng dà；长度 cháng dù",
-    "categories": [
-      "descriptions",
-      "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "当",
-    "part": "汉语词汇",
-    "phonetic": "dāng / dàng",
-    "definition": "to be; to act as; to serve as; when; to regard as; suitable",
-    "definitionZh": "作为、担任；也可表示在某个时候、应当或把……看作。",
-    "examples": [
-      "他想当老师。"
-    ],
-    "breakdown": "读 dāng 常表示担任或处于某时；读 dàng 常见于“恰当”“上当”等词。",
-    "related": "当时 dāng shí；当然 dāng rán；上当 shàng dàng",
-    "categories": [
-      "actions",
-      "grammar-function"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "灯",
-    "part": "汉语词汇",
-    "phonetic": "dēng",
-    "definition": "lamp; light; lantern",
-    "definitionZh": "用来照明的器具。",
-    "examples": [
-      "请把灯打开。"
-    ],
-    "breakdown": "常见于照明设备和光线相关词语。",
-    "related": "电灯 diàn dēng；灯光 dēng guāng",
-    "categories": [
-      "objects"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "懂",
-    "part": "汉语词汇",
-    "phonetic": "dǒng",
-    "definition": "to understand; to comprehend",
-    "definitionZh": "明白、理解。",
-    "examples": [
-      "我听懂了。"
-    ],
-    "breakdown": "常与“懂得”“听懂”搭配，表示理解内容。",
-    "related": "听懂 tīng dǒng；懂得 dǒng de",
-    "categories": [
-      "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "更",
-    "part": "汉语词汇",
-    "phonetic": "gèng / gēng",
-    "definition": "more; even more; further; to change or replace",
-    "definitionZh": "读 gèng 表示程度加深；读 gēng 表示改变或替换。",
-    "examples": [
-      "今天比昨天更冷。"
-    ],
-    "breakdown": "读 gèng 常作程度副词；读 gēng 常见于“更换”“更新”。",
-    "related": "更加 gèng jiā；更新 gēng xīn",
-    "categories": [
-      "grammar-function",
-      "descriptions",
-      "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "合",
-    "part": "汉语词汇",
-    "phonetic": "hé",
-    "definition": "to join; to close; to fit; to suit; together",
-    "definitionZh": "合在一起；关闭；符合或适合。",
-    "examples": [
-      "请把门合上。"
-    ],
-    "breakdown": "常表示结合、闭合或符合条件。",
-    "related": "合作 hé zuò；合适 hé shì",
-    "categories": [
-      "actions",
-      "descriptions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "脚",
-    "part": "汉语词汇",
-    "phonetic": "jiǎo",
-    "definition": "foot; leg; base or bottom of an object",
-    "definitionZh": "人或动物的足部，也可指物体底部。",
-    "examples": [
-      "我的脚有点痛。"
-    ],
-    "breakdown": "常见于身体部位和行走相关词语。",
-    "related": "脚步 jiǎo bù；脚印 jiǎo yìn",
-    "categories": [
-      "people"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "力",
-    "part": "汉语词汇",
-    "phonetic": "lì",
-    "definition": "power; force; strength; ability; exertion",
-    "definitionZh": "力量、能力；也表示尽力。",
-    "examples": [
-      "他很有力气。"
-    ],
-    "breakdown": "常用于表示力量、能力或努力程度。",
-    "related": "力气 lì qi；努力 nǔ lì",
-    "categories": [
-      "actions",
-      "descriptions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "卖",
-    "part": "汉语词汇",
-    "phonetic": "mài",
-    "definition": "to sell; to betray; to spare no effort",
-    "definitionZh": "把商品出售；也可指背叛或不遗余力地做某事。",
-    "examples": [
-      "这家店卖水果。"
-    ],
-    "breakdown": "常与买形成对比，表示把商品出售。",
-    "related": "买卖 mǎi mai；卖出 mài chū",
-    "categories": [
-      "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "猫",
-    "part": "汉语词汇",
-    "phonetic": "māo",
-    "definition": "cat",
-    "definitionZh": "常见的家养哺乳动物。",
-    "examples": [
-      "那只猫在睡觉。"
-    ],
-    "breakdown": "常见动物名称；量词常用“只”。",
-    "related": "小猫 xiǎo māo；猫咪 māo mī",
-    "categories": [
-      "nature"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "鸟",
-    "part": "汉语词汇",
-    "phonetic": "niǎo",
-    "definition": "bird",
-    "definitionZh": "有羽毛、翅膀和喙的动物。",
-    "examples": [
-      "树上有一只鸟。"
-    ],
-    "breakdown": "常见动物名称；量词常用“只”或“群”。",
-    "related": "小鸟 xiǎo niǎo；鸟类 niǎo lèi",
-    "categories": [
-      "nature"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "它",
-    "part": "汉语词汇",
-    "phonetic": "tā",
-    "definition": "it; pronoun for a thing or an animal",
-    "definitionZh": "指代人以外的事物或动物。",
-    "examples": [
-      "它是一只小猫。"
-    ],
-    "breakdown": "常用作第三人称代词，指事物或动物。",
-    "related": "它们 tā men；其它 qí tā",
-    "categories": [
-      "grammar-function",
-      "people"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "头",
-    "part": "汉语词汇",
-    "phonetic": "tóu",
-    "definition": "head; top; beginning or end; chief; classifier for livestock",
-    "definitionZh": "身体上部；也可指顶部、开端或负责人。",
-    "examples": [
-      "我的头有点痛。"
-    ],
-    "breakdown": "可指身体部位、物体顶端或负责人；也常作量词。",
-    "related": "头发 tóu fa；头脑 tóu nǎo",
-    "categories": [
-      "people"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "鞋",
-    "part": "汉语词汇",
-    "phonetic": "xié",
-    "definition": "shoe; footwear",
-    "definitionZh": "穿在脚上保护脚的物品。",
-    "examples": [
-      "这双鞋很舒服。"
-    ],
-    "breakdown": "常与量词“双”搭配。",
-    "related": "鞋子 xié zi；皮鞋 pí xié",
-    "categories": [
-      "objects"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "心",
-    "part": "汉语词汇",
-    "phonetic": "xīn",
-    "definition": "heart; mind; intention; feeling; centre or core",
-    "definitionZh": "心脏；也常指思想、感情或中心。",
-    "examples": [
-      "我很开心。"
-    ],
-    "breakdown": "除身体器官外，也常用于表达感受和想法。",
-    "related": "心情 xīn qíng；关心 guān xīn",
-    "categories": [
-      "people",
-      "emotions-states"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "雪",
-    "part": "汉语词汇",
-    "phonetic": "xuě",
-    "definition": "snow; to wipe away a humiliation (literary)",
-    "definitionZh": "从云中降落的冰晶，也指雪白。",
-    "examples": [
-      "今天下雪了。"
-    ],
-    "breakdown": "常见于天气和季节相关词语。",
-    "related": "下雪 xià xuě；雪花 xuě huā",
-    "categories": [
-      "nature"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "言",
-    "part": "汉语词汇",
-    "phonetic": "yán",
-    "definition": "words; speech; to say; to talk",
-    "definitionZh": "话语、言论；也可表示说。",
-    "examples": [
-      "他说话算数，不会食言。"
-    ],
-    "breakdown": "常见于书面语和表达、言论相关词语。",
-    "related": "语言 yǔ yán；发言 fā yán",
-    "categories": [
-      "communication"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "眼",
-    "part": "汉语词汇",
-    "phonetic": "yǎn",
-    "definition": "eye; glance; small hole; salient point",
-    "definitionZh": "视觉器官；也指孔洞或观察的目光。",
-    "examples": [
-      "我的眼睛有点累。"
-    ],
-    "breakdown": "常与“睛”组成“眼睛”，也可表示观察或孔洞。",
-    "related": "眼睛 yǎn jing；眼前 yǎn qián",
-    "categories": [
-      "people"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "药",
-    "part": "汉语词汇",
-    "phonetic": "yào",
-    "definition": "medicine; drug; substance used for a specific purpose",
-    "definitionZh": "用于预防、治疗疾病或产生特定作用的物质。",
-    "examples": [
-      "我需要吃药。"
-    ],
-    "breakdown": "常见于医疗、健康和药品相关词语。",
-    "related": "药店 yào diàn；药物 yào wù",
-    "categories": [
-      "objects"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "椅",
-    "part": "汉语词汇",
-    "phonetic": "yǐ",
-    "definition": "chair",
-    "definitionZh": "供人坐的家具。",
-    "examples": [
-      "请坐在这把椅子上。"
-    ],
-    "breakdown": "通常与“子”组成“椅子”，常与量词“把”搭配。",
-    "related": "椅子 yǐ zi；桌椅 zhuō yǐ",
-    "categories": [
-      "objects"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "鱼",
-    "part": "汉语词汇",
-    "phonetic": "yú",
-    "definition": "fish; aquatic animal",
-    "definitionZh": "生活在水中的动物，通常有鳃和鳍。",
-    "examples": [
-      "我喜欢吃鱼。"
-    ],
-    "breakdown": "常见动物名称；量词常用“条”。",
-    "related": "鱼肉 yú ròu；金鱼 jīn yú",
-    "categories": [
-      "nature"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
     "word": "原",
     "part": "汉语词汇",
     "phonetic": "yuán",
@@ -9768,28 +9185,6 @@ window.SWIFT_CHINESE_WORDS = [
     "categories": [
       "grammar-function",
       "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "云",
-    "part": "汉语词汇",
-    "phonetic": "yún",
-    "definition": "cloud; (classical) to say",
-    "definitionZh": "天空中的水滴或冰晶聚集形成的可见物。",
-    "examples": [
-      "天空有很多云。"
-    ],
-    "breakdown": "现代常用义为云；古文中也可作“说”。",
-    "related": "白云 bái yún；云朵 yún duǒ",
-    "categories": [
-      "nature"
     ],
     "hskLevel": 2,
     "sourceIds": [
@@ -9970,50 +9365,6 @@ window.SWIFT_CHINESE_WORDS = [
     "categories": [
       "descriptions",
       "actions"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "只",
-    "part": "汉语词汇",
-    "phonetic": "zhǐ / zhī",
-    "definition": "only; merely; classifier for certain animals and paired objects",
-    "definitionZh": "读 zhǐ 表示仅仅；读 zhī 常作动物等的量词。",
-    "examples": [
-      "我只有一本书。"
-    ],
-    "breakdown": "读 zhǐ 常表示限制；读 zhī 常作量词，如“一只猫”。",
-    "related": "只有 zhǐ yǒu；一只 yì zhī",
-    "categories": [
-      "grammar-function"
-    ],
-    "hskLevel": 2,
-    "sourceIds": [
-      "cc-cedict-2026-11-20",
-      "unihan-18.0.0",
-      "hsk30-pleco"
-    ],
-    "course": "zh"
-  },
-  {
-    "word": "纸",
-    "part": "汉语词汇",
-    "phonetic": "zhǐ",
-    "definition": "paper; sheet of paper",
-    "definitionZh": "用植物纤维制成的薄片，可供书写、包装等。",
-    "examples": [
-      "请给我一张纸。"
-    ],
-    "breakdown": "常与量词“张”搭配。",
-    "related": "纸张 zhǐ zhāng；白纸 bái zhǐ",
-    "categories": [
-      "objects"
     ],
     "hskLevel": 2,
     "sourceIds": [
@@ -10251,3 +9602,1107 @@ window.SWIFT_CHINESE_WORDS = [
     "course": "zh"
   }
 ];
+
+window.SWIFT_CHINESE_METADATA = {
+  "一": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "三": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "上": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "不": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "两": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "中": {
+    "categories": [
+      "places",
+      "descriptions"
+    ]
+  },
+  "也": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "买": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "了": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "二": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "人": {
+    "categories": [
+      "people"
+    ]
+  },
+  "从": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "他": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "会": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "住": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "你": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "再": {
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ]
+  },
+  "出": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "别": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "到": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "力": {
+    "categories": [
+      "actions",
+      "descriptions"
+    ]
+  },
+  "半": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "去": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "口": {
+    "categories": [
+      "communication",
+      "people"
+    ]
+  },
+  "只": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "吃": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "听": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "呢": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "和": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "哪": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "喝": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "回": {
+    "categories": [
+      "time-numbers",
+      "actions"
+    ]
+  },
+  "在": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "多": {
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ]
+  },
+  "女": {
+    "categories": [
+      "people"
+    ]
+  },
+  "她": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "好": {
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ]
+  },
+  "字": {
+    "categories": [
+      "communication",
+      "objects"
+    ]
+  },
+  "学": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "它": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "安": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "家": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "对": {
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ]
+  },
+  "小": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "少": {
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ]
+  },
+  "岁": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "工": {
+    "categories": [
+      "actions",
+      "people"
+    ]
+  },
+  "差": {
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ]
+  },
+  "年": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "开": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "当": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "很": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "得": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "心": {
+    "categories": [
+      "emotions-states"
+    ]
+  },
+  "忙": {
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ]
+  },
+  "快": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "想": {
+    "categories": [
+      "actions",
+      "emotions-states"
+    ]
+  },
+  "慢": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "懂": {
+    "categories": [
+      "actions",
+      "emotions-states"
+    ]
+  },
+  "我": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "手": {
+    "categories": [
+      "people"
+    ]
+  },
+  "把": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "方": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "日": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "明": {
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ]
+  },
+  "是": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "更": {
+    "categories": [
+      "descriptions"
+    ],
+    "phonetic": "gèng / gēng"
+  },
+  "有": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "本": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "来": {
+    "categories": [
+      "time-numbers",
+      "actions",
+      "places"
+    ]
+  },
+  "水": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "没": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "爱": {
+    "categories": [
+      "actions",
+      "emotions-states"
+    ]
+  },
+  "猫": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "班": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "生": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "电": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "病": {
+    "categories": [
+      "emotions-states"
+    ]
+  },
+  "白": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "百": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "的": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "看": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "穿": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "等": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "给": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "能": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "茶": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "菜": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "要": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "言": {
+    "categories": [
+      "communication"
+    ]
+  },
+  "说": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "请": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "谁": {
+    "categories": [
+      "communication",
+      "grammar-function"
+    ]
+  },
+  "跟": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "路": {
+    "categories": [
+      "places"
+    ]
+  },
+  "车": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "还": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "这": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "道": {
+    "categories": [
+      "places",
+      "grammar-function"
+    ]
+  },
+  "那": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "钱": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "错": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "长": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "门": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "零": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "饭": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "个": {
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ]
+  },
+  "们": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "吗": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "吧": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "啊": {
+    "categories": [
+      "grammar-function"
+    ],
+    "phonetic": "a / ā / á / ǎ / à"
+  },
+  "早": {
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ]
+  },
+  "晚": {
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ]
+  },
+  "天": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "月": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "书": {
+    "categories": [
+      "communication",
+      "objects"
+    ]
+  },
+  "友": {
+    "categories": [
+      "communication",
+      "people"
+    ]
+  },
+  "店": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "下": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "外": {
+    "categories": [
+      "places",
+      "descriptions"
+    ]
+  },
+  "里": {
+    "categories": [
+      "places"
+    ]
+  },
+  "前": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "后": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "东": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "西": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "南": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "北": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "爸": {
+    "categories": [
+      "people"
+    ]
+  },
+  "妈": {
+    "categories": [
+      "people"
+    ]
+  },
+  "哥": {
+    "categories": [
+      "people"
+    ]
+  },
+  "姐": {
+    "categories": [
+      "people"
+    ]
+  },
+  "走": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "坐": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "站": {
+    "categories": [
+      "actions",
+      "places"
+    ]
+  },
+  "写": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "读": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "问": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "答": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "睡": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "起": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "床": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "衣": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "服": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "鞋": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "雨": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "风": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "火": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "山": {
+    "categories": [
+      "nature",
+      "places"
+    ]
+  },
+  "石": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "田": {
+    "categories": [
+      "nature",
+      "places"
+    ]
+  },
+  "木": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "米": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "肉": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "鱼": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "鸟": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "花": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "草": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "树": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "云": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "雪": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "窗": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "房": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "校": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "医": {
+    "categories": [
+      "people",
+      "objects"
+    ]
+  },
+  "院": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "药": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "蛋": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "牛": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "羊": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "猪": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "鸡": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "关": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "灯": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "纸": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "笔": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "桌": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "椅": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "杯": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "面": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "脚": {
+    "categories": [
+      "people"
+    ]
+  },
+  "头": {
+    "categories": [
+      "people"
+    ]
+  },
+  "眼": {
+    "categories": [
+      "people"
+    ]
+  },
+  "鼻": {
+    "categories": [
+      "people"
+    ]
+  },
+  "身": {
+    "categories": [
+      "people"
+    ]
+  },
+  "耳": {
+    "categories": [
+      "people"
+    ]
+  },
+  "牙": {
+    "categories": [
+      "people"
+    ]
+  },
+  "皮": {
+    "categories": [
+      "people"
+    ]
+  },
+  "毛": {
+    "categories": [
+      "people"
+    ]
+  },
+  "血": {
+    "categories": [
+      "people"
+    ]
+  },
+  "骨": {
+    "categories": [
+      "people"
+    ]
+  },
+  "胃": {
+    "categories": [
+      "people"
+    ]
+  },
+  "合": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "卖": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "果": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "甜": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "盐": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "糖": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "苹": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "香": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "苦": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "酸": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "辣": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "肥": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "瘦": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "肚": {
+    "categories": [
+      "people"
+    ]
+  },
+  "背": {
+    "categories": [
+      "people"
+    ],
+    "phonetic": "bèi / bēi"
+  }
+};
