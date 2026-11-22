@@ -12,6 +12,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - Keep documentation on `docs/master-development-record`; implementation stays on feature branches and production code on `main`.
 
 ## Archives
+
+- [Production Supabase U2.7.0 rollout preflight](2026-11-22-production-supabase-u2-7-0-preflight.md) — read-only comparison of production and staging migrations, schema, lesson RPCs, catalogue, allowance trigger and ACLs; proposes the ordered two U2.6.0 plus three U2.7.0 migrations, with production execution still awaiting explicit approval.
 - [Update 2.7.0 — implementation audit and QA checkpoint](2026-11-21-update-2-7-0-implementation-audit.md) — records the 725-character dictionary, 17/112 Chinese Lessons, language-aware progress migration, pinyin QA corrections, third-party licence notices and remaining staging/manual-review gates.
 
 - [Update 2.7.0 dictionary expansion and Chinese Lessons progress](2026-11-21-update-2-7-0-dictionary-and-chinese-lessons-progress.md) — records 519 new Chinese characters, 725 total, the 17-lesson/112-question Chinese course, language-aware migration CI and remaining QA gates.
