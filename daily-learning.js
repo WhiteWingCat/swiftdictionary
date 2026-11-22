@@ -689,6 +689,7 @@
     if (entitlementResult.error) throw entitlementResult.error;
     if (!prefResult.data) throw new Error("Your learning preferences could not be found. Please sign out and sign in again.");
     const prefs = prefResult.data;
+    const language = prefs.learning_language || "en";
     preferences = Object.fromEntries(preferenceKeys.map(key => [key,prefs[key] !== false]));
     applyPreferenceInputs(true);
     const timezone = effectiveAllowanceTimezone(prefs);
@@ -743,7 +744,6 @@
         activeSessions.push(session);
       }
     }
-    const language = prefs.learning_language || "en";
     const timezoneChangePending = !!(prefs.allowance_timezone && Date.parse(prefs.allowance_timezone_until || "") > Date.now());
     snapshot = {
       timezone, day, learningLanguage:language, plan, limits, completed, completedToday,
