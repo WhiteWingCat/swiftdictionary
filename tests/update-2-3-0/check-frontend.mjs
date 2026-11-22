@@ -477,7 +477,7 @@ if (dailyScript.includes('.from("daily_activity_sessions").insert(')
   throw new Error("Daily Learning frontend must use server RPCs, not direct activity-log/session INSERTs.");
 }
 if (!dailyScript.includes("const disabled = !!disabledReason || (exhausted && !alreadyCompleted);")
-    || !dailyScript.includes("const completedRows = (snapshot.completedToday || [])")
+    || !dailyScript.includes("const completedRows = (snapshot.dailyResults || [])")
     || !dailyScript.includes("renderCard(item,null,true)")
     || !dailyScript.includes("role=\"tablist\"")
     || !dailyScript.includes("daily-activity-cards")
