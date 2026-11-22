@@ -81,10 +81,32 @@ test("account deletion loads after the main app, without an async config-loader 
   assert.match(build, /Account deletion is loaded explicitly after the main app script/);
 });
 
-test("Google sign-in is bound before the initial network-backed account refresh", () => {
+test("Google sign-in is bound before the initial serialized account hydration", () => {
   const authBlock = index.slice(index.indexOf("async function initAccount"), index.indexOf("const accountMenu", index.indexOf("async function initAccount")));
-  assert.ok(authBlock.indexOf('google.addEventListener("click"') < authBlock.lastIndexOf("await refreshAccount();"));
+  assert.ok(authBlock.indexOf('google.addEventListener("click"') < authBlock.lastIndexOf('await enqueueAccountRefresh(null, false, "BOOTSTRAP", false);'));
   assert.match(authBlock, /Google sign-in could not start/);
+  assert.match(authBlock, /accountRefreshQueue/);
+});
+
+test("routine token refresh events do not trigger full account hydration", () => {
+  const authBlock = index.slice(index.indexOf("async function initAccount"), index.indexOf("const accountMenu", index.indexOf("async function initAccount")));
+  assert.match(authBlock, /event === "INITIAL_SESSION" \|\| event === "TOKEN_REFRESHED"/);
+  assert.match(authBlock, /TOKEN_REFRESHED is deliberately not queued/);
+  assert.match(authBlock, /SIGNED_IN", "SIGNED_OUT", "USER_UPDATED", "PASSWORD_RECOVERY/);
+});
+
+test("post-sign-in loading overlay is present and released after account hydration", () => {
+  assert.match(index, /id="swiftAuthLoading"/);
+  assert.match(index, /swiftAuthLoadingMessage/);
+  assert.match(index, /setAuthLoading\(false\)/);
+  assert.match(index, /refreshDashboardData\(\)/);
+});
+
+test("cloud saved-word sync failures do not clear the authenticated account", () => {
+  const authBlock = index.slice(index.indexOf("async function refreshAccount"), index.indexOf("function enqueueAccountRefresh"));
+  assert.match(authBlock, /still signed in/);
+  assert.match(authBlock, /syncError/);
+  assert.match(authBlock, /Local saved words remain available/);
 });
 
 test("Terms & Conditions has a footer link and does not publish an unapproved legal draft", () => {
