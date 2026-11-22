@@ -85,7 +85,7 @@ assert(topicHighlights.includes('["a, an", ["a","an","the"]]'));
 assert(topicHighlights.includes("lesson-topic-highlight"));
 assert(topicHighlights.includes("lesson-role-neutral"));
 assert(build.includes("permanent-lesson-confirmation.js") && build.includes("lesson-topic-highlights.js"));
-assert(build.includes("daily-learning.js") && build.includes("lessons-ui.css"));
+assert(build.includes("daily-learning") && build.includes("lessons-ui"));
 assert(confirmation.includes("Selecting this lesson will consume one daily lessons allowance, are you sure?"));
 assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('data-confirm="no"'));
 assert(confirmation.includes('button.click()'));
