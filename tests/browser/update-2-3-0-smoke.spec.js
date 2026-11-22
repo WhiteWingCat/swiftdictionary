@@ -46,6 +46,7 @@ test("dictionary loads and remains usable in signed-out mode", async ({ page }) 
 test("signed-in lesson library renders and difficulty tabs switch independently", async ({ page }) => {
   await installDailyLearningMock(page, "lesson-library-user");
   await page.goto("/");
+  await page.locator("#translationSelect").selectOption("en");
   await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage")).toBeVisible();
