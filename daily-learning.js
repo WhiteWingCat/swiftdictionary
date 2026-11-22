@@ -712,12 +712,12 @@
         .select("topic_id,correct_count,question_count,attempted_at")
         .eq("user_id",userId).eq("learning_language",prefs.learning_language || "en").order("attempted_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
-        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,completed_at,status,started_at")
-        .eq("user_id",userId).eq("status","completed")
+        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,completed_at,status,started_at,language_code")
+        .eq("user_id",userId).eq("language_code",language).eq("status","completed")
         .order("completed_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
-        .select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")
-        .eq("user_id",userId).eq("status","in_progress")
+        .select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at,language_code")
+        .eq("user_id",userId).eq("language_code",language).eq("status","in_progress")
         .order("started_at",{ascending:false}).limit(10)
     ]);
     if (sequence !== loadSequence) return;
