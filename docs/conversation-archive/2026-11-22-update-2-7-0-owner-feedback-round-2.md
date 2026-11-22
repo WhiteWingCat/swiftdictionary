@@ -37,3 +37,23 @@ A browser run exposed a temporal-dead-zone error: the new language-scoped sessio
 ## Legal and privacy
 
 These corrections add no new personal-data category or processing purpose. No new database migration was required for this round. Formal Malaysia PDPA and international legal/privacy review remains deferred, not cleared.
+
+
+## Validation follow-up — latest application head `8fec96ab80e889c2cf50ddf71382da643a6e4c23`
+
+- U2.7.0 data/static/accessibility checks passed.
+- Full Lessons and Daily Learning Chromium regression suite passed.
+- Isolated Chinese dictionary browser checks passed.
+- Chinese Lessons bilingual-layout browser check passed.
+- 2.3.x PostgreSQL 17 migration/allowance tests, local Supabase Auth compatibility and Chromium browser regressions passed.
+- 2.5.0 Flashcards checks passed.
+- 2.6.0 ACL drift regression passed.
+- Cloudflare build-routing guard passed.
+- Quiz DB foundation PostgreSQL validation passed; its separate local Supabase Auth/RPC/Quiz Chromium runtime job was still running at this update.
+- The latest U2.7.0 GitHub Actions run succeeded, but the Cloudflare Pages branch-preview deployment itself was not independently verified. Keep the preview readiness gate open until the Pages deployment is confirmed.
+
+Additional fixes discovered during validation:
+- Added a supplemental pinyin map for every Han character used in the 725 combined dictionary entries' separate-sense examples. Static coverage now asserts no example character lacks a pinyin fallback.
+- Completed review cards are retained without consuming today's slots; the next unused Daily Topic/Application item is still shown.
+- Stale completed session IDs that no longer resolve to the original content are no longer rendered as unrelated current content.
+- Test fixtures and the Quiz frontend validator now reflect the language-scoped Daily Learning session query contract.
