@@ -70,7 +70,7 @@ if (!appScript.includes("function quizApplyPageTranslation") || !appScript.inclu
     !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("quizPageState.sessionView&&quizPageState.session?.session_id") || !appScript.includes("if(quizPageState.result)")) {
   throw new Error("Quiz overview translation or active-session continuity is incomplete.");
 }
-if (!dailyLearning.includes('.select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at")')) {
+if (!dailyLearning.includes('.select("id,activity_type,content_id,topic_id,difficulty,source,status,started_at,language_code")')) {
   throw new Error("Daily Learning must select the session ID before attempting expired-session cleanup.");
 }
 if (!appScript.includes("const sessionIsVisible=!!quizPageState.session&&!quizEl(\"quizSession\").hidden;") ||
