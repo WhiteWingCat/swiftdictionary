@@ -162,3 +162,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.7.0 — release-polishing pass and README refresh](2026-11-22-update-2-7-0-release-polishing-pass.md) — records the owner-approved staging state, feature-by-feature audit, README rewrite, feature-branch synchronization with main history, latest cross-version CI and Pages deployment, and the unchanged production/legal boundary.
+
+- [Update 2.7.0 — owner-approved merge to main](2026-11-22-update-2-7-0-merge-to-main.md) — records owner approval, PR #14 merge commit, verified `main` head, automatic Pages deployment still in progress at record time, staging-only Supabase migrations and outstanding legal review.
