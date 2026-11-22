@@ -15,7 +15,7 @@ The dictionary remains free and unlimited. Daily learning allowances apply to le
 - Adds Chinese category filters and pinyin-initial filters. Pinyin search works without tone marks, and polyphonic characters can appear under each applicable initial.
 - Expands character definitions with contextual senses, examples, related words and pronunciation information.
 - Adds separate-sense examples with pinyin support, including coverage checks to prevent missing pinyin in Chinese example sentences.
-- Keeps pinyin beneath the character in the grid; pinyin and detailed explanations are shown in the character detail view.
+- Keeps dictionary grid cards character-only; pinyin search and the character detail view provide pronunciation information without adding pinyin lines to the word cards.
 - Adds a public [Chinese dictionary data sources and attribution page](data-sources.html), with the source registry also documented in `data/CHINESE-DICTIONARY-SOURCES.md`.
 
 ### Chinese learning course
