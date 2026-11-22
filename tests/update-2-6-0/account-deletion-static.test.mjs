@@ -145,18 +145,18 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
   assert.match(flashcards, /state\.data=\{collections:\[\],cards:\[\],mastery:\[\],history:\[\],review_items:\[\]\}/);
 });
 
+test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
+  assert.ok(index.includes('<script src="flashcards.js?v=2.6.0-r3"></script>'));
+  assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
+  assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
+  assert.match(build, /daily-learning\[\.\]js.*2\.7.0-ui3/);
+  assert.match(build, /flashcards\[\.\]js.*2\.6\.1-r1/);
+});
+
 test("Flashcards auth hydration is awaitable by the main account initializer", () => {
   assert.match(flashcards, /window\.__swiftFlashcardsAuthHydration=Promise\.resolve\(\)/);
   assert.match(flashcards, /window\.__swiftFlashcardsAuthHydration=loadData\(\)/);
   assert.match(index, /await window\.__swiftFlashcardsAuthHydration/);
-});
-
-test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
-  assert.ok(index.includes('<script src="flashcards.js?v=2.6.1-r1"></script>'));
-  assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
-  assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
-  assert.match(build, /daily-learning\[\.\]js.*2\.6.1-r1/);
-  assert.match(build, /flashcards\[\.\]js.*2\.6\.1-r1/);
 });
 
 test("account-deletion dialog stays hidden until explicitly opened", () => {

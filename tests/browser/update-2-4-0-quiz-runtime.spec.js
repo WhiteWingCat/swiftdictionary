@@ -400,7 +400,7 @@ test("learning introductions are independent per page and help controls reopen t
   expect(await otherAccountRows.json()).toEqual([]);
 });
 
-test("Chinese course selection clearly disables English learning content on all three pages", async ({ page }) => {
+test("Chinese course enables Chinese Lessons while Quiz and Flashcards remain unavailable", async ({ page }) => {
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
   await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
@@ -413,8 +413,10 @@ test("Chinese course selection clearly disables English learning content on all 
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await page.locator("#learningIntroDismiss").click();
   await selectCourse(page,"zh");
-  await expect(page.locator("#lessonsChineseUnavailable")).toBeVisible();
-  await expect(page.locator("#lessonLibrary")).toBeHidden();
+  await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#lessonLibrary")).toBeVisible();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
+  await expect(page.locator("#lessonCards .lesson-card").first().locator("h3 .lesson-chinese-line")).toContainText("拼音");
   await selectCourse(page,"en");
   await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
   await expect(page.locator("#lessonLibrary")).toBeVisible();

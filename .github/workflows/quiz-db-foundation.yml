@@ -7,6 +7,7 @@ on:
       - feature/update-2-4-2-dashboard-quiz-fixes
       - feature/update-2-5-0-flashcards
       - feature/update-2-6-0-legal-privacy-security
+      - feature/update-2-7-0-chinese-dictionary-lessons
   pull_request:
     branches:
       - main
@@ -123,6 +124,14 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_least_privilege.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261120023718_update_2_6_0_remove_residual_api_privileges.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_6_0_staging_acl_followup.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261121090000_update_2_6_0_acl_drift_correction.sql"
+
+      - name: Apply U2.7.0 language-aware lesson schema and regression tests
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_7_0_language_aware_lessons.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase

@@ -3,6 +3,7 @@ import vm from "node:vm";
 
 const html = fs.readFileSync("index.html", "utf8");
 const dailyScript = fs.readFileSync("daily-learning.js", "utf8");
+const lessonsCss = fs.readFileSync("lessons-ui.css", "utf8");
 
 new vm.Script(dailyScript, { filename: "daily-learning.js" });
 
@@ -288,7 +289,10 @@ if (!html.includes(".daily-activity-cards.premium { grid-template-columns:minmax
     || !html.includes('if (typeof initialiseLessons === "function") await initialiseLessons();')
     || !dailyScript.includes('dailyUi("New activity","新活动")')
     || !dailyScript.includes("const allowanceTone=remaining<=0")
-    || !dailyScript.includes("daily-activity-count '+allowanceTone")) {
+    || !dailyScript.includes("const allowancePercent=")
+    || !dailyScript.includes("daily-activity-allowance")
+    || !lessonsCss.includes(".daily-activity-allowance{")
+    || !lessonsCss.includes(".daily-activity-tabs{display:grid!important;")) {
   throw new Error("Update 2.3.1 category layout, title-side allowance indicator, neutral card status, or account-switch lesson refresh is missing.");
 }
 if (!html.includes(".daily-activity-backdrop{background:transparent}")
@@ -395,8 +399,8 @@ assertTime(
 );
 
 const required = [
-  'rpc("complete_permanent_lesson"',
-  'rpc("record_completed_lesson_practice_result"',
+  'rpc("complete_permanent_lesson_for_language"',
+  'rpc("record_completed_lesson_practice_result_for_language"',
   'rpc("delete_my_learning_history"',
   'id="deleteLearningHistoryButton"',
   'id="learningHistoryDeleteStatus"',
@@ -433,9 +437,11 @@ if (html.includes('data-page="daily-learning"')) {
 }
 const lessonsShellStart = html.indexOf('<section id="lessonsPage"');
 const dailySectionStart = html.indexOf('<section id="dailyLearningPage"');
-const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"');
-if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || difficultyNavStart < dailySectionStart) {
-  throw new Error("Daily Learning must appear inside Lessons above the difficulty navigation.");
+const permanentPanelStart = html.indexOf('<section id="permanentLessonsPanel"');
+const permanentPanelEnd = html.indexOf('\n      </section>\n    </section>\n    <section id="lessonDetailPage"', permanentPanelStart);
+const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"', permanentPanelStart);
+if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || permanentPanelStart <= dailySectionStart || difficultyNavStart < permanentPanelStart || difficultyNavStart >= permanentPanelEnd) {
+  throw new Error("Daily Learning must appear before Permanent Lessons, which must contain the difficulty navigation, inside Lessons.");
 }
 for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','id="accountDeletionCard"','Learning history','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
   if (!html.includes(fragment)) throw new Error(`Update 2.3.1 dashboard/navigation check failed: missing ${fragment}`);

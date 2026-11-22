@@ -22,10 +22,10 @@ else
   environment_name="preview/staging"
 fi
 
-# Refresh browser caches for Update 2.6.1 authentication and learning-data initialization.
+# Refresh browser caches for Update 2.6.1 authentication and learning-data initialization while preserving U2.7.0 UI assets.
 if [[ -f index.html ]]; then
   sed -i -E 's#(account-deletion[.]js)([?]v=[^"]*)?#\1?v=2.6.0-r5#g' index.html
-  sed -i -E 's#(daily-learning[.]js)([?]v=[^"]*)?#\1?v=2.6.1-r1#g' index.html
+  sed -i -E 's#(daily-learning[.]js)([?]v=[^"]*)?#\1?v=2.7.0-ui3#g' index.html
   sed -i -E 's#(flashcards[.]js)([?]v=[^"]*)?#\1?v=2.6.1-r1#g' index.html
 fi
 

@@ -23,6 +23,15 @@ values
   ('33333333-3333-4333-8333-333333333333', 'free', 'active'),
   ('44444444-4444-4444-8444-444444444444', 'premium', 'active');
 
+-- One pre-language practice summary verifies that U2.7.0 backfills legacy
+-- practice history to learning_language='en'.
+insert into public.lesson_practice_results(
+  user_id,difficulty,lesson_id,topic_id,correct_count,question_count,attempted_at
+) values (
+  '11111111-1111-4111-8111-111111111111',
+  'beginner','legacy-01','legacy-fixture-topic',2,3,now()
+);
+
 -- Historical rows deliberately reproduce the pre-migration one-start-log-per-lesson model.
 -- Sorted lesson IDs keep timestamp tie-breaking deterministic for the backfill.
 do $$

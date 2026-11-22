@@ -420,7 +420,8 @@
       dailyLearningEyebrow: zh ? "每日练习" : "DAILY PRACTICE",
       dailyLearningHeading: zh ? "每日学习" : "Daily Learning",
       dailyLearningIntro: zh ? "通过个性化活动和全球共享的每日词汇，建立持续学习的习惯。" : "Build consistency with personalised activities and a shared daily dictionary word for everyone.",
-      dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities"
+      dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities",
+      dailyPreferencesHeading: zh ? "我的每日活动" : "My daily activities"
     };
     Object.entries(labels).forEach(([id,value]) => { const node=byId(id); if(node) node.textContent=value; });
     const names = {
@@ -837,10 +838,11 @@
     const columns=snapshot.plan==="premium"?3:1;
     const allowanceRatio=Number.isFinite(Number(remaining))&&Number(limit)>0?Math.max(0,Number(remaining))/Number(limit):0;
     const allowanceTone=remaining<=0?"exhausted":allowanceRatio<=1/3?"low":allowanceRatio<=2/3?"medium":"healthy";
-    const allowanceCount=isEnabled&&availableForPlan
-      ? '<span class="daily-activity-count '+allowanceTone+'" aria-label="'+esc(Math.max(0,remaining)+" of "+limit+" activities remaining today")+'"><strong>'+esc(Math.max(0,remaining)+" / "+limit)+'</strong><small>'+esc(dailyUi("remaining today","今日剩余"))+'</small></span>'
-      : '<span class="daily-activity-count" aria-hidden="true"></span>';
-    grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelStatus) + '</p></div>' + allowanceCount + '</header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
+    const allowancePercent=Number.isFinite(Number(remaining))&&Number(limit)>0?Math.round(Math.max(0,Number(remaining))/Number(limit)*100):0;
+    const allowanceLabel=isEnabled&&availableForPlan?dailyUi("remaining today","今日剩余"):!isEnabled?dailyUi("Paused in preferences","已在偏好设置中暂停"):!currentUser||!supabaseClient?dailyUi("Sign in to view allowance","登录后查看额度"):dailyUi("Not available on this plan","当前方案暂不可用");
+    const allowanceValue=isEnabled&&availableForPlan?Math.max(0,remaining)+" / "+limit:"—";
+    const allowanceCount='<aside class="daily-activity-allowance '+(isEnabled&&availableForPlan?allowanceTone:"unavailable")+'" aria-label="'+esc(allowanceValue+" "+allowanceLabel)+'"><div class="daily-activity-allowance-top"><span class="daily-activity-allowance-label">'+esc(dailyUi("DAILY ALLOWANCE","每日额度"))+'</span><strong>'+esc(allowanceValue)+'</strong></div><div class="daily-activity-allowance-track" aria-hidden="true"><span style="width:'+allowancePercent+'%"></span></div><small>'+esc(allowanceLabel)+'</small></aside>';
+    grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" data-activity-theme="' + type + '" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div class="daily-activity-heading-copy"><p class="daily-activity-heading-kicker">' + esc(dailyUi("DAILY ACTIVITY","每日活动")) + '</p><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelStatus) + '</p></div>' + allowanceCount + '</header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
     grid.querySelectorAll("[data-daily-tab]").forEach(button => button.addEventListener("click",() => { selectedDailyTab=button.dataset.dailyTab; renderCards(); }));
     grid.querySelectorAll("[data-start-daily]").forEach(button => button.addEventListener("click",() => startDailyActivity(button.dataset.startDaily,button.dataset.discoveryIndex===undefined?0:Number(button.dataset.discoveryIndex),contentByKey.get(button.dataset.startDaily+"|"+button.dataset.contentId)||null,button)));
   }
@@ -877,6 +879,7 @@
 
   function renderReader(activityType,content,session,existingState=null) {
     const reader = byId("dailyActivityReader");
+    if(reader.parentElement!==document.body)document.body.appendChild(reader);
     const isDiscovery = activityType === "daily_discovery";
     reader.classList.add("modal-backdrop","daily-activity-backdrop");
     reader.setAttribute("role","dialog");
@@ -885,6 +888,8 @@
     const completed = session.status === "completed";
     const isQuiz = activityType === "daily_application" || activityType === "daily_revision";
     reader.hidden = false;
+    reader.classList.remove("closing");
+    reader.removeAttribute("aria-hidden");
     reader.classList.add("open");
     document.body.style.overflow = "hidden";
     readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false) };
@@ -989,11 +994,19 @@
 
   function closeDailyReader() {
     const reader=byId("dailyActivityReader");
+    if(reader.classList.contains("closing")||reader.hidden)return;
+    const closingMarkup=reader.innerHTML;
     reader.classList.remove("open");
-    reader.hidden=true;
-    reader.innerHTML="";
+    reader.classList.add("closing");
+    reader.setAttribute("aria-hidden","true");
     readerState=null;
     document.body.style.overflow="";
+    window.setTimeout(()=>{
+      if(!reader.classList.contains("closing")||reader.innerHTML!==closingMarkup)return;
+      reader.hidden=true;
+      reader.innerHTML="";
+      reader.classList.remove("closing");
+    },240);
   }
 
   function checkDailyAnswers() {
@@ -1102,6 +1115,13 @@
     }
   }
 
+  function setDailyPreferenceStatus(message) {
+    const lessonStatus=byId("dailyLearningStatus");
+    const preferencesStatus=byId("dailyPreferencesStatus");
+    if(lessonStatus)lessonStatus.textContent=message;
+    if(preferencesStatus)preferencesStatus.textContent=message;
+  }
+
   function bindPreferenceControls() {
     if (preferenceListenersReady) return;
     preferenceListenersReady = true;
@@ -1113,7 +1133,7 @@
         if (!currentUser || !supabaseClient) {
           input.checked = previous;
           preferences[key] = previous;
-          byId("dailyLearningStatus").textContent = "Sign in to save daily activity preferences across devices.";
+          setDailyPreferenceStatus("Sign in to save daily activity preferences across devices.");
           return;
         }
         input.disabled = true;
@@ -1122,11 +1142,11 @@
             .update({[key]:input.checked}).eq("user_id",currentUser.id);
           if (error) throw error;
           renderCards();
-          byId("dailyLearningStatus").textContent = "Your daily activity preferences have been saved and will sync across devices.";
+          setDailyPreferenceStatus("Your daily activity preferences have been saved and will sync across devices.");
         } catch (error) {
           input.checked = previous;
           preferences[key] = previous;
-          byId("dailyLearningStatus").textContent = "Preference could not be saved: " + (error.message || "Please try again.");
+          setDailyPreferenceStatus("Preference could not be saved: " + (error.message || "Please try again."));
         } finally {
           input.disabled = false;
         }

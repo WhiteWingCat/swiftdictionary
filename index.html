@@ -107,6 +107,7 @@
     .dictionary-filter-heading h2{margin:0;font-size:1.05rem}
     #dictionaryFiltersContent{display:grid;gap:14px}
     #dictionaryFiltersContent .category-row{display:flex;flex-wrap:wrap;gap:8px}
+    #dictionaryFiltersContent .category-row[hidden]{display:none}
     #dictionaryFiltersContent .category-button,#dictionaryFiltersContent #savedFilter{padding:9px 13px;border-radius:10px}
     #dictionaryFiltersContent .alphabet{margin:0}
     @keyframes dictionaryFilterExpand{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
@@ -226,6 +227,7 @@
     h1 { margin: 7px 0 8px; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.055em; line-height: 1.12; }
     .hero p { color: var(--muted); max-width: 650px; margin: 0; }
     .category-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .category-row[hidden] { display: none; }
     .category-button { border: 1px solid var(--border); border-radius: 10px; background: var(--panel); color: var(--muted); padding: 8px 12px; }
     .category-button:hover, .category-button.active { background: var(--accent-bg); border-color: #4c5b8b; color: var(--accent); }
     .search-row { display: flex; gap: 10px; margin-top: 13px; }
@@ -236,6 +238,8 @@
     .filter-button, .secondary-button { border: 1px solid var(--border); border-radius: 12px; background: var(--panel); color: var(--text); padding: 0 16px; }
     .filter-button[aria-pressed="true"] { background: var(--accent-bg); border-color: #4c5b8b; color: var(--accent); }
     .alphabet { display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0 0; }
+    .filter-group-label { margin: 18px 0 7px; color: var(--muted); font-size: .72rem; font-weight: 750; letter-spacing: .09em; text-transform: uppercase; }
+    #chinesePinyinFilterLabel + .alphabet { margin-top: 0; }
     .letter { width: 33px; height: 33px; border-radius: 9px; border: 1px solid transparent; color: var(--muted); background: transparent; }
     .letter:hover, .letter.active { color: var(--text); background: var(--panel-hover); border-color: var(--border); }
     .letter:disabled { opacity: .27; cursor: default; }
@@ -503,7 +507,21 @@
     .learning-auth-card p{max-width:560px;margin:0 auto 16px;color:var(--muted)}
     .learning-auth-button{border:1px solid #718ac7!important;background:#34446b!important;color:#fff!important;border-radius:10px!important;padding:11px 20px!important;font-weight:700}
     #lessonsPage.learning-signed-out #dailyLearningPage,#lessonsPage.learning-signed-out .difficulty-tabs,#lessonsPage.learning-signed-out #lessonLibrary,#lessonsPage.learning-signed-out #lessonsChineseUnavailable,#lessonDetailPage.learning-signed-out #lessonReader,#lessonDetailPage.learning-signed-out #lessonStatus{display:none!important}
-  </style>
+  
+    /* Chinese Lessons typography: Chinese first, pinyin immediately below, English support after. */
+    .lesson-bilingual-block{display:block;width:100%;white-space:normal;line-height:1.5}
+    .lesson-chinese-line{display:block;order:0;line-height:1.55}
+    .lesson-pinyin-line{display:block;order:1;margin:0.08rem 0 0;color:var(--muted,#87939b);font-size:.9em;line-height:1.35}
+    .lesson-english-line{display:block;order:2;margin-top:.16rem;color:var(--muted,#87939b);font-size:.92em;line-height:1.45}
+    .lesson-selected-translation{display:block;margin-top:.14rem;font-size:.9em;color:var(--muted,#87939b)}
+    .lesson-breakdown-sentence{display:flex;flex-wrap:wrap;align-items:flex-start;gap:.55rem;margin:.65rem 0}
+    .lesson-breakdown-token{display:inline-flex;flex-direction:column;align-items:center;min-width:2.2rem}
+    .lesson-breakdown-token mark{display:block}
+    .lesson-question label{align-items:flex-start}
+    .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
+    .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
+</style>
+<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui3">
 </head>
 <body>
   <div id="swiftAuthLoading" class="swift-auth-loading" role="status" aria-live="polite" aria-label="Preparing your SwiftDictionary account">
@@ -569,7 +587,22 @@
               <button class="category-button" type="button" data-category="adverb" aria-pressed="false">Adverbs</button>
               <button class="category-button" type="button" data-category="other" aria-pressed="false">Other / multiple uses</button>
             </div>
+            <div id="chineseCategoryRow" class="category-row" aria-label="Filter Chinese characters by category" hidden>
+              <button class="category-button active" type="button" data-chinese-category="all" aria-pressed="true">All categories</button>
+              <button class="category-button" type="button" data-chinese-category="actions" aria-pressed="false">Actions</button>
+              <button class="category-button" type="button" data-chinese-category="expressions" aria-pressed="false">Expressions</button>
+              <button class="category-button" type="button" data-chinese-category="communication" aria-pressed="false">Communication</button>
+              <button class="category-button" type="button" data-chinese-category="people" aria-pressed="false">People</button>
+              <button class="category-button" type="button" data-chinese-category="objects" aria-pressed="false">Objects</button>
+              <button class="category-button" type="button" data-chinese-category="nature" aria-pressed="false">Nature</button>
+              <button class="category-button" type="button" data-chinese-category="places" aria-pressed="false">Places</button>
+              <button class="category-button" type="button" data-chinese-category="time-numbers" aria-pressed="false">Time &amp; Numbers</button>
+              <button class="category-button" type="button" data-chinese-category="emotions-states" aria-pressed="false">Emotions &amp; States</button>
+              <button class="category-button" type="button" data-chinese-category="descriptions" aria-pressed="false">Descriptions</button>
+              <button class="category-button" type="button" data-chinese-category="grammar-function" aria-pressed="false">Grammar &amp; Function</button>
+            </div>
             <button id="savedFilter" class="filter-button" type="button" aria-pressed="false">☆ Saved words</button>
+            <div id="chinesePinyinFilterLabel" class="filter-group-label" hidden>Pinyin A–Z</div>
             <nav id="alphabet" class="alphabet" aria-label="Filter words by first letter"></nav>
           </div>
       </section>
@@ -591,35 +624,25 @@
 
     <section id="lessonsPage" class="page-panel" hidden aria-labelledby="lessonsHeading">
       <section class="learning-banner" aria-labelledby="lessonsHeading"><div><p class="eyebrow">LEARNING</p><h1 id="lessonsHeading">Lessons</h1><p class="page-intro">Build English skills through guided explanations, examples and short practice.</p></div><div class="learning-banner-actions"><button type="button" class="learning-help-button" data-learning-help="lessons" aria-label="Lessons introduction and FAQs" title="Introduction and FAQs">?</button></div></section>
-      <section id="lessonsSignedOut" class="learning-auth-card" hidden>
-        <h2>Sign in to use Lessons</h2>
-        <p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p>
-        <button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button>
+      <section id="lessonsSignedOut" class="learning-auth-card" hidden><h2>Sign in to use Lessons</h2><p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p><button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button></section>
+      <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
+      <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
+        <div class="daily-learning-section-heading"><div><p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p><h2 id="dailyLearningHeading">Daily Learning</h2><p class="page-intro" id="dailyLearningIntro">Build consistency with personalised activities and a shared daily dictionary word for everyone.</p></div><span class="daily-learning-heading-mark" aria-hidden="true">✧</span></div>
+        <p id="dailyLearningStatus" role="status" aria-live="polite" class="page-intro">Sign in to save daily activity progress across devices.</p>
+        <div id="dailyActivityGrid" class="daily-activity-grid"></div><article id="dailyActivityReader" class="daily-reader-card" hidden></article>
       </section>
-    <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
-    <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
-      <p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p>
-      <h2 id="dailyLearningHeading">Daily Learning</h2>
-      <p class="page-intro" id="dailyLearningIntro">Build consistency with personalised activities and a shared daily dictionary word for everyone.</p>
-      <p id="dailyLearningStatus" role="status" aria-live="polite" class="page-intro">Sign in to save daily activity progress across devices.</p>
-      <fieldset class="daily-preferences">
-        <legend id="dailyPreferencesLegend">My daily activities</legend>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_topic_enabled" checked><span data-daily-pref-label="daily_topic">Daily Topic</span></label>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_application_enabled" checked><span data-daily-pref-label="daily_application">Daily Application</span></label>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_discovery_enabled" checked><span data-daily-pref-label="daily_discovery">Daily Discovery</span></label>
-        <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_revision_enabled" checked><span data-daily-pref-label="daily_revision">Daily Revision</span></label>
-      </fieldset>
-      <div id="dailyActivityGrid" class="daily-activity-grid"></div>
-      <article id="dailyActivityReader" class="daily-reader-card" hidden></article>
-    </section>
-      <div class="difficulty-tabs" role="group" aria-label="Lesson difficulty"><button class="difficulty-tab active" data-difficulty="beginner">Beginner</button><button class="difficulty-tab" data-difficulty="intermediate">Intermediate</button><button class="difficulty-tab" data-difficulty="advanced">Advanced</button></div>
-      <div id="lessonLibrary"><div id="lessonAllowance" class="lesson-allowance" aria-live="polite"><div><strong>Daily lesson allowance</strong><small id="lessonAllowanceNote">Sign in to view your daily lesson completions.</small></div><span id="lessonAllowanceCount" class="lesson-allowance-count">—</span></div><p id="lessonDifficultySummary" class="lesson-muted"></p><label class="lesson-filter">Topic <select id="lessonTopicFilter"><option value="all">All topics</option></select></label><span id="lessonProgressSummary" class="lesson-muted"></span><div id="lessonCards" class="lesson-card-grid"></div></div>
+      <section id="permanentLessonsPanel" class="permanent-lessons-panel" aria-labelledby="permanentLessonsHeading">
+        <div class="permanent-lessons-heading"><div><p class="eyebrow">COURSE LIBRARY</p><h2 id="permanentLessonsHeading">Permanent Lessons</h2><p>Explore structured lessons at your own pace. Your progress is saved separately for each difficulty and learning course.</p></div><span class="permanent-lessons-mark" aria-hidden="true">✦</span></div>
+        <div class="difficulty-tabs" role="group" aria-label="Lesson difficulty"><button class="difficulty-tab active" data-difficulty="beginner">Beginner</button><button class="difficulty-tab" data-difficulty="intermediate">Intermediate</button><button class="difficulty-tab" data-difficulty="advanced">Advanced</button></div>
+        <div id="lessonLibrary">
+          <div id="lessonAllowance" class="lesson-allowance" aria-live="polite"><div><strong>Daily lesson allowance</strong><small id="lessonAllowanceNote">Sign in to view your daily lesson completions.</small></div><span id="lessonAllowanceCount" class="lesson-allowance-count">—</span></div>
+          <div class="lesson-library-toolbar"><p id="lessonDifficultySummary" class="lesson-muted"></p><div class="lesson-library-filters"><label class="lesson-filter">Topic <select id="lessonTopicFilter"><option value="all">All topics</option></select></label><span id="lessonProgressSummary" class="lesson-muted"></span></div></div>
+          <div id="lessonCards" class="lesson-card-grid"></div>
+        </div>
+      </section>
     </section>
     <section id="lessonDetailPage" class="page-panel lesson-detail-page" hidden aria-labelledby="lessonDetailHeading">
-      <article id="lessonReader" class="lesson-detail-reader">
-        <button id="lessonBack" class="secondary-button">← Back to lessons</button>
-        <div id="lessonReaderContent"></div>
-      </article>
+      <article id="lessonReader" class="lesson-detail-reader"><button id="lessonBack" class="secondary-button">← Back to lessons</button><div id="lessonReaderContent"></div></article>
       <p id="lessonStatus" role="status" aria-live="polite"></p>
     </section>
     <section id="quizPage" class="page-panel" hidden aria-labelledby="quizHeading">
@@ -698,6 +721,18 @@
           <div class="profile-actions"><button type="button" id="savePreferences" class="primary-button">Save preferences</button><span id="preferenceStatus" class="muted-note" aria-live="polite"></span></div>
           <p class="muted-note">Your timezone determines when daily learning allowances reset. If you change it, the new timezone takes effect after the current allowance day ends. It is a timezone setting, not a precise location.</p>
         </section>
+        <section class="profile-card daily-preferences-card">
+          <h3 id="dailyPreferencesHeading">My daily activities</h3>
+          <p class="muted-note">Choose which daily learning activities appear in your Lessons workspace. You can change these preferences at any time.</p>
+          <fieldset class="daily-preferences">
+            <legend id="dailyPreferencesLegend">My daily activities</legend>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_topic_enabled" checked><span data-daily-pref-label="daily_topic">Daily Topic</span></label>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_application_enabled" checked><span data-daily-pref-label="daily_application">Daily Application</span></label>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_discovery_enabled" checked><span data-daily-pref-label="daily_discovery">Daily Discovery</span></label>
+            <label class="daily-preference"><input type="checkbox" data-daily-pref="daily_revision_enabled" checked><span data-daily-pref-label="daily_revision">Daily Revision</span></label>
+          </fieldset>
+          <p id="dailyPreferencesStatus" class="muted-note" role="status" aria-live="polite"></p>
+        </section>
         <section id="accountDeletionCard" class="profile-card swift-delete-card">
   <h3>Delete Account</h3>
   <p class="muted-note">Permanently delete your SwiftDictionary account and its cloud-synchronised data, including saved words, profile, preferences and learning records. This does not delete your Google account. Choose this option only when you want to close the account permanently; deleting learning history alone is a separate action.</p>
@@ -714,7 +749,7 @@
     </section>
   </main>
 
-  <footer><div class="wrap">SwiftDictionary · English and Simplified Chinese vocabulary · Sign in to sync saved words across devices. <span aria-hidden="true">·</span> <a href="feedback.html">Feedback &amp; suggestions</a> <span aria-hidden="true">·</span> <a href="terms.html">Terms &amp; Conditions</a></div></footer>
+  <footer><div class="wrap">SwiftDictionary · English and Simplified Chinese vocabulary · Sign in to sync saved words across devices. <span aria-hidden="true">·</span> <a href="feedback.html">Feedback &amp; suggestions</a> <span aria-hidden="true">·</span> <a href="terms.html">Terms &amp; Conditions</a> <span aria-hidden="true">·</span> <a href="data-sources.html">Dictionary Data Sources</a></div></footer>
 
   <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalWord">
     <article class="modal">
@@ -761,6 +796,8 @@
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script src="supabase-config.js"></script>
   <script src="mock-testing.js"></script>
+  <script src="data/chinese-characters.js"></script>
+  <script src="data/chinese-lessons.js"></script>
   <script>
     // Starter vocabulary. Add more entries by following this same object structure.
     const englishWords = [
@@ -17691,8 +17728,18 @@
     "breakdown": "上下结构。注意“背”有 bèi、bēi 两种常见读音，句中“背着书包”读 bēi。",
     "related": "后背 hòubèi；背包 bēibāo；背诵 bèisòng",
     "course": "zh"
-  }
+  },
+  ...(window.SWIFT_CHINESE_WORDS || [])
 ];
+    // Apply learner categories and verified additional readings to the original Chinese entries.
+    // Grid cards remain character-only; this metadata is used for filtering and pinyin search.
+    const chineseMetadata = window.SWIFT_CHINESE_METADATA || {};
+    chineseWords.forEach(item => {
+      const metadata = chineseMetadata[item.word];
+      if (!metadata) return;
+      if (Array.isArray(metadata.categories)) item.categories = metadata.categories;
+      if (metadata.phonetic) item.phonetic = metadata.phonetic;
+    });
     const preferenceStorageKey = "swiftdictionary-course-preferences";
     let storedCoursePreferences = {};
     try { storedCoursePreferences = JSON.parse(localStorage.getItem(preferenceStorageKey) || "{}"); } catch {}
@@ -17709,8 +17756,11 @@
     const count = document.getElementById("count");
     const alphabet = document.getElementById("alphabet");
     const savedFilter = document.getElementById("savedFilter");
-    const categoryButtons = [...document.querySelectorAll(".category-button")];
+    const categoryButtons = [...document.querySelectorAll("#categoryRow .category-button")];
     const categoryRow = document.getElementById("categoryRow");
+    const chineseCategoryButtons = [...document.querySelectorAll("#chineseCategoryRow .category-button")];
+    const chineseCategoryRow = document.getElementById("chineseCategoryRow");
+    const chinesePinyinFilterLabel = document.getElementById("chinesePinyinFilterLabel");
     const previousPage = document.getElementById("previousPage");
     const nextPage = document.getElementById("nextPage");
     const pageStatus = document.getElementById("pageStatus");
@@ -17731,6 +17781,7 @@
     }).filter(Boolean));
     let activeLetter = "";
     let activeCategory = "all";
+    let activeChineseCategory = "all";
     let currentPage = 1;
     let pageSize = 100;
     let onlySaved = false;
@@ -17759,8 +17810,15 @@
     function escapeHTML(value) {
       return String(value).replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[char]));
     }
+    function chinesePinyinInitials(item) {
+      return [...new Set(String(item.phonetic || "").split(/\s*\/\s*/).map(reading =>
+        reading.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").charAt(0).toUpperCase()
+      ).filter(letter => /^[A-Z]$/.test(letter)))];
+    }
     function makeAlphabet() {
-      alphabet.style.display = course === "zh" ? "none" : "flex";
+      alphabet.style.display = "flex";
+      alphabet.setAttribute("aria-label", course === "zh" ? "Filter Chinese characters by pinyin initial" : "Filter words by first letter");
+      chinesePinyinFilterLabel.hidden = course !== "zh";
       const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
       alphabet.innerHTML = "";
       const all = document.createElement("button");
@@ -17772,7 +17830,9 @@
         const button = document.createElement("button");
         button.type = "button"; button.className = "letter"; button.textContent = letter;
         button.dataset.letter = letter;
-        button.disabled = !words.some(item => item.word.toUpperCase().startsWith(letter));
+        button.disabled = !words.some(item => course === "zh"
+          ? chinesePinyinInitials(item).includes(letter)
+          : item.word.toUpperCase().startsWith(letter));
         button.setAttribute("aria-pressed", "false");
         button.addEventListener("click", () => {
           activeLetter = activeLetter === letter ? "" : letter;
@@ -17796,9 +17856,13 @@
         const normalizedQuery = query.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const normalizedPinyin = (item.phonetic || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         const matchesQuery = !query || item.word.toLowerCase().includes(query) || (course === "zh" && normalizedPinyin.includes(normalizedQuery));
-        const matchesLetter = course === "zh" || !activeLetter || item.word.toUpperCase().startsWith(activeLetter);
+        const matchesLetter = !activeLetter || (course === "zh"
+          ? chinesePinyinInitials(item).includes(activeLetter)
+          : item.word.toUpperCase().startsWith(activeLetter));
         const parts = item.part.toLowerCase().split(/\s*\/\s*/).map(part => part.trim());
-        const matchesCategory = course === "zh" || activeCategory === "all" || (activeCategory === "other" ? parts.length > 1 || !["noun","verb","adjective","adverb"].includes(parts[0]) : parts.includes(activeCategory));
+        const matchesCategory = course === "zh"
+          ? activeChineseCategory === "all" || (Array.isArray(item.categories) && item.categories.includes(activeChineseCategory))
+          : activeCategory === "all" || (activeCategory === "other" ? parts.length > 1 || !["noun","verb","adjective","adverb"].includes(parts[0]) : parts.includes(activeCategory));
         const matchesSaved = !onlySaved || saved.has(savedKey(course,item.word));
         return matchesQuery && matchesLetter && matchesSaved && matchesCategory;
       }).sort((a,b) => a.word.localeCompare(b.word, course === "zh" ? "zh-CN" : "en"));
@@ -17808,6 +17872,9 @@
       pageSize = course === "zh" ? 144 : 100;
       grid.classList.toggle("character-grid", course === "zh");
       categoryRow.hidden = course === "zh";
+      const hasChineseCategories = words.some(item => Array.isArray(item.categories) && item.categories.length > 0);
+      chineseCategoryRow.hidden = course !== "zh" || !hasChineseCategories;
+      chinesePinyinFilterLabel.hidden = course !== "zh";
       const pageCount = Math.max(1, Math.ceil(list.length / pageSize));
       currentPage = Math.min(currentPage, pageCount);
       const start = (currentPage - 1) * pageSize;
@@ -18222,13 +18289,14 @@
       categoryRow.hidden=course==="zh";
       grid.classList.toggle("character-grid",course==="zh");
       words=course==="zh"?chineseWords:englishWords;
-      activeLetter="";activeCategory="all";onlySaved=false;
+      activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;
       savedFilter.setAttribute("aria-pressed","false");
       savedFilter.textContent="☆ Saved words";
       search.value="";
       search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
       currentPage=1;makeAlphabet();updateLetterButtons();
       categoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
+      chineseCategoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
       render();
       if(currentUser)syncCurrentCourseFromCloud({mergeLocal:false});
       showPreferenceRefreshToast("course");
@@ -18243,49 +18311,42 @@
       translationLanguage=nextLanguage || selector.value || "en";
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
-      document.getElementById("lessonBack").textContent = translationLanguage === "zh" ? "← 返回课程列表" : "← Back to lessons";
+      const chineseCourse=course==="zh";
+      document.getElementById("lessonBack").textContent=!chineseCourse&&translationLanguage==="zh"?"← 返回课程列表":"← Back to lessons";
       const lessonsPage=document.getElementById("lessonsPage");
       if(lessonsPage){
         const lessonBanner=lessonsPage.querySelector(".learning-banner");
         const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
         const lessonTitle=document.getElementById("lessonsHeading");
         const lessonDescription=lessonBanner?.querySelector(".page-intro");
-        if(lessonEyebrow)lessonEyebrow.textContent=translationLanguage==="zh"?"学习":"LEARNING";
-        if(lessonTitle)lessonTitle.textContent=translationLanguage==="zh"?"课程":"Lessons";
-        if(lessonDescription)lessonDescription.textContent=translationLanguage==="zh"
-          ?"通过引导式讲解、示例和简短练习提升英语能力。"
-          :"Build English skills through guided explanations, examples and short practice.";
+        if(lessonEyebrow)lessonEyebrow.textContent=!chineseCourse&&translationLanguage==="zh"?"学习":"LEARNING";
+        if(lessonTitle)lessonTitle.textContent=chineseCourse?"Chinese Lessons":!chineseCourse&&translationLanguage==="zh"?"课程":"Lessons";
+        if(lessonDescription)lessonDescription.textContent=chineseCourse
+          ?"Learn Simplified Chinese with pinyin, clear explanations, examples and interactive practice."
+          :translationLanguage==="zh"?"通过引导式讲解、示例和简短练习提升英语能力。":"Build English skills through guided explanations, examples and short practice.";
       }
-      if (activeWord && backdrop.classList.contains("open")) openWord(activeWord);
-      // The lesson catalogue uses lessonField() for localized titles, topics and summaries.
-      // Re-render its cards when the translation changes; refreshing only the reader
-      // leaves the library in the previous language until the next navigation.
-      if (lessonsPage && !lessonsPage.hidden && !ls.active) renderLessons();
-      // Permanent lessons and Daily Learning share this preference, but their
-      // readers have independent renderers. Refresh the open permanent lesson
-      // directly instead of routing through the Daily Learning page state.
-      if (ls.active) {
+      if(activeWord&&backdrop.classList.contains("open"))openWord(activeWord);
+      if(lessonsPage&&!lessonsPage.hidden&&!ls.active)renderLessons();
+      if(ls.active){
         const activeLessonId=ls.active.id;
-        const activeLesson=(lessonData[ls.difficulty]||[]).find(item=>item.id===activeLessonId);
-        if(activeLesson) {
+        const activeLesson=(lessons()||[]).find(item=>item.id===activeLessonId);
+        if(activeLesson){
           const reader=document.getElementById("lessonReader");
           const wasOpen=reader&&!reader.hidden;
           renderLesson(activeLesson,true);
           if(reader&&wasOpen)reader.hidden=false;
-        } else {
+        }else{
           ls.active=null;
           document.getElementById("lessonReader").hidden=true;
         }
       }
-      if (typeof window.refreshDailyLearningTranslation === "function") window.refreshDailyLearningTranslation();
-      if (typeof quizRenderAvailability === "function" && quizPageState.availability && location.hash==="#quiz") {
+      if(typeof window.refreshDailyLearningTranslation==="function")window.refreshDailyLearningTranslation();
+      if(typeof quizRenderAvailability==="function"&&quizPageState.availability&&location.hash==="#quiz"){
         quizRenderAvailability(quizPageState.availability);
         quizRenderHistory(quizPageState.history);
       }
-      if (typeof quizRefreshVisibleTranslation === "function") quizRefreshVisibleTranslation();
-      if (typeof quizApplyPageTranslation === "function") quizApplyPageTranslation();
-      // Keep the exact Quiz subview the learner was looking at before the
-      // language refresh. The overview's Resume card must not open the session.
+      if(typeof quizRefreshVisibleTranslation==="function")quizRefreshVisibleTranslation();
+      if(typeof quizApplyPageTranslation==="function")quizApplyPageTranslation();
       if (quizViewBefore==="session" && quizPageState.session) {
         quizPageState.sessionView=true;
         quizRenderSession();
@@ -18297,13 +18358,13 @@
         document.getElementById("quizSession").hidden=true;
         document.getElementById("quizResults").hidden=true;
       }
-      if (ls.active) {
+      if(ls.active){
         const status=document.getElementById("lessonStatus");
-        if(status) status.textContent=translationLanguage==="zh"
-          ? "翻译语言已更新，当前课程内容已刷新。"
-          : "Translation updated. This lesson has been refreshed.";
+        if(status)status.textContent=!chineseCourse&&translationLanguage==="zh"
+          ?"翻译语言已更新，当前课程内容已刷新。"
+          :"Translation updated. This lesson has been refreshed.";
       }
-      if (typeof window.SwiftDictionaryFlashcards?.refreshTranslation === "function") window.SwiftDictionaryFlashcards.refreshTranslation();
+      if(typeof window.SwiftDictionaryFlashcards?.refreshTranslation==="function")window.SwiftDictionaryFlashcards.refreshTranslation();
     }
     document.getElementById("translationSelect").addEventListener("change", e => {
       refreshTranslationViews(e.target.value);
@@ -18315,6 +18376,11 @@
     categoryButtons.forEach(button => button.addEventListener("click", () => {
       activeCategory = button.dataset.category;
       categoryButtons.forEach(item => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
+      currentPage = 1; render();
+    }));
+    chineseCategoryButtons.forEach(button => button.addEventListener("click", () => {
+      activeChineseCategory = button.dataset.chineseCategory;
+      chineseCategoryButtons.forEach(item => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
       currentPage = 1; render();
     }));
     previousPage.addEventListener("click", () => { if (currentPage > 1) { currentPage--; render(); window.scrollTo({top: 0, behavior: "smooth"}); } });
@@ -18654,21 +18720,265 @@
       "Academic and professional English":"academic-professional-english",
       "Precise vocabulary":"precise-vocabulary"
     };
-    function lessonTopicIdFor(x){return lessonTopicIds[x.topic]||null;}
-    function lessonField(x,key){const z=translationLanguage==="zh"?lessonZh[x.id]:null;return z&&z[key]!==undefined?z[key]:x[key];}
-function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:null;const src=x.practices||[x.practice],zt=z?.practices||(z?.practice?[z.practice]:null),orders=ls.practiceOptionOrders?.[x.id];return src.map((q,i)=>{const options=zt?.[i]?.options||q.options,order=orders?.[i]||options.map((_,j)=>j);return {q:zt?.[i]?.q||q.q,options:order.map(j=>options[j]),answer:order.indexOf(q.answer)};});}
+function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
+function lessonField(x,key){
+  if(course==="zh")return x[key];
+  const z=translationLanguage==="zh"?lessonZh[x.id]:null;
+  return z&&z[key]!==undefined?z[key]:x[key];
+}
+function lessonPractice(x){
+  const z=course==="en"&&translationLanguage==="zh"?lessonZh[x.id]:null;
+  const src=x.practices||[x.practice];
+  const translated=z?.practices||(z?.practice?[z.practice]:null);
+  const orders=ls.practiceOptionOrders?.[x.id];
+  return src.map((q,i)=>{
+    const options=translated?.[i]?.options||q.options;
+    const order=orders?.[i]||options.map((_,j)=>j);
+    return {q:translated?.[i]?.q||q.q,options:order.map(j=>options[j]),answer:order.indexOf(q.answer)};
+  });
+}
     function shuffleLessonOptionOrders(x){const src=x.practices||[x.practice],previous=ls.lastPracticeOptionOrders?.[x.id]||[];const orders=src.map((q,i)=>{const base=q.options.map((_,j)=>j);let order=base.slice();for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.length>1&&previous[i]&&order.every((v,j)=>v===previous[i][j])){for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.every((v,j)=>v===previous[i][j]))order.push(order.shift());}return order;});ls.lastPracticeOptionOrders={...(ls.lastPracticeOptionOrders||{}),[x.id]:orders.map(a=>a.slice())};ls.practiceOptionOrders={...(ls.practiceOptionOrders||{}),[x.id]:orders};}
     const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
     const el=id=>document.getElementById(id);
-    const lessons=()=>lessonData[ls.difficulty];
-    const progressFor=id=>ls.progress.find(p=>p.lesson_id===id&&p.difficulty===ls.difficulty);
-    function lessonText(v){return v;}
-    async function loadLessonProgress(){if(!currentUser||!supabaseClient){ls.progress=[];return;}const {data,error}=await supabaseClient.from("lesson_progress").select("difficulty,lesson_id,status,started_at,completed_at,updated_at").eq("user_id",currentUser.id);if(error)throw error;ls.progress=data||[];}
-    function renderLessons(){const topic=el("lessonTopicFilter"),topics=[...new Set(lessons().map(x=>lessonField(x,"topic")))];topic.innerHTML='<option value="all">All topics</option>'+topics.map(t=>'<option>'+escapeHTML(t)+'</option>').join("");topic.value=ls.topic;const done=lessons().filter(x=>progressFor(x.id)?.status==="completed").length;el("lessonDifficultySummary").textContent=lessons().length+" lessons · "+done+" completed. Each difficulty keeps its own progress.";el("lessonProgressSummary").textContent=currentUser?done+" of "+lessons().length+" completed":"Sign in to save progress";el("lessonCards").innerHTML="";lessons().filter(x=>ls.topic==="all"||lessonField(x,"topic")===ls.topic).forEach(x=>{const p=progressFor(x.id),status=p?.status==="completed"?"Completed":p?"In progress":"Not started",cls=p?.status==="completed"?"completed":p?"in-progress":"not-started",blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;const b=document.createElement("button");b.className="lesson-card";b.disabled=blocked;b.innerHTML='<span class="lesson-card-main"><span class="lesson-chip">'+escapeHTML(lessonField(x,"topic"))+'</span><h3>'+escapeHTML(lessonField(x,"title"))+'</h3><p>'+escapeHTML(lessonField(x,"summary"))+'</p></span><span class="lesson-status '+cls+'">'+(blocked?"Daily limit reached":status)+'</span>';if(blocked)b.title="Your daily lesson-completion allowance has been used. Completed lessons remain available to review.";b.onclick=()=>openLesson(x.id);el("lessonCards").appendChild(b);});}
-    function renderLesson(x,preservePractice=false){ls.active=x;const qs=lessonPractice(x);const selectedAnswers=preservePractice?qs.map((q,i)=>document.querySelector('input[name="lessonAnswer'+i+'"]:checked')?.value??null):[];if(!preservePractice||!Array.isArray(ls.practicePassed)||ls.practicePassed.length!==qs.length)ls.practicePassed=qs.map(()=>false);if(!preservePractice||!Array.isArray(ls.practiceFirstTry)||ls.practiceFirstTry.length!==qs.length)ls.practiceFirstTry=qs.map(()=>null);const zh=translationLanguage==="zh";const examples=lessonField(x,"examples").map(s=>'<div class="lesson-example">'+escapeHTML(s)+'</div>').join("");const done=progressFor(x.id)?.status==="completed";const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3><ul>'+lessonField(x,"points").map(p=>'<li>'+escapeHTML(p)+'</li>').join("")+'</ul><h3>'+(zh?"讲解":"Explanation")+'</h3><p>'+escapeHTML(lessonField(x,"explanation"))+'</p>'+(lessonField(x,"breakdown")?'<h3>'+escapeHTML(lessonField(x,"breakdown").title)+'</h3><p>'+escapeHTML(lessonField(x,"breakdown").intro)+'</p>'+(lessonField(x,"breakdown").sentence?'<p class="lesson-example">'+lessonField(x,"breakdown").sentence.map(p=>'<mark class="lesson-focus-'+p.role+'">'+escapeHTML(p.text)+'</mark>').join(" ")+'</p>':'')+'<div class="lesson-breakdown">'+lessonField(x,"breakdown").parts.map(p=>'<span><strong>'+escapeHTML(p.text)+'</strong><small>'+escapeHTML(p.label)+'</small></span>').join("")+'</div>':'')+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+escapeHTML(m)+'</li>').join("")+'</ul></div>';const practiceBox='<div class="lesson-practice-box"><h3>'+(zh?"练习":"Practice")+'</h3><p class="lesson-practice-intro">'+(zh?"完成所有题目并答对，才能结束本课。":"Answer each question correctly. You can retry a question at any time.")+'</p><div class="lesson-practice-progress"><span>'+(zh?"练习进度":"Practice progress")+'</span><strong id="lessonPracticeProgress">0 / '+qs.length+' correct</strong></div>'+qs.map((q,i)=>'<fieldset class="lesson-question"><legend>'+(i+1)+'. '+escapeHTML(q.q)+'</legend>'+q.options.map((o,j)=>'<label><input type="radio" name="lessonAnswer'+i+'" value="'+j+'"> '+escapeHTML(o)+'</label>').join("")+'<button class="secondary-button check-lesson-answer" type="button" data-question="'+i+'">'+(zh?"检查答案":"Check answer")+'</button><p class="lesson-question-feedback" id="lessonAnswerFeedback'+i+'" role="status"></p></fieldset>').join("")+'</div>';el("lessonReaderContent").innerHTML='<p class="eyebrow">'+ls.difficulty.toUpperCase()+' · '+escapeHTML(lessonField(x,"topic"))+'</p><h2>'+escapeHTML(lessonField(x,"title"))+'</h2><p class="page-intro">'+escapeHTML(lessonField(x,"summary"))+'</p>'+contentBox+practiceBox+'<div class="lesson-completion-state" id="lessonCompletionState" aria-live="polite"><span class="lesson-completion-icon">'+(done?"✓":"○")+'</span><p class="lesson-finish-note" id="lessonFinishNote" role="status">'+(done?(zh?"本课已完成。你可以随时免费重新学习。":"Lesson completed. You can revisit it for free."):(zh?"答对所有练习题后，本课会自动标记为已完成。":"Answer every practice question correctly. Your lesson will then be marked complete automatically."))+'</p></div>'+(done?'<div class="lesson-reader-bottom-actions"><button type="button" class="secondary-button" id="lessonBackBottom">'+(zh?"返回课程列表":"Back to lessons")+' →</button></div>':'');if(done)el("lessonBackBottom").onclick=closeLesson;document.querySelectorAll(".check-lesson-answer").forEach(button=>button.onclick=()=>{const i=Number(button.dataset.question),q=qs[i],v=document.querySelector('input[name="lessonAnswer'+i+'"]:checked'),feedback=el("lessonAnswerFeedback"+i);if(!v){feedback.textContent=zh?"请先选择一个答案。":"Choose an answer first.";return;}const correct=Number(v.value)===q.answer;if(ls.practiceFirstTry[i]===null)ls.practiceFirstTry[i]=correct;ls.practicePassed[i]=correct;feedback.textContent=correct?(zh?"正确，做得好！":"Correct — well done."):(zh?"还不正确。请重新查看讲解后再试一次。":"Not quite. Review the explanation and try again.");feedback.style.color=correct?"#9bd7b3":"#f0a0a0";const passed=ls.practicePassed.filter(Boolean).length;el("lessonPracticeProgress").textContent=passed+" / "+qs.length+" correct";el("lessonFinishNote").textContent=done?(zh?"本课已完成，你可以随时重新学习。":"This lesson is already completed. You can revisit it at any time."):passed===qs.length?(zh?"全部答对！正在保存课程进度……":"All answers correct. Saving your lesson progress…"):(zh?"请正确完成所有练习题。":"Answer every practice question correctly to complete the lesson.");el("lessonCompletionState").classList.toggle("is-ready",passed===qs.length||done);el("lessonCompletionState").querySelector(".lesson-completion-icon").textContent=done?"✓":passed===qs.length?"✓":"○";if(passed===qs.length&&!ls.completing){if(done)void saveCompletedLessonPractice(x);else void completeLesson(x);}});document.querySelectorAll('.lesson-question input[type="radio"]').forEach(input=>input.addEventListener("change",()=>{const i=Number(input.name.replace("lessonAnswer",""));ls.practicePassed[i]=false;el("lessonAnswerFeedback"+i).textContent="";el("lessonPracticeProgress").textContent=ls.practicePassed.filter(Boolean).length+" / "+qs.length+" correct";el("lessonCompletionState").classList.remove("is-ready");el("lessonCompletionState").querySelector(".lesson-completion-icon").textContent="○";el("lessonFinishNote").textContent=zh?"答案已更改，请重新检查。":"Answer changed. Check it again to update your progress."; }));if(preservePractice){selectedAnswers.forEach((value,i)=>{if(value!==null){const radio=document.querySelector('input[name="lessonAnswer'+i+'"][value="'+value+'"]');if(radio)radio.checked=true;}});const passed=ls.practicePassed.filter(Boolean).length;el("lessonPracticeProgress").textContent=passed+" / "+qs.length+" correct";el("lessonCompletionState").classList.toggle("is-ready",done||passed===qs.length);el("lessonCompletionState").querySelector(".lesson-completion-icon").textContent=done||passed===qs.length?"✓":"○";}}
-    async function openLesson(id){if(ls.busy)return;if(!currentUser||!supabaseClient){showPage("lessons");el("lessonStatus").textContent="Sign in to start a lesson. The library can be browsed without signing in.";el("accountDialog").classList.add("open");return;}ls.busy=true;try{let p=progressFor(id);if(!p){const allowance=await loadLessonAllowance();if(!allowance.known||(!allowance.unlimited&&allowance.remaining<=0)){el("lessonStatus").textContent=allowance.known?"Your daily lesson-completion allowance has been used. You can still review completed lessons; new lessons unlock after the daily reset.":"Your lesson allowance could not be verified. Refresh the page before starting a new lesson.";renderLessons();return;}const {data,error}=await supabaseClient.from("lesson_progress").insert({user_id:currentUser.id,difficulty:ls.difficulty,lesson_id:id,status:"in_progress"}).select("difficulty,lesson_id,status,started_at,completed_at,updated_at").single();if(error){if(error.code==="23505"){const again=await supabaseClient.from("lesson_progress").select("difficulty,lesson_id,status,started_at,completed_at,updated_at").eq("user_id",currentUser.id).eq("difficulty",ls.difficulty).eq("lesson_id",id).single();if(again.error)throw error;p=again.data;}else throw error;}else p=data;ls.progress=ls.progress.filter(a=>!(a.lesson_id===id&&a.difficulty===ls.difficulty)).concat(p);}const lesson=lessonData[ls.difficulty].find(x=>x.id===id);shuffleLessonOptionOrders(lesson);showPage("lessonDetail");el("lessonReader").hidden=false;el("lessonBack").textContent=translationLanguage==="zh"?"← 返回课程列表":"← Back to lessons";renderLesson(lesson);el("lessonStatus").textContent=p.status==="completed"?(translationLanguage==="zh"?"已完成的课程已重新打开，可免费重温。":"Completed lesson reopened — free revisit."):(translationLanguage==="zh"?"课程已打开。继续学习无需消耗次数。":"Lesson opened. Resuming is free.");await loadLessonAllowance();renderLessons();window.scrollTo({top:0,behavior:"instant"});}catch(e){const m=(e.message||"").toLowerCase();el("lessonStatus").textContent=m.includes("quota")||m.includes("limit")||m.includes("allowance")?"Could not open lesson. Your saved progress remains available; please try again.":e.message||"Could not open lesson.";}finally{ls.busy=false;}}
-    async function saveCompletedLessonPractice(x){if(ls.completing)return;ls.completing=true;document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);try{const topicId=lessonTopicIdFor(x),practice=lessonPractice(x),firstTryCorrect=ls.practiceFirstTry.filter(value=>value===true).length;if(!topicId||!practice.length)throw new Error("This lesson is missing its stable topic or practice metadata.");const {data,error}=await supabaseClient.rpc("record_completed_lesson_practice_result",{p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,p_correct_count:firstTryCorrect,p_question_count:practice.length});if(error)throw error;el("lessonStatus").textContent=data===true?"Practice summary saved for adaptive revision. No lesson allowance was used.":"This lesson's practice summary was already recorded. No lesson allowance was used.";}catch(e){el("lessonStatus").textContent="Could not save the practice summary: "+(e.message||"Please try again.");}finally{document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=false);ls.completing=false;}}
-    async function completeLesson(x){if(ls.completing)return;const p=progressFor(x.id);if(!p||p.status==="completed"){el("lessonStatus").textContent=translationLanguage==="zh"?"本课已经完成，重新学习无需消耗次数。":"Already completed. Revisiting is free.";return;}ls.completing=true;document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);const note=el("lessonFinishNote");if(note)note.textContent=translationLanguage==="zh"?"正在保存课程进度……":"Saving lesson completion…";try{const topicId=lessonTopicIdFor(x),practice=lessonPractice(x),firstTryCorrect=ls.practiceFirstTry.filter(value=>value===true).length;if(!topicId||!practice.length)throw new Error("This lesson is missing its stable topic or practice metadata.");const {data,error}=await supabaseClient.rpc("complete_permanent_lesson",{p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,p_correct_count:firstTryCorrect,p_question_count:practice.length});if(error)throw error;const saved=Array.isArray(data)?data[0]:data;if(!saved)throw new Error("The completion service returned no saved progress.");Object.assign(p,saved);el("lessonStatus").textContent=translationLanguage==="zh"?"课程已完成。你可以免费重新学习。":"Lesson completed. You may revisit it for free.";await loadLessonAllowance();renderLessons();renderLesson(x);}catch(e){const message=(e.message||"").toLowerCase(),quotaReached=message.includes("daily learning completion limit reached")||message.includes("daily learning limit reached");el("lessonStatus").textContent=quotaReached?(translationLanguage==="zh"?"今日课程完成次数已用完。课程仍会保留为进行中，你可以在本地日期重置后继续完成。":"Today's lesson-completion allowance has been used. Your lesson remains in progress; resume it after your local-day reset."):(translationLanguage==="zh"?"无法保存课程完成状态：":"Could not save lesson completion: ")+(e.message||"Please try again.");if(note)note.textContent=quotaReached?(translationLanguage==="zh"?"答案正确，但今日完成额度已用完；你的进度不会丢失。":"Your answers are correct, but today's completion allowance is used. Your progress has not been lost."):(translationLanguage==="zh"?"答案全部正确，但保存失败。请再次检查任一答案以重试保存。":"All answers are correct, but saving failed. Check any answer again to retry saving.");document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=false);}finally{ls.completing=false;}}
+const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
+    const lessons=()=>course==="zh"?(chineseLessonData[ls.difficulty]||[]):(lessonData[ls.difficulty]||[]);
+const progressFor=id=>ls.progress.find(p=>p.learning_language===course&&p.lesson_id===id&&p.difficulty===ls.difficulty);
+function lessonRenderText(value){
+      if(Array.isArray(value))return value.map(lessonRenderText).join("");
+      if(course==="zh"&&value&&typeof value==="object"&&typeof value.zh==="string"){
+        const selected=translationLanguage!=="en"&&translationLanguage!=="zh"&&value.translations?.[translationLanguage]
+          ?'<span class="lesson-selected-translation">'+escapeHTML(value.translations[translationLanguage])+'</span>':"";
+        return '<span class="lesson-bilingual-block"><span class="lesson-chinese-line">'+escapeHTML(value.zh)+'</span><span class="lesson-pinyin-line">'+escapeHTML(value.pinyin||"")+'</span><span class="lesson-english-line">'+escapeHTML(value.en||"")+'</span>'+selected+'</span>';
+      }
+      return escapeHTML(value??"");
+    }
+async function loadLessonProgress(){
+      if(!currentUser||!supabaseClient){ls.progress=[];return;}
+      const {data,error}=await supabaseClient.from("lesson_progress")
+        .select("learning_language,difficulty,lesson_id,status,started_at,completed_at,updated_at")
+        .eq("user_id",currentUser.id).eq("learning_language",course);
+      if(error)throw error;
+      ls.progress=data||[];
+    }
+function lessonTopicKey(x){
+      return course==="zh" ? (x.topic_id || "") : lessonField(x,"topic");
+    }
+    function renderLessons(){
+      const topic=el("lessonTopicFilter");
+      const currentLessons=lessons();
+      const topics=[...new Set(currentLessons.map(lessonTopicKey).filter(Boolean))];
+      topic.innerHTML='<option value="all">All topics</option>'+topics.map(value=>{
+        const item=currentLessons.find(x=>lessonTopicKey(x)===value);
+        const label=course==="zh"?(item?.topicDisplay?.en||item?.topicDisplay?.zh||value):value;
+        return '<option value="'+escapeHTML(value)+'">'+escapeHTML(label)+'</option>';
+      }).join("");
+      if(ls.topic!=="all"&&!topics.includes(ls.topic))ls.topic="all";
+      topic.value=ls.topic;
+      const done=currentLessons.filter(x=>progressFor(x.id)?.status==="completed").length;
+      el("lessonDifficultySummary").textContent=currentLessons.length+" lessons · "+done+" completed. Each difficulty keeps its own progress.";
+      el("lessonProgressSummary").textContent=currentUser?done+" of "+currentLessons.length+" completed":"Sign in to save progress";
+      el("lessonCards").innerHTML="";
+      currentLessons.filter(x=>ls.topic==="all"||lessonTopicKey(x)===ls.topic).forEach(x=>{
+        const p=progressFor(x.id);
+        const status=p?.status==="completed"?"Completed":p?"In progress":"Not started";
+        const cls=p?.status==="completed"?"completed":p?"in-progress":"not-started";
+        const blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;
+        const topicMarkup=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
+        const titleMarkup=course==="zh"?lessonRenderText(x.title):escapeHTML(lessonField(x,"title"));
+        const summaryMarkup=course==="zh"?lessonRenderText(x.summary):escapeHTML(lessonField(x,"summary"));
+        const b=document.createElement("button");
+        b.className="lesson-card";
+        b.disabled=blocked;
+        b.innerHTML='<span class="lesson-card-main"><span class="lesson-chip">'+topicMarkup+'</span><h3>'+titleMarkup+'</h3><p>'+summaryMarkup+'</p></span><span class="lesson-status '+cls+'">'+(blocked?"Daily limit reached":status)+'</span>';
+        if(blocked)b.title="Your daily lesson-completion allowance has been used. Completed lessons remain available to review.";
+        b.onclick=()=>openLesson(x.id);
+        el("lessonCards").appendChild(b);
+      });
+    }
+    function lessonExpandableGroup(items,renderItem,zh,tag="div"){
+      const values=Array.isArray(items)?items:[];
+      const hasMore=values.length>3;
+      const moreLabel=zh?"展开其余 "+(values.length-3)+" 项":"Show all "+values.length+" items";
+      const lessLabel=zh?"收起列表":"Show fewer";
+      return '<div class="lesson-expandable-group"><'+tag+' class="lesson-expandable-items">'+values.map((item,index)=>renderItem(item,index>=3)).join("")+'</'+tag+'>'+(hasMore?'<button type="button" class="secondary-button lesson-list-toggle" data-lesson-list-toggle aria-expanded="false" data-more-label="'+escapeHTML(moreLabel)+'" data-less-label="'+escapeHTML(lessLabel)+'">'+escapeHTML(moreLabel)+'</button>':"")+'</div>';
+    }
+    function renderLesson(x,preservePractice=false){
+      ls.active=x;
+      const qs=lessonPractice(x);
+      const selectedAnswers=preservePractice?qs.map((q,i)=>document.querySelector('input[name="lessonAnswer'+i+'"]:checked')?.value??null):[];
+      if(!preservePractice||!Array.isArray(ls.practicePassed)||ls.practicePassed.length!==qs.length)ls.practicePassed=qs.map(()=>false);
+      if(!preservePractice||!Array.isArray(ls.practiceFirstTry)||ls.practiceFirstTry.length!==qs.length)ls.practiceFirstTry=qs.map(()=>null);
+      const zh=course==="en"&&translationLanguage==="zh";
+      const examples=lessonExpandableGroup(lessonField(x,"examples"),(s,extra)=>'<div class="lesson-example lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'>'+lessonRenderText(s)+'</div>',zh);
+      const explanationValue=lessonField(x,"explanation");
+      const explanationHtml=Array.isArray(explanationValue)
+        ?explanationValue.map(s=>'<p class="lesson-explanation-paragraph">'+lessonRenderText(s)+'</p>').join("")
+        :'<p>'+lessonRenderText(explanationValue)+'</p>';
+      const breakdown=lessonField(x,"breakdown");
+      const breakdownHtml=breakdown
+        ?'<h3>'+(zh?"句子结构":"Sentence breakdown")+'</h3>'+lessonRenderText(breakdown.title)+'<p>'+lessonRenderText(breakdown.intro)+'</p>'
+          +(breakdown.sentence?'<div class="lesson-breakdown-sentence">'+breakdown.sentence.map(p=>'<span class="lesson-breakdown-token"><mark class="lesson-focus-'+p.role+'">'+lessonRenderText(p.text)+'</mark></span>').join("")+'</div>':"")
+          +'<div class="lesson-breakdown">'+(breakdown.parts||[]).map(p=>'<span><strong>'+lessonRenderText(p.text)+'</strong><small>'+lessonRenderText(p.label)+'</small></span>').join("")+'</div>'
+        :"";
+      const done=progressFor(x.id)?.status==="completed";
+      const topicHtml=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
+      const keyPoints=lessonExpandableGroup(lessonField(x,"points"),(p,extra)=>'<li class="lesson-key-point lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'><span class="lesson-key-point-label">'+(zh?"重点":"KEY IDEA")+'</span><div class="lesson-key-point-copy">'+lessonRenderText(p)+'</div></li>',zh,"ul");
+      const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3>'+keyPoints+'<h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+lessonRenderText(m)+'</li>').join("")+'</ul></div>';
+      const practiceBox='<div class="lesson-practice-box"><h3>'+(zh?"练习":"Practice")+'</h3><p class="lesson-practice-intro">'+(zh?"完成所有题目并答对，才能结束本课。":"Answer each question correctly. You can retry a question at any time.")+'</p><div class="lesson-practice-progress"><span>'+(zh?"练习进度":"Practice progress")+'</span><strong id="lessonPracticeProgress">0 / '+qs.length+' correct</strong></div>'+qs.map((q,i)=>{const compactAnswers=q.options.every(o=>String(o&&typeof o==="object"?(o.zh||o.en||""):o).length<=24);return '<div class="lesson-question" role="group" aria-labelledby="lessonQuestionTitle'+i+'"><h4 class="lesson-question-title" id="lessonQuestionTitle'+i+'">'+(i+1)+'. '+lessonRenderText(q.q)+'</h4><div class="lesson-answer-options'+(compactAnswers?' compact':'')+'">'+q.options.map((o,j)=>'<label><input type="radio" name="lessonAnswer'+i+'" value="'+j+'"> '+lessonRenderText(o)+'</label>').join("")+'</div><button class="secondary-button check-lesson-answer" type="button" data-question="'+i+'">'+(zh?"检查答案":"Check answer")+'</button><p class="lesson-question-feedback" id="lessonAnswerFeedback'+i+'" role="status"></p></div>';}).join("")+'</div>';
+      el("lessonReaderContent").innerHTML='<p class="eyebrow">'+ls.difficulty.toUpperCase()+' · '+topicHtml+'</p><h2>'+lessonRenderText(lessonField(x,"title"))+'</h2><p class="page-intro">'+lessonRenderText(lessonField(x,"summary"))+'</p>'+contentBox+practiceBox+'<div class="lesson-completion-state" id="lessonCompletionState" aria-live="polite"><span class="lesson-completion-icon">'+(done?"✓":"○")+'</span><p class="lesson-finish-note" id="lessonFinishNote" role="status">'+(done?(zh?"本课已完成。你可以随时免费重新学习。":"Lesson completed. You can revisit it for free."):(zh?"答对所有练习题后，本课会自动标记为已完成。":"Answer every practice question correctly. Your lesson will then be marked complete automatically."))+'</p></div>'+(done?'<div class="lesson-reader-bottom-actions"><button type="button" class="secondary-button" id="lessonBackBottom">'+(zh?"返回课程列表":"Back to lessons")+' →</button></div>':"");
+      document.querySelectorAll("#lessonReaderContent [data-lesson-list-toggle]").forEach(button=>button.addEventListener("click",()=>{
+        const expanded=button.getAttribute("aria-expanded")==="true";
+        button.closest(".lesson-expandable-group").querySelectorAll("[data-expandable-extra]").forEach(item=>{item.hidden=expanded;});
+        button.setAttribute("aria-expanded",String(!expanded));
+        button.textContent=expanded?button.dataset.moreLabel:button.dataset.lessLabel;
+      }));
+      if(done)el("lessonBackBottom").onclick=closeLesson;
+      document.querySelectorAll(".check-lesson-answer").forEach(button=>button.onclick=()=>{
+        const i=Number(button.dataset.question),q=qs[i],v=document.querySelector('input[name="lessonAnswer'+i+'"]:checked'),feedback=el("lessonAnswerFeedback"+i);
+        if(!v){feedback.textContent=zh?"请先选择一个答案。":"Choose an answer first.";return;}
+        const correct=Number(v.value)===q.answer;
+        if(ls.practiceFirstTry[i]===null)ls.practiceFirstTry[i]=correct;
+        ls.practicePassed[i]=correct;
+        feedback.textContent=correct?(zh?"正确，做得好！":"Correct — well done."):(zh?"还不正确。请重新查看讲解后再试一次。":"Not quite. Review the explanation and try again.");
+        feedback.style.color=correct?"#9bd7b3":"#f0a0a0";
+        const passed=ls.practicePassed.filter(Boolean).length;
+        el("lessonPracticeProgress").textContent=passed+" / "+qs.length+" correct";
+        el("lessonFinishNote").textContent=done?(zh?"本课已完成，你可以随时重新学习。":"This lesson is already completed. You can revisit it at any time."):passed===qs.length?(zh?"全部答对！正在保存课程进度……":"All answers correct. Saving your lesson progress…"):(zh?"请正确完成所有练习题。":"Answer every practice question correctly to complete the lesson.");
+        el("lessonCompletionState").classList.toggle("is-ready",passed===qs.length||done);
+        el("lessonCompletionState").querySelector(".lesson-completion-icon").textContent=done?"✓":passed===qs.length?"✓":"○";
+        if(passed===qs.length&&!ls.completing){if(done)void saveCompletedLessonPractice(x);else void completeLesson(x);}
+      });
+      document.querySelectorAll('.lesson-question input[type="radio"]').forEach(input=>input.addEventListener("change",()=>{
+        const i=Number(input.name.replace("lessonAnswer",""));
+        ls.practicePassed[i]=false;
+        el("lessonAnswerFeedback"+i).textContent="";
+        el("lessonPracticeProgress").textContent=ls.practicePassed.filter(Boolean).length+" / "+qs.length+" correct";
+        el("lessonCompletionState").classList.remove("is-ready");
+        el("lessonCompletionState").querySelector(".lesson-completion-icon").textContent="○";
+        el("lessonFinishNote").textContent=zh?"答案已更改，请重新检查。":"Answer changed. Check it again to update your progress.";
+      }));
+      if(preservePractice){
+        selectedAnswers.forEach((value,i)=>{if(value!==null){const radio=document.querySelector('input[name="lessonAnswer'+i+'"][value="'+value+'"]');if(radio)radio.checked=true;}});
+        const passed=ls.practicePassed.filter(Boolean).length;
+        el("lessonPracticeProgress").textContent=passed+" / "+qs.length+" correct";
+        el("lessonCompletionState").classList.toggle("is-ready",done||passed===qs.length);
+        el("lessonCompletionState").querySelector(".lesson-completion-icon").textContent=done||passed===qs.length?"✓":"○";
+      }
+    }
+async function openLesson(id){
+      const zh=course==="en"&&translationLanguage==="zh";
+      if(ls.busy)return;
+      if(!currentUser||!supabaseClient){
+        showPage("lessons");
+        el("lessonStatus").textContent=zh?"请登录后开始课程。":"Sign in to start a lesson. The library can be browsed without signing in.";
+        el("accountDialog").classList.add("open");
+        return;
+      }
+      ls.busy=true;
+      try{
+        let p=progressFor(id);
+        if(!p){
+          const allowance=await loadLessonAllowance();
+          if(!allowance.known||(!allowance.unlimited&&allowance.remaining<=0)){
+            el("lessonStatus").textContent=allowance.known
+              ?(zh?"今日课程完成额度已用完。你仍可复习已完成的课程。":"Your daily lesson-completion allowance has been used. You can still review completed lessons; new lessons unlock after the daily reset.")
+              :(zh?"无法确认课程额度，请刷新页面后再试。":"Your lesson allowance could not be verified. Refresh the page before starting a new lesson.");
+            renderLessons();
+            return;
+          }
+          const {data,error}=await supabaseClient.from("lesson_progress").insert({
+            user_id:currentUser.id,learning_language:course,difficulty:ls.difficulty,lesson_id:id,status:"in_progress"
+          }).select("learning_language,difficulty,lesson_id,status,started_at,completed_at,updated_at").single();
+          if(error){
+            if(error.code==="23505"){
+              const again=await supabaseClient.from("lesson_progress")
+                .select("learning_language,difficulty,lesson_id,status,started_at,completed_at,updated_at")
+                .eq("user_id",currentUser.id).eq("learning_language",course)
+                .eq("difficulty",ls.difficulty).eq("lesson_id",id).single();
+              if(again.error)throw error;
+              p=again.data;
+            }else throw error;
+          }else p=data;
+          ls.progress=ls.progress.filter(a=>!(a.learning_language===course&&a.lesson_id===id&&a.difficulty===ls.difficulty)).concat(p);
+        }
+        const lesson=lessons().find(x=>x.id===id);
+        if(!lesson)throw new Error("This lesson is not available in the selected course.");
+        shuffleLessonOptionOrders(lesson);
+        showPage("lessonDetail");
+        el("lessonReader").classList.remove("lesson-enter");
+        void el("lessonReader").offsetWidth;
+        el("lessonReader").classList.add("lesson-enter");
+        el("lessonReader").hidden=false;
+        el("lessonBack").textContent=zh?"← 返回课程列表":"← Back to lessons";
+        renderLesson(lesson);
+        el("lessonStatus").textContent=p.status==="completed"?(zh?"已完成课程已重新打开，可免费复习。":"Completed lesson reopened — free revisit."):(zh?"课程已打开，继续学习无需额外额度。":"Lesson opened. Resuming is free.");
+        await loadLessonAllowance();
+        renderLessons();
+        window.scrollTo({top:0,behavior:"instant"});
+      }catch(e){
+        const m=(e.message||"").toLowerCase();
+        el("lessonStatus").textContent=m.includes("quota")||m.includes("limit")||m.includes("allowance")?(zh?"无法打开课程。已保存的进度仍可使用，请稍后再试。":"Could not open lesson. Your saved progress remains available; please try again."):(e.message||"Could not open lesson.");
+      }finally{ls.busy=false;}
+    }
+async function saveCompletedLessonPractice(x){
+      if(ls.completing)return;
+      const zh=course==="en"&&translationLanguage==="zh";
+      ls.completing=true;
+      document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);
+      try{
+        const topicId=lessonTopicIdFor(x),practice=lessonPractice(x),firstTryCorrect=ls.practiceFirstTry.filter(value=>value===true).length;
+        if(!topicId||!practice.length)throw new Error("This lesson is missing its stable topic or practice metadata.");
+        const {data,error}=await supabaseClient.rpc("record_completed_lesson_practice_result_for_language",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_correct_count:firstTryCorrect,p_question_count:practice.length
+        });
+        if(error)throw error;
+        el("lessonStatus").textContent=data===true
+          ?(zh?"复习练习记录已保存，不会消耗课程额度。":"Practice summary saved for adaptive revision. No lesson allowance was used.")
+          :(zh?"本课程的练习记录已存在，不会消耗课程额度。":"This lesson's practice summary was already recorded. No lesson allowance was used.");
+      }catch(e){
+        el("lessonStatus").textContent=(zh?"无法保存练习记录：":"Could not save the practice summary: ")+(e.message||"Please try again.");
+      }finally{
+        document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=false);
+        ls.completing=false;
+      }
+    }
+async function completeLesson(x){
+      if(ls.completing)return;
+      const zh=course==="en"&&translationLanguage==="zh";
+      const p=progressFor(x.id);
+      if(!p||p.status==="completed"){el("lessonStatus").textContent=zh?"课程已完成，复习无需额度。":"Already completed. Revisiting is free.";return;}
+      ls.completing=true;
+      document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);
+      const note=el("lessonFinishNote");
+      if(note)note.textContent=zh?"正在保存课程完成状态……":"Saving lesson completion…";
+      try{
+        const topicId=lessonTopicIdFor(x),practice=lessonPractice(x),firstTryCorrect=ls.practiceFirstTry.filter(value=>value===true).length;
+        if(!topicId||!practice.length)throw new Error("This lesson is missing its stable topic or practice metadata.");
+        const {data,error}=await supabaseClient.rpc("complete_permanent_lesson_for_language",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_correct_count:firstTryCorrect,p_question_count:practice.length
+        });
+        if(error)throw error;
+        const saved=Array.isArray(data)?data[0]:data;
+        if(!saved)throw new Error("The completion service returned no saved progress.");
+        Object.assign(p,saved);
+        el("lessonStatus").textContent=zh?"课程已完成，可免费复习。":"Lesson completed. You may revisit it for free.";
+        await loadLessonAllowance();
+        renderLessons();
+        renderLesson(x);
+      }catch(e){
+        const message=(e.message||"").toLowerCase();
+        const quotaReached=message.includes("daily learning completion limit reached")||message.includes("daily learning limit reached");
+        el("lessonStatus").textContent=quotaReached
+          ?(zh?"今日课程完成额度已用完。课程仍处于进行中，请在本地日期重置后完成。":"Today's lesson-completion allowance has been used. Your lesson remains in progress; resume it after your local-day reset.")
+          :(zh?"无法保存课程完成状态：":"Could not save lesson completion: ")+(e.message||"Please try again.");
+        if(note)note.textContent=quotaReached
+          ?(zh?"答案已全部正确，但今日完成额度已用完。你的进度不会丢失。":"Your answers are correct, but today's completion allowance is used. Your progress has not been lost.")
+          :(zh?"答案已全部正确，但保存失败。请重新检查任意答案以重试。":"All answers are correct, but saving failed. Check any answer again to retry saving.");
+        document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=false);
+      }finally{ls.completing=false;}
+    }
     function closeLesson(){el("lessonReader").hidden=true;ls.active=null;renderLessons();showPage("lessons");}
     el("lessonBack").onclick=closeLesson;el("lessonTopicFilter").onchange=e=>{ls.topic=e.target.value;renderLessons();};
     document.querySelectorAll("[data-difficulty]").forEach(b=>b.onclick=async()=>{ls.difficulty=b.dataset.difficulty;ls.topic="all";document.querySelectorAll("[data-difficulty]").forEach(x=>x.classList.toggle("active",x===b));el("lessonReader").hidden=true;el("lessonLibrary").hidden=false;try{await loadLessonProgress();renderLessons();}catch(e){el("lessonStatus").textContent=e.message;}});
@@ -18690,6 +19000,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       });
       if ((page === "profile" || page === "preferences") && currentUser) loadProfileData();
       if (page === "lessons" && currentUser) { initialiseLessons(); if (typeof initialiseDailyLearning === "function") initialiseDailyLearning(); }
+      if (page === "preferences" && currentUser && typeof initialiseDailyLearning === "function") initialiseDailyLearning();
       if (page === "quiz" && !options.skipQuizInitialise) {
         // Ordinary navigation (including Dashboard's Quiz shortcut) opens the
         // Quiz overview, never a stale completed-review/results subview.
@@ -18967,7 +19278,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         grid.classList.toggle("character-grid",course === "zh");
         search.value = "";
         search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
-        activeLetter = ""; activeCategory = "all"; onlySaved = false; currentPage = 1;
+        activeLetter = ""; activeCategory = "all"; activeChineseCategory = "all"; onlySaved = false; currentPage = 1;
         savedFilter.setAttribute("aria-pressed","false");
         savedFilter.textContent = "☆ Saved words";
         makeAlphabet(); updateLetterButtons(); render();
@@ -19086,7 +19397,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           document.getElementById("categoryRow").hidden = course === "zh";
           grid.classList.toggle("character-grid", course === "zh");
           search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
-          if (courseChanged) { activeLetter=""; activeCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
+          if (courseChanged) { activeLetter=""; activeCategory="all"; activeChineseCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
         }
         selectedAvatar = profileQ.data?.avatar_icon || selectedAvatar || "🐦";
         updateAvatarDisplay();
@@ -19342,7 +19653,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         document.getElementById("categoryRow").hidden=course==="zh";
         grid.classList.toggle("character-grid",course==="zh");
         search.value=""; search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
-        activeLetter=""; activeCategory="all"; currentPage=1; makeAlphabet(); updateLetterButtons(); render();
+        activeLetter=""; activeCategory="all"; activeChineseCategory="all"; currentPage=1; makeAlphabet(); updateLetterButtons(); render();
         refreshTranslationViews();
         profilePreferences={learning_language:learning,translation_language:translation,timezone};
         rememberCoursePreferences();
@@ -19682,7 +19993,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       grid.classList.toggle("character-grid",course==="zh");
       search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
       if(courseChanged){
-        activeLetter="";activeCategory="all";onlySaved=false;currentPage=1;
+        activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;currentPage=1;
         savedFilter.setAttribute("aria-pressed","false");savedFilter.textContent="☆ Saved words";
         search.value="";makeAlphabet();updateLetterButtons();render();
       }
@@ -19828,14 +20139,25 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     function applyLearningCourseAvailability(){
       const chinese=course==="zh";
       const lessonsSignedIn=!!currentUser;
+      const lessonsPage=quizEl("lessonsPage");
+      const lessonBanner=lessonsPage?.querySelector(".learning-banner");
+      const lessonEyebrow=lessonBanner?.querySelector(".eyebrow");
+      const lessonTitle=quizEl("lessonsHeading");
+      const lessonDescription=lessonBanner?.querySelector(".page-intro");
+      if(lessonEyebrow)lessonEyebrow.textContent=!chinese&&translationLanguage==="zh"?"学习":"LEARNING";
+      if(lessonTitle)lessonTitle.textContent=chinese?"Chinese Lessons":translationLanguage==="zh"?"课程":"Lessons";
+      if(lessonDescription)lessonDescription.textContent=chinese
+        ?"Learn Simplified Chinese with pinyin, clear explanations, examples and interactive practice."
+        :translationLanguage==="zh"?"通过引导式讲解、示例和简短练习提升英语能力。":"Build English skills through guided explanations, examples and short practice.";
+      if(quizEl("lessonBack"))quizEl("lessonBack").textContent=!chinese&&translationLanguage==="zh"?"← 返回课程列表":"← Back to lessons";
       quizEl("lessonsSignedOut").hidden=lessonsSignedIn;
       quizEl("lessonsPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
       quizEl("lessonDetailPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
       if(!lessonsSignedIn&&!quizEl("lessonDetailPage").hidden){quizEl("lessonDetailPage").hidden=true;quizEl("lessonsPage").hidden=false;}
-      quizEl("lessonsChineseUnavailable").hidden=!chinese||!lessonsSignedIn;
+quizEl("lessonsChineseUnavailable").hidden=true;
       quizEl("dailyLearningPage").hidden=chinese||!lessonsSignedIn;
-      quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=chinese||!lessonsSignedIn;
-      quizEl("lessonLibrary").hidden=chinese||!lessonsSignedIn;
+quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=!lessonsSignedIn;
+quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       quizEl("quizChineseUnavailable").hidden=!chinese;
       const quizSignedIn=!chinese&&!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
@@ -19890,8 +20212,12 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       });
     }
     document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
-    document.getElementById("courseSelect").addEventListener("change",()=>{
+    document.getElementById("courseSelect").addEventListener("change",async()=>{
+      const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
+      ls.topic="all";
+      if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
       applyLearningCourseAvailability();
+      try{await initialiseLessons();}catch(error){el("lessonStatus").textContent=error.message||"Could not refresh lesson progress.";}
       if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
     });
 
