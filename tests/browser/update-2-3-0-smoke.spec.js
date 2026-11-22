@@ -135,6 +135,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.en);
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
   await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerOut"))).toBe(true);
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
   const chineseApplicationCard=page.locator('#dailyActivityGrid [data-activity-card="daily_application"]');
   await chineseApplicationCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader .daily-question")).toBeVisible();
@@ -142,6 +143,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
   await expect(page.locator("#dailyActivityReader .daily-translation-line").first()).toBeVisible();
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
   await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
   await page.locator('[data-difficulty="intermediate"]').click();
   await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(5);
@@ -241,9 +243,9 @@ test("Chinese course completion stores progress separately from English", async 
     await question.locator(".check-lesson-answer").click();
     if (i === answers.length - 1) {
       // Successful completion re-renders the reader, so the final feedback node is replaced.
-      await expect(page.locator("#lessonFinishNote")).toContainText("Lesson completed");
+      await expect(page.locator("#lessonFinishNote")).toContainText(/Lesson completed|本课已完成/);
     } else {
-      await expect(question.locator(".lesson-question-feedback")).toContainText("Correct");
+      await expect(question.locator(".lesson-question-feedback")).toContainText(/Correct|正确/);
     }
   }
   await expect(page.locator("#lessonFinishNote")).toContainText("Lesson completed");
