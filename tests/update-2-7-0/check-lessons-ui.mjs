@@ -123,7 +123,7 @@ assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
 assert(build.includes("lessons-ui") && build.includes("2.7.0-r9"));
-assert(build.includes("daily-learning.js") && build.includes("2.7.0-r10"));
+assert(build.includes("daily-learning[.]js") && build.includes("2.7.0-r10"));
 
 assert(daily.includes(" ? 120 : 500"));
 
