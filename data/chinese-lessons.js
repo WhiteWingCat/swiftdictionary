@@ -671,8 +671,8 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "breakdown": {
         "title": {
-          "zh": "句子示例：我是 Maya。",
-          "pinyin": "jù zi shì lì: wǒ shì Maya",
+          "zh": "句子示例：我是李明。",
+          "pinyin": "jù zi shì lì: wǒ shì Lǐ Míng",
           "en": "Sentence breakdown"
         },
         "intro": {
@@ -699,9 +699,9 @@ window.SWIFT_CHINESE_LESSONS = {
           },
           {
             "text": {
-              "zh": "玛雅",
-              "pinyin": "mǎ yǎ",
-              "en": "Maya"
+              "zh": "李明",
+              "pinyin": "lǐ míng",
+              "en": "Li Ming"
             },
             "role": "object"
           }
@@ -733,9 +733,9 @@ window.SWIFT_CHINESE_LESSONS = {
           },
           {
             "text": {
-              "zh": "玛雅",
-              "pinyin": "mǎ yǎ",
-              "en": "Maya"
+              "zh": "李明",
+              "pinyin": "lǐ míng",
+              "en": "Li Ming"
             },
             "label": {
               "zh": "身份名称",
@@ -810,7 +810,7 @@ window.SWIFT_CHINESE_LESSONS = {
           "en": "My birthday is May 10."
         },
         {
-          "zh": "明天是二〇二六年十一月二十二日。",
+          "zh": "明天是二零二六年十一月二十二日。",
           "pinyin": "míng tiān shì èr líng èr liù nián shí yī yuè èr shí èr rì.",
           "en": "Tomorrow is November 22, 2026."
         }
