@@ -5,7 +5,7 @@
     ["choose a, an or the", ["a","an","the"]]
   ]);
 
-  function normalise(text) { return String(text || "").trim().toLowerCase().replace(/\\s+/g," "); }
+  function normalise(text) { return String(text || "").trim().toLowerCase().replace(/\s+/g," "); }
   function applyTopicHighlights(root) {
     if (!root) return;
     root.querySelectorAll('mark[class*="lesson-focus-"]').forEach(mark => {
