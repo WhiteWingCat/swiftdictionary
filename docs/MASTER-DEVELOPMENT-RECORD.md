@@ -3211,3 +3211,8 @@ After the archive was first recorded, the remaining Quiz database foundation / L
 - Formal Malaysia PDPA and general international legal/privacy review remain outstanding. This is not a legal compliance certification.
 - No release tag or downloadable ZIP was created as part of the merge.
 - Detailed session archive: [U2.7.0 owner-approved merge to main](conversation-archive/2026-11-22-update-2-7-0-merge-to-main.md).
+
+
+### Post-merge README release-status refresh
+
+The merged root README initially still contained pre-merge release-candidate wording. This was corrected on `main` in a documentation-only commit, `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`, marking U2.7.0 released and recording the successful Pages deployments. No application source or migration changed in this follow-up. For the latest `main` head, GitHub Pages workflow #45024998181 and the Cloudflare Pages check succeeded; the separate Cloudflare Workers testing check was still running at the last observation. The feature branch remains intact.
