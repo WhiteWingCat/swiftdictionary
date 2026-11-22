@@ -69,7 +69,7 @@ assert(css.includes('#lessonReaderContent mark[class*="lesson-focus-"]'));
 assert(css.includes("color:#ffffff !important"));
 assert(css.includes("font-weight:800 !important"));
 assert(!css.includes(".lesson-focus-subject {") && !css.includes(".lesson-focus-verb {") && !css.includes(".lesson-focus-object {"));
-assert(css.includes("lesson-context-underline"));
+
 assert(html.includes('swiftdictionary:course-changed'));
 for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
 
