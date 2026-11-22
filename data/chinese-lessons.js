@@ -699,8 +699,8 @@ window.SWIFT_CHINESE_LESSONS = {
           },
           {
             "text": {
-              "zh": "Maya",
-              "pinyin": "Maya",
+              "zh": "玛雅",
+              "pinyin": "mǎ yǎ",
               "en": "Maya"
             },
             "role": "object"
@@ -733,8 +733,8 @@ window.SWIFT_CHINESE_LESSONS = {
           },
           {
             "text": {
-              "zh": "Maya",
-              "pinyin": "Maya",
+              "zh": "玛雅",
+              "pinyin": "mǎ yǎ",
               "en": "Maya"
             },
             "label": {
