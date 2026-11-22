@@ -269,6 +269,7 @@
   transform:translate3d(-100%,0,0) !important;
   opacity:.55;
   transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .38s ease !important;
+  animation:none !important;
   will-change:transform,opacity;
 }
 #dailyActivityReader.open .daily-activity-modal {
