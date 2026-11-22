@@ -58,7 +58,14 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
     await expect(page.locator("#lessonDifficultySummary")).toContainText("lessons");
   }
 
-  await page.locator("#lessonCards .lesson-card").first().click();
+  const firstLesson=page.locator("#lessonCards .lesson-card").first();
+  await firstLesson.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveText("Selecting this lesson will consume one daily lessons allowance, are you sure?");
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="no"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeHidden();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  await firstLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
   await expect(page.locator("#lessonReader")).toBeVisible();
 
@@ -159,6 +166,8 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await expect(card.locator("h3 .lesson-english-line")).toContainText("Pinyin foundations");
 
   await card.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveText("Selecting this lesson will consume one daily lessons allowance, are you sure?");
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
   const title=page.locator("#lessonReaderContent h2");
   await expect(title.locator(".lesson-chinese-line")).toHaveText("拼音基础与四声");
