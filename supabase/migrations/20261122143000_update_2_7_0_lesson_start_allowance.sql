@@ -158,6 +158,11 @@ begin
       using errcode = '42501';
   end if;
 
+  -- The personal test account is fully exempt: do not create a ledger event.
+  if private.is_learning_limit_exempt() then
+    return new;
+  end if;
+
   insert into public.learning_activity_log
     (user_id, activity_type, language_code, event_type)
   values
