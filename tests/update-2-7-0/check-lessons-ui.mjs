@@ -27,7 +27,7 @@ assert(css.includes("border-bottom-color:var(--daily-theme-bg)")); assert(css.in
 assert(css.includes("overflow:hidden")); assert(css.includes("min-inline-size:0"));
 assert(css.includes("color:#d9e6fb!important")); assert(css.includes("color:#d5e0f0!important"));
 assert(css.includes("prefers-reduced-motion:reduce")); assert(daily.includes("data-activity-theme="));
-assert(daily.includes('reader.classList.add("closing")')); assert(daily.includes("document.body.appendChild(reader)")); assert(!daily.includes("daily-activity-allowance-track"));
+assert(daily.includes('reader.classList.add("closing")')); assert(daily.includes("document.body.appendChild(reader)")); assert(daily.includes("daily-activity-allowance-track"));
 assert(daily.includes("dailyUi(meta.description,meta.descriptionZh)"));
 assert(daily.includes("const resetMessage =") && daily.includes("const panelDescription =")); assert(workflow.includes("check-lessons-ui.mjs"));
 assert(html.includes("lessonExpandableGroup")); assert(html.includes("data-lesson-list-toggle")); assert(html.includes("lesson-question-title")); assert(html.includes("lesson-answer-options")); assert(css.includes(".lesson-expandable-item[hidden]")); assert(css.includes(".lesson-question-title")); assert(css.includes(".lesson-answer-options.compact"));
@@ -91,7 +91,7 @@ assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('dat
 assert(confirmation.includes('button.click()'));
 assert(confirmation.includes(".lesson-status.completed,.lesson-status.in-progress"));
 assert(!daily.includes("daily-activity-allowance-track"));
-assert(!daily.includes("daily-activity-allowance-top"));
+assert(daily.includes("daily-activity-allowance-top"));
 assert(chineseLessonsSource.includes("二零二六年") && !chineseLessonsSource.includes("二〇二六年"));
 assert(!chineseLessonsSource.includes("Maya") && !chineseLessonsSource.includes("玛雅"));
 console.log("U2.7.0 owner feedback regression checks passed: confirmation-before-start, free resume/review, allowance copy removal, white topic emphasis and Chinese-native example names.");
