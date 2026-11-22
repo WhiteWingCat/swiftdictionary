@@ -18306,10 +18306,10 @@
         .filter(Boolean).join(" ").replace(/\s+/g," ").trim();
     }
     function pinyinForSenseExample(text, targetCharacter, senseLabel) {
-      const reading = String(senseLabel || "").match(/读音\\s+([^\\s/]+)/)?.[1] || "";
+      const reading = String(senseLabel || "").match(/读音\s+([^\s/]+)/)?.[1] || "";
       if (!reading) return pinyinForText(text);
-      return [...String(text)].map(ch => /[\\u3400-\\u9fff]/.test(ch)
-        ? (ch === targetCharacter ? reading : (hanziPinyin[ch] || "")) : "").filter(Boolean).join(" ").replace(/\\s+/g," ").trim();
+      return [...String(text)].map(ch => /[\u3400-\u9fff]/.test(ch)
+        ? (ch === targetCharacter ? reading : (hanziPinyin[ch] || "")) : "").filter(Boolean).join(" ").replace(/\s+/g," ").trim();
     }
     function renderChineseLine(text, suppliedPinyin = "") {
       const wrapper = document.createElement("div"); wrapper.className = "hanzi-line";
