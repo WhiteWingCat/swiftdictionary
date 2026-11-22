@@ -18300,16 +18300,24 @@
       "他是我的好朋友。":"tā shì wǒ de hǎo péngyou.",
       "这家店几点关门？":"zhè jiā diàn jǐ diǎn guānmén?"
     });
+    const extraSensePinyin = {
+      "夫":"fū","京":"jīng","办":"bàn","室":"shì","桥":"qiáo","阵":"zhèn","哀":"āi","假":"jiǎ","穷":"qióng","灾":"zāi",
+      "锦":"jǐn","炒":"chǎo","博":"bó","胡":"hú","银":"yín","深":"shēn","练":"liàn","诉":"sù","宵":"xiāo","李":"lǐ",
+      "玩":"wán","街":"jiē","坊":"fāng","峰":"fēng","妥":"tuǒ","填":"tián","载":"zài","吹":"chuī","温":"wēn","揣":"chuǎi",
+      "邮":"yóu","控":"kòng","春":"chūn","林":"lín","堂":"táng","衬":"chèn","衫":"shān","幅":"fú","千":"qiān","俟":"sì",
+      "遵":"zūn","守":"shǒu","封":"fēng","船":"chuán","尖":"jiān","艳":"yàn","拿":"ná","戏":"xì","广":"guǎng","喂":"wèi",
+      "煮":"zhǔ","偷":"tōu","龟":"guī","甲":"jiǎ","卜":"bǔ","孙":"sūn","篇":"piān","枕":"zhěn"
+    };
     function pinyinForText(text) {
       if (phrasePinyin[text]) return phrasePinyin[text];
-      return [...text].map(ch => /[\u3400-\u9fff]/.test(ch) ? (hanziPinyin[ch] || "") : "")
+      return [...text].map(ch => /[\u3400-\u9fff]/.test(ch) ? (hanziPinyin[ch] || extraSensePinyin[ch] || "") : "")
         .filter(Boolean).join(" ").replace(/\s+/g," ").trim();
     }
     function pinyinForSenseExample(text, targetCharacter, senseLabel) {
       const reading = String(senseLabel || "").match(/读音\s+([^\s/]+)/)?.[1] || "";
       if (!reading) return pinyinForText(text);
       return [...String(text)].map(ch => /[\u3400-\u9fff]/.test(ch)
-        ? (ch === targetCharacter ? reading : (hanziPinyin[ch] || "")) : "").filter(Boolean).join(" ").replace(/\s+/g," ").trim();
+        ? (ch === targetCharacter ? reading : (hanziPinyin[ch] || extraSensePinyin[ch] || "")) : "").filter(Boolean).join(" ").replace(/\s+/g," ").trim();
     }
     function renderChineseLine(text, suppliedPinyin = "") {
       const wrapper = document.createElement("div"); wrapper.className = "hanzi-line";
