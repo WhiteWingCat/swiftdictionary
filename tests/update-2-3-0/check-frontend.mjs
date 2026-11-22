@@ -515,12 +515,13 @@ const mockData = {
   },
   user_entitlements: { user_id: "test-user", plan_code: "free", status: "active", valid_from: null, valid_until: null },
   learning_plan_limits: ["daily_topic","daily_application","daily_discovery","daily_revision"]
-    .map(activity_type => ({ activity_type, daily_limit: 1, is_enabled: true })),
+    .map(activity_type => ({ plan_code:"free", activity_type, daily_limit: 1, is_enabled: true })),
   learning_activity_log: [],
   lesson_practice_results: [],
   daily_activity_sessions: [{
     user_id: "test-user",
     activity_type: "daily_topic",
+    language_code: "en",
     content_id: "topic-present-perfect-01",
     topic_id: "verb-tenses",
     correct_count: null,
@@ -613,7 +614,7 @@ if (firstTopicCard.includes("Past simple or present perfect?")) {
   throw new Error("Daily Topic selected a previously completed assignment instead of unused content.");
 }
 mockData.daily_activity_sessions = curated.topics.map(item => item.id).map(content_id => ({
-  user_id:"test-user",activity_type:"daily_topic",content_id,topic_id:"test-topic",
+  user_id:"test-user",activity_type:"daily_topic",language_code:"en",content_id,topic_id:"test-topic",
   correct_count:null,question_count:null,completed_at:"2026-11-09T08:00:00.000Z",status:"completed"
 }));
 await runtimeWindow.initialiseDailyLearning();
