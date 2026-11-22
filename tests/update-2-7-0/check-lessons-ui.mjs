@@ -46,6 +46,7 @@ assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQ
 assert(daily.includes("window.requestAnimationFrame(() =>"));
 assert(!css.includes("@keyframes dailyDrawerIn") && !css.includes("@keyframes dailyDrawerOut"), "The drawer should use one transition-based motion system.");
 assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .38s ease !important"));
+assert(css.includes("animation:none !important"));
 assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
 assert(!html.includes("permanent-lessons-mark") && !html.includes("daily-learning-heading-mark"));
@@ -113,7 +114,7 @@ assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacit
 assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
-assert(build.includes("lessons-ui") && build.includes("2.7.0-r7"));
+assert(build.includes("lessons-ui") && build.includes("2.7.0-r8"));
 
 assert(daily.includes(" ? 120 : 500"));
 
