@@ -3,9 +3,9 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-22 (U2.7.0 owner feedback round 4 implemented, full regression suite passed, and latest Cloudflare Pages staging deployment verified; production remains untouched.)  
+> **Last consolidated:** 2026-11-22 (U2.7.0 owner accepted the round-5 staging fixes; release-polishing pass completed, README refreshed on the feature branch, latest cross-version workflows passed and Cloudflare Pages deployed successfully; production remains untouched.)  
 > **Current baseline:** Update 2.6.1 auth hotfix is the current application baseline on `main`; U2.6.0 and U2.6.1 application work is complete. Formal legal/privacy review remains deferred/outstanding and internal legal drafts remain unpublished. U2.7.0 is still isolated on its feature branch and has not been merged.  
-> **Current work:** Update 2.7.0 — Chinese Dictionary Lessons, owner feedback round 4. Implementation branch `feature/update-2-7-0-chinese-dictionary-lessons`, PR #14 draft/open/unmerged, latest head `efd4a1a0f06d29f0a0d5a894d4c96761324c1220`. Cloudflare Pages preview deployed successfully at `https://caf353ae.swiftdictionary.pages.dev`; branch preview `https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev`. Owner acceptance is pending; no merge, production migration or production deployment is authorised/performed.  
+> **Current work:** Update 2.7.0 — Chinese Dictionary & Lessons Expansion, release-polishing stage. Implementation branch `feature/update-2-7-0-chinese-dictionary-lessons`, PR #14 draft/open/unmerged, latest head `c355a23f3d4555fec1384fd14fb4056d77336756`. Owner accepted the U2.7.0 staging preview before the README-only polishing commit. Latest Cloudflare Pages deployment succeeded at `https://962c2836.swiftdictionary.pages.dev`; branch preview `https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev`. No merge, production migration or production deployment is authorised/performed.  
 **Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10, Update 2.4.2 PR #11 and Update 2.5.0 PR #12 are merged. U2.6.0/U2.6.1 application work is complete on `main`. Update 2.7.0 PR #14 remains draft/open/unmerged. Update 2.5.0 production Supabase migrations are applied and verified; U2.7.0 remains staging-only.
 
 ---
@@ -212,13 +212,13 @@ The checklist below is retained only as historical planning context. **It is not
 - **Update 2.4.1 — Fix & Changes:** **COMPLETED and released.** PR #10 merged; fixes and selector/translation improvements are live. See Section 42.
 - **Update 2.4.2 — Dashboard Quiz fixes:** **COMPLETED, deployed and owner-verified.** PR #11 merged at `65d0a35`; Pages deployment #44230831943 succeeded, and the owner confirmed both fixes on the live site. See Sections 43–44 and the 2026-11-18 archive.
 - **Update 2.5.0 — Flashcards:** **COMPLETED, merged and deployed on 2026-11-19.** PR #12 merged at `7a5fcdae44e4ccfa8490f812f5bfad73f426e01f`; all eight production Supabase migrations were applied and verified; Cloudflare Pages production deployment succeeded. See the 2026-11-19 release archive.
-- **Update 2.6.0 — Legal, Privacy, Safety & Security:** **ACTIVE PLANNING / READ-ONLY BASELINE AUDIT COMPLETED.** Blueprint: `docs/UPDATE-2.6.0-LEGAL-PRIVACY-SECURITY-PLAN.md`. Remediation has not started. See `docs/conversation-archive/2026-11-19-update-2-6-0-legal-privacy-security-baseline-audit.md`.
-- **Update 2.7.0 — Chinese Dictionary Expansion & Chinese course lessons:** planned after 2.6.0.
+- **Update 2.6.0 — Account, Privacy, Safety & Security:** **IMPLEMENTATION COMPLETED on main** through U2.6.0/U2.6.1. Account-deletion and learning-history controls, auth/UI safeguards and ACL hardening are delivered. Formal Malaysia PDPA and general international legal/privacy review remain outstanding; do not describe the project as legally cleared.
+- **Update 2.7.0 — Chinese Dictionary & Lessons Expansion:** **IMPLEMENTATION COMPLETE; RELEASE PREPARATION ACTIVE.** Owner accepted the latest functional staging preview. PR #14 remains draft/open/unmerged while final documentation and release checks are maintained.
 - **Update 2.8.0 — Chinese Course Quiz & Flashcards:** planned after 2.7.0.
 - **Update 2.9.0 — English Dictionary, Lesson, Quiz & Flashcard expansion:** planned after 2.8.0.
 - **Update 3.0.0 — Introduction to Malay course:** planned major milestone after 2.9.0.
 
-Only Update 2.6.0 is the current product-development target. Later roadmap order remains subject to owner reprioritisation.
+Update 2.7.0 is the current release-preparation target. Update 2.8.0 (Chinese Quiz & Flashcards), Update 2.9.0 (English content expansion) and Update 3.0.0 (Malay course) remain planned; roadmap order is subject to owner reprioritisation.
 
 ## 6. Privacy, legal and content licensing checklist
 
@@ -234,7 +234,7 @@ For each new feature and before public launch or monetisation, revisit:
 
 ## 7. Current known repository and deployment facts
 
-- The default main README fetched during this record's preparation describes **SwiftDictionary Update 2.2.0 — English Lessons Foundation**.
+- The default `main` branch README still describes **SwiftDictionary Update 2.2.0 — English Lessons Foundation** because U2.7.0 has not been merged. The U2.7.0 feature branch now contains a complete Update 2.7.0 release-candidate README describing added, changed, fixed and removed behaviour, current features, allowances, migrations, build/deployment safeguards, licensing, privacy notes and release history.
 - README states that supabase-config.js and banner.svg are external project files and must be retained when preparing the Pages deployment.
 - README instructs that deployment must wait for owner review and explicit approval.
 - The 2.3.0 implementation was later merged into main; the owner has since reported live-site testing and identified follow-up improvements for Update 2.3.1.
@@ -3179,3 +3179,16 @@ All GitHub Actions compatibility workflows passed (U2.7.0, 2.3.x, 2.5.0, 2.6.0, 
 ### Final cross-version CI confirmation — owner feedback round 5
 
 After the archive was first recorded, the remaining Quiz database foundation / Local Supabase Auth-RPC / authenticated Chromium Quiz runtime workflow completed successfully on application head `2ce01237c2350115941c56f524b0a7661365879b`. All latest-head cross-version workflows are now green: U2.7.0, 2.3.x, 2.5.0, 2.6.0, Quiz DB/Auth/RPC/Chromium and Cloudflare build routing. Cloudflare Pages had already explicitly confirmed a successful deployment for the same head. Staging is ready for owner testing; PR #14 remains draft/open/unmerged and production/main remains untouched.
+
+
+## 2026-11-22 — U2.7.0 release-polishing pass
+
+- Owner confirmed the latest U2.7.0 staging preview was functionally good and authorised polishing/release preparation, including a README refresh. This was not approval to merge or deploy to production.
+- The U2.7.0 feature branch was synchronized with the latest `main` history; it is now 347 commits ahead and zero behind. `main` itself was not modified.
+- Replaced the feature-branch README's obsolete 2.2.0-only description with a U2.7.0 release-candidate summary covering 519 new Chinese characters, 700+ total Chinese characters, 17 Chinese lessons/112 questions, Chinese Daily Learning content, shared cross-course allowances, UI changes/fixes, migrations, hosting/build safeguards, attribution/licensing, privacy notes and release history. Corrected the grid description to character-only cards with pinyin search/detail support.
+- Confirmed the only file changed after the owner-accepted functional head `2ce01237c2350115941c56f524b0a7661365879b` is `README.md`; application source, content, CSS, SQL and runtime behaviour are unchanged by the polishing commit.
+- Latest head: `c355a23f3d4555fec1384fd14fb4056d77336756`. Cloudflare Pages deployment succeeded at https://962c2836.swiftdictionary.pages.dev; branch preview remains https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev.
+- U2.7.0 data/static/Chromium/PostgreSQL checks, 2.3.x PostgreSQL/Auth/Chromium, 2.5.0 Flashcards, 2.6.0 ACL, Quiz DB/Auth/RPC/Chromium and Cloudflare build routing passed. The separate `Workers Builds: swiftdictionary-testing` check remains failed for the retired Worker and is unrelated to the successful Pages deployment.
+- U2.7.0 migrations remain staging-only. No production migration, deployment, tag or merge occurred. Formal Malaysia PDPA and international legal/privacy review remains outstanding.
+- PR #14 remains draft/open/unmerged pending explicit owner release approval.
+- Detailed archive: [U2.7.0 release-polishing pass and README refresh](conversation-archive/2026-11-22-update-2-7-0-release-polishing-pass.md).

@@ -159,3 +159,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.7.0 — owner feedback round 5: shared allowance explanation, drawer motion and English Daily Discovery](2026-11-22-update-2-7-0-owner-feedback-round-5.md) — records the shared cross-course allowance clarification, transform-only slide transition, English Discovery exhausted-state fix, regression results, staging deployment and unchanged production boundary.
+
+
+- [Update 2.7.0 — release-polishing pass and README refresh](2026-11-22-update-2-7-0-release-polishing-pass.md) — records the owner-approved staging state, feature-by-feature audit, README rewrite, feature-branch synchronization with main history, latest cross-version CI and Pages deployment, and the unchanged production/legal boundary.
