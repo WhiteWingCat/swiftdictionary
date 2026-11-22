@@ -103,10 +103,12 @@ test("post-sign-in loading overlay is present and released after account hydrati
 });
 
 test("cloud saved-word sync failures do not clear the authenticated account", () => {
+  const syncBlock = index.slice(index.indexOf("async function syncCurrentCourseFromCloud"), index.indexOf("async function initAccount"));
   const authBlock = index.slice(index.indexOf("async function refreshAccount"), index.indexOf("function enqueueAccountRefresh"));
-  assert.match(authBlock, /still signed in/);
+  assert.match(syncBlock, /You are still signed in/);
+  assert.match(syncBlock, /Local saved words remain available/);
   assert.match(authBlock, /syncError/);
-  assert.match(authBlock, /Local saved words remain available/);
+  assert.match(authBlock, /You are signed in/);
 });
 
 test("Terms & Conditions has a footer link and does not publish an unapproved legal draft", () => {
