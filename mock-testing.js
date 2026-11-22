@@ -167,8 +167,26 @@
       let changed=[];
       if (this.operation==="insert") {
         const values=Array.isArray(this.values)?this.values:[this.values];
-        changed=values.map(value=>({...clone(value),created_at:value.created_at || now()}));
-        rows.push(...changed);
+        if (this.table==="lesson_progress") {
+          const userId=values[0]?.user_id;
+          const plan=(db.tables.user_entitlements||[]).find(row=>row.user_id===userId)?.plan_code || "free";
+          const limit=(db.tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="lesson")?.daily_limit ?? (plan==="premium"?15:5);
+          const used=usageRows(db).find(row=>row.activity_type==="lesson")?.used_count || 0;
+          const duplicate=values.some(value=>(rows||[]).some(row=>row.user_id===value.user_id
+            && (row.learning_language||"en")===(value.learning_language||"en")
+            && row.difficulty===value.difficulty && row.lesson_id===value.lesson_id));
+          if(duplicate) return {data:null,error:error("duplicate key value violates unique constraint","23505")};
+          const newStarts=values.filter(value=>value.status==="in_progress").length;
+          if(used+newStarts>limit) return {data:null,error:error("Daily lesson start limit reached.","P0001")};
+          changed=values.map(value=>({...clone(value),learning_language:value.learning_language||"en",created_at:value.created_at || now()}));
+          rows.push(...changed);
+          for(const row of changed) if(row.status==="in_progress") (db.tables.learning_activity_log ||= []).push({
+            user_id:row.user_id,activity_type:"lesson",language_code:row.learning_language,event_type:"started",created_at:now()
+          });
+        } else {
+          changed=values.map(value=>({...clone(value),created_at:value.created_at || now()}));
+          rows.push(...changed);
+        }
       } else if (this.operation==="upsert") {
         const values=Array.isArray(this.values)?this.values:[this.values];
         for (const value of values) {
@@ -216,7 +234,7 @@
     return types.map(activity_type=>({
       activity_type,
       used_count:activity_type==="lesson"
-        ? (db.tables.learning_activity_log||[]).filter(row=>row.activity_type==="lesson" && row.event_type==="completed" && row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
+        ? (db.tables.learning_activity_log||[]).filter(row=>row.activity_type==="lesson" && row.event_type==="started" && row.created_at && dateInZone(row.created_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
         : activity_type==="quiz"
           ? (db.tables.quiz_sessions||[]).filter(row=>row.status==="completed" && row.completed_at && dateInZone(row.completed_at,db.tables.user_preferences?.[0]?.timezone)===today(db.tables.user_preferences?.[0]?.timezone)).length
           : activity_type==="flashcard"
@@ -525,24 +543,26 @@
     }
     if (name==="get_my_learning_allowance_usage") return {data:usageRows(db),error:null};
     if (name==="is_personal_learning_test_access") return {data:false,error:null};
-    if (name==="record_completed_lesson_practice_result") {
-      const duplicate=(tables.lesson_practice_results||[]).some(row=>row.lesson_id===args.p_lesson_id && row.difficulty===args.p_difficulty);
+    if (name==="record_completed_lesson_practice_result" || name==="record_completed_lesson_practice_result_for_language") {
+      const language=name==="record_completed_lesson_practice_result_for_language"?(args.p_learning_language||"en"):"en";
+      const duplicate=(tables.lesson_practice_results||[]).some(row=>row.user_id===user.id
+        && (row.learning_language||"en")===language && row.lesson_id===args.p_lesson_id && row.difficulty===args.p_difficulty);
       if (!duplicate) (tables.lesson_practice_results ||= []).push({
-        user_id:user.id,difficulty:args.p_difficulty,lesson_id:args.p_lesson_id,topic_id:args.p_topic_id,
+        user_id:user.id,learning_language:language,difficulty:args.p_difficulty,lesson_id:args.p_lesson_id,topic_id:args.p_topic_id,
         correct_count:args.p_correct_count,question_count:args.p_question_count,attempted_at:now()
       });
       persist(db); return {data:!duplicate,error:null};
     }
-    if (name==="complete_permanent_lesson") {
-      const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code || "free";
-      const lessonLimit=(tables.learning_plan_limits||[]).find(item=>item.plan_code===plan && item.activity_type==="lesson")?.daily_limit ?? 5;
-      const used=usageRows(db).find(row=>row.activity_type==="lesson")?.used_count || 0;
-      if (used>=lessonLimit) return {data:null,error:error("Daily learning completion limit reached.","P0001")};
-      const row=(tables.lesson_progress||[]).find(item=>item.difficulty===args.p_difficulty && item.lesson_id===args.p_lesson_id);
+    if (name==="complete_permanent_lesson" || name==="complete_permanent_lesson_for_language") {
+      const language=name==="complete_permanent_lesson_for_language"?(args.p_learning_language||"en"):"en";
+      const row=(tables.lesson_progress||[]).find(item=>item.user_id===user.id
+        && (item.learning_language||"en")===language
+        && item.difficulty===args.p_difficulty && item.lesson_id===args.p_lesson_id);
       if (!row) return {data:null,error:error("Mock lesson progress row was not found.")};
+      if(row.status==="completed") return {data:clone(row),error:null};
       Object.assign(row,{status:"completed",completed_at:now(),updated_at:now()});
-      (tables.learning_activity_log ||= []).push({user_id:user.id,activity_type:"lesson",event_type:"completed",language_code:"en",created_at:now()});
-      (tables.lesson_practice_results ||= []).push({user_id:user.id,difficulty:args.p_difficulty,lesson_id:args.p_lesson_id,topic_id:args.p_topic_id,correct_count:args.p_correct_count,question_count:args.p_question_count,attempted_at:now()});
+      (tables.learning_activity_log ||= []).push({user_id:user.id,activity_type:"lesson",event_type:"completed",language_code:language,created_at:now()});
+      (tables.lesson_practice_results ||= []).push({user_id:user.id,learning_language:language,difficulty:args.p_difficulty,lesson_id:args.p_lesson_id,topic_id:args.p_topic_id,correct_count:args.p_correct_count,question_count:args.p_question_count,attempted_at:now()});
       persist(db); return {data:clone(row),error:null};
     }
     if (name==="start_daily_activity_session") {
