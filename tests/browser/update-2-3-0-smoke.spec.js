@@ -120,6 +120,7 @@ test("lesson highlights stay inside explanations, examples and sentence breakdow
   await articleLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonReaderContent h2")).toContainText("Choose a, an or the");
+  console.log("First highlighted lesson heading", await page.locator("#lessonReaderContent h2").textContent());
   await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
 
   const articleAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
@@ -140,6 +141,8 @@ test("lesson highlights stay inside explanations, examples and sentence breakdow
   await expect(nounLesson).toBeVisible();
   await nounLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonReaderContent h2")).toContainText("Use countable and uncountable nouns");
+  console.log("Second highlighted lesson heading", await page.locator("#lessonReaderContent h2").textContent());
   await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
   const nounAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
     const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
@@ -223,6 +226,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   });
   await chineseTopicCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toHaveClass(/open/);
   console.log("Daily drawer computed motion", await page.evaluate(() => {
     const panel=document.querySelector("#dailyActivityReader .daily-activity-modal");
     const style=panel ? getComputedStyle(panel) : null;
