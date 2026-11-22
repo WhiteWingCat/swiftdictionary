@@ -97,7 +97,7 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await expect(page.locator("#lessonReaderContent .lesson-answer-options.compact").first()).toBeVisible();
 
   await page.locator("#lessonBack").click();
-  const inProgressLesson=page.locator("#lessonCards .lesson-card").filter({hasText:/In progress|学习中/});
+  const inProgressLesson=page.locator("#lessonCards .lesson-card").filter({hasText:/In progress|学习中|进行中/});
   await expect(inProgressLesson).toBeVisible();
   await inProgressLesson.click();
   await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
