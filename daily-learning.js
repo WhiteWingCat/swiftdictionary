@@ -843,7 +843,17 @@
       const seen = new Set();
       completedRows.forEach(row => { if(seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,snapshot.content[type]); if(item) cards.push(renderCard(item,null,true)); });
       activeRows.forEach(row => { if(seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,snapshot.content[type]); if(item) cards.push(renderCard(item,null,false)); });
-      for(let slot=used;cards.length<Math.min(3,limit || 1) && slot<used+5;slot++){ const item=chooseContent(type,slot); if(!item || seen.has(item.id)) continue; seen.add(item.id); cards.push(renderCard(item,null,false)); }
+      const completedTodayCount = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.content_id).length;
+      const visibleDailySlots = Math.min(3,limit || 1);
+      const newSlots = Math.max(0,Math.min(remaining-activeRows.length,visibleDailySlots-activeRows.length-completedTodayCount));
+      let added = 0;
+      for(let slot=used;added<newSlots && slot<used+20;slot++){
+        const item=chooseContent(type,slot);
+        if(!item || seen.has(item.id)) continue;
+        seen.add(item.id);
+        cards.push(renderCard(item,null,false));
+        added++;
+      }
       if(!cards.length && availableForPlan){ const item=chooseContent(type,used); if(item) cards.push(renderCard(item,null,false)); }
     }
     const tabs = allTypes.map(tabType => {
