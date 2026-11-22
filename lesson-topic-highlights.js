@@ -17,7 +17,7 @@
     const title=normalise(root.querySelector("h2")?.textContent);
     const articleTerms=title.includes("a, an") && title.includes("the") ? lessonTerms.get("a, an") : null;
     const stopWords=new Set(["a","an","and","are","as","at","be","by","for","from","how","in","into","is","it","of","on","or","the","to","under","using","what","when","where","which","with","your","learn","learning","lesson","practice","understand","introduction","basic","basics"]);
-    const titleTerms=title.replace(/[^\\p{L}\\p{N}\\s-]/gu," ").split(/[\\s-]+/u).filter(term=>term.length>2&&!stopWords.has(term));
+    const titleTerms=title.replace(/[^\p{L}\p{N}\s-]/gu," ").split(/[\s-]+/u).filter(term=>term.length>2&&!stopWords.has(term));
     const terms=articleTerms?.length ? articleTerms : [...new Set(titleTerms)];
     if (!terms.length) return;
     const escaped=terms.map(term=>term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|");
