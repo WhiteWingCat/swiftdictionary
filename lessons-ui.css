@@ -189,7 +189,8 @@
 }
 
 /* U2.7.0 topic emphasis: one consistent highlight treatment, never role-coded colours. */
-#lessonReaderContent mark[class*="lesson-focus-"] {
+#lessonReaderContent mark[class*="lesson-focus-"],
+#lessonReaderContent mark.lesson-topic-highlight {
   display:inline-block;
   color:#ffffff !important;
   -webkit-text-fill-color:#ffffff !important;
@@ -232,4 +233,15 @@
 .lesson-start-confirm-actions button:focus-visible { outline:3px solid #b5d0ff; outline-offset:3px; }
 @media(prefers-reduced-motion:reduce) {
   .lesson-start-confirm-backdrop,.lesson-start-confirm-dialog { transition:none; }
+}
+
+#lessonReaderContent .lesson-role-neutral { color:inherit; font-weight:inherit; background:transparent; }
+#lessonReaderContent mark.lesson-topic-highlight {
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  font-weight:800 !important;
+  background:rgba(91,137,211,.42) !important;
+  border-bottom:2px solid #a9c7ff !important;
+  border-radius:5px;
+  padding:1px 5px;
 }
