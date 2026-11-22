@@ -88,6 +88,8 @@ assert(topicHighlights.includes("lesson-role-neutral"));
 assert(build.includes("permanent-lesson-confirmation.js") && build.includes("lesson-topic-highlights.js"));
 assert(startAllowanceMigration.includes("new.event_type <> 'started'"));
 assert(startAllowanceMigration.includes("lesson_progress_charge_on_first_start"));
+assert(startAllowanceMigration.includes("create or replace function private.record_lesson_start_allowance()"));
+assert(startAllowanceMigration.includes("drop function if exists public.record_lesson_start_allowance()"));
 assert(startAllowanceMigration.includes("Daily lesson start limit reached"));
 assert(startAllowanceMigration.includes("private.learning_allowance_usage"));
 assert(build.includes("daily-learning") && build.includes("lessons-ui"));
