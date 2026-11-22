@@ -996,6 +996,13 @@
     }
   }
 
+  window.addEventListener("swiftdictionary:course-changed", () => {
+    loadDailyData().catch(error => {
+      const status=byId("dailyLearningStatus");
+      if(status)status.textContent=error.message || "Daily Learning could not be refreshed.";
+    });
+  });
+
   window.refreshDailyLearningTranslation = function() {
     renderDailyStaticLabels();
     renderDailyStatus();
