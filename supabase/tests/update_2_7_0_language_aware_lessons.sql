@@ -283,7 +283,12 @@ end;
 $shared_allowance$;
 
 -- The personal test account still bypasses lesson start consumption.
+-- Add only this synthetic test identity to the private allowlist inside this
+-- rollback-only regression transaction; no real account identifier is stored.
 reset role;
+insert into private.learning_limit_exemptions(user_id,reason)
+values ('22222222-2222-4222-8222-222222222222','U2.7.0 synthetic test bypass')
+on conflict (user_id) do nothing;
 set local role authenticated;
 select set_config('request.jwt.claim.sub','22222222-2222-4222-8222-222222222222',true);
 do $personal_test_bypass$
