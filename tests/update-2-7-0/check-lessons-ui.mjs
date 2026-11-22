@@ -90,7 +90,7 @@ assert(confirmation.includes("Selecting this lesson will consume one daily lesso
 assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('data-confirm="no"'));
 assert(confirmation.includes('button.click()'));
 assert(confirmation.includes(".lesson-status.completed,.lesson-status.in-progress"));
-assert(!daily.includes("daily-activity-allowance-track"));
+assert(daily.includes("daily-activity-allowance-track"));
 assert(daily.includes("daily-activity-allowance-top"));
 assert(chineseLessonsSource.includes("二零二六年") && !chineseLessonsSource.includes("二〇二六年"));
 assert(!chineseLessonsSource.includes("Maya") && !chineseLessonsSource.includes("玛雅"));
