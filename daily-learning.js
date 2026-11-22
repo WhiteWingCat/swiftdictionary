@@ -976,6 +976,8 @@
     if (isDiscovery) html += '</div>';
     reader.innerHTML = '<article class="modal daily-activity-modal' + (isDiscovery ? ' daily-discovery-modal' : '') + '">' + html + '</article>';
     reader.getBoundingClientRect();
+    const drawerPanel=reader.querySelector(".daily-activity-modal");
+    if(drawerPanel) drawerPanel.getBoundingClientRect();
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
       if (!reader.hidden && !reader.classList.contains("closing")) reader.classList.add("open");
     }));
