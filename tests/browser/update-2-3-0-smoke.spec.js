@@ -93,6 +93,14 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await page.locator("#lessonReaderContent .lesson-expandable-group").nth(1).locator("[data-lesson-list-toggle]").click();
   await expect(exampleExtras.first()).toBeVisible();
   await expect(page.locator("#lessonReaderContent .lesson-answer-options.compact").first()).toBeVisible();
+
+  await page.locator("#lessonBack").click();
+  const inProgressLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"In progress"});
+  await expect(inProgressLesson).toBeVisible();
+  await inProgressLesson.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
 });
 
 
