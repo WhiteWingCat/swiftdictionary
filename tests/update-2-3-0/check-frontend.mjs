@@ -480,7 +480,8 @@ if (!dailyScript.includes("const disabled = !!disabledReason || (exhausted && !a
     || !dailyScript.includes("role=\"tablist\"")
     || !dailyScript.includes("daily-activity-cards")
     || !dailyScript.includes('columns===3?" premium":" free"')
-    || !dailyScript.includes("Your allowance resets at midnight")
+    || !dailyScript.includes("daily-activity-allowance-top")
+    || dailyScript.includes("Your allowance resets at midnight")
     || dailyScript.includes("Today’s activity is complete")
     || dailyScript.includes("const practiceExamples =")) {
   throw new Error("Daily activity tabs, plan-sized rows, allowance lock/reset placement, completed review, or example/Q&A separation regressed.");
