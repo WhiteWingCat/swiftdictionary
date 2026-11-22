@@ -81,7 +81,7 @@ const confirmation=fs.readFileSync("permanent-lesson-confirmation.js","utf8");
 const topicHighlights=fs.readFileSync("lesson-topic-highlights.js","utf8");
 new vm.Script(confirmation,{filename:"permanent-lesson-confirmation.js"});
 new vm.Script(topicHighlights,{filename:"lesson-topic-highlights.js"});
-assert(topicHighlights.includes('["choose a, an or the", ["a","an","the"]]'));
+assert(topicHighlights.includes('["a, an", ["a","an","the"]]'));
 assert(topicHighlights.includes("lesson-topic-highlight"));
 assert(topicHighlights.includes("lesson-role-neutral"));
 assert(build.includes("permanent-lesson-confirmation.js") && build.includes("lesson-topic-highlights.js"));
