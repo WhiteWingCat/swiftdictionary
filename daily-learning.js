@@ -472,7 +472,8 @@
     const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
     if (chineseCourse) {
       const applications = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
-      const source = applications.find(item => item.topicId === topicId) || applications[0];
+      const sourceId = String(contentId || "").split(":")[2] || null;
+      const source = applications.find(item => item.id === sourceId && item.topicId === topicId) || applications.find(item => item.topicId === topicId) || applications[0];
       if (!source) return null;
       return {...source,id:contentId,topicId:topicId || source.topicId,title:"复习："+source.title,titleZh:"复习："+source.title,
         body:"根据你的学习记录安排的简短复习。",
