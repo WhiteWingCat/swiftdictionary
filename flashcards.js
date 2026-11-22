@@ -586,7 +586,8 @@
   overlayRoot.addEventListener("click",handleClick);
   attachForms();
   document.getElementById("flashDifficulty")?.addEventListener("change",e=>state.difficulty=e.target.value);
-  window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();state.ready=false;state.loading=false;state.finishing=false;if(!currentUser)state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};render();});
+  window.__swiftFlashcardsAuthHydration=Promise.resolve();
+  window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();state.ready=false;state.loading=false;state.finishing=false;if(currentUser){window.__swiftFlashcardsAuthHydration=loadData();}else{state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};window.__swiftFlashcardsAuthHydration=Promise.resolve();}render();});
   if(typeof supabaseClient!=="undefined"&&supabaseClient?.auth?.onAuthStateChange){
     supabaseClient.auth.onAuthStateChange((event,session)=>{
       if(event==="SIGNED_OUT"||!session?.user){
