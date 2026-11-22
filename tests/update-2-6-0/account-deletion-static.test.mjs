@@ -106,7 +106,7 @@ test("cloud saved-word sync failures do not clear the authenticated account", ()
   const syncBlock = index.slice(index.indexOf("async function syncCurrentCourseFromCloud"), index.indexOf("async function initAccount"));
   const authBlock = index.slice(index.indexOf("async function refreshAccount"), index.indexOf("function enqueueAccountRefresh"));
   assert.match(syncBlock, /You are still signed in/);
-  assert.match(syncBlock, /Local saved words remain available/);
+  assert.match(syncBlock, /local saved words remain available/i);
   assert.match(authBlock, /syncError/);
   assert.match(authBlock, /You are signed in/);
 });
