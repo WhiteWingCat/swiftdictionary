@@ -8,6 +8,10 @@ const sandbox = { window: {} };
 vm.runInNewContext(source, sandbox, { filename: "data/chinese-lessons.js" });
 const catalogue = sandbox.window.SWIFT_CHINESE_LESSONS;
 assert.ok(catalogue && typeof catalogue === "object", "Chinese lesson catalogue did not load.");
+assert.ok(source.includes("二零二六年"), "Chinese year example should use 零 rather than 〇.");
+assert.ok(source.includes("èr líng èr liù"), "The Chinese year example must include líng in pinyin.");
+assert.ok(source.includes("李明") && source.includes("Lǐ Míng"), "Chinese course examples should use a Chinese name with matching pinyin.");
+assert.ok(!/\\bMaya\\b/.test(source), "The Chinese course must not use the English name Maya.");
 
 const expected = { beginner: { lessons: 7, questions: 44 }, intermediate: { lessons: 5, questions: 34 }, advanced: { lessons: 5, questions: 34 } };
 const ids = new Set();
