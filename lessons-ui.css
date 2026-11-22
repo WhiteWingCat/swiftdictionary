@@ -212,3 +212,5 @@
 #lessonReaderContent .lesson-selected-translation { color:#dce8fb; }
 #lessonReaderContent .lesson-pinyin-line { color:#b9c9e4; }
 #lessonReaderContent .lesson-context-underline { text-decoration:underline; text-decoration-color:#91b4ef; text-decoration-thickness:2px; text-underline-offset:4px; }
+
+#lessonReaderContent mark.lesson-focus-adverbial { background:rgba(135,105,190,.30); border-bottom:2px solid #c2a5f4; }
