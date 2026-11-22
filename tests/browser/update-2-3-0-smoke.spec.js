@@ -1267,6 +1267,8 @@ test("historical Daily Learning reviews do not consume today's new activity slot
     }];
     state.tables.daily_activity_sessions=state.sessions;
   });
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
   await page.locator('[data-page="lessons"]').click();
   await page.locator('[data-daily-tab="daily_topic"]').click();
   const cards=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
