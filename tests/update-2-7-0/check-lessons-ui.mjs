@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
+import vm from "node:vm";
 const html=fs.readFileSync("index.html","utf8");
 const css=fs.readFileSync("lessons-ui.css","utf8");
 const daily=fs.readFileSync("daily-learning.js","utf8");
@@ -75,6 +76,8 @@ assert(chineseLessonsWithBreakdown.length>=7,"Context-relevant Chinese lessons s
 
 const confirmation=fs.readFileSync("permanent-lesson-confirmation.js","utf8");
 const topicHighlights=fs.readFileSync("lesson-topic-highlights.js","utf8");
+new vm.Script(confirmation,{filename:"permanent-lesson-confirmation.js"});
+new vm.Script(topicHighlights,{filename:"lesson-topic-highlights.js"});
 assert(topicHighlights.includes('["choose a, an or the", ["a","an","the"]]'));
 assert(topicHighlights.includes("lesson-topic-highlight"));
 assert(topicHighlights.includes("lesson-role-neutral"));
