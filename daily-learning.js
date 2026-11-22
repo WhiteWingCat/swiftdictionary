@@ -633,6 +633,7 @@
   }
   function resolveSessionContent(activityType, session, fallback) {
     if (activityType === "daily_revision") {
+      if (isChineseLearningCourse() && !dailyApplicationPool().some(item=>item.topicId===session.topic_id)) return null;
       const candidate = revisionCandidates(snapshot.lessonResults, snapshot.dailyResults, snapshot.completedToday)
         .find(item => item.topicId === session.topic_id);
       return makeRevisionContent(session.topic_id,session.content_id,candidate?.reason || "Resume your adaptive review.");
@@ -640,10 +641,11 @@
     if (activityType === "daily_discovery") {
       const approvedId=String(session.content_id).split(":")[0];
       const word=dailyDiscoveryPool().find(item=>item.id===approvedId),examples=Array.isArray(word?.examples)?word.examples:[];
-      return word?{...word,id:session.content_id,title:word.word||word.title,example:examples[0],examples:examples.slice(1),zh:word.definitionZh}:fallback;
+      return word?{...word,id:session.content_id,title:word.word||word.title,example:examples[0],examples:examples.slice(1),zh:word.definitionZh}:(isChineseLearningCourse()?null:fallback);
     }
     const pools={daily_topic:dailyTopicPool(),daily_application:dailyApplicationPool()};
-    return (pools[activityType] || []).find(item => item.id === session.content_id) || fallback;
+    const item=(pools[activityType] || []).find(item => item.id === session.content_id);
+    return item || (isChineseLearningCourse()?null:fallback);
   }
 
   async function loadDailyData() {
