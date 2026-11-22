@@ -18481,7 +18481,7 @@
           block.appendChild(text);
           if (Array.isArray(sense.examples) && sense.examples.length) {
             const senseExamples = document.createElement("ul"); senseExamples.className = "sense-examples";
-            sense.examples.forEach(example => { const li = document.createElement("li"); li.textContent = example; senseExamples.appendChild(li); });
+            sense.examples.forEach(example => { const li = document.createElement("li"); li.appendChild(renderChineseLine(example)); senseExamples.appendChild(li); });
             block.appendChild(senseExamples);
           }
           if (/[\u3400-\u9fff]/.test(text.textContent)) {
@@ -18619,6 +18619,7 @@
       categoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
       chineseCategoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
       render();
+      window.dispatchEvent(new CustomEvent("swiftdictionary:course-changed",{detail:{learningLanguage:course}}));
       if(currentUser)syncCurrentCourseFromCloud({mergeLocal:false});
       showPreferenceRefreshToast("course");
     });
