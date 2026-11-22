@@ -13,6 +13,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 ## Archives
 
+- [Production Supabase U2.7.0 rollout](2026-11-22-production-supabase-u2-7-0-rollout.md) — records owner approval and successful sequential application of all five U2.6.0/U2.7.0 migrations, production ledger versions, verified lesson schema/catalogue/triggers/ACLs, and remaining authenticated live-site browser checks.
 - [Production Supabase U2.7.0 rollout preflight](2026-11-22-production-supabase-u2-7-0-preflight.md) — read-only comparison of production and staging migrations, schema, lesson RPCs, catalogue, allowance trigger and ACLs; proposes the ordered two U2.6.0 plus three U2.7.0 migrations, with production execution still awaiting explicit approval.
 - [Update 2.7.0 — implementation audit and QA checkpoint](2026-11-21-update-2-7-0-implementation-audit.md) — records the 725-character dictionary, 17/112 Chinese Lessons, language-aware progress migration, pinyin QA corrections, third-party licence notices and remaining staging/manual-review gates.
 
