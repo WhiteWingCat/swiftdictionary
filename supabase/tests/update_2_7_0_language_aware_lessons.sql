@@ -286,6 +286,13 @@ $shared_allowance$;
 -- Add only this synthetic test identity to the private allowlist inside this
 -- rollback-only regression transaction; no real account identifier is stored.
 reset role;
+create table if not exists private.learning_limit_exemptions (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  reason text not null default 'Personal lesson testing access',
+  created_at timestamptz not null default now()
+);
+alter table private.learning_limit_exemptions enable row level security;
+revoke all on table private.learning_limit_exemptions from public, anon, authenticated;
 insert into private.learning_limit_exemptions(user_id,reason)
 values ('22222222-2222-4222-8222-222222222222','U2.7.0 synthetic test bypass')
 on conflict (user_id) do nothing;
