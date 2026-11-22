@@ -286,19 +286,24 @@ $shared_allowance$;
 reset role;
 set local role authenticated;
 select set_config('request.jwt.claim.sub','22222222-2222-4222-8222-222222222222',true);
-insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
-values ('22222222-2222-4222-8222-222222222222','en','beginner','b-sentence','in_progress');
-
 do $personal_test_bypass$
 declare
-  v_started integer;
+  v_started_before integer;
+  v_started_after integer;
   v_used integer;
 begin
-  select count(*) into v_started
+  select count(*) into v_started_before
   from public.learning_activity_log
   where user_id=auth.uid() and activity_type='lesson' and event_type='started';
-  if v_started <> 0 then
-    raise exception 'Personal test lesson start should not create an allowance event';
+
+  insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
+  values (auth.uid(),'en','beginner','b-sentence','in_progress');
+
+  select count(*) into v_started_after
+  from public.learning_activity_log
+  where user_id=auth.uid() and activity_type='lesson' and event_type='started';
+  if v_started_after <> v_started_before then
+    raise exception 'Personal test lesson start should not create an additional allowance event';
   end if;
 
   v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
