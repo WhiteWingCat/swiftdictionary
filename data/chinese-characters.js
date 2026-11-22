@@ -163,8 +163,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "场",
     "part": "汉语词汇",
     "phonetic": "chǎng / cháng",
-    "definition": "place for an activity; field; classifier for events",
-    "definitionZh": "场所、场地；也作活动或事件的量词。",
+    "definition": "place; venue; field; event; classifier for certain events",
+    "definitionZh": "表示场所、场地或活动发生的地点。；用于某些事件或自然现象的量词，如“一场雨”。",
     "examples": [
       "这场比赛很精彩。"
     ],
@@ -180,7 +180,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 chǎng",
+        "definition": "place; venue; field; event",
+        "definitionZh": "表示场所、场地或活动发生的地点。",
+        "examples": [
+          "学校有一个运动场。"
+        ]
+      },
+      {
+        "part": "读音 cháng",
+        "definition": "classifier for certain events",
+        "definitionZh": "用于某些事件或自然现象的量词，如“一场雨”。",
+        "examples": [
+          "昨晚下了一场雨。"
+        ]
+      }
+    ]
   },
   {
     "word": "唱",
@@ -232,8 +250,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "打",
     "part": "汉语词汇",
     "phonetic": "dǎ / dá",
-    "definition": "to hit; strike; fight; to do (in many set expressions)",
-    "definitionZh": "击打、敲打；也用于许多固定动词搭配，如打电话、打球。",
+    "definition": "to hit; strike; play; make (calls); dozen; a group of twelve",
+    "definitionZh": "表示击打，也用于“打电话”“打球”等常见搭配。；作量词时表示十二个，常见于“一打鸡蛋”。",
     "examples": [
       "他每天打篮球。"
     ],
@@ -249,14 +267,32 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 dǎ",
+        "definition": "to hit; strike; play; make (calls)",
+        "definitionZh": "表示击打，也用于“打电话”“打球”等常见搭配。",
+        "examples": [
+          "我每天给妈妈打电话。"
+        ]
+      },
+      {
+        "part": "读音 dá",
+        "definition": "dozen; a group of twelve",
+        "definitionZh": "作量词时表示十二个，常见于“一打鸡蛋”。",
+        "examples": [
+          "我买了一打鸡蛋。"
+        ]
+      }
+    ]
   },
   {
     "word": "大",
     "part": "汉语词汇",
     "phonetic": "dà / dài",
-    "definition": "big; large; great; older",
-    "definitionZh": "尺寸、程度或年龄较大；也用于表示重要或主要。",
+    "definition": "big; large; great; older; traditional title for a doctor (in 大夫)",
+    "definitionZh": "尺寸、程度或年龄较大；也可表示重要或主要。；读 dài 时用于“大夫”，指医生。",
     "examples": [
       "这个房间很大。"
     ],
@@ -271,14 +307,32 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 dà",
+        "definition": "big; large; great; older",
+        "definitionZh": "尺寸、程度或年龄较大；也可表示重要或主要。",
+        "examples": [
+          "这间房子很大。"
+        ]
+      },
+      {
+        "part": "读音 dài",
+        "definition": "traditional title for a doctor (in 大夫)",
+        "definitionZh": "读 dài 时用于“大夫”，指医生。",
+        "examples": [
+          "我请大夫检查身体。"
+        ]
+      }
+    ]
   },
   {
     "word": "地",
     "part": "汉语词汇",
     "phonetic": "dì / de",
-    "definition": "earth; ground; land; adverbial particle",
-    "definitionZh": "土地、地面；也作结构助词，用在状语后修饰动词。",
+    "definition": "earth; ground; land; place; adverbial structural particle",
+    "definitionZh": "表示土地、地面或地点。；用在状语后修饰动词，连接动作与描述方式。",
     "examples": [
       "地上有一本书。"
     ],
@@ -295,7 +349,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 dì",
+        "definition": "earth; ground; land; place",
+        "definitionZh": "表示土地、地面或地点。",
+        "examples": [
+          "孩子坐在地上。"
+        ]
+      },
+      {
+        "part": "读音 de",
+        "definition": "adverbial structural particle",
+        "definitionZh": "用在状语后修饰动词，连接动作与描述方式。",
+        "examples": [
+          "她认真地学习。"
+        ]
+      }
+    ]
   },
   {
     "word": "弟",
@@ -393,8 +465,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "都",
     "part": "汉语词汇",
     "phonetic": "dōu / dū",
-    "definition": "all; both; entirely; capital city",
-    "definitionZh": "全部、都；读 dū 时可表示首都或大城市。",
+    "definition": "all; both; entirely; capital city; large city",
+    "definitionZh": "表示总括范围内的全部。；表示首都或大城市，常见于“首都”“都市”。",
     "examples": [
       "我们都喜欢这本书。"
     ],
@@ -410,7 +482,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 dōu",
+        "definition": "all; both; entirely",
+        "definitionZh": "表示总括范围内的全部。",
+        "examples": [
+          "我们都喜欢中文。"
+        ]
+      },
+      {
+        "part": "读音 dū",
+        "definition": "capital city; large city",
+        "definitionZh": "表示首都或大城市，常见于“首都”“都市”。",
+        "examples": [
+          "北京是中国的首都。"
+        ]
+      }
+    ]
   },
   {
     "word": "饿",
@@ -2792,8 +2882,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "行",
     "part": "汉语词汇",
     "phonetic": "xíng / háng / héng",
-    "definition": "to walk; go; travel; row; line; profession; capable; okay",
-    "definitionZh": "行走、进行；行列、行业；也可表示可以、可行。",
+    "definition": "to walk; go; travel; act; acceptable; row; line; profession; trade; conduct; skill (in 道行)",
+    "definitionZh": "表示行走、进行，也可表示可以或可行。；表示行列、行业或职业类别。；读 héng 时见于“道行”等固定词语。",
     "examples": [
       "这样做也行。"
     ],
@@ -2809,6 +2899,32 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 xíng",
+        "definition": "to walk; go; travel; act; acceptable",
+        "definitionZh": "表示行走、进行，也可表示可以或可行。",
+        "examples": [
+          "这样做也行。"
+        ]
+      },
+      {
+        "part": "读音 háng",
+        "definition": "row; line; profession; trade",
+        "definitionZh": "表示行列、行业或职业类别。",
+        "examples": [
+          "他在银行工作。"
+        ]
+      },
+      {
+        "part": "读音 héng",
+        "definition": "conduct; skill (in 道行)",
+        "definitionZh": "读 héng 时见于“道行”等固定词语。",
+        "examples": [
+          "他的道行很深。"
+        ]
+      }
     ]
   },
   {
@@ -3110,8 +3226,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "着",
     "part": "汉语词汇",
     "phonetic": "zhe / zháo / zhāo / zhuó",
-    "definition": "aspect particle; to touch; catch; wear; move or strategy",
-    "definitionZh": "表示动作或状态持续；也可表示触及、穿着、着落或办法。",
+    "definition": "ongoing or continuing aspect particle; to touch; catch; achieve; fall asleep; move; trick; method; plan; to wear; put on; attach; apply",
+    "definitionZh": "表示动作或状态持续。；表示触及、达到或进入某种状态。；表示办法、招数或棋招。；表示穿着、附着或着手处理。",
     "examples": [
       "门开着。"
     ],
@@ -3127,6 +3243,40 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 zhe",
+        "definition": "ongoing or continuing aspect particle",
+        "definitionZh": "表示动作或状态持续。",
+        "examples": [
+          "门开着。"
+        ]
+      },
+      {
+        "part": "读音 zháo",
+        "definition": "to touch; catch; achieve; fall asleep",
+        "definitionZh": "表示触及、达到或进入某种状态。",
+        "examples": [
+          "我终于找着钥匙了。"
+        ]
+      },
+      {
+        "part": "读音 zhāo",
+        "definition": "move; trick; method; plan",
+        "definitionZh": "表示办法、招数或棋招。",
+        "examples": [
+          "这个办法真高着。"
+        ]
+      },
+      {
+        "part": "读音 zhuó",
+        "definition": "to wear; put on; attach; apply",
+        "definitionZh": "表示穿着、附着或着手处理。",
+        "examples": [
+          "请按要求着装。"
+        ]
+      }
     ]
   },
   {
@@ -3545,8 +3695,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "便",
     "part": "汉语词汇",
     "phonetic": "biàn / pián",
-    "definition": "convenient; suitable; then; in that case; cheap (pián)",
-    "definitionZh": "方便、便利；表示随后或于是；读 pián 时常见于“便宜”。",
+    "definition": "convenient; then; in that case; cheap; inexpensive (in 便宜)",
+    "definitionZh": "表示方便、便利，也可表示随后或于是。；读 pián 时常见于“便宜”，表示价格低。",
     "examples": [
       "这里交通很方便。"
     ],
@@ -3562,6 +3712,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 biàn",
+        "definition": "convenient; then; in that case",
+        "definitionZh": "表示方便、便利，也可表示随后或于是。",
+        "examples": [
+          "这样做比较方便。"
+        ]
+      },
+      {
+        "part": "读音 pián",
+        "definition": "cheap; inexpensive (in 便宜)",
+        "definitionZh": "读 pián 时常见于“便宜”，表示价格低。",
+        "examples": [
+          "这家店的水果很便宜。"
+        ]
+      }
     ]
   },
   {
@@ -4307,7 +4475,7 @@ window.SWIFT_CHINESE_WORDS = [
     "part": "汉语词汇",
     "phonetic": "fā / fà",
     "definition": "to send out; issue; develop; happen; hair",
-    "definitionZh": "发送、发出、发生、发展；读 fà 时表示头发。",
+    "definitionZh": "表示发送、发出、发生或发展。；读 fà 时表示头发。",
     "examples": [
       "他给我发了一条消息。"
     ],
@@ -4324,6 +4492,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 fā",
+        "definition": "to send out; issue; develop; happen",
+        "definitionZh": "表示发送、发出、发生或发展。",
+        "examples": [
+          "请把邮件发给我。"
+        ]
+      },
+      {
+        "part": "读音 fà",
+        "definition": "hair",
+        "definitionZh": "读 fà 时表示头发。",
+        "examples": [
+          "她的头发很长。"
+        ]
+      }
     ]
   },
   {
@@ -4698,8 +4884,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "空",
     "part": "汉语词汇",
     "phonetic": "kōng / kòng",
-    "definition": "empty; air; sky; in vain; vacant; free time; to empty",
-    "definitionZh": "空的、没有东西；天空、空气；读 kòng 时表示空闲或腾出空间。",
+    "definition": "empty; vacant; sky; air; free time; spare; to leave empty",
+    "definitionZh": "表示空的、没有东西，也可指天空或空气。；表示空闲、腾出或留出空间。",
     "examples": [
       "天空中有很多云。"
     ],
@@ -4716,6 +4902,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 kōng",
+        "definition": "empty; vacant; sky; air",
+        "definitionZh": "表示空的、没有东西，也可指天空或空气。",
+        "examples": [
+          "房间里没有人，很空。"
+        ]
+      },
+      {
+        "part": "读音 kòng",
+        "definition": "free time; spare; to leave empty",
+        "definitionZh": "表示空闲、腾出或留出空间。",
+        "examples": [
+          "你明天下午有空吗？"
+        ]
+      }
     ]
   },
   {
@@ -4836,8 +5040,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "乐",
     "part": "汉语词汇",
     "phonetic": "lè / yuè",
-    "definition": "happy; joyful; to enjoy; music",
-    "definitionZh": "快乐、喜悦；读 yuè 时表示音乐或乐曲。",
+    "definition": "happy; joyful; enjoy; music; musical sound",
+    "definitionZh": "表示快乐、喜悦或以某事为乐。；读 yuè 时表示音乐或乐曲。",
     "examples": [
       "听音乐让我很快乐。"
     ],
@@ -4853,6 +5057,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 lè",
+        "definition": "happy; joyful; enjoy",
+        "definitionZh": "表示快乐、喜悦或以某事为乐。",
+        "examples": [
+          "孩子们玩得很快乐。"
+        ]
+      },
+      {
+        "part": "读音 yuè",
+        "definition": "music; musical sound",
+        "definitionZh": "读 yuè 时表示音乐或乐曲。",
+        "examples": [
+          "她从小学音乐。"
+        ]
+      }
     ]
   },
   {
@@ -7618,8 +7840,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "角",
     "part": "汉语词汇",
     "phonetic": "jiǎo / jué",
-    "definition": "corner; angle; horn; unit of money; role; character",
-    "definitionZh": "角落、角度、角；读 jué 时表示角色或戏剧人物。",
+    "definition": "corner; angle; horn; tenth of a yuan; role; character; performer",
+    "definitionZh": "表示角落、角度、动物的角，也可作人民币单位。；读 jué 时表示角色或戏剧人物。",
     "examples": [
       "桌子的角有点尖。"
     ],
@@ -7635,6 +7857,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 jiǎo",
+        "definition": "corner; angle; horn; tenth of a yuan",
+        "definitionZh": "表示角落、角度、动物的角，也可作人民币单位。",
+        "examples": [
+          "桌子的角有点尖。"
+        ]
+      },
+      {
+        "part": "读音 jué",
+        "definition": "role; character; performer",
+        "definitionZh": "读 jué 时表示角色或戏剧人物。",
+        "examples": [
+          "她是这部电影的主角。"
+        ]
+      }
     ]
   },
   {
@@ -10240,8 +10480,8 @@ window.SWIFT_CHINESE_WORDS = [
     "word": "传",
     "part": "汉语词汇",
     "phonetic": "chuán / zhuàn",
-    "definition": "to pass on; to spread; to transmit; biography or historical narrative",
-    "definitionZh": "读 chuán 表示传递、传播；读 zhuàn 常指传记或史书。",
+    "definition": "to pass on; transmit; spread; biography; historical account",
+    "definitionZh": "表示传递、传播或传授。；读 zhuàn 时常指传记或史书。",
     "examples": [
       "请把这个消息传给大家。"
     ],
@@ -10257,7 +10497,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 chuán",
+        "definition": "to pass on; transmit; spread",
+        "definitionZh": "表示传递、传播或传授。",
+        "examples": [
+          "请把这个消息传出去。"
+        ]
+      },
+      {
+        "part": "读音 zhuàn",
+        "definition": "biography; historical account",
+        "definitionZh": "读 zhuàn 时常指传记或史书。",
+        "examples": [
+          "我正在读一篇人物传记。"
+        ]
+      }
+    ]
   },
   {
     "word": "创",

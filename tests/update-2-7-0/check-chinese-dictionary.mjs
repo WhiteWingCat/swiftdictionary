@@ -81,4 +81,18 @@ const cardEnd = html.indexOf("button.addEventListener", cardStart);
 assert.ok(cardStart !== -1 && cardEnd > cardStart, "Dictionary card markup was not found.");
 assert.ok(!html.slice(cardStart, cardEnd).toLowerCase().includes("pinyin"), "Pinyin must not be added to Chinese Dictionary grid cards.");
 
-console.log("Chinese dictionary checks passed: " + words.length + " unique characters (" + additions.length + " new), " + inlineScripts + " inline script syntax-checked.");
+const polyphonic = words.filter(item => String(item.phonetic || "").includes("/"));
+assert.ok(polyphonic.length >= 70, "Polyphonic Chinese readings should remain represented in the dictionary.");
+for (const item of polyphonic) {
+  assert.ok(typeof item.definition === "string" && item.definition.trim(), "Polyphonic character is missing English meanings: " + item.word);
+  assert.ok(typeof item.definitionZh === "string" && item.definitionZh.trim(), "Polyphonic character is missing Chinese meanings: " + item.word);
+}
+for (const character of ["好","看","要","和","大","背","的","了","得","长","还","少","只","会","行","着","差","中","发","乐","空","打","场","便","角","传"]) {
+  const item = words.find(entry => entry.word === character);
+  assert.ok(item && Array.isArray(item.senses) && item.senses.length >= 2, "Common multiple-reading character needs separately explained senses: " + character);
+  for (const sense of item.senses) {
+    assert.ok(sense.part && /读音/.test(sense.part), "Each polyphonic sense should identify its reading: " + character);
+    assert.ok(sense.definition && sense.definitionZh, "Each polyphonic sense needs English and Chinese definitions: " + character);
+  }
+}
+console.log("Chinese dictionary checks passed: " + words.length + " unique characters (" + additions.length + " new), " + polyphonic.length + " polyphonic entries reviewed, " + inlineScripts + " inline script syntax-checked.");
