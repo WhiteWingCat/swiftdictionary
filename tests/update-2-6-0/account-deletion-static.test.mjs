@@ -99,7 +99,7 @@ test("post-sign-in loading overlay is present and released after account hydrati
   assert.match(index, /id="swiftAuthLoading"/);
   assert.match(index, /swiftAuthLoadingMessage/);
   assert.match(index, /setAuthLoading\(false\)/);
-  assert.match(index, /refreshDashboardData\(\)/);
+  assert.match(index, /__swiftFlashcardsAuthHydration/);
 });
 
 test("cloud saved-word sync failures do not clear the authenticated account", () => {
