@@ -110,7 +110,7 @@ console.log("U2.7.0 owner feedback regression checks passed: confirmation-before
 assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .38s ease !important"));
 assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
-assert(css.includes("transition:none !important"));
+assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
 assert(build.includes("lessons-ui") && build.includes("2.7.0-r6"));
 
 assert(daily.includes(" ? 0 : 500"));
