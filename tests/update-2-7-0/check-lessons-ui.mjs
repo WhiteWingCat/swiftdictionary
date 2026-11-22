@@ -56,6 +56,7 @@ assert(daily.includes('.eq("language_code",language).eq("status","in_progress")'
 assert(daily.includes('panelDescription'));
 assert(daily.includes('item.titleEn'));
 assert(daily.includes('reader.getBoundingClientRect()'));
+assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adaptive revision must replay its original source material.");
 assert(css.includes("lesson-focus-predicate"));
 assert(css.includes("lesson-context-underline"));
 assert(html.includes('swiftdictionary:course-changed'));
