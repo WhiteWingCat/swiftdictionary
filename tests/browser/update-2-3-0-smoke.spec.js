@@ -90,14 +90,16 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("chinese-lesson-user");
   await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
   await page.locator("#translationSelect").selectOption("en");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].translation_language)).toBe("en");
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#lessonLibrary")).toBeVisible();
   await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
   await expect(page.locator("#dailyLearningPage")).toBeVisible();
-  const chineseDailyCards=page.locator("#dailyActivityGrid [data-activity-card]");
-  await expect(chineseDailyCards).toHaveCount(4);
+  const chineseDailyTabs=page.locator("#dailyActivityGrid [data-daily-tab]");
+  await expect(chineseDailyTabs).toHaveCount(4);
   const chineseTopicCard=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
   await expect(chineseTopicCard).toContainText("认识普通话四声");
   await chineseTopicCard.locator("[data-start-daily]").click();
@@ -946,8 +948,8 @@ test("Daily Revision is adaptive, abandonment is free, and Daily Discovery is un
     const state = window.__swiftDailyMock;
     const now = Date.now();
     state.tables.lesson_practice_results = [
-      { user_id:"daily-behaviour-user", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-2*86400000).toISOString() },
-      { user_id:"daily-behaviour-user", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-86400000).toISOString() }
+      { user_id:"daily-behaviour-user", learning_language:"en", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-2*86400000).toISOString() },
+      { user_id:"daily-behaviour-user", learning_language:"en", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-86400000).toISOString() }
     ];
   });
   await page.locator('[data-page="lessons"]').click();
