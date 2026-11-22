@@ -131,6 +131,7 @@ jobs:
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_7_0_language_aware_lessons.sql"
 
       - name: Verify explicit grants for all staged public tables
