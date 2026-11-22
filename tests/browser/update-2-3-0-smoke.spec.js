@@ -69,6 +69,7 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await firstLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonStatus")).toContainText("One daily lesson allowance has been used.");
   expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
   await expect(page.locator("#lessonReader")).toBeVisible();
 
@@ -100,6 +101,7 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await inProgressLesson.click();
   await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonStatus")).not.toContainText("One daily lesson allowance has been used.");
   expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
 });
 
