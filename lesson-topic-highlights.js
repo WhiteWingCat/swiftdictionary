@@ -2,7 +2,7 @@
   "use strict";
   const rootSelector = "#lessonReaderContent";
   const lessonTerms = new Map([
-    ["choose a, an or the", ["a","an","the"]]
+    ["a, an", ["a","an","the"]]
   ]);
 
   function normalise(text) { return String(text || "").trim().toLowerCase().replace(/\s+/g," "); }
@@ -15,7 +15,7 @@
       mark.replaceWith(span);
     });
     const title=normalise(root.querySelector("h2")?.textContent);
-    const terms=[...lessonTerms.entries()].find(([lessonTitle])=>title.includes(lessonTitle))?.[1];
+    const terms=title.includes("a, an") && title.includes("the") ? lessonTerms.get("a, an") : null;
     if (!terms?.length) return;
     const escaped=terms.map(term=>term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|");
     const pattern=new RegExp("(^|[^\\p{L}\\p{N}_])("+escaped+")(?=$|[^\\p{L}\\p{N}_])","giu");
