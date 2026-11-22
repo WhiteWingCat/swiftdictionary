@@ -18476,7 +18476,13 @@
           // selected course. A failed saved-word request never signs the user out.
           if (typeof loadProfileData === "function") await loadProfileData();
           if (currentUser?.id !== nextUser.id) return;
-          await syncCurrentCourseFromCloud({ mergeLocal: false });
+          try {
+            await syncCurrentCourseFromCloud({ mergeLocal: false });
+          } catch (syncError) {
+            // A network exception during cloud sync is not an authentication failure.
+            accountStatus.textContent = `You are signed in, but cloud sync is temporarily unavailable: ${syncError.message || syncError}. Local saved words remain available.`;
+            console.warn("SwiftDictionary saved-word sync is temporarily unavailable:", syncError);
+          }
           if (currentUser?.id !== nextUser.id) return;
         } else {
           saved.clear();
