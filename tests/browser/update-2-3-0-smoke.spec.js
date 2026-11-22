@@ -117,7 +117,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   })));
   const selectedChineseTopic = await page.evaluate(() => {
     const card=document.querySelector('#dailyActivityGrid [data-activity-card="daily_topic"]');
-    return (window.SWIFT_CHINESE_DAILY_LEARNING?.topics||[]).find(item=>card?.innerText.includes(item.title))||null;
+    return (window.SWIFT_CHINESE_DAILY_LEARNING?.topics||[]).find(item=>card?.innerText.includes(item.title)||card?.innerText.includes(item.titleEn||""))||null;
   });
   expect(selectedChineseTopic).toBeTruthy();
   await page.evaluate(() => {
