@@ -149,13 +149,13 @@ security definer
 set search_path = ''
 as $function$
 begin
+  if new.status <> 'in_progress' then
+    return new;
+  end if;
+
   if auth.uid() is null or auth.uid() <> new.user_id then
     raise exception 'Authentication required for own lesson start'
       using errcode = '42501';
-  end if;
-
-  if new.status <> 'in_progress' then
-    return new;
   end if;
 
   insert into public.learning_activity_log
