@@ -79,7 +79,7 @@ begin
   from private.learning_allowance_usage
   where user_id = '$uid' and activity_type = 'lesson';
   if v_used <> 1 then
-    raise exception 'Completion/deletion race changed ledger count to %, expected 1',v_used;
+    raise exception 'Start/completion/deletion race changed ledger count to %, expected 1',v_used;
   end if;
 
   select count(*) into v_history
@@ -104,4 +104,4 @@ end;
 \$\$;
 SQL
 
-echo "Concurrent completion/deletion test passed: the completion was charged once, then history was deleted without changing allowance usage."
+echo "Concurrent lesson-start/completion/deletion test passed: the first start was charged once, completion was free, and history deletion preserved the allowance usage."
