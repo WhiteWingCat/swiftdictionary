@@ -1,127 +1,172 @@
-# SwiftDictionary Update 2.2.0 — English Lessons Foundation
+# SwiftDictionary Update 2.7.0 — Chinese Course & Dictionary Expansion
 
-SwiftDictionary is a GitHub Pages-compatible vocabulary-learning website for English and Simplified Chinese. This update introduces an English Lessons foundation with Beginner, Intermediate and Advanced levels, a topic-filtered lesson library, guided lesson reader, multi-question practice where appropriate, visible lesson-start allowances, and account-synchronised lesson progress. Quiz and Flashcards remain Coming Soon. The English and Simplified Chinese dictionary courses, stroke-order lesson, Google authentication, account switching, and saved-word synchronization are retained.
+> **Release candidate:** Update 2.7.0 is being prepared on `feature/update-2-7-0-chinese-dictionary-lessons`. It has not been merged into `main` or released to production. The current branch preview uses the staging Supabase project.
 
-## Release contents
+SwiftDictionary is a vocabulary and language-learning web application for English and Simplified Chinese. It includes a searchable dictionary, structured lessons, daily learning activities, quizzes, flashcards, saved words, account-based synchronisation and learner progress.
 
-- `index.html` — the application and vocabulary data.
-- `feedback.html` — the feedback page.
-- `THIRD_PARTY_NOTICES.md` — third-party attribution and license summary.
-- `ARPHICPL.TXT` — the unmodified Arphic Public License text associated with the Hanzi Writer stroke-data project.
-- `RELEASE-QA.md` — static review results and required live-site checks.
+The dictionary remains free and unlimited. Daily learning allowances apply to learning activities, not dictionary searches.
 
-The existing `banner.svg` and `supabase-config.js` remain external project files and are not included in this archive.
+## What Update 2.7.0 adds
 
-## What's new
+### Chinese dictionary expansion
 
-- Five-page navigation: **Dictionary**, **Lessons**, **Quiz**, **Flashcards**, and **Profile**.
-- Dictionary remains the default page and its English/Chinese word-grid search remains free and unlimited.
-- Lessons provides a topic-filtered library with Beginner, Intermediate and Advanced levels, separate progress per difficulty, a focused lesson reader, and practice. Quiz and Flashcards remain Coming Soon. The current development catalogue contains 15 lessons (five per difficulty) and 52 original practice questions, with English and Simplified Chinese lesson content.
-- Pages can be opened directly using the in-app hash routes `#dictionary`, `#lessons`, `#quiz`, `#flashcards`, and `#profile`.
-- Profile is restricted to signed-in users. Signed-out visitors who select or directly open Profile are redirected to Dictionary.
-- Profile includes a learning overview, expandable activity and daily-allowance details, and account preferences for display name, learning language, translation language, and IANA timezone. The Lessons page also shows remaining daily new-lesson starts and the configured timezone reset.
-- Daily activity allowances are configured in Supabase by plan and activity category. Initial values are Free: 5 starts per day per category; Premium: 12 starts per day per category. Premium entitlement infrastructure is present, but no payment, checkout, or subscription purchase flow is included.
-- Daily resets use each user's configured timezone. A timezone change is blocked after learning activity has been recorded for that user's current local day.
-- Learning activity records store only activity type, language code, and timestamp; they do not store answers, response content, or word-level activity.
-- The quota check runs in a database trigger, serializes concurrent checks per user/category, and overrides client-supplied timestamps to prevent backdating.
+- Adds **519 new single-character Chinese dictionary records**, bringing the combined Chinese character catalogue to **700+ unique characters**.
+- Keeps the one-character-per-card grid design. Multi-character vocabulary appears in related words and detail content.
+- Adds Chinese category filters and pinyin-initial filters. Pinyin search works without tone marks, and polyphonic characters can appear under each applicable initial.
+- Expands character definitions with contextual senses, examples, related words and pronunciation information.
+- Adds separate-sense examples with pinyin support, including coverage checks to prevent missing pinyin in Chinese example sentences.
+- Keeps pinyin beneath the character in the grid; pinyin and detailed explanations are shown in the character detail view.
+- Adds a public [Chinese dictionary data sources and attribution page](data-sources.html), with the source registry also documented in `data/CHINESE-DICTIONARY-SOURCES.md`.
 
-## Retained features
+### Chinese learning course
 
-- English word-only search; searching does not match definitions or Chinese translations.
-- Chinese character search and pinyin search without tone marks.
-- Translation-language switching in the detail panel.
-- Chinese character structure lessons and runtime stroke-order animation with pause/resume, replay, previous/next stroke controls, and progress display.
-- Saved words, Google sign-in, sign-out, and account-based cloud synchronization through Supabase.
-- Responsive desktop and mobile interface.
-- Existing dictionary lookup remains unlimited and is not counted against lesson, quiz, or flashcard allowances.
+- Adds **17 Chinese lessons** across the three difficulty levels:
+  - Beginner: 7 lessons and 44 practice questions.
+  - Intermediate: 5 lessons and 34 practice questions.
+  - Advanced: 5 lessons and 34 practice questions.
+- Provides **112 practice questions** in total, with four answer choices per question.
+- Presents Chinese learning text with pinyin and English support, including explanations, examples, sentence breakdowns, questions and answer choices.
+- Covers pronunciation and pinyin, tones, word order, measure words, negation, question particles and other foundational topics.
+- Gives English and Chinese courses independent permanent-lesson progress and practice-result records. Switching the learning course does not mix the two courses' lesson history.
+- Keeps lesson content expandable, with a focused reader and interactive practice.
 
-## Updating the existing GitHub Pages project
+### Chinese Daily Learning content
 
-1. Back up the current repository before replacing files.
-2. Replace `index.html`, `README.md`, and `feedback.html` with the corresponding files in this release.
-3. Add `THIRD_PARTY_NOTICES.md`, `ARPHICPL.TXT`, and `RELEASE-QA.md` to the repository root.
-4. **Keep your existing `supabase-config.js` unchanged.** This release intentionally does not contain your project-specific Supabase URL or public anon/publishable key. The application still loads `supabase-config.js` separately.
-5. Keep the existing `banner.svg` at the same relative path used by `index.html`, plus any other existing project assets and repository files that are not replaced by this release.
-6. The additive Update 2.1.0 Supabase migrations have already been applied to the connected SwiftDictionary project. Do not re-run them manually. If deploying to a different Supabase project, review and apply the migration SQL from the project migration record after backing up that database.
-7. Do not deploy this release until the owner has completed the review and explicitly approved deployment.
-8. Commit and push the changes, then wait for GitHub Pages to deploy.
-9. Open the live site and hard-refresh it (`Ctrl + F5` on Windows) if the previous version remains cached.
+- Adds Chinese Daily Topic, Daily Application and Daily Discovery content pools: 6 topics, 7 application activities and 93 Discovery entries.
+- Integrates the Chinese course with the existing four Daily Learning categories: Daily Topic, Daily Application, Daily Discovery and Daily Revision.
+- Keeps the shared daily schedule and adaptive revision behaviour.
+- Adds a clear explanation beneath Daily Learning: each activity category has one allowance shared across English and Chinese. Switching courses does not create a second allowance.
+- Keeps a scheduled Discovery item visible in an exhausted course as a disabled **Daily limit reached** card, rather than leaving the category empty when the other course has used the shared allowance.
+- Allows completed content to be reopened in review mode without starting another activity or consuming another allowance.
 
-The GitHub Pages publishing folder must contain `index.html` at its root. If Pages publishes from a subfolder, update that configured folder instead.
+### Lessons and Daily Learning interface improvements
 
-## Supabase and account safety
+- Redesigns the Lessons experience for both learning courses, including expandable lesson content, updated practice-question and answer layouts, and responsive difficulty navigation.
+- Refines the Daily Learning activity drawer and its responsive activity tabs and allowance display.
+- Uses horizontal slide-in/slide-out motion for the Daily Learning drawer under normal motion settings. The backdrop has its own fade, and users who request reduced motion receive a brief fade instead of the slide.
+- Restricts lesson emphasis to useful learning content: explanations, examples in context and sentence-breakdown content. Titles, headings, descriptions, questions, choices and answers are not highlighted.
+- Removes the previous subject/verb/object role-based emphasis. Bilingual Chinese, pinyin and English sentence content remains intact.
 
-- Only a Supabase publishable/anon key belongs in the public browser configuration. Never place a `service_role` key or Google OAuth client secret in this repository.
-- Keep Row Level Security enabled on the saved-word table, with policies that restrict each authenticated user to their own rows. Do not weaken or remove those policies.
-- Signing out should clear the active account's saved words from the interface. Signing into another Google account should load that account's own saved words.
-- The Google account chooser can ask Google to show account selection, but the browser may still remember Google accounts. On shared devices, users should verify which account they selected and sign out when finished.
+### Lesson allowance and course-aware progress safeguards
 
-## Update 2.1.0 Supabase data model and security
+- A new permanent lesson consumes one lesson-start allowance only after the learner confirms the first start. The database enforces the charge atomically with the first progress record.
+- Resuming an unfinished lesson and reviewing a completed lesson remain free.
+- Daily activities continue to consume their allowance only after successful completion. Starting, resuming or abandoning a daily activity does not consume a completion allowance.
+- Daily allowances reset at midnight in the user's configured IANA timezone.
+- Daily activity allowances are shared by activity category across English and Chinese; they are not separate per-course quotas.
+- Completed Daily Learning content resolves against the language of the loaded activity/session, not merely the currently visible course selector. This prevents the wrong course's content from appearing during review.
 
-The connected Supabase project has received additive migrations for `languages`, `profiles`, `user_preferences`, `user_entitlements`, `learning_plan_limits`, and `learning_activity_log`. The existing `saved_words` table, rows, constraints, and policies were left unchanged.
+## What changed or was fixed
 
-- Row Level Security is enabled on all six new tables.
-- Profiles and preferences are owner-scoped. Entitlements are readable by their owner but cannot be changed by browser clients.
-- Learning activity is owner-scoped. Inserts require an authenticated user and are subject to database-side daily limits.
-- Public/anonymous clients can read only active language and plan-limit reference rows; they cannot access user-owned profile, preference, entitlement, or activity records.
-- Premium access is not self-assignable by a user. No billing provider is connected.
-- The quota trigger uses invoker rights, validates IANA timezones, respects entitlement validity dates, uses a per-user transaction lock, and prevents timestamp backdating.
-- The default entitlement for accounts without a valid entitlement record is Free.
+- Corrected missing pinyin in Chinese Dictionary examples for separate meanings.
+- Improved Chinese character discovery through category and pinyin-initial filters, including polyphonic readings.
+- Corrected course-aware lesson progress and completed-content review so English and Chinese histories remain independent.
+- Fixed the Daily Learning drawer's conflicting modal animation and hidden-state behaviour; normal-motion panel movement is now slide-only.
+- Fixed the English Daily Discovery empty state when the shared category allowance has already been used in Chinese.
+- Added translated allowance guidance so users understand why changing courses does not reset daily usage.
+- Corrected Chinese lesson example details, including the year example `二零二六年` with matching `líng` pinyin and the Chinese example name 李明 / Lǐ Míng.
+- Refreshed the relevant frontend asset cache versions to ensure browsers load the updated Daily Learning and Lessons interface.
 
-The database migration history is recorded in Supabase. Keep a copy of the migration SQL with the project's source-control history before future schema changes. Never publish a Supabase `service_role` key or Google OAuth client secret.
+No existing dictionary, Google sign-in, account switching, saved-word synchronisation, stroke-order lesson or unlimited dictionary-search functionality was intentionally removed.
 
-## Privacy and legal preparation
+## Current application features
 
-Profile names, language preferences, timezone settings, entitlement status, and learning-activity timestamps are personal data when linked to an account. Before public deployment, update the privacy notice to explain the categories collected, purposes, retention, Supabase processing, account/data deletion route, and how daily allowances work. Collect only the fields needed for these features. The timezone field is an IANA timezone setting, not a precise location. No answers or detailed word-level learning history are collected by this foundation.
+The application has five main pages: **Dictionary**, **Lessons**, **Quiz**, **Flashcards** and **Profile**.
 
-This is a product-risk checklist, not a legal compliance certification. The intended audience is 16+ and global, so age-related and privacy obligations vary by users' locations. Review applicable laws and obtain qualified advice before public launch, introducing payments, or marketing to younger users. No subscription or payment processing is included in this update.
+- **Dictionary:** English word search and Simplified Chinese character search, detailed definitions and examples, translation-language switching, saved words and Chinese stroke-order learning.
+- **Lessons:** English and Chinese permanent lesson libraries, Beginner/Intermediate/Advanced difficulty levels, interactive practice, course-specific progress and completed-lesson review.
+- **Daily Learning:** Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision, with account-synchronised preferences and daily allowances.
+- **Quiz:** The English Quiz experience, including its 199-question bank, progress and allowance integration.
+- **Flashcards:** English Flashcards, review progress and allowance integration.
+- **Profile:** Learning progress, preferences, timezone, account information and account/data-management controls.
 
-## Stroke-order library and licensing
+Quiz and Flashcards are available features delivered in Updates 2.4.0 and 2.5.0. They are not Coming Soon placeholders.
 
-The application loads Hanzi Writer 3.7.3 from jsDelivr and requests character stroke data from `hanzi-writer-data@2.0.1` at runtime. The Hanzi Writer JavaScript library is MIT-licensed. The character data is separately licensed under the Arphic Public License; the upstream project identifies it as data derived from Make Me a Hanzi and Arphic fonts. The stroke-data JSON is not bundled in this release. The relevant attribution and license information is included in `THIRD_PARTY_NOTICES.md` and `ARPHICPL.TXT`.
+## Daily allowance reference
 
-This is a practical licensing check, not formal legal advice. Before bundling stroke data locally, modifying it, or introducing paid features that rely on it, review the current upstream license terms and the exact distribution arrangement again. The dictionary search remains available without a subscription; no subscription gating has been added in this release.
+The configured allowance model is:
 
-## Vocabulary and learning accuracy
+| Activity | Free | Premium entitlement |
+|---|---:|---:|
+| New permanent lesson starts | 5 per local day | 15 per local day |
+| Daily Topic completions | 1 per local day | 3 per local day |
+| Daily Application completions | 1 per local day | 3 per local day |
+| Daily Discovery completions | 1 per local day | 3 per local day |
+| Daily Revision completions | 1 per local day | 3 per local day |
+| Dictionary searches | Unlimited | Unlimited |
 
-Definitions, Chinese glosses, example sentences, and character notes are learner-oriented explanations, not certified translations or specialist references. Phrase pinyin was expanded using character-level readings and automated Han-Latin transliteration, with known context-sensitive readings corrected where identified. Automated transliteration is not a substitute for a full native-speaker linguistic review; polyphonic characters and unusual contexts should be checked during ongoing content QA. Do not rely on the content as the sole source for legal, medical, financial, or other high-stakes decisions.
+The daily activity limits are shared across English and Chinese for the same activity category. For example, completing English Daily Topic uses that day's Daily Topic allowance for Chinese as well.
+
+Premium entitlement infrastructure exists, but this project does not currently include a payment, checkout or subscription-purchase flow. Premium values in this table describe the configured entitlement limits, not an available purchase offer.
+
+## Supabase changes in Update 2.7.0
+
+This update adds three migrations:
+
+1. `supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql` — separates permanent lesson progress and practice results by learning language and updates the server-side lesson content catalogue.
+2. `supabase/migrations/20261122123000_update_2_7_0_chinese_daily_learning_catalog.sql` — registers the Chinese Daily Learning content in the server-side catalogue while preserving shared category allowances.
+3. `supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql` — enforces the first-confirmed-start allowance for permanent lessons while keeping resume and completed review free.
+
+These migrations were validated against disposable PostgreSQL/Supabase test environments and applied to the U2.7.0 staging Supabase project for preview testing. **They have not been applied to production.** Review the live schema and migration history before any future application; do not re-run migrations blindly or apply them to production without explicit release approval.
+
+## Build, hosting and configuration
+
+- Hosting is through Cloudflare Pages connected to this GitHub repository. `main` is the production branch; feature branches create preview deployments.
+- `build.sh` selects the expected Supabase environment based on the Cloudflare Pages branch and refuses to build if the configured project URL or publishable key does not match that environment.
+- Cloudflare Pages must provide `SWIFT_SUPABASE_URL` and `SWIFT_SUPABASE_PUBLISHABLE_KEY` for the appropriate environment. The build generates `supabase-config.js` in the deployment output; do not commit service-role keys or OAuth client secrets.
+- Keep the project's existing `banner.svg` and local `supabase-config.js` intact when working locally unless a separately reviewed change requires otherwise.
+- Do not copy only `index.html` when deploying this update. The application also depends on its JavaScript, stylesheet, data, source-attribution, migration and other repository assets.
+- Do not merge this release candidate or deploy it to production until the owner has completed the final review and explicitly approved release.
+
+## Verification performed
+
+The latest pre-polish application head passed the following automated workflows:
+
+- U2.7.0 Chinese dictionary static/data checks, Chinese Lessons content and pinyin checks, Lessons/Daily Learning UI checks, full Lessons/Daily Learning Chromium regressions, Chinese filter browser checks and Chinese bilingual-layout browser checks.
+- PostgreSQL 17 permanent lesson-start allowance regression, including concurrent first-start and test-exemption coverage.
+- Update 2.3.x PostgreSQL, Supabase Auth and Chromium regressions.
+- Update 2.5.0 Flashcards database and Chromium regressions.
+- Update 2.6.0 ACL drift regression.
+- Quiz database foundation and local Supabase Auth/RPC integration.
+- Cloudflare build-routing guard.
+
+A successful automated workflow is not a substitute for the owner's live staging review. The latest staging preview was reviewed and accepted by the owner before the polishing pass began; the README-only release-preparation commit will trigger fresh branch checks and a new preview deployment.
+
+## Data sources, licensing and learning accuracy
+
+- New Chinese dictionary records use adapted CC-CEDICT-derived glosses and pronunciation cross-checks. CC-CEDICT is licensed under **CC BY-SA 4.0**; attribution and share-alike conditions are documented in `THIRD_PARTY_NOTICES.md` and `data-sources.html`.
+- Unihan pronunciation references are covered by the Unicode License v3. HSK candidate-level metadata uses the attributed HSK 3.0 character-list source. The pinyin-data extraction source and its MIT attribution are also documented.
+- Hanzi Writer is MIT-licensed. Its character stroke data has a separate Arphic Public License lineage; see `THIRD_PARTY_NOTICES.md` and `ARPHICPL.TXT`.
+- Chinese Lessons are separately authored learning content; the dictionary's CC-CEDICT wording is not copied into the lesson curriculum.
+- Definitions, glosses, pinyin, examples and learning explanations are educational references, not certified translations or specialist advice. Context-sensitive and polyphonic readings should continue to receive linguistic review.
+
+Do not add access restrictions to CC BY-SA-derived dictionary content that conflict with its licence. Dictionary search remains free and unlimited.
+
+## Privacy, security and legal preparation
+
+SwiftDictionary is intended as a free personal learning project for a global audience aged 16+. Account-linked profile, preference, entitlement, saved-word and learning-activity data may be personal data. The project aims to minimise tracking and does not need raw practice answers for its progress summaries.
+
+- Keep Row Level Security enabled and owner-scoped for user-owned Supabase data.
+- Never expose a Supabase service-role key or Google OAuth client secret in browser code or repository files.
+- Account switching and sign-out must continue to isolate saved words and user data on shared devices.
+- Account deletion and learning-history deletion are distinct operations; describe their effects accurately.
+- Review retention, privacy notice, processor and cross-border arrangements, age-related requirements and data-subject rights before public launch or broader onboarding.
+
+This README is a product and engineering summary, not a legal compliance certification. Formal Malaysia PDPA and general international legal/privacy review remain outstanding; no statement here should be interpreted as legal clearance.
 
 ## Release history
 
-- **SwiftDictionary Update 2.1.0:** Adds shared navigation, signed-in Profile, preferences, progress overview, configurable learning limits, and Coming Soon placeholders; adds the Supabase learning/profile foundation while preserving dictionary, authentication, and saved-word behavior.
-- **SwiftDictionary Update 1.1.0:** Adds 100 common English entries and 100 Chinese characters; expands per-sense examples and pinyin coverage; retains v19 authentication, saved-word, search, translation, and stroke-order functionality.
-- **v19:** Consolidated the Chinese linguistic review and interactive stroke-order lesson, with 692 English entries and 106 Chinese entries.
+- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Currently in release preparation; not yet merged or deployed to production.
+- **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
+- **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
+- **SwiftDictionary Update 2.5.0:** English Flashcards experience, review progress and allowance integration.
+- **SwiftDictionary Update 2.4.0:** English Quiz experience, question bank, progress and allowance integration.
+- **SwiftDictionary Update 2.3.0:** Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision, completion-based daily activity allowances and expanded learning progress.
+- **SwiftDictionary Update 2.2.0:** English Lessons foundation with three difficulty levels, permanent lesson library and interactive practice.
+- **SwiftDictionary Update 2.1.0:** Five-page navigation, signed-in Profile, preferences, progress overview and learning-data foundation.
+- **SwiftDictionary Update 1.1.0:** Common English vocabulary and Chinese character expansion.
+- **v19:** Consolidated Chinese linguistic review and interactive stroke-order learning.
 
+---
 
-## Update 2.1.0 interface refinements
-
-- The Profile entry is accessed from the top-right account menu rather than the main navigation row.
-- The account menu provides Sign in, Profile, Preferences, Switch account, and Sign out actions as appropriate to the current authentication state.
-- Users can choose from the built-in profile icons. Signed-in users' icon choice is stored with their profile; signed-out users' choice is kept locally on that browser.
-- Learning course and translation-language selections are remembered locally and, when signed in, synchronized to that account's `user_preferences` row immediately. This prevents page navigation from resetting the selectors. Preferences remain account-specific after sign-in.
-- The account menu closes on outside click or Escape.
-
-The avatar icon is a small profile preference, not an identity-verification feature. No additional activity tracking is introduced by these changes.
-
-
-## Update 2.2.0 — English Lessons Foundation
-
-- The permanent lesson library currently contains **15 lessons**: five each at Beginner, Intermediate, and Advanced. The catalogue can grow in later content updates; 15 is not a cap.
-- The lessons cover grammar, vocabulary, word formation, conditionals, and precise word usage.
-- The current catalogue contains **52 original practice questions**, with corresponding Simplified Chinese lesson content and practice prompts/options.
-- Each difficulty has independent learning progress. Learners can browse the library while signed out; signing in is required to start and sync lessons.
-- Lesson completion is automatic after every practice question is answered correctly and the completion update is successfully saved.
-- Practice answer options are shuffled on lesson entry, with correct-answer mapping preserved. Changing translation language during practice preserves the learner's current answers and progress.
-- Starting a lesson for the first time consumes one lesson-start allowance. Resuming an unfinished lesson and revisiting a completed lesson are free.
-- Daily allowances reset at midnight in the user's configured IANA timezone. The database trigger remains the enforcement authority.
-- The owner's personal testing exception is stored in a private database allowlist, is limited to lesson starts for that account, and does not affect other users or other activity categories. Its account UUID is not stored in this repository.
-- Additive Supabase schema: `SUPABASE-MIGRATION-2.2.0.sql`. The private testing allowance setup is recorded in `supabase/migrations/202611090001_swiftdictionary_personal_lesson_testing_allowlist.sql`; the owner-approved allowlist row is seeded separately through a private database operation. Review migration history before applying SQL again.
-- Quiz and Flashcards remain Coming Soon and are scheduled for their respective roadmap updates.
-- Dictionary search remains free and unlimited. This update does not introduce subscription gating.
-
-### Verification and release notes
-
-- The owner reports browser testing passed for all lessons, Simplified Chinese translation switching, shuffled answer options, completion saves, and progress tracking.
-- Static source checks passed for inline JavaScript syntax, unique lesson IDs, matching English/Chinese question coverage, and valid answer indexes.
-- GitHub Pages deployment is a separate action and is not triggered merely by merging this branch.
-- Keep `supabase-config.js` and `banner.svg` intact when preparing the Pages deployment.
+*Release preparation note: this README describes the U2.7.0 release candidate. Update the status and deployment details after the owner approves and the production release is completed.*
