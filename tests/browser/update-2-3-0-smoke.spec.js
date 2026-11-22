@@ -840,7 +840,7 @@ test("completed Discovery content remains reviewable across UTC rollover within 
     const previousUtc = new Date(Date.parse(todayUtc + "T00:00:00.000Z") - 86400000).toISOString().slice(0,10);
     const completed = {
       id:"discovery-rollover-completed",user_id:"discovery-rollover-review-user",
-      activity_type:"daily_discovery",content_id:"discovery-word-meticulous-01:" + previousUtc,
+      activity_type:"daily_discovery",language_code:"en",content_id:"discovery-word-meticulous-01:" + previousUtc,
       topic_id:null,difficulty:null,source:"daily",status:"completed",
       started_at:new Date().toISOString(),completed_at:new Date().toISOString(),
       correct_count:null,question_count:null
@@ -855,7 +855,7 @@ test("completed Discovery content remains reviewable across UTC rollover within 
   const discoveryCards = page.locator('#dailyActivityGrid [data-activity-card="daily_discovery"]');
   await expect(discoveryCards).toHaveCount(1);
   await expect(discoveryCards.first()).toContainText("重温已完成内容");
-  await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("每日额度将在午夜重置");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-status")).toContainText("每日额度将在午夜重置");
   await expect(discoveryCards.first().locator("[data-start-daily]")).toBeEnabled();
   await discoveryCards.first().locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
