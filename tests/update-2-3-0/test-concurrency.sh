@@ -62,9 +62,10 @@ begin
   from public.lesson_progress
   where user_id = '33333333-3333-4333-8333-333333333333'
     and status = 'in_progress';
-  v_used := private.current_learning_allowance_usage(
-    '33333333-3333-4333-8333-333333333333'::uuid,'lesson','UTC'
-  );
+  select used_count into v_used
+  from private.learning_allowance_usage
+  where user_id='33333333-3333-4333-8333-333333333333'
+    and activity_type='lesson';
 
   if v_started <> 5 then
     raise exception 'Concurrent first-start race produced % start events; expected exactly 5', v_started;
@@ -107,9 +108,10 @@ begin
   from public.learning_activity_log
   where user_id = '33333333-3333-4333-8333-333333333333'
     and activity_type = 'lesson' and event_type = 'completed';
-  v_used := private.current_learning_allowance_usage(
-    '33333333-3333-4333-8333-333333333333'::uuid,'lesson','UTC'
-  );
+  select used_count into v_used
+  from private.learning_allowance_usage
+  where user_id='33333333-3333-4333-8333-333333333333'
+    and activity_type='lesson';
 
   if v_started <> 5 or v_completed <> 1 or v_used <> 5 then
     raise exception 'Completing an already-charged lesson changed the allowance: started %, completed %, used %',
