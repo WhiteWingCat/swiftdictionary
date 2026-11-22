@@ -6,7 +6,8 @@ Pull request: [#14 — SwiftDictionary Update 2.7.0 — Chinese Dictionary & Les
 Source branch: `feature/update-2-7-0-chinese-dictionary-lessons`  
 Source head: `c355a23f3d4555fec1384fd14fb4056d77336756`  
 Base head before merge: `11679f706ef3c03f314eeb6f0acf2d753a7e3a8a`  
-Merge commit: `1d74e4925456c23b96223a94e64827b42c9cb869`
+Merge commit: `1d74e4925456c23b96223a94e64827b42c9cb869`  
+Latest `main` head after README-only release-status refresh: `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`
 
 ## Owner instruction
 
@@ -30,7 +31,7 @@ The repository's GitHub integration automatically triggered the `pages build and
 - Triggering commit: `1d74e4925456c23b96223a94e64827b42c9cb869`
 - Final verification: workflow completed with `success`; build, report-build-status and deploy jobs all succeeded. The merge commit also has a successful `Cloudflare Pages` check and a successful `Workers Builds: swiftdictionary-testing` check on `main`.
 
-The production GitHub Pages workflow and the Cloudflare Pages check both completed successfully for the merge commit. The main-commit Cloudflare Workers build check also succeeded. This is deployment-check evidence; it does not prove the production Supabase migrations were applied.
+The production GitHub Pages workflow and the Cloudflare Pages check both completed successfully for the merge commit. The main-commit Cloudflare Workers build check also succeeded. A follow-up README-only release-status update was committed to `main` at `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`; its GitHub Pages workflow #45024998181 and Cloudflare Pages check succeeded, while its separate Cloudflare Workers testing check was still in progress at the latest observation. This is deployment-check evidence; it does not prove the production Supabase migrations were applied.
 
 ## Database, legal and release boundaries
 
