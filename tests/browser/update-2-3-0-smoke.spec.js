@@ -1232,3 +1232,20 @@ test("Dashboard favorite words open expanded details without navigating to Dicti
   await page.locator("#closeButton").click();
   await expect(page.locator("#profilePage")).toBeVisible();
 });
+
+
+test("English Daily Discovery remains populated after switching courses", async ({ page }) => {
+  await installDailyLearningMock(page,"daily-discovery-course-switch");
+  await page.goto("/");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
+  await page.locator("#courseSelect").selectOption("en");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("en");
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  await page.locator('#dailyActivityGrid [data-daily-tab="daily_discovery"]').click();
+  const cards=page.locator('#dailyActivityGrid [data-activity-card="daily_discovery"]');
+  await expect(cards.first()).toBeVisible();
+  await expect(cards.first().locator("h3")).not.toBeEmpty();
+  await expect(cards.first().locator("[data-start-daily]")).toBeEnabled();
+});
