@@ -1,0 +1,138 @@
+import fs from "node:fs";
+import assert from "node:assert/strict";
+import vm from "node:vm";
+const html=fs.readFileSync("index.html","utf8");
+const css=fs.readFileSync("lessons-ui.css","utf8");
+const daily=fs.readFileSync("daily-learning.js","utf8");
+const workflow=fs.readFileSync(".github/workflows/update-2-7-0-chinese-dictionary.yml","utf8");
+const build=fs.readFileSync("build.sh","utf8");
+const startAllowanceMigration=fs.readFileSync("supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql","utf8");
+const count=(s,p)=>(s.match(p)||[]).length;
+assert.equal(count(html,/id="dailyPreferencesLegend"/g),1);
+const d0=html.indexOf('<section id="dailyLearningPage"'); const d1=html.indexOf("</section>",d0);
+const p0=html.indexOf('<section id="preferencesPage"'); const p1=html.indexOf("</section>\n  </main>",p0);
+const l0=html.indexOf('<section id="permanentLessonsPanel"'); const l1=html.indexOf('\n      </section>\n    </section>\n    <section id="lessonDetailPage"',l0);
+assert(d0>=0&&d1>d0&&p0>=0&&p1>p0&&l0>=0&&l1>l0&&d0<l0);
+assert(!html.slice(d0,d1).includes("daily-preferences"));
+assert(html.slice(p0,p1).includes('id="dailyPreferencesLegend"'));
+assert(html.slice(p0,p1).includes('id="dailyPreferencesStatus"'));
+assert(html.includes('page === "preferences" && currentUser && typeof initialiseDailyLearning'));
+assert(daily.includes("function setDailyPreferenceStatus"));
+assert(daily.includes('byId("dailyPreferencesStatus")'));
+const permanent=html.slice(l0,l1);
+for(const id of ['class="difficulty-tabs"','id="lessonAllowance"','id="lessonCards"'])assert(permanent.includes(id));
+assert(html.includes("lessons-ui.css?v=2.7.0-ui7"));
+assert.match(html, /dailyLearningPage"\)\.hidden=!lessonsSignedIn/); assert(html.includes('class="lesson-key-point lesson-expandable-item"'));
+for(const key of ["daily_topic","daily_application","daily_discovery","daily_revision"])assert(css.includes('.daily-activity-tab[data-daily-tab="'+key+'"]'));
+assert(css.includes("border-bottom-color:var(--daily-theme-bg)")); assert(css.includes("grid-template-columns:repeat(4,minmax(0,1fr))")); assert(css.includes("overflow:visible!important")); assert(css.includes("width:50vw")); assert(css.includes("max-width:1320px")); assert(css.includes("flex-basis:62vw;width:62vw")); assert(css.includes("flex-basis:100vw;width:100vw"));
+assert(css.includes("overflow:hidden")); assert(css.includes("min-inline-size:0"));
+assert(css.includes("color:#d9e6fb!important")); assert(css.includes("color:#d5e0f0!important"));
+assert(css.includes("prefers-reduced-motion:reduce")); assert(daily.includes("data-activity-theme="));
+assert(daily.includes('reader.classList.add("closing")')); assert(daily.includes("document.body.appendChild(reader)")); assert(daily.includes("daily-activity-allowance-track"));
+assert(daily.includes("dailyUi(meta.description,meta.descriptionZh)"));
+assert(!daily.includes("const resetMessage =") && daily.includes("const panelDescription =")); assert(workflow.includes("check-lessons-ui.mjs"));
+assert(html.includes("lessonExpandableGroup")); assert(html.includes("data-lesson-list-toggle")); assert(html.includes("lesson-question-title")); assert(html.includes("lesson-answer-options")); assert(css.includes(".lesson-expandable-item[hidden]")); assert(css.includes(".lesson-question-title")); assert(css.includes(".lesson-answer-options.compact"));
+const chineseLessonsSource=fs.readFileSync("data/chinese-lessons.js","utf8");
+const chineseLessons=JSON.parse(chineseLessonsSource.replace(/^window\.SWIFT_CHINESE_LESSONS\s*=\s*/,"").replace(/;\s*$/,""));
+for(const lessons of Object.values(chineseLessons))for(const lesson of lessons)for(const question of lesson.practices||[lesson.practice]){
+  assert(question.q && typeof question.q==="object" && question.q.zh && question.q.pinyin && question.q.en, "Chinese lesson practice prompt must be bilingual and pinyin-supported: "+lesson.id);
+}
+console.log("U2.7.0 Lessons UI structure, expandable content, practice layout, daily activity drawer and responsive controls passed.");
+
+assert(!html.includes('daily-learning-heading-mark" aria-hidden="true">✧'));
+assert(!html.includes('permanent-lessons-mark" aria-hidden="true">✦'));
+assert(daily.includes("chineseDailyLearning.applications") && daily.includes("chineseDailyLearning.topics") && daily.includes("chineseDailyLearning.discovery"));
+assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQuestionOption(option)"));
+assert(daily.includes("window.requestAnimationFrame(() =>"));
+assert(!css.includes("@keyframes dailyDrawerIn") && !css.includes("@keyframes dailyDrawerOut"), "The drawer should use one transition-based motion system.");
+assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1) !important"));
+const drawerMotionStart=css.lastIndexOf("/* U2.7.0 owner feedback round 3");
+const drawerMotionBlock=css.slice(drawerMotionStart);
+const normalDrawerRule=drawerMotionBlock.match(/#dailyActivityReader \.daily-activity-modal \{([\s\S]*?)\n\}/)?.[1] || "";
+assert(normalDrawerRule.includes("opacity:1;") && !normalDrawerRule.includes("opacity:.55;"), "Normal-motion drawer should slide without fading the panel itself.");
+assert(html.includes('id="dailyLearningAllowanceNote"'));
+assert(daily.includes("Each activity has one daily allowance shared between English and Simplified Chinese."));
+assert(daily.includes("每种活动在英语和简体中文课程之间共用每日额度。"));
+assert(daily.includes('if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false))'), "Daily Discovery must show a locked item when the shared allowance was spent in another course.");
+assert(css.includes("animation:none !important"));
+assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
+assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
+assert(!html.includes("permanent-lessons-mark") && !html.includes("daily-learning-heading-mark"));
+assert(css.includes("#dailyActivityReader.daily-activity-backdrop.open{opacity:1}"));
+assert(html.includes('translationLanguage==="en"') && html.includes('class="lesson-english-line"'));
+console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, translation visibility, decorative marks and drawer transitions.");
+
+
+assert(daily.includes('const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";'));
+assert(daily.includes('drawerPanel.getBoundingClientRect()'));
+assert(daily.includes('window.addEventListener("swiftdictionary:course-changed"'));
+assert(daily.includes('snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed"'));
+assert(daily.includes('.eq("language_code",language).eq("status","completed")'));
+assert(daily.includes('.eq("language_code",language).eq("status","in_progress")'));
+assert(daily.includes('panelDescription'));
+assert(daily.includes('item.titleEn'));
+assert(daily.includes('titleEn:"Review: "+(source.titleEn || source.title)'));
+assert(daily.includes('reader.getBoundingClientRect()'));
+assert(daily.includes('completedTodayCount') && daily.includes('visibleDailySlots'), 'Historical review cards must not consume today\'s new activity slots.');
+const dailyLoadStart=daily.indexOf("async function loadDailyData");
+assert(daily.indexOf("const language = prefs.learning_language || \"en\";",dailyLoadStart)<daily.indexOf('from("daily_activity_sessions")',dailyLoadStart),"Daily Learning language must be resolved before language-scoped session queries.");
+assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adaptive revision must replay its original source material.");
+assert(css.includes('#lessonReaderContent mark[class*="lesson-focus-"]'));
+assert(css.includes("color:#ffffff !important"));
+assert(css.includes("font-weight:800 !important"));
+assert(!css.includes(".lesson-focus-subject {") && !css.includes(".lesson-focus-verb {") && !css.includes(".lesson-focus-object {"));
+
+assert(html.includes('swiftdictionary:course-changed'));
+for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
+
+assert(html.includes("pinyinForSenseExample(example,item.word,sense.part)"),"Polyphonic sense examples must use their selected reading for pinyin.");
+const chineseLessonsWithBreakdown=Object.values(chineseLessons).flat().filter(lesson=>lesson.breakdown);
+assert(chineseLessonsWithBreakdown.length>=7,"Context-relevant Chinese lessons should include reusable sentence breakdowns.");
+
+const confirmation=fs.readFileSync("permanent-lesson-confirmation.js","utf8");
+const topicHighlights=fs.readFileSync("lesson-topic-highlights.js","utf8");
+new vm.Script(confirmation,{filename:"permanent-lesson-confirmation.js"});
+new vm.Script(topicHighlights,{filename:"lesson-topic-highlights.js"});
+assert(topicHighlights.includes('["Choose a, an or the", ["a", "an", "the"]]'));
+assert(topicHighlights.includes("lesson-topic-highlight"));
+assert(topicHighlights.includes("lesson-role-neutral"));
+assert(build.includes("permanent-lesson-confirmation.js") && build.includes("lesson-topic-highlights.js"));
+assert(startAllowanceMigration.includes("new.event_type <> 'started'"));
+assert(startAllowanceMigration.includes("lesson_progress_charge_on_first_start"));
+assert(startAllowanceMigration.includes("create or replace function private.record_lesson_start_allowance()"));
+assert(startAllowanceMigration.includes("drop function if exists public.record_lesson_start_allowance()"));
+assert(startAllowanceMigration.includes("Daily lesson start limit reached"));
+assert(startAllowanceMigration.includes("private.learning_allowance_usage"));
+assert(build.includes("daily-learning") && build.includes("lessons-ui"));
+assert(confirmation.includes("Selecting this lesson will consume one daily lessons allowance, are you sure?"));
+assert(confirmation.includes("Lesson started. One daily lesson allowance has been used. Resuming is free."));
+assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('data-confirm="no"'));
+assert(confirmation.includes('button.click()'));
+assert(confirmation.includes(".lesson-status.completed,.lesson-status.in-progress"));
+assert(daily.includes("daily-activity-allowance-track"));
+assert(daily.includes("daily-activity-allowance-top"));
+assert(daily.includes("dailyUi(meta.description,meta.descriptionZh)"));
+assert(!daily.includes("Your allowance resets at midnight"));
+assert(!daily.includes("You have completed all of today’s"));
+assert(chineseLessonsSource.includes("二零二六年") && !chineseLessonsSource.includes("二〇二六年"));
+assert(!chineseLessonsSource.includes("Maya") && !chineseLessonsSource.includes("玛雅"));
+console.log("U2.7.0 owner feedback regression checks passed: confirmation-before-start, free resume/review, allowance copy removal, white topic emphasis and Chinese-native example names.");
+
+assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1) !important"));
+assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
+assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
+assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
+assert(build.includes("lessons-ui") && build.includes("2.7.0-r9"));
+assert(build.includes("daily-learning[.]js") && build.includes("2.7.0-r10"));
+
+assert(daily.includes(" ? 120 : 500"));
+
+assert(topicHighlights.includes("const allowedSelector ="));
+assert(topicHighlights.includes(".lesson-explanation-paragraph"));
+assert(topicHighlights.includes(".lesson-example"));
+assert(topicHighlights.includes(".lesson-breakdown-sentence"));
+assert(topicHighlights.includes("function getExplanationParagraphs"));
+assert(topicHighlights.includes("const curatedTopics ="));
+assert(!topicHighlights.includes("createTreeWalker(root, NodeFilter.SHOW_TEXT"));
+
+assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r7"));

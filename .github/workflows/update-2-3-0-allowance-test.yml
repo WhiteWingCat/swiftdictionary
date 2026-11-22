@@ -170,11 +170,21 @@ jobs:
         run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/update-2-3-0/allowance-assertions.sql
       - name: Verify private allowance ledger and deletion resistance
         run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/update-2-3-0/allowance-ledger-assertions.sql
+      # The U2.7.0 start-time allowance migration is applied and tested below.
+      - name: Ensure Supabase service role exists in disposable PostgreSQL
+        run: |
+          psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -c "DO \$\$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='service_role') THEN CREATE ROLE service_role NOLOGIN BYPASSRLS; END IF; END \$\$;"
+      - name: Apply U2.7.0 language-aware permanent lesson migration
+        run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql
+      - name: Apply U2.7.0 permanent lesson start allowance migration
+        run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql
+      - name: Verify U2.7.0 lesson start allowance and language isolation
+        run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f supabase/tests/update_2_7_0_language_aware_lessons.sql
       - name: Apply learning-history deletion migration draft
         run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f docs/UPDATE-2.3.0-LEARNING-HISTORY-DELETION-MIGRATION-DRAFT.sql
       - name: Verify learning-history deletion and data preservation
         run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/update-2-3-0/learning-history-deletion-assertions.sql
-      - name: Verify concurrent completion serialization
+      - name: Verify concurrent lesson-start serialization
         run: bash tests/update-2-3-0/test-concurrency.sh
       - name: Verify completion and history deletion serialize
         run: bash tests/update-2-3-0/test-history-deletion-concurrency.sh

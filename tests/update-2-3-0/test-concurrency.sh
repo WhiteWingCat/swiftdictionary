@@ -4,93 +4,124 @@ set -euo pipefail
 db="${DATABASE_URL:?DATABASE_URL is required}"
 uid="33333333-3333-4333-8333-333333333333"
 
-# Add four completed lessons and two unfinished lessons after the migration.
-# The fifth slot is shared by two concurrent completion requests.
+# Four confirmed first starts use four of the five Free lesson slots.
 psql "$db" -X -v ON_ERROR_STOP=1 <<SQL
 select set_config('request.jwt.claim.sub', '$uid', false);
-
-insert into public.lesson_progress(user_id, difficulty, lesson_id, status, completed_at)
-select '$uid', 'beginner',
-       'concurrent-' || lpad(n::text, 2, '0'), 'completed', now()
-from generate_series(1, 4) as n;
-
-insert into public.lesson_progress(user_id, difficulty, lesson_id, status)
-select '$uid', 'beginner',
-       'concurrent-' || lpad(n::text, 2, '0'), 'in_progress'
-from generate_series(5, 6) as n;
-
-insert into public.learning_activity_log(user_id, activity_type, language_code, event_type)
-select '$uid', 'lesson', 'en',
-       case when n <= 4 then 'completed' else 'started' end
-from generate_series(1, 6) as n;
+set role authenticated;
+insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
+select '$uid','en','beginner','concurrent-' || lpad(n::text,2,'0'),'in_progress'
+from generate_series(1,4) as n;
 SQL
 
-run_completion() {
+run_lesson_start() {
   local lesson="$1"
-  local output="/tmp/${lesson}.out"
-  local status="/tmp/${lesson}.status"
+  local output="/tmp/start-${lesson}.out"
+  local status="/tmp/start-${lesson}.status"
   set +e
   psql "$db" -X -v ON_ERROR_STOP=1 >"$output" 2>&1 <<SQL
 begin;
 select set_config('request.jwt.claim.sub', '$uid', true);
 set local role authenticated;
--- Start both requests together; the completion RPC must serialize them itself.
+-- Both users select a new lesson together; the allowance ledger must serialize starts.
 select pg_sleep(1);
-select (public.complete_permanent_lesson('beginner', '$lesson', 'sentence-basics', 3, 3)).status;
+insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
+values ('$uid','en','beginner','$lesson','in_progress');
 commit;
 SQL
   echo "$?" >"$status"
   set -e
 }
 
-run_completion concurrent-05 &
+run_lesson_start concurrent-05 &
 pid_a=$!
-run_completion concurrent-06 &
+run_lesson_start concurrent-06 &
 pid_b=$!
 wait "$pid_a"
 wait "$pid_b"
 
-status_a="$(cat /tmp/concurrent-05.status)"
-status_b="$(cat /tmp/concurrent-06.status)"
+status_a="$(cat /tmp/start-concurrent-05.status)"
+status_b="$(cat /tmp/start-concurrent-06.status)"
 if ! { [[ "$status_a" -eq 0 && "$status_b" -ne 0 ]] || [[ "$status_a" -ne 0 && "$status_b" -eq 0 ]]; }; then
-  echo "Expected exactly one concurrent completion to succeed and one to hit the quota."
-  cat /tmp/concurrent-05.out /tmp/concurrent-06.out
+  echo "Expected exactly one concurrent first lesson start to succeed and one to hit the allowance."
+  cat /tmp/start-concurrent-05.out /tmp/start-concurrent-06.out
   exit 1
 fi
 
 psql "$db" -X -v ON_ERROR_STOP=1 <<'SQL'
 do $$
 declare
-  v_completed integer;
-  v_in_progress integer;
-  v_practice_results integer;
+  v_started integer;
+  v_progress integer;
+  v_used integer;
 begin
-  select count(*) into v_completed
+  select count(*) into v_started
   from public.learning_activity_log
   where user_id = '33333333-3333-4333-8333-333333333333'
-    and activity_type = 'lesson' and event_type = 'completed';
-  select count(*) into v_in_progress
+    and activity_type = 'lesson' and event_type = 'started';
+  select count(*) into v_progress
   from public.lesson_progress
   where user_id = '33333333-3333-4333-8333-333333333333'
     and status = 'in_progress';
+  select used_count into v_used
+  from private.learning_allowance_usage
+  where user_id='33333333-3333-4333-8333-333333333333'
+    and activity_type='lesson';
 
-  if v_completed <> 5 then
-    raise exception 'Concurrent quota race produced % completions; expected exactly 5', v_completed;
+  if v_started <> 5 then
+    raise exception 'Concurrent first-start race produced % start events; expected exactly 5', v_started;
   end if;
-  if v_in_progress <> 1 then
-    raise exception 'Concurrent quota race left % unfinished lessons; expected exactly 1', v_in_progress;
+  if v_progress <> 5 then
+    raise exception 'Concurrent first-start race left % in-progress lessons; expected exactly 5', v_progress;
   end if;
-
-  select count(*) into v_practice_results
-  from public.lesson_practice_results
-  where user_id = '33333333-3333-4333-8333-333333333333';
-
-  if v_practice_results <> 1 then
-    raise exception 'Concurrent quota race saved % practice results; expected exactly 1', v_practice_results;
+  if v_used <> 5 then
+    raise exception 'Concurrent first-start race used % allowances; expected exactly 5', v_used;
   end if;
 end;
 $$;
 SQL
+
+# Completion of an already-charged lesson must remain possible at the limit.
+psql "$db" -X -v ON_ERROR_STOP=1 <<SQL
+select set_config('request.jwt.claim.sub', '$uid', false);
+set role authenticated;
+select (public.complete_permanent_lesson(
+  'beginner',
+  (select lesson_id from public.lesson_progress
+   where user_id='$uid' and lesson_id in ('concurrent-05','concurrent-06')
+     and status='in_progress' limit 1),
+  'sentence-basics',3,3
+)).status;
+SQL
+
+psql "$db" -X -v ON_ERROR_STOP=1 <<'SQL'
+do $$
+declare
+  v_started integer;
+  v_completed integer;
+  v_used integer;
+begin
+  select count(*) into v_started
+  from public.learning_activity_log
+  where user_id = '33333333-3333-4333-8333-333333333333'
+    and activity_type = 'lesson' and event_type = 'started';
+  select count(*) into v_completed
+  from public.learning_activity_log
+  where user_id = '33333333-3333-4333-8333-333333333333'
+    and activity_type = 'lesson' and event_type = 'completed';
+  select used_count into v_used
+  from private.learning_allowance_usage
+  where user_id='33333333-3333-4333-8333-333333333333'
+    and activity_type='lesson';
+
+  if v_started <> 5 or v_completed <> 1 or v_used <> 5 then
+    raise exception 'Completing an already-charged lesson changed the allowance: started %, completed %, used %',
+      v_started,v_completed,v_used;
+  end if;
+end;
+$$;
+SQL
+
+echo "Concurrent lesson-start test passed: one of two final starts committed, and completion did not charge twice."
 
 # Concurrent retries for the same daily reading session must be idempotent:
 # both callers may receive the completed row, but only one completion event is written.

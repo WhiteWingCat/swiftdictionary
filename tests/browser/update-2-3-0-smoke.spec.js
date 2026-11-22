@@ -46,6 +46,8 @@ test("dictionary loads and remains usable in signed-out mode", async ({ page }) 
 test("signed-in lesson library renders and difficulty tabs switch independently", async ({ page }) => {
   await installDailyLearningMock(page, "lesson-library-user");
   await page.goto("/");
+  await page.locator("#translationSelect").selectOption("en");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#lessonCards .lesson-card").first()).toBeVisible();
@@ -58,20 +60,322 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
     await expect(page.locator("#lessonDifficultySummary")).toContainText("lessons");
   }
 
+  const firstLesson=page.locator("#lessonCards .lesson-card").first();
+  await firstLesson.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveText("Selecting this lesson will consume one daily lessons allowance, are you sure?");
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="no"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeHidden();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(0);
+  await firstLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonStatus")).toContainText(/One daily lesson allowance has been used|已使用一次每日课程额度/);
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
+  await expect(page.locator("#lessonReader")).toBeVisible();
+
+  const keyPoints=page.locator("#lessonReaderContent .lesson-key-point");
+  await expect(keyPoints).toHaveCount(5);
+  const pointExtras=page.locator("#lessonReaderContent .lesson-key-point[data-expandable-extra]");
+  await expect(pointExtras).toHaveCount(2);
+  await expect(pointExtras.first()).toBeHidden();
+  const pointToggle=page.locator("#lessonReaderContent .lesson-expandable-group").first().locator("[data-lesson-list-toggle]");
+  await pointToggle.click();
+  await expect(pointExtras.first()).toBeVisible();
+  await expect(pointToggle).toHaveAttribute("aria-expanded","true");
+  await pointToggle.click();
+  await expect(pointExtras.first()).toBeHidden();
+  await expect(pointToggle).toHaveAttribute("aria-expanded","false");
+
+  const examples=page.locator("#lessonReaderContent .lesson-example");
+  await expect(examples).toHaveCount(6);
+  const exampleExtras=page.locator("#lessonReaderContent .lesson-example[data-expandable-extra]");
+  await expect(exampleExtras).toHaveCount(3);
+  await expect(exampleExtras.first()).toBeHidden();
+  await page.locator("#lessonReaderContent .lesson-expandable-group").nth(1).locator("[data-lesson-list-toggle]").click();
+  await expect(exampleExtras.first()).toBeVisible();
+  await expect(page.locator("#lessonReaderContent .lesson-answer-options.compact").first()).toBeVisible();
+
+  await page.locator("#lessonBack").click();
+  const inProgressLesson=page.locator("#lessonCards .lesson-card").filter({hasText:/In progress|学习中|进行中/});
+  await expect(inProgressLesson).toBeVisible();
+  await inProgressLesson.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonStatus")).not.toContainText(/One daily lesson allowance has been used|已使用一次每日课程额度/);
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
+});
+
+
+test("lesson highlights stay inside explanations, examples and sentence breakdowns", async ({ page }) => {
+  await installDailyLearningMock(page,"scoped-topic-highlight-user");
+  await page.goto("/");
+  await page.locator("#translationSelect").selectOption("en");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
+  await page.addScriptTag({path:"lesson-topic-highlights.js"});
+  await page.locator('[data-page="lessons"]').click();
+
+  const articleLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"Choose a, an or the"});
+  await expect(articleLesson).toBeVisible();
+  await articleLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonReaderContent h2")).toContainText("Choose a, an or the");
+  console.log("First highlighted lesson heading", await page.locator("#lessonReaderContent h2").textContent());
+  await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
+
+  const articleAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
+    const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
+    const allowed=".lesson-explanation-paragraph,.lesson-example,.lesson-breakdown-sentence,.lesson-breakdown > span > strong";
+    return {
+      texts:marks.map(mark=>mark.textContent.toLowerCase()),
+      outsideAllowed:marks.filter(mark=>!mark.closest(allowed)).map(mark=>mark.textContent),
+      forbidden:root.querySelectorAll("h2 mark.lesson-topic-highlight,h3 mark.lesson-topic-highlight,.page-intro mark.lesson-topic-highlight,.lesson-question mark.lesson-topic-highlight,.lesson-answer-options mark.lesson-topic-highlight,.lesson-key-point mark.lesson-topic-highlight").length
+    };
+  });
+  expect(articleAudit.texts).toEqual(expect.arrayContaining(["a","an","the"]));
+  expect(articleAudit.outsideAllowed).toEqual([]);
+  expect(articleAudit.forbidden).toBe(0);
+
+  await page.locator("#lessonBack").click();
+  const nounLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"Use countable and uncountable nouns"});
+  await expect(nounLesson).toBeVisible();
+  await nounLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonReaderContent h2")).toContainText("Use countable and uncountable nouns");
+  console.log("Second highlighted lesson heading", await page.locator("#lessonReaderContent h2").textContent());
+  await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
+  const nounAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
+    const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
+    return {
+      texts:marks.map(mark=>mark.textContent.toLowerCase()),
+      outsideAllowed:marks.filter(mark=>!mark.closest(".lesson-explanation-paragraph,.lesson-example,.lesson-breakdown-sentence,.lesson-breakdown > span > strong")).length,
+      forbidden:root.querySelectorAll("h2 mark.lesson-topic-highlight,h3 mark.lesson-topic-highlight,.page-intro mark.lesson-topic-highlight,.lesson-question mark.lesson-topic-highlight,.lesson-answer-options mark.lesson-topic-highlight,.lesson-key-point mark.lesson-topic-highlight").length
+    };
+  });
+  expect(nounAudit.texts).toEqual(expect.arrayContaining(["countable","uncountable"]));
+  expect(nounAudit.outsideAllowed).toBe(0);
+  expect(nounAudit.forbidden).toBe(0);
+
+  await page.locator("#lessonBack").click();
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.tables.user_preferences[0].translation_language)).toBe("en");
+  const chineseLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"代词与“是”字句"});
+  await expect(chineseLesson).toBeVisible();
+  await chineseLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  const breakdownPinyin=page.locator("#lessonReaderContent .lesson-breakdown-sentence .lesson-pinyin-line").first();
+  await expect(breakdownPinyin).toBeVisible();
+  await expect(breakdownPinyin).not.toBeEmpty();
+  const chineseAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
+    const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
+    return {
+      pinyin:root.querySelectorAll(".lesson-breakdown-sentence .lesson-pinyin-line").length,
+      outsideAllowed:marks.filter(mark=>!mark.closest(".lesson-explanation-paragraph,.lesson-example,.lesson-breakdown-sentence,.lesson-breakdown > span > strong")).length,
+      forbidden:root.querySelectorAll("h2 mark.lesson-topic-highlight,h3 mark.lesson-topic-highlight,.lesson-question mark.lesson-topic-highlight,.lesson-answer-options mark.lesson-topic-highlight").length
+    };
+  });
+  expect(chineseAudit.pinyin).toBeGreaterThan(0);
+  expect(chineseAudit.outsideAllowed).toBe(0);
+  expect(chineseAudit.forbidden).toBe(0);
+});
+
+test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
+  await installDailyLearningMock(page,"chinese-lesson-user");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("chinese-lesson-user");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].translation_language)).toBe("en");
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  await expect(page.locator("#lessonLibrary")).toBeVisible();
+  await expect(page.locator("#lessonsChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#dailyLearningPage")).toBeVisible();
+  const chineseDailyTabs=page.locator("#dailyActivityGrid [data-daily-tab]");
+  await expect(chineseDailyTabs).toHaveCount(4);
+  const chineseTopicCard=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
+  console.log("Chinese Daily Learning diagnostics", await page.evaluate(() => ({
+    course:document.querySelector("#courseSelect")?.value,
+    translation:document.querySelector("#translationSelect")?.value,
+    preferences:window.__swiftDailyMock?.tables?.user_preferences,
+    catalogue:window.SWIFT_CHINESE_DAILY_LEARNING ? {
+      topics:window.SWIFT_CHINESE_DAILY_LEARNING.topics?.length,
+      applications:window.SWIFT_CHINESE_DAILY_LEARNING.applications?.length,
+      discovery:window.SWIFT_CHINESE_DAILY_LEARNING.discovery?.length,
+      firstTopic:window.SWIFT_CHINESE_DAILY_LEARNING.topics?.[0]?.title
+    } : null,
+    status:document.querySelector("#dailyLearningStatus")?.textContent,
+    grid:document.querySelector("#dailyActivityGrid")?.innerText,
+    gridHtml:document.querySelector("#dailyActivityGrid")?.innerHTML.slice(0,1400)
+  })));
+  const selectedChineseTopic = await page.evaluate(() => {
+    const card=document.querySelector('#dailyActivityGrid [data-activity-card="daily_topic"]');
+    return (window.SWIFT_CHINESE_DAILY_LEARNING?.topics||[]).find(item=>card?.innerText.includes(item.title)||card?.innerText.includes(item.titleEn||""))||null;
+  });
+  expect(selectedChineseTopic).toBeTruthy();
+  await page.evaluate(() => {
+    window.__dailyDrawerTransitions = [];
+    document.addEventListener("transitionrun", event => {
+      if (event.target.matches?.(".daily-activity-modal")) window.__dailyDrawerTransitions.push(event.propertyName);
+    });
+  });
+  await chineseTopicCard.locator("[data-start-daily]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toHaveClass(/open/);
+  console.log("Daily drawer computed motion", await page.evaluate(() => {
+    const panel=document.querySelector("#dailyActivityReader .daily-activity-modal");
+    const style=panel ? getComputedStyle(panel) : null;
+    return { reducedMotion:matchMedia("(prefers-reduced-motion: reduce)").matches,
+      rootClass:document.querySelector("#dailyActivityReader")?.className,
+      panelClass:panel?.className, transform:style?.transform, transition:style?.transition,
+      animations:panel?.getAnimations().map(animation=>({playState:animation.playState,property:animation.transitionProperty})) || [] };
+  }));
+  await expect.poll(() => page.evaluate(() => window.__dailyDrawerTransitions.includes("transform"))).toBe(true);
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.titleEn || selectedChineseTopic.title);
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.body);
+  await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.en);
+  await page.locator("#dailyActivityReader [data-abandon-daily]").click();
+  await expect.poll(() => page.evaluate(() => window.__dailyDrawerTransitions.filter(property => property==="transform").length >= 2)).toBe(true);
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
+  await page.locator('#dailyActivityGrid [data-daily-tab="daily_application"]').click();
+  const chineseApplicationCard=page.locator('#dailyActivityGrid [data-activity-card="daily_application"]');
+  await chineseApplicationCard.locator("[data-start-daily]").click();
+  await expect(page.locator("#dailyActivityReader .daily-question").first()).toBeVisible();
+  expect(await page.locator("#dailyActivityReader .daily-question").count()).toBeGreaterThan(0);
+  await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
+  await expect(page.locator("#dailyActivityReader .daily-translation-line").first()).toBeVisible();
+  await page.locator("#dailyActivityReader [data-abandon-daily]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
+  await page.locator('[data-difficulty="intermediate"]').click();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(5);
+  await page.locator('[data-difficulty="advanced"]').click();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(5);
+  await page.locator('[data-difficulty="beginner"]').click();
+  await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
+
+  const card=page.locator("#lessonCards .lesson-card").first();
+  await expect(card.locator("h3 .lesson-chinese-line")).toHaveText("拼音基础与四声");
+  await expect(card.locator("h3 .lesson-pinyin-line")).toHaveText("pīn yīn jī chǔ yǔ sì shēng");
+  await expect(card.locator("h3 .lesson-english-line")).toContainText("Pinyin foundations");
+
+  await card.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveText("Selecting this lesson will consume one daily lessons allowance, are you sure?");
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  const title=page.locator("#lessonReaderContent h2");
+  await expect(title.locator(".lesson-chinese-line")).toHaveText("拼音基础与四声");
+  await expect(title.locator(".lesson-pinyin-line")).toHaveText("pīn yīn jī chǔ yǔ sì shēng");
+  await expect(title.locator(".lesson-english-line")).toContainText("Pinyin foundations");
+
+  const layout=await title.locator(".lesson-bilingual-block").evaluate(node=>{
+    const chinese=node.querySelector(".lesson-chinese-line").getBoundingClientRect();
+    const pinyin=node.querySelector(".lesson-pinyin-line").getBoundingClientRect();
+    const english=node.querySelector(".lesson-english-line").getBoundingClientRect();
+    return {chineseBottom:chinese.bottom,pinyinTop:pinyin.top,pinyinBottom:pinyin.bottom,englishTop:english.top,pinyinDisplay:getComputedStyle(node.querySelector(".lesson-pinyin-line")).display};
+  });
+  expect(layout.pinyinDisplay).toBe("block");
+  expect(layout.pinyinTop).toBeGreaterThanOrEqual(layout.chineseBottom-1);
+  expect(layout.englishTop).toBeGreaterThanOrEqual(layout.pinyinBottom-1);
+
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#lessonReaderContent .lesson-english-line")).toHaveCount(0);
+  await expect(page.locator("#lessonReaderContent .lesson-selected-translation")).toHaveCount(0);
+  await expect(title.locator(".lesson-chinese-line")).toHaveText("拼音基础与四声");
+  await expect(page.locator("#lessonReaderContent .lesson-question-title .lesson-chinese-line").first()).toBeVisible();
+  await expect(page.locator("#lessonReaderContent .lesson-question-title .lesson-pinyin-line").first()).toBeVisible();
+  await expect(page.locator("#lessonReaderContent .lesson-practice-box h3").first()).toHaveText("练习");
+  await expect(page.locator("#lessonReaderContent .check-lesson-answer").first()).toHaveText("检查答案");
+
+  // Confirm pinyin remains directly below Chinese text on desktop and mobile,
+  // while every English-support line is removed in Chinese translation mode.
+  const assertChineseOnlyBlocksStacked = async () => {
+    const layouts = await page.locator("#lessonReaderContent .lesson-bilingual-block").evaluateAll(nodes =>
+      nodes.map(node => {
+        const chinese=node.querySelector(".lesson-chinese-line");
+        const pinyin=node.querySelector(".lesson-pinyin-line");
+        if(!chinese||!pinyin||!node.getClientRects().length)return null;
+        const c=chinese.getBoundingClientRect();
+        const p=pinyin.getBoundingClientRect();
+        return {chineseBottom:c.bottom,pinyinTop:p.top,hasEnglish:!!node.querySelector(".lesson-english-line")};
+      }).filter(Boolean)
+    );
+    expect(layouts.length).toBeGreaterThan(0);
+    for(const item of layouts){
+      expect(item.hasEnglish).toBe(false);
+      expect(item.pinyinTop).toBeGreaterThanOrEqual(item.chineseBottom-1);
+    }
+  };
+  await assertChineseOnlyBlocksStacked();
+  await page.setViewportSize({width:390,height:844});
+  await assertChineseOnlyBlocksStacked();
+});
+
+
+test("Chinese course completion stores progress separately from English", async ({ page }) => {
+  const userId = "chinese-progress-isolation-user";
+  await installDailyLearningMock(page, userId);
+  await page.goto("/");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe(userId);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator('[data-page="lessons"]').click();
   await page.locator("#lessonCards .lesson-card").first().click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
-  await expect(page.locator("#lessonReader")).toBeVisible();
+  // Insert the English row after the mock has returned the newly inserted zh row.
+  await page.evaluate(id => {
+    window.__swiftDailyMock.tables.lesson_progress.push({
+      user_id:id, learning_language:"en", difficulty:"beginner",
+      lesson_id:"zh-b-pinyin-foundations", status:"in_progress",
+      started_at:new Date().toISOString(), completed_at:null, updated_at:new Date().toISOString()
+    });
+  }, userId);
+  const answers = await page.evaluate(() => {
+    const item = window.SWIFT_CHINESE_LESSONS.beginner.find(x => x.id === "zh-b-pinyin-foundations");
+    return item.practices.map(q => ({zh:q.options[q.answer].zh,pinyin:q.options[q.answer].pinyin}));
+  });
+  for (let i=0; i<answers.length; i++) {
+    const question = page.locator(".lesson-question").nth(i);
+    const labels = question.locator("label");
+    let index = -1;
+    for (let j=0; j<await labels.count(); j++) {
+      const value = (await labels.nth(j).locator(".lesson-chinese-line").textContent())?.trim();
+      const pinyin = (await labels.nth(j).locator(".lesson-pinyin-line").textContent())?.trim();
+      if (value === answers[i].zh && pinyin === answers[i].pinyin) { index = j; break; }
+    }
+    expect(index).toBeGreaterThanOrEqual(0);
+    await labels.nth(index).locator("input").check();
+    await question.locator(".check-lesson-answer").click();
+    if (i === answers.length - 1) {
+      // Successful completion re-renders the reader, so the final feedback node is replaced.
+      await expect(page.locator("#lessonFinishNote")).toContainText(/Lesson completed|本课已完成/);
+    } else {
+      await expect(question.locator(".lesson-question-feedback")).toContainText(/Correct|正确/);
+    }
+  }
+  await expect(page.locator("#lessonFinishNote")).toContainText(/Lesson completed|本课已完成/);
+  const rows = await page.evaluate(id => window.__swiftDailyMock.tables.lesson_progress
+    .filter(row => row.user_id === id && row.lesson_id === "zh-b-pinyin-foundations")
+    .map(row => [row.learning_language,row.status])
+    .sort((a,b) => a[0].localeCompare(b[0])), userId);
+  expect(rows).toEqual([["en","in_progress"],["zh","completed"]]);
 });
 
 test("exhausted lesson allowance blocks new lessons but preserves completed lesson review", async ({ page }) => {
   await installDailyLearningMock(page,"lesson-limit-user","free");
   await page.goto("/");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-limit-user");
   await page.evaluate(() => {
     const state = window.__swiftDailyMock;
     state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 5;
     state.tables.lesson_progress = [{
-      user_id:"lesson-limit-user",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
+      user_id:"lesson-limit-user",learning_language:"en",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
       started_at:new Date().toISOString(),completed_at:new Date().toISOString(),updated_at:new Date().toISOString()
     }];
   });
@@ -82,50 +386,37 @@ test("exhausted lesson allowance blocks new lessons but preserves completed less
   await expect(completed).toBeEnabled();
   await expect(notStarted).toBeDisabled();
   await completed.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
   await expect(page.locator("#lessonReader")).toBeVisible();
-  await expect(page.locator("#lessonStatus")).toContainText("已完成的课程已重新打开，可免费重温。");
+  await expect(page.locator("#lessonStatus")).toContainText("已完成课程已重新打开，可免费复习。");
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
 });
 
-test("permanent Lessons allowance exhaustion shows a notification", async ({ page }) => {
-  await installDailyLearningMock(page, "lesson-toast-user", "free");
+test("Free lesson allowance is charged on first confirmed start and blocks the next selection", async ({ page }) => {
+  await installDailyLearningMock(page, "lesson-start-limit-user", "free");
   await page.goto("/");
-  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-toast-user");
-  await page.evaluate(() => window.installSwiftAllowanceNotifications?.());
-  await page.evaluate(async () => {
-    const state = window.__swiftDailyMock;
-    state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 4;
-    const result = await state.completePermanentLesson();
-    if (result.error) throw new Error(result.error.message);
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-start-limit-user");
+  await page.evaluate(() => {
+    window.__swiftDailyMock.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 4;
   });
-  const diagnostics = await page.evaluate(async () => {
-    const client = typeof supabaseClient !== "undefined" ? supabaseClient : null;
-    const session = client?.auth?.getSession ? await client.auth.getSession() : null;
-    const uid = session?.data?.session?.user?.id;
-    const usage = client ? await client.rpc("get_my_learning_allowance_usage") : null;
-    const entitlement = client ? await client.from("user_entitlements").select("plan_code,status").eq("user_id", uid).maybeSingle() : null;
-    const preference = client ? await client.from("user_preferences").select("timezone").eq("user_id", uid).maybeSingle() : null;
-    const limit = client ? await client.from("learning_plan_limits").select("daily_limit,is_enabled").eq("plan_code", "free").eq("activity_type", "lesson").maybeSingle() : null;
-    const bypass = client ? await client.rpc("is_personal_learning_test_access") : null;
-    return {
-      installer: typeof window.installSwiftAllowanceNotifications,
-      toast: typeof window.showSwiftDictionaryToast,
-      clientExists: !!client,
-      installed: client?.__swiftAllowanceNotificationsInstalled || false,
-      currentUser: typeof currentUser !== "undefined" ? currentUser?.id || null : null,
-      sessionUser: uid || null,
-      usage: usage?.data || null,
-      entitlement: entitlement?.data || null,
-      preference: preference?.data || null,
-      limit: limit?.data || null,
-      bypass: bypass?.data ?? null,
-      rpc: client?.rpc?.toString().slice(0,120) || null
-    };
-  });
-  console.log("Lessons allowance toast diagnostics", diagnostics);
-  await expect(page.locator("#swiftDictionaryToast")).toContainText(/Lessons allowance|课程额度/);
+  await page.locator('[data-page="lessons"]').click();
+  const firstLesson=page.locator("#lessonCards .lesson-card").first();
+  await expect(firstLesson).toBeVisible();
+  await firstLesson.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toBeVisible();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
+  await page.locator("#lessonBack").click();
+  await expect.poll(()=>page.locator("#lessonCards .lesson-card[disabled]").count()).toBeGreaterThan(0);
+  const started=page.locator("#lessonCards .lesson-card").filter({hasText:/In progress|学习中/});
+  await started.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
 });
 
-test("Premium lesson allowance blocks new lessons after fifteen completions but keeps reviews free", async ({ page }) => {
+test("Premium lesson allowance blocks new lessons after fifteen first starts but keeps reviews free", async ({ page }) => {
   await installDailyLearningMock(page,"premium-lesson-limit-user","premium");
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("premium-lesson-limit-user");
@@ -133,7 +424,7 @@ test("Premium lesson allowance blocks new lessons after fifteen completions but 
     const state = window.__swiftDailyMock;
     state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 15;
     state.tables.lesson_progress = [{
-      user_id:"premium-lesson-limit-user",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
+      user_id:"premium-lesson-limit-user",learning_language:"en",difficulty:"beginner",lesson_id:"b-sentence",status:"completed",
       started_at:new Date().toISOString(),completed_at:new Date().toISOString(),updated_at:new Date().toISOString()
     }];
   });
@@ -174,7 +465,20 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   await expect(start).toBeEnabled();
   await page.evaluate(() => window.installSwiftAllowanceNotifications?.());
   await start.click();
-  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  const reader=page.locator("#dailyActivityReader");
+  await expect(reader).toBeVisible();
+  await expect(reader.locator(".daily-activity-modal")).toBeVisible();
+  await expect(reader).toHaveClass(/open/);
+  const drawerMotion=await reader.locator(".daily-activity-modal").evaluate(el=>{
+    const style=getComputedStyle(el);
+    return {transition:style.transitionProperty,duration:style.transitionDuration,transform:style.transform};
+  });
+  expect(drawerMotion.transition).toContain("transform");
+  expect(parseFloat(drawerMotion.duration)).toBeGreaterThan(0);
+  await expect.poll(()=>reader.locator(".daily-activity-modal").evaluate(el=>getComputedStyle(el).transform)).toBe("matrix(1, 0, 0, 1, 0, 0)");
+  await expect(reader.locator(".daily-drawer-actions")).toBeVisible();
+  await expect(reader.locator("h2").first()).not.toBeEmpty();
+  expect(await reader.evaluate(el=>el.parentElement===document.body)).toBeTruthy();
   await page.locator("#dailyActivityReader [data-complete-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
   await expect(page.locator("#swiftDictionaryToast")).toContainText("主题学习额度");
@@ -194,7 +498,10 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   expect(JSON.stringify(calls)).not.toMatch(/selectedAnswer|answerIndex|questionAnswer/i);
   const topicCards = page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
   await expect(topicCards).toHaveCount(1);
-  await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("每日额度将在午夜重置");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("通过简短讲解和例句学习一个重点");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance")).toBeVisible();
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance-top strong")).toContainText("0 / 1");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-status")).toHaveCount(0);
   await expect(topicCards.first()).toContainText("已完成 · 可免费重温");
   await expect(topicCards.first().locator("[data-start-daily]")).toBeEnabled();
 
@@ -431,10 +738,29 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
         let ignoreDuplicates = false;
         const q = {
           insert(values) {
-            // Preserve the original mock adapter's immediate INSERT behavior;
-            // unrelated lesson tests rely on the row being visible straight away.
+            // Preserve immediate INSERT behavior while mirroring the server's
+            // first-start lesson allowance trigger in browser regression tests.
             const rows = state.tables[table] || (state.tables[table] = []);
-            rows.push(...(Array.isArray(values) ? values : [values]));
+            const inserted = (Array.isArray(values) ? values : [values]).map(value=>({...value,...(table==="lesson_progress"?{learning_language:value.learning_language||"en"}:{})}));
+            if(table==="lesson_progress"){
+              const usage=state.allowanceUsage.find(row=>row.activity_type==="lesson");
+              const limit=state.tables.learning_plan_limits.find(row=>row.plan_code===${JSON.stringify(plan)}&&row.activity_type==="lesson");
+              const duplicate=inserted.some(value=>rows.some(row=>row.user_id===value.user_id
+                && row.learning_language===value.learning_language && row.difficulty===value.difficulty && row.lesson_id===value.lesson_id));
+              if(duplicate){
+                selectError={code:"23505",message:"duplicate key value violates unique constraint"};
+                return q;
+              }
+              if(!usage||!limit||usage.used_count+inserted.length>limit.daily_limit){
+                selectError={code:"P0001",message:"Daily lesson start limit reached"};
+                return q;
+              }
+              rows.push(...inserted);
+              usage.used_count+=inserted.length;
+              for(const row of inserted)state.tables.learning_activity_log.push({
+                user_id:row.user_id,activity_type:"lesson",language_code:row.learning_language,event_type:"started",created_at:new Date().toISOString()
+              });
+            }else rows.push(...inserted);
             return q;
           },
           select(columns) {
@@ -505,13 +831,14 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
             ? { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } }
             : { data: state.allowanceUsage, error: null };
           if (name === "is_personal_learning_test_access") return { data: false, error: null };
-          if (name === "complete_permanent_lesson") {
-            const usage = state.allowanceUsage.find(row => row.activity_type === "lesson");
-            const limit = state.tables.learning_plan_limits.find(row => row.plan_code === ${JSON.stringify(plan)} && row.activity_type === "lesson");
-            if (!usage || !limit || usage.used_count >= limit.daily_limit) return { data:null, error:{code:"P0001",message:"Daily learning completion limit reached"} };
-            usage.used_count += 1;
-            return { data:{status:"completed"}, error:null };
+          if (name === "complete_permanent_lesson" || name === "complete_permanent_lesson_for_language") {
+            const learningLanguage = name === "complete_permanent_lesson" ? "en" : args.p_learning_language;
+            const progress = state.tables.lesson_progress.find(row => row.user_id === state.user.id && row.learning_language === learningLanguage && row.difficulty === args.p_difficulty && row.lesson_id === args.p_lesson_id);
+            if (progress) Object.assign(progress,{status:"completed",completed_at:new Date().toISOString(),updated_at:new Date().toISOString()});
+            state.tables.learning_activity_log.push({user_id:state.user.id,activity_type:"lesson",event_type:"completed",language_code:learningLanguage,created_at:new Date().toISOString()});
+            return { data:progress||{learning_language:learningLanguage,status:"completed"}, error:null };
           }
+          if (name === "record_completed_lesson_practice_result_for_language") return { data:true, error:null };
           if (name === "start_daily_activity_session") {
             const completed = state.sessions.find(row => row.activity_type === args.p_activity_type && row.content_id === args.p_content_id && row.status === "completed");
             if (completed) return { data: completed, error: null };
@@ -524,6 +851,7 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
               id: "daily-session-" + (state.sessions.length + 1),
               user_id: state.user.id,
               activity_type: args.p_activity_type,
+              language_code: state.tables.user_preferences[0]?.learning_language || "en",
               content_id: args.p_content_id,
               topic_id: args.p_topic_id,
               difficulty: args.p_difficulty,
@@ -634,7 +962,7 @@ test("completed Discovery content remains reviewable across UTC rollover within 
     const previousUtc = new Date(Date.parse(todayUtc + "T00:00:00.000Z") - 86400000).toISOString().slice(0,10);
     const completed = {
       id:"discovery-rollover-completed",user_id:"discovery-rollover-review-user",
-      activity_type:"daily_discovery",content_id:"discovery-word-meticulous-01:" + previousUtc,
+      activity_type:"daily_discovery",language_code:"en",content_id:"discovery-word-meticulous-01:" + previousUtc,
       topic_id:null,difficulty:null,source:"daily",status:"completed",
       started_at:new Date().toISOString(),completed_at:new Date().toISOString(),
       correct_count:null,question_count:null
@@ -649,7 +977,9 @@ test("completed Discovery content remains reviewable across UTC rollover within 
   const discoveryCards = page.locator('#dailyActivityGrid [data-activity-card="daily_discovery"]');
   await expect(discoveryCards).toHaveCount(1);
   await expect(discoveryCards.first()).toContainText("重温已完成内容");
-  await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("每日额度将在午夜重置");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance")).toBeVisible();
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance-top strong")).toContainText("0 / 1");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-status")).toHaveCount(0);
   await expect(discoveryCards.first().locator("[data-start-daily]")).toBeEnabled();
   await discoveryCards.first().locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
@@ -667,9 +997,15 @@ test("Daily activity tabs show one Free card or three Premium cards with row act
     await page.goto("/");
     await page.locator('[data-page="lessons"]').click();
     await expect(page.locator("#dailyActivityGrid [role='tab']")).toHaveCount(4);
+    const tabStrip=page.locator(".daily-activity-tabs");
+    const tabLayout=await tabStrip.evaluate(el=>({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,overflowX:getComputedStyle(el).overflowX}));
+    expect(tabLayout.scrollWidth).toBeLessThanOrEqual(tabLayout.clientWidth+1);
+    expect(tabLayout.overflowX).not.toMatch(/auto|scroll/);
     for (const type of ["daily_topic","daily_application","daily_discovery","daily_revision"]) {
       await page.locator('[data-daily-tab="' + type + '"]').click();
       const panel = page.locator("#dailyActivityPanel");
+      await expect(panel.locator(".daily-activity-heading-kicker")).toBeVisible();
+      await expect(panel.locator(".daily-activity-allowance")).toBeVisible();
       await expect(panel.locator('[data-activity-card="' + type + '"]')).toHaveCount(page===freePage?1:3);
       await expect(page.locator('[data-daily-tab="' + type + '"]')).toHaveAttribute("aria-selected","true");
       const card = panel.locator('[data-activity-card="' + type + '"]').first();
@@ -723,6 +1059,9 @@ test("Daily Discovery uses dictionary layout and the approved global catalogue m
   await page.locator('#dailyActivityGrid [data-start-daily="daily_discovery"]').click();
   const reader = page.locator("#dailyActivityReader");
   await expect(reader.locator(".daily-discovery-modal .modal-head")).toBeVisible();
+  await page.setViewportSize({width:390,height:844});
+  const mobileDrawerWidth=await reader.locator(".daily-activity-modal").evaluate(el=>el.getBoundingClientRect().width);
+  expect(Math.abs(mobileDrawerWidth-390)).toBeLessThanOrEqual(1);
   await expect(reader.locator(".daily-discovery-modal .detail-section h3").first()).toContainText("释义");
   expect(await reader.locator(".daily-discovery-modal .example-list li").count()).toBeGreaterThan(1);
   await expect(reader.locator("[data-daily-back]")).toHaveCount(0);
@@ -733,10 +1072,10 @@ test("Daily Discovery uses dictionary layout and the approved global catalogue m
     border: getComputedStyle(el.querySelector(".daily-discovery-modal")).borderTopWidth,
     definitionColor: getComputedStyle(el.querySelector(".daily-discovery-modal .definition")).color
   }));
-  expect(style.backdrop).toBe("rgba(0, 0, 0, 0)");
+  expect(style.backdrop).toBe("rgba(3, 7, 14, 0.58)");
   expect(style.padding).not.toBe("0px");
   expect(style.border).toBe("0px");
-  expect(style.definitionColor).toBe("rgb(243, 244, 246)");
+  expect(style.definitionColor).toBe("rgb(243, 246, 252)");
 
   const start = await page.evaluate(() => window.__swiftDailyMock.rpcCalls.find(call => call.name === "start_daily_activity_session"));
   expect(start.args.p_activity_type).toBe("daily_discovery");
@@ -769,8 +1108,8 @@ test("Daily Revision is adaptive, abandonment is free, and Daily Discovery is un
     const state = window.__swiftDailyMock;
     const now = Date.now();
     state.tables.lesson_practice_results = [
-      { user_id:"daily-behaviour-user", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-2*86400000).toISOString() },
-      { user_id:"daily-behaviour-user", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-86400000).toISOString() }
+      { user_id:"daily-behaviour-user", learning_language:"en", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-2*86400000).toISOString() },
+      { user_id:"daily-behaviour-user", learning_language:"en", topic_id:"verb-tenses", correct_count:1, question_count:3, attempted_at:new Date(now-86400000).toISOString() }
     ];
   });
   await page.locator('[data-page="lessons"]').click();
@@ -810,7 +1149,7 @@ test("unfinished daily activities expire at the user's local midnight", async ({
   await page.evaluate(() => {
     const state = window.__swiftDailyMock;
     state.sessions.push({
-      id:"stale-daily-session", user_id:"daily-expiry-user", activity_type:"daily_topic",
+      id:"stale-daily-session", user_id:"daily-expiry-user", activity_type:"daily_topic", language_code:"en",
       content_id:"topic-present-perfect-01", topic_id:"verb-tenses", status:"in_progress",
       started_at:"2026-11-13T08:00:00.000Z", completed_at:null, correct_count:null, question_count:null
     });
@@ -1016,4 +1355,107 @@ test("Dashboard favorite words open expanded details without navigating to Dicti
   await expect(page.locator("#modalPhonetic")).toContainText("Pinyin:");
   await page.locator("#closeButton").click();
   await expect(page.locator("#profilePage")).toBeVisible();
+});
+
+
+test("English Daily Discovery remains populated after switching courses", async ({ page }) => {
+  await installDailyLearningMock(page,"daily-discovery-course-switch");
+  await page.goto("/");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
+  await page.locator("#courseSelect").selectOption("en");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("en");
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  await page.locator('#dailyActivityGrid [data-daily-tab="daily_discovery"]').click();
+  const cards=page.locator('#dailyActivityGrid [data-activity-card="daily_discovery"]');
+  await expect(cards.first()).toBeVisible();
+  await expect(cards.first().locator("h3")).not.toBeEmpty();
+  await expect(cards.first().locator("[data-start-daily]")).toBeEnabled();
+});
+
+
+test("completed Chinese Daily Learning activities remain reviewable when the page selector and loaded course differ", async ({ page }) => {
+  await installDailyLearningMock(page,"course-scoped-daily-review-user","free");
+  await page.goto("/");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock?.user?.id)).toBe("course-scoped-daily-review-user");
+
+  // Deliberately leave the visible selector on English while the saved session
+  // catalogue and completed activity rows belong to Simplified Chinese.
+  await page.locator("#courseSelect").selectOption("en");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("en");
+  await page.evaluate(()=>{
+    const state=window.__swiftDailyMock;
+    const now=new Date().toISOString();
+    const day=new Date().toISOString().slice(0,10);
+    state.tables.user_preferences[0].learning_language="zh";
+    state.tables.user_preferences[0].translation_language="zh";
+    state.allowanceUsage.forEach(row=>{if(row.activity_type!=="lesson")row.used_count=1;});
+    state.sessions=[
+      {id:"zh-completed-topic",user_id:state.user.id,activity_type:"daily_topic",language_code:"zh",content_id:"zh-topic-tones-01",topic_id:"zh-pronunciation-tones",difficulty:"beginner",source:"daily",status:"completed",started_at:now,completed_at:now,correct_count:null,question_count:null},
+      {id:"zh-completed-application",user_id:state.user.id,activity_type:"daily_application",language_code:"zh",content_id:"zh-app-tones-01",topic_id:"zh-pronunciation-tones",difficulty:"beginner",source:"daily",status:"completed",started_at:now,completed_at:now,correct_count:2,question_count:2},
+      {id:"zh-completed-discovery",user_id:state.user.id,activity_type:"daily_discovery",language_code:"zh",content_id:"zh-character-516b:"+day,topic_id:null,difficulty:null,source:"daily",status:"completed",started_at:now,completed_at:now,correct_count:null,question_count:null},
+      {id:"zh-completed-revision",user_id:state.user.id,activity_type:"daily_revision",language_code:"zh",content_id:"revision:zh-pronunciation-tones:zh-app-tones-01:"+day+":1",topic_id:"zh-pronunciation-tones",difficulty:"beginner",source:"adaptive_revision",status:"completed",started_at:now,completed_at:now,correct_count:1,question_count:2}
+    ];
+    state.tables.daily_activity_sessions=state.sessions;
+  });
+  await page.locator('[data-page="lessons"]').click();
+  await page.evaluate(()=>window.initialiseDailyLearning());
+
+  const cases=[
+    ["daily_topic","认识普通话四声"],
+    ["daily_application","辨认普通话声调"],
+    ["daily_discovery","八"],
+    ["daily_revision","复习：辨认普通话声调"]
+  ];
+  for(const [type,expectedText] of cases){
+    await page.locator('#dailyActivityGrid [data-daily-tab="'+type+'"]').click();
+    const completed=page.locator('#dailyActivityGrid [data-activity-card="'+type+'"]').filter({hasText:"已完成 · 可免费重温"});
+    await expect(completed).toHaveCount(1);
+    await expect(completed.locator("[data-start-daily]")).toHaveText("重温已完成内容");
+    await completed.locator("[data-start-daily]").click();
+    await expect(page.locator("#dailyActivityReader")).toBeVisible();
+    await expect(page.locator("#dailyActivityReader")).toContainText(expectedText);
+    await expect(page.locator("#dailyActivityReader")).toContainText("已完成 · 可免费重温");
+    await expect(page.locator("#dailyActivityReader [data-complete-daily]")).toHaveCount(0);
+    const starts=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="start_daily_activity_session").length);
+    expect(starts).toBe(0);
+    await page.locator("#dailyActivityReader [data-daily-close]").click();
+    await expect(page.locator("#dailyActivityReader")).toBeHidden();
+  }
+});
+
+test("historical Daily Learning reviews do not consume today's new activity slots", async ({ page }) => {
+  await installDailyLearningMock(page,"historical-daily-review-user","free");
+  await page.goto("/");
+  await page.evaluate(() => {
+    const state=window.__swiftDailyMock;
+    state.tables.user_preferences[0].learning_language="zh";
+    state.tables.user_preferences[0].translation_language="zh";
+    const yesterday=new Date(Date.now()-86400000).toISOString();
+    state.sessions=[{
+      id:"historical-topic-session",user_id:state.user.id,activity_type:"daily_topic",language_code:"zh",
+      content_id:"zh-topic-tones-01",topic_id:"zh-pronunciation-tones",difficulty:"beginner",
+      source:"daily",status:"completed",started_at:yesterday,completed_at:yesterday,
+      correct_count:null,question_count:null
+    }];
+    state.tables.daily_activity_sessions=state.sessions;
+  });
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
+  await page.locator('[data-page="lessons"]').click();
+  await page.locator('[data-daily-tab="daily_topic"]').click();
+  const cards=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
+  await expect(cards).toHaveCount(2);
+  const completedCard=cards.filter({hasText:"已完成 · 可免费重温"});
+  await expect(completedCard).toHaveCount(1);
+  await expect(cards.filter({hasText:"新活动"})).toHaveCount(1);
+  await expect(completedCard.locator("[data-start-daily]")).toHaveText("重温已完成内容");
+  await completedCard.locator("[data-start-daily]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toContainText("四声");
+  const startCalls=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="start_daily_activity_session").length);
+  expect(startCalls).toBe(0);
+  await page.locator("#dailyActivityReader [data-daily-close]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
 });

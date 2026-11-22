@@ -3,6 +3,7 @@ import vm from "node:vm";
 
 const html = fs.readFileSync("index.html", "utf8");
 const dailyScript = fs.readFileSync("daily-learning.js", "utf8");
+const lessonsCss = fs.readFileSync("lessons-ui.css", "utf8");
 
 new vm.Script(dailyScript, { filename: "daily-learning.js" });
 
@@ -282,13 +283,14 @@ if (!html.includes('id="lessonDetailPage"') || !html.includes('showPage("lessonD
     || !html.includes("window.refreshDailyLearningTranslation")) {
   throw new Error("Permanent lesson page navigation or shared translation refresh is missing.");
 }
-if (!html.includes(".daily-activity-cards.premium { grid-template-columns:minmax(0,1fr); }")
-    || !html.includes(".daily-activity-tab { flex:0 0 auto; border:1px solid var(--border); border-bottom:0; border-radius:10px 10px 0 0; padding:12px 18px; background:var(--panel); color:#fff;")
-    || !html.includes(".daily-activity-count.healthy")
-    || !html.includes('if (typeof initialiseLessons === "function") await initialiseLessons();')
+if (!html.includes('if (typeof initialiseLessons === "function") await initialiseLessons();')
     || !dailyScript.includes('dailyUi("New activity","新活动")')
     || !dailyScript.includes("const allowanceTone=remaining<=0")
-    || !dailyScript.includes("daily-activity-count '+allowanceTone")) {
+    || !dailyScript.includes("const allowancePercent=")
+    || !dailyScript.includes("daily-activity-allowance")
+    || !lessonsCss.includes(".daily-activity-allowance{")
+    || !lessonsCss.includes(".daily-activity-tabs{display:grid!important;")
+    || !lessonsCss.includes(".daily-activity-tab.active{")) {
   throw new Error("Update 2.3.1 category layout, title-side allowance indicator, neutral card status, or account-switch lesson refresh is missing.");
 }
 if (!html.includes(".daily-activity-backdrop{background:transparent}")
@@ -395,8 +397,8 @@ assertTime(
 );
 
 const required = [
-  'rpc("complete_permanent_lesson"',
-  'rpc("record_completed_lesson_practice_result"',
+  'rpc("complete_permanent_lesson_for_language"',
+  'rpc("record_completed_lesson_practice_result_for_language"',
   'rpc("delete_my_learning_history"',
   'id="deleteLearningHistoryButton"',
   'id="learningHistoryDeleteStatus"',
@@ -433,9 +435,11 @@ if (html.includes('data-page="daily-learning"')) {
 }
 const lessonsShellStart = html.indexOf('<section id="lessonsPage"');
 const dailySectionStart = html.indexOf('<section id="dailyLearningPage"');
-const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"');
-if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || difficultyNavStart < dailySectionStart) {
-  throw new Error("Daily Learning must appear inside Lessons above the difficulty navigation.");
+const permanentPanelStart = html.indexOf('<section id="permanentLessonsPanel"');
+const permanentPanelEnd = html.indexOf('\n      </section>\n    </section>\n    <section id="lessonDetailPage"', permanentPanelStart);
+const difficultyNavStart = html.indexOf('<div class="difficulty-tabs"', permanentPanelStart);
+if (lessonsShellStart < 0 || dailySectionStart < lessonsShellStart || permanentPanelStart <= dailySectionStart || difficultyNavStart < permanentPanelStart || difficultyNavStart >= permanentPanelEnd) {
+  throw new Error("Daily Learning must appear before Permanent Lessons, which must contain the difficulty navigation, inside Lessons.");
 }
 for (const fragment of ['id="dailyLearningPage"','data-daily-pref=','Your Dashboard','id="dashboardAvatar"','Favorite words','id="favoriteEnglishGrid"','id="favoriteChineseGrid"','id="preferencesPage"','id="accountDeletionCard"','Learning history','id="dashboardAllowanceBars"','id="practiceChart"','id="practiceReviewTopics"','id="activeLanguagesList"']) {
   if (!html.includes(fragment)) throw new Error(`Update 2.3.1 dashboard/navigation check failed: missing ${fragment}`);
@@ -471,15 +475,16 @@ if (dailyScript.includes('.from("daily_activity_sessions").insert(')
   throw new Error("Daily Learning frontend must use server RPCs, not direct activity-log/session INSERTs.");
 }
 if (!dailyScript.includes("const disabled = !!disabledReason || (exhausted && !alreadyCompleted);")
-    || !dailyScript.includes("const completedRows = (snapshot.completedToday || [])")
+    || !dailyScript.includes("const completedRows = (snapshot.dailyResults || [])")
     || !dailyScript.includes("renderCard(item,null,true)")
     || !dailyScript.includes("role=\"tablist\"")
     || !dailyScript.includes("daily-activity-cards")
     || !dailyScript.includes('columns===3?" premium":" free"')
-    || !dailyScript.includes("Your allowance resets at midnight")
+    || !dailyScript.includes("daily-activity-allowance-top")
+    || dailyScript.includes("Your allowance resets at midnight")
     || dailyScript.includes("Today’s activity is complete")
     || dailyScript.includes("const practiceExamples =")) {
-  throw new Error("Daily activity tabs, plan-sized rows, allowance lock/reset placement, completed review, or example/Q&A separation regressed.");
+  throw new Error("Daily activity tabs, plan-sized rows, separate allowance meter, completed review, or example/Q&A separation regressed.");
 }
 if (!html.includes("allowanceRemaining<=0")
     || !html.includes("get_my_learning_allowance_usage")
@@ -509,12 +514,13 @@ const mockData = {
   },
   user_entitlements: { user_id: "test-user", plan_code: "free", status: "active", valid_from: null, valid_until: null },
   learning_plan_limits: ["daily_topic","daily_application","daily_discovery","daily_revision"]
-    .map(activity_type => ({ activity_type, daily_limit: 1, is_enabled: true })),
+    .map(activity_type => ({ plan_code:"free", activity_type, daily_limit: 1, is_enabled: true })),
   learning_activity_log: [],
   lesson_practice_results: [],
   daily_activity_sessions: [{
     user_id: "test-user",
     activity_type: "daily_topic",
+    language_code: "en",
     content_id: "topic-present-perfect-01",
     topic_id: "verb-tenses",
     correct_count: null,
@@ -601,13 +607,14 @@ for (const activity of ["daily_topic","daily_application","daily_discovery","dai
 if (!mockElements.dailyActivityGrid.innerHTML.includes('data-start-daily="daily_topic"')) {
   throw new Error("Daily Learning runtime did not render the selected Daily Topic panel.");
 }
-const firstTopicCard = mockElements.dailyActivityGrid.innerHTML
-  .split('data-activity-card="daily_topic"')[1] || "";
-if (firstTopicCard.includes("Past simple or present perfect?")) {
-  throw new Error("Daily Topic selected a previously completed assignment instead of unused content.");
+const renderedTopicCards = mockElements.dailyActivityGrid.innerHTML
+  .split('<article class="daily-activity-card" data-activity-card="daily_topic">').slice(1);
+if (!renderedTopicCards.some(card => card.includes("Completed · replay is free") && card.includes("Past simple or present perfect?"))
+    || !renderedTopicCards.some(card => card.includes("New activity") && !card.includes("Past simple or present perfect?"))) {
+  throw new Error("Daily Topic must preserve completed review content while selecting a separate unused activity.");
 }
 mockData.daily_activity_sessions = curated.topics.map(item => item.id).map(content_id => ({
-  user_id:"test-user",activity_type:"daily_topic",content_id,topic_id:"test-topic",
+  user_id:"test-user",activity_type:"daily_topic",language_code:"en",content_id,topic_id:"test-topic",
   correct_count:null,question_count:null,completed_at:"2026-11-09T08:00:00.000Z",status:"completed"
 }));
 await runtimeWindow.initialiseDailyLearning();
