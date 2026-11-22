@@ -18526,8 +18526,8 @@
             await initialiseQuizPage();
           }
           window.dispatchEvent(new Event("swift-auth-updated"));
-          if (currentUser && window.SwiftDictionaryFlashcards?.refreshDashboardData) {
-            await window.SwiftDictionaryFlashcards.refreshDashboardData();
+          if (currentUser && window.__swiftFlashcardsAuthHydration) {
+            await window.__swiftFlashcardsAuthHydration;
           }
         }).catch(error => {
           accountStatus.textContent = `Account refresh failed: ${error.message || error}. Your sign-in state has not been deliberately cleared; you can retry by refreshing the page.`;
