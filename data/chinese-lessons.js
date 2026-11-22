@@ -165,7 +165,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which syllable uses the first tone?",
+          "q": {
+            "zh": "哪个音节使用第一声？",
+            "pinyin": "nǎ gè yīn jié shǐ yòng dì yī shēng",
+            "en": "Which syllable uses the first tone?"
+          },
           "options": [
             {
               "zh": "妈",
@@ -191,7 +195,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which character is pronounced mǎ, with the third tone?",
+          "q": {
+            "zh": "哪个汉字读作第三声的 mǎ？",
+            "pinyin": "nǎ gè hàn zì dú zuò dì sān shēng de",
+            "en": "Which character is pronounced mǎ, with the third tone?"
+          },
           "options": [
             {
               "zh": "妈",
@@ -217,7 +225,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 2
         },
         {
-          "q": "Which statement best describes the second tone?",
+          "q": {
+            "zh": "哪种说法最准确地描述第二声？",
+            "pinyin": "nǎ zhǒng shuō fǎ zuì zhǔn què de miáo shù dì èr shēng",
+            "en": "Which statement best describes the second tone?"
+          },
           "options": [
             {
               "zh": "声音先高后低。",
@@ -243,7 +255,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 1
         },
         {
-          "q": "What is the main purpose of Hanyu Pinyin?",
+          "q": {
+            "zh": "汉语拼音的主要作用是什么？",
+            "pinyin": "hàn yǔ pīn yīn de zhǔ yào zuò yòng shì shén me",
+            "en": "What is the main purpose of Hanyu Pinyin?"
+          },
           "options": [
             {
               "zh": "标记普通话的读音。",
@@ -329,7 +345,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which statement about the third tone is most accurate?",
+          "q": {
+            "zh": "关于第三声，哪种说法最准确？",
+            "pinyin": "guān yú dì sān shēng nǎ zhǒng shuō fǎ zuì zhǔn què",
+            "en": "Which statement about the third tone is most accurate?"
+          },
           "options": [
             {
               "zh": "它总是完整地先降后升。",
@@ -439,7 +459,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which expression means “Good morning”?",
+          "q": {
+            "zh": "哪个表达表示“早上好”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì zǎo shàng hǎo",
+            "en": "Which expression means “Good morning”?"
+          },
           "options": [
             {
               "zh": "早上好",
@@ -465,7 +489,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “Thank you”?",
+          "q": {
+            "zh": "哪个表达表示“谢谢”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì xiè xiè",
+            "en": "Which expression means “Thank you”?"
+          },
           "options": [
             {
               "zh": "谢谢",
@@ -491,7 +519,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which phrase politely introduces a question?",
+          "q": {
+            "zh": "哪个短语可以礼貌地引出一个问题？",
+            "pinyin": "nǎ gè duǎn yǔ kě yǐ lǐ mào de yǐn chū yī gè wèn tí",
+            "en": "Which phrase politely introduces a question?"
+          },
           "options": [
             {
               "zh": "请问",
@@ -547,7 +579,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “Goodbye”?",
+          "q": {
+            "zh": "哪个表达表示“再见”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì zài jiàn",
+            "en": "Which expression means “Goodbye”?"
+          },
           "options": [
             {
               "zh": "再见",
@@ -573,7 +609,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “My name is Li Ming”?",
+          "q": {
+            "zh": "哪个句子表示“我叫李明”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ jiào lǐ míng",
+            "en": "Which sentence means “My name is Li Ming”?"
+          },
           "options": [
             {
               "zh": "我叫李明",
@@ -599,7 +639,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which phrase means “Nice to meet you”?",
+          "q": {
+            "zh": "哪个短语表示“很高兴认识你”？",
+            "pinyin": "nǎ gè duǎn yǔ biǎo shì hěn gāo xìng rèn shí nǐ",
+            "en": "Which phrase means “Nice to meet you”?"
+          },
           "options": [
             {
               "zh": "很高兴认识你",
@@ -709,7 +753,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which character is the number seven?",
+          "q": {
+            "zh": "哪个汉字表示数字七？",
+            "pinyin": "nǎ gè hàn zì biǎo shì shù zì qī",
+            "en": "Which character is the number seven?"
+          },
           "options": [
             {
               "zh": "七",
@@ -735,7 +783,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “today”?",
+          "q": {
+            "zh": "哪个词表示“今天”？",
+            "pinyin": "nǎ gè cí biǎo shì jīn tiān",
+            "en": "Which word means “today”?"
+          },
           "options": [
             {
               "zh": "今天",
@@ -761,7 +813,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means Monday?",
+          "q": {
+            "zh": "哪个表达表示星期一？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì xīng qī yī",
+            "en": "Which expression means Monday?"
+          },
           "options": [
             {
               "zh": "星期一",
@@ -787,7 +843,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which character means “month” in a date?",
+          "q": {
+            "zh": "日期中的哪个汉字表示“月”？",
+            "pinyin": "rì qī zhōng de nǎ gè hàn zì biǎo shì yuè",
+            "en": "Which character means “month” in a date?"
+          },
           "options": [
             {
               "zh": "月",
@@ -813,7 +873,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "What is the usual Chinese date order?",
+          "q": {
+            "zh": "中文日期通常按什么顺序排列？",
+            "pinyin": "zhōng wén rì qī tōng cháng àn shén me shùn xù pái liè",
+            "en": "What is the usual Chinese date order?"
+          },
           "options": [
             {
               "zh": "年、月、日",
@@ -839,7 +903,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “tomorrow”?",
+          "q": {
+            "zh": "哪个词表示“明天”？",
+            "pinyin": "nǎ gè cí biǎo shì míng tiān",
+            "en": "Which word means “tomorrow”?"
+          },
           "options": [
             {
               "zh": "明天",
@@ -949,7 +1017,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which pronoun means “I”?",
+          "q": {
+            "zh": "哪个代词表示“我”？",
+            "pinyin": "nǎ gè dài cí biǎo shì wǒ",
+            "en": "Which pronoun means “I”?"
+          },
           "options": [
             {
               "zh": "我",
@@ -975,7 +1047,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which character is normally written for “she”?",
+          "q": {
+            "zh": "表示女性“她”时通常写哪个汉字？",
+            "pinyin": "biǎo shì nǚ xìng tā shí tōng cháng xiě nǎ gè hàn zì",
+            "en": "Which character is normally written for “she”?"
+          },
           "options": [
             {
               "zh": "她",
@@ -1001,7 +1077,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “we”?",
+          "q": {
+            "zh": "哪个词表示“我们”？",
+            "pinyin": "nǎ gè cí biǎo shì wǒ men",
+            "en": "Which word means “we”?"
+          },
           "options": [
             {
               "zh": "我们",
@@ -1027,7 +1107,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “I am a student”?",
+          "q": {
+            "zh": "哪个句子表示“我是学生”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ shì xué shēng",
+            "en": "Which sentence means “I am a student”?"
+          },
           "options": [
             {
               "zh": "我是学生",
@@ -1083,7 +1167,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “This is my book”?",
+          "q": {
+            "zh": "哪个句子表示“这是我的书”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì zhè shì wǒ de shū",
+            "en": "Which sentence means “This is my book”?"
+          },
           "options": [
             {
               "zh": "这是我的书",
@@ -1193,7 +1281,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which verb means “to eat”?",
+          "q": {
+            "zh": "哪个动词表示“吃”？",
+            "pinyin": "nǎ gè dòng cí biǎo shì chī",
+            "en": "Which verb means “to eat”?"
+          },
           "options": [
             {
               "zh": "吃",
@@ -1219,7 +1311,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which verb means “to drink”?",
+          "q": {
+            "zh": "哪个动词表示“喝”？",
+            "pinyin": "nǎ gè dòng cí biǎo shì hē",
+            "en": "Which verb means “to drink”?"
+          },
           "options": [
             {
               "zh": "喝",
@@ -1245,7 +1341,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which verb means “to go”?",
+          "q": {
+            "zh": "哪个动词表示“去”？",
+            "pinyin": "nǎ gè dòng cí biǎo shì qù",
+            "en": "Which verb means “to go”?"
+          },
           "options": [
             {
               "zh": "去",
@@ -1271,7 +1371,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “I drink water”?",
+          "q": {
+            "zh": "哪个句子表示“我喝水”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ hē shuǐ",
+            "en": "Which sentence means “I drink water”?"
+          },
           "options": [
             {
               "zh": "我喝水",
@@ -1297,7 +1401,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which verb can mean “to read” when used with a book?",
+          "q": {
+            "zh": "与书一起使用时，哪个动词可以表示“阅读”？",
+            "pinyin": "yǔ shū yī qǐ shǐ yòng shí nǎ gè dòng cí kě yǐ biǎo shì yuè dú",
+            "en": "Which verb can mean “to read” when used with a book?"
+          },
           "options": [
             {
               "zh": "看",
@@ -1323,7 +1431,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “to study” or “to learn”?",
+          "q": {
+            "zh": "哪个词表示“学习”？",
+            "pinyin": "nǎ gè cí biǎo shì xué xí",
+            "en": "Which word means “to study” or “to learn”?"
+          },
           "options": [
             {
               "zh": "学习",
@@ -1433,7 +1545,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which word means “school”?",
+          "q": {
+            "zh": "哪个词表示“学校”？",
+            "pinyin": "nǎ gè cí biǎo shì xué xiào",
+            "en": "Which word means “school”?"
+          },
           "options": [
             {
               "zh": "学校",
@@ -1459,7 +1575,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “hospital”?",
+          "q": {
+            "zh": "哪个词表示“医院”？",
+            "pinyin": "nǎ gè cí biǎo shì yī yuàn",
+            "en": "Which word means “hospital”?"
+          },
           "options": [
             {
               "zh": "医院",
@@ -1485,7 +1605,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “station”?",
+          "q": {
+            "zh": "哪个词表示“车站”？",
+            "pinyin": "nǎ gè cí biǎo shì chē zhàn",
+            "en": "Which word means “station”?"
+          },
           "options": [
             {
               "zh": "车站",
@@ -1511,7 +1635,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence asks “Where is the subway station?”",
+          "q": {
+            "zh": "哪个句子是在问“地铁站在哪里”？",
+            "pinyin": "nǎ gè jù zǐ shì zài wèn de tiě zhàn zài nǎ lǐ",
+            "en": "Which sentence asks “Where is the subway station?”"
+          },
           "options": [
             {
               "zh": "地铁站在哪里？",
@@ -1537,7 +1665,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “left side”?",
+          "q": {
+            "zh": "哪个词表示“左边”？",
+            "pinyin": "nǎ gè cí biǎo shì zuǒ biān",
+            "en": "Which word means “left side”?"
+          },
           "options": [
             {
               "zh": "左边",
@@ -1563,7 +1695,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “right side”?",
+          "q": {
+            "zh": "哪个词表示“右边”？",
+            "pinyin": "nǎ gè cí biǎo shì yòu biān",
+            "en": "Which word means “right side”?"
+          },
           "options": [
             {
               "zh": "右边",
@@ -1673,7 +1809,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which particle commonly forms a yes/no question?",
+          "q": {
+            "zh": "哪个助词常用于构成是非疑问句？",
+            "pinyin": "nǎ gè zhù cí cháng yòng yú gòu chéng shì fēi yí wèn jù",
+            "en": "Which particle commonly forms a yes/no question?"
+          },
           "options": [
             {
               "zh": "吗",
@@ -1699,7 +1839,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “what”?",
+          "q": {
+            "zh": "哪个词表示“什么”？",
+            "pinyin": "nǎ gè cí biǎo shì shén me",
+            "en": "Which word means “what”?"
+          },
           "options": [
             {
               "zh": "什么",
@@ -1725,7 +1869,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “who”?",
+          "q": {
+            "zh": "哪个词表示“谁”？",
+            "pinyin": "nǎ gè cí biǎo shì shéi",
+            "en": "Which word means “who”?"
+          },
           "options": [
             {
               "zh": "谁",
@@ -1751,7 +1899,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word commonly negates a general statement such as “I do not like it”?",
+          "q": {
+            "zh": "哪个词常用于否定一般陈述，例如“我不喜欢它”？",
+            "pinyin": "nǎ gè cí cháng yòng yú fǒu dìng yī bān chén shù lì rú wǒ bù xǐ huān tā",
+            "en": "Which word commonly negates a general statement such as “I do not like it”?"
+          },
           "options": [
             {
               "zh": "不",
@@ -1777,7 +1929,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression can mean “do not have”?",
+          "q": {
+            "zh": "哪个表达可以表示“没有”？",
+            "pinyin": "nǎ gè biǎo dá kě yǐ biǎo shì méi yǒu",
+            "en": "Which expression can mean “do not have”?"
+          },
           "options": [
             {
               "zh": "没有",
@@ -1803,7 +1959,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “Are you a student?”",
+          "q": {
+            "zh": "哪个句子表示“你是学生吗”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì nǐ shì xué shēng ma",
+            "en": "Which sentence means “Are you a student?”"
+          },
           "options": [
             {
               "zh": "你是学生吗？",
@@ -1915,7 +2075,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which measure word is commonly used for books?",
+          "q": {
+            "zh": "哪个量词通常用于书？",
+            "pinyin": "nǎ gè liàng cí tōng cháng yòng yú shū",
+            "en": "Which measure word is commonly used for books?"
+          },
           "options": [
             {
               "zh": "本",
@@ -1941,7 +2105,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which phrase means “two books”?",
+          "q": {
+            "zh": "哪个短语表示“两本书”？",
+            "pinyin": "nǎ gè duǎn yǔ biǎo shì liǎng běn shū",
+            "en": "Which phrase means “two books”?"
+          },
           "options": [
             {
               "zh": "两本书",
@@ -1967,7 +2135,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which measure word is suitable for a glass of water?",
+          "q": {
+            "zh": "一杯水通常使用哪个量词？",
+            "pinyin": "yī bēi shuǐ tōng cháng shǐ yòng nǎ gè liàng cí",
+            "en": "Which measure word is suitable for a glass of water?"
+          },
           "options": [
             {
               "zh": "杯",
@@ -1993,7 +2165,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which measure word is commonly used for a sheet of paper?",
+          "q": {
+            "zh": "一张纸通常使用哪个量词？",
+            "pinyin": "yī zhāng zhǐ tōng cháng shǐ yòng nǎ gè liàng cí",
+            "en": "Which measure word is commonly used for a sheet of paper?"
+          },
           "options": [
             {
               "zh": "张",
@@ -2019,7 +2195,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which is a polite measure word for a person?",
+          "q": {
+            "zh": "哪个量词用于礼貌地称呼一个人？",
+            "pinyin": "nǎ gè liàng cí yòng yú lǐ mào de chēng hū yī gè rén",
+            "en": "Which is a polite measure word for a person?"
+          },
           "options": [
             {
               "zh": "位",
@@ -2045,7 +2225,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which phrase means “one person”?",
+          "q": {
+            "zh": "哪个短语表示“一个人”？",
+            "pinyin": "nǎ gè duǎn yǔ biǎo shì yī gè rén",
+            "en": "Which phrase means “one person”?"
+          },
           "options": [
             {
               "zh": "一个人",
@@ -2071,7 +2255,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which number is commonly used before a measure word to mean “two”?",
+          "q": {
+            "zh": "在量词前表示“二”时，通常使用哪个数字？",
+            "pinyin": "zài liàng cí qián biǎo shì èr shí tōng cháng shǐ yòng nǎ gè shù zì",
+            "en": "Which number is commonly used before a measure word to mean “two”?"
+          },
           "options": [
             {
               "zh": "两",
@@ -2211,7 +2399,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence says “I watched a movie yesterday”?",
+          "q": {
+            "zh": "哪个句子表示“我昨天看了电影”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ zuó tiān kàn le diàn yǐng",
+            "en": "Which sentence says “I watched a movie yesterday”?"
+          },
           "options": [
             {
               "zh": "我昨天看了电影",
@@ -2267,7 +2459,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence describes a door remaining open?",
+          "q": {
+            "zh": "哪个句子描述门保持开着的状态？",
+            "pinyin": "nǎ gè jù zǐ miáo shù mén bǎo chí kāi zhe de zhuàng tài",
+            "en": "Which sentence describes a door remaining open?"
+          },
           "options": [
             {
               "zh": "门开着",
@@ -2323,7 +2519,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “What about you?”",
+          "q": {
+            "zh": "哪个句子表示“你呢”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì nǐ ne",
+            "en": "Which sentence means “What about you?”"
+          },
           "options": [
             {
               "zh": "你呢？",
@@ -2493,7 +2693,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “every day”?",
+          "q": {
+            "zh": "哪个表达表示“每天”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì měi tiān",
+            "en": "Which expression means “every day”?"
+          },
           "options": [
             {
               "zh": "每天",
@@ -2519,7 +2723,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “already”?",
+          "q": {
+            "zh": "哪个表达表示“已经”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì yǐ jīng",
+            "en": "Which expression means “already”?"
+          },
           "options": [
             {
               "zh": "已经",
@@ -2545,7 +2753,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “not yet”?",
+          "q": {
+            "zh": "哪个表达表示“还没”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì hái méi",
+            "en": "Which expression means “not yet”?"
+          },
           "options": [
             {
               "zh": "还没",
@@ -2571,7 +2783,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “I get up at seven every morning”?",
+          "q": {
+            "zh": "哪个句子表示“我每天早上七点起床”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ měi tiān zǎo shàng qī diǎn qǐ chuáng",
+            "en": "Which sentence means “I get up at seven every morning”?"
+          },
           "options": [
             {
               "zh": "我每天早上七点起床",
@@ -2597,7 +2813,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word means “afternoon”?",
+          "q": {
+            "zh": "哪个词表示“下午”？",
+            "pinyin": "nǎ gè cí biǎo shì xià wǔ",
+            "en": "Which word means “afternoon”?"
+          },
           "options": [
             {
               "zh": "下午",
@@ -2623,7 +2843,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence says “I have not eaten dinner yet”?",
+          "q": {
+            "zh": "哪个句子表示“我还没吃晚饭”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ hái méi chī wǎn fàn",
+            "en": "Which sentence says “I have not eaten dinner yet”?"
+          },
           "options": [
             {
               "zh": "我还没吃晚饭",
@@ -2733,7 +2957,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which pattern means “A is more ... than B”?",
+          "q": {
+            "zh": "哪种句型表示“A比B更……”？",
+            "pinyin": "nǎ zhǒng jù xíng biǎo shì bǐ gèng",
+            "en": "Which pattern means “A is more ... than B”?"
+          },
           "options": [
             {
               "zh": "A比B + adjective",
@@ -2759,7 +2987,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “I am taller than him”?",
+          "q": {
+            "zh": "哪个句子表示“我比他高”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ bǐ tā gāo",
+            "en": "Which sentence means “I am taller than him”?"
+          },
           "options": [
             {
               "zh": "我比他高",
@@ -2785,7 +3017,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word commonly marks a superlative?",
+          "q": {
+            "zh": "哪个词常用于表示最高级？",
+            "pinyin": "nǎ gè cí cháng yòng yú biǎo shì zuì gāo jí",
+            "en": "Which word commonly marks a superlative?"
+          },
           "options": [
             {
               "zh": "最",
@@ -2811,7 +3047,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which phrase means “as big as”?",
+          "q": {
+            "zh": "哪个短语表示“和……一样大”？",
+            "pinyin": "nǎ gè duǎn yǔ biǎo shì hé yī yàng dà",
+            "en": "Which phrase means “as big as”?"
+          },
           "options": [
             {
               "zh": "一样大",
@@ -2837,7 +3077,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “Today is colder than yesterday”?",
+          "q": {
+            "zh": "哪个句子表示“今天比昨天冷”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì jīn tiān bǐ zuó tiān lěng",
+            "en": "Which sentence means “Today is colder than yesterday”?"
+          },
           "options": [
             {
               "zh": "今天比昨天冷",
@@ -2863,7 +3107,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pattern means “A is not as ... as B”?",
+          "q": {
+            "zh": "哪种句型表示“A不如B……”？",
+            "pinyin": "nǎ zhǒng jù xíng biǎo shì bù rú",
+            "en": "Which pattern means “A is not as ... as B”?"
+          },
           "options": [
             {
               "zh": "A没有B那么 + adjective",
@@ -2889,7 +3137,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word can intensify a comparison, meaning “even more”?",
+          "q": {
+            "zh": "哪个词可以加强比较，表示“更加”？",
+            "pinyin": "nǎ gè cí kě yǐ jiā qiáng bǐ jiào biǎo shì gèng jiā",
+            "en": "Which word can intensify a comparison, meaning “even more”?"
+          },
           "options": [
             {
               "zh": "更",
@@ -2999,7 +3251,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which pair connects a reason with its result?",
+          "q": {
+            "zh": "哪一组关联词连接原因和结果？",
+            "pinyin": "nǎ yī zǔ guān lián cí lián jiē yuán yīn hé jié guǒ",
+            "en": "Which pair connects a reason with its result?"
+          },
           "options": [
             {
               "zh": "因为……所以……",
@@ -3025,7 +3281,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pair expresses contrast or concession?",
+          "q": {
+            "zh": "哪一组关联词表示转折或让步？",
+            "pinyin": "nǎ yī zǔ guān lián cí biǎo shì zhuǎn zhé huò ràng bù",
+            "en": "Which pair expresses contrast or concession?"
+          },
           "options": [
             {
               "zh": "虽然……但是……",
@@ -3051,7 +3311,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pair expresses a condition and its result?",
+          "q": {
+            "zh": "哪一组关联词表示条件及其结果？",
+            "pinyin": "nǎ yī zǔ guān lián cí biǎo shì tiáo jiàn qí jié guǒ",
+            "en": "Which pair expresses a condition and its result?"
+          },
           "options": [
             {
               "zh": "如果……就……",
@@ -3077,7 +3341,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pair shows two actions happening at the same time?",
+          "q": {
+            "zh": "哪一组关联词表示两个动作同时发生？",
+            "pinyin": "nǎ yī zǔ guān lián cí biǎo shì liǎng gè dòng zuò tóng shí fā shēng",
+            "en": "Which pair shows two actions happening at the same time?"
+          },
           "options": [
             {
               "zh": "一边……一边……",
@@ -3103,7 +3371,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “Although she is tired, she continues studying”?",
+          "q": {
+            "zh": "哪个句子表示“虽然她很累，但她仍继续学习”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì suī rán tā hěn lèi dàn tā réng jì xù xué xí",
+            "en": "Which sentence means “Although she is tired, she continues studying”?"
+          },
           "options": [
             {
               "zh": "虽然很累，但是她继续学习",
@@ -3129,7 +3401,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pair adds a second, stronger point?",
+          "q": {
+            "zh": "哪一组关联词用于补充第二个更进一步的观点？",
+            "pinyin": "nǎ yī zǔ guān lián cí yòng yú bǔ chōng dì èr gè gèng jìn yī bù de guān diǎn",
+            "en": "Which pair adds a second, stronger point?"
+          },
           "options": [
             {
               "zh": "不但……而且……",
@@ -3301,7 +3577,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pattern means “Only if... can...”?",
+          "q": {
+            "zh": "哪种句型表示“只有……才……”？",
+            "pinyin": "nǎ zhǒng jù xíng biǎo shì zhǐ yǒu cái",
+            "en": "Which pattern means “Only if... can...”?"
+          },
           "options": [
             {
               "zh": "只有……才……",
@@ -3327,7 +3607,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pattern means “No matter what the conditions are, the result still holds”?",
+          "q": {
+            "zh": "哪种句型表示“不论条件如何，结果都不变”？",
+            "pinyin": "nǎ zhǒng jù xíng biǎo shì bù lùn tiáo jiàn rú jié guǒ dōu bù biàn",
+            "en": "Which pattern means “No matter what the conditions are, the result still holds”?"
+          },
           "options": [
             {
               "zh": "无论……都……",
@@ -3353,7 +3637,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which sentence means “My phone was taken away by my younger brother”?",
+          "q": {
+            "zh": "哪个句子表示“我的手机被弟弟拿走了”？",
+            "pinyin": "nǎ gè jù zǐ biǎo shì wǒ de shǒu jī bèi dì dì ná zǒu le",
+            "en": "Which sentence means “My phone was taken away by my younger brother”?"
+          },
           "options": [
             {
               "zh": "我的手机被弟弟拿走了",
@@ -3379,7 +3667,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which pattern uses an established fact as the reason for a conclusion?",
+          "q": {
+            "zh": "哪种句型以已知事实作为得出结论的理由？",
+            "pinyin": "nǎ zhǒng jù xíng yǐ yǐ zhī shì shí zuò wèi dé chū jié lùn de lǐ yóu",
+            "en": "Which pattern uses an established fact as the reason for a conclusion?"
+          },
           "options": [
             {
               "zh": "既然……就……",
@@ -3519,7 +3811,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which connector introduces a result or conclusion?",
+          "q": {
+            "zh": "哪个连接词用于引出结果或结论？",
+            "pinyin": "nǎ gè lián jiē cí yòng yú yǐn chū jié guǒ huò jié lùn",
+            "en": "Which connector introduces a result or conclusion?"
+          },
           "options": [
             {
               "zh": "因此",
@@ -3545,7 +3841,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which connector means “however”?",
+          "q": {
+            "zh": "哪个连接词表示“然而”？",
+            "pinyin": "nǎ gè lián jiē cí biǎo shì rán ér",
+            "en": "Which connector means “however”?"
+          },
           "options": [
             {
               "zh": "然而",
@@ -3571,7 +3871,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which connector adds information, meaning “in addition”?",
+          "q": {
+            "zh": "哪个连接词用于补充信息，表示“此外”？",
+            "pinyin": "nǎ gè lián jiē cí yòng yú bǔ chōng xìn xī biǎo shì cǐ wài",
+            "en": "Which connector adds information, meaning “in addition”?"
+          },
           "options": [
             {
               "zh": "此外",
@@ -3597,7 +3901,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word summarises a discussion as “in short”?",
+          "q": {
+            "zh": "哪个词用于概括讨论，表示“总之”？",
+            "pinyin": "nǎ gè cí yòng yú gài kuò tǎo lùn biǎo shì zhī",
+            "en": "Which word summarises a discussion as “in short”?"
+          },
           "options": [
             {
               "zh": "总之",
@@ -3623,7 +3931,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which connector marks a result opposite to expectation?",
+          "q": {
+            "zh": "哪个连接词表示结果与预期相反？",
+            "pinyin": "nǎ gè lián jiē cí biǎo shì jié guǒ yǔ yù qī xiāng fǎn",
+            "en": "Which connector marks a result opposite to expectation?"
+          },
           "options": [
             {
               "zh": "反而",
@@ -3679,7 +3991,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which connector can introduce an action that follows a situation, similar to “thereupon”?",
+          "q": {
+            "zh": "哪个连接词可以引出某种情况之后接着发生的动作，类似“于是”？",
+            "pinyin": "nǎ gè lián jiē cí kě yǐ yǐn chū mǒu zhǒng qíng kuàng zhī hòu jiē zhe fā shēng de dòng zuò lèi sì yú shì",
+            "en": "Which connector can introduce an action that follows a situation, similar to “thereupon”?"
+          },
           "options": [
             {
               "zh": "于是",
@@ -3789,7 +4105,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which expression means ruining something by adding unnecessary details?",
+          "q": {
+            "zh": "哪个表达表示“画蛇添足”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì huà tiān zú",
+            "en": "Which expression means ruining something by adding unnecessary details?"
+          },
           "options": [
             {
               "zh": "画蛇添足",
@@ -3815,7 +4135,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which idiom means taking corrective action after a problem has occurred?",
+          "q": {
+            "zh": "哪个成语表示“出了问题后及时补救”？",
+            "pinyin": "nǎ gè chéng yǔ biǎo shì chū le wèn tí hòu shí bǔ jiù",
+            "en": "Which idiom means taking corrective action after a problem has occurred?"
+          },
           "options": [
             {
               "zh": "亡羊补牢",
@@ -3841,7 +4165,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “to achieve two things with one action”?",
+          "q": {
+            "zh": "哪个表达表示“一举两得”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì yī jǔ liǎng dé",
+            "en": "Which expression means “to achieve two things with one action”?"
+          },
           "options": [
             {
               "zh": "一举两得",
@@ -3867,7 +4195,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which saying is a proverb about effort and results?",
+          "q": {
+            "zh": "哪句谚语强调努力与收获之间的关系？",
+            "pinyin": "nǎ jù yǔ qiáng diào nǔ lì yǔ shōu huò zhī jiān de guān xì",
+            "en": "Which saying is a proverb about effort and results?"
+          },
           "options": [
             {
               "zh": "一分耕耘，一分收获",
@@ -3923,7 +4255,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression advises people to follow local customs?",
+          "q": {
+            "zh": "哪个表达劝人入乡随俗？",
+            "pinyin": "nǎ gè biǎo dá quàn rén rù suí",
+            "en": "Which expression advises people to follow local customs?"
+          },
           "options": [
             {
               "zh": "入乡随俗",
@@ -3949,7 +4285,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression best fits someone adding unnecessary features to an already good design?",
+          "q": {
+            "zh": "哪个表达最适合形容在已经很好的设计上添加不必要的功能？",
+            "pinyin": "nǎ gè biǎo dá zuì shì hé xíng róng zài yǐ jīng hěn hǎo de shè jì shàng tiān jiā bù bì yào de gōng néng",
+            "en": "Which expression best fits someone adding unnecessary features to an already good design?"
+          },
           "options": [
             {
               "zh": "画蛇添足",
@@ -4059,7 +4399,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which word often suggests that something happened later than expected?",
+          "q": {
+            "zh": "哪个词常表示某事发生得比预期晚？",
+            "pinyin": "nǎ gè cí cháng biǎo shì mǒu shì fā shēng dé bǐ yù qī wǎn",
+            "en": "Which word often suggests that something happened later than expected?"
+          },
           "options": [
             {
               "zh": "才",
@@ -4085,7 +4429,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word stresses that a result was reached after a long process?",
+          "q": {
+            "zh": "哪个词强调经过较长过程后终于达到结果？",
+            "pinyin": "nǎ gè cí qiáng diào jīng guò jiào zhǎng guò chéng hòu zhōng yú dá dào jié guǒ",
+            "en": "Which word stresses that a result was reached after a long process?"
+          },
           "options": [
             {
               "zh": "终于",
@@ -4111,7 +4459,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word often means understanding facts or becoming familiar with a situation?",
+          "q": {
+            "zh": "哪个词常表示了解事实或熟悉某种情况？",
+            "pinyin": "nǎ gè cí cháng biǎo shì le jiě shì shí huò shú xī mǒu zhǒng qíng kuàng",
+            "en": "Which word often means understanding facts or becoming familiar with a situation?"
+          },
           "options": [
             {
               "zh": "了解",
@@ -4137,7 +4489,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which verb means to create something new, such as a device?",
+          "q": {
+            "zh": "哪个动词表示创造新事物，例如一种设备？",
+            "pinyin": "nǎ gè dòng cí biǎo shì chuàng zào xīn shì wù lì rú yī zhǒng shè bèi",
+            "en": "Which verb means to create something new, such as a device?"
+          },
           "options": [
             {
               "zh": "发明",
@@ -4163,7 +4519,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression means “This book is suitable for beginners”?",
+          "q": {
+            "zh": "哪个表达表示“这本书适合初学者”？",
+            "pinyin": "nǎ gè biǎo dá biǎo shì zhè běn shū shì hé chū xué zhě",
+            "en": "Which expression means “This book is suitable for beginners”?"
+          },
           "options": [
             {
               "zh": "这本书适合初学者",
@@ -4189,7 +4549,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word highlights a particularly notable item or person?",
+          "q": {
+            "zh": "哪个词强调某个人或事物特别突出？",
+            "pinyin": "nǎ gè cí qiáng diào mǒu gè rén huò shì wù tè bié tū chū",
+            "en": "Which word highlights a particularly notable item or person?"
+          },
           "options": [
             {
               "zh": "尤其",
@@ -4215,7 +4579,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which word can introduce an extreme or surprising example, meaning “even”?",
+          "q": {
+            "zh": "哪个词可以引出极端或令人惊讶的例子，表示“甚至”？",
+            "pinyin": "nǎ gè cí kě yǐ yǐn chū jí huò lìng rén jīng yà de lì zǐ biǎo shì zhì",
+            "en": "Which word can introduce an extreme or surprising example, meaning “even”?"
+          },
           "options": [
             {
               "zh": "甚至",
@@ -4325,7 +4693,11 @@ window.SWIFT_CHINESE_LESSONS = {
       ],
       "practices": [
         {
-          "q": "Which expression naturally responds to an apology?",
+          "q": {
+            "zh": "哪个表达可以自然地回应道歉？",
+            "pinyin": "nǎ gè biǎo dá kě yǐ zì rán de huí yīng dào qiàn",
+            "en": "Which expression naturally responds to an apology?"
+          },
           "options": [
             {
               "zh": "没关系",
@@ -4351,7 +4723,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which expression acknowledges someone's effort?",
+          "q": {
+            "zh": "哪个表达可以表示对他人付出的认可？",
+            "pinyin": "nǎ gè biǎo dá kě yǐ biǎo shì duì tā rén chū de rèn kě",
+            "en": "Which expression acknowledges someone's effort?"
+          },
           "options": [
             {
               "zh": "辛苦了",
@@ -4467,7 +4843,11 @@ window.SWIFT_CHINESE_LESSONS = {
           "answer": 0
         },
         {
-          "q": "Which classical saying is from Xunzi's Encouraging Learning and stresses gradual accumulation?",
+          "q": {
+            "zh": "哪句古语出自《荀子·劝学》，强调逐步积累的重要性？",
+            "pinyin": "nǎ jù gǔ yǔ chū zì zǐ quàn xué qiáng diào bù jī lèi de zhòng yào xìng",
+            "en": "Which classical saying is from Xunzi's Encouraging Learning and stresses gradual accumulation?"
+          },
           "options": [
             {
               "zh": "不积跬步，无以至千里",

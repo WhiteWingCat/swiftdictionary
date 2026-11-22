@@ -5,7 +5,6 @@
 .permanent-lessons-heading .eyebrow{margin:0 0 7px;color:#a9c4f5;letter-spacing:.13em}
 .permanent-lessons-heading h2{margin:0 0 7px;color:#f5f8ff;font-size:clamp(1.45rem,2.5vw,2rem)}
 .permanent-lessons-heading p:not(.eyebrow){max-width:720px;margin:0;color:#d0dced;line-height:1.65}
-.permanent-lessons-mark{display:grid;place-items:center;flex:0 0 54px;width:54px;height:54px;border:1px solid #617ba8;border-radius:17px;background:linear-gradient(145deg,#344c73,#253550);color:#dce8ff;font-size:1.65rem;box-shadow:0 8px 20px #0003}
 #permanentLessonsPanel .difficulty-tabs{display:flex;flex-wrap:wrap;gap:9px;width:max-content;max-width:100%;margin:19px 0 14px;padding:6px;border:1px solid #3a4a65;border-radius:15px;background:#080e1952}
 #permanentLessonsPanel .difficulty-tab{min-width:112px;padding:10px 17px;border:1px solid transparent;border-radius:10px;background:transparent;color:#d5deed;font-weight:750;transition:transform .2s,background .2s,color .2s,box-shadow .2s}
 #permanentLessonsPanel .difficulty-tab:hover{transform:translateY(-2px);background:#90aada1f;color:#fff}
@@ -28,7 +27,6 @@
 .lesson-daily-section{padding:clamp(18px,2.4vw,28px);border:1px solid #394a63;border-radius:21px;background:linear-gradient(145deg,#1b2535,#19212f);box-shadow:0 8px 22px #0003}
 .daily-learning-section-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .daily-learning-section-heading h2{margin:2px 0 7px;color:#f5f8ff}.daily-learning-section-heading .page-intro{margin:0;color:#d0dced}
-.daily-learning-heading-mark{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border:1px solid #4b6387;border-radius:15px;background:linear-gradient(145deg,#30486b,#25364f);color:#dce8ff;font-size:1.5rem}
 #dailyLearningStatus{color:#d0dced}.daily-activity-grid{margin:18px 0 0}
 .daily-activity-tabs{display:flex;align-items:flex-end;gap:8px;overflow-x:auto;padding:3px 7px 0;margin:0;border:0;scrollbar-width:thin}
 .daily-activity-tab{position:relative;flex:0 0 auto;min-height:48px;margin:0 0 -1px;padding:12px 18px;border:1px solid transparent;border-bottom:0;border-radius:14px 14px 0 0;color:#f7f9ff;font-size:.96rem;font-weight:750;box-shadow:0 7px 18px #0003,inset 0 1px #ffffff1f;transition:transform .2s,filter .2s,box-shadow .2s}
@@ -91,8 +89,8 @@
 #dailyActivityReader .daily-activity-modal{width:50vw;min-width:460px;max-width:900px;height:100dvh;max-height:100dvh;margin:0;padding:clamp(22px,3vw,42px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #435777;border-left:0;border-radius:0 23px 23px 0;background:radial-gradient(circle at 95% 0,#7192cf29,transparent 30%),linear-gradient(150deg,#1d2b40,#141d2b);color:#f5f8ff;box-shadow:0 18px 50px #0006;transform:translateX(-100%);opacity:.6}
 #dailyActivityReader.open .daily-activity-modal{animation:dailyDrawerIn .42s cubic-bezier(.2,.75,.25,1) both}
 #dailyActivityReader.closing{pointer-events:none}#dailyActivityReader.closing .daily-activity-modal{animation:dailyDrawerOut .22s ease-in both}
-@keyframes dailyDrawerIn{from{opacity:.55;transform:translateX(-32px)}to{opacity:1;transform:translateX(0)}}
-@keyframes dailyDrawerOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-24px)}}
+@keyframes dailyDrawerIn{from{opacity:.55;transform:translateX(-100%)}to{opacity:1;transform:translateX(0)}}
+@keyframes dailyDrawerOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-100%)}}
 #dailyActivityReader .daily-drawer-actions{position:sticky;top:-1px;z-index:2;padding:0 0 10px;background:linear-gradient(#1d2b40 82%,transparent)}
 #dailyActivityReader .daily-activity-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 #dailyActivityReader h2,#dailyActivityReader h3{color:#f7f9ff}
@@ -117,12 +115,12 @@
 #dailyActivityReader .daily-discovery-modal .example-list li{color:#e3ebf8}
 @media(max-width:900px){#lessonReader.lesson-detail-reader{max-width:100%}#dailyActivityReader .daily-activity-modal,#dailyActivityReader .daily-discovery-modal{width:62vw;min-width:0}}
 @media(max-width:650px){
-#permanentLessonsPanel.permanent-lessons-panel{padding:16px;border-radius:17px}.permanent-lessons-heading{align-items:flex-start}.permanent-lessons-mark{flex-basis:42px;width:42px;height:42px;border-radius:13px}
+#permanentLessonsPanel.permanent-lessons-panel{padding:16px;border-radius:17px}.permanent-lessons-heading{align-items:flex-start}
 #permanentLessonsPanel .difficulty-tabs{width:100%}#permanentLessonsPanel .difficulty-tab{flex:1 1 0;min-width:0;padding:10px 7px;font-size:.86rem}
 #lessonLibrary{padding:12px}#lessonAllowance{align-items:flex-start;flex-direction:column}
 .lesson-library-toolbar,.lesson-library-filters{align-items:stretch;flex-direction:column}
 #lessonLibrary .lesson-card{grid-template-columns:minmax(0,1fr);gap:9px}#lessonLibrary .lesson-status{justify-self:start}
-.daily-learning-section-heading{align-items:flex-start}.daily-learning-heading-mark{flex-basis:39px;width:39px;height:39px}
+.daily-learning-section-heading{align-items:flex-start}
 .daily-activity-tabs{gap:6px;padding-inline:2px}.daily-activity-tab{min-height:44px;padding:10px 12px;font-size:.86rem}
 .daily-activity-panel{padding:15px;border-radius:0 13px 13px 13px}.daily-activity-heading{align-items:flex-start;flex-direction:column}.daily-activity-count{align-items:flex-start}
 .daily-preferences-card .daily-preferences{grid-template-columns:1fr}
@@ -170,7 +168,7 @@
 .daily-activity-allowance.exhausted .daily-activity-allowance-track span{background:#df9292}
 .daily-activity-allowance.unavailable .daily-activity-allowance-track{opacity:.3}
 #dailyActivityReader.daily-activity-backdrop.open{display:flex!important;visibility:visible;opacity:1;z-index:3000;isolation:isolate}
-#dailyActivityReader .daily-activity-modal{position:relative;display:block;flex:0 0 min(50vw,900px);width:min(50vw,900px);min-width:0;max-width:900px;transform:translateX(0);visibility:visible;opacity:1}
+#dailyActivityReader .daily-activity-modal{position:relative;display:block;flex:0 0 min(50vw,900px);width:min(50vw,900px);min-width:0;max-width:900px;visibility:visible;will-change:transform,opacity}
 @media(max-width:900px){#dailyActivityReader .daily-activity-modal{flex-basis:62vw;width:62vw}}
 @media(max-width:650px){#dailyActivityReader .daily-activity-modal{flex-basis:100vw;width:100vw}}
 @media(max-width:900px){

@@ -545,7 +545,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 ér",
+        "definition": "child; son",
+        "definitionZh": "孩子、儿子。",
+        "examples": [
+          "儿子在学校学习。"
+        ]
+      },
+      {
+        "part": "读音 er",
+        "definition": "neutral diminutive suffix",
+        "definitionZh": "儿化或口语词尾，常使表达更亲切。",
+        "examples": [
+          "花儿开了。"
+        ]
+      }
+    ]
   },
   {
     "word": "放",
@@ -637,7 +655,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 fēn",
+        "definition": "to divide; distribute; minute",
+        "definitionZh": "分开、分配；也表示时间单位“分钟”。",
+        "examples": [
+          "请把苹果分成两份。"
+        ]
+      },
+      {
+        "part": "读音 fèn",
+        "definition": "part; share; portion",
+        "definitionZh": "部分、份额或本分。",
+        "examples": [
+          "这是我应该做的部分。"
+        ]
+      }
+    ]
   },
   {
     "word": "干",
@@ -660,7 +696,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 gān",
+        "definition": "dry; not wet",
+        "definitionZh": "干燥、不潮湿。",
+        "examples": [
+          "衣服已经干了。"
+        ]
+      },
+      {
+        "part": "读音 gàn",
+        "definition": "to do; work",
+        "definitionZh": "做、从事或工作。",
+        "examples": [
+          "他在办公室干活。"
+        ]
+      }
+    ]
   },
   {
     "word": "高",
@@ -821,7 +875,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 guò",
+        "definition": "to pass; cross; go through",
+        "definitionZh": "经过、越过或度过。",
+        "examples": [
+          "我们走过那座桥。"
+        ]
+      },
+      {
+        "part": "读音 guo",
+        "definition": "experiential aspect particle",
+        "definitionZh": "动态助词，表示曾经有过某种经历。",
+        "examples": [
+          "我去过北京。"
+        ]
+      }
+    ]
   },
   {
     "word": "孩",
@@ -889,7 +961,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 hào",
+        "definition": "number; date; name; mark",
+        "definitionZh": "编号、日期、名称或标记。",
+        "examples": [
+          "请写下你的电话号码。"
+        ]
+      },
+      {
+        "part": "读音 háo",
+        "definition": "to wail; cry loudly",
+        "definitionZh": "大声哭喊或呼号。",
+        "examples": [
+          "远处传来一阵哀号。"
+        ]
+      }
+    ]
   },
   {
     "word": "候",
@@ -1028,7 +1118,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jǐ",
+        "definition": "how many; several; a few",
+        "definitionZh": "多少；若干、几个。",
+        "examples": [
+          "你有几个朋友？"
+        ]
+      },
+      {
+        "part": "读音 jī",
+        "definition": "nearly; almost",
+        "definitionZh": "用于“几乎”，表示差一点或接近。",
+        "examples": [
+          "我几乎忘了这件事。"
+        ]
+      }
+    ]
   },
   {
     "word": "记",
@@ -1074,7 +1182,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jiǎ",
+        "definition": "false; fake; not genuine",
+        "definitionZh": "不真实、假的；也可表示借用。",
+        "examples": [
+          "这是一张假票。"
+        ]
+      },
+      {
+        "part": "读音 jià",
+        "definition": "holiday; leave",
+        "definitionZh": "假期、休假。",
+        "examples": [
+          "下星期学校放假。"
+        ]
+      }
+    ]
   },
   {
     "word": "间",
@@ -1097,7 +1223,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jiān",
+        "definition": "between; among; room",
+        "definitionZh": "中间、之间；也指房间。",
+        "examples": [
+          "房间里有一张桌子。"
+        ]
+      },
+      {
+        "part": "读音 jiàn",
+        "definition": "interval; separate",
+        "definitionZh": "间隔、隔开或离间。",
+        "examples": [
+          "两座房子之间有一条小路。"
+        ]
+      }
+    ]
   },
   {
     "word": "见",
@@ -1120,7 +1264,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jiàn",
+        "definition": "to see; meet; encounter",
+        "definitionZh": "看见、遇见或会面。",
+        "examples": [
+          "我明天见你。"
+        ]
+      },
+      {
+        "part": "读音 xiàn",
+        "definition": "to appear; become visible",
+        "definitionZh": "显现、出现，常见于固定成语。",
+        "examples": [
+          "图穷匕见。"
+        ]
+      }
+    ]
   },
   {
     "word": "教",
@@ -1143,7 +1305,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jiāo",
+        "definition": "to teach; instruct",
+        "definitionZh": "把知识或技能传授给别人。",
+        "examples": [
+          "老师教我们中文。"
+        ]
+      },
+      {
+        "part": "读音 jiào",
+        "definition": "education; teaching; religion",
+        "definitionZh": "教育、教导；也可指宗教。",
+        "examples": [
+          "学校重视素质教育。"
+        ]
+      }
+    ]
   },
   {
     "word": "叫",
@@ -1190,7 +1370,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jué",
+        "definition": "to feel; sense; become aware",
+        "definitionZh": "感觉、察觉或意识到。",
+        "examples": [
+          "我觉得这个办法很好。"
+        ]
+      },
+      {
+        "part": "读音 jiào",
+        "definition": "sleep; a period of sleep",
+        "definitionZh": "睡眠或一段睡眠时间。",
+        "examples": [
+          "孩子睡了一觉。"
+        ]
+      }
+    ]
   },
   {
     "word": "介",
@@ -1506,6 +1704,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 lèi",
+        "definition": "tired; weary",
+        "definitionZh": "疲倦、劳累。",
+        "examples": [
+          "工作一天以后我很累。"
+        ]
+      },
+      {
+        "part": "读音 lěi",
+        "definition": "to accumulate; repeated",
+        "definitionZh": "积累、累积或连续。",
+        "examples": [
+          "知识需要慢慢积累。"
+        ]
+      }
     ]
   },
   {
@@ -1756,6 +1972,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 nán",
+        "definition": "difficult; hard",
+        "definitionZh": "不容易、困难。",
+        "examples": [
+          "这道题不难。"
+        ]
+      },
+      {
+        "part": "读音 nàn",
+        "definition": "disaster; calamity",
+        "definitionZh": "灾难、祸患或危难。",
+        "examples": [
+          "灾难发生后，大家互相帮助。"
+        ]
+      }
     ]
   },
   {
@@ -2123,6 +2357,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 shén",
+        "definition": "what",
+        "definitionZh": "用于“什么”等疑问表达。",
+        "examples": [
+          "你想吃什么？"
+        ]
+      },
+      {
+        "part": "读音 shí",
+        "definition": "assorted; miscellaneous",
+        "definitionZh": "杂项、各种各样；也见于“什锦”。",
+        "examples": [
+          "我点了一份什锦炒饭。"
+        ]
+      }
     ]
   },
   {
@@ -2213,6 +2465,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 shí",
+        "definition": "to know; recognize; knowledge",
+        "definitionZh": "认识、辨认或知识。",
+        "examples": [
+          "我认识这位老师。"
+        ]
+      },
+      {
+        "part": "读音 zhì",
+        "definition": "to remember (literary)",
+        "definitionZh": "记住、记忆，常见于文言词语。",
+        "examples": [
+          "博闻强识。"
+        ]
+      }
     ]
   },
   {
@@ -2443,6 +2713,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 tóng",
+        "definition": "same; together; with",
+        "definitionZh": "相同、一起或与……相同。",
+        "examples": [
+          "我们在同一所学校学习。"
+        ]
+      },
+      {
+        "part": "读音 tòng",
+        "definition": "reading in 胡同",
+        "definitionZh": "用于“胡同”一词。",
+        "examples": [
+          "这条胡同很安静。"
+        ]
+      }
     ]
   },
   {
@@ -2717,6 +3005,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 xì",
+        "definition": "to connect; relate; system",
+        "definitionZh": "连接、关联；系统或院系。",
+        "examples": [
+          "这两个问题有关系。"
+        ]
+      },
+      {
+        "part": "读音 jì",
+        "definition": "to tie; fasten; bind",
+        "definitionZh": "系上、拴住或扣好。",
+        "examples": [
+          "出门前记得系好鞋带。"
+        ]
+      }
     ]
   },
   {
@@ -2948,6 +3254,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 xīng",
+        "definition": "to rise; flourish",
+        "definitionZh": "兴起、兴盛或发展起来。",
+        "examples": [
+          "这个行业正在兴起。"
+        ]
+      },
+      {
+        "part": "读音 xìng",
+        "definition": "interest; enthusiasm; mood",
+        "definitionZh": "兴趣、兴致或兴味。",
+        "examples": [
+          "他对历史很有兴趣。"
+        ]
+      }
     ]
   },
   {
@@ -3129,6 +3453,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 yǔ",
+        "definition": "language; speech; words; dialect",
+        "definitionZh": "语言、话语或方言。",
+        "examples": [
+          "学习外语需要多练习。"
+        ]
+      },
+      {
+        "part": "读音 yù",
+        "definition": "to tell; inform (literary)",
+        "definitionZh": "古义，表示告诉或告知。",
+        "examples": [
+          "古文中“语人”有告诉别人的意思。"
+        ]
+      }
     ]
   },
   {
@@ -3324,6 +3666,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 zhèng",
+        "definition": "straight; correct; proper",
+        "definitionZh": "端正、正确；也表示正在或正好。",
+        "examples": [
+          "答案是正确的。"
+        ]
+      },
+      {
+        "part": "读音 zhēng",
+        "definition": "first lunar month",
+        "definitionZh": "用于“正月”，指农历一月。",
+        "examples": [
+          "正月十五是元宵节。"
+        ]
+      }
     ]
   },
   {
@@ -3370,6 +3730,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 zhòng",
+        "definition": "heavy; serious; important",
+        "definitionZh": "重量大；严重或重要。",
+        "examples": [
+          "这件行李很重。"
+        ]
+      },
+      {
+        "part": "读音 chóng",
+        "definition": "again; repeat; layer",
+        "definitionZh": "重复、重新或一层。",
+        "examples": [
+          "请你重新读一遍。"
+        ]
+      }
     ]
   },
   {
@@ -3416,6 +3794,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 zǐ",
+        "definition": "child; son; seed",
+        "definitionZh": "孩子、儿子或种子。",
+        "examples": [
+          "孩子们在公园玩。"
+        ]
+      },
+      {
+        "part": "读音 zi",
+        "definition": "neutral noun suffix",
+        "definitionZh": "常作名词后缀，通常读轻声。",
+        "examples": [
+          "桌子上有一本书。"
+        ]
+      }
     ]
   },
   {
@@ -3507,6 +3903,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 zuò",
+        "definition": "to do; make; write; compose",
+        "definitionZh": "做、从事、写作或创作。",
+        "examples": [
+          "他正在做作业。"
+        ]
+      },
+      {
+        "part": "读音 zuō",
+        "definition": "workshop",
+        "definitionZh": "用于“作坊”，指手工业生产场所。",
+        "examples": [
+          "老街上还有一家传统作坊。"
+        ]
+      }
     ]
   },
   {
@@ -3848,6 +4262,32 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 cān",
+        "definition": "to take part; participate",
+        "definitionZh": "参加、参与或参见。",
+        "examples": [
+          "我想参加这个活动。"
+        ]
+      },
+      {
+        "part": "读音 shēn",
+        "definition": "ginseng",
+        "definitionZh": "人参这种药用植物。",
+        "examples": [
+          "人参常用于传统药材。"
+        ]
+      },
+      {
+        "part": "读音 cēn",
+        "definition": "uneven; irregular",
+        "definitionZh": "用于“参差”，表示不整齐或高低不齐。",
+        "examples": [
+          "山峰高低参差。"
+        ]
+      }
     ]
   },
   {
@@ -3917,6 +4357,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 chá",
+        "definition": "to check; investigate; look up",
+        "definitionZh": "检查、查找或调查。",
+        "examples": [
+          "请查一下这个词的意思。"
+        ]
+      },
+      {
+        "part": "读音 zhā",
+        "definition": "surname Zha",
+        "definitionZh": "作为姓氏时读 zhā。",
+        "examples": [
+          "查先生今天来访。"
+        ]
+      }
     ]
   },
   {
@@ -3985,6 +4443,32 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 chēng",
+        "definition": "to call; name; weigh; praise",
+        "definitionZh": "称呼、称重或称赞。",
+        "examples": [
+          "大家称他为老师。"
+        ]
+      },
+      {
+        "part": "读音 chèn",
+        "definition": "suitable; fit; match",
+        "definitionZh": "相称、合适或符合。",
+        "examples": [
+          "这件衣服很称身。"
+        ]
+      },
+      {
+        "part": "读音 chèng",
+        "definition": "scales; weighing instrument",
+        "definitionZh": "较少见的读音，可指称量工具。",
+        "examples": [
+          "老式称具用于称重。"
+        ]
+      }
     ]
   },
   {
@@ -4054,6 +4538,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 chù",
+        "definition": "place; location; department",
+        "definitionZh": "地点、方面或部门。",
+        "examples": [
+          "到处都能看到花。"
+        ]
+      },
+      {
+        "part": "读音 chǔ",
+        "definition": "to reside; deal with; get along",
+        "definitionZh": "居住、相处或处理。",
+        "examples": [
+          "我们要妥善处理问题。"
+        ]
+      }
     ]
   },
   {
@@ -4195,6 +4697,32 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 dān",
+        "definition": "single; only; list; form; bill",
+        "definitionZh": "单独、单一；名单、单据或账单。",
+        "examples": [
+          "请填写这张清单。"
+        ]
+      },
+      {
+        "part": "读音 shàn",
+        "definition": "surname Shan",
+        "definitionZh": "作为姓氏时读 shàn。",
+        "examples": [
+          "单老师今天上课。"
+        ]
+      },
+      {
+        "part": "读音 chán",
+        "definition": "reading in 单于",
+        "definitionZh": "用于古代称号“单于”。",
+        "examples": [
+          "史书中记载了单于。"
+        ]
+      }
     ]
   },
   {
@@ -4241,6 +4769,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 dào",
+        "definition": "to pour; turn upside down; reverse",
+        "definitionZh": "倒出、倒置或反过来。",
+        "examples": [
+          "请把水倒进杯子里。"
+        ]
+      },
+      {
+        "part": "读音 dǎo",
+        "definition": "to fall; collapse; topple",
+        "definitionZh": "倒下、跌倒或倒塌。",
+        "examples": [
+          "大风把树吹倒了。"
+        ]
+      }
     ]
   },
   {
@@ -4377,6 +4923,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 dù",
+        "definition": "degree; extent; measure; spend time",
+        "definitionZh": "程度、度数或限度；也表示度过。",
+        "examples": [
+          "今天的温度很高。"
+        ]
+      },
+      {
+        "part": "读音 duó",
+        "definition": "to estimate; assess",
+        "definitionZh": "估量、推测，常见于“揣度”。",
+        "examples": [
+          "不要随意揣度别人的想法。"
+        ]
+      }
     ]
   },
   {
@@ -5259,6 +5823,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 liáng",
+        "definition": "cool; cold",
+        "definitionZh": "凉爽、微冷。",
+        "examples": [
+          "今天晚上天气很凉。"
+        ]
+      },
+      {
+        "part": "读音 liàng",
+        "definition": "to let cool; air out",
+        "definitionZh": "使东西变凉或晾凉。",
+        "examples": [
+          "把汤放一会儿凉一凉。"
+        ]
+      }
     ]
   },
   {
@@ -5328,6 +5910,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 liàng",
+        "definition": "amount; quantity; capacity",
+        "definitionZh": "数量、容量或限度。",
+        "examples": [
+          "请控制食物的分量。"
+        ]
+      },
+      {
+        "part": "读音 liáng",
+        "definition": "to measure; estimate",
+        "definitionZh": "测量、估量。",
+        "examples": [
+          "工人正在测量房间的长度。"
+        ]
+      }
     ]
   },
   {
@@ -5420,6 +6020,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 lǜ",
+        "definition": "green; to turn green",
+        "definitionZh": "绿色或变绿。",
+        "examples": [
+          "春天树叶变绿了。"
+        ]
+      },
+      {
+        "part": "读音 lù",
+        "definition": "reading in 绿林",
+        "definitionZh": "用于历史名称“绿林”，读 lù。",
+        "examples": [
+          "绿林起义见于中国历史。"
+        ]
+      }
     ]
   },
   {
@@ -5443,6 +6061,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 lùn",
+        "definition": "to discuss; theory; opinion",
+        "definitionZh": "讨论、论述；观点或理论。",
+        "examples": [
+          "我们正在讨论这个问题。"
+        ]
+      },
+      {
+        "part": "读音 lún",
+        "definition": "reading in 论语",
+        "definitionZh": "用于经典书名《论语》。",
+        "examples": [
+          "《论语》记录了孔子的言行。"
+        ]
+      }
     ]
   },
   {
@@ -5536,6 +6172,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 nòng",
+        "definition": "to do; handle; manage; play with",
+        "definitionZh": "做、处理、摆弄或弄清楚。",
+        "examples": [
+          "我终于弄明白了。"
+        ]
+      },
+      {
+        "part": "读音 lòng",
+        "definition": "lane; alley",
+        "definitionZh": "小巷、弄堂，常见于部分地区地名。",
+        "examples": [
+          "上海老城区有许多弄堂。"
+        ]
+      }
     ]
   },
   {
@@ -5695,6 +6349,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 piàn",
+        "definition": "slice; piece; film; area; classifier",
+        "definitionZh": "薄片、片段、电影或区域；也作量词。",
+        "examples": [
+          "请给我一片面包。"
+        ]
+      },
+      {
+        "part": "读音 piān",
+        "definition": "brief; one-sided (literary)",
+        "definitionZh": "用于“片言”等较书面的固定词语。",
+        "examples": [
+          "片言只语也能传达意思。"
+        ]
+      }
     ]
   },
   {
@@ -5719,6 +6391,32 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 piāo",
+        "definition": "to float; drift",
+        "definitionZh": "漂浮、漂流。",
+        "examples": [
+          "树叶漂在水面上。"
+        ]
+      },
+      {
+        "part": "读音 piǎo",
+        "definition": "to bleach; wash",
+        "definitionZh": "漂白或用水洗涤。",
+        "examples": [
+          "这件白衬衫需要漂白。"
+        ]
+      },
+      {
+        "part": "读音 piào",
+        "definition": "beautiful; pretty",
+        "definitionZh": "用于“漂亮”，表示美观。",
+        "examples": [
+          "这幅画很漂亮。"
+        ]
+      }
     ]
   },
   {
@@ -5992,6 +6690,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 wàn",
+        "definition": "ten thousand; myriad",
+        "definitionZh": "数字一万；也表示数量极多。",
+        "examples": [
+          "这里有成千上万的人。"
+        ]
+      },
+      {
+        "part": "读音 mò",
+        "definition": "reading in 万俟",
+        "definitionZh": "用于复姓“万俟”，读 mò。",
+        "examples": [
+          "万俟是一个较少见的复姓。"
+        ]
+      }
     ]
   },
   {
@@ -6061,6 +6777,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 wéi",
+        "definition": "to act as; become; do",
+        "definitionZh": "作为、成为、做或充当。",
+        "examples": [
+          "他决定为大家服务。"
+        ]
+      },
+      {
+        "part": "读音 wèi",
+        "definition": "for; because of; on behalf of",
+        "definitionZh": "为了、因为或替某人。",
+        "examples": [
+          "我为你感到高兴。"
+        ]
+      }
     ]
   },
   {
@@ -6272,6 +7006,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 xiāng",
+        "definition": "each other; mutually; together",
+        "definitionZh": "相互、彼此。",
+        "examples": [
+          "我们应该互相帮助。"
+        ]
+      },
+      {
+        "part": "读音 xiàng",
+        "definition": "appearance; image; phase",
+        "definitionZh": "外貌、样子或形象。",
+        "examples": [
+          "他看起来相貌和善。"
+        ]
+      }
     ]
   },
   {
@@ -6823,6 +7575,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 yīng",
+        "definition": "should; ought to",
+        "definitionZh": "应该、应当。",
+        "examples": [
+          "我们应该遵守规则。"
+        ]
+      },
+      {
+        "part": "读音 yìng",
+        "definition": "to respond; answer; agree",
+        "definitionZh": "回应、答应或应对。",
+        "examples": [
+          "请尽快回应这封邮件。"
+        ]
+      }
     ]
   },
   {
@@ -7445,6 +8215,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 huá",
+        "definition": "to row; paddle; scratch",
+        "definitionZh": "划船、划动或刮擦。",
+        "examples": [
+          "他们在湖上划船。"
+        ]
+      },
+      {
+        "part": "读音 huà",
+        "definition": "to divide; draw; plan",
+        "definitionZh": "划分、画线或计划安排。",
+        "examples": [
+          "我们先计划好路线。"
+        ]
+      }
     ]
   },
   {
@@ -7988,6 +8776,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 jié",
+        "definition": "knot; tie; bond; result",
+        "definitionZh": "打结、结合或结果。",
+        "examples": [
+          "他们结为好朋友。"
+        ]
+      },
+      {
+        "part": "读音 jiē",
+        "definition": "to bear fruit",
+        "definitionZh": "植物结果实。",
+        "examples": [
+          "这棵树今年结了很多果子。"
+        ]
+      }
     ]
   },
   {
@@ -8562,6 +9368,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 sè",
+        "definition": "color; look; appearance",
+        "definitionZh": "颜色、色彩或外观。",
+        "examples": [
+          "这件衣服的颜色很鲜艳。"
+        ]
+      },
+      {
+        "part": "读音 shǎi",
+        "definition": "reading in 色子",
+        "definitionZh": "用于“色子”，指骰子。",
+        "examples": [
+          "他拿起色子开始游戏。"
+        ]
+      }
     ]
   },
   {
@@ -8609,6 +9433,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 shěng",
+        "definition": "province; save; economize",
+        "definitionZh": "省份；节省或减少开支。",
+        "examples": [
+          "广东省位于中国南部。"
+        ]
+      },
+      {
+        "part": "读音 xǐng",
+        "definition": "to reflect; examine oneself",
+        "definitionZh": "反省、醒悟或省察。",
+        "examples": [
+          "我们应该认真反省。"
+        ]
+      }
     ]
   },
   {
@@ -8655,6 +9497,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 shí",
+        "definition": "to eat; food; diet",
+        "definitionZh": "吃、食物或饮食。",
+        "examples": [
+          "健康饮食很重要。"
+        ]
+      },
+      {
+        "part": "读音 sì",
+        "definition": "to feed; provide food (classical)",
+        "definitionZh": "古义，表示喂养或供给食物。",
+        "examples": [
+          "古文中“食马”有喂马之意。"
+        ]
+      }
     ]
   },
   {
@@ -8862,6 +9722,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 shú",
+        "definition": "ripe; mature; cooked; familiar",
+        "definitionZh": "成熟、熟透或熟悉。",
+        "examples": [
+          "米饭已经煮熟了。"
+        ]
+      },
+      {
+        "part": "读音 shóu",
+        "definition": "colloquial pronunciation of 熟",
+        "definitionZh": "口语中的变读，常见于部分地区的日常表达。",
+        "examples": [
+          "这件事我很熟。"
+        ]
+      }
     ]
   },
   {
@@ -8885,6 +9763,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 shǔ",
+        "definition": "to count; enumerate",
+        "definitionZh": "数数、计算或逐一列举。",
+        "examples": [
+          "请数一数桌上的苹果。"
+        ]
+      },
+      {
+        "part": "读音 shù",
+        "definition": "number; figure; quantity",
+        "definitionZh": "数字、数量或数目。",
+        "examples": [
+          "这个数字很重要。"
+        ]
+      }
     ]
   },
   {
@@ -9205,6 +10101,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 tí",
+        "definition": "to lift; carry; mention",
+        "definitionZh": "提起、拿起或提出。",
+        "examples": [
+          "请提出你的问题。"
+        ]
+      },
+      {
+        "part": "读音 dī",
+        "definition": "reading in 提防",
+        "definitionZh": "用于“提防”，表示小心、防备。",
+        "examples": [
+          "出门时要提防小偷。"
+        ]
+      }
     ]
   },
   {
@@ -9342,6 +10256,24 @@ window.SWIFT_CHINESE_WORDS = [
       "cc-cedict-2026-11-20",
       "unihan-18.0.0",
       "hsk30-pleco"
+    ],
+    "senses": [
+      {
+        "part": "读音 tōng",
+        "definition": "to pass through; connect; communicate",
+        "definitionZh": "通过、连通、沟通或通晓。",
+        "examples": [
+          "这条路通往车站。"
+        ]
+      },
+      {
+        "part": "读音 tòng",
+        "definition": "classifier for a complete call or activity",
+        "definitionZh": "用于“一通电话”等，表示一次完整的动作或过程。",
+        "examples": [
+          "我刚接到一通电话。"
+        ]
+      }
     ]
   },
   {
@@ -9499,7 +10431,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 zāng",
+        "definition": "dirty; filthy",
+        "definitionZh": "不干净、有污垢。",
+        "examples": [
+          "这件衣服很脏。"
+        ]
+      },
+      {
+        "part": "读音 zàng",
+        "definition": "internal organs",
+        "definitionZh": "内脏，指身体内部器官。",
+        "examples": [
+          "心脏是重要的器官。"
+        ]
+      }
+    ]
   },
   {
     "word": "澡",
@@ -9543,7 +10493,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 zhàn",
+        "definition": "to occupy; take up",
+        "definitionZh": "占据、占用或占有。",
+        "examples": [
+          "这张桌子占了很多空间。"
+        ]
+      },
+      {
+        "part": "读音 zhān",
+        "definition": "to divine; tell fortunes",
+        "definitionZh": "占卜、预测吉凶。",
+        "examples": [
+          "古人有时通过龟甲占卜。"
+        ]
+      }
+    ]
   },
   {
     "word": "照",
@@ -10180,7 +11148,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 céng",
+        "definition": "once; formerly; in the past",
+        "definitionZh": "曾经、以前。",
+        "examples": [
+          "我曾经住在这里。"
+        ]
+      },
+      {
+        "part": "读音 zēng",
+        "definition": "great-grand; reading in 曾孙",
+        "definitionZh": "用于“曾孙”等亲属称谓，也可作姓氏。",
+        "examples": [
+          "他的曾孙已经上学了。"
+        ]
+      }
+    ]
   },
   {
     "word": "察",
@@ -10271,7 +11257,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 cháo",
+        "definition": "toward; facing; dynasty; court",
+        "definitionZh": "朝向、面对；朝代或朝廷。",
+        "examples": [
+          "他朝着门口走去。"
+        ]
+      },
+      {
+        "part": "读音 zhāo",
+        "definition": "morning; early in the day",
+        "definitionZh": "早晨、朝阳。",
+        "examples": [
+          "朝阳从山后升起。"
+        ]
+      }
+    ]
   },
   {
     "word": "吵",
@@ -10537,7 +11541,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 chuàng",
+        "definition": "to create; initiate; establish",
+        "definitionZh": "创造、开创或创立。",
+        "examples": [
+          "她创作了一幅新作品。"
+        ]
+      },
+      {
+        "part": "读音 chuāng",
+        "definition": "wound; injury",
+        "definitionZh": "伤口或创伤。",
+        "examples": [
+          "他的手臂受了创伤。"
+        ]
+      }
+    ]
   },
   {
     "word": "此",
@@ -10673,7 +11695,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 dài",
+        "definition": "to wait; treat; deal with",
+        "definitionZh": "等待、对待或处理。",
+        "examples": [
+          "请耐心等待结果。"
+        ]
+      },
+      {
+        "part": "读音 dāi",
+        "definition": "to stay; remain",
+        "definitionZh": "停留、待在某处。",
+        "examples": [
+          "今天我待在家里。"
+        ]
+      }
+    ]
   },
   {
     "word": "刀",
@@ -10763,7 +11803,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 diào",
+        "definition": "to transfer; investigate; tune",
+        "definitionZh": "调动、调查或调配。",
+        "examples": [
+          "公司决定调他去上海。"
+        ]
+      },
+      {
+        "part": "读音 tiáo",
+        "definition": "to adjust; regulate; harmonize",
+        "definitionZh": "调整、调节或调和。",
+        "examples": [
+          "请调整一下音量。"
+        ]
+      }
+    ]
   },
   {
     "word": "订",
@@ -11035,7 +12093,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 jǐn",
+        "definition": "to the greatest extent; as far as possible",
+        "definitionZh": "尽量、尽可能。",
+        "examples": [
+          "请尽量早点到。"
+        ]
+      },
+      {
+        "part": "读音 jìn",
+        "definition": "to use up; exhaust; finish",
+        "definitionZh": "用完、耗尽或结束。",
+        "examples": [
+          "我们已经用尽了所有时间。"
+        ]
+      }
+    ]
   },
   {
     "word": "紧",
@@ -11757,7 +12833,25 @@ window.SWIFT_CHINESE_WORDS = [
       "unihan-18.0.0",
       "hsk30-pleco"
     ],
-    "course": "zh"
+    "course": "zh",
+    "senses": [
+      {
+        "part": "读音 luò",
+        "definition": "to fall; drop; settle",
+        "definitionZh": "落下、降落或停留。",
+        "examples": [
+          "树叶从树上落下来。"
+        ]
+      },
+      {
+        "part": "读音 lào",
+        "definition": "reading in 落枕",
+        "definitionZh": "用于“落枕”等固定词语。",
+        "examples": [
+          "我今天早上落枕了。"
+        ]
+      }
+    ]
   },
   {
     "word": "麻",
@@ -12121,1107 +13215,3 @@ window.SWIFT_CHINESE_WORDS = [
     "course": "zh"
   }
 ];
-
-window.SWIFT_CHINESE_METADATA = {
-  "一": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "三": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "上": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "不": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "两": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "中": {
-    "categories": [
-      "places",
-      "descriptions"
-    ]
-  },
-  "也": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "买": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "了": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "二": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "人": {
-    "categories": [
-      "people"
-    ]
-  },
-  "从": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "他": {
-    "categories": [
-      "people",
-      "grammar-function"
-    ]
-  },
-  "会": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "住": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "你": {
-    "categories": [
-      "people",
-      "grammar-function"
-    ]
-  },
-  "再": {
-    "categories": [
-      "time-numbers",
-      "grammar-function"
-    ]
-  },
-  "出": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "别": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "到": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "力": {
-    "categories": [
-      "actions",
-      "descriptions"
-    ]
-  },
-  "半": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "去": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "口": {
-    "categories": [
-      "communication",
-      "people"
-    ]
-  },
-  "只": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "吃": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "听": {
-    "categories": [
-      "actions",
-      "communication"
-    ]
-  },
-  "呢": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "和": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "哪": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "喝": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "回": {
-    "categories": [
-      "time-numbers",
-      "actions"
-    ]
-  },
-  "在": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "多": {
-    "categories": [
-      "descriptions",
-      "grammar-function"
-    ]
-  },
-  "女": {
-    "categories": [
-      "people"
-    ]
-  },
-  "她": {
-    "categories": [
-      "people",
-      "grammar-function"
-    ]
-  },
-  "好": {
-    "categories": [
-      "emotions-states",
-      "descriptions"
-    ]
-  },
-  "字": {
-    "categories": [
-      "communication",
-      "objects"
-    ]
-  },
-  "学": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "它": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "安": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "家": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "对": {
-    "categories": [
-      "descriptions",
-      "grammar-function"
-    ]
-  },
-  "小": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "少": {
-    "categories": [
-      "descriptions",
-      "grammar-function"
-    ]
-  },
-  "岁": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "工": {
-    "categories": [
-      "actions",
-      "people"
-    ]
-  },
-  "差": {
-    "categories": [
-      "emotions-states",
-      "descriptions"
-    ]
-  },
-  "年": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "开": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "当": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "很": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "得": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "心": {
-    "categories": [
-      "emotions-states"
-    ]
-  },
-  "忙": {
-    "categories": [
-      "emotions-states",
-      "descriptions"
-    ]
-  },
-  "快": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "想": {
-    "categories": [
-      "actions",
-      "emotions-states"
-    ]
-  },
-  "慢": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "懂": {
-    "categories": [
-      "actions",
-      "emotions-states"
-    ]
-  },
-  "我": {
-    "categories": [
-      "people",
-      "grammar-function"
-    ]
-  },
-  "手": {
-    "categories": [
-      "people"
-    ]
-  },
-  "把": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "方": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "日": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "明": {
-    "categories": [
-      "time-numbers",
-      "descriptions"
-    ]
-  },
-  "是": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "更": {
-    "categories": [
-      "descriptions"
-    ],
-    "phonetic": "gèng / gēng"
-  },
-  "有": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "本": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "来": {
-    "categories": [
-      "time-numbers",
-      "actions",
-      "places"
-    ]
-  },
-  "水": {
-    "categories": [
-      "objects",
-      "nature"
-    ]
-  },
-  "没": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "爱": {
-    "categories": [
-      "actions",
-      "emotions-states"
-    ]
-  },
-  "猫": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "班": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "生": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "电": {
-    "categories": [
-      "objects",
-      "nature"
-    ]
-  },
-  "病": {
-    "categories": [
-      "emotions-states"
-    ]
-  },
-  "白": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "百": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "的": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "看": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "穿": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "等": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "给": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "能": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "茶": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "菜": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "要": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "言": {
-    "categories": [
-      "communication"
-    ]
-  },
-  "说": {
-    "categories": [
-      "actions",
-      "communication"
-    ]
-  },
-  "请": {
-    "categories": [
-      "actions",
-      "communication"
-    ]
-  },
-  "谁": {
-    "categories": [
-      "communication",
-      "grammar-function"
-    ]
-  },
-  "跟": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "路": {
-    "categories": [
-      "places"
-    ]
-  },
-  "车": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "还": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "这": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "道": {
-    "categories": [
-      "places",
-      "grammar-function"
-    ]
-  },
-  "那": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "钱": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "错": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "长": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "门": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "零": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "饭": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "个": {
-    "categories": [
-      "time-numbers",
-      "grammar-function"
-    ]
-  },
-  "们": {
-    "categories": [
-      "people",
-      "grammar-function"
-    ]
-  },
-  "吗": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "吧": {
-    "categories": [
-      "grammar-function"
-    ]
-  },
-  "啊": {
-    "categories": [
-      "grammar-function"
-    ],
-    "phonetic": "a / ā / á / ǎ / à"
-  },
-  "早": {
-    "categories": [
-      "time-numbers",
-      "descriptions"
-    ]
-  },
-  "晚": {
-    "categories": [
-      "time-numbers",
-      "descriptions"
-    ]
-  },
-  "天": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "月": {
-    "categories": [
-      "time-numbers"
-    ]
-  },
-  "书": {
-    "categories": [
-      "communication",
-      "objects"
-    ]
-  },
-  "友": {
-    "categories": [
-      "communication",
-      "people"
-    ]
-  },
-  "店": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "下": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "外": {
-    "categories": [
-      "places",
-      "descriptions"
-    ]
-  },
-  "里": {
-    "categories": [
-      "places"
-    ]
-  },
-  "前": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "后": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "东": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "西": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "南": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "北": {
-    "categories": [
-      "time-numbers",
-      "places"
-    ]
-  },
-  "爸": {
-    "categories": [
-      "people"
-    ]
-  },
-  "妈": {
-    "categories": [
-      "people"
-    ]
-  },
-  "哥": {
-    "categories": [
-      "people"
-    ]
-  },
-  "姐": {
-    "categories": [
-      "people"
-    ]
-  },
-  "走": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "坐": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "站": {
-    "categories": [
-      "actions",
-      "places"
-    ]
-  },
-  "写": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "读": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "问": {
-    "categories": [
-      "actions",
-      "communication"
-    ]
-  },
-  "答": {
-    "categories": [
-      "actions",
-      "communication"
-    ]
-  },
-  "睡": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "起": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "床": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "衣": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "服": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "鞋": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "雨": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "风": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "火": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "山": {
-    "categories": [
-      "nature",
-      "places"
-    ]
-  },
-  "石": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "田": {
-    "categories": [
-      "nature",
-      "places"
-    ]
-  },
-  "木": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "米": {
-    "categories": [
-      "objects",
-      "nature"
-    ]
-  },
-  "肉": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "鱼": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "鸟": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "花": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "草": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "树": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "云": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "雪": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "窗": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "房": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "校": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "医": {
-    "categories": [
-      "people",
-      "objects"
-    ]
-  },
-  "院": {
-    "categories": [
-      "objects",
-      "places"
-    ]
-  },
-  "药": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "蛋": {
-    "categories": [
-      "objects",
-      "nature"
-    ]
-  },
-  "牛": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "羊": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "猪": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "鸡": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "关": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "灯": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "纸": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "笔": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "桌": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "椅": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "杯": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "面": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "脚": {
-    "categories": [
-      "people"
-    ]
-  },
-  "头": {
-    "categories": [
-      "people"
-    ]
-  },
-  "眼": {
-    "categories": [
-      "people"
-    ]
-  },
-  "鼻": {
-    "categories": [
-      "people"
-    ]
-  },
-  "身": {
-    "categories": [
-      "people"
-    ]
-  },
-  "耳": {
-    "categories": [
-      "people"
-    ]
-  },
-  "牙": {
-    "categories": [
-      "people"
-    ]
-  },
-  "皮": {
-    "categories": [
-      "people"
-    ]
-  },
-  "毛": {
-    "categories": [
-      "people"
-    ]
-  },
-  "血": {
-    "categories": [
-      "people"
-    ]
-  },
-  "骨": {
-    "categories": [
-      "people"
-    ]
-  },
-  "胃": {
-    "categories": [
-      "people"
-    ]
-  },
-  "合": {
-    "categories": [
-      "actions",
-      "grammar-function"
-    ]
-  },
-  "卖": {
-    "categories": [
-      "actions"
-    ]
-  },
-  "果": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "甜": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "盐": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "糖": {
-    "categories": [
-      "objects"
-    ]
-  },
-  "苹": {
-    "categories": [
-      "nature"
-    ]
-  },
-  "香": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "苦": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "酸": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "辣": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "肥": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "瘦": {
-    "categories": [
-      "descriptions"
-    ]
-  },
-  "肚": {
-    "categories": [
-      "people"
-    ]
-  },
-  "背": {
-    "categories": [
-      "people"
-    ],
-    "phonetic": "bèi / bēi"
-  }
-};

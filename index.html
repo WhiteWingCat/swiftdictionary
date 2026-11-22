@@ -521,7 +521,7 @@
     .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
     .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
 </style>
-<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui4">
+<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui5">
 </head>
 <body>
   <div id="swiftAuthLoading" class="swift-auth-loading" role="status" aria-live="polite" aria-label="Preparing your SwiftDictionary account">
@@ -18655,6 +18655,9 @@
           const reader=document.getElementById("lessonReader");
           const wasOpen=reader&&!reader.hidden;
           renderLesson(activeLesson,true);
+          if(course==="zh"&&translationLanguage==="zh"){
+            reader?.querySelectorAll("#lessonReaderContent .lesson-english-line,#lessonReaderContent .lesson-selected-translation").forEach(node=>node.remove());
+          }
           if(reader&&wasOpen)reader.hidden=false;
         }else{
           ls.active=null;
@@ -19131,7 +19134,7 @@ function lessonTopicKey(x){
       const selectedAnswers=preservePractice?qs.map((q,i)=>document.querySelector('input[name="lessonAnswer'+i+'"]:checked')?.value??null):[];
       if(!preservePractice||!Array.isArray(ls.practicePassed)||ls.practicePassed.length!==qs.length)ls.practicePassed=qs.map(()=>false);
       if(!preservePractice||!Array.isArray(ls.practiceFirstTry)||ls.practiceFirstTry.length!==qs.length)ls.practiceFirstTry=qs.map(()=>null);
-      const zh=course==="en"&&translationLanguage==="zh";
+      const zh=translationLanguage==="zh";
       const examples=lessonExpandableGroup(lessonField(x,"examples"),(s,extra)=>'<div class="lesson-example lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'>'+lessonRenderText(s)+'</div>',zh);
       const explanationValue=lessonField(x,"explanation");
       const explanationHtml=Array.isArray(explanationValue)

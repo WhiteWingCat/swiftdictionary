@@ -95,4 +95,13 @@ for (const character of ["好","看","要","和","大","背","的","了","得","
     assert.ok(sense.definition && sense.definitionZh, "Each polyphonic sense needs English and Chinese definitions: " + character);
   }
 }
+const expandedPolyphonic = ["儿","分","干","过","号","几","假","间","见","教","觉","累","难","什","识","同","系","兴","正","重","子","作","参","查","称","处","单","倒","度","凉","量","绿","论","弄","片","漂","万","为","相","应","划","结","色","省","食","熟","数","提","通","脏","占","曾","朝","创","待","调","尽","落","语"];
+for (const character of expandedPolyphonic) {
+  const item = words.find(entry => entry.word === character);
+  assert.ok(item && Array.isArray(item.senses) && item.senses.length >= 2, "Common polyphonic character needs reading-specific senses: " + character);
+  for (const sense of item.senses) {
+    assert.ok(sense.part && /读音/.test(sense.part), "Reading-specific sense must identify its pronunciation: " + character);
+    assert.ok(sense.definition && sense.definitionZh, "Reading-specific sense needs English and Chinese definitions: " + character);
+  }
+}
 console.log("Chinese dictionary checks passed: " + words.length + " unique characters (" + additions.length + " new), " + polyphonic.length + " polyphonic entries reviewed, " + inlineScripts + " inline script syntax-checked.");

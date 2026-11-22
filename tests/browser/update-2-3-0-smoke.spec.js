@@ -115,7 +115,11 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
     grid:document.querySelector("#dailyActivityGrid")?.innerText,
     gridHtml:document.querySelector("#dailyActivityGrid")?.innerHTML.slice(0,1400)
   })));
-  await expect(chineseTopicCard).toContainText("认识普通话四声");
+  const selectedChineseTopic = await page.evaluate(() => {
+    const card=document.querySelector('#dailyActivityGrid [data-activity-card="daily_topic"]');
+    return (window.SWIFT_CHINESE_DAILY_LEARNING?.topics||[]).find(item=>card?.innerText.includes(item.title))||null;
+  });
+  expect(selectedChineseTopic).toBeTruthy();
   await page.evaluate(() => {
     window.__dailyDrawerAnimations = [];
     document.addEventListener("animationstart", event => {
@@ -125,16 +129,18 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await chineseTopicCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerIn"))).toBe(true);
-  await expect(page.locator("#dailyActivityReader")).toContainText("普通话有四个主要声调");
-  await expect(page.locator("#dailyActivityReader")).toContainText("Pǔtōnghuà");
-  await expect(page.locator("#dailyActivityReader")).toContainText("Mandarin has four main tones");
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.title);
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.body);
+  await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.en);
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
   await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerOut"))).toBe(true);
   const chineseApplicationCard=page.locator('#dailyActivityGrid [data-activity-card="daily_application"]');
   await chineseApplicationCard.locator("[data-start-daily]").click();
-  await expect(page.locator("#dailyActivityReader")).toContainText("Which character is pronounced mǎ?");
-  await expect(page.locator("#dailyActivityReader")).toContainText("mǎ duìyìng");
-  await expect(page.locator("#dailyActivityReader")).toContainText("horse");
+  await expect(page.locator("#dailyActivityReader .daily-question")).toBeVisible();
+  await expect(page.locator("#dailyActivityReader .daily-question input[type=radio]")).toHaveCount(4);
+  await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
+  await expect(page.locator("#dailyActivityReader .daily-translation-line").first()).toBeVisible();
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
   await expect(page.locator("#lessonCards .lesson-card")).toHaveCount(7);
   await page.locator('[data-difficulty="intermediate"]').click();
@@ -167,34 +173,36 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   expect(layout.englishTop).toBeGreaterThanOrEqual(layout.pinyinBottom-1);
 
   await page.locator("#translationSelect").selectOption("zh");
-  await expect(title.locator(".lesson-english-line")).toHaveCount(0);
+  await expect(page.locator("#lessonReaderContent .lesson-english-line")).toHaveCount(0);
+  await expect(page.locator("#lessonReaderContent .lesson-selected-translation")).toHaveCount(0);
   await expect(title.locator(".lesson-chinese-line")).toHaveText("拼音基础与四声");
+  await expect(page.locator("#lessonReaderContent .lesson-question-title .lesson-chinese-line").first()).toBeVisible();
+  await expect(page.locator("#lessonReaderContent .lesson-question-title .lesson-pinyin-line").first()).toBeVisible();
+  await expect(page.locator("#lessonReaderContent .lesson-practice-box h3").first()).toHaveText("练习");
+  await expect(page.locator("#lessonReaderContent .check-lesson-answer").first()).toHaveText("检查答案");
 
-  // Check every visible bilingual block, including examples and practice
-  // options, at both desktop and narrow mobile widths.
-  const assertAllPinyinBlocksStacked = async () => {
+  // Confirm pinyin remains directly below Chinese text on desktop and mobile,
+  // while every English-support line is removed in Chinese translation mode.
+  const assertChineseOnlyBlocksStacked = async () => {
     const layouts = await page.locator("#lessonReaderContent .lesson-bilingual-block").evaluateAll(nodes =>
       nodes.map(node => {
         const chinese=node.querySelector(".lesson-chinese-line");
         const pinyin=node.querySelector(".lesson-pinyin-line");
-        const english=node.querySelector(".lesson-english-line");
-        if(!chinese||!pinyin||!english||!node.getClientRects().length)return null;
+        if(!chinese||!pinyin||!node.getClientRects().length)return null;
         const c=chinese.getBoundingClientRect();
         const p=pinyin.getBoundingClientRect();
-        const e=english.getBoundingClientRect();
-        return {chineseBottom:c.bottom,pinyinTop:p.top,pinyinBottom:p.bottom,englishTop:e.top,pinyinDisplay:getComputedStyle(pinyin).display};
+        return {chineseBottom:c.bottom,pinyinTop:p.top,hasEnglish:!!node.querySelector(".lesson-english-line")};
       }).filter(Boolean)
     );
     expect(layouts.length).toBeGreaterThan(0);
     for(const item of layouts){
-      expect(item.pinyinDisplay).toBe("block");
+      expect(item.hasEnglish).toBe(false);
       expect(item.pinyinTop).toBeGreaterThanOrEqual(item.chineseBottom-1);
-      expect(item.englishTop).toBeGreaterThanOrEqual(item.pinyinBottom-1);
     }
   };
-  await assertAllPinyinBlocksStacked();
+  await assertChineseOnlyBlocksStacked();
   await page.setViewportSize({width:390,height:844});
-  await assertAllPinyinBlocksStacked();
+  await assertChineseOnlyBlocksStacked();
 });
 
 
