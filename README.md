@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.7.0 — Chinese Course & Dictionary Expansion
 
-> **Release candidate:** Update 2.7.0 is being prepared on `feature/update-2-7-0-chinese-dictionary-lessons`. It has not been merged into `main` or released to production. The current branch preview uses the staging Supabase project.
+> **Released:** Update 2.7.0 was merged into `main` on 2026-11-22 (merge commit `1d74e4925456c23b96223a94e64827b42c9cb869`). The GitHub Pages and Cloudflare Pages deployment checks both completed successfully for this commit. The three U2.7.0 Supabase migrations remain staging-only and have not been applied to production.
 
 SwiftDictionary is a vocabulary and language-learning web application for English and Simplified Chinese. It includes a searchable dictionary, structured lessons, daily learning activities, quizzes, flashcards, saved words, account-based synchronisation and learner progress.
 
@@ -116,7 +116,7 @@ These migrations were validated against disposable PostgreSQL/Supabase test envi
 - Cloudflare Pages must provide `SWIFT_SUPABASE_URL` and `SWIFT_SUPABASE_PUBLISHABLE_KEY` for the appropriate environment. The build generates `supabase-config.js` in the deployment output; do not commit service-role keys or OAuth client secrets.
 - Keep the project's existing `banner.svg` and local `supabase-config.js` intact when working locally unless a separately reviewed change requires otherwise.
 - Do not copy only `index.html` when deploying this update. The application also depends on its JavaScript, stylesheet, data, source-attribution, migration and other repository assets.
-- Do not merge this release candidate or deploy it to production until the owner has completed the final review and explicitly approved release.
+- The U2.7.0 application has been merged and deployed. Do not apply the three U2.7.0 Supabase migrations to production without separate explicit owner approval and a production migration preflight.
 
 ## Verification performed
 
@@ -130,7 +130,7 @@ The latest pre-polish application head passed the following automated workflows:
 - Quiz database foundation and local Supabase Auth/RPC integration.
 - Cloudflare build-routing guard.
 
-A successful automated workflow is not a substitute for the owner's live staging review. The latest staging preview was reviewed and accepted by the owner before the polishing pass began; the README-only release-preparation commit will trigger fresh branch checks and a new preview deployment.
+The owner reviewed and accepted the U2.7.0 staging preview before approving the merge. After merge commit `1d74e4925456c23b96223a94e64827b42c9cb869`, both the GitHub Pages `pages build and deployment` workflow and the Cloudflare Pages check completed successfully. The main-commit Cloudflare Workers build check also completed successfully.
 
 ## Data sources, licensing and learning accuracy
 
@@ -156,7 +156,7 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ## Release history
 
-- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Currently in release preparation; not yet merged or deployed to production.
+- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
 - **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
 - **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
 - **SwiftDictionary Update 2.5.0:** English Flashcards experience, review progress and allowance integration.
@@ -169,4 +169,4 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ---
 
-*Release preparation note: this README describes the U2.7.0 release candidate. Update the status and deployment details after the owner approves and the production release is completed.*
+*Release note: the application release is deployed. Database rollout and formal Malaysia PDPA/international legal review remain separate outstanding activities.*
