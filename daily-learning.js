@@ -828,7 +828,9 @@
       const seen = new Set();
       completedRows.forEach(row => { if (seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,null); if(item) cards.push(renderCard(item,null,true)); });
       activeRows.forEach(row => { if (seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,null); if(item) cards.push(renderCard(item,null,false)); });
-      const newSlots = Math.max(0,Math.min(remaining-activeRows.length,Math.min(3,limit || 1)-cards.length));
+      const completedTodayCount = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.content_id).length;
+      const visibleDailySlots = Math.min(3,limit || 1);
+      const newSlots = Math.max(0,Math.min(remaining-activeRows.length,visibleDailySlots-activeRows.length-completedTodayCount));
       let added = 0;
       for(let index=0;index<Math.min(3,limit || 1) && added<newSlots;index++){
         const item=scheduled[index];
