@@ -3159,3 +3159,18 @@ All GitHub Actions compatibility workflows passed (U2.7.0, 2.3.x, 2.5.0, 2.6.0, 
 - No new Supabase schema/migration, personal-data category, external recipient or third-party processor was introduced in this round. The prior first-start allowance migration remains applied to Singapore staging only. Malaysia PDPA and general legal/privacy review remain outstanding and are not represented as completed.
 - Owner acceptance is pending. Do not merge PR #14 or deploy U2.7.0 to production without explicit owner approval.
 - Detailed archive: [U2.7.0 owner feedback round 4](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-4.md).
+
+
+## 2026-11-22 — U2.7.0 owner feedback round 5
+
+- Continued application work only on `feature/update-2-7-0-chinese-dictionary-lessons`; PR #14 remains draft/open/unmerged. Latest application head at this record: `2ce01237c2350115941c56f524b0a7661365879b`. No changes were made to `main`.
+- Added an explanation beneath Daily Learning clarifying that each activity category's daily allowance is shared across English and Simplified Chinese, course switching does not reset it, completed content remains reviewable, and the allowance resets at midnight in the configured allowance timezone. The paragraph follows the selected translation language, including Simplified Chinese.
+- Preserved the allowance system exactly as requested: no quota, RPC, completion accounting, database or migration changes.
+- Changed normal-motion Daily Learning drawer animation to transform-only slide-in/slide-out. Backdrop opacity remains independent; reduced-motion users retain a brief fade.
+- Root cause of English Daily Discovery appearing empty: daily usage is shared across courses, but completed/in-progress review rows are language-scoped. If Chinese consumes today's Discovery allowance, English may have no language-scoped history and no remaining new slot, so the renderer previously produced no card. It now retains the first scheduled English Discovery item as a disabled “Daily limit reached” card; no session or allowance is created. The 93-entry English/Chinese pools and global schedule remain unchanged.
+- Refreshed Daily Learning and Lessons stylesheet cache versions and updated the relevant regression assertions.
+- Latest-head validation: U2.7.0 static/data/content and full Lessons/Daily Learning Chromium suite passed; U2.7.0 PostgreSQL 17 lesson-start allowance regression passed; 2.3.x PostgreSQL/Auth/Chromium passed; 2.5.0 Flashcards passed; 2.6.0 ACL drift passed; Cloudflare build-routing guard passed. Quiz DB foundation and Auth/RPC checks passed their database/RPC phases; authenticated Chromium Quiz runtime was still running at record time. Do not claim the entire cross-version workflow set green until it finishes.
+- Cloudflare Pages explicitly reported **Deploy successful** for `2ce0123`: https://8f5833dd.swiftdictionary.pages.dev. Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev.
+- No new personal-data category, tracking, processor, external recipient, RPC or schema/migration was introduced. Formal Malaysia PDPA and international legal/privacy review remains deferred/outstanding. No production database migration or deployment was performed.
+- Owner staging acceptance remains pending. Do not merge PR #14 or deploy to production without explicit approval.
+- Detailed archive: [U2.7.0 owner feedback round 5](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-5.md).
