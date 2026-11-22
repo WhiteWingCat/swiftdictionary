@@ -18514,6 +18514,15 @@
           await refreshAccount(session);
           hydratedUserId = currentUser?.id || null;
           accountHydrated = true;
+          // Finish the active learning subpage before removing the blocking
+          // initialization screen. Other pages hydrate from the shared event.
+          if (currentUser && location.hash === "#lessons" && typeof window.initialiseDailyLearning === "function") {
+            await window.initialiseDailyLearning();
+            window.__swiftDailyLearningHydratedFor = currentUser.id;
+          }
+          if (currentUser && location.hash === "#quiz" && typeof initialiseQuizPage === "function") {
+            await initialiseQuizPage();
+          }
           window.dispatchEvent(new Event("swift-auth-updated"));
           if (currentUser && window.SwiftDictionaryFlashcards?.refreshDashboardData) {
             await window.SwiftDictionaryFlashcards.refreshDashboardData();
