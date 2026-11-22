@@ -136,6 +136,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
   await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerOut"))).toBe(true);
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
+  await page.locator('#dailyActivityGrid [data-daily-tab="daily_application"]').click();
   const chineseApplicationCard=page.locator('#dailyActivityGrid [data-activity-card="daily_application"]');
   await chineseApplicationCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader .daily-question")).toBeVisible();
@@ -248,7 +249,7 @@ test("Chinese course completion stores progress separately from English", async 
       await expect(question.locator(".lesson-question-feedback")).toContainText(/Correct|正确/);
     }
   }
-  await expect(page.locator("#lessonFinishNote")).toContainText("Lesson completed");
+  await expect(page.locator("#lessonFinishNote")).toContainText(/Lesson completed|本课已完成/);
   const rows = await page.evaluate(id => window.__swiftDailyMock.tables.lesson_progress
     .filter(row => row.user_id === id && row.lesson_id === "zh-b-pinyin-foundations")
     .map(row => [row.learning_language,row.status])
