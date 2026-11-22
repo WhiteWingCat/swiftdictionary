@@ -371,6 +371,7 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   const reader=page.locator("#dailyActivityReader");
   await expect(reader).toBeVisible();
   await expect(reader.locator(".daily-activity-modal")).toBeVisible();
+  await expect(reader).toHaveClass(/open/);
   await expect(reader.locator(".daily-drawer-actions")).toBeVisible();
   await expect(reader.locator("h2").first()).not.toBeEmpty();
   expect(await reader.evaluate(el=>el.parentElement===document.body)).toBeTruthy();
