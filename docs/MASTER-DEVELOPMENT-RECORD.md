@@ -3086,3 +3086,21 @@ The responsive drawer widths are explicitly retained at 50vw desktop, 62vw mediu
 Latest app head: `b98980dc5eae5ffea4cdb482c126fbb529daa739`; PR #14 remains draft/open/unmerged. U2.7.0 static/data/accessibility/browser suite #44889504955 and Cloudflare build-routing guard #44889504919 passed. All latest-head compatibility workflows completed successfully: U2.7.0 dictionary/Chinese Lessons/UI/browser suite #44889504955; 2.3.x PostgreSQL 17 migration/allowance, Auth compatibility and Chromium suite #44889505053; Update 2.5.0 Flashcards #44889505023; Update 2.6.0 ACL regression #44889505006; Quiz database foundation and Local Supabase Auth/RPC/Chromium integration #44889505105; Cloudflare build-routing guard #44889504919. Cloudflare Pages deployment check #136802063112 also succeeded for app head `b98980d`, with deployment URL https://42daddd5.swiftdictionary.pages.dev and branch preview https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev. Cloudflare Pages deployment check #136802063112 completed successfully for app head `b98980d`: https://42daddd5.swiftdictionary.pages.dev. Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev. No production deployment or migration occurred. No new personal-data processing or schema change was introduced. Formal Malaysia PDPA/international legal review remains deferred, not cleared.
 
 Detailed session archive: [Update 2.7.0 — Lessons UI redesign and owner feedback round 1](conversation-archive/2026-11-21-update-2-7-0-lessons-ui-redesign.md).
+
+
+## Update 2.7.0 — owner feedback round 2 (2026-11-22)
+
+Continued PR #14 on `feature/update-2-7-0-chinese-dictionary-lessons`. This work addressed the owner's seven new staging feedback items: sense-specific pinyin in Chinese dictionary examples; Daily Learning drawer rendering and transitions; English Daily Discovery restoration; completed-content replay; educational tab descriptions separated from allowance status; English support across Chinese Daily Learning; and consistent contextual highlighting/sentence breakdowns across English and Chinese lessons.
+
+Implementation details:
+- Polyphonic dictionary sense examples render pinyin using the selected sense reading for the target character.
+- Daily Learning resolves the active course language before its session queries, refreshes on course changes, and scopes completed/open sessions by `language_code`.
+- Completed content is replayable without a new completion or allowance charge. Historical review cards do not reduce today's new activity slots. Adaptive Chinese Daily Revision reconstructs the original source material.
+- Chinese Daily Topic/Application entries have English titles and bilingual learning text; Daily Revision has an English title; Chinese Daily Discovery cards show English definitions when selected.
+- Shared sentence emphasis now covers subject, verb/predicate, object and adverbial roles. Four additional English and six additional Chinese lessons received contextual breakdowns.
+
+A Chromium run revealed a temporal-dead-zone bug after language-scoped session filtering was added: the language variable was referenced before declaration. It was moved before the queries and a static ordering regression was added. The browser fixtures were also updated to carry `language_code` and to distinguish educational descriptions from allowance status.
+
+Latest application head at this documentation update: `3ec276effb24ed553ccd697daebcc42ae166dfe5`. U2.7.0 static checks passed on prior heads; the latest full Chromium regression and Cloudflare Pages deployment were still pending. The staging preview must not be declared ready until the final browser checks and deployment are verified. PR #14 remains draft/open/unmerged. No production database or deployment changes were made. No new personal-data category or processing purpose was introduced. Formal Malaysia PDPA/international legal review remains deferred, not cleared.
+
+Detailed session archive: [Update 2.7.0 — owner feedback round 2: Daily Learning, Chinese pinyin and lesson emphasis](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-2.md).
