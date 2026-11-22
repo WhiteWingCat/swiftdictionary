@@ -45,7 +45,15 @@ assert(daily.includes("chineseDailyLearning.applications") && daily.includes("ch
 assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQuestionOption(option)"));
 assert(daily.includes("window.requestAnimationFrame(() =>"));
 assert(!css.includes("@keyframes dailyDrawerIn") && !css.includes("@keyframes dailyDrawerOut"), "The drawer should use one transition-based motion system.");
-assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .38s ease !important"));
+assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1) !important"));
+const drawerMotionStart=css.lastIndexOf("/* U2.7.0 owner feedback round 3");
+const drawerMotionBlock=css.slice(drawerMotionStart);
+const normalDrawerRule=drawerMotionBlock.match(/#dailyActivityReader \.daily-activity-modal \{([\s\S]*?)\n\}/)?.[1] || "";
+assert(normalDrawerRule.includes("opacity:1;") && !normalDrawerRule.includes("opacity:.55;"), "Normal-motion drawer should slide without fading the panel itself.");
+assert(html.includes('id="dailyLearningAllowanceNote"'));
+assert(daily.includes("Each activity has one daily allowance shared between English and Simplified Chinese."));
+assert(daily.includes("每种活动在英语和简体中文课程之间共用每日额度。"));
+assert(daily.includes('if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false))'), "Daily Discovery must show a locked item when the shared allowance was spent in another course.");
 assert(css.includes("animation:none !important"));
 assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
@@ -114,7 +122,8 @@ assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacit
 assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
-assert(build.includes("lessons-ui") && build.includes("2.7.0-r8"));
+assert(build.includes("lessons-ui") && build.includes("2.7.0-r9"));
+assert(build.includes("daily-learning.js") && build.includes("2.7.0-r10"));
 
 assert(daily.includes(" ? 120 : 500"));
 

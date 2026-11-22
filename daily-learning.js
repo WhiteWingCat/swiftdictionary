@@ -433,6 +433,7 @@
       dailyLearningEyebrow: zh ? "每日练习" : "DAILY PRACTICE",
       dailyLearningHeading: zh ? "每日学习" : "Daily Learning",
       dailyLearningIntro: zh ? "通过个性化活动和全球共享的每日词汇，建立持续学习的习惯。" : "Build consistency with personalised activities and a shared daily dictionary word for everyone.",
+      dailyLearningAllowanceNote: zh ? "每种活动在英语和简体中文课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared between English and Simplified Chinese. Completing an activity in either course uses that activity’s allowance in both courses. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
       dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities",
       dailyPreferencesHeading: zh ? "我的每日活动" : "My daily activities"
     };
@@ -805,7 +806,7 @@
       const alreadyCompleted = reviewOnly || (snapshot.dailyResults || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
       const allowanceUnavailable = !availableForPlan;
       const exhausted = !activeSession && !alreadyCompleted && !allowanceUnavailable && remaining <= 0;
-      const statusLabel = activeSession ? dailyUi("In progress","进行中") : alreadyCompleted ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : dailyUi("New activity","新活动");
+      const statusLabel = activeSession ? dailyUi("In progress","进行中") : alreadyCompleted ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : exhausted ? dailyUi("Daily limit reached","今日额度已用完") : dailyUi("New activity","新活动");
       const buttonLabel = activeSession ? dailyUi("Resume activity","继续活动") : alreadyCompleted ? dailyUi("Review completed content","重温已完成内容") : allowanceUnavailable ? dailyUi("Unavailable","暂不可用") : exhausted ? dailyUi("Daily limit reached","今日额度已用完") : dailyUi("Start activity","开始活动");
       const disabledReason = !currentUser || !supabaseClient ? dailyUi("Sign in to start and sync this activity.","登录后即可开始活动并同步进度。") : allowanceUnavailable ? dailyUi("Your allowance could not be checked. Please refresh before starting this activity.","无法确认活动额度，请刷新页面后再试。") : "";
       const disabled = !!disabledReason || (exhausted && !alreadyCompleted);
@@ -838,6 +839,10 @@
         cards.push(renderCard(item,index,false));
         added++;
       }
+      // Allowance usage is shared across courses, while review history is language-scoped.
+      // If another course consumed today's quota, keep the scheduled item visible with a
+      // disabled "Daily limit reached" action instead of showing an empty panel.
+      if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false));
     } else if (isEnabled) {
       const seen = new Set();
       completedRows.forEach(row => { if(seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,snapshot.content[type]); if(item) cards.push(renderCard(item,null,true)); });
