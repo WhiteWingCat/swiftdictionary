@@ -1249,3 +1249,28 @@ test("English Daily Discovery remains populated after switching courses", async 
   await expect(cards.first().locator("h3")).not.toBeEmpty();
   await expect(cards.first().locator("[data-start-daily]")).toBeEnabled();
 });
+
+
+test("historical Daily Learning reviews do not consume today's new activity slots", async ({ page }) => {
+  await installDailyLearningMock(page,"historical-daily-review-user","free");
+  await page.goto("/");
+  await page.evaluate(() => {
+    const state=window.__swiftDailyMock;
+    state.tables.user_preferences[0].learning_language="zh";
+    state.tables.user_preferences[0].translation_language="en";
+    const yesterday=new Date(Date.now()-86400000).toISOString();
+    state.sessions=[{
+      id:"historical-topic-session",user_id:state.user.id,activity_type:"daily_topic",language_code:"zh",
+      content_id:"zh-topic-tones-01",topic_id:"zh-pronunciation-tones",difficulty:"beginner",
+      source:"daily",status:"completed",started_at:yesterday,completed_at:yesterday,
+      correct_count:null,question_count:null
+    }];
+    state.tables.daily_activity_sessions=state.sessions;
+  });
+  await page.locator('[data-page="lessons"]').click();
+  await page.locator('[data-daily-tab="daily_topic"]').click();
+  const cards=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
+  await expect(cards).toHaveCount(2);
+  await expect(cards.filter({hasText:"已完成 · 可免费重温"})).toHaveCount(1);
+  await expect(cards.filter({hasText:"新活动"})).toHaveCount(1);
+});
