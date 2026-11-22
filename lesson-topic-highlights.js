@@ -138,18 +138,28 @@
   }
 
   function observe() {
-    const root = document.querySelector(rootSelector);
-    if (!root) return;
+    let root = null;
+    let rootObserver = null;
     let scheduled = false;
     const refresh = () => {
       if (scheduled) return;
       scheduled = true;
       requestAnimationFrame(() => {
         scheduled = false;
-        applyTopicHighlights(root);
+        const currentRoot = document.querySelector(rootSelector);
+        if (currentRoot !== root) {
+          if (rootObserver) rootObserver.disconnect();
+          root = currentRoot;
+          if (root) {
+            rootObserver = new MutationObserver(refresh);
+            rootObserver.observe(root, { childList: true, subtree: true, characterData: true });
+          }
+        }
+        if (root) applyTopicHighlights(root);
       });
     };
-    new MutationObserver(refresh).observe(root, { childList: true, subtree: true, characterData: true });
+    const bodyObserver = new MutationObserver(refresh);
+    bodyObserver.observe(document.body, { childList: true, subtree: true });
     refresh();
   }
 
