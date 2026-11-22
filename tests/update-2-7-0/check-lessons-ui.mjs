@@ -61,7 +61,10 @@ assert(daily.includes('completedTodayCount') && daily.includes('visibleDailySlot
 const dailyLoadStart=daily.indexOf("async function loadDailyData");
 assert(daily.indexOf("const language = prefs.learning_language || \"en\";",dailyLoadStart)<daily.indexOf('from("daily_activity_sessions")',dailyLoadStart),"Daily Learning language must be resolved before language-scoped session queries.");
 assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adaptive revision must replay its original source material.");
-assert(css.includes("lesson-focus-predicate"));
+assert(css.includes('#lessonReaderContent mark[class*="lesson-focus-"]'));
+assert(css.includes("color:#ffffff !important"));
+assert(css.includes("font-weight:800 !important"));
+assert(!/lesson-focus-(subject|verb|object|predicate)\\s*\\{[^}]*background:[^}]*different/i.test(css));
 assert(css.includes("lesson-context-underline"));
 assert(html.includes('swiftdictionary:course-changed'));
 for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
@@ -69,3 +72,14 @@ assert(css.includes("lesson-focus-adverbial"));
 assert(html.includes("pinyinForSenseExample(example,item.word,sense.part)"),"Polyphonic sense examples must use their selected reading for pinyin.");
 const chineseLessonsWithBreakdown=Object.values(chineseLessons).flat().filter(lesson=>lesson.breakdown);
 assert(chineseLessonsWithBreakdown.length>=7,"Context-relevant Chinese lessons should include reusable sentence breakdowns.");
+
+const confirmation=fs.readFileSync("permanent-lesson-confirmation.js","utf8");
+assert(confirmation.includes("Selecting this lesson will consume one daily lessons allowance, are you sure?"));
+assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('data-confirm="no"'));
+assert(confirmation.includes('button.click()'));
+assert(confirmation.includes(".lesson-status.completed,.lesson-status.in-progress"));
+assert(!daily.includes("daily-activity-allowance-track"));
+assert(!daily.includes("daily-activity-allowance-top"));
+assert(chineseLessonsSource.includes("二零二六年") && !chineseLessonsSource.includes("二〇二六年"));
+assert(!chineseLessonsSource.includes("Maya") && !chineseLessonsSource.includes("玛雅"));
+console.log("U2.7.0 owner feedback regression checks passed: confirmation-before-start, free resume/review, allowance copy removal, white topic emphasis and Chinese-native example names.");
