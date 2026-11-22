@@ -75,7 +75,7 @@
     root.querySelectorAll('mark[class*="lesson-focus-"]').forEach(mark => {
       const span = document.createElement("span");
       span.className = "lesson-role-neutral";
-      span.textContent = mark.textContent;
+      while (mark.firstChild) span.append(mark.firstChild);
       mark.replaceWith(span);
     });
   }
