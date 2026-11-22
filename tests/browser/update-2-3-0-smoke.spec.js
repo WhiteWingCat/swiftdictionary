@@ -426,7 +426,8 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   const topicCards = page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
   await expect(topicCards).toHaveCount(1);
   await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("通过简短讲解和例句学习一个重点");
-  await expect(page.locator("#dailyActivityPanel .daily-activity-status")).toContainText("每日额度将在午夜重置");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance")).toBeVisible();
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance-top strong")).toContainText("0 / 1");
   await expect(topicCards.first()).toContainText("已完成 · 可免费重温");
   await expect(topicCards.first().locator("[data-start-daily]")).toBeEnabled();
 
@@ -902,7 +903,8 @@ test("completed Discovery content remains reviewable across UTC rollover within 
   const discoveryCards = page.locator('#dailyActivityGrid [data-activity-card="daily_discovery"]');
   await expect(discoveryCards).toHaveCount(1);
   await expect(discoveryCards.first()).toContainText("重温已完成内容");
-  await expect(page.locator("#dailyActivityPanel .daily-activity-status")).toContainText("每日额度将在午夜重置");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance")).toBeVisible();
+  await expect(page.locator("#dailyActivityPanel .daily-activity-allowance-top strong")).toContainText("0 / 1");
   await expect(discoveryCards.first().locator("[data-start-daily]")).toBeEnabled();
   await discoveryCards.first().locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
