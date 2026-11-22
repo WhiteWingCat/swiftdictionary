@@ -114,3 +114,7 @@ assert(css.includes("transition:none !important"));
 assert(build.includes("lessons-ui") && build.includes("2.7.0-r5"));
 
 assert(daily.includes(" ? 0 : 500"));
+
+assert(topicHighlights.includes("const stopWords=new Set"));
+assert(topicHighlights.includes("const titleTerms="));
+assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r3"));
