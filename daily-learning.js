@@ -382,7 +382,7 @@
   const byId = id => document.getElementById(id);
   const esc = value => escapeHTML(String(value ?? ""));
   const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING || {topics:[],applications:[],discovery:[]};
-  const isChineseLearningCourse = () => typeof course !== "undefined" ? course === "zh" : snapshot.learningLanguage === "zh";
+  const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";
   const dailyTopicPool = () => isChineseLearningCourse() ? chineseDailyLearning.topics : dailyTopics;
   const dailyApplicationPool = () => isChineseLearningCourse() ? chineseDailyLearning.applications : dailyApplications;
   const dailyDiscoveryPool = () => isChineseLearningCourse() ? chineseDailyLearning.discovery : dailyDiscoveryVocabulary;
