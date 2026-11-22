@@ -184,11 +184,10 @@ $complete_chinese$;
 
 -- Simulate a legacy completed Chinese lesson with no stored practice summary.
 -- Replay records its summary once and does not create another allowance event.
-set local role service_role;
+reset role;
 delete from public.lesson_practice_results
 where user_id='12121212-1212-4121-8121-121212121212'
   and learning_language='zh' and lesson_id='b-sentence';
-reset role;
 set local role authenticated;
 select set_config('request.jwt.claim.sub','12121212-1212-4121-8121-121212121212',true);
 
