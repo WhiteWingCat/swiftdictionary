@@ -672,12 +672,12 @@ window.SWIFT_CHINESE_LESSONS = {
       "breakdown": {
         "title": {
           "zh": "句子示例：我是 Maya。",
-          "pinyin": "",
+          "pinyin": "jù zi shì lì: wǒ shì Maya",
           "en": "Sentence breakdown"
         },
         "intro": {
           "zh": "先找出说话的人，再看“是”如何连接身份或名称。",
-          "pinyin": "",
+          "pinyin": "xiān zhǎo chū shuō huà de rén, zài kàn shì rú hé lián jiē shēn fèn huò míng chēng",
           "en": "Notice how the sentence parts work together."
         },
         "sentence": [
@@ -1276,12 +1276,12 @@ window.SWIFT_CHINESE_LESSONS = {
       "breakdown": {
         "title": {
           "zh": "句子示例：我是学生。",
-          "pinyin": "",
+          "pinyin": "jù zi shì lì: wǒ shì xué shēng",
           "en": "Sentence breakdown"
         },
         "intro": {
           "zh": "“是”连接主语和身份名词；两部分承担不同语法作用。",
-          "pinyin": "",
+          "pinyin": "shì lián jiē zhǔ yǔ hé shēn fèn míng cí; liǎng bù fen chéng dān bù tóng de yǔ fǎ zuò yòng",
           "en": "Notice how the sentence parts work together."
         },
         "sentence": [
@@ -1616,12 +1616,12 @@ window.SWIFT_CHINESE_LESSONS = {
       "breakdown": {
         "title": {
           "zh": "句子示例：我每天吃早饭。",
-          "pinyin": "",
+          "pinyin": "jù zi shì lì: wǒ měi tiān chī zǎo fàn",
           "en": "Sentence breakdown"
         },
         "intro": {
           "zh": "主语指出动作执行者，时间状语说明动作何时发生，动词表达动作。",
-          "pinyin": "",
+          "pinyin": "zhǔ yǔ zhǐ chū dòng zuò zhí xíng zhě, shí jiān zhuàng yǔ shuō míng dòng zuò hé shí fā shēng, dòng cí biǎo dá dòng zuò",
           "en": "Notice how the sentence parts work together."
         },
         "sentence": [
@@ -2536,12 +2536,12 @@ window.SWIFT_CHINESE_LESSONS = {
       "breakdown": {
         "title": {
           "zh": "句子示例：桌上有两本书。",
-          "pinyin": "",
+          "pinyin": "jù zi shì lì: zhuō shàng yǒu liǎng běn shū",
           "en": "Sentence breakdown"
         },
         "intro": {
           "zh": "数量结构“两本书”包含数词、量词和名词；量词与名词搭配。",
-          "pinyin": "",
+          "pinyin": "shù liàng jié gòu liǎng běn shū bāo hán shù cí, liàng cí hé míng cí; liàng cí yǔ míng cí dā pèi",
           "en": "Notice how the sentence parts work together."
         },
         "sentence": [
@@ -3494,12 +3494,12 @@ window.SWIFT_CHINESE_LESSONS = {
       "breakdown": {
         "title": {
           "zh": "句子示例：今天比昨天冷。",
-          "pinyin": "",
+          "pinyin": "jù zi shì lì: jīn tiān bǐ zuó tiān lěng",
           "en": "Sentence breakdown"
         },
         "intro": {
           "zh": "“比”引出比较对象；形容词说明比较结果。",
-          "pinyin": "",
+          "pinyin": "bǐ yǐn chū bǐ jiào duì xiàng; xíng róng cí shuō míng bǐ jiào jié guǒ",
           "en": "Notice how the sentence parts work together."
         },
         "sentence": [
@@ -4138,12 +4138,12 @@ window.SWIFT_CHINESE_LESSONS = {
       "breakdown": {
         "title": {
           "zh": "句子示例：请把门关上。",
-          "pinyin": "",
+          "pinyin": "jù zi shì lì: qǐng bǎ mén guān shàng",
           "en": "Sentence breakdown"
         },
         "intro": {
           "zh": "“把”字句把受事提前，突出动作对门造成的结果。",
-          "pinyin": "",
+          "pinyin": "bǎ zì jù bǎ shòu shì tí qián, tū chū dòng zuò duì mén zào chéng de jié guǒ",
           "en": "Notice how the sentence parts work together."
         },
         "sentence": [
