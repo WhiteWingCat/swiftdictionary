@@ -283,16 +283,14 @@ if (!html.includes('id="lessonDetailPage"') || !html.includes('showPage("lessonD
     || !html.includes("window.refreshDailyLearningTranslation")) {
   throw new Error("Permanent lesson page navigation or shared translation refresh is missing.");
 }
-if (!html.includes(".daily-activity-cards.premium { grid-template-columns:minmax(0,1fr); }")
-    || !html.includes(".daily-activity-tab { flex:0 0 auto; border:1px solid var(--border); border-bottom:0; border-radius:10px 10px 0 0; padding:12px 18px; background:var(--panel); color:#fff;")
-    || !html.includes(".daily-activity-count.healthy")
-    || !html.includes('if (typeof initialiseLessons === "function") await initialiseLessons();')
+if (!html.includes('if (typeof initialiseLessons === "function") await initialiseLessons();')
     || !dailyScript.includes('dailyUi("New activity","新活动")')
     || !dailyScript.includes("const allowanceTone=remaining<=0")
     || !dailyScript.includes("const allowancePercent=")
     || !dailyScript.includes("daily-activity-allowance")
     || !lessonsCss.includes(".daily-activity-allowance{")
-    || !lessonsCss.includes(".daily-activity-tabs{display:grid!important;")) {
+    || !lessonsCss.includes(".daily-activity-tabs{display:grid!important;")
+    || !lessonsCss.includes(".daily-activity-tab.active{")) {
   throw new Error("Update 2.3.1 category layout, title-side allowance indicator, neutral card status, or account-switch lesson refresh is missing.");
 }
 if (!html.includes(".daily-activity-backdrop{background:transparent}")
