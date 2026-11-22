@@ -13215,3 +13215,1107 @@ window.SWIFT_CHINESE_WORDS = [
     "course": "zh"
   }
 ];
+
+window.SWIFT_CHINESE_METADATA = {
+  "一": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "三": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "上": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "不": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "两": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "中": {
+    "categories": [
+      "places",
+      "descriptions"
+    ]
+  },
+  "也": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "买": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "了": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "二": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "人": {
+    "categories": [
+      "people"
+    ]
+  },
+  "从": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "他": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "会": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "住": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "你": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "再": {
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ]
+  },
+  "出": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "别": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "到": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "力": {
+    "categories": [
+      "actions",
+      "descriptions"
+    ]
+  },
+  "半": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "去": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "口": {
+    "categories": [
+      "communication",
+      "people"
+    ]
+  },
+  "只": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "吃": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "听": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "呢": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "和": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "哪": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "喝": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "回": {
+    "categories": [
+      "time-numbers",
+      "actions"
+    ]
+  },
+  "在": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "多": {
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ]
+  },
+  "女": {
+    "categories": [
+      "people"
+    ]
+  },
+  "她": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "好": {
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ]
+  },
+  "字": {
+    "categories": [
+      "communication",
+      "objects"
+    ]
+  },
+  "学": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "它": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "安": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "家": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "对": {
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ]
+  },
+  "小": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "少": {
+    "categories": [
+      "descriptions",
+      "grammar-function"
+    ]
+  },
+  "岁": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "工": {
+    "categories": [
+      "actions",
+      "people"
+    ]
+  },
+  "差": {
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ]
+  },
+  "年": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "开": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "当": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "很": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "得": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "心": {
+    "categories": [
+      "emotions-states"
+    ]
+  },
+  "忙": {
+    "categories": [
+      "emotions-states",
+      "descriptions"
+    ]
+  },
+  "快": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "想": {
+    "categories": [
+      "actions",
+      "emotions-states"
+    ]
+  },
+  "慢": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "懂": {
+    "categories": [
+      "actions",
+      "emotions-states"
+    ]
+  },
+  "我": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "手": {
+    "categories": [
+      "people"
+    ]
+  },
+  "把": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "方": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "日": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "明": {
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ]
+  },
+  "是": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "更": {
+    "categories": [
+      "descriptions"
+    ],
+    "phonetic": "gèng / gēng"
+  },
+  "有": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "本": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "来": {
+    "categories": [
+      "time-numbers",
+      "actions",
+      "places"
+    ]
+  },
+  "水": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "没": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "爱": {
+    "categories": [
+      "actions",
+      "emotions-states"
+    ]
+  },
+  "猫": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "班": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "生": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "电": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "病": {
+    "categories": [
+      "emotions-states"
+    ]
+  },
+  "白": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "百": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "的": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "看": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "穿": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "等": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "给": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "能": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "茶": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "菜": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "要": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "言": {
+    "categories": [
+      "communication"
+    ]
+  },
+  "说": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "请": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "谁": {
+    "categories": [
+      "communication",
+      "grammar-function"
+    ]
+  },
+  "跟": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "路": {
+    "categories": [
+      "places"
+    ]
+  },
+  "车": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "还": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "这": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "道": {
+    "categories": [
+      "places",
+      "grammar-function"
+    ]
+  },
+  "那": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "钱": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "错": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "长": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "门": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "零": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "饭": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "个": {
+    "categories": [
+      "time-numbers",
+      "grammar-function"
+    ]
+  },
+  "们": {
+    "categories": [
+      "people",
+      "grammar-function"
+    ]
+  },
+  "吗": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "吧": {
+    "categories": [
+      "grammar-function"
+    ]
+  },
+  "啊": {
+    "categories": [
+      "grammar-function"
+    ],
+    "phonetic": "a / ā / á / ǎ / à"
+  },
+  "早": {
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ]
+  },
+  "晚": {
+    "categories": [
+      "time-numbers",
+      "descriptions"
+    ]
+  },
+  "天": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "月": {
+    "categories": [
+      "time-numbers"
+    ]
+  },
+  "书": {
+    "categories": [
+      "communication",
+      "objects"
+    ]
+  },
+  "友": {
+    "categories": [
+      "communication",
+      "people"
+    ]
+  },
+  "店": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "下": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "外": {
+    "categories": [
+      "places",
+      "descriptions"
+    ]
+  },
+  "里": {
+    "categories": [
+      "places"
+    ]
+  },
+  "前": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "后": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "东": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "西": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "南": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "北": {
+    "categories": [
+      "time-numbers",
+      "places"
+    ]
+  },
+  "爸": {
+    "categories": [
+      "people"
+    ]
+  },
+  "妈": {
+    "categories": [
+      "people"
+    ]
+  },
+  "哥": {
+    "categories": [
+      "people"
+    ]
+  },
+  "姐": {
+    "categories": [
+      "people"
+    ]
+  },
+  "走": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "坐": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "站": {
+    "categories": [
+      "actions",
+      "places"
+    ]
+  },
+  "写": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "读": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "问": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "答": {
+    "categories": [
+      "actions",
+      "communication"
+    ]
+  },
+  "睡": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "起": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "床": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "衣": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "服": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "鞋": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "雨": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "风": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "火": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "山": {
+    "categories": [
+      "nature",
+      "places"
+    ]
+  },
+  "石": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "田": {
+    "categories": [
+      "nature",
+      "places"
+    ]
+  },
+  "木": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "米": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "肉": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "鱼": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "鸟": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "花": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "草": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "树": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "云": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "雪": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "窗": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "房": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "校": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "医": {
+    "categories": [
+      "people",
+      "objects"
+    ]
+  },
+  "院": {
+    "categories": [
+      "objects",
+      "places"
+    ]
+  },
+  "药": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "蛋": {
+    "categories": [
+      "objects",
+      "nature"
+    ]
+  },
+  "牛": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "羊": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "猪": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "鸡": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "关": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "灯": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "纸": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "笔": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "桌": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "椅": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "杯": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "面": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "脚": {
+    "categories": [
+      "people"
+    ]
+  },
+  "头": {
+    "categories": [
+      "people"
+    ]
+  },
+  "眼": {
+    "categories": [
+      "people"
+    ]
+  },
+  "鼻": {
+    "categories": [
+      "people"
+    ]
+  },
+  "身": {
+    "categories": [
+      "people"
+    ]
+  },
+  "耳": {
+    "categories": [
+      "people"
+    ]
+  },
+  "牙": {
+    "categories": [
+      "people"
+    ]
+  },
+  "皮": {
+    "categories": [
+      "people"
+    ]
+  },
+  "毛": {
+    "categories": [
+      "people"
+    ]
+  },
+  "血": {
+    "categories": [
+      "people"
+    ]
+  },
+  "骨": {
+    "categories": [
+      "people"
+    ]
+  },
+  "胃": {
+    "categories": [
+      "people"
+    ]
+  },
+  "合": {
+    "categories": [
+      "actions",
+      "grammar-function"
+    ]
+  },
+  "卖": {
+    "categories": [
+      "actions"
+    ]
+  },
+  "果": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "甜": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "盐": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "糖": {
+    "categories": [
+      "objects"
+    ]
+  },
+  "苹": {
+    "categories": [
+      "nature"
+    ]
+  },
+  "香": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "苦": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "酸": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "辣": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "肥": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "瘦": {
+    "categories": [
+      "descriptions"
+    ]
+  },
+  "肚": {
+    "categories": [
+      "people"
+    ]
+  },
+  "背": {
+    "categories": [
+      "people"
+    ],
+    "phonetic": "bèi / bēi"
+  }
+};
