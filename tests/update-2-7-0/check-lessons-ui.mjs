@@ -27,7 +27,7 @@ assert(css.includes("color:#d9e6fb!important")); assert(css.includes("color:#d5e
 assert(css.includes("prefers-reduced-motion:reduce")); assert(daily.includes("data-activity-theme="));
 assert(daily.includes('reader.classList.add("closing")')); assert(daily.includes("document.body.appendChild(reader)")); assert(daily.includes("daily-activity-allowance-track")); assert(workflow.includes("check-lessons-ui.mjs"));
 assert(html.includes("lessonExpandableGroup")); assert(html.includes("data-lesson-list-toggle")); assert(html.includes("lesson-question-title")); assert(html.includes("lesson-answer-options")); assert(css.includes(".lesson-expandable-item[hidden]")); assert(css.includes(".lesson-question-title")); assert(css.includes(".lesson-answer-options.compact"));
-const chineseLessonsSource=readFileSync("data/chinese-lessons.js","utf8");
+const chineseLessonsSource=fs.readFileSync("data/chinese-lessons.js","utf8");
 const chineseLessons=JSON.parse(chineseLessonsSource.replace(/^window\\.SWIFT_CHINESE_LESSONS\\s*=\\s*/,"").replace(/;\\s*$/,""));
 for(const lessons of Object.values(chineseLessons))for(const lesson of lessons)for(const question of lesson.practices||[lesson.practice]){
   assert(question.q && typeof question.q==="object" && question.q.zh && question.q.pinyin && question.q.en, "Chinese lesson practice prompt must be bilingual and pinyin-supported: "+lesson.id);
