@@ -646,7 +646,8 @@
   }
   function resolveSessionContent(activityType, session, fallback) {
     if (activityType === "daily_revision") {
-      if (isChineseLearningCourse() && !dailyApplicationPool().some(item=>item.topicId===session.topic_id)) return null;
+      const revisionSourceId=String(session.content_id || "").split(":")[2];
+      if (isChineseLearningCourse() && !dailyApplicationPool().some(item=>item.id===revisionSourceId && item.topicId===session.topic_id)) return null;
       const candidate = revisionCandidates(snapshot.lessonResults, snapshot.dailyResults, snapshot.completedToday)
         .find(item => item.topicId === session.topic_id);
       return makeRevisionContent(session.topic_id,session.content_id,candidate?.reason || "Resume your adaptive review.");
