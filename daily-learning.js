@@ -382,7 +382,7 @@
   const byId = id => document.getElementById(id);
   const esc = value => escapeHTML(String(value ?? ""));
   const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING || {topics:[],applications:[],discovery:[]};
-  const isChineseLearningCourse = () => snapshot.learningLanguage === "zh" || (typeof course !== "undefined" && course === "zh");
+  const isChineseLearningCourse = () => typeof course !== "undefined" ? course === "zh" : snapshot.learningLanguage === "zh";
   const dailyTopicPool = () => isChineseLearningCourse() ? chineseDailyLearning.topics : dailyTopics;
   const dailyApplicationPool = () => isChineseLearningCourse() ? chineseDailyLearning.applications : dailyApplications;
   const dailyDiscoveryPool = () => isChineseLearningCourse() ? chineseDailyLearning.discovery : dailyDiscoveryVocabulary;
@@ -780,7 +780,7 @@
     const limit = Number(limitConfig?.limit);
     const used = Number(snapshot.completed[type] || 0);
     const remaining = Number.isFinite(limit) ? Math.max(0,limit-used) : null;
-    const completedRows = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0));
+    const completedRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
@@ -794,6 +794,9 @@
         : !availableForPlan
           ? dailyUi("This activity is not available for your current plan.","当前方案暂不提供此活动。")
           : resetMessage;
+    const panelDescription = type === "daily_discovery" && isChineseLearningCourse()
+      ? dailyUi("Explore useful Chinese characters, their readings and examples.","认识常用汉字、读音和语境例句。")
+      : dailyUi(meta.description,meta.descriptionZh);
     const contentByKey = new Map();
     const renderCard = (content,discoveryIndex=null,reviewOnly=false) => {
       contentByKey.set(type + "|" + content.id,content);
@@ -807,7 +810,7 @@
       const disabled = !!disabledReason || (exhausted && !alreadyCompleted);
       const indexAttribute = discoveryIndex === null ? "" : ' data-discovery-index="' + discoveryIndex + '"';
       const heading = type === "daily_discovery" ? content.word : dailyTitle(content);
-      const subheading = type === "daily_discovery" ? '<p class="muted-note">' + esc(content.phonetic || "") + " · " + esc(content.part || "") + "</p>" : '<p>' + esc(isChineseLearningCourse() ? meta.descriptionZh : meta.description) + "</p>";
+      const subheading = type === "daily_discovery" ? '<p class="muted-note">' + esc(content.phonetic || "") + " · " + esc(content.part || "") + "</p>" : "";
       const reason = type === "daily_revision" ? '<p class="daily-activity-meta"><span class="daily-activity-tag">' + esc(translationLanguage === "zh" ? "根据你的学习记录选择" : content.body) + "</span></p>" : "";
       const preview = type === "daily_discovery" ? '<p class="daily-card-preview">' + esc(isChineseLearningCourse() ? (content.definitionZh || content.definition || meta.descriptionZh) : (content.definition || meta.description)) + "</p>" : '<p class="daily-card-preview">' + esc(content.body || content.description || (isChineseLearningCourse() ? meta.descriptionZh : meta.description)) + "</p>";
       return '<article class="daily-activity-card" data-activity-card="' + type + '"' + (discoveryIndex === null ? "" : ' data-discovery-card="' + (discoveryIndex+1) + '"') + ">"
@@ -851,7 +854,7 @@
     const allowanceLabel=isEnabled&&availableForPlan?dailyUi("remaining today","今日剩余"):!isEnabled?dailyUi("Paused in preferences","已在偏好设置中暂停"):!currentUser||!supabaseClient?dailyUi("Sign in to view allowance","登录后查看额度"):dailyUi("Not available on this plan","当前方案暂不可用");
     const allowanceValue=isEnabled&&availableForPlan?Math.max(0,remaining)+" / "+limit:"—";
     const allowanceCount='<aside class="daily-activity-allowance '+(isEnabled&&availableForPlan?allowanceTone:"unavailable")+'" aria-label="'+esc(allowanceValue+" "+allowanceLabel)+'"><div class="daily-activity-allowance-top"><span class="daily-activity-allowance-label">'+esc(dailyUi("DAILY ALLOWANCE","每日额度"))+'</span><strong>'+esc(allowanceValue)+'</strong></div><div class="daily-activity-allowance-track" aria-hidden="true"><span style="width:'+allowancePercent+'%"></span></div><small>'+esc(allowanceLabel)+'</small></aside>';
-    grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" data-activity-theme="' + type + '" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div class="daily-activity-heading-copy"><p class="daily-activity-heading-kicker">' + esc(dailyUi("DAILY ACTIVITY","每日活动")) + '</p><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelStatus) + '</p></div>' + allowanceCount + '</header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
+    grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" data-activity-theme="' + type + '" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div class="daily-activity-heading-copy"><p class="daily-activity-heading-kicker">' + esc(dailyUi("DAILY ACTIVITY","每日活动")) + '</p><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelDescription) + '</p>'+(panelStatus?'<p class="daily-activity-status">'+esc(panelStatus)+'</p>':"")+'</div>' + allowanceCount + '</header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
     grid.querySelectorAll("[data-daily-tab]").forEach(button => button.addEventListener("click",() => { selectedDailyTab=button.dataset.dailyTab; renderCards(); }));
     grid.querySelectorAll("[data-start-daily]").forEach(button => button.addEventListener("click",() => startDailyActivity(button.dataset.startDaily,button.dataset.discoveryIndex===undefined?0:Number(button.dataset.discoveryIndex),contentByKey.get(button.dataset.startDaily+"|"+button.dataset.contentId)||null,button)));
   }
@@ -952,9 +955,10 @@
     if (completed) html += '<p class="page-intro">' + esc(dailyUi("This content is already completed. You can revisit it without using another daily allowance.","此内容已完成。你可以免费重温，不会再次消耗每日额度。")) + '</p>';
     if (isDiscovery) html += '</div>';
     reader.innerHTML = '<article class="modal daily-activity-modal' + (isDiscovery ? ' daily-discovery-modal' : '') + '">' + html + '</article>';
-    window.requestAnimationFrame(() => {
+    reader.getBoundingClientRect();
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
       if (!reader.hidden && !reader.classList.contains("closing")) reader.classList.add("open");
-    });
+    }));
     const backButton = reader.querySelector("[data-daily-back]");
     if (backButton) backButton.addEventListener("click",closeDailyReader);
     reader.querySelector("[data-daily-close]").addEventListener("click",closeDailyReader);
