@@ -3174,3 +3174,8 @@ All GitHub Actions compatibility workflows passed (U2.7.0, 2.3.x, 2.5.0, 2.6.0, 
 - No new personal-data category, tracking, processor, external recipient, RPC or schema/migration was introduced. Formal Malaysia PDPA and international legal/privacy review remains deferred/outstanding. No production database migration or deployment was performed.
 - Owner staging acceptance remains pending. Do not merge PR #14 or deploy to production without explicit approval.
 - Detailed archive: [U2.7.0 owner feedback round 5](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-5.md).
+
+
+### Final cross-version CI confirmation — owner feedback round 5
+
+After the archive was first recorded, the remaining Quiz database foundation / Local Supabase Auth-RPC / authenticated Chromium Quiz runtime workflow completed successfully on application head `2ce01237c2350115941c56f524b0a7661365879b`. All latest-head cross-version workflows are now green: U2.7.0, 2.3.x, 2.5.0, 2.6.0, Quiz DB/Auth/RPC/Chromium and Cloudflare build routing. Cloudflare Pages had already explicitly confirmed a successful deployment for the same head. Staging is ready for owner testing; PR #14 remains draft/open/unmerged and production/main remains untouched.
