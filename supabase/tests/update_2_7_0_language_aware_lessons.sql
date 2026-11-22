@@ -3,7 +3,7 @@ begin;
 
 -- This test runs only against disposable local Supabase in CI.
 -- It verifies legacy backfill, language isolation, approved content, RLS,
--- shared lesson allowance, replay idempotency and English RPC compatibility.
+-- start-time lesson allowance, replay idempotency and English RPC compatibility.
 
 do $legacy$
 declare
@@ -108,6 +108,7 @@ do $parallel_progress$
 declare
   v_count integer;
   v_started integer;
+  v_used integer;
 begin
   select count(*) into v_count
   from public.lesson_progress
@@ -119,8 +120,13 @@ begin
   select count(*) into v_started
   from public.learning_activity_log
   where user_id=auth.uid() and activity_type='lesson' and event_type='started';
-  if v_started <> 0 then
-    raise exception 'Starting a lesson must not create a new allowance event';
+  if v_started <> 2 then
+    raise exception 'Starting one new lesson in each course should create two allowance events; found %',v_started;
+  end if;
+
+  v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
+  if v_used <> 2 then
+    raise exception 'Two first-start events should consume two shared lesson allowances; found %',v_used;
   end if;
 end;
 $parallel_progress$;
@@ -144,6 +150,7 @@ do $complete_chinese$
 declare
   v_progress public.lesson_progress%rowtype;
   v_count integer;
+  v_used integer;
 begin
   v_progress := public.complete_permanent_lesson_for_language(
     'zh','beginner','b-sentence','zh-test-topic',3,4
@@ -166,6 +173,11 @@ begin
     and learning_language in ('en','zh');
   if v_count <> 2 then
     raise exception 'Expected separate English and Chinese practice summaries, found %',v_count;
+  end if;
+
+  v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
+  if v_used <> 2 then
+    raise exception 'Completing already-started lessons must not charge a second allowance; found %',v_used;
   end if;
 end;
 $complete_chinese$;
@@ -200,12 +212,16 @@ begin
   from public.learning_activity_log
   where user_id=auth.uid() and activity_type='lesson' and event_type='completed';
   if v_events <> 2 then
-    raise exception 'Replaying a completed lesson must not consume allowance';
+    raise exception 'Replaying a completed lesson must not create another completion event';
+  end if;
+
+  if private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur') <> 2 then
+    raise exception 'Replaying completed Chinese practice must not consume another allowance';
   end if;
 end;
 $chinese_replay$;
 
--- User 666 has one shared Free lesson completion across both learning languages.
+-- User 666 has one shared Free lesson-start allowance across both courses.
 reset role;
 update public.learning_plan_limits
 set daily_limit=1,is_enabled=true,updated_at=now()
@@ -215,47 +231,54 @@ set local role authenticated;
 select set_config('request.jwt.claim.sub','66666666-6666-4666-8666-666666666666',true);
 insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
 values
-  ('66666666-6666-4666-8666-666666666666','en','beginner','b-sentence','in_progress'),
-  ('66666666-6666-4666-8666-666666666666','zh','beginner','b-sentence','in_progress');
-
-select public.complete_permanent_lesson(
-  'beginner','b-sentence','sentence-basics',4,4
-);
+  ('66666666-6666-4666-8666-666666666666','en','beginner','b-sentence','in_progress');
 
 do $shared_allowance$
 declare
   v_failed boolean := false;
-  v_status text;
-  v_events integer;
+  v_count integer;
+  v_used integer;
+  v_completed integer;
 begin
   begin
-    perform public.complete_permanent_lesson_for_language(
-      'zh','beginner','b-sentence','zh-test-topic',4,4
-    );
+    insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
+    values ('66666666-6666-4666-8666-666666666666','zh','beginner','b-sentence','in_progress');
   exception when raise_exception then
-    if position('Daily learning completion limit reached' in sqlerrm)=0 then
+    if position('Daily lesson start limit reached' in sqlerrm)=0 then
       raise;
     end if;
     v_failed := true;
   end;
 
   if not v_failed then
-    raise exception 'Chinese completion should share the Free daily lesson allowance with English';
+    raise exception 'Starting a Chinese lesson should share and exhaust the one-per-day Free allowance';
   end if;
 
-  select status into v_status
+  select count(*) into v_count
   from public.lesson_progress
   where user_id=auth.uid() and learning_language='zh'
     and difficulty='beginner' and lesson_id='b-sentence';
-  if v_status is distinct from 'in_progress' then
-    raise exception 'Quota failure must roll back Chinese lesson completion; status is %',v_status;
+  if v_count <> 0 then
+    raise exception 'Rejected second lesson start must not create a Chinese progress row';
   end if;
 
-  select count(*) into v_events
+  v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
+  if v_used <> 1 then
+    raise exception 'Rejected second lesson start must leave exactly one allowance used; found %',v_used;
+  end if;
+
+  perform public.complete_permanent_lesson('beginner','b-sentence','sentence-basics',4,4);
+
+  v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
+  if v_used <> 1 then
+    raise exception 'Completing a lesson after its start must not consume a second allowance; found %',v_used;
+  end if;
+
+  select count(*) into v_completed
   from public.learning_activity_log
   where user_id=auth.uid() and activity_type='lesson' and event_type='completed';
-  if v_events <> 1 then
-    raise exception 'Shared allowance failure should leave exactly one completion event; found %',v_events;
+  if v_completed <> 1 then
+    raise exception 'Successful completion should still be recorded as learning history';
   end if;
 end;
 $shared_allowance$;
