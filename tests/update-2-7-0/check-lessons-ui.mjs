@@ -57,5 +57,7 @@ assert(daily.includes('reader.getBoundingClientRect()'));
 assert(css.includes("lesson-focus-predicate"));
 assert(css.includes("lesson-context-underline"));
 assert(html.includes('swiftdictionary:course-changed'));
+for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
+assert(css.includes("lesson-focus-adverbial"));
 const chineseLessonsWithBreakdown=Object.values(chineseLessons).flat().filter(lesson=>lesson.breakdown);
 assert(chineseLessonsWithBreakdown.length>=7,"Context-relevant Chinese lessons should include reusable sentence breakdowns.");
