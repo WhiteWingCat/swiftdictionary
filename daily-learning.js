@@ -802,7 +802,8 @@
       : dailyUi(meta.description,meta.descriptionZh);
     const contentByKey = new Map();
     const renderCard = (content,discoveryIndex=null,reviewOnly=false) => {
-      contentByKey.set(type + "|" + content.id,content);
+      const reviewSession = reviewOnly ? completedRows.find(row => row.content_id === content.id) || null : null;
+      contentByKey.set(type + "|" + content.id,{content,session:reviewSession});
       const activeSession = reviewOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
       const alreadyCompleted = reviewOnly || (snapshot.dailyResults || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
       const allowanceUnavailable = !availableForPlan;
@@ -865,15 +866,22 @@
     const columns=snapshot.plan==="premium"?3:1;
     grid.innerHTML = '<div class="daily-activity-tabs" role="tablist" aria-label="' + esc(dailyUi("Daily activity categories","每日活动类别")) + '">' + tabs + '</div><section id="dailyActivityPanel" class="daily-activity-panel" data-activity-theme="' + type + '" role="tabpanel" aria-labelledby="dailyTab-' + type + '"><header class="daily-activity-heading"><div class="daily-activity-heading-copy"><p class="daily-activity-heading-kicker">' + esc(dailyUi("DAILY ACTIVITY","每日活动")) + '</p><h3>' + esc(panelTitle) + '</h3><p class="daily-activity-heading-note">' + esc(panelDescription) + '</p>'+(panelStatus?'<p class="daily-activity-status">'+esc(panelStatus)+'</p>':"")+'</div></header>' + (isEnabled ? '<div class="daily-activity-cards' + (columns===3?" premium":" free") + '">' + (cards.join("") || '<div class="coming-card"><p>' + esc(dailyUi("No activities are available in this category right now.","此类别目前没有可用活动。")) + "</p></div>") + "</div>" : '<div class="coming-card"><p>' + esc(panelStatus) + "</p></div>") + "</section>";
     grid.querySelectorAll("[data-daily-tab]").forEach(button => button.addEventListener("click",() => { selectedDailyTab=button.dataset.dailyTab; renderCards(); }));
-    grid.querySelectorAll("[data-start-daily]").forEach(button => button.addEventListener("click",() => startDailyActivity(button.dataset.startDaily,button.dataset.discoveryIndex===undefined?0:Number(button.dataset.discoveryIndex),contentByKey.get(button.dataset.startDaily+"|"+button.dataset.contentId)||null,button)));
+    grid.querySelectorAll("[data-start-daily]").forEach(button => button.addEventListener("click",() => {
+      const entry=contentByKey.get(button.dataset.startDaily+"|"+button.dataset.contentId)||null;
+      startDailyActivity(button.dataset.startDaily,button.dataset.discoveryIndex===undefined?0:Number(button.dataset.discoveryIndex),entry?.content||null,button,entry?.session||null);
+    }));
   }
-  async function startDailyActivity(activityType, discoveryIndex=0, contentOverride=null, buttonElement=null) {
+  async function startDailyActivity(activityType, discoveryIndex=0, contentOverride=null, buttonElement=null, sessionOverride=null) {
     if (!currentUser || !supabaseClient) return;
     const discoverySlots = snapshot.content.daily_discovery;
     const selected = contentOverride || (activityType === "daily_discovery"
       ? (Array.isArray(discoverySlots) ? discoverySlots[discoveryIndex] : null)
       : snapshot.content[activityType] || chooseContent(activityType,snapshot.completed?.[activityType] || 0));
     if (!selected) return;
+    if (sessionOverride?.status === "completed") {
+      renderReader(activityType,selected,sessionOverride);
+      return;
+    }
     const button = buttonElement || (activityType === "daily_discovery"
       ? document.querySelector('[data-start-daily="daily_discovery"][data-discovery-index="' + discoveryIndex + '"]')
       : document.querySelector('[data-start-daily="' + activityType + '"]'));
