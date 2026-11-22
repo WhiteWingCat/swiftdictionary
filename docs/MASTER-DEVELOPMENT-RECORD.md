@@ -3132,3 +3132,15 @@ Cloudflare's `Cloudflare Pages` check run for application head `8fec96ab80e889c2
 - Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev
 
 All GitHub Actions compatibility workflows passed (U2.7.0, 2.3.x, 2.5.0, 2.6.0, Quiz DB foundation, Cloudflare build routing), and Cloudflare Pages explicitly reported **Deploy successful** for the latest feature-branch commit. The separate `Workers Builds: swiftdictionary-testing` check remains failed for the retired testing Worker and is not the Pages deployment. Staging is ready for owner testing. PR #14 remains draft/open/unmerged; production/main remains untouched.
+
+
+## 2026-11-22 — U2.7.0 owner feedback round 3
+
+- Continued work only on `feature/update-2-7-0-chinese-dictionary-lessons` / PR #14; no merge to main or production release.
+- Addressed the owner's remaining Daily Learning drawer, completed-content review, and allowance-description feedback; added explicit transform/opacity transitions with reduced-motion support and browser coverage.
+- Changed permanent lesson allowance consumption to the first confirmed start. Added a Confirm/Cancel prompt with the exact owner-provided wording, a private Supabase trigger/migration, and regression coverage for Free/Premium quotas, shared English/Chinese usage, completion neutrality, free resume/review, personal test exemption, and concurrent starts.
+- Reworked lesson emphasis to white bold topic highlighting, including `a`, `an`, and `the` for the article lesson; removed subject/verb/object role emphasis.
+- Corrected the Chinese date example to `二零二六年` with matching `líng` pinyin, and replaced the English example name Maya with 李明 / Lǐ Míng.
+- Applied the first-start allowance migration to the Singapore staging Supabase project only. No new personal-data category or external data recipient was introduced; formal legal/privacy review remains a separate outstanding activity.
+- Latest branch commit: `f9d69cde4a4d90c7efec2b16fc433367a1bb8a30`. Cloudflare Pages deployed successfully at `https://5fe56dd4.swiftdictionary.pages.dev` (stable branch preview: `https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev`). The final CI rerun for this latest commit was still running at the time of this record; do not hand over the preview for owner acceptance until all relevant checks pass.
+- Detailed archive: [U2.7.0 owner feedback round 3](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-3.md).
