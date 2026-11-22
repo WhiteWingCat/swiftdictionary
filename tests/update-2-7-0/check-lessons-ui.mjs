@@ -112,3 +112,5 @@ assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:none !important"));
 assert(build.includes("lessons-ui") && build.includes("2.7.0-r5"));
+
+assert(daily.includes(" ? 0 : 500"));
