@@ -662,10 +662,29 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
         let ignoreDuplicates = false;
         const q = {
           insert(values) {
-            // Preserve the original mock adapter's immediate INSERT behavior;
-            // unrelated lesson tests rely on the row being visible straight away.
+            // Preserve immediate INSERT behavior while mirroring the server's
+            // first-start lesson allowance trigger in browser regression tests.
             const rows = state.tables[table] || (state.tables[table] = []);
-            rows.push(...(Array.isArray(values) ? values : [values]));
+            const inserted = (Array.isArray(values) ? values : [values]).map(value=>({...value}));
+            if(table==="lesson_progress"){
+              const usage=state.allowanceUsage.find(row=>row.activity_type==="lesson");
+              const limit=state.tables.learning_plan_limits.find(row=>row.plan_code===${JSON.stringify(plan)}&&row.activity_type==="lesson");
+              const duplicate=inserted.some(value=>rows.some(row=>row.user_id===value.user_id
+                && row.learning_language===value.learning_language && row.difficulty===value.difficulty && row.lesson_id===value.lesson_id));
+              if(duplicate){
+                selectError={code:"23505",message:"duplicate key value violates unique constraint"};
+                return q;
+              }
+              if(!usage||!limit||usage.used_count+inserted.length>limit.daily_limit){
+                selectError={code:"P0001",message:"Daily lesson start limit reached"};
+                return q;
+              }
+              rows.push(...inserted);
+              usage.used_count+=inserted.length;
+              for(const row of inserted)state.tables.learning_activity_log.push({
+                user_id:row.user_id,activity_type:"lesson",language_code:row.learning_language,event_type:"started",created_at:new Date().toISOString()
+              });
+            }else rows.push(...inserted);
             return q;
           },
           select(columns) {
@@ -737,13 +756,10 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
             : { data: state.allowanceUsage, error: null };
           if (name === "is_personal_learning_test_access") return { data: false, error: null };
           if (name === "complete_permanent_lesson" || name === "complete_permanent_lesson_for_language") {
-            const usage = state.allowanceUsage.find(row => row.activity_type === "lesson");
-            const limit = state.tables.learning_plan_limits.find(row => row.plan_code === ${JSON.stringify(plan)} && row.activity_type === "lesson");
-            if (!usage || !limit || usage.used_count >= limit.daily_limit) return { data:null, error:{code:"P0001",message:"Daily learning completion limit reached"} };
-            usage.used_count += 1;
             const learningLanguage = name === "complete_permanent_lesson" ? "en" : args.p_learning_language;
             const progress = state.tables.lesson_progress.find(row => row.user_id === state.user.id && row.learning_language === learningLanguage && row.difficulty === args.p_difficulty && row.lesson_id === args.p_lesson_id);
             if (progress) Object.assign(progress,{status:"completed",completed_at:new Date().toISOString(),updated_at:new Date().toISOString()});
+            state.tables.learning_activity_log.push({user_id:state.user.id,activity_type:"lesson",event_type:"completed",language_code:learningLanguage,created_at:new Date().toISOString()});
             return { data:progress||{learning_language:learningLanguage,status:"completed"}, error:null };
           }
           if (name === "record_completed_lesson_practice_result_for_language") return { data:true, error:null };
