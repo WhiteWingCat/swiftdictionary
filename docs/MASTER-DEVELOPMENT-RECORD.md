@@ -3104,3 +3104,14 @@ A Chromium run revealed a temporal-dead-zone bug after language-scoped session f
 Latest application head at this documentation update: `3ec276effb24ed553ccd697daebcc42ae166dfe5`. U2.7.0 static checks passed on prior heads; the latest full Chromium regression and Cloudflare Pages deployment were still pending. The staging preview must not be declared ready until the final browser checks and deployment are verified. PR #14 remains draft/open/unmerged. No production database or deployment changes were made. No new personal-data category or processing purpose was introduced. Formal Malaysia PDPA/international legal review remains deferred, not cleared.
 
 Detailed session archive: [Update 2.7.0 — owner feedback round 2: Daily Learning, Chinese pinyin and lesson emphasis](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-2.md).
+
+
+### U2.7.0 owner feedback round 2 — validation follow-up
+
+Latest application head: `8fec96ab80e889c2cf50ddf71382da643a6e4c23`. The U2.7.0 static/data/accessibility checks, full Lessons and Daily Learning Chromium suite, isolated Chinese dictionary browser checks and Chinese bilingual-layout browser check all passed. The 2.3.x PostgreSQL 17 migration/allowance, local Supabase Auth compatibility and Chromium regressions passed. Update 2.5.0 Flashcards, Update 2.6.0 ACL drift and Cloudflare build-routing guard passed. Quiz DB foundation PostgreSQL validation passed; the separate local Supabase Auth/RPC/Quiz Chromium runtime was still running at the time of this update.
+
+Pinyin coverage was extended to all Han characters appearing in separate-sense examples across the 725 combined dictionary entries; static checks assert no example character lacks a pinyin fallback. Historical review cards no longer consume today's new activity slots, and stale completed sessions that cannot be resolved to their original content are omitted rather than shown as unrelated content.
+
+The U2.7.0 GitHub Actions workflow succeeded for head `8fec96a`. Cloudflare Pages branch-preview deployment was not independently verified, so do not yet mark the staging preview ready. PR #14 remains draft/open/unmerged. No production deployment or migration occurred.
+
+Detailed archive: [Update 2.7.0 — owner feedback round 2: Daily Learning, Chinese pinyin and lesson emphasis](conversation-archive/2026-11-22-update-2-7-0-owner-feedback-round-2.md).
