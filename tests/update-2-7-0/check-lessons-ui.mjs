@@ -55,6 +55,7 @@ assert(daily.includes('.eq("language_code",language).eq("status","completed")'))
 assert(daily.includes('.eq("language_code",language).eq("status","in_progress")'));
 assert(daily.includes('panelDescription'));
 assert(daily.includes('item.titleEn'));
+assert(daily.includes('titleEn:"Review: "+(source.titleEn || source.title)'));
 assert(daily.includes('reader.getBoundingClientRect()'));
 assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adaptive revision must replay its original source material.");
 assert(css.includes("lesson-focus-predicate"));
