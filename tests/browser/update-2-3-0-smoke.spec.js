@@ -101,6 +101,20 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   const chineseDailyTabs=page.locator("#dailyActivityGrid [data-daily-tab]");
   await expect(chineseDailyTabs).toHaveCount(4);
   const chineseTopicCard=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
+  console.log("Chinese Daily Learning diagnostics", await page.evaluate(() => ({
+    course:document.querySelector("#courseSelect")?.value,
+    translation:document.querySelector("#translationSelect")?.value,
+    preferences:window.__swiftDailyMock?.tables?.user_preferences,
+    catalogue:window.SWIFT_CHINESE_DAILY_LEARNING ? {
+      topics:window.SWIFT_CHINESE_DAILY_LEARNING.topics?.length,
+      applications:window.SWIFT_CHINESE_DAILY_LEARNING.applications?.length,
+      discovery:window.SWIFT_CHINESE_DAILY_LEARNING.discovery?.length,
+      firstTopic:window.SWIFT_CHINESE_DAILY_LEARNING.topics?.[0]?.title
+    } : null,
+    status:document.querySelector("#dailyLearningStatus")?.textContent,
+    grid:document.querySelector("#dailyActivityGrid")?.innerText,
+    gridHtml:document.querySelector("#dailyActivityGrid")?.innerHTML.slice(0,1400)
+  })));
   await expect(chineseTopicCard).toContainText("认识普通话四声");
   await page.evaluate(() => {
     window.__dailyDrawerAnimations = [];
