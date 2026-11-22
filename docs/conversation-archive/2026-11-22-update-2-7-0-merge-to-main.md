@@ -28,9 +28,9 @@ The repository's GitHub integration automatically triggered the `pages build and
 
 - Workflow run: [45024731635](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45024731635)
 - Triggering commit: `1d74e4925456c23b96223a94e64827b42c9cb869`
-- Latest observed state while this archive was written: `in_progress`.
+- Final verification: workflow completed with `success`; build, report-build-status and deploy jobs all succeeded. The merge commit also has a successful `Cloudflare Pages` check and a successful `Workers Builds: swiftdictionary-testing` check on `main`.
 
-The prior feature-branch Pages deployment succeeded, but it is not evidence that the production `main` deployment completed. Confirm the workflow's final conclusion and inspect the live site before reporting production deployment success.
+The production GitHub Pages workflow and the Cloudflare Pages check both completed successfully for the merge commit. The main-commit Cloudflare Workers build check also succeeded. This is deployment-check evidence; it does not prove the production Supabase migrations were applied.
 
 ## Database, legal and release boundaries
 
