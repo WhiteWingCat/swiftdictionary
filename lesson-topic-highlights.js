@@ -65,7 +65,7 @@
     const result = [];
     let node = heading.nextElementSibling;
     while (node && node.tagName !== "H3") {
-      if (node.matches("p") && !node.classList.contains("lesson-practice-intro")) result.push(node);
+      if (node.matches("p") && !node.classList.contains("lesson-practice-intro")) { node.classList.add("lesson-explanation-paragraph"); result.push(node); }
       node = node.nextElementSibling;
     }
     return result;
