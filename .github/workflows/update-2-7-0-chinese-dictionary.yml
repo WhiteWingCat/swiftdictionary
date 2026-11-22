@@ -44,6 +44,7 @@ jobs:
           CI: "true"
         run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --grep "Chinese Lessons keep English support" --config=playwright.config.js
 
+  # Covers the first-start charge, test-account exemption, and concurrent selection race.
   postgres-lesson-start-allowance:
     name: PostgreSQL 17 U2.7 lesson-start allowance regression
     runs-on: ubuntu-latest
