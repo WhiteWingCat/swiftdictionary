@@ -107,31 +107,51 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
 });
 
 
-test("lesson emphasis highlights the current topic, not subject-verb-object roles", async ({ page }) => {
-  await installDailyLearningMock(page,"topic-highlight-user");
+test("lesson highlights stay inside explanations, examples and sentence breakdowns", async ({ page }) => {
+  await installDailyLearningMock(page,"scoped-topic-highlight-user");
   await page.goto("/");
   await page.locator("#translationSelect").selectOption("en");
   await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await page.addScriptTag({path:"lesson-topic-highlights.js"});
   await page.locator('[data-page="lessons"]').click();
+
   const articleLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"Choose a, an or the"});
   await expect(articleLesson).toBeVisible();
   await articleLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonReaderContent h2")).toContainText("Choose a, an or the");
   await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
-  const highlighted=await page.locator("#lessonReaderContent mark.lesson-topic-highlight").allTextContents();
-  expect(highlighted).toEqual(expect.arrayContaining(["a","an","the"]));
-  await expect(page.locator('#lessonReaderContent mark[class*="lesson-focus-"]')).toHaveCount(0);
+
+  const articleAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
+    const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
+    const allowed=".lesson-explanation-paragraph,.lesson-example,.lesson-breakdown-sentence,.lesson-breakdown > span > strong";
+    return {
+      texts:marks.map(mark=>mark.textContent.toLowerCase()),
+      outsideAllowed:marks.filter(mark=>!mark.closest(allowed)).map(mark=>mark.textContent),
+      forbidden:root.querySelectorAll("h2 mark.lesson-topic-highlight,h3 mark.lesson-topic-highlight,.page-intro mark.lesson-topic-highlight,.lesson-question mark.lesson-topic-highlight,.lesson-answer-options mark.lesson-topic-highlight,.lesson-key-point mark.lesson-topic-highlight").length
+    };
+  });
+  expect(articleAudit.texts).toEqual(expect.arrayContaining(["a","an","the"]));
+  expect(articleAudit.outsideAllowed).toEqual([]);
+  expect(articleAudit.forbidden).toBe(0);
 
   await page.locator("#lessonBack").click();
-  const otherLesson=page.locator("#lessonCards .lesson-card").filter({hasNotText:"Choose a, an or the"}).first();
-  await otherLesson.click();
+  const nounLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"Use countable and uncountable nouns"});
+  await expect(nounLesson).toBeVisible();
+  await nounLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
-  const otherTitle=(await page.locator("#lessonReaderContent h2").innerText()).toLowerCase();
   await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
-  const otherHighlights=(await page.locator("#lessonReaderContent mark.lesson-topic-highlight").allTextContents()).map(value=>value.toLowerCase());
-  expect(otherHighlights.some(term=>otherTitle.includes(term))).toBeTruthy();
+  const nounAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
+    const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
+    return {
+      texts:marks.map(mark=>mark.textContent.toLowerCase()),
+      outsideAllowed:marks.filter(mark=>!mark.closest(".lesson-explanation-paragraph,.lesson-example,.lesson-breakdown-sentence,.lesson-breakdown > span > strong")).length,
+      forbidden:root.querySelectorAll("h2 mark.lesson-topic-highlight,h3 mark.lesson-topic-highlight,.page-intro mark.lesson-topic-highlight,.lesson-question mark.lesson-topic-highlight,.lesson-answer-options mark.lesson-topic-highlight,.lesson-key-point mark.lesson-topic-highlight").length
+    };
+  });
+  expect(nounAudit.texts).toEqual(expect.arrayContaining(["countable","uncountable"]));
+  expect(nounAudit.outsideAllowed).toBe(0);
+  expect(nounAudit.forbidden).toBe(0);
 });
 
 test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
@@ -1317,6 +1337,56 @@ test("English Daily Discovery remains populated after switching courses", async 
   await expect(cards.first().locator("[data-start-daily]")).toBeEnabled();
 });
 
+
+test("completed Chinese Daily Learning activities remain reviewable when the page selector and loaded course differ", async ({ page }) => {
+  await installDailyLearningMock(page,"course-scoped-daily-review-user","free");
+  await page.goto("/");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock?.user?.id)).toBe("course-scoped-daily-review-user");
+
+  // Deliberately leave the visible selector on English while the saved session
+  // catalogue and completed activity rows belong to Simplified Chinese.
+  await page.locator("#courseSelect").selectOption("en");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("en");
+  await page.evaluate(()=>{
+    const state=window.__swiftDailyMock;
+    const now=new Date().toISOString();
+    const day=new Date().toISOString().slice(0,10);
+    state.tables.user_preferences[0].learning_language="zh";
+    state.tables.user_preferences[0].translation_language="zh";
+    state.allowanceUsage.forEach(row=>{if(row.activity_type!=="lesson")row.used_count=1;});
+    state.sessions=[
+      {id:"zh-completed-topic",user_id:state.user.id,activity_type:"daily_topic",language_code:"zh",content_id:"zh-topic-tones-01",topic_id:"zh-pronunciation-tones",difficulty:"beginner",source:"daily",status:"completed",started_at:now,completed_at:now,correct_count:null,question_count:null},
+      {id:"zh-completed-application",user_id:state.user.id,activity_type:"daily_application",language_code:"zh",content_id:"zh-app-tones-01",topic_id:"zh-pronunciation-tones",difficulty:"beginner",source:"daily",status:"completed",started_at:now,completed_at:now,correct_count:2,question_count:2},
+      {id:"zh-completed-discovery",user_id:state.user.id,activity_type:"daily_discovery",language_code:"zh",content_id:"zh-character-516b:"+day,topic_id:null,difficulty:null,source:"daily",status:"completed",started_at:now,completed_at:now,correct_count:null,question_count:null},
+      {id:"zh-completed-revision",user_id:state.user.id,activity_type:"daily_revision",language_code:"zh",content_id:"revision:zh-pronunciation-tones:zh-app-tones-01:"+day+":1",topic_id:"zh-pronunciation-tones",difficulty:"beginner",source:"adaptive_revision",status:"completed",started_at:now,completed_at:now,correct_count:1,question_count:2}
+    ];
+    state.tables.daily_activity_sessions=state.sessions;
+  });
+  await page.locator('[data-page="lessons"]').click();
+  await page.evaluate(()=>window.initialiseDailyLearning());
+
+  const cases=[
+    ["daily_topic","认识普通话四声"],
+    ["daily_application","辨认普通话声调"],
+    ["daily_discovery","八"],
+    ["daily_revision","复习：辨认普通话声调"]
+  ];
+  for(const [type,expectedText] of cases){
+    await page.locator('#dailyActivityGrid [data-daily-tab="'+type+'"]').click();
+    const completed=page.locator('#dailyActivityGrid [data-activity-card="'+type+'"]').filter({hasText:"已完成 · 可免费重温"});
+    await expect(completed).toHaveCount(1);
+    await expect(completed.locator("[data-start-daily]")).toHaveText("重温已完成内容");
+    await completed.locator("[data-start-daily]").click();
+    await expect(page.locator("#dailyActivityReader")).toBeVisible();
+    await expect(page.locator("#dailyActivityReader")).toContainText(expectedText);
+    await expect(page.locator("#dailyActivityReader")).toContainText("已完成 · 可免费重温");
+    await expect(page.locator("#dailyActivityReader [data-complete-daily]")).toHaveCount(0);
+    const starts=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="start_daily_activity_session").length);
+    expect(starts).toBe(0);
+    await page.locator("#dailyActivityReader [data-daily-close]").click();
+    await expect(page.locator("#dailyActivityReader")).toBeHidden();
+  }
+});
 
 test("historical Daily Learning reviews do not consume today's new activity slots", async ({ page }) => {
   await installDailyLearningMock(page,"historical-daily-review-user","free");
