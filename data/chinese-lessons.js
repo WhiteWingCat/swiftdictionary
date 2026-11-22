@@ -668,7 +668,83 @@ window.SWIFT_CHINESE_LESSONS = {
           ],
           "answer": 0
         }
-      ]
+      ],
+      "breakdown": {
+        "title": {
+          "zh": "句子示例：我是 Maya。",
+          "pinyin": "",
+          "en": "Sentence breakdown"
+        },
+        "intro": {
+          "zh": "先找出说话的人，再看“是”如何连接身份或名称。",
+          "pinyin": "",
+          "en": "Notice how the sentence parts work together."
+        },
+        "sentence": [
+          {
+            "text": {
+              "zh": "我",
+              "pinyin": "wǒ",
+              "en": "I"
+            },
+            "role": "subject"
+          },
+          {
+            "text": {
+              "zh": "是",
+              "pinyin": "shì",
+              "en": "am; is"
+            },
+            "role": "verb"
+          },
+          {
+            "text": {
+              "zh": "Maya",
+              "pinyin": "Maya",
+              "en": "Maya"
+            },
+            "role": "object"
+          }
+        ],
+        "parts": [
+          {
+            "text": {
+              "zh": "我",
+              "pinyin": "wǒ",
+              "en": "I"
+            },
+            "label": {
+              "zh": "主语",
+              "pinyin": "zhǔ yǔ",
+              "en": "Subject"
+            }
+          },
+          {
+            "text": {
+              "zh": "是",
+              "pinyin": "shì",
+              "en": "am; is"
+            },
+            "label": {
+              "zh": "判断动词",
+              "pinyin": "pàn duàn dòng cí",
+              "en": "Linking verb"
+            }
+          },
+          {
+            "text": {
+              "zh": "Maya",
+              "pinyin": "Maya",
+              "en": "Maya"
+            },
+            "label": {
+              "zh": "身份名称",
+              "pinyin": "shēn fèn míng chēng",
+              "en": "Identity/name"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zh-b-numbers-dates-time",
@@ -1196,7 +1272,83 @@ window.SWIFT_CHINESE_LESSONS = {
           ],
           "answer": 0
         }
-      ]
+      ],
+      "breakdown": {
+        "title": {
+          "zh": "句子示例：我是学生。",
+          "pinyin": "",
+          "en": "Sentence breakdown"
+        },
+        "intro": {
+          "zh": "“是”连接主语和身份名词；两部分承担不同语法作用。",
+          "pinyin": "",
+          "en": "Notice how the sentence parts work together."
+        },
+        "sentence": [
+          {
+            "text": {
+              "zh": "我",
+              "pinyin": "wǒ",
+              "en": "I"
+            },
+            "role": "subject"
+          },
+          {
+            "text": {
+              "zh": "是",
+              "pinyin": "shì",
+              "en": "am; is"
+            },
+            "role": "verb"
+          },
+          {
+            "text": {
+              "zh": "学生",
+              "pinyin": "xué shēng",
+              "en": "student"
+            },
+            "role": "object"
+          }
+        ],
+        "parts": [
+          {
+            "text": {
+              "zh": "我",
+              "pinyin": "wǒ",
+              "en": "I"
+            },
+            "label": {
+              "zh": "主语",
+              "pinyin": "zhǔ yǔ",
+              "en": "Subject"
+            }
+          },
+          {
+            "text": {
+              "zh": "是",
+              "pinyin": "shì",
+              "en": "am; is"
+            },
+            "label": {
+              "zh": "判断动词",
+              "pinyin": "pàn duàn dòng cí",
+              "en": "Linking verb"
+            }
+          },
+          {
+            "text": {
+              "zh": "学生",
+              "pinyin": "xué shēng",
+              "en": "student"
+            },
+            "label": {
+              "zh": "名词性补语",
+              "pinyin": "míng cí xìng bǔ yǔ",
+              "en": "Noun complement"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zh-b-common-actions",
@@ -1460,7 +1612,103 @@ window.SWIFT_CHINESE_LESSONS = {
           ],
           "answer": 0
         }
-      ]
+      ],
+      "breakdown": {
+        "title": {
+          "zh": "句子示例：我每天吃早饭。",
+          "pinyin": "",
+          "en": "Sentence breakdown"
+        },
+        "intro": {
+          "zh": "主语指出动作执行者，时间状语说明动作何时发生，动词表达动作。",
+          "pinyin": "",
+          "en": "Notice how the sentence parts work together."
+        },
+        "sentence": [
+          {
+            "text": {
+              "zh": "我",
+              "pinyin": "wǒ",
+              "en": "I"
+            },
+            "role": "subject"
+          },
+          {
+            "text": {
+              "zh": "每天",
+              "pinyin": "měi tiān",
+              "en": "every day"
+            },
+            "role": "object"
+          },
+          {
+            "text": {
+              "zh": "吃",
+              "pinyin": "chī",
+              "en": "eat"
+            },
+            "role": "verb"
+          },
+          {
+            "text": {
+              "zh": "早饭",
+              "pinyin": "zǎo fàn",
+              "en": "breakfast"
+            },
+            "role": "object"
+          }
+        ],
+        "parts": [
+          {
+            "text": {
+              "zh": "我",
+              "pinyin": "wǒ",
+              "en": "I"
+            },
+            "label": {
+              "zh": "主语",
+              "pinyin": "zhǔ yǔ",
+              "en": "Subject"
+            }
+          },
+          {
+            "text": {
+              "zh": "每天",
+              "pinyin": "měi tiān",
+              "en": "every day"
+            },
+            "label": {
+              "zh": "时间状语",
+              "pinyin": "shí jiān zhuàng yǔ",
+              "en": "Time adverbial"
+            }
+          },
+          {
+            "text": {
+              "zh": "吃",
+              "pinyin": "chī",
+              "en": "eat"
+            },
+            "label": {
+              "zh": "谓语动词",
+              "pinyin": "wèi yǔ dòng cí",
+              "en": "Verb"
+            }
+          },
+          {
+            "text": {
+              "zh": "早饭",
+              "pinyin": "zǎo fàn",
+              "en": "breakfast"
+            },
+            "label": {
+              "zh": "宾语",
+              "pinyin": "bīn yǔ",
+              "en": "Object"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zh-b-places-getting-around",
@@ -2284,7 +2532,83 @@ window.SWIFT_CHINESE_LESSONS = {
           ],
           "answer": 0
         }
-      ]
+      ],
+      "breakdown": {
+        "title": {
+          "zh": "句子示例：桌上有两本书。",
+          "pinyin": "",
+          "en": "Sentence breakdown"
+        },
+        "intro": {
+          "zh": "数量结构“两本书”包含数词、量词和名词；量词与名词搭配。",
+          "pinyin": "",
+          "en": "Notice how the sentence parts work together."
+        },
+        "sentence": [
+          {
+            "text": {
+              "zh": "桌上",
+              "pinyin": "zhuō shàng",
+              "en": "on the table"
+            },
+            "role": "subject"
+          },
+          {
+            "text": {
+              "zh": "有",
+              "pinyin": "yǒu",
+              "en": "there is; have"
+            },
+            "role": "verb"
+          },
+          {
+            "text": {
+              "zh": "两本书",
+              "pinyin": "liǎng běn shū",
+              "en": "two books"
+            },
+            "role": "object"
+          }
+        ],
+        "parts": [
+          {
+            "text": {
+              "zh": "桌上",
+              "pinyin": "zhuō shàng",
+              "en": "on the table"
+            },
+            "label": {
+              "zh": "处所",
+              "pinyin": "chù suǒ",
+              "en": "Location"
+            }
+          },
+          {
+            "text": {
+              "zh": "有",
+              "pinyin": "yǒu",
+              "en": "there is"
+            },
+            "label": {
+              "zh": "存在动词",
+              "pinyin": "cún zài dòng cí",
+              "en": "Existence verb"
+            }
+          },
+          {
+            "text": {
+              "zh": "两本书",
+              "pinyin": "liǎng běn shū",
+              "en": "two books"
+            },
+            "label": {
+              "zh": "数量短语（两 + 本 + 书）",
+              "pinyin": "shù liàng duǎn yǔ",
+              "en": "Quantity phrase (two + classifier + books)"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zh-i-grammar-particles",
@@ -3166,7 +3490,91 @@ window.SWIFT_CHINESE_LESSONS = {
           ],
           "answer": 0
         }
-      ]
+      ],
+      "breakdown": {
+        "title": {
+          "zh": "句子示例：今天比昨天冷。",
+          "pinyin": "",
+          "en": "Sentence breakdown"
+        },
+        "intro": {
+          "zh": "“比”引出比较对象；形容词说明比较结果。",
+          "pinyin": "",
+          "en": "Notice how the sentence parts work together."
+        },
+        "sentence": [
+          {
+            "text": {
+              "zh": "今天",
+              "pinyin": "jīn tiān",
+              "en": "today"
+            },
+            "role": "subject"
+          },
+          {
+            "text": {
+              "zh": "比",
+              "pinyin": "bǐ",
+              "en": "than"
+            },
+            "role": "verb"
+          },
+          {
+            "text": {
+              "zh": "昨天",
+              "pinyin": "zuó tiān",
+              "en": "yesterday"
+            },
+            "role": "object"
+          },
+          {
+            "text": {
+              "zh": "冷",
+              "pinyin": "lěng",
+              "en": "cold"
+            },
+            "role": "verb"
+          }
+        ],
+        "parts": [
+          {
+            "text": {
+              "zh": "今天",
+              "pinyin": "jīn tiān",
+              "en": "today"
+            },
+            "label": {
+              "zh": "比较主体",
+              "pinyin": "bǐ jiào zhǔ tǐ",
+              "en": "Compared item"
+            }
+          },
+          {
+            "text": {
+              "zh": "比昨天",
+              "pinyin": "bǐ zuó tiān",
+              "en": "than yesterday"
+            },
+            "label": {
+              "zh": "比较对象",
+              "pinyin": "bǐ jiào duì xiàng",
+              "en": "Comparison"
+            }
+          },
+          {
+            "text": {
+              "zh": "冷",
+              "pinyin": "lěng",
+              "en": "cold"
+            },
+            "label": {
+              "zh": "形容词谓语",
+              "pinyin": "xíng róng cí wèi yǔ",
+              "en": "Adjective predicate"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zh-i-sentence-expansion",
@@ -3726,7 +4134,83 @@ window.SWIFT_CHINESE_LESSONS = {
           ],
           "answer": 0
         }
-      ]
+      ],
+      "breakdown": {
+        "title": {
+          "zh": "句子示例：请把门关上。",
+          "pinyin": "",
+          "en": "Sentence breakdown"
+        },
+        "intro": {
+          "zh": "“把”字句把受事提前，突出动作对门造成的结果。",
+          "pinyin": "",
+          "en": "Notice how the sentence parts work together."
+        },
+        "sentence": [
+          {
+            "text": {
+              "zh": "请",
+              "pinyin": "qǐng",
+              "en": "please"
+            },
+            "role": "subject"
+          },
+          {
+            "text": {
+              "zh": "把门",
+              "pinyin": "bǎ mén",
+              "en": "the door (as affected object)"
+            },
+            "role": "object"
+          },
+          {
+            "text": {
+              "zh": "关上",
+              "pinyin": "guān shàng",
+              "en": "close; shut"
+            },
+            "role": "verb"
+          }
+        ],
+        "parts": [
+          {
+            "text": {
+              "zh": "请",
+              "pinyin": "qǐng",
+              "en": "please"
+            },
+            "label": {
+              "zh": "礼貌标记",
+              "pinyin": "lǐ mào biāo jì",
+              "en": "Politeness marker"
+            }
+          },
+          {
+            "text": {
+              "zh": "把门",
+              "pinyin": "bǎ mén",
+              "en": "the door"
+            },
+            "label": {
+              "zh": "把字结构",
+              "pinyin": "bǎ zì jié gòu",
+              "en": "Bǎ-object phrase"
+            }
+          },
+          {
+            "text": {
+              "zh": "关上",
+              "pinyin": "guān shàng",
+              "en": "close"
+            },
+            "label": {
+              "zh": "结果动词",
+              "pinyin": "jié guǒ dòng cí",
+              "en": "Resultative verb"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "zh-a-connectors",
