@@ -654,11 +654,11 @@
     if (activityType === "daily_discovery") {
       const approvedId=String(session.content_id).split(":")[0];
       const word=dailyDiscoveryPool().find(item=>item.id===approvedId),examples=Array.isArray(word?.examples)?word.examples:[];
-      return word?{...word,id:session.content_id,title:word.word||word.title,example:examples[0],examples:examples.slice(1),zh:word.definitionZh}:(isChineseLearningCourse()?null:fallback);
+      return word?{...word,id:session.content_id,title:word.word||word.title,example:examples[0],examples:examples.slice(1),zh:word.definitionZh}:((session.status==="completed"||isChineseLearningCourse())?null:fallback);
     }
     const pools={daily_topic:dailyTopicPool(),daily_application:dailyApplicationPool()};
     const item=(pools[activityType] || []).find(item => item.id === session.content_id);
-    return item || (isChineseLearningCourse()?null:fallback);
+    return item || ((session.status==="completed"||isChineseLearningCourse())?null:fallback);
   }
 
   async function loadDailyData() {
