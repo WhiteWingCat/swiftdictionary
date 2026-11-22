@@ -70,7 +70,7 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await firstLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
-  await expect(page.locator("#lessonStatus")).toContainText("One daily lesson allowance has been used.");
+  await expect(page.locator("#lessonStatus")).toContainText(/One daily lesson allowance has been used|已使用一次每日课程额度/);
   expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
   await expect(page.locator("#lessonReader")).toBeVisible();
 
@@ -97,12 +97,12 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await expect(page.locator("#lessonReaderContent .lesson-answer-options.compact").first()).toBeVisible();
 
   await page.locator("#lessonBack").click();
-  const inProgressLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"In progress"});
+  const inProgressLesson=page.locator("#lessonCards .lesson-card").filter({hasText:/In progress|学习中/});
   await expect(inProgressLesson).toBeVisible();
   await inProgressLesson.click();
   await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
-  await expect(page.locator("#lessonStatus")).not.toContainText("One daily lesson allowance has been used.");
+  await expect(page.locator("#lessonStatus")).not.toContainText(/One daily lesson allowance has been used|已使用一次每日课程额度/);
   expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
 });
 
@@ -326,46 +326,31 @@ test("exhausted lesson allowance blocks new lessons but preserves completed less
   expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
 });
 
-test("permanent Lessons allowance exhaustion shows a notification", async ({ page }) => {
-  await installDailyLearningMock(page, "lesson-toast-user", "free");
+test("Free lesson allowance is charged on first confirmed start and blocks the next selection", async ({ page }) => {
+  await installDailyLearningMock(page, "lesson-start-limit-user", "free");
   await page.goto("/");
-  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-toast-user");
-  await page.evaluate(() => window.installSwiftAllowanceNotifications?.());
-  await page.evaluate(async () => {
-    const state = window.__swiftDailyMock;
-    state.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 4;
-    const result = await state.completePermanentLesson();
-    if (result.error) throw new Error(result.error.message);
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
+  await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-start-limit-user");
+  await page.evaluate(() => {
+    window.__swiftDailyMock.allowanceUsage.find(row => row.activity_type === "lesson").used_count = 4;
   });
-  const diagnostics = await page.evaluate(async () => {
-    const client = typeof supabaseClient !== "undefined" ? supabaseClient : null;
-    const session = client?.auth?.getSession ? await client.auth.getSession() : null;
-    const uid = session?.data?.session?.user?.id;
-    const usage = client ? await client.rpc("get_my_learning_allowance_usage") : null;
-    const entitlement = client ? await client.from("user_entitlements").select("plan_code,status").eq("user_id", uid).maybeSingle() : null;
-    const preference = client ? await client.from("user_preferences").select("timezone").eq("user_id", uid).maybeSingle() : null;
-    const limit = client ? await client.from("learning_plan_limits").select("daily_limit,is_enabled").eq("plan_code", "free").eq("activity_type", "lesson").maybeSingle() : null;
-    const bypass = client ? await client.rpc("is_personal_learning_test_access") : null;
-    return {
-      installer: typeof window.installSwiftAllowanceNotifications,
-      toast: typeof window.showSwiftDictionaryToast,
-      clientExists: !!client,
-      installed: client?.__swiftAllowanceNotificationsInstalled || false,
-      currentUser: typeof currentUser !== "undefined" ? currentUser?.id || null : null,
-      sessionUser: uid || null,
-      usage: usage?.data || null,
-      entitlement: entitlement?.data || null,
-      preference: preference?.data || null,
-      limit: limit?.data || null,
-      bypass: bypass?.data ?? null,
-      rpc: client?.rpc?.toString().slice(0,120) || null
-    };
-  });
-  console.log("Lessons allowance toast diagnostics", diagnostics);
-  await expect(page.locator("#swiftDictionaryToast")).toContainText(/Lessons allowance|课程额度/);
+  await page.locator('[data-page="lessons"]').click();
+  const firstLesson=page.locator("#lessonCards .lesson-card").first();
+  await expect(firstLesson).toBeVisible();
+  await firstLesson.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toBeVisible();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
+  await page.locator("#lessonBack").click();
+  await expect(page.locator("#lessonCards .lesson-card[disabled]")).toHaveCount(14);
+  const started=page.locator("#lessonCards .lesson-card").filter({hasText:/In progress|学习中/});
+  await started.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
 });
 
-test("Premium lesson allowance blocks new lessons after fifteen completions but keeps reviews free", async ({ page }) => {
+test("Premium lesson allowance blocks new lessons after fifteen first starts but keeps reviews free", async ({ page }) => {
   await installDailyLearningMock(page,"premium-lesson-limit-user","premium");
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("premium-lesson-limit-user");
