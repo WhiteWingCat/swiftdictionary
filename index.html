@@ -18450,6 +18450,7 @@
         document.body.setAttribute("aria-busy", visible ? "true" : "false");
       }
       let accountRefreshQueue = Promise.resolve();
+      let pendingAccountRefreshes = 0;
       let accountHydrated = false;
       let hydratedUserId = null;
 
@@ -18499,6 +18500,7 @@
       }
 
       function enqueueAccountRefresh(sessionSnapshot, hasSnapshot, reason, force = false) {
+        pendingAccountRefreshes += 1;
         accountRefreshQueue = accountRefreshQueue.catch(() => {}).then(async () => {
           let session = sessionSnapshot;
           if (!hasSnapshot) {
@@ -18531,7 +18533,8 @@
           accountStatus.textContent = `Account refresh failed: ${error.message || error}. Your sign-in state has not been deliberately cleared; you can retry by refreshing the page.`;
           console.error("SwiftDictionary account refresh failed:", error);
         }).finally(() => {
-          setAuthLoading(false);
+          pendingAccountRefreshes = Math.max(0, pendingAccountRefreshes - 1);
+          if (pendingAccountRefreshes === 0) setAuthLoading(false);
         });
         return accountRefreshQueue;
       }
