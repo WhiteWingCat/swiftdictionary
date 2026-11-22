@@ -188,29 +188,48 @@
  .lesson-list-toggle,.daily-activity-allowance-track span{transition:none!important}
 }
 
-/* U2.7.0 bilingual lesson emphasis consistency */
-#lessonReaderContent mark.lesson-focus-subject,
-#lessonReaderContent mark.lesson-focus-verb,
-#lessonReaderContent mark.lesson-focus-object,
-#lessonReaderContent mark.lesson-focus-predicate {
+/* U2.7.0 topic emphasis: one consistent highlight treatment, never role-coded colours. */
+#lessonReaderContent mark[class*="lesson-focus-"] {
   display:inline-block;
-  color:#f5f7ff !important;
-  -webkit-text-fill-color:#f5f7ff !important;
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
   font:inherit;
-  font-weight:750;
+  font-weight:800 !important;
   line-height:1.8;
-  text-shadow:0 1px 1px rgba(0,0,0,.35);
-  border-radius:4px;
-  padding:1px 5px;
+  text-shadow:0 1px 1px rgba(0,0,0,.4);
+  background:rgba(91,137,211,.38) !important;
+  border:0 !important;
+  border-bottom:2px solid #a9c7ff !important;
+  border-radius:5px;
+  padding:1px 6px;
 }
-#lessonReaderContent mark.lesson-focus-subject { background:rgba(75,135,220,.32); border-bottom:2px solid #79aaff; }
-#lessonReaderContent mark.lesson-focus-verb,
-#lessonReaderContent mark.lesson-focus-predicate { background:rgba(55,145,100,.32); border-bottom:2px solid #9bd7b3; }
-#lessonReaderContent mark.lesson-focus-object { background:rgba(190,135,45,.32); border-bottom:2px solid #f0c77b; }
 #lessonReaderContent .lesson-breakdown-token { gap:5px; }
 #lessonReaderContent .lesson-english-line,
 #lessonReaderContent .lesson-selected-translation { color:#dce8fb; }
 #lessonReaderContent .lesson-pinyin-line { color:#b9c9e4; }
-#lessonReaderContent .lesson-context-underline { text-decoration:underline; text-decoration-color:#91b4ef; text-decoration-thickness:2px; text-underline-offset:4px; }
 
-#lessonReaderContent mark.lesson-focus-adverbial { background:rgba(135,105,190,.30); border-bottom:2px solid #c2a5f4; }
+.lesson-start-confirm-backdrop {
+  position:fixed; inset:0; z-index:10050; display:grid; place-items:center;
+  padding:20px; background:rgba(5,10,20,.68); backdrop-filter:blur(5px);
+  opacity:0; transition:opacity .18s ease;
+}
+.lesson-start-confirm-backdrop.is-open { opacity:1; }
+.lesson-start-confirm-dialog {
+  width:min(440px,100%); padding:26px; border:1px solid rgba(153,177,215,.28);
+  border-radius:20px; background:linear-gradient(145deg,#202d42,#172235);
+  color:#f4f7ff; box-shadow:0 24px 70px rgba(0,0,0,.48);
+  transform:translateY(8px) scale(.985); transition:transform .18s ease;
+}
+.lesson-start-confirm-backdrop.is-open .lesson-start-confirm-dialog { transform:translateY(0) scale(1); }
+.lesson-start-confirm-dialog p { margin:0 0 22px; color:#e6edf8; line-height:1.65; }
+.lesson-start-confirm-actions { display:flex; justify-content:flex-end; gap:10px; }
+.lesson-start-confirm-actions button {
+  min-width:104px; min-height:42px; padding:9px 18px; border:1px solid #607493;
+  border-radius:11px; color:#f7f9ff; font:inherit; font-weight:700; cursor:pointer;
+  background:#2c3d57; box-shadow:0 5px 14px rgba(0,0,0,.22);
+}
+.lesson-start-confirm-actions button[data-confirm="yes"] { background:#426ba8; border-color:#7196d0; }
+.lesson-start-confirm-actions button:focus-visible { outline:3px solid #b5d0ff; outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) {
+  .lesson-start-confirm-backdrop,.lesson-start-confirm-dialog { transition:none; }
+}
