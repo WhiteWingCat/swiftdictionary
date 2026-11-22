@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-22 (U2.7.0 owner accepted the round-5 staging fixes; release-polishing pass completed, README refreshed on the feature branch, latest cross-version workflows passed and Cloudflare Pages deployed successfully; production remains untouched.)  
-> **Current baseline:** Update 2.6.1 auth hotfix is the current application baseline on `main`; U2.6.0 and U2.6.1 application work is complete. Formal legal/privacy review remains deferred/outstanding and internal legal drafts remain unpublished. U2.7.0 is still isolated on its feature branch and has not been merged.  
-> **Current work:** Update 2.7.0 — Chinese Dictionary & Lessons Expansion, release-polishing stage. Implementation branch `feature/update-2-7-0-chinese-dictionary-lessons`, PR #14 draft/open/unmerged, latest head `c355a23f3d4555fec1384fd14fb4056d77336756`. Owner accepted the U2.7.0 staging preview before the README-only polishing commit. Latest Cloudflare Pages deployment succeeded at `https://962c2836.swiftdictionary.pages.dev`; branch preview `https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev`. No merge, production migration or production deployment is authorised/performed.  
-**Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10, Update 2.4.2 PR #11 and Update 2.5.0 PR #12 are merged. U2.6.0/U2.6.1 application work is complete on `main`. Update 2.7.0 PR #14 remains draft/open/unmerged. Update 2.5.0 production Supabase migrations are applied and verified; U2.7.0 remains staging-only.
+> **Last consolidated:** 2026-11-22 (U2.7.0 owner-approved PR #14 merged into `main`; merge commit `1d74e4925456c23b96223a94e64827b42c9cb869`; main-branch Cloudflare Pages deployment triggered and verification pending at the latest check; production Supabase migrations remain unapplied.)  
+> **Current baseline:** Update 2.7.0 is now merged into `main` after owner approval. U2.6.0, U2.6.1 and U2.7.0 application work is merged; U2.7.0 production Supabase migrations have not been applied. Formal legal/privacy review remains deferred/outstanding and internal legal drafts remain unpublished.  
+> **Current work:** U2.7.0 merge verification and release handover. PR #14 was merged by owner approval into `main` at `1d74e4925456c23b96223a94e64827b42c9cb869`; source head `c355a23f3d4555fec1384fd14fb4056d77336756`. The main-branch Cloudflare Pages workflow `45024731635` was triggered by the merge and was still in progress at the last status check. Feature preview `https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev`; prior feature commit preview `https://962c2836.swiftdictionary.pages.dev`. U2.7.0 Supabase migrations remain staging-only; production database migration is not authorised/performed.  
+**Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10, Update 2.4.2 PR #11, Update 2.5.0 PR #12, U2.6.0/U2.6.1 and U2.7.0 PR #14 are merged. U2.5.0 production Supabase migrations are applied and verified; U2.7.0 migrations remain staging-only pending separate owner approval.
 
 ---
 
@@ -3192,3 +3192,22 @@ After the archive was first recorded, the remaining Quiz database foundation / L
 - U2.7.0 migrations remain staging-only. No production migration, deployment, tag or merge occurred. Formal Malaysia PDPA and international legal/privacy review remains outstanding.
 - PR #14 remains draft/open/unmerged pending explicit owner release approval.
 - Detailed archive: [U2.7.0 release-polishing pass and README refresh](conversation-archive/2026-11-22-update-2-7-0-release-polishing-pass.md).
+
+
+## 2026-11-22 — U2.7.0 owner-approved merge to main
+
+- Owner explicitly approved merging U2.7.0 into `main`.
+- PR #14 was changed from draft to ready for review and merged using a merge commit (not squash/rebase).
+- PR: https://github.com/WhiteWingCat/swiftdictionary/pull/14
+- Source branch: `feature/update-2-7-0-chinese-dictionary-lessons`
+- Source head: `c355a23f3d4555fec1384fd14fb4056d77336756`
+- Base before merge: `11679f706ef3c03f314eeb6f0acf2d753a7e3a8a`
+- Merge commit and verified `main` head: `1d74e4925456c23b96223a94e64827b42c9cb869`.
+- PR #14 is closed/merged. Its description was updated to reflect the final merge status, deployment boundary and outstanding legal review.
+- The merge includes the refreshed root README and all U2.7.0 application/data/UI/migration files from the accepted feature branch.
+- GitHub automatically triggered the `pages build and deployment` workflow on `main`, run [45024731635](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45024731635). It was `in_progress` at the latest check; do not claim the production Pages deployment succeeded until a completed successful result is observed.
+- The three U2.7.0 Supabase migrations remain applied to staging only. The Git merge did not apply them to production; do not run them against production without a separate explicit owner approval and preflight.
+- The separate failed `Workers Builds: swiftdictionary-testing` check on the feature head was for the retired testing Worker. The relevant U2.7.0 application checks, Pages build-routing guard and feature-branch Pages deployment had passed.
+- Formal Malaysia PDPA and general international legal/privacy review remain outstanding. This is not a legal compliance certification.
+- No release tag or downloadable ZIP was created as part of the merge.
+- Detailed session archive: [U2.7.0 owner-approved merge to main](conversation-archive/2026-11-22-update-2-7-0-merge-to-main.md).
