@@ -58,6 +58,8 @@ assert(daily.includes('item.titleEn'));
 assert(daily.includes('titleEn:"Review: "+(source.titleEn || source.title)'));
 assert(daily.includes('reader.getBoundingClientRect()'));
 assert(daily.includes('completedTodayCount') && daily.includes('visibleDailySlots'), 'Historical review cards must not consume today\'s new activity slots.');
+const dailyLoadStart=daily.indexOf("async function loadDailyData");
+assert(daily.indexOf("const language = prefs.learning_language || \"en\";",dailyLoadStart)<daily.indexOf('from("daily_activity_sessions")',dailyLoadStart),"Daily Learning language must be resolved before language-scoped session queries.");
 assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adaptive revision must replay its original source material.");
 assert(css.includes("lesson-focus-predicate"));
 assert(css.includes("lesson-context-underline"));
