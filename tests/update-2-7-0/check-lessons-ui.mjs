@@ -52,7 +52,7 @@ console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, t
 assert(daily.includes('window.addEventListener("swiftdictionary:course-changed"'));
 assert(daily.includes('snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed"'));
 assert(daily.includes('panelDescription'));
-assert(daily.includes('content.titleEn'));
+assert(daily.includes('item.titleEn'));
 assert(daily.includes('reader.getBoundingClientRect()'));
 assert(css.includes("lesson-focus-predicate"));
 assert(css.includes("lesson-context-underline"));
