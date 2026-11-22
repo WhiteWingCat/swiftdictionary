@@ -65,9 +65,11 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await page.locator('.lesson-start-confirm-dialog [data-confirm="no"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeHidden();
   await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(0);
   await firstLesson.click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(1);
   await expect(page.locator("#lessonReader")).toBeVisible();
 
   const keyPoints=page.locator("#lessonReaderContent .lesson-key-point");
@@ -290,6 +292,7 @@ test("Chinese course completion stores progress separately from English", async 
 test("exhausted lesson allowance blocks new lessons but preserves completed lesson review", async ({ page }) => {
   await installDailyLearningMock(page,"lesson-limit-user","free");
   await page.goto("/");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("lesson-limit-user");
   await page.evaluate(() => {
     const state = window.__swiftDailyMock;
@@ -306,8 +309,10 @@ test("exhausted lesson allowance blocks new lessons but preserves completed less
   await expect(completed).toBeEnabled();
   await expect(notStarted).toBeDisabled();
   await completed.click();
+  await expect(page.locator("#lessonStartConfirmMessage")).toHaveCount(0);
   await expect(page.locator("#lessonReader")).toBeVisible();
   await expect(page.locator("#lessonStatus")).toContainText("已完成课程已重新打开，可免费复习。");
+  expect(await page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="lesson").used_count)).toBe(5);
 });
 
 test("permanent Lessons allowance exhaustion shows a notification", async ({ page }) => {
