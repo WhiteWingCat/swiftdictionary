@@ -111,7 +111,7 @@ assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacit
 assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
-assert(build.includes("lessons-ui") && build.includes("2.7.0-r6"));
+assert(build.includes("lessons-ui") && build.includes("2.7.0-r7"));
 
 assert(daily.includes(" ? 120 : 500"));
 
@@ -123,4 +123,4 @@ assert(topicHighlights.includes("function getExplanationParagraphs"));
 assert(topicHighlights.includes("const curatedTopics ="));
 assert(!topicHighlights.includes("createTreeWalker(root, NodeFilter.SHOW_TEXT"));
 
-assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r4"));
+assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r5"));
