@@ -64,16 +64,20 @@ assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adapti
 assert(css.includes('#lessonReaderContent mark[class*="lesson-focus-"]'));
 assert(css.includes("color:#ffffff !important"));
 assert(css.includes("font-weight:800 !important"));
-assert(!/lesson-focus-(subject|verb|object|predicate)\\s*\\{[^}]*background:[^}]*different/i.test(css));
+assert(!css.includes(".lesson-focus-subject {") && !css.includes(".lesson-focus-verb {") && !css.includes(".lesson-focus-object {"));
 assert(css.includes("lesson-context-underline"));
 assert(html.includes('swiftdictionary:course-changed'));
 for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
-assert(css.includes("lesson-focus-adverbial"));
+
 assert(html.includes("pinyinForSenseExample(example,item.word,sense.part)"),"Polyphonic sense examples must use their selected reading for pinyin.");
 const chineseLessonsWithBreakdown=Object.values(chineseLessons).flat().filter(lesson=>lesson.breakdown);
 assert(chineseLessonsWithBreakdown.length>=7,"Context-relevant Chinese lessons should include reusable sentence breakdowns.");
 
 const confirmation=fs.readFileSync("permanent-lesson-confirmation.js","utf8");
+const topicHighlights=fs.readFileSync("lesson-topic-highlights.js","utf8");
+assert(topicHighlights.includes('["choose a, an or the", ["a","an","the"]]'));
+assert(topicHighlights.includes("lesson-topic-highlight"));
+assert(topicHighlights.includes("lesson-role-neutral"));
 assert(confirmation.includes("Selecting this lesson will consume one daily lessons allowance, are you sure?"));
 assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('data-confirm="no"'));
 assert(confirmation.includes('button.click()'));
