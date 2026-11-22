@@ -57,14 +57,14 @@ on conflict (activity_type,content_id,language_code)
 do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=true;
 
 insert into auth.users(id) values
-  ('55555555-5555-4555-8555-555555555555'),
-  ('66666666-6666-4666-8666-666666666666')
+  ('12121212-1212-4121-8121-121212121212'),
+  ('13131313-1313-4131-8131-131313131313')
 on conflict (id) do nothing;
 
 insert into public.user_preferences(user_id,learning_language,translation_language,timezone)
 values
-  ('55555555-5555-4555-8555-555555555555','en','en','Asia/Kuala_Lumpur'),
-  ('66666666-6666-4666-8666-666666666666','en','en','Asia/Kuala_Lumpur')
+  ('12121212-1212-4121-8121-121212121212','en','en','Asia/Kuala_Lumpur'),
+  ('13131313-1313-4131-8131-131313131313','en','en','Asia/Kuala_Lumpur')
 on conflict (user_id) do update set
   learning_language=excluded.learning_language,
   translation_language=excluded.translation_language,
@@ -72,8 +72,8 @@ on conflict (user_id) do update set
 
 insert into public.user_entitlements(user_id,plan_code,status)
 values
-  ('55555555-5555-4555-8555-555555555555','free','active'),
-  ('66666666-6666-4666-8666-666666666666','free','active')
+  ('12121212-1212-4121-8121-121212121212','free','active'),
+  ('13131313-1313-4131-8131-131313131313','free','active')
 on conflict (user_id) do update set
   plan_code=excluded.plan_code,status='active',valid_from=null,valid_until=null;
 
@@ -98,11 +98,11 @@ end;
 $legacy_replay$;
 
 -- User 555 starts the same lesson identity in both courses.
-select set_config('request.jwt.claim.sub','55555555-5555-4555-8555-555555555555',true);
+select set_config('request.jwt.claim.sub','12121212-1212-4121-8121-121212121212',true);
 insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
 values
-  ('55555555-5555-4555-8555-555555555555','en','beginner','b-sentence','in_progress'),
-  ('55555555-5555-4555-8555-555555555555','zh','beginner','b-sentence','in_progress');
+  ('12121212-1212-4121-8121-121212121212','en','beginner','b-sentence','in_progress'),
+  ('12121212-1212-4121-8121-121212121212','zh','beginner','b-sentence','in_progress');
 
 do $parallel_progress$
 declare
@@ -186,11 +186,11 @@ $complete_chinese$;
 -- Replay records its summary once and does not create another allowance event.
 set local role service_role;
 delete from public.lesson_practice_results
-where user_id='55555555-5555-4555-8555-555555555555'
+where user_id='12121212-1212-4121-8121-121212121212'
   and learning_language='zh' and lesson_id='b-sentence';
 reset role;
 set local role authenticated;
-select set_config('request.jwt.claim.sub','55555555-5555-4555-8555-555555555555',true);
+select set_config('request.jwt.claim.sub','12121212-1212-4121-8121-121212121212',true);
 
 do $chinese_replay$
 declare
@@ -228,10 +228,10 @@ set daily_limit=1,is_enabled=true,updated_at=now()
 where plan_code='free' and activity_type='lesson';
 set local role authenticated;
 
-select set_config('request.jwt.claim.sub','66666666-6666-4666-8666-666666666666',true);
+select set_config('request.jwt.claim.sub','13131313-1313-4131-8131-131313131313',true);
 insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
 values
-  ('66666666-6666-4666-8666-666666666666','en','beginner','b-sentence','in_progress');
+  ('13131313-1313-4131-8131-131313131313','en','beginner','b-sentence','in_progress');
 
 do $shared_allowance$
 declare
@@ -242,7 +242,7 @@ declare
 begin
   begin
     insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
-    values ('66666666-6666-4666-8666-666666666666','zh','beginner','b-sentence','in_progress');
+    values ('13131313-1313-4131-8131-131313131313','zh','beginner','b-sentence','in_progress');
   exception when raise_exception then
     if position('Daily lesson start limit reached' in sqlerrm)=0 then
       raise;
@@ -310,14 +310,14 @@ end;
 $personal_test_bypass$;
 
 -- RLS must continue isolating one learner's progress from another.
-select set_config('request.jwt.claim.sub','66666666-6666-4666-8666-666666666666',true);
+select set_config('request.jwt.claim.sub','13131313-1313-4131-8131-131313131313',true);
 do $rls$
 declare
   v_count integer;
 begin
   select count(*) into v_count
   from public.lesson_progress
-  where user_id='55555555-5555-4555-8555-555555555555';
+  where user_id='12121212-1212-4121-8121-121212121212';
   if v_count <> 0 then
     raise exception 'RLS exposed another learner''s lesson progress';
   end if;
