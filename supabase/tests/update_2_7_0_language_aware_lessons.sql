@@ -329,6 +329,8 @@ end;
 $rls$;
 
 -- Course identity is immutable and unsupported course codes are rejected.
+-- Use the learner who has both English and Chinese progress rows.
+select set_config('request.jwt.claim.sub','12121212-1212-4121-8121-121212121212',true);
 do $invalid$
 declare
   v_failed boolean := false;
