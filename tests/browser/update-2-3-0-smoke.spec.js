@@ -129,7 +129,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await chineseTopicCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerIn"))).toBe(true);
-  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.title);
+  await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.titleEn || selectedChineseTopic.title);
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.body);
   await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.en);
