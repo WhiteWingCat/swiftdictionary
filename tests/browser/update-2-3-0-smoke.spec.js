@@ -1288,7 +1288,7 @@ test("historical Daily Learning reviews do not consume today's new activity slot
   await expect(completedCard.locator("[data-start-daily]")).toHaveText("重温已完成内容");
   await completedCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
-  await expect(page.locator("#dailyActivityReader")).toContainText("声调");
+  await expect(page.locator("#dailyActivityReader")).toContainText("四声");
   const startCalls=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="start_daily_activity_session").length);
   expect(startCalls).toBe(0);
   await page.locator("#dailyActivityReader [data-daily-close]").click();
