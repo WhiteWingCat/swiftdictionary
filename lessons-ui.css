@@ -245,3 +245,25 @@
   border-radius:5px;
   padding:1px 5px;
 }
+
+/* U2.7.0 owner feedback round 3: reliable Daily Learning drawer transitions.
+   The panel starts off-canvas, transitions into view after the reader is mounted,
+   and transitions back out before the close handler hides it. */
+#dailyActivityReader .daily-activity-modal {
+  transform:translateX(-100%);
+  opacity:.55;
+  transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .32s ease;
+  animation:none !important;
+}
+#dailyActivityReader.open .daily-activity-modal {
+  transform:translateX(0);
+  opacity:1;
+}
+#dailyActivityReader.closing .daily-activity-modal {
+  transform:translateX(-100%);
+  opacity:0;
+  animation:none !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  #dailyActivityReader .daily-activity-modal { transition:none !important; }
+}
