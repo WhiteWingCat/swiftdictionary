@@ -20477,7 +20477,7 @@ async function completeLesson(x){
       quizEl("lessonDetailPage").classList.toggle("learning-signed-out",!lessonsSignedIn);
       if(!lessonsSignedIn&&!quizEl("lessonDetailPage").hidden){quizEl("lessonDetailPage").hidden=true;quizEl("lessonsPage").hidden=false;}
 quizEl("lessonsChineseUnavailable").hidden=true;
-      quizEl("dailyLearningPage").hidden=chinese||!lessonsSignedIn;
+      quizEl("dailyLearningPage").hidden=!lessonsSignedIn;
 quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=!lessonsSignedIn;
 quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       quizEl("quizChineseUnavailable").hidden=!chinese;

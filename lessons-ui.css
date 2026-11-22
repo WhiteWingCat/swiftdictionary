@@ -98,6 +98,10 @@
 #dailyActivityReader h2,#dailyActivityReader h3{color:#f7f9ff}
 #dailyActivityReader p,#dailyActivityReader li{color:#e1e9f6;line-height:1.8}
 #dailyActivityReader .daily-translation{color:#e5edfa;border-color:#4a6285;background:#080e194d}
+#dailyActivityReader .daily-pinyin-line,#dailyActivityReader .daily-translation-line{display:block;margin:.12rem 0;color:#b9c9e4;font-size:.9rem;line-height:1.5}
+#dailyActivityReader .daily-chinese-line{display:block;line-height:1.6}
+#dailyActivityReader .daily-question label>span{min-width:0;display:block}
+#dailyActivityReader .daily-question label .daily-chinese-line{font-size:1rem}
 #dailyActivityReader .daily-translation strong{color:#c9dcff}
 #dailyActivityReader .daily-practice-instruction{color:#eaf1ff;border-left-color:#91b4ef;background:#5675aa33}
 #dailyActivityReader .daily-reader-example,#dailyActivityReader .daily-examples-box{padding:13px 15px;border:1px solid #88a4d34d;border-radius:12px;background:#364e7538}
