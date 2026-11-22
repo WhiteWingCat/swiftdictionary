@@ -115,6 +115,11 @@ assert(build.includes("lessons-ui") && build.includes("2.7.0-r6"));
 
 assert(daily.includes(" ? 0 : 500"));
 
-assert(topicHighlights.includes("const allowedSelector ="));\nassert(topicHighlights.includes(".lesson-explanation-paragraph"));\nassert(topicHighlights.includes(".lesson-example"));\nassert(topicHighlights.includes(".lesson-breakdown-sentence"));\nassert(topicHighlights.includes("function getExplanationParagraphs"));\nassert(topicHighlights.includes("const curatedTopics ="));\nassert(!topicHighlights.includes("createTreeWalker(root, NodeFilter.SHOW_TEXT"));
+assert(topicHighlights.includes("const allowedSelector ="));
+assert(topicHighlights.includes(".lesson-explanation-paragraph"));
+assert(topicHighlights.includes(".lesson-example"));
+assert(topicHighlights.includes(".lesson-breakdown-sentence"));
+assert(topicHighlights.includes("function getExplanationParagraphs"));
+assert(topicHighlights.includes("const curatedTopics ="));\nassert(!topicHighlights.includes("createTreeWalker(root, NodeFilter.SHOW_TEXT"));
 
 assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r4"));
