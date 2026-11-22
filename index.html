@@ -18305,6 +18305,12 @@
       return [...text].map(ch => /[\u3400-\u9fff]/.test(ch) ? (hanziPinyin[ch] || "") : "")
         .filter(Boolean).join(" ").replace(/\s+/g," ").trim();
     }
+    function pinyinForSenseExample(text, targetCharacter, senseLabel) {
+      const reading = String(senseLabel || "").match(/读音\\s+([^\\s/]+)/)?.[1] || "";
+      if (!reading) return pinyinForText(text);
+      return [...String(text)].map(ch => /[\\u3400-\\u9fff]/.test(ch)
+        ? (ch === targetCharacter ? reading : (hanziPinyin[ch] || "")) : "").filter(Boolean).join(" ").replace(/\\s+/g," ").trim();
+    }
     function renderChineseLine(text, suppliedPinyin = "") {
       const wrapper = document.createElement("div"); wrapper.className = "hanzi-line";
       const chars = document.createElement("div"); chars.textContent = text; wrapper.appendChild(chars);
@@ -18481,7 +18487,7 @@
           block.appendChild(text);
           if (Array.isArray(sense.examples) && sense.examples.length) {
             const senseExamples = document.createElement("ul"); senseExamples.className = "sense-examples";
-            sense.examples.forEach(example => { const li = document.createElement("li"); li.appendChild(renderChineseLine(example)); senseExamples.appendChild(li); });
+            sense.examples.forEach(example => { const li = document.createElement("li"); li.appendChild(renderChineseLine(example,pinyinForSenseExample(example,item.word,sense.part))); senseExamples.appendChild(li); });
             block.appendChild(senseExamples);
           }
           if (/[\u3400-\u9fff]/.test(text.textContent)) {
