@@ -152,6 +152,30 @@ test("lesson highlights stay inside explanations, examples and sentence breakdow
   expect(nounAudit.texts).toEqual(expect.arrayContaining(["countable","uncountable"]));
   expect(nounAudit.outsideAllowed).toBe(0);
   expect(nounAudit.forbidden).toBe(0);
+
+  await page.locator("#lessonBack").click();
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.tables.user_preferences[0].translation_language)).toBe("en");
+  const chineseLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"代词与“是”字句"});
+  await expect(chineseLesson).toBeVisible();
+  await chineseLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  const breakdownPinyin=page.locator("#lessonReaderContent .lesson-breakdown-sentence .lesson-pinyin-line").first();
+  await expect(breakdownPinyin).toBeVisible();
+  await expect(breakdownPinyin).not.toBeEmpty();
+  const chineseAudit=await page.locator("#lessonReaderContent").evaluate(root=>{
+    const marks=[...root.querySelectorAll("mark.lesson-topic-highlight")];
+    return {
+      pinyin:root.querySelectorAll(".lesson-breakdown-sentence .lesson-pinyin-line").length,
+      outsideAllowed:marks.filter(mark=>!mark.closest(".lesson-explanation-paragraph,.lesson-example,.lesson-breakdown-sentence,.lesson-breakdown > span > strong")).length,
+      forbidden:root.querySelectorAll("h2 mark.lesson-topic-highlight,h3 mark.lesson-topic-highlight,.lesson-question mark.lesson-topic-highlight,.lesson-answer-options mark.lesson-topic-highlight").length
+    };
+  });
+  expect(chineseAudit.pinyin).toBeGreaterThan(0);
+  expect(chineseAudit.outsideAllowed).toBe(0);
+  expect(chineseAudit.forbidden).toBe(0);
 });
 
 test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
