@@ -46,6 +46,7 @@ test("dictionary loads and remains usable in signed-out mode", async ({ page }) 
 test("signed-in lesson library renders and difficulty tabs switch independently", async ({ page }) => {
   await installDailyLearningMock(page, "lesson-library-user");
   await page.goto("/");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#lessonCards .lesson-card").first()).toBeVisible();
@@ -92,9 +93,28 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await expect(page.locator("#lessonReaderContent .lesson-answer-options.compact").first()).toBeVisible();
 });
 
+
+test("lesson emphasis highlights the current topic, not subject-verb-object roles", async ({ page }) => {
+  await installDailyLearningMock(page,"topic-highlight-user");
+  await page.goto("/");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
+  await page.addScriptTag({path:"lesson-topic-highlights.js"});
+  await page.locator('[data-page="lessons"]').click();
+  const articleLesson=page.locator("#lessonCards .lesson-card").filter({hasText:"Choose a, an or the"});
+  await expect(articleLesson).toBeVisible();
+  await articleLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonReaderContent h2")).toContainText("Choose a, an or the");
+  await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
+  const highlighted=await page.locator("#lessonReaderContent mark.lesson-topic-highlight").allTextContents();
+  expect(highlighted).toEqual(expect.arrayContaining(["a","an","the"]));
+  await expect(page.locator('#lessonReaderContent mark[class*="lesson-focus-"]')).toHaveCount(0);
+});
+
 test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
   await installDailyLearningMock(page,"chinese-lesson-user");
   await page.goto("/");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("chinese-lesson-user");
   await page.locator("#courseSelect").selectOption("zh");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock.tables.user_preferences[0].learning_language)).toBe("zh");
