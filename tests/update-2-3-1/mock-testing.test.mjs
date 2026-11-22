@@ -319,6 +319,30 @@ test("Premium Mock User can complete ten Flashcard games but not an eleventh",as
   assert.equal(blocked.error.code,"P0001");
 });
 
+test("Free mock permanent lesson allowance permits 5 first starts and blocks the 6th",async()=>{
+  const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  env.window.__swiftDictionaryMock.setActiveUser("mock-user-a");
+  for(let i=1;i<=6;i++){
+    const lessonId="free-lesson-"+i;
+    const inserted=await client.from("lesson_progress").insert({
+      user_id:"mock-user-a",learning_language:"en",difficulty:"beginner",lesson_id:lessonId,status:"in_progress"
+    }).select("difficulty,lesson_id,status").single();
+    if(i<=5){
+      assert.equal(inserted.error,null,"Free first start "+i+" should be allowed");
+      const completed=await client.rpc("complete_permanent_lesson",{
+        p_difficulty:"beginner",p_lesson_id:lessonId,p_topic_id:"greetings",
+        p_correct_count:2,p_question_count:2
+      });
+      assert.equal(completed.error,null,"Completion must remain allowed after its start was charged");
+    }else{
+      assert.equal(inserted.error.code,"P0001","Free first start 6 should be blocked");
+    }
+  }
+  const usage=await client.rpc("get_my_learning_allowance_usage");
+  assert.equal(usage.data.find(row=>row.activity_type==="lesson").used_count,5);
+});
+
 test("Premium mock permanent lesson allowance permits 15 first starts and blocks the 16th",async()=>{
   const env=makeContext("feature-update-2-3-1-bug-fix.swiftdictionary-testing.pages.dev");
   const client=env.window.supabase.createClient();
