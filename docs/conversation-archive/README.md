@@ -150,3 +150,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 2.7.0 — Lessons UI redesign and content pause](2026-11-21-update-2-7-0-lessons-ui-redesign.md) — records the owner-approved temporary pause on further Chinese expansion, shared English/Chinese Lessons redesign, moved activity preferences, accessibility/contrast improvements, preview deployment, regression fixes and current release gates.
 
 - [Update 2.7.0 — Lessons UI redesign and owner feedback round 1](2026-11-21-update-2-7-0-lessons-ui-redesign.md) — follow-up: records expandable lesson content, revised practice answer layout, restored page order, document-level Daily Activities drawer, non-scrolling responsive tabs, redesigned activity allowance UI, and expanded browser verification.
+
+- [Update 2.7.0 — owner feedback round 2: Daily Learning, Chinese pinyin and lesson emphasis](2026-11-22-update-2-7-0-owner-feedback-round-2.md) — records the seven new owner feedback fixes, course-aware and replay-safe Daily Learning behaviour, shared sentence emphasis, the discovered language initialization regression, current validation status and unchanged production boundary.
