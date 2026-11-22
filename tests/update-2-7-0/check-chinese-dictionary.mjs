@@ -104,12 +104,12 @@ for (const character of expandedPolyphonic) {
     assert.ok(sense.definition && sense.definitionZh, "Reading-specific sense needs English and Chinese definitions: " + character);
   }
 }
-const pinyinMapMatch=html.match(/const hanziPinyin = (\\{[\\s\\S]*?\\});/);
-const supplementalPinyinMatch=html.match(/const extraSensePinyin = (\\{[\\s\\S]*?\\});/);
+const pinyinMapMatch=html.match(/const hanziPinyin = (\{[\s\S]*?\});/);
+const supplementalPinyinMatch=html.match(/const extraSensePinyin = (\{[\s\S]*?\});/);
 assert.ok(pinyinMapMatch && supplementalPinyinMatch,"Chinese pinyin fallback maps are missing.");
 const pinyinMap=JSON.parse(pinyinMapMatch[1]);
 const supplementalPinyin=JSON.parse(supplementalPinyinMatch[1]);
 for(const item of words)for(const sense of item.senses||[])for(const example of sense.examples||[])for(const character of example){
-  if(/[\\u3400-\\u9fff]/.test(character))assert.ok(pinyinMap[character]||supplementalPinyin[character],"Sense example character is missing pinyin fallback: "+item.word+" / "+character);
+  if(/[\u3400-\u9fff]/.test(character))assert.ok(pinyinMap[character]||supplementalPinyin[character],"Sense example character is missing pinyin fallback: "+item.word+" / "+character);
 }
 console.log("Chinese dictionary checks passed: " + words.length + " unique characters (" + additions.length + " new), " + polyphonic.length + " polyphonic entries reviewed, " + inlineScripts + " inline script syntax-checked.");
