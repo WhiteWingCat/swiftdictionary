@@ -1310,7 +1310,11 @@
   window.initialiseDailyLearning = initialiseDailyLearning;
   bindPreferenceControls();
   window.addEventListener("swift-auth-updated",() => {
-    if (location.hash === "#lessons") initialiseDailyLearning();
+    const userId = currentUser?.id || null;
+    if (location.hash === "#lessons" && userId && window.__swiftDailyLearningHydratedFor !== userId) {
+      window.__swiftDailyLearningHydratedFor = userId;
+      initialiseDailyLearning();
+    }
   });
   if (location.hash === "#lessons") initialiseDailyLearning();
 })();
