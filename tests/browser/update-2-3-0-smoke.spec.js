@@ -162,20 +162,20 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   });
   expect(selectedChineseTopic).toBeTruthy();
   await page.evaluate(() => {
-    window.__dailyDrawerAnimations = [];
-    document.addEventListener("animationstart", event => {
-      if (event.target.matches?.(".daily-activity-modal")) window.__dailyDrawerAnimations.push(event.animationName);
+    window.__dailyDrawerTransitions = [];
+    document.addEventListener("transitionrun", event => {
+      if (event.target.matches?.(".daily-activity-modal")) window.__dailyDrawerTransitions.push(event.propertyName);
     });
   });
   await chineseTopicCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
-  await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerIn"))).toBe(true);
+  await expect.poll(() => page.evaluate(() => window.__dailyDrawerTransitions.includes("transform"))).toBe(true);
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.titleEn || selectedChineseTopic.title);
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.body);
   await expect(page.locator("#dailyActivityReader .daily-pinyin-line").first()).toBeVisible();
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.en);
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
-  await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerOut"))).toBe(true);
+  await expect.poll(() => page.evaluate(() => window.__dailyDrawerTransitions.filter(property => property==="transform").length >= 2)).toBe(true);
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
   await page.locator('#dailyActivityGrid [data-daily-tab="daily_application"]').click();
   const chineseApplicationCard=page.locator('#dailyActivityGrid [data-activity-card="daily_application"]');
