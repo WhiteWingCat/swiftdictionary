@@ -468,12 +468,14 @@
   }
 
   function makeRevisionContent(topicId, contentId, reason) {
-    if (isChineseLearningCourse()) {
-      const source = dailyApplicationPool().find(item => item.topicId === topicId) || dailyApplicationPool()[0];
+    const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
+    if (chineseCourse) {
+      const applications = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
+      const source = applications.find(item => item.topicId === topicId) || applications[0];
       if (!source) return null;
       return {...source,id:contentId,topicId:topicId || source.topicId,title:"复习："+source.title,titleZh:"复习："+source.title,
-        body:reason || "根据你的学习记录安排的简短复习。",
-        en:source.en || "An adaptive Chinese review selected from your learning history.",
+        body:"根据你的学习记录安排的简短复习。",
+        en:reason || source.en || "An adaptive Chinese review selected from your learning history.",
         questions:(source.questions || []).map(question=>({...question,options:(question.options || []).map(option=>({...option}))}))};
     }
     const material = dailyRevisionMaterials[topicId] || dailyRevisionMaterials["sentence-basics"];
@@ -521,7 +523,15 @@
     const usedToday = new Set((completedToday || [])
       .filter(row => row.activity_type === "daily_revision")
       .map(row => row.topic_id).filter(Boolean));
-    const topics = [...new Set(dailyApplicationPool().map(item => item.topicId).filter(Boolean))];
+    const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
+    const applicationPool = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
+    const topics = chineseCourse
+      ? [...new Set(applicationPool.map(item => item.topicId).filter(Boolean))]
+      : [...new Set([...dailyApplications.map(item => item.topicId),
+        "sentence-basics","verb-tenses","nouns-and-articles","everyday-vocabulary",
+        "nouns-and-quantity","phrasal-verbs","collocations","word-formation",
+        "conditional-sentences","advanced-grammar","idioms-fixed-expressions",
+        "academic-professional-english","precise-vocabulary"])];
     const now = Date.now();
     const candidates = topics.filter(topicId => !usedToday.has(topicId)).map(topicId => {
       const evidence = evidenceByTopic.get(topicId);
@@ -573,7 +583,8 @@
   }
 
   function dailyDiscoverySchedule(globalDay) {
-    const pool = dailyDiscoveryPool(), poolSize = DAILY_DISCOVERY_SCHEDULE_POOL_SIZE;
+    const pool = typeof dailyDiscoveryPool === "function" ? dailyDiscoveryPool() : dailyDiscoveryVocabulary;
+    const poolSize = DAILY_DISCOVERY_SCHEDULE_POOL_SIZE;
     if (pool.length !== poolSize || poolSize < 90 || poolSize % 3 !== 0) throw new Error("Daily Discovery requires an approved language-specific pool of 90 or more entries.");
     const dayOffset = dayOrdinal(globalDay) - dayOrdinal(DAILY_DISCOVERY_SCHEDULE_EPOCH);
     const firstIndex = ((dayOffset * 3) % poolSize + poolSize) % poolSize;

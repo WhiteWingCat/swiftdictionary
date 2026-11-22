@@ -90,6 +90,7 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("chinese-lesson-user");
   await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("en");
   await page.locator('[data-page="lessons"]').click();
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#lessonLibrary")).toBeVisible();
@@ -115,9 +116,6 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await expect(title.locator(".lesson-pinyin-line")).toHaveText("pīn yīn jī chǔ yǔ sì shēng");
   await expect(title.locator(".lesson-english-line")).toContainText("Pinyin foundations");
 
-  await page.locator("#translationSelect").selectOption("zh");
-  await expect(title.locator(".lesson-english-line")).toContainText("Pinyin foundations");
-
   const layout=await title.locator(".lesson-bilingual-block").evaluate(node=>{
     const chinese=node.querySelector(".lesson-chinese-line").getBoundingClientRect();
     const pinyin=node.querySelector(".lesson-pinyin-line").getBoundingClientRect();
@@ -127,6 +125,10 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   expect(layout.pinyinDisplay).toBe("block");
   expect(layout.pinyinTop).toBeGreaterThanOrEqual(layout.chineseBottom-1);
   expect(layout.englishTop).toBeGreaterThanOrEqual(layout.pinyinBottom-1);
+
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(title.locator(".lesson-english-line")).toHaveCount(0);
+  await expect(title.locator(".lesson-chinese-line")).toHaveText("拼音基础与四声");
 
   // Check every visible bilingual block, including examples and practice
   // options, at both desktop and narrow mobile widths.
