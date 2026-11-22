@@ -1050,7 +1050,7 @@
     reader.setAttribute("aria-hidden","true");
     readerState=null;
     document.body.style.overflow="";
-    const closeDelay = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 500;
+    const closeDelay = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 120 : 500;
     window.setTimeout(()=>{
       if(!reader.classList.contains("closing")||reader.innerHTML!==closingMarkup)return;
       reader.hidden=true;
