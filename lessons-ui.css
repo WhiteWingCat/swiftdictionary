@@ -85,9 +85,10 @@
 .lesson-question-feedback{color:#e5edfa;line-height:1.6;overflow-wrap:anywhere}
 .lesson-completion-state{border-color:#536d98;background:#2b3e5b73;box-shadow:0 8px 22px #0003}
 .lesson-finish-note{color:#e0e8f5!important;line-height:1.65}
-#dailyActivityReader.daily-activity-backdrop{position:fixed;inset:0;z-index:1200;display:flex;align-items:stretch;justify-content:flex-start;padding:0;background:#03070e94;backdrop-filter:blur(3px)}
+#dailyActivityReader.daily-activity-backdrop{position:fixed;inset:0;z-index:1200;display:flex;align-items:stretch;justify-content:flex-start;padding:0;background:#03070e94;backdrop-filter:blur(3px);opacity:0;transition:opacity .28s ease}
+#dailyActivityReader.daily-activity-backdrop.open{opacity:1}
 #dailyActivityReader[hidden]{display:none!important}
-#dailyActivityReader .daily-activity-modal{width:50vw;min-width:460px;max-width:900px;height:100dvh;max-height:100dvh;margin:0;padding:clamp(22px,3vw,42px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #435777;border-left:0;border-radius:0 23px 23px 0;background:radial-gradient(circle at 95% 0,#7192cf29,transparent 30%),linear-gradient(150deg,#1d2b40,#141d2b);color:#f5f8ff;box-shadow:0 18px 50px #0006}
+#dailyActivityReader .daily-activity-modal{width:50vw;min-width:460px;max-width:900px;height:100dvh;max-height:100dvh;margin:0;padding:clamp(22px,3vw,42px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #435777;border-left:0;border-radius:0 23px 23px 0;background:radial-gradient(circle at 95% 0,#7192cf29,transparent 30%),linear-gradient(150deg,#1d2b40,#141d2b);color:#f5f8ff;box-shadow:0 18px 50px #0006;transform:translateX(-100%);opacity:.6}
 #dailyActivityReader.open .daily-activity-modal{animation:dailyDrawerIn .42s cubic-bezier(.2,.75,.25,1) both}
 #dailyActivityReader.closing{pointer-events:none}#dailyActivityReader.closing .daily-activity-modal{animation:dailyDrawerOut .22s ease-in both}
 @keyframes dailyDrawerIn{from{opacity:.55;transform:translateX(-32px)}to{opacity:1;transform:translateX(0)}}
@@ -127,6 +128,7 @@
 #dailyActivityReader .daily-discovery-modal{padding:0}#dailyActivityReader .daily-discovery-modal .modal-head{padding:20px 18px 15px}#dailyActivityReader .daily-discovery-modal .modal-content{padding:20px 18px 28px}
 }
 @media(prefers-reduced-motion:reduce){
+#dailyActivityReader.daily-activity-backdrop{transition:none!important}
 #lessonReader.lesson-enter,#dailyActivityReader.open .daily-activity-modal,#dailyActivityReader.closing .daily-activity-modal{animation:none!important}
 #permanentLessonsPanel *, .daily-activity-tabs *, #lessonLibrary .lesson-card, #lessonReader *, #dailyActivityReader *{transition:none!important;scroll-behavior:auto!important}
 }

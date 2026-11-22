@@ -18,7 +18,7 @@ assert(daily.includes("function setDailyPreferenceStatus"));
 assert(daily.includes('byId("dailyPreferencesStatus")'));
 const permanent=html.slice(l0,l1);
 for(const id of ['class="difficulty-tabs"','id="lessonAllowance"','id="lessonCards"'])assert(permanent.includes(id));
-assert(html.includes("lessons-ui.css?v=2.7.0-ui3")); assert(html.includes('class="lesson-key-point lesson-expandable-item"'));
+assert(html.includes("lessons-ui.css?v=2.7.0-ui4")); assert(html.includes('class="lesson-key-point lesson-expandable-item"'));
 for(const key of ["daily_topic","daily_application","daily_discovery","daily_revision"])assert(css.includes('.daily-activity-tab[data-daily-tab="'+key+'"]'));
 assert(css.includes("border-bottom-color:var(--daily-theme-bg)")); assert(css.includes("grid-template-columns:repeat(4,minmax(0,1fr))")); assert(css.includes("overflow:visible!important")); assert(css.includes("width:50vw")); assert(css.includes("max-width:1320px")); assert(css.includes("flex-basis:62vw;width:62vw")); assert(css.includes("flex-basis:100vw;width:100vw"));
 assert(css.includes("overflow:hidden")); assert(css.includes("min-inline-size:0"));
@@ -27,3 +27,13 @@ assert(css.includes("prefers-reduced-motion:reduce")); assert(daily.includes("da
 assert(daily.includes('reader.classList.add("closing")')); assert(daily.includes("document.body.appendChild(reader)")); assert(daily.includes("daily-activity-allowance-track")); assert(workflow.includes("check-lessons-ui.mjs"));
 assert(html.includes("lessonExpandableGroup")); assert(html.includes("data-lesson-list-toggle")); assert(html.includes("lesson-question-title")); assert(html.includes("lesson-answer-options")); assert(css.includes(".lesson-expandable-item[hidden]")); assert(css.includes(".lesson-question-title")); assert(css.includes(".lesson-answer-options.compact"));
 console.log("U2.7.0 Lessons UI structure, expandable content, practice layout, daily activity drawer and responsive controls passed.");
+
+assert(!html.includes('daily-learning-heading-mark" aria-hidden="true">✧'));
+assert(!html.includes('permanent-lessons-mark" aria-hidden="true">✦'));
+assert(daily.includes("chineseDailyLearning.applications") && daily.includes("chineseDailyLearning.topics") && daily.includes("chineseDailyLearning.discovery"));
+assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQuestionOption(option)"));
+assert(daily.includes("window.requestAnimationFrame(() =>"));
+assert(css.includes("@keyframes dailyDrawerIn") && css.includes("@keyframes dailyDrawerOut"));
+assert(css.includes("#dailyActivityReader.daily-activity-backdrop.open{opacity:1}"));
+assert(index.includes('translationLanguage==="en"') && index.includes('class="lesson-english-line"'));
+console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, translation visibility, decorative marks and drawer transitions.");

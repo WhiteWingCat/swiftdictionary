@@ -521,7 +521,7 @@
     .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
     .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
 </style>
-<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui3">
+<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui4">
 </head>
 <body>
   <div id="swiftAuthLoading" class="swift-auth-loading" role="status" aria-live="polite" aria-label="Preparing your SwiftDictionary account">
@@ -627,12 +627,12 @@
       <section id="lessonsSignedOut" class="learning-auth-card" hidden><h2>Sign in to use Lessons</h2><p>Your lesson progress and Daily Learning activity are saved securely to your account, so you can continue across devices.</p><button id="lessonsSignIn" class="learning-auth-button" type="button">Sign in</button></section>
       <div id="lessonsChineseUnavailable" class="learning-course-unavailable" hidden role="status"><h2>Chinese Lessons are coming soon</h2><p>There is currently no Chinese learning course available in Lessons. Switch your learning course to English to continue with the available lessons. Your translation-language preference is separate and will be preserved.</p></div>
       <section id="dailyLearningPage" class="lesson-daily-section" aria-labelledby="dailyLearningHeading">
-        <div class="daily-learning-section-heading"><div><p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p><h2 id="dailyLearningHeading">Daily Learning</h2><p class="page-intro" id="dailyLearningIntro">Build consistency with personalised activities and a shared daily dictionary word for everyone.</p></div><span class="daily-learning-heading-mark" aria-hidden="true">✧</span></div>
+        <div class="daily-learning-section-heading"><div><p class="eyebrow" id="dailyLearningEyebrow">DAILY PRACTICE</p><h2 id="dailyLearningHeading">Daily Learning</h2><p class="page-intro" id="dailyLearningIntro">Build consistency with personalised activities and a shared daily dictionary word for everyone.</p></div></div>
         <p id="dailyLearningStatus" role="status" aria-live="polite" class="page-intro">Sign in to save daily activity progress across devices.</p>
         <div id="dailyActivityGrid" class="daily-activity-grid"></div><article id="dailyActivityReader" class="daily-reader-card" hidden></article>
       </section>
       <section id="permanentLessonsPanel" class="permanent-lessons-panel" aria-labelledby="permanentLessonsHeading">
-        <div class="permanent-lessons-heading"><div><p class="eyebrow">COURSE LIBRARY</p><h2 id="permanentLessonsHeading">Permanent Lessons</h2><p>Explore structured lessons at your own pace. Your progress is saved separately for each difficulty and learning course.</p></div><span class="permanent-lessons-mark" aria-hidden="true">✦</span></div>
+        <div class="permanent-lessons-heading"><div><p class="eyebrow">COURSE LIBRARY</p><h2 id="permanentLessonsHeading">Permanent Lessons</h2><p>Explore structured lessons at your own pace. Your progress is saved separately for each difficulty and learning course.</p></div></div>
         <div class="difficulty-tabs" role="group" aria-label="Lesson difficulty"><button class="difficulty-tab active" data-difficulty="beginner">Beginner</button><button class="difficulty-tab" data-difficulty="intermediate">Intermediate</button><button class="difficulty-tab" data-difficulty="advanced">Advanced</button></div>
         <div id="lessonLibrary">
           <div id="lessonAllowance" class="lesson-allowance" aria-live="polite"><div><strong>Daily lesson allowance</strong><small id="lessonAllowanceNote">Sign in to view your daily lesson completions.</small></div><span id="lessonAllowanceCount" class="lesson-allowance-count">—</span></div>
@@ -18747,9 +18747,11 @@ const progressFor=id=>ls.progress.find(p=>p.learning_language===course&&p.lesson
 function lessonRenderText(value){
       if(Array.isArray(value))return value.map(lessonRenderText).join("");
       if(course==="zh"&&value&&typeof value==="object"&&typeof value.zh==="string"){
-        const selected=translationLanguage!=="en"&&translationLanguage!=="zh"&&value.translations?.[translationLanguage]
-          ?'<span class="lesson-selected-translation">'+escapeHTML(value.translations[translationLanguage])+'</span>':"";
-        return '<span class="lesson-bilingual-block"><span class="lesson-chinese-line">'+escapeHTML(value.zh)+'</span><span class="lesson-pinyin-line">'+escapeHTML(value.pinyin||"")+'</span><span class="lesson-english-line">'+escapeHTML(value.en||"")+'</span>'+selected+'</span>';
+        const selected=translationLanguage==="en"
+          ?'<span class="lesson-english-line">'+escapeHTML(value.en||"")+'</span>'
+          :translationLanguage!=="zh"&&value.translations?.[translationLanguage]
+            ?'<span class="lesson-selected-translation">'+escapeHTML(value.translations[translationLanguage])+'</span>':"";
+        return '<span class="lesson-bilingual-block"><span class="lesson-chinese-line">'+escapeHTML(value.zh)+'</span><span class="lesson-pinyin-line">'+escapeHTML(value.pinyin||"")+'</span>'+selected+'</span>';
       }
       return escapeHTML(value??"");
     }
