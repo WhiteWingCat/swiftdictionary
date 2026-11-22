@@ -57,6 +57,7 @@ assert(daily.includes('panelDescription'));
 assert(daily.includes('item.titleEn'));
 assert(daily.includes('titleEn:"Review: "+(source.titleEn || source.title)'));
 assert(daily.includes('reader.getBoundingClientRect()'));
+assert(daily.includes('completedTodayCount') && daily.includes('visibleDailySlots'), 'Historical review cards must not consume today\'s new activity slots.');
 assert(daily.includes('String(contentId || "").split(":")[2]'),"Completed adaptive revision must replay its original source material.");
 assert(css.includes("lesson-focus-predicate"));
 assert(css.includes("lesson-context-underline"));
