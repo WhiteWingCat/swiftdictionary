@@ -403,6 +403,13 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   await expect(reader).toBeVisible();
   await expect(reader.locator(".daily-activity-modal")).toBeVisible();
   await expect(reader).toHaveClass(/open/);
+  const drawerMotion=await reader.locator(".daily-activity-modal").evaluate(el=>{
+    const style=getComputedStyle(el);
+    return {transition:style.transitionProperty,duration:style.transitionDuration,transform:style.transform};
+  });
+  expect(drawerMotion.transition).toContain("transform");
+  expect(parseFloat(drawerMotion.duration)).toBeGreaterThan(0);
+  expect(drawerMotion.transform).toBe("matrix(1, 0, 0, 1, 0, 0)");
   await expect(reader.locator(".daily-drawer-actions")).toBeVisible();
   await expect(reader.locator("h2").first()).not.toBeEmpty();
   expect(await reader.evaluate(el=>el.parentElement===document.body)).toBeTruthy();
