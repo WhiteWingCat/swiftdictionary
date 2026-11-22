@@ -44,9 +44,9 @@ assert(!html.includes('permanent-lessons-mark" aria-hidden="true">✦'));
 assert(daily.includes("chineseDailyLearning.applications") && daily.includes("chineseDailyLearning.topics") && daily.includes("chineseDailyLearning.discovery"));
 assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQuestionOption(option)"));
 assert(daily.includes("window.requestAnimationFrame(() =>"));
-assert(css.includes("@keyframes dailyDrawerIn") && css.includes("@keyframes dailyDrawerOut"));
-assert(css.includes("from{opacity:.55;transform:translateX(-100%)}to{opacity:1;transform:translateX(0)}"));
-assert(css.includes("from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-100%)}"));
+assert(!css.includes("@keyframes dailyDrawerIn") && !css.includes("@keyframes dailyDrawerOut"), "The drawer should use one transition-based motion system.");
+assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .38s ease !important"));
+assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
 assert(!html.includes("permanent-lessons-mark") && !html.includes("daily-learning-heading-mark"));
 assert(css.includes("#dailyActivityReader.daily-activity-backdrop.open{opacity:1}"));
@@ -82,7 +82,7 @@ const confirmation=fs.readFileSync("permanent-lesson-confirmation.js","utf8");
 const topicHighlights=fs.readFileSync("lesson-topic-highlights.js","utf8");
 new vm.Script(confirmation,{filename:"permanent-lesson-confirmation.js"});
 new vm.Script(topicHighlights,{filename:"lesson-topic-highlights.js"});
-assert(topicHighlights.includes('["a, an", ["a","an","the"]]'));
+assert(topicHighlights.includes('["Choose a, an or the", ["a", "an", "the"]]'));
 assert(topicHighlights.includes("lesson-topic-highlight"));
 assert(topicHighlights.includes("lesson-role-neutral"));
 assert(build.includes("permanent-lesson-confirmation.js") && build.includes("lesson-topic-highlights.js"));
@@ -111,10 +111,10 @@ assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacit
 assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:none !important"));
-assert(build.includes("lessons-ui") && build.includes("2.7.0-r5"));
+assert(build.includes("lessons-ui") && build.includes("2.7.0-r6"));
 
 assert(daily.includes(" ? 0 : 500"));
 
 assert(topicHighlights.includes("const stopWords=new Set"));
 assert(topicHighlights.includes("const titleTerms="));
-assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r3"));
+assert(build.includes("lesson-topic-highlights") && build.includes("2.7.0-r4"));
