@@ -409,7 +409,7 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   });
   expect(drawerMotion.transition).toContain("transform");
   expect(parseFloat(drawerMotion.duration)).toBeGreaterThan(0);
-  expect(drawerMotion.transform).toBe("matrix(1, 0, 0, 1, 0, 0)");
+  await expect.poll(()=>reader.locator(".daily-activity-modal").evaluate(el=>getComputedStyle(el).transform)).toBe("matrix(1, 0, 0, 1, 0, 0)");
   await expect(reader.locator(".daily-drawer-actions")).toBeVisible();
   await expect(reader.locator("h2").first()).not.toBeEmpty();
   expect(await reader.evaluate(el=>el.parentElement===document.body)).toBeTruthy();
