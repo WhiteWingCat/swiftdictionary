@@ -1025,7 +1025,7 @@ test("unfinished daily activities expire at the user's local midnight", async ({
   await page.evaluate(() => {
     const state = window.__swiftDailyMock;
     state.sessions.push({
-      id:"stale-daily-session", user_id:"daily-expiry-user", activity_type:"daily_topic",
+      id:"stale-daily-session", user_id:"daily-expiry-user", activity_type:"daily_topic", language_code:"en",
       content_id:"topic-present-perfect-01", topic_id:"verb-tenses", status:"in_progress",
       started_at:"2026-11-13T08:00:00.000Z", completed_at:null, correct_count:null, question_count:null
     });
