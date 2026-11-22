@@ -484,7 +484,7 @@ if (!dailyScript.includes("const disabled = !!disabledReason || (exhausted && !a
     || dailyScript.includes("Your allowance resets at midnight")
     || dailyScript.includes("Today’s activity is complete")
     || dailyScript.includes("const practiceExamples =")) {
-  throw new Error("Daily activity tabs, plan-sized rows, allowance lock/reset placement, completed review, or example/Q&A separation regressed.");
+  throw new Error("Daily activity tabs, plan-sized rows, separate allowance meter, completed review, or example/Q&A separation regressed.");
 }
 if (!html.includes("allowanceRemaining<=0")
     || !html.includes("get_my_learning_allowance_usage")
