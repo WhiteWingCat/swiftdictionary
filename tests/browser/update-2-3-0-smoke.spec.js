@@ -670,7 +670,7 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
             // Preserve immediate INSERT behavior while mirroring the server's
             // first-start lesson allowance trigger in browser regression tests.
             const rows = state.tables[table] || (state.tables[table] = []);
-            const inserted = (Array.isArray(values) ? values : [values]).map(value=>({...value}));
+            const inserted = (Array.isArray(values) ? values : [values]).map(value=>({...value,...(table==="lesson_progress"?{learning_language:value.learning_language||"en"}:{})}));
             if(table==="lesson_progress"){
               const usage=state.allowanceUsage.find(row=>row.activity_type==="lesson");
               const limit=state.tables.learning_plan_limits.find(row=>row.plan_code===${JSON.stringify(plan)}&&row.activity_type==="lesson");
