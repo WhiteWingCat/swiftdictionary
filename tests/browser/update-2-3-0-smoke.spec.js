@@ -180,6 +180,7 @@ test("lesson highlights stay inside explanations, examples and sentence breakdow
 
 test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
   await installDailyLearningMock(page,"chinese-lesson-user");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
   await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await expect.poll(() => page.evaluate(() => window.__swiftDailyMock?.user?.id)).toBe("chinese-lesson-user");
@@ -222,6 +223,14 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   });
   await chineseTopicCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  console.log("Daily drawer computed motion", await page.evaluate(() => {
+    const panel=document.querySelector("#dailyActivityReader .daily-activity-modal");
+    const style=panel ? getComputedStyle(panel) : null;
+    return { reducedMotion:matchMedia("(prefers-reduced-motion: reduce)").matches,
+      rootClass:document.querySelector("#dailyActivityReader")?.className,
+      panelClass:panel?.className, transform:style?.transform, transition:style?.transition,
+      animations:panel?.getAnimations().map(animation=>({playState:animation.playState,property:animation.transitionProperty})) || [] };
+  }));
   await expect.poll(() => page.evaluate(() => window.__dailyDrawerTransitions.includes("transform"))).toBe(true);
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.titleEn || selectedChineseTopic.title);
   await expect(page.locator("#dailyActivityReader")).toContainText(selectedChineseTopic.body);
