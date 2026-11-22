@@ -75,16 +75,40 @@ test("signed-out Flashcards visitors still see the page banner and title", () =>
 });
 
 test("account deletion loads after the main app, without an async config-loader race", () => {
-  assert.ok(index.indexOf('<script src="flashcards.js?v=2.6.0-r3"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
+  assert.ok(index.indexOf('<script src="flashcards.js?v=2.6.1-r1"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.doesNotMatch(config, /moduleScript\\.async\\s*=\\s*true/);
   assert.doesNotMatch(build, /moduleScript\\.async\\s*=\\s*true/);
   assert.match(build, /Account deletion is loaded explicitly after the main app script/);
 });
 
-test("Google sign-in is bound before the initial network-backed account refresh", () => {
+test("Google sign-in is bound before the initial serialized account hydration", () => {
   const authBlock = index.slice(index.indexOf("async function initAccount"), index.indexOf("const accountMenu", index.indexOf("async function initAccount")));
-  assert.ok(authBlock.indexOf('google.addEventListener("click"') < authBlock.lastIndexOf("await refreshAccount();"));
+  assert.ok(authBlock.indexOf('google.addEventListener("click"') < authBlock.lastIndexOf('await enqueueAccountRefresh(null, false, "BOOTSTRAP", false);'));
   assert.match(authBlock, /Google sign-in could not start/);
+  assert.match(authBlock, /accountRefreshQueue/);
+});
+
+test("routine token refresh events do not trigger full account hydration", () => {
+  const authBlock = index.slice(index.indexOf("async function initAccount"), index.indexOf("const accountMenu", index.indexOf("async function initAccount")));
+  assert.match(authBlock, /event === "INITIAL_SESSION" \|\| event === "TOKEN_REFRESHED"/);
+  assert.match(authBlock, /TOKEN_REFRESHED is deliberately not queued/);
+  assert.match(authBlock, /SIGNED_IN", "SIGNED_OUT", "USER_UPDATED", "PASSWORD_RECOVERY/);
+});
+
+test("post-sign-in loading overlay is present and released after account hydration", () => {
+  assert.match(index, /id="swiftAuthLoading"/);
+  assert.match(index, /swiftAuthLoadingMessage/);
+  assert.match(index, /setAuthLoading\(false\)/);
+  assert.match(index, /__swiftFlashcardsAuthHydration/);
+});
+
+test("cloud saved-word sync failures do not clear the authenticated account", () => {
+  const syncBlock = index.slice(index.indexOf("async function syncCurrentCourseFromCloud"), index.indexOf("async function initAccount"));
+  const authBlock = index.slice(index.indexOf("async function refreshAccount"), index.indexOf("function enqueueAccountRefresh"));
+  assert.match(syncBlock, /You are still signed in/);
+  assert.match(syncBlock, /local saved words remain available/i);
+  assert.match(authBlock, /syncError/);
+  assert.match(authBlock, /You are signed in/);
 });
 
 test("Terms & Conditions has a footer link and does not publish an unapproved legal draft", () => {
@@ -121,12 +145,18 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
   assert.match(flashcards, /state\.data=\{collections:\[\],cards:\[\],mastery:\[\],history:\[\],review_items:\[\]\}/);
 });
 
+test("Flashcards auth hydration is awaitable by the main account initializer", () => {
+  assert.match(flashcards, /window\.__swiftFlashcardsAuthHydration=Promise\.resolve\(\)/);
+  assert.match(flashcards, /window\.__swiftFlashcardsAuthHydration=loadData\(\)/);
+  assert.match(index, /await window\.__swiftFlashcardsAuthHydration/);
+});
+
 test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
-  assert.ok(index.includes('<script src="flashcards.js?v=2.6.0-r3"></script>'));
+  assert.ok(index.includes('<script src="flashcards.js?v=2.6.1-r1"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
-  assert.match(build, /daily-learning\[\.\]js.*2\.6.0-r5/);
-  assert.match(build, /flashcards\[\.\]js.*2\.6\.0-r4/);
+  assert.match(build, /daily-learning\[\.\]js.*2\.6.1-r1/);
+  assert.match(build, /flashcards\[\.\]js.*2\.6\.1-r1/);
 });
 
 test("account-deletion dialog stays hidden until explicitly opened", () => {

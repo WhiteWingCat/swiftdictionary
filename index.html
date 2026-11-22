@@ -79,6 +79,14 @@
     .tense-card { padding:12px; border-radius:10px; background:#20242d; border:1px solid var(--border); }
     .tense-card strong { display:block; color:var(--accent); font-size:.76rem; text-transform:uppercase; letter-spacing:.07em; }
     .account-status { color:var(--muted); font-size:.85rem; }
+    .swift-auth-loading[hidden] { display:none !important; }
+    .swift-auth-loading { position:fixed; inset:0; z-index:30000; display:grid; place-items:center; padding:24px; background:rgba(10,13,19,.96); backdrop-filter:blur(10px); }
+    .swift-auth-loading-card { width:min(420px,100%); display:grid; justify-items:center; gap:14px; padding:30px 24px; border:1px solid #3b465b; border-radius:20px; background:linear-gradient(145deg,#202a3b,#171d29); box-shadow:0 24px 70px #0009; text-align:center; }
+    .swift-auth-spinner { width:38px; height:38px; border:3px solid #52617a; border-top-color:#b7caff; border-radius:50%; animation:swiftAuthSpin .8s linear infinite; }
+    .swift-auth-loading h2 { margin:0; font-size:1.15rem; }
+    .swift-auth-loading p { margin:0; color:#b9c6da; font-size:.92rem; }
+    @keyframes swiftAuthSpin { to { transform:rotate(360deg); } }
+    @media(prefers-reduced-motion:reduce){.swift-auth-spinner{animation:none;border-top-color:#b7caff;}}
 
     .primary-nav { display:flex; gap:8px; align-items:center; overflow-x:auto; padding:5px 0 12px; scrollbar-width:thin; }
     .primary-nav button { flex:0 0 auto; display:inline-flex;align-items:center;gap:9px;border:1px solid #7185ad;border-radius:12px;background:linear-gradient(145deg,#2b3854,#1d293f);color:#fff;padding:10px 17px;font-weight:850;letter-spacing:.01em;box-shadow:0 5px 0 #111a2b,0 9px 18px #0004;transition:transform .15s,filter .15s; }
@@ -498,6 +506,13 @@
   </style>
 </head>
 <body>
+  <div id="swiftAuthLoading" class="swift-auth-loading" role="status" aria-live="polite" aria-label="Preparing your SwiftDictionary account">
+    <section class="swift-auth-loading-card">
+      <span class="swift-auth-spinner" aria-hidden="true"></span>
+      <h2 id="swiftAuthLoadingTitle">Preparing SwiftDictionary</h2>
+      <p id="swiftAuthLoadingMessage">Checking your sign-in and loading your account…</p>
+    </section>
+  </div>
   <header>
     <div class="wrap topbar">
       <div class="brand"><div class="brand-icon">S</div><span>SwiftDictionary</span></div>
@@ -18361,38 +18376,43 @@
     let supabaseClient = null, currentUser = null;
     const accountStatus = document.getElementById("accountStatus");
     async function syncCurrentCourseFromCloud({ mergeLocal = true } = {}) {
-      if (!supabaseClient || !currentUser) return;
+      const syncUser = currentUser;
+      const syncCourse = course;
+      if (!supabaseClient || !syncUser) return false;
       accountStatus.textContent = "Syncing saved words…";
       const { data: cloudRows, error } = await supabaseClient
-        .from("saved_words").select("word").eq("user_id", currentUser.id).eq("course", course);
+        .from("saved_words").select("word").eq("user_id", syncUser.id).eq("course", syncCourse);
+      // An account/course switch may happen while the request is in flight.
+      // Never apply a previous account's response to the newly active account.
+      if (currentUser?.id !== syncUser.id || course !== syncCourse) return false;
       if (error) {
-        accountStatus.textContent = `Cloud sync failed: ${error.message}. Local saved words remain available.`;
-        return;
+        accountStatus.textContent = `Cloud sync failed: ${error.message}. You are still signed in; local saved words remain available.`;
+        return false;
       }
       const cloudWords = new Set((cloudRows || []).map(row => row.word));
       if (mergeLocal) {
-        // Merge local saved words into the signed-in account rather than discarding them.
-        const prefix = course + String.fromCharCode(0);
+        const prefix = syncCourse + String.fromCharCode(0);
         const localCourseWords = [...saved].filter(key => key.startsWith(prefix)).map(key => key.slice(prefix.length));
-        const rowsToUpload = localCourseWords.filter(word => !cloudWords.has(word)).map(word => ({ user_id: currentUser.id, course, word }));
+        const rowsToUpload = localCourseWords.filter(word => !cloudWords.has(word)).map(word => ({ user_id: syncUser.id, course: syncCourse, word }));
         if (rowsToUpload.length) {
           const { error: uploadError } = await supabaseClient.from("saved_words").upsert(rowsToUpload, { onConflict: "user_id,course,word", ignoreDuplicates: true });
+          if (currentUser?.id !== syncUser.id || course !== syncCourse) return false;
           if (uploadError) {
-            accountStatus.textContent = `Signed in, but local words could not be uploaded: ${uploadError.message}`;
-            return;
+            accountStatus.textContent = `Signed in, but local words could not be uploaded: ${uploadError.message}. You can retry sync later.`;
+            return false;
           }
         }
-        cloudWords.forEach(word => saved.add(savedKey(course,word)));
+        cloudWords.forEach(word => saved.add(savedKey(syncCourse,word)));
       } else {
-        // Keep the local list for the other course while replacing only this course's words.
-        const prefix = course + String.fromCharCode(0);
+        const prefix = syncCourse + String.fromCharCode(0);
         for (const key of [...saved]) if (key.startsWith(prefix)) saved.delete(key);
-        cloudWords.forEach(word => saved.add(savedKey(course,word)));
+        cloudWords.forEach(word => saved.add(savedKey(syncCourse,word)));
       }
       persistSaved();
       if (activeWord) updateSaveButton();
       render();
-      accountStatus.textContent = `Signed in as ${currentUser.email}. Saved words for ${course === "zh" ? "Chinese" : "English"} are synced.`;
+      accountStatus.textContent = `Signed in as ${syncUser.email}. Saved words for ${syncCourse === "zh" ? "Chinese" : "English"} are synced.`;
+      return true;
     }
     async function initAccount() {
       const btn = document.getElementById("accountButton");
@@ -18402,10 +18422,14 @@
       if (!cfg || !cfg.url || !cfg.anonKey || cfg.url.includes("YOUR_") || cfg.anonKey.includes("YOUR_")) {
         accountStatus.textContent = "Not connected yet: add the Supabase project URL and publishable/anon key. Local saved words still work on this device.";
         google.disabled = true;
+        const loading = document.getElementById("swiftAuthLoading");
+        if (loading) loading.hidden = true;
         return;
       }
       if (!window.supabase) {
         accountStatus.textContent = "Could not load the account service. Check your internet connection.";
+        const loading = document.getElementById("swiftAuthLoading");
+        if (loading) loading.hidden = true;
         return;
       }
       // Make OAuth session persistence and URL callback handling explicit for mobile browsers.
@@ -18417,10 +18441,21 @@
           flowType: "pkce"
         }
       });
-      async function refreshAccount() {
-        const { data, error } = await supabaseClient.auth.getSession();
-        if (error) accountStatus.textContent = `Could not check sign-in: ${error.message}`;
-        const nextUser = data?.session?.user || null;
+      const authLoading = document.getElementById("swiftAuthLoading");
+      const authLoadingMessage = document.getElementById("swiftAuthLoadingMessage");
+      function setAuthLoading(visible, message) {
+        if (!authLoading) return;
+        if (message && authLoadingMessage) authLoadingMessage.textContent = message;
+        authLoading.hidden = !visible;
+        document.body.setAttribute("aria-busy", visible ? "true" : "false");
+      }
+      let accountRefreshQueue = Promise.resolve();
+      let pendingAccountRefreshes = 0;
+      let accountHydrated = false;
+      let hydratedUserId = null;
+
+      async function refreshAccount(sessionSnapshot) {
+        const nextUser = sessionSnapshot?.user || null;
         const previousUserId = currentUser?.id || null;
         currentUser = nextUser;
         document.getElementById("accountButtonLabel").textContent = currentUser ? "Account" : "Sign in";
@@ -18434,20 +18469,23 @@
         signout.hidden = !currentUser;
 
         if (currentUser) {
-          // On first sign-in or account change, discard the shared anonymous cache.
-          // This prevents local favorites from another session/course leaking into
-          // the signed-in account. Cloud data is loaded below as the source of truth.
           if (!previousUserId || previousUserId !== currentUser.id) {
             saved.clear();
             try { localStorage.removeItem("swiftdictionary-saved"); } catch {}
           }
-          // Never merge shared browser-local favorites into an account: that can
-          // re-upload a word that was just unfavorited on another device.
-          await syncCurrentCourseFromCloud({ mergeLocal: false });
+          // Load account preferences first so the cloud sync uses the learner's
+          // selected course. A failed saved-word request never signs the user out.
           if (typeof loadProfileData === "function") await loadProfileData();
+          if (currentUser?.id !== nextUser.id) return;
+          try {
+            await syncCurrentCourseFromCloud({ mergeLocal: false });
+          } catch (syncError) {
+            // A network exception during cloud sync is not an authentication failure.
+            accountStatus.textContent = `You are signed in, but cloud sync is temporarily unavailable: ${syncError.message || syncError}. Local saved words remain available.`;
+            console.warn("SwiftDictionary saved-word sync is temporarily unavailable:", syncError);
+          }
+          if (currentUser?.id !== nextUser.id) return;
         } else {
-          // Signed-out mode starts with no account favorites displayed.
-          // This prevents one account's cached favorites from appearing for another.
           saved.clear();
           try { localStorage.removeItem("swiftdictionary-saved"); } catch {}
           if (activeWord) updateSaveButton();
@@ -18457,37 +18495,59 @@
           document.getElementById("profileContent").hidden = true;
           document.getElementById("profileSignedOut").hidden = false;
         }
-        // Refresh the permanent lesson allowance whenever the active account changes.
         if (typeof initialiseLessons === "function" && currentUser) await initialiseLessons();
         if (typeof applyLearningCourseAvailability === "function") applyLearningCourseAvailability();
       }
-      // Register interactive auth controls before the first account refresh.
-      // refreshAccount() performs several network requests; binding afterwards
-      // made the first click silently do nothing on slower connections.
-      supabaseClient.auth.onAuthStateChange((event, session) => {
-        // The explicit initial refresh below owns INITIAL_SESSION; ignoring it
-        // here avoids running two concurrent profile/learning-data refreshes.
-        if (event === "INITIAL_SESSION") return;
-        const nextUser = session?.user || null;
-        const previousUserId = currentUser?.id || null;
-        currentUser = nextUser;
-        if (typeof applyLearningCourseAvailability === "function") applyLearningCourseAvailability();
-        if (!nextUser || (previousUserId && previousUserId !== nextUser.id)) {
-          saved.clear();
-          try { localStorage.removeItem("swiftdictionary-saved"); } catch {}
-          if (activeWord) updateSaveButton();
-          render();
-        }
-        // Keep asynchronous database work outside Supabase's auth callback.
-        Promise.resolve().then(async () => {
-          try {
-            await refreshAccount();
-            window.dispatchEvent(new Event("swift-auth-updated"));
-          } catch (error) {
-            accountStatus.textContent = `Account refresh failed: ${error.message || error}`;
-            console.error("SwiftDictionary account refresh failed:", error);
+
+      function enqueueAccountRefresh(sessionSnapshot, hasSnapshot, reason, force = false) {
+        pendingAccountRefreshes += 1;
+        accountRefreshQueue = accountRefreshQueue.catch(() => {}).then(async () => {
+          let session = sessionSnapshot;
+          if (!hasSnapshot) {
+            const { data, error } = await supabaseClient.auth.getSession();
+            if (error) throw error;
+            session = data?.session || null;
           }
+          const targetUserId = session?.user?.id || null;
+          // TOKEN_REFRESHED is deliberately not queued. For other events, avoid
+          // repeating a full multi-table account hydration for the same identity.
+          if (!force && accountHydrated && targetUserId === hydratedUserId) return;
+          setAuthLoading(true, targetUserId ? "Finishing sign-in and loading your account…" : "Updating your account…");
+          await refreshAccount(session);
+          hydratedUserId = currentUser?.id || null;
+          accountHydrated = true;
+          // Finish the active learning subpage before removing the blocking
+          // initialization screen. Other pages hydrate from the shared event.
+          if (currentUser && location.hash === "#lessons" && typeof window.initialiseDailyLearning === "function") {
+            await window.initialiseDailyLearning();
+            window.__swiftDailyLearningHydratedFor = currentUser.id;
+          }
+          if (currentUser && location.hash === "#quiz" && typeof initialiseQuizPage === "function") {
+            await initialiseQuizPage();
+          }
+          window.dispatchEvent(new Event("swift-auth-updated"));
+          if (currentUser && window.__swiftFlashcardsAuthHydration) {
+            await window.__swiftFlashcardsAuthHydration;
+          }
+        }).catch(error => {
+          accountStatus.textContent = `Account refresh failed: ${error.message || error}. Your sign-in state has not been deliberately cleared; you can retry by refreshing the page.`;
+          console.error("SwiftDictionary account refresh failed:", error);
+        }).finally(() => {
+          pendingAccountRefreshes = Math.max(0, pendingAccountRefreshes - 1);
+          if (pendingAccountRefreshes === 0) setAuthLoading(false);
         });
+        return accountRefreshQueue;
+      }
+
+      // Only identity/profile events need account hydration. Supabase manages
+      // token rotation itself; reloading all account data on TOKEN_REFRESHED can
+      // amplify traffic during a refresh burst and is not required for UI state.
+      supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (event === "INITIAL_SESSION" || event === "TOKEN_REFRESHED") return;
+        if (!["SIGNED_IN", "SIGNED_OUT", "USER_UPDATED", "PASSWORD_RECOVERY"].includes(event)) return;
+        const shouldForce = event === "SIGNED_OUT" || event === "USER_UPDATED" || event === "PASSWORD_RECOVERY";
+        if (event === "SIGNED_IN") setAuthLoading(true, "Finishing sign-in and loading your account…");
+        void enqueueAccountRefresh(session || null, true, event, shouldForce);
       });
       google.addEventListener("click", async () => {
         if (google.disabled) return;
@@ -18516,8 +18576,9 @@
         const { error } = await supabaseClient.auth.signOut();
         if (error) accountStatus.textContent = `Sign-out failed: ${error.message}`;
       });
-      // Do the initial refresh only after the first-click handlers are ready.
-      await refreshAccount();
+      // Hydrate once after handlers/listeners are ready. INITIAL_SESSION is
+      // intentionally ignored above so this is the single startup owner.
+      await enqueueAccountRefresh(null, false, "BOOTSTRAP", false);
     }
     const accountMenu = document.getElementById("accountMenu");
     const accountButton = document.getElementById("accountButton");
@@ -18951,6 +19012,8 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
 
     async function loadProfileData() {
       if (!supabaseClient || !currentUser) return;
+      const accountIdAtStart = currentUser.id;
+      const stillSameAccount = () => currentUser?.id === accountIdAtStart;
       // A profile read can finish after the learner changes a language selector.
       // Snapshot the selection version so stale account data cannot overwrite that newer choice.
       const preferenceSelectionVersionAtStart = coursePreferenceSelectionVersion;
@@ -18960,18 +19023,20 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
       document.getElementById("profileEmail").textContent = currentUser.email || "Signed-in account";
       try {
         await preferenceWriteQueue;
+        if (!stillSameAccount()) return;
         await ensureProfileRows();
+        if (!stillSameAccount()) return;
         const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
-          supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",currentUser.id).maybeSingle(),
-          supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",currentUser.id).maybeSingle(),
+          supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",accountIdAtStart).maybeSingle(),
+          supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
-            .eq("user_id",currentUser.id).eq("event_type","completed")
+            .eq("user_id",accountIdAtStart).eq("event_type","completed")
             .order("created_at",{ascending:false}).limit(1000),
-          supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id",currentUser.id).maybeSingle(),
+          supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("learning_plan_limits").select("plan_code,activity_type,daily_limit,is_enabled"),
-          supabaseClient.from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at").eq("user_id",currentUser.id).order("attempted_at",{ascending:false}).limit(60),
-          supabaseClient.from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at").eq("user_id",currentUser.id).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
-          supabaseClient.from("saved_words").select("course,word").eq("user_id",currentUser.id),
+          supabaseClient.from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
+          supabaseClient.from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
+          supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
           supabaseClient.rpc("get_my_quiz_history",{p_limit:5}),
@@ -18979,19 +19044,23 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
           supabaseClient.rpc("get_my_flashcard_allowance"),
           Promise.resolve(supabaseClient.rpc("get_my_flashcard_data")).catch(error=>({data:null,error}))
         ]);
+        if (!stillSameAccount()) return;
         let profileQ=profileInitialQ;
         if(profileQ.error&&/avatar_icon|PGRST204|42703/i.test(profileQ.error.message||"")) {
-          profileQ=await supabaseClient.from("profiles").select("display_name").eq("user_id",currentUser.id).maybeSingle();
+          profileQ=await supabaseClient.from("profiles").select("display_name").eq("user_id",accountIdAtStart).maybeSingle();
+          if (!stillSameAccount()) return;
         }
         let prefsQ = prefsInitialQ;
         if (prefsQ.error && /allowance_timezone|PGRST204|42703/i.test(prefsQ.error.message || "")) {
-          prefsQ = await supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone").eq("user_id",currentUser.id).maybeSingle();
+          prefsQ = await supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone").eq("user_id",accountIdAtStart).maybeSingle();
+          if (!stillSameAccount()) return;
         }
         let activityQ = activityInitialQ;
         let legacyActivityLog = false;
         if (activityQ.error && /event_type|PGRST204|42703/i.test(activityQ.error.message || "")) {
           activityQ = await supabaseClient.from("learning_activity_log").select("activity_type,language_code,created_at",{count:"exact"})
-            .eq("user_id",currentUser.id).order("created_at",{ascending:false}).limit(1000);
+            .eq("user_id",accountIdAtStart).order("created_at",{ascending:false}).limit(1000);
+          if (!stillSameAccount()) return;
           legacyActivityLog = true;
         }
         let dailyPracticeQ = dailyPracticeInitialQ;
@@ -19022,6 +19091,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
         selectedAvatar = profileQ.data?.avatar_icon || selectedAvatar || "🐦";
         updateAvatarDisplay();
         const correctlyClassifiedSavedWords = await normaliseSavedWordCourses(savedWordsQ.data || []);
+        if (!stillSameAccount()) return;
         renderFavoriteWords(correctlyClassifiedSavedWords);
         document.getElementById("displayNameInput").value = profileQ.data?.display_name || "";
         document.getElementById("preferenceLearning").value = preferenceSelectionChanged ? course : prefs.learning_language;
@@ -19160,6 +19230,7 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
             }
           }));
         }
+        if (!stillSameAccount()) return;
         const practiceRows = [
           ...(lessonPracticeQ.data || []).map(row=>({...row,practice_at:row.attempted_at})),
           ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at})),
@@ -19830,12 +19901,15 @@ function lessonPractice(x){const z=translationLanguage==="zh"?lessonZh[x.id]:nul
     // Keep the profile route inaccessible to signed-out visitors.
     initAccount().then(() => showHashPage()).catch(error => {
       document.getElementById("accountStatus").textContent = `Account initialization failed: ${error.message}`;
+      const loading = document.getElementById("swiftAuthLoading");
+      if (loading) loading.hidden = true;
+      document.body.setAttribute("aria-busy", "false");
       showHashPage();
     });
   </script>
 
   <script src="daily-learning.js"></script>
-  <script src="flashcards.js?v=2.6.0-r3"></script>
+  <script src="flashcards.js?v=2.6.1-r1"></script>
   <script src="account-deletion.js?v=2.6.0-r4"></script>
 <div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
