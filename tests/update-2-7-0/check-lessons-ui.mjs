@@ -106,3 +106,9 @@ assert(!daily.includes("You have completed all of today’s"));
 assert(chineseLessonsSource.includes("二零二六年") && !chineseLessonsSource.includes("二〇二六年"));
 assert(!chineseLessonsSource.includes("Maya") && !chineseLessonsSource.includes("玛雅"));
 console.log("U2.7.0 owner feedback regression checks passed: confirmation-before-start, free resume/review, allowance copy removal, white topic emphasis and Chinese-native example names.");
+
+assert(css.includes("transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .32s ease"));
+assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
+assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
+assert(css.includes("transition:none !important"));
+assert(build.includes("lessons-ui") && build.includes("2.7.0-r5"));
