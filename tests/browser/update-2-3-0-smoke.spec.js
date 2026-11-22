@@ -393,7 +393,8 @@ test("signed-in Daily Topic completes through the server RPC without answer-leve
   expect(JSON.stringify(calls)).not.toMatch(/selectedAnswer|answerIndex|questionAnswer/i);
   const topicCards = page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
   await expect(topicCards).toHaveCount(1);
-  await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("每日额度将在午夜重置");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-heading-note")).toContainText("通过简短讲解和例句学习一个重点");
+  await expect(page.locator("#dailyActivityPanel .daily-activity-status")).toContainText("每日额度将在午夜重置");
   await expect(topicCards.first()).toContainText("已完成 · 可免费重温");
   await expect(topicCards.first().locator("[data-start-daily]")).toBeEnabled();
 
@@ -727,6 +728,7 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
               id: "daily-session-" + (state.sessions.length + 1),
               user_id: state.user.id,
               activity_type: args.p_activity_type,
+              language_code: state.tables.user_preferences[0]?.learning_language || "en",
               content_id: args.p_content_id,
               topic_id: args.p_topic_id,
               difficulty: args.p_difficulty,
