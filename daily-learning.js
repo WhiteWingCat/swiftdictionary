@@ -475,7 +475,7 @@
       const sourceId = String(contentId || "").split(":")[2] || null;
       const source = applications.find(item => item.id === sourceId && item.topicId === topicId) || applications.find(item => item.topicId === topicId) || applications[0];
       if (!source) return null;
-      return {...source,id:contentId,topicId:topicId || source.topicId,title:"复习："+source.title,titleZh:"复习："+source.title,
+      return {...source,id:contentId,topicId:topicId || source.topicId,title:"复习："+source.title,titleZh:"复习："+source.title,titleEn:"Review: "+(source.titleEn || source.title),
         body:"根据你的学习记录安排的简短复习。",
         en:reason || source.en || "An adaptive Chinese review selected from your learning history.",
         questions:(source.questions || []).map(question=>({...question,options:(question.options || []).map(option=>({...option}))}))};
