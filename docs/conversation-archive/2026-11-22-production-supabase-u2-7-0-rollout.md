@@ -43,18 +43,13 @@ Read-only production checks confirmed:
 
 The database migration application and schema/ACL checks succeeded. No learner progress/session rows were intentionally inserted, modified or deleted as part of verification.
 
-## Remaining live-site validation
+## Owner's live-site confirmation
 
-This session did not have an authenticated live browser session or an available Cloudflare browser-control tool, so it does **not** claim that the user-facing Lessons flow has been end-to-end tested after rollout. The owner should reload the live site (preferably hard refresh) and test:
+On 2026-11-22, the owner confirmed that **both English and Chinese content appeared on the live website as intended** after the production database rollout. The owner approved marking Update 2.7.0 complete.
 
-1. Signed-in English Lessons load and retain existing progress.
-2. Signed-in Chinese Lessons load, and English/Chinese progress remains independent.
-3. Lesson start, resume, completion and completed-content review behave correctly.
-4. First-start lesson allowance and daily activity completion allowance behave correctly.
-5. Daily Topic, Application, Discovery and Revision load for Chinese and English.
-6. Google sign-in, account switching and account-isolated data remain intact.
+This closes the rollout blocker that had displayed “waiting for server update” and confirms the live site can retrieve the English and Chinese learning content. The confirmation is specifically about the content appearing; this archive does not infer that every lesson lifecycle, allowance edge case, account-switching path or Daily Learning interaction was freshly re-tested in this final check.
 
-If the live page still shows “waiting for server update”, capture the browser console/network error and investigate the specific failed RPC or API response before making any further database change.
+**Release status: COMPLETED.** No further production database or application changes are required for this update based on the reported result. Any future defects should be tracked as a separate follow-up or hotfix, not left as an open U2.7.0 release gate.
 
 ## Legal/privacy and recovery notes
 
