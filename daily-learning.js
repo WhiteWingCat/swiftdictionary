@@ -1357,5 +1357,8 @@
       initialiseDailyLearning();
     }
   });
+  window.addEventListener("swift-course-preferences-updated",() => {
+    if (location.hash === "#lessons" && currentUser) void initialiseDailyLearning();
+  });
   if (location.hash === "#lessons") initialiseDailyLearning();
 })();

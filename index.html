@@ -18586,6 +18586,7 @@
             timezone: document.getElementById("preferenceTimezone")?.value || browserTimezone()
           }, { onConflict: "user_id" });
           if (error) console.warn("Could not save course preferences:", error.message);
+          else window.dispatchEvent(new Event("swift-course-preferences-updated"));
         }).catch(error => console.warn("Could not save course preferences:", error));
       }
     }

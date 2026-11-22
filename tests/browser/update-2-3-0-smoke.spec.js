@@ -102,12 +102,20 @@ test("Chinese Lessons keep English support and place pinyin directly below Chine
   await expect(chineseDailyTabs).toHaveCount(4);
   const chineseTopicCard=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
   await expect(chineseTopicCard).toContainText("认识普通话四声");
+  await page.evaluate(() => {
+    window.__dailyDrawerAnimations = [];
+    document.addEventListener("animationstart", event => {
+      if (event.target.matches?.(".daily-activity-modal")) window.__dailyDrawerAnimations.push(event.animationName);
+    });
+  });
   await chineseTopicCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerIn"))).toBe(true);
   await expect(page.locator("#dailyActivityReader")).toContainText("普通话有四个主要声调");
   await expect(page.locator("#dailyActivityReader")).toContainText("Pǔtōnghuà");
   await expect(page.locator("#dailyActivityReader")).toContainText("Mandarin has four main tones");
   await page.locator("#dailyActivityReader [data-abandon-daily]").click();
+  await expect.poll(() => page.evaluate(() => window.__dailyDrawerAnimations.includes("dailyDrawerOut"))).toBe(true);
   const chineseApplicationCard=page.locator('#dailyActivityGrid [data-activity-card="daily_application"]');
   await chineseApplicationCard.locator("[data-start-daily]").click();
   await expect(page.locator("#dailyActivityReader")).toContainText("Which character is pronounced mǎ?");
