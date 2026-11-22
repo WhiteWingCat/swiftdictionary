@@ -76,7 +76,7 @@
         ["Your daily lesson-completion allowance has been used. You can still review completed lessons; new lessons unlock after the daily reset.","Your daily lesson allowance has been used. You can still review completed lessons; new lessons unlock after your local-day reset."],
         ["今日课程完成额度已用完。你仍可复习已完成的课程。","今日课程额度已用完。你仍可复习已完成的课程。"],
         ["Could not open lesson. Your saved progress remains available; please try again.","Today's daily lesson allowance has already been used. Your saved progress remains available; resume it after your local-day reset."],
-        ["无法打开课程，你的学习进度仍会保留，请稍后重试。","今日课程额度已用完。你的学习进度仍会保留，可在本地日期重置后继续。"]
+        ["无法打开课程。已保存的进度仍可使用，请稍后再试。","今日课程额度已用完。你的学习进度仍会保留，可在本地日期重置后继续。"]
       ]);
       if (replacements.has(message)) status.textContent = replacements.get(message);
     }).observe(status,{childList:true,characterData:true,subtree:true});
