@@ -155,8 +155,7 @@ begin
   end if;
 
   if new.status <> 'in_progress' then
-    raise exception 'New lesson progress must start in progress'
-      using errcode = '23514';
+    return new;
   end if;
 
   insert into public.learning_activity_log
