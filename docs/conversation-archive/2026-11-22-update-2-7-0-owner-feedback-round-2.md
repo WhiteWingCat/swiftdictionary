@@ -57,3 +57,10 @@ Additional fixes discovered during validation:
 - Completed review cards are retained without consuming today's slots; the next unused Daily Topic/Application item is still shown.
 - Stale completed session IDs that no longer resolve to the original content are no longer rendered as unrelated current content.
 - Test fixtures and the Quiz frontend validator now reflect the language-scoped Daily Learning session query contract.
+
+
+## Final CI compatibility result
+
+The Quiz database foundation workflow also completed successfully, including local Supabase Auth/RPC integration and authenticated Chromium Quiz runtime tests. All GitHub Actions workflows attached to application head `8fec96ab80e889c2cf50ddf71382da643a6e4c23` completed successfully: U2.7.0, 2.3.x, 2.5.0, 2.6.0, Quiz DB foundation and Cloudflare build-routing guard.
+
+The only remaining release gate is independent confirmation that Cloudflare Pages has published the latest feature-branch head to the existing branch-preview URL. The preview URL could not be fetched by the available browser inspection, and no Cloudflare deployment connector/status record is available in this workspace. Do not claim the live Pages preview is confirmed solely from the successful build-routing guard.
