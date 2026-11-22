@@ -15,7 +15,7 @@
       mark.replaceWith(span);
     });
     const title=normalise(root.querySelector("h2")?.textContent);
-    const terms=lessonTerms.get(title);
+    const terms=[...lessonTerms.entries()].find(([lessonTitle])=>title.includes(lessonTitle))?.[1];
     if (!terms?.length) return;
     const escaped=terms.map(term=>term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|");
     const pattern=new RegExp("(^|[^\\p{L}\\p{N}_])("+escaped+")(?=$|[^\\p{L}\\p{N}_])","giu");
