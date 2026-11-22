@@ -3122,3 +3122,13 @@ Detailed archive: [Update 2.7.0 — owner feedback round 2: Daily Learning, Chin
 The Quiz database foundation workflow completed successfully, including local Supabase Auth/RPC integration and authenticated Chromium Quiz runtime tests. All GitHub Actions workflows for application head `8fec96ab80e889c2cf50ddf71382da643a6e4c23` passed: U2.7.0, 2.3.x, 2.5.0, 2.6.0, Quiz DB foundation and Cloudflare build-routing guard.
 
 The remaining release gate is confirmation that Cloudflare Pages has published the latest feature-branch head to the existing branch-preview URL. The preview URL could not be independently fetched by available browser inspection, and no Cloudflare deployment-status connector is available in this workspace. Successful build-routing validation is not itself proof of a completed Pages deployment. Keep PR #14 draft/open/unmerged until the Pages deployment is confirmed.
+
+
+### U2.7.0 staging preview ready — Cloudflare Pages confirmed
+
+Cloudflare's `Cloudflare Pages` check run for application head `8fec96ab80e889c2cf50ddf71382da643a6e4c23` completed successfully at 2026-11-22 08:47:37 UTC. Deployment ID: `3b37c9ef-d582-4b15-af2b-576141de4368`.
+
+- Commit-specific preview: https://3b37c9ef.swiftdictionary.pages.dev
+- Branch preview: https://feature-update-2-7-0-chinese.swiftdictionary.pages.dev
+
+All GitHub Actions compatibility workflows passed (U2.7.0, 2.3.x, 2.5.0, 2.6.0, Quiz DB foundation, Cloudflare build routing), and Cloudflare Pages explicitly reported **Deploy successful** for the latest feature-branch commit. The separate `Workers Builds: swiftdictionary-testing` check remains failed for the retired testing Worker and is not the Pages deployment. Staging is ready for owner testing. PR #14 remains draft/open/unmerged; production/main remains untouched.
