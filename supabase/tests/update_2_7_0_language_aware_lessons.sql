@@ -283,6 +283,32 @@ begin
 end;
 $shared_allowance$;
 
+-- The personal test account still bypasses lesson start consumption.
+reset role;
+set local role authenticated;
+select set_config('request.jwt.claim.sub','22222222-2222-4222-8222-222222222222',true);
+insert into public.lesson_progress(user_id,learning_language,difficulty,lesson_id,status)
+values ('22222222-2222-4222-8222-222222222222','en','beginner','b-sentence','in_progress');
+
+do $personal_test_bypass$
+declare
+  v_started integer;
+  v_used integer;
+begin
+  select count(*) into v_started
+  from public.learning_activity_log
+  where user_id=auth.uid() and activity_type='lesson' and event_type='started';
+  if v_started <> 1 then
+    raise exception 'Personal test lesson start should still be recorded for history';
+  end if;
+
+  v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
+  if v_used <> 0 then
+    raise exception 'Personal test access must bypass the new first-start allowance charge; found %',v_used;
+  end if;
+end;
+$personal_test_bypass$;
+
 -- RLS must continue isolating one learner's progress from another.
 select set_config('request.jwt.claim.sub','66666666-6666-4666-8666-666666666666',true);
 do $rls$
