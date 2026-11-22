@@ -787,16 +787,13 @@
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
-    const resetMessage = used >= limit && availableForPlan
-      ? dailyUi("You have completed all of today’s " + meta.title + " activities. Your allowance resets at midnight (" + (snapshot.timezone || "your timezone") + ").","今天的" + meta.titleZh + "活动已全部完成。每日额度将在午夜重置（" + (snapshot.timezone || "你的时区") + "）。")
-      : "";
     const panelStatus = !currentUser || !supabaseClient
       ? dailyUi("Sign in to start this activity and sync your progress.","登录后即可开始此活动并同步学习进度。")
       : !isEnabled
         ? dailyUi("This daily activity is paused. You can turn it back on in the preferences above.","此每日活动已暂停。你可以在上方偏好设置中重新启用。")
         : !availableForPlan
           ? dailyUi("This activity is not available for your current plan.","当前方案暂不提供此活动。")
-          : resetMessage;
+          : "";
     const panelDescription = type === "daily_discovery" && isChineseLearningCourse()
       ? dailyUi("Explore useful Chinese characters, their readings and examples.","认识常用汉字、读音和语境例句。")
       : dailyUi(meta.description,meta.descriptionZh);
