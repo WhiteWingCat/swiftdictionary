@@ -97,6 +97,7 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
 test("lesson emphasis highlights the current topic, not subject-verb-object roles", async ({ page }) => {
   await installDailyLearningMock(page,"topic-highlight-user");
   await page.goto("/");
+  await page.locator("#translationSelect").selectOption("en");
   await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
   await page.addScriptTag({path:"lesson-topic-highlights.js"});
   await page.locator('[data-page="lessons"]').click();
