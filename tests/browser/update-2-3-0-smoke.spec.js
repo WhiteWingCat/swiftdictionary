@@ -1287,7 +1287,7 @@ test("historical Daily Learning reviews do not consume today's new activity slot
   await page.evaluate(() => {
     const state=window.__swiftDailyMock;
     state.tables.user_preferences[0].learning_language="zh";
-    state.tables.user_preferences[0].translation_language="en";
+    state.tables.user_preferences[0].translation_language="zh";
     const yesterday=new Date(Date.now()-86400000).toISOString();
     state.sessions=[{
       id:"historical-topic-session",user_id:state.user.id,activity_type:"daily_topic",language_code:"zh",
