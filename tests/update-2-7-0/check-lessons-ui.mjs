@@ -35,5 +35,5 @@ assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQ
 assert(daily.includes("window.requestAnimationFrame(() =>"));
 assert(css.includes("@keyframes dailyDrawerIn") && css.includes("@keyframes dailyDrawerOut"));
 assert(css.includes("#dailyActivityReader.daily-activity-backdrop.open{opacity:1}"));
-assert(index.includes('translationLanguage==="en"') && index.includes('class="lesson-english-line"'));
+assert(html.includes('translationLanguage==="en"') && html.includes('class="lesson-english-line"'));
 console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, translation visibility, decorative marks and drawer transitions.");
