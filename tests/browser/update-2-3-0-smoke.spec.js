@@ -123,6 +123,15 @@ test("lesson emphasis highlights the current topic, not subject-verb-object role
   const highlighted=await page.locator("#lessonReaderContent mark.lesson-topic-highlight").allTextContents();
   expect(highlighted).toEqual(expect.arrayContaining(["a","an","the"]));
   await expect(page.locator('#lessonReaderContent mark[class*="lesson-focus-"]')).toHaveCount(0);
+
+  await page.locator("#lessonBack").click();
+  const otherLesson=page.locator("#lessonCards .lesson-card").filter({hasNotText:"Choose a, an or the"}).first();
+  await otherLesson.click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  const otherTitle=(await page.locator("#lessonReaderContent h2").innerText()).toLowerCase();
+  await expect.poll(()=>page.locator("#lessonReaderContent mark.lesson-topic-highlight").count()).toBeGreaterThan(0);
+  const otherHighlights=(await page.locator("#lessonReaderContent mark.lesson-topic-highlight").allTextContents()).map(value=>value.toLowerCase());
+  expect(otherHighlights.some(term=>otherTitle.includes(term))).toBeTruthy();
 });
 
 test("Chinese Lessons keep English support and place pinyin directly below Chinese text", async ({ page }) => {
