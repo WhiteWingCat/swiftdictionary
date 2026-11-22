@@ -87,10 +87,7 @@
 #dailyActivityReader.daily-activity-backdrop.open{opacity:1}
 #dailyActivityReader[hidden]{display:none!important}
 #dailyActivityReader .daily-activity-modal{width:50vw;min-width:460px;max-width:900px;height:100dvh;max-height:100dvh;margin:0;padding:clamp(22px,3vw,42px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #435777;border-left:0;border-radius:0 23px 23px 0;background:radial-gradient(circle at 95% 0,#7192cf29,transparent 30%),linear-gradient(150deg,#1d2b40,#141d2b);color:#f5f8ff;box-shadow:0 18px 50px #0006;transform:translateX(-100%);opacity:.6}
-#dailyActivityReader.open .daily-activity-modal{animation:dailyDrawerIn .42s cubic-bezier(.2,.75,.25,1) both}
-#dailyActivityReader.closing{pointer-events:none}#dailyActivityReader.closing .daily-activity-modal{animation:dailyDrawerOut .22s ease-in both}
-@keyframes dailyDrawerIn{from{opacity:.55;transform:translateX(-100%)}to{opacity:1;transform:translateX(0)}}
-@keyframes dailyDrawerOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-100%)}}
+#dailyActivityReader.closing{pointer-events:none}
 #dailyActivityReader .daily-drawer-actions{position:sticky;top:-1px;z-index:2;padding:0 0 10px;background:linear-gradient(#1d2b40 82%,transparent)}
 #dailyActivityReader .daily-activity-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 #dailyActivityReader h2,#dailyActivityReader h3{color:#f7f9ff}
@@ -189,9 +186,16 @@
 }
 
 /* U2.7.0 topic emphasis: one consistent highlight treatment, never role-coded colours. */
-#lessonReaderContent mark[class*="lesson-focus-"],
+#lessonReaderContent mark[class*="lesson-focus-"] {
+  color:inherit !important;
+  -webkit-text-fill-color:currentColor !important;
+  background:transparent !important;
+  border:0 !important;
+  padding:0 !important;
+  font-weight:inherit !important;
+}
 #lessonReaderContent mark.lesson-topic-highlight {
-  display:inline-block;
+  display:inline;
   color:#ffffff !important;
   -webkit-text-fill-color:#ffffff !important;
   font:inherit;
@@ -202,7 +206,7 @@
   border:0 !important;
   border-bottom:2px solid #a9c7ff !important;
   border-radius:5px;
-  padding:1px 6px;
+  padding:1px 5px;
 }
 #lessonReaderContent .lesson-breakdown-token { gap:5px; }
 #lessonReaderContent .lesson-english-line,
@@ -249,21 +253,38 @@
 /* U2.7.0 owner feedback round 3: reliable Daily Learning drawer transitions.
    The panel starts off-canvas, transitions into view after the reader is mounted,
    and transitions back out before the close handler hides it. */
+#dailyActivityReader.daily-activity-backdrop {
+  display:flex !important;
+  opacity:0;
+  transition:opacity .28s ease;
+}
+#dailyActivityReader.daily-activity-backdrop.open {
+  display:flex !important;
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+}
 #dailyActivityReader .daily-activity-modal {
-  transform:translateX(-100%);
+  transform:translate3d(-100%,0,0) !important;
   opacity:.55;
-  transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .32s ease;
-  animation:none !important;
+  transition:transform .48s cubic-bezier(.2,.75,.25,1),opacity .38s ease !important;
+  will-change:transform,opacity;
 }
 #dailyActivityReader.open .daily-activity-modal {
-  transform:translateX(0);
+  transform:translate3d(0,0,0) !important;
   opacity:1;
 }
 #dailyActivityReader.closing .daily-activity-modal {
-  transform:translateX(-100%);
+  transform:translate3d(-100%,0,0) !important;
   opacity:0;
-  animation:none !important;
 }
 @media(prefers-reduced-motion:reduce) {
-  #dailyActivityReader .daily-activity-modal { transition:none !important; }
+  #dailyActivityReader.daily-activity-backdrop { transition:opacity .12s ease !important; }
+  #dailyActivityReader .daily-activity-modal {
+    transform:none !important;
+    opacity:1;
+    transition:opacity .12s ease !important;
+    will-change:opacity;
+  }
+  #dailyActivityReader.closing .daily-activity-modal { opacity:0; }
 }
