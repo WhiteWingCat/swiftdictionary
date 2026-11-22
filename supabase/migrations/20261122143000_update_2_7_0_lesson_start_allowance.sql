@@ -142,7 +142,9 @@ revoke all on function public.enforce_learning_daily_limit()
 -- Charge only the first insert of an in-progress lesson. Existing rows are
 -- resumed/reviewed without a new insert, and completed lessons are never
 -- reinserted, so neither action consumes another allowance.
-create or replace function public.record_lesson_start_allowance()
+drop function if exists public.record_lesson_start_allowance();
+
+create or replace function private.record_lesson_start_allowance()
 returns trigger
 language plpgsql
 security definer
@@ -172,7 +174,7 @@ begin
 end;
 $function$;
 
-revoke all on function public.record_lesson_start_allowance()
+revoke all on function private.record_lesson_start_allowance()
   from public, anon, authenticated, service_role;
 
 drop trigger if exists lesson_progress_charge_on_first_start
@@ -180,6 +182,6 @@ drop trigger if exists lesson_progress_charge_on_first_start
 create trigger lesson_progress_charge_on_first_start
 after insert on public.lesson_progress
 for each row
-execute function public.record_lesson_start_allowance();
+execute function private.record_lesson_start_allowance();
 
 commit;
