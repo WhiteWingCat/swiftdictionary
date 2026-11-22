@@ -29,10 +29,10 @@ if [[ -f index.html ]]; then
   sed -i -E 's#(flashcards[.]js)([?]v=[^"]*)?#\1?v=2.6.1-r1#g' index.html
   sed -i -E 's#(lessons-ui[.]css)([?]v=[^"]*)?#\1?v=2.7.0-r4#g' index.html
   if ! grep -q 'permanent-lesson-confirmation.js' index.html; then
-    sed -i 's#</body>#<script src="permanent-lesson-confirmation.js?v=2.7.0-r2"></script></body>#' index.html
+    sed -i 's#</body>#<script src="permanent-lesson-confirmation.js?v=2.7.0-r3"></script></body>#' index.html
   fi
   if ! grep -q 'lesson-topic-highlights.js' index.html; then
-    sed -i 's#</body>#<script src="lesson-topic-highlights.js?v=2.7.0-r1"></script></body>#' index.html
+    sed -i 's#</body>#<script src="lesson-topic-highlights.js?v=2.7.0-r2"></script></body>#' index.html
   fi
 fi
 
