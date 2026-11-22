@@ -297,8 +297,8 @@ begin
   select count(*) into v_started
   from public.learning_activity_log
   where user_id=auth.uid() and activity_type='lesson' and event_type='started';
-  if v_started <> 1 then
-    raise exception 'Personal test lesson start should still be recorded for history';
+  if v_started <> 0 then
+    raise exception 'Personal test lesson start should not create an allowance event';
   end if;
 
   v_used := private.current_learning_allowance_usage(auth.uid(),'lesson','Asia/Kuala_Lumpur');
