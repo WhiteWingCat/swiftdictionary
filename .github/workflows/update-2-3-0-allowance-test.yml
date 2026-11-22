@@ -170,6 +170,7 @@ jobs:
         run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/update-2-3-0/allowance-assertions.sql
       - name: Verify private allowance ledger and deletion resistance
         run: psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/update-2-3-0/allowance-ledger-assertions.sql
+      # The U2.7.0 start-time allowance migration is applied and tested below.
       - name: Ensure Supabase service role exists in disposable PostgreSQL
         run: |
           psql "$DATABASE_URL" -X -v ON_ERROR_STOP=1 -c "DO \$\$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='service_role') THEN CREATE ROLE service_role NOLOGIN BYPASSRLS; END IF; END \$\$;"
