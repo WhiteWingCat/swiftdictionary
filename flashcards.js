@@ -766,7 +766,7 @@
     if(currentUser&&!state.ready&&!state.loading){loadData();return;}
     if(overlayRoot.querySelector("#flashReviewTitle"))renderReviewPrompt();
     else if(overlayRoot.querySelector("#flashResultTitle"))showResultPrompt();
-    else if(overlayRoot.querySelector("#flashSetupTitle"))openSetupPrompt(state.mode);
+    else if(overlayRoot.querySelector("#flashSetupTitle")){render();openSetupPrompt(state.mode);}
     else render();
   });
   const timerApi={
