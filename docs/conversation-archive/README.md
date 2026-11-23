@@ -174,3 +174,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.8.0 — development start and repository audit correction](2026-11-23-update-2-8-0-development-start-and-repository-audit.md) — records the owner's separate development-start authorisation, discovery of substantial pre-existing feature-branch implementation, PR #16/94-commit divergence, current CI failures, fixture correction and unchanged staging/production migration boundary.
+
+- [Update 2.8.0 — release-gate remediation and staging readiness](2026-11-23-update-2-8-0-release-gate-remediation.md) — records the latest documentation/CI audit, Chinese recall-mode prompt clarification, six-migration inventory correction, passing checks at the previous head, latest-head CI still running, and the remaining linguistic, database, staging-approval and legal/privacy gates.
