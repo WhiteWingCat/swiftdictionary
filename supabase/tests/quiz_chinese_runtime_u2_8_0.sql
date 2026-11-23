@@ -45,9 +45,15 @@ begin
   end if;
 
   v_reason:=v_beginner->>'reason';
-  if v_reason is distinct from 'question_bank_below_minimum' then
-    raise exception 'Chinese Quiz should be routed to its language-aware bank readiness check; got % (payload %)',v_reason,v_availability;
+  if v_reason is distinct from 'learning_course_not_supported' then
+    raise exception 'Unapproved Chinese Quiz draft content must remain unavailable; got % (payload %)',v_reason,v_availability;
   end if;
+  begin
+    perform public.start_my_quiz('beginner');
+    raise exception 'Chinese Quiz start bypassed the approved-content release gate';
+  exception when insufficient_privilege then
+    null;
+  end;
 end;
 $chinese_quiz_routing$;
 
