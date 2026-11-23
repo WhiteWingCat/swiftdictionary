@@ -446,7 +446,7 @@ test("Chinese course enables Chinese Lessons, Quiz and Flashcards", async ({ pag
   await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
   await selectCourse(page,"en");
   await expect(page.locator("#flashcardsChineseUnavailable")).toBeHidden();
-  await expect(page.locator("#flashcardsPage .flash-section")).toBeVisible();
+  await expect(page.locator("#flashcardsPage .flash-section").first()).toBeVisible();
 });
 
 test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
