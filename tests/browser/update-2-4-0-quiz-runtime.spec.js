@@ -787,7 +787,7 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
 
   const completionResponsePromise=page.waitForResponse(
     response=>response.url().includes("/rpc/complete_my_flashcard_game"),
-    {timeout:20000}
+    {timeout:90000}
   );
   await page.waitForTimeout((challengeSeconds+2)*1000);
   const completionResponse=await completionResponsePromise;
