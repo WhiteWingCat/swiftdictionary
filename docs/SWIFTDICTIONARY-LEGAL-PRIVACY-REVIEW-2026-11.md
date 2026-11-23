@@ -153,3 +153,37 @@ The older `docs/reference/PRIVACY-POLICY-DRAFT.md` is now marked superseded beca
 The current official Act 709 reprint and JPDP materials were rechecked on 20 November 2026. The notice drafts reflect Section 7's Bahasa Malaysia/English requirement (if Act 709 applies), Regulation 3(3)'s parental-consent requirement where Regulation 3 consent is used for under-18 data subjects, Section 43A data portability, Section 129 cross-border transfer framework, and current DPO/DPIA/breach guidance.
 
 The legal work is not cleared. Outstanding matters include Act 709 applicability to the individually operated free public service; processing basis for each purpose; the 16–17-year-old consent approach; DPO/DPIA screening for adaptive learning; controller identity and safe public contact; provider contracts/subprocessors and international transfer assessment; exact retention periods; account deletion; and legal review of the Terms. Neither document has been published, no acceptance UI exists, and no age gate has been implemented. Do not describe the project as legally compliant or ready for public legal-document release.
+
+
+## 2026-11-23 — Update 2.8.0 planned processing and content review
+
+U2.8.0 has been authorised for development, but this is a planning assessment only. No U2.8.0 schema or data changes have been applied to staging or production.
+
+### New or expanded personal-data elements
+
+The approved feature plan requires:
+- A minimal lesson-practice attempt summary per completed practice run: first-attempt accuracy, attempted-question count, subsequent incorrect/retry counts, lesson/topic/difficulty and completion timestamp. Do not store free-text answers or more granular answer events unless a later review proves they are necessary.
+- A per-card Flashcard game snapshot for new completed games: session/course/translation-language identity, card order, the prompt and answer options shown, selected answer, correct answer and correctness/unanswered status. This is needed to reproduce the original game in a read-only review, including correctly answered cards. Custom-card snapshots may contain user-authored text; keep them private and remind users not to enter sensitive personal information.
+- Dashboard Daily History and Analytics will display existing lesson, Quiz and Flashcard records; this is a new presentation/use of the existing educational purpose, not a new external analytics provider.
+
+These records reveal more detailed learning behaviour than the current aggregate-only Flashcard sessions and one-row-per-lesson practice summary. Keep the new tables in the non-exposed `private` schema, enable RLS, revoke direct API-role access, and expose only narrow authenticated RPCs deriving the owner from `auth.uid()`. Add both new record types to learning-history deletion and account-deletion cascades. A read-only review RPC must reject another user's session ID and must never create a session or charge allowance.
+
+### Retention and legacy history
+
+No new retention period has been approved. The current working behaviour is that learning-history deletion removes session/attempt records and account deletion removes all account-linked records; otherwise they remain stored. This is not yet a complete retention policy. Update the retention schedule and privacy notice before public release, including backup/log expiry and whether detailed per-card snapshots need a shorter period than aggregate progress.
+
+Four completed production Flashcard sessions existed at audit time, but the current schema stores aggregate totals only and cannot reconstruct the original cards, order or learner responses. Do not fabricate legacy per-card reviews. U2.8.0 should show an explicit summary-only notice for pre-migration games and full read-only card reviews for new games.
+
+### Content licensing
+
+The Chinese dictionary contains CC-CEDICT-derived gloss material and Unihan pronunciation references, already documented in `data/CHINESE-DICTIONARY-SOURCES.md` and `THIRD_PARTY_NOTICES.md`. Preserve attribution and applicable CC BY-SA 4.0 share-alike terms. Do not make CC-CEDICT-derived dictionary material Premium-only; all learners should have access to the same Chinese Flashcard bank under the existing Free/Premium completion allowances. Quiz questions should be adapted from or authored against SwiftDictionary's original Chinese lesson curriculum, not copied from third-party dictionary wording. Any new multi-character vocabulary/phrase content needs its own source/provenance record and linguistic review. No new third-party content provider or processor is planned.
+
+### Required release checks
+
+- Add the two new personal-data categories to the data inventory and DPIA screening. Reassess the DPO regular/systematic-monitoring criterion because per-card and retry-level performance is more detailed than the existing aggregate model.
+- Confirm that data is minimised, account-isolated, protected by RLS/private RPCs, and deleted by both learning-history deletion and account deletion.
+- Decide retention periods for per-card snapshots and practice-attempt aggregates; update the bilingual privacy notice and retention schedule.
+- Preserve current provider/cross-border assessment (production Tokyo, staging Singapore, plus Google OAuth, GitHub Pages/CDN, Supabase backups/logs/support and other subprocessors). No new processor is intended.
+- Keep the 16+ audience and unresolved Malaysia PDPA applicability, 16–17-year-old handling, GDPR targeting, controller/contact and legal-review questions open. Do not describe U2.8.0 or the service as legally cleared.
+
+This section is not legal advice or compliance sign-off. Formal Malaysian and international privacy/legal review remains outstanding.
