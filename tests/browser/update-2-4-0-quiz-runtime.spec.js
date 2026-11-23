@@ -489,6 +489,12 @@ test("Premium user sees three daily completions; abandonment does not consume al
     throw new Error("Advanced Quiz did not render. State: "+JSON.stringify(state)+"; RPC diagnostics: "+JSON.stringify(startDiagnostics)+"; "+error.message);
   }
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 20 题");
+  const advancedComposition=await page.evaluate(()=>{
+    const actual={beginner:0,intermediate:0,advanced:0};
+    for(const q of quizPageState.session.questions)actual[q.source_difficulty]=(actual[q.source_difficulty]||0)+1;
+    return {expected:quizPageState.session.source_composition,actual};
+  });
+  expect(advancedComposition.actual).toEqual(advancedComposition.expected);
 
   // Returning to overview and attempting a different difficulty must resume
   // the existing server-owned session rather than create a second one.
