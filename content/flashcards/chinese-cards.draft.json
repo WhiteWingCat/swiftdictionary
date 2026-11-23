@@ -15543,8 +15543,8 @@
       "traditional": "八月",
       "pinyinNumeric": "Ba1 yue4",
       "translationEn": "August; eighth month (of the lunar year)",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "一年中的第八个月，通常处于夏季。",
+      "exampleZh": "我们八月去北京旅行。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15566,8 +15566,8 @@
       "traditional": "幫忙",
       "pinyinNumeric": "bang1 mang2",
       "translationEn": "to help; to lend a hand; to do a favor; to do a good turn",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "帮助别人做事或一起解决问题。",
+      "exampleZh": "你能帮忙搬一下这个箱子吗？",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15589,8 +15589,8 @@
       "traditional": "幫助",
       "pinyinNumeric": "bang1 zhu4",
       "translationEn": "assistance; aid; to help; to assist",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "为别人提供支持、协助或帮助。",
+      "exampleZh": "谢谢你帮助我完成作业。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15612,8 +15612,8 @@
       "traditional": "書包",
       "pinyinNumeric": "shu1 bao1",
       "translationEn": "schoolbag; satchel; bookbag; CL:個|个[ge4],隻|只[zhi1]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "用来装书本和学习用品的包。",
+      "exampleZh": "我的书包里有三本书。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15635,8 +15635,8 @@
       "traditional": "包子",
       "pinyinNumeric": "bao1 zi5",
       "translationEn": "baozi; bao (steamed stuffed bun)",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "用面皮包着馅料，再蒸熟的一种食物。",
+      "exampleZh": "早餐我吃了两个包子。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15658,8 +15658,8 @@
       "traditional": "準備",
       "pinyinNumeric": "zhun3 bei4",
       "translationEn": "preparation; to prepare; to intend; to be about to; reserve (fund)",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "为将要做的事情提前安排或做好需要的事情。",
+      "exampleZh": "我正在准备明天的考试。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15681,8 +15681,8 @@
       "traditional": "設備",
       "pinyinNumeric": "she4 bei4",
       "translationEn": "equipment; facilities; installations",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "完成某项工作或活动所需要的器材和工具。",
+      "exampleZh": "这间教室有新的教学设备。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15704,8 +15704,8 @@
       "traditional": "比較",
       "pinyinNumeric": "bi3 jiao4",
       "translationEn": "to compare; to contrast; comparatively; relatively; quite; comparison",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "把两个或多个事物放在一起，观察它们的相同和不同之处。",
+      "exampleZh": "我们先比较这两种方法。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15726,9 +15726,9 @@
       "word": "比如",
       "traditional": "比如",
       "pinyinNumeric": "Bi3 ru2",
-      "translationEn": "see 比如縣|比如县[Bi3 ru2 Xian4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "for example; such as",
+      "definitionZh": "用来举出例子，说明前面提到的内容。",
+      "exampleZh": "我喜欢水果，比如苹果和香蕉。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15750,8 +15750,8 @@
       "traditional": "左邊",
       "pinyinNumeric": "zuo3 bian5",
       "translationEn": "left; the left side; to the left of",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "面向某个方向时，左手所在的一侧。",
+      "exampleZh": "银行在学校的左边。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15773,8 +15773,8 @@
       "traditional": "旁邊",
       "pinyinNumeric": "pang2 bian1",
       "translationEn": "side; adjacent place",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "紧挨着某人或某物的位置。",
+      "exampleZh": "我家旁边有一家便利店。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15796,8 +15796,8 @@
       "traditional": "經常",
       "pinyinNumeric": "jing1 chang2",
       "translationEn": "frequently; constantly; regularly; often; day-to-day; everyday; daily",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "表示某件事发生的次数很多，或按照一定规律反复发生。",
+      "exampleZh": "他经常坐地铁上班。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15819,8 +15819,8 @@
       "traditional": "常見",
       "pinyinNumeric": "chang2 jian4",
       "translationEn": "commonly seen; common; to see sth frequently",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "很容易看到或遇到，在许多地方都能发现。",
+      "exampleZh": "这种鸟在公园里很常见。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15842,8 +15842,8 @@
       "traditional": "機場",
       "pinyinNumeric": "ji1 chang3",
       "translationEn": "airport; airfield; (slang) service provider for Shadowsocks or similar software for circumventing Internet censorship; CL:家[jia1],處|处[chu4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "飞机起飞、降落以及旅客乘坐飞机的地方。",
+      "exampleZh": "我们提前两个小时到达机场。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15865,8 +15865,8 @@
       "traditional": "廣場",
       "pinyinNumeric": "guang3 chang3",
       "translationEn": "public square; plaza",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "城市或公共场所中供人活动、休息的开放空间。",
+      "exampleZh": "孩子们在广场上放风筝。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15888,8 +15888,8 @@
       "traditional": "唱歌",
       "pinyinNumeric": "chang4 ge1",
       "translationEn": "to sing a song",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "用声音唱出歌曲或旋律。",
+      "exampleZh": "她喜欢一边做饭一边唱歌。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15911,8 +15911,8 @@
       "traditional": "合唱",
       "pinyinNumeric": "he2 chang4",
       "translationEn": "chorus; to chorus",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "多个人一起唱同一首歌，或分别演唱不同声部。",
+      "exampleZh": "学生们将在晚会上合唱一首歌。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15934,8 +15934,8 @@
       "traditional": "一次",
       "pinyinNumeric": "yi1 ci4",
       "translationEn": "first; first time; once; (math.) linear (of degree one)",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "表示某个动作或事情发生了一回。",
+      "exampleZh": "我昨天去了一次图书馆。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15957,8 +15957,8 @@
       "traditional": "下次",
       "pinyinNumeric": "xia4 ci4",
       "translationEn": "next time",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "从现在起的下一回或下一次机会。",
+      "exampleZh": "下次见面时，我把书还给你。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -15980,8 +15980,8 @@
       "traditional": "打電話",
       "pinyinNumeric": "da3 dian4 hua4",
       "translationEn": "to make a telephone call",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "通过电话与别人交谈或联系。",
+      "exampleZh": "我晚上会给妈妈打电话。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16003,8 +16003,8 @@
       "traditional": "打球",
       "pinyinNumeric": "da3 qiu2",
       "translationEn": "to play a ball sport",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "进行篮球、足球、乒乓球等球类运动。",
+      "exampleZh": "周末我们常在操场打球。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16025,9 +16025,9 @@
       "word": "大家",
       "traditional": "大家",
       "pinyinNumeric": "da4 jia1",
-      "translationEn": "everyone; influential family; great expert",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "everyone; everybody",
+      "definitionZh": "指在场或谈话中涉及的所有人。",
+      "exampleZh": "大家都同意这个计划。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16048,9 +16048,9 @@
       "word": "大小",
       "traditional": "大小",
       "pinyinNumeric": "da4 xiao3",
-      "translationEn": "large and small; size; adults and children; consideration of seniority; at any rate",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "size; dimensions",
+      "definitionZh": "物体的尺寸或规模，也可表示大与小的程度。",
+      "exampleZh": "这两个箱子的大小不一样。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16071,9 +16071,9 @@
       "word": "地方",
       "traditional": "地方",
       "pinyinNumeric": "di4 fang1",
-      "translationEn": "region; regional (away from the central administration); local",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "place; location; area",
+      "definitionZh": "某个人或物所在的位置，也可以指一个地区。",
+      "exampleZh": "这个地方离车站很近。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16095,8 +16095,8 @@
       "traditional": "地面",
       "pinyinNumeric": "di4 mian4",
       "translationEn": "floor; ground; surface",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "房间、道路或土地的表面。",
+      "exampleZh": "请不要把水洒在地面上。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16118,8 +16118,8 @@
       "traditional": "弟弟",
       "pinyinNumeric": "di4 di5",
       "translationEn": "younger brother; CL:個|个[ge4],位[wei4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "年纪比自己小的男性兄弟。",
+      "exampleZh": "我弟弟今年上小学。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16141,8 +16141,8 @@
       "traditional": "兄弟",
       "pinyinNumeric": "xiong1 di4",
       "translationEn": "brothers; younger brother; CL:個|个[ge4]; I, me (humble term used by men in public speech); brotherly; fraternal",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "同一父母所生的男性手足，也可泛指关系亲近的男性伙伴。",
+      "exampleZh": "他们兄弟俩一起经营这家店。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16164,8 +16164,8 @@
       "traditional": "第一",
       "pinyinNumeric": "di4 yi1",
       "translationEn": "first; most important; primary; foremost",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "排在最前面，或表示名次最高。",
+      "exampleZh": "她第一个到达教室。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16187,8 +16187,8 @@
       "traditional": "第二",
       "pinyinNumeric": "di4 er4",
       "translationEn": "second; number two; next; secondary",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "排在第一之后的次序或名次。",
+      "exampleZh": "我的座位在第二排。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16210,8 +16210,8 @@
       "traditional": "一點",
       "pinyinNumeric": "yi1 dian3",
       "translationEn": "a bit; a little bit; (used in negative expressions) (not) the least bit; (after an adjective, used to form the comparative) a bit more, -er; a point (in a discussion etc); (calligraphy) dot stroke (、); one o'clock (abbr. for 一點鍾|一点钟[yi1 dian3 zhong1])",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "数量或程度不多，表示少量。",
+      "exampleZh": "请给我一点时间考虑。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16233,8 +16233,8 @@
       "traditional": "點心",
       "pinyinNumeric": "dian3 xin5",
       "translationEn": "light refreshments; pastry; dim sum (in Cantonese cooking); dessert",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "正餐以外少量食用的糕点或小吃。",
+      "exampleZh": "下午我们一起吃点心。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16256,8 +16256,8 @@
       "traditional": "動物",
       "pinyinNumeric": "dong4 wu4",
       "translationEn": "animal",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "能够活动、需要食物并能感知周围环境的生物。",
+      "exampleZh": "孩子们在动物园看到了许多动物。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16278,9 +16278,9 @@
       "word": "活动",
       "traditional": "活動",
       "pinyinNumeric": "huo2 dong4",
-      "translationEn": "to exercise; to move about; to work out; shaky; unsteady; loose (tooth etc); movable; flexible; liquid (capital etc); (volcanic, seismic, economic etc) activity; (outdoor etc) activity; event; (political) campaign; (military) maneuver (CL:項|项[xiang4]); to use personal influence, connections, bribes etc",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "activity; event; to take part in an activity",
+      "definitionZh": "为了某个目的进行的事情，或有组织的集体安排。",
+      "exampleZh": "学校下周要举行一场运动活动。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16302,8 +16302,8 @@
       "traditional": "首都",
       "pinyinNumeric": "shou3 du1",
       "translationEn": "capital (city); CL:個|个[ge4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "一个国家中央政府所在地的主要城市。",
+      "exampleZh": "北京是中国的首都。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16325,8 +16325,8 @@
       "traditional": "飢餓",
       "pinyinNumeric": "ji1 e4",
       "translationEn": "hunger; starvation; famine",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "因为长时间没有吃东西而感到需要食物的状态。",
+      "exampleZh": "长时间没有吃饭会让人感到饥饿。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16348,8 +16348,8 @@
       "traditional": "兒子",
       "pinyinNumeric": "er2 zi5",
       "translationEn": "son",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "父母的男性孩子。",
+      "exampleZh": "他们的儿子今年六岁。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16371,8 +16371,8 @@
       "traditional": "兒童",
       "pinyinNumeric": "er2 tong2",
       "translationEn": "child",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "年纪较小的孩子。",
+      "exampleZh": "这个公园为儿童设置了游乐区。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16394,8 +16394,8 @@
       "traditional": "放學",
       "pinyinNumeric": "fang4 xue2",
       "translationEn": "to dismiss students at the end of the school day",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "学校当天的课程结束，学生可以离校。",
+      "exampleZh": "放学以后，我和同学去图书馆。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16417,8 +16417,8 @@
       "traditional": "放心",
       "pinyinNumeric": "fang4 xin1",
       "translationEn": "to feel relieved; to feel reassured; to be at ease",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "不再担心，心里感到安稳。",
+      "exampleZh": "东西已经安全送到，你可以放心了。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16440,8 +16440,8 @@
       "traditional": "飛機",
       "pinyinNumeric": "fei1 ji1",
       "translationEn": "airplane; CL:架[jia4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "一种能够在空中飞行并运送乘客或货物的交通工具。",
+      "exampleZh": "我们坐飞机去上海。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16463,8 +16463,8 @@
       "traditional": "飛行",
       "pinyinNumeric": "fei1 xing2",
       "translationEn": "to fly; flight",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "飞机、鸟或其他物体在空中移动的过程。",
+      "exampleZh": "这架飞机正在海上飞行。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16486,8 +16486,8 @@
       "traditional": "非常",
       "pinyinNumeric": "fei1 chang2",
       "translationEn": "very; really; unusual; extraordinary",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "表示程度很高，相当于“很”或“十分”。",
+      "exampleZh": "今天的天气非常好。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16509,8 +16509,8 @@
       "traditional": "非法",
       "pinyinNumeric": "fei1 fa3",
       "translationEn": "illegal",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "不符合国家法律或正式规定的。",
+      "exampleZh": "非法停车可能会受到处罚。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16532,8 +16532,8 @@
       "traditional": "分鐘",
       "pinyinNumeric": "fen1 zhong1",
       "translationEn": "minute",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "时间单位，一分钟等于六十秒。",
+      "exampleZh": "我等了十分钟。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16554,9 +16554,9 @@
       "word": "部分",
       "traditional": "部分",
       "pinyinNumeric": "bu4 fen5",
-      "translationEn": "part; portion; piece; Taiwan pr. [bu4fen4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "part; portion; section",
+      "definitionZh": "整体中的一份、一块或其中的一些内容。",
+      "exampleZh": "这本书的第一部分很有意思。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16578,8 +16578,8 @@
       "traditional": "乾淨",
       "pinyinNumeric": "gan1 jing4",
       "translationEn": "clean; neat",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "没有灰尘、污渍或其他不需要的东西。",
+      "exampleZh": "请保持教室干净。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16601,8 +16601,8 @@
       "traditional": "幹活",
       "pinyinNumeric": "gan4 huo2",
       "translationEn": "to work; to be employed",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "做体力劳动或实际工作。",
+      "exampleZh": "爸爸正在院子里干活。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16624,8 +16624,8 @@
       "traditional": "高興",
       "pinyinNumeric": "gao1 xing4",
       "translationEn": "happy; glad; willing (to do sth); in a cheerful mood",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "心情愉快，感到开心。",
+      "exampleZh": "听到这个好消息，我很高兴。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16647,8 +16647,8 @@
       "traditional": "高山",
       "pinyinNumeric": "gao1 shan1",
       "translationEn": "high mountain; alpine mountain",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "海拔较高、山势明显的山。",
+      "exampleZh": "他们计划夏天去高山徒步。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16669,9 +16669,9 @@
       "word": "告诉",
       "traditional": "告訴",
       "pinyinNumeric": "gao4 su4",
-      "translationEn": "to press charges; to file a complaint",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "to tell; to inform",
+      "definitionZh": "把消息、情况或想法说给别人听。",
+      "exampleZh": "请告诉我你的电话号码。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16693,8 +16693,8 @@
       "traditional": "公告",
       "pinyinNumeric": "gong1 gao4",
       "translationEn": "post; announcement",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "向公众发布的正式通知或消息。",
+      "exampleZh": "学校门口贴着一张重要公告。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16716,8 +16716,8 @@
       "traditional": "歌曲",
       "pinyinNumeric": "ge1 qu3",
       "translationEn": "song",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "可以唱出来的一段音乐作品。",
+      "exampleZh": "这首歌曲我已经听过很多次。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16739,8 +16739,8 @@
       "traditional": "圖書館",
       "pinyinNumeric": "tu2 shu1 guan3",
       "translationEn": "library; CL:家[jia1],個|个[ge4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "收藏图书并供人阅读、借阅或学习的地方。",
+      "exampleZh": "我每周去图书馆借书。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16762,8 +16762,8 @@
       "traditional": "飯館",
       "pinyinNumeric": "fan4 guan3",
       "translationEn": "restaurant; CL:家[jia1]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "提供饭菜、让顾客用餐的地方。",
+      "exampleZh": "我们在附近的饭馆吃午饭。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16785,8 +16785,8 @@
       "traditional": "貴重",
       "pinyinNumeric": "gui4 zhong4",
       "translationEn": "precious",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "价值较高，值得珍惜或小心保管。",
+      "exampleZh": "护照和首饰都是贵重物品。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16808,8 +16808,8 @@
       "traditional": "寶貴",
       "pinyinNumeric": "bao3 gui4",
       "translationEn": "valuable; precious; to value; to treasure; to set store by",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "很有价值，值得珍惜或重视。",
+      "exampleZh": "这次经验对我来说非常宝贵。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16831,8 +16831,8 @@
       "traditional": "國家",
       "pinyinNumeric": "guo2 jia1",
       "translationEn": "country; nation; state",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "由一定领土、人民和政府组成的政治实体。",
+      "exampleZh": "每个国家都有自己的法律。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16854,8 +16854,8 @@
       "traditional": "外國",
       "pinyinNumeric": "wai4 guo2",
       "translationEn": "foreign country",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "本国以外的其他国家。",
+      "exampleZh": "她计划明年去外国留学。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16877,8 +16877,8 @@
       "traditional": "過年",
       "pinyinNumeric": "guo4 nian2",
       "translationEn": "to celebrate the Chinese New Year",
-      "definitionZh": null,
-      "exampleZh": null,
+      "definitionZh": "庆祝农历新年，通常包括家人团聚和节日活动。",
+      "exampleZh": "我们一家人回老家过年。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
@@ -16899,9 +16899,9 @@
       "word": "经过",
       "traditional": "經過",
       "pinyinNumeric": "jing1 guo4",
-      "translationEn": "to pass; to go through; process; course; CL:個|个[ge4]",
-      "definitionZh": null,
-      "exampleZh": null,
+      "translationEn": "to pass by; to go through; process",
+      "definitionZh": "从某个地方走过或通过，也可以指事情发展的过程。",
+      "exampleZh": "我每天上班都会经过这家咖啡店。",
       "examplePinyin": null,
       "sourceIds": [
         "cc-cedict-2026-11-20"
