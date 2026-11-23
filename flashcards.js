@@ -404,9 +404,33 @@
     if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option" data-action="answer" data-index="${i}">${escapeHtml(o)}</button>`).join("");
     state.phaseTimer=setTimeout(()=>recordAnswer(false,true),state.phaseDuration);
   }
+  function pushRoundResult(correct,unanswered=false,selectedIndex=null){
+    const round=state.round;if(!round)return;
+    const selected=Number.isInteger(selectedIndex)?round.options[selectedIndex]:null;
+    const optionCards=round.optionCards||[];
+    const card=round.target;
+    const snapshot={
+      recall_mode:round.mode,
+      prompt:round.prompt,
+      card:{
+        word:card.word,pinyin:card.pinyin||"",definition:card.definition||"",
+        definition_cue_zh:card.definitionCueZh||card.definitionZh||"",
+        translation_en:card.translationEn||card.definition||"",
+        translation_zh:card.translationZh||"",
+        example:card.examples?.[0]||"",course:card.course||state.game?.learningLanguage||course
+      },
+      options:round.options.map((text,i)=>({text,card_key:optionCards[i]?cardKey(optionCards[i]):"",word:optionCards[i]?.word||""})),
+      selected_option_index:Number.isInteger(selectedIndex)?selectedIndex:null,
+      correct_option_index:round.correctIndex,
+      selected_answer:selected,
+      correct_answer:round.correct
+    };
+    state.results.push({card_key:cardKey(card),mode:state.mode,correct:!!correct,unanswered:!!unanswered,snapshot});
+    state.roundRecorded=true;
+  }
   function recordAnswer(correct,unanswered=false){
     if(!state.game||state.phase!=="answer")return;clearTimeout(state.phaseTimer);
-    state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:!!correct,unanswered:!!unanswered});state.roundRecorded=true;
+    pushRoundResult(correct,unanswered,state.selectedAnswerIndex);
     const limits=timingFor(state.mode,state.difficulty);
     state.memory=Math.max(limits.memoryFloor,Number((state.memory-REDUCTION_STEP).toFixed(2)));
     state.answer=Math.max(limits.answerFloor,Number((state.answer-REDUCTION_STEP).toFixed(2)));
@@ -449,7 +473,7 @@
   function finishGame(){
     if(!state.game||state.finishing||state.ending)return;
     state.ending=true;clearTimers();
-    if(state.round&&!state.roundRecorded){state.results.push({card_key:cardKey(state.round.target),mode:state.mode,correct:false,unanswered:true});state.roundRecorded=true;}
+    if(state.round&&!state.roundRecorded){pushRoundResult(false,true,null);}
     overlayRoot.innerHTML='<div class="flash-times-up-backdrop" role="status" aria-live="assertive"><div class="flash-times-up-text">'+uiText("Time's Up!","时间到！")+'</div></div>';
     setTimeout(()=>saveGameResults(),2000);
   }
