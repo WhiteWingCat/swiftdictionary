@@ -19396,9 +19396,19 @@ async function completeLesson(x){
     window.addEventListener("hashchange", showHashPage);
     window.addEventListener("popstate", showHashPage);
     document.getElementById("profileContent").addEventListener("click", event => {
-      if (event.target.closest("[data-dashboard-flashcard-review]")) {
-        if (window.SwiftDictionaryFlashcards?.openReviewFromDashboard) window.SwiftDictionaryFlashcards.openReviewFromDashboard();
+      const tabButton=event.target.closest("[data-dashboard-tab]");
+      if(tabButton){setDashboardTab(tabButton.dataset.dashboardTab);return;}
+      if(event.target.closest("[data-dashboard-flashcard-review]")) {
+        if(window.SwiftDictionaryFlashcards?.openReviewFromDashboard)window.SwiftDictionaryFlashcards.openReviewFromDashboard();
+        return;
       }
+      const gameReview=event.target.closest("[data-dashboard-flashcard-review-game]");
+      if(gameReview&&window.SwiftDictionaryFlashcards?.reviewGame) {
+        window.SwiftDictionaryFlashcards.reviewGame(gameReview.dataset.dashboardFlashcardReviewGame);
+        return;
+      }
+      const quizReview=event.target.closest("[data-dashboard-daily-quiz-review]");
+      if(quizReview){showPage("quiz",true,{skipQuizInitialise:true});quizReview(quizReview.dataset.dashboardDailyQuizReview,"profile");}
     });
     document.getElementById("profileSignIn").addEventListener("click", () => document.getElementById("accountDialog").classList.add("open"));
     document.getElementById("profileSignOut").addEventListener("click", async () => {
@@ -19724,7 +19734,7 @@ async function completeLesson(x){
       if(!items.length){host.innerHTML='<p class="muted-note">No completed learning activities yet today ('+escapeHTML(timezone)+'). Your previous records are retained.</p>';return;}
       host.innerHTML=items.map(item=>{
         let action="";
-        if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(item.sessionId)+'">Review</button>';
+        if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-daily-quiz-review="'+escapeHTML(item.sessionId)+'">Review</button>';
         if(item.type==="Flashcards"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-flashcard-review-game="'+escapeHTML(item.sessionId)+'">Review game</button>';
         return '<article class="dashboard-history-row"><div class="dashboard-history-row-main"><span class="dashboard-history-kind">'+escapeHTML(item.type)+'</span><strong>'+escapeHTML(item.title)+'</strong><small>'+escapeHTML(item.detail)+' · '+escapeHTML(timeLabel(item.at))+'</small></div><div class="dashboard-history-actions">'+action+'</div></article>';
       }).join("");
