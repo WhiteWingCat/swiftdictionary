@@ -3304,3 +3304,19 @@ This entry supersedes any earlier same-day statement that the U2.8.0 feature bra
 - The separate `Workers Builds: swiftdictionary-testing` check failed for the retired Worker and is not the Cloudflare Pages preview result.
 - Legal/privacy, retention, cross-border processing and content licensing remain outstanding release gates. No compliance clearance is implied.
 - Immediate recovery point: branch head `888d7c4` plus fixture correction commit `81d379a`; rerun CI and continue test-led remediation. Do not merge, apply production migrations or deploy to production without separate explicit owner approval.
+
+
+## 2026-11-23 — U2.8.0 release-gate remediation and staging readiness checkpoint
+
+- Read the latest Master Development Record, U2.8.0 development plan, archive index, final-planning archive and development-start/repository-audit archive before continuing.
+- PR #16 remains open/draft; no merge or production action was performed.
+- Reviewed the Chinese Flashcard draft pack: 519 characters, 904 multi-character vocabulary entries and 24 authored phrases. Character and vocabulary example-Pinyin fields are absent; current Sentence Recall uses the example sentence rather than example Pinyin. This is explicitly retained as a content QA limitation for owner/linguistic review.
+- Clarified the Chinese-selected Translation Recall prompt in `flashcards.js` so it asks for the closest Chinese equivalent, distinct in intent from the descriptive clue used by Definition Recall.
+- Corrected the earlier migration inventory: six U2.8.0 SQL migrations are present on the feature branch (Chinese review foundation; Flashcard language/snapshots; Chinese Quiz runtime; daily practice attempt metrics; Quiz source-composition guard; security-invoker wrappers), not four. None has been applied to staging or production.
+- At `f91b776`, Cloudflare Pages, Quiz DB foundation, PostgreSQL 17 migration/allowance, PostgreSQL 17 ACL, U2.7 lesson-start, Chromium, signed-out Flashcards, Chinese dictionary and Cloudflare routing checks passed. The authenticated local Supabase/Auth/RPC workflow was still running.
+- Latest feature head after the prompt-copy clarification: `a981ae25622b7a2e5a5b230a1ebc09373ef27cb7`. Cloudflare Pages check succeeded for this head; all other latest-head CI workflows were in progress at the time of the audit. Do not claim latest-head CI is green until final results are inspected.
+- Updated PR #16 description to accurately describe implemented work and remaining gates. PR remains draft.
+- Staging preview URL last confirmed at prior head `f91b776`: https://92587b07.swiftdictionary.pages.dev. Verify the new head's preview deployment before declaring staging preview ready.
+- Remaining gates: latest-head CI green; independent Chinese linguistic/answer-key/distractor/Pinyin/translation/anti-overlap review; review all six migrations/RLS/RPC grants/deletion cascades in disposable local Supabase; explicit approval before isolated staging migration/content activation; staging backend/preview verification; Malaysia and international privacy/retention/cross-border/16–17-year-old/DPO-DPIA and content licensing review; owner staging review.
+- Formal legal/privacy clearance remains outstanding. No staging or production database, production data, production branch or production deployment was changed.
+- Detailed session archive: [U2.8.0 release-gate remediation and staging readiness](conversation-archive/2026-11-23-update-2-8-0-release-gate-remediation.md).
