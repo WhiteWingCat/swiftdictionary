@@ -24,7 +24,7 @@ if(inlineCount<1)throw new Error("No inline application script was syntax-checke
 if(!/<script\b[^>]*\bsrc=["']flashcards\.js(?:\?[^"']*)?["']/i.test(html))throw new Error("Flashcards runtime is not loaded by index.html.");
 if(!/id=["']flashcardsApp["']/.test(html))throw new Error("Flashcards page mount is missing.");
 if(/Flashcards are being prepared|Flashcards will become available/.test(html))throw new Error("Outdated Coming Soon copy remains.");
-for(const mode of ["word","definition","mixed","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
+for(const mode of ["word","definition","translation","mixed","sentence"])if(!flashcards.includes('"'+mode+'"'))throw new Error("Missing Flash Recall mode: "+mode);
 for(const [needle,label] of [
   ["const REDUCTION_STEP = 0.2","Fixed 0.2-second timing reduction"],
   ["word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9}","Word Recall Beginner schedule"],
@@ -55,7 +55,11 @@ for(const [needle,label] of [
   ["custom","Custom card support"]
 ])if(!flashcards.includes(needle))throw new Error("Missing "+label+".");
 if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="complete_my_flashcard_game"'))throw new Error("Mock User Flashcard game RPC support is missing.");
+if(!flashcards.includes('learningLanguage:data.learning_language_code||course')||!flashcards.includes('translation_language_code'))throw new Error("Flashcard sessions do not preserve their language pair.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
+if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft1')||!html.includes('flashcards.js?v=2.8.0-r1'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
+if(!html.includes('id="dashboardTabFavourites"')||!html.includes('id="dashboardTabProgress"')||!html.includes('id="dashboardTabHistory"')||!html.includes('id="dashboardTabAnalytics"'))throw new Error("The four Dashboard tabs are incomplete.");
+if(!html.includes('get_my_lesson_practice_attempts')||!html.includes('practiceRetries')||!html.includes('data-dashboard-flashcard-review-game'))throw new Error("Practice Insights or Daily History review integration is missing.");
 for(const [needle,label] of [
   ['data-dashboard-flashcard-review',"Dashboard Weak Memory entry point"],
   ['rpc("get_my_flashcard_data")',"Dashboard Flashcard statistics source"],
