@@ -239,21 +239,31 @@ test("Free user can switch translation in an open permanent lesson and complete 
   const englishSnapshot=await page.evaluate(()=>({
     selector:document.getElementById("translationSelect")?.value,
     learning:quizPageState.session?.learning_language_code,
-    translation:quizPageState.session?.translation_language_code,
-    prompt:quizPageState.session?.questions?.[0]?.prompt_translation
+    translation:quizPageState.session?.translation_language_code
   }));
   expect(englishSnapshot).toMatchObject({selector:"zh",learning:"en",translation:"zh"});
-  expect(String(englishSnapshot.prompt||"").trim()).not.toBe("");
+  const targetPosition=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.question_type!=="chinese_translation"&&String(q.prompt_translation||"").trim())?.position||0);
+  expect(targetPosition).toBeGreaterThan(0);
+  expect(targetPosition).toBeLessThan(10);
+  for(let position=1;position<targetPosition;position++){
+    await expect(page.locator("#quizQuestionArea .quiz-question-card")).toHaveAttribute("data-question-type","chinese_translation");
+    await expect(page.locator("#quizQuestionArea .quiz-question-pinyin")).toHaveCount(0);
+    await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
+    await page.locator('[data-quiz-option="a"]').click();
+    await page.locator("#quizNext").click();
+    await expect(page.locator("#quizQuestionCounter")).toHaveText(`第 ${position+1} 题，共 10 题`);
+  }
+  const targetPrompt=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.prompt_translation||"");
+  expect(targetPrompt.trim()).not.toBe("");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toBeVisible();
-  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).not.toBeEmpty();
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText(targetPrompt);
 
-  // Changing the shared translation selector while a Quiz is already open
-  // must immediately redraw the current question from the immutable snapshot.
+  // Translation changes redraw the current question without discarding answers.
   await selectTranslation(page,"en");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
   await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
   await selectTranslation(page,"zh");
-  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText("运行测试题");
+  await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText(targetPrompt);
   await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在使用你选择的翻译语言");
 
   // The learner can change an answer before submission.
@@ -262,7 +272,8 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator('[data-quiz-option="a"]').click();
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 2 题，共 10 题",{timeout:15000});
+  const nextPosition=targetPosition+1;
+  await expect(page.locator("#quizQuestionCounter")).toHaveText(`第 ${nextPosition} 题，共 10 题`,{timeout:15000});
 
   // Reloading restores the active session and the saved position/answer.
   await page.reload();
@@ -282,9 +293,9 @@ test("Free user can switch translation in an open permanent lesson and complete 
     }));
     throw new Error("Resume RPC did not render the active session: " + JSON.stringify(diagnostics) + "; " + error.message);
   }
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 2 题，共 10 题");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText(`第 ${nextPosition} 题，共 10 题`);
   await page.locator("#quizPrevious").click();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText(`第 ${targetPosition} 题，共 10 题`);
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
 
@@ -294,22 +305,23 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await updateTranslationPreference(freeUserId, "en");
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#translationSelect")).toHaveValue("en");
   await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
   await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 2 of 10");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText(`Question ${nextPosition} of 10`);
   await page.locator("#quizPrevious").click();
-  await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 1 of 10");
+  await expect(page.locator("#quizQuestionCounter")).toHaveText(`Question ${targetPosition} of 10`);
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator("#quizNext").click();
 
-  for (let position = 2; position <= 10; position += 1) {
+  for(let position=nextPosition;position<=10;position++){
     await page.locator('[data-quiz-option="a"]').click();
     await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
-    if (position < 10) {
+    if(position<10){
       await page.locator("#quizNext").click();
-      await expect(page.locator("#quizQuestionCounter")).toHaveText("Question "+(position+1)+" of 10",{timeout:10000});
+      await expect(page.locator("#quizQuestionCounter")).toHaveText(`Question ${position+1} of 10`,{timeout:10000});
     }
   }
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 10 of 10");
