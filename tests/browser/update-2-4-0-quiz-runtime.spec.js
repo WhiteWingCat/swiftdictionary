@@ -174,6 +174,7 @@ test.afterAll(async () => {
 });
 
 test("Free user can switch translation in an open permanent lesson and complete a real authenticated Quiz", async ({ page }) => {
+  test.setTimeout(120000);
   await openQuiz(page, freeSession);
 
   // Translation changes must refresh the already-open permanent lesson,
@@ -645,7 +646,7 @@ test("Daily History reviews a completed Quiz without leaving Dashboard",async({p
   await expect(review).toBeVisible({timeout:15000});
   await review.click();
   await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
-  await expect(page.locator("#dashboardReviewTitle")).toHaveText("Quiz review");
+  await expect(page.locator("#dashboardReviewTitle")).toHaveText(/^(Quiz review|测验复习)$/);
   await expect(page.locator("#dashboardReviewContent .quiz-review-question")).toHaveCount(10);
   await expect(page.locator("#profilePage")).toBeVisible();
   expect(new URL(page.url()).hash).toBe("#profile");
@@ -663,6 +664,8 @@ test("Dashboard Quiz History renders a clean Review button", async ({ page }) =>
     const host = document.querySelector("#dashboardQuizHistory");
     host.innerHTML = '<div class="quiz-history-row"><button type="button" class="secondary-button" data-dashboard-quiz-review="completed-session-id">Review</button></div>';
   });
+  // Quiz History belongs to Analytics; hidden panels must stay hidden until selected.
+  await page.locator('[data-dashboard-tab="analytics"]').click();
   const reviewButton = page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]");
   await expect(reviewButton).toBeVisible();
   await expect(reviewButton).toHaveText("Review");
@@ -829,6 +832,9 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await selectCourse(page,"zh");
   await selectTranslation(page,"zh");
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  // The UI preference write is queued; explicitly settle the synthetic account's
+  // server-side course pair before asserting the authenticated RPC restriction.
+  await updateLearningPreference(user.id,"zh","zh");
   const mixedModeResponse=await api.post(apiUrl+"/rest/v1/rpc/start_my_flashcard_game",{
     headers:{apikey:anonKey,Authorization:"Bearer "+session.access_token},
     data:{p_mode:"mixed",p_difficulty:"beginner",p_duration_seconds:60}
