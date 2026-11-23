@@ -296,6 +296,8 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117113912_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql
           psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_translation_language_eligibility_fix.sql
+          # Quiz allowance is charged on successful session creation in U2.8.0.
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261123140000_swiftdictionary_update_2_8_0_quiz_start_allowance_and_chinese_question_quality.sql
 
       - name: Validate and import draft Quiz content in PostgreSQL
         run: |
