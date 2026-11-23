@@ -6,14 +6,22 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/flashcards/chinese-cards.draft.json"),"utf8"));
 const release=process.argv.includes("--release");
 const errors=[],warnings=[],optionalWarnings=[];
-const ids=new Set(),chars=new Set(),vocab=new Set();
+const ids=new Set(),chars=new Set(),vocab=new Set(),allTerms=new Map();
 const modes={word:0,definition:0,translation_en:0,translation_zh:0,sentence:0};
 const norm=x=>String(x||"").normalize("NFKC").replace(/[，。；、\s]/g,"").toLowerCase();
+const registerTerm=(word,group)=>{
+ const key=norm(word);
+ if(!key)return;
+ const previous=allTerms.get(key);
+ if(previous)errors.push("Duplicate Chinese term across "+previous+" and "+group+": "+word);
+ else allTerms.set(key,group);
+};
 if(pack.schema_version!==1||pack.status!=="draft"||pack.language_code!=="zh")errors.push("Pack must remain a Chinese-language draft.");
 if(!Array.isArray(pack.characters)||!Array.isArray(pack.vocabulary)||!Array.isArray(pack.phrases))errors.push("characters, vocabulary and phrases arrays are required.");
 for(const [i,c] of (pack.characters||[]).entries()){
  if(!c.id||ids.has(c.id))errors.push("Character "+i+" has a missing or duplicate ID");ids.add(c.id);
  if([...String(c.word||"")].length!==1)errors.push("Character "+i+" is not one Han character");
+ registerTerm(c.word,"characters");
  if(chars.has(c.word))errors.push("Duplicate character "+c.word);chars.add(c.word);
  for(const k of ["pinyin","translationEn","definitionZh","exampleZh"])if(typeof c[k]!=="string"||!c[k].trim())warnings.push("Character "+c.word+" needs "+k);
  if(typeof c.examplePinyin!=="string"||!c.examplePinyin.trim())optionalWarnings.push("Character "+c.word+" has no sentence Pinyin (not used by current Sentence Recall).");
@@ -31,6 +39,7 @@ for(const [i,c] of (pack.characters||[]).entries()){
 for(const [i,v] of (pack.vocabulary||[]).entries()){
  if(!v.id||ids.has(v.id))errors.push("Vocabulary "+i+" has a missing or duplicate ID");ids.add(v.id);
  if([...String(v.word||"")].length<2)errors.push("Vocabulary "+i+" is not multi-character");
+ registerTerm(v.word,"vocabulary");
  if(vocab.has(v.word))errors.push("Duplicate vocabulary "+v.word);vocab.add(v.word);
  if(!v.pinyinNumeric||!v.translationEn)errors.push("Vocabulary "+v.word+" needs pinyin and an English gloss");
  for(const k of ["definitionZh","exampleZh"])if(typeof v[k]!=="string"||!v[k].trim())warnings.push("Vocabulary "+v.word+" needs "+k);
@@ -38,11 +47,14 @@ for(const [i,v] of (pack.vocabulary||[]).entries()){
  if(!Array.isArray(v.sourceIds)||!v.sourceIds.includes("cc-cedict-2026-11-20"))errors.push("Vocabulary "+v.word+" is missing CC-CEDICT provenance");
  if(!Array.isArray(v.availableModes)||v.availableModes.some(mode=>!["word","translation"].includes(mode)))errors.push("Vocabulary "+v.word+" has invalid mode eligibility");
  if(v.availableModes?.includes("translation")&&!v.translationEn)errors.push("Vocabulary "+v.word+" enables English Translation Recall without a direct gloss");
+ if(v.translationLanguages?.includes("zh")&&!v.translationZh)errors.push("Vocabulary "+v.word+" advertises a missing Chinese equivalent");
+ if(v.translationLanguages?.includes("zh")&&v.translationZh&&norm(v.definitionZh)===norm(v.translationZh))errors.push("Vocabulary "+v.word+" reuses its definition cue as its Chinese translation cue");
  modes.word++;if(v.availableModes?.includes("translation"))modes.translation_en++;
 }
 for(const [i,p] of (pack.phrases||[]).entries()){
  if(!p.id||ids.has(p.id))errors.push("Phrase "+i+" has a missing or duplicate ID");ids.add(p.id);
  if(!p.word||!p.pinyin||!p.translationEn||!p.definitionCueZh||!p.translationZh||!p.exampleZh)errors.push("Phrase "+p.word+" is missing a mode-specific cue");
+ registerTerm(p.word,"phrases");
  if(norm(p.definitionCueZh)===norm(p.translationZh))errors.push("Phrase "+p.word+" reuses its definition cue as its translation cue");
  if(!Array.isArray(p.availableModes)||["word","definition","translation","sentence"].some(mode=>!p.availableModes.includes(mode)))errors.push("Phrase "+p.word+" does not support all four Chinese modes");
  for(const mode of p.availableModes||[])modes[mode==="translation"?"translation_zh":mode]++;
