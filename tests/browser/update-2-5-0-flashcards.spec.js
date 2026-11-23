@@ -98,6 +98,33 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
   }
 });
 
+test("Daily History lesson and Daily Learning reviews stay inside Dashboard",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.evaluate(()=>{
+    document.querySelector("#dashboardDailyHistory").innerHTML=
+      '<button type="button" data-dashboard-daily-lesson-review="b-sentence" data-difficulty="beginner" data-language-code="en">Review lesson</button>';
+  });
+  await page.locator("[data-dashboard-daily-lesson-review]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
+  await expect(page.locator("#dashboardReviewContent")).toContainText("Build a clear basic sentence");
+  expect(new URL(page.url()).hash).toBe("#profile");
+  await page.locator("[data-dashboard-review-close]").click();
+  await page.evaluate(()=>{
+    document.querySelector("#dashboardDailyHistory").innerHTML=
+      '<button type="button" data-dashboard-daily-activity-review="true" data-activity-type="daily_topic" data-content-id="topic-present-perfect-01" data-topic-id="verb-tenses" data-difficulty="intermediate" data-language-code="en">Review activity</button>';
+  });
+  await page.locator("[data-dashboard-daily-activity-review]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toContainText("Past simple or present perfect?");
+  await expect(page.locator("#profilePage")).toBeVisible();
+  expect(new URL(page.url()).hash).toBe("#profile");
+  await page.locator("#dailyActivityReader [data-daily-close]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
+});
+
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
