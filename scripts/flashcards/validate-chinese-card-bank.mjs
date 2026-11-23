@@ -6,6 +6,28 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/flashcards/chinese-cards.draft.json"),"utf8"));
 const release=process.argv.includes("--release");
 const errors=[],warnings=[],optionalWarnings=[];
+const generatedSource=fs.readFileSync(path.join(root,"data/chinese-flashcards.js"),"utf8");
+const generatedStart=generatedSource.indexOf("=");
+if(generatedStart<0)errors.push("Generated Chinese Flashcard bank assignment is missing");
+let generated={};
+try{generated=JSON.parse(generatedSource.slice(generatedStart+1).trim().replace(/;$/,""));}
+catch{errors.push("Generated Chinese Flashcard bank is not valid JSON");}
+const syncFields=["word","pinyin","translationEn","translationZh","definitionCueZh","definitionZh","exampleZh","availableModes","difficulty","translationLanguages"];
+if(generated.status!==pack.status||generated.language_code!==pack.language_code)errors.push("Generated Chinese Flashcard bank metadata does not match its draft source.");
+for(const group of ["characters","vocabulary","phrases"]){
+ const sourceItems=pack[group]||[],generatedItems=generated[group]||[];
+ const sourceById=new Map(sourceItems.map(item=>[item.id,item]));
+ const generatedById=new Map(generatedItems.map(item=>[item.id,item]));
+ for(const id of sourceById.keys())if(!generatedById.has(id))errors.push("Generated Flashcard bank is missing "+group+" card "+id);
+ for(const id of generatedById.keys())if(!sourceById.has(id))errors.push("Generated Flashcard bank has stale or untracked "+group+" card "+id);
+ for(const [id,item] of sourceById){
+  const built=generatedById.get(id);if(!built)continue;
+  for(const field of syncFields){
+   const a=JSON.stringify(item[field]??null),b=JSON.stringify(built[field]??null);
+   if(a!==b)errors.push("Generated Flashcard card "+id+" has stale "+field+" data");
+  }
+ }
+}
 const ids=new Set(),chars=new Set(),vocab=new Set(),allTerms=new Map();
 const modes={word:0,definition:0,translation_en:0,translation_zh:0,sentence:0};
 const norm=x=>String(x||"").normalize("NFKC").replace(/[，。；、\s]/g,"").toLowerCase();
