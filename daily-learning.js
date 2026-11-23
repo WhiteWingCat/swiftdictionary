@@ -1058,10 +1058,6 @@
   };
 
 
-  const dailyReviewStyle=document.createElement("style");
-  dailyReviewStyle.textContent=".daily-activity-reader .daily-review-correct,.daily-activity-backdrop .daily-review-correct{border-color:#4d8a68;background:#173528;color:#b5e9c8}.daily-activity-backdrop .daily-review-correct small{display:block;font-weight:750}";
-  document.head.appendChild(dailyReviewStyle);
-
   function closeDailyReader() {
     const reader=byId("dailyActivityReader");
     if(reader.classList.contains("closing")||reader.hidden)return;
