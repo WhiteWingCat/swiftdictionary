@@ -3359,3 +3359,12 @@ Detailed implementation and initial CI findings: [U2.8.0 staging feedback remedi
 - Two duplicate push/PR full local Supabase Auth/RPC integration workflows were still running the authenticated Quiz Chromium runtime step at the time of this update. Check both final results before declaring all CI green.
 - The retired Workers Builds workflow remains failed but is unrelated to the successful Cloudflare Pages deployment.
 - No production code, database, branch or deployment was changed. PR #16 remains draft. Detailed record: [U2.8.0 staging feedback remediation](conversation-archive/2026-11-23-update-2-8-0-staging-feedback-remediation.md).
+
+
+## 2026-11-23 — U2.8.0 authenticated Quiz regression follow-up
+
+- Initial authenticated Quiz browser run confirmed the redesigned Quiz overview and active-test UI/directional transitions passed. Remaining failures were test assumptions/races: a localized Chinese review title was hard-coded in English; the Quiz History button was asserted while its Analytics tab was hidden; Chinese Mixed Recall RPC was tested before the synthetic user's course upsert settled; and the comprehensive Quiz end-to-end test exceeded its default 30-second timeout.
+- Corrected the tests without removing product assertions: locale-aware title expectation, explicit Analytics tab selection, wait for course/translation preference upserts before authenticated RPC checks, and a 120-second timeout for the long full Quiz flow.
+- Latest feature head: `e1591d86bb58d548cb51bcf848661c3036aaecd9`. Cloudflare Pages deployment passed; stable preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- All other latest-head checks passed (Quiz DB foundation, Flashcards static/browser, signed-out Chromium, Supabase CLI Auth, U2.7 allowance, ACL, Chinese dictionary, build routing and PostgreSQL migration/allowance). Two duplicate full local Supabase Auth/RPC workflows remained in the authenticated Quiz Chromium step; check both final conclusions before declaring CI green.
+- Production remains unchanged. PR #16 remains draft. See [staging feedback remediation archive](conversation-archive/2026-11-23-update-2-8-0-staging-feedback-remediation.md).
