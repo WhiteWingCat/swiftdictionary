@@ -114,6 +114,7 @@ async function openQuiz(page, session) {
   });
   page.on("pageerror", error => browserDiagnostics.push("pageerror: " + error.message));
   page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
+  page.on("dialog", dialog => dialog.accept());
   await page.goto("/#quiz");
   const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
     headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
@@ -532,8 +533,25 @@ test("Premium user sees three daily completions; abandonment does not consume al
   page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("3 / 3 今日剩余");
+  await expect(page.locator("#quizAllowanceText")).toHaveText("2 / 3 今日剩余");
   await expect(page.locator("#quizActiveCard")).toBeHidden();
+});
+
+test("Quiz start confirmation warns about allowance and cancellation does not consume it", async ({ page }) => {
+  await openQuiz(page,freeSession);
+  await page.once("dialog",async dialog=>{
+    expect(dialog.message()).toContain("daily Quiz allowance");
+    expect(dialog.message()).toContain("abandon");
+    await dialog.dismiss();
+  });
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
+  await expect(page.locator("#quizSession")).toBeHidden();
+  await page.once("dialog",dialog=>dialog.accept());
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizAllowanceText")).toHaveText("0 / 1 今日剩余");
 });
 
 test("Quiz overview follows translation preference and selector changes preserve an active session", async ({ page }) => {
