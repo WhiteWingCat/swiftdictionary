@@ -72,6 +72,21 @@ async function selectTranslation(page, language) {
   await page.locator("#translationSelect").selectOption(language);
 }
 
+async function updateLearningPreference(userId, learningLanguage, translationLanguage) {
+  const response = await api.patch(
+    apiUrl + "/rest/v1/user_preferences?user_id=eq." + encodeURIComponent(userId),
+    {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: "Bearer " + serviceRoleKey,
+        Prefer: "return=minimal"
+      },
+      data: { learning_language: learningLanguage, translation_language: translationLanguage }
+    }
+  );
+  if (!response.ok()) throw new Error("Could not update disposable learning/translation preferences: " + await response.text());
+}
+
 async function openQuiz(page, session) {
   await installLocalSupabaseConfig(page);
   const storageKey = "sb-" + new URL(apiUrl).hostname.split(".")[0] + "-auth-token";
