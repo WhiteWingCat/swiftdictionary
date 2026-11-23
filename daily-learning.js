@@ -922,7 +922,7 @@
     }
   }
 
-  function renderReader(activityType,content,session,existingState=null) {
+  function renderReader(activityType,content,session,existingState=null,options={}) {
     const reader = byId("dailyActivityReader");
     if(reader.parentElement!==document.body)document.body.appendChild(reader);
     const isDiscovery = activityType === "daily_discovery";
@@ -950,7 +950,8 @@
         + '<p class="daily-discovery-frequency-note">' + esc(dailyUi("A less-common word to recognise and understand. Frequency classification is curated, not a live conversational-corpus ranking.","认识并理解一个较少见的词汇。目前词频分类由编辑整理，并非实时口语语料库排名。")) + '</p>'
         + '<p class="muted-note">' + esc(completed ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : dailyUi("In progress · no allowance used until completion","进行中 · 完成后才会扣除次数")) + '</p>';
     } else {
-      html = '<div class="daily-drawer-actions"><button type="button" class="secondary-button" data-daily-back>' + esc(dailyUi("← Back to Lessons","← 返回课程")) + '</button>' + closeButton + '</div>'
+      const dashboardBackAction=options.fromDashboard?"":'<button type="button" class="secondary-button" data-daily-back>' + esc(dailyUi("← Back to Lessons","← 返回课程")) + '</button>';
+      html = '<div class="daily-drawer-actions">' + dashboardBackAction + closeButton + '</div>'
         + '<div class="daily-activity-meta"><span class="daily-activity-tag">' + esc(dailyUi(activityMeta[activityType].title,activityMeta[activityType].titleZh)) + '</span>'
         + (completed ? '<span class="daily-activity-tag">' + esc(dailyUi("Completed · replay is free","已完成 · 可免费重温")) + '</span>' : '<span class="daily-activity-tag">' + esc(dailyUi("In progress · no allowance used yet","进行中 · 尚未扣除次数")) + '</span>')
         + '</div><h2>' + esc(dailyTitle(content)) + '</h2>';
@@ -1409,6 +1410,34 @@
   installAllowanceNotifications();
   window.installSwiftAllowanceNotifications = installAllowanceNotifications;
   window.addEventListener("swift-auth-updated", installAllowanceNotifications);
+
+  window.SwiftDictionaryDailyLearning = {
+    reviewFromDashboard(row) {
+      if (!currentUser || !row) throw new Error("Sign in to review your completed activity.");
+      const activityType=String(row.activity_type||"");
+      if (!activityMeta[activityType]) throw new Error("This daily activity type is not supported for review.");
+      const previousCourse=course;
+      const languageCode=row.language_code==="zh"?"zh":"en";
+      course=languageCode;
+      try {
+        const session={
+          id:row.id||row.session_id||null,
+          activity_type:activityType,
+          content_id:String(row.content_id||""),
+          topic_id:row.topic_id||null,
+          difficulty:row.difficulty||null,
+          status:"completed",
+          language_code:languageCode
+        };
+        const content=resolveSessionContent(activityType,session,null);
+        if(!content)throw new Error("The original daily activity content is no longer available for review.");
+        renderReader(activityType,content,session,null,{fromDashboard:true});
+        return true;
+      } finally {
+        course=previousCourse;
+      }
+    }
+  };
 
   window.initialiseDailyLearning = initialiseDailyLearning;
   bindPreferenceControls();
