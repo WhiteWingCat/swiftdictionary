@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.8.0 — Final Development Plan
 
-**Status:** Owner-approved plan; development explicitly not started  
+**Status:** Owner-authorised development; technical audit in progress  
 **Planning date:** 2026-11-23  
 **Update title:** Chinese Quiz & Flashcards Expansion  
 **Application branch reserved:** `feature/update-2-8-0-chinese-quiz-flashcards` (created from current `main`; verified to exist; untouched)  
@@ -8,7 +8,7 @@
 **Database:** No U2.8.0 schema changes or migrations  
 **Staging:** No U2.8.0 deployment or data changes
 
-This document is the authoritative scope and acceptance baseline for U2.8.0. Owner approval authorizes the plan, but the owner explicitly instructed that development must not begin yet. A later explicit instruction is required to start the technical audit/implementation.
+This document is the authoritative scope and acceptance baseline for U2.8.0. On 2026-11-23, the owner explicitly authorised development after the latest Master Development Record and relevant conversation archives were reviewed. The technical audit and implementation may proceed on the reserved application branch. Scope changes, merge, production migrations and production deployment remain subject to their separate approval gates.
 
 ## 1. Goals and boundaries
 
@@ -183,7 +183,7 @@ Do not regress:
 
 ## 12. Technical audit and development sequence
 
-After the owner separately instructs development to begin:
+Development is authorised. Begin with:
 1. Audit current `main`, actual production/staging migration state, existing Quiz/Flashcard schemas and RPCs, allowance policies, content banks, lesson-topic mappings, dashboard data and account deletion/RLS.
 2. Inventory Chinese dictionary/lesson coverage and existing candidate question/card content. Determine numeric bank targets from actual session demand and diversity; identify missing curriculum coverage.
 3. Design content schemas and validate mode separation, language-pair gating, distractors, duplicates, pinyin, translations and topic links.
@@ -195,7 +195,7 @@ After the owner separately instructs development to begin:
 9. Run static/content/schema/RLS/RPC/database/browser/accessibility/mobile/timezone/account/allowance regression tests.
 10. Prepare a staging preview and report exact test evidence and known limitations for owner testing.
 
-The sequence may change to respect discovered dependencies. No application changes begin before the explicit start instruction. No merge, production migration or production deployment occurs without separate explicit approval.
+The sequence may change to respect discovered dependencies. Application development may proceed under this authorisation. No merge, production migration or production deployment occurs without separate explicit approval.
 
 ## 13. Legal, privacy, security and content review gate
 
