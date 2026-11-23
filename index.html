@@ -19405,6 +19405,7 @@ async function completeLesson(x){
       }
       const gameReview=event.target.closest("[data-dashboard-flashcard-review-game]");
       if(gameReview&&window.SwiftDictionaryFlashcards?.reviewGame) {
+        showPage("flashcards",true);
         window.SwiftDictionaryFlashcards.reviewGame(gameReview.dataset.dashboardFlashcardReviewGame);
         return;
       }
