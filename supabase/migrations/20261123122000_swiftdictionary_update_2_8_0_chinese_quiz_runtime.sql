@@ -227,6 +227,7 @@ begin
         'reason',case when v_active is not null then 'active_session_exists'
           when not coalesce((v_ctx->>'plan_enabled')::boolean,false) then 'plan_not_enabled'
           when coalesce((v_ctx->>'remaining_count')::integer,0)<1 then 'allowance_exhausted'
+          when v_b+v_i+v_a=0 then 'learning_course_not_supported'
           when not v_min_b then 'question_bank_below_minimum'
           when not v_fresh_b then 'fresh_questions_unavailable_today' else null end),
       pg_catalog.jsonb_build_object('difficulty','intermediate','question_count',15,
@@ -237,6 +238,7 @@ begin
         'reason',case when v_active is not null then 'active_session_exists'
           when not coalesce((v_ctx->>'plan_enabled')::boolean,false) then 'plan_not_enabled'
           when coalesce((v_ctx->>'remaining_count')::integer,0)<1 then 'allowance_exhausted'
+          when v_b+v_i+v_a=0 then 'learning_course_not_supported'
           when not v_min_i then 'question_bank_below_minimum'
           when not v_fresh_i then 'fresh_questions_unavailable_today' else null end),
       pg_catalog.jsonb_build_object('difficulty','advanced','question_count',20,
@@ -247,6 +249,7 @@ begin
         'reason',case when v_active is not null then 'active_session_exists'
           when not coalesce((v_ctx->>'plan_enabled')::boolean,false) then 'plan_not_enabled'
           when coalesce((v_ctx->>'remaining_count')::integer,0)<1 then 'allowance_exhausted'
+          when v_b+v_i+v_a=0 then 'learning_course_not_supported'
           when not v_min_a then 'question_bank_below_minimum'
           when not v_fresh_a then 'fresh_questions_unavailable_today' else null end)
     )
@@ -378,6 +381,10 @@ begin
   v_min_b:=v_b>=30 and v_tb>=3;
   v_min_i:=v_i>=24 and v_ti>=3 and v_b>=16 and v_tb>=3;
   v_min_a:=v_a>=32 and v_ta>=3 and v_i>=8 and v_ti>=3 and v_b>=8 and v_tb>=3;
+  if v_b+v_i+v_a=0 then
+    raise exception 'Chinese Quiz is not yet supported by an approved content release'
+      using errcode='42501',detail='learning_course_not_supported';
+  end if;
   if (p_difficulty='beginner' and (not v_min_b or v_rb<10 or (v_translation_needed>0 and v_xb<1)))
      or (p_difficulty='intermediate' and (not v_min_i or v_ri<12 or v_rb<3 or v_ti<3 or v_tb<3 or (v_translation_needed>0 and v_xi<1)))
      or (p_difficulty='advanced' and (not v_min_a or v_ra<12 or v_ri<6 or v_rb<2 or v_ta<3 or v_ti<3 or v_tb<3 or (v_translation_needed>0 and v_xa<1))) then
