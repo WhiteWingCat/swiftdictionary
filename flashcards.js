@@ -226,7 +226,8 @@
               ["word","🔤",uiText("Recall the pronunciation","根据汉字回忆拼音")],
               ["definition","📘",uiText("Identify the word from a Chinese description","根据中文描述找出对应词语")],
               ["translation","🌐",uiText("Recall the direct equivalent in your selected language","根据所选语言的直接对应表达回忆中文词语")],
-              ["sentence","✍️",uiText("Recall the missing word from a sentence","根据句子语境回忆缺失词语")]
+              ["sentence","✍️",uiText("Recall the missing word from a sentence","根据句子语境回忆缺失词语")],
+              ["mixed","🔀",uiText("Combine all four distinct recall tasks","结合四种不同的回忆任务")]
             ]:[
               ["word","🔤",uiText("Recall the meaning of a word","回忆单词的中文释义")],
               ["definition","📘",uiText("Identify the word from its meaning","根据中文释义找出英文单词")],
