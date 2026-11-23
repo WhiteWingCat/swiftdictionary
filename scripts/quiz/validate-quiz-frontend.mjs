@@ -145,7 +145,7 @@ if (!html.includes('id="practiceQuizWrongAnswers"') ||
 if (!html.includes('data-dashboard-quiz-review=') ||
     !html.includes('escapeHTML(quizT("Review","查看"))') ||
     html.includes("\\\\'+quizEscape") ||
-    !html.includes('quizReview(button.dataset.dashboardQuizReview,"profile")') ||
+    !html.includes('quizReview(button.dataset.dashboardQuizReview,"dashboard")') ||
     !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {
   throw new Error("Dashboard Quiz history must render a valid Review button and retain its direct answer-review action.");
 }
@@ -182,4 +182,24 @@ for (const internalLabel of [
     throw new Error("Internal bank/allowance diagnostics must not be rendered in Quiz difficulty cards: " + internalLabel);
   }
 }
+if (!html.includes('class="quiz-home-hero"') || !html.includes('class="quiz-question-card"') ||
+    !appScript.includes("quizSlideFromRight") || !appScript.includes("quizSlideFromLeft")) {
+  throw new Error("The U2.8.0 Quiz overview and active test UI redesign or directional question transitions are missing.");
+}
+if (!html.includes(".dashboard-tab-panel[hidden]") || !appScript.includes("setDashboardTab(activeDashboardTab)") ||
+    !appScript.includes("data-dashboard-daily-lesson-review") || !appScript.includes("data-dashboard-daily-activity-review") ||
+    !appScript.includes('quizReview(button.dataset.dashboardDailyQuizReview,"dashboard")') ||
+    !appScript.includes("reviewGame(gameReview.dataset.dashboardFlashcardReviewGame)")) {
+  throw new Error("Dashboard tabs and in-place review actions for all Daily History activity types are incomplete.");
+}
+if (!dailyLearning.includes("window.SwiftDictionaryDailyLearning") ||
+    !dailyLearning.includes("reviewFromDashboard(row)") ||
+    !dailyLearning.includes("options.fromDashboard")) {
+  throw new Error("Completed Daily Learning content must be reviewable without navigating away from Dashboard.");
+}
+if (!appScript.includes("function openDashboardLessonReview") || !appScript.includes("function openDashboardReview") ||
+    !appScript.includes('data-dashboard-review-close')) {
+  throw new Error("Dashboard must provide an in-place read-only review surface for completed lessons and Quiz sessions.");
+}
+
 console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese Quiz language routing and selected translation display are wired, lesson translation refresh and Quiz snapshot fallback are wired, simplified difficulty cards and last-question navigation are present, mock answer positions are randomized, answer review is wired, and private Quiz tables are not queried directly.");
