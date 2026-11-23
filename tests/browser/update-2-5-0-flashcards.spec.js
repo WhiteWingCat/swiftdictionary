@@ -80,6 +80,17 @@ test("Recall mode slot swaps between Mixed and Translation by learning course",a
   await expect(page.locator('.flash-mode[data-mode="translation"]')).toHaveCount(0);
 });
 
+test("Switching course remaps an open Mixed Recall setup to Translation Recall in the same slot",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator('#flashcardsPage .flash-mode[data-mode="mixed"]').click();
+  await expect(page.locator("#flashSetupTitle")).toHaveText("Mixed Recall");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect(page.locator("#flashSetupTitle")).toHaveText("Translation Recall");
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="mixed"]')).toHaveCount(0);
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
+  await page.locator('[data-action="close-overlay"]').click();
+});
+
 test("Dashboard tabs switch their visible panels",async({page})=>{
   await openMockFlashcards(page);
   await page.locator("#accountButton").click();
