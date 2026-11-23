@@ -20315,6 +20315,13 @@ async function completeLesson(x){
       const page=quizEl("quizPage");if(!page)return;
       const set=(selector,en,zh)=>{const node=page.querySelector(selector);if(node)node.textContent=quizT(en,zh);};
       set(".learning-banner .eyebrow","Knowledge check","知识测验");
+      set(".quiz-home-kicker","YOUR NEXT CHALLENGE","开始下一场挑战");
+      set(".quiz-home-hero h2","Choose your challenge","选择你的挑战");
+      set(".quiz-home-hero p","Build confidence through a focused set of mixed-topic questions. Take your time, move between questions and review every answer when you finish.","通过多主题问题巩固知识。你可以按自己的节奏作答、切换题目，并在完成后查看所有答案。");
+      const benefitLabels=page.querySelectorAll(".quiz-home-benefits span");
+      if(benefitLabels.length===3){benefitLabels[0].textContent=quizT("Untimed sessions","不限时测验");benefitLabels[1].textContent=quizT("Save and resume","保存并继续");benefitLabels[2].textContent=quizT("Full answer review","完整答案复习");}
+      const heroStat=page.querySelector(".quiz-home-hero-stat span");if(heroStat)heroStat.textContent=quizT("questions per session","每场题目数");
+      const sessionLabel=page.querySelector(".quiz-session-label");if(sessionLabel)sessionLabel.textContent=quizT("IN PROGRESS","进行中");
       set("#quizHeading","Quiz","测验");
       set(".learning-banner .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
       set("#quizRefresh","Refresh","刷新");
@@ -20419,7 +20426,7 @@ async function completeLesson(x){
       quizStatus("");
     }
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
-    function quizRenderSession(){
+    function quizRenderSession(transitionDirection=null){
       const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
       quizPageState.sessionView=true;
       quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
@@ -20431,20 +20438,30 @@ async function completeLesson(x){
       quizEl("quizAnsweredCounter").textContent=quizT(answered+" answered","已作答 "+answered+" 题");
       quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
       const effectiveTranslation=quizEffectiveTranslationCode(s);
-      const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
+      const showTranslation=effectiveTranslation!==(s.learning_language_code||"en")&&quizTranslationVisible(effectiveTranslation);
       quizUpdateTranslationNotice(s);
-      quizEl("quizQuestionArea").dataset.questionType=q.question_type||"";
+      const area=quizEl("quizQuestionArea");
+      area.dataset.questionType=q.question_type||"";
       const chineseTranslationQuestion=q.question_type==="chinese_translation";
-      quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(s.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
+      const topicLabel=q.topic_id?formatTopicName(q.topic_id):quizT("Mixed-topic question","多主题题目");
+      const options=(q.options||[]).map((option,index)=>{
         const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
         const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(s.learning_language_code==="zh"&&option.pinyin?'<small class="quiz-option-pinyin">'+quizEscape(option.pinyin)+'</small>':'')+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
-      }).join("")+'</div>';
+      }).join("");
+      area.innerHTML='<article class="quiz-question-card"><div class="quiz-question-card-head"><span class="quiz-question-index">'+quizT("QUESTION "+pos,"第 "+pos+" 题")+'</span><span class="quiz-question-topic">'+quizEscape(topicLabel)+'</span></div><h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(s.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="'+quizEscape(quizT("Answer options","答案选项"))+'">'+options+'</div></article>';
+      area.setAttribute("aria-label",quizT("Question and answer options","题目与答案选项"));
+      area.classList.remove("quiz-transition-next","quiz-transition-previous");
+      if(transitionDirection==="next"||transitionDirection==="previous"){
+        void area.offsetWidth;
+        area.classList.add("quiz-transition-"+transitionDirection);
+        area.addEventListener("animationend",()=>area.classList.remove("quiz-transition-next","quiz-transition-previous"),{once:true});
+      }
       quizEl("quizPrevious").textContent=quizT("Previous","上一题");
-      quizEl("quizQuestionArea").setAttribute("aria-label",quizT("Answer options","答案选项"));
-      quizEl("quizPrevious").disabled=pos<=1;
+      quizEl("quizPrevious").disabled=pos<=1||quizPageState.saving;
       quizEl("quizNext").hidden=pos>=s.question_count;
       quizEl("quizNext").textContent=quizT("Next","下一题");
+      quizEl("quizNext").disabled=quizPageState.saving;
       quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
       quizEl("quizSubmit").textContent=answered===s.question_count?quizT("Submit Quiz","提交测验"):quizT("Answer all questions to submit","请回答所有问题后再提交");
       quizStatus("");
@@ -20491,7 +20508,8 @@ async function completeLesson(x){
     async function quizMove(position){
       const s=quizPageState.session;if(!s||quizPageState.saving)return;
       const next=Math.max(1,Math.min(s.question_count,position));if(next===s.current_position)return;
-      try{await quizSaveCurrent(next);quizPageState.session.current_position=next;quizRenderSession();}
+      const direction=next>s.current_position?"next":"previous";
+      try{await quizSaveCurrent(next);quizPageState.session.current_position=next;quizRenderSession(direction);}
       catch{}
     }
     async function quizStart(difficulty){
@@ -20545,14 +20563,12 @@ async function completeLesson(x){
         if(!a.error)quizRenderAvailability(a.data||{});if(!h.error)quizRenderHistory(h.data||[]);
       }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
     }
-    function quizRenderResult(data){
-      quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+    function quizBuildResultMarkup(data){
       const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
       const effectiveTranslation=quizEffectiveTranslationCode(data);
-      const showTranslation=effectiveTranslation!== (data.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
-      quizUpdateTranslationNotice(data);
+      const showTranslation=effectiveTranslation!==(data.learning_language_code||"en")&&quizTranslationVisible(effectiveTranslation);
       const questions=data.questions||[];
-      quizEl("quizResultsContent").innerHTML='<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
+      return '<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
         const chineseTranslationQuestion=q.question_type==="chinese_translation";
         const opts=(q.options||[]).map((o,i)=>{
           const correct=o.id===q.correct_option_id,chosen=o.id===q.selected_option_id;
@@ -20562,14 +20578,30 @@ async function completeLesson(x){
         }).join("");
         return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(data.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(data.learning_language_code==="zh"&&q.explanation_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.explanation_pinyin)+'</p>':'')+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
       }).join("")+'</div>';
+    }
+    function quizRenderResult(data){
+      quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      quizUpdateTranslationNotice(data);
+      quizEl("quizResultsContent").innerHTML=quizBuildResultMarkup(data);
       quizEl("quizResultsHome").textContent=quizPageState.returnPage==="profile"?"← Back to Dashboard":"← Back to Quiz";
       quizEl("quizResults").hidden=false;quizStatus("");
     }
     async function quizReview(sessionId,returnPage="quiz"){
       quizPageState.returnPage=returnPage;
-      quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
-      try{quizStatus("Loading answer review…");const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;quizRenderResult(data);}
-      catch(error){quizStatus("Could not load this Quiz review: "+error.message,true);}
+      try{
+        quizStatus(quizT("Loading answer review…","正在加载答案复习…"));
+        const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;
+        if(returnPage==="dashboard"){
+          openDashboardReview(quizT("Quiz review","测验复习"),quizBuildResultMarkup(data));
+          quizStatus("");
+          return;
+        }
+        quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+        quizRenderResult(data);
+      }catch(error){
+        if(returnPage==="dashboard")openDashboardReview(quizT("Quiz review","测验复习"),'<p class="muted-note">'+quizEscape(error.message||"Could not load this Quiz review.")+'</p>');
+        else quizStatus("Could not load this Quiz review: "+error.message,true);
+      }
     }
     async function quizAbandon(){
       const s=quizPageState.session;if(!s)return;
