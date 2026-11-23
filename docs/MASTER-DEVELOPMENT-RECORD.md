@@ -3258,3 +3258,14 @@ After a separate explicit start instruction: audit current `main`, schemas/RPCs/
 - This update modifies documentation only on `docs/master-development-record`. The production `main` branch is not modified.
 - Plan approval is not development-start approval. Wait for a separate explicit owner instruction before any technical audit or implementation.
 
+
+
+## 2026-11-23 — Update 2.8.0 development authorised
+
+- Owner explicitly authorised development after requesting review of the latest Master Development Record and relevant conversation archive.
+- The authoritative U2.8.0 plan now records development as authorised and the technical audit as in progress.
+- Application work is permitted only on the reserved branch `feature/update-2-8-0-chinese-quiz-flashcards`, based on current `main`; verify its head before writing.
+- Initial work begins with a read-only audit of current `main`, the feature branch, database schemas/RPCs/migrations, content banks, topic mappings, allowance rules, RLS and account-deletion paths. No assumptions from older draft plans replace live state.
+- Existing U2.8.0 scope and acceptance criteria remain unchanged. No quota changes, dictionary gating, destructive midnight deletion or scope expansion is authorised.
+- Merge, production database changes/migrations, production deployment and release remain separate approval gates.
+- Required Malaysia-specific and general international legal/privacy planning remains mandatory; formal legal/privacy clearance is still outstanding.
