@@ -610,7 +610,8 @@
       if(action==="close-overlay"){closeOverlay();return;}
       if(action==="close-result"){closeOverlay();state.lastResult=null;state.results=[];render();return;}
       if(action==="begin-game"){state.difficulty=overlayRoot.querySelector("#flashDifficulty").value;state.cardSet=overlayRoot.querySelector("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
-      if(action==="open-review"){openReviewPrompt();return;}\n      if(action==="review-game"){await openGameReview(value);return;}
+      if(action==="open-review"){openReviewPrompt();return;}
+      if(action==="review-game"){await openGameReview(value);return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
       if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
       if(action==="mode"){state.mode=value;render();return;}
@@ -712,7 +713,8 @@
       return {memory:Math.max(t.memoryFloor,Number((memory-REDUCTION_STEP).toFixed(2))),answer:Math.max(t.answerFloor,Number((answer-REDUCTION_STEP).toFixed(2)))};
     }
   };
-  timerApi.openReviewFromDashboard=async()=>{if(!currentUser)return;if(!state.ready)await loadData();openReviewPrompt();};\n  timerApi.reviewGame=async(sessionId)=>{if(!currentUser)return;if(!state.ready)await loadData();await openGameReview(sessionId);};
+  timerApi.openReviewFromDashboard=async()=>{if(!currentUser)return;if(!state.ready)await loadData();openReviewPrompt();};
+  timerApi.reviewGame=async(sessionId)=>{if(!currentUser)return;if(!state.ready)await loadData();await openGameReview(sessionId);};
   timerApi.refreshDashboardData=async()=>{if(currentUser)await loadData();};
   timerApi.refreshTranslation=()=>{
     if(state.game)return; // Keep the language snapshot stable during an active challenge.
