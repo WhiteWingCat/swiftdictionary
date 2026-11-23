@@ -256,7 +256,7 @@
         if(!bankResponse.ok||!mapResponse.ok)throw new Error("The draft Quiz question bank could not be loaded in Mock Test Mode.");
         const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
         if(bank.status!=="draft")throw new Error("Mock Quiz may load only content explicitly marked as draft.");
-        if(bank.learning_language_code!==language)throw new Error("The draft Quiz bank does not match the selected learning language.");
+        if(bank.learning_language_code!==language||(language==="zh"&&bank.translation_language_code!=="en"))throw new Error("The draft Quiz bank does not match the selected language pair.");
         if(bank.questions.some(question=>!question.learning_objective_id))throw new Error("Every draft Quiz question must link to a permanent lesson learning objective.");
         const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\\s\\p{P}\\p{S}]+/gu,"");
         const mapped=bank.questions.map(question=>{
@@ -275,7 +275,7 @@
             if(!["knowledge","chinese_translation"].includes(questionType)||question.answer_language_code!=="zh")throw new Error("A Chinese Quiz question must be knowledge or English-to-Chinese translation: "+question.question_id);
             if(questionType==="knowledge"&&!question.prompt_pinyin)throw new Error("A Chinese knowledge prompt is missing Pinyin: "+question.question_id);
             if(questionType==="chinese_translation"&&question.prompt_pinyin)throw new Error("An English translation prompt must not include Chinese Pinyin: "+question.question_id);
-            if(question.options.some(option=>!option.pinyin))throw new Error("A Chinese Quiz answer option is missing Pinyin: "+question.question_id);
+            if(question.options.some(option=>!option.pinyin&&!/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(option.learning_text||"")))throw new Error("A Chinese Quiz answer option is missing Pinyin: "+question.question_id);
           }else{
             if(!["knowledge","word_definition","chinese_translation"].includes(questionType))throw new Error("A draft Quiz question has an unsupported question type: "+question.question_id);
             if(questionType==="chinese_translation"&&question.answer_language_code!=="zh")throw new Error("A Chinese translation question must target Simplified Chinese: "+question.question_id);
