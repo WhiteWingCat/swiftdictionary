@@ -255,9 +255,9 @@ where q.learning_language_code = 'zh'
     from pg_catalog.jsonb_array_elements(q.options) as option_row(value)
     where option_row.value ->> 'id' = q.correct_option_id
       and nullif(btrim(option_row.value ->> 'pinyin'),'') is not null
-      and pg_catalog.position(
+      and pg_catalog.strpos(
+        pg_catalog.lower(q.prompt_pinyin),
         pg_catalog.lower(option_row.value ->> 'pinyin')
-        in pg_catalog.lower(q.prompt_pinyin)
       ) > 0
   );
 
