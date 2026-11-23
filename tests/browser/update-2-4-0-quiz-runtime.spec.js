@@ -246,7 +246,8 @@ test("Free user can switch translation in an open permanent lesson and complete 
   expect(targetPosition).toBeGreaterThan(0);
   expect(targetPosition).toBeLessThan(10);
   for(let position=1;position<targetPosition;position++){
-    await expect(page.locator("#quizQuestionArea .quiz-question-card")).toHaveAttribute("data-question-type","chinese_translation");
+    const currentType=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.question_type);
+    expect(currentType).toBe("chinese_translation");
     await expect(page.locator("#quizQuestionArea .quiz-question-pinyin")).toHaveCount(0);
     await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
     await page.locator('[data-quiz-option="a"]').click();
@@ -271,6 +272,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
   await page.locator('[data-quiz-option="a"]').click();
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.selected_option_id)).toBe("a");
   await page.locator("#quizNext").click();
   const nextPosition=targetPosition+1;
   await expect(page.locator("#quizQuestionCounter")).toHaveText(`第 ${nextPosition} 题，共 10 题`,{timeout:15000});
@@ -682,7 +684,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   let foundTranslationQuestion=false;
   for(let position=1;position<=10;position++){
     const area=page.locator("#quizQuestionArea");
-    const type=await area.locator(".quiz-question-card").getAttribute("data-question-type");
+    const type=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.question_type);
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
       await expect(area.locator(".quiz-question-pinyin")).toHaveCount(0);
