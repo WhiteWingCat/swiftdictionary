@@ -588,6 +588,8 @@
     .quiz-submit-row .primary-button{min-height:44px;border-radius:12px}
     .quiz-transition-next{animation:quizSlideFromRight .24s ease both}
     .quiz-transition-previous{animation:quizSlideFromLeft .24s ease both}
+    .quiz-screen-enter{animation:quizScreenEnter .22s ease both}
+    @keyframes quizScreenEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
     @keyframes quizSlideFromRight{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
     @keyframes quizSlideFromLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
     .dashboard-review-overlay{position:fixed;inset:0;z-index:10080;display:grid;place-items:center;padding:18px;background:rgba(5,9,16,.78);backdrop-filter:blur(8px)}
@@ -602,7 +604,7 @@
     .dashboard-lesson-review .lesson-review-complete{display:inline-flex;padding:6px 10px;border:1px solid #4d8a68;border-radius:999px;background:#173528;color:#a9e7c0;font-size:.8rem;font-weight:750}
     .dashboard-lesson-review .lesson-review-options{display:grid;gap:7px;padding-left:26px}.dashboard-lesson-review .lesson-review-options li{padding:8px 10px;border:1px solid var(--border);border-radius:9px;background:var(--panel-hover)}.dashboard-lesson-review .lesson-review-options li.is-correct{border-color:#4d8a68;background:#173528;color:#b5e9c8}.dashboard-lesson-review .lesson-review-options small{display:block;font-weight:750}
     @media(max-width:760px){.quiz-home-hero{grid-template-columns:1fr}.quiz-home-hero-stat{justify-items:start;width:max-content;min-width:120px}.quiz-options{grid-template-columns:1fr}.quiz-question-actions button{min-width:0}.quiz-session-shell{margin:12px auto}.quiz-question-topic{max-width:55%}}
-    @media(prefers-reduced-motion:reduce){.quiz-transition-next,.quiz-transition-previous{animation:none!important}.quiz-option,.quiz-difficulty-option{transition:none!important}}
+    @media(prefers-reduced-motion:reduce){.quiz-transition-next,.quiz-transition-previous,.quiz-screen-enter{animation:none!important}.quiz-option,.quiz-difficulty-option{transition:none!important}}
 </style>
 <link rel="stylesheet" href="lessons-ui.css?v=2.8.0-ui8">
 </head>
@@ -20356,10 +20358,18 @@ async function completeLesson(x){
     }
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
+    function quizAnimateScreen(element){
+      if(!element)return;
+      element.classList.remove("quiz-screen-enter");void element.offsetWidth;
+      element.classList.add("quiz-screen-enter");
+      element.addEventListener("animationend",()=>element.classList.remove("quiz-screen-enter"),{once:true});
+    }
     function quizShowHome(){
       quizPageState.sessionView=false;
-      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
+      const home=quizEl("quizHome"),animate=home.hidden;
+      home.hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
       quizEl("quizSignedOut").hidden=true;
+      if(animate)quizAnimateScreen(home);
     }
     function quizRenderAvailability(data){
       quizPageState.availability=data;
@@ -20425,14 +20435,16 @@ async function completeLesson(x){
       }
       quizPageState.session=active.data||null;
       quizPageState.sessionView=false;
-      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      quizShowHome();
       quizStatus("");
     }
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
     function quizRenderSession(transitionDirection=null){
       const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
       quizPageState.sessionView=true;
+      const sessionWasHidden=quizEl("quizSession").hidden;
       quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      if(sessionWasHidden)quizAnimateScreen(quizEl("quizSession"));
       const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
       const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
       const answered=s.questions.filter(x=>x.selected_option_id).length;
@@ -20583,7 +20595,9 @@ async function completeLesson(x){
       }).join("")+'</div>';
     }
     function quizRenderResult(data){
+      const resultsWereHidden=quizEl("quizResults").hidden;
       quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      if(resultsWereHidden)quizAnimateScreen(quizEl("quizResults"));
       quizUpdateTranslationNotice(data);
       quizEl("quizResultsContent").innerHTML=quizBuildResultMarkup(data);
       quizEl("quizResultsHome").textContent=quizPageState.returnPage==="profile"?"← Back to Dashboard":"← Back to Quiz";
