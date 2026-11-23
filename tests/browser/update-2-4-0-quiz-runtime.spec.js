@@ -806,13 +806,15 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   let foundTranslationQuestion=false;
   for(let position=1;position<=10;position++){
     const area=page.locator("#quizQuestionArea");
-    const type=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.question_type);
+    const currentQuestion=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position));
+    const type=currentQuestion?.question_type;
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
-      // Translation Recall questions must not display the prompt's translated
-      // gloss or answer-side option hints. Prompt Pinyin is pronunciation support,
-      // not an answer clue, and remains visible for Chinese learners.
-      await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
+      // Wait for the new question render before checking its type-specific UI.
+      // Translation Recall must not show a translated prompt or answer-side
+      // option hints. Pinyin is optional pronunciation support on the prompt.
+      await expect(area).toHaveAttribute("data-question-type","chinese_translation");
+      await expect(area.locator(".quiz-question-pinyin")).toHaveCount(currentQuestion.prompt_pinyin?1:0);
       await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
       await expect(area.locator(".quiz-option-pinyin")).toHaveCount(0);
       await expect(area.locator(".quiz-option-translation")).toHaveCount(0);
