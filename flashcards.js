@@ -751,6 +751,19 @@
   const originalFlashShowPage=window.showPage;
   document.querySelectorAll('[data-page="flashcards"]').forEach(button=>button.addEventListener("click",()=>{if(currentUser&&!state.ready)loadData();else render();}));
   window.addEventListener("hashchange",()=>{if(location.hash==="#flashcards"&&currentUser)loadData();});
+  window.addEventListener("swiftdictionary:course-changed",()=>{
+    // Keep an active challenge bound to the language pair frozen at start.
+    if(state.game)return;
+    const supportedModes=course==="zh"
+      ?["word","definition","translation","sentence","mixed"]
+      :["word","definition","sentence","mixed"];
+    if(!supportedModes.includes(state.mode))state.mode="word";
+    if(currentUser&&!state.ready&&!state.loading){loadData();return;}
+    if(overlayRoot.querySelector("#flashReviewTitle"))renderReviewPrompt();
+    else if(overlayRoot.querySelector("#flashResultTitle"))showResultPrompt();
+    else if(overlayRoot.querySelector("#flashSetupTitle"))openSetupPrompt(state.mode);
+    else render();
+  });
   const timerApi={
     config:timing,
     reductionStep:REDUCTION_STEP,
