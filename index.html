@@ -731,8 +731,9 @@
               <div class="stat-card"><strong id="practiceAccuracy">—</strong><span>Recent practice accuracy</span></div>
               <div class="stat-card"><strong id="practiceTopicsDue">0</strong><span>Topics needing review</span></div>
               <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
+              <div class="stat-card"><strong id="practiceRetries">0</strong><span>Retry attempts</span></div>
             </div>
-            <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Needs another attempt: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
+            <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Incorrect first attempts: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
             <h4 class="review-topics-heading">Quiz answers to revisit</h4>
             <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
             <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
@@ -19761,7 +19762,7 @@ async function completeLesson(x){
         if (!stillSameAccount()) return;
         await ensureProfileRows();
         if (!stillSameAccount()) return;
-        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,lessonProgressQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
+        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,practiceAttemptsQ,lessonProgressQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -19769,9 +19770,10 @@ async function completeLesson(x){
             .order("created_at",{ascending:false}).limit(1000),
           supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("learning_plan_limits").select("plan_code,activity_type,daily_limit,is_enabled"),
-          supabaseClient.from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
+          supabaseClient.from("lesson_practice_results").select("topic_id,learning_language,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
+          supabaseClient.rpc("get_my_lesson_practice_attempts",{p_limit:100}),
           supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
-          supabaseClient.from("daily_activity_sessions").select("activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
+          supabaseClient.from("daily_activity_sessions").select("activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
