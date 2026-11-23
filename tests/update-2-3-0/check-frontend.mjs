@@ -422,7 +422,7 @@ if (languageDeclaration < 0 || languageSnapshot < 0 || languageDeclaration > lan
   throw new Error("Daily Learning must declare the saved learning language before building its snapshot.");
 }
 for (const fragment of [
-  'from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at")',
+  'rpc("get_my_lesson_practice_attempts"',
   'from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at")',
   'getElementById("practiceAccuracy").textContent',
   'getElementById("practiceTopicsDue").textContent',
