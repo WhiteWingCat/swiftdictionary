@@ -171,11 +171,11 @@ begin
     and not exists(select 1 from private.quiz_daily_question_reservations r
       where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
   v_min_b:=v_b>=30 and v_tb>=3;
-  v_min_i:=v_i>=36 and v_ti>=3 and v_b>=24 and v_tb>=3;
-  v_min_a:=v_a>=48 and v_ta>=3 and v_i>=12 and v_ti>=3 and v_b>=12 and v_tb>=3;
+  v_min_i:=v_i>=24 and v_ti>=3 and v_b>=16 and v_tb>=3;
+  v_min_a:=v_a>=32 and v_ta>=3 and v_i>=8 and v_ti>=3 and v_b>=8 and v_tb>=3;
   v_fresh_b:=v_rb>=10 and v_tb>=3;
-  v_fresh_i:=v_ri>=9 and v_rb>=6 and v_ti>=3 and v_tb>=3;
-  v_fresh_a:=v_ra>=16 and v_ri>=2 and v_rb>=2 and v_ta>=3 and v_ti>=3 and v_tb>=3;
+  v_fresh_i:=v_ri>=12 and v_rb>=3 and v_ti>=3 and v_tb>=3;
+  v_fresh_a:=v_ra>=12 and v_ri>=6 and v_rb>=2 and v_ta>=3 and v_ti>=3 and v_tb>=3;
   v_can_start:=coalesce((v_ctx->>'plan_enabled')::boolean,false)
     and coalesce((v_ctx->>'remaining_count')::integer,0)>0 and v_active is null;
   return pg_catalog.jsonb_build_object(
@@ -323,11 +323,11 @@ begin
     and not exists(select 1 from private.quiz_daily_question_reservations r
       where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
   v_min_b:=v_b>=30 and v_tb>=3;
-  v_min_i:=v_i>=36 and v_ti>=3 and v_b>=24 and v_tb>=3;
-  v_min_a:=v_a>=48 and v_ta>=3 and v_i>=12 and v_ti>=3 and v_b>=12 and v_tb>=3;
+  v_min_i:=v_i>=24 and v_ti>=3 and v_b>=16 and v_tb>=3;
+  v_min_a:=v_a>=32 and v_ta>=3 and v_i>=8 and v_ti>=3 and v_b>=8 and v_tb>=3;
   if (p_difficulty='beginner' and (not v_min_b or v_rb<10))
-     or (p_difficulty='intermediate' and (not v_min_i or v_ri<9 or v_rb<6 or v_ti<3 or v_tb<3))
-     or (p_difficulty='advanced' and (not v_min_a or v_ra<16 or v_ri<2 or v_rb<2 or v_ta<3 or v_ti<3 or v_tb<3)) then
+     or (p_difficulty='intermediate' and (not v_min_i or v_ri<12 or v_rb<3 or v_ti<3 or v_tb<3))
+     or (p_difficulty='advanced' and (not v_min_a or v_ra<12 or v_ri<6 or v_rb<2 or v_ta<3 or v_ti<3 or v_tb<3)) then
     raise exception 'Chinese Quiz question bank is not ready or fresh questions are unavailable'
       using errcode='P0001',detail='question_bank_below_minimum_or_fresh_questions_unavailable';
   end if;
@@ -361,7 +361,7 @@ begin
     end loop;
     if v_needed<>0 then raise exception 'Fresh Chinese beginner questions unavailable' using errcode='P0001'; end if;
   elsif p_difficulty='intermediate' then
-    for v_group in select * from (values('intermediate',9),('beginner',6)) as t(source,needed)
+    for v_group in select * from (values('intermediate',12),('beginner',3)) as t(source,needed)
     loop
       v_source:=v_group.source;v_needed:=v_group.needed;v_added:=0;
       for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
@@ -384,7 +384,7 @@ begin
       if v_added<v_needed then raise exception 'Fresh Chinese Quiz questions unavailable' using errcode='P0001'; end if;
     end loop;
   else
-    for v_group in select * from (values('advanced',16),('intermediate',2),('beginner',2)) as t(source,needed)
+    for v_group in select * from (values('advanced',12),('intermediate',6),('beginner',2)) as t(source,needed)
     loop
       v_source:=v_group.source;v_needed:=v_group.needed;v_added:=0;
       for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
