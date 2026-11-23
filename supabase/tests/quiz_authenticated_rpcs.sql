@@ -507,36 +507,49 @@ end;
 $advanced$;
 
 
--- The Chinese course currently has no approved Quiz curriculum and must stay unavailable.
+-- Chinese Quiz is now supported by U2.8.0 and must be offered when
+-- the approved bank, fresh-question pool and account allowance are sufficient.
 update public.user_preferences
-set learning_language='zh'
+set learning_language='zh',translation_language='en'
 where user_id=auth.uid();
 
-do $unsupported_course$
+do $supported_chinese_course$
 declare
   v_availability jsonb;
-  v_failed boolean:=false;
+  v_session jsonb;
+  v_session_id uuid;
 begin
   v_availability:=public.get_my_quiz_availability();
-  if exists (
-    select 1 from jsonb_array_elements(v_availability->'difficulties') d
-    where coalesce((d->>'available')::boolean,false)
-       or d->>'reason'<>'learning_course_not_supported'
-  ) then
-    raise exception 'Unsupported Chinese learning course was incorrectly offered';
+  if v_availability->>'learning_language_code'<>'zh'
+     or not exists (
+       select 1 from jsonb_array_elements(v_availability->'difficulties') d
+       where d->>'difficulty'='beginner'
+         and coalesce((d->>'available')::boolean,false)
+     ) then
+    raise exception 'Chinese Beginner Quiz should be available when its bank and allowance are sufficient';
   end if;
 
-  begin
-    perform public.start_my_quiz('beginner');
-  exception when insufficient_privilege then
-    v_failed:=true;
-  end;
-  if not v_failed then
-    raise exception 'Quiz start accepted an unsupported learning course';
+  v_session:=public.start_my_quiz('beginner');
+  if v_session->>'status'<>'in_progress'
+     or v_session->>'learning_language_code'<>'zh'
+     or jsonb_array_length(v_session->'questions')<>10 then
+    raise exception 'Chinese Beginner Quiz did not start with the expected language and question count';
+  end if;
+  if exists (
+    select 1 from jsonb_array_elements(v_session->'questions') q
+    where q->>'learning_language_code'<>'zh'
+       or q->>'answer_language_code'<>'zh'
+  ) then
+    raise exception 'Chinese Quiz session contains a question with an incorrect language snapshot';
+  end if;
+
+  v_session_id:=(v_session->>'session_id')::uuid;
+  perform public.abandon_my_quiz(v_session_id);
+  if public.test_current_quiz_usage()<>0 then
+    raise exception 'Abandoning Chinese Quiz consumed completion allowance';
   end if;
 end;
-$unsupported_course$;
-
+$supported_chinese_course$;
 
 -- History deletion removes answer/session snapshots but retains the minimal
 -- same-day question reservation ledger until its local-day retention expires.
