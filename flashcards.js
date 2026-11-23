@@ -213,10 +213,17 @@
         <section class="flash-section">
           <div class="flash-recall-heading"><div><h2>${uiText("Choose your Flash Recall","选择闪卡回忆模式")}</h2><p class="flash-muted">${uiText("Four ways to strengthen your memory.","通过四种方式强化记忆。")}</p></div><div class="flash-duration-controls" role="group" aria-label="${uiText("Challenge duration","挑战时长")}"><span class="flash-duration-label">${uiText("Duration","时长")}</span><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="60" aria-pressed="${state.duration===60}">60s</button><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="120" aria-pressed="${state.duration===120}">120s</button></div></div>
           <div class="flash-mode-grid">
-            <button class="flash-mode" data-action="open-setup" data-mode="word"><span class="flash-mode-icon">🔤</span><span>${modeLabel("word")}<small>${uiText("Recall the meaning of a word","回忆单词的中文释义")}</small></span></button>
-            <button class="flash-mode" data-action="open-setup" data-mode="definition"><span class="flash-mode-icon">📘</span><span>${modeLabel("definition")}<small>${uiText("Identify the word from its meaning","根据中文释义找出英文单词")}</small></span></button>
-            <button class="flash-mode" data-action="open-setup" data-mode="mixed"><span class="flash-mode-icon">🎨</span><span>${modeLabel("mixed")}<small>${uiText("Word, meaning and sentence prompts","结合单词、释义和句子进行回忆")}</small></span></button>
-            <button class="flash-mode" data-action="open-setup" data-mode="sentence"><span class="flash-mode-icon">✍️</span><span>${modeLabel("sentence")}<small>${uiText("Complete a sentence with the right word","选择正确的单词完成句子")}</small></span></button>
+            ${(course==="zh"?[
+              ["word","🔤",uiText("Recall the pronunciation","根据汉字回忆拼音")],
+              ["definition","📘",uiText("Identify the word from a Chinese description","根据中文描述找出对应词语")],
+              ["translation","🌐",uiText("Recall the direct equivalent in your selected language","根据所选语言的直接对应表达回忆中文词语")],
+              ["sentence","✍️",uiText("Recall the missing word from a sentence","根据句子语境回忆缺失词语")]
+            ]:[
+              ["word","🔤",uiText("Recall the meaning of a word","回忆单词的中文释义")],
+              ["definition","📘",uiText("Identify the word from its meaning","根据中文释义找出英文单词")],
+              ["mixed","🎨",uiText("Word, meaning and sentence prompts","结合单词、释义和句子进行回忆")],
+              ["sentence","✍️",uiText("Complete a sentence with the right word","选择正确的单词完成句子")]
+            ]).map(([mode,icon,description])=>'<button class="flash-mode" data-action="open-setup" data-mode="'+mode+'"><span class="flash-mode-icon">'+icon+'</span><span>'+modeLabel(mode)+'<small>'+description+'</small></span></button>').join("")}
           </div>
           <p class="flash-muted">${uiText("Daily games: ","每日游戏：")}<strong>${allowance.used_count}</strong>/${allowance.daily_limit} ${uiText("used","已使用")} · <strong>${allowance.remaining}</strong> ${uiText("remaining","剩余")}</p>
         </section>
