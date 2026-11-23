@@ -209,7 +209,7 @@
   }
   function render(){
     const mount=shell();style();
-    if(!state.game){if(course==="en"&&state.mode==="translation")state.mode="word";if(course==="zh"&&!["all","characters","vocabulary","phrases"].includes(state.cardSet))state.cardSet="all";if(course==="en"&&["characters","vocabulary"].includes(state.cardSet))state.cardSet="all";}
+    if(!state.game){if(course==="zh"&&state.mode==="mixed")state.mode="translation";if(course==="en"&&state.mode==="translation")state.mode="mixed";if(course==="zh"&&!["all","characters","vocabulary","phrases"].includes(state.cardSet))state.cardSet="all";if(course==="en"&&["characters","vocabulary"].includes(state.cardSet))state.cardSet="all";}
     if(!currentUser){mount.innerHTML=`<div class="flash-home"><section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Choose a recall mode and a 60- or 120-second challenge. Memory and answer windows adapt to your difficulty, and you can move on as soon as you are ready.","选择回忆模式和 60 秒或 120 秒挑战。记忆与答题时间会根据难度调整，准备好时即可提前进入下一步。")}</p></div></section><section class="flash-section learning-auth-card"><h2>${uiText("Sign in to use Flashcards","登录以使用闪卡")}</h2><p class="flash-muted">${uiText("Your learning progress is saved securely to your account.","你的学习进度会安全地保存到帐户中。")}</p><button class="flash-primary learning-auth-button" data-action="signin">${uiText("Sign in","登录")}</button></section></div>`;const signedOutBanner=mount.querySelector(".flash-banner");if(state.helpButton&&signedOutBanner&&!signedOutBanner.contains(state.helpButton))signedOutBanner.appendChild(state.helpButton);return;}
     if(state.loading){mount.innerHTML='<section class="flash-section">'+uiText("Loading your Flashcards…","正在加载闪卡…")+'</section>';return;}
     if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>'+uiText("Saving your game","正在保存游戏")+'</h2><p class="flash-muted">'+uiText("Your results are being saved securely.","正在安全地保存你的游戏结果。")+'</p></section>';return;}
@@ -227,7 +227,6 @@
               ["definition","📘",uiText("Identify the word from a Chinese description","根据中文描述找出对应词语")],
               ["translation","🌐",uiText("Recall the direct equivalent in your selected language","根据所选语言的直接对应表达回忆中文词语")],
               ["sentence","✍️",uiText("Recall the missing word from a sentence","根据句子语境回忆缺失词语")],
-              ["mixed","🔀",uiText("Combine eligible recall tasks","结合符合条件的回忆任务")]
             ]:[
               ["word","🔤",uiText("Recall the meaning of a word","回忆单词的中文释义")],
               ["definition","📘",uiText("Identify the word from its meaning","根据中文释义找出英文单词")],
@@ -546,6 +545,8 @@
     mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-result-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">${uiText("Your game results","本次游戏结果")}</h2><p class="flash-muted">${uiText("Your "+state.duration+"-second Flash Recall summary.","本次"+state.duration+"秒限时回忆挑战总结。")}</p><div class="flash-accuracy-hero"><strong>${accuracy}%</strong><span>${uiText("Accuracy","正确率")}</span></div><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>${uiText("Attempted","已作答")}</span></div><div class="flash-stat"><strong>${correct}</strong><span>${uiText("Correct","正确")}</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>${uiText("Incorrect","错误")}</span></div></div><p class="flash-muted">${uiText("Unanswered: ","未作答：")}${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-result"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
   }
   function openSetupPrompt(mode){
+    if(course==="zh"&&mode==="mixed")mode="translation";
+    if(course==="en"&&mode==="translation")mode="mixed";
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
     const chinese=course==="zh";
     const excludeVocabulary=chinese&&(
@@ -755,9 +756,12 @@
     // Keep an active challenge bound to the language pair frozen at start.
     if(state.game)return;
     const supportedModes=course==="zh"
-      ?["word","definition","translation","sentence","mixed"]
-      :["word","definition","sentence","mixed"];
-    if(!supportedModes.includes(state.mode))state.mode="word";
+      ?["word","definition","translation","sentence"]
+      :["word","definition","mixed","sentence"];
+    if(!supportedModes.includes(state.mode)){
+      state.mode=course==="zh"&&state.mode==="mixed"?"translation"
+        :course==="en"&&state.mode==="translation"?"mixed":"word";
+    }
     if(currentUser&&!state.ready&&!state.loading){loadData();return;}
     if(overlayRoot.querySelector("#flashReviewTitle"))renderReviewPrompt();
     else if(overlayRoot.querySelector("#flashResultTitle"))showResultPrompt();
