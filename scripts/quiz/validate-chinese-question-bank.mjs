@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.zh-zh.draft.json"),"utf8"));
 const map=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/curriculum-map.zh.json"),"utf8"));
-const errors=[];
+const errors=[];\nconst emitSql=process.argv.includes("--emit-sql");\nconst approve=process.argv.includes("--approve-for-release");\nif(approve&&!emitSql){console.error("--approve-for-release requires --emit-sql");process.exit(1);}
 const ids=new Set(),prompts=new Set();
 const counts={beginner:0,intermediate:0,advanced:0};
 const topics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
@@ -45,3 +45,22 @@ if(errors.length){console.error("Chinese Quiz draft validation failed:");for(con
 console.log("Chinese Quiz draft validation passed: "+pack.questions.length+" questions.");
 for(const d of Object.keys(counts))console.log(d+": "+counts[d]+" questions across "+topics[d].size+" topics.");
 console.log("Draft status remains non-releasable until independent linguistic, answer-key, distractor, and objective QA is signed off.");
+if(emitSql){
+ if(approve){console.error("Refusing to approve Chinese Quiz content automatically. Human owner approval and independent QA must be recorded separately.");process.exit(1);}
+ const lit=v=>"'"+String(v).replace(/'/g,"''")+"'";
+ const json=v=>lit(JSON.stringify(v))+"::jsonb";
+ const rows=pack.questions.map(q=>{
+  const lesson=map.lessons[q.source_lesson_id];
+  return "("+[
+   lit(q.question_id),"1",lit("zh"),lit("en"),lit(q.source_lesson_id),lit(lesson.topic_id),
+   lit(lesson.difficulty),lit(q.question_type),lit(q.answer_language_code),lit(q.learning_objective_id),
+   lit(q.prompt_learning),lit(q.prompt_translation),json(q.options),lit(q.correct_option_id),
+   lit(q.explanation_learning),lit(q.explanation_translation),lit("draft"),"null"
+  ].join(", ")+")";
+ });
+ const sql=["-- U2.8.0 Chinese Quiz draft import. Never changes status to approved.",
+ "begin;","insert into private.quiz_question_bank (",
+ "question_id,revision,learning_language_code,translation_language_code,source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,prompt_learning,prompt_translation,options,correct_option_id,explanation_learning,explanation_translation,status,approved_at",
+ ") values",rows.join(",\\n"),";","commit;"].join("\\n");
+ process.stdout.write(sql+"\\n");
+}
