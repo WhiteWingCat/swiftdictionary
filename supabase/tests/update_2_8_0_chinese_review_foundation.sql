@@ -46,14 +46,14 @@ reset role;
 
 do $test$
 begin
- if not row_security_active('private.lesson_practice_attempts') then
+ if not (select relrowsecurity from pg_class where oid='private.lesson_practice_attempts'::regclass) then
    raise exception 'Practice attempt table must have RLS enabled';
  end if;
  if has_table_privilege('authenticated','private.lesson_practice_attempts','SELECT')
     or has_table_privilege('anon','private.lesson_practice_attempts','SELECT') then
    raise exception 'Direct API-role access to practice attempts must remain revoked';
  end if;
- if not row_security_active('private.flashcard_session_items') then
+ if not (select relrowsecurity from pg_class where oid='private.flashcard_session_items'::regclass) then
    raise exception 'Flashcard snapshot table must have RLS enabled';
  end if;
  if has_table_privilege('authenticated','private.flashcard_session_items','SELECT')
