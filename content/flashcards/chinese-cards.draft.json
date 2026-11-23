@@ -28,17 +28,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "数字8。",
-      "translationZh": "数字8",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -448,17 +446,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "放在数词前，表示顺序或名次。",
-      "translationZh": "放在数词前，表示顺序或名次",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -868,17 +864,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "提供某种服务或活动的场所，如图书馆、饭馆。",
-      "translationZh": "提供某种服务或活动的场所，如图书馆、饭馆",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -928,17 +922,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "国家、民族或政体。",
-      "translationZh": "国家、民族或政体",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1108,17 +1100,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "说的话、语言或谈话内容。",
-      "translationZh": "说的话、语言或谈话内容",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1618,17 +1608,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "数字9。",
-      "translationZh": "数字9",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2248,17 +2236,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "“你”的尊称，用于礼貌或正式场合。",
-      "translationZh": "“你”的尊称，用于礼貌或正式场合",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2398,17 +2384,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "数字7。",
-      "translationZh": "数字7",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2728,17 +2712,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "数字10。",
-      "translationZh": "数字10",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2818,17 +2800,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "事情、事务、工作或事件。",
-      "translationZh": "事情、事务、工作或事件",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2908,17 +2888,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "数字4。",
-      "translationZh": "数字4",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3268,17 +3246,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "数字5。",
-      "translationZh": "数字5",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5638,17 +5614,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "连接词语或分句，表示并列、转折、因果或递进关系。",
-      "translationZh": "连接词语或分句，表示并列、转折、因果或递进关系",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5848,17 +5822,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "改变、修改、改正或改进。",
-      "translationZh": "改变、修改、改正或改进",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6658,17 +6630,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "车辆的量词，用于汽车、自行车等交通工具。",
-      "translationZh": "车辆的量词，用于汽车、自行车等交通工具",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10588,17 +10558,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "晴朗、没有云雨的天气。",
-      "translationZh": "晴朗、没有云雨的天气",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12088,17 +12056,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "口语代词，常指说话人和听话人双方。",
-      "translationZh": "口语代词，常指说话人和听话人双方",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12238,17 +12204,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "接在动词、形容词或名词后，表示某类人或事物。",
-      "translationZh": "接在动词、形容词或名词后，表示某类人或事物",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12388,17 +12352,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "帮助、协助。",
-      "translationZh": "帮助、协助",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12718,17 +12680,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "货币、钱币的统称。",
-      "translationZh": "货币、钱币的统称",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14038,17 +13998,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "主要用于外来词的音译字，常见于“咖啡”。",
-      "translationZh": "主要用于外来词的音译字，常见于“咖啡”",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14518,17 +14476,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "主要用于外来词的音译字，常见于“咖啡”“咖喱”。",
-      "translationZh": "主要用于外来词的音译字，常见于“咖啡”“咖喱”",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14578,17 +14534,15 @@
       ],
       "contentStatus": "draft",
       "definitionCueZh": "穿在腰部以下的衣物。",
-      "translationZh": "穿在腰部以下的衣物",
+      "translationZh": null,
       "availableModes": [
         "word",
         "definition",
-        "translation",
         "sentence"
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -37006,7 +36960,7 @@
   "modeReadiness": {
     "word": "characters, vocabulary and phrases; pinyin QA required",
     "definition": "characters and authored phrases; multi-character vocabulary needs original Chinese descriptive cues",
-    "translation": "English selected: direct English gloss; Chinese selected: authored Chinese equivalent cue; all cues require anti-overlap QA",
+    "translation": "Chinese-selected Translation Recall is enabled only when a distinct direct-equivalent cue exists; 23 character entries are withheld from this mode pending human synonym review. English-selected translation remains available.",
     "sentence": "characters and authored phrases; multi-character vocabulary needs contextual example sentences"
   }
 }
