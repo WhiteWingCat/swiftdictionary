@@ -467,7 +467,7 @@ test("Premium user sees three daily completions; abandonment does not consume al
 
   const startDiagnostics=[];
   page.on("request",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"request",url:request.url(),body:request.postData()});});
-  page.on("response",response=>{if(response.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"response",status:response.status()});});
+  page.on("response",async response=>{if(response.url().includes("/rpc/start_my_quiz")){let body="";try{body=await response.text();}catch{}startDiagnostics.push({event:"response",status:response.status(),body});}});
   page.on("requestfailed",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"failed",error:request.failure()?.errorText||"unknown"});});
   await page.locator('[data-quiz-start="advanced"]').click();
   try {
