@@ -34,7 +34,7 @@ for(const [i,q] of (pack.questions||[]).entries()){
   for(const [j,o] of q.options.entries()){
    if(!o.id||optionIds.has(o.id))errors.push(at+" has duplicate option IDs");optionIds.add(o.id);
    for(const k of ["learning_text","translation_text"])if(typeof o[k]!=="string"||!o[k].trim())errors.push(at+" option "+j+" is missing "+k);
-   const pinyinIsTheOption=/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(o.learning_text||"");
+   const pinyinIsTheOption=/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(o.learning_text||"");
    if((typeof o.pinyin!=="string"||!o.pinyin.trim())&&!pinyinIsTheOption)errors.push(at+" option "+j+" is missing pinyin or a Pinyin-form answer");
    const n=norm(o.learning_text);if(labels.has(n))errors.push(at+" has duplicate Chinese option text");labels.add(n);
   }
