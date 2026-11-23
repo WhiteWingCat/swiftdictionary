@@ -706,7 +706,7 @@
       && (!entitlement.valid_until || Date.parse(entitlement.valid_until) > now);
     const plan = active ? entitlement.plan_code : "free";
 
-    const [limitResult, usageResult, lessonResult, dailyResult, openSessionResult] = await Promise.all([
+    const [limitResult, usageResult, lessonResult, dailyResultInitial, openSessionResult] = await Promise.all([
       supabaseClient.from("learning_plan_limits")
         .select("activity_type,daily_limit,is_enabled")
         .eq("plan_code",plan)
@@ -725,6 +725,14 @@
         .order("started_at",{ascending:false}).limit(10)
     ]);
     if (sequence !== loadSequence) return;
+    let dailyResult=dailyResultInitial;
+    if(dailyResult.error&&/first_try_correct_count|incorrect_attempt_count|retry_count|PGRST204|42703/i.test(dailyResult.error.message||"")){
+      dailyResult=await supabaseClient.from("daily_activity_sessions")
+        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,completed_at,status,started_at,language_code")
+        .eq("user_id",userId).eq("language_code",language).eq("status","completed")
+        .order("completed_at",{ascending:false}).limit(200);
+      if(!dailyResult.error)dailyResult.data=(dailyResult.data||[]).map(row=>({...row,first_try_correct_count:null,incorrect_attempt_count:null,retry_count:null}));
+    }
     for (const result of [limitResult,usageResult,lessonResult,dailyResult,openSessionResult]) if (result.error) throw result.error;
 
     const limits = {};
