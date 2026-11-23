@@ -810,7 +810,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     const type=currentQuestion?.question_type;
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
-      // Wait for the new question render before checking its type-specific UI.
+      // Wait for the exact server-snapshot question to finish rendering before checking type-specific UI.
       // Translation Recall must not show a translated prompt or answer-side
       // option hints. Pinyin is optional pronunciation support on the prompt.
       await expect(area).toHaveAttribute("data-question-type","chinese_translation");
