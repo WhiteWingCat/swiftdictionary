@@ -2,7 +2,7 @@
 // Cloudflare Pages preview deployments use the isolated staging project.
 // Production hosts continue to use the production project.
 // Publishable keys are safe for public clients; never expose service_role keys.
-const SWIFT_SUPABASE_ENV = window.location.hostname.endsWith(".pages.dev")
+const SWIFT_SUPABASE_ENV = window.location.hostname.endsWith(".pages.dev") && window.location.hostname !== "swiftdictionary.pages.dev"
   ? {
       url: "https://ivatvkfrtifgfheeaelj.supabase.co",
       anonKey: "sb_publishable_Etc-_5k93Dzb7glzVqvXCA_6ou7IPXo"
