@@ -131,6 +131,7 @@ declare
   v_b integer:=0;v_i integer:=0;v_a integer:=0;
   v_rb integer:=0;v_ri integer:=0;v_ra integer:=0;
   v_tb integer:=0;v_ti integer:=0;v_ta integer:=0;
+  v_xb integer:=0;v_xi integer:=0;v_xa integer:=0;
   v_min_b boolean;v_min_i boolean;v_min_a boolean;
   v_fresh_b boolean;v_fresh_i boolean;v_fresh_a boolean;
   v_can_start boolean;
@@ -186,12 +187,27 @@ begin
     and q.answer_language_code='zh' and q.learning_objective_id is not null
     and not exists(select 1 from private.quiz_daily_question_reservations r
       where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
+  select count(*) filter(where q.difficulty='beginner')::integer,
+         count(*) filter(where q.difficulty='intermediate')::integer,
+         count(*) filter(where q.difficulty='advanced')::integer
+    into v_xb,v_xi,v_xa
+  from private.quiz_question_bank q
+  join private.learning_content_catalog c on c.activity_type='permanent_lesson'
+    and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
+    and c.is_active and c.topic_id=q.topic_id
+  where q.status='approved' and q.learning_language_code='zh'
+    and q.translation_language_code='en' and q.question_type='chinese_translation'
+    and q.answer_language_code='zh' and q.learning_objective_id is not null
+    and not exists(select 1 from private.quiz_daily_question_reservations r
+      where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
   v_min_b:=v_b>=30 and v_tb>=3;
   v_min_i:=v_i>=24 and v_ti>=3 and v_b>=16 and v_tb>=3;
   v_min_a:=v_a>=32 and v_ta>=3 and v_i>=8 and v_ti>=3 and v_b>=8 and v_tb>=3;
-  v_fresh_b:=v_rb>=10 and v_tb>=3;
-  v_fresh_i:=v_ri>=12 and v_rb>=3 and v_ti>=3 and v_tb>=3;
-  v_fresh_a:=v_ra>=12 and v_ri>=6 and v_rb>=2 and v_ta>=3 and v_ti>=3 and v_tb>=3;
+  v_fresh_b:=v_rb>=10 and v_tb>=3 and (v_translation is distinct from 'en' or v_xb>=1);
+  v_fresh_i:=v_ri>=12 and v_rb>=3 and v_ti>=3 and v_tb>=3
+    and (v_translation is distinct from 'en' or v_xi>=1);
+  v_fresh_a:=v_ra>=12 and v_ri>=6 and v_rb>=2 and v_ta>=3 and v_ti>=3 and v_tb>=3
+    and (v_translation is distinct from 'en' or v_xa>=1);
   v_can_start:=coalesce((v_ctx->>'plan_enabled')::boolean,false)
     and coalesce((v_ctx->>'remaining_count')::integer,0)>0 and v_active is null;
   return pg_catalog.jsonb_build_object(
@@ -260,6 +276,8 @@ declare
   v_b integer:=0;v_i integer:=0;v_a integer:=0;
   v_rb integer:=0;v_ri integer:=0;v_ra integer:=0;
   v_tb integer:=0;v_ti integer:=0;v_ta integer:=0;
+  v_xb integer:=0;v_xi integer:=0;v_xa integer:=0;
+  v_translation_needed integer:=0;
   v_min_b boolean;v_min_i boolean;v_min_a boolean;
   v_topic_counts jsonb:='{}'::jsonb;
   v_selected_ids text[]:='{}'::text[];
@@ -342,17 +360,31 @@ begin
     and q.answer_language_code='zh' and q.learning_objective_id is not null
     and not exists(select 1 from private.quiz_daily_question_reservations r
       where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
+  select count(*) filter(where q.difficulty='beginner')::integer,
+         count(*) filter(where q.difficulty='intermediate')::integer,
+         count(*) filter(where q.difficulty='advanced')::integer
+    into v_xb,v_xi,v_xa
+  from private.quiz_question_bank q
+  join private.learning_content_catalog c on c.activity_type='permanent_lesson'
+    and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
+    and c.is_active and c.topic_id=q.topic_id
+  where q.status='approved' and q.learning_language_code='zh'
+    and q.translation_language_code='en' and q.question_type='chinese_translation'
+    and q.answer_language_code='zh' and q.learning_objective_id is not null
+    and not exists(select 1 from private.quiz_daily_question_reservations r
+      where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
+  v_translation_needed:=case when v_translation='en' then 1 else 0 end;
   v_min_b:=v_b>=30 and v_tb>=3;
   v_min_i:=v_i>=24 and v_ti>=3 and v_b>=16 and v_tb>=3;
   v_min_a:=v_a>=32 and v_ta>=3 and v_i>=8 and v_ti>=3 and v_b>=8 and v_tb>=3;
-  if (p_difficulty='beginner' and (not v_min_b or v_rb<10))
-     or (p_difficulty='intermediate' and (not v_min_i or v_ri<12 or v_rb<3 or v_ti<3 or v_tb<3))
-     or (p_difficulty='advanced' and (not v_min_a or v_ra<12 or v_ri<6 or v_rb<2 or v_ta<3 or v_ti<3 or v_tb<3)) then
+  if (p_difficulty='beginner' and (not v_min_b or v_rb<10 or (v_translation_needed>0 and v_xb<1)))
+     or (p_difficulty='intermediate' and (not v_min_i or v_ri<12 or v_rb<3 or v_ti<3 or v_tb<3 or (v_translation_needed>0 and v_xi<1)))
+     or (p_difficulty='advanced' and (not v_min_a or v_ra<12 or v_ri<6 or v_rb<2 or v_ta<3 or v_ti<3 or v_tb<3 or (v_translation_needed>0 and v_xa<1))) then
     raise exception 'Chinese Quiz question bank is not ready or fresh questions are unavailable'
       using errcode='P0001',detail='question_bank_below_minimum_or_fresh_questions_unavailable';
   end if;
   if p_difficulty='beginner' then
-    v_question_count:=10;v_source:='beginner';v_needed:=10;
+    v_question_count:=10;v_source:='beginner';v_needed:=10-v_translation_needed;
   elsif p_difficulty='intermediate' then
     v_question_count:=15;
   else
@@ -366,7 +398,7 @@ begin
        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
        and c.is_active and c.topic_id=q.topic_id
       where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
-       and q.difficulty=v_source and (q.question_type='knowledge' or (v_translation='en' and q.question_type='chinese_translation'))
+       and q.difficulty=v_source and q.question_type='knowledge'
        and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
       order by q.question_id,q.revision desc) approved_questions order by random()
     loop
@@ -381,7 +413,7 @@ begin
     end loop;
     if v_needed<>0 then raise exception 'Fresh Chinese beginner questions unavailable' using errcode='P0001'; end if;
   elsif p_difficulty='intermediate' then
-    for v_group in select * from (values('intermediate',12),('beginner',3)) as t(source,needed)
+    for v_group in select * from (values('intermediate',12-v_translation_needed),('beginner',3)) as t(source,needed)
     loop
       v_source:=v_group.source;v_needed:=v_group.needed;v_added:=0;
       for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
@@ -389,7 +421,7 @@ begin
          and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
          and c.is_active and c.topic_id=q.topic_id
         where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
-         and q.difficulty=v_source and (q.question_type='knowledge' or (v_translation='en' and q.question_type='chinese_translation'))
+         and q.difficulty=v_source and q.question_type='knowledge'
          and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
         order by q.question_id,q.revision desc) approved_questions order by random()
       loop
@@ -404,7 +436,7 @@ begin
       if v_added<v_needed then raise exception 'Fresh Chinese Quiz questions unavailable' using errcode='P0001'; end if;
     end loop;
   else
-    for v_group in select * from (values('advanced',12),('intermediate',6),('beginner',2)) as t(source,needed)
+    for v_group in select * from (values('advanced',12-v_translation_needed),('intermediate',6),('beginner',2)) as t(source,needed)
     loop
       v_source:=v_group.source;v_needed:=v_group.needed;v_added:=0;
       for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
@@ -412,7 +444,7 @@ begin
          and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
          and c.is_active and c.topic_id=q.topic_id
         where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
-         and q.difficulty=v_source and (q.question_type='knowledge' or (v_translation='en' and q.question_type='chinese_translation'))
+         and q.difficulty=v_source and q.question_type='knowledge'
          and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
         order by q.question_id,q.revision desc) approved_questions order by random()
       loop
@@ -426,6 +458,35 @@ begin
       end loop;
       if v_added<v_needed then raise exception 'Fresh Chinese Quiz questions unavailable' using errcode='P0001'; end if;
     end loop;
+  end if;
+  if v_translation_needed>0 then
+    v_source:=p_difficulty;v_added:=0;
+    for v_q in select * from (
+      select distinct on(q.question_id) q.* from private.quiz_question_bank q
+      join private.learning_content_catalog c on c.activity_type='permanent_lesson'
+        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
+        and c.is_active and c.topic_id=q.topic_id
+      where q.status='approved' and q.learning_language_code='zh'
+        and q.translation_language_code='en' and q.difficulty=v_source
+        and q.question_type='chinese_translation' and q.answer_language_code='zh'
+        and q.learning_objective_id is not null
+        and not exists(select 1 from private.quiz_daily_question_reservations r
+          where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
+      order by q.question_id,q.revision desc
+    ) approved_translation_questions order by random()
+    loop
+      v_topic_count:=coalesce((v_topic_counts->>v_q.topic_id)::integer,0);
+      if v_topic_count<v_topic_cap then
+        v_selected_ids:=array_append(v_selected_ids,v_q.question_id);
+        v_selected_revisions:=array_append(v_selected_revisions,v_q.revision);
+        v_topic_counts:=pg_catalog.jsonb_set(v_topic_counts,array[v_q.topic_id],to_jsonb(v_topic_count+1),true);
+        v_added:=v_added+1;
+        exit when v_added=v_translation_needed;
+      end if;
+    end loop;
+    if v_added<>v_translation_needed then
+      raise exception 'Fresh Chinese translation question unavailable today' using errcode='P0001';
+    end if;
   end if;
   if cardinality(v_selected_ids)<>v_question_count or (select count(*) from pg_catalog.jsonb_object_keys(v_topic_counts))<3 then
     raise exception 'Chinese Quiz selection did not meet its topic-diversity target' using errcode='P0001';
