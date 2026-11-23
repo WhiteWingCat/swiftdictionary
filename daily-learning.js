@@ -974,7 +974,8 @@
         content.questions.forEach((question,index) => {
           html += '<div class="daily-question" data-daily-question="' + index + '"><strong>' + (index+1) + '. ' + dailyQuestionPrompt(question) + '</strong>';
           question.options.forEach((option,optionIndex) => {
-            html += '<label><input type="radio" name="daily-question-' + index + '" value="' + optionIndex + '"' + (completed ? " disabled" : "") + '> <span>' + dailyQuestionOption(option) + '</span></label>';
+            const correctAnswer=completed&&optionIndex===Number(question.answer);
+            html += '<label class="'+(correctAnswer?'daily-review-correct':'')+'"><input type="radio" name="daily-question-' + index + '" value="' + optionIndex + '"' + (completed ? " disabled" : "") + '> <span>' + dailyQuestionOption(option) + '</span>' + (correctAnswer?'<small>'+dailyUi("Correct answer","正确答案")+'</small>':'') + '</label>';
           });
           html += '<p class="daily-question-feedback" id="daily-feedback-' + index + '" role="status"></p></div>';
         });
@@ -1056,6 +1057,10 @@
     }
   };
 
+
+  const dailyReviewStyle=document.createElement("style");
+  dailyReviewStyle.textContent=".daily-activity-reader .daily-review-correct,.daily-activity-backdrop .daily-review-correct{border-color:#4d8a68;background:#173528;color:#b5e9c8}.daily-activity-backdrop .daily-review-correct small{display:block;font-weight:750}";
+  document.head.appendChild(dailyReviewStyle);
 
   function closeDailyReader() {
     const reader=byId("dailyActivityReader");
