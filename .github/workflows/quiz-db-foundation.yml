@@ -140,6 +140,7 @@ jobs:
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123120000_swiftdictionary_update_2_8_0_chinese_review_foundation.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123121000_swiftdictionary_update_2_8_0_flashcard_language_and_snapshots.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_review_foundation.sql"
 
       - name: Verify explicit grants for all staged public tables
@@ -237,8 +238,10 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
-      - name: Validate Quiz frontend integration and inline JavaScript
-        run: node scripts/quiz/validate-quiz-frontend.mjs
+      - name: Validate application JavaScript and Quiz frontend integration
+        run: |
+          node --check flashcards.js
+          node scripts/quiz/validate-quiz-frontend.mjs
 
       - name: Validate Chinese Quiz and Flashcard draft banks
         run: |
