@@ -146,7 +146,7 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
 });
 
 test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
-  assert.ok(index.includes('<script src="flashcards.js?v=2.6.1-r1"></script>'));
+  assert.ok(index.includes('<script src="data/chinese-flashcards.js?v=2.8.0-draft1"></script>'));\n  assert.ok(index.includes('<script src="flashcards.js?v=2.8.0-r1"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
   assert.match(build, /daily-learning\[\.\]js.*2\.7.0-r10/);
