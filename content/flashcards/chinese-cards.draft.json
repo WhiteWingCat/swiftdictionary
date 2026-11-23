@@ -20368,29 +20368,6 @@
       ]
     },
     {
-      "id": "zh-vocab-0211",
-      "word": "谢谢",
-      "traditional": "謝謝",
-      "pinyinNumeric": "xie4 xie5",
-      "translationEn": "to thank; thanks; thank you",
-      "definitionZh": null,
-      "exampleZh": null,
-      "examplePinyin": null,
-      "sourceIds": [
-        "cc-cedict-2026-11-20"
-      ],
-      "contentStatus": "draft",
-      "pinyin": "xiè xie",
-      "availableModes": [
-        "word",
-        "translation"
-      ],
-      "difficulty": "beginner",
-      "translationLanguages": [
-        "en"
-      ]
-    },
-    {
       "id": "zh-vocab-0212",
       "word": "感谢",
       "traditional": "感謝",
