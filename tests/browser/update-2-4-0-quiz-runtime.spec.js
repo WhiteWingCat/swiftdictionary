@@ -112,6 +112,8 @@ async function openQuiz(page, session) {
   await expect(page.locator("#quizPage")).toBeVisible({ timeout: 20000 });
   try {
     await expect(page.locator("#quizHome")).toBeVisible({ timeout: 20000 });
+    await expect(page.locator(".quiz-home-hero")).toBeVisible();
+    await expect(page.locator(".quiz-difficulty-grid .quiz-difficulty-option")).toHaveCount(3);
     await expect(page.locator("#learningIntroBackdrop")).toBeVisible({ timeout: 10000 });
     await page.locator("#learningIntroDismiss").click();
     await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
@@ -592,6 +594,58 @@ test("Learning course selector enables Chinese Quiz and shows a short refresh co
   await selectCourse(page,"en");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
+});
+
+test("Quiz overview and active test use the redesigned layout and directional transitions",async({page})=>{
+  await openQuiz(page,freeSession);
+  await expect(page.locator(".quiz-home-hero")).toBeVisible();
+  await expect(page.locator(".quiz-home-benefits span")).toHaveCount(3);
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator(".quiz-question-card")).toBeVisible();
+  await expect(page.locator(".quiz-question-card .quiz-question-topic")).not.toBeEmpty();
+  await page.evaluate(()=>{
+    window.__quizAnimationNames=[];
+    document.getElementById("quizQuestionArea").addEventListener("animationstart",event=>window.__quizAnimationNames.push(event.animationName));
+  });
+  await page.locator("#quizNext").click();
+  await expect(page.locator("#quizQuestionCounter")).toContainText("2");
+  await expect.poll(()=>page.evaluate(()=>window.__quizAnimationNames)).toContain("quizSlideFromRight");
+  await page.locator("#quizPrevious").click();
+  await expect(page.locator("#quizQuestionCounter")).toContainText("1");
+  await expect.poll(()=>page.evaluate(()=>window.__quizAnimationNames)).toContain("quizSlideFromLeft");
+});
+
+test("Daily History reviews a completed Quiz without leaving Dashboard",async({page})=>{
+  await openQuiz(page,freeSession);
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
+  for(let position=1;position<=10;position++){
+    await page.locator("#quizQuestionArea .quiz-option").first().click();
+    if(position<10){
+      await expect(page.locator("#quizNext")).toBeEnabled();
+      await page.locator("#quizNext").click();
+      await expect(page.locator("#quizQuestionCounter")).toContainText(String(position+1));
+    }
+  }
+  await expect(page.locator("#quizSubmit")).toBeEnabled();
+  page.once("dialog",dialog=>dialog.accept());
+  await page.locator("#quizSubmit").click();
+  await expect(page.locator("#quizResults")).toBeVisible({timeout:15000});
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  const review=page.locator("#dashboardDailyHistory [data-dashboard-daily-quiz-review]");
+  await expect(review).toBeVisible({timeout:15000});
+  await review.click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
+  await expect(page.locator("#dashboardReviewTitle")).toHaveText("Quiz review");
+  await expect(page.locator("#dashboardReviewContent .quiz-review-question")).toHaveCount(10);
+  await expect(page.locator("#profilePage")).toBeVisible();
+  expect(new URL(page.url()).hash).toBe("#profile");
+  await page.locator("[data-dashboard-review-close]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeHidden();
 });
 
 test("Dashboard Quiz History renders a clean Review button", async ({ page }) => {
