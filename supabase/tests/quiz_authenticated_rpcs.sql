@@ -512,8 +512,8 @@ begin
   if public.test_my_quiz_session_count()<>0 then
     raise exception 'Quiz session snapshots remained after history deletion';
   end if;
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoned history deletion changed the completion allowance';
+  if public.test_current_quiz_usage()<>2 then
+    raise exception 'History deletion changed the two consumed Quiz starts';
   end if;
 end;
 $c_history_delete$;
