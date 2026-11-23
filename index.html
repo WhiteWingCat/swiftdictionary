@@ -606,6 +606,56 @@
     @media(max-width:760px){.quiz-home-hero{grid-template-columns:1fr}.quiz-home-hero-stat{justify-items:start;width:max-content;min-width:120px}.quiz-options{grid-template-columns:1fr}.quiz-question-actions button{min-width:0}.quiz-session-shell{margin:12px auto}.quiz-question-topic{max-width:55%}}
     @media(prefers-reduced-motion:reduce){.quiz-transition-next,.quiz-transition-previous,.quiz-screen-enter{animation:none!important}.quiz-option,.quiz-difficulty-option{transition:none!important}}
 </style>
+    .dashboard-hero-banner{position:relative;overflow:hidden;margin:0 0 22px;padding:28px clamp(18px,3vw,34px);border:1px solid #425574;border-radius:20px;background:radial-gradient(circle at 90% 5%,rgba(132,166,225,.25),transparent 32%),linear-gradient(125deg,#1b2b45 0%,#1d3540 54%,#172435 100%);box-shadow:0 16px 36px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.06)}
+    .dashboard-hero-content{position:relative;z-index:1;display:flex;align-items:center;gap:20px}
+    .dashboard-hero-banner h1{margin:0;color:#f5f7ff;letter-spacing:-.03em}.dashboard-hero-banner .page-intro{margin:5px 0 0;color:#d1dced}
+    .dashboard-hero-kicker{margin:0 0 5px;color:#a9c1e9;font-size:.7rem;font-weight:850;letter-spacing:.16em}
+    .dashboard-hero-banner .dashboard-avatar{flex:0 0 70px;width:70px;height:70px;background:#ffffff16;border-color:#ffffff38;box-shadow:0 8px 22px #0003}
+    .dashboard-tab-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;overflow:visible;padding:0;margin:0 0 18px;border:0}
+    .dashboard-tab{display:flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:10px 12px;border-radius:14px;color:#e9edf6;font-weight:750;box-shadow:0 5px 0 #0003,0 10px 18px #0002;transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+    .dashboard-tab:hover{transform:translateY(-2px);filter:brightness(1.08)}.dashboard-tab.is-active{color:#fff;box-shadow:0 2px 0 #0003,0 7px 18px #0003;transform:translateY(1px)}
+    .dashboard-tab-icon{display:grid;place-items:center;width:27px;height:27px;flex:0 0 27px;border-radius:9px;background:#ffffff25;font-size:1.05rem}
+    .dashboard-tab[data-dashboard-tab=favourites]{background:linear-gradient(140deg,#9b7133,#68471f);border-color:#c99a51}
+    .dashboard-tab[data-dashboard-tab=progress]{background:linear-gradient(140deg,#287e75,#18544f);border-color:#54b6a9}
+    .dashboard-tab[data-dashboard-tab=history]{background:linear-gradient(140deg,#416da8,#2a466e);border-color:#729bd2}
+    .dashboard-tab[data-dashboard-tab=analytics]{background:linear-gradient(140deg,#8058a9,#4e376e);border-color:#a783cf}
+    .dashboard-tab-panel>.profile-card,.dashboard-tab-panel>.profile-grid{border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);box-shadow:0 13px 28px rgba(0,0,0,.2)}
+    .dashboard-tab-panel{gap:16px}.dashboard-panel-enter{animation:dashboardPanelIn .24s ease both}
+    @keyframes dashboardPanelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .dashboard-history-shell{padding:clamp(16px,2.5vw,24px)}.dashboard-history-heading h3{margin:0 0 4px}
+    .dashboard-daily-history{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+    .dashboard-history-group{min-width:0;padding:14px;border:1px solid var(--border);border-radius:15px;background:#121a27;box-shadow:0 8px 20px #0002}
+    .dashboard-history-group>header{display:flex;align-items:center;gap:10px;margin:-1px 0 13px;padding:0 0 12px;border:0;border-bottom:1px solid var(--border);background:transparent}
+    .dashboard-history-group-icon{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:#ffffff14;font-size:1.2rem}
+    .dashboard-history-group header h4{margin:0;font-size:.98rem}.dashboard-history-group header p{margin:2px 0 0;color:var(--muted);font-size:.76rem}
+    .dashboard-history-lessons .dashboard-history-group-icon{color:#e5c17e;background:#8b672b35}.dashboard-history-quiz .dashboard-history-group-icon{color:#8fb9f2;background:#345b8a45}.dashboard-history-flashcards .dashboard-history-group-icon{color:#d4a9f4;background:#6a438a45}
+    .dashboard-history-group-items{display:grid;gap:9px}.dashboard-history-group .dashboard-history-row{display:grid;align-items:start;padding:10px;border-radius:11px;background:#1a2432}
+    .dashboard-history-group .dashboard-history-actions button{width:100%;font-size:.78rem;padding:7px}.dashboard-history-empty{margin:0;font-size:.82rem;line-height:1.5}.dashboard-history-timezone{grid-column:1/-1;margin:0}
+    @media(max-width:860px){.dashboard-daily-history{grid-template-columns:1fr}.dashboard-tab-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:480px){.dashboard-hero-content{align-items:flex-start}.dashboard-hero-banner .dashboard-avatar{width:54px;height:54px;flex-basis:54px;font-size:1.8rem}.dashboard-tab{font-size:.82rem;justify-content:flex-start}.dashboard-tab-icon{width:24px;height:24px;flex-basis:24px}}
+    .quiz-difficulty-card{padding:clamp(18px,3vw,26px);border:1px solid #3d4d67;border-radius:20px;background:linear-gradient(145deg,#1c2636,#171e2b);box-shadow:0 14px 32px #0003}
+    .quiz-allowance-card{border-color:#526b8c;background:linear-gradient(135deg,#263c59,#1c2a40);box-shadow:0 8px 18px #0003}
+    .quiz-difficulty-option[data-difficulty=beginner]{background:linear-gradient(150deg,#245c50,#193b36);border-color:#4b9c85;box-shadow:0 7px 0 #102c28,0 14px 24px #0003}
+    .quiz-difficulty-option[data-difficulty=intermediate]{background:linear-gradient(150deg,#285a91,#1b365a);border-color:#5d91c8;box-shadow:0 7px 0 #142b49,0 14px 24px #0003}
+    .quiz-difficulty-option[data-difficulty=advanced]{background:linear-gradient(150deg,#704d91,#452e62);border-color:#a27ac7;box-shadow:0 7px 0 #302047,0 14px 24px #0003}
+    .quiz-difficulty-option[data-difficulty=beginner] .quiz-difficulty-count{background:#286d5d;border-color:#72b59f}.quiz-difficulty-option[data-difficulty=intermediate] .quiz-difficulty-count{background:#2d659d;border-color:#82b1e2}.quiz-difficulty-option[data-difficulty=advanced] .quiz-difficulty-count{background:#7955a0;border-color:#b99cda}
+    .quiz-history-shell{padding:clamp(18px,3vw,26px);border:1px solid #3b4c68;border-radius:18px;background:linear-gradient(145deg,#1b2638,#171e2a);box-shadow:0 13px 28px #0003}
+    .quiz-review-summary{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 20px;padding:22px;border:1px solid #455c7e;border-radius:18px;background:radial-gradient(circle at 90% 10%,#718fc42c,transparent 36%),linear-gradient(135deg,#233652,#1b2739);box-shadow:0 12px 26px #0003}
+    .quiz-review-summary h2{margin:3px 0 4px;color:#f4f7ff}.quiz-review-summary p{margin:0;color:#c5d1e5}
+    .quiz-review-score{display:grid;justify-items:center;gap:3px;min-width:110px;padding:12px;border:1px solid #6984ae;border-radius:15px;background:#101b2d99;color:#eef4ff}
+    .quiz-review-score strong{font-size:2rem;line-height:1.1}.quiz-review-score span{font-size:.78rem}
+    .quiz-review-list{display:grid;gap:14px}.quiz-review-question{padding:18px;border:1px solid #35465f;border-radius:16px;background:linear-gradient(145deg,#1d293a,#17212f);box-shadow:0 9px 20px #0002}
+    .quiz-review-question-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;color:#aebfda;font-size:.72rem;font-weight:850;letter-spacing:.1em}
+    .quiz-review-result-pill{padding:5px 9px;border-radius:999px;background:#294b3d;color:#a9e4c1;font-size:.72rem;letter-spacing:0}.quiz-review-result-pill.is-incorrect{background:#58333b;color:#ffb7be}
+    .quiz-review-question h3{margin:0 0 10px;color:#f0f4fb;font-size:1.05rem}.quiz-review-options{display:grid;gap:7px}
+    .quiz-review-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #35445b;border-radius:11px;background:#111b29;color:#d5dceb}
+    .quiz-review-option.correct{border-color:#4e9876;background:#1b3a31;color:#e1f8e9}.quiz-review-option.chosen-wrong{border-color:#a85d66;background:#3b252e;color:#ffe5e7}
+    .quiz-review-option-letter{display:grid;place-items:center;width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:#ffffff14;font-size:.78rem;font-weight:800}
+    .quiz-review-option-copy{display:grid;gap:3px;min-width:0;flex:1}.quiz-review-option-copy small{color:inherit;opacity:.78}.quiz-review-option-status{font-size:.75rem;font-weight:800;text-align:right}
+    .quiz-review-explanation{margin-top:12px;padding:12px 14px;border:1px solid #405474;border-left:3px solid #8da8d2;border-radius:10px;background:#202e43}
+    .quiz-review-explanation strong{color:#d9e5f7}.quiz-review-explanation p{margin:5px 0 0;color:#c8d5e8}
+    @media(max-width:620px){.quiz-review-summary{align-items:flex-start;flex-direction:column}.quiz-review-score{display:flex;align-items:baseline;justify-items:start;width:100%;justify-content:space-between}.quiz-review-option{align-items:flex-start}.quiz-review-option-status{max-width:82px}}
+
 <link rel="stylesheet" href="lessons-ui.css?v=2.8.0-ui8">
 </head>
 <body>
@@ -744,7 +794,7 @@
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
         </div>
         <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading quiz-difficulty-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div><article class="quiz-allowance-card"><div><strong>Daily Quiz allowance</strong><p id="quizAllowanceText" class="quiz-allowance-number">—</p></div><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
-        <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
+        <div class="profile-card quiz-history-shell"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
       </section>
       <section id="quizSession" class="profile-card quiz-session-card quiz-session-shell" hidden>
         <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><div class="quiz-session-top-meta"><span class="quiz-session-label">IN PROGRESS</span><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div></div>
@@ -763,14 +813,14 @@
       <div id="flashcardsApp" class="flash-home" aria-live="polite"></div>
     </section>
     <section id="profilePage" class="page-panel" hidden aria-labelledby="profileHeading">
-      <div class="dashboard-heading"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div>
+      <section class="dashboard-hero-banner"><div class="dashboard-hero-content"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><p class="dashboard-hero-kicker">YOUR LEARNING SPACE</p><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div></section>
       <div id="profileSignedOut" class="coming-card" hidden><h2>Sign in to view your Dashboard</h2><p class="page-intro" style="margin:0 auto 16px">Your dashboard and learning progress are available after signing in.</p><button type="button" class="primary-button" id="profileSignIn">Sign in</button></div>
       <div id="profileContent" hidden>
         <nav class="dashboard-tab-bar" role="tablist" aria-label="Dashboard sections">
-          <button type="button" class="dashboard-tab is-active" role="tab" aria-selected="true" aria-controls="dashboardTabFavourites" data-dashboard-tab="favourites">Favourites</button>
-          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabProgress" data-dashboard-tab="progress">Learning Progress</button>
-          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabHistory" data-dashboard-tab="history">Daily History</button>
-          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabAnalytics" data-dashboard-tab="analytics">Analytics</button>
+          <button type="button" class="dashboard-tab is-active" role="tab" aria-selected="true" aria-controls="dashboardTabFavourites" data-dashboard-tab="favourites"><span class="dashboard-tab-icon" aria-hidden="true">★</span><span>Favourites</span></button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabProgress" data-dashboard-tab="progress"><span class="dashboard-tab-icon" aria-hidden="true">↗</span><span>Learning Progress</span></button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabHistory" data-dashboard-tab="history"><span class="dashboard-tab-icon" aria-hidden="true">◷</span><span>Daily History</span></button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabAnalytics" data-dashboard-tab="analytics"><span class="dashboard-tab-icon" aria-hidden="true">▥</span><span>Analytics</span></button>
         </nav>
         <section id="dashboardTabFavourites" class="dashboard-tab-panel" role="tabpanel">
           <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details></section>
@@ -787,10 +837,9 @@
           </section>
         </section>
         <section id="dashboardTabHistory" class="dashboard-tab-panel" role="tabpanel" hidden>
-          <section class="profile-card"><h3>Daily History</h3><p class="muted-note">Completed lessons, Quizzes and Flashcard games for today in your allowance timezone. Older records remain stored; this view refreshes with the local day.</p><div id="dashboardDailyHistory" class="dashboard-daily-history"><p class="muted-note">Loading today's learning history…</p></div></section>
+          <section class="profile-card dashboard-history-shell"><div class="dashboard-history-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h3>Daily History</h3><p class="muted-note">Your completed learning sessions, grouped by activity.</p></div></div><div id="dashboardDailyHistory" class="dashboard-daily-history"><p class="muted-note">Loading today's learning history…</p></div></section>
         </section>
         <section id="dashboardTabAnalytics" class="dashboard-tab-panel" role="tabpanel" hidden>
-          <section class="profile-card"><h3>Quiz history</h3><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></section>
           <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
             <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
             <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
@@ -19810,19 +19859,10 @@ async function completeLesson(x){
 
     let activeDashboardTab="favourites";
     function setDashboardTab(tabName) {
-      const allowed=["favourites","progress","history","analytics"];
-      const selected=allowed.includes(tabName)?tabName:"favourites";
+      const allowed=["favourites","progress","history","analytics"],selected=allowed.includes(tabName)?tabName:"favourites",previous=activeDashboardTab;
       activeDashboardTab=selected;
-      document.querySelectorAll("[data-dashboard-tab]").forEach(button=>{
-        const active=button.dataset.dashboardTab===selected;
-        button.classList.toggle("is-active",active);
-        button.setAttribute("aria-selected",active?"true":"false");
-        button.tabIndex=active?0:-1;
-      });
-      allowed.forEach(name=>{
-        const panel=document.getElementById("dashboardTab"+name[0].toUpperCase()+name.slice(1));
-        if(panel)panel.hidden=name!==selected;
-      });
+      document.querySelectorAll("[data-dashboard-tab]").forEach(button=>{const active=button.dataset.dashboardTab===selected;button.classList.toggle("is-active",active);button.setAttribute("aria-selected",active?"true":"false");button.tabIndex=active?0:-1;});
+      allowed.forEach(name=>{const panel=document.getElementById("dashboardTab"+name[0].toUpperCase()+name.slice(1));if(!panel)return;const entering=name===selected;panel.hidden=!entering;if(entering&&previous!==selected){panel.classList.remove("dashboard-panel-enter");void panel.offsetWidth;panel.classList.add("dashboard-panel-enter");}});
     }
     document.querySelectorAll("[data-dashboard-tab]").forEach(button=>button.addEventListener("keydown",event=>{
       if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key))return;
@@ -19879,36 +19919,38 @@ async function completeLesson(x){
       }finally{course=previousCourse;translationLanguage=previousTranslation;}
     }
 
+    function dashboardDailyContentTitle(row) {
+      const language=row.language_code||row.learning_language||"en";
+      const catalog=window.SWIFT_CHINESE_DAILY_LEARNING||{};
+      const entries=[...(catalog.topics||[]),...(catalog.applications||[])];
+      if(language==="zh"){
+        const match=entries.find(item=>item.id===row.content_id||item.id===row.topic_id||item.topicId===row.topic_id);
+        if(match)return match.titleZh||match.title||match.titleEn||formatTopicName(row.topic_id||row.content_id);
+      }
+      return formatTopicName(row.content_id||row.topic_id||row.activity_type||"Daily activity");
+    }
     function renderDashboardDailyHistory({today,timezone,lessonRows,dailyRows,quizRows,flashcardRows}) {
-      const host=document.getElementById("dashboardDailyHistory");
-      if(!host)return;
+      const host=document.getElementById("dashboardDailyHistory");if(!host)return;
       const localDate=timestamp=>timestamp?new Intl.DateTimeFormat("en-CA",{timeZone:timezone,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(timestamp)):"";
       const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(translationLanguage==="zh"?"zh-CN":"en-US",{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
-      const items=[];
-      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)items.push({
-        type:"Lesson",title:formatTopicName(row.lesson_id),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,
-        lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language
-      });
-      for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)items.push({
-        type:formatTopicName(row.activity_type||"Daily activity"),title:formatTopicName(row.content_id||row.topic_id),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at,
-        activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id
-      });
-      for(const row of quizRows||[])if(localDate(row.completed_at)===today)items.push({
-        type:"Quiz",title:(row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id
-      });
-      for(const row of flashcardRows||[])if(localDate(row.completed_at)===today)items.push({
-        type:"Flashcards",title:modeLabelForDashboard(row.mode)+" · "+(row.difficulty||""),detail:(row.correct_count??0)+"/"+(row.words_seen??0)+" correct",at:row.completed_at,sessionId:row.id
-      });
-      items.sort((a,b)=>Date.parse(b.at||0)-Date.parse(a.at||0));
-      if(!items.length){host.innerHTML='<p class="muted-note">No completed learning activities yet today ('+escapeHTML(timezone)+'). Your previous records are retained.</p>';return;}
-      host.innerHTML=items.map(item=>{
-        let action="";
-        if(item.type==="Lesson"&&item.lessonId)action='<button type="button" class="secondary-button" data-dashboard-daily-lesson-review="'+escapeHTML(item.lessonId)+'" data-difficulty="'+escapeHTML(item.difficulty||"beginner")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'">Review lesson</button>';
-        else if(item.activityType&&item.contentId)action='<button type="button" class="secondary-button" data-dashboard-daily-activity-review="true" data-activity-type="'+escapeHTML(item.activityType)+'" data-content-id="'+escapeHTML(item.contentId)+'" data-topic-id="'+escapeHTML(item.topicId||"")+'" data-difficulty="'+escapeHTML(item.difficulty||"")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'" data-session-id="'+escapeHTML(item.sessionId||"")+'">Review activity</button>';
-        else if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-daily-quiz-review="'+escapeHTML(item.sessionId)+'">Review Quiz</button>';
-        else if(item.type==="Flashcards"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-flashcard-review-game="'+escapeHTML(item.sessionId)+'">Review game</button>';
-        return '<article class="dashboard-history-row"><div class="dashboard-history-row-main"><span class="dashboard-history-kind">'+escapeHTML(item.type)+'</span><strong>'+escapeHTML(item.title)+'</strong><small>'+escapeHTML(item.detail)+' · '+escapeHTML(timeLabel(item.at))+'</small></div><div class="dashboard-history-actions">'+action+'</div></article>';
-      }).join("");
+      const groups={lessons:[],quiz:[],flashcards:[]};
+      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:formatTopicName(row.lesson_id),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
+      for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:formatTopicName(row.activity_type||"Daily activity"),title:dashboardDailyContentTitle(row),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at,activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id});
+      for(const row of quizRows||[])if(localDate(row.completed_at)===today)groups.quiz.push({type:"Quiz",title:(quizDifficultyLabels[row.difficulty]||row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id});
+      for(const row of flashcardRows||[])if(localDate(row.completed_at)===today)groups.flashcards.push({type:"Flashcards",title:modeLabelForDashboard(row.mode)+" · "+(row.difficulty||""),detail:(row.correct_count??0)+"/"+(row.words_seen??0)+" correct",at:row.completed_at,sessionId:row.id});
+      const renderGroup=(key,title,icon,empty)=>{
+        const items=groups[key].sort((a,b)=>Date.parse(b.at||0)-Date.parse(a.at||0));
+        const content=items.length?items.map(item=>{
+          let action="";
+          if(item.type==="Lesson"&&item.lessonId)action='<button type="button" class="secondary-button" data-dashboard-daily-lesson-review="'+escapeHTML(item.lessonId)+'" data-difficulty="'+escapeHTML(item.difficulty||"beginner")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'">Review lesson</button>';
+          else if(item.activityType&&item.contentId)action='<button type="button" class="secondary-button" data-dashboard-daily-activity-review="true" data-activity-type="'+escapeHTML(item.activityType)+'" data-content-id="'+escapeHTML(item.contentId)+'" data-topic-id="'+escapeHTML(item.topicId||"")+'" data-difficulty="'+escapeHTML(item.difficulty||"")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'" data-session-id="'+escapeHTML(item.sessionId||"")+'">Review activity</button>';
+          else if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-daily-quiz-review="'+escapeHTML(item.sessionId)+'">Review answers</button>';
+          else if(item.type==="Flashcards"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-flashcard-review-game="'+escapeHTML(item.sessionId)+'">Review game</button>';
+          return '<article class="dashboard-history-row"><div class="dashboard-history-row-main"><span class="dashboard-history-kind">'+escapeHTML(item.type)+'</span><strong>'+escapeHTML(item.title)+'</strong><small>'+escapeHTML(item.detail)+' · '+escapeHTML(timeLabel(item.at))+'</small></div><div class="dashboard-history-actions">'+action+'</div></article>';
+        }).join(""):'<p class="muted-note dashboard-history-empty">'+empty+'</p>';
+        return '<section class="dashboard-history-group dashboard-history-'+key+'"><header><span class="dashboard-history-group-icon" aria-hidden="true">'+icon+'</span><div><h4>'+title+'</h4><p>'+items.length+' '+(items.length===1?"activity":"activities")+'</p></div></header><div class="dashboard-history-group-items">'+content+'</div></section>';
+      };
+      host.innerHTML=renderGroup("lessons","Lessons","▤","No completed lessons or daily learning activities yet today.")+renderGroup("quiz","Quiz","✎","No completed Quizzes yet today.")+renderGroup("flashcards","Flashcards","▣","No completed Flashcard games yet today.")+'<p class="muted-note dashboard-history-timezone">Today is calculated using '+escapeHTML(timezone)+'. Older records are retained.</p>';
     }
     function modeLabelForDashboard(mode) {
       return ({word:"Word Recall",definition:"Definition Recall",translation:"Translation Recall",mixed:"Mixed Recall",sentence:"Sentence Recall"})[mode]||"Flashcard game";
@@ -20090,19 +20132,6 @@ async function completeLesson(x){
         document.getElementById("dashboardFlashcardStatus").textContent=flashcardData
           ? "Based on your latest "+flashcardHistory.length+" completed games."
           : "Flashcard statistics will appear here when the feature is available.";
-        const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
-        if(dashboardQuizHost) {
-          const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data.slice(0,5):[]);
-          dashboardQuizHost.innerHTML=quizHistoryQ.error
-            ? '<p class="muted-note">Quiz history is unavailable until the Update 2.4.0 Quiz database functions are installed.</p>'
-            : quizRows.length?quizRows.map(row=>{
-              const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
-              const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
-              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">'+escapeHTML(quizT("Review","查看"))+'</button></div></div>';
-            }).join("")
-            : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
-        }
-
         // Use the existing account-scoped Quiz review RPC to calculate topic
         // accuracy and identify missed questions. No duplicate answer records are stored.
         const quizPracticeRows = [];
@@ -20388,7 +20417,7 @@ async function completeLesson(x){
           ?(item.difficulty==="beginner"?quizT("Build a foundation in Chinese characters, Pinyin, pronunciation and everyday expressions.","建立汉字、拼音、发音和日常表达的基础。"):item.difficulty==="intermediate"?quizT("Apply Chinese grammar, sentence patterns and common vocabulary in context.","在语境中运用中文语法、句型和常用词汇。"):quizT("Strengthen nuanced vocabulary, complex grammar and natural Chinese expression.","加强对细微词义、复杂语法和自然中文表达的掌握。"))
           :(item.difficulty==="beginner"?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。"):item.difficulty==="intermediate"?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。"):quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。"));
         const translatedLabel=quizT(label,({beginner:"初级",intermediate:"中级",advanced:"高级"})[item.difficulty]||label);
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
+        return '<article class="quiz-difficulty-option" data-difficulty="'+quizEscape(item.difficulty)+'" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
       }).join("");
       quizEl("quizDifficultyGrid").querySelectorAll("[data-quiz-start]").forEach(button=>{
         button.addEventListener("click",()=>{if(!button.disabled)quizStart(button.dataset.quizStart);});
@@ -20528,37 +20557,20 @@ async function completeLesson(x){
       catch{}
     }
     async function quizStart(difficulty){
-      const courseSelector=document.getElementById("courseSelect");
-      const translationSelector=document.getElementById("translationSelect");
-      const requestedCourse=courseSelector.value||course||"en";
-      const requestedTranslation=translationSelector.value||translationLanguage||"en";
-      const requestedUserId=currentUser?.id||null;
-      quizPageState.userId=requestedUserId||quizPageState.userId;
-      courseSelector.disabled=true;
-      translationSelector.disabled=true;
+      const courseSelector=document.getElementById("courseSelect"),translationSelector=document.getElementById("translationSelect"),requestedCourse=courseSelector.value||course||"en",requestedTranslation=translationSelector.value||translationLanguage||"en",requestedUserId=currentUser?.id||null;
+      const warning=requestedTranslation==="zh"?"开始这场测验会立即使用一次每日测验额度。即使之后放弃测验，此额度也不会退还。要继续吗？":"Starting this Quiz will use one daily Quiz allowance immediately. The allowance will not be refunded if you later abandon the session. Continue?";
+      if(!window.confirm(warning))return;
+      quizPageState.userId=requestedUserId||quizPageState.userId;courseSelector.disabled=true;translationSelector.disabled=true;
       try{
         quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
-        const {data,error}=await quizCall("start_my_quiz",{
-          p_difficulty:difficulty,
-          p_learning_language:requestedCourse,
-          p_translation_language:requestedTranslation
-        });if(error)throw error;
+        const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty,p_learning_language:requestedCourse,p_translation_language:requestedTranslation});if(error)throw error;
         if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
-        const session=data&&data.session?data.session:data;
-        if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
-        course=requestedCourse;
-        translationLanguage=requestedTranslation;
-        courseSelector.value=requestedCourse;
-        translationSelector.value=requestedTranslation;
-        document.getElementById("preferenceLearning").value=requestedCourse;
-        document.getElementById("preferenceTranslation").value=requestedTranslation;
-        quizApplyPageTranslation();
-        quizPageState.session=session;quizRenderSession();
+        const session=data&&data.session?data.session:data;if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
+        course=requestedCourse;translationLanguage=requestedTranslation;courseSelector.value=requestedCourse;translationSelector.value=requestedTranslation;
+        document.getElementById("preferenceLearning").value=requestedCourse;document.getElementById("preferenceTranslation").value=requestedTranslation;
+        quizApplyPageTranslation();quizPageState.session=session;quizRenderSession();await quizLoadHistoryAndAvailability();
       }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}}
-      finally{
-        courseSelector.disabled=false;
-        translationSelector.disabled=false;
-      }
+      finally{courseSelector.disabled=false;translationSelector.disabled=false;}
     }
     async function quizSubmit(){
       const s=quizPageState.session;if(!s)return;
@@ -20579,20 +20591,16 @@ async function completeLesson(x){
       }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
     }
     function quizBuildResultMarkup(data){
-      const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
-      const effectiveTranslation=quizEffectiveTranslationCode(data);
-      const showTranslation=effectiveTranslation!==(data.learning_language_code||"en")&&quizTranslationVisible(effectiveTranslation);
-      const questions=data.questions||[];
-      return '<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
-        const chineseTranslationQuestion=q.question_type==="chinese_translation";
+      const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0,effectiveTranslation=quizEffectiveTranslationCode(data),showTranslation=effectiveTranslation!==(data.learning_language_code||"en")&&quizTranslationVisible(effectiveTranslation),questions=data.questions||[];
+      const questionCards=questions.map((q,index)=>{
+        const chineseTranslationQuestion=q.question_type==="chinese_translation",chosen=q.options?.find(o=>o.id===q.selected_option_id),isCorrect=!!chosen&&chosen.id===q.correct_option_id;
         const opts=(q.options||[]).map((o,i)=>{
-          const correct=o.id===q.correct_option_id,chosen=o.id===q.selected_option_id;
-          const primaryText=chineseTranslationQuestion?o.translation_text:o.learning_text;
-          const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?" · "+o.learning_text:""):(showTranslation?" · "+o.translation_text:"");
-          return '<div class="quiz-review-option '+(correct?'correct':chosen?'chosen-wrong':'')+'">'+String.fromCharCode(65+i)+'. '+quizEscape(primaryText)+(data.learning_language_code==="zh"&&o.pinyin?' <small class="quiz-option-pinyin">'+quizEscape(o.pinyin)+'</small>':'')+(secondaryText?quizEscape(secondaryText):'')+(correct?' — Correct answer':chosen?' — Your answer':'')+'</div>';
+          const correct=o.id===q.correct_option_id,selected=o.id===q.selected_option_id,primaryText=chineseTranslationQuestion?o.translation_text:o.learning_text,secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?" · "+o.learning_text:""):(showTranslation?" · "+o.translation_text:"");
+          return '<div class="quiz-review-option '+(correct?'correct':selected?'chosen-wrong':'')+'"><span class="quiz-review-option-letter">'+String.fromCharCode(65+i)+'</span><div class="quiz-review-option-copy"><strong>'+quizEscape(primaryText)+'</strong>'+(data.learning_language_code==="zh"&&o.pinyin?'<small class="quiz-option-pinyin">'+quizEscape(o.pinyin)+'</small>':'')+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</div><span class="quiz-review-option-status">'+(correct?'✓ Correct':selected?'Your answer':'')+'</span></div>';
         }).join("");
-        return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(data.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(data.learning_language_code==="zh"&&q.explanation_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.explanation_pinyin)+'</p>':'')+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
-      }).join("")+'</div>';
+        return '<article class="quiz-review-question"><header class="quiz-review-question-head"><span>QUESTION '+(index+1)+'</span><span class="quiz-review-result-pill '+(isCorrect?'is-correct':'is-incorrect')+'">'+(isCorrect?'Correct':'Review needed')+'</span></header><h3>'+quizEscape(q.prompt_learning)+'</h3>'+(data.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-review-options">'+opts+'</div><div class="quiz-review-explanation"><strong>Why this is correct</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(data.learning_language_code==="zh"&&q.explanation_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.explanation_pinyin)+'</p>':'')+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
+      }).join("");
+      return '<div class="quiz-review-summary"><div><span class="eyebrow">QUIZ COMPLETED</span><h2>Answer review</h2><p>Your answers and the correct explanations are shown below.</p></div><div class="quiz-review-score"><strong>'+pct+'%</strong><span>'+score+' / '+total+' correct</span></div></div><div class="quiz-review-list">'+questionCards+'</div>';
     }
     function quizRenderResult(data){
       const resultsWereHidden=quizEl("quizResults").hidden;
