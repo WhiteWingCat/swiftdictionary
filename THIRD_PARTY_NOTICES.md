@@ -31,9 +31,9 @@ The upstream Hanzi Writer Data project states that its character data is license
 The MIT license for the JavaScript library does not replace the separate license for the stroke data. Reassess the exact terms before bundling, modifying, redistributing the data, or introducing paid features that use it.
 
 
-## CC-CEDICT Chinese–English dictionary data (2026-11-20 snapshot)
+## CC-CEDICT Chinese–English dictionary and Flashcard vocabulary data (2026-11-20 snapshot)
 
-SwiftDictionary's new Chinese single-character entries use adapted English glosses and pronunciation cross-checks from CC-CEDICT.
+SwiftDictionary's Chinese single-character dictionary entries and the new multi-character Flashcard vocabulary bank use selected/adapted English glosses and pronunciation references from CC-CEDICT. The U2.8.0 Flashcard draft includes 904 multi-character vocabulary entries whose source identifiers point to this CC-CEDICT snapshot; the separate 24 useful-expression cards are SwiftDictionary-authored.
 
 - Original project: https://cc-cedict.org/
 - MDBG project page: https://www.mdbg.net/chinese/dictionary?page=cc-cedict
@@ -41,7 +41,7 @@ SwiftDictionary's new Chinese single-character entries use adapted English gloss
 - Snapshot commit: `9f027e342cc57310780f4db0355f54f90d33674d`
 - Original data licence: [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 
-Attribution: **CC-CEDICT**, community-maintained Chinese–English dictionary, originally made available through MDBG. SwiftDictionary has selected single-character entries and adapted/translated glosses for learner use; the content has been modified and is not endorsed by the original project. CC-CEDICT-derived dictionary data and adapted glosses are distributed under CC BY-SA 4.0. The Dictionary remains free and unrestricted; no additional access restrictions are imposed on this licensed data.
+Attribution: **CC-CEDICT**, community-maintained Chinese–English dictionary, originally made available through MDBG. SwiftDictionary has selected single-character entries and adapted/translated glosses for learner use; the content has been modified and is not endorsed by the original project. CC-CEDICT-derived dictionary data, Flashcard vocabulary glosses and adapted glosses are distributed under CC BY-SA 4.0. SwiftDictionary-authored examples, Chinese learning cues and original useful-expression cards are separately identified as original contributions. The Dictionary remains free and unrestricted; no additional access restrictions are imposed on this licensed data.
 
 ## Unicode Unihan 18.0.0 pronunciation data
 
