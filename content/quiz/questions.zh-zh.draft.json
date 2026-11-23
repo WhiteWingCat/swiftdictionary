@@ -41,9 +41,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "第一声保持高而平；“妈”读作 mā，声调是第一声。",
+      "explanation_pinyin": "dì yī shēng bǎo chí gāo ér píng; “mā” de shēng diào shì dì yī shēng.",
+      "explanation_translation": "The first tone stays high and level. 妈 is pronounced mā, with the first tone."
     },
     {
       "question_id": "zh-zh-b-pinyin-foundations-02",
@@ -81,9 +81,9 @@
         }
       ],
       "correct_option_id": "o3",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "“马”读作 mǎ，使用第三声；第三声的调号写在元音 a 上。",
+      "explanation_pinyin": "“mǎ” dú zuò mǎ, shǐ yòng dì sān shēng; dì sān shēng de diào hào xiě zài yuán yīn a shàng.",
+      "explanation_translation": "马 is pronounced mǎ with the third tone; its tone mark is written over the vowel a."
     },
     {
       "question_id": "zh-zh-b-pinyin-foundations-03",
@@ -121,9 +121,9 @@
         }
       ],
       "correct_option_id": "o2",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "第二声的音高从较低的位置向较高处上升，听起来像上扬的语调。",
+      "explanation_pinyin": "dì èr shēng de yīn gāo cóng jiào dī de wèi zhì xiàng jiào gāo de wèi zhì shàng shēng.",
+      "explanation_translation": "The second tone rises from a relatively low pitch to a higher pitch."
     },
     {
       "question_id": "zh-zh-b-pinyin-foundations-04",
@@ -161,9 +161,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "汉语拼音用字母和声调符号标记普通话读音，帮助学习者认读和学习发音。",
+      "explanation_pinyin": "hàn yǔ pīn yīn yòng zì mǔ hé shēng diào fú hào biāo jì pǔ tōng huà dú yīn, bāng zhù xué xí zhě rèn dú hé xué xí fā yīn.",
+      "explanation_translation": "Hanyu Pinyin uses letters and tone marks to represent Mandarin pronunciation and help learners read and practise sounds."
     },
     {
       "question_id": "zh-zh-b-pinyin-foundations-05",
@@ -201,9 +201,9 @@
         }
       ],
       "correct_option_id": "o2",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "在“妈妈”中，第二个“妈”通常读轻声 ma，发音较轻、较短，不标第一声。",
+      "explanation_pinyin": "zài “mā ma” zhōng, dì èr gè “ma” tōng cháng dú qīng shēng, fā yīn jiào qīng, jiào duǎn, bù biāo dì yī shēng.",
+      "explanation_translation": "In 妈妈, the second syllable is usually the neutral-tone ma, spoken lightly and briefly without a first-tone mark."
     },
     {
       "question_id": "zh-zh-b-pinyin-foundations-06",
@@ -241,9 +241,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "标准拼音书写保留“你”和“好”各自的本调，因此写作 nǐ hǎo；连读时第一个三声会发生变调。",
+      "explanation_pinyin": "biāo zhǔn pīn yīn shū xiě bǎ “nǐ” hé “hǎo” gè zì de běn lái shēng diào bǎo liú xià lái, suǒ yǐ xiě zuò nǐ hǎo; lián dú shí dì yī gè sān shēng huì biàn diào.",
+      "explanation_translation": "Standard written Pinyin keeps the underlying tones of 你 and 好, so it is written nǐ hǎo. In connected speech, the first third tone changes."
     },
     {
       "question_id": "zh-zh-b-pinyin-foundations-07",
@@ -281,9 +281,9 @@
         }
       ],
       "correct_option_id": "o2",
-      "explanation_learning": "声母是音节开头的辅音，韵母是声母后面的部分。",
-      "explanation_pinyin": "shēng mǔ shì yīn jié kāi tóu de fǔ yīn, yùn mǔ shì shēng mǔ hòu miàn de bù fen.",
-      "explanation_translation": "An initial is the consonant at the start of a syllable; the final follows it."
+      "explanation_learning": "第三声在单独读或位于词组末尾时，常呈现先降后升；在其他语流位置也可能只读半三声。",
+      "explanation_pinyin": "dì sān shēng zài dān dú huò wèi yú cí zǔ mò wěi shí, cháng chéng xiàn xiān jiàng hòu shēng; zài qí tā lián dú wèi zhì yě kě néng zhǐ dú bàn sān shēng.",
+      "explanation_translation": "When spoken alone or at the end of a phrase, the third tone often dips and rises. In other connected-speech positions, it may be a half-third tone."
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-01",
@@ -321,9 +321,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“早上好”是早晨见面时常用的问候语。",
+      "explanation_pinyin": "“zǎo shang hǎo” shì zǎo chén jiàn miàn shí cháng yòng de wèn hòu yǔ.",
+      "explanation_translation": "早上好 is a common greeting used when meeting someone in the morning."
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-02",
@@ -361,9 +361,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“谢谢”用来表达对他人的帮助、礼物或好意的感谢。",
+      "explanation_pinyin": "“xiè xie” yòng lái biǎo dá duì tā rén de bāng zhù, lǐ wù huò hǎo yì de gǎn xiè.",
+      "explanation_translation": "谢谢 expresses gratitude for someone's help, gift or kindness."
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-03",
@@ -401,9 +401,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“请问”常放在问题前，用来礼貌地引起对方注意并提出询问。",
+      "explanation_pinyin": "“qǐng wèn” cháng fàng zài wèn tí qián, yòng lái lǐ mào de yǐn qǐ duì fāng zhù yì bìng tí chū xún wèn.",
+      "explanation_translation": "请问 is commonly placed before a question to politely get someone's attention and make an enquiry."
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-04",
@@ -441,9 +441,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“不客气”常用于回应“谢谢”，表示对方不必特别客气。",
+      "explanation_pinyin": "“bú kè qi” cháng yòng yú huí yìng “xiè xie”, biǎo shì duì fāng bù bì tè bié kè qi.",
+      "explanation_translation": "不客气 is a natural response to 谢谢, meaning that the other person need not mention it."
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-05",
@@ -481,9 +481,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“再见”用于分别时，表达希望之后再次见面的意思。",
+      "explanation_pinyin": "“zài jiàn” yòng yú fēn bié shí, biǎo dá xī wàng zhī hòu zài cì jiàn miàn de yì si.",
+      "explanation_translation": "再见 is used when parting and conveys the idea of seeing the person again."
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-06",
@@ -521,9 +521,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“我叫李明”是介绍姓名的常见说法，意思是“我的名字是李明”。",
+      "explanation_pinyin": "“wǒ jiào Lǐ Míng” shì jiè shào xìng míng de cháng jiàn shuō fǎ, yì si shì “wǒ de míng zi shì Lǐ Míng”.",
+      "explanation_translation": "我叫李明 is a common way to introduce a name; it means “My name is Li Ming.”"
     },
     {
       "question_id": "zh-zh-b-greetings-introductions-07",
@@ -561,9 +561,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "早上好用于早晨问候。",
-      "explanation_pinyin": "zǎo shang hǎo yòng yú zǎo chén wèn hòu.",
-      "explanation_translation": "Use 早上好 as a morning greeting."
+      "explanation_learning": "“很高兴认识你”常用于初次见面，表达认识对方很愉快。",
+      "explanation_pinyin": "“hěn gāo xìng rèn shi nǐ” cháng yòng yú chū cì jiàn miàn, biǎo dá rèn shi duì fāng hěn yú kuài.",
+      "explanation_translation": "很高兴认识你 is used when meeting someone for the first time to say that you are pleased to meet them."
     },
     {
       "question_id": "zh-zh-b-numbers-dates-time-01",
@@ -601,9 +601,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "数字二和两都与数量有关；两常用于量词前。",
-      "explanation_pinyin": "shù zì èr hé liǎng dōu yǔ shù liàng yǒu guān; liǎng cháng yòng yú liàng cí qián.",
-      "explanation_translation": "二 and 两 both relate to two; 两 commonly appears before measure words."
+      "explanation_learning": "“七”表示数字 7，普通话读作 qī，使用第一声。",
+      "explanation_pinyin": "“qī” biǎo shì shù zì qī, pǔ tōng huà dú zuò qī, shǐ yòng dì yī shēng.",
+      "explanation_translation": "七 means the number seven and is pronounced qī with the first tone."
     },
     {
       "question_id": "zh-zh-b-numbers-dates-time-02",
@@ -641,9 +641,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "数字二和两都与数量有关；两常用于量词前。",
-      "explanation_pinyin": "shù zì èr hé liǎng dōu yǔ shù liàng yǒu guān; liǎng cháng yòng yú liàng cí qián.",
-      "explanation_translation": "二 and 两 both relate to two; 两 commonly appears before measure words."
+      "explanation_learning": "“今天”指说话当天，也就是 today。",
+      "explanation_pinyin": "“jīn tiān” zhǐ shuō huà dāng tiān, yě jiù shì today.",
+      "explanation_translation": "今天 refers to the current day, meaning “today.”"
     },
     {
       "question_id": "zh-zh-b-numbers-dates-time-03",
@@ -681,9 +681,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "数字二和两都与数量有关；两常用于量词前。",
-      "explanation_pinyin": "shù zì èr hé liǎng dōu yǔ shù liàng yǒu guān; liǎng cháng yòng yú liàng cí qián.",
-      "explanation_translation": "二 and 两 both relate to two; 两 commonly appears before measure words."
+      "explanation_learning": "“星期一”表示一周中的星期一，对应英语 Monday。",
+      "explanation_pinyin": "“xīng qī yī” biǎo shì yì zhōu zhōng de xīng qī yī, duì yìng yīng yǔ Monday.",
+      "explanation_translation": "星期一 is the first weekday in the standard Monday-to-Sunday naming sequence and means Monday."
     },
     {
       "question_id": "zh-zh-b-numbers-dates-time-04",
@@ -721,9 +721,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "数字二和两都与数量有关；两常用于量词前。",
-      "explanation_pinyin": "shù zì èr hé liǎng dōu yǔ shù liàng yǒu guān; liǎng cháng yòng yú liàng cí qián.",
-      "explanation_translation": "二 and 两 both relate to two; 两 commonly appears before measure words."
+      "explanation_learning": "“月”表示月份；日期表达中通常放在数字后面，例如“三月”。",
+      "explanation_pinyin": "“yuè” biǎo shì yuè fèn; zài yuè fèn biǎo dá zhōng tōng cháng fàng zài shù zì hòu miàn, lì rú “sān yuè”.",
+      "explanation_translation": "月 means “month” and follows a number in a month expression, such as 三月 (March)."
     },
     {
       "question_id": "zh-zh-b-numbers-dates-time-05",
@@ -761,9 +761,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "数字二和两都与数量有关；两常用于量词前。",
-      "explanation_pinyin": "shù zì èr hé liǎng dōu yǔ shù liàng yǒu guān; liǎng cháng yòng yú liàng cí qián.",
-      "explanation_translation": "二 and 两 both relate to two; 两 commonly appears before measure words."
+      "explanation_learning": "中文日期通常按从大到小的顺序排列：年、月、日。",
+      "explanation_pinyin": "zhōng wén rì qī tōng cháng àn cóng dà dào xiǎo de shùn xù pái liè: nián, yuè, rì.",
+      "explanation_translation": "Chinese dates normally follow a largest-to-smallest order: year, month, then day."
     },
     {
       "question_id": "zh-zh-b-numbers-dates-time-06",
@@ -801,9 +801,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "数字二和两都与数量有关；两常用于量词前。",
-      "explanation_pinyin": "shù zì èr hé liǎng dōu yǔ shù liàng yǒu guān; liǎng cháng yòng yú liàng cí qián.",
-      "explanation_translation": "二 and 两 both relate to two; 两 commonly appears before measure words."
+      "explanation_learning": "“明天”指今天之后的一天，也就是 tomorrow。",
+      "explanation_pinyin": "“míng tiān” zhǐ jīn tiān zhī hòu de yì tiān, yě jiù shì tomorrow.",
+      "explanation_translation": "明天 refers to the day after today, meaning “tomorrow.”"
     },
     {
       "question_id": "zh-zh-b-pronouns-basic-sentences-01",
