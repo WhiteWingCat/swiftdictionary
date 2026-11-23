@@ -410,6 +410,16 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
 
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
+
+  // The first successful start has already consumed the Free daily allowance.
+  // Use a fresh disposable account to verify the next-session preference.
+  const nextUser=await createRuntimeUser("translation-snapshot-next","free");
+  const nextSession=await signIn(nextUser.email,nextUser.password);
+  await updateTranslationPreference(nextUser.id,"zh");
+  const storageKey="sb-"+new URL(apiUrl).hostname.split(".")[0]+"-auth-token";
+  await page.evaluate(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:nextSession});
+  await page.reload();
+  await expect(page.locator("#quizHome")).toBeVisible();
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
   const questionTypes = [];
@@ -794,9 +804,12 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     const type=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.question_type);
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
+      // Chinese-course prompts retain the selected English prompt translation,
+      // but answer-side Pinyin/translation hints stay hidden during the attempt.
       await expect(area.locator(".quiz-question-pinyin")).toHaveCount(0);
-      await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
-      await expect(area.locator(".quiz-option-pinyin")).toHaveCount(4);
+      await expect(area.locator(".quiz-question-translation")).toBeVisible();
+      await expect(area.locator(".quiz-option-pinyin")).toHaveCount(0);
+      await expect(area.locator(".quiz-option-translation")).toHaveCount(0);
       break;
     }
     await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
