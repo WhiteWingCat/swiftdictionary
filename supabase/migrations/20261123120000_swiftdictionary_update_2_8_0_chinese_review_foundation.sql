@@ -41,6 +41,45 @@ alter table private.quiz_session_questions
   add constraint quiz_session_questions_learning_language_code_snapshot_check
   check (learning_language_code_snapshot in ('en','zh'));
 
+create or replace function private.guard_quiz_session_question_update()
+returns trigger
+language plpgsql
+set search_path = ''
+as $function$
+begin
+  if new.session_id is distinct from old.session_id
+     or new.user_id is distinct from old.user_id
+     or new.local_date is distinct from old.local_date
+     or new.question_id is distinct from old.question_id
+     or new.question_revision is distinct from old.question_revision
+     or new.position is distinct from old.position
+     or new.source_lesson_id is distinct from old.source_lesson_id
+     or new.topic_id is distinct from old.topic_id
+     or new.source_difficulty is distinct from old.source_difficulty
+     or new.question_type_snapshot is distinct from old.question_type_snapshot
+     or new.answer_language_code_snapshot is distinct from old.answer_language_code_snapshot
+     or new.learning_language_code_snapshot is distinct from old.learning_language_code_snapshot
+     or new.learning_objective_id_snapshot is distinct from old.learning_objective_id_snapshot
+     or new.option_order is distinct from old.option_order
+     or new.prompt_learning_snapshot is distinct from old.prompt_learning_snapshot
+     or new.prompt_translation_snapshot is distinct from old.prompt_translation_snapshot
+     or new.options_snapshot is distinct from old.options_snapshot
+     or new.correct_option_id_snapshot is distinct from old.correct_option_id_snapshot
+     or new.explanation_learning_snapshot is distinct from old.explanation_learning_snapshot
+     or new.explanation_translation_snapshot is distinct from old.explanation_translation_snapshot then
+    raise exception 'Quiz question identity and snapshots are immutable'
+      using errcode='42501';
+  end if;
+  if new.selected_option_id is not null
+     and not (new.selected_option_id = any(new.option_order)) then
+    raise exception 'Selected option does not belong to this Quiz question'
+      using errcode='23514';
+  end if;
+  return new;
+end;
+$function$;
+revoke all on function private.guard_quiz_session_question_update() from public,anon,authenticated;
+
 -- Flashcard cards can now represent either learning language. Existing English
 -- rows retain their value; custom-card creation remains owner-scoped via RPC.
 alter table private.flashcard_cards
@@ -58,8 +97,8 @@ alter table private.flashcard_cards
 alter table private.flashcard_sessions
   add column if not exists learning_language_code text not null default 'en'
     check (learning_language_code in ('en','zh')),
-  add column if not exists translation_language_code text not null default 'zh'
-    check (translation_language_code in ('en','zh'));
+  add column if not exists translation_language_code text
+    check (translation_language_code is null or translation_language_code in ('en','zh'));
 
 alter table private.flashcard_sessions
   drop constraint if exists flashcard_sessions_mode_check;
@@ -331,7 +370,7 @@ begin
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text,0));
   delete from private.quiz_sessions where user_id=v_user;
   delete from public.daily_activity_sessions where user_id=v_user;
-  delete from public.lesson_practice_attempts where user_id=v_user;
+  delete from private.lesson_practice_attempts where user_id=v_user;
   delete from public.lesson_practice_results where user_id=v_user;
   delete from public.lesson_progress where user_id=v_user;
   delete from public.learning_activity_log where user_id=v_user;
