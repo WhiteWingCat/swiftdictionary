@@ -19920,21 +19920,29 @@ async function completeLesson(x){
     }
 
     function dashboardDailyContentTitle(row) {
-      const language=row.language_code||row.learning_language||"en";
+      const language=row.language_code||row.learning_language||"en",rawId=String(row.content_id||""),contentId=rawId.startsWith("revision:")?rawId.split(":")[2]:(rawId.split(":")[0]||rawId);
       const catalog=window.SWIFT_CHINESE_DAILY_LEARNING||{};
-      const entries=[...(catalog.topics||[]),...(catalog.applications||[])];
+      const entries=[...(catalog.topics||[]),...(catalog.applications||[]),...(catalog.discovery||[])];
       if(language==="zh"){
-        const match=entries.find(item=>item.id===row.content_id||item.id===row.topic_id||item.topicId===row.topic_id);
-        if(match)return match.titleZh||match.title||match.titleEn||formatTopicName(row.topic_id||row.content_id);
+        const match=entries.find(item=>item.id===contentId||item.id===row.topic_id||item.topicId===row.topic_id);
+        if(match)return match.titleZh||match.title||match.word||match.titleEn||formatTopicName(row.topic_id||contentId);
       }
-      return formatTopicName(row.content_id||row.topic_id||row.activity_type||"Daily activity");
+      return formatTopicName(contentId||row.topic_id||row.activity_type||"Daily activity");
+    }
+    function dashboardLessonTopicTitle(row) {
+      if((row.learning_language||"en")==="zh"){
+        const lessons=window.SWIFT_CHINESE_LESSONS||{};
+        const match=Object.values(lessons).flat().find(item=>item.id===row.lesson_id);
+        if(match)return match.topicDisplay?.zh||match.topic||match.title?.zh||formatTopicName(row.lesson_id);
+      }
+      return formatTopicName(row.lesson_id);
     }
     function renderDashboardDailyHistory({today,timezone,lessonRows,dailyRows,quizRows,flashcardRows}) {
       const host=document.getElementById("dashboardDailyHistory");if(!host)return;
       const localDate=timestamp=>timestamp?new Intl.DateTimeFormat("en-CA",{timeZone:timezone,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(timestamp)):"";
       const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(translationLanguage==="zh"?"zh-CN":"en-US",{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
       const groups={lessons:[],quiz:[],flashcards:[]};
-      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:formatTopicName(row.lesson_id),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
+      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:dashboardLessonTopicTitle(row),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
       for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:formatTopicName(row.activity_type||"Daily activity"),title:dashboardDailyContentTitle(row),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at,activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id});
       for(const row of quizRows||[])if(localDate(row.completed_at)===today)groups.quiz.push({type:"Quiz",title:(quizDifficultyLabels[row.difficulty]||row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id});
       for(const row of flashcardRows||[])if(localDate(row.completed_at)===today)groups.flashcards.push({type:"Flashcards",title:modeLabelForDashboard(row.mode)+" · "+(row.difficulty||""),detail:(row.correct_count??0)+"/"+(row.words_seen??0)+" correct",at:row.completed_at,sessionId:row.id});
