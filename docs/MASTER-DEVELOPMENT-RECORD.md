@@ -3348,3 +3348,14 @@ Owner feedback after the staging preview identified four gaps: missing Quiz over
 - Fresh CI batch was still running when the archive was written; inspect latest-head results before declaring the staging preview ready. PR #16 remains draft.
 
 Detailed implementation and initial CI findings: [U2.8.0 staging feedback remediation archive](conversation-archive/2026-11-23-update-2-8-0-staging-feedback-remediation.md).
+
+
+## 2026-11-23 — U2.8.0 staging feedback follow-up verification
+
+- Fixed an additional Chinese permanent-lesson Daily History edge case: Dashboard review now looks up Chinese lessons in `chineseLessonData` rather than the English catalogue. Added a Playwright regression for `zh-b-pinyin-foundations` and verified the review stays on `#profile`.
+- Staging backend confirmed the existing Flashcard RPC rejects Chinese `mixed` mode with the expected validation error before allowance checks/session creation. The check ran in a rollback-only transaction. No staging migration or data change was required.
+- Latest feature head: `2749d6359fafbbbbc52429b3b5f4c5a36f42ad71`. Cloudflare Pages deployment passed. Stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- Latest-head checks passed for Quiz DB foundation, Flashcards static and browser tests (including Dashboard tabs, in-place history review, language-specific third-mode swap and Chinese lesson review), signed-out Chromium smoke, Supabase CLI Auth compatibility, U2.7 lesson allowance, ACL, Chinese dictionary, Cloudflare build routing and PostgreSQL 17 migration/allowance.
+- Two duplicate push/PR full local Supabase Auth/RPC integration workflows were still running the authenticated Quiz Chromium runtime step at the time of this update. Check both final results before declaring all CI green.
+- The retired Workers Builds workflow remains failed but is unrelated to the successful Cloudflare Pages deployment.
+- No production code, database, branch or deployment was changed. PR #16 remains draft. Detailed record: [U2.8.0 staging feedback remediation](conversation-archive/2026-11-23-update-2-8-0-staging-feedback-remediation.md).
