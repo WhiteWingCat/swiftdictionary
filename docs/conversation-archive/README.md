@@ -171,3 +171,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 ## 2026-11-23
 
 - [Update 2.8.0 — final planning approval and documentation handover](2026-11-23-update-2-8-0-final-planning-approval.md) — owner-approved Chinese Quiz/Flashcards expansion, distinct recall-mode rules, Practice Insights, Dashboard/Daily History requirements, and explicit no-development-yet status.
+
+
+- [Update 2.8.0 — development start and repository audit correction](2026-11-23-update-2-8-0-development-start-and-repository-audit.md) — records the owner's separate development-start authorisation, discovery of substantial pre-existing feature-branch implementation, PR #16/94-commit divergence, current CI failures, fixture correction and unchanged staging/production migration boundary.
