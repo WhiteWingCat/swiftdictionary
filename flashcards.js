@@ -340,7 +340,7 @@
     }else if(chinese&&mode==="definition"){
       memory=target.definitionCueZh||target.definitionZh;prompt=uiText("Which Chinese word matches this description?","哪个中文词语符合这个描述？");correct=target.word;
     }else if(chinese&&mode==="translation"){
-      memory=translationFor(target);prompt=(state.game?.translationLanguage||translationLanguage)==="zh"?uiText("Choose the closest Chinese equivalent","请选择意思最接近的中文词语或表达"):uiText("Choose the Chinese expression with this direct English equivalent","请选择与这段英文释义最接近的中文表达");correct=target.word;
+      memory=translationFor(target);prompt=(state.game?.translationLanguage||translationLanguage)==="zh"?uiText("Choose the Chinese word or expression with the closest equivalent meaning","请选择意思相近的中文词语或表达"):uiText("Choose the Chinese expression with this direct English equivalent","请选择与这段英文释义最接近的中文表达");correct=target.word;
     }else if(chinese&&mode==="sentence"){
       const sentence=(target.examples||[])[0],index=sentence.indexOf(target.word);
       memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence;
