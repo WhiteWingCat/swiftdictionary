@@ -686,3 +686,34 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
 });
+
+test("Chinese Flashcards only offer card sets supported by the selected recall mode", async ({ page }) => {
+  await openQuiz(page,freeSession);
+  await page.goto("/#flashcards");
+  await expect(page.locator("#flashcardsPage")).toBeVisible();
+  if(await page.locator("#learningIntroBackdrop").isVisible()){
+    await page.locator("#learningIntroDismiss").click();
+    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+  }
+  await selectCourse(page,"zh");
+  await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+
+  await page.locator('#flashcardsPage .flash-mode[data-mode="definition"]').click();
+  await expect(page.locator("#flashGameCollection")).toHaveValue("all");
+  await expect(page.locator('#flashGameCollection option[value="vocabulary"]')).toHaveCount(0);
+  await expect(page.locator(".flash-modal")).toContainText("Multi-character vocabulary cards are not included");
+
+  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('#flashcardsPage .flash-mode[data-mode="translation"]').click();
+  await expect(page.locator('#flashGameCollection option[value="vocabulary"]')).toHaveCount(0);
+
+  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
+  await expect(page.locator('#flashGameCollection option[value="vocabulary"]')).toHaveCount(1);
+
+  await updateTranslationPreference(freeUserId,"en");
+  await page.reload();
+  await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  await page.locator('#flashcardsPage .flash-mode[data-mode="translation"]').click();
+  await expect(page.locator('#flashGameCollection option[value="vocabulary"]')).toHaveCount(1);
+});
