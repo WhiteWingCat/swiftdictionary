@@ -762,6 +762,6 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   expect(review.learning_language_code).toBe("zh");
   expect(review.translation_language_code).toBe("zh");
   expect(review.items.length).toBeGreaterThan(0);
-  expect(review.items[0].recall_mode).toBe("word");
+  expect(review.items[0].mode).toBe("word");
   expect(review.items[0].card.course).toBe("zh");
 });
