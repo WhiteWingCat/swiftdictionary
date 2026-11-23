@@ -462,7 +462,7 @@ const dashboardStart = html.indexOf('<section id="profilePage"');
 const preferencesStart = html.indexOf('<section id="preferencesPage"');
 const dashboardShell = html.slice(dashboardStart,preferencesStart);
 const preferencesShell = html.slice(preferencesStart);
-if (/Account preferences|Delete Account|Learning history/i.test(dashboardShell)
+if (/id="preferencesForm"|id="accountDeletionCard"|id="deleteLearningHistoryButton"/i.test(dashboardShell)
     || !/Account preferences/i.test(preferencesShell)
     || !/id="accountDeletionCard"/i.test(preferencesShell)
     || !/Delete Account/i.test(preferencesShell)
