@@ -143,6 +143,8 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123121000_swiftdictionary_update_2_8_0_flashcard_language_and_snapshots.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123122000_swiftdictionary_update_2_8_0_chinese_quiz_runtime.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123123000_swiftdictionary_update_2_8_0_daily_practice_attempt_metrics.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123124000_swiftdictionary_update_2_8_0_quiz_source_composition_guard.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123125000_swiftdictionary_update_2_8_0_security_invoker_wrappers.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_review_foundation.sql"
 
       - name: Verify explicit grants for all staged public tables
