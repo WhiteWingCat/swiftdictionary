@@ -692,3 +692,36 @@ test("Mock Quiz supports Chinese knowledge and English-gated translation banks",
   assert.match(mockTesting,/intermediate:12,beginner:3/);
   assert.match(mockTesting,/advanced:12,intermediate:6,beginner:2/);
 });
+
+
+test("Chinese Mixed Recall includes Translation Recall and rejects definition-cue reuse",()=>{
+  const start=flashcardsSource.indexOf("function makeRound(deck){");
+  const end=flashcardsSource.indexOf("function durationLabel",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
+  const roundSource=flashcardsSource.slice(start,end);
+  const context=vm.createContext({
+    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set(),game:{learningLanguage:"zh",translationLanguage:"en"}},
+    course:"zh",translationLanguage:"en",
+    cardKey:card=>"dict:zh:"+String(card.word).toLowerCase(),
+    questionKey:card=>String(card.word||"").normalize("NFKC").trim().toLowerCase(),
+    translationFor:card=>card.translationEn||"",
+    uiText:english=>english
+  });
+  const makeRound=vm.runInContext("("+roundSource+")",context);
+  const deck=["苹果","香蕉","橘子","葡萄","西瓜"].map((word,index)=>({
+    word,pinyin:"pinyin"+index,translationEn:"English cue "+index,translationZh:"",
+    definitionCueZh:"中文描述"+index,definitionZh:"中文描述"+index,
+    examples:["我喜欢"+word+"。"],availableModes:["translation"]
+  }));
+  const round=makeRound(deck);
+  assert.equal(round.mode,"translation","Chinese Mixed Recall must sample Translation Recall when it is available");
+  assert.equal(round.memory,round.target.translationEn,"English-selected Translation Recall must use a direct English equivalent");
+
+  context.state.game.translationLanguage="zh";
+  context.state.usedQuestionKeys=new Set();
+  context.translationFor=card=>card.translationZh||"";
+  const reused=deck.map(card=>({...card,translationZh:card.definitionCueZh,availableModes:["translation"]}));
+  assert.throws(()=>makeRound(reused),/does not contain four distinct choices/,
+    "Chinese-selected Translation Recall must not reuse a definition cue");
+  assert.match(flashcardsSource,/chinese\?\["word","definition","translation","sentence"\]:\["word","definition","sentence"\]/);
+});
