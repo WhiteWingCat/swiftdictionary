@@ -3319,4 +3319,17 @@ This entry supersedes any earlier same-day statement that the U2.8.0 feature bra
 - Staging preview URL last confirmed at prior head `f91b776`: https://92587b07.swiftdictionary.pages.dev. Verify the new head's preview deployment before declaring staging preview ready.
 - Remaining gates: latest-head CI green; independent Chinese linguistic/answer-key/distractor/Pinyin/translation/anti-overlap review; review all six migrations/RLS/RPC grants/deletion cascades in disposable local Supabase; explicit approval before isolated staging migration/content activation; staging backend/preview verification; Malaysia and international privacy/retention/cross-border/16–17-year-old/DPO-DPIA and content licensing review; owner staging review.
 - Formal legal/privacy clearance remains outstanding. No staging or production database, production data, production branch or production deployment was changed.
-- Detailed session archive: [U2.8.0 release-gate remediation and staging readiness](conversation-archive/2026-11-23-update-2-8-0-release-gate-remediation.md).
+- Detailed session archive: [U2.8.0 release-gate remediation and staging readiness](conversation-archive/2026-11-23-update-2-8-0-development-start-and-repository-audit.md).
+
+
+## 2026-11-23 — U2.8.0 staging database activation and preview handover
+
+- Owner explicitly approved changes to isolated SwiftDictionary Indie Staging (`ivatvkfrtifgfheeaelj`, ap-southeast-1, PostgreSQL 17). All six core U2.8.0 migrations and three supplemental migrations (Flashcard review mode alias; 145-question Chinese Quiz seed; foreign-key indexes) were applied. A one-off review-mode hotfix preceded the canonical alias migration and is recorded separately in staging migration history.
+- Chinese Quiz migration inserts 145 rows as draft by default; the 145 Chinese-course rows were promoted to approved in staging only to enable preview. Production content remains untouched.
+- Rollback-only authenticated RPC checks passed: Quiz availability, 10-question Chinese Beginner Quiz start, and 60-second Chinese Word Recall Flashcard session start. Transactions were rolled back.
+- Feature branch `supabase-config.js` routes Cloudflare Pages preview hosts to staging and keeps the production hostname/non-preview hosts on Production.
+- Latest Pages deployment for feature head `79ae67d7aef0bc6cca97a2a1024a3e18b51f5532` succeeded. Preview: https://fce59d48.swiftdictionary.pages.dev. Stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- Latest-head CI was still in progress at the time of the update; verify final authenticated Supabase/Auth/RPC and remaining regression conclusions before calling the branch fully green.
+- Malaysian PDPA planning flag: intended 16+ audience includes 16–17-year-olds; guardian consent is required for data subjects under 18 under the Personal Data Protection Regulations. Cross-border transfers, privacy notice, DPO applicability, breach notification and retention/deletion procedures remain legal/privacy review items, not legal clearance.
+- Production `main` tree hash was verified identical to its pre-action baseline after a documentation-only file was briefly created and immediately deleted from the default branch. No application code, production database or production deployment changed.
+- Detailed follow-up is appended to [the U2.8.0 development-start and repository-audit archive](conversation-archive/2026-11-23-update-2-8-0-development-start-and-repository-audit.md). PR #16 remains draft; no merge or production release is authorised.
