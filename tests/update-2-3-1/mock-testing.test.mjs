@@ -622,7 +622,7 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
     "The game must stop presenting questions rather than recycle a previously seen target");
   assert.doesNotMatch(source,/usedQuestionKeys\.clear\(\)/,
     "The used-question set must never be reset mid-game when the deck is exhausted");
-  assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
+  assert.match(source,/const chosenPool=freshPools\[Math\.floor\(Math\.random\(\)\*freshPools\.length\)\]/,
     "Gameplay must select only from validated targets that have not already appeared in this challenge");
   assert.match(source,/state\.usedQuestionKeys\.add\(questionKey\(target\)\)/,
     "Each selected question must be recorded to prevent repetition for the entire challenge");
@@ -639,7 +639,8 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
   assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
   const roundSource=flashcardsSource.slice(start,end);
   const context=vm.createContext({
-    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set()},
+    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set(),game:{learningLanguage:"en"}},
+    course:"en",
     cardKey:card=>"dict:"+String(card.word).toLowerCase(),
     questionKey:card=>String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\s+/g," ").toLocaleLowerCase(),
     translationFor:card=>card.definitionZh||card.definition,
@@ -661,9 +662,11 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
   assert.equal(makeRound(deck),null,"After all unique targets are used, no repeated question should be returned");
 });
 
-test("Flashcards explains the English-course limitation and resets collection selection after deletion",()=>{
-  assert.match(flashcardsSource,/English course required[\s\S]*Switch your Learning Course to English/,
-    "Chinese-course users must receive a clear explanation instead of a blank page");
+test("Flashcards supports Chinese-course banks and resets collection selection after deletion",()=>{
+  assert.match(flashcardsSource,/function words\(language=state\.game\?\.learningLanguage\|\|course\)/,
+    "Flashcards must select its dictionary bank from the active learning language");
+  assert.match(flashcardsSource,/if\(language==="zh"\).*SWIFT_CHINESE_FLASHCARDS/s,
+    "Chinese-course users must receive Chinese character, vocabulary and phrase cards");
   const handler=flashcardsSource.slice(flashcardsSource.indexOf('if(action==="delete-collection")'),flashcardsSource.indexOf('if(action==="remove-card")'));
   assert.ok(handler.indexOf('state.collectionId="all"')<handler.indexOf('await collectionAction("delete"'),
     "Deleting the selected collection must reset selection before the reload/render");
