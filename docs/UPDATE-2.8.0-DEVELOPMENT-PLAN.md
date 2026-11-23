@@ -73,6 +73,16 @@ Word Recall, Definition Recall and Translation Recall must not become three diff
 
 For Chinese translation preference, no English prompts, translations or explanations are introduced into Chinese-course games. Word Recall remains pronunciation-focused; Definition Recall uses a Chinese descriptive clue; Translation Recall uses a Chinese equivalent/paraphrase with a distinct prompt design; Sentence Recall remains Chinese sentence-level. Avoid presenting identical text on both sides.
 
+### 3.1.1 Course-specific Flash Recall mode availability (owner correction — 2026-11-23)
+
+The mode tiles occupy four fixed positions and switch by learning course:
+1. Word Recall
+2. Definition Recall
+3. Mixed Recall (English only) / Translation Recall (Chinese only)
+4. Sentence Recall
+
+The unavailable third-position mode is hidden and replaced in the same position. English must not show Translation Recall; Chinese must not show Mixed Recall. The Chinese Mixed Recall proposal in the earlier plan text is superseded by this explicit owner correction. Existing completed sessions retain their captured mode and review data.
+
 ### 3.2 Translation-language capture
 
 The selected translation language controls content eligibility and prompt/answer language:
@@ -86,6 +96,9 @@ Redesign both the Quiz landing/selection experience and the active Quiz test int
 - Consistent card shadows, depth, navigation background colour, corner radii, spacing and typography.
 - Coherent animated transitions between relevant Quiz screens.
 - Directional animated transition for previous/next question navigation.
+- The landing screen uses a redesigned challenge hero, clear untimed/session/review expectations, and distinct difficulty cards.
+- The active test uses a dedicated question card with question index/topic context, redesigned answer-choice cards, clearer progress and navigation controls.
+- Previous/next transitions enter from opposite directions; answer selection remains preserved. Navigation controls are disabled while a save/navigation request is pending to prevent rapid-click state corruption.
 - Preserve selected answers when navigating backwards and forwards.
 - Guard against rapid repeated navigation causing skipped, duplicated or corrupted question state.
 - Responsive desktop and mobile layouts.
@@ -125,10 +138,10 @@ Provide four tabs:
 
 1. **Favourites:** saved English and Chinese words, course distinction, search/filter and quick dictionary-detail access.
 2. **Learning Progress:** long-term permanent lesson completion, Quiz participation/results, Flashcard progress, and course/difficulty progress.
-3. **Daily History:** completed Lessons, Quiz sessions and Flashcard games for the current effective local day, with completion times/results as appropriate.
+3. **Daily History:** completed permanent Lessons, Daily Learning activities, Quiz sessions and Flashcard games for the current effective local day, with completion times/results as appropriate. Every item with retained review content has a Review action that opens an in-place Dashboard overlay/drawer; review must not navigate to Lessons, Quiz or Flashcards.
 4. **Analytics:** combine Flashcard statistics and Practice Insights, including topic strengths/weaknesses and performance trends, with English/Chinese course filtering.
 
-The current gauge-based allowance overview is replaced as specified in section 5. The Dashboard must remain responsive and consistent with the established application visual language.
+The current gauge-based allowance overview is replaced as specified in section 5. The Dashboard must remain responsive and consistent with the established application visual language. Tab buttons must switch exactly one visible panel, update active/selected state, support keyboard navigation and preserve the selected tab when profile data refreshes. Daily History review stays on Dashboard for permanent Lessons, Daily Topic/Application/Discovery/Revision, Quiz sessions and Flashcard games. Review is read-only and must not consume allowance, change completion status or mutate original results.
 
 ## 8. Daily History and complete Flashcard game review
 
@@ -211,6 +224,9 @@ U2.8.0 is not complete until:
 - Lesson completion is flexible and mistakes remain available to Practice Insights.
 - Quiz errors map to relevant lesson topics and the recent-review rule is respected.
 - Dashboard tabs, allowance cards and course-aware analytics work.
+- English and Chinese Flashcard courses each expose four modes in the agreed order; the third position swaps Mixed Recall (English) and Translation Recall (Chinese), with the other hidden.
+- Quiz landing and active-test interfaces visibly use the U2.8.0 redesign, including directional previous/next transitions and answer preservation.
+- Dashboard tab switching changes the visible panel and active state; all Daily History review actions open their content without changing the Dashboard route.
 - Every completed Flashcard game in the current Daily History view can be reopened with every original card, including correct answers, without allowance or result mutation.
 - Daily History rolls over at local midnight without deleting long-term records.
 - Daily Learning completed activities refresh at local midnight without destroying historical records or changing allowance rules.
@@ -249,7 +265,7 @@ The owner authorised development after the latest Master Development Record and 
 - The current Chinese dictionary data contains 519 entries, all single-character headwords: HSK 1 = 148, HSK 2 = 271, HSK 3 = 100. Entries already include pinyin, English gloss, Chinese definition, examples and related terms.
 - Related multi-character terms are references inside character entries, not standalone cards. The new Flashcard content pack must add independently usable multi-character vocabulary and useful expressions/phrases, with pinyin, contextual examples and separate definition/translation cues.
 - The production and staging schemas currently constrain Flashcard dictionary cards to `language_code='en'`; the start-game RPC rejects Chinese learning courses. The current session/review mode constraints are `word`, `definition`, `mixed`, `sentence`. Extend both the card and session model for Chinese without weakening owner checks.
-- Interpret the approved four distinct learning objectives as Word Recall, Definition Recall, Translation Recall and Sentence Recall. Preserve the existing Mixed Recall option as a composite mode, so the Chinese course exposes those four distinct modes plus Mixed Recall; English retains its current four modes and behaviour. Mixed Recall for Chinese samples from all four distinct tasks.
+- **Owner correction (2026-11-23):** Both courses expose exactly four mode tiles in the same order/positions. English: Word Recall, Definition Recall, **Mixed Recall**, Sentence Recall. Chinese: Word Recall, Definition Recall, **Translation Recall**, Sentence Recall. Mixed Recall is English-only; Translation Recall is Chinese-only. Switching courses replaces the third tile in place and hides the unavailable mode. Do not expose both modes in one course or add a fifth tile. The previously written requirement for Chinese Mixed Recall is superseded.
 - Word Recall must ask for pinyin; Definition Recall must use a Chinese descriptive clue; Translation Recall must use a direct English equivalent when English is selected or a distinct Chinese paraphrase/equivalent when Chinese is selected; Sentence Recall remains sentence-level. The QA pack must reject identical/near-identical Definition and Translation cues.
 
 ### 14.3 Full Flashcard review history limitation
