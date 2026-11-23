@@ -380,3 +380,12 @@ Browser/static regression coverage was added for the new Quiz UI/transitions, Da
 - Latest-head checks passed for Quiz DB foundation, Flashcards static/browser tests, Chromium signed-out smoke, Supabase CLI local Auth compatibility, U2.7 allowance, ACL, Chinese dictionary, build routing and PostgreSQL migration/allowance.
 - Two duplicate push/PR local Supabase Auth/RPC integration runs were still executing authenticated Quiz Chromium runtime tests. Confirm both results before declaring the full CI gate green.
 - Keep PR #16 draft; no production merge or deployment is authorised. Detailed implementation and validation are recorded in the staging feedback remediation archive.
+
+
+## 21. Authenticated Quiz regression follow-up — 2026-11-23
+
+- The first authenticated Quiz browser run verified the Quiz UI redesign and directional transitions. Its remaining failures were stale locale/tab assertions, a race in the test's synthetic account course preference upsert before checking the Chinese Mixed Recall RPC rejection, and a too-short default timeout for a long full Quiz scenario.
+- Corrected test assumptions and synchronization without removing product assertions. Latest test head: `e1591d86bb58d548cb51bcf848661c3036aaecd9`.
+- Cloudflare Pages preview deployment passed. Stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- All non-authenticated-Quiz latest-head checks passed. Two duplicate push/PR full local Supabase Auth/RPC workflows were still executing authenticated Quiz Chromium tests at the time of this update; verify both before declaring all CI green.
+- Keep PR #16 draft; no production merge, migration or deployment is authorised.
