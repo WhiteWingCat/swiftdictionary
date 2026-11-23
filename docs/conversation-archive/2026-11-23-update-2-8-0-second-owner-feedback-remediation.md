@@ -61,8 +61,9 @@ Applied:
 - 20261123145000_swiftdictionary_update_2_8_0_learning_intro_rls_initplan_optimization
 - 20261123146000_swiftdictionary_update_2_8_0_chinese_quiz_distractor_quality
 - 20261123147000_swiftdictionary_update_2_8_0_chinese_greeting_distractors
+- 20261123148000_swiftdictionary_update_2_8_0_quiz_start_allowance_error_copy
 
-The Quiz limit values remain Free 1 / Premium 3 per local day. Only the charging event changed from completion to successful session start. Existing usage was retained. No in-progress Quiz session was present at migration time.
+The Quiz limit values remain Free 1 / Premium 3 per local day. Only the charging event changed from completion to successful session start. Legacy RPC exhaustion text now reflects start-based charging, and the client displays a bilingual exhausted-allowance message. Existing usage was retained. No in-progress Quiz session was present at migration time.
 
 The RLS performance advisory for the four learning-introduction preference policies was removed by wrapping auth.uid() in a scalar subquery. The remaining security advisor notices require interpretation:
 - Private-schema tables have RLS enabled and no client policies by design; the private schema is not exposed through the public API.
