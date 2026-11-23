@@ -154,6 +154,8 @@ jobs:
           # Keep the local integration schema aligned with staging. The review
           # alias migration is required by the browser response contract.
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123130000_swiftdictionary_update_2_8_0_flashcard_review_mode_alias.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123131000_swiftdictionary_update_2_8_0_chinese_quiz_content.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123132000_swiftdictionary_update_2_8_0_foreign_key_indexes.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123140000_swiftdictionary_update_2_8_0_quiz_start_allowance_and_chinese_question_quality.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123141000_swiftdictionary_update_2_8_0_chinese_quiz_revision_preservation.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123142000_swiftdictionary_update_2_8_0_final_chinese_quiz_prompt_cleanup.sql"
