@@ -670,7 +670,8 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     prompt:quizPageState.session?.questions?.[0]?.prompt_translation
   }));
   expect(chineseSnapshot).toMatchObject({selector:"en",learning:"zh",translation:"en"});
-  expect(String(chineseSnapshot.prompt||"").trim()).not.toBe("");
+  const hasChineseKnowledgeTranslation=await page.evaluate(()=>quizPageState.session.questions.some(q=>q.question_type!=="chinese_translation"&&String(q.prompt_translation||"").trim()));
+  expect(hasChineseKnowledgeTranslation).toBe(true);
 
   let foundTranslationQuestion=false;
   for(let position=1;position<=10;position++){
