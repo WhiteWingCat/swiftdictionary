@@ -416,20 +416,21 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   const nextUser=await createRuntimeUser("translation-snapshot-next","free");
   const nextSession=await signIn(nextUser.email,nextUser.password);
   await updateTranslationPreference(nextUser.id,"zh");
-  const storageKey="sb-"+new URL(apiUrl).hostname.split(".")[0]+"-auth-token";
-  await page.addInitScript(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:nextSession});
-  await page.reload();
-  await expect(page.locator("#quizHome")).toBeVisible();
-  if(await page.locator("#learningIntroBackdrop").isVisible()){
-    await page.locator("#learningIntroDismiss").click();
-    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+  const nextContext=page.context();
+  await page.close();
+  const nextPage=await nextContext.newPage();
+  await openQuiz(nextPage,nextSession);
+  await expect(nextPage.locator("#quizHome")).toBeVisible();
+  if(await nextPage.locator("#learningIntroBackdrop").isVisible()){
+    await nextPage.locator("#learningIntroDismiss").click();
+    await expect(nextPage.locator("#learningIntroBackdrop")).toBeHidden();
   }
-  await page.locator('[data-quiz-start="beginner"]').click();
-  await expect(page.locator("#quizSession")).toBeVisible();
+  await nextPage.locator('[data-quiz-start="beginner"]').click();
+  await expect(nextPage.locator("#quizSession")).toBeVisible();
   const questionTypes = [];
   for (let position=1;position<=10;position++) {
-    questionTypes.push(await page.locator("#quizQuestionArea").getAttribute("data-question-type"));
-    if(position<10) await page.locator("#quizNext").click();
+    questionTypes.push(await nextPage.locator("#quizQuestionArea").getAttribute("data-question-type"));
+    if(position<10) await nextPage.locator("#quizNext").click();
   }
   expect(questionTypes).toContain("chinese_translation");
 });
