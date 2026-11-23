@@ -415,11 +415,12 @@ test("learning introductions are independent per page and help controls reopen t
   expect(await otherAccountRows.json()).toEqual([]);
 });
 
-test("Chinese course enables Chinese Lessons while Quiz and Flashcards remain unavailable", async ({ page }) => {
+test("Chinese course enables Chinese Lessons, Quiz and Flashcards", async ({ page }) => {
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
-  await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
-  await expect(page.locator("#quizHome")).toBeHidden();
+  await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
   await selectCourse(page,"en");
   await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
   await expect(page.locator("#quizHome")).toBeVisible();
@@ -440,8 +441,9 @@ test("Chinese course enables Chinese Lessons while Quiz and Flashcards remain un
   await expect(page.locator("#learningIntroBackdrop")).toBeVisible();
   await page.locator("#learningIntroDismiss").click();
   await selectCourse(page,"zh");
-  await expect(page.locator("#flashcardsChineseUnavailable")).toBeVisible();
-  await expect(page.locator("#flashcardsPage .coming-card")).toBeHidden();
+  await expect(page.locator("#flashcardsChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
   await selectCourse(page,"en");
   await expect(page.locator("#flashcardsChineseUnavailable")).toBeHidden();
   await expect(page.locator("#flashcardsPage .flash-section")).toBeVisible();
@@ -550,12 +552,13 @@ test("Translation changes on the Quiz overview do not auto-open an unfinished se
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
 });
-test("Learning course selector shows a short refresh confirmation", async ({ page }) => {
+test("Learning course selector enables Chinese Quiz and shows a short refresh confirmation", async ({ page }) => {
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
-  await expect(page.locator("#quizChineseUnavailable")).toBeVisible();
-  // The learning course is Chinese, but the selected interface/translation language remains English.
-  await expect(page.locator("#quizChineseUnavailable h2")).toHaveText("中文测验即将推出");
+  // The learning course is Chinese, while the selected interface/translation language remains English.
+  await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await selectCourse(page,"en");
   await expect(page.locator("#quizHome")).toBeVisible();
