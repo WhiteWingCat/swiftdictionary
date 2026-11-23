@@ -3161,9 +3161,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“把”字句把受影响的物品提前到动词前；“关上”说明关门这一动作达到关闭的结果。",
+      "explanation_pinyin": "“bǎ” zì jù bǎ shòu yǐng xiǎng de wù pǐn tí qián dào dòng cí qián; “guān shàng” shuō míng guān mén de dòng zuò dá dào guān bì de jié guǒ.",
+      "explanation_translation": "A 把 sentence places the affected object before the verb. 关上 expresses the result of closing the door."
     },
     {
       "question_id": "zh-zh-a-complex-sentences-02",
@@ -3201,9 +3201,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“被”引出动作的施事者或来源，并说明主语承受动作，因此构成被动表达。",
+      "explanation_pinyin": "“bèi” yǐn chū dòng zuò de shī shì zhě huò lái yuán, bìng shuō míng zhǔ yǔ chéng shòu dòng zuò, yīn cǐ gòu chéng bèi dòng biǎo dá.",
+      "explanation_translation": "被 introduces the agent or source of an action and shows that the subject receives the action, forming a passive construction."
     },
     {
       "question_id": "zh-zh-a-complex-sentences-03",
@@ -3241,9 +3241,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“只有”提出必要条件，“才”引出满足该条件后才会发生的结果。",
+      "explanation_pinyin": "“zhǐ yǒu” tí chū bì yào tiáo jiàn, “cái” yǐn chū mǎn zú gāi tiáo jiàn hòu cái huì fā shēng de jié guǒ.",
+      "explanation_translation": "只有 states a necessary condition, and 才 introduces the result that follows only when the condition is met."
     },
     {
       "question_id": "zh-zh-a-complex-sentences-04",
@@ -3281,9 +3281,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“无论”表示条件不受限制，“都”强调在各种条件下结果保持一致。",
+      "explanation_pinyin": "“wú lùn” biǎo shì tiáo jiàn bù shòu xiàn zhì, “dōu” qiáng diào zài gè zhǒng tiáo jiàn xià jié guǒ bǎo chí yí zhì.",
+      "explanation_translation": "无论 makes the condition unrestricted, while 都 emphasises that the result remains the same in every case."
     },
     {
       "question_id": "zh-zh-a-complex-sentences-05",
@@ -3321,9 +3321,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "这是被动句：手机是承受动作的对象，“被弟弟”指出动作执行者，“拿走了”说明结果。",
+      "explanation_pinyin": "zhè shì bèi dòng jù: shǒu jī shì chéng shòu dòng zuò de duì xiàng, “bèi dì di” zhǐ chū dòng zuò zhí xíng zhě, “ná zǒu le” shuō míng jié guǒ.",
+      "explanation_translation": "This is a passive sentence: the phone receives the action, 被弟弟 names the agent, and 拿走了 gives the result."
     },
     {
       "question_id": "zh-zh-a-complex-sentences-06",
@@ -3361,9 +3361,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“既然”引出已经确认的事实，“就”连接根据该事实得出的结论或后续安排。",
+      "explanation_pinyin": "“jì rán” yǐn chū yǐ jīng què rèn de shì shí, “jiù” lián jiē gēn jù gāi shì shí dé chū de jié lùn huò hòu xù ān pái.",
+      "explanation_translation": "既然 introduces an accepted fact, and 就 links it to a conclusion or next step based on that fact."
     },
     {
       "question_id": "zh-zh-a-complex-sentences-07",
@@ -3401,9 +3401,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“我把作业写完了”中，“把”提前宾语“作业”，“写完”表示动作达到完成的结果。",
+      "explanation_pinyin": "“wǒ bǎ zuò yè xiě wán le” zhōng, “bǎ” tí qián bīn yǔ “zuò yè”, “xiě wán” biǎo shì dòng zuò dá dào wán chéng de jié guǒ.",
+      "explanation_translation": "In 我把作业写完了, 把 moves the object 作业 before the verb, and 写完 indicates the result of finishing the work."
     },
     {
       "question_id": "zh-zh-a-connectors-01",
@@ -3441,9 +3441,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“因此”承接前面的原因或事实，引出由此得出的结果或结论。",
+      "explanation_pinyin": "“yīn cǐ” chéng jiē qián miàn de yuán yīn huò shì shí, yǐn chū yóu cǐ dé chū de jié guǒ huò jié lùn.",
+      "explanation_translation": "因此 connects to a preceding reason or fact and introduces the resulting conclusion or consequence."
     },
     {
       "question_id": "zh-zh-a-connectors-02",
@@ -3481,9 +3481,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“然而”用于连接两个形成转折或对比的分句，语气通常比“但是”更书面。",
+      "explanation_pinyin": "“rán ér” yòng yú lián jiē liǎng gè xíng chéng zhuǎn zhé huò duì bǐ de fēn jù, yǔ qì tōng cháng bǐ “dàn shì” gèng shū miàn.",
+      "explanation_translation": "然而 links clauses that contrast with each other and is generally more formal or written than 但是."
     },
     {
       "question_id": "zh-zh-a-connectors-03",
@@ -3521,9 +3521,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“此外”用于补充前面没有提到的信息，相当于“另外”或“除此之外”。",
+      "explanation_pinyin": "“cǐ wài” yòng yú bǔ chōng qián miàn méi yǒu tí dào de xìn xī, xiāng dāng yú “lìng wài” huò “chú cǐ zhī wài”.",
+      "explanation_translation": "此外 adds information not mentioned earlier; it means “in addition” or “besides.”"
     },
     {
       "question_id": "zh-zh-a-connectors-04",
@@ -3561,9 +3561,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“总之”用于概括前面的讨论或重点，并引出简要总结。",
+      "explanation_pinyin": "“zǒng zhī” yòng yú gài kuò qián miàn de tǎo lùn huò zhòng diǎn, bìng yǐn chū jiǎn yào zǒng jié.",
+      "explanation_translation": "总之 signals a summary of the preceding discussion or main points."
     },
     {
       "question_id": "zh-zh-a-connectors-05",
@@ -3601,9 +3601,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“反而”表示实际结果与原先预期相反，常用于强调意外的转变。",
+      "explanation_pinyin": "“fǎn ér” biǎo shì shí jì jié guǒ yǔ yuán xiān yù qī xiāng fǎn, cháng yòng yú qiáng diào yì wài de zhuǎn biàn.",
+      "explanation_translation": "反而 indicates that the actual result is the opposite of what was expected, often highlighting an unexpected turn."
     },
     {
       "question_id": "zh-zh-a-connectors-06",
@@ -3641,9 +3641,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "前半句说明天气很冷，“然而”引出与通常预期相反的情况：他仍然出门。",
+      "explanation_pinyin": "qián bàn jù shuō míng tiān qì hěn lěng, “rán ér” yǐn chū yǔ tōng cháng yù qī xiāng fǎn de qíng kuàng: tā réng rán chū mén.",
+      "explanation_translation": "The first clause says the weather is cold; 然而 introduces the contrasting, unexpected fact that he still goes out."
     },
     {
       "question_id": "zh-zh-a-connectors-07",
@@ -3681,9 +3681,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“于是”常引出前面情况导致的后续行动或结果，强调事情接着发生。",
+      "explanation_pinyin": "“yú shì” cháng yǐn chū qián miàn qíng kuàng dǎo zhì de hòu xù xíng dòng huò jié guǒ, qiáng diào shì qíng jiē zhe fā shēng.",
+      "explanation_translation": "于是 often introduces a subsequent action or result caused by the preceding situation, emphasising what happened next."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-01",
@@ -3721,9 +3721,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“画蛇添足”比喻做了多余的事，反而破坏原本已经完成或良好的结果。",
+      "explanation_pinyin": "“huà shé tiān zú” bǐ yù zuò le duō yú de shì, fǎn ér pò huài yuán běn yǐ jīng wán chéng huò liáng hǎo de jié guǒ.",
+      "explanation_translation": "画蛇添足 describes doing something unnecessary that spoils an otherwise complete or good result."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-02",
@@ -3761,9 +3761,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“亡羊补牢”比喻出了问题后及时采取补救措施，避免损失继续扩大。",
+      "explanation_pinyin": "“wáng yáng bǔ láo” bǐ yù chū le wèn tí hòu jí shí cǎi qǔ bǔ jiù cuò shī, bì miǎn sǔn shī jì xù kuò dà.",
+      "explanation_translation": "亡羊补牢 means taking corrective action after a problem occurs to prevent further loss."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-03",
@@ -3801,9 +3801,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“一举两得”表示采取一个行动，同时获得两个好处或达到两个目的。",
+      "explanation_pinyin": "“yì jǔ liǎng dé” biǎo shì cǎi qǔ yí gè xíng dòng, tóng shí huò dé liǎng gè hǎo chù huò dá dào liǎng gè mù dì.",
+      "explanation_translation": "一举两得 means achieving two benefits or goals with one action."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-04",
@@ -3841,9 +3841,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“一分耕耘，一分收获”强调付出与收获之间的关系：努力通常带来相应成果。",
+      "explanation_pinyin": "“yì fēn gēng yún, yì fēn shōu huò” qiáng diào fù chū yǔ shōu huò zhī jiān de guān xì: nǔ lì tōng cháng dài lái xiāng yìng chéng guǒ.",
+      "explanation_translation": "一分耕耘，一分收获 emphasises the relationship between effort and reward: work generally brings corresponding results."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-05",
@@ -3881,9 +3881,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "成语通常是结构固定、含义凝练的惯用表达；谚语则多是流传于民间、表达经验或道理的句子。",
+      "explanation_pinyin": "chéng yǔ tōng cháng shì jié gòu gù dìng, hán yì níng liàn de guàn yòng biǎo dá; yàn yǔ zé duō shì liú chuán yú mín jiān, biǎo dá jīng yàn huò dào lǐ de jù zi.",
+      "explanation_translation": "An idiom is usually a fixed, compact expression with an established meaning; a proverb is a saying passed down in everyday culture that conveys experience or advice."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-06",
@@ -3921,9 +3921,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“入乡随俗”劝人在新的地方尊重并遵循当地的习惯和规矩。",
+      "explanation_pinyin": "“rù xiāng suí sú” quàn rén zài xīn de dì fāng zūn zhòng bìng zūn xún dāng dì de xí guàn hé guī ju.",
+      "explanation_translation": "入乡随俗 advises people to respect and follow local customs when they are in a new place."
     },
     {
       "question_id": "zh-zh-a-idioms-proverbs-07",
@@ -3961,9 +3961,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "在已经很好的设计上添加不必要的功能，会让结果变得多余甚至更差，正符合“画蛇添足”的意思。",
+      "explanation_pinyin": "zài yǐ jīng hěn hǎo de shè jì shàng tiān jiā bù bì yào de gōng néng, huì ràng jié guǒ biàn dé duō yú shèn zhì gèng chà, zhè zhèng fú hé “huà shé tiān zú” de yì si.",
+      "explanation_translation": "Adding unnecessary features to an already good design makes it excessive or worse, which is exactly what 画蛇添足 describes."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-01",
@@ -4001,9 +4001,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“才”在时间表达中常强调事情发生得较晚，或比预期更迟，例如“他十点才来”。",
+      "explanation_pinyin": "“cái” zài shí jiān biǎo dá zhōng cháng qiáng diào shì qíng fā shēng de jiào wǎn, huò bǐ yù qī gèng chí, lì rú “tā shí diǎn cái lái”.",
+      "explanation_translation": "In time expressions, 才 often emphasises that something happens late or later than expected, as in 他十点才来."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-02",
@@ -4041,9 +4041,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“终于”强调经过等待、努力或一段过程后，某个结果最后出现。",
+      "explanation_pinyin": "“zhōng yú” qiáng diào jīng guò děng dài, nǔ lì huò yí duàn guò chéng hòu, mǒu gè jié guǒ zuì hòu chū xiàn.",
+      "explanation_translation": "终于 emphasises that a result finally happens after waiting, effort or a process."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-03",
@@ -4081,9 +4081,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“了解”表示掌握某件事的情况或相关信息，程度通常比单纯听说更深入。",
+      "explanation_pinyin": "“liǎo jiě” biǎo shì zhǎng wò mǒu jiàn shì de qíng kuàng huò xiāng guān xìn xī, chéng dù tōng cháng bǐ dān chún tīng shuō gèng shēn rù.",
+      "explanation_translation": "了解 means to understand or be informed about a situation, usually beyond merely having heard of it."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-04",
@@ -4121,9 +4121,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“发明”表示创造以前不存在的新事物或新方法；它不同于发现已经存在的事物。",
+      "explanation_pinyin": "“fā míng” biǎo shì chuàng zào yǐ qián bù cún zài de xīn shì wù huò xīn fāng fǎ; tā bù tóng yú “fā xiàn”.",
+      "explanation_translation": "发明 means to create something or a method that did not exist before; it differs from 发现, which means to discover something that already exists."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-05",
@@ -4161,9 +4161,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“适合”表示某人或某物符合特定需要或条件；“适合初学者”就是适用于刚开始学习的人。",
+      "explanation_pinyin": "“shì hé” biǎo shì mǒu rén huò mǒu wù fú hé tè dìng xū yào huò tiáo jiàn; “shì hé chū xué zhě” jiù shì shì yòng yú gāng kāi shǐ xué xí de rén.",
+      "explanation_translation": "适合 means to be suitable for a particular need or condition. 适合初学者 means suitable for beginners."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-06",
@@ -4201,9 +4201,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“尤其”用于突出某个人、事物或情况，表示它比其他对象更值得注意。",
+      "explanation_pinyin": "“yóu qí” yòng yú tū chū mǒu gè rén, shì wù huò qíng kuàng, biǎo shì tā bǐ qí tā duì xiàng gèng zhí dé zhù yì.",
+      "explanation_translation": "尤其 highlights a person, thing or situation as particularly noteworthy compared with others."
     },
     {
       "question_id": "zh-zh-a-nuanced-vocabulary-07",
@@ -4241,9 +4241,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“甚至”引出程度更深或更极端的例子，表示某种情况超出一般预期。",
+      "explanation_pinyin": "“shèn zhì” yǐn chū chéng dù gèng shēn huò gèng jí duān de lì zi, biǎo shì mǒu zhǒng qíng kuàng chāo chū yì bān yù qī.",
+      "explanation_translation": "甚至 introduces an even stronger or more extreme example, showing that something goes beyond ordinary expectations."
     },
     {
       "question_id": "zh-zh-a-natural-expression-literature-01",
@@ -4281,9 +4281,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "“没关系”常用于回应道歉，表示不必介意或事情没有造成严重影响。",
+      "explanation_pinyin": "“méi guān xi” cháng yòng yú huí yìng dào qiàn, biǎo shì bù bì jiè yì huò shì qíng méi yǒu zào chéng yán zhòng yǐng xiǎng.",
+      "explanation_translation": "没关系 is a common response to an apology, meaning “it's okay” or “don't worry about it.”"
     },
     {
       "question_id": "zh-zh-a-natural-expression-literature-02",
@@ -4321,9 +4321,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "“辛苦了”用于认可别人付出的努力或辛劳，常在对方完成工作后表达体谅和感谢。",
+      "explanation_pinyin": "“xīn kǔ le” yòng yú rèn kě bié rén fù chū de nǔ lì huò xīn láo, cháng zài duì fāng wán chéng gōng zuò hòu biǎo dá tǐ liàng hé gǎn xiè.",
+      "explanation_translation": "辛苦了 acknowledges someone's effort or hard work and is often said after they have completed a task."
     },
     {
       "question_id": "zh-zh-a-natural-expression-literature-03",
@@ -4361,9 +4361,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "“床前明月光，疑是地上霜”是唐代诗人李白《静夜思》的开头两句。",
+      "explanation_pinyin": "“chuáng qián míng yuè guāng, yí shì dì shàng shuāng” shì táng dài shī rén Lǐ Bái “jìng yè sī” de kāi tóu liǎng jù.",
+      "explanation_translation": "“床前明月光，疑是地上霜” are the opening two lines of 静夜思 by the Tang poet Li Bai."
     },
     {
       "question_id": "zh-zh-a-natural-expression-literature-04",
@@ -4401,9 +4401,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "李白是唐代著名诗人，常被称为“诗仙”；《静夜思》是他的代表作之一。",
+      "explanation_pinyin": "Lǐ Bái shì táng dài zhù míng shī rén, cháng bèi chēng wéi “shī xiān”; “jìng yè sī” shì tā de dài biǎo zuò zhī yī.",
+      "explanation_translation": "Li Bai was a renowned Tang dynasty poet, often called the “Immortal Poet.” 静夜思 is one of his best-known works."
     },
     {
       "question_id": "zh-zh-a-natural-expression-literature-05",
@@ -4441,9 +4441,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "诗句把明亮的月光看作地上的白霜，表现诗人夜间醒来时的视觉感受。",
+      "explanation_pinyin": "shī jù bǎ míng liàng de yuè guāng kàn zuò dì shàng de bái shuāng, biǎo xiàn shī rén yè jiān xǐng lái shí de shì jué gǎn shòu.",
+      "explanation_translation": "The lines compare the bright moonlight to white frost on the ground, describing the poet's visual impression at night."
     },
     {
       "question_id": "zh-zh-a-natural-expression-literature-06",
@@ -4481,9 +4481,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "“不积跬步，无以至千里”出自《荀子·劝学》，说明远大目标需要从小步积累开始。",
+      "explanation_pinyin": "“bù jī kuǐ bù, wú yǐ zhì qiān lǐ” chū zì “xún zǐ · quàn xué”, shuō míng yuǎn dà mù biāo xū yào cóng xiǎo bù jī lěi kāi shǐ.",
+      "explanation_translation": "“不积跬步，无以至千里” comes from Xunzi's 勸學 and teaches that great goals require steady accumulation of small steps."
     },
     {
       "question_id": "zh-extra-01",
@@ -4601,9 +4601,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“把这封信”提前说明受处理的对象，“寄出去”表示把信寄离说话者所在的位置。",
+      "explanation_pinyin": "“bǎ zhè fēng xìn” tí qián shuō míng shòu chǔ lǐ de duì xiàng, “jì chū qù” biǎo shì bǎ xìn jì lí shuō huà zhě suǒ zài de wèi zhì.",
+      "explanation_translation": "把这封信 identifies the letter being handled, and 寄出去 means to send it away from the speaker's location."
     },
     {
       "question_id": "zh-extra-04",
@@ -4641,9 +4641,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“我的自行车”是承受动作的主语，“被人”表示施事者不具体，“偷了”说明发生了偷窃。",
+      "explanation_pinyin": "“wǒ de zì xíng chē” shì chéng shòu dòng zuò de zhǔ yǔ, “bèi rén” biǎo shì shī shì zhě bù jù tǐ, “tōu le” shuō míng fā shēng le tōu qiè.",
+      "explanation_translation": "我的自行车 is the subject receiving the action; 被人 leaves the agent unspecified, and 偷了 states that it was stolen."
     },
     {
       "question_id": "zh-extra-05",
@@ -4681,9 +4681,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“只有努力”提出必要条件，“才能成功”说明成功必须以努力为前提。",
+      "explanation_pinyin": "“zhǐ yǒu nǔ lì” tí chū bì yào tiáo jiàn, “cái néng chéng gōng” shuō míng chéng gōng bì xū yǐ nǔ lì wéi qián tí.",
+      "explanation_translation": "只有努力 states the necessary condition, and 才能成功 says that success depends on meeting it."
     },
     {
       "question_id": "zh-extra-06",
@@ -4721,9 +4721,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“无论多忙”表示忙碌程度不构成限制，“都会回信”说明结果始终如此。",
+      "explanation_pinyin": "“wú lùn duō máng” biǎo shì máng lù chéng dù bù gòu chéng xiàn zhì, “dōu huì huí xìn” shuō míng jié guǒ shǐ zhōng rú cǐ.",
+      "explanation_translation": "无论多忙 means that any level of busyness is no obstacle; 都会回信 states the consistent result."
     },
     {
       "question_id": "zh-extra-07",
@@ -4761,9 +4761,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“多此一举”说明这个行动没有必要；“反而坏事”指出多余的做法可能让结果变差。",
+      "explanation_pinyin": "“duō cǐ yì jǔ” shuō míng zhè ge xíng dòng méi yǒu bì yào; “fǎn ér huài shì” zhǐ chū duō yú de zuò fǎ kě néng ràng jié guǒ biàn chà.",
+      "explanation_translation": "多此一举 says the action is unnecessary, while 反而坏事 explains that the extra action may make things worse."
     },
     {
       "question_id": "zh-extra-08",
@@ -4801,9 +4801,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "这句话解释“入乡随俗”：到新的地方后，按当地习俗行事。",
+      "explanation_pinyin": "zhè jù huà jiě shì “rù xiāng suí sú”: dào xīn de dì fāng hòu, àn dāng dì xí sú xíng shì.",
+      "explanation_translation": "This explains 入乡随俗: when you go somewhere new, follow the customs of that place."
     },
     {
       "question_id": "zh-extra-09",
@@ -4841,9 +4841,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“细心”形容做事认真、留意细节，不容易忽略小地方。",
+      "explanation_pinyin": "“xì xīn” xíng róng zuò shì rèn zhēn, liú yì xì jié, bù róng yì hū lüè xiǎo dì fāng.",
+      "explanation_translation": "细心 describes being careful and attentive to details rather than overlooking small things."
     },
     {
       "question_id": "zh-extra-10",
@@ -4881,9 +4881,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "发现表示找到原本存在但未注意到的事物；发明表示创造新的事物或方法。",
-      "explanation_pinyin": "fā xiàn biǎo shì zhǎo dào yuán běn cún zài dàn wèi zhù yì dào de shì wù; fā míng biǎo shì chuàng zào xīn de shì wù huò fāng fǎ.",
-      "explanation_translation": "发现 means discover something that exists; 发明 means invent something new."
+      "explanation_learning": "“公开”表示让原本不公开的信息、资料或活动向公众开放或可被大家知道。",
+      "explanation_pinyin": "“gōng kāi” biǎo shì ràng yuán běn bù gōng kāi de xìn xī, zī liào huò huó dòng xiàng gōng zhòng kāi fàng huò kě bèi dà jiā zhī dào.",
+      "explanation_translation": "公开 means making information, materials or an event that was not public accessible or known to the public."
     },
     {
       "question_id": "zh-extra-11",
@@ -4921,9 +4921,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "“一举两得”强调一个行动同时带来两个好处，因此适合概括兼顾两项目标的做法。",
+      "explanation_pinyin": "“yì jǔ liǎng dé” qiáng diào yí gè xíng dòng tóng shí dài lái liǎng gè hǎo chù, yīn cǐ shì hé gài kuò jiān gù liǎng xiàng mù biāo de zuò fǎ.",
+      "explanation_translation": "一举两得 describes one action that brings two benefits, making it suitable for a solution that achieves two goals at once."
     },
     {
       "question_id": "zh-extra-12",
@@ -4961,9 +4961,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "没关系可回应道歉；不客气常回应感谢。",
-      "explanation_pinyin": "méi guān xi kě huí yìng dào qiàn; bú kè qi cháng huí yìng gǎn xiè.",
-      "explanation_translation": "没关系 responds to an apology; 不客气 responds to thanks."
+      "explanation_learning": "“春眠不觉晓”是孟浩然《春晓》的开头，描写春日睡醒时天已亮的情景。",
+      "explanation_pinyin": "“chūn mián bù jué xiǎo” shì Mèng Hào Rán “chūn xiǎo” de kāi tóu, miáo xiě chūn rì shuì xǐng shí tiān yǐ jīng liàng le de qíng jǐng.",
+      "explanation_translation": "“春眠不觉晓” opens 孟浩然's poem 春晓 and describes waking from spring sleep after dawn has arrived."
     },
     {
       "question_id": "zh-extra-13",
@@ -5001,9 +5001,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "把字句常见结构为主语 + 把 + 宾语 + 动词 + 结果或补充成分。",
-      "explanation_pinyin": "bǎ zì jù cháng jiàn jié gòu wéi zhǔ yǔ + bǎ + bīn yǔ + dòng cí + jié guǒ huò bǔ chōng chéng fèn.",
-      "explanation_translation": "A common 把 pattern is subject + 把 + object + verb + result or complement."
+      "explanation_learning": "“如果”提出明天下雨这一条件，“就”引出条件成立时不去的结果。",
+      "explanation_pinyin": "“rú guǒ” tí chū míng tiān xià yǔ zhè yí tiáo jiàn, “jiù” yǐn chū tiáo jiàn chéng lì shí bù qù de jié guǒ.",
+      "explanation_translation": "如果 introduces the condition that it rains tomorrow, and 就 gives the result: the speaker will not go."
     },
     {
       "question_id": "zh-extra-14",
@@ -5041,9 +5041,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "连接词帮助读者理解句子之间的逻辑，而不只是连接单词。",
-      "explanation_pinyin": "lián jiē cí bāng zhù dú zhě lǐ jiě jù zi zhī jiān de luó jí, ér bú zhǐ shì lián jiē dān cí.",
-      "explanation_translation": "Connectors clarify relationships between ideas, not just words."
+      "explanation_learning": "“虽然”引出他很累这一让步事实，“但是”强调他仍然完成工作。",
+      "explanation_pinyin": "“suī rán” yǐn chū tā hěn lèi zhè yí ràng bù shì shí, “dàn shì” qiáng diào tā réng rán wán chéng gōng zuò.",
+      "explanation_translation": "虽然 introduces the concession that he is tired, while 但是 emphasises that he completes the work anyway."
     },
     {
       "question_id": "zh-extra-15",
@@ -5081,9 +5081,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
-      "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
-      "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+      "explanation_learning": "“自相矛盾”形容同一个人的说法或行为彼此冲突，不能同时成立。",
+      "explanation_pinyin": "“zì xiāng máo dùn” xíng róng tóng yí gè rén de shuō fǎ huò xíng wéi bǐ cǐ chōng tū, bù néng tóng shí chéng lì.",
+      "explanation_translation": "自相矛盾 describes a person's own statements or actions contradicting each other so that they cannot all be true."
     },
     {
       "question_id": "zh-extra-17",
@@ -5121,9 +5121,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "“三思而后行”提醒人在采取行动前先认真思考。",
-      "explanation_pinyin": "sān sī ér hòu xíng tí xǐng rén zài cǎi qǔ xíng dòng qián xiān rèn zhēn sī kǎo.",
-      "explanation_translation": "三思而后行 advises someone to think carefully before acting."
+      "explanation_learning": "“三思而后行”劝人行动或作决定前先仔细考虑，避免仓促行事。",
+      "explanation_pinyin": "“sān sī ér hòu xíng” quàn rén xíng dòng huò zuò jué dìng qián xiān zǐ xì kǎo lǜ, bì miǎn cāng cù xíng shì.",
+      "explanation_translation": "三思而后行 advises someone to think carefully before acting or deciding, rather than rushing."
     }
   ],
   "supported_session_translation_languages": [
