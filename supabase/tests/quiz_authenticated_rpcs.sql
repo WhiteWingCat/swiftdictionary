@@ -507,8 +507,10 @@ end;
 $advanced$;
 
 
--- Chinese Quiz is now supported by U2.8.0 and must be offered when
--- the approved bank, fresh-question pool and account allowance are sufficient.
+-- Chinese is a supported learning course in U2.8.0. This small synthetic
+-- integration fixture intentionally lacks the full 30-question / 3-topic
+-- release bank, so the server must report bank readiness rather than reject
+-- the language as unsupported.
 update public.user_preferences
 set learning_language='zh',translation_language='en'
 where user_id=auth.uid();
@@ -516,37 +518,32 @@ where user_id=auth.uid();
 do $supported_chinese_course$
 declare
   v_availability jsonb;
-  v_session jsonb;
-  v_session_id uuid;
+  v_failed boolean:=false;
+  v_reason text;
 begin
   v_availability:=public.get_my_quiz_availability();
-  if v_availability->>'learning_language_code'<>'zh'
-     or not exists (
-       select 1 from jsonb_array_elements(v_availability->'difficulties') d
-       where d->>'difficulty'='beginner'
-         and coalesce((d->>'available')::boolean,false)
-     ) then
-    raise exception 'Chinese Beginner Quiz should be available when its bank and allowance are sufficient';
+  if v_availability->>'learning_language_code'<>'zh' then
+    raise exception 'Chinese Quiz availability did not retain the selected learning language';
   end if;
 
-  v_session:=public.start_my_quiz('beginner');
-  if v_session->>'status'<>'in_progress'
-     or v_session->>'learning_language_code'<>'zh'
-     or jsonb_array_length(v_session->'questions')<>10 then
-    raise exception 'Chinese Beginner Quiz did not start with the expected language and question count';
-  end if;
-  if exists (
-    select 1 from jsonb_array_elements(v_session->'questions') q
-    where q->>'learning_language_code'<>'zh'
-       or q->>'answer_language_code'<>'zh'
-  ) then
-    raise exception 'Chinese Quiz session contains a question with an incorrect language snapshot';
+  select d->>'reason' into v_reason
+  from jsonb_array_elements(v_availability->'difficulties') d
+  where d->>'difficulty'='beginner';
+
+  if v_reason is distinct from 'question_bank_below_minimum' then
+    raise exception 'Chinese Quiz should be recognised but unavailable until its release bank is sufficient; got reason %',v_reason;
   end if;
 
-  v_session_id:=(v_session->>'session_id')::uuid;
-  perform public.abandon_my_quiz(v_session_id);
+  begin
+    perform public.start_my_quiz('beginner');
+  exception when sqlstate 'P0001' then
+    v_failed:=true;
+  end;
+  if not v_failed then
+    raise exception 'Chinese Quiz started despite its deliberately incomplete synthetic question bank';
+  end if;
   if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoning Chinese Quiz consumed completion allowance';
+    raise exception 'An unavailable Chinese Quiz attempt consumed completion allowance';
   end if;
 end;
 $supported_chinese_course$;
