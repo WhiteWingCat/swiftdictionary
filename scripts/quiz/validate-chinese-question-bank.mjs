@@ -52,7 +52,7 @@ for(const [i,q] of (pack.questions||[]).entries()){
 for(const [d,min] of Object.entries({beginner:30,intermediate:36,advanced:48})){
  if(counts[d]<min)errors.push(d+" has "+counts[d]+" questions; at least "+min+" required");
  if(topics[d].size<3)errors.push(d+" needs at least three mapped knowledge topics");
- if(translationCounts[d]<1)errors.push(d+" needs at least one English-to-Chinese translation item");
+ if(translationCounts[d]<3)errors.push(d+" has "+translationCounts[d]+" English-to-Chinese translation items; at least three are required to support the Premium three-completion daily allowance without same-day repeats");
  if(translationTopics[d].size<3)errors.push(d+" needs translation coverage across at least three topics");
 }
 if(errors.length){console.error("Chinese Quiz draft validation failed:");for(const e of errors)console.error(" - "+e);process.exit(1);}
