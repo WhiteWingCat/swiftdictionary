@@ -217,27 +217,27 @@
       "options": [
         {
           "id": "o1",
-          "learning_text": "你好",
+          "learning_text": "nǐ hǎo",
           "translation_text": "Standard written form.",
-          "pinyin": "nǐ hǎo"
+          "pinyin": null
         },
         {
           "id": "o2",
-          "learning_text": "你好",
+          "learning_text": "ní hǎo",
           "translation_text": "A common spoken tone-sandhi pronunciation.",
-          "pinyin": "ní hǎo"
+          "pinyin": null
         },
         {
           "id": "o3",
-          "learning_text": "你好",
+          "learning_text": "nǐ hào",
           "translation_text": "Incorrect tone on the second syllable.",
-          "pinyin": "nǐ hào"
+          "pinyin": null
         },
         {
           "id": "o4",
-          "learning_text": "你好",
+          "learning_text": "nì hǎo",
           "translation_text": "Incorrect tone on the first syllable.",
-          "pinyin": "nì hǎo"
+          "pinyin": null
         }
       ],
       "correct_option_id": "o1",
