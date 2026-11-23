@@ -800,18 +800,14 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   expect(elapsed.ok()).toBeTruthy();
   const elapsedBody=await elapsed.json();
   expect(elapsedBody.duration_seconds).toBeGreaterThan(0);
+  const completionResponsePromise=page.waitForResponse(
+    response=>response.url().includes("/rpc/complete_my_flashcard_game"),
+    {timeout:20000}
+  );
   await page.clock.runFor((challengeSeconds+2)*1000);
-  await page.clock.runFor(2500);
-  const flashResultCount=await page.locator("#flashResultTitle").count();
-  if(!flashResultCount){
-    const diagnostics=await page.evaluate(()=>({
-      clock:document.querySelector("#flashGameClock")?.textContent,
-      notice:document.querySelector("#flashNotice")?.textContent,
-      overlay:document.querySelector("#flashOverlay")?.innerText,
-      appText:document.querySelector("#flashcardsApp")?.innerText?.slice(-1200)
-    }));
-    throw new Error("Flashcard game did not reach its result screen: "+JSON.stringify({diagnostics,flashRpcDiagnostics}));
-  }
+  const completionResponse=await completionResponsePromise;
+  const completionBody=await completionResponse.text();
+  expect(completionResponse.ok(),completionBody).toBeTruthy();
   await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:15000});
 
   const dataResponse=await api.post(apiUrl+"/rest/v1/rpc/get_my_flashcard_data",{
