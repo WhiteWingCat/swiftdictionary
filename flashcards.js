@@ -247,7 +247,7 @@
       '<button class="flash-secondary" data-action="remove-card" data-value="'+c.id+'">Remove</button></div></div>'
     ).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
   }
-  function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c};}
+  function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.definition_zh||c.translation_text||c.back_text,definitionCueZh:c.definition_zh||c.translation_text||"",translationEn:c.back_text,translationZh:c.translation_zh||"",pinyin:c.pinyin||"",examples:c.example_text?[c.example_text]:[],course:c.language_code||"en",_custom:c};}
   function gameDeck(){
     let all=words();
     if(course==="zh"){
@@ -263,7 +263,7 @@
       }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
       else if(state.cardSet==="terms")all=all.filter(w=>/technical vocabulary|scientific|academic|subject-specific/i.test(String(w.breakdown||"")+" "+String(w.tip||"")));
     }
-    const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom").map(mapCustomCard)];
+    const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom"&&(c.language_code||"en")===course).map(mapCustomCard)];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId);
     const targets=selected.map(c=>{if(c.card_type==="custom")return mapCustomCard(c);const source=words().find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase());return source?{...source,word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||source.definitionZh,examples:c.example_text?[c.example_text]:source.examples,dictionary_word:c.dictionary_word,_flashCard:c}:null;}).filter(Boolean);
