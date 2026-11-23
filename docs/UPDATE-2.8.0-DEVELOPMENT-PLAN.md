@@ -170,13 +170,14 @@ At the effective local midnight reset, previously completed Daily Topic, Daily A
 
 ## 10. Existing allowance and product rules to preserve
 
-Do not change quota policy in U2.8.0. Preserve current configured Free/Premium quotas and server-side enforcement. Recorded policy baselines from earlier approved work include:
-- Permanent lessons: Free 5/day; Premium 15/day.
-- Daily Topic, Daily Application, Daily Discovery and Daily Revision: Free 1 each/day; Premium 3 each/day.
-- Quiz: Free 1 completed/day; Premium 3 completed/day.
+Preserve the configured Free/Premium quota amounts and server-side enforcement. The U2.8.0 owner has explicitly approved one Quiz charging-point change: Quiz allowance is consumed when a new Quiz session is successfully created, after the user confirms the warning. Cancelling the warning does not consume allowance; abandoning a started Quiz does not refund it. This now matches the Permanent Lesson start-based rule.
+
+- Permanent lessons: Free 5 starts/day; Premium 15 starts/day.
+- Daily Topic, Daily Application, Daily Discovery and Daily Revision: Free 1 successful completion each/day; Premium 3 each/day.
+- Quiz: Free 1 session start/day; Premium 3 session starts/day.
 - Flashcards: Free 3 completed games/day; Premium 10 completed games/day.
 
-Abandoning a session/game does not consume a completion allowance; only successful completion does, subject to the existing Quiz question-reservation rule. Confirm actual production configuration and migration history during audit before making any assumptions or proposing database changes. Personal testing bypass must remain narrowly scoped and must not be expanded.
+Quota amounts, plan entitlements, user-local timezone reset, concurrency locking, and the narrowly scoped lesson-only personal testing exemption remain unchanged. Flashcard games and Daily Learning activities remain completion-charged. Existing completed Quiz usage is preserved during the charging-point transition; staging had no in-progress Quiz sessions at migration time.
 
 Dictionary word-grid search remains free and unlimited.
 
@@ -220,10 +221,15 @@ U2.8.0 is not complete until:
 - Word Recall, Definition Recall, Translation Recall and Sentence Recall test distinct skills; cross-mode overlap QA passes.
 - Chinese-course English integration appears only under English translation preference; Chinese preference remains English-free.
 - Existing sessions preserve their captured language configuration.
-- Quiz UI and test navigation transitions work without losing answers or corrupting state.
+- Quiz UI and test navigation transitions work without losing answers or corrupting state; Answer Review uses the current Quiz visual system.
+- Quiz difficulty, daily allowance and Quiz History containers use the updated card design; difficulty cards have distinct, readable colors.
+- A bilingual pre-start confirmation explains that a Quiz start consumes allowance and abandonment does not refund it; dismissing the prompt does not charge.
+- Chinese Quiz prompts do not repeat or translate the correct answer in either prompt language; active choices do not expose the answer through option translations or Pinyin. Structural and linguistic distractor review is documented.
 - Lesson completion is flexible and mistakes remain available to Practice Insights.
 - Quiz errors map to relevant lesson topics and the recent-review rule is respected.
-- Dashboard tabs, allowance cards and course-aware analytics work.
+- Dashboard tabs, allowance cards and course-aware analytics work; each tab has a distinct color/icon, readable label, panel background/shadow and appropriate transition.
+- Dashboard hero banner contains the Profile icon, title and description; Daily History is segmented into Lessons, Quiz and Flashcards, uses correct Chinese topic titles, and owns Quiz History instead of Analytics.
+- Translation Recall has the agreed orange card; exhausted Flashcard allowance attempts display an immediate notification.
 - English and Chinese Flashcard courses each expose four modes in the agreed order; the third position swaps Mixed Recall (English) and Translation Recall (Chinese), with the other hidden.
 - Quiz landing and active-test interfaces visibly use the U2.8.0 redesign, including directional previous/next transitions and answer preservation.
 - Dashboard tab switching changes the visible panel and active state; all Daily History review actions open their content without changing the Dashboard route.
@@ -389,3 +395,47 @@ Browser/static regression coverage was added for the new Quiz UI/transitions, Da
 - Cloudflare Pages preview deployment passed. Stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
 - All non-authenticated-Quiz latest-head checks passed. Two duplicate push/PR full local Supabase Auth/RPC workflows were still executing authenticated Quiz Chromium tests at the time of this update; verify both before declaring all CI green.
 - Keep PR #16 draft; no production merge, migration or deployment is authorised.
+
+
+## 22. Second owner feedback remediation — 2026-11-23
+
+The owner supplied a 12-point staging feedback round covering Answer Review, Chinese Quiz answer leakage, incomplete Quiz card redesign, Quiz start allowance warning, difficulty colors, Flashcard Translation Recall color and exhausted-state notification, Dashboard tab polish/hero, Chinese Daily History topic rendering, history segmentation, and moving Quiz History from Analytics into Daily History.
+
+### Implemented on the U2.8.0 feature branch
+
+- Answer Review now uses a score summary, per-question correctness status, option rows, and a dedicated explanation panel aligned with the current Quiz palette.
+- Quiz difficulty, allowance and Quiz History containers now use the updated card system. Beginner, Intermediate and Advanced have separate green, blue and purple treatments.
+- Quiz start shows a bilingual confirmation. It charges only after the start RPC creates a session; dismissal does not charge, abandonment does not refund.
+- Active Chinese Quiz choices no longer display option Pinyin or English translations that could reveal the correct option. The review view retains pronunciation/translation support after submission.
+- Chinese prompt QA covered the approved 145-question bank. Initial scans exposed answer text and Pinyin in question prompts, then a deeper normalized scan caught further phrase-level and English prompt-translation leaks. Prompts were paraphrased in both display languages and affected rows promoted as immutable question revisions. Latest staging audit reports zero direct answer-text leaks in either prompt language and zero matching Pinyin leaks. Duplicate learning-option audit reports zero duplicate option sets.
+- The advanced 把-construction example received a more plausible, grammatical distractor set. Automated structural checks are not a substitute for a full native-speaker review; that remains a separate content-quality gate.
+- Translation Recall uses orange. Attempting to open or start a Flashcard recall game with exhausted allowance shows the daily-exhaustion toast immediately; the server rejection path refreshes allowance and shows the same notice.
+- Dashboard tabs now have individual colors/icons, readable labels, panel backgrounds, shadows and transitions. The Profile title/description/avatar sit in a custom banner.
+- Daily History now has separate Lessons, Quiz and Flashcards groups. Chinese content IDs (including revision IDs) resolve through the Chinese daily catalogue and lesson catalogue. Quiz History has moved from Analytics into Daily History; the standalone Quiz-page history remains.
+- Regression coverage was updated for Quiz confirmation/cancellation/start charging, Chinese active-choice answer-leak prevention, Answer Review, Dashboard Daily History grouping, Translation Recall color and exhausted-state notification.
+
+### Staging database
+
+- Target: SwiftDictionary Indie Staging ivatvkfrtifgfheeaelj; Production was not modified.
+- Applied supplemental migrations:
+  - 20261123140000 — Quiz start allowance and Chinese prompt/distractor quality.
+  - 20261123141000 — preserve immutable question revisions and historical session references.
+  - 20261123142000 — final Chinese prompt cleanup.
+  - 20261123143000 — paraphrase English translations of Chinese prompts to remove answer leakage.
+  - 20261123144000 — final translation-prompt revision.
+  - 20261123145000 — optimize learning-introduction preference RLS policies without changing ownership semantics.
+- Approved Chinese Quiz inventory remains 145 questions. Prior versions are retained as retired rows so completed sessions continue to reference their original revisions.
+- Quiz quotas remain Free 1 / Premium 3 per local day; the charging point is now session start. Existing staging usage was preserved and no in-progress Quiz session existed during the transition.
+- Supabase performance advisor no longer reports the four auth_rls_initplan warnings after the policy optimization. INFO-level unused-index notices are not grounds to drop indexes without workload evidence. RLS-enabled private-schema tables intentionally have no client policies because the private schema is not exposed. The existing Auth warning that leaked-password protection is disabled is a project-level Auth setting, not safely changeable through SQL; it remains disclosed for a dashboard-level decision.
+
+### Legal/privacy review
+
+This feedback adds no new personal-data category, analytics vendor, advertising, or third-party recipient. Quiz start allowance uses the existing account-scoped learning activity log and daily allowance ledger. Data minimisation and the existing Malaysia PDPA/international privacy review requirements remain applicable. No legal clearance is implied; 16–17-year-old consent/guardian treatment, cross-border processing, retention/deletion, and DPO/DPIA applicability remain outstanding review items.
+
+### Validation and release gate
+
+- Staging migrations and SQL content audits are complete.
+- Latest feature branch: feature/update-2-8-0-chinese-quiz-flashcards; PR #16 remains draft.
+- Cloudflare Pages stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- Latest-head CI was queued/running at the time of this record. Do not mark the preview ready until Quiz DB foundation, authenticated Quiz RPC/browser, Flashcards browser, Dashboard/allowance regression, ACL, Chinese dictionary and Cloudflare build-routing checks complete successfully.
+- Owner staging review remains required. No merge, production migration or production deployment is authorised.
