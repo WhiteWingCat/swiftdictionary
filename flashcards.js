@@ -12,7 +12,7 @@
   // Mode-specific start windows and minimum caps. Both windows reduce by 0.2s per completed round.
   const REDUCTION_STEP = 0.2;
   const timing = {
-    word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9},intermediate:{memory:5,answer:10,memoryFloor:2,answerFloor:7},advanced:{memory:3,answer:9,memoryFloor:1,answerFloor:5}},
+    word:{beginner:{memory:5,answer:12,memoryFloor:3,answerFloor:9},intermediate:{memory:5,answer:10,memoryFloor:2,answerFloor:7},advanced:{memory:3,answer:9,memoryFloor:1,answerFloor:5}},\n    translation:{beginner:{memory:6,answer:5,memoryFloor:4,answerFloor:3},intermediate:{memory:5,answer:4,memoryFloor:3,answerFloor:3},advanced:{memory:4,answer:4,memoryFloor:2,answerFloor:3}},
     definition:{beginner:{memory:6,answer:5,memoryFloor:4,answerFloor:3},intermediate:{memory:5,answer:4,memoryFloor:3,answerFloor:3},advanced:{memory:4,answer:4,memoryFloor:2,answerFloor:3}},
     sentence:{beginner:{memory:7,answer:10,memoryFloor:5,answerFloor:7},intermediate:{memory:6,answer:8,memoryFloor:4,answerFloor:6},advanced:{memory:5,answer:6,memoryFloor:3,answerFloor:3}},
     mixed:{beginner:{memory:8,answer:12,memoryFloor:6,answerFloor:9},intermediate:{memory:7,answer:10,memoryFloor:5,answerFloor:7},advanced:{memory:6,answer:8,memoryFloor:4,answerFloor:5}}
@@ -25,20 +25,20 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
-  function words(){return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
+  function words(language=state.game?.learningLanguage||course){if(language==="zh"){const bank=window.SWIFT_CHINESE_FLASHCARDS||{};const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:w.exampleZh?[w.exampleZh]:[],phonetic:w.pinyin||""}));return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);}return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
   function cardsForCollection(){
     const cards=state.data.cards||[];
     return state.collectionId==="all"?cards:cards.filter(c=>c.collection_id===state.collectionId);
   }
   function masteryMap(){return new Map((state.data.mastery||[]).map(m=>[m.card_key,m]));}
-  function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;return "dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
+  function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;const language=card.course||state.game?.learningLanguage||course;return language==="zh"?"dict:zh:"+String(card.dictionary_word||card.word||"").toLowerCase():"dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
   function questionKey(card){return String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\s+/g," ").toLocaleLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
   function uiText(en,zh){return (state.game?.translationLanguage||translationLanguage)==="zh"?zh:en;}
-  function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
+  function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),translation:uiText("Translation Recall","翻译回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
   function difficultyLabel(level){return ({beginner:uiText("Beginner","初级"),intermediate:uiText("Intermediate","中级"),advanced:uiText("Advanced","高级")})[level]||level;}
-  function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
+  function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;if((word.course||state.game?.learningLanguage||course)==="zh")return language==="zh"?(word.translationZh||""):(word.translationEn||word.definition||"");return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
       example_text:(word.examples||[])[0]||"",translation_text:translationFor(word),position:0};
@@ -388,7 +388,7 @@
       state.round=null;state.phase="idle";state.phaseEnds=0;state.ending=false;
       const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty,p_duration_seconds:state.duration});
       if(error)throw error;
-      state.game={id:data.session_id,startedAt:Date.now(),translationLanguage,durationSeconds:Number(data.duration_seconds)||state.duration};
+      state.game={id:data.session_id,startedAt:Date.now(),learningLanguage:course,translationLanguage,durationSeconds:Number(data.duration_seconds)||state.duration};
       state.results=[];state.roundIndex=0;
       const schedule=timingFor(state.mode,state.difficulty);
       Object.assign(state,{memory:schedule.memory,answer:schedule.answer});
@@ -448,7 +448,7 @@
   }
   function openSetupPrompt(mode){
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
-    const sets=[["all",uiText("All available words","所有可用单词")],["common",uiText("Common words","常用词")],["nouns",uiText("Nouns","名词")],["verbs",uiText("Verbs","动词")],["adjectives",uiText("Adjectives","形容词")],["adverbs",uiText("Adverbs","副词")],["phrases",uiText("Everyday phrases","日常短语")],["terms",uiText("Subject terms","学科术语")]];
+    const sets=course==="zh"?[["all",uiText("All Chinese cards","全部中文卡片")],["characters",uiText("Characters","汉字")],["vocabulary",uiText("Vocabulary","词汇")],["phrases",uiText("Useful expressions","常用表达")]]:[["all",uiText("All available words","所有可用单词")],["common",uiText("Common words","常用词")],["nouns",uiText("Nouns","名词")],["verbs",uiText("Verbs","动词")],["adjectives",uiText("Adjectives","形容词")],["adverbs",uiText("Adverbs","副词")],["phrases",uiText("Everyday phrases","日常短语")],["terms",uiText("Subject terms","学科术语")]];
     overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${modeLabel(mode)}</h2><p class="flash-muted">${uiText("Your selected challenge duration is shown beside the recall modes. Memory and answer windows become shorter after every round, including incorrect answers and timeouts.","挑战时长已在回忆模式旁显示。每完成一轮后，记忆和答题时间都会缩短，包括答错或超时。")}</p><div class="flash-modal-grid"><label>${uiText("Difficulty","难度")}<select id="flashDifficulty"><option value="beginner">${difficultyLabel("beginner")}</option><option value="intermediate">${difficultyLabel("intermediate")}</option><option value="advanced">${difficultyLabel("advanced")}</option></select></label><label>${uiText("Card set","卡片范围")}<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">${uiText("Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.","初级提供较长的记忆和答题时间；中级和高级的时间缩短速度更快。")}</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">${uiText("Cancel","取消")}</button><button class="flash-primary" data-action="begin-game">${uiText("Begin","开始")}</button></div></section></div>`;
   }
   function openReviewPrompt(){
@@ -456,7 +456,7 @@
   }
   function renderReviewPrompt(){
     const overlay=overlayRoot;if(!overlay)return;
-    const labels={word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
+    const labels=course==="zh"?{word:uiText("Word","汉字"),definition:uiText("Definition","释义"),translation:uiText("Translation","翻译"),sentence:uiText("Sentence","句子")}:{word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
     const previousListScroll=overlay.querySelector(".flash-review-list")?.scrollTop||0;
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
