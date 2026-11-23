@@ -19500,12 +19500,22 @@ async function completeLesson(x){
       }
       const gameReview=event.target.closest("[data-dashboard-flashcard-review-game]");
       if(gameReview&&window.SwiftDictionaryFlashcards?.reviewGame) {
-        showPage("flashcards",true);
         window.SwiftDictionaryFlashcards.reviewGame(gameReview.dataset.dashboardFlashcardReviewGame);
         return;
       }
-      const quizReviewButton=event.target.closest("[data-dashboard-daily-quiz-review]");
-      if(quizReviewButton){showPage("quiz",true,{skipQuizInitialise:true});quizReview(quizReviewButton.dataset.dashboardDailyQuizReview,"profile");}
+      const quizReviewButton=event.target.closest("[data-dashboard-daily-quiz-review],[data-dashboard-quiz-review]");
+      if(quizReviewButton){quizReview(quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard");return;}
+      const lessonReviewButton=event.target.closest("[data-dashboard-daily-lesson-review]");
+      if(lessonReviewButton){openDashboardLessonReview(lessonReviewButton.dataset.dashboardDailyLessonReview,lessonReviewButton.dataset.difficulty,lessonReviewButton.dataset.languageCode);return;}
+      const dailyReviewButton=event.target.closest("[data-dashboard-daily-activity-review]");
+      if(dailyReviewButton){
+        try{window.SwiftDictionaryDailyLearning?.reviewFromDashboard({
+          id:dailyReviewButton.dataset.sessionId,activity_type:dailyReviewButton.dataset.activityType,
+          content_id:dailyReviewButton.dataset.contentId,topic_id:dailyReviewButton.dataset.topicId,
+          difficulty:dailyReviewButton.dataset.difficulty,language_code:dailyReviewButton.dataset.languageCode
+        });}catch(error){openDashboardReview("Activity review",'<p class="muted-note">'+escapeHTML(error.message||"This activity could not be reviewed.")+'</p>');}
+        return;
+      }
     });
     document.getElementById("profileSignIn").addEventListener("click", () => document.getElementById("accountDialog").classList.add("open"));
     document.getElementById("profileSignOut").addEventListener("click", async () => {
@@ -19795,18 +19805,73 @@ async function completeLesson(x){
       return String(topicId || "").replaceAll("-"," ").replace(/\b\w/g,character=>character.toUpperCase());
     }
 
+    let activeDashboardTab="favourites";
     function setDashboardTab(tabName) {
       const allowed=["favourites","progress","history","analytics"];
       const selected=allowed.includes(tabName)?tabName:"favourites";
+      activeDashboardTab=selected;
       document.querySelectorAll("[data-dashboard-tab]").forEach(button=>{
         const active=button.dataset.dashboardTab===selected;
         button.classList.toggle("is-active",active);
         button.setAttribute("aria-selected",active?"true":"false");
+        button.tabIndex=active?0:-1;
       });
       allowed.forEach(name=>{
         const panel=document.getElementById("dashboardTab"+name[0].toUpperCase()+name.slice(1));
         if(panel)panel.hidden=name!==selected;
       });
+    }
+    document.querySelectorAll("[data-dashboard-tab]").forEach(button=>button.addEventListener("keydown",event=>{
+      if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key))return;
+      event.preventDefault();
+      const tabs=[...document.querySelectorAll("[data-dashboard-tab]")];
+      const current=tabs.indexOf(button);
+      const next=event.key==="Home"?0:event.key==="End"?tabs.length-1:(current+(event.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length;
+      setDashboardTab(tabs[next].dataset.dashboardTab);tabs[next].focus();
+    }));
+
+    let dashboardReviewPreviousOverflow="";
+    function openDashboardReview(title,html){
+      const overlay=document.getElementById("dashboardReviewOverlay");
+      if(!overlay)return;
+      dashboardReviewPreviousOverflow=document.body.style.overflow;
+      document.getElementById("dashboardReviewTitle").textContent=title||"Activity review";
+      document.getElementById("dashboardReviewContent").innerHTML=html||"";
+      overlay.hidden=false;document.body.style.overflow="hidden";
+      overlay.querySelector("[data-dashboard-review-close]")?.focus();
+    }
+    function closeDashboardReview(){
+      const overlay=document.getElementById("dashboardReviewOverlay");
+      if(!overlay||overlay.hidden)return;
+      overlay.hidden=true;document.getElementById("dashboardReviewContent").innerHTML="";
+      document.body.style.overflow=dashboardReviewPreviousOverflow;
+    }
+    document.getElementById("dashboardReviewOverlay").addEventListener("click",event=>{
+      if(event.target===event.currentTarget||event.target.closest("[data-dashboard-review-close]"))closeDashboardReview();
+    });
+    document.addEventListener("keydown",event=>{
+      if(event.key==="Escape"&&!document.getElementById("dashboardReviewOverlay").hidden)closeDashboardReview();
+    });
+    function openDashboardLessonReview(lessonId,difficulty,languageCode){
+      const targetCourse=languageCode==="zh"?"zh":"en";
+      const lesson=(lessonData[difficulty]||[]).find(item=>item.id===lessonId);
+      if(!lesson){openDashboardReview("Lesson review",'<p class="muted-note">The original lesson content is not available in this version.</p>');return;}
+      const previousCourse=course,previousTranslation=translationLanguage;
+      course=targetCourse;
+      try{
+        const zh=translationLanguage==="zh";
+        const field=key=>lessonField(lesson,key);
+        const examples=(field("examples")||[]).map(value=>'<div class="lesson-example">'+lessonRenderText(value)+'</div>').join("");
+        const explanation=field("explanation");
+        const explanationHtml=Array.isArray(explanation)?explanation.map(value=>'<p class="lesson-explanation-paragraph">'+lessonRenderText(value)+'</p>').join(""):'<p>'+lessonRenderText(explanation||"")+'</p>';
+        const breakdown=field("breakdown");
+        const breakdownHtml=breakdown?'<h3>'+(zh?"句子结构":"Sentence breakdown")+'</h3>'+lessonRenderText(breakdown.title)+'<p>'+lessonRenderText(breakdown.intro)+'</p>'+(breakdown.sentence?'<div class="lesson-breakdown-sentence">'+breakdown.sentence.map(part=>'<span class="lesson-breakdown-token"><mark class="lesson-focus-'+escapeHTML(part.role)+'">'+lessonRenderText(part.text)+'</mark></span>').join("")+'</div>':"")+'<div class="lesson-breakdown">'+(breakdown.parts||[]).map(part=>'<span><strong>'+lessonRenderText(part.text)+'</strong><small>'+lessonRenderText(part.label)+'</small></span>').join("")+'</div>':"";
+        const points=(field("points")||[]).map(value=>'<li>'+lessonRenderText(value)+'</li>').join("");
+        const mistakes=(field("mistakes")||[]).map(value=>'<li>'+lessonRenderText(value)+'</li>').join("");
+        const topic=targetCourse==="zh"?lessonRenderText(lesson.topicDisplay):escapeHTML(field("topic")||"");
+        const html='<article class="dashboard-lesson-review"><span class="lesson-review-complete">'+(zh?"已完成 · 只读复习":"Completed · Read-only review")+'</span><p class="eyebrow">'+escapeHTML(difficulty.toUpperCase())+' · '+topic+'</p><h2>'+lessonRenderText(field("title"))+'</h2><p class="page-intro">'+lessonRenderText(field("summary"))+'</p><div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3><ul>'+points+'</ul><h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+mistakes+'</ul></div></article>';
+        openDashboardReview(zh?"课程复习":"Lesson review",html);
+      }finally{course=previousCourse;translationLanguage=previousTranslation;}
     }
 
     function renderDashboardDailyHistory({today,timezone,lessonRows,dailyRows,quizRows,flashcardRows}) {
@@ -19816,10 +19881,12 @@ async function completeLesson(x){
       const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(translationLanguage==="zh"?"zh-CN":"en-US",{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
       const items=[];
       for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)items.push({
-        type:"Lesson",title:formatTopicName(row.lesson_id),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at
+        type:"Lesson",title:formatTopicName(row.lesson_id),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,
+        lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language
       });
       for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)items.push({
-        type:formatTopicName(row.activity_type||"Daily activity"),title:formatTopicName(row.content_id||row.topic_id),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at
+        type:formatTopicName(row.activity_type||"Daily activity"),title:formatTopicName(row.content_id||row.topic_id),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at,
+        activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id
       });
       for(const row of quizRows||[])if(localDate(row.completed_at)===today)items.push({
         type:"Quiz",title:(row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id
@@ -19831,8 +19898,10 @@ async function completeLesson(x){
       if(!items.length){host.innerHTML='<p class="muted-note">No completed learning activities yet today ('+escapeHTML(timezone)+'). Your previous records are retained.</p>';return;}
       host.innerHTML=items.map(item=>{
         let action="";
-        if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-daily-quiz-review="'+escapeHTML(item.sessionId)+'">Review</button>';
-        if(item.type==="Flashcards"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-flashcard-review-game="'+escapeHTML(item.sessionId)+'">Review game</button>';
+        if(item.type==="Lesson"&&item.lessonId)action='<button type="button" class="secondary-button" data-dashboard-daily-lesson-review="'+escapeHTML(item.lessonId)+'" data-difficulty="'+escapeHTML(item.difficulty||"beginner")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'">Review lesson</button>';
+        else if(item.activityType&&item.contentId)action='<button type="button" class="secondary-button" data-dashboard-daily-activity-review="true" data-activity-type="'+escapeHTML(item.activityType)+'" data-content-id="'+escapeHTML(item.contentId)+'" data-topic-id="'+escapeHTML(item.topicId||"")+'" data-difficulty="'+escapeHTML(item.difficulty||"")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'" data-session-id="'+escapeHTML(item.sessionId||"")+'">Review activity</button>';
+        else if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-daily-quiz-review="'+escapeHTML(item.sessionId)+'">Review Quiz</button>';
+        else if(item.type==="Flashcards"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-flashcard-review-game="'+escapeHTML(item.sessionId)+'">Review game</button>';
         return '<article class="dashboard-history-row"><div class="dashboard-history-row-main"><span class="dashboard-history-kind">'+escapeHTML(item.type)+'</span><strong>'+escapeHTML(item.title)+'</strong><small>'+escapeHTML(item.detail)+' · '+escapeHTML(timeLabel(item.at))+'</small></div><div class="dashboard-history-actions">'+action+'</div></article>';
       }).join("");
     }
@@ -19850,6 +19919,7 @@ async function completeLesson(x){
       const signedOut = document.getElementById("profileSignedOut");
       const content = document.getElementById("profileContent");
       signedOut.hidden = true; content.hidden = false;
+      setDashboardTab(activeDashboardTab);
       document.getElementById("profileEmail").textContent = currentUser.email || "Signed-in account";
       try {
         await preferenceWriteQueue;
@@ -19867,7 +19937,7 @@ async function completeLesson(x){
           supabaseClient.from("lesson_practice_results").select("topic_id,learning_language,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
           supabaseClient.rpc("get_my_lesson_practice_attempts",{p_limit:100}),
           supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
-          supabaseClient.from("daily_activity_sessions").select("activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
+          supabaseClient.from("daily_activity_sessions").select("id,activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
@@ -20555,7 +20625,7 @@ async function completeLesson(x){
     quizEl("lessonsSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
 
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
-    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
+    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button)quizReview(button.dataset.dashboardQuizReview,"dashboard");});
     quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
     quizEl("quizQuestionArea").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-option]");if(button)quizChooseOption(button.dataset.quizOption);});
     quizEl("quizPrevious").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)-1));
