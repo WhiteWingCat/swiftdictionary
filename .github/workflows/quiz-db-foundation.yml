@@ -147,6 +147,20 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123125000_swiftdictionary_update_2_8_0_security_invoker_wrappers.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_review_foundation.sql"
 
+      - name: Apply U2.8.0 supplemental Flashcard and Quiz quality migrations
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          # Keep the local integration schema aligned with staging. The review
+          # alias migration is required by the browser response contract.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123130000_swiftdictionary_update_2_8_0_flashcard_review_mode_alias.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123140000_swiftdictionary_update_2_8_0_quiz_start_allowance_and_chinese_question_quality.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123141000_swiftdictionary_update_2_8_0_chinese_quiz_revision_preservation.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123142000_swiftdictionary_update_2_8_0_final_chinese_quiz_prompt_cleanup.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123143000_swiftdictionary_update_2_8_0_chinese_quiz_translation_prompt_quality.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123144000_swiftdictionary_update_2_8_0_final_quiz_translation_prompt_revision.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123145000_swiftdictionary_update_2_8_0_learning_intro_rls_initplan_optimization.sql"
+
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
