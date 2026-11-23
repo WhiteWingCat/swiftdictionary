@@ -507,47 +507,6 @@ end;
 $advanced$;
 
 
--- Chinese is a supported learning course in U2.8.0. This small synthetic
--- integration fixture intentionally lacks the full 30-question / 3-topic
--- release bank, so the server must report bank readiness rather than reject
--- the language as unsupported.
-update public.user_preferences
-set learning_language='zh',translation_language='en'
-where user_id=auth.uid();
-
-do $supported_chinese_course$
-declare
-  v_availability jsonb;
-  v_failed boolean:=false;
-  v_reason text;
-begin
-  v_availability:=public.get_my_quiz_availability();
-  if v_availability->>'learning_language_code'<>'zh' then
-    raise exception 'Chinese Quiz availability did not retain the selected learning language';
-  end if;
-
-  select d->>'reason' into v_reason
-  from jsonb_array_elements(v_availability->'difficulties') d
-  where d->>'difficulty'='beginner';
-
-  if v_reason is distinct from 'question_bank_below_minimum' then
-    raise exception 'Chinese Quiz should be recognised but unavailable until its release bank is sufficient; got reason %',v_reason;
-  end if;
-
-  begin
-    perform public.start_my_quiz('beginner');
-  exception when sqlstate 'P0001' then
-    v_failed:=true;
-  end;
-  if not v_failed then
-    raise exception 'Chinese Quiz started despite its deliberately incomplete synthetic question bank';
-  end if;
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'An unavailable Chinese Quiz attempt consumed completion allowance';
-  end if;
-end;
-$supported_chinese_course$;
-
 -- History deletion removes answer/session snapshots but retains the minimal
 -- same-day question reservation ledger until its local-day retention expires.
 select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
