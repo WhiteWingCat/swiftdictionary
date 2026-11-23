@@ -138,6 +138,24 @@ test("Daily History lesson and Daily Learning reviews stay inside Dashboard",asy
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
 });
 
+test("Chinese permanent lesson Daily History review uses the Chinese lesson catalogue in place",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  await page.evaluate(()=>{
+    document.querySelector("#dashboardDailyHistory").innerHTML=
+      '<button type="button" data-dashboard-daily-lesson-review="zh-b-pinyin-foundations" data-difficulty="beginner" data-language-code="zh">Review Chinese lesson</button>';
+  });
+  await page.locator("[data-dashboard-daily-lesson-review]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
+  await expect(page.locator("#dashboardReviewContent")).toContainText("拼音基础与四声");
+  await expect(page.locator("#dashboardReviewContent")).toContainText("拼音与发音");
+  expect(new URL(page.url()).hash).toBe("#profile");
+});
+
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
