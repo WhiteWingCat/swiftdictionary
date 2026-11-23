@@ -420,6 +420,10 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   await page.evaluate(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:nextSession});
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
+  if(await page.locator("#learningIntroBackdrop").isVisible()){
+    await page.locator("#learningIntroDismiss").click();
+    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+  }
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
   const questionTypes = [];
