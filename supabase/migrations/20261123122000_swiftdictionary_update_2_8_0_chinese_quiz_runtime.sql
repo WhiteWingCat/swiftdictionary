@@ -391,6 +391,35 @@ begin
     v_question_count:=20;
   end if;
   v_topic_cap:=ceil(v_question_count*0.4)::integer;
+  if v_translation_needed>0 then
+    v_source:=p_difficulty;v_added:=0;
+    for v_q in select * from (
+      select distinct on(q.question_id) q.* from private.quiz_question_bank q
+      join private.learning_content_catalog c on c.activity_type='permanent_lesson'
+        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
+        and c.is_active and c.topic_id=q.topic_id
+      where q.status='approved' and q.learning_language_code='zh'
+        and q.translation_language_code='en' and q.difficulty=v_source
+        and q.question_type='chinese_translation' and q.answer_language_code='zh'
+        and q.learning_objective_id is not null
+        and not exists(select 1 from private.quiz_daily_question_reservations r
+          where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
+      order by q.question_id,q.revision desc
+    ) approved_translation_questions order by random()
+    loop
+      v_topic_count:=coalesce((v_topic_counts->>v_q.topic_id)::integer,0);
+      if v_topic_count<v_topic_cap then
+        v_selected_ids:=array_append(v_selected_ids,v_q.question_id);
+        v_selected_revisions:=array_append(v_selected_revisions,v_q.revision);
+        v_topic_counts:=pg_catalog.jsonb_set(v_topic_counts,array[v_q.topic_id],to_jsonb(v_topic_count+1),true);
+        v_added:=v_added+1;
+        exit when v_added=v_translation_needed;
+      end if;
+    end loop;
+    if v_added<>v_translation_needed then
+      raise exception 'Fresh Chinese translation question unavailable today' using errcode='P0001';
+    end if;
+  end if;
   if p_difficulty='beginner' then
     v_source:='beginner';v_needed:=10;
     for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
@@ -459,38 +488,17 @@ begin
       if v_added<v_needed then raise exception 'Fresh Chinese Quiz questions unavailable' using errcode='P0001'; end if;
     end loop;
   end if;
-  if v_translation_needed>0 then
-    v_source:=p_difficulty;v_added:=0;
-    for v_q in select * from (
-      select distinct on(q.question_id) q.* from private.quiz_question_bank q
-      join private.learning_content_catalog c on c.activity_type='permanent_lesson'
-        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
-        and c.is_active and c.topic_id=q.topic_id
-      where q.status='approved' and q.learning_language_code='zh'
-        and q.translation_language_code='en' and q.difficulty=v_source
-        and q.question_type='chinese_translation' and q.answer_language_code='zh'
-        and q.learning_objective_id is not null
-        and not exists(select 1 from private.quiz_daily_question_reservations r
-          where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
-      order by q.question_id,q.revision desc
-    ) approved_translation_questions order by random()
-    loop
-      v_topic_count:=coalesce((v_topic_counts->>v_q.topic_id)::integer,0);
-      if v_topic_count<v_topic_cap then
-        v_selected_ids:=array_append(v_selected_ids,v_q.question_id);
-        v_selected_revisions:=array_append(v_selected_revisions,v_q.revision);
-        v_topic_counts:=pg_catalog.jsonb_set(v_topic_counts,array[v_q.topic_id],to_jsonb(v_topic_count+1),true);
-        v_added:=v_added+1;
-        exit when v_added=v_translation_needed;
-      end if;
-    end loop;
-    if v_added<>v_translation_needed then
-      raise exception 'Fresh Chinese translation question unavailable today' using errcode='P0001';
-    end if;
-  end if;
   if cardinality(v_selected_ids)<>v_question_count or (select count(*) from pg_catalog.jsonb_object_keys(v_topic_counts))<3 then
     raise exception 'Chinese Quiz selection did not meet its topic-diversity target' using errcode='P0001';
   end if;
+  select array_agg(shuffled.question_id order by shuffled.position),
+         array_agg(shuffled.revision order by shuffled.position)
+    into v_selected_ids,v_selected_revisions
+  from (
+    select selected.question_id,selected.revision,
+      row_number() over(order by random()) as position
+    from unnest(v_selected_ids,v_selected_revisions) as selected(question_id,revision)
+  ) shuffled;
   select count(*) filter(where q.difficulty='beginner')::integer,
          count(*) filter(where q.difficulty='intermediate')::integer,
          count(*) filter(where q.difficulty='advanced')::integer
