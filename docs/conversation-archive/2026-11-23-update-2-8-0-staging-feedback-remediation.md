@@ -78,3 +78,38 @@ A fresh verification batch was running at the time of this archive update for th
 ## Current disposition
 
 The four requested fixes have been implemented on `feature/update-2-8-0-chinese-quiz-flashcards`. The plan and Master Development Record are being updated to preserve the corrected mode rule and the new Dashboard review behaviour. Keep PR #16 draft until the fresh CI batch is green and the owner has a refreshed staging preview to retest. No merge, production migration or production release is authorised.
+
+
+## Follow-up verification — Chinese permanent lesson review and refreshed preview
+
+### Additional defect corrected
+
+During the review of the new in-place Dashboard lesson renderer, a language-specific lookup gap was found: it searched the English permanent-lesson catalogue even when the Daily History item belonged to the Chinese course. The renderer now selects `chineseLessonData` for Chinese records and the English catalogue for English records.
+
+- Application fix commit: `1b9711831519d4acd911c1ad127a05a341026916`
+- Added a Playwright regression using the real Chinese lesson ID `zh-b-pinyin-foundations`.
+- The test confirms the Chinese title and topic render in the Dashboard review overlay and the route remains `#profile`.
+- Test commit: `2749d6359fafbbbbc52429b3b5f4c5a36f42ad71`.
+
+### Staging backend verification
+
+No database migration or staging data change was needed. Inspected the staging `private.start_my_flashcard_game_impl` function and ran an authenticated, rollback-only test as a Chinese-course staging user. A request to start `mixed` was rejected with the expected Chinese-course mode validation error (`22023`), before allowance checks or session insertion. The transaction was rolled back.
+
+The allowed-mode contract remains:
+- English: `word`, `definition`, `mixed`, `sentence`.
+- Chinese: `word`, `definition`, `translation`, `sentence`.
+
+### Latest preview deployment
+
+- Latest feature head: `2749d6359fafbbbbc52429b3b5f4c5a36f42ad71`.
+- Cloudflare Pages check: successful.
+- Stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev
+- Preview-host Supabase routing continues to use the isolated staging project. Production host routing is unchanged.
+
+### CI status at follow-up
+
+Passed on latest head: Cloudflare Pages; Quiz DB foundation; Flashcards static checks; Chromium Mock User Flashcards suite (including all four requested staging fixes and the Chinese permanent-lesson regression); Chromium signed-out browser smoke; Supabase CLI local Auth compatibility; PostgreSQL 17 U2.7 allowance regression; PostgreSQL 17 ACL regression; Chinese dictionary static/Chromium checks; Cloudflare build-routing; PostgreSQL 17 migration/allowance tests.
+
+Two duplicate push/PR runs of the full local Supabase Auth/RPC integration workflow were still running the authenticated Chromium Quiz runtime step at the time of this follow-up. Verify both final conclusions before declaring all CI complete. The separate retired Workers Builds service `swiftdictionary-testing` still reports a failure; it is unrelated to the successful Cloudflare Pages deployment and is not the preview target.
+
+No Production database, application code, `main` branch or production deployment was changed. PR #16 remains draft.
