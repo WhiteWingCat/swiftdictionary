@@ -686,9 +686,9 @@ test("Flash Recall prevents duplicate starts and locks the screen while saving o
 });
 
 test("Mock Quiz supports Chinese knowledge and English-gated translation banks",()=>{
-  assert.match(mockTesting,/questions\\.zh-en\\.draft\\.json/);
-  assert.match(mockTesting,/curriculum-map\\.zh\\.json/);
-  assert.match(mockTesting,/question\\.question_type==="knowledge"\\|\\|\\(translationLanguageCode==="en"&&question\\.question_type==="chinese_translation"\\)/);
+  assert.match(mockTesting,/questions\.zh-en\.draft\.json/);
+  assert.match(mockTesting,/curriculum-map\.zh\.json/);
+  assert.match(mockTesting,/question\.question_type==="knowledge"\|\|\(translationLanguageCode==="en"&&question\.question_type==="chinese_translation"\)/);
   assert.match(mockTesting,/intermediate:12,beginner:3/);
   assert.match(mockTesting,/advanced:12,intermediate:6,beginner:2/);
 });
