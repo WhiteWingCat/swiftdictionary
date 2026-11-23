@@ -157,6 +157,7 @@ jobs:
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_rpc_test_observers.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_authenticated_rpcs.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_chinese_runtime_u2_8_0.sql"
 
       - name: Validate and import draft Quiz content in local Supabase
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
