@@ -547,8 +547,31 @@
   }
   function openSetupPrompt(mode){
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
-    const sets=course==="zh"?[["all",uiText("All Chinese cards","全部中文卡片")],["characters",uiText("Characters","汉字")],["vocabulary",uiText("Vocabulary","词汇")],["phrases",uiText("Useful expressions","常用表达")]]:[["all",uiText("All available words","所有可用单词")],["common",uiText("Common words","常用词")],["nouns",uiText("Nouns","名词")],["verbs",uiText("Verbs","动词")],["adjectives",uiText("Adjectives","形容词")],["adverbs",uiText("Adverbs","副词")],["phrases",uiText("Everyday phrases","日常短语")],["terms",uiText("Subject terms","学科术语")]];
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${modeLabel(mode)}</h2><p class="flash-muted">${uiText("Your selected challenge duration is shown beside the recall modes. Memory and answer windows become shorter after every round, including incorrect answers and timeouts.","挑战时长已在回忆模式旁显示。每完成一轮后，记忆和答题时间都会缩短，包括答错或超时。")}</p><div class="flash-modal-grid"><label>${uiText("Difficulty","难度")}<select id="flashDifficulty"><option value="beginner">${difficultyLabel("beginner")}</option><option value="intermediate">${difficultyLabel("intermediate")}</option><option value="advanced">${difficultyLabel("advanced")}</option></select></label><label>${uiText("Card set","卡片范围")}<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div><p class="flash-muted">${uiText("Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.","初级提供较长的记忆和答题时间；中级和高级的时间缩短速度更快。")}</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">${uiText("Cancel","取消")}</button><button class="flash-primary" data-action="begin-game">${uiText("Begin","开始")}</button></div></section></div>`;
+    const chinese=course==="zh";
+    const excludeVocabulary=chinese&&(
+      mode==="definition"||mode==="sentence"||
+      ((mode==="translation"||mode==="mixed")&&translationLanguage==="zh")
+    );
+    const sets=chinese?[
+      ["all",uiText(excludeVocabulary?"All eligible cards":"All Chinese cards",excludeVocabulary?"所有符合条件的卡片":"全部中文卡片")],
+      ["characters",uiText("Characters","汉字")],
+      ...(!excludeVocabulary?[["vocabulary",uiText("Vocabulary","词汇")]]:[]),
+      ["phrases",uiText("Useful expressions","常用表达")]
+    ]:[
+      ["all",uiText("All available words","所有可用单词")],
+      ["common",uiText("Common words","常用词")],
+      ["nouns",uiText("Nouns","名词")],
+      ["verbs",uiText("Verbs","动词")],
+      ["adjectives",uiText("Adjectives","形容词")],
+      ["adverbs",uiText("Adverbs","副词")],
+      ["phrases",uiText("Everyday phrases","日常短语")],
+      ["terms",uiText("Subject terms","学科术语")]
+    ];
+    if(!sets.some(([value])=>value===state.cardSet))state.cardSet="all";
+    const modeNote=chinese&&excludeVocabulary
+      ?uiText("Multi-character vocabulary cards are not included in this recall mode yet. Choose All eligible cards, Characters or Useful expressions.","多字词汇卡片目前尚未支持此回忆模式。请选择所有符合条件的卡片、汉字或常用表达。")
+      :"";
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${modeLabel(mode)}</h2><p class="flash-muted">${uiText("Your selected challenge duration is shown beside the recall modes. Memory and answer windows become shorter after every round, including incorrect answers and timeouts.","挑战时长已在回忆模式旁显示。每完成一轮后，记忆和答题时间都会缩短，包括答错或超时。")}</p><div class="flash-modal-grid"><label>${uiText("Difficulty","难度")}<select id="flashDifficulty"><option value="beginner">${difficultyLabel("beginner")}</option><option value="intermediate">${difficultyLabel("intermediate")}</option><option value="advanced">${difficultyLabel("advanced")}</option></select></label><label>${uiText("Card set","卡片范围")}<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div>${modeNote?`<p class="flash-muted">${modeNote}</p>`:""}<p class="flash-muted">${uiText("Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.","初级提供较长的记忆和答题时间；中级和高级的时间缩短速度更快。")}</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">${uiText("Cancel","取消")}</button><button class="flash-primary" data-action="begin-game">${uiText("Begin","开始")}</button></div></section></div>`;
   }
   function openReviewPrompt(){
     state.reviewMode="word";state.reviewSelected=null;renderReviewPrompt();
