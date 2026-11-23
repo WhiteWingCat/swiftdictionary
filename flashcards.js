@@ -282,7 +282,7 @@
   }
   function makeRound(deck){
     const chinese=(state.game?.learningLanguage||course)==="zh";
-    const normalize=v=>String(v||"").normalize("NFKC").replace(/[\\s\\p{P}\\p{S}]+/gu,"").toLocaleLowerCase();
+    const normalize=v=>String(v||"").normalize("NFKC").replace(/[\s\p{P}\p{S}]+/gu,"").toLocaleLowerCase();
     const cueFor=(w,mode)=>{
       if(chinese){
         if(mode==="word")return w.pinyin||"";
