@@ -222,6 +222,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await updateTranslationPreference(freeUserId, "zh");
   await page.goto("/#quiz");
   await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#translationSelect")).toHaveValue("zh");
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("Preferred question-bank target met");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("approved");
@@ -235,6 +236,14 @@ test("Free user can switch translation in an open permanent lesson and complete 
     "Beginner Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
   ).toBeVisible({ timeout: 15000 });
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题",{timeout:15000});
+  const englishSnapshot=await page.evaluate(()=>({
+    selector:document.getElementById("translationSelect")?.value,
+    learning:quizPageState.session?.learning_language_code,
+    translation:quizPageState.session?.translation_language_code,
+    prompt:quizPageState.session?.questions?.[0]?.prompt_translation
+  }));
+  expect(englishSnapshot).toMatchObject({selector:"zh",learning:"en",translation:"zh"});
+  expect(String(englishSnapshot.prompt||"").trim()).not.toBe("");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).not.toBeEmpty();
 
@@ -642,6 +651,14 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   await expect(page.locator("#translationSelect")).toHaveValue("en");
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
+  const chineseSnapshot=await page.evaluate(()=>({
+    selector:document.getElementById("translationSelect")?.value,
+    learning:quizPageState.session?.learning_language_code,
+    translation:quizPageState.session?.translation_language_code,
+    prompt:quizPageState.session?.questions?.[0]?.prompt_translation
+  }));
+  expect(chineseSnapshot).toMatchObject({selector:"en",learning:"zh",translation:"en"});
+  expect(String(chineseSnapshot.prompt||"").trim()).not.toBe("");
 
   let foundTranslationQuestion=false;
   for(let position=1;position<=10;position++){
