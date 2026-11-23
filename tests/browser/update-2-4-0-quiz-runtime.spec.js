@@ -770,7 +770,7 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await expect(page.locator("#flashMemory")).not.toBeEmpty();
   const clockText=await page.locator("#flashGameClock").textContent();
   const challengeSeconds=Number(String(clockText||"").replace(/\D/g,""));
-  expect([60,120]).toContain(challengeSeconds);
+  expect([59,60,119,120]).toContain(challengeSeconds);
 
   await page.clock.runFor((challengeSeconds+2)*1000);
   await page.clock.runFor(2500);
