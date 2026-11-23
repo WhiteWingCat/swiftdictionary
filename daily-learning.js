@@ -792,7 +792,7 @@
     const limit = Number(limitConfig?.limit);
     const used = Number(snapshot.completed[type] || 0);
     const remaining = Number.isFinite(limit) ? Math.max(0,limit-used) : null;
-    const completedRows = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
+    const completedRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
