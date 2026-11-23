@@ -39,6 +39,15 @@ insert into public.user_preferences(user_id,learning_language,translation_langua
 values('28000000-0000-4000-8000-000000000001','zh','zh','Asia/Kuala_Lumpur')
 on conflict(user_id) do update set learning_language='zh',translation_language='zh',timezone='Asia/Kuala_Lumpur';
 
+insert into public.daily_activity_sessions(
+ id,user_id,activity_type,language_code,content_id,topic_id,difficulty,local_date,timezone,status,
+ correct_count,question_count,completed_at
+) values(
+ '28000000-0000-4000-8000-000000000201','28000000-0000-4000-8000-000000000001',
+ 'daily_application','zh','u280-daily-application','u280-daily-topic','beginner',
+ current_date,'Asia/Kuala_Lumpur','completed',3,5,now()
+);
+
 insert into private.learning_content_catalog(activity_type,content_id,topic_id,difficulty,language_code,is_active)
 select 'permanent_lesson',
        'u280-zh-'||d.code||'-lesson-'||n::text,
@@ -84,7 +93,7 @@ select set_config('request.jwt.claims',
  '{"sub":"28000000-0000-4000-8000-000000000001","role":"authenticated"}',true);
 
 do $test$
-declare v_saved jsonb; v_rows jsonb; v_quiz1 jsonb; v_quiz2 jsonb; v_avail jsonb; v_overlap integer;
+declare v_saved jsonb; v_rows jsonb; v_quiz1 jsonb; v_quiz2 jsonb; v_avail jsonb; v_overlap integer; v_daily jsonb;
 begin
  if auth.uid()<>'28000000-0000-4000-8000-000000000001'::uuid then
    raise exception 'Test JWT subject was not recognised';
@@ -101,6 +110,14 @@ begin
     or (v_rows->0->>'incorrect_attempt_count')::integer<>4
     or (v_rows->0->>'retry_count')::integer<>2 then
    raise exception 'Practice attempt aggregates were not preserved: %',v_rows;
+ end if;
+ v_daily:=public.record_my_daily_practice_attempt(
+   '28000000-0000-4000-8000-000000000201',2,4,3
+ );
+ if (v_daily->>'first_try_correct_count')::integer<>2
+    or (v_daily->>'incorrect_attempt_count')::integer<>4
+    or (v_daily->>'retry_count')::integer<>3 then
+   raise exception 'Daily Learning first-try/retry statistics were not saved: %',v_daily;
  end if;
  v_rows:=public.get_my_flashcard_game_review('28000000-0000-4000-8000-000000000101');
  if coalesce((v_rows->>'review_available')::boolean,false) is not true
