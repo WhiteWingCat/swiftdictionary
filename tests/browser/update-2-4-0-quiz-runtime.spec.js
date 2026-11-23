@@ -803,9 +803,27 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   const hasChineseKnowledgeTranslation=await page.evaluate(()=>quizPageState.session.questions.some(q=>q.question_type!=="chinese_translation"&&String(q.prompt_translation||"").trim()));
   expect(hasChineseKnowledgeTranslation).toBe(true);
 
+  const waitForRenderedQuestion=async targetPage=>{
+    await expect.poll(()=>targetPage.evaluate(()=>{
+      const session=window.quizPageState?.session;
+      const question=session?.questions?.find(q=>q.position===session.current_position);
+      const area=document.getElementById("quizQuestionArea");
+      if(!question||!area)return false;
+      const pinyin=!!area.querySelector(".quiz-question-pinyin");
+      const translation=!!area.querySelector(".quiz-question-translation");
+      return area.dataset.questionType===question.question_type
+        && pinyin===!!question.prompt_pinyin
+        && (question.question_type==="chinese_translation"?!translation:translation===!!question.prompt_translation);
+    }),{timeout:10000}).toBe(true);
+  };
+
   let foundTranslationQuestion=false;
   for(let position=1;position<=10;position++){
     const area=page.locator("#quizQuestionArea");
+    // The server session position can advance before the directional UI transition
+    // has finished. Compare the state and rendered prompt contract atomically so
+    // same-type adjacent questions cannot make a stale DOM assertion pass/fail.
+    await waitForRenderedQuestion(page);
     const currentQuestion=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position));
     const type=currentQuestion?.question_type;
     if(type==="chinese_translation"){
@@ -854,6 +872,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
 
   for(let position=1;position<=10;position++){
     const area=zhPage.locator("#quizQuestionArea");
+    await waitForRenderedQuestion(zhPage);
     const currentQuestion=await zhPage.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position));
     await expect(area).toHaveAttribute("data-question-type","knowledge");
     await expect(area.locator(".quiz-question-pinyin")).toHaveCount(currentQuestion?.prompt_pinyin?1:0);
