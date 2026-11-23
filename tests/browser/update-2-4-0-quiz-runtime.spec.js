@@ -737,9 +737,14 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await page.clock.install();
   await page.locator('[data-action="begin-game"]').click();
   await expect(page.locator(".flash-game")).toBeVisible();
+  await expect(page.locator("#flashGameClock")).toBeVisible();
+  await expect(page.locator("#flashMemory")).not.toBeEmpty();
+  const clockText=await page.locator("#flashGameClock").textContent();
+  const challengeSeconds=Number(String(clockText||"").replace(/\\D/g,""));
+  expect([60,120]).toContain(challengeSeconds);
 
-  await page.clock.fastForward(61000);
-  await page.clock.fastForward(2500);
+  await page.clock.runFor((challengeSeconds+2)*1000);
+  await page.clock.runFor(2500);
   await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:15000});
 
   const dataResponse=await api.post(apiUrl+"/rest/v1/rpc/get_my_flashcard_data",{
