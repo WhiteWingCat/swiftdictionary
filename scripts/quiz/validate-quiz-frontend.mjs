@@ -186,6 +186,12 @@ if (!html.includes('class="quiz-home-hero"') || !html.includes('class="quiz-ques
     !html.includes("quizSlideFromRight") || !html.includes("quizSlideFromLeft")) {
   throw new Error("The U2.8.0 Quiz overview and active test UI redesign or directional question transitions are missing.");
 }
+if (!appScript.includes("function quizRenderSession(transitionDirection=null)") ||
+    !appScript.includes('quizRenderSession(direction)') ||
+    !appScript.includes('data-dashboard-daily-quiz-review') ||
+    !dailyLearning.includes('daily-review-correct')) {
+  throw new Error("U2.8.0 active-test transitions or completed-activity review contracts are incomplete.");
+}
 if (!html.includes(".dashboard-tab-panel[hidden]") || !appScript.includes("setDashboardTab(activeDashboardTab)") ||
     !appScript.includes("data-dashboard-daily-lesson-review") || !appScript.includes("data-dashboard-daily-activity-review") ||
     !appScript.includes('quizReview(button.dataset.dashboardDailyQuizReview,"dashboard")') ||
