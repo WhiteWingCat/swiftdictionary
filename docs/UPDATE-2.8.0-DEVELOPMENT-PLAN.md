@@ -370,3 +370,13 @@ All four owner-reported staging gaps have been implemented on the U2.8.0 feature
 Staging's existing Flashcard RPC already enforces the course-specific mode restriction, so no database migration was needed. No Production changes were made.
 
 Browser/static regression coverage was added for the new Quiz UI/transitions, Dashboard tabs, in-place reviews and mode switching. The first verification run exposed and prompted fixes to the mock Flashcard adapter, DOM-independent Daily Learning stylesheet placement and stale asset-version assertions. Fresh CI results must be confirmed before handing the refreshed preview back to the owner. See the linked staging feedback remediation archive for details.
+
+
+## 20. Staging feedback follow-up verification — 2026-11-23
+
+- Corrected the Chinese permanent-lesson Daily History review lookup to use the Chinese lesson catalogue; added a browser regression for `zh-b-pinyin-foundations` confirming the Chinese lesson content renders in the Dashboard overlay without changing the `#profile` route.
+- Verified the staging Flashcard RPC rejects `mixed` for a Chinese-course account with the expected validation error before allowance checks/session creation. The verification was rollback-only. No staging migration/data change was necessary.
+- Latest feature head `2749d6359fafbbbbc52429b3b5f4c5a36f42ad71` deployed successfully to Cloudflare Pages. Stable preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- Latest-head checks passed for Quiz DB foundation, Flashcards static/browser tests, Chromium signed-out smoke, Supabase CLI local Auth compatibility, U2.7 allowance, ACL, Chinese dictionary, build routing and PostgreSQL migration/allowance.
+- Two duplicate push/PR local Supabase Auth/RPC integration runs were still executing authenticated Quiz Chromium runtime tests. Confirm both results before declaring the full CI gate green.
+- Keep PR #16 draft; no production merge or deployment is authorised. Detailed implementation and validation are recorded in the staging feedback remediation archive.
