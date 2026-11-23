@@ -181,7 +181,9 @@ begin
  perform public.abandon_my_quiz((v_quiz1->>'session_id')::uuid);
  v_quiz2:=public.start_my_quiz('beginner','zh','en');
  if v_quiz2->>'translation_language_code'<>'en'
-    or not exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation')
+    or (select count(*) from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation')<>1
+    or (select count(*) from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='knowledge')<>9
+    or exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='knowledge' and nullif(q->>'prompt_translation','') is null)
     or exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation' and nullif(q->>'prompt_pinyin','') is not null) then
    raise exception 'Chinese Quiz did not include English-to-Chinese items only for the English translation preference: %',v_quiz2;
  end if;
