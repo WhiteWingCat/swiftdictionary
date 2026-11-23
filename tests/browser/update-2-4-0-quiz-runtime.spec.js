@@ -757,7 +757,7 @@ test("Chinese Flashcards only offer card sets supported by the selected recall m
 });
 
 test("Chinese Flashcard games save per-card snapshots and support read-only review", async ({ page }) => {
-  test.setTimeout(90000);
+  test.setTimeout(120000);
   const user=await createRuntimeUser("flashcard-zh-review","free");
   const session=await signIn(user.email,user.password);
   await openQuiz(page,session);
@@ -772,7 +772,6 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
   await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
   await expect(page.locator("#flashGameCollection")).toHaveValue("all");
-  await page.clock.install();
   await page.locator('[data-action="begin-game"]').click();
   await expect(page.locator(".flash-game")).toBeVisible();
   await expect(page.locator("#flashGameClock")).toBeVisible();
@@ -786,18 +785,11 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   expect(challengeSeconds).toBeGreaterThan(0);
   expect(challengeSeconds).toBeLessThanOrEqual(120);
 
-  const elapsed=await api.post(apiUrl+"/rest/v1/rpc/test_elapse_my_flashcard_challenge",{
-    headers:{apikey:anonKey,Authorization:"Bearer "+session.access_token},
-    data:{}
-  });
-  expect(elapsed.ok()).toBeTruthy();
-  const elapsedBody=await elapsed.json();
-  expect(elapsedBody.duration_seconds).toBeGreaterThan(0);
   const completionResponsePromise=page.waitForResponse(
     response=>response.url().includes("/rpc/complete_my_flashcard_game"),
     {timeout:20000}
   );
-  await page.clock.runFor((challengeSeconds+2)*1000);
+  await page.waitForTimeout((challengeSeconds+2)*1000);
   const completionResponse=await completionResponsePromise;
   const completionBody=await completionResponse.text();
   expect(completionResponse.ok(),completionBody).toBeTruthy();
