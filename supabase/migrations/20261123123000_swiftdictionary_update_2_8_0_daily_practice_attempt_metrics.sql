@@ -54,15 +54,6 @@ begin
        and new.status is not distinct from old.status
        and new.completed_at is not distinct from old.completed_at
        and new.correct_count is not distinct from old.correct_count
-       and new.question_count is not distinct from old.question_count
-       and new.first_try_correct_count is distinct from old.first_try_correct_count
-       or false then
-      null;
-    end if;
-    if pg_catalog.current_setting('swiftdictionary.daily_practice_attempt_rpc', true) = 'on'
-       and new.status is not distinct from old.status
-       and new.completed_at is not distinct from old.completed_at
-       and new.correct_count is not distinct from old.correct_count
        and new.question_count is not distinct from old.question_count then
       new.updated_at := pg_catalog.now();
       return new;
