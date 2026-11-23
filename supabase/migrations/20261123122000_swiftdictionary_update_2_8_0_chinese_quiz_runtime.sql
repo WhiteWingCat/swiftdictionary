@@ -407,7 +407,7 @@ begin
       if v_added<v_needed then raise exception 'Fresh Chinese Quiz questions unavailable' using errcode='P0001'; end if;
     end loop;
   end if;
-  if cardinality(v_selected_ids)<>v_question_count or pg_catalog.jsonb_object_length(v_topic_counts)<3 then
+  if cardinality(v_selected_ids)<>v_question_count or (select count(*) from pg_catalog.jsonb_object_keys(v_topic_counts))<3 then
     raise exception 'Chinese Quiz selection did not meet its topic-diversity target' using errcode='P0001';
   end if;
   select count(*) filter(where q.difficulty='beginner')::integer,
