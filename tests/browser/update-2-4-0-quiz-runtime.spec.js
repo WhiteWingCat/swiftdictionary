@@ -630,3 +630,54 @@ test("signed-out Quiz uses the shared Flashcards-style sign-in card",async({page
   await expect(page.locator("#quizSignedOut")).toHaveClass(/learning-auth-card/);
   await expect(page.locator("#quizSignIn")).toHaveClass(/learning-auth-button/);
 });
+
+
+test("Chinese Quiz respects the selected translation language", async ({ page }) => {
+  await updateLearningPreference(freeUserId,"zh","en");
+  await openQuiz(page,freeSession);
+  await expect(page.locator("#courseSelect")).toHaveValue("zh");
+  await expect(page.locator("#translationSelect")).toHaveValue("en");
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
+
+  let foundTranslationQuestion=false;
+  for(let position=1;position<=10;position++){
+    const area=page.locator("#quizQuestionArea");
+    const type=await area.getAttribute("data-question-type");
+    if(type==="chinese_translation"){
+      foundTranslationQuestion=true;
+      await expect(area.locator(".quiz-question-pinyin")).toHaveCount(0);
+      await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
+      await expect(area.locator(".quiz-option-pinyin")).toHaveCount(4);
+      break;
+    }
+    await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
+    await expect(area.locator(".quiz-question-translation")).toBeVisible();
+    if(position<10)await page.locator("#quizNext").click();
+  }
+  expect(foundTranslationQuestion).toBe(true);
+
+  page.once("dialog",dialog=>dialog.accept());
+  await page.locator("#quizAbandon").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+
+  await updateLearningPreference(freeUserId,"zh","zh");
+  await page.reload();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#courseSelect")).toHaveValue("zh");
+  await expect(page.locator("#translationSelect")).toHaveValue("zh");
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
+
+  for(let position=1;position<=10;position++){
+    const area=page.locator("#quizQuestionArea");
+    await expect(area).toHaveAttribute("data-question-type","knowledge");
+    await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
+    await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
+    await expect(area.locator(".quiz-option-pinyin")).toHaveCount(4);
+    if(position<10)await page.locator("#quizNext").click();
+  }
+  page.once("dialog",dialog=>dialog.accept());
+  await page.locator("#quizAbandon").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+});
