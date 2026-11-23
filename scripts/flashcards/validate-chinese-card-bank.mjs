@@ -23,14 +23,17 @@ for(const [i,c] of (pack.characters||[]).entries()){
  if([...String(c.word||"")].length!==1)errors.push("Character "+i+" is not one Han character");
  registerTerm(c.word,"characters");
  if(chars.has(c.word))errors.push("Duplicate character "+c.word);chars.add(c.word);
- for(const k of ["pinyin","translationEn","definitionZh","exampleZh"])if(typeof c[k]!=="string"||!c[k].trim())warnings.push("Character "+c.word+" needs "+k);
  if(typeof c.examplePinyin!=="string"||!c.examplePinyin.trim())optionalWarnings.push("Character "+c.word+" has no sentence Pinyin (not used by current Sentence Recall).");
  if(!Array.isArray(c.sourceIds)||!c.sourceIds.length)errors.push("Character "+c.word+" has no provenance");
  if(!Array.isArray(c.availableModes))errors.push("Character "+c.word+" has no mode eligibility list");
  else{
   for(const mode of c.availableModes)if(!["word","definition","translation","sentence"].includes(mode))errors.push("Character "+c.word+" has an unknown mode");
-  if(c.availableModes.includes("translation")&&!c.translationZh)errors.push("Character "+c.word+" enables Chinese Translation Recall without a distinct cue");
-  if(c.availableModes.includes("translation")&&norm(c.definitionCueZh)===norm(c.translationZh))errors.push("Character "+c.word+" reuses its definition cue as its Chinese translation cue");
+  if(c.availableModes.includes("word")&&(!c.pinyin||!c.pinyin.trim()))errors.push("Character "+c.word+" enables Word Recall without Pinyin");
+  if(c.availableModes.includes("definition")&&!String(c.definitionCueZh||c.definitionZh||"").trim())errors.push("Character "+c.word+" enables Definition Recall without a Chinese definition cue");
+  if(c.availableModes.includes("sentence")&&!String(c.exampleZh||"").trim())errors.push("Character "+c.word+" enables Sentence Recall without an example sentence");
+  if(c.availableModes.includes("translation")&&c.translationLanguages?.includes("en")&&!String(c.translationEn||"").trim())errors.push("Character "+c.word+" enables English Translation Recall without an English equivalent");
+  if(c.availableModes.includes("translation")&&c.translationLanguages?.includes("zh")&&!String(c.translationZh||"").trim())errors.push("Character "+c.word+" enables Chinese Translation Recall without a distinct cue");
+  if(c.availableModes.includes("translation")&&c.translationLanguages?.includes("zh")&&norm(c.definitionCueZh)===norm(c.translationZh))errors.push("Character "+c.word+" reuses its definition cue as its Chinese translation cue");
   for(const mode of c.availableModes)modes[mode==="translation"?"translation_zh":mode]++;
   if(c.translationEn)modes.translation_en++;
  }
@@ -42,12 +45,12 @@ for(const [i,v] of (pack.vocabulary||[]).entries()){
  registerTerm(v.word,"vocabulary");
  if(vocab.has(v.word))errors.push("Duplicate vocabulary "+v.word);vocab.add(v.word);
  if(!v.pinyinNumeric||!v.translationEn)errors.push("Vocabulary "+v.word+" needs pinyin and an English gloss");
- for(const k of ["definitionZh","exampleZh"])if(typeof v[k]!=="string"||!v[k].trim())warnings.push("Vocabulary "+v.word+" needs "+k);
  if(typeof v.examplePinyin!=="string"||!v.examplePinyin.trim())optionalWarnings.push("Vocabulary "+v.word+" has no sentence Pinyin (not used by current Sentence Recall).");
  if(!Array.isArray(v.sourceIds)||!v.sourceIds.includes("cc-cedict-2026-11-20"))errors.push("Vocabulary "+v.word+" is missing CC-CEDICT provenance");
  if(!Array.isArray(v.availableModes)||v.availableModes.some(mode=>!["word","translation"].includes(mode)))errors.push("Vocabulary "+v.word+" has invalid mode eligibility");
- if(v.availableModes?.includes("translation")&&!v.translationEn)errors.push("Vocabulary "+v.word+" enables English Translation Recall without a direct gloss");
- if(v.translationLanguages?.includes("zh")&&!v.translationZh)errors.push("Vocabulary "+v.word+" advertises a missing Chinese equivalent");
+ if(v.availableModes?.includes("word")&&(!v.pinyin||!v.pinyin.trim()))errors.push("Vocabulary "+v.word+" enables Word Recall without Pinyin");
+ if(v.availableModes?.includes("translation")&&v.translationLanguages?.includes("en")&&!String(v.translationEn||"").trim())errors.push("Vocabulary "+v.word+" enables English Translation Recall without a direct gloss");
+ if(v.availableModes?.includes("translation")&&v.translationLanguages?.includes("zh")&&!String(v.translationZh||"").trim())errors.push("Vocabulary "+v.word+" enables Chinese Translation Recall without a direct equivalent");
  if(v.translationLanguages?.includes("zh")&&v.translationZh&&norm(v.definitionZh)===norm(v.translationZh))errors.push("Vocabulary "+v.word+" reuses its definition cue as its Chinese translation cue");
  modes.word++;if(v.availableModes?.includes("translation"))modes.translation_en++;
 }
