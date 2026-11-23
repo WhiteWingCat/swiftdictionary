@@ -3269,3 +3269,21 @@ After a separate explicit start instruction: audit current `main`, schemas/RPCs/
 - Existing U2.8.0 scope and acceptance criteria remain unchanged. No quota changes, dictionary gating, destructive midnight deletion or scope expansion is authorised.
 - Merge, production database changes/migrations, production deployment and release remain separate approval gates.
 - Required Malaysia-specific and general international legal/privacy planning remains mandatory; formal legal/privacy clearance is still outstanding.
+
+
+## 2026-11-23 — Update 2.8.0 development audit and implementation start
+
+The owner explicitly authorised development after the authoritative plan and conversation archives were reviewed. The U2.8.0 plan now contains the initial technical audit baseline and derived Chinese Quiz capacity targets. The reserved application branch initially matched current main commit `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`.
+
+Read-only audit confirmed:
+- 17 Chinese permanent lessons (7 Beginner / 5 Intermediate / 5 Advanced) and 112 lesson-practice candidates (44 / 34 / 34).
+- The approved Quiz bank currently has 199 English-learning / Chinese-translation questions and no Chinese-learning rows.
+- Chinese Quiz target inventory, carried forward from the existing three-session Premium capacity model: 30 Beginner, 36 Intermediate, 48 Advanced. Current candidate gaps: +2 Intermediate and +14 Advanced; all candidate questions remain subject to validation and approval.
+- Chinese dictionary bank: 519 single-character entries (HSK1 148, HSK2 271, HSK3 100). Multi-character terms/expressions are not yet standalone cards and must be added.
+- Current Flashcard backend is English-only and Mixed Recall replaced the earlier Translation mode in the current constraints. Preserve Mixed Recall and add Translation Recall as a distinct Chinese-course mode; the four distinct Chinese learning tasks are Word, Definition, Translation and Sentence Recall.
+- Production has four completed Flashcard summaries, 39 mastery rows and 12 weak-memory rows; staging has no Flashcard learner rows. Existing sessions have no per-card snapshots and cannot be reconstructed for full historical review. New games will receive immutable review snapshots; legacy sessions will remain summary-only with an explicit notice.
+- Flexible lesson completion requires a new explicit completion path and minimal attempt aggregates because current lesson UI requires every question correct and current result storage does not preserve retry mistakes.
+- Daily Learning currently includes historical completed cards in its view; filter the active view by effective local day without deleting stored records.
+- Verified Free/Premium quotas remain unchanged: Free Lessons 5 / Quiz 1 / Flashcards 3 / each Daily category 1; Premium Lessons 15 / Quiz 3 / Flashcards 10 / each Daily category 3.
+
+Security baseline and privacy gates are recorded in the U2.8.0 plan. All database checks were read-only; no production or staging data/schema/settings were changed. No merge, production migration or production deployment is authorised.
