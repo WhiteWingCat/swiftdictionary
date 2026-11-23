@@ -600,8 +600,13 @@ test("Quiz overview and active test use the redesigned layout and directional tr
   await openQuiz(page,freeSession);
   await expect(page.locator(".quiz-home-hero")).toBeVisible();
   await expect(page.locator(".quiz-home-benefits span")).toHaveCount(3);
+  await page.evaluate(()=>{
+    window.__quizScreenAnimations=[];
+    document.getElementById("quizSession").addEventListener("animationstart",event=>window.__quizScreenAnimations.push(event.animationName));
+  });
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
+  await expect.poll(()=>page.evaluate(()=>window.__quizScreenAnimations)).toContain("quizScreenEnter");
   await expect(page.locator(".quiz-question-card")).toBeVisible();
   await expect(page.locator(".quiz-question-card .quiz-question-topic")).not.toBeEmpty();
   await page.evaluate(()=>{
