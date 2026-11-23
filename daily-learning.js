@@ -784,7 +784,7 @@
     const limit = Number(limitConfig?.limit);
     const used = Number(snapshot.completed[type] || 0);
     const remaining = Number.isFinite(limit) ? Math.max(0,limit-used) : null;
-    const completedRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
+    const completedRows = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
@@ -803,7 +803,7 @@
       const reviewSession = reviewOnly ? completedRows.find(row => row.content_id === content.id) || null : null;
       contentByKey.set(type + "|" + content.id,{content,session:reviewSession});
       const activeSession = reviewOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
-      const alreadyCompleted = reviewOnly || (snapshot.dailyResults || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
+      const alreadyCompleted = reviewOnly || (snapshot.completedToday || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
       const allowanceUnavailable = !availableForPlan;
       const exhausted = !activeSession && !alreadyCompleted && !allowanceUnavailable && remaining <= 0;
       const statusLabel = activeSession ? dailyUi("In progress","进行中") : alreadyCompleted ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : exhausted ? dailyUi("Daily limit reached","今日额度已用完") : dailyUi("New activity","新活动");
