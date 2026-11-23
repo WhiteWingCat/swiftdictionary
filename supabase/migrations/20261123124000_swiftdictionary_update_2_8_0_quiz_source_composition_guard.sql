@@ -414,7 +414,7 @@ begin
 
   return private.quiz_session_payload(v_session,false);
 end;
-$function$
+$function$;
 revoke all on function private.start_my_quiz_impl(text,text,text) from public,anon,authenticated;
 grant execute on function private.start_my_quiz_impl(text,text,text) to authenticated;
 
