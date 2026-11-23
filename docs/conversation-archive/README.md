@@ -175,3 +175,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [Update 2.8.0 — development start and repository audit correction](2026-11-23-update-2-8-0-development-start-and-repository-audit.md) — records the owner's separate development-start authorisation, discovery of substantial pre-existing feature-branch implementation, PR #16/94-commit divergence, current CI failures, fixture correction and unchanged staging/production migration boundary.
 
+
+- [Update 2.8.0 — staging feedback remediation](2026-11-23-update-2-8-0-staging-feedback-remediation.md) — records the Quiz landing/test redesign, Dashboard tab visibility fix, English/Chinese Flashcard mode swap, and in-place review for every Daily History activity type.
