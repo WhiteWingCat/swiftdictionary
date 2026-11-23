@@ -19945,6 +19945,7 @@ async function completeLesson(x){
             try {
               const {data,error} = await supabaseClient.rpc("get_my_quiz_review",{p_session_id:historyRow.session_id});
               if (error || !data) { quizReviewFailureCount += 1; return; }
+              if(data.learning_language_code!==activeLearningLanguage)return;
               const topicTotals = new Map();
               for (const question of data.questions || []) {
                 if (!question.topic_id || !question.selected_option_id) continue;
