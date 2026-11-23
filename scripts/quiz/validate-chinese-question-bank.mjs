@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.zh-zh.draft.json"),"utf8"));
 const map=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/curriculum-map.zh.json"),"utf8"));
-const errors=[];\nconst emitSql=process.argv.includes("--emit-sql");\nconst approve=process.argv.includes("--approve-for-release");\nif(approve&&!emitSql){console.error("--approve-for-release requires --emit-sql");process.exit(1);}
+const errors=[];
+const emitSql=process.argv.includes("--emit-sql");\nconst approve=process.argv.includes("--approve-for-release");\nif(approve&&!emitSql){console.error("--approve-for-release requires --emit-sql");process.exit(1);}
 const ids=new Set(),prompts=new Set();
 const counts={beginner:0,intermediate:0,advanced:0};
 const topics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
