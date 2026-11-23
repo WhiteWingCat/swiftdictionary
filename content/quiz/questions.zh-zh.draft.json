@@ -4531,9 +4531,9 @@
       "learning_objective_id": "time-and-frequency",
       "question_type": "knowledge",
       "answer_language_code": "zh",
-      "prompt_learning": "我每天早上跑步。",
-      "prompt_pinyin": "wǒ měi tiān zǎo shang pǎo bù.",
-      "prompt_translation": "I go running every morning.",
+      "prompt_learning": "哪句话最自然地表示“我每天早上跑步”？",
+      "prompt_pinyin": "nǎ jù huà zuì zì rán de biǎo shì “wǒ měi tiān zǎo shang pǎo bù”?",
+      "prompt_translation": "Which sentence most naturally means “I go running every morning”?",
       "options": [
         {
           "id": "o1",
@@ -4571,9 +4571,9 @@
       "learning_objective_id": "complex-sentences",
       "question_type": "knowledge",
       "answer_language_code": "zh",
-      "prompt_learning": "请把这封信寄出去。",
-      "prompt_pinyin": "qǐng bǎ zhè fēng xìn jì chū qù.",
-      "prompt_translation": "Please send this letter.",
+      "prompt_learning": "哪句话正确地使用“把”字句表示“请寄出这封信”？",
+      "prompt_pinyin": "nǎ jù huà zhèng què de shǐ yòng “bǎ” zì jù biǎo dá “qǐng jì chū zhè fēng xìn”?",
+      "prompt_translation": "Which sentence correctly uses a 把 construction to say “Please send this letter”?",
       "options": [
         {
           "id": "o1",
@@ -4611,9 +4611,9 @@
       "learning_objective_id": "complex-sentences",
       "question_type": "knowledge",
       "answer_language_code": "zh",
-      "prompt_learning": "我的自行车被人偷了。",
-      "prompt_pinyin": "wǒ de zì xíng chē bèi rén tōu le.",
-      "prompt_translation": "My bicycle was stolen.",
+      "prompt_learning": "哪句话自然地表示“我的自行车被人偷了”？",
+      "prompt_pinyin": "nǎ jù huà zì rán de biǎo dá “wǒ de zì xíng chē bèi rén tōu le”?",
+      "prompt_translation": "Which sentence naturally means “My bicycle was stolen”?",
       "options": [
         {
           "id": "o1",
@@ -4891,9 +4891,9 @@
       "learning_objective_id": "natural-expression-and-literature",
       "question_type": "knowledge",
       "answer_language_code": "zh",
-      "prompt_learning": "一举两得",
-      "prompt_pinyin": "yì jǔ liǎng dé",
-      "prompt_translation": "Achieve two things at once.",
+      "prompt_learning": "哪个成语表示“一个行动同时带来两个好处”？",
+      "prompt_pinyin": "nǎ gè chéng yǔ biǎo shì “yí gè xíng dòng tóng shí dài lái liǎng gè hǎo chù”?",
+      "prompt_translation": "Which idiom means that one action brings two benefits?",
       "options": [
         {
           "id": "o1",
@@ -4931,9 +4931,9 @@
       "learning_objective_id": "natural-expression-and-literature",
       "question_type": "knowledge",
       "answer_language_code": "zh",
-      "prompt_learning": "春眠不觉晓",
-      "prompt_pinyin": "chūn mián bù jué xiǎo",
-      "prompt_translation": "Spring sleep makes one unaware of dawn.",
+      "prompt_learning": "哪一句诗开头描写春日睡醒时天已亮？",
+      "prompt_pinyin": "nǎ yí jù shī kāi tóu miáo xiě chūn rì shuì xǐng shí tiān yǐ jīng liàng?",
+      "prompt_translation": "Which poem line opens with a description of waking after dawn on a spring day?",
       "options": [
         {
           "id": "o1",
