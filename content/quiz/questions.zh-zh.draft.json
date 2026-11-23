@@ -5084,6 +5084,46 @@
       "explanation_learning": "画蛇添足比喻做了多余的事，反而把事情弄坏。",
       "explanation_pinyin": "huà shé tiān zú bǐ yù zuò le duō yú de shì, fǎn ér bǎ shì qíng nòng huài.",
       "explanation_translation": "画蛇添足 means ruining something by adding unnecessary details."
+    },
+    {
+      "question_id": "zh-extra-17",
+      "source_lesson_id": "zh-a-natural-expression-literature",
+      "learning_objective_id": "natural-expression-and-literature",
+      "question_type": "knowledge",
+      "answer_language_code": "zh",
+      "prompt_learning": "哪一句最自然地表达“请你先考虑清楚，再作决定”？",
+      "prompt_pinyin": "nǎ yí jù zuì zì rán de biǎo dá “qǐng nǐ xiān kǎo lǜ qīng chu, zài zuò jué dìng”?",
+      "prompt_translation": "Which sentence most naturally means “Please think it through before making a decision”?",
+      "options": [
+        {
+          "id": "o1",
+          "learning_text": "请你三思而后行。",
+          "translation_text": "Please think carefully before acting.",
+          "pinyin": "qǐng nǐ sān sī ér hòu xíng"
+        },
+        {
+          "id": "o2",
+          "learning_text": "请你画蛇添足。",
+          "translation_text": "Please add unnecessary details.",
+          "pinyin": "qǐng nǐ huà shé tiān zú"
+        },
+        {
+          "id": "o3",
+          "learning_text": "请你入乡随俗。",
+          "translation_text": "Please follow local customs.",
+          "pinyin": "qǐng nǐ rù xiāng suí sú"
+        },
+        {
+          "id": "o4",
+          "learning_text": "请你一举两得。",
+          "translation_text": "Please achieve two things at once.",
+          "pinyin": "qǐng nǐ yì jǔ liǎng dé"
+        }
+      ],
+      "correct_option_id": "o1",
+      "explanation_learning": "“三思而后行”提醒人在采取行动前先认真思考。",
+      "explanation_pinyin": "sān sī ér hòu xíng tí xǐng rén zài cǎi qǔ xíng dòng qián xiān rèn zhēn sī kǎo.",
+      "explanation_translation": "三思而后行 advises someone to think carefully before acting."
     }
   ]
 }
