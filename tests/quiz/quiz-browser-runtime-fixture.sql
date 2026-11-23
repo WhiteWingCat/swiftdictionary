@@ -168,6 +168,8 @@ begin
         v.difficulty,v.question_count,v.topic_count,v.bad_catalogue_links;
     end if;
   end loop;
+end;
+$runtime_fixture_assert$;
 
 -- Chinese-learning synthetic bank for U2.8.0 browser coverage. These rows
 -- exist only in the disposable local Supabase CI database.
@@ -273,5 +275,3 @@ begin
 end;
 $chinese_runtime_fixture_assert$;
 
-end;
-$runtime_fixture_assert$;
