@@ -142,12 +142,13 @@ if (!html.includes('id="practiceQuizWrongAnswers"') ||
     !appScript.includes("openLesson(lessonId)")) {
   throw new Error("Practice Insights must aggregate completed Quiz reviews and link missed questions to their source lessons.");
 }
-if (!html.includes('data-dashboard-quiz-review=') ||
-    !html.includes('escapeHTML(quizT("Review","查看"))') ||
-    html.includes("\\\\'+quizEscape") ||
-    !html.includes('quizReview(button.dataset.dashboardQuizReview,"dashboard")') ||
-    !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {
-  throw new Error("Dashboard Quiz history must render a valid Review button and retain its direct answer-review action.");
+if (!html.includes('data-dashboard-daily-quiz-review=') ||
+    !html.includes('quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard"') ||
+    html.includes('quizEl("dashboardQuizHistory").addEventListener') ||
+    html.includes('id="dashboardQuizHistory"') ||
+    !html.includes('dashboard-history-quiz') ||
+    !html.includes('data-dashboard-tab="history"')) {
+  throw new Error("Dashboard Quiz history must render inside the Quiz segment of Daily History and retain its direct answer-review action.");
 }
 if (!html.includes('quizPageState.result = null;') ||
     !html.includes('quizPageState.sessionView = false;') ||
