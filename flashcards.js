@@ -504,7 +504,7 @@
     setTimeout(()=>saveGameResults(),2000);
   }
   async function notifyFlashcardAllowanceExhausted(){
-    if(!currentUser||Number(state.data?.allowance?.remaining)>0)return;
+    if(!currentUser||!state.data?.allowance||Number(state.data.allowance.remaining)>0)return;
     let timezone="UTC";
     try{
       const {data,error}=await supabaseClient.from("user_preferences")
