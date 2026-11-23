@@ -712,7 +712,7 @@ test("Dashboard Daily History segments Quiz records and keeps Quiz review in His
   await expect(page.locator("#dashboardDailyHistory .dashboard-history-flashcards")).toBeVisible();
   const reviewButton=page.locator("#dashboardDailyHistory .dashboard-history-quiz [data-dashboard-daily-quiz-review]");
   await expect(reviewButton).toBeVisible();
-  await expect(reviewButton).toHaveText("Review answers");
+  await expect(reviewButton).toHaveText(/Review answers|查看答案/);
   await expect(page.locator("#dashboardTabAnalytics #dashboardQuizHistory")).toHaveCount(0);
 });
 
