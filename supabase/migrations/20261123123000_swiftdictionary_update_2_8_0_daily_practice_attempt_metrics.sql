@@ -24,6 +24,83 @@ begin
   end if;
 end $$;
 
+-- Permit only the trusted U2.8.0 attempt-metrics RPC to annotate an already
+-- completed Daily Application/Revision session. All session identity, lifecycle
+-- and completion-result fields remain immutable after completion.
+create or replace function public.guard_daily_activity_session_update()
+returns trigger
+language plpgsql
+set search_path = ''
+as $function$
+begin
+  if new.id is distinct from old.id
+     or new.user_id is distinct from old.user_id
+     or new.activity_type is distinct from old.activity_type
+     or new.language_code is distinct from old.language_code
+     or new.content_id is distinct from old.content_id
+     or new.topic_id is distinct from old.topic_id
+     or new.difficulty is distinct from old.difficulty
+     or new.source is distinct from old.source
+     or new.local_date is distinct from old.local_date
+     or new.timezone is distinct from old.timezone
+     or new.started_at is distinct from old.started_at
+     or new.created_at is distinct from old.created_at then
+    raise exception 'Daily activity session identity cannot be changed'
+      using errcode = '42501';
+  end if;
+
+  if old.status = 'completed' then
+    if pg_catalog.current_setting('swiftdictionary.daily_practice_attempt_rpc', true) = 'on'
+       and new.status is not distinct from old.status
+       and new.completed_at is not distinct from old.completed_at
+       and new.correct_count is not distinct from old.correct_count
+       and new.question_count is not distinct from old.question_count
+       and new.first_try_correct_count is distinct from old.first_try_correct_count
+       or false then
+      null;
+    end if;
+    if pg_catalog.current_setting('swiftdictionary.daily_practice_attempt_rpc', true) = 'on'
+       and new.status is not distinct from old.status
+       and new.completed_at is not distinct from old.completed_at
+       and new.correct_count is not distinct from old.correct_count
+       and new.question_count is not distinct from old.question_count then
+      new.updated_at := pg_catalog.now();
+      return new;
+    end if;
+    raise exception 'Finished daily activity sessions cannot be changed'
+      using errcode = '23514';
+  end if;
+
+  if old.status <> 'in_progress' then
+    raise exception 'Finished daily activity sessions cannot be changed'
+      using errcode = '23514';
+  end if;
+  if new.status = 'completed'
+     and pg_catalog.current_setting('swiftdictionary.daily_completion_rpc', true)
+         is distinct from 'on' then
+    raise exception 'Use complete_daily_activity_session to save completion'
+      using errcode = '42501';
+  end if;
+  if new.status = 'abandoned'
+     and pg_catalog.current_setting('swiftdictionary.daily_abandon_rpc', true)
+         is distinct from 'on' then
+    raise exception 'Use abandon_daily_activity_session to abandon a daily activity'
+      using errcode = '42501';
+  end if;
+  if new.status not in ('in_progress','completed','abandoned') then
+    raise exception 'Invalid daily activity session status'
+      using errcode = '23514';
+  end if;
+  if new.status = 'abandoned' then
+    new.completed_at := null;
+    new.correct_count := null;
+    new.question_count := null;
+  end if;
+  new.updated_at := pg_catalog.now();
+  return new;
+end;
+$function$;
+
 create or replace function private.record_my_daily_practice_attempt_impl(
   p_session_id uuid,p_first_try_correct_count integer,
   p_incorrect_attempt_count integer,p_retry_count integer
@@ -60,12 +137,14 @@ begin
        or v_session.retry_count is distinct from p_retry_count) then
     raise exception 'Daily Learning attempt statistics are already recorded' using errcode='23505';
   end if;
+  perform pg_catalog.set_config('swiftdictionary.daily_practice_attempt_rpc','on',true);
   update public.daily_activity_sessions set
     first_try_correct_count=p_first_try_correct_count,
     incorrect_attempt_count=p_incorrect_attempt_count,
     retry_count=p_retry_count,
     updated_at=now()
   where id=p_session_id and user_id=v_user;
+  perform pg_catalog.set_config('swiftdictionary.daily_practice_attempt_rpc','off',true);
   return pg_catalog.jsonb_build_object('session_id',p_session_id,
     'first_try_correct_count',p_first_try_correct_count,
     'incorrect_attempt_count',p_incorrect_attempt_count,'retry_count',p_retry_count);
