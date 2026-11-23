@@ -824,6 +824,12 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await selectCourse(page,"zh");
   await selectTranslation(page,"zh");
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  const mixedModeResponse=await api.post(apiUrl+"/rest/v1/rpc/start_my_flashcard_game",{
+    headers:{apikey:anonKey,Authorization:"Bearer "+session.access_token},
+    data:{p_mode:"mixed",p_difficulty:"beginner",p_duration_seconds:60}
+  });
+  expect(mixedModeResponse.ok()).toBe(false);
+  expect(await mixedModeResponse.text()).toContain("four distinct recall modes");
   await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
   await expect(page.locator("#flashGameCollection")).toHaveValue("all");
   await page.locator('[data-action="begin-game"]').click();
