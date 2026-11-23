@@ -373,6 +373,7 @@ begin
     and q.answer_language_code='zh' and q.learning_objective_id is not null
     and not exists(select 1 from private.quiz_daily_question_reservations r
       where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
+  -- One supplemental English-to-Chinese item per session; Chinese-only sessions remain knowledge-only.
   v_translation_needed:=case when v_translation='en' then 1 else 0 end;
   v_min_b:=v_b>=30 and v_tb>=3;
   v_min_i:=v_i>=24 and v_ti>=3 and v_b>=16 and v_tb>=3;
