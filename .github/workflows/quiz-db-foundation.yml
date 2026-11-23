@@ -162,6 +162,9 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123143000_swiftdictionary_update_2_8_0_chinese_quiz_translation_prompt_quality.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123144000_swiftdictionary_update_2_8_0_final_quiz_translation_prompt_revision.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123145000_swiftdictionary_update_2_8_0_learning_intro_rls_initplan_optimization.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123146000_swiftdictionary_update_2_8_0_chinese_quiz_distractor_quality.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123147000_swiftdictionary_update_2_8_0_chinese_greeting_distractors.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123148000_swiftdictionary_update_2_8_0_quiz_start_allowance_error_copy.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
