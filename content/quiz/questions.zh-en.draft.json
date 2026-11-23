@@ -5161,8 +5161,8 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "“马”表示 horse，读作 mǎ，使用第三声。句子“马跑得很快”表示马的速度很快。",
-      "explanation_pinyin": "“mǎ” biǎo shì horse, dú zuò mǎ, shǐ yòng dì sān shēng; jù zi “mǎ pǎo de hěn kuài” biǎo shì mǎ de sù dù hěn kuài.",
+      "explanation_learning": "“马”表示马匹，读作 mǎ，使用第三声；句子“马跑得很快”说明马的速度很快。",
+      "explanation_pinyin": "“mǎ” biǎo shì mǎ pǐ, dú zuò mǎ, shǐ yòng dì sān shēng; jù zi “mǎ pǎo de hěn kuài” shuō míng mǎ de sù dù hěn kuài.",
       "explanation_translation": "马 means “horse” and is pronounced mǎ with the third tone. The sentence says that the horse runs quickly."
     },
     {
@@ -5281,8 +5281,8 @@
         }
       ],
       "correct_option_id": "o4",
-      "explanation_learning": "“我们”表示说话者和其他人；“是”连接主语与身份，“同学”表示 classmates。",
-      "explanation_pinyin": "“wǒ men” biǎo shì shuō huà zhě hé qí tā rén; “shì” lián jiē zhǔ yǔ yǔ shēn fèn, “tóng xué” biǎo shì classmates.",
+      "explanation_learning": "“我们”包括说话者和其他人；“是”连接主语与身份，“同学”表示在同一所学校或班级学习的人。",
+      "explanation_pinyin": "“wǒ men” bāo kuò shuō huà zhě hé qí tā rén; “shì” lián jiē zhǔ yǔ yǔ shēn fèn, “tóng xué” biǎo shì zài tóng yì suǒ xué xiào huò bān jí xué xí de rén.",
       "explanation_translation": "我们 includes the speaker and other people. 是 links the subject to an identity, and 同学 means classmates."
     },
     {
@@ -5321,8 +5321,8 @@
         }
       ],
       "correct_option_id": "o2",
-      "explanation_learning": "“想”表示想要或意愿，“学习中文”表示学习 Chinese；两部分合起来表达想学习中文。",
-      "explanation_pinyin": "“xiǎng” biǎo shì xiǎng yào huò yì yuàn, “xué xí zhōng wén” biǎo shì xué xí Chinese; liǎng bù fèn hé qǐ lái biǎo dá xiǎng xué xí zhōng wén.",
+      "explanation_learning": "“想”表示意愿，“学习中文”表示学习汉语；两部分合起来表达想学习汉语。",
+      "explanation_pinyin": "“xiǎng” biǎo shì yì yuàn, “xué xí zhōng wén” biǎo shì xué xí hàn yǔ; liǎng bù fèn hé qǐ lái biǎo dá xiǎng xué xí hàn yǔ.",
       "explanation_translation": "想 expresses a desire or intention. 学习中文 means to study Chinese, so the sentence means “I want to learn Chinese.”"
     },
     {
@@ -5361,8 +5361,8 @@
         }
       ],
       "correct_option_id": "o3",
-      "explanation_learning": "“左边”表示 left side；“在”连接地点和位置说明，因此“学校在左边”表示学校位于左侧。",
-      "explanation_pinyin": "“zuǒ biān” biǎo shì left side; “zài” lián jiē dì diǎn hé wèi zhì shuō míng, yīn cǐ “xué xiào zài zuǒ biān” biǎo shì xué xiào wèi yú zuǒ cè.",
+      "explanation_learning": "“左边”表示左侧；“在”连接地点和位置说明，因此“学校在左边”表示学校位于左侧。",
+      "explanation_pinyin": "“zuǒ biān” biǎo shì zuǒ cè; “zài” lián jiē dì diǎn hé wèi zhì shuō míng, yīn cǐ “xué xiào zài zuǒ biān” biǎo shì xué xiào wèi yú zuǒ cè.",
       "explanation_translation": "左边 means “left side.” 在 connects the place with its location, so 学校在左边 means that the school is on the left."
     },
     {
@@ -5401,8 +5401,8 @@
         }
       ],
       "correct_option_id": "o4",
-      "explanation_learning": "“没有”否定“有”，表示没有某物或某种资源；“时间”是 time，“今天”表示 today。",
-      "explanation_pinyin": "“méi yǒu” fǒu dìng “yǒu”, biǎo shì méi yǒu mǒu wù huò mǒu zhǒng zī yuán; “shí jiān” shì time, “jīn tiān” biǎo shì today.",
+      "explanation_learning": "“没有”否定“有”，表示不拥有某物或资源；“时间”表示可用于安排事情的时间，“今天”指说话当天。",
+      "explanation_pinyin": "“méi yǒu” fǒu dìng “yǒu”, biǎo shì bù yōng yǒu mǒu wù huò zī yuán; “shí jiān” biǎo shì kě yòng yú ān pái shì qíng de shí jiān, “jīn tiān” zhǐ shuō huà dāng tiān.",
       "explanation_translation": "没有 negates 有 and means “do not have.” 时间 means “time,” and 今天 means “today.”"
     },
     {
@@ -5801,8 +5801,8 @@
         }
       ],
       "correct_option_id": "o3",
-      "explanation_learning": "“辛苦了”用于认可他人的努力或辛劳；“大家”指 everyone，“今天”指 today。",
-      "explanation_pinyin": "“xīn kǔ le” yòng yú rèn kě tā rén de nǔ lì huò xīn láo; “dà jiā” zhǐ everyone, “jīn tiān” zhǐ today.",
+      "explanation_learning": "“辛苦了”用于认可他人的努力或辛劳；“大家”指所有人，“今天”指说话当天。",
+      "explanation_pinyin": "“xīn kǔ le” yòng yú rèn kě tā rén de nǔ lì huò xīn láo; “dà jiā” zhǐ suǒ yǒu rén, “jīn tiān” zhǐ shuō huà dāng tiān.",
       "explanation_translation": "辛苦了 acknowledges someone's effort or hard work. 大家 means everyone, and 今天 means today."
     }
   ],
