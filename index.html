@@ -20498,7 +20498,7 @@ async function completeLesson(x){
       const topicLabel=q.topic_id?formatTopicName(q.topic_id):quizT("Mixed-topic question","多主题题目");
       const options=(q.options||[]).map((option,index)=>{
         const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
-        const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
+        const secondaryText=s.learning_language_code==="zh"?"":(chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:""));
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
       }).join("");
       area.innerHTML='<article class="quiz-question-card"><div class="quiz-question-card-head"><span class="quiz-question-index">'+quizT("QUESTION "+pos,"第 "+pos+" 题")+'</span><span class="quiz-question-topic">'+quizEscape(topicLabel)+'</span></div><h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(s.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="'+quizEscape(quizT("Answer options","答案选项"))+'">'+options+'</div></article>';
