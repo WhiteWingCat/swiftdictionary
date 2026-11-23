@@ -1,19 +1,22 @@
 -- Preserve immutable Quiz question revisions while keeping prior session references valid.
--- The preceding U2.8.0 quality migration edits approved Chinese question content.
--- Copy those rows into a new revision and retire the old versions; historical
--- quiz_session_questions continue to reference their original revision.
+-- Copy the Chinese question rows changed by the preceding quality migration
+-- into a new revision. Historical sessions retain their original references.
 begin;
-with latest as (
-  select max(updated_at) as changed_at
-  from private.quiz_question_bank
-  where learning_language_code='zh' and status='approved'
-), targets as (
-  select q.*
-  from private.quiz_question_bank q, latest l
-  where q.learning_language_code='zh'
-    and q.status='approved'
-    and q.updated_at=l.changed_at
-)
+create temporary table u28_quiz_revision_targets on commit drop as
+select q.*
+from private.quiz_question_bank q
+where q.learning_language_code='zh'
+  and q.status='approved'
+  and q.updated_at=(
+    select max(updated_at) from private.quiz_question_bank
+    where learning_language_code='zh' and status='approved'
+  );
+
+update private.quiz_question_bank q
+set status='retired',approved_at=null
+from u28_quiz_revision_targets t
+where q.question_id=t.question_id and q.revision=t.revision;
+
 insert into private.quiz_question_bank (
   question_id,revision,learning_language_code,translation_language_code,
   source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,
@@ -22,27 +25,11 @@ insert into private.quiz_question_bank (
   learning_objective_id,prompt_pinyin,explanation_pinyin
 )
 select
-  q.question_id,q.revision+1,q.learning_language_code,q.translation_language_code,
-  q.source_lesson_id,q.topic_id,q.difficulty,q.prompt_learning,q.prompt_translation,
-  q.options,q.correct_option_id,q.explanation_learning,q.explanation_translation,
-  'approved',pg_catalog.now(),pg_catalog.now(),pg_catalog.now(),q.question_type,
-  q.answer_language_code,q.learning_objective_id,q.prompt_pinyin,q.explanation_pinyin
-from targets q
+  t.question_id,t.revision+1,t.learning_language_code,t.translation_language_code,
+  t.source_lesson_id,t.topic_id,t.difficulty,t.prompt_learning,t.prompt_translation,
+  t.options,t.correct_option_id,t.explanation_learning,t.explanation_translation,
+  'approved',pg_catalog.now(),pg_catalog.now(),pg_catalog.now(),t.question_type,
+  t.answer_language_code,t.learning_objective_id,t.prompt_pinyin,t.explanation_pinyin
+from u28_quiz_revision_targets t
 on conflict(question_id,revision) do nothing;
-
-with latest as (
-  select max(updated_at) as changed_at
-  from private.quiz_question_bank
-  where learning_language_code='zh' and status='approved'
-)
-update private.quiz_question_bank q
-set status='retired',approved_at=null
-from latest l
-where q.learning_language_code='zh'
-  and q.status='approved'
-  and q.updated_at=l.changed_at
-  and exists(select 1 from private.quiz_question_bank newer
-    where newer.question_id=q.question_id and newer.revision=q.revision+1
-      and newer.status='approved');
-
 commit;
