@@ -266,7 +266,7 @@ begin
        else 'zh-a-runtime-%' end
     group by d.difficulty
   loop
-    if v.knowledge_count < case v.difficulty when 'beginner' then 30 when 'intermediate' then 36 else 48 end
+    if v.knowledge_count < (case v.difficulty when 'beginner' then 30 when 'intermediate' then 36 else 48 end)
        or v.knowledge_topics < 3 or v.translation_count < 90 then
       raise exception 'Chinese runtime fixture invalid for %: knowledge %, topics %, translations %',
         v.difficulty,v.knowledge_count,v.knowledge_topics,v.translation_count;
