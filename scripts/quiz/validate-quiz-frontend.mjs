@@ -110,6 +110,17 @@ if (!mockTesting.includes("async function loadQuizDraftBank") || !mockTesting.in
     !mockTesting.includes("questions.en-zh.draft.json") || !mockTesting.includes("curriculum-map.en.json")) {
   throw new Error("Mock Quiz must load and validate only the bilingual draft question bank and its curriculum map.");
 }
+if (!mockTesting.includes("questions.zh-en.draft.json") || !mockTesting.includes("curriculum-map.zh.json") ||
+    !mockTesting.includes('learningLanguageCode==="zh"') || !mockTesting.includes('translationLanguageCode==="en"')) {
+  throw new Error("Mock Quiz must load the Chinese draft bank and conditionally include English-to-Chinese items.");
+}
+if (appScript.includes('if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.")')) {
+  throw new Error("Chinese Quiz must be accessible when Chinese is the selected learning course.");
+}
+if (!appScript.includes('function quizTranslationVisible(code){return code === "zh" || code === "en";}') ||
+    !appScript.includes('showTranslation&&!chineseTranslationQuestion')) {
+  throw new Error("Quiz must display the selected translation in either learning-language direction without duplicating translation prompts.");
+}
 if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
   throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");
 }
@@ -171,4 +182,4 @@ for (const internalLabel of [
     throw new Error("Internal bank/allowance diagnostics must not be rendered in Quiz difficulty cards: " + internalLabel);
   }
 }
-console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese availability states exist, lesson translation refresh and Quiz snapshot fallback are wired, simplified difficulty cards and last-question navigation are present, mock answer positions are randomized, answer review is wired, and private Quiz tables are not queried directly.");
+console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese Quiz language routing and selected translation display are wired, lesson translation refresh and Quiz snapshot fallback are wired, simplified difficulty cards and last-question navigation are present, mock answer positions are randomized, answer review is wired, and private Quiz tables are not queried directly.");
