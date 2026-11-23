@@ -250,52 +250,95 @@
   function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||c.back_text,examples:c.example_text?[c.example_text]:[],_custom:c};}
   function gameDeck(){
     let all=words();
-    const common=new Set("a an the and or but if because as at by for from in into of on to with about after again all also always am are be been before between big can come could day do down each even every find first get give go good great had has have he her here him his how i if in is it just know like little long look make man many may me more most my new no not now number of old on one only other our out over people place same see she so some take than that the their them then there these they thing think this time up us use very want was way we well were what when where which who will with work would year you your".split(" "));
-    if(state.cardSet==="common")all=all.filter(w=>common.has(String(w.word).toLowerCase()));
-    else if(["nouns","verbs","adjectives","adverbs"].includes(state.cardSet)){
-      const wanted=state.cardSet.slice(0,-1),getPos=w=>String(w.part||w.partOfSpeech||w.pos||w.type||"").toLowerCase();
-      all=all.filter(w=>getPos(w).includes(wanted));
-    }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
-    else if(state.cardSet==="terms")all=all.filter(w=>/technical vocabulary|scientific|academic|subject-specific/i.test(String(w.breakdown||"")+" "+String(w.tip||"")));
+    if(course==="zh"){
+      if(state.cardSet==="characters")all=all.filter(w=>w.cardKind==="characters");
+      else if(state.cardSet==="vocabulary")all=all.filter(w=>w.cardKind==="vocabulary");
+      else if(state.cardSet==="phrases")all=all.filter(w=>w.cardKind==="phrases");
+    }else{
+      const common=new Set("a an the and or but if because as at by for from in into of on to with about after again all also always am are be been before between big can come could day do down each even every find first get give go good great had has have he her here him his how i if in is it just know like little long look make man many may me more most my new no not now number of old on one only other our out over people place same see she so some take than that the their them then there these they thing think this time up us use very want was way we well were what when where which who will with work would year you your".split(" "));
+      if(state.cardSet==="common")all=all.filter(w=>common.has(String(w.word).toLowerCase()));
+      else if(["nouns","verbs","adjectives","adverbs"].includes(state.cardSet)){
+        const wanted=state.cardSet.slice(0,-1),getPos=w=>String(w.part||w.partOfSpeech||w.pos||w.type||"").toLowerCase();
+        all=all.filter(w=>getPos(w).includes(wanted));
+      }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
+      else if(state.cardSet==="terms")all=all.filter(w=>/technical vocabulary|scientific|academic|subject-specific/i.test(String(w.breakdown||"")+" "+String(w.tip||"")));
+    }
     const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom").map(mapCustomCard)];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId);
     const targets=selected.map(c=>{if(c.card_type==="custom")return mapCustomCard(c);const source=words().find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase());return source?{...source,word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||source.definitionZh,examples:c.example_text?[c.example_text]:source.examples,dictionary_word:c.dictionary_word,_flashCard:c}:null;}).filter(Boolean);
-    const selectedKeys=new Set(targets.map(w=>w._custom?"custom:"+w._custom.id:"dict:"+String(w.dictionary_word||w.word).toLowerCase()));
-    const distractors=allCards.filter(w=>!selectedKeys.has(w._custom?"custom:"+w._custom.id:"dict:"+w.word.toLowerCase())).map(w=>({...w,_flashDistractor:true}));
+    const selectedKeys=new Set(targets.map(w=>w._custom?"custom:"+w._custom.id:cardKey(w)));
+    const distractors=allCards.filter(w=>!selectedKeys.has(w._custom?"custom:"+w._custom.id:cardKey(w))).map(w=>({...w,_flashDistractor:true}));
     return [...targets,...distractors];
   }
   function makeRound(deck){
-    const seenCards=new Set(),available=deck.filter(w=>{if(!w.word||!w.definition)return false;const key=questionKey(w);if(!key||seenCards.has(key))return false;seenCards.add(key);return true;});
+    const chinese=course==="zh";
+    const normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
+    const cueFor=(w,mode)=>{
+      if(chinese){
+        if(mode==="word")return w.pinyin||"";
+        if(mode==="definition")return w.definitionCueZh||w.definitionZh||"";
+        if(mode==="translation")return translationFor(w);
+        if(mode==="sentence")return (w.examples||[])[0]||"";
+      }
+      if(mode==="word")return translationFor(w);
+      if(mode==="definition")return w.definition||"";
+      if(mode==="sentence")return (w.examples||[])[0]||"";
+      return "";
+    };
+    const seenCards=new Set(),available=deck.filter(w=>{
+      if(!w.word)return false;
+      const key=questionKey(w);if(!key||seenCards.has(key))return false;seenCards.add(key);return true;
+    });
     const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
-    if(available.length<4)throw new Error("Four distinct choices are not available for this card set.");
-    const normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
     const modes=state.mode==="mixed"?["word","definition","sentence"]:[state.mode];
     const pools=modes.map(mode=>{
-      const optionValue=w=>mode==="word"?translationFor(w):w.word;
-      const viable=targets.filter(target=>{const correct=mode==="word"?translationFor(target):target.word,key=normalize(correct),d=new Set();for(const c of available){if(c===target)continue;const k=normalize(optionValue(c));if(k&&k!==key)d.add(k);}return d.size>=3;});
+      const optionValue=w=>chinese&&mode==="word"?w.pinyin:mode==="word"&&!chinese?translationFor(w):w.word;
+      const viable=targets.filter(target=>{
+        if(!cueFor(target,mode))return false;
+        const correct=optionValue(target),key=normalize(correct),d=new Set();
+        for(const c of available){if(c===target)continue;const v=optionValue(c),k=normalize(v);if(k&&k!==key)d.add(k);}
+        return d.size>=3;
+      });
       return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(questionKey(item)))};
     }).filter(pool=>pool.viable.length);
-    if(!pools.length)throw new Error("This card set does not contain four distinct choices for any recall mode.");
+    if(!pools.length)throw new Error("This card set does not contain four distinct choices for the selected recall mode.");
     const freshPools=pools.filter(pool=>pool.fresh.length);
-    // Never recycle a question within one challenge. A small custom collection
-    // may run out before the timer; in that case the game waits for the timer
-    // and shows a clear message instead of repeating earlier questions.
     if(!freshPools.length)return null;
     const chosenPool=freshPools[Math.floor(Math.random()*freshPools.length)];
-    const mode=chosenPool.mode,viable=chosenPool.viable,questionPool=chosenPool.fresh.length?chosenPool.fresh:viable;
-    const target=questionPool[Math.floor(Math.random()*questionPool.length)];
-    const optionValue=w=>mode==="word"?translationFor(w):w.word;
+    const mode=chosenPool.mode,target=chosenPool.fresh[Math.floor(Math.random()*chosenPool.fresh.length)];
+    const optionValue=w=>chinese&&mode==="word"?w.pinyin:mode==="word"&&!chinese?translationFor(w):w.word;
     state.usedQuestionKeys.add(questionKey(target));
     let memory="",prompt="",correct="";
-    if(mode==="word"){memory=target.word;prompt=uiText("Choose the correct meaning","请选择正确的中文释义");correct=translationFor(target);}
-    else if(mode==="definition"){memory=translationFor(target);prompt=uiText("Which word matches this meaning?","哪个英文单词符合这个释义？");correct=target.word;}
-    else{const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");const index=sentence.toLowerCase().indexOf(target.word.toLowerCase());memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence+" _____";prompt=uiText("Which word completes the sentence?","哪个单词最适合填入句子？");correct=target.word;}
-    const key=normalize(correct),distinct=new Map();for(const c of available){if(c===target)continue;const value=optionValue(c),k=normalize(value);if(k&&k!==key&&!distinct.has(k))distinct.set(k,c);}
-    const distractors=[...distinct.values()];for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
-    const chosen=[target,...distractors.slice(0,3)];for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
-    return {target,mode,memory,prompt,correct,translationHint:mode==="sentence"?translationFor(target):"",options:chosen.map(optionValue)};
+    if(chinese&&mode==="word"){
+      memory=target.word;prompt=uiText("Choose the correct Pinyin pronunciation","请选择正确的拼音读音");correct=target.pinyin;
+    }else if(chinese&&mode==="definition"){
+      memory=target.definitionCueZh||target.definitionZh;prompt=uiText("Which Chinese word matches this description?","哪个中文词语符合这个描述？");correct=target.word;
+    }else if(chinese&&mode==="translation"){
+      memory=translationFor(target);prompt=uiText("Choose the Chinese expression with this direct equivalent","请选择与这个表达直接对应的中文词语");correct=target.word;
+    }else if(chinese&&mode==="sentence"){
+      const sentence=(target.examples||[])[0],index=sentence.indexOf(target.word);
+      memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence;
+      prompt=uiText("Which Chinese word completes this sentence?","哪个中文词语最适合填入句子？");correct=target.word;
+    }else if(mode==="word"){
+      memory=target.word;prompt=uiText("Choose the correct meaning","请选择正确的中文释义");correct=translationFor(target);
+    }else if(mode==="definition"){
+      memory=target.definition;prompt=uiText("Which word matches this meaning?","哪个英文单词符合这个释义？");correct=target.word;
+    }else{
+      const sentence=(target.examples||[])[0]||("I want to "+target.word+" today."),index=sentence.toLowerCase().indexOf(target.word.toLowerCase());
+      memory=index>=0?sentence.slice(0,index)+"_____ "+sentence.slice(index+target.word.length):sentence+" _____";
+      prompt=uiText("Which word completes the sentence?","哪个单词最适合填入句子？");correct=target.word;
+    }
+    const distinct=new Map();
+    for(const c of available){if(c===target)continue;const value=optionValue(c),k=normalize(value);if(k&&k!==normalize(optionValue(target))&&!distinct.has(k))distinct.set(k,c);}
+    const distractors=[...distinct.values()];
+    for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
+    const chosen=[target,...distractors.slice(0,3)];
+    for(let i=chosen.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[chosen[i],chosen[j]]=[chosen[j],chosen[i]];}
+    const options=chosen.map(optionValue),correctIndex=options.findIndex(v=>normalize(v)===normalize(correct));
+    if(correctIndex<0)return null;
+    return {target,mode,memory,prompt,correct,options,optionCards:chosen,correctIndex,translationHint:""};
   }
   function durationLabel(n){return Number(n.toFixed(1))+"s";}
   function clearTimers(){clearTimeout(state.gameTimer);clearTimeout(state.phaseTimer);state.gameTimer=null;state.phaseTimer=null;}
