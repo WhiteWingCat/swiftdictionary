@@ -93,7 +93,8 @@ select set_config('request.jwt.claims',
  '{"sub":"28000000-0000-4000-8000-000000000001","role":"authenticated"}',true);
 
 do $test$
-declare v_saved jsonb; v_rows jsonb; v_quiz1 jsonb; v_quiz2 jsonb; v_avail jsonb; v_overlap integer; v_daily jsonb;
+declare v_saved jsonb; v_rows jsonb; v_quiz1 jsonb; v_quiz2 jsonb; v_quiz_mid jsonb; v_quiz_adv jsonb; v_avail jsonb; v_overlap integer; v_daily jsonb;
+ v_mid_i integer; v_mid_b integer; v_adv_a integer; v_adv_i integer; v_adv_b integer;
 begin
  if auth.uid()<>'28000000-0000-4000-8000-000000000001'::uuid then
    raise exception 'Test JWT subject was not recognised';
@@ -148,6 +149,29 @@ begin
  join jsonb_array_elements(v_quiz2->'questions') b
    on a->>'question_id'=b->>'question_id';
  if v_overlap<>0 then raise exception 'Chinese Quiz repeated questions across translation preferences'; end if;
+
+ perform public.abandon_my_quiz((v_quiz2->>'session_id')::uuid);
+ v_quiz_mid:=public.start_my_quiz('intermediate','zh','en');
+ select count(*) filter(where q->>'source_difficulty'='intermediate')::integer,
+        count(*) filter(where q->>'source_difficulty'='beginner')::integer
+   into v_mid_i,v_mid_b
+ from jsonb_array_elements(v_quiz_mid->'questions') q;
+ if jsonb_array_length(v_quiz_mid->'questions')<>15 or v_mid_i<>9 or v_mid_b<>6 then
+   raise exception 'Chinese Intermediate Quiz composition must be 9 intermediate + 6 beginner: %',v_quiz_mid;
+ end if;
+ perform public.abandon_my_quiz((v_quiz_mid->>'session_id')::uuid);
+
+ v_quiz_adv:=public.start_my_quiz('advanced','zh','en');
+ select count(*) filter(where q->>'source_difficulty'='advanced')::integer,
+        count(*) filter(where q->>'source_difficulty'='intermediate')::integer,
+        count(*) filter(where q->>'source_difficulty'='beginner')::integer
+   into v_adv_a,v_adv_i,v_adv_b
+ from jsonb_array_elements(v_quiz_adv->'questions') q;
+ if jsonb_array_length(v_quiz_adv->'questions')<>20 or v_adv_a<>16 or v_adv_i<>2 or v_adv_b<>2 then
+   raise exception 'Chinese Advanced Quiz composition must be 16 advanced + 2 intermediate + 2 beginner: %',v_quiz_adv;
+ end if;
+ perform public.abandon_my_quiz((v_quiz_adv->>'session_id')::uuid);
+
  begin
    perform public.get_my_flashcard_game_review('28000000-0000-4000-8000-000000000102');
    raise exception 'Another account Flashcard review was exposed';
