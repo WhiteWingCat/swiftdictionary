@@ -1024,19 +1024,19 @@
         {
           "id": "o2",
           "learning_text": "我书这是",
-          "translation_text": "Incorrect word order",
+          "translation_text": "Unnatural order: “I book this is.”",
           "pinyin": "wǒ shū zhè shì"
         },
         {
           "id": "o3",
           "learning_text": "这是书我",
-          "translation_text": "Incorrect word order",
+          "translation_text": "Unnatural order: “This is book I.”",
           "pinyin": "zhè shì shū wǒ"
         },
         {
           "id": "o4",
           "learning_text": "我的这是书",
-          "translation_text": "Incorrect word order",
+          "translation_text": "Unnatural order: “My this is book.”",
           "pinyin": "wǒ de zhè shì shū"
         }
       ],
@@ -1984,19 +1984,19 @@
         {
           "id": "o2",
           "learning_text": "一张人",
-          "translation_text": "Incorrect classifier",
+          "translation_text": "Incorrect classifier: “one sheet of person.”",
           "pinyin": "yì zhāng rén"
         },
         {
           "id": "o3",
           "learning_text": "一杯人",
-          "translation_text": "Incorrect classifier",
+          "translation_text": "Incorrect classifier: “one cup of person.”",
           "pinyin": "yì bēi rén"
         },
         {
           "id": "o4",
           "learning_text": "一本人",
-          "translation_text": "Incorrect classifier",
+          "translation_text": "Incorrect classifier: “one book of person.”",
           "pinyin": "yì běn rén"
         }
       ],
@@ -2104,19 +2104,19 @@
         {
           "id": "o2",
           "learning_text": "我昨天看过电影吗",
-          "translation_text": "Have I ever watched a movie yesterday?",
+          "translation_text": "Awkward tense and question: “Did I have the experience of watching a movie yesterday?”",
           "pinyin": "wǒ zuó tiān kàn guo diàn yǐng ma"
         },
         {
           "id": "o3",
           "learning_text": "我电影昨天看着",
-          "translation_text": "Incorrect order",
+          "translation_text": "Unnatural order: “I movie yesterday watch (ongoing).”",
           "pinyin": "wǒ diàn yǐng zuó tiān kàn zhe"
         },
         {
           "id": "o4",
           "learning_text": "我昨天电影了看",
-          "translation_text": "Incorrect order",
+          "translation_text": "Unnatural order: “I yesterday movie completed-watch.”",
           "pinyin": "wǒ zuó tiān diàn yǐng le kàn"
         }
       ],
@@ -2504,19 +2504,19 @@
         {
           "id": "o2",
           "learning_text": "我起床每天七点早上",
-          "translation_text": "Incorrect order",
+          "translation_text": "Unnatural order: “I get up at every day seven morning.”",
           "pinyin": "wǒ qǐ chuáng měi tiān qī diǎn zǎo shang"
         },
         {
           "id": "o3",
           "learning_text": "我七点每天起床早上",
-          "translation_text": "Incorrect order",
+          "translation_text": "Unnatural order: “I at seven every day get up morning.”",
           "pinyin": "wǒ qī diǎn měi tiān qǐ chuáng zǎo shang"
         },
         {
           "id": "o4",
           "learning_text": "我每天起床早上七点吗",
-          "translation_text": "Question form, not the statement",
+          "translation_text": "Question form: “Do I get up every morning at seven?”",
           "pinyin": "wǒ měi tiān qǐ chuáng zǎo shang qī diǎn ma"
         }
       ],
@@ -4544,19 +4544,19 @@
         {
           "id": "o2",
           "learning_text": "我跑步每天早上。",
-          "translation_text": "Unnatural word order.",
+          "translation_text": "Unnatural Chinese order: “I run every morning every day.”",
           "pinyin": "wǒ pǎo bù měi tiān zǎo shang"
         },
         {
           "id": "o3",
           "learning_text": "每天我跑步早上。",
-          "translation_text": "Unnatural word order.",
+          "translation_text": "Unnatural Chinese order: “Every day I run morning.”",
           "pinyin": "měi tiān wǒ pǎo bù zǎo shang"
         },
         {
           "id": "o4",
           "learning_text": "我早上跑步每天。",
-          "translation_text": "Unnatural word order.",
+          "translation_text": "Unnatural Chinese order: “I morning run every day.”",
           "pinyin": "wǒ zǎo shang pǎo bù měi tiān"
         }
       ],
