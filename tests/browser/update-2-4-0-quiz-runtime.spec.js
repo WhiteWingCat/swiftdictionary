@@ -545,7 +545,6 @@ test("Quiz start confirmation warns about allowance and cancellation does not co
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
   await expect(page.locator("#quizSession")).toBeHidden();
-  await page.once("dialog",dialog=>dialog.accept());
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("0 / 1 今日剩余");
