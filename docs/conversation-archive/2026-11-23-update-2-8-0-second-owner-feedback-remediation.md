@@ -33,8 +33,8 @@ The owner requested twelve corrections:
 - Quiz start shows a bilingual confirmation. A cancelled prompt creates no session and consumes no allowance. A successfully created Quiz session is charged immediately; abandonment does not refund it.
 - Removed option Pinyin and English translation hints from active Chinese Quiz choices. These were able to reveal the correct option even when the prompt itself was fixed. Pronunciation and translation remain available in Answer Review.
 - The Chinese question bank initially contained multiple prompt-language answer leaks. A first pass rewrote 68 question rows and cleared answer-matching Pinyin; normalized scans then identified five additional Chinese phrase leaks and 52 English translation-prompt leaks, plus one final English gloss wording. These were corrected through new question revisions rather than overwriting historical revisions.
-- An automated duplicate-choice check found no duplicate Chinese learning-option sets. The advanced 把-construction example was revised to use grammatical, plausible alternatives.
-- Final staging SQL audit: 145 approved Chinese questions; zero normalized correct-answer matches in Chinese knowledge prompts; zero normalized correct-answer matches in English translated prompts; zero correct-option Pinyin matches in question Pinyin. The 124 retired rows are retained historical revisions, not deleted questions.
+- Structural checks found all 145 approved questions have exactly four options, a valid correct-option reference and an explanation; no duplicate Chinese learning-option sets. A targeted distractor audit identified and revised five weak sets. The server randomises option order for each session. Five targeted distractor sets were revised to use grammatical, plausible alternatives, covering the advanced 把 construction, state/result particles, 得 complements and measure words. The server randomises option order per session, so the source bank's correct-option position does not determine the displayed position.
+- Final staging SQL audit: 145 approved Chinese questions; zero normalized correct-answer matches in Chinese knowledge prompts; zero normalized correct-answer matches in English translated prompts; zero correct-option Pinyin matches in question Pinyin. The 129 retired rows are retained historical revisions, not deleted questions.
 
 ### Flashcards
 
@@ -59,6 +59,7 @@ Applied:
 - 20261123143000_swiftdictionary_update_2_8_0_chinese_quiz_translation_prompt_quality
 - 20261123144000_swiftdictionary_update_2_8_0_final_quiz_translation_prompt_revision
 - 20261123145000_swiftdictionary_update_2_8_0_learning_intro_rls_initplan_optimization
+- 20261123146000_swiftdictionary_update_2_8_0_chinese_quiz_distractor_quality
 
 The Quiz limit values remain Free 1 / Premium 3 per local day. Only the charging event changed from completion to successful session start. Existing usage was retained. No in-progress Quiz session was present at migration time.
 
