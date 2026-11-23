@@ -12,7 +12,12 @@ if(generatedStart<0)errors.push("Generated Chinese Flashcard bank assignment is 
 let generated={};
 try{generated=JSON.parse(generatedSource.slice(generatedStart+1).trim().replace(/;$/,""));}
 catch{errors.push("Generated Chinese Flashcard bank is not valid JSON");}
-const syncFields=["word","pinyin","translationEn","translationZh","definitionCueZh","definitionZh","exampleZh","availableModes","difficulty","translationLanguages"];
+const commonSyncFields=["word","pinyin","translationEn","translationZh","availableModes","difficulty","translationLanguages"];
+const syncFieldsByGroup={
+ characters:[...commonSyncFields,"definitionCueZh","definitionZh","exampleZh"],
+ vocabulary:commonSyncFields,
+ phrases:[...commonSyncFields,"definitionCueZh","exampleZh"]
+};
 if(generated.status!==pack.status||generated.language_code!==pack.language_code)errors.push("Generated Chinese Flashcard bank metadata does not match its draft source.");
 for(const group of ["characters","vocabulary","phrases"]){
  const sourceItems=pack[group]||[],generatedItems=generated[group]||[];
@@ -22,7 +27,7 @@ for(const group of ["characters","vocabulary","phrases"]){
  for(const id of generatedById.keys())if(!sourceById.has(id))errors.push("Generated Flashcard bank has stale or untracked "+group+" card "+id);
  for(const [id,item] of sourceById){
   const built=generatedById.get(id);if(!built)continue;
-  for(const field of syncFields){
+  for(const field of syncFieldsByGroup[group]){
    const a=JSON.stringify(item[field]??null),b=JSON.stringify(built[field]??null);
    if(a!==b)errors.push("Generated Flashcard card "+id+" has stale "+field+" data");
   }
