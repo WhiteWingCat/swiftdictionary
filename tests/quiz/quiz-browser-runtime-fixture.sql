@@ -231,7 +231,7 @@ select
  'zh-'||prefix||'-runtime-lesson-'||topic_number,
  'quiz-runtime-topic-zh-'||prefix||'-'||topic_number,difficulty,'chinese_translation','zh',
  'zh-runtime-objective-'||prefix,
- 'Choose the Simplified Chinese equivalent of runtime phrase '||gs||'.',
+ 'Translate “good morning” into Simplified Chinese (runtime item '||gs||').',
  'Choose the most natural Simplified Chinese equivalent.','',
  jsonb_build_array(
   jsonb_build_object('id','o1','learning_text','good morning','translation_text','早上好','pinyin','zǎo shang hǎo'),
