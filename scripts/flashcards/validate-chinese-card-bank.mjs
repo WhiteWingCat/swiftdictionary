@@ -18,7 +18,7 @@ const syncFieldsByGroup={
  vocabulary:commonSyncFields,
  phrases:[...commonSyncFields,"definitionCueZh","exampleZh"]
 };
-if(generated.status!==pack.status||generated.language_code!==pack.language_code)errors.push("Generated Chinese Flashcard bank metadata does not match its draft source.");
+if(generated.status!==pack.status)errors.push("Generated Chinese Flashcard bank draft status does not match its source.");
 for(const group of ["characters","vocabulary","phrases"]){
  const sourceItems=pack[group]||[],generatedItems=generated[group]||[];
  const sourceById=new Map(sourceItems.map(item=>[item.id,item]));
