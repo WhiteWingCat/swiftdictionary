@@ -5,7 +5,7 @@
 **Update title:** Chinese Quiz & Flashcards Expansion  
 **Application branch:** `feature/update-2-8-0-chinese-quiz-flashcards` (PR #16 open as draft; head `888d7c4e6bada45b2e09e23b449d49d1c71843a9`; 94 commits ahead of `main` at audit time)  
 **Production/main:** No changes for U2.8.0  
-**Database:** Four U2.8.0 migrations exist on the feature branch; none applied to staging or production  
+**Database:** Six U2.8.0 migrations exist on the feature branch; none applied to staging or production  
 **Staging:** Cloudflare Pages preview check succeeded; no U2.8.0 staging database migration/data changes
 
 This document is the authoritative scope and acceptance baseline for U2.8.0. On 2026-11-23, the owner explicitly authorised development after the latest Master Development Record and relevant conversation archives were reviewed. The technical audit and implementation may proceed on the reserved application branch. Scope changes, merge, production migrations and production deployment remain subject to their separate approval gates.
@@ -226,7 +226,7 @@ The original planning approval archive recorded a hold on development. The owner
 - U2.8.0 feature branch: `888d7c4e6bada45b2e09e23b449d49d1c71843a9`.
 - PR #16 is open as a draft, targeting `main`.
 - The branch contains substantial U2.8.0 implementation; do not reset, overwrite or discard it.
-- Four U2.8.0 migrations are present in source control. They have not been applied to staging or production.
+- Six U2.8.0 migrations are present in source control. They have not been applied to staging or production.
 - Cloudflare Pages preview check succeeded for the latest branch head. This is not production deployment.
 - Latest CI is not green; failures and remediation are recorded in the audit update below.
 - No merge, production migration or production deployment is authorised by the development-start instruction.
@@ -312,3 +312,20 @@ The current Supabase changelog records the CLI v3 local-by-default behaviour and
 5. Continue the independent linguistic review of Chinese Quiz and Flashcard draft banks. Structural validators do not establish linguistic accuracy or release approval.
 6. Review the migrations/RLS/RPCs and deletion paths in disposable local Supabase. No staging or production migration until separate approval.
 7. Complete Malaysia/international privacy, retention, cross-border and content-licensing review before release; no legal clearance is implied.
+
+
+## 17. Release-gate remediation checkpoint — 2026-11-23
+
+- Latest feature head after a small Chinese Translation Recall prompt clarification: `a981ae25622b7a2e5a5b230a1ebc09373ef27cb7`.
+- PR #16 description has been refreshed; PR remains draft/open.
+- Correct migration inventory: six U2.8.0 SQL migrations are present in the feature branch:
+  1. `20261123120000_swiftdictionary_update_2_8_0_chinese_review_foundation.sql`
+  2. `20261123121000_swiftdictionary_update_2_8_0_flashcard_language_and_snapshots.sql`
+  3. `20261123122000_swiftdictionary_update_2_8_0_chinese_quiz_runtime.sql`
+  4. `20261123123000_swiftdictionary_update_2_8_0_daily_practice_attempt_metrics.sql`
+  5. `20261123124000_swiftdictionary_update_2_8_0_quiz_source_composition_guard.sql`
+  6. `20261123125000_swiftdictionary_update_2_8_0_security_invoker_wrappers.sql`
+- No U2.8.0 migration has been applied to staging or production.
+- Cloudflare Pages check passed for the latest feature head. The other latest-head CI workflows were still running at the last inspection; prior-head passing checks are not a substitute for latest-head results.
+- Chinese Flashcard inventory remains 519 characters, 904 multi-character vocabulary entries and 24 authored phrases. Example-Pinyin is absent on character/vocabulary records; current Sentence Recall uses sentence text, but this limitation requires an explicit linguistic/content decision before release.
+- Remaining gates and exact current state are recorded in `docs/conversation-archive/2026-11-23-update-2-8-0-release-gate-remediation.md`.
