@@ -755,6 +755,7 @@
   window.addEventListener("swiftdictionary:course-changed",()=>{
     // Keep an active challenge bound to the language pair frozen at start.
     if(state.game)return;
+    // Keep the third mode slot course-exclusive: Mixed (English) or Translation (Chinese), never both.
     const supportedModes=course==="zh"
       ?["word","definition","translation","sentence"]
       :["word","definition","mixed","sentence"];
