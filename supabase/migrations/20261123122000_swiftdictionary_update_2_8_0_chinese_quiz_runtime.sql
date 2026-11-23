@@ -157,6 +157,22 @@ begin
   where q.status='approved' and q.learning_language_code='zh'
     and q.translation_language_code='en' and q.question_type='knowledge'
     and q.answer_language_code='zh' and q.learning_objective_id is not null;
+  if coalesce(v_b,0)+coalesce(v_i,0)+coalesce(v_a,0)=0 then
+    return pg_catalog.jsonb_build_object(
+      'timezone',v_timezone,'local_date',v_day,'plan_code',v_ctx->>'plan_code',
+      'learning_language_code',v_learning,'translation_language_code',v_translation,
+      'allowance',pg_catalog.jsonb_build_object(
+        'daily_limit',(v_ctx->>'daily_limit')::integer,
+        'used_count',(v_ctx->>'used_count')::integer,
+        'remaining_count',(v_ctx->>'remaining_count')::integer),
+      'active_session_id',v_active,
+      'difficulties',pg_catalog.jsonb_build_array(
+        pg_catalog.jsonb_build_object('difficulty','beginner','question_count',10,'bank_minimum_met',false,'bank_target_met',false,'available',false,'reason','learning_course_not_supported'),
+        pg_catalog.jsonb_build_object('difficulty','intermediate','question_count',15,'bank_minimum_met',false,'bank_target_met',false,'available',false,'reason','learning_course_not_supported'),
+        pg_catalog.jsonb_build_object('difficulty','advanced','question_count',20,'bank_minimum_met',false,'bank_target_met',false,'available',false,'reason','learning_course_not_supported')
+      )
+    );
+  end if;
   select count(distinct q.question_id) filter(where q.difficulty='beginner')::integer,
          count(distinct q.question_id) filter(where q.difficulty='intermediate')::integer,
          count(distinct q.question_id) filter(where q.difficulty='advanced')::integer
@@ -309,6 +325,10 @@ begin
   where q.status='approved' and q.learning_language_code='zh'
     and q.translation_language_code='en' and q.question_type='knowledge'
     and q.answer_language_code='zh' and q.learning_objective_id is not null;
+  if coalesce(v_b,0)+coalesce(v_i,0)+coalesce(v_a,0)=0 then
+    raise exception 'Chinese Quiz curriculum is not approved for release'
+      using errcode='42501',detail='learning_course_not_supported';
+  end if;
   select count(*) filter(where q.difficulty='beginner')::integer,
          count(*) filter(where q.difficulty='intermediate')::integer,
          count(*) filter(where q.difficulty='advanced')::integer
