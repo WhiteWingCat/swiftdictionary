@@ -793,6 +793,13 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   expect(challengeSeconds).toBeGreaterThan(0);
   expect(challengeSeconds).toBeLessThanOrEqual(120);
 
+  const elapsed=await api.post(apiUrl+"/rest/v1/rpc/test_elapse_my_flashcard_challenge",{
+    headers:{apikey:anonKey,Authorization:"Bearer "+session.access_token},
+    data:{}
+  });
+  expect(elapsed.ok()).toBeTruthy();
+  const elapsedBody=await elapsed.json();
+  expect(elapsedBody.duration_seconds).toBeGreaterThan(0);
   await page.clock.runFor((challengeSeconds+2)*1000);
   await page.clock.runFor(2500);
   const flashResultCount=await page.locator("#flashResultTitle").count();
