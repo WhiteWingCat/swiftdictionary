@@ -1322,7 +1322,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“学校”是学习和上课的地方，对应英语 school。",
-      "explanation_pinyin": "“xué xiào” shì xué xí hé shàng kè de dì fāng, duì yìng yīng yǔ school.",
+      "explanation_pinyin": "“xué xiào” shì xué xí hé shàng kè de dì fāng.",
       "explanation_translation": "学校 is a place for studying and attending classes; it means “school.”"
     },
     {
@@ -1362,7 +1362,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“医院”是提供诊断和医疗服务的地方，对应英语 hospital。",
-      "explanation_pinyin": "“yī yuàn” shì tí gōng zhěn duàn hé yī liáo fú wù de dì fāng, duì yìng yīng yǔ hospital.",
+      "explanation_pinyin": "“yī yuàn” shì tí gōng zhěn duàn hé yī liáo fú wù de dì fāng.",
       "explanation_translation": "医院 is a place that provides diagnosis and medical care; it means “hospital.”"
     },
     {
@@ -1482,7 +1482,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“左边”表示左侧；“左”表示 left，“边”表示 side。",
-      "explanation_pinyin": "“zuǒ biān” biǎo shì zuǒ cè; “zuǒ” biǎo shì left, “biān” biǎo shì side.",
+      "explanation_pinyin": "“zuǒ biān” biǎo shì zuǒ cè; “zuǒ” biǎo shì zuǒ, “biān” biǎo shì cè.",
       "explanation_translation": "左边 means “the left side”: 左 means “left” and 边 means “side.”"
     },
     {
@@ -1522,7 +1522,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“右边”表示右侧，与“左边”相对；“右”表示 right，“边”表示 side。",
-      "explanation_pinyin": "“yòu biān” biǎo shì yòu cè, yǔ “zuǒ biān” xiāng duì; “yòu” biǎo shì right, “biān” biǎo shì side.",
+      "explanation_pinyin": "“yòu biān” biǎo shì yòu cè, yǔ “zuǒ biān” xiāng duì; “yòu” biǎo shì yòu, “biān” biǎo shì cè.",
       "explanation_translation": "右边 means “the right side,” opposite 左边; 右 means “right” and 边 means “side.”"
     },
     {
@@ -1602,7 +1602,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“什么”用来询问事物、内容或名称，相当于英语 what。",
-      "explanation_pinyin": "“shén me” yòng lái xún wèn shì wù, nèi róng huò míng chēng, xiāng dāng yú yīng yǔ what.",
+      "explanation_pinyin": "“shén me” yòng lái xún wèn shì wù, nèi róng huò míng chēng.",
       "explanation_translation": "什么 asks about a thing, information or a name; it means “what.”"
     },
     {
@@ -1642,7 +1642,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“谁”用来询问人物身份或姓名，相当于英语 who。",
-      "explanation_pinyin": "“shéi” yòng lái xún wèn rén wù shēn fèn huò xìng míng, xiāng dāng yú yīng yǔ who.",
+      "explanation_pinyin": "“shéi” yòng lái xún wèn rén wù shēn fèn huò xìng míng.",
       "explanation_translation": "谁 asks about a person's identity or name; it means “who.”"
     },
     {
