@@ -195,7 +195,7 @@ if (!html.includes("quiz-screen-enter") || !appScript.includes("quizAnimateScree
 }
 if (!html.includes(".dashboard-tab-panel[hidden]") || !appScript.includes("setDashboardTab(activeDashboardTab)") ||
     !appScript.includes("data-dashboard-daily-lesson-review") || !appScript.includes("data-dashboard-daily-activity-review") ||
-    !appScript.includes('quizReview(button.dataset.dashboardDailyQuizReview,"dashboard")') ||
+    !appScript.includes('quizReview(quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard")') ||
     !appScript.includes("reviewGame(gameReview.dataset.dashboardFlashcardReviewGame)")) {
   throw new Error("Dashboard tabs and in-place review actions for all Daily History activity types are incomplete.");
 }
