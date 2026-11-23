@@ -11,7 +11,7 @@ insert into private.flashcard_sessions(
  id,user_id,mode,difficulty,status,words_seen,correct_count,incorrect_count,
  unanswered_count,started_at,completed_at,duration_seconds,learning_language_code,translation_language_code
 ) values
- ('28000000-0000-4000-8000-000000000101','28000000-0000-4000-8000-000000000001','word','beginner','in_progress',0,0,0,0,now()-interval '2 minutes',null,60,'zh','zh'),
+ ('28000000-0000-4000-8000-000000000101','28000000-0000-4000-8000-000000000001','word','beginner','in_progress',null,null,null,null,now()-interval '2 minutes',null,60,'zh','zh'),
  ('28000000-0000-4000-8000-000000000102','28000000-0000-4000-8000-000000000002','word','beginner','completed',1,1,0,0,now()-interval '2 minutes',now(),60,'zh','zh');
 
 select set_config('request.jwt.claims',
