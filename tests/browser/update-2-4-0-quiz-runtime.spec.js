@@ -72,6 +72,21 @@ async function selectTranslation(page, language) {
   await page.locator("#translationSelect").selectOption(language);
 }
 
+async function selectCourseAndWaitForSave(page, language) {
+  const saved = page.waitForResponse(response =>
+    response.url().includes("/rest/v1/user_preferences") &&
+    response.request().method() === "POST");
+  await selectCourse(page, language);
+  await saved;
+}
+async function selectTranslationAndWaitForSave(page, language) {
+  const saved = page.waitForResponse(response =>
+    response.url().includes("/rest/v1/user_preferences") &&
+    response.request().method() === "POST");
+  await selectTranslation(page, language);
+  await saved;
+}
+
 async function updateLearningPreference(userId, learningLanguage, translationLanguage) {
   const response = await api.patch(
     apiUrl + "/rest/v1/user_preferences?user_id=eq." + encodeURIComponent(userId),
@@ -211,10 +226,10 @@ test("Free user can switch translation in an open permanent lesson and complete 
   // Verify the current snapshot, then switch both ways without losing the answer.
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await page.locator('input[name="lessonAnswer0"][value="1"]').check();
-  await selectTranslation(page,"en");
+  await selectTranslationAndWaitForSave(page,"en");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("Build a clear basic sentence");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
-  await selectTranslation(page,"zh");
+  await selectTranslationAndWaitForSave(page,"zh");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
 
@@ -263,10 +278,10 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText(targetPrompt);
 
   // Translation changes redraw the current question without discarding answers.
-  await selectTranslation(page,"en");
+  await selectTranslationAndWaitForSave(page,"en");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
   await expect(page.locator("#quizTranslationNotice")).toContainText("learning-language text");
-  await selectTranslation(page,"zh");
+  await selectTranslationAndWaitForSave(page,"zh");
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText(targetPrompt);
   await expect(page.locator("#quizTranslationNotice")).toContainText("本次测验正在使用你选择的翻译语言");
 
@@ -829,7 +844,7 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
     await page.locator("#learningIntroDismiss").click();
     await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
   }
-  await selectCourse(page,"zh");
+  await selectCourseAndWaitForSave(page,"zh");
   await selectTranslation(page,"zh");
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
   // The UI preference write is queued; explicitly settle the synthetic account's
