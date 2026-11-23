@@ -200,7 +200,9 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-approved-export.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          # The legacy import guard intentionally requires a completely empty bank,
+          # including the 145-row Chinese U2.8.0 fixture imported earlier in this job.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117113917_swiftdictionary_update_2_4_0_quiz_content_release.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank"
