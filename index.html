@@ -129,6 +129,7 @@
     .dashboard-tab { flex:0 0 auto; border:1px solid var(--border); border-radius:999px; padding:9px 14px; color:var(--muted); background:var(--panel); font:inherit; cursor:pointer; }
     .dashboard-tab.is-active { color:var(--text); border-color:var(--accent); background:var(--accent-bg); font-weight:700; }
     .dashboard-tab-panel { display:grid; gap:14px; }
+    .dashboard-tab-panel[hidden], .quiz-home[hidden], .dashboard-review-overlay[hidden] { display:none !important; }
     .dashboard-allowance-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:10px; margin:14px 0; }
     .dashboard-allowance-card { display:grid; gap:5px; min-width:0; padding:13px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
     .dashboard-allowance-card strong { font-size:.86rem; }
@@ -537,6 +538,70 @@
     .lesson-question label{align-items:flex-start}
     .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
     .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
+
+    /* U2.8.0 Quiz overview and active-test redesign */
+    .quiz-home{display:grid;gap:18px}
+    .quiz-home-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;padding:clamp(22px,4vw,34px);border:1px solid #3d5278;border-radius:22px;background:radial-gradient(circle at 88% 10%,rgba(135,166,226,.22),transparent 28%),linear-gradient(125deg,#1a2942 0%,#202e49 54%,#172336 100%);box-shadow:0 16px 34px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.07)}
+    .quiz-home-kicker{margin:0 0 8px;color:#aebfe6;font-size:.72rem;font-weight:850;letter-spacing:.14em}
+    .quiz-home-hero h2{margin:0 0 8px;color:#f5f7ff;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.035em}
+    .quiz-home-hero p{max-width:650px;margin:0;color:#c7d2e8;line-height:1.65}
+    .quiz-home-benefits{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+    .quiz-home-benefits span{padding:6px 10px;border:1px solid #52658a;border-radius:999px;background:#ffffff0b;color:#e1e9fa;font-size:.78rem;font-weight:650}
+    .quiz-home-hero-stat{display:grid;justify-items:center;gap:3px;min-width:116px;padding:17px;border:1px solid #647ba7;border-radius:18px;background:#111c31a8;color:#eaf0ff}
+    .quiz-home-hero-stat strong{font-size:2rem;line-height:1.1;font-weight:900}
+    .quiz-home-hero-stat span{font-size:.72rem;color:#bdcbe5;text-align:center}
+    .quiz-difficulty-card{padding:clamp(18px,3vw,26px);border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,#1b202b,#171c26);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    .quiz-difficulty-option{position:relative;overflow:hidden;min-height:225px;padding:22px;border:1px solid #465575;border-radius:18px;background:linear-gradient(155deg,#263552 0%,#1c2940 60%,#172235 100%);box-shadow:0 8px 0 #0e1726,0 14px 22px rgba(0,0,0,.2);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .quiz-difficulty-option:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#7fa7ed,#b7c9f2 55%,transparent)}
+    .quiz-difficulty-option:hover{transform:translateY(-3px);border-color:#9ab4e8;box-shadow:0 10px 0 #0e1726,0 19px 30px rgba(0,0,0,.25)}
+    .quiz-difficulty-option h3{color:#f5f7ff;font-size:1.25rem}
+    .quiz-difficulty-option p{color:#c7d2e8;min-height:4.5em}
+    .quiz-difficulty-count{border-color:#657fac;background:#314568;color:#edf3ff}
+    .quiz-difficulty-option button{min-height:44px;border-radius:12px}
+    .quiz-session-shell{max-width:940px;margin:22px auto;padding:clamp(18px,3vw,30px);border:1px solid #405276;border-radius:22px;background:linear-gradient(150deg,#1b2639 0%,#191f2b 48%,#171b24 100%);box-shadow:0 18px 42px rgba(0,0,0,.28)}
+    .quiz-session-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:17px;border-bottom:1px solid #3a465d}
+    .quiz-session-top-meta{display:flex;align-items:center;gap:10px}
+    .quiz-session-label{color:#9fb2da;font-size:.7rem;font-weight:850;letter-spacing:.13em}
+    .quiz-session-top .daily-activity-tag{padding:7px 12px;border:1px solid #52678d;border-radius:999px;background:#293a59;color:#e5edff;font-weight:750}
+    .quiz-progress-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 9px;color:#e7edf9;font-variant-numeric:tabular-nums}
+    .quiz-progress-heading strong{font-size:.94rem}
+    .quiz-progress-heading span{color:#aebbd2;font-size:.82rem}
+    .quiz-progress-track{height:9px;border:0;background:#303b50}
+    .quiz-progress-track span{border-radius:99px;background:linear-gradient(90deg,#7199e0,#b8cbf3);box-shadow:0 0 14px #83a6e955}
+    .quiz-question-card{margin-top:22px;padding:clamp(18px,3vw,28px);border:1px solid #3e4d68;border-radius:19px;background:linear-gradient(145deg,#202b3e,#1b2433 65%,#19212d);box-shadow:0 12px 28px rgba(0,0,0,.2)}
+    .quiz-question-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+    .quiz-question-index{color:#a9bee9;font-size:.72rem;font-weight:850;letter-spacing:.13em}
+    .quiz-question-topic{max-width:60%;padding:5px 10px;border:1px solid #455775;border-radius:999px;color:#c4d1e9;font-size:.75rem;text-align:right}
+    .quiz-question-prompt{margin:0 0 9px;color:#f4f6fc;font-size:clamp(1.25rem,2.8vw,1.75rem);line-height:1.45;letter-spacing:-.02em}
+    .quiz-question-pinyin{color:#b8c8e8;font-size:1rem}
+    .quiz-question-translation{margin:8px 0 0;color:#b9c7df;font-size:.96rem;line-height:1.6}
+    .quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0 4px}
+    .quiz-option{min-height:76px;padding:15px;border:1px solid #465673;border-radius:14px;background:linear-gradient(145deg,#28364c,#222e42);color:#f1f5ff;box-shadow:0 4px 0 #121c2b;transition:transform .15s ease,border-color .15s ease,background .15s ease}
+    .quiz-option:hover{transform:translateY(-2px);border-color:#91a9d5;background:#2d3e59}
+    .quiz-option[aria-pressed="true"]{border-color:#a8c1f1;background:linear-gradient(145deg,#344d76,#293e60);box-shadow:0 0 0 2px #8eace544,0 4px 0 #14233a}
+    .quiz-option-letter{width:34px;height:34px;flex-basis:34px;border-color:#657a9f;border-radius:10px;background:#ffffff0b;color:#dce7fa}
+    .quiz-option-copy{font-size:.97rem;line-height:1.5}
+    .quiz-question-actions{display:flex;justify-content:space-between;gap:12px;margin:18px 0 16px}
+    .quiz-question-actions button{min-width:120px;min-height:44px;border-radius:12px}
+    .quiz-submit-row{padding-top:18px;border-top:1px solid #3a465d}
+    .quiz-submit-row p{color:#aebbd2}
+    .quiz-submit-row .primary-button{min-height:44px;border-radius:12px}
+    .quiz-transition-next{animation:quizSlideFromRight .24s ease both}
+    .quiz-transition-previous{animation:quizSlideFromLeft .24s ease both}
+    @keyframes quizSlideFromRight{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes quizSlideFromLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+    .dashboard-review-overlay{position:fixed;inset:0;z-index:10080;display:grid;place-items:center;padding:18px;background:rgba(5,9,16,.78);backdrop-filter:blur(8px)}
+    .dashboard-review-dialog{width:min(900px,100%);max-height:min(90dvh,900px);overflow:auto;padding:clamp(18px,3vw,28px);border:1px solid #45516a;border-radius:22px;background:#191f2a;color:var(--text);box-shadow:0 24px 70px rgba(0,0,0,.5)}
+    .dashboard-review-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .dashboard-review-header h2{margin:0;font-size:1.45rem}
+    .dashboard-review-header .eyebrow{margin:0 0 5px}
+    .dashboard-review-close{flex:0 0 auto;width:40px;height:40px;border:1px solid var(--border);border-radius:12px;background:var(--panel-hover);color:var(--text);font-size:1.35rem}
+    .dashboard-review-content{display:grid;gap:14px}
+    .dashboard-review-content .quiz-review-question{padding:17px;border-radius:14px}
+    .dashboard-lesson-review .lesson-content-box{margin-top:14px}
+    .dashboard-lesson-review .lesson-review-complete{display:inline-flex;padding:6px 10px;border:1px solid #4d8a68;border-radius:999px;background:#173528;color:#a9e7c0;font-size:.8rem;font-weight:750}
+    @media(max-width:760px){.quiz-home-hero{grid-template-columns:1fr}.quiz-home-hero-stat{justify-items:start;width:max-content;min-width:120px}.quiz-options{grid-template-columns:1fr}.quiz-question-actions button{min-width:0}.quiz-session-shell{margin:12px auto}.quiz-question-topic{max-width:55%}}
+    @media(prefers-reduced-motion:reduce){.quiz-transition-next,.quiz-transition-previous{animation:none!important}.quiz-option,.quiz-difficulty-option{transition:none!important}}
 </style>
 <link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui7">
 </head>
@@ -670,15 +735,16 @@
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
       
       <section id="quizSignedOut" class="coming-card learning-auth-card" hidden><h2>Sign in to use Quiz</h2><p>Your Quiz sessions and progress are saved securely to your account, so you can continue across devices.</p><button id="quizSignIn" class="primary-button learning-auth-button" type="button">Sign in</button></section>
-      <section id="quizHome" hidden>
-        <div class="quiz-overview-grid">
+      <section id="quizHome" class="quiz-home" hidden>
+        <div class="quiz-home-hero"><div><p class="quiz-home-kicker">YOUR NEXT CHALLENGE</p><h2>Choose your challenge</h2><p>Build confidence through a focused set of mixed-topic questions. Take your time, move between questions and review every answer when you finish.</p><div class="quiz-home-benefits"><span>Untimed sessions</span><span>Save and resume</span><span>Full answer review</span></div></div><div class="quiz-home-hero-stat"><strong>10–20</strong><span>questions per session</span></div></div>
+        <div class="quiz-overview-grid>
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
         </div>
         <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading quiz-difficulty-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div><article class="quiz-allowance-card"><div><strong>Daily Quiz allowance</strong><p id="quizAllowanceText" class="quiz-allowance-number">—</p></div><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
         <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
       </section>
-      <section id="quizSession" class="profile-card quiz-session-card" hidden>
-        <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div>
+      <section id="quizSession" class="profile-card quiz-session-card quiz-session-shell" hidden>
+        <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><div class="quiz-session-top-meta"><span class="quiz-session-label">IN PROGRESS</span><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div></div>
         <div class="quiz-progress-heading"><strong id="quizQuestionCounter">Question 1 of 10</strong><span id="quizAnsweredCounter">0 answered</span></div><div class="quiz-progress-track"><span id="quizProgressFill"></span></div>
         <div id="quizQuestionArea"></div>
         <div class="quiz-question-actions"><button id="quizPrevious" class="secondary-button" type="button">Previous</button><button id="quizNext" class="primary-button" type="button">Next</button></div>
@@ -741,6 +807,12 @@
           </section>
         </section>
         <section class="profile-card"><h3>Account</h3><p id="profileEmail" class="muted-note"></p><button type="button" id="profileSignOut" class="secondary-button">Sign out</button></section>
+      </div>
+      <div id="dashboardReviewOverlay" class="dashboard-review-overlay" hidden>
+        <section class="dashboard-review-dialog" role="dialog" aria-modal="true" aria-labelledby="dashboardReviewTitle">
+          <header class="dashboard-review-header"><div><p class="eyebrow">DAILY HISTORY</p><h2 id="dashboardReviewTitle">Activity review</h2></div><button type="button" class="dashboard-review-close" data-dashboard-review-close aria-label="Close review">×</button></header>
+          <div id="dashboardReviewContent" class="dashboard-review-content"></div>
+        </section>
       </div>
     </section>
     <section id="preferencesPage" class="page-panel" hidden aria-labelledby="preferencesHeading">
