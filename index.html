@@ -19407,8 +19407,8 @@ async function completeLesson(x){
         window.SwiftDictionaryFlashcards.reviewGame(gameReview.dataset.dashboardFlashcardReviewGame);
         return;
       }
-      const quizReview=event.target.closest("[data-dashboard-daily-quiz-review]");
-      if(quizReview){showPage("quiz",true,{skipQuizInitialise:true});quizReview(quizReview.dataset.dashboardDailyQuizReview,"profile");}
+      const quizReviewButton=event.target.closest("[data-dashboard-daily-quiz-review]");
+      if(quizReviewButton){showPage("quiz",true,{skipQuizInitialise:true});quizReview(quizReviewButton.dataset.dashboardDailyQuizReview,"profile");}
     });
     document.getElementById("profileSignIn").addEventListener("click", () => document.getElementById("accountDialog").classList.add("open"));
     document.getElementById("profileSignOut").addEventListener("click", async () => {
