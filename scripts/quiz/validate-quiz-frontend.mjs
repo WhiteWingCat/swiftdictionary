@@ -183,7 +183,7 @@ for (const internalLabel of [
   }
 }
 if (!html.includes('class="quiz-home-hero"') || !html.includes('class="quiz-question-card"') ||
-    !appScript.includes("quizSlideFromRight") || !appScript.includes("quizSlideFromLeft")) {
+    !html.includes("quizSlideFromRight") || !html.includes("quizSlideFromLeft")) {
   throw new Error("The U2.8.0 Quiz overview and active test UI redesign or directional question transitions are missing.");
 }
 if (!html.includes(".dashboard-tab-panel[hidden]") || !appScript.includes("setDashboardTab(activeDashboardTab)") ||
