@@ -626,6 +626,21 @@ test("Learning course selector enables Chinese Quiz and shows a short refresh co
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 });
 
+test("Chinese Quiz choices do not reveal answers through English translations or Pinyin",async({page})=>{
+  await openQuiz(page,freeSession);
+  await selectCourse(page,"zh");
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizQuestionArea .quiz-option-copy small")).toHaveCount(0);
+  await expect(page.locator("#quizQuestionArea .quiz-option-pinyin")).toHaveCount(0);
+  const snapshot=await page.evaluate(()=>{
+    const q=quizPageState.session.questions.find(item=>item.position===quizPageState.session.current_position);
+    return {language:quizPageState.session.learning_language_code,options:[...document.querySelectorAll("#quizQuestionArea .quiz-option-copy")].map(node=>node.innerText),prompt:q?.prompt_learning,translation:q?.prompt_translation};
+  });
+  expect(snapshot.language).toBe("zh");
+  expect(snapshot.options.length).toBe(4);
+  expect(snapshot.options.every(value=>value.trim().length>0)).toBe(true);
+});
 test("Quiz overview and active test use the redesigned layout and directional transitions",async({page})=>{
   await openQuiz(page,freeSession);
   await expect(page.locator(".quiz-home-hero")).toBeVisible();
