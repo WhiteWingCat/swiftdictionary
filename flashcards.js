@@ -19,7 +19,7 @@
   };
   const timingFor=(mode,difficulty)=>timing[mode]?.[difficulty]||timing.word[difficulty];
   const state = {
-    ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,roundRecorded:false,usedQuestionKeys:new Set(),data:{collections:[],cards:[],mastery:[],history:[]},
+    ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,roundRecorded:false,usedQuestionKeys:new Set(),reviewSession:null,data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
@@ -35,7 +35,7 @@
   function cardKey(card){if(card._custom)return "custom:"+card._custom.id;if(card.card_type==="custom")return "custom:"+card.id;const language=card.course||state.game?.learningLanguage||course;return language==="zh"?"dict:zh:"+String(card.dictionary_word||card.word||"").toLowerCase():"dict:"+String(card.dictionary_word||card.word||"").toLowerCase();}
   function questionKey(card){return String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\s+/g," ").toLocaleLowerCase();}
   function collectionName(id){return state.data.collections.find(c=>c.id===id)?.name||"Collection";}
-  function uiText(en,zh){return (state.game?.translationLanguage||translationLanguage)==="zh"?zh:en;}
+  function uiText(en,zh){return (state.game?.translationLanguage||state.reviewSession?.translation_language_code||translationLanguage)==="zh"?zh:en;}
   function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),translation:uiText("Translation Recall","翻译回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
   function difficultyLabel(level){return ({beginner:uiText("Beginner","初级"),intermediate:uiText("Intermediate","中级"),advanced:uiText("Advanced","高级")})[level]||level;}
   function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;if((word.course||state.game?.learningLanguage||course)==="zh")return language==="zh"?(word.translationZh||""):(word.translationEn||word.definition||"");return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
@@ -231,7 +231,7 @@
         </section>
         <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>${uiText("Review weak memory","复习薄弱记忆")}</h2><p class="flash-muted">${uiText("Revisit answers you missed in previous games.","重新复习之前答错的内容。")}</p></div><button class="flash-primary" data-action="open-review">${uiText("Review weak memory","复习薄弱记忆")} (${weakItems.length})</button></div></section>
         <section class="flash-section"><h2>${uiText("Recent games","最近的游戏")}</h2>
-          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-pill">${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))} · ${g.correct_count}/${g.words_seen} ${uiText("correct","答对")}</div>`).join("")+'</div>':'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
+          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-card-row"><div><strong>${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))}</strong><small>${g.correct_count}/${g.words_seen} ${uiText("correct","答对")} · ${escapeHtml(g.completed_at||"")}</small></div><button class="flash-secondary" data-action="review-game" data-value="${g.id}">${uiText("Review game","复习游戏")}</button></div>`).join("")+'</div>':'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
         </section>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
@@ -546,6 +546,34 @@
     if(list)list.scrollTop=previousListScroll;
     if(detailPanel)detailPanel.scrollTop=previousDetailScroll;
   }
+  async function openGameReview(sessionId){
+    if(!currentUser||!sessionId)return;
+    closeOverlay();
+    overlayRoot.innerHTML='<div class="flash-modal-backdrop"><section class="flash-modal"><h2>'+uiText("Loading game review","正在加载游戏复习")+'</h2></section></div>';
+    const {data,error}=await supabaseClient.rpc("get_my_flashcard_game_review",{p_session_id:sessionId});
+    if(error){state.notice=uiText("Game review could not be loaded: ","无法加载游戏复习：")+error.message;closeOverlay();render();return;}
+    state.reviewSession=data||null;
+    renderGameReview();
+  }
+  function renderGameReview(){
+    const data=state.reviewSession;if(!data)return;
+    const items=Array.isArray(data.items)?data.items:[];
+    const title=uiText("Flashcard game review","闪卡游戏复习");
+    const legacy=!data.review_available||!items.length;
+    const content=legacy
+      ?'<p class="flash-muted">'+uiText("This game was completed before per-card review snapshots were introduced. Its summary is preserved, but the original cards and answers cannot be reconstructed.","这场游戏完成于逐卡复习记录启用之前。成绩摘要仍然保留，但无法还原当时的卡片和答案。")+'</p>'
+      :items.map(item=>{
+        const card=item.card||{},status=item.unanswered?uiText("Unanswered","未作答"):item.is_correct?uiText("Correct","正确"):uiText("Incorrect","错误");
+        const options=(item.options||[]).map((option,i)=>{
+          const text=option.text||option.word||"";
+          const cls=i===item.correct_option_index?"is-correct":i===item.selected_option_index&&!item.is_correct?"is-wrong":"";
+          return '<li class="'+cls+'">'+escapeHtml(text)+(i===item.selected_option_index?' <small>· '+uiText("Your answer","你的答案")+'</small>':"")+(i===item.correct_option_index?' <small>· '+uiText("Correct answer","正确答案")+'</small>':"")+'</li>';
+        }).join("");
+        const translation=data.translation_language_code==="zh"?card.translation_zh:card.translation_en;
+        return '<article class="flash-review-card"><div class="flash-review-card-head"><strong>#'+item.position+' · '+escapeHtml(modeLabel(item.recall_mode))+'</strong><span>'+status+'</span></div><h3>'+escapeHtml(card.word||"")+'</h3>'+(card.pinyin?'<p>'+escapeHtml(card.pinyin)+'</p>':"")+'<p>'+escapeHtml(item.prompt||"")+'</p>'+(translation?'<p class="flash-muted">'+escapeHtml(translation)+'</p>':"")+'<ol>'+options+'</ol>'+(card.example?'<p><em>'+escapeHtml(card.example)+'</em></p>':"")+'</article>';
+      }).join("");
+    overlayRoot.innerHTML='<div class="flash-modal-backdrop"><section class="flash-modal flash-game-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashGameReviewTitle"><h2 id="flashGameReviewTitle">'+title+'</h2><p class="flash-muted">'+escapeHtml(difficultyLabel(data.difficulty))+' · '+escapeHtml(modeLabel(data.mode))+' · '+Number(data.correct_count||0)+'/'+Number(data.words_seen||0)+' '+uiText("correct","答对")+'</p>'+content+'<div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay">'+uiText("Close","关闭")+'</button></div></section></div>';
+  }
   async function loadData(){
     if(!currentUser||!supabaseClient)return;
     state.loading=true;render();
@@ -572,7 +600,7 @@
     await loadData();
   }
   function notice(message){state.notice=message;const n=$("#flashNotice");if(n)n.textContent=message;}
-  function closeOverlay(){if(overlayRoot)overlayRoot.innerHTML="";}
+  function closeOverlay(){if(overlayRoot)overlayRoot.innerHTML="";state.reviewSession=null;}
   async function handleClick(event){
     const button=event.target.closest("[data-action]");if(!button)return;
     const action=button.dataset.action,value=button.dataset.value;
@@ -583,7 +611,7 @@
       if(action==="close-overlay"){closeOverlay();return;}
       if(action==="close-result"){closeOverlay();state.lastResult=null;state.results=[];render();return;}
       if(action==="begin-game"){state.difficulty=overlayRoot.querySelector("#flashDifficulty").value;state.cardSet=overlayRoot.querySelector("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
-      if(action==="open-review"){openReviewPrompt();return;}
+      if(action==="open-review"){openReviewPrompt();return;}\n      if(action==="review-game"){await openGameReview(value);return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
       if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
       if(action==="mode"){state.mode=value;render();return;}
@@ -685,7 +713,7 @@
       return {memory:Math.max(t.memoryFloor,Number((memory-REDUCTION_STEP).toFixed(2))),answer:Math.max(t.answerFloor,Number((answer-REDUCTION_STEP).toFixed(2)))};
     }
   };
-  timerApi.openReviewFromDashboard=async()=>{if(!currentUser)return;if(!state.ready)await loadData();openReviewPrompt();};
+  timerApi.openReviewFromDashboard=async()=>{if(!currentUser)return;if(!state.ready)await loadData();openReviewPrompt();};\n  timerApi.reviewGame=async(sessionId)=>{if(!currentUser)return;if(!state.ready)await loadData();await openGameReview(sessionId);};
   timerApi.refreshDashboardData=async()=>{if(currentUser)await loadData();};
   timerApi.refreshTranslation=()=>{
     if(state.game)return; // Keep the language snapshot stable during an active challenge.
