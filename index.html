@@ -680,32 +680,47 @@
       <div class="dashboard-heading"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div>
       <div id="profileSignedOut" class="coming-card" hidden><h2>Sign in to view your Dashboard</h2><p class="page-intro" style="margin:0 auto 16px">Your dashboard and learning progress are available after signing in.</p><button type="button" class="primary-button" id="profileSignIn">Sign in</button></div>
       <div id="profileContent" hidden>
-        <div class="profile-grid">
-          <div class="stat-card"><strong id="totalActivity">0</strong><span>Completed learning activities</span></div>
-          <div class="stat-card"><strong id="todayActivity">0</strong><span>Completions today</span></div>
-          <div class="stat-card"><strong id="activeLanguageCount">0</strong><span>Active learning courses</span><div id="activeLanguagesList" class="active-language-list muted-note">No learning activity recorded yet.</div></div>
-        </div>
-        <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details></section>
-        <section class="profile-card"><h3>Learning progress</h3><p class="muted-note">Your progress is based on successful lesson and daily activity completions. Dictionary searches and saved words are not restricted or counted as lesson activity.</p>
-          <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
-          <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-bars"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
-          <details open><summary>Quiz history</summary><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></details>
+        <nav class="dashboard-tab-bar" role="tablist" aria-label="Dashboard sections">
+          <button type="button" class="dashboard-tab is-active" role="tab" aria-selected="true" aria-controls="dashboardTabFavourites" data-dashboard-tab="favourites">Favourites</button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabProgress" data-dashboard-tab="progress">Learning Progress</button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabHistory" data-dashboard-tab="history">Daily History</button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabAnalytics" data-dashboard-tab="analytics">Analytics</button>
+        </nav>
+        <section id="dashboardTabFavourites" class="dashboard-tab-panel" role="tabpanel">
+          <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details></section>
         </section>
-        <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
-          <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
-          <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
-          <div class="stat-card"><strong id="dashboardFlashcardAccuracy">—</strong><span>Recent accuracy</span></div>
-        </div><div class="profile-card" style="margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h4 style="margin:0 0 5px">Weak Memory</h4><p id="dashboardFlashcardWeakSummary" class="muted-note" style="margin:0">Loading weak-memory summary…</p></div><button type="button" class="primary-button" data-dashboard-flashcard-review>Review weak memory</button></div></div><p id="dashboardFlashcardStatus" class="muted-note">Statistics are based on your recent completed Flashcard games.</p></section>
-        <section class="profile-card"><h3>Practice insights</h3>
+        <section id="dashboardTabProgress" class="dashboard-tab-panel" role="tabpanel" hidden>
           <div class="profile-grid">
-            <div class="stat-card"><strong id="practiceAccuracy">—</strong><span>Recent practice accuracy</span></div>
-            <div class="stat-card"><strong id="practiceTopicsDue">0</strong><span>Topics needing review</span></div>
-            <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
+            <div class="stat-card"><strong id="totalActivity">0</strong><span>Completed learning activities</span></div>
+            <div class="stat-card"><strong id="todayActivity">0</strong><span>Completions today</span></div>
+            <div class="stat-card"><strong id="activeLanguageCount">0</strong><span>Active learning courses</span><div id="activeLanguagesList" class="active-language-list muted-note">No learning activity recorded yet.</div></div>
           </div>
-          <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Needs another attempt: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
-          <h4 class="review-topics-heading">Quiz answers to revisit</h4>
-          <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
-          <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
+          <section class="profile-card"><h3>Learning progress</h3><p class="muted-note">Your progress is based on successful lesson and daily activity completions. Dictionary searches and saved words are not restricted or counted as lesson activity.</p>
+            <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
+            <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-grid"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
+          </section>
+        </section>
+        <section id="dashboardTabHistory" class="dashboard-tab-panel" role="tabpanel" hidden>
+          <section class="profile-card"><h3>Daily History</h3><p class="muted-note">Completed lessons, Quizzes and Flashcard games for today in your allowance timezone. Older records remain stored; this view refreshes with the local day.</p><div id="dashboardDailyHistory" class="dashboard-daily-history"><p class="muted-note">Loading today's learning history…</p></div></section>
+        </section>
+        <section id="dashboardTabAnalytics" class="dashboard-tab-panel" role="tabpanel" hidden>
+          <section class="profile-card"><h3>Quiz history</h3><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></section>
+          <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
+            <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
+            <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
+            <div class="stat-card"><strong id="dashboardFlashcardAccuracy">—</strong><span>Recent accuracy</span></div>
+          </div><div class="profile-card" style="margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h4 style="margin:0 0 5px">Weak Memory</h4><p id="dashboardFlashcardWeakSummary" class="muted-note" style="margin:0">Loading weak-memory summary…</p></div><button type="button" class="primary-button" data-dashboard-flashcard-review>Review weak memory</button></div></div><p id="dashboardFlashcardStatus" class="muted-note">Statistics are based on your recent completed Flashcard games.</p></section>
+          <section class="profile-card"><h3>Practice insights</h3>
+            <div class="profile-grid">
+              <div class="stat-card"><strong id="practiceAccuracy">—</strong><span>Recent practice accuracy</span></div>
+              <div class="stat-card"><strong id="practiceTopicsDue">0</strong><span>Topics needing review</span></div>
+              <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
+            </div>
+            <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Needs another attempt: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
+            <h4 class="review-topics-heading">Quiz answers to revisit</h4>
+            <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
+            <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
+          </section>
         </section>
         <section class="profile-card"><h3>Account</h3><p id="profileEmail" class="muted-note"></p><button type="button" id="profileSignOut" class="secondary-button">Sign out</button></section>
       </div>
