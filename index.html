@@ -19857,7 +19857,7 @@ async function completeLesson(x){
     });
     function openDashboardLessonReview(lessonId,difficulty,languageCode){
       const targetCourse=languageCode==="zh"?"zh":"en";
-      const lesson=(lessonData[difficulty]||[]).find(item=>item.id===lessonId);
+      const lesson=((targetCourse==="zh"?chineseLessonData:lessonData)[difficulty]||[]).find(item=>item.id===lessonId);
       if(!lesson){openDashboardReview("Lesson review",'<p class="muted-note">The original lesson content is not available in this version.</p>');return;}
       const previousCourse=course,previousTranslation=translationLanguage;
       course=targetCourse;
