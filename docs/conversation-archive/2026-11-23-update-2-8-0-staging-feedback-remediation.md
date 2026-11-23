@@ -113,3 +113,27 @@ Passed on latest head: Cloudflare Pages; Quiz DB foundation; Flashcards static c
 Two duplicate push/PR runs of the full local Supabase Auth/RPC integration workflow were still running the authenticated Chromium Quiz runtime step at the time of this follow-up. Verify both final conclusions before declaring all CI complete. The separate retired Workers Builds service `swiftdictionary-testing` still reports a failure; it is unrelated to the successful Cloudflare Pages deployment and is not the preview target.
 
 No Production database, application code, `main` branch or production deployment was changed. PR #16 remains draft.
+
+
+## Authenticated Quiz CI follow-up — test assumptions corrected
+
+The first authenticated Quiz browser run on the previous test head produced four failures. The failure output showed:
+- The explicit Quiz overview/active-test redesign and directional-transition test passed.
+- The Daily History Quiz review overlay rendered in Simplified Chinese, while the test incorrectly hard-coded the English title.
+- The Quiz History button lived in the Analytics tab, which was correctly hidden while the test remained on Favourites.
+- The Chinese Mixed Recall RPC test issued its request before the asynchronous course preference upsert had settled; the test account still had its default English course at the time of the RPC.
+- A long end-to-end translation + 10-question Quiz workflow exceeded the default 30-second Playwright timeout.
+
+Corrections committed in `e1591d86bb58d548cb51bcf848661c3036aaecd9`:
+- Accept the correct localized Quiz review title in the review test.
+- Select Analytics before asserting the Quiz History button is visible.
+- Wait for the course/translation preference upsert response before making direct authenticated RPC assertions; then set the synthetic account's saved course pair to Chinese.
+- Increase only the comprehensive translation + full Quiz end-to-end test timeout to 120 seconds. No behavioral assertions were removed.
+
+Latest-head status:
+- Cloudflare Pages deployment successful; stable preview remains https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev.
+- Passed: Quiz DB foundation, Flashcards static checks, Chromium Mock User Flashcards browser suite, signed-out Chromium smoke, Supabase CLI local Auth compatibility, PostgreSQL 17 migration/allowance, U2.7 allowance, ACL, Chinese dictionary static/Chromium, and build routing.
+- Two duplicate push/PR local Supabase Auth/RPC workflows were still running the authenticated Quiz Chromium suite at the time of this archive update. Do not mark the full authenticated gate green until both finish.
+- The separate retired Workers Builds service remains failed and is not the Cloudflare Pages preview target.
+
+The preview is deployed for owner review, but this checkpoint is not production/release approval. Production remains unchanged; PR #16 remains draft.
