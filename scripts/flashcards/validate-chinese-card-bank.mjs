@@ -21,6 +21,7 @@ for(const [i,c] of (pack.characters||[]).entries()){
   if(c.availableModes.includes("translation")&&!c.translationZh)errors.push("Character "+c.word+" enables Chinese Translation Recall without a distinct cue");
   if(c.availableModes.includes("translation")&&norm(c.definitionCueZh)===norm(c.translationZh))errors.push("Character "+c.word+" reuses its definition cue as its Chinese translation cue");
   for(const mode of c.availableModes)modes[mode==="translation"?"translation_zh":mode]++;
+  if(c.translationEn)modes.translation_en++;
  }
  if(c.translationLanguages?.includes("zh")&&!c.translationZh)errors.push("Character "+c.word+" advertises a missing Chinese equivalent");
 }
@@ -41,11 +42,8 @@ for(const [i,p] of (pack.phrases||[]).entries()){
  if(norm(p.definitionCueZh)===norm(p.translationZh))errors.push("Phrase "+p.word+" reuses its definition cue as its translation cue");
  if(!Array.isArray(p.availableModes)||["word","definition","translation","sentence"].some(mode=>!p.availableModes.includes(mode)))errors.push("Phrase "+p.word+" does not support all four Chinese modes");
  for(const mode of p.availableModes||[])modes[mode==="translation"?"translation_zh":mode]++;
+ if(p.translationEn)modes.translation_en++;
 }
-modes.word+=(pack.vocabulary||[]).length;
-modes.translation_en+=(pack.vocabulary||[]).filter(v=>v.translationEn).length;
-modes.translation_zh+=(pack.phrases||[]).length;
-modes.sentence+=(pack.phrases||[]).length;
 if(release&&warnings.length)errors.push("Release mode requires all mode-specific Chinese definitions, examples and pinyin to be complete.");
 if(errors.length){console.error("Chinese Flashcard validation failed:");for(const e of errors)console.error(" - "+e);process.exit(1);}
 console.log("Chinese Flashcard draft structure passed: "+chars.size+" characters, "+vocab.size+" multi-character terms, "+(pack.phrases||[]).length+" phrases.");
