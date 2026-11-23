@@ -289,3 +289,5 @@
   }
   #dailyActivityReader.closing .daily-activity-modal { opacity:0; }
 }
+
+.daily-activity-backdrop .daily-review-correct{border-color:#4d8a68!important;background:#173528!important;color:#b5e9c8!important}.daily-activity-backdrop .daily-review-correct small{display:block;font-weight:750}
