@@ -50,7 +50,7 @@ from (values
 ('zh-en-i-comparisons-06','Which comparison pattern expresses that A has a lower degree of a quality than B?'),
 ('zh-en-i-comparisons-07','Which adverb indicates an increase in degree relative to a previous comparison?'),
 ('zh-en-i-grammar-particles-02','Which sentence reports that the speaker viewed a film on the previous day?'),
-('zh-en-i-grammar-particles-03','Which particle can follow a verb to indicate that the action has been experienced before?'),
+('zh-en-i-grammar-particles-03','Which particle follows a verb to show that the speaker has done the action at least once in the past?'),
 ('zh-en-i-grammar-particles-06','Which sentence invites the listener to share their corresponding information?'),
 ('zh-en-i-measure-words-02','Which quantity phrase combines the number two with the measure word used for books?'),
 ('zh-en-i-measure-words-06','Which quantity phrase combines the number one with the measure word used for people?'),
