@@ -20565,7 +20565,11 @@ async function completeLesson(x){
       catch{}
     }
     async function quizStart(difficulty){
-      const courseSelector=document.getElementById("courseSelect"),translationSelector=document.getElementById("translationSelect"),requestedCourse=courseSelector.value||course||"en",requestedTranslation=translationSelector.value||translationLanguage||"en",requestedUserId=currentUser?.id||null;
+      const courseSelector=document.getElementById("courseSelect");
+      const translationSelector=document.getElementById("translationSelect");
+      const requestedCourse=courseSelector.value||course||"en";
+      const requestedTranslation=translationSelector.value||translationLanguage||"en";
+      const requestedUserId=currentUser?.id||null;
       const warning=requestedTranslation==="zh"?"开始这场测验会立即使用一次每日测验额度。即使之后放弃测验，此额度也不会退还。要继续吗？":"Starting this Quiz will use one daily Quiz allowance immediately. The allowance will not be refunded if you later abandon the session. Continue?";
       if(!window.confirm(warning))return;
       quizPageState.userId=requestedUserId||quizPageState.userId;courseSelector.disabled=true;translationSelector.disabled=true;
