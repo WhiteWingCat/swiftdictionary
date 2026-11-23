@@ -1,6 +1,27 @@
 -- U2.8.0 schema and owner-scoped practice-attempt RPC test.
 begin;
 
+do $security_wrapper_assertions$
+begin
+  if (select p.prosecdef from pg_catalog.pg_proc p
+      where p.oid='public.is_personal_learning_test_access()'::regprocedure) then
+    raise exception 'Personal learning test-access RPC must remain SECURITY INVOKER';
+  end if;
+  if (select p.prosecdef from pg_catalog.pg_proc p
+      where p.oid='public.record_completed_lesson_practice_result_for_language(text,text,text,text,integer,integer)'::regprocedure) then
+    raise exception 'Lesson practice result public RPC must remain SECURITY INVOKER';
+  end if;
+  if not (select p.prosecdef from pg_catalog.pg_proc p
+      where p.oid='private.record_completed_lesson_practice_result_for_language_impl(text,text,text,text,integer,integer)'::regprocedure) then
+    raise exception 'Private lesson practice implementation must remain SECURITY DEFINER';
+  end if;
+  if has_function_privilege('anon','public.is_personal_learning_test_access()','EXECUTE')
+     or has_function_privilege('anon','public.record_completed_lesson_practice_result_for_language(text,text,text,text,integer,integer)','EXECUTE') then
+    raise exception 'Anonymous users must not execute authenticated lesson RPCs';
+  end if;
+end;
+$security_wrapper_assertions$;
+
 insert into auth.users(id,aud,role,email,email_confirmed_at,created_at,updated_at)
 values
  ('28000000-0000-4000-8000-000000000001','authenticated','authenticated','u280-practice@example.invalid',now(),now(),now()),
