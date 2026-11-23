@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-23 (U2.7.0 remains complete and owner-confirmed live; U2.8.0 final plan approved and documented; development explicitly not started.)  
-**Current baseline:** Update 2.7.0 is complete and live. Update 2.8.0 (Chinese Quiz & Flashcards Expansion) has an owner-approved final plan, documented on the documentation branch. Owner explicitly instructed not to start development yet.  
-**Current work:** U2.8.0 is planning-approved but not in development. The reserved application branch `feature/update-2-8-0-chinese-quiz-flashcards` exists from current `main` and remains untouched. No U2.8.0 application, content, SQL, migration, schema, RPC, staging, production or deployment changes have been made. The authoritative scope is `docs/UPDATE-2.8.0-DEVELOPMENT-PLAN.md`; the dated owner-decision archive is `docs/conversation-archive/2026-11-23-update-2-8-0-final-planning-approval.md`. Wait for a separate explicit owner instruction before beginning technical audit or implementation. U2.7.0 remains closed; no production action is authorised by U2.8.0 plan approval.  
-**Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10, Update 2.4.2 PR #11, Update 2.5.0 PR #12, U2.6.0/U2.6.1 and U2.7.0 PR #14 are merged. U2.7.0 production database rollout is complete and owner-confirmed on the live website. U2.8.0 plan is approved/documented only; development has not started and the application branch is untouched.  
+> **Last consolidated:** 2026-11-23 (U2.7.0 remains complete and owner-confirmed live; U2.8.0 development authorised and active on feature branch; PR #16 draft; CI remediation underway.)  
+**Current baseline:** Update 2.7.0 is complete and live. Update 2.8.0 (Chinese Quiz & Flashcards Expansion) has an owner-approved plan and active implementation on its feature branch. Current PR #16 remains draft/open; CI is not green.  
+**Current work:** U2.8.0 development is authorised and underway on `feature/update-2-8-0-chinese-quiz-flashcards`; PR #16 is draft/open. Latest audited head is `888d7c4e6bada45b2e09e23b449d49d1c71843a9`, 94 commits ahead of `main` at `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`. The branch contains substantial Chinese Quiz/Flashcard content and runtime, Dashboard/Daily History, Practice Insights and four U2.8.0 migrations. None of the U2.8.0 migrations has been applied to staging or production. Cloudflare Pages preview check passed; multiple CI checks failed and are being remediated. Authoritative scope: `docs/UPDATE-2.8.0-DEVELOPMENT-PLAN.md`; latest audit archive: `docs/conversation-archive/2026-11-23-update-2-8-0-development-start-and-repository-audit.md`. U2.7.0 remains closed. Merge, production migration and production deployment remain separately gated.  
+**Record status:** Update 2.4.0 PR #8, migration-filename sync PR #9, Update 2.4.1 PR #10, Update 2.4.2 PR #11, Update 2.5.0 PR #12, U2.6.0/U2.6.1 and U2.7.0 PR #14 are merged. U2.7.0 production database rollout is complete and owner-confirmed on the live website. U2.8.0 is in active feature-branch development; PR #16 is draft/open and no U2.8.0 production migration or deployment has occurred.  
 
 ---
 
@@ -3287,3 +3287,20 @@ Read-only audit confirmed:
 - Verified Free/Premium quotas remain unchanged: Free Lessons 5 / Quiz 1 / Flashcards 3 / each Daily category 1; Premium Lessons 15 / Quiz 3 / Flashcards 10 / each Daily category 3.
 
 Security baseline and privacy gates are recorded in the U2.8.0 plan. All database checks were read-only; no production or staging data/schema/settings were changed. No merge, production migration or production deployment is authorised.
+
+
+## 2026-11-23 — U2.8.0 repository audit correction and active development checkpoint
+
+This entry supersedes any earlier same-day statement that the U2.8.0 feature branch remained untouched after the initial audit. The owner gave a separate explicit start instruction. The feature branch was already populated with substantial U2.8.0 work by the time the latest branch audit was performed; preserve it and do not reset or overwrite it.
+
+- `main`: `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`.
+- Feature branch: `feature/update-2-8-0-chinese-quiz-flashcards`, head `888d7c4e6bada45b2e09e23b449d49d1c71843a9`; compare reports 94 commits ahead, zero behind.
+- PR #16 is open and draft. It remains a development checkpoint, not a merge candidate.
+- Branch changes include Chinese Quiz and Flashcard draft banks, separate Chinese recall modes, language-aware runtime, per-card immutable Flashcard review snapshots, Dashboard four tabs and allowance cards, Daily History, lesson/Daily Learning attempt metrics, Quiz-to-topic Practice Insights and current-day Daily Learning filtering.
+- Four U2.8.0 migrations are committed on the feature branch. No U2.8.0 migration has been applied to staging or production.
+- Latest Cloudflare Pages preview check and Quiz DB foundation check passed. Local Supabase Auth/RPC integration failed because its synthetic in-progress Flashcard fixture inserted nonzero counters that violate the existing session-count constraint. Corrected the fixture in commit `81d379a4b3f74c99e23c33aa3f5b76737fd54643` by starting with zero counters and setting final counts only on completion; rerun is pending.
+- Latest Chromium run reported 49 passed, 3 failed, 13 skipped. Failures include Dashboard/Practice Insights, historical Daily Learning review, and signed-out Flashcards auth-card visibility. Investigate semantics and correct genuine regressions; update stale assertions only when behaviour is demonstrably equivalent.
+- Other failing checks include U2.7.0 static source assertion for Daily Learning filtering, Cloudflare build-routing/cache-version assertion, U2.6.0 ACL regression and broader PostgreSQL 17 migration/allowance checks. Inspect and resolve each independently; do not weaken security or compatibility contracts.
+- The separate `Workers Builds: swiftdictionary-testing` check failed for the retired Worker and is not the Cloudflare Pages preview result.
+- Legal/privacy, retention, cross-border processing and content licensing remain outstanding release gates. No compliance clearance is implied.
+- Immediate recovery point: branch head `888d7c4` plus fixture correction commit `81d379a`; rerun CI and continue test-led remediation. Do not merge, apply production migrations or deploy to production without separate explicit owner approval.
