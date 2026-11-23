@@ -81,3 +81,11 @@ Staging migrations and SQL prompt-leak audits completed. Browser/static/CI runs 
 https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev
 
 PR #16 remains draft. Owner testing and approval are still required. Production branch/database/site remain unchanged.
+
+
+### Latest-head CI follow-up — 2026-11-23
+
+- The first full CI attempt exposed one incorrect regression assertion in the Chinese translation-question browser test: it expected prompt Pinyin to be absent and a translated gloss to be visible. The actual question renderer correctly keeps Chinese prompt Pinyin as pronunciation support and suppresses the prompt translation for a translation question so the answer is not revealed. The test was corrected to assert that behaviour and continue asserting that option Pinyin/translation hints remain absent.
+- Corrected test commit: 54abe100408390cdfb609ed16ddf67634cc5aae7.
+- On this latest head, Cloudflare build routing, PostgreSQL migration/allowance tests, Supabase CLI Auth compatibility, Dashboard/allowance browser regressions, Chinese Dictionary browser checks, Flashcards browser checks and ACL regression all passed. Authenticated Quiz runtime browser checks against disposable local Supabase were still running; the preview must remain gated until they and the remaining chained regressions/Supabase advisor step finish successfully.
+- Live staging Supabase audit reconfirmed Free Quiz limit 1/day and Premium 3/day, both enabled; expected authenticated Quiz RPC signatures are present; approved Chinese bank count is 145 and historical retired revisions are retained. The security advisor reports no public-schema RLS-without-policy finding; ten such INFO notices concern private-schema tables intentionally not exposed to the API. The four auth_rls_initplan performance warnings remain resolved. The project-level leaked-password protection warning remains; the available database connector does not expose the Auth project setting, so it was not changed through unsafe SQL.
