@@ -19503,7 +19503,7 @@ async function completeLesson(x){
         window.SwiftDictionaryFlashcards.reviewGame(gameReview.dataset.dashboardFlashcardReviewGame);
         return;
       }
-      const quizReviewButton=event.target.closest("[data-dashboard-daily-quiz-review],[data-dashboard-quiz-review]");
+      const quizReviewButton=event.target.closest("[data-dashboard-daily-quiz-review]");
       if(quizReviewButton){quizReview(quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard");return;}
       const lessonReviewButton=event.target.closest("[data-dashboard-daily-lesson-review]");
       if(lessonReviewButton){openDashboardLessonReview(lessonReviewButton.dataset.dashboardDailyLessonReview,lessonReviewButton.dataset.difficulty,lessonReviewButton.dataset.languageCode);return;}
@@ -20317,7 +20317,7 @@ async function completeLesson(x){
       set(".learning-banner .eyebrow","Knowledge check","知识测验");
       set(".quiz-home-kicker","YOUR NEXT CHALLENGE","开始下一场挑战");
       set(".quiz-home-hero h2","Choose your challenge","选择你的挑战");
-      set(".quiz-home-hero p","Build confidence through a focused set of mixed-topic questions. Take your time, move between questions and review every answer when you finish.","通过多主题问题巩固知识。你可以按自己的节奏作答、切换题目，并在完成后查看所有答案。");
+      set(".quiz-home-hero > div > p:nth-of-type(2)","Build confidence through a focused set of mixed-topic questions. Take your time, move between questions and review every answer when you finish.","通过多主题问题巩固知识。你可以按自己的节奏作答、切换题目，并在完成后查看所有答案。");
       const benefitLabels=page.querySelectorAll(".quiz-home-benefits span");
       if(benefitLabels.length===3){benefitLabels[0].textContent=quizT("Untimed sessions","不限时测验");benefitLabels[1].textContent=quizT("Save and resume","保存并继续");benefitLabels[2].textContent=quizT("Full answer review","完整答案复习");}
       const heroStat=page.querySelector(".quiz-home-hero-stat span");if(heroStat)heroStat.textContent=quizT("questions per session","每场题目数");
