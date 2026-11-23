@@ -19110,7 +19110,7 @@ function lessonPractice(x){
   });
 }
     function shuffleLessonOptionOrders(x){const src=x.practices||[x.practice],previous=ls.lastPracticeOptionOrders?.[x.id]||[];const orders=src.map((q,i)=>{const base=q.options.map((_,j)=>j);let order=base.slice();for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.length>1&&previous[i]&&order.every((v,j)=>v===previous[i][j])){for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.every((v,j)=>v===previous[i][j]))order.push(order.shift());}return order;});ls.lastPracticeOptionOrders={...(ls.lastPracticeOptionOrders||{}),[x.id]:orders.map(a=>a.slice())};ls.practiceOptionOrders={...(ls.practiceOptionOrders||{}),[x.id]:orders};}
-    const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
+    const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],practiceAttemptCounts:[],practiceLastChecked:[],practiceIncorrectAttemptCount:0,practiceRetryCount:0,allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
     const el=id=>document.getElementById(id);
 const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
     const lessons=()=>course==="zh"?(chineseLessonData[ls.difficulty]||[]):(lessonData[ls.difficulty]||[]);
@@ -19182,6 +19182,7 @@ function lessonTopicKey(x){
       const selectedAnswers=preservePractice?qs.map((q,i)=>document.querySelector('input[name="lessonAnswer'+i+'"]:checked')?.value??null):[];
       if(!preservePractice||!Array.isArray(ls.practicePassed)||ls.practicePassed.length!==qs.length)ls.practicePassed=qs.map(()=>false);
       if(!preservePractice||!Array.isArray(ls.practiceFirstTry)||ls.practiceFirstTry.length!==qs.length)ls.practiceFirstTry=qs.map(()=>null);
+      if(!preservePractice||!Array.isArray(ls.practiceAttemptCounts)||ls.practiceAttemptCounts.length!==qs.length){ls.practiceAttemptCounts=qs.map(()=>0);ls.practiceLastChecked=qs.map(()=>null);ls.practiceIncorrectAttemptCount=0;ls.practiceRetryCount=0;}
       const zh=translationLanguage==="zh";
       const examples=lessonExpandableGroup(lessonField(x,"examples"),(s,extra)=>'<div class="lesson-example lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'>'+lessonRenderText(s)+'</div>',zh);
       const explanationValue=lessonField(x,"explanation");
@@ -19211,7 +19212,14 @@ function lessonTopicKey(x){
         const i=Number(button.dataset.question),q=qs[i],v=document.querySelector('input[name="lessonAnswer'+i+'"]:checked'),feedback=el("lessonAnswerFeedback"+i);
         if(!v){feedback.textContent=zh?"请先选择一个答案。":"Choose an answer first.";return;}
         const correct=Number(v.value)===q.answer;
-        if(ls.practiceFirstTry[i]===null)ls.practiceFirstTry[i]=correct;
+        const submittedValue=String(v.value);
+        if(ls.practiceFirstTry[i]===null){
+          ls.practiceFirstTry[i]=correct;ls.practiceAttemptCounts[i]=1;ls.practiceLastChecked[i]=submittedValue;
+          if(!correct)ls.practiceIncorrectAttemptCount++;
+        }else if(ls.practiceLastChecked[i]!==submittedValue){
+          ls.practiceRetryCount++;ls.practiceAttemptCounts[i]=(ls.practiceAttemptCounts[i]||0)+1;ls.practiceLastChecked[i]=submittedValue;
+          if(!correct)ls.practiceIncorrectAttemptCount++;
+        }
         ls.practicePassed[i]=correct;
         feedback.textContent=correct?(zh?"正确，做得好！":"Correct — well done."):(zh?"还不正确。请重新查看讲解后再试一次。":"Not quite. Review the explanation and try again.");
         feedback.style.color=correct?"#9bd7b3":"#f0a0a0";
@@ -19307,9 +19315,16 @@ async function saveCompletedLessonPractice(x){
           p_correct_count:firstTryCorrect,p_question_count:practice.length
         });
         if(error)throw error;
-        el("lessonStatus").textContent=data===true
+        let attemptWarning="";
+        const attemptResult=await supabaseClient.rpc("record_my_lesson_practice_attempt",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_first_try_correct_count:firstTryCorrect,p_question_count:practice.length,
+          p_incorrect_attempt_count:ls.practiceIncorrectAttemptCount||0,p_retry_count:ls.practiceRetryCount||0
+        });
+        if(attemptResult.error)attemptWarning=attemptResult.error.message||"Attempt statistics could not be saved.";
+        el("lessonStatus").textContent=(data===true
           ?(zh?"复习练习记录已保存，不会消耗课程额度。":"Practice summary saved for adaptive revision. No lesson allowance was used.")
-          :(zh?"本课程的练习记录已存在，不会消耗课程额度。":"This lesson's practice summary was already recorded. No lesson allowance was used.");
+          :(zh?"本课程的练习记录已存在，不会消耗课程额度。":"This lesson's practice summary was already recorded. No lesson allowance was used."))+(attemptWarning?(zh?" 但尝试次数统计无法保存：":" Attempt statistics could not be saved: ")+attemptWarning:"");
       }catch(e){
         el("lessonStatus").textContent=(zh?"无法保存练习记录：":"Could not save the practice summary: ")+(e.message||"Please try again.");
       }finally{
@@ -19338,6 +19353,12 @@ async function completeLesson(x){
         if(!saved)throw new Error("The completion service returned no saved progress.");
         Object.assign(p,saved);
         el("lessonStatus").textContent=zh?"课程已完成，可免费复习。":"Lesson completed. You may revisit it for free.";
+        const attemptResult=await supabaseClient.rpc("record_my_lesson_practice_attempt",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_first_try_correct_count:firstTryCorrect,p_question_count:practice.length,
+          p_incorrect_attempt_count:ls.practiceIncorrectAttemptCount||0,p_retry_count:ls.practiceRetryCount||0
+        });
+        if(attemptResult.error)el("lessonStatus").textContent+=(zh?" 尝试次数统计无法保存：":" Attempt statistics could not be saved: ")+(attemptResult.error.message||"Please refresh and retry.");
         await loadLessonAllowance();
         renderLessons();
         renderLesson(x);
