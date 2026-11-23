@@ -1,10 +1,18 @@
 // SwiftDictionary account configuration.
-// Replace both values with your Supabase project's URL and anon/public key.
-// Never put a service_role key or private secret in a public GitHub Pages site.
-window.SWIFT_SUPABASE_CONFIG = {
-  url: "https://pzymiesazmpyvnfvsbsc.supabase.co",
-  anonKey: "sb_publishable_sb1pPdwMvMJ9cLgcuGzZJg_AcWA1FY4"
-};
+// Cloudflare Pages preview deployments use the isolated staging project.
+// Production hosts continue to use the production project.
+// Publishable keys are safe for public clients; never expose service_role keys.
+const SWIFT_SUPABASE_ENV = window.location.hostname.endsWith(".pages.dev")
+  ? {
+      url: "https://ivatvkfrtifgfheeaelj.supabase.co",
+      anonKey: "sb_publishable_Etc-_5k93Dzb7glzVqvXCA_6ou7IPXo"
+    }
+  : {
+      url: "https://pzymiesazmpyvnfvsbsc.supabase.co",
+      anonKey: "sb_publishable_sb1pPdwMvMJ9cLgcuGZJg_AcWA1FY4"
+    };
+
+window.SWIFT_SUPABASE_CONFIG = SWIFT_SUPABASE_ENV;
 
 // Preserve the anonymous saved-word collection before the app's auth refresh
 // handler clears the legacy key on account changes. It is never merged into
