@@ -237,9 +237,14 @@ begin
   end if;
 
   perform public.abandon_my_quiz(v_session_id);
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoning a Quiz must not consume allowance';
+  if public.test_current_quiz_usage()<>1 then
+    raise exception 'Abandoning a started Quiz must not refund its allowance';
   end if;
+
+  -- Temporarily use the Premium entitlement to continue testing a second
+  -- session in this same transaction. The abandoned first start still counts.
+  update public.user_entitlements set plan_code='premium'
+  where user_id=auth.uid();
 
   v_second:=public.start_my_quiz('beginner');
   if jsonb_array_length(v_second->'questions')<>10 then
@@ -289,8 +294,8 @@ begin
   if v_count<>1 then
     raise exception 'Repeated submit created more than one completion event';
   end if;
-  if public.test_current_quiz_usage()<>1 then
-    raise exception 'Free allowance ledger did not charge exactly once';
+  if public.test_current_quiz_usage()<>2 then
+    raise exception 'Allowance ledger did not count both the abandoned start and completed session';
   end if;
 
   v_result:=public.get_my_quiz_history(20);
@@ -309,6 +314,9 @@ begin
   if not v_failed then
     raise exception 'Completed Quiz answers remained editable';
   end if;
+
+  update public.user_entitlements set plan_code='free'
+  where user_id=auth.uid();
 
   v_failed:=false;
   begin
