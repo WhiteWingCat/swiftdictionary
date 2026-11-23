@@ -346,7 +346,7 @@ begin
        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
        and c.is_active and c.topic_id=q.topic_id
       where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
-       and q.difficulty=v_source and q.question_type='knowledge'
+       and q.difficulty=v_source and (q.question_type='knowledge' or (v_translation='en' and q.question_type='chinese_translation'))
        and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
       order by q.question_id,q.revision desc) approved_questions order by random()
     loop
@@ -369,7 +369,7 @@ begin
          and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
          and c.is_active and c.topic_id=q.topic_id
         where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
-         and q.difficulty=v_source and q.question_type='knowledge'
+         and q.difficulty=v_source and (q.question_type='knowledge' or (v_translation='en' and q.question_type='chinese_translation'))
          and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
         order by q.question_id,q.revision desc) approved_questions order by random()
       loop
@@ -392,7 +392,7 @@ begin
          and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
          and c.is_active and c.topic_id=q.topic_id
         where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
-         and q.difficulty=v_source and q.question_type='knowledge'
+         and q.difficulty=v_source and (q.question_type='knowledge' or (v_translation='en' and q.question_type='chinese_translation'))
          and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
         order by q.question_id,q.revision desc) approved_questions order by random()
       loop
