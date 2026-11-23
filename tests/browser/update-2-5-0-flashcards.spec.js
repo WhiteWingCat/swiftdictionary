@@ -68,6 +68,36 @@ test("Mode-specific schedules use fixed 0.2 second reductions and respect caps",
   }
 });
 
+test("Recall mode slot swaps between Mixed and Translation by learning course",async({page})=>{
+  await openMockFlashcards(page);
+  const englishModes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode));
+  expect(englishModes).toEqual(["word","definition","mixed","sentence"]);
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","translation","sentence"]);
+  await expect(page.locator('.flash-mode[data-mode="mixed"]')).toHaveCount(0);
+  await page.locator("#courseSelect").selectOption("en");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
+  await expect(page.locator('.flash-mode[data-mode="translation"]')).toHaveCount(0);
+});
+
+test("Dashboard tabs switch their visible panels",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await expect(page.locator("#dashboardTabFavourites")).toBeVisible();
+  for(const name of ["progress","history","analytics","favourites"]){
+    await page.locator('[data-dashboard-tab="'+name+'"]').click();
+    const panel="#dashboardTab"+name[0].toUpperCase()+name.slice(1);
+    await expect(page.locator(panel)).toBeVisible();
+    for(const other of ["favourites","progress","history","analytics"])if(other!==name){
+      const otherPanel="#dashboardTab"+other[0].toUpperCase()+other.slice(1);
+      await expect(page.locator(otherPanel)).toBeHidden();
+    }
+    await expect(page.locator('[data-dashboard-tab="'+name+'"]')).toHaveAttribute("aria-selected","true");
+  }
+});
+
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
@@ -150,6 +180,17 @@ test("Mixed Recall starts as a mixed session and records mode-specific weak answ
   await page.locator('[data-action="review-detail"]').click();
   await expect(page.locator(".flash-review-detail")).toBeVisible();
   await expect(page.locator(".flash-review-detail")).toContainText("aberration");
+  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  const historyReview=page.locator("[data-dashboard-flashcard-review-game]");
+  await expect(historyReview).toBeVisible();
+  await historyReview.click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal")).toBeVisible();
+  expect(new URL(page.url()).hash).toBe("#profile");
 });
 
 test("60-second completion shows results and requires closing the prompt to return home",async({page})=>{
