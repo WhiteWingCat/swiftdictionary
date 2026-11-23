@@ -78,6 +78,9 @@ test("Recall mode slot swaps between Mixed and Translation by learning course",a
   await page.locator("#courseSelect").selectOption("en");
   await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
   await expect(page.locator('.flash-mode[data-mode="translation"]')).toHaveCount(0);
+  await page.locator("#courseSelect").selectOption("zh");
+  const translationRecallColor=await page.locator('.flash-mode[data-mode="translation"]').evaluate(node=>getComputedStyle(node).backgroundColor);
+  expect(translationRecallColor).toBe("rgb(189, 118, 46)");
 });
 
 test("Switching course remaps an open Mixed Recall setup to Translation Recall in the same slot",async({page})=>{
@@ -500,6 +503,11 @@ test("Flashcards shows a five-second toast when the daily allowance is exhausted
   }
   await expect(page.locator("#swiftDictionaryToast")).toContainText("Flashcards allowance");
   await expect(page.locator("#swiftDictionaryToast")).toHaveClass(/is-visible/);
+  await page.locator('[data-action="close-result"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="word"]').click();
+  await expect(page.locator("#swiftDictionaryToast")).toContainText("Flashcards allowance");
+  await expect(page.locator("#swiftDictionaryToast")).toHaveClass(/is-visible/);
+  await expect(page.locator("#flashSetupTitle")).toBeHidden();
   await page.waitForTimeout(5200);
   await expect(page.locator("#swiftDictionaryToast")).not.toHaveClass(/is-visible/);
 });
