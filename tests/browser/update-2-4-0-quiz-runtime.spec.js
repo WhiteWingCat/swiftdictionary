@@ -832,31 +832,32 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   const zhUser=await createRuntimeUser("zh-translation-snapshot","free");
   const zhSession=await signIn(zhUser.email,zhUser.password);
   await updateLearningPreference(zhUser.id,"zh","zh");
-  const storageKey="sb-"+new URL(apiUrl).hostname.split(".")[0]+"-auth-token";
-  await page.addInitScript(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:zhSession});
-  await page.reload();
-  await expect(page.locator("#quizHome")).toBeVisible();
-  if(await page.locator("#learningIntroBackdrop").isVisible()){
-    await page.locator("#learningIntroDismiss").click();
-    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+  const zhContext=page.context();
+  await page.close();
+  const zhPage=await zhContext.newPage();
+  await openQuiz(zhPage,zhSession);
+  await expect(zhPage.locator("#quizHome")).toBeVisible();
+  if(await zhPage.locator("#learningIntroBackdrop").isVisible()){
+    await zhPage.locator("#learningIntroDismiss").click();
+    await expect(zhPage.locator("#learningIntroBackdrop")).toBeHidden();
   }
-  await expect(page.locator("#courseSelect")).toHaveValue("zh");
-  await expect(page.locator("#translationSelect")).toHaveValue("zh");
-  await page.locator('[data-quiz-start="beginner"]').click();
-  await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
+  await expect(zhPage.locator("#courseSelect")).toHaveValue("zh");
+  await expect(zhPage.locator("#translationSelect")).toHaveValue("zh");
+  await zhPage.locator('[data-quiz-start="beginner"]').click();
+  await expect(zhPage.locator("#quizSession")).toBeVisible({timeout:15000});
 
   for(let position=1;position<=10;position++){
-    const area=page.locator("#quizQuestionArea");
+    const area=zhPage.locator("#quizQuestionArea");
     await expect(area).toHaveAttribute("data-question-type","knowledge");
     await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
     await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
     await expect(area.locator(".quiz-option-pinyin")).toHaveCount(4);
     await area.locator(".quiz-option").first().click();
-    if(position<10)await page.locator("#quizNext").click();
+    if(position<10)await zhPage.locator("#quizNext").click();
   }
 
-  await page.locator("#quizAbandon").click();
-  await expect(page.locator("#quizHome")).toBeVisible();
+  await zhPage.locator("#quizAbandon").click();
+  await expect(zhPage.locator("#quizHome")).toBeVisible();
 });
 
 test("Chinese Flashcards only offer card sets supported by the selected recall mode", async ({ page }) => {
