@@ -547,8 +547,8 @@
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
       if(!limit?.is_enabled||used>=limit.daily_limit)return {data:null,error:error("Daily Flashcard game allowance exhausted.","P0001")};
       (tables.flashcard_sessions||[]).filter(row=>row.user_id===user.id&&row.status==="in_progress").forEach(row=>row.status="abandoned");
-      const pref=tables.user_preferences?.find(item=>item.user_id===user.id)||{};
-      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null,learning_language_code:pref.learning_language||"en",translation_language_code:pref.translation_language||"zh"};
+      const userPreference=tables.user_preferences?.find(item=>item.user_id===user.id)||{};
+      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null,learning_language_code:userPreference.learning_language||"en",translation_language_code:userPreference.translation_language||"zh"};
       tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:duration},error:null};
     }
     if (name==="complete_my_flashcard_game") {
