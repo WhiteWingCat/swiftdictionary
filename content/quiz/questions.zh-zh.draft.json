@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "draft",
   "learning_language_code": "zh",
-  "translation_language_code": "zh",
-  "description": "Chinese-course Quiz draft pack derived from the 17 approved Chinese permanent lessons. All items require human linguistic and assessment QA before release.",
+  "translation_language_code": "en",
+  "description": "Chinese-learning Quiz draft pack. Chinese is the learning language; optional English secondary text is shown only when English is selected as the translation language. All items require human linguistic and assessment QA before release.",
   "questions": [
     {
       "question_id": "zh-zh-b-pinyin-foundations-01",
@@ -5125,5 +5125,9 @@
       "explanation_pinyin": "sān sī ér hòu xíng tí xǐng rén zài cǎi qǔ xíng dòng qián xiān rèn zhēn sī kǎo.",
       "explanation_translation": "三思而后行 advises someone to think carefully before acting."
     }
+  ],
+  "supported_session_translation_languages": [
+    "zh",
+    "en"
   ]
 }
