@@ -421,9 +421,11 @@ const languageSnapshot = dailyScript.indexOf("learningLanguage:language");
 if (languageDeclaration < 0 || languageSnapshot < 0 || languageDeclaration > languageSnapshot) {
   throw new Error("Daily Learning must declare the saved learning language before building its snapshot.");
 }
+if (!dailyScript.includes('from("lesson_practice_results")') || !dailyScript.includes('from("daily_activity_sessions")')) {
+  throw new Error("Daily Learning practice-history queries must remain in daily-learning.js.");
+}
 for (const fragment of [
   'rpc("get_my_lesson_practice_attempts"',
-  'from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at")',
   'getElementById("practiceAccuracy").textContent',
   'getElementById("practiceTopicsDue").textContent',
   'getElementById("practiceSummaries").textContent'
