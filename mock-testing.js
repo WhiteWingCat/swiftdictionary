@@ -326,8 +326,8 @@
       const composition=difficulty==="beginner"
         ? {beginner:10}
         : difficulty==="intermediate"
-          ? {intermediate:9,beginner:6}
-          : {advanced:16,intermediate:2,beginner:2};
+          ? {intermediate:12,beginner:3}
+          : {advanced:12,intermediate:6,beginner:2};
       for(const [level,amount] of Object.entries(composition)){
         const pool=bank.questions.filter(question=>question.source_difficulty===level
           &&(question.question_type==="knowledge"||(translationLanguageCode==="en"&&question.question_type==="chinese_translation"))
@@ -441,7 +441,7 @@
       const questions=await quizMockQuestions(sessionId,difficulty,translationLanguageCode,user.id,localDate,reservedIds,learningLanguageCode);
       const chineseCount=questions.filter(question=>question.question_type==="chinese_translation").length;
       const sourceComposition=learningLanguageCode==="zh"
-        ? difficulty==="advanced"?"advanced:16, intermediate:2, beginner:2":difficulty==="intermediate"?"intermediate:9, beginner:6":"beginner:10"
+        ? difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10"
         : difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10";
       const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,learning_language_code:learningLanguageCode,translation_language_code:translationLanguageCode,source_composition:sourceComposition+"; chinese_translation:"+chineseCount,local_date:localDate,started_at:now(),completed_at:null,questions};
       (tables.quiz_sessions||=[]).push(session);persist(db);
