@@ -3333,3 +3333,18 @@ This entry supersedes any earlier same-day statement that the U2.8.0 feature bra
 - Malaysian PDPA planning flag: intended 16+ audience includes 16–17-year-olds; guardian consent is required for data subjects under 18 under the Personal Data Protection Regulations. Cross-border transfers, privacy notice, DPO applicability, breach notification and retention/deletion procedures remain legal/privacy review items, not legal clearance.
 - Production `main` tree hash was verified identical to its pre-action baseline after a documentation-only file was briefly created and immediately deleted from the default branch. No application code, production database or production deployment changed.
 - Detailed follow-up is appended to [the U2.8.0 development-start and repository-audit archive](conversation-archive/2026-11-23-update-2-8-0-development-start-and-repository-audit.md). PR #16 remains draft; no merge or production release is authorised.
+
+
+## 2026-11-23 — U2.8.0 staging feedback remediation
+
+Owner feedback after the staging preview identified four gaps: missing Quiz overview/test redesign, non-functional Dashboard tabs, incorrect Chinese Mixed Recall visibility, and Daily History reviews navigating away from Dashboard.
+
+- Quiz overview and active-test UI redesigned; directional question transitions, screen-entry transitions, reduced-motion handling, save/navigation locking and answer preservation implemented.
+- Dashboard tab issue traced to `.dashboard-tab-panel { display:grid; }` overriding the `hidden` attribute. Added explicit hidden-panel CSS, tab state preservation, keyboard navigation and active state.
+- Corrected course-specific Flashcard mode contract: English = Word / Definition / Mixed / Sentence; Chinese = Word / Definition / Translation / Sentence. Third position swaps in place. Existing staging RPC already rejects Chinese Mixed Recall and English Translation Recall; authenticated regression test added.
+- Added in-place Dashboard review for permanent Lessons, all four Daily Learning activity types, Quiz sessions and Flashcard games. Lesson and Daily Learning practice reviews display correct answers read-only; Quiz and Flashcard reviews use their existing snapshots. Review does not consume allowance or change completed state.
+- Updated mock Flashcard RPC/snapshots and Playwright/static regression tests. Cache-busting versions refreshed for Lessons UI, Daily Learning and Flashcards.
+- No Supabase migration or staging data change was needed for these UI fixes. Production remains untouched.
+- Fresh CI batch was still running when the archive was written; inspect latest-head results before declaring the staging preview ready. PR #16 remains draft.
+
+Detailed implementation and initial CI findings: [U2.8.0 staging feedback remediation archive](conversation-archive/2026-11-23-update-2-8-0-staging-feedback-remediation.md).
