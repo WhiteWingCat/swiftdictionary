@@ -323,8 +323,8 @@ begin
     and not exists(select 1 from private.quiz_daily_question_reservations r
       where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id);
   v_min_b:=v_b>=30 and v_tb>=3;
-  v_min_i:=v_i>=36 and v_ti>=3 and v_b>=30;
-  v_min_a:=v_a>=48 and v_ta>=3 and v_i>=12;
+  v_min_i:=v_i>=36 and v_ti>=3 and v_b>=24 and v_tb>=3;
+  v_min_a:=v_a>=48 and v_ta>=3 and v_i>=12 and v_ti>=3 and v_b>=12 and v_tb>=3;
   if (p_difficulty='beginner' and (not v_min_b or v_rb<10))
      or (p_difficulty='intermediate' and (not v_min_i or v_ri<9 or v_rb<6 or v_ti<3 or v_tb<3))
      or (p_difficulty='advanced' and (not v_min_a or v_ra<16 or v_ri<2 or v_rb<2 or v_ta<3 or v_ti<3 or v_tb<3)) then
