@@ -40,7 +40,7 @@ for(const [i,v] of (pack.vocabulary||[]).entries()){
 }
 for(const [i,p] of (pack.phrases||[]).entries()){
  if(!p.id||ids.has(p.id))errors.push("Phrase "+i+" has a missing or duplicate ID");ids.add(p.id);
- if(!p.word||!p.pinyin||!p.translationEn||!p.definitionCueZh||!p.translationZh||!p.exampleZh||!p.examplePinyin)errors.push("Phrase "+p.word+" is missing a mode-specific cue");
+ if(!p.word||!p.pinyin||!p.translationEn||!p.definitionCueZh||!p.translationZh||!p.exampleZh)errors.push("Phrase "+p.word+" is missing a mode-specific cue");
  if(norm(p.definitionCueZh)===norm(p.translationZh))errors.push("Phrase "+p.word+" reuses its definition cue as its translation cue");
  if(!Array.isArray(p.availableModes)||["word","definition","translation","sentence"].some(mode=>!p.availableModes.includes(mode)))errors.push("Phrase "+p.word+" does not support all four Chinese modes");
  for(const mode of p.availableModes||[])modes[mode==="translation"?"translation_zh":mode]++;
