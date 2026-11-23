@@ -190,8 +190,8 @@ begin
         count(*) filter(where q->>'source_difficulty'='beginner')::integer
    into v_mid_i,v_mid_b
  from jsonb_array_elements(v_quiz_mid->'questions') q;
- if jsonb_array_length(v_quiz_mid->'questions')<>15 or v_mid_i<>9 or v_mid_b<>6 then
-   raise exception 'Chinese Intermediate Quiz composition must be 9 intermediate + 6 beginner: %',v_quiz_mid;
+ if jsonb_array_length(v_quiz_mid->'questions')<>15 or v_mid_i<>12 or v_mid_b<>3 then
+   raise exception 'Chinese Intermediate Quiz composition must be 12 intermediate + 3 beginner: %',v_quiz_mid;
  end if;
  perform public.abandon_my_quiz((v_quiz_mid->>'session_id')::uuid);
 
@@ -201,8 +201,8 @@ begin
         count(*) filter(where q->>'source_difficulty'='beginner')::integer
    into v_adv_a,v_adv_i,v_adv_b
  from jsonb_array_elements(v_quiz_adv->'questions') q;
- if jsonb_array_length(v_quiz_adv->'questions')<>20 or v_adv_a<>16 or v_adv_i<>2 or v_adv_b<>2 then
-   raise exception 'Chinese Advanced Quiz composition must be 16 advanced + 2 intermediate + 2 beginner: %',v_quiz_adv;
+ if jsonb_array_length(v_quiz_adv->'questions')<>20 or v_adv_a<>12 or v_adv_i<>6 or v_adv_b<>2 then
+   raise exception 'Chinese Advanced Quiz composition must be 12 advanced + 6 intermediate + 2 beginner: %',v_quiz_adv;
  end if;
  perform public.abandon_my_quiz((v_quiz_adv->>'session_id')::uuid);
 
