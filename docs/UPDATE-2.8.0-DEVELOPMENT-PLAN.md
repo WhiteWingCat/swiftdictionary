@@ -329,3 +329,15 @@ The current Supabase changelog records the CLI v3 local-by-default behaviour and
 - Cloudflare Pages check passed for the latest feature head. The other latest-head CI workflows were still running at the last inspection; prior-head passing checks are not a substitute for latest-head results.
 - Chinese Flashcard inventory remains 519 characters, 904 multi-character vocabulary entries and 24 authored phrases. Example-Pinyin is absent on character/vocabulary records; current Sentence Recall uses sentence text, but this limitation requires an explicit linguistic/content decision before release.
 - Remaining gates and exact current state are recorded in `docs/conversation-archive/2026-11-23-update-2-8-0-release-gate-remediation.md`.
+
+
+## 18. Staging activation and preview handover — 2026-11-23
+
+- Owner authorized changes to the isolated SwiftDictionary Indie Staging project only (`ivatvkfrtifgfheeaelj`, ap-southeast-1, PostgreSQL 17).
+- Applied six core U2.8.0 migrations plus three supplemental migrations: Flashcard review mode compatibility, 145-question Chinese Quiz content seed, and foreign-key indexes. A one-off Flashcard review hotfix was applied before the canonical migration and remains separately recorded in staging history.
+- Chinese Quiz migration inserts rows as `draft` by default. The 145 Chinese-course questions were promoted to `approved` on staging only, for preview testing. Production remains untouched.
+- Staging-only authenticated rollback smoke checks passed for Chinese Quiz availability, 10-question Chinese Beginner Quiz session creation and 60-second Chinese Word Recall Flashcard session creation.
+- Cloudflare Pages preview deployment for branch head `79ae67d7aef0bc6cca97a2a1024a3e18b51f5532` succeeded: https://fce59d48.swiftdictionary.pages.dev. Preview hosts route to staging Supabase; production hostname and non-preview hosts route to production Supabase.
+- Latest-head CI remains subject to final authenticated Supabase/Auth/RPC and regression results. Keep PR #16 draft pending those results and owner review.
+- Malaysia privacy/legal risk: because the intended minimum age is 16+, the 16–17 age group requires parental/guardian consent for personal data processing under the Malaysian Personal Data Protection Regulations. Cross-border processing, privacy notice, DPO applicability, breach notification and retention/deletion require a documented legal/privacy review before public launch. No legal clearance implied.
+- See the U2.8.0 development-start/repository-audit archive for the detailed follow-up, applied migration list, validation, advisor findings and preview routing.
