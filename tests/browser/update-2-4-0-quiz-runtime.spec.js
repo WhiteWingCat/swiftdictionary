@@ -417,7 +417,7 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   const nextSession=await signIn(nextUser.email,nextUser.password);
   await updateTranslationPreference(nextUser.id,"zh");
   const storageKey="sb-"+new URL(apiUrl).hostname.split(".")[0]+"-auth-token";
-  await page.evaluate(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:nextSession});
+  await page.addInitScript(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:nextSession});
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
   if(await page.locator("#learningIntroBackdrop").isVisible()){
@@ -832,7 +832,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   const zhSession=await signIn(zhUser.email,zhUser.password);
   await updateLearningPreference(zhUser.id,"zh","zh");
   const storageKey="sb-"+new URL(apiUrl).hostname.split(".")[0]+"-auth-token";
-  await page.evaluate(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:zhSession});
+  await page.addInitScript(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:zhSession});
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
   if(await page.locator("#learningIntroBackdrop").isVisible()){
