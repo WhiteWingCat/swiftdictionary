@@ -369,7 +369,11 @@ begin
   into v_topic_total,v_topic_count
   from pg_catalog.jsonb_each(v_topic_counts);
 
-  if v_topic_total <> v_question_count or v_topic_count < 3 then
+  if v_topic_total <> v_question_count then
+    raise exception 'Quiz question selection did not match the required session size'
+      using errcode='P0001', detail='question_selection_count_mismatch';
+  end if;
+  if v_topic_count < 3 then
     raise exception 'Quiz requires at least three distinct topics'
       using errcode='P0001', detail='topic_coverage_unavailable';
   end if;
