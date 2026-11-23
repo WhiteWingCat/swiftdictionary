@@ -19811,6 +19811,7 @@ async function completeLesson(x){
         const allowanceUsageRows = allowanceUsageQ.error ? null : (allowanceUsageQ.data || []);
         const personalTestAccess = personalTestQ.error ? false : personalTestQ.data === true;
         const prefs = prefsQ.data || {learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()};
+        const activeLearningLanguage=preferenceSelectionChanged?course:prefs.learning_language;
         const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
         profilePreferences = preferenceSelectionChanged
           ? {...prefs,learning_language:course,translation_language:translationLanguage}
@@ -19975,9 +19976,20 @@ async function completeLesson(x){
           }));
         }
         if (!stillSameAccount()) return;
+        const savedLessonAttempts=practiceAttemptsQ.error?[]:(practiceAttemptsQ.data||[]);
+        const lessonRows=savedLessonAttempts.length
+          ?savedLessonAttempts.filter(row=>row.learning_language===activeLearningLanguage).map(row=>({
+            topic_id:row.topic_id,correct_count:row.first_try_correct_count,question_count:row.question_count,
+            retry_count:row.retry_count||0,incorrect_attempt_count:row.incorrect_attempt_count||0,practice_at:row.completed_at
+          }))
+          :(lessonPracticeQ.data||[]).filter(row=>!row.learning_language||row.learning_language===activeLearningLanguage).map(row=>({...row,practice_at:row.attempted_at,retry_count:0}));
+        const dailyRows=(dailyPracticeQ.data||[]).filter(row=>row.language_code===activeLearningLanguage).map(row=>({
+          ...row,correct_count:row.first_try_correct_count??row.correct_count,
+          retry_count:row.retry_count||0,incorrect_attempt_count:row.incorrect_attempt_count||0,practice_at:row.completed_at
+        }));
         const practiceRows = [
-          ...(lessonPracticeQ.data || []).map(row=>({...row,practice_at:row.attempted_at})),
-          ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at})),
+          ...lessonRows,
+          ...dailyRows,
           ...quizPracticeRows
         ].filter(row=>row.topic_id && Number(row.question_count)>0
           && Number.isFinite(Number(row.correct_count))
@@ -19996,6 +20008,7 @@ async function completeLesson(x){
         document.getElementById("practiceIncorrectSegment").style.width = recentQuestions ? (incorrectCount/recentQuestions*100)+"%" : "0%";
         document.getElementById("practiceChart").setAttribute("aria-label",recentQuestions ? recentCorrect+" correct first attempts and "+incorrectCount+" incorrect first attempts out of "+recentQuestions+" questions." : "No practice data recorded yet.");
         document.getElementById("practiceSummaries").textContent = recentPractice.length;
+        document.getElementById("practiceRetries").textContent = recentPractice.reduce((sum,row)=>sum+Math.max(0,Number(row.retry_count)||0),0);
         const byTopic = new Map();
         for (const row of practiceRows) {
           const entries = byTopic.get(row.topic_id) || [];
