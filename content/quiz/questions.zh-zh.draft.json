@@ -1801,9 +1801,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "“本”是书籍、杂志等装订成册物品的常用量词。",
+      "explanation_pinyin": "“běn” shì shū jí, zá zhì děng zhuāng dìng chéng cè wù pǐn de cháng yòng liàng cí.",
+      "explanation_translation": "本 is the usual measure word for bound volumes such as books and magazines."
     },
     {
       "question_id": "zh-zh-i-measure-words-02",
@@ -1841,9 +1841,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "“两本书”由数字“两”、量词“本”和名词“书”组成。",
+      "explanation_pinyin": "“liǎng běn shū” yóu shù zì “liǎng”, liàng cí “běn” hé míng cí “shū” zǔ chéng.",
+      "explanation_translation": "两本书 consists of the number 两, the measure word 本 and the noun 书."
     },
     {
       "question_id": "zh-zh-i-measure-words-03",
@@ -1881,9 +1881,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "“杯”用于以杯为单位的饮料，例如“一杯水”或“两杯茶”。",
+      "explanation_pinyin": "“bēi” yòng yú yǐ bēi wéi dān wèi de yǐn liào, lì rú “yì bēi shuǐ” huò “liǎng bēi chá”.",
+      "explanation_translation": "杯 measures drinks served by the cup, as in 一杯水 or 两杯茶."
     },
     {
       "question_id": "zh-zh-i-measure-words-04",
@@ -1921,9 +1921,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "“张”常用于纸、桌子、票等平面或张开的物品。",
+      "explanation_pinyin": "“zhāng” cháng yòng yú zhǐ, zhuō zi, piào děng píng miàn huò zhāng kāi de wù pǐn.",
+      "explanation_translation": "张 is commonly used for flat or spread-out items such as paper, tables and tickets."
     },
     {
       "question_id": "zh-zh-i-measure-words-05",
@@ -1961,9 +1961,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "“位”是称呼或提及人物时较礼貌、尊敬的量词。",
+      "explanation_pinyin": "“wèi” shì chēng hu hòu tí jí rén wù shí jiào lǐ mào, zūn jìng de liàng cí.",
+      "explanation_translation": "位 is a polite and respectful measure word used when referring to people."
     },
     {
       "question_id": "zh-zh-i-measure-words-06",
@@ -2001,9 +2001,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "“一个人”使用通用量词“个”；“一”在第四声的“个”前读作 yí。",
+      "explanation_pinyin": "“yí gè rén” shǐ yòng tōng yòng liàng cí “gè”; “yī” zài dì sì shēng de “gè” qián dú zuò yí.",
+      "explanation_translation": "一个人 uses the general measure word 个. 一 is pronounced yí before the fourth-tone 个."
     },
     {
       "question_id": "zh-zh-i-measure-words-07",
@@ -2041,9 +2041,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "一个人表示 one person；两本书表示 two books。",
-      "explanation_pinyin": "yí ge rén biǎo shì one person; liǎng běn shū biǎo shì two books.",
-      "explanation_translation": "一个人 means one person; 两本书 means two books."
+      "explanation_learning": "量词前表示两个时，通常用“两”，例如“两本书”，而不是“二本书”。",
+      "explanation_pinyin": "liàng cí qián biǎo shì liǎng gè shí, tōng cháng yòng “liǎng”, lì rú “liǎng běn shū”, ér bù shì “èr běn shū”.",
+      "explanation_translation": "Before a measure word, 两 is normally used for two items, as in 两本书, rather than 二本书."
     },
     {
       "question_id": "zh-zh-i-grammar-particles-01",
@@ -2081,9 +2081,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "“的”连接修饰语和名词，也常用来标记所属关系；“我的书”表示这本书属于我。",
+      "explanation_pinyin": "“de” lián jiē xiū shì yǔ hé míng cí, yě cháng yòng lái biāo jì suǒ shǔ guān xì; “wǒ de shū” biǎo shì zhè běn shū shǔ yú wǒ.",
+      "explanation_translation": "的 links a modifier to a noun and often marks possession. 我的书 means the book belongs to me."
     },
     {
       "question_id": "zh-zh-i-grammar-particles-02",
@@ -2121,9 +2121,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "“了”放在动词“看”后，表示看电影这一动作已经发生或完成。",
+      "explanation_pinyin": "“le” fàng zài dòng cí “kàn” hòu, biǎo shì kàn diàn yǐng zhè yí dòng zuò yǐ jīng fā shēng huò wán chéng.",
+      "explanation_translation": "了 after the verb 看 marks the movie-watching event as having occurred or been completed."
     },
     {
       "question_id": "zh-zh-i-grammar-particles-03",
@@ -2161,9 +2161,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "动词后的“过”表示曾经有过某种经历；“去过北京”表示以前有去北京的经历。",
+      "explanation_pinyin": "dòng cí hòu de “guo” biǎo shì céng jīng yǒu guò mǒu zhǒng jīng lì; “qù guo běi jīng” biǎo shì yǐ qián qù guò běi jīng.",
+      "explanation_translation": "过 after a verb marks experience. 去过北京 means that the person has been to Beijing before."
     },
     {
       "question_id": "zh-zh-i-grammar-particles-04",
@@ -2201,9 +2201,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "“着”放在“开”后，强调门处于打开的持续状态，而不是只说明打开的动作。",
+      "explanation_pinyin": "“zhe” fàng zài “kāi” hòu, qiáng diào mén chǔ yú dǎ kāi de chí xù zhuàng tài, ér bù shì zhǐ shuō míng dǎ kāi de dòng zuò.",
+      "explanation_translation": "着 after 开 emphasises the continuing state of the door being open, rather than just the action of opening it."
     },
     {
       "question_id": "zh-zh-i-grammar-particles-05",
@@ -2241,9 +2241,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "句末的“吧”可以让建议或提议听起来更委婉，例如“我们走吧”。",
+      "explanation_pinyin": "jù mò de “ba” kě yǐ ràng jiàn yì huò tí yì tīng qǐ lái gèng wěi wǎn, lì rú “wǒ men zǒu ba”.",
+      "explanation_translation": "Sentence-final 吧 can soften a suggestion or proposal, as in 我们走吧."
     },
     {
       "question_id": "zh-zh-i-grammar-particles-06",
@@ -2281,9 +2281,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "“呢”放在“你”后面，可以承接前文并询问对方的情况，相当于“你呢？”",
+      "explanation_pinyin": "“ne” fàng zài “nǐ” hòu miàn, kě yǐ chéng jiē qián wén bìng xún wèn duì fāng de qíng kuàng.",
+      "explanation_translation": "呢 after 你 can continue the topic and ask about the other person, like “And you?”"
     },
     {
       "question_id": "zh-zh-i-grammar-particles-07",
@@ -2321,9 +2321,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "“得”放在动词“跑”后，引出程度或状态补语；“跑得很快”说明跑步的速度。",
+      "explanation_pinyin": "“de” fàng zài dòng cí “pǎo” hòu, yǐn chū chéng dù huò zhuàng tài bǔ yǔ; “pǎo de hěn kuài” shuō míng pǎo bù de sù dù.",
+      "explanation_translation": "得 after 跑 introduces a complement describing degree or manner. 跑得很快 describes the speed of running."
     },
     {
       "question_id": "zh-zh-i-time-expressions-01",
@@ -2361,9 +2361,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "时间词“明天”通常放在主语之后、主要动词之前，例如“我明天去学校”。",
+      "explanation_pinyin": "shí jiān cí “míng tiān” tōng cháng fàng zài zhǔ yǔ zhī hòu, zhǔ yào dòng cí zhī qián, lì rú “wǒ míng tiān qù xué xiào”.",
+      "explanation_translation": "The time expression 明天 usually appears after the subject and before the main verb, as in 我明天去学校."
     },
     {
       "question_id": "zh-zh-i-time-expressions-02",
@@ -2401,9 +2401,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“每天”表示每一个日子，常用于说明重复发生的习惯或日常安排。",
+      "explanation_pinyin": "“měi tiān” biǎo shì měi yí gè rì zi, cháng yòng yú shuō míng chóng fù fā shēng de xí guàn huò rì cháng ān pái.",
+      "explanation_translation": "每天 means “every day” and is often used for recurring habits or routines."
     },
     {
       "question_id": "zh-zh-i-time-expressions-03",
@@ -2441,9 +2441,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“已经”表示某件事到现在为止发生或达到某种状态，英语常译为 already。",
+      "explanation_pinyin": "“yǐ jīng” biǎo shì mǒu jiàn shì dào xiàn zài wéi zhǐ yǐ fā shēng huò dá dào mǒu zhǒng zhuàng tài.",
+      "explanation_translation": "已经 indicates that something has happened or reached a state by now; it often means “already.”"
     },
     {
       "question_id": "zh-zh-i-time-expressions-04",
@@ -2481,9 +2481,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“还没”表示某件事到目前为止尚未发生，常相当于“not yet”。",
+      "explanation_pinyin": "“hái méi” biǎo shì mǒu jiàn shì dào mù qián wéi zhǐ shàng wèi fā shēng.",
+      "explanation_translation": "还没 indicates that something has not happened up to the present; it means “not yet.”"
     },
     {
       "question_id": "zh-zh-i-time-expressions-05",
@@ -2521,9 +2521,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“我每天早上七点起床”按主语、时间和动作排列，说明说话者每天早上七点起床。",
+      "explanation_pinyin": "“wǒ měi tiān zǎo shang qī diǎn qǐ chuáng” àn zhǔ yǔ, shí jiān hé dòng zuò pái liè, shuō míng shuō huà zhě měi tiān zǎo shang qī diǎn qǐ chuáng.",
+      "explanation_translation": "我每天早上七点起床 places the subject before the time expressions and action; it means the speaker gets up at seven every morning."
     },
     {
       "question_id": "zh-zh-i-time-expressions-06",
@@ -2561,9 +2561,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“下午”指中午之后、晚上之前的一段时间。",
+      "explanation_pinyin": "“xià wǔ” zhǐ zhōng wǔ zhī hòu, wǎn shang zhī qián de yí duàn shí jiān.",
+      "explanation_translation": "下午 refers to the period after noon and before evening; it means “afternoon.”"
     },
     {
       "question_id": "zh-zh-i-time-expressions-07",
@@ -2601,9 +2601,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“还没”放在动词短语前，表示晚饭到说话时仍未吃；“吃晚饭”是动词加宾语。",
+      "explanation_pinyin": "“hái méi” fàng zài dòng cí duǎn yǔ qián, biǎo shì wǎn fàn dào shuō huà shí réng wèi chī; “chī wǎn fàn” shì dòng cí jiā bīn yǔ.",
+      "explanation_translation": "还没 before the verb phrase indicates that dinner has not been eaten yet; 吃晚饭 is a verb-object phrase."
     },
     {
       "question_id": "zh-zh-i-comparisons-01",
@@ -2641,9 +2641,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“A比B + 形容词”用于比较A和B在某个性质上的差异。",
+      "explanation_pinyin": "“A bǐ B + xíng róng cí” yòng yú bǐ jiào A hé B zài mǒu gè xìng zhì shàng de chā yì.",
+      "explanation_translation": "The pattern A比B + adjective compares a quality of A with the same quality of B."
     },
     {
       "question_id": "zh-zh-i-comparisons-02",
@@ -2681,9 +2681,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“我比他高”用“比”引出比较对象，形容词“高”说明我比他更高。",
+      "explanation_pinyin": "“wǒ bǐ tā gāo” yòng “bǐ” yǐn chū bǐ jiào duì xiàng, xíng róng cí “gāo” shuō míng wǒ bǐ tā gèng gāo.",
+      "explanation_translation": "我比他高 uses 比 to introduce the comparison; 高 states that I am taller than him."
     },
     {
       "question_id": "zh-zh-i-comparisons-03",
@@ -2721,9 +2721,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“最”放在形容词或动词短语前，表示在比较范围内程度最高。",
+      "explanation_pinyin": "“zuì” fàng zài xíng róng cí huò dòng cí duǎn yǔ qián, biǎo shì zài bǐ jiào fàn wéi nèi chéng dù zuì gāo.",
+      "explanation_translation": "最 appears before an adjective or verb phrase to indicate the highest degree within a comparison group."
     },
     {
       "question_id": "zh-zh-i-comparisons-04",
@@ -2761,9 +2761,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“一样大”表示两个对象大小相同；“一样”表示相同，“大”说明比较的性质。",
+      "explanation_pinyin": "“yí yàng dà” biǎo shì liǎng gè duì xiàng dà xiǎo xiāng tóng; “yí yàng” biǎo shì xiāng tóng, “dà” shuō míng bǐ jiào de xìng zhì.",
+      "explanation_translation": "一样大 means that two things are the same size: 一样 means “the same,” and 大 gives the quality being compared."
     },
     {
       "question_id": "zh-zh-i-comparisons-05",
@@ -2801,9 +2801,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“今天比昨天冷”用“比”比较两天的温度，说明今天的气温更低。",
+      "explanation_pinyin": "“jīn tiān bǐ zuó tiān lěng” yòng “bǐ” bǐ jiào liǎng tiān de wēn dù, shuō míng jīn tiān de qì wēn gèng dī.",
+      "explanation_translation": "今天比昨天冷 compares the temperatures of today and yesterday and says that today is colder."
     },
     {
       "question_id": "zh-zh-i-comparisons-06",
@@ -2841,9 +2841,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“A没有B那么 + 形容词”表示A不具备B那么高的某种程度，即A不如B……。",
+      "explanation_pinyin": "“A méi yǒu B nà me + xíng róng cí” biǎo shì A bù jù bèi B nà me gāo de mǒu zhǒng chéng dù, jí A bù rú B.",
+      "explanation_translation": "A没有B那么 + adjective means A is not as [adjective] as B."
     },
     {
       "question_id": "zh-zh-i-comparisons-07",
@@ -2881,9 +2881,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我比他高表示 I am taller than him。",
-      "explanation_pinyin": "wǒ bǐ tā gāo biǎo shì I am taller than him.",
-      "explanation_translation": "我比他高 means I am taller than him."
+      "explanation_learning": "“更”通常放在形容词前，加强比较程度，相当于“more”。",
+      "explanation_pinyin": "“gèng” tōng cháng fàng zài xíng róng cí qián, jiā qiáng bǐ jiào chéng dù.",
+      "explanation_translation": "更 usually appears before an adjective to strengthen a comparison; it means “more.”"
     },
     {
       "question_id": "zh-zh-i-sentence-expansion-01",
@@ -2921,9 +2921,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "先……然后……表示动作顺序。",
-      "explanation_pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
-      "explanation_translation": "先…然后… shows sequence."
+      "explanation_learning": "“因为”引出原因，“所以”引出结果，两者组成常见的因果关联结构。",
+      "explanation_pinyin": "“yīn wèi” yǐn chū yuán yīn, “suǒ yǐ” yǐn chū jié guǒ, liǎng zhě zǔ chéng cháng jiàn de yīn guǒ guān lián jié gòu.",
+      "explanation_translation": "因为 introduces a reason and 所以 introduces its result; together they form a common cause-and-effect structure."
     },
     {
       "question_id": "zh-zh-i-sentence-expansion-02",
@@ -2961,9 +2961,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "先……然后……表示动作顺序。",
-      "explanation_pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
-      "explanation_translation": "先…然后… shows sequence."
+      "explanation_learning": "“虽然”引出让步情况，“但是”引出与预期形成对比的结果。",
+      "explanation_pinyin": "“suī rán” yǐn chū ràng bù qíng kuàng, “dàn shì” yǐn chū yǔ yù qī xíng chéng duì bǐ de jié guǒ.",
+      "explanation_translation": "虽然 introduces a concession, and 但是 introduces the contrasting result."
     },
     {
       "question_id": "zh-zh-i-sentence-expansion-03",
@@ -3001,9 +3001,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "先……然后……表示动作顺序。",
-      "explanation_pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
-      "explanation_translation": "先…然后… shows sequence."
+      "explanation_learning": "“如果”提出条件，“就”引出该条件成立时的结果。",
+      "explanation_pinyin": "“rú guǒ” tí chū tiáo jiàn, “jiù” yǐn chū gāi tiáo jiàn chéng lì shí de jié guǒ.",
+      "explanation_translation": "如果 states a condition, and 就 introduces the result if that condition is met."
     },
     {
       "question_id": "zh-zh-i-sentence-expansion-04",
@@ -3041,9 +3041,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "先……然后……表示动作顺序。",
-      "explanation_pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
-      "explanation_translation": "先…然后… shows sequence."
+      "explanation_learning": "“一边……一边……”表示同一个主体同时进行两个动作。",
+      "explanation_pinyin": "“yì biān… yì biān…” biǎo shì tóng yí gè zhǔ tǐ tóng shí jìn xíng liǎng gè dòng zuò.",
+      "explanation_translation": "一边……一边…… indicates that the same subject performs two actions at the same time."
     },
     {
       "question_id": "zh-zh-i-sentence-expansion-05",
@@ -3081,9 +3081,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "先……然后……表示动作顺序。",
-      "explanation_pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
-      "explanation_translation": "先…然后… shows sequence."
+      "explanation_learning": "“虽然很累”先承认疲倦这一情况，“但是她继续学习”说明与之相反的行动。",
+      "explanation_pinyin": "“suī rán hěn lèi” xiān chéng rèn pí juàn zhè yí qíng kuàng, “dàn shì tā jì xù xué xí” shuō míng yǔ zhī xiāng fǎn de xíng dòng.",
+      "explanation_translation": "虽然很累 acknowledges that she is tired, while 但是她继续学习 gives the contrasting action."
     },
     {
       "question_id": "zh-zh-i-sentence-expansion-06",
@@ -3121,9 +3121,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "先……然后……表示动作顺序。",
-      "explanation_pinyin": "xiān……rán hòu……biǎo shì dòng zuò shùn xù.",
-      "explanation_translation": "先…然后… shows sequence."
+      "explanation_learning": "“不但”引出已有的一项情况，“而且”再补充更进一步的信息，表示“不仅……还……”。",
+      "explanation_pinyin": "“bù dàn” yǐn chū yǐ yǒu de yí xiàng qíng kuàng, “ér qiě” zài bǔ chōng gèng jìn yí bù de xìn xī.",
+      "explanation_translation": "不但 introduces one point and 而且 adds a further point, together meaning “not only…but also.”"
     },
     {
       "question_id": "zh-zh-a-complex-sentences-01",
@@ -4521,9 +4521,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我的书中的的表示所属。",
-      "explanation_pinyin": "wǒ de shū zhōng de de biǎo shì suǒ shǔ.",
-      "explanation_translation": "In 我的书, 的 marks possession."
+      "explanation_learning": "“过”放在动词“去”后，表示以前有去北京的经历；句末“吗”把句子变成是非疑问句。",
+      "explanation_pinyin": "“guo” fàng zài dòng cí “qù” hòu, biǎo shì yǐ qián yǒu qù běi jīng de jīng lì; jù mò “ma” bǎ jù zi biàn chéng shì fǒu yí wèn jù.",
+      "explanation_translation": "过 after 去 marks past experience, while sentence-final 吗 turns the statement into a yes/no question."
     },
     {
       "question_id": "zh-extra-02",
@@ -4561,9 +4561,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "我明天去学校把时间放在动词去之前。",
-      "explanation_pinyin": "wǒ míng tiān qù xué xiào bǎ shí jiān fàng zài dòng cí qù zhī qián.",
-      "explanation_translation": "In 我明天去学校, 明天 comes before the verb 去."
+      "explanation_learning": "“每天早上”说明动作发生的固定时间，“跑步”是表示运动的动词短语。",
+      "explanation_pinyin": "“měi tiān zǎo shang” shuō míng dòng zuò fā shēng de gù dìng shí jiān, “pǎo bù” shì biǎo shì yùn dòng de dòng cí duǎn yǔ.",
+      "explanation_translation": "每天早上 gives the recurring time of the action, and 跑步 is the verb phrase meaning “to run.”"
     },
     {
       "question_id": "zh-extra-03",
