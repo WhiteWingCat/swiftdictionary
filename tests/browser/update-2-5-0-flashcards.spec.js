@@ -100,6 +100,7 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
 
 test("Daily History lesson and Daily Learning reviews stay inside Dashboard",async({page})=>{
   await openMockFlashcards(page);
+  await page.locator("#translationSelect").selectOption("en");
   await page.locator("#accountButton").click();
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
