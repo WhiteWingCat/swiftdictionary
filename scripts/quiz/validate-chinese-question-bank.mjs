@@ -54,13 +54,13 @@ if(emitSql){
   return "("+[
    lit(q.question_id),"1",lit("zh"),lit("en"),lit(q.source_lesson_id),lit(lesson.topic_id),
    lit(lesson.difficulty),lit(q.question_type),lit(q.answer_language_code),lit(q.learning_objective_id),
-   lit(q.prompt_learning),lit(q.prompt_translation),json(q.options),lit(q.correct_option_id),
-   lit(q.explanation_learning),lit(q.explanation_translation),lit("draft"),"null"
+   lit(q.prompt_learning),lit(q.prompt_translation),lit(q.prompt_pinyin),json(q.options),lit(q.correct_option_id),
+   lit(q.explanation_learning),lit(q.explanation_translation),lit(q.explanation_pinyin),lit("draft"),"null"
   ].join(", ")+")";
  });
  const sql=["-- U2.8.0 Chinese Quiz draft import. Never changes status to approved.",
  "begin;","insert into private.quiz_question_bank (",
- "question_id,revision,learning_language_code,translation_language_code,source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,prompt_learning,prompt_translation,options,correct_option_id,explanation_learning,explanation_translation,status,approved_at",
+ "question_id,revision,learning_language_code,translation_language_code,source_lesson_id,topic_id,difficulty,question_type,answer_language_code,learning_objective_id,prompt_learning,prompt_translation,prompt_pinyin,options,correct_option_id,explanation_learning,explanation_translation,explanation_pinyin,status,approved_at",
  ") values",rows.join(",\n"),";","commit;"].join("\n");
  process.stdout.write(sql+"\n");
 }
