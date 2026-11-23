@@ -177,3 +177,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.8.0 — staging feedback remediation](2026-11-23-update-2-8-0-staging-feedback-remediation.md) — records the Quiz landing/test redesign, Dashboard tab visibility fix, English/Chinese Flashcard mode swap, and in-place review for every Daily History activity type.
+
+
+- [Update 2.8.0 — second owner feedback remediation](2026-11-23-update-2-8-0-second-owner-feedback-remediation.md) — records the 12-point Quiz, Flashcards and Dashboard feedback round, Chinese answer-leak audit across both prompt languages, start-based Quiz allowance, staging SQL migrations, RLS performance fix, validation status and unchanged production boundary.
