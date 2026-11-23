@@ -382,8 +382,8 @@ begin
   end if;
   v_session_id:=(v_session->>'session_id')::uuid;
   perform public.abandon_my_quiz(v_session_id);
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoning the Chinese-mix test session consumed allowance';
+  if public.test_current_quiz_usage()<>1 then
+    raise exception 'Abandoning the Chinese-mix test session refunded its start allowance';
   end if;
 end;
 $chinese_mix$;
@@ -503,9 +503,9 @@ $advanced$;
 
 -- History deletion removes answer/session snapshots but retains the minimal
 -- same-day question reservation ledger until its local-day retention expires.
-select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
+select set_config('request.jwt.claim.sub','ffffffff-ffff-4fff-8fff-ffffffffffff',true);
 select set_config('request.jwt.claims',
-  '{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc","session_id":"eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee"}',true);
+  '{"sub":"ffffffff-ffff-4fff-8fff-ffffffffffff","session_id":"99999999-9999-4999-8999-999999999999"}',true);
 do $c_history_delete$
 begin
   perform public.delete_my_learning_history();
