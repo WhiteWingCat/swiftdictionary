@@ -717,3 +717,51 @@ test("Chinese Flashcards only offer card sets supported by the selected recall m
   await page.locator('#flashcardsPage .flash-mode[data-mode="translation"]').click();
   await expect(page.locator('#flashGameCollection option[value="vocabulary"]')).toHaveCount(1);
 });
+
+test("Chinese Flashcard games save per-card snapshots and support read-only review", async ({ page }) => {
+  test.setTimeout(90000);
+  const user=await createRuntimeUser("flashcard-zh-review","free");
+  const session=await signIn(user.email,user.password);
+  await page.clock.install();
+  await openQuiz(page,session);
+  await page.locator('[data-page="flashcards"]').click();
+  await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  if(await page.locator("#learningIntroBackdrop").isVisible()){
+    await page.locator("#learningIntroDismiss").click();
+    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+  }
+  await selectCourse(page,"zh");
+  await selectTranslation(page,"zh");
+  await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
+  await expect(page.locator("#flashGameCollection")).toHaveValue("all");
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game")).toBeVisible();
+
+  await page.clock.fastForward(61000);
+  await page.clock.fastForward(2500);
+  await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:15000});
+
+  const dataResponse=await api.post(apiUrl+"/rest/v1/rpc/get_my_flashcard_data",{
+    headers:{apikey:anonKey,Authorization:"Bearer "+session.access_token},
+    data:{}
+  });
+  expect(dataResponse.ok()).toBeTruthy();
+  const data=await dataResponse.json();
+  const latest=data.history?.[0];
+  const sessionId=latest?.session_id||latest?.id;
+  expect(sessionId).toBeTruthy();
+
+  const reviewResponse=await api.post(apiUrl+"/rest/v1/rpc/get_my_flashcard_game_review",{
+    headers:{apikey:anonKey,Authorization:"Bearer "+session.access_token},
+    data:{p_session_id:sessionId}
+  });
+  expect(reviewResponse.ok()).toBeTruthy();
+  const review=await reviewResponse.json();
+  expect(review.review_available).toBe(true);
+  expect(review.learning_language_code).toBe("zh");
+  expect(review.translation_language_code).toBe("zh");
+  expect(review.items.length).toBeGreaterThan(0);
+  expect(review.items[0].recall_mode).toBe("word");
+  expect(review.items[0].card.course).toBe("zh");
+});
