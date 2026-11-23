@@ -98,6 +98,7 @@
       #flashcardsPage .flash-mode small{display:block;color:#ffffffd9;font-weight:500;margin-top:4px}
       #flashcardsPage .flash-mode[data-mode=word]{background:#4b91b9;box-shadow:0 7px 0 #28516b,0 12px 20px #0003}
       #flashcardsPage .flash-mode[data-mode=definition]{background:#2865b2;box-shadow:0 7px 0 #173d70,0 12px 20px #0003}
+      #flashcardsPage .flash-mode[data-mode=translation]{background:#bd762e;box-shadow:0 7px 0 #79491e,0 12px 20px #0003}
       #flashcardsPage .flash-mode[data-mode=mixed]{background:#b33f91;box-shadow:0 7px 0 #70275a,0 12px 20px #0003}
       #flashcardsPage .flash-mode[data-mode=sentence]{background:#7650b8;box-shadow:0 7px 0 #493176,0 12px 20px #0003}
       #flashcardsPage .flash-pill{display:inline-flex;border-radius:99px;padding:8px 13px;border:1px solid var(--border);background:var(--panel-hover)}
@@ -469,6 +470,7 @@
   }
   async function startGame(){
     if(state.starting)return;
+    if(currentUser&&Number(state.data?.allowance?.remaining)<=0){await notifyFlashcardAllowanceExhausted();return;}
     state.starting=true;
     const startButton=$("#flashcardsApp [data-action='start-game']");
     if(startButton)startButton.disabled=true;
@@ -502,7 +504,7 @@
     setTimeout(()=>saveGameResults(),2000);
   }
   async function notifyFlashcardAllowanceExhausted(){
-    if(!currentUser||Number(state.data?.allowance?.remaining)!==0)return;
+    if(!currentUser||Number(state.data?.allowance?.remaining)>0)return;
     let timezone="UTC";
     try{
       const {data,error}=await supabaseClient.from("user_preferences")
@@ -520,7 +522,6 @@
       day=values.year+"-"+values.month+"-"+values.day;
     }catch(_){}
     const key=currentUser.id+":"+day;
-    if(state.allowanceToastDay===key)return;
     state.allowanceToastDay=key;
     const message=uiText(
       "You have used all of today's Flashcards allowance. It resets at midnight in your allowance timezone.",
@@ -545,6 +546,7 @@
     mount.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-result-modal" role="dialog" aria-modal="true" aria-labelledby="flashResultTitle"><h2 id="flashResultTitle">${uiText("Your game results","本次游戏结果")}</h2><p class="flash-muted">${uiText("Your "+state.duration+"-second Flash Recall summary.","本次"+state.duration+"秒限时回忆挑战总结。")}</p><div class="flash-accuracy-hero"><strong>${accuracy}%</strong><span>${uiText("Accuracy","正确率")}</span></div><div class="flash-stats"><div class="flash-stat"><strong>${attempted}</strong><span>${uiText("Attempted","已作答")}</span></div><div class="flash-stat"><strong>${correct}</strong><span>${uiText("Correct","正确")}</span></div><div class="flash-stat"><strong>${incorrect}</strong><span>${uiText("Incorrect","错误")}</span></div></div><p class="flash-muted">${uiText("Unanswered: ","未作答：")}${Number(r.unanswered_count)||0}</p><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-result"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
   }
   function openSetupPrompt(mode){
+    if(currentUser&&Number(state.data?.allowance?.remaining)<=0){notifyFlashcardAllowanceExhausted();return;}
     if(course==="zh"&&mode==="mixed")mode="translation";
     if(course==="en"&&mode==="translation")mode="mixed";
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
@@ -702,7 +704,12 @@
         const chosen=prompt("Enter the destination collection name:\n"+choices.map(c=>c.name).join("\n"));
         const target=choices.find(c=>c.name.toLowerCase()===String(chosen||"").toLowerCase());if(target){const nextPosition=state.data.cards.filter(item=>item.collection_id===target.id).length;await cardAction("move",{...card,position:nextPosition},target.id);}return;
       }
-    }catch(error){notice(error.message||"The action could not be completed.");}
+    }catch(error){
+      if(/Daily Flashcard game allowance exhausted|allowance.*exhausted/i.test(error.message||"")){
+        try{await loadData();await notifyFlashcardAllowanceExhausted();}catch(_){}
+      }
+      notice(error.message||"The action could not be completed.");
+    }
   }
   function attachForms(){
     root.addEventListener("submit",async event=>{
