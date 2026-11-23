@@ -10,7 +10,7 @@ const ids=new Set(),prompts=new Set();
 const counts={beginner:0,intermediate:0,advanced:0};
 const topics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
 const norm=s=>String(s??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
-if(pack.schema_version!==1||pack.status!=="draft"||pack.learning_language_code!=="zh"||pack.translation_language_code!=="zh")errors.push("Pack metadata must remain a Chinese-learning, Chinese-focused draft.");
+if(pack.schema_version!==1||pack.status!=="draft"||pack.learning_language_code!=="zh"||pack.translation_language_code!=="en")errors.push("Pack metadata must remain a Chinese-learning, Chinese-focused draft.");
 if(!Array.isArray(pack.questions))errors.push("questions must be an array.");
 for(const [i,q] of (pack.questions||[]).entries()){
  const at="questions["+i+"]";
