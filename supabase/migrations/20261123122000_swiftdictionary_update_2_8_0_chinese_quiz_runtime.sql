@@ -359,6 +359,7 @@ begin
         exit when v_needed=0;
       end if;
     end loop;
+    if v_needed<>0 then raise exception 'Fresh Chinese beginner questions unavailable' using errcode='P0001'; end if;
   elsif p_difficulty='intermediate' then
     for v_group in select * from (values('intermediate',12),('beginner',3)) as t(source,needed)
     loop
@@ -413,8 +414,8 @@ begin
          count(*) filter(where q.difficulty='intermediate')::integer,
          count(*) filter(where q.difficulty='advanced')::integer
     into v_selected_b,v_selected_i,v_selected_a
-  from unnest(v_selected_ids) as selected(question_id)
-  join private.quiz_question_bank q on q.question_id=selected.question_id;
+  from unnest(v_selected_ids,v_selected_revisions) as selected(question_id,revision)
+  join private.quiz_question_bank q on q.question_id=selected.question_id and q.revision=selected.revision;
   v_composition:=pg_catalog.jsonb_build_object(
     'beginner',v_selected_b,'intermediate',v_selected_i,'advanced',v_selected_a
   );
