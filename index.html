@@ -20581,7 +20581,7 @@ async function completeLesson(x){
         course=requestedCourse;translationLanguage=requestedTranslation;courseSelector.value=requestedCourse;translationSelector.value=requestedTranslation;
         document.getElementById("preferenceLearning").value=requestedCourse;document.getElementById("preferenceTranslation").value=requestedTranslation;
         quizApplyPageTranslation();quizPageState.session=session;quizRenderSession();await quizLoadHistoryAndAvailability();
-      }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}}
+      }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});const message=/Daily Quiz (?:allowance exhausted|start limit reached)/i.test(error.message||"")?quizT("Your daily Quiz allowance is exhausted.","今日测验额度已用完。"):(error.message||"Could not start this Quiz.");quizStatus(message,true);}}
       finally{courseSelector.disabled=false;translationSelector.disabled=false;}
     }
     async function quizSubmit(){
