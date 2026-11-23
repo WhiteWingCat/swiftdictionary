@@ -19770,7 +19770,7 @@ async function completeLesson(x){
           supabaseClient.from("learning_plan_limits").select("plan_code,activity_type,daily_limit,is_enabled"),
           supabaseClient.from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
           supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
-          supabaseClient.from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
+          supabaseClient.from("daily_activity_sessions").select("activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
