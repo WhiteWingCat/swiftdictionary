@@ -820,8 +820,11 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
       await expect(area.locator(".quiz-option-translation")).toHaveCount(0);
       break;
     }
-    await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
-    await expect(area.locator(".quiz-question-translation")).toBeVisible();
+    await expect(area).toHaveAttribute("data-question-type",type||"");
+    await expect(area.locator(".quiz-question-pinyin")).toHaveCount(currentQuestion?.prompt_pinyin?1:0);
+    await expect(area.locator(".quiz-question-translation")).toHaveCount(currentQuestion?.prompt_translation?1:0);
+    await expect(area.locator(".quiz-option-pinyin")).toHaveCount(0);
+    await expect(area.locator(".quiz-option-translation")).toHaveCount(0);
     await area.locator(".quiz-option").first().click();
     if(position<10)await page.locator("#quizNext").click();
   }
@@ -851,10 +854,12 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
 
   for(let position=1;position<=10;position++){
     const area=zhPage.locator("#quizQuestionArea");
+    const currentQuestion=await zhPage.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position));
     await expect(area).toHaveAttribute("data-question-type","knowledge");
-    await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
+    await expect(area.locator(".quiz-question-pinyin")).toHaveCount(currentQuestion?.prompt_pinyin?1:0);
     await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
-    await expect(area.locator(".quiz-option-pinyin")).toHaveCount(4);
+    await expect(area.locator(".quiz-option-pinyin")).toHaveCount(0);
+    await expect(area.locator(".quiz-option-translation")).toHaveCount(0);
     await area.locator(".quiz-option").first().click();
     if(position<10)await zhPage.locator("#quizNext").click();
   }
