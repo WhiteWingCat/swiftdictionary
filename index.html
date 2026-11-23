@@ -139,6 +139,7 @@
     .dashboard-history-row-main { display:grid; gap:4px; min-width:0; }
     .dashboard-history-row-main small { color:var(--muted); }
     .dashboard-history-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    @media(max-width:620px){.dashboard-history-row{align-items:flex-start;flex-direction:column}.dashboard-history-actions{width:100%}.dashboard-history-actions button{width:100%}}
     .dashboard-history-kind { display:inline-flex; width:max-content; padding:2px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted); font-size:.72rem; }
     .profile-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
     .stat-card { border:1px solid var(--border); border-radius:13px; padding:16px; background:var(--panel-hover); }
