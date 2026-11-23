@@ -88,6 +88,37 @@ select
 from numbered
 on conflict(question_id,revision) do nothing;
 
+-- Supplemental English-prompt / Chinese-answer items are eligible only for
+-- the Chinese-learning + English-translation preference.
+with numbered as (
+ select gs,
+   case when gs<=30 then 'beginner' when gs<=60 then 'intermediate' else 'advanced' end as difficulty,
+   ((gs-1)%3)+1 as topic_number
+ from generate_series(1,90) as gs
+)
+insert into private.quiz_question_bank(
+ question_id,revision,learning_language_code,translation_language_code,
+ source_lesson_id,topic_id,difficulty,question_type,answer_language_code,
+ learning_objective_id,prompt_learning,prompt_translation,prompt_pinyin,options,
+ correct_option_id,explanation_learning,explanation_translation,explanation_pinyin,status,approved_at
+)
+select
+ 'u280-zh-'||difficulty||'-translation-'||lpad(gs::text,3,'0'),1,'zh','en',
+ 'u280-zh-'||difficulty||'-lesson-'||topic_number,
+ 'u280-topic-'||difficulty||'-'||topic_number,difficulty,'chinese_translation','zh',
+ 'u280-objective','Choose the Simplified Chinese equivalent of test phrase '||gs||'.',
+ 'Choose the most natural Simplified Chinese equivalent.','',
+ jsonb_build_array(
+  jsonb_build_object('id','o1','learning_text','good morning','translation_text','早上好','pinyin','zǎo shang hǎo'),
+  jsonb_build_object('id','o2','learning_text','thank you','translation_text','谢谢','pinyin','xiè xie'),
+  jsonb_build_object('id','o3','learning_text','goodbye','translation_text','再见','pinyin','zài jiàn'),
+  jsonb_build_object('id','o4','learning_text','you are welcome','translation_text','不客气','pinyin','bú kè qi')
+ ),
+ 'o1','“早上好”是早晨见面时常用的问候语。','早上好 is a common greeting used when meeting someone in the morning.',
+ '“zǎo shang hǎo” shì zǎo chén jiàn miàn shí cháng yòng de wèn hòu yǔ.','approved',now()
+from numbered
+on conflict(question_id,revision) do nothing;
+
 set local role authenticated;
 select set_config('request.jwt.claims',
  '{"sub":"28000000-0000-4000-8000-000000000001","role":"authenticated"}',true);
@@ -136,13 +167,16 @@ begin
     or v_quiz1->>'translation_language_code'<>'zh'
     or jsonb_array_length(v_quiz1->'questions')<>10
     or exists(select 1 from jsonb_array_elements(v_quiz1->'questions') q where nullif(q->>'prompt_pinyin','') is null
+       or q->>'question_type'<>'knowledge'
        or exists(select 1 from jsonb_array_elements(q->'options') o where nullif(o->>'pinyin','') is null)) then
    raise exception 'Chinese Quiz did not return a Pinyin-complete Chinese-focused session: %',v_quiz1;
  end if;
  perform public.abandon_my_quiz((v_quiz1->>'session_id')::uuid);
  v_quiz2:=public.start_my_quiz('beginner','zh','en');
- if v_quiz2->>'translation_language_code'<>'en' then
-   raise exception 'Chinese Quiz did not preserve the selected English translation language: %',v_quiz2;
+ if v_quiz2->>'translation_language_code'<>'en'
+    or not exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation')
+    or exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation' and nullif(q->>'prompt_pinyin','') is not null) then
+   raise exception 'Chinese Quiz did not include English-to-Chinese items only for the English translation preference: %',v_quiz2;
  end if;
  select count(*) into v_overlap
  from jsonb_array_elements(v_quiz1->'questions') a
