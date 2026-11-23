@@ -421,7 +421,7 @@ begin
     end if;
   end if;
   if p_difficulty='beginner' then
-    v_source:='beginner';v_needed:=10;
+    v_source:='beginner';v_needed:=10-v_translation_needed;
     for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
       join private.learning_content_catalog c on c.activity_type='permanent_lesson'
        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
