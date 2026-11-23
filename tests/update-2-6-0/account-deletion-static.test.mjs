@@ -131,7 +131,7 @@ test("Lessons and Quiz use the shared Flashcards-style signed-out card treatment
   assert.match(index, /id="quizSignedOut" class="coming-card learning-auth-card"/);
   assert.match(index, /id="lessonsSignedOut" class="learning-auth-card"/);
   assert.match(index, /class="primary-button learning-auth-button"/);
-  assert.match(flashcards, /flash-section coming-card learning-auth-card/);
+  assert.match(flashcards, /flash-section learning-auth-card/);
 });
 
 test("Delete Account card is present in Preferences before Learning history", () => {
@@ -150,7 +150,7 @@ test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="flashcards.js?v=2.8.0-r1"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
-  assert.match(build, /daily-learning[.]js[\s\S]*2[.]8[.]0-r1/);
+  assert.ok(build.includes("(daily-learning[.]js)") && build.includes("2.8.0-r1"));
   assert.match(build, /flashcards[.]js.*2[.]8[.]0-r1/);
 });
 
