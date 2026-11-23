@@ -19811,8 +19811,8 @@ async function completeLesson(x){
         const allowanceUsageRows = allowanceUsageQ.error ? null : (allowanceUsageQ.data || []);
         const personalTestAccess = personalTestQ.error ? false : personalTestQ.data === true;
         const prefs = prefsQ.data || {learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()};
-        const activeLearningLanguage=preferenceSelectionChanged?course:prefs.learning_language;
         const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
+        const activeLearningLanguage=preferenceSelectionChanged?course:prefs.learning_language;
         profilePreferences = preferenceSelectionChanged
           ? {...prefs,learning_language:course,translation_language:translationLanguage}
           : prefs;
