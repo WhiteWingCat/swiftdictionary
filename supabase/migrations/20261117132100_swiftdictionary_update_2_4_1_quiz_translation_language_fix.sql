@@ -1002,7 +1002,18 @@ begin
 
   if v_topic_total <> v_question_count or v_topic_count < 3 then
     raise exception 'Quiz requires at least three distinct topics'
-      using errcode='P0001', detail='topic_coverage_unavailable';
+      using errcode='P0001',
+      detail=pg_catalog.jsonb_build_object(
+        'selected_count',pg_catalog.cardinality(v_selected_ids),
+        'expected_count',v_question_count,
+        'topic_total',v_topic_total,
+        'topic_count',v_topic_count,
+        'topic_counts',v_topic_counts,
+        'source_composition',v_comp,
+        'source_selected',v_source_selected,
+        'translation_needed',v_translation_needed,
+        'translation_added',v_translation_added
+      )::text;
   end if;
 
   insert into private.quiz_sessions(
