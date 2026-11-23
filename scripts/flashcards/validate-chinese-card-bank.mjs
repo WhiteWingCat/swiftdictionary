@@ -6,7 +6,8 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/flashcards/chinese-cards.draft.json"),"utf8"));
 const release=process.argv.includes("--release");
 const errors=[],warnings=[];
-const ids=new Set(),chars=new Set(),vocab=new Set();\nconst modes={word:0,definition:0,translation_en:0,translation_zh:0,sentence:0};\nconst norm=x=>String(x||"").normalize("NFKC").replace(/[，。；、\\s]/g,"").toLowerCase();
+const ids=new Set(),chars=new Set(),vocab=new Set();\nconst modes={word:0,definition:0,translation_en:0,translation_zh:0,sentence:0};
+const norm=x=>String(x||"").normalize("NFKC").replace(/[，。；、\\s]/g,"").toLowerCase();
 if(pack.schema_version!==1||pack.status!=="draft"||pack.language_code!=="zh")errors.push("Pack must remain a Chinese-language draft.");
 if(!Array.isArray(pack.characters)||!Array.isArray(pack.vocabulary)||!Array.isArray(pack.phrases))errors.push("characters, vocabulary and phrases arrays are required.");
 for(const [i,c] of (pack.characters||[]).entries()){
