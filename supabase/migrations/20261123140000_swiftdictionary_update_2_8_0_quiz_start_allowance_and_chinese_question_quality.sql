@@ -169,8 +169,7 @@ for each row execute function private.charge_quiz_start_allowance();
 update private.quiz_question_bank q
 set prompt_learning = edits.prompt_learning,
     prompt_pinyin = null,
-    revision = q.revision + 1,
-    updated_at = pg_catalog.now()
+        updated_at = pg_catalog.now()
 from (values
   ('zh-en-b-common-actions-01','日常用餐时，把食物送入口中的动作通常用哪个动词？'),
   ('zh-en-b-common-actions-02','口渴时，把水或其他饮料送入口中的动作通常用哪个动词？'),
@@ -247,8 +246,7 @@ where q.question_id = edits.question_id
 -- pronunciation, even when the character string itself is not repeated.
 update private.quiz_question_bank q
 set prompt_pinyin = null,
-    revision = q.revision + 1,
-    updated_at = pg_catalog.now()
+        updated_at = pg_catalog.now()
 where q.learning_language_code = 'zh'
   and q.status = 'approved'
   and nullif(btrim(q.prompt_pinyin),'') is not null
