@@ -200,6 +200,8 @@
   }
   function render(){
     const mount=shell();style();
+    if(course==="zh"&&state.mode==="mixed")state.mode="word";
+    if(course==="en"&&state.mode==="translation")state.mode="word";
     if(course==="zh"){mount.innerHTML='<section class="flash-section"><h2>'+uiText("English course required","需要英语学习课程")+'</h2><p class="flash-muted">'+uiText("Flashcards currently support the English learning course. Switch your Learning Course to English to continue.","闪卡目前仅支持英语学习课程。请将学习课程切换为英语后继续。")+'</p></section>';return;}
     if(!currentUser){mount.innerHTML=`<div class="flash-home"><section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Choose a recall mode and a 60- or 120-second challenge. Memory and answer windows adapt to your difficulty, and you can move on as soon as you are ready.","选择回忆模式和 60 秒或 120 秒挑战。记忆与答题时间会根据难度调整，准备好时即可提前进入下一步。")}</p></div></section><section class="flash-section coming-card learning-auth-card"><h2>${uiText("Sign in to use Flashcards","登录以使用闪卡")}</h2><p class="flash-muted">${uiText("Your learning progress is saved securely to your account.","你的学习进度会安全地保存到帐户中。")}</p><button class="flash-primary learning-auth-button" data-action="signin">${uiText("Sign in","登录")}</button></section></div>`;const signedOutBanner=mount.querySelector(".flash-banner");if(state.helpButton&&signedOutBanner&&!signedOutBanner.contains(state.helpButton))signedOutBanner.appendChild(state.helpButton);return;}
     if(state.loading){mount.innerHTML='<section class="flash-section">'+uiText("Loading your Flashcards…","正在加载闪卡…")+'</section>';return;}
@@ -272,7 +274,7 @@
     return [...targets,...distractors];
   }
   function makeRound(deck){
-    const chinese=course==="zh";
+    const chinese=(state.game?.learningLanguage||course)==="zh";
     const normalize=v=>String(v||"").normalize("NFKC").trim().toLocaleLowerCase();
     const cueFor=(w,mode)=>{
       if(chinese){
@@ -460,9 +462,10 @@
       if(!makeRound(deck))throw new Error("This card set has no unused questions available. Choose another card set and try again.");
       state.usedQuestionKeys.clear();
       state.round=null;state.phase="idle";state.phaseEnds=0;state.ending=false;
+      if(typeof preferenceWriteQueue!=="undefined")await preferenceWriteQueue;
       const {data,error}=await supabaseClient.rpc("start_my_flashcard_game",{p_mode:state.mode,p_difficulty:state.difficulty,p_duration_seconds:state.duration});
       if(error)throw error;
-      state.game={id:data.session_id,startedAt:Date.now(),learningLanguage:course,translationLanguage,durationSeconds:Number(data.duration_seconds)||state.duration};
+      state.game={id:data.session_id,startedAt:Date.now(),learningLanguage:data.learning_language_code||course,translationLanguage:data.translation_language_code||translationLanguage,durationSeconds:Number(data.duration_seconds)||state.duration};
       state.results=[];state.roundIndex=0;
       const schedule=timingFor(state.mode,state.difficulty);
       Object.assign(state,{memory:schedule.memory,answer:schedule.answer});
