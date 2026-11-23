@@ -540,8 +540,8 @@ test("Premium user sees three daily completions; abandonment does not consume al
 test("Quiz start confirmation warns about allowance and cancellation does not consume it", async ({ page }) => {
   await openQuiz(page,freeSession);
   await page.once("dialog",async dialog=>{
-    expect(dialog.message()).toContain("daily Quiz allowance");
-    expect(dialog.message()).toContain("abandon");
+    expect(dialog.message()).toMatch(/daily Quiz allowance|每日测验额度/);
+    expect(dialog.message()).toMatch(/abandon|放弃测验/);
     await dialog.dismiss();
   });
   await page.locator('[data-quiz-start="beginner"]').click();
