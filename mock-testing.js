@@ -258,7 +258,7 @@
         if(bank.status!=="draft")throw new Error("Mock Quiz may load only content explicitly marked as draft.");
         if(bank.learning_language_code!==language||(language==="zh"&&bank.translation_language_code!=="en"))throw new Error("The draft Quiz bank does not match the selected language pair.");
         if(bank.questions.some(question=>!question.learning_objective_id))throw new Error("Every draft Quiz question must link to a permanent lesson learning objective.");
-        const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\\s\\p{P}\\p{S}]+/gu,"");
+        const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
         const mapped=bank.questions.map(question=>{
           const source=curriculum.lessons?.[question.source_lesson_id]||curriculum[question.source_lesson_id];
           if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty))throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
