@@ -716,7 +716,7 @@
         .select("topic_id,correct_count,question_count,attempted_at")
         .eq("user_id",userId).eq("learning_language",prefs.learning_language || "en").order("attempted_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
-        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,completed_at,status,started_at,language_code")
+        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at,status,started_at,language_code")
         .eq("user_id",userId).eq("language_code",language).eq("status","completed")
         .order("completed_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
@@ -929,7 +929,7 @@
     reader.classList.remove("closing");
     reader.removeAttribute("aria-hidden");
     document.body.style.overflow = "hidden";
-    readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false) };
+    readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false),attempts:(content.questions || []).map(() => 0),incorrectAttemptCount:0,retryCount:0 };
     const closeButton = '<button type="button" class="icon-button" data-daily-close aria-label="' + esc(dailyUi("Close activity","关闭活动")) + '">×</button>';
     let html = "";
     if (isDiscovery) {
@@ -1080,6 +1080,9 @@
       }
       const correct = Number(selected.value) === content.questions[i].answer;
       if (firstTry[i] === null) firstTry[i] = correct;
+      else readerState.retryCount = (readerState.retryCount || 0) + 1;
+      readerState.attempts[i] = (readerState.attempts[i] || 0) + 1;
+      if (!correct) readerState.incorrectAttemptCount = (readerState.incorrectAttemptCount || 0) + 1;
       passed[i] = correct;
       const question = content.questions[i];
       const explanation = isChineseLearningCourse() ? (translationLanguage === "en" ? (question.explanationEn || question.explanation || "") : (question.explanation || "")) : (translationLanguage === "zh" && question.zh ? question.zh : question.explanation || "");
@@ -1122,6 +1125,7 @@
   async function completeDailyActivity() {
     if (!readerState || !currentUser || !supabaseClient) return;
     const {activityType,content,session,firstTry,passed} = readerState;
+    const practiceMetrics={firstTryCorrectCount:firstTry.filter(value=>value===true).length,incorrectAttemptCount:readerState.incorrectAttemptCount||0,retryCount:readerState.retryCount||0};
     if ((activityType === "daily_application" || activityType === "daily_revision") && !passed.every(Boolean)) {
       byId("dailyPracticeStatus").textContent = "Check every answer and correct any mistakes before completing.";
       return;
@@ -1144,7 +1148,13 @@
       if (error) throw error;
       saved = Array.isArray(data) ? data[0] : data;
       if (!saved) throw new Error("The completion could not be confirmed.");
+      let metricsWarning="";
+      if(activityType==="daily_application"||activityType==="daily_revision"){
+        const metrics=await supabaseClient.rpc("record_my_daily_practice_attempt",{p_session_id:session.id,p_first_try_correct_count:practiceMetrics.firstTryCorrectCount,p_incorrect_attempt_count:practiceMetrics.incorrectAttemptCount,p_retry_count:practiceMetrics.retryCount});
+        if(metrics.error)metricsWarning=metrics.error.message||"Practice details could not be saved.";
+      }
       closeDailyReader();
+      if(metricsWarning)byId("dailyPracticeStatus").textContent=dailyUi("Activity completed. Some practice statistics could not be saved: ","活动已完成，但部分练习统计无法保存：")+metricsWarning;
     } catch (error) {
       byId("dailyLearningStatus").textContent = error.message || "Completion could not be saved. Your session remains in progress.";
       if (button) { button.disabled = false; button.textContent = dailyUi("Complete activity","完成活动"); }
