@@ -19661,32 +19661,27 @@ async function completeLesson(x){
     }
 
     function renderDashboardAllowanceBars(plan,limits,usageRows,timezone,personalLessonExemption) {
-      const host = document.getElementById("dashboardAllowanceBars");
-      if (!host) return;
-      const types = ["lesson","quiz","flashcard","daily_topic","daily_application","daily_discovery","daily_revision"];
-      const labels = { lesson:"Permanent lessons",quiz:"Quiz",flashcard:"Flashcards",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision" };
-      host.innerHTML = types.map(type => {
-        const row = limits.find(item => item.plan_code === plan && item.activity_type === type);
-        if (type === "lesson" && personalLessonExemption) {
-          return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>Unlimited · personal testing access</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill" style="width:0%"></div></div></div>';
-        }
-        if (!row || !row.is_enabled || !Number.isFinite(Number(row.daily_limit))) {
-          return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>Unavailable for this plan</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill" style="width:0%"></div></div></div>';
-        }
-        const maximum = Math.max(0,Number(row.daily_limit));
-        const usage = Array.isArray(usageRows) ? usageRows.find(item => item.activity_type === type) : null;
-        if (!usage || !Number.isInteger(Number(usage.used_count)) || Number(usage.used_count) < 0) {
-          return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>Usage unavailable · server allowance data not loaded</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill" style="width:0%"></div></div></div>';
-        }
-        const used = Math.max(0,Number(usage.used_count));
-        const remaining = Math.max(0,maximum-used);
-        const percent = maximum ? Math.min(100,used/maximum*100) : 0;
-        return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>' + remaining + ' of ' + maximum + ' remaining · ' + used + ' used</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill' + (remaining === 0 ? ' exhausted' : '') + '" style="width:' + percent + '%"></div></div></div>';
+      const host=document.getElementById("dashboardAllowanceBars");
+      if(!host)return;
+      const types=["lesson","quiz","flashcard","daily_topic","daily_application","daily_discovery","daily_revision"];
+      const labels={lesson:"Permanent lessons",quiz:"Quiz",flashcard:"Flashcards",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision"};
+      host.innerHTML=types.map(type=>{
+        const row=limits.find(item=>item.plan_code===plan&&item.activity_type===type);
+        if(type==="lesson"&&personalLessonExemption)
+          return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>Unlimited</b><small>Personal testing access</small></div>';
+        if(!row||!row.is_enabled||!Number.isFinite(Number(row.daily_limit)))
+          return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>Unavailable</b><small>Not enabled for this plan</small></div>';
+        const maximum=Math.max(0,Number(row.daily_limit));
+        const usage=Array.isArray(usageRows)?usageRows.find(item=>item.activity_type===type):null;
+        if(!usage||!Number.isInteger(Number(usage.used_count))||Number(usage.used_count)<0)
+          return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>— / '+maximum+'</b><small>Usage unavailable</small></div>';
+        const used=Math.max(0,Number(usage.used_count)),remaining=Math.max(0,maximum-used);
+        return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>'+remaining+' / '+maximum+'</b><small>'+used+' completed today</small></div>';
       }).join("");
-      const note = document.getElementById("allowanceDetails");
-      if (note) note.textContent = Array.isArray(usageRows)
-        ? (plan === "premium" ? "Premium" : "Free") + " plan · Resets at midnight (" + timezone + "). Only successful completions use an allowance."
-        : "Allowance usage could not be loaded from the server. Counts are not estimated from learning history.";
+      const note=document.getElementById("allowanceDetails");
+      if(note)note.textContent=Array.isArray(usageRows)
+        ?(plan==="premium"?"Premium":"Free")+" plan · Resets at midnight ("+timezone+"). Only successful completions use an allowance."
+        :"Allowance usage could not be loaded from the server. Counts are not estimated from learning history.";
     }
 
     function formatTopicName(topicId) {
