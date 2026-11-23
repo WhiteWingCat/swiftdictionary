@@ -489,7 +489,7 @@ test("Chinese course enables Chinese Lessons, Quiz and Flashcards", async ({ pag
   await expect(page.locator("#flashcardsPage .flash-section").first()).toBeVisible();
 });
 
-test("Premium user sees three daily completions; abandonment does not consume allowance and one active session is enforced", async ({ page }) => {
+test("Premium user has three daily Quiz starts; abandonment does not refund allowance and one active session is enforced", async ({ page }) => {
   await openQuiz(page, premiumSession);
   await expect(page.locator("#quizAllowanceText")).toHaveText("3 / 3 今日剩余");
   await expect(page.locator('[data-quiz-start="advanced"]'),
@@ -522,7 +522,8 @@ test("Premium user sees three daily completions; abandonment does not consume al
   await expect(page.locator("#quizActiveCard")).toBeVisible();
   // A second difficulty must remain unavailable while the server-owned
   // active session exists. Resume the existing session instead of clicking
-  // the intentionally disabled start button.
+  // the intentionally disabled start button. The start already consumed one
+  // allowance, and abandoning the session does not refund it.
   await expect(page.locator('[data-quiz-start="intermediate"]')).toBeDisabled();
   await page.locator("#quizResume").click();
   await expect(page.locator("#quizSession")).toBeVisible();
@@ -808,9 +809,19 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
 
-  await updateLearningPreference(freeUserId,"zh","zh");
+  // Quiz starts are allowance-charged even when abandoned. Use a fresh
+  // disposable account for the second translation-language snapshot check.
+  const zhUser=await createRuntimeUser("zh-translation-snapshot","free");
+  const zhSession=await signIn(zhUser.email,zhUser.password);
+  await updateLearningPreference(zhUser.id,"zh","zh");
+  const storageKey="sb-"+new URL(apiUrl).hostname.split(".")[0]+"-auth-token";
+  await page.evaluate(({key,value})=>localStorage.setItem(key,JSON.stringify(value)),{key:storageKey,value:zhSession});
   await page.reload();
   await expect(page.locator("#quizHome")).toBeVisible();
+  if(await page.locator("#learningIntroBackdrop").isVisible()){
+    await page.locator("#learningIntroDismiss").click();
+    await expect(page.locator("#learningIntroBackdrop")).toBeHidden();
+  }
   await expect(page.locator("#courseSelect")).toHaveValue("zh");
   await expect(page.locator("#translationSelect")).toHaveValue("zh");
   await page.locator('[data-quiz-start="beginner"]').click();
