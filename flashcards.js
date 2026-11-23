@@ -295,17 +295,31 @@
       if(mode==="sentence")return (w.examples||[])[0]||"";
       return "";
     };
+    const supportsMode=(w,mode)=>{
+      if(!chinese)return true;
+      if(mode==="translation"){
+        const cue=translationFor(w);
+        if(!cue)return false;
+        const language=state.game?.translationLanguage||translationLanguage;
+        if(language==="zh"){
+          const definition=w.definitionCueZh||w.definitionZh||"";
+          return normalize(cue)!==normalize(definition);
+        }
+        return true;
+      }
+      return !Array.isArray(w.availableModes)||w.availableModes.includes(mode);
+    };
     const seenCards=new Set(),available=deck.filter(w=>{
       if(!w.word)return false;
       const key=questionKey(w);if(!key||seenCards.has(key))return false;seenCards.add(key);return true;
     });
     const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
-    const modes=state.mode==="mixed"?["word","definition","sentence"]:[state.mode];
+    const modes=state.mode==="mixed"?(chinese?["word","definition","translation","sentence"]:["word","definition","sentence"]):[state.mode];
     const pools=modes.map(mode=>{
       const optionValue=w=>chinese&&mode==="word"?w.pinyin:mode==="word"&&!chinese?translationFor(w):w.word;
       const viable=targets.filter(target=>{
-        if(!cueFor(target,mode))return false;
+        if(!supportsMode(target,mode)||!cueFor(target,mode))return false;
         const correct=optionValue(target),key=normalize(correct),d=new Set();
         for(const c of available){if(c===target)continue;const v=optionValue(c),k=normalize(v);if(k&&k!==key)d.add(k);}
         return d.size>=3;
@@ -325,7 +339,7 @@
     }else if(chinese&&mode==="definition"){
       memory=target.definitionCueZh||target.definitionZh;prompt=uiText("Which Chinese word matches this description?","哪个中文词语符合这个描述？");correct=target.word;
     }else if(chinese&&mode==="translation"){
-      memory=translationFor(target);prompt=uiText("Choose the Chinese expression with this direct equivalent","请选择与这个表达直接对应的中文词语");correct=target.word;
+      memory=translationFor(target);prompt=uiText("Choose the Chinese expression with this direct English equivalent","请选择与这段中文表达最接近的词语");correct=target.word;
     }else if(chinese&&mode==="sentence"){
       const sentence=(target.examples||[])[0],index=sentence.indexOf(target.word);
       memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence;
