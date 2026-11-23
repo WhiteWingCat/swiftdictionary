@@ -357,3 +357,16 @@ The current Supabase changelog records the CLI v3 local-by-default behaviour and
 - Latest-head CI remains subject to final authenticated Supabase/Auth/RPC and regression results. Keep PR #16 draft pending those results and owner review.
 - Malaysia privacy/legal risk: because the intended minimum age is 16+, the 16–17 age group requires parental/guardian consent for personal data processing under the Malaysian Personal Data Protection Regulations. Cross-border processing, privacy notice, DPO applicability, breach notification and retention/deletion require a documented legal/privacy review before public launch. No legal clearance implied.
 - See the U2.8.0 development-start/repository-audit archive for the detailed follow-up, applied migration list, validation, advisor findings and preview routing.
+
+
+## 19. Staging feedback remediation — 2026-11-23
+
+All four owner-reported staging gaps have been implemented on the U2.8.0 feature branch:
+1. Quiz overview and active test UI redesign, with animated screen entry and directional question transitions.
+2. Dashboard tab visibility/state fix (the `hidden` attribute was being overridden by the tab panel's display rule), plus keyboard support.
+3. Correct four-mode course mapping: English Word / Definition / Mixed / Sentence; Chinese Word / Definition / Translation / Sentence. The third position swaps; the other mode is hidden. This supersedes the earlier Chinese Mixed Recall proposal.
+4. Daily History in-place review for permanent Lessons, Daily Learning activities, Quiz sessions and Flashcard games; Dashboard remains the current page and review is read-only.
+
+Staging's existing Flashcard RPC already enforces the course-specific mode restriction, so no database migration was needed. No Production changes were made.
+
+Browser/static regression coverage was added for the new Quiz UI/transitions, Dashboard tabs, in-place reviews and mode switching. The first verification run exposed and prompted fixes to the mock Flashcard adapter, DOM-independent Daily Learning stylesheet placement and stale asset-version assertions. Fresh CI results must be confirmed before handing the refreshed preview back to the owner. See the linked staging feedback remediation archive for details.
