@@ -1213,8 +1213,8 @@ test("Dashboard shows saved words, course recency, ledger allowances and practic
   await expect(page.locator("#dashboardAvatar")).toHaveText("🦊");
   await expect(page.locator("#activeLanguagesList .active-language-row").first()).toContainText("简体中文");
   await expect(page.locator("#activeLanguagesList .active-language-row").first()).toContainText("Last active");
-  await expect(page.locator("#dashboardAllowanceBars")).toContainText("3 of 5 remaining");
-  await expect(page.locator("#dashboardAllowanceBars")).toContainText("0 of 1 remaining");
+  await expect(page.locator("#dashboardAllowanceBars")).toContainText("3 / 5");
+  await expect(page.locator("#dashboardAllowanceBars")).toContainText("0 / 1");
   await expect(page.locator("#practiceAccuracy")).toHaveText("33%");
   await expect(page.locator("#practiceReviewTopics")).toContainText("Sentence Basics");
   await page.locator("#favoriteEnglishGrid").locator("xpath=..").locator("summary").click();
