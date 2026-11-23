@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "learning_language_code": "zh",
+  "lessons": {
+    "zh-b-pinyin-foundations": {
+      "topic_id": "zh-pinyin-pronunciation",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "pinyin-and-tones",
+          "outcome": "Recognise pinyin syllables, initials, finals and Mandarin tones."
+        }
+      ]
+    },
+    "zh-b-greetings-introductions": {
+      "topic_id": "zh-greetings-introductions",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "greetings-and-introductions",
+          "outcome": "Understand common greetings, thanks and self-introductions."
+        }
+      ]
+    },
+    "zh-b-numbers-dates-time": {
+      "topic_id": "zh-numbers-dates-time",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "numbers-dates-time",
+          "outcome": "Use numbers, dates, weekdays and time expressions."
+        }
+      ]
+    },
+    "zh-b-pronouns-basic-sentences": {
+      "topic_id": "zh-pronouns-basic-sentences",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "pronouns-and-basic-sentences",
+          "outcome": "Use pronouns and basic 是 sentences accurately."
+        }
+      ]
+    },
+    "zh-b-common-actions": {
+      "topic_id": "zh-common-actions",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "common-actions",
+          "outcome": "Recognise and use common verbs and daily actions."
+        }
+      ]
+    },
+    "zh-b-places-getting-around": {
+      "topic_id": "zh-places-getting-around",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "places-and-directions",
+          "outcome": "Understand common places, directions and asking for directions."
+        }
+      ]
+    },
+    "zh-b-questions-negation": {
+      "topic_id": "zh-questions-negation",
+      "difficulty": "beginner",
+      "objectives": [
+        {
+          "id": "questions-and-negation",
+          "outcome": "Form questions and express negation with appropriate particles."
+        }
+      ]
+    },
+    "zh-i-measure-words": {
+      "topic_id": "zh-measure-words",
+      "difficulty": "intermediate",
+      "objectives": [
+        {
+          "id": "measure-words",
+          "outcome": "Select natural measure words for common nouns."
+        }
+      ]
+    },
+    "zh-i-grammar-particles": {
+      "topic_id": "zh-grammar-particles",
+      "difficulty": "intermediate",
+      "objectives": [
+        {
+          "id": "grammar-particles",
+          "outcome": "Understand common aspect and structural particles."
+        }
+      ]
+    },
+    "zh-i-time-expressions": {
+      "topic_id": "zh-time-expressions",
+      "difficulty": "intermediate",
+      "objectives": [
+        {
+          "id": "time-and-frequency",
+          "outcome": "Place time expressions and describe frequency."
+        }
+      ]
+    },
+    "zh-i-comparisons": {
+      "topic_id": "zh-comparisons",
+      "difficulty": "intermediate",
+      "objectives": [
+        {
+          "id": "comparisons",
+          "outcome": "Make comparisons using 比、更、最 and 一样."
+        }
+      ]
+    },
+    "zh-i-sentence-expansion": {
+      "topic_id": "zh-sentence-expansion",
+      "difficulty": "intermediate",
+      "objectives": [
+        {
+          "id": "sentence-expansion",
+          "outcome": "Expand sentences with common linking structures."
+        }
+      ]
+    },
+    "zh-a-complex-sentences": {
+      "topic_id": "zh-complex-sentences",
+      "difficulty": "advanced",
+      "objectives": [
+        {
+          "id": "complex-sentences",
+          "outcome": "Use 把、被 and complex conditional structures."
+        }
+      ]
+    },
+    "zh-a-connectors": {
+      "topic_id": "zh-connectors",
+      "difficulty": "advanced",
+      "objectives": [
+        {
+          "id": "connectors-and-discourse",
+          "outcome": "Understand connectors and relationships between clauses."
+        }
+      ]
+    },
+    "zh-a-idioms-proverbs": {
+      "topic_id": "zh-idioms-proverbs",
+      "difficulty": "advanced",
+      "objectives": [
+        {
+          "id": "idioms-and-proverbs",
+          "outcome": "Interpret idioms, proverbs and traditional expressions."
+        }
+      ]
+    },
+    "zh-a-nuanced-vocabulary": {
+      "topic_id": "zh-nuanced-vocabulary",
+      "difficulty": "advanced",
+      "objectives": [
+        {
+          "id": "nuanced-vocabulary",
+          "outcome": "Distinguish near-synonyms and nuanced word choice."
+        }
+      ]
+    },
+    "zh-a-natural-expression-literature": {
+      "topic_id": "zh-natural-expression-literature",
+      "difficulty": "advanced",
+      "objectives": [
+        {
+          "id": "natural-expression-and-literature",
+          "outcome": "Understand natural expressions, quotations and classical poetry."
+        }
+      ]
+    }
+  }
+}
