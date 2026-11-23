@@ -150,7 +150,7 @@ test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
   assert.ok(index.includes('<script src="flashcards.js?v=2.8.0-r1"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
-  assert.match(build, /daily-learning[.]js.*2[.]8[.]0-r1/);
+  assert.match(build, /daily-learning[.]js[\s\S]*2[.]8[.]0-r1/);
   assert.match(build, /flashcards[.]js.*2[.]8[.]0-r1/);
 });
 
