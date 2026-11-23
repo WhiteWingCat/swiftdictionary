@@ -139,6 +139,10 @@ begin
     if v_mode not in ('word','definition','translation','mixed','sentence') then
       raise exception 'A Flashcard result has an invalid recall mode' using errcode='22023';
     end if;
+    if (v_session.mode='mixed' and v_mode<>'mixed')
+       or (v_session.mode<>'mixed' and v_mode<>v_session.mode) then
+      raise exception 'A Flashcard result mode does not match the game session' using errcode='22023';
+    end if;
     if (v_session.learning_language_code='zh' and v_mode not in ('word','definition','translation','sentence'))
        or (v_session.learning_language_code='en' and v_mode='translation') then
       raise exception 'Recall mode does not match the learning course' using errcode='22023';
@@ -170,7 +174,9 @@ begin
     v_recall_mode:=coalesce(v_snapshot->>'recall_mode',v_mode);
     if v_recall_mode not in ('word','definition','translation','mixed','sentence')
        or (v_session.learning_language_code='zh' and v_recall_mode='mixed')
-       or (v_session.learning_language_code='en' and v_recall_mode='translation') then
+       or (v_session.learning_language_code='en' and v_recall_mode='translation')
+       or (v_session.mode='mixed' and v_recall_mode not in ('word','definition','sentence'))
+       or (v_session.mode<>'mixed' and v_recall_mode<>v_session.mode) then
       raise exception 'A Flashcard review snapshot has an invalid recall mode' using errcode='22023';
     end if;
     begin
@@ -184,6 +190,14 @@ begin
        or (v_unanswered_flag and v_selected_index is not null)
        or (not v_unanswered_flag and v_selected_index is null) then
       raise exception 'Flashcard selected/correct option indexes are inconsistent' using errcode='22023';
+    end if;
+    if exists(select 1 from jsonb_array_elements(v_snapshot->'options') o
+      where nullif(btrim(o->>'text'),'') is null or nullif(btrim(o->>'card_key'),'') is null)
+       or (select count(distinct lower(btrim(o->>'text'))) from jsonb_array_elements(v_snapshot->'options') o)<>4
+       or v_snapshot->'options'->v_correct_index->>'card_key'<>v_key
+       or v_snapshot->'options'->v_correct_index->>'text'<>v_snapshot->>'correct_answer'
+       or (v_selected_index is not null and v_snapshot->'options'->v_selected_index->>'text' is distinct from v_snapshot->>'selected_answer') then
+      raise exception 'Flashcard option snapshots are incomplete or inconsistent' using errcode='22023';
     end if;
     v_ok:=not v_unanswered_flag and v_selected_index=v_correct_index;
     if coalesce((v_item->>'correct')::boolean,false) is distinct from v_ok then
@@ -235,6 +249,32 @@ end;
 $function$;
 revoke all on function private.complete_my_flashcard_game_impl(uuid,jsonb) from public,anon,authenticated;
 grant execute on function private.complete_my_flashcard_game_impl(uuid,jsonb) to authenticated;
+
+
+create or replace function private.guard_flashcard_session_identity_update()
+returns trigger
+language plpgsql
+set search_path = ''
+as $function$
+begin
+  if new.user_id is distinct from old.user_id
+     or new.mode is distinct from old.mode
+     or new.difficulty is distinct from old.difficulty
+     or new.duration_seconds is distinct from old.duration_seconds
+     or new.learning_language_code is distinct from old.learning_language_code
+     or new.translation_language_code is distinct from old.translation_language_code
+     or new.started_at is distinct from old.started_at then
+    raise exception 'Flashcard game identity and language snapshots are immutable'
+      using errcode='42501';
+  end if;
+  return new;
+end;
+$function$;
+revoke all on function private.guard_flashcard_session_identity_update() from public,anon,authenticated,service_role;
+drop trigger if exists guard_flashcard_session_identity_update on private.flashcard_sessions;
+create trigger guard_flashcard_session_identity_update
+before update on private.flashcard_sessions
+for each row execute function private.guard_flashcard_session_identity_update();
 
 -- Preserve language-pair metadata in the account-scoped Flashcard payload.
 create or replace function private.get_my_flashcard_data_impl()
