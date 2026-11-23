@@ -675,7 +675,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   let foundTranslationQuestion=false;
   for(let position=1;position<=10;position++){
     const area=page.locator("#quizQuestionArea");
-    const type=await area.getAttribute("data-question-type");
+    const type=await area.locator(".quiz-question-card").getAttribute("data-question-type");
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
       await expect(area.locator(".quiz-question-pinyin")).toHaveCount(0);
