@@ -115,6 +115,7 @@ test("Daily History lesson and Daily Learning reviews stay inside Dashboard",asy
   await page.locator("#accountButton").click();
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
   await page.evaluate(()=>{
     document.querySelector("#dashboardDailyHistory").innerHTML=
       '<button type="button" data-dashboard-daily-lesson-review="b-sentence" data-difficulty="beginner" data-language-code="en">Review lesson</button>';
