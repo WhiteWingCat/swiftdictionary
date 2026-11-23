@@ -11,7 +11,7 @@ insert into private.flashcard_sessions(
  id,user_id,mode,difficulty,status,words_seen,correct_count,incorrect_count,
  unanswered_count,started_at,completed_at,duration_seconds,learning_language_code,translation_language_code
 ) values
- ('28000000-0000-4000-8000-000000000101','28000000-0000-4000-8000-000000000001','word','beginner','in_progress',1,1,0,0,now()-interval '2 minutes',null,60,'zh','zh'),
+ ('28000000-0000-4000-8000-000000000101','28000000-0000-4000-8000-000000000001','word','beginner','in_progress',0,0,0,0,now()-interval '2 minutes',null,60,'zh','zh'),
  ('28000000-0000-4000-8000-000000000102','28000000-0000-4000-8000-000000000002','word','beginner','completed',1,1,0,0,now()-interval '2 minutes',now(),60,'zh','zh');
 
 select set_config('request.jwt.claims',
@@ -27,7 +27,7 @@ insert into private.flashcard_session_items(
  '[{"text":"hǎo","card_key":"dict:zh:好","word":"好"},{"text":"hào","card_key":"dict:zh:号","word":"号"},{"text":"hāo","card_key":"dict:zh:蒿","word":"蒿"},{"text":"hǎi","card_key":"dict:zh:海","word":"海"}]'::jsonb,
  0,0,'hǎo','hǎo',true,false
 );
-update private.flashcard_sessions set status='completed',completed_at=now()
+update private.flashcard_sessions set status='completed',words_seen=1,correct_count=1,incorrect_count=0,unanswered_count=0,completed_at=now()
 where id='28000000-0000-4000-8000-000000000101';
 
 insert into private.learning_content_catalog(activity_type,content_id,topic_id,difficulty,language_code,is_active)
