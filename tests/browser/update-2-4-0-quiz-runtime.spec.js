@@ -676,6 +676,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     await expect(area.locator(".quiz-question-pinyin")).toBeVisible();
     await expect(area.locator(".quiz-question-translation")).toHaveCount(0);
     await expect(area.locator(".quiz-option-pinyin")).toHaveCount(4);
+    await area.locator(".quiz-option").first().click();
     if(position<10)await page.locator("#quizNext").click();
   }
   page.once("dialog",dialog=>dialog.accept());
