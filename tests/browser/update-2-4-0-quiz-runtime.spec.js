@@ -114,7 +114,7 @@ async function openQuiz(page, session) {
   });
   page.on("pageerror", error => browserDiagnostics.push("pageerror: " + error.message));
   page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
-  page.on("dialog", dialog => dialog.accept());
+  page.on("dialog", async dialog => { const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
   await page.goto("/#quiz");
   const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
     headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
@@ -348,12 +348,11 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#quizQuestionCounter")).toHaveText("Question 10 of 10");
   await expect(page.locator("#quizNext")).toBeHidden();
   await expect(page.locator("#quizSubmit")).toBeEnabled();
-  page.once("dialog", dialog => dialog.accept());
+
   await page.locator("#quizSubmit").click();
   await expect(page.locator("#quizResults")).toBeVisible();
-  await expect(page.locator("#quizResultsContent .quiz-results-score")).toContainText("100%");
-  await expect(page.locator("#quizResultsContent .quiz-results-score")).toContainText("10 correct out of 10");
-  await expect(page.locator("#quizResultsContent")).toContainText("There is no pass or fail result.");
+  await expect(page.locator("#quizResultsContent .quiz-review-summary")).toContainText("100%");
+  await expect(page.locator("#quizResultsContent .quiz-review-score")).toContainText("10 / 10 correct");
   await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
   await expect(page.locator("#quizResultsContent .quiz-review-explanation")).toHaveCount(10);
 
@@ -368,22 +367,22 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator("#quizResultsHome").click();
   await expect(page.locator("#quizHome")).toBeVisible();
 
-  // The Dashboard must surface the same completed Quiz history and allow review.
+  // Quiz history is grouped in Daily History, not Analytics.
   await page.goto("/#profile");
   await expect(page.locator("#profileContent")).toBeVisible();
-  const dashboardHistoryDiagnostics = await page.locator("#dashboardQuizHistory").innerText();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  const dashboardHistoryDiagnostics = await page.locator("#dashboardDailyHistory").innerText();
   const dashboardProfileStatus = await page.locator("#preferenceStatus").innerText();
-  await expect(page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]"), "Dashboard history: "+dashboardHistoryDiagnostics+"; profile status: "+dashboardProfileStatus).toHaveCount(1);
-  await expect(page.locator("#dashboardQuizHistory")).toContainText("100%");
-  await expect(page.locator("#dashboardQuizHistory")).toContainText("10/10 correct");
-  await page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]").click();
-  await expect(page.locator("#quizResults")).toBeVisible();
-  await expect(page.locator("#quizHome")).toBeHidden();
-  await expect(page.locator("#quizResultsContent .quiz-review-question")).toHaveCount(10);
-  await expect(page.locator("#quizResultsHome")).toHaveText("← Back to Dashboard");
-  await page.locator("#quizResultsHome").click();
-  await expect(page.locator("#profileContent")).toBeVisible();
+  await expect(page.locator("#dashboardDailyHistory [data-dashboard-daily-quiz-review]"), "Dashboard history: "+dashboardHistoryDiagnostics+"; profile status: "+dashboardProfileStatus).toHaveCount(1);
+  await expect(page.locator("#dashboardDailyHistory")).toContainText("100%");
+  await expect(page.locator("#dashboardDailyHistory")).toContainText("10/10 correct");
+  await page.locator("#dashboardDailyHistory [data-dashboard-daily-quiz-review]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
+  await expect(page.locator("#dashboardReviewContent .quiz-review-question")).toHaveCount(10);
+  await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page).toHaveURL(/#profile$/);
+  await page.locator("[data-dashboard-review-close]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeHidden();
 });
 
 
@@ -409,7 +408,6 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
   await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
 
-  page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
   await page.locator('[data-quiz-start="beginner"]').click();
@@ -530,7 +528,6 @@ test("Premium user sees three daily completions; abandonment does not consume al
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizSessionDifficulty")).toHaveText("高级");
 
-  page.once("dialog", dialog => dialog.accept());
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("2 / 3 今日剩余");
@@ -539,11 +536,11 @@ test("Premium user sees three daily completions; abandonment does not consume al
 
 test("Quiz start confirmation warns about allowance and cancellation does not consume it", async ({ page }) => {
   await openQuiz(page,freeSession);
-  await page.once("dialog",async dialog=>{
+  page.__quizDialogHandler=async dialog=>{
     expect(dialog.message()).toMatch(/daily Quiz allowance|每日测验额度/);
     expect(dialog.message()).toMatch(/abandon|放弃测验/);
     await dialog.dismiss();
-  });
+  };
   await page.locator('[data-quiz-start="beginner"]').click();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
@@ -668,7 +665,7 @@ test("Daily History reviews a completed Quiz without leaving Dashboard",async({p
     }
   }
   await expect(page.locator("#quizSubmit")).toBeEnabled();
-  page.once("dialog",dialog=>dialog.accept());
+
   await page.locator("#quizSubmit").click();
   await expect(page.locator("#quizResults")).toBeVisible({timeout:15000});
   await page.locator("#accountButton").click();
@@ -687,22 +684,22 @@ test("Daily History reviews a completed Quiz without leaving Dashboard",async({p
   await expect(page.locator("#dashboardReviewOverlay")).toBeHidden();
 });
 
-test("Dashboard Quiz History renders a clean Review button", async ({ page }) => {
+test("Dashboard Daily History segments Quiz records and keeps Quiz review in History", async ({ page }) => {
   await openQuiz(page, freeSession);
   await page.evaluate(() => {
     showPage("profile", false);
     document.querySelector("#profileContent").hidden = false;
+    const now=new Date().toISOString();
+    renderDashboardDailyHistory({today:new Intl.DateTimeFormat("en-CA",{timeZone:"UTC",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),timezone:"UTC",lessonRows:[],dailyRows:[],quizRows:[{completed_at:now,difficulty:"beginner",correct_count:10,question_count:10,percentage:100,session_id:"completed-session-id"}],flashcardRows:[]});
   });
-  await page.evaluate(() => {
-    const host = document.querySelector("#dashboardQuizHistory");
-    host.innerHTML = '<div class="quiz-history-row"><button type="button" class="secondary-button" data-dashboard-quiz-review="completed-session-id">Review</button></div>';
-  });
-  // Quiz History belongs to Analytics; hidden panels must stay hidden until selected.
-  await page.locator('[data-dashboard-tab="analytics"]').click();
-  const reviewButton = page.locator("#dashboardQuizHistory [data-dashboard-quiz-review]");
+  await page.locator('[data-dashboard-tab="history"]').click();
+  await expect(page.locator("#dashboardDailyHistory .dashboard-history-lessons")).toBeVisible();
+  await expect(page.locator("#dashboardDailyHistory .dashboard-history-quiz")).toContainText("10/10 correct");
+  await expect(page.locator("#dashboardDailyHistory .dashboard-history-flashcards")).toBeVisible();
+  const reviewButton=page.locator("#dashboardDailyHistory .dashboard-history-quiz [data-dashboard-daily-quiz-review]");
   await expect(reviewButton).toBeVisible();
-  await expect(reviewButton).toHaveText("Review");
-  await expect(reviewButton).not.toContainText("quizEscape");
+  await expect(reviewButton).toHaveText("Review answers");
+  await expect(page.locator("#dashboardTabAnalytics #dashboardQuizHistory")).toHaveCount(0);
 });
 
 test("ordinary Dashboard navigation to Quiz opens the overview, not completed review", async ({ page }) => {
@@ -794,7 +791,6 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   }
   expect(foundTranslationQuestion).toBe(true);
 
-  page.once("dialog",dialog=>dialog.accept());
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
 
@@ -815,7 +811,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     await area.locator(".quiz-option").first().click();
     if(position<10)await page.locator("#quizNext").click();
   }
-  page.once("dialog",dialog=>dialog.accept());
+
   await page.locator("#quizAbandon").click();
   await expect(page.locator("#quizHome")).toBeVisible();
 });
