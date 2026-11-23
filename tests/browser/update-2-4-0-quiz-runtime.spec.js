@@ -770,13 +770,6 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await selectCourse(page,"zh");
   await selectTranslation(page,"zh");
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
-  const flashRpcDiagnostics=[];
-  page.on("response",async response=>{
-    if(response.url().includes("/rpc/complete_my_flashcard_game")){
-      let body="";try{body=await response.text();}catch{}
-      flashRpcDiagnostics.push({status:response.status(),body});
-    }
-  });
   await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
   await expect(page.locator("#flashGameCollection")).toHaveValue("all");
   await page.clock.install();
