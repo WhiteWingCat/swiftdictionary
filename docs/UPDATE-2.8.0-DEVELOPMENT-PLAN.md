@@ -1,12 +1,12 @@
 # SwiftDictionary Update 2.8.0 — Final Development Plan
 
-**Status:** Owner-authorised development; initial technical audit underway; implementation starting  
+**Status:** Owner-authorised development; initial implementation exists on the feature branch; CI and integration remediation underway  
 **Planning date:** 2026-11-23  
 **Update title:** Chinese Quiz & Flashcards Expansion  
-**Application branch reserved:** `feature/update-2-8-0-chinese-quiz-flashcards` (created from current `main`; verified to exist; untouched)  
+**Application branch:** `feature/update-2-8-0-chinese-quiz-flashcards` (PR #16 open as draft; head `888d7c4e6bada45b2e09e23b449d49d1c71843a9`; 94 commits ahead of `main` at audit time)  
 **Production/main:** No changes for U2.8.0  
-**Database:** No U2.8.0 schema changes or migrations  
-**Staging:** No U2.8.0 deployment or data changes
+**Database:** Four U2.8.0 migrations exist on the feature branch; none applied to staging or production  
+**Staging:** Cloudflare Pages preview check succeeded; no U2.8.0 staging database migration/data changes
 
 This document is the authoritative scope and acceptance baseline for U2.8.0. On 2026-11-23, the owner explicitly authorised development after the latest Master Development Record and relevant conversation archives were reviewed. The technical audit and implementation may proceed on the reserved application branch. Scope changes, merge, production migrations and production deployment remain subject to their separate approval gates.
 
@@ -20,7 +20,6 @@ Out of scope unless separately approved:
 - Replacing or removing existing Quiz/Flashcard modes or challenge mechanics.
 - Destructive deletion of learning history at midnight.
 - Production deployment, production migration, merge or release without separate explicit approval.
-- Treating plan approval as permission to start work immediately.
 
 ## 2. Chinese Quiz content and bank capacity
 
@@ -219,15 +218,18 @@ U2.8.0 is not complete until:
 - Legal/privacy/content review is documented and unresolved risks are disclosed.
 - Owner tests the staging preview and explicitly approves release; merge, migrations and production deployment receive separate approval.
 
-## 15. Current status and recovery point (2026-11-23)
+## 15. Owner authorisation and recovery point (2026-11-23)
 
-- Owner approved this final plan.
-- Owner explicitly instructed: **do not start development yet**.
-- Reserved application branch `feature/update-2-8-0-chinese-quiz-flashcards` exists from current `main`; branch existence was checked on 2026-11-23. It remains untouched.
-- No U2.8.0 application files, content, SQL, migrations, schema, RPCs, staging data, production data or deployments have been changed.
-- Documentation updates are confined to `docs/master-development-record`.
-- Next permitted step: wait for the owner's separate instruction to begin the technical audit/development. Do not interpret approval of this plan as start approval.
+The original planning approval archive recorded a hold on development. The owner subsequently supplied the separate explicit instruction to read the latest Master Development Record and relevant archive, update the plan, and begin development. That later instruction supersedes the earlier hold. Application work is authorised on the existing feature branch. Merge, production database migration and production deployment remain separately gated.
 
+- Production `main`: `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`.
+- U2.8.0 feature branch: `888d7c4e6bada45b2e09e23b449d49d1c71843a9`.
+- PR #16 is open as a draft, targeting `main`.
+- The branch contains substantial U2.8.0 implementation; do not reset, overwrite or discard it.
+- Four U2.8.0 migrations are present in source control. They have not been applied to staging or production.
+- Cloudflare Pages preview check succeeded for the latest branch head. This is not production deployment.
+- Latest CI is not green; failures and remediation are recorded in the audit update below.
+- No merge, production migration or production deployment is authorised by the development-start instruction.
 
 ## 14. Initial technical audit baseline — 2026-11-23
 
@@ -277,3 +279,35 @@ The owner authorised development after the latest Master Development Record and 
 ### 14.6 Supabase operational note
 
 The current Supabase changelog records the CLI v3 local-by-default behaviour and a Production Branches read-write permission requirement for branch merges (November 2026). U2.8.0 will continue using the connected project tools and the repository's guarded Cloudflare build routing; do not use an ambiguous CLI default or merge/deploy a hosted database branch as part of this development phase. No production schema or deployment change is authorised by the start instruction.
+
+
+## 16. Repository and CI audit update (2026-11-23)
+
+### Repository state
+- Verified `main` at `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`.
+- Verified U2.8.0 branch head `888d7c4e6bada45b2e09e23b449d49d1c71843a9`; GitHub compare reports 94 commits ahead and zero behind.
+- PR #16, “WIP: SwiftDictionary Update 2.8.0 — Chinese Quiz and Flashcards”, remains open/draft. Its current description is stale and understates the implementation now present; update it after the implementation and test inventory is reconciled.
+- Current branch changes cover Chinese Quiz and Flashcard draft content, recall-mode logic, language-aware runtime, Flashcard review snapshots, Dashboard tabs/allowance cards/Daily History, Practice Insights attempt metrics, Daily Learning current-day filtering, and four SQL migrations.
+- The feature branch's existing work predates the latest owner instruction in the current conversation. Preserve it and establish an accurate baseline rather than treating the branch as empty.
+
+### Latest CI evidence at head 888d7c4
+- Cloudflare Pages preview check: passed.
+- U2.8.0 Quiz database foundation check: passed.
+- Supabase CLI local Auth compatibility: passed.
+- Local Supabase Auth/RPC integration: failed. The SQL regression fixture inserts a Flashcard session whose count values violate the existing `flashcard_sessions_counts_check` constraint. Correct the fixture or implementation only after verifying the intended invariant; do not weaken the production constraint to make the test pass.
+- PostgreSQL 17 migration/allowance tests: failed; inspect the job log and resolve the specific U2.8.0/legacy regression failures.
+- Chromium browser regression smoke tests: 49 passed, 3 failed, 13 skipped. Failures include Dashboard/Practice Insights and historical Daily Learning review expectations, plus signed-out Flashcards auth-card visibility. Determine whether each is a genuine regression or a stale test assertion, then fix code/tests accordingly.
+- U2.7.0 Chinese dictionary static/Chromium checks: failed on a source-string assertion expecting an older Daily Learning filtering expression; verify actual semantics and update the test only if equivalent behaviour is proven.
+- Cloudflare build-routing check: failed because its static test expects a different cache-version placement/pattern than the current build script. Preserve environment routing and verify actual asset cache busting before correcting the assertion.
+- U2.6.0 ACL migration regression: failed; inspect exact output and distinguish migration/security regression from workflow fixture drift.
+- Workers Builds: `swiftdictionary-testing` failed. This is the retired testing Worker and must not be treated as the Cloudflare Pages preview result or as a reason to re-enable that Worker.
+- Several older cross-version tests fail because they assert pre-U2.8.0 implementation details; do not dismiss them without proving the new behaviour preserves the prior contract.
+
+### Immediate development priorities
+1. Reconcile the failing SQL fixture and inspect all PostgreSQL/ACL regression outputs.
+2. Fix the browser failures, retaining U2.7.0 Daily Learning and U2.5.0 signed-out Flashcards behaviour.
+3. Reconcile stale static/cache assertions without weakening build routing.
+4. Re-run all CI workflows to green; document any intentional skips and unrelated retired-Worker failure separately.
+5. Continue the independent linguistic review of Chinese Quiz and Flashcard draft banks. Structural validators do not establish linguistic accuracy or release approval.
+6. Review the migrations/RLS/RPCs and deletion paths in disposable local Supabase. No staging or production migration until separate approval.
+7. Complete Malaysia/international privacy, retention, cross-border and content-licensing review before release; no legal clearance is implied.
