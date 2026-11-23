@@ -413,7 +413,9 @@
   async function mockRpc(name,args) {
     const db=state(), tables=db.tables, user=activeUser;
     if (name==="get_my_quiz_availability") {
-      const bank=await loadQuizDraftBank();
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const learningLanguageCode=preference.learning_language==="zh"?"zh":"en";
+      const bank=await loadQuizDraftBank(learningLanguageCode);
       return {data:quizMockAvailability(db,user,bank.counts),error:null};
     }
     if (name==="get_my_active_quiz") {
@@ -423,21 +425,25 @@
     if (name==="start_my_quiz") {
       const active=(tables.quiz_sessions||[]).find(row=>row.status==="in_progress");
       if(active)return {data:{status:"active_session_exists",session:quizMockPayload(active)},error:null};
-      const availability=quizMockAvailability(db,user);
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const learningLanguageCode=args.p_learning_language==="zh"?"zh":args.p_learning_language==="en"?"en":preference.learning_language==="zh"?"zh":"en";
+      const translationLanguageCode=args.p_translation_language==="zh"?"zh":args.p_translation_language==="en"?"en":preference.translation_language==="en"?"en":learningLanguageCode==="zh"?"en":"zh";
+      const bank=await loadQuizDraftBank(learningLanguageCode);
+      const availability=quizMockAvailability(db,user,bank.counts);
       if(availability.allowance.remaining_count<1)return {data:null,error:error("Daily Quiz completion allowance exhausted.","P0001")};
       const difficulty=args.p_difficulty;
       if(!["beginner","intermediate","advanced"].includes(difficulty))return {data:null,error:error("Invalid Quiz difficulty.","22023")};
       const count=difficulty==="beginner"?10:difficulty==="intermediate"?15:20;
       const sessionId="mock-quiz-session-"+(++sequence);
-      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
       const timezone=preference.allowance_timezone||preference.timezone||"UTC";
       const localDate=today(timezone);
-      const translationLanguageCode=preference.translation_language==="en"?"en":"zh";
       const reservedIds=(tables.quiz_sessions||[]).filter(row=>row.local_date===localDate).flatMap(row=>(row.questions||[]).map(question=>question.question_id));
-      const questions=await quizMockQuestions(sessionId,difficulty,translationLanguageCode,user.id,localDate,reservedIds);
+      const questions=await quizMockQuestions(sessionId,difficulty,translationLanguageCode,user.id,localDate,reservedIds,learningLanguageCode);
       const chineseCount=questions.filter(question=>question.question_type==="chinese_translation").length;
-      const sourceComposition=difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10";
-      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,learning_language_code:"en",translation_language_code:translationLanguageCode,source_composition:sourceComposition+"; chinese_translation:"+chineseCount,local_date:localDate,started_at:now(),completed_at:null,questions};
+      const sourceComposition=learningLanguageCode==="zh"
+        ? difficulty==="advanced"?"advanced:16, intermediate:2, beginner:2":difficulty==="intermediate"?"intermediate:9, beginner:6":"beginner:10"
+        : difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10";
+      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,learning_language_code:learningLanguageCode,translation_language_code:translationLanguageCode,source_composition:sourceComposition+"; chinese_translation:"+chineseCount,local_date:localDate,started_at:now(),completed_at:null,questions};
       (tables.quiz_sessions||=[]).push(session);persist(db);
       return {data:quizMockPayload(session),error:null};
     }
