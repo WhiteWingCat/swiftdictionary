@@ -71,3 +71,84 @@ The SQL fixture was corrected on the feature branch in commit `81d379a4b3f74c99e
 - Added this archive and indexed it in `docs/conversation-archive/README.md`.
 - Documentation changes are on `docs/master-development-record`; no documentation has been placed on production `main`.
 - Recovery point: feature branch head `888d7c4e6bada45b2e09e23b449d49d1c71843a9`, followed by fixture correction commit `81d379a4b3f74c99e23c33aa3f5b76737fd54643`.
+
+
+## Owner follow-up — staging authorization, database activation and preview handover
+
+The owner explicitly approved changes to the isolated Supabase staging database.
+
+### Supabase staging target
+
+- Project: SwiftDictionary Indie Staging
+- Ref: `ivatvkfrtifgfheeaelj`
+- Region: `ap-southeast-1`
+- PostgreSQL 17.12
+- Status: active and healthy
+
+### Migrations applied
+
+The six core U2.8.0 migrations were applied successfully: Chinese review foundation; Flashcard language and snapshots; Chinese Quiz runtime; Daily practice attempt metrics; Quiz source composition guard; and security-invoker wrappers.
+
+Three supplemental migration files were added and applied:
+- Flashcard review response compatibility: include both `mode` and `recall_mode`.
+- Chinese Quiz question bank seed: 145 Chinese-course questions mapped to 17 Chinese permanent lessons.
+- Foreign-key supporting indexes: 11 indexes for newly relevant relationship paths.
+
+A one-off Flashcard review hotfix was also applied immediately before the canonical migration file was committed. The canonical migration reapplies the same function definition; staging migration history records both operations. No production migration or content change was performed.
+
+### Chinese Quiz content activation
+
+The committed question-bank migration inserts all 145 questions as `draft` by default. Staging-only promotion changed those 145 rows to `approved` to make the preview Quiz runtime usable; this did not approve production content.
+
+Validation on staging:
+- 145 Chinese Quiz questions present.
+- Zero invalid correct-answer references.
+- Zero missing lesson mappings.
+- 17 translation questions intentionally have no prompt Pinyin because their prompt text is English; Chinese-language prompts include Pinyin.
+
+### Authenticated RPC smoke checks
+
+Rollback-only transactions using an existing staging test profile verified:
+- Chinese Quiz availability: Beginner, Intermediate and Advanced are available.
+- Beginner Quiz start returned 10 Chinese questions with Pinyin and four answer options.
+- 60-second Chinese Word Recall Flashcard session creation returned a valid session and language snapshot.
+- The test transactions were rolled back, so no usage or sessions were retained.
+
+### Preview environment routing
+
+Feature-branch `supabase-config.js` routes Cloudflare Pages preview hosts (`*.pages.dev`, excluding the production `swiftdictionary.pages.dev` host) to the staging project URL and publishable key. Non-preview and production hosts retain the Production Supabase configuration.
+
+Latest Pages deployment at feature head `79ae67d7aef0bc6cca97a2a1024a3e18b51f5532` succeeded:
+- Preview: https://fce59d48.swiftdictionary.pages.dev
+- Stable branch preview: https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev
+
+### Validation state
+
+Passed on recent feature heads: Cloudflare Pages deployment; Cloudflare build routing; Flashcards structural checks; PostgreSQL 17 migration/allowance tests; ACL regression; U2.7 lesson-start regression; Chromium smoke tests; Chinese dictionary checks; and signed-out Flashcards browser checks.
+
+The earlier authenticated browser workflow exposed a mismatch between review payload field `recall_mode` and the test contract's `mode`. The function now returns both fields. Latest-head authenticated Supabase/Auth/RPC and remaining regression workflows were still running at the last inspection; final conclusions must be checked before claiming all CI green.
+
+The separate retired Workers Builds service `swiftdictionary-testing` remains unrelated to the successful Pages deployment.
+
+### Supabase advisor results
+
+- No health advisor findings.
+- Private-schema tables with RLS enabled and no policies are intentionally deny-by-default; access is via authenticated RPC wrappers rather than direct Data API table access.
+- The leaked-password-protection warning remains; assess if password authentication is enabled (the app's current sign-in flow is Google OAuth).
+- Added supporting indexes for the foreign-key paths flagged by the advisor. Remaining performance warnings are pre-existing RLS init-plan warnings on `learning_page_introduction_preferences` and unused-index notices for indexes not yet exercised by preview traffic.
+- No critical/high-severity advisor finding was returned.
+
+### Malaysia and international legal/privacy planning
+
+Malaysia's Personal Data Protection Regulations require parental/guardian consent for data subjects under 18. The intended 16+ audience therefore requires a specific approach for 16–17-year-old users before public launch. Cross-border processing (Supabase staging in Singapore and globally distributed hosting/auth providers), privacy notice, DPO applicability, breach notification and retention/deletion procedures need a documented legal/privacy review. This is a risk-planning note, not legal advice or legal clearance.
+
+Official references:
+- Malaysian PDP Department, [Personal Data Protection (Amendment) Act 2024](https://www.pdp.gov.my/en/akta/personal-data-protection-amendment-act-2024/)
+- [Personal Data Protection Regulations 2013](https://www.pdp.gov.my/ppdpv1/wp-content/uploads/2024/07/Peraturan-peraturan-Perlindungan-Data-Peribadi.pdf)
+- [Data Protection by Design Guideline](https://www.pdp.gov.my/wp-content/uploads/2026/04/Data-Protection-By-Design-Guideline-DPbD.pdf)
+
+### Production boundary
+
+A documentation-only archive file was briefly created on the default branch by the GitHub file-creation action. It was immediately deleted. The resulting Production `main` tree hash was verified identical to the pre-action baseline tree (`c9d2d763a992ca121455565d9da5a93884ef9fbc`). No application code, database or production deployment was changed. The archive and Master Development Record remain on the documentation branch.
+
+PR #16 remains draft/open. No merge, production migration or production deployment is authorized.
