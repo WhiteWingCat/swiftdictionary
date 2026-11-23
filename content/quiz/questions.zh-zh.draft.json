@@ -642,7 +642,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“今天”指说话当天，也就是 today。",
-      "explanation_pinyin": "“jīn tiān” zhǐ shuō huà dāng tiān, yě jiù shì today.",
+      "explanation_pinyin": "“jīn tiān” zhǐ shuō huà dāng tiān.",
       "explanation_translation": "今天 refers to the current day, meaning “today.”"
     },
     {
@@ -682,7 +682,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“星期一”表示一周中的星期一，对应英语 Monday。",
-      "explanation_pinyin": "“xīng qī yī” biǎo shì yì zhōu zhōng de xīng qī yī, duì yìng yīng yǔ Monday.",
+      "explanation_pinyin": "“xīng qī yī” biǎo shì yì zhōu zhōng de xīng qī yī.",
       "explanation_translation": "星期一 is the first weekday in the standard Monday-to-Sunday naming sequence and means Monday."
     },
     {
@@ -802,7 +802,7 @@
       ],
       "correct_option_id": "o1",
       "explanation_learning": "“明天”指今天之后的一天，也就是 tomorrow。",
-      "explanation_pinyin": "“míng tiān” zhǐ jīn tiān zhī hòu de yì tiān, yě jiù shì tomorrow.",
+      "explanation_pinyin": "“míng tiān” zhǐ jīn tiān zhī hòu de yì tiān.",
       "explanation_translation": "明天 refers to the day after today, meaning “tomorrow.”"
     },
     {
@@ -841,9 +841,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "中文代词通常不因性别改变发音。",
-      "explanation_pinyin": "zhōng wén dài cí tōng cháng bù yīn xìng bié gǎi biàn fā yīn.",
-      "explanation_translation": "Chinese pronouns generally do not change pronunciation by gender."
+      "explanation_learning": "“我”是第一人称单数代词，指说话的人自己。",
+      "explanation_pinyin": "“wǒ” shì dì yī rén chēng dān shù dài cí, zhǐ shuō huà de rén zì jǐ.",
+      "explanation_translation": "我 is the first-person singular pronoun and refers to the speaker."
     },
     {
       "question_id": "zh-zh-b-pronouns-basic-sentences-02",
@@ -881,9 +881,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "中文代词通常不因性别改变发音。",
-      "explanation_pinyin": "zhōng wén dài cí tōng cháng bù yīn xìng bié gǎi biàn fā yīn.",
-      "explanation_translation": "Chinese pronouns generally do not change pronunciation by gender."
+      "explanation_learning": "“她”是书写中表示女性第三人称的汉字；它与“他”读音相同，都是 tā。",
+      "explanation_pinyin": "“tā” shì shū xiě zhōng biǎo shì nǚ xìng dì sān rén chēng de hàn zì; tā hé “他” dú yīn xiāng tóng.",
+      "explanation_translation": "她 is the written third-person pronoun for a female. It is pronounced tā, the same as 他."
     },
     {
       "question_id": "zh-zh-b-pronouns-basic-sentences-03",
@@ -921,9 +921,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "中文代词通常不因性别改变发音。",
-      "explanation_pinyin": "zhōng wén dài cí tōng cháng bù yīn xìng bié gǎi biàn fā yīn.",
-      "explanation_translation": "Chinese pronouns generally do not change pronunciation by gender."
+      "explanation_learning": "“我们”是第一人称复数，表示说话者和至少一位其他人。",
+      "explanation_pinyin": "“wǒ men” shì dì yī rén chēng fù shù, biǎo shì shuō huà zhě hé zhì shǎo yí wèi qí tā rén.",
+      "explanation_translation": "我们 is the first-person plural pronoun, referring to the speaker and at least one other person."
     },
     {
       "question_id": "zh-zh-b-pronouns-basic-sentences-04",
@@ -961,9 +961,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "中文代词通常不因性别改变发音。",
-      "explanation_pinyin": "zhōng wén dài cí tōng cháng bù yīn xìng bié gǎi biàn fā yīn.",
-      "explanation_translation": "Chinese pronouns generally do not change pronunciation by gender."
+      "explanation_learning": "“我是学生”由“我 + 是 + 学生”组成，意思是“I am a student”。",
+      "explanation_pinyin": "“wǒ shì xué shēng” yóu “wǒ + shì + xué shēng” zǔ chéng, yì si shì “wǒ shì yí míng xué shēng”.",
+      "explanation_translation": "我是学生 follows the pattern 我 + 是 + 学生 and means “I am a student.”"
     },
     {
       "question_id": "zh-zh-b-pronouns-basic-sentences-05",
@@ -1001,9 +1001,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "中文代词通常不因性别改变发音。",
-      "explanation_pinyin": "zhōng wén dài cí tōng cháng bù yīn xìng bié gǎi biàn fā yīn.",
-      "explanation_translation": "Chinese pronouns generally do not change pronunciation by gender."
+      "explanation_learning": "在这个句型中，“是”连接主语和身份或名词性说明，相当于英语中的 be。",
+      "explanation_pinyin": "zài zhè ge jù xíng zhōng, “shì” lián jiē zhǔ yǔ hé shēn fèn huò míng cí xìng shuō míng.",
+      "explanation_translation": "In this sentence pattern, 是 links the subject to an identity or noun phrase, similar to “be” in English."
     },
     {
       "question_id": "zh-zh-b-pronouns-basic-sentences-06",
@@ -1041,9 +1041,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "中文代词通常不因性别改变发音。",
-      "explanation_pinyin": "zhōng wén dài cí tōng cháng bù yīn xìng bié gǎi biàn fā yīn.",
-      "explanation_translation": "Chinese pronouns generally do not change pronunciation by gender."
+      "explanation_learning": "“这是我的书”中，“这”指 this，“是”连接说明，“我的”表示所属，“书”是物品。",
+      "explanation_pinyin": "“zhè shì wǒ de shū” zhōng, “zhè” zhǐ this, “shì” lián jiē shuō míng, “wǒ de” biǎo shì suǒ shǔ, “shū” shì wù pǐn.",
+      "explanation_translation": "In 这是我的书, 这 means “this,” 是 links the description, 我的 marks possession, and 书 means “book.”"
     },
     {
       "question_id": "zh-zh-b-common-actions-01",
@@ -1081,9 +1081,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吃饭表示 eat a meal；喝水表示 drink water。",
-      "explanation_pinyin": "chī fàn biǎo shì eat a meal; hē shuǐ biǎo shì drink water.",
-      "explanation_translation": "吃饭 means eat a meal; 喝水 means drink water."
+      "explanation_learning": "“吃”表示进食，是常见的动作动词，例如“吃饭”和“吃水果”。",
+      "explanation_pinyin": "“chī” biǎo shì jìn shí, shì cháng jiàn de dòng zuò dòng cí, lì rú “chī fàn” hé “chī shuǐ guǒ”.",
+      "explanation_translation": "吃 means “to eat” and is a common action verb, as in 吃饭 and 吃水果."
     },
     {
       "question_id": "zh-zh-b-common-actions-02",
@@ -1121,9 +1121,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吃饭表示 eat a meal；喝水表示 drink water。",
-      "explanation_pinyin": "chī fàn biǎo shì eat a meal; hē shuǐ biǎo shì drink water.",
-      "explanation_translation": "吃饭 means eat a meal; 喝水 means drink water."
+      "explanation_learning": "“喝”表示饮用，后面通常接水、茶、咖啡等饮料。",
+      "explanation_pinyin": "“hē” biǎo shì yǐn yòng, hòu miàn tōng cháng jiē shuǐ, chá, kā fēi děng yǐn liào.",
+      "explanation_translation": "喝 means “to drink” and is usually followed by a beverage such as water, tea or coffee."
     },
     {
       "question_id": "zh-zh-b-common-actions-03",
@@ -1161,9 +1161,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吃饭表示 eat a meal；喝水表示 drink water。",
-      "explanation_pinyin": "chī fàn biǎo shì eat a meal; hē shuǐ biǎo shì drink water.",
-      "explanation_translation": "吃饭 means eat a meal; 喝水 means drink water."
+      "explanation_learning": "“去”表示从当前位置前往某处，后面常接地点，例如“去学校”。",
+      "explanation_pinyin": "“qù” biǎo shì cóng dāng qián wèi zhì qián wǎng mǒu chù, hòu miàn cháng jiē dì diǎn, lì rú “qù xué xiào”.",
+      "explanation_translation": "去 means “to go” and is commonly followed by a destination, as in 去学校."
     },
     {
       "question_id": "zh-zh-b-common-actions-04",
@@ -1201,9 +1201,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吃饭表示 eat a meal；喝水表示 drink water。",
-      "explanation_pinyin": "chī fàn biǎo shì eat a meal; hē shuǐ biǎo shì drink water.",
-      "explanation_translation": "吃饭 means eat a meal; 喝水 means drink water."
+      "explanation_learning": "“我喝水”按“主语 + 动词 + 宾语”排列：我是主语，喝是动词，水是宾语。",
+      "explanation_pinyin": "“wǒ hē shuǐ” àn “zhǔ yǔ + dòng cí + bīn yǔ” pái liè: “wǒ” shì zhǔ yǔ, “hē” shì dòng cí, “shuǐ” shì bīn yǔ.",
+      "explanation_translation": "我喝水 follows subject–verb–object order: 我 is the subject, 喝 the verb, and 水 the object."
     },
     {
       "question_id": "zh-zh-b-common-actions-05",
@@ -1241,9 +1241,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吃饭表示 eat a meal；喝水表示 drink water。",
-      "explanation_pinyin": "chī fàn biǎo shì eat a meal; hē shuǐ biǎo shì drink water.",
-      "explanation_translation": "吃饭 means eat a meal; 喝水 means drink water."
+      "explanation_learning": "“看书”是常见搭配，表示阅读；“看”单独使用时也可以表示看见或观看。",
+      "explanation_pinyin": "“kàn shū” shì cháng jiàn dā pèi, biǎo shì yuè dú; “kàn” dān dú shǐ yòng shí yě kě yǐ biǎo shì kàn jiàn huò guān kàn.",
+      "explanation_translation": "看书 is a common collocation meaning “to read.” 看 can also mean “to look at” or “to watch” in other contexts."
     },
     {
       "question_id": "zh-zh-b-common-actions-06",
@@ -1281,9 +1281,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吃饭表示 eat a meal；喝水表示 drink water。",
-      "explanation_pinyin": "chī fàn biǎo shì eat a meal; hē shuǐ biǎo shì drink water.",
-      "explanation_translation": "吃饭 means eat a meal; 喝水 means drink water."
+      "explanation_learning": "“学习”表示获取知识或练习技能，可以作动词使用，例如“学习中文”。",
+      "explanation_pinyin": "“xué xí” biǎo shì huò qǔ zhī shi huò liàn xí jì néng, kě yǐ zuò dòng cí shǐ yòng, lì rú “xué xí zhōng wén”.",
+      "explanation_translation": "学习 means “to study” or “to learn” and can be used as a verb, as in 学习中文."
     },
     {
       "question_id": "zh-zh-b-places-getting-around-01",
@@ -1321,9 +1321,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "学校是 school，医院是 hospital。",
-      "explanation_pinyin": "xué xiào shì school, yī yuàn shì hospital.",
-      "explanation_translation": "学校 means school; 医院 means hospital."
+      "explanation_learning": "“学校”是学习和上课的地方，对应英语 school。",
+      "explanation_pinyin": "“xué xiào” shì xué xí hé shàng kè de dì fāng, duì yìng yīng yǔ school.",
+      "explanation_translation": "学校 is a place for studying and attending classes; it means “school.”"
     },
     {
       "question_id": "zh-zh-b-places-getting-around-02",
@@ -1361,9 +1361,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "学校是 school，医院是 hospital。",
-      "explanation_pinyin": "xué xiào shì school, yī yuàn shì hospital.",
-      "explanation_translation": "学校 means school; 医院 means hospital."
+      "explanation_learning": "“医院”是提供诊断和医疗服务的地方，对应英语 hospital。",
+      "explanation_pinyin": "“yī yuàn” shì tí gōng zhěn duàn hé yī liáo fú wù de dì fāng, duì yìng yīng yǔ hospital.",
+      "explanation_translation": "医院 is a place that provides diagnosis and medical care; it means “hospital.”"
     },
     {
       "question_id": "zh-zh-b-places-getting-around-03",
@@ -1401,9 +1401,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "学校是 school，医院是 hospital。",
-      "explanation_pinyin": "xué xiào shì school, yī yuàn shì hospital.",
-      "explanation_translation": "学校 means school; 医院 means hospital."
+      "explanation_learning": "“车站”泛指车辆停靠和乘客上下车的站点；具体可用“火车站”或“汽车站”。",
+      "explanation_pinyin": "“chē zhàn” fàn zhǐ chē liàng tíng kào hé chéng kè shàng xià chē de zhàn diǎn; jù tǐ kě yòng “huǒ chē zhàn” huò “qì chē zhàn”.",
+      "explanation_translation": "车站 is a general term for a transport station where vehicles stop and passengers board or alight; specific types include train and bus stations."
     },
     {
       "question_id": "zh-zh-b-places-getting-around-04",
@@ -1441,9 +1441,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "学校是 school，医院是 hospital。",
-      "explanation_pinyin": "xué xiào shì school, yī yuàn shì hospital.",
-      "explanation_translation": "学校 means school; 医院 means hospital."
+      "explanation_learning": "“地铁站在哪里？”用“地点 + 在哪里”询问某个地方的位置。",
+      "explanation_pinyin": "“dì tiě zhàn zài nǎ lǐ” yòng “dì diǎn + zài nǎ lǐ” xún wèn mǒu gè dì fāng de wèi zhì.",
+      "explanation_translation": "地铁站在哪里? asks for a location using the pattern “place + 在哪里” (where is the place?)."
     },
     {
       "question_id": "zh-zh-b-places-getting-around-05",
@@ -1481,9 +1481,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "学校是 school，医院是 hospital。",
-      "explanation_pinyin": "xué xiào shì school, yī yuàn shì hospital.",
-      "explanation_translation": "学校 means school; 医院 means hospital."
+      "explanation_learning": "“左边”表示左侧；“左”表示 left，“边”表示 side。",
+      "explanation_pinyin": "“zuǒ biān” biǎo shì zuǒ cè; “zuǒ” biǎo shì left, “biān” biǎo shì side.",
+      "explanation_translation": "左边 means “the left side”: 左 means “left” and 边 means “side.”"
     },
     {
       "question_id": "zh-zh-b-places-getting-around-06",
@@ -1521,9 +1521,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "学校是 school，医院是 hospital。",
-      "explanation_pinyin": "xué xiào shì school, yī yuàn shì hospital.",
-      "explanation_translation": "学校 means school; 医院 means hospital."
+      "explanation_learning": "“右边”表示右侧，与“左边”相对；“右”表示 right，“边”表示 side。",
+      "explanation_pinyin": "“yòu biān” biǎo shì yòu cè, yǔ “zuǒ biān” xiāng duì; “yòu” biǎo shì right, “biān” biǎo shì side.",
+      "explanation_translation": "右边 means “the right side,” opposite 左边; 右 means “right” and 边 means “side.”"
     },
     {
       "question_id": "zh-zh-b-questions-negation-01",
@@ -1561,9 +1561,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吗通常不改变句子原有的基本语序。",
-      "explanation_pinyin": "ma tōng cháng bù gǎi biàn jù zi yuán yǒu de jī běn yǔ xù.",
-      "explanation_translation": "吗 usually leaves the basic word order unchanged."
+      "explanation_learning": "“吗”通常放在陈述句末尾，把陈述句变成是非疑问句，语序一般不变。",
+      "explanation_pinyin": "“ma” tōng cháng fàng zài chén shù jù mò wěi, bǎ chén shù jù biàn chéng shì fǒu yí wèn jù, yǔ xù yì bān bù biàn.",
+      "explanation_translation": "吗 is usually placed at the end of a statement to turn it into a yes/no question; the word order generally stays the same."
     },
     {
       "question_id": "zh-zh-b-questions-negation-02",
@@ -1601,9 +1601,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吗通常不改变句子原有的基本语序。",
-      "explanation_pinyin": "ma tōng cháng bù gǎi biàn jù zi yuán yǒu de jī běn yǔ xù.",
-      "explanation_translation": "吗 usually leaves the basic word order unchanged."
+      "explanation_learning": "“什么”用来询问事物、内容或名称，相当于英语 what。",
+      "explanation_pinyin": "“shén me” yòng lái xún wèn shì wù, nèi róng huò míng chēng, xiāng dāng yú yīng yǔ what.",
+      "explanation_translation": "什么 asks about a thing, information or a name; it means “what.”"
     },
     {
       "question_id": "zh-zh-b-questions-negation-03",
@@ -1641,9 +1641,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吗通常不改变句子原有的基本语序。",
-      "explanation_pinyin": "ma tōng cháng bù gǎi biàn jù zi yuán yǒu de jī běn yǔ xù.",
-      "explanation_translation": "吗 usually leaves the basic word order unchanged."
+      "explanation_learning": "“谁”用来询问人物身份或姓名，相当于英语 who。",
+      "explanation_pinyin": "“shéi” yòng lái xún wèn rén wù shēn fèn huò xìng míng, xiāng dāng yú yīng yǔ who.",
+      "explanation_translation": "谁 asks about a person's identity or name; it means “who.”"
     },
     {
       "question_id": "zh-zh-b-questions-negation-04",
@@ -1681,9 +1681,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吗通常不改变句子原有的基本语序。",
-      "explanation_pinyin": "ma tōng cháng bù gǎi biàn jù zi yuán yǒu de jī běn yǔ xù.",
-      "explanation_translation": "吗 usually leaves the basic word order unchanged."
+      "explanation_learning": "“不”常用于否定一般事实、习惯或当前意愿，例如“不喜欢”；过去发生的动作通常使用“没”。",
+      "explanation_pinyin": "“bù” cháng yòng yú fǒu dìng yì bān shì shí, xí guàn huò dāng qián yì yuàn, lì rú “bù xǐ huan”; guò qù fā shēng de dòng zuò tōng cháng shǐ yòng “méi”.",
+      "explanation_translation": "不 commonly negates general facts, habits or present intentions, as in 不喜欢. 没 is generally used to negate completed past actions."
     },
     {
       "question_id": "zh-zh-b-questions-negation-05",
@@ -1721,9 +1721,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吗通常不改变句子原有的基本语序。",
-      "explanation_pinyin": "ma tōng cháng bù gǎi biàn jù zi yuán yǒu de jī běn yǔ xù.",
-      "explanation_translation": "吗 usually leaves the basic word order unchanged."
+      "explanation_learning": "“没有”可以表示不存在或不拥有，也常用于否定“有”，例如“我没有时间”。",
+      "explanation_pinyin": "“méi yǒu” kě yǐ biǎo shì bù cún zài huò bù yōng yǒu, yě cháng yòng yú fǒu dìng “yǒu”, lì rú “wǒ méi yǒu shí jiān”.",
+      "explanation_translation": "没有 can mean “there is not” or “do not have,” and commonly negates 有, as in 我没有时间."
     },
     {
       "question_id": "zh-zh-b-questions-negation-06",
@@ -1761,9 +1761,9 @@
         }
       ],
       "correct_option_id": "o1",
-      "explanation_learning": "吗通常不改变句子原有的基本语序。",
-      "explanation_pinyin": "ma tōng cháng bù gǎi biàn jù zi yuán yǒu de jī běn yǔ xù.",
-      "explanation_translation": "吗 usually leaves the basic word order unchanged."
+      "explanation_learning": "“吗”放在“你是学生”后面形成是非疑问句，意思是“你是学生吗？”",
+      "explanation_pinyin": "“ma” fàng zài “nǐ shì xué shēng” hòu miàn xíng chéng shì fǒu yí wèn jù, yì si shì “nǐ shì xué shēng ma”.",
+      "explanation_translation": "Adding 吗 after 你是学生 turns the statement into a yes/no question: “Are you a student?”"
     },
     {
       "question_id": "zh-zh-i-measure-words-01",
