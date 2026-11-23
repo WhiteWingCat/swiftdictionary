@@ -186,7 +186,8 @@ if (!html.includes('class="quiz-home-hero"') || !html.includes('class="quiz-ques
     !html.includes("quizSlideFromRight") || !html.includes("quizSlideFromLeft")) {
   throw new Error("The U2.8.0 Quiz overview and active test UI redesign or directional question transitions are missing.");
 }
-if (!appScript.includes("function quizRenderSession(transitionDirection=null)") ||
+if (!html.includes("quiz-screen-enter") || !appScript.includes("quizAnimateScreen(element)") ||
+    !appScript.includes("function quizRenderSession(transitionDirection=null)") ||
     !appScript.includes('quizRenderSession(direction)') ||
     !appScript.includes('data-dashboard-daily-quiz-review') ||
     !dailyLearning.includes('daily-review-correct')) {
