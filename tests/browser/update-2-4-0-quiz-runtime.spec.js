@@ -770,6 +770,13 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await selectCourse(page,"zh");
   await selectTranslation(page,"zh");
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
+  const flashRpcDiagnostics=[];
+  page.on("response",async response=>{
+    if(response.url().includes("/rpc/complete_my_flashcard_game")){
+      let body="";try{body=await response.text();}catch{}
+      flashRpcDiagnostics.push({status:response.status(),body});
+    }
+  });
   await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
   await expect(page.locator("#flashGameCollection")).toHaveValue("all");
   await page.clock.install();
@@ -788,6 +795,16 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
 
   await page.clock.runFor((challengeSeconds+2)*1000);
   await page.clock.runFor(2500);
+  const flashResultCount=await page.locator("#flashResultTitle").count();
+  if(!flashResultCount){
+    const diagnostics=await page.evaluate(()=>({
+      clock:document.querySelector("#flashGameClock")?.textContent,
+      notice:document.querySelector("#flashNotice")?.textContent,
+      overlay:document.querySelector("#flashOverlay")?.innerText,
+      appText:document.querySelector("#flashcardsApp")?.innerText?.slice(-1200)
+    }));
+    throw new Error("Flashcard game did not reach its result screen: "+JSON.stringify({diagnostics,flashRpcDiagnostics}));
+  }
   await expect(page.locator("#flashResultTitle")).toBeVisible({timeout:15000});
 
   const dataResponse=await api.post(apiUrl+"/rest/v1/rpc/get_my_flashcard_data",{
