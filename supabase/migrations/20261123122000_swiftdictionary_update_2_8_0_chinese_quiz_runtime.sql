@@ -143,9 +143,9 @@ begin
   end if;
   select s.id into v_active from private.quiz_sessions s
     where s.user_id=v_user and s.status='in_progress';
-  select count(*) filter(where q.difficulty='beginner')::integer,
-         count(*) filter(where q.difficulty='intermediate')::integer,
-         count(*) filter(where q.difficulty='advanced')::integer,
+  select count(distinct q.question_id) filter(where q.difficulty='beginner')::integer,
+         count(distinct q.question_id) filter(where q.difficulty='intermediate')::integer,
+         count(distinct q.question_id) filter(where q.difficulty='advanced')::integer,
          count(distinct q.topic_id) filter(where q.difficulty='beginner')::integer,
          count(distinct q.topic_id) filter(where q.difficulty='intermediate')::integer,
          count(distinct q.topic_id) filter(where q.difficulty='advanced')::integer
@@ -157,9 +157,9 @@ begin
   where q.status='approved' and q.learning_language_code='zh'
     and q.translation_language_code='en' and q.question_type='knowledge'
     and q.answer_language_code='zh' and q.learning_objective_id is not null;
-  select count(*) filter(where q.difficulty='beginner')::integer,
-         count(*) filter(where q.difficulty='intermediate')::integer,
-         count(*) filter(where q.difficulty='advanced')::integer
+  select count(distinct q.question_id) filter(where q.difficulty='beginner')::integer,
+         count(distinct q.question_id) filter(where q.difficulty='intermediate')::integer,
+         count(distinct q.question_id) filter(where q.difficulty='advanced')::integer
     into v_rb,v_ri,v_ra
   from private.quiz_question_bank q
   join private.learning_content_catalog c on c.activity_type='permanent_lesson'
@@ -258,6 +258,8 @@ declare
   v_order text[];
   v_position integer;
   v_composition jsonb;
+  v_group record;
+  v_selected_b integer:=0;v_selected_i integer:=0;v_selected_a integer:=0;
 begin
   if v_user is null then raise exception 'Authentication required' using errcode='42501'; end if;
   if p_difficulty not in ('beginner','intermediate','advanced') then
@@ -339,14 +341,14 @@ begin
   v_topic_cap:=ceil(v_question_count*0.4)::integer;
   if p_difficulty='beginner' then
     v_source:='beginner';v_needed:=10;
-    for v_q in select q.* from private.quiz_question_bank q
+    for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
       join private.learning_content_catalog c on c.activity_type='permanent_lesson'
        and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
        and c.is_active and c.topic_id=q.topic_id
       where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
        and q.difficulty=v_source and q.question_type='knowledge'
        and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
-      order by random()
+      order by q.question_id,q.revision desc) approved_questions order by random()
     loop
       v_topic_count:=coalesce((v_topic_counts->>v_q.topic_id)::integer,0);
       if v_topic_count<v_topic_cap then
@@ -358,17 +360,17 @@ begin
       end if;
     end loop;
   elsif p_difficulty='intermediate' then
-    for v_source,v_needed in select * from (values('intermediate',12),('beginner',3)) as t(source,needed)
+    for v_group in select * from (values('intermediate',12),('beginner',3)) as t(source,needed)
     loop
-      v_added:=0;
-      for v_q in select q.* from private.quiz_question_bank q
+      v_source:=v_group.source;v_needed:=v_group.needed;v_added:=0;
+      for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
         join private.learning_content_catalog c on c.activity_type='permanent_lesson'
          and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
          and c.is_active and c.topic_id=q.topic_id
         where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
          and q.difficulty=v_source and q.question_type='knowledge'
          and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
-        order by random()
+        order by q.question_id,q.revision desc) approved_questions order by random()
       loop
         v_topic_count:=coalesce((v_topic_counts->>v_q.topic_id)::integer,0);
         if v_topic_count<v_topic_cap then
@@ -381,17 +383,17 @@ begin
       if v_added<v_needed then raise exception 'Fresh Chinese Quiz questions unavailable' using errcode='P0001'; end if;
     end loop;
   else
-    for v_source,v_needed in select * from (values('advanced',16),('intermediate',4)) as t(source,needed)
+    for v_group in select * from (values('advanced',16),('intermediate',4)) as t(source,needed)
     loop
-      v_added:=0;
-      for v_q in select q.* from private.quiz_question_bank q
+      v_source:=v_group.source;v_needed:=v_group.needed;v_added:=0;
+      for v_q in select * from (select distinct on(q.question_id) q.* from private.quiz_question_bank q
         join private.learning_content_catalog c on c.activity_type='permanent_lesson'
          and c.content_id=q.source_lesson_id and c.language_code=q.learning_language_code
          and c.is_active and c.topic_id=q.topic_id
         where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en'
          and q.difficulty=v_source and q.question_type='knowledge'
          and not exists(select 1 from private.quiz_daily_question_reservations r where r.user_id=v_user and r.local_date=v_day and r.question_id=q.question_id)
-        order by random()
+        order by q.question_id,q.revision desc) approved_questions order by random()
       loop
         v_topic_count:=coalesce((v_topic_counts->>v_q.topic_id)::integer,0);
         if v_topic_count<v_topic_cap then
@@ -407,10 +409,14 @@ begin
   if cardinality(v_selected_ids)<>v_question_count or pg_catalog.jsonb_object_length(v_topic_counts)<3 then
     raise exception 'Chinese Quiz selection did not meet its topic-diversity target' using errcode='P0001';
   end if;
+  select count(*) filter(where q.difficulty='beginner')::integer,
+         count(*) filter(where q.difficulty='intermediate')::integer,
+         count(*) filter(where q.difficulty='advanced')::integer
+    into v_selected_b,v_selected_i,v_selected_a
+  from unnest(v_selected_ids) as selected(question_id)
+  join private.quiz_question_bank q on q.question_id=selected.question_id;
   v_composition:=pg_catalog.jsonb_build_object(
-    'beginner',cardinality(array(select x from unnest(v_selected_ids) x join private.quiz_question_bank q on q.question_id=x where q.difficulty='beginner')),
-    'intermediate',cardinality(array(select x from unnest(v_selected_ids) x join private.quiz_question_bank q on q.question_id=x where q.difficulty='intermediate')),
-    'advanced',cardinality(array(select x from unnest(v_selected_ids) x join private.quiz_question_bank q on q.question_id=x where q.difficulty='advanced'))
+    'beginner',v_selected_b,'intermediate',v_selected_i,'advanced',v_selected_a
   );
   insert into private.quiz_sessions(user_id,difficulty,learning_language_code,translation_language_code,
     question_count,source_composition,local_date,timezone)
