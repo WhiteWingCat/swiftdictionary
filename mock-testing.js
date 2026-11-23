@@ -275,7 +275,7 @@
             if(!["knowledge","chinese_translation"].includes(questionType)||question.answer_language_code!=="zh")throw new Error("A Chinese Quiz question must be knowledge or English-to-Chinese translation: "+question.question_id);
             if(questionType==="knowledge"&&!question.prompt_pinyin)throw new Error("A Chinese knowledge prompt is missing Pinyin: "+question.question_id);
             if(questionType==="chinese_translation"&&question.prompt_pinyin)throw new Error("An English translation prompt must not include Chinese Pinyin: "+question.question_id);
-            if(question.options.some(option=>!option.pinyin&&!/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(option.learning_text||"")))throw new Error("A Chinese Quiz answer option is missing Pinyin: "+question.question_id);
+            if(question.options.some(option=>!option.pinyin&&!/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(option.learning_text||"")))throw new Error("A Chinese Quiz answer option is missing Pinyin: "+question.question_id);
           }else{
             if(!["knowledge","word_definition","chinese_translation"].includes(questionType))throw new Error("A draft Quiz question has an unsupported question type: "+question.question_id);
             if(questionType==="chinese_translation"&&question.answer_language_code!=="zh")throw new Error("A Chinese translation question must target Simplified Chinese: "+question.question_id);
