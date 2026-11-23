@@ -104,6 +104,14 @@
       #flashcardsPage .flash-primary{border-radius:999px;padding:11px 22px;box-shadow:0 4px 0 #26385e}
       .flash-overlay-root .flash-modal-backdrop{position:fixed;inset:0;z-index:10050;background:#050910bb;backdrop-filter:blur(7px);display:grid;place-items:center;padding:16px}
       .flash-overlay-root .flash-modal{width:min(540px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:#1b202b;border:1px solid #3a4558;border-radius:22px;padding:22px;box-shadow:0 24px 70px #0009}
+      .flash-overlay-root .flash-game-review-modal{width:min(900px,100%)}
+      .flash-overlay-root .flash-review-card{margin:14px 0;padding:14px;border:1px solid #3a4558;border-radius:14px;background:#141b27}
+      .flash-overlay-root .flash-review-card-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#cbd7ec}
+      .flash-overlay-root .flash-review-card h3{margin:10px 0 4px;font-size:1.35rem}
+      .flash-overlay-root .flash-review-card ol{display:grid;gap:7px;padding-left:24px}
+      .flash-overlay-root .flash-review-card li{padding:7px 9px;border-radius:8px;background:#202a39}
+      .flash-overlay-root .flash-review-card li.is-correct{outline:1px solid #64b98a;background:#173529}
+      .flash-overlay-root .flash-review-card li.is-wrong{outline:1px solid #d77b7b;background:#3b2026}
       .flash-overlay-root .flash-modal select{width:100%;background:#101722;color:#f5f7ff;border:1px solid #414d61;border-radius:12px;padding:11px}
       .flash-overlay-root .flash-modal label{display:grid;gap:7px;margin:14px 0;color:#c8d0df}
       .flash-overlay-root .flash-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
