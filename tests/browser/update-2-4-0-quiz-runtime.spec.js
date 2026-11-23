@@ -701,7 +701,7 @@ test("Chinese Flashcards only offer card sets supported by the selected recall m
   await page.locator('#flashcardsPage .flash-mode[data-mode="definition"]').click();
   await expect(page.locator("#flashGameCollection")).toHaveValue("all");
   await expect(page.locator('#flashGameCollection option[value="vocabulary"]')).toHaveCount(0);
-  await expect(page.locator(".flash-modal")).toContainText("Multi-character vocabulary cards are not included");
+  await expect(page.locator(".flash-modal")).toContainText("多字词汇卡片目前尚未支持此回忆模式");
 
   await page.locator('[data-action="close-overlay"]').click();
   await page.locator('#flashcardsPage .flash-mode[data-mode="translation"]').click();
