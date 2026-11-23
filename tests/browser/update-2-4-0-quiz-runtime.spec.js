@@ -805,7 +805,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
 
   const waitForRenderedQuestion=async targetPage=>{
     await expect.poll(()=>targetPage.evaluate(()=>{
-      const session=window.quizPageState?.session;
+      const session=typeof quizPageState!=="undefined"?quizPageState.session:null;
       const question=session?.questions?.find(q=>q.position===session.current_position);
       const area=document.getElementById("quizQuestionArea");
       if(!question||!area)return false;
