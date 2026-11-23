@@ -929,7 +929,7 @@
     reader.classList.remove("closing");
     reader.removeAttribute("aria-hidden");
     document.body.style.overflow = "hidden";
-    readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false),attempts:(content.questions || []).map(() => 0),incorrectAttemptCount:0,retryCount:0 };
+    readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false),attempts:(content.questions || []).map(() => 0),lastChecked:(content.questions || []).map(() => null),incorrectAttemptCount:0,retryCount:0 };
     const closeButton = '<button type="button" class="icon-button" data-daily-close aria-label="' + esc(dailyUi("Close activity","关闭活动")) + '">×</button>';
     let html = "";
     if (isDiscovery) {
@@ -1079,10 +1079,16 @@
         continue;
       }
       const correct = Number(selected.value) === content.questions[i].answer;
-      if (firstTry[i] === null) firstTry[i] = correct;
-      else readerState.retryCount = (readerState.retryCount || 0) + 1;
-      readerState.attempts[i] = (readerState.attempts[i] || 0) + 1;
-      if (!correct) readerState.incorrectAttemptCount = (readerState.incorrectAttemptCount || 0) + 1;
+      const submittedValue=String(selected.value);
+      if (firstTry[i] === null) {
+        firstTry[i] = correct;readerState.attempts[i]=1;readerState.lastChecked[i]=submittedValue;
+        if(!correct)readerState.incorrectAttemptCount=(readerState.incorrectAttemptCount||0)+1;
+      } else if(readerState.lastChecked[i]!==submittedValue) {
+        readerState.retryCount=(readerState.retryCount||0)+1;
+        readerState.attempts[i]=(readerState.attempts[i]||0)+1;
+        readerState.lastChecked[i]=submittedValue;
+        if(!correct)readerState.incorrectAttemptCount=(readerState.incorrectAttemptCount||0)+1;
+      }
       passed[i] = correct;
       const question = content.questions[i];
       const explanation = isChineseLearningCourse() ? (translationLanguage === "en" ? (question.explanationEn || question.explanation || "") : (question.explanation || "")) : (translationLanguage === "zh" && question.zh ? question.zh : question.explanation || "");
@@ -1143,18 +1149,17 @@
       args.p_question_count = content.questions.length;
     }
     let saved;
+    let metricsWarning="";
     try {
       const {data,error} = await supabaseClient.rpc("complete_daily_activity_session",args);
       if (error) throw error;
       saved = Array.isArray(data) ? data[0] : data;
       if (!saved) throw new Error("The completion could not be confirmed.");
-      let metricsWarning="";
       if(activityType==="daily_application"||activityType==="daily_revision"){
         const metrics=await supabaseClient.rpc("record_my_daily_practice_attempt",{p_session_id:session.id,p_first_try_correct_count:practiceMetrics.firstTryCorrectCount,p_incorrect_attempt_count:practiceMetrics.incorrectAttemptCount,p_retry_count:practiceMetrics.retryCount});
         if(metrics.error)metricsWarning=metrics.error.message||"Practice details could not be saved.";
       }
       closeDailyReader();
-      if(metricsWarning)byId("dailyPracticeStatus").textContent=dailyUi("Activity completed. Some practice statistics could not be saved: ","活动已完成，但部分练习统计无法保存：")+metricsWarning;
     } catch (error) {
       byId("dailyLearningStatus").textContent = error.message || "Completion could not be saved. Your session remains in progress.";
       if (button) { button.disabled = false; button.textContent = dailyUi("Complete activity","完成活动"); }
@@ -1163,6 +1168,7 @@
     try {
       await loadDailyData();
       byId("dailyLearningStatus").textContent = dailyUi("Activity completed successfully. ","活动已成功完成。") + byId("dailyLearningStatus").textContent;
+      if(metricsWarning)byId("dailyLearningStatus").textContent += dailyUi(" Practice statistics could not be saved: ","练习统计无法保存：")+metricsWarning;
     } catch (error) {
       byId("dailyLearningStatus").textContent = dailyUi("Activity completed successfully. The remaining allowance display could not be refreshed: ","活动已成功完成，但无法刷新剩余额度显示：") + (error.message || "Please reload the page.");
     }
