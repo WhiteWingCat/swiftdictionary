@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.8.0 — Final Development Plan
 
-**Status:** Owner-authorised development; technical audit in progress  
+**Status:** Owner-authorised development; initial technical audit underway; implementation starting  
 **Planning date:** 2026-11-23  
 **Update title:** Chinese Quiz & Flashcards Expansion  
 **Application branch reserved:** `feature/update-2-8-0-chinese-quiz-flashcards` (created from current `main`; verified to exist; untouched)  
@@ -227,3 +227,53 @@ U2.8.0 is not complete until:
 - No U2.8.0 application files, content, SQL, migrations, schema, RPCs, staging data, production data or deployments have been changed.
 - Documentation updates are confined to `docs/master-development-record`.
 - Next permitted step: wait for the owner's separate instruction to begin the technical audit/development. Do not interpret approval of this plan as start approval.
+
+
+## 14. Initial technical audit baseline — 2026-11-23
+
+The owner authorised development after the latest Master Development Record and relevant archives were reviewed. The reserved application branch `feature/update-2-8-0-chinese-quiz-flashcards` exists and initially matches `main` commit `38dbee3f2a3c409e1d5fdc4bd1f8833f8c71c420`. Application implementation has not yet been committed at the time of this audit note. All database checks below were read-only; no production or staging rows, schema, settings or deployments were changed.
+
+### 14.1 Quiz inventory and derived Chinese capacity
+
+- Production and staging each contain 199 approved Quiz questions for English learning with Simplified Chinese translation, and no Chinese-learning Quiz bank rows.
+- Existing English bank distribution is Beginner 56 (30 knowledge, 5 word-definition, 21 Chinese-translation), Intermediate 62 (36, 5, 21), Advanced 81 (48, 5, 28).
+- The Chinese curriculum currently has 17 permanent lessons: 7 Beginner, 5 Intermediate, 5 Advanced. Their lesson-reader practice arrays contain 112 candidate questions: 44 Beginner, 34 Intermediate, 34 Advanced. These are candidate source items, not yet imported/approved Quiz questions; validate prompts, options, explanations, translation quality, duplicates and topic mapping before release.
+- Carrying forward the existing preferred three-session capacity targets gives Chinese bank targets of at least 30 Beginner, 36 Intermediate, and 48 Advanced questions, with the existing lower-difficulty composition reserves. The current candidate inventory is short by 2 Intermediate and 14 Advanced items; author at least those 16 additional items, then validate the complete pool and topic diversity. Keep the 112 current items only where they pass the same quality bar as new Quiz content.
+- Use the 17 existing Chinese permanent lesson/topic records as the allowlist and source of truth. Add stable learning-objective IDs to the Chinese curriculum map so every approved question links to a lesson objective and topic. Same-day reservations must remain shared across difficulty and translation preference; do not create language variants that allow the same logical question to repeat under another preference.
+
+### 14.2 Chinese Flashcard inventory and mode interpretation
+
+- The current Chinese dictionary data contains 519 entries, all single-character headwords: HSK 1 = 148, HSK 2 = 271, HSK 3 = 100. Entries already include pinyin, English gloss, Chinese definition, examples and related terms.
+- Related multi-character terms are references inside character entries, not standalone cards. The new Flashcard content pack must add independently usable multi-character vocabulary and useful expressions/phrases, with pinyin, contextual examples and separate definition/translation cues.
+- The production and staging schemas currently constrain Flashcard dictionary cards to `language_code='en'`; the start-game RPC rejects Chinese learning courses. The current session/review mode constraints are `word`, `definition`, `mixed`, `sentence`. Extend both the card and session model for Chinese without weakening owner checks.
+- Interpret the approved four distinct learning objectives as Word Recall, Definition Recall, Translation Recall and Sentence Recall. Preserve the existing Mixed Recall option as a composite mode, so the Chinese course exposes those four distinct modes plus Mixed Recall; English retains its current four modes and behaviour. Mixed Recall for Chinese samples from all four distinct tasks.
+- Word Recall must ask for pinyin; Definition Recall must use a Chinese descriptive clue; Translation Recall must use a direct English equivalent when English is selected or a distinct Chinese paraphrase/equivalent when Chinese is selected; Sentence Recall remains sentence-level. The QA pack must reject identical/near-identical Definition and Translation cues.
+
+### 14.3 Full Flashcard review history limitation
+
+- Production currently has four completed Flashcard sessions, 39 mastery rows and 12 weak-memory rows. Staging has no Flashcard learner rows.
+- Existing Flashcard sessions store aggregate totals only. They do not store the cards/options shown, card order, selected answer or per-card result. The existing production sessions cannot be reconstructed into full card-by-card reviews.
+- Add private per-session item snapshots for new games and an owner-checked read-only review RPC. New snapshots must preserve original content, language pair, order, selected answer and correctness; no review action may create a game or consume allowance. Learning-history deletion and account deletion must cascade to the new rows.
+- For legacy sessions without snapshots, show the available summary and clearly explain that full card review is unavailable for games completed before U2.8.0; never fabricate a review.
+
+### 14.4 Lesson completion, Practice Insights and Dashboard
+
+- Current lesson UI says every practice question must be answered correctly and auto-completes only after all are correct. Add an explicit completion path after explanation review that does not require a correct answer.
+- Existing `lesson_practice_results` stores only one aggregate first-try summary per lesson and does not preserve subsequent incorrect attempts. Add minimal per-attempt aggregate records (no raw answer text) so first-attempt accuracy and retry mistakes remain available to topic-level Practice Insights. Include owner checks, RLS/private storage, account deletion and learning-history deletion.
+- Existing Quiz session snapshots already retain question/topic/objective/selected-answer/correct-answer data for completed Quiz reviews. Reuse the five most recent completed reviews to inform topic priority; do not duplicate raw answer data unnecessarily.
+- The current Dashboard is a long page with separate Favourites, Learning Progress, Quiz History, Flashcard Statistics and Practice Insights sections; it has no four-tab navigation. Replace the allowance gauges with cards while keeping the verified server quotas unchanged.
+- Current production and staging quotas match the approved baseline: Free — Lessons 5, Quiz 1, Flashcards 3, each Daily Learning category 1; Premium — Lessons 15, Quiz 3, Flashcards 10, each Daily Learning category 3.
+- Daily Learning already calculates the effective timezone's local-day window, but its completed-card list reads all historical completed sessions. Restrict the active daily view to the current effective local day; keep historical rows stored and do not delete them at midnight.
+- Daily History must filter completed lesson, Quiz and Flashcard records by the effective local day. Add a timezone-aware Flashcard completion timestamp/session snapshot as needed; this is a display filter, not a retention/deletion mechanism.
+
+### 14.5 Security, operations and legal/privacy gate
+
+- Production and staging both use private-schema tables with RLS and owner-checked RPC access. The existing security advisor baseline includes eight informational private-schema RLS/no-policy findings (default deny), two intentional SECURITY DEFINER warnings, and leaked-password protection disabled. Do not weaken private-schema grants or broaden function execution; new tables/RPCs must use the same narrow pattern and be explicitly tested for cross-account access.
+- Production currently contains real Flashcard history, so destructive or fixture-based tests must use disposable local/CI or synthetic staging accounts only. Do not use the owner's production account or copy production learner rows to staging.
+- The existing legal review remains a planning assessment, not legal clearance. U2.8.0 adds per-card Flashcard answer/review snapshots and lesson attempt aggregates, increasing the educational-behaviour data inventory. Minimise fields, keep them private, document purpose/retention, include them in DPIA/DPO screening, and ensure learning-history/account deletion removes them.
+- Keep Chinese dictionary-derived content accessible to Free users under the existing allowance model; do not make CC-CEDICT-derived material Premium-only. Preserve CC BY-SA 4.0 attribution/share-alike notices and use original lesson-authored content for Quiz questions. No new external processor is planned.
+- Formal Malaysian PDPA applicability advice, international transfer assessment, 16–17-year-old handling, DPO/DPIA screening, controller/contact details and retention approval remain outstanding release gates.
+
+### 14.6 Supabase operational note
+
+The current Supabase changelog records the CLI v3 local-by-default behaviour and a Production Branches read-write permission requirement for branch merges (November 2026). U2.8.0 will continue using the connected project tools and the repository's guarded Cloudflare build routing; do not use an ambiguous CLI default or merge/deploy a hosted database branch as part of this development phase. No production schema or deployment change is authorised by the start instruction.
