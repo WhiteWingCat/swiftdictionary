@@ -722,7 +722,6 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   test.setTimeout(90000);
   const user=await createRuntimeUser("flashcard-zh-review","free");
   const session=await signIn(user.email,user.password);
-  await page.clock.install();
   await openQuiz(page,session);
   await page.locator('[data-page="flashcards"]').click();
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
@@ -735,6 +734,7 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   await expect(page.locator("#flashcardsPage .flash-mode-grid")).toBeVisible();
   await page.locator('#flashcardsPage .flash-mode[data-mode="word"]').click();
   await expect(page.locator("#flashGameCollection")).toHaveValue("all");
+  await page.clock.install();
   await page.locator('[data-action="begin-game"]').click();
   await expect(page.locator(".flash-game")).toBeVisible();
 
