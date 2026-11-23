@@ -215,10 +215,10 @@ on conflict(question_id,revision) do nothing;
 
 with numbered as (
  select gs,
-   case when gs<=21 then 'beginner' when gs<=42 then 'intermediate' else 'advanced' end as difficulty,
-   case when gs<=21 then 'b' when gs<=42 then 'i' else 'a' end as prefix,
+   case when gs<=90 then 'beginner' when gs<=180 then 'intermediate' else 'advanced' end as difficulty,
+   case when gs<=90 then 'b' when gs<=180 then 'i' else 'a' end as prefix,
    ((gs-1)%3)+1 as topic_number
- from generate_series(1,63) gs
+ from generate_series(1,270) gs
 )
 insert into private.quiz_question_bank(
  question_id,revision,learning_language_code,translation_language_code,
@@ -265,7 +265,7 @@ begin
     group by d.difficulty
   loop
     if v.knowledge_count < case v.difficulty when 'beginner' then 30 when 'intermediate' then 36 else 48 end
-       or v.knowledge_topics < 3 or v.translation_count < 21 then
+       or v.knowledge_topics < 3 or v.translation_count < 90 then
       raise exception 'Chinese runtime fixture invalid for %: knowledge %, topics %, translations %',
         v.difficulty,v.knowledge_count,v.knowledge_topics,v.translation_count;
     end if;
