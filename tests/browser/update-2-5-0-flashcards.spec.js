@@ -625,10 +625,49 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
   await expect(page.locator("body")).toHaveClass(/quiz-focused/);
   await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
   await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
+  const reviewCloseBox=await page.locator("#quizResultsContent [data-quiz-review-close]").boundingBox();
+  const reviewScoreBox=await page.locator("#quizResultsContent .quiz-review-score").boundingBox();
+  expect(reviewCloseBox.x).toBeGreaterThan(reviewScoreBox.x+reviewScoreBox.width);
+
   console.log("[quiz-pagination] closing answer review");
   await page.locator("#quizResultsContent [data-quiz-review-close]").click({timeout:5000});
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("body")).not.toHaveClass(/quiz-focused/);
   await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
   console.log("[quiz-pagination] passed");
+});
+
+
+test("Chinese Sentence Recall blanks every repeated character and keeps choices hidden",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator('[data-action="set-duration"][data-value="60"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="sentence"]').click();
+  await page.locator("#flashDifficulty").selectOption("beginner");
+  await page.locator("#flashGameCollection").selectOption("all");
+  const target=await page.evaluate(()=>{
+    const bank=window.SWIFT_CHINESE_FLASHCARDS;
+    const pool=[...bank.characters,...bank.vocabulary,...bank.phrases].filter(card=>Array.isArray(card.availableModes)&&card.availableModes.includes("sentence")&&card.exampleZh);
+    const card=pool.find(item=>item.word==="常"&&item.exampleZh.split(item.word).length-1>1);
+    if(!card)throw new Error("Repeated Chinese target 常 is missing from the Flashcard bank");
+    return {index:pool.indexOf(card),total:pool.length,word:card.word};
+  });
+  await page.evaluate(({index,total})=>{
+    window.__originalFlashcardRandom=Math.random;
+    const value=(index+0.25)/total;
+    Math.random=()=>value;
+  },target);
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game")).toBeVisible();
+  await expect(page.locator("#flashMemory")).toContainText("_____");
+  await expect(page.locator("#flashMemory")).not.toContainText(target.word);
+  await expect(page.locator("#flashOptions .flash-option.is-hidden")).toHaveCount(4);
+  await expect(page.locator("#flashOptions")).not.toContainText(target.word);
+  await page.evaluate(()=>{
+    if(window.__originalFlashcardRandom){Math.random=window.__originalFlashcardRandom;delete window.__originalFlashcardRandom;}
+  });
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
 });

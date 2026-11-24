@@ -294,7 +294,16 @@
     const distractors=allCards.filter(w=>!selectedKeys.has(w._custom?"custom:"+w._custom.id:cardKey(w))).map(w=>({...w,_flashDistractor:true}));
     return [...targets,...distractors];
   }
-  function makeRound(deck){
+  function blankAllOccurrences(sentence,word,chinese=false){
+ const source=String(sentence||""),target=String(word||"");
+ if(!source||!target)return source+" _____";
+ const blanked=chinese
+  ? source.split(target).join("_____")
+  : source.replace(new RegExp("\\b"+target.replace(/[.*+?^()|[\]\\{}$]/g,"\\function makeRound")+"\\b","gi"),"_____");
+ const collapsed=blanked.replace(/(?:_____){2,}/g,"_____");
+ return collapsed===source?source+" _____":collapsed;
+}
+function makeRound(deck){
     const chinese=(state.game?.learningLanguage||course)==="zh";
     const normalize=v=>String(v||"").normalize("NFKC").replace(/[\s\p{P}\p{S}]+/gu,"").toLocaleLowerCase();
     const cueFor=(w,mode)=>{
@@ -355,16 +364,16 @@
     }else if(chinese&&mode==="translation"){
       memory=translationFor(target);prompt=(state.game?.translationLanguage||translationLanguage)==="zh"?uiText("Choose the Chinese word or expression with the closest equivalent meaning","请选择意思相近的中文词语或表达"):uiText("Choose the Chinese expression with this direct English equivalent","请选择与这段英文释义最接近的中文表达");correct=target.word;
     }else if(chinese&&mode==="sentence"){
-      const sentence=(target.examples||[])[0],index=sentence.indexOf(target.word);
-      memory=index>=0?sentence.slice(0,index)+"_____"+sentence.slice(index+target.word.length):sentence;
+      const sentence=(target.examples||[])[0];
+      memory=blankAllOccurrences(sentence,target.word,chinese);
       prompt=uiText("Which Chinese word completes this sentence?","哪个中文词语最适合填入句子？");correct=target.word;
     }else if(mode==="word"){
       memory=target.word;prompt=uiText("Choose the correct meaning","请选择正确的中文释义");correct=translationFor(target);
     }else if(mode==="definition"){
       memory=target.definition;prompt=uiText("Which word matches this meaning?","哪个英文单词符合这个释义？");correct=target.word;
     }else{
-      const sentence=(target.examples||[])[0]||("I want to "+target.word+" today."),index=sentence.toLowerCase().indexOf(target.word.toLowerCase());
-      memory=index>=0?sentence.slice(0,index)+"_____ "+sentence.slice(index+target.word.length):sentence+" _____";
+      const sentence=(target.examples||[])[0]||("I want to "+target.word+" today.");
+      memory=blankAllOccurrences(sentence,target.word,chinese);
       prompt=uiText("Which word completes the sentence?","哪个单词最适合填入句子？");correct=target.word;
     }
     const distinct=new Map();

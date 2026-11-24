@@ -15,6 +15,8 @@ const translationCounts={beginner:0,intermediate:0,advanced:0};
 const topics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
 const translationTopics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
 const norm=s=>String(s??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
+const isPinyinText=s=>/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(String(s||"").trim());
+let pinyinGuides=0,pinyinGuidesOmitted=0;
 if(pack.schema_version!==1||pack.status!=="draft"||pack.learning_language_code!=="zh"||pack.translation_language_code!=="en")errors.push("Pack metadata must remain a Chinese-learning, Chinese-focused draft.");
 if(!Array.isArray(pack.questions))errors.push("questions must be an array.");
 for(const [i,q] of (pack.questions||[]).entries()){
@@ -33,7 +35,11 @@ for(const [i,q] of (pack.questions||[]).entries()){
  }
  const questionType=q.question_type||"knowledge";
  if(!["knowledge","chinese_translation"].includes(questionType)||q.answer_language_code!=="zh")errors.push(at+" must be a Chinese-answer knowledge or English-to-Chinese translation question");
- if(questionType==="knowledge"&&(!q.prompt_pinyin||!q.prompt_pinyin.trim()))errors.push(at+" knowledge prompt must include Pinyin");
+ if(questionType==="knowledge"){
+  if(q.prompt_pinyin==null)pinyinGuidesOmitted++;
+  else if(typeof q.prompt_pinyin!=="string"||!q.prompt_pinyin.trim())errors.push(at+" Pinyin guide must be a non-empty string or null");
+  else pinyinGuides++;
+ }
  if(questionType==="chinese_translation"&&q.prompt_pinyin&&q.prompt_pinyin.trim())errors.push(at+" English translation prompt must not include Chinese Pinyin");
  if(!Array.isArray(q.options)||q.options.length!==4)errors.push(at+" must have exactly four options");
  else{
@@ -47,6 +53,15 @@ for(const [i,q] of (pack.questions||[]).entries()){
    const en=norm(o.learning_text);if(englishLabels.has(en))errors.push(at+" has duplicate English option text");englishLabels.add(en);
   }
   if(optionIds.size!==4||!optionIds.has(q.correct_option_id))errors.push(at+" correct_option_id must match one of four unique options");
+  const correct=q.options.find(o=>o.id===q.correct_option_id);
+  if(questionType==="knowledge"&&correct){
+   const promptZh=norm(q.prompt_learning),promptEn=norm(q.prompt_translation),promptPy=norm(q.prompt_pinyin);
+   const answerZh=norm(correct.learning_text),answerEn=norm(correct.translation_text),answerPy=norm(correct.pinyin);
+   if(!isPinyinText(correct.learning_text)&&answerZh.length>=2&&promptZh.includes(answerZh))errors.push(at+" exposes the complete Chinese answer in its prompt");
+   if(answerEn.length>=4&&promptEn.includes(answerEn))errors.push(at+" exposes the complete English answer in its prompt translation");
+   if(promptPy&&answerPy.length>=4&&promptPy.includes(answerPy))errors.push(at+" exposes the correct option Pinyin in its prompt Pinyin guide");
+   if(promptPy&&isPinyinText(correct.learning_text)&&answerZh.length>=4&&promptPy.includes(answerZh))errors.push(at+" exposes a Pinyin-form answer in its prompt Pinyin guide");
+  }
  }
  const p=norm(q.prompt_learning);if(prompts.has(p))errors.push(at+" duplicates a Chinese prompt");prompts.add(p);
 }
@@ -61,6 +76,7 @@ console.log("Chinese Quiz draft validation passed: "+pack.questions.length+" tot
 for(const d of Object.keys(counts))console.log(d+": "+counts[d]+" knowledge + "+translationCounts[d]+" English-to-Chinese translation questions; "+topics[d].size+" knowledge topics and "+translationTopics[d].size+" translation topics.");
 console.log("Source coverage: "+sourceLessonIds.size+" permanent lesson origins; every question is mapped to a lesson and the validator requires English prompt and explanation translations.");
 console.log("Draft status remains non-releasable until independent linguistic, answer-key, distractor, and objective QA is signed off.");
+console.log("Pinyin prompt guides: "+pinyinGuides+" present, "+pinyinGuidesOmitted+" omitted or unavailable.");
 if(emitSql){
  if(approve){console.error("Refusing to approve Chinese Quiz content automatically. Human owner approval and independent QA must be recorded separately.");process.exit(1);}
  const lit=v=>"'"+String(v).replace(/'/g,"''")+"'";

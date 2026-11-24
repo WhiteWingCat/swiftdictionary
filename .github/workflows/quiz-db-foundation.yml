@@ -169,6 +169,8 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124120000_swiftdictionary_update_2_8_0_flashcard_review_item_dismissal.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcard_review_item_dismissal.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124150000_swiftdictionary_update_2_8_0_flashcard_history_capacity.sql"
+      psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124160000_swiftdictionary_update_2_8_0_chinese_quiz_content_polish.sql"
+      psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_quiz_content_polish.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -226,7 +228,7 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
       - name: Run signed-out Flashcards and Preferences browser regressions
-        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually|Recent games paginate ten at a time|Quiz history paginates ten sessions"
+        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually|Recent games paginate ten at a time|Quiz history paginates ten sessions|Chinese Sentence Recall blanks every repeated character and keeps choices hidden"
       - name: Run permanent Lessons allowance notification regression
         run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes|Daily Learning resets completed content and allowance automatically at local midnight"
 

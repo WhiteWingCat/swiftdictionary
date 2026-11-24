@@ -3,6 +3,7 @@ import vm from "node:vm";
 
 const html=fs.readFileSync("index.html","utf8");
 const flashcards=fs.readFileSync("flashcards.js","utf8");
+if(!flashcards.includes("function blankAllOccurrences(")||!flashcards.includes("blankAllOccurrences(sentence,target.word,chinese)"))throw new Error("Sentence Recall must blank every occurrence of the target.");
 const mock=fs.readFileSync("mock-testing.js","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql","utf8");
 const recallMigration=fs.readFileSync("supabase/migrations/20261118100415_flashcards_mixed_recall_and_review_history.sql","utf8");
