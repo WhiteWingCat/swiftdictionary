@@ -28,8 +28,9 @@
       "Science & Technology": 41,
       "Emotions & Descriptions": 90
     },
-    "authoredCount": 204,
-    "remainingCandidateCount": 456
+    "authoredCount": 244,
+    "remainingCandidateCount": 416,
+    "lastUpdated": "2026-11-24"
   },
   "candidates": [
     {
@@ -894,7 +895,7 @@
       "word": "object",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "office",
@@ -909,49 +910,49 @@
       "word": "order",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "owner",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "page",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "pair",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "paper",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "part",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "party",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "period",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "person",
@@ -966,43 +967,43 @@
       "word": "place",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "position",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "power",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "price",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "problem",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "product",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "quality",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "question",
@@ -1017,43 +1018,43 @@
       "word": "reason",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "record",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "role",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "room",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "rule",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "safety",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "sample",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "school",
@@ -1069,55 +1070,55 @@
       "word": "science",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "service",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "shape",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "side",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "sign",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "skill",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "situation",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "size",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "society",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "sort",
@@ -1129,25 +1130,25 @@
       "word": "sound",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "space",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "sport",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "staff",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "stage",
@@ -1165,7 +1166,7 @@
       "word": "story",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "subject",
@@ -1180,7 +1181,7 @@
       "word": "success",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "suggestion",
@@ -1198,13 +1199,13 @@
       "word": "task",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "team",
       "category": "Everyday Terms",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored"
     },
     {
       "word": "term",
