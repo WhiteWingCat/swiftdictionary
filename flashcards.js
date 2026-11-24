@@ -41,11 +41,11 @@
   function difficultyLabel(level){return ({beginner:uiText("Beginner","初级"),intermediate:uiText("Intermediate","中级"),advanced:uiText("Advanced","高级")})[level]||level;}
   function cleanEnglishGloss(value){
     let text=String(value||"");
-    text=text.replace(/;?\\s*CL\\s*:[^;]*/gi,"");
-    text=text.replace(/\\([^)]*\\p{Script=Han}[^)]*\\)/gu,"");
-    text=text.replace(/\\[[^\\]]*\\p{Script=Han}[^\\]]*\\]/gu,"");
-    text=text.split(/\\s*;\\s*/).filter(part=>part.trim()&&!/\\p{Script=Han}/u.test(part)).join("; ");
-    return text.replace(/\\(\\s*\\)/g,"").replace(/\\[\\s*\\]/g,"").replace(/\\s{2,}/g," ").replace(/\\s+([,;:.])/g,"$1").replace(/[,;:.]\\s*$/,"").trim();
+    text=text.replace(/;?\s*CL\s*:[^;]*/gi,"");
+    text=text.replace(/\([^)]*\p{Script=Han}[^)]*\)/gu,"");
+    text=text.replace(/\[[^\]]*\p{Script=Han}[^\]]*\]/gu,"");
+    text=text.split(/\s*;\s*/).filter(part=>part.trim()&&!/\p{Script=Han}/u.test(part)).join("; ");
+    return text.replace(/\(\s*\)/g,"").replace(/\[\s*\]/g,"").replace(/\s{2,}/g," ").replace(/\s+([,;:.])/g,"$1").replace(/[,;:.]\s*$/,"").trim();
   }
   function translationFor(word){
     const language=state.game?.translationLanguage||translationLanguage;
