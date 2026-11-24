@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add distinct senses for common English verbs with separate meanings not adequately represented by a single definition.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "be585fc72253acacfc896111360ff8f8929119a9",
+  "patches": [
+    {
+      "word": "avoid",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To keep away from a person, place, or thing.",
+          "definitionZh": "避开某人、某地或某物；躲开。",
+          "examples": [
+            "I avoid that road during rush hour.",
+            "She tried to avoid the crowded entrance."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To prevent something unpleasant or unwanted from happening.",
+          "definitionZh": "防止不愉快或不希望发生的事情出现；避免。",
+          "examples": [
+            "A short break can help you avoid mistakes.",
+            "We left early to avoid getting stuck in traffic."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "decide",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To choose something after thinking about the available options.",
+          "definitionZh": "考虑各种选择后作出决定；选定。",
+          "examples": [
+            "We need to decide where to eat.",
+            "She decided to learn another language."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To settle a question or determine the result of something.",
+          "definitionZh": "解决某个问题或决定某事的结果。",
+          "examples": [
+            "The judges will decide which design wins.",
+            "The court must decide the case fairly."
+          ]
+        }
+      ]
+    }
+  ],
+  "appliedCommit": "b173cde9d37bd746edcb9c7e7b203dcef2610db4"
+}
