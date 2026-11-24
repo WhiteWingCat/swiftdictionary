@@ -19848,13 +19848,14 @@ async function completeLesson(x){
         quiz:()=>"Participate in a Quiz test.",
         flashcard:maximum=>"Play "+maximum+" Flashcard game"+(maximum===1?"":"s")+" today."
       };
+      const unavailableText={lesson:"Permanent lessons are not enabled on this plan.",daily_topic:"Daily Topic is not enabled on this plan.",daily_application:"Daily Application is not enabled on this plan.",daily_discovery:"Daily Discovery is not enabled on this plan.",daily_revision:"Daily Revision is not enabled on this plan.",quiz:"Quiz is not enabled on this plan.",flashcard:"Flashcards are not enabled on this plan."};
       host.setAttribute("role","list");
       host.innerHTML=types.map(type=>{
         const row=limits.find(item=>item.plan_code===plan&&item.activity_type===type);
         if(type==="lesson"&&personalLessonExemption)
           return '<div class="dashboard-allowance-card" role="listitem"><strong>Complete permanent lessons at your own pace today.</strong><b>Unlimited</b><small>Personal testing access</small></div>';
         if(!row||!row.is_enabled||!Number.isFinite(Number(row.daily_limit))||Number(row.daily_limit)<=0)
-          return '<div class="dashboard-allowance-card is-unavailable" role="listitem"><strong>'+taskText[type](0)+'</strong><b>Unavailable</b><small>Not enabled for this plan</small></div>';
+          return '<div class="dashboard-allowance-card is-unavailable" role="listitem"><strong>'+unavailableText[type]+'</strong><b>Unavailable</b><small>Not enabled for this plan</small></div>';
         const maximum=Math.max(0,Math.floor(Number(row.daily_limit)));
         const task=taskText[type](maximum);
         const usage=Array.isArray(usageRows)?usageRows.find(item=>item.activity_type===type):null;

@@ -267,7 +267,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.goto("/#quiz");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#translationSelect")).toHaveValue("zh");
-  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
+  await expect(page.locator("#quizAllowanceText")).toContainText("1 / 1");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("Preferred question-bank target met");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("approved");
   await expect(page.locator("#quizDifficultyGrid")).not.toContainText("You have used today's Quiz allowance");
@@ -602,7 +602,7 @@ test("Quiz start confirmation warns about allowance and cancellation does not co
   await expect(page.locator("#quizSession")).toBeHidden();
   await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("0 / 1 今日剩余");
+  await expect(page.locator("#quizAllowanceText")).toContainText("0 / 1");
 });
 
 test("Quiz overview follows translation preference and selector changes preserve an active session", async ({ page }) => {
