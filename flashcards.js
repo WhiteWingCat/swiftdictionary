@@ -321,9 +321,10 @@
     const supportsMode=(w,mode)=>{
       if(!chinese)return true;
       if(mode==="translation"){
+        const language=state.game?.translationLanguage||translationLanguage;
+        if(Array.isArray(w.translationLanguages)&&!w.translationLanguages.includes(language))return false;
         const cue=translationFor(w);
         if(!cue)return false;
-        const language=state.game?.translationLanguage||translationLanguage;
         if(language==="zh"){
           const definition=w.definitionCueZh||w.definitionZh||"";
           return normalize(cue)!==normalize(definition);
@@ -340,11 +341,12 @@
     if(!targets.length)throw new Error("There are no cards available for this recall mode.");
     const modes=state.mode==="mixed"?(chinese?["word","definition","translation","sentence"]:["word","definition","sentence"]):[state.mode];
     const pools=modes.map(mode=>{
+      const modeCards=available.filter(card=>supportsMode(card,mode));
       const optionValue=w=>chinese&&mode==="word"?w.pinyin:mode==="word"&&!chinese?translationFor(w):w.word;
       const viable=targets.filter(target=>{
         if(!supportsMode(target,mode)||!cueFor(target,mode))return false;
         const correct=optionValue(target),key=normalize(correct),d=new Set();
-        for(const c of available){if(c===target)continue;const v=optionValue(c),k=normalize(v);if(k&&k!==key)d.add(k);}
+        for(const c of modeCards){if(c===target)continue;const v=optionValue(c),k=normalize(v);if(k&&k!==key)d.add(k);}
         return d.size>=3;
       });
       return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(questionKey(item)))};
