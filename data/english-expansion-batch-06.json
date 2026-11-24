@@ -1,0 +1,2941 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 6,
+  "theme": "Core actions and everyday concepts",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "divide",
+      "part": "verb",
+      "phonetic": "/dɪˈvaɪd/",
+      "definition": "To separate something into parts or groups, or to share it among people.",
+      "definitionZh": "分开；划分；分配",
+      "examples": [
+        "We divided the work into three parts.",
+        "Please divide the cake equally."
+      ],
+      "tip": "Pay attention to the context in which “divide” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To separate something into parts or groups, or to share it among people.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To separate something into parts or groups, or to share it among people.",
+          "definitionZh": "分开；划分；分配",
+          "examples": [
+            "We divided the work into three parts.",
+            "Please divide the cake equally."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "doubt",
+      "part": "noun / verb",
+      "phonetic": "/daʊt/",
+      "definition": "A feeling of uncertainty about something; or to question whether something is true.",
+      "definitionZh": "怀疑；疑问；不确定",
+      "examples": [
+        "I have no doubt that she will succeed.",
+        "He began to doubt his decision."
+      ],
+      "tip": "Pay attention to the context in which “doubt” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A feeling of uncertainty about something; or to question whether something is true.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A feeling of uncertainty about something; or to question whether something is true.",
+          "definitionZh": "怀疑；疑问；不确定",
+          "examples": [
+            "I have no doubt that she will succeed.",
+            "He began to doubt his decision."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "earn",
+      "part": "verb",
+      "phonetic": "/ɜːrn/",
+      "definition": "To receive money or another reward in return for work or effort.",
+      "definitionZh": "赚得；挣得；赢得",
+      "examples": [
+        "She earns enough to support herself.",
+        "You must work hard to earn trust."
+      ],
+      "tip": "Pay attention to the context in which “earn” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To receive money or another reward in return for work or effort.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To receive money or another reward in return for work or effort.",
+          "definitionZh": "赚得；挣得；赢得",
+          "examples": [
+            "She earns enough to support herself.",
+            "You must work hard to earn trust."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "enjoy",
+      "part": "verb",
+      "phonetic": "/ɪnˈdʒɔɪ/",
+      "definition": "To get pleasure or satisfaction from something.",
+      "definitionZh": "享受；喜爱；从……中获得乐趣",
+      "examples": [
+        "I enjoy walking in the park.",
+        "Did you enjoy the film?"
+      ],
+      "tip": "Pay attention to the context in which “enjoy” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To get pleasure or satisfaction from something.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To get pleasure or satisfaction from something.",
+          "definitionZh": "享受；喜爱；从……中获得乐趣",
+          "examples": [
+            "I enjoy walking in the park.",
+            "Did you enjoy the film?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "enter",
+      "part": "verb",
+      "phonetic": "/ˈentər/",
+      "definition": "To go or come into a place; or to put information into a system.",
+      "definitionZh": "进入；参加；输入",
+      "examples": [
+        "Please enter the room quietly.",
+        "Enter your email address here."
+      ],
+      "tip": "Pay attention to the context in which “enter” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To go or come into a place; or to put information into a system.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To go or come into a place; or to put information into a system.",
+          "definitionZh": "进入；参加；输入",
+          "examples": [
+            "Please enter the room quietly.",
+            "Enter your email address here."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "escape",
+      "part": "verb / noun",
+      "phonetic": "/ɪˈskeɪp/",
+      "definition": "To get away from a place, person, or situation; or the act of getting away.",
+      "definitionZh": "逃脱；逃离；摆脱",
+      "examples": [
+        "The cat escaped through the open window.",
+        "They planned their escape at night."
+      ],
+      "tip": "Pay attention to the context in which “escape” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To get away from a place, person, or situation; or the act of getting away.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To get away from a place, person, or situation; or the act of getting away.",
+          "definitionZh": "逃脱；逃离；摆脱",
+          "examples": [
+            "The cat escaped through the open window.",
+            "They planned their escape at night."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "examine",
+      "part": "verb",
+      "phonetic": "/ɪɡˈzæmɪn/",
+      "definition": "To look at or test something carefully in order to understand or judge it.",
+      "definitionZh": "检查；审查；考查",
+      "examples": [
+        "The doctor examined my ankle.",
+        "Please examine the details before signing."
+      ],
+      "tip": "Pay attention to the context in which “examine” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To look at or test something carefully in order to understand or judge it.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To look at or test something carefully in order to understand or judge it.",
+          "definitionZh": "检查；审查；考查",
+          "examples": [
+            "The doctor examined my ankle.",
+            "Please examine the details before signing."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "exchange",
+      "part": "noun / verb",
+      "phonetic": "/ɪksˈtʃeɪndʒ/",
+      "definition": "The act of giving something and receiving something else; or to give one thing for another.",
+      "definitionZh": "交换；交流；兑换",
+      "examples": [
+        "We exchanged phone numbers.",
+        "The shop will exchange the shirt."
+      ],
+      "tip": "Pay attention to the context in which “exchange” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The act of giving something and receiving something else; or to give one thing for another.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The act of giving something and receiving something else; or to give one thing for another.",
+          "definitionZh": "交换；交流；兑换",
+          "examples": [
+            "We exchanged phone numbers.",
+            "The shop will exchange the shirt."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "exist",
+      "part": "verb",
+      "phonetic": "/ɪɡˈzɪst/",
+      "definition": "To be real or present; to have life or being.",
+      "definitionZh": "存在；生存",
+      "examples": [
+        "Do life forms exist on other planets?",
+        "The old building still exists."
+      ],
+      "tip": "Pay attention to the context in which “exist” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To be real or present; to have life or being.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To be real or present; to have life or being.",
+          "definitionZh": "存在；生存",
+          "examples": [
+            "Do life forms exist on other planets?",
+            "The old building still exists."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "explore",
+      "part": "verb",
+      "phonetic": "/ɪkˈsplɔːr/",
+      "definition": "To travel through or investigate a place or subject to learn more about it.",
+      "definitionZh": "探索；探究；考察",
+      "examples": [
+        "We explored the old town on foot.",
+        "The class will explore the causes of climate change."
+      ],
+      "tip": "Pay attention to the context in which “explore” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To travel through or investigate a place or subject to learn more about it.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To travel through or investigate a place or subject to learn more about it.",
+          "definitionZh": "探索；探究；考察",
+          "examples": [
+            "We explored the old town on foot.",
+            "The class will explore the causes of climate change."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fail",
+      "part": "verb / noun",
+      "phonetic": "/feɪl/",
+      "definition": "To be unsuccessful in doing something; or an unsuccessful result.",
+      "definitionZh": "失败；未能；不及格",
+      "examples": [
+        "The engine failed to start.",
+        "One mistake does not mean you have failed."
+      ],
+      "tip": "Pay attention to the context in which “fail” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To be unsuccessful in doing something; or an unsuccessful result.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To be unsuccessful in doing something; or an unsuccessful result.",
+          "definitionZh": "失败；未能；不及格",
+          "examples": [
+            "The engine failed to start.",
+            "One mistake does not mean you have failed."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fix",
+      "part": "verb / noun",
+      "phonetic": "/fɪks/",
+      "definition": "To repair something, make it work, or decide it firmly; a solution to a problem.",
+      "definitionZh": "修理；修复；确定；解决办法",
+      "examples": [
+        "Can you fix the broken chair?",
+        "We need to fix a date for the meeting."
+      ],
+      "tip": "Pay attention to the context in which “fix” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To repair something, make it work, or decide it firmly; a solution to a problem.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To repair something, make it work, or decide it firmly; a solution to a problem.",
+          "definitionZh": "修理；修复；确定；解决办法",
+          "examples": [
+            "Can you fix the broken chair?",
+            "We need to fix a date for the meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "guess",
+      "part": "verb / noun",
+      "phonetic": "/ɡes/",
+      "definition": "To give an answer without being certain; or an answer based on limited information.",
+      "definitionZh": "猜测；推测；猜想",
+      "examples": [
+        "Can you guess what is inside the box?",
+        "My guess was close to the correct answer."
+      ],
+      "tip": "Pay attention to the context in which “guess” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To give an answer without being certain; or an answer based on limited information.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To give an answer without being certain; or an answer based on limited information.",
+          "definitionZh": "猜测；推测；猜想",
+          "examples": [
+            "Can you guess what is inside the box?",
+            "My guess was close to the correct answer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "happen",
+      "part": "verb",
+      "phonetic": "/ˈhæpən/",
+      "definition": "To take place or occur, often without being planned.",
+      "definitionZh": "发生；出现",
+      "examples": [
+        "Accidents can happen at any time.",
+        "What happened after the meeting?"
+      ],
+      "tip": "Pay attention to the context in which “happen” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To take place or occur, often without being planned.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To take place or occur, often without being planned.",
+          "definitionZh": "发生；出现",
+          "examples": [
+            "Accidents can happen at any time.",
+            "What happened after the meeting?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hide",
+      "part": "verb",
+      "phonetic": "/haɪd/",
+      "definition": "To put something where it cannot be seen, or to keep something secret.",
+      "definitionZh": "隐藏；躲藏；隐瞒",
+      "examples": [
+        "The children hid behind the sofa.",
+        "He tried to hide his disappointment."
+      ],
+      "tip": "Pay attention to the context in which “hide” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To put something where it cannot be seen, or to keep something secret.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To put something where it cannot be seen, or to keep something secret.",
+          "definitionZh": "隐藏；躲藏；隐瞒",
+          "examples": [
+            "The children hid behind the sofa.",
+            "He tried to hide his disappointment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "influence",
+      "part": "noun / verb",
+      "phonetic": "/ˈɪnfluəns/",
+      "definition": "The power to affect a person or situation; or to have such an effect.",
+      "definitionZh": "影响；作用；影响力",
+      "examples": [
+        "Friends can have a strong influence on us.",
+        "Weather may influence our travel plans."
+      ],
+      "tip": "Pay attention to the context in which “influence” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The power to affect a person or situation; or to have such an effect.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The power to affect a person or situation; or to have such an effect.",
+          "definitionZh": "影响；作用；影响力",
+          "examples": [
+            "Friends can have a strong influence on us.",
+            "Weather may influence our travel plans."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "inform",
+      "part": "verb",
+      "phonetic": "/ɪnˈfɔːrm/",
+      "definition": "To give someone facts or details they need to know.",
+      "definitionZh": "通知；告知；报告",
+      "examples": [
+        "Please inform us of any changes.",
+        "The school informed parents about the event."
+      ],
+      "tip": "Pay attention to the context in which “inform” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To give someone facts or details they need to know.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To give someone facts or details they need to know.",
+          "definitionZh": "通知；告知；报告",
+          "examples": [
+            "Please inform us of any changes.",
+            "The school informed parents about the event."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "introduce",
+      "part": "verb",
+      "phonetic": "/ˌɪntrəˈduːs/",
+      "definition": "To tell people each other's names, present something for the first time, or bring something into use.",
+      "definitionZh": "介绍；引进；首次提出",
+      "examples": [
+        "Let me introduce my colleague.",
+        "The company will introduce a new service."
+      ],
+      "tip": "Pay attention to the context in which “introduce” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To tell people each other's names, present something for the first time, or bring something into use.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To tell people each other's names, present something for the first time, or bring something into use.",
+          "definitionZh": "介绍；引进；首次提出",
+          "examples": [
+            "Let me introduce my colleague.",
+            "The company will introduce a new service."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "invite",
+      "part": "verb",
+      "phonetic": "/ɪnˈvaɪt/",
+      "definition": "To ask someone to come to an event or to take part in something.",
+      "definitionZh": "邀请；请求参与",
+      "examples": [
+        "We invited our neighbours to dinner.",
+        "She invited me to join the team."
+      ],
+      "tip": "Pay attention to the context in which “invite” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To ask someone to come to an event or to take part in something.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To ask someone to come to an event or to take part in something.",
+          "definitionZh": "邀请；请求参与",
+          "examples": [
+            "We invited our neighbours to dinner.",
+            "She invited me to join the team."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "join",
+      "part": "verb",
+      "phonetic": "/dʒɔɪn/",
+      "definition": "To become part of a group or activity, or to connect things together.",
+      "definitionZh": "加入；参加；连接",
+      "examples": [
+        "Would you like to join our club?",
+        "Join the two pieces with glue."
+      ],
+      "tip": "Pay attention to the context in which “join” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To become part of a group or activity, or to connect things together.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To become part of a group or activity, or to connect things together.",
+          "definitionZh": "加入；参加；连接",
+          "examples": [
+            "Would you like to join our club?",
+            "Join the two pieces with glue."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "judge",
+      "part": "verb / noun",
+      "phonetic": "/dʒʌdʒ/",
+      "definition": "To form an opinion about someone or something; or a person who makes decisions in a court or competition.",
+      "definitionZh": "判断；评判；法官；裁判",
+      "examples": [
+        "Do not judge people by their appearance.",
+        "The judge listened to both sides."
+      ],
+      "tip": "Pay attention to the context in which “judge” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To form an opinion about someone or something; or a person who makes decisions in a court or competition.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To form an opinion about someone or something; or a person who makes decisions in a court or competition.",
+          "definitionZh": "判断；评判；法官；裁判",
+          "examples": [
+            "Do not judge people by their appearance.",
+            "The judge listened to both sides."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "kick",
+      "part": "verb / noun",
+      "phonetic": "/kɪk/",
+      "definition": "To hit or move something with your foot; or the action of doing so.",
+      "definitionZh": "踢；踹；一脚",
+      "examples": [
+        "He kicked the ball into the goal.",
+        "The child gave the door a gentle kick."
+      ],
+      "tip": "Pay attention to the context in which “kick” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To hit or move something with your foot; or the action of doing so.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To hit or move something with your foot; or the action of doing so.",
+          "definitionZh": "踢；踹；一脚",
+          "examples": [
+            "He kicked the ball into the goal.",
+            "The child gave the door a gentle kick."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "knock",
+      "part": "verb / noun",
+      "phonetic": "/nɑːk/",
+      "definition": "To hit a door or surface to make a sound; or the sound made by hitting it.",
+      "definitionZh": "敲；击；敲门声",
+      "examples": [
+        "Please knock before entering.",
+        "I heard a knock at the door."
+      ],
+      "tip": "Pay attention to the context in which “knock” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To hit a door or surface to make a sound; or the sound made by hitting it.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To hit a door or surface to make a sound; or the sound made by hitting it.",
+          "definitionZh": "敲；击；敲门声",
+          "examples": [
+            "Please knock before entering.",
+            "I heard a knock at the door."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lend",
+      "part": "verb",
+      "phonetic": "/lend/",
+      "definition": "To give something to someone for a period of time, expecting it to be returned.",
+      "definitionZh": "借出；借给",
+      "examples": [
+        "Could you lend me your pen?",
+        "The bank agreed to lend them money."
+      ],
+      "tip": "Pay attention to the context in which “lend” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To give something to someone for a period of time, expecting it to be returned.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To give something to someone for a period of time, expecting it to be returned.",
+          "definitionZh": "借出；借给",
+          "examples": [
+            "Could you lend me your pen?",
+            "The bank agreed to lend them money."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lift",
+      "part": "verb / noun",
+      "phonetic": "/lɪft/",
+      "definition": "To raise something to a higher position; or an act or device that raises people or things.",
+      "definitionZh": "举起；抬起；电梯；提升",
+      "examples": [
+        "Please lift the box carefully.",
+        "We took the lift to the fifth floor."
+      ],
+      "tip": "Pay attention to the context in which “lift” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To raise something to a higher position; or an act or device that raises people or things.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To raise something to a higher position; or an act or device that raises people or things.",
+          "definitionZh": "举起；抬起；电梯；提升",
+          "examples": [
+            "Please lift the box carefully.",
+            "We took the lift to the fifth floor."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "measure",
+      "part": "verb / noun",
+      "phonetic": "/ˈmeʒər/",
+      "definition": "To find the size, amount, or level of something; or a unit or action used for comparison.",
+      "definitionZh": "测量；衡量；措施；单位",
+      "examples": [
+        "Measure the table before buying a cover.",
+        "The government introduced safety measures."
+      ],
+      "tip": "Pay attention to the context in which “measure” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To find the size, amount, or level of something; or a unit or action used for comparison.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To find the size, amount, or level of something; or a unit or action used for comparison.",
+          "definitionZh": "测量；衡量；措施；单位",
+          "examples": [
+            "Measure the table before buying a cover.",
+            "The government introduced safety measures."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "offer",
+      "part": "verb / noun",
+      "phonetic": "/ˈɔːfər/",
+      "definition": "To say that you are willing to give or do something; or a proposal to do so.",
+      "definitionZh": "提供；主动给予；提议；报价",
+      "examples": [
+        "She offered to help us move.",
+        "The shop has a special offer today."
+      ],
+      "tip": "Pay attention to the context in which “offer” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To say that you are willing to give or do something; or a proposal to do so.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To say that you are willing to give or do something; or a proposal to do so.",
+          "definitionZh": "提供；主动给予；提议；报价",
+          "examples": [
+            "She offered to help us move.",
+            "The shop has a special offer today."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "promise",
+      "part": "noun / verb",
+      "phonetic": "/ˈprɑːmɪs/",
+      "definition": "A statement that you will do something; or to say that you will do it.",
+      "definitionZh": "承诺；保证；答应",
+      "examples": [
+        "He made a promise to call.",
+        "I promise I will be careful."
+      ],
+      "tip": "Pay attention to the context in which “promise” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A statement that you will do something; or to say that you will do it.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A statement that you will do something; or to say that you will do it.",
+          "definitionZh": "承诺；保证；答应",
+          "examples": [
+            "He made a promise to call.",
+            "I promise I will be careful."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "protect",
+      "part": "verb",
+      "phonetic": "/prəˈtekt/",
+      "definition": "To keep someone or something safe from harm, damage, or danger.",
+      "definitionZh": "保护；防护",
+      "examples": [
+        "Sunscreen helps protect your skin.",
+        "The law protects consumers."
+      ],
+      "tip": "Pay attention to the context in which “protect” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To keep someone or something safe from harm, damage, or danger.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To keep someone or something safe from harm, damage, or danger.",
+          "definitionZh": "保护；防护",
+          "examples": [
+            "Sunscreen helps protect your skin.",
+            "The law protects consumers."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "prove",
+      "part": "verb",
+      "phonetic": "/pruːv/",
+      "definition": "To show that something is true by using facts, evidence, or clear reasoning.",
+      "definitionZh": "证明；证实",
+      "examples": [
+        "The test results prove that the method works.",
+        "Can you prove your claim?"
+      ],
+      "tip": "Pay attention to the context in which “prove” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To show that something is true by using facts, evidence, or clear reasoning.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To show that something is true by using facts, evidence, or clear reasoning.",
+          "definitionZh": "证明；证实",
+          "examples": [
+            "The test results prove that the method works.",
+            "Can you prove your claim?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "publish",
+      "part": "verb",
+      "phonetic": "/ˈpʌblɪʃ/",
+      "definition": "To prepare and make written or digital material available to the public.",
+      "definitionZh": "出版；发表；发布",
+      "examples": [
+        "The author will publish a new book.",
+        "The results were published online."
+      ],
+      "tip": "Pay attention to the context in which “publish” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To prepare and make written or digital material available to the public.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To prepare and make written or digital material available to the public.",
+          "definitionZh": "出版；发表；发布",
+          "examples": [
+            "The author will publish a new book.",
+            "The results were published online."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pull",
+      "part": "verb / noun",
+      "phonetic": "/pʊl/",
+      "definition": "To use force to move something toward yourself; or the act of doing so.",
+      "definitionZh": "拉；拖；吸引力",
+      "examples": [
+        "Pull the door gently to open it.",
+        "Give the handle a firm pull."
+      ],
+      "tip": "Pay attention to the context in which “pull” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To use force to move something toward yourself; or the act of doing so.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To use force to move something toward yourself; or the act of doing so.",
+          "definitionZh": "拉；拖；吸引力",
+          "examples": [
+            "Pull the door gently to open it.",
+            "Give the handle a firm pull."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "push",
+      "part": "verb / noun",
+      "phonetic": "/pʊʃ/",
+      "definition": "To use force to move something away from yourself; or an effort to make progress.",
+      "definitionZh": "推；推动；努力",
+      "examples": [
+        "Push the button to start the machine.",
+        "The team made a final push to finish."
+      ],
+      "tip": "Pay attention to the context in which “push” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To use force to move something away from yourself; or an effort to make progress.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To use force to move something away from yourself; or an effort to make progress.",
+          "definitionZh": "推；推动；努力",
+          "examples": [
+            "Push the button to start the machine.",
+            "The team made a final push to finish."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "receive",
+      "part": "verb",
+      "phonetic": "/rɪˈsiːv/",
+      "definition": "To get or accept something that is given, sent, or offered.",
+      "definitionZh": "收到；接收；接待",
+      "examples": [
+        "I received your message this morning.",
+        "The winner will receive a certificate."
+      ],
+      "tip": "Pay attention to the context in which “receive” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To get or accept something that is given, sent, or offered.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To get or accept something that is given, sent, or offered.",
+          "definitionZh": "收到；接收；接待",
+          "examples": [
+            "I received your message this morning.",
+            "The winner will receive a certificate."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "reply",
+      "part": "verb / noun",
+      "phonetic": "/rɪˈplaɪ/",
+      "definition": "To answer someone by speaking, writing, or using a message; or the answer itself.",
+      "definitionZh": "回答；回复；答复",
+      "examples": [
+        "Please reply to my email by Friday.",
+        "I am still waiting for her reply."
+      ],
+      "tip": "Pay attention to the context in which “reply” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To answer someone by speaking, writing, or using a message; or the answer itself.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To answer someone by speaking, writing, or using a message; or the answer itself.",
+          "definitionZh": "回答；回复；答复",
+          "examples": [
+            "Please reply to my email by Friday.",
+            "I am still waiting for her reply."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "report",
+      "part": "noun / verb",
+      "phonetic": "/rɪˈpɔːrt/",
+      "definition": "A spoken or written account of information; or to give information about an event or situation.",
+      "definitionZh": "报告；报道；汇报",
+      "examples": [
+        "She wrote a report about the trip.",
+        "Please report any damage to the manager."
+      ],
+      "tip": "Pay attention to the context in which “report” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A spoken or written account of information; or to give information about an event or situation.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A spoken or written account of information; or to give information about an event or situation.",
+          "definitionZh": "报告；报道；汇报",
+          "examples": [
+            "She wrote a report about the trip.",
+            "Please report any damage to the manager."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "rescue",
+      "part": "verb / noun",
+      "phonetic": "/ˈreskjuː/",
+      "definition": "To save someone or something from danger; or the act of saving them.",
+      "definitionZh": "营救；救援；救助",
+      "examples": [
+        "Firefighters rescued the family.",
+        "The rescue took several hours."
+      ],
+      "tip": "Pay attention to the context in which “rescue” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To save someone or something from danger; or the act of saving them.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To save someone or something from danger; or the act of saving them.",
+          "definitionZh": "营救；救援；救助",
+          "examples": [
+            "Firefighters rescued the family.",
+            "The rescue took several hours."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "return",
+      "part": "verb / noun",
+      "phonetic": "/rɪˈtɜːrn/",
+      "definition": "To go or come back to a place, or to give something back; the act of coming back.",
+      "definitionZh": "返回；归还；回报",
+      "examples": [
+        "Please return the books next week.",
+        "She returned home after work."
+      ],
+      "tip": "Pay attention to the context in which “return” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To go or come back to a place, or to give something back; the act of coming back.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To go or come back to a place, or to give something back; the act of coming back.",
+          "definitionZh": "返回；归还；回报",
+          "examples": [
+            "Please return the books next week.",
+            "She returned home after work."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "review",
+      "part": "noun / verb",
+      "phonetic": "/rɪˈvjuː/",
+      "definition": "A careful look at something to assess it; or to examine it again.",
+      "definitionZh": "评论；评审；复习；审查",
+      "examples": [
+        "I read a review before buying the phone.",
+        "Let's review the main points."
+      ],
+      "tip": "Pay attention to the context in which “review” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A careful look at something to assess it; or to examine it again.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A careful look at something to assess it; or to examine it again.",
+          "definitionZh": "评论；评审；复习；审查",
+          "examples": [
+            "I read a review before buying the phone.",
+            "Let's review the main points."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "save",
+      "part": "verb",
+      "phonetic": "/seɪv/",
+      "definition": "To keep something for future use, prevent loss, or rescue someone from danger.",
+      "definitionZh": "保存；节省；拯救",
+      "examples": [
+        "Remember to save your work.",
+        "The lifeguard saved the swimmer."
+      ],
+      "tip": "Pay attention to the context in which “save” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To keep something for future use, prevent loss, or rescue someone from danger.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To keep something for future use, prevent loss, or rescue someone from danger.",
+          "definitionZh": "保存；节省；拯救",
+          "examples": [
+            "Remember to save your work.",
+            "The lifeguard saved the swimmer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "search",
+      "part": "noun / verb",
+      "phonetic": "/sɜːrtʃ/",
+      "definition": "An attempt to find someone or something; or to look carefully for it.",
+      "definitionZh": "搜索；搜寻；寻找",
+      "examples": [
+        "The police began a search of the area.",
+        "Search the website for more information."
+      ],
+      "tip": "Pay attention to the context in which “search” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "An attempt to find someone or something; or to look carefully for it.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An attempt to find someone or something; or to look carefully for it.",
+          "definitionZh": "搜索；搜寻；寻找",
+          "examples": [
+            "The police began a search of the area.",
+            "Search the website for more information."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "select",
+      "part": "verb",
+      "phonetic": "/sɪˈlekt/",
+      "definition": "To choose someone or something from a group.",
+      "definitionZh": "选择；挑选；选拔",
+      "examples": [
+        "Select your preferred language.",
+        "The coach selected five players."
+      ],
+      "tip": "Pay attention to the context in which “select” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To choose someone or something from a group.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To choose someone or something from a group.",
+          "definitionZh": "选择；挑选；选拔",
+          "examples": [
+            "Select your preferred language.",
+            "The coach selected five players."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "share",
+      "part": "verb / noun",
+      "phonetic": "/ʃer/",
+      "definition": "To use, have, or give something together with others; or one part of something divided among people.",
+      "definitionZh": "分享；共用；份额",
+      "examples": [
+        "We share the same office.",
+        "Please share your ideas with the group."
+      ],
+      "tip": "Pay attention to the context in which “share” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To use, have, or give something together with others; or one part of something divided among people.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To use, have, or give something together with others; or one part of something divided among people.",
+          "definitionZh": "分享；共用；份额",
+          "examples": [
+            "We share the same office.",
+            "Please share your ideas with the group."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "solve",
+      "part": "verb",
+      "phonetic": "/sɑːlv/",
+      "definition": "To find an answer to a problem or explain something difficult.",
+      "definitionZh": "解决；解答",
+      "examples": [
+        "We worked together to solve the puzzle.",
+        "The team solved the problem quickly."
+      ],
+      "tip": "Pay attention to the context in which “solve” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To find an answer to a problem or explain something difficult.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To find an answer to a problem or explain something difficult.",
+          "definitionZh": "解决；解答",
+          "examples": [
+            "We worked together to solve the puzzle.",
+            "The team solved the problem quickly."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "survive",
+      "part": "verb",
+      "phonetic": "/sərˈvaɪv/",
+      "definition": "To stay alive or continue to exist despite danger, difficulty, or change.",
+      "definitionZh": "幸存；生存；继续存在",
+      "examples": [
+        "Few plants survive in this dry soil.",
+        "The business survived a difficult year."
+      ],
+      "tip": "Pay attention to the context in which “survive” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To stay alive or continue to exist despite danger, difficulty, or change.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To stay alive or continue to exist despite danger, difficulty, or change.",
+          "definitionZh": "幸存；生存；继续存在",
+          "examples": [
+            "Few plants survive in this dry soil.",
+            "The business survived a difficult year."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "throw",
+      "part": "verb / noun",
+      "phonetic": "/θroʊ/",
+      "definition": "To send something through the air using your hand; or the act of doing so.",
+      "definitionZh": "投；扔；抛；投掷",
+      "examples": [
+        "Throw the ball to me.",
+        "He made a long throw across the field."
+      ],
+      "tip": "Pay attention to the context in which “throw” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To send something through the air using your hand; or the act of doing so.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To send something through the air using your hand; or the act of doing so.",
+          "definitionZh": "投；扔；抛；投掷",
+          "examples": [
+            "Throw the ball to me.",
+            "He made a long throw across the field."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "volunteer",
+      "part": "noun / verb",
+      "phonetic": "/ˌvɑːlənˈtɪr/",
+      "definition": "A person who freely offers to do something without being paid; or to offer to do it.",
+      "definitionZh": "志愿者；自愿做；主动提出",
+      "examples": [
+        "A volunteer helped at the event.",
+        "She volunteered to lead the group."
+      ],
+      "tip": "Pay attention to the context in which “volunteer” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A person who freely offers to do something without being paid; or to offer to do it.",
+      "related": "",
+      "categories": [
+        "Actions",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who freely offers to do something without being paid; or to offer to do it.",
+          "definitionZh": "志愿者；自愿做；主动提出",
+          "examples": [
+            "A volunteer helped at the event.",
+            "She volunteered to lead the group."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "vote",
+      "part": "noun / verb",
+      "phonetic": "/voʊt/",
+      "definition": "A choice made in an election or decision; or to express that choice formally.",
+      "definitionZh": "投票；选举；选票",
+      "examples": [
+        "Every member has the right to vote.",
+        "The final vote takes place tomorrow."
+      ],
+      "tip": "Pay attention to the context in which “vote” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A choice made in an election or decision; or to express that choice formally.",
+      "related": "",
+      "categories": [
+        "Actions",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A choice made in an election or decision; or to express that choice formally.",
+          "definitionZh": "投票；选举；选票",
+          "examples": [
+            "Every member has the right to vote.",
+            "The final vote takes place tomorrow."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "warn",
+      "part": "verb",
+      "phonetic": "/wɔːrn/",
+      "definition": "To tell someone about a possible danger or problem so they can be careful.",
+      "definitionZh": "警告；提醒；预先通知",
+      "examples": [
+        "The sign warns drivers about the sharp turn.",
+        "I warned him not to touch the wire."
+      ],
+      "tip": "Pay attention to the context in which “warn” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To tell someone about a possible danger or problem so they can be careful.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To tell someone about a possible danger or problem so they can be careful.",
+          "definitionZh": "警告；提醒；预先通知",
+          "examples": [
+            "The sign warns drivers about the sharp turn.",
+            "I warned him not to touch the wire."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "waste",
+      "part": "noun / verb",
+      "phonetic": "/weɪst/",
+      "definition": "To use more time, money, or material than necessary; or something that is not used effectively.",
+      "definitionZh": "浪费；废弃物；无用之物",
+      "examples": [
+        "Do not waste clean water.",
+        "Food waste is a serious problem."
+      ],
+      "tip": "Pay attention to the context in which “waste” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To use more time, money, or material than necessary; or something that is not used effectively.",
+      "related": "",
+      "categories": [
+        "Actions",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "To use more time, money, or material than necessary; or something that is not used effectively.",
+          "definitionZh": "浪费；废弃物；无用之物",
+          "examples": [
+            "Do not waste clean water.",
+            "Food waste is a serious problem."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "worry",
+      "part": "verb / noun",
+      "phonetic": "/ˈwɜːri/",
+      "definition": "To feel anxious about something; or a feeling of anxiety.",
+      "definitionZh": "担心；忧虑；烦恼",
+      "examples": [
+        "Try not to worry about the result.",
+        "Money is a constant worry for him."
+      ],
+      "tip": "Pay attention to the context in which “worry” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "To feel anxious about something; or a feeling of anxiety.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To feel anxious about something; or a feeling of anxiety.",
+          "definitionZh": "担心；忧虑；烦恼",
+          "examples": [
+            "Try not to worry about the result.",
+            "Money is a constant worry for him."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "business",
+      "part": "noun",
+      "phonetic": "/ˈbɪznəs/",
+      "definition": "An organisation that sells goods or services, or the activity of buying and selling for profit.",
+      "definitionZh": "企业；生意；商业；事务",
+      "examples": [
+        "She runs a small business.",
+        "Business was slow during the holiday."
+      ],
+      "tip": "Pay attention to the context in which “business” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "An organisation that sells goods or services, or the activity of buying and selling for profit.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An organisation that sells goods or services, or the activity of buying and selling for profit.",
+          "definitionZh": "企业；生意；商业；事务",
+          "examples": [
+            "She runs a small business.",
+            "Business was slow during the holiday."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cost",
+      "part": "noun / verb",
+      "phonetic": "/kɔːst/",
+      "definition": "The amount of money needed to buy or do something; or to require that amount.",
+      "definitionZh": "费用；成本；花费",
+      "examples": [
+        "The cost of travel has increased.",
+        "How much does the repair cost?"
+      ],
+      "tip": "Pay attention to the context in which “cost” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The amount of money needed to buy or do something; or to require that amount.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The amount of money needed to buy or do something; or to require that amount.",
+          "definitionZh": "费用；成本；花费",
+          "examples": [
+            "The cost of travel has increased.",
+            "How much does the repair cost?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "country",
+      "part": "noun",
+      "phonetic": "/ˈkʌntri/",
+      "definition": "An area of land with its own government, people, and borders; or land outside towns and cities.",
+      "definitionZh": "国家；乡村；农村地区",
+      "examples": [
+        "Malaysia is a country in Southeast Asia.",
+        "They moved from the city to the country."
+      ],
+      "tip": "Pay attention to the context in which “country” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "An area of land with its own government, people, and borders; or land outside towns and cities.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An area of land with its own government, people, and borders; or land outside towns and cities.",
+          "definitionZh": "国家；乡村；农村地区",
+          "examples": [
+            "Malaysia is a country in Southeast Asia.",
+            "They moved from the city to the country."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "course",
+      "part": "noun",
+      "phonetic": "/kɔːrs/",
+      "definition": "A series of lessons on a subject, a direction of movement, or one part of a meal.",
+      "definitionZh": "课程；过程；路线；一道菜",
+      "examples": [
+        "I signed up for an English course.",
+        "The main course arrived late."
+      ],
+      "tip": "Pay attention to the context in which “course” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A series of lessons on a subject, a direction of movement, or one part of a meal.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A series of lessons on a subject, a direction of movement, or one part of a meal.",
+          "definitionZh": "课程；过程；路线；一道菜",
+          "examples": [
+            "I signed up for an English course.",
+            "The main course arrived late."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "culture",
+      "part": "noun",
+      "phonetic": "/ˈkʌltʃər/",
+      "definition": "The shared customs, beliefs, arts, and way of life of a group or society.",
+      "definitionZh": "文化；文明；修养",
+      "examples": [
+        "Food is an important part of culture.",
+        "The museum celebrates local culture."
+      ],
+      "tip": "Pay attention to the context in which “culture” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The shared customs, beliefs, arts, and way of life of a group or society.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The shared customs, beliefs, arts, and way of life of a group or society.",
+          "definitionZh": "文化；文明；修养",
+          "examples": [
+            "Food is an important part of culture.",
+            "The museum celebrates local culture."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "customer",
+      "part": "noun",
+      "phonetic": "/ˈkʌstəmər/",
+      "definition": "A person or organisation that buys goods or services from a business.",
+      "definitionZh": "顾客；客户",
+      "examples": [
+        "The customer asked for a receipt.",
+        "Good service keeps customers coming back."
+      ],
+      "tip": "Pay attention to the context in which “customer” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A person or organisation that buys goods or services from a business.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person or organisation that buys goods or services from a business.",
+          "definitionZh": "顾客；客户",
+          "examples": [
+            "The customer asked for a receipt.",
+            "Good service keeps customers coming back."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "direction",
+      "part": "noun",
+      "phonetic": "/dəˈrekʃən/",
+      "definition": "The way in which someone or something moves or faces; or instructions about where to go.",
+      "definitionZh": "方向；方位；指示；说明",
+      "examples": [
+        "Which direction is the station?",
+        "Follow the directions on the label."
+      ],
+      "tip": "Pay attention to the context in which “direction” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The way in which someone or something moves or faces; or instructions about where to go.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The way in which someone or something moves or faces; or instructions about where to go.",
+          "definitionZh": "方向；方位；指示；说明",
+          "examples": [
+            "Which direction is the station?",
+            "Follow the directions on the label."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "effect",
+      "part": "noun",
+      "phonetic": "/ɪˈfekt/",
+      "definition": "A change or result caused by an action, event, or condition.",
+      "definitionZh": "影响；效果；结果",
+      "examples": [
+        "The medicine had a positive effect.",
+        "We studied the effects of air pollution."
+      ],
+      "tip": "Pay attention to the context in which “effect” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A change or result caused by an action, event, or condition.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A change or result caused by an action, event, or condition.",
+          "definitionZh": "影响；效果；结果",
+          "examples": [
+            "The medicine had a positive effect.",
+            "We studied the effects of air pollution."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "end",
+      "part": "noun / verb",
+      "phonetic": "/end/",
+      "definition": "The final part or point of something; or to bring something to a finish.",
+      "definitionZh": "结束；末端；终点",
+      "examples": [
+        "We walked to the end of the road.",
+        "The meeting will end at noon."
+      ],
+      "tip": "Pay attention to the context in which “end” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The final part or point of something; or to bring something to a finish.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The final part or point of something; or to bring something to a finish.",
+          "definitionZh": "结束；末端；终点",
+          "examples": [
+            "We walked to the end of the road.",
+            "The meeting will end at noon."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "event",
+      "part": "noun",
+      "phonetic": "/ɪˈvent/",
+      "definition": "Something that happens, especially something planned or important; or a public activity.",
+      "definitionZh": "事件；活动；赛事",
+      "examples": [
+        "The school organised a sports event.",
+        "It was an important event in her life."
+      ],
+      "tip": "Pay attention to the context in which “event” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "Something that happens, especially something planned or important; or a public activity.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Something that happens, especially something planned or important; or a public activity.",
+          "definitionZh": "事件；活动；赛事",
+          "examples": [
+            "The school organised a sports event.",
+            "It was an important event in her life."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "example",
+      "part": "noun",
+      "phonetic": "/ɪɡˈzæmpəl/",
+      "definition": "A person or thing that shows what something is like or how it works.",
+      "definitionZh": "例子；实例；榜样",
+      "examples": [
+        "Can you give me an example?",
+        "Her actions set a good example."
+      ],
+      "tip": "Pay attention to the context in which “example” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A person or thing that shows what something is like or how it works.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person or thing that shows what something is like or how it works.",
+          "definitionZh": "例子；实例；榜样",
+          "examples": [
+            "Can you give me an example?",
+            "Her actions set a good example."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fact",
+      "part": "noun",
+      "phonetic": "/fækt/",
+      "definition": "Something that is known or proven to be true.",
+      "definitionZh": "事实；真相",
+      "examples": [
+        "It is a fact that water freezes at low temperatures.",
+        "Check the facts before sharing the story."
+      ],
+      "tip": "Pay attention to the context in which “fact” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "Something that is known or proven to be true.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Something that is known or proven to be true.",
+          "definitionZh": "事实；真相",
+          "examples": [
+            "It is a fact that water freezes at low temperatures.",
+            "Check the facts before sharing the story."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "family",
+      "part": "noun / adjective",
+      "phonetic": "/ˈfæməli/",
+      "definition": "A group of people related by birth, marriage, or close bonds; or intended for families.",
+      "definitionZh": "家庭；家人；家族；适合家庭的",
+      "examples": [
+        "My family meets every Sunday.",
+        "This is a family restaurant."
+      ],
+      "tip": "Pay attention to the context in which “family” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A group of people related by birth, marriage, or close bonds; or intended for families.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A group of people related by birth, marriage, or close bonds; or intended for families.",
+          "definitionZh": "家庭；家人；家族；适合家庭的",
+          "examples": [
+            "My family meets every Sunday.",
+            "This is a family restaurant."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "feature",
+      "part": "noun / verb",
+      "phonetic": "/ˈfiːtʃər/",
+      "definition": "An important or noticeable part of something; or to include someone or something as a main part.",
+      "definitionZh": "特征；特点；特色；以……为特色",
+      "examples": [
+        "The phone has a useful safety feature.",
+        "The programme features local artists."
+      ],
+      "tip": "Pay attention to the context in which “feature” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "An important or noticeable part of something; or to include someone or something as a main part.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An important or noticeable part of something; or to include someone or something as a main part.",
+          "definitionZh": "特征；特点；特色；以……为特色",
+          "examples": [
+            "The phone has a useful safety feature.",
+            "The programme features local artists."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "field",
+      "part": "noun",
+      "phonetic": "/fiːld/",
+      "definition": "An open area of land, often used for farming or sport; or an area of study or work.",
+      "definitionZh": "田地；场地；领域；专业",
+      "examples": [
+        "The children played in the field.",
+        "She works in the field of education."
+      ],
+      "tip": "Pay attention to the context in which “field” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "An open area of land, often used for farming or sport; or an area of study or work.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An open area of land, often used for farming or sport; or an area of study or work.",
+          "definitionZh": "田地；场地；领域；专业",
+          "examples": [
+            "The children played in the field.",
+            "She works in the field of education."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "figure",
+      "part": "noun / verb",
+      "phonetic": "/ˈfɪɡjər/",
+      "definition": "A number or amount, a person's shape, or a person of importance; also to calculate or understand.",
+      "definitionZh": "数字；金额；人物；身形；认为",
+      "examples": [
+        "The latest figures show an increase.",
+        "I cannot figure out how the device works."
+      ],
+      "tip": "Pay attention to the context in which “figure” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A number or amount, a person's shape, or a person of importance; also to calculate or understand.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A number or amount, a person's shape, or a person of importance; also to calculate or understand.",
+          "definitionZh": "数字；金额；人物；身形；认为",
+          "examples": [
+            "The latest figures show an increase.",
+            "I cannot figure out how the device works."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "food",
+      "part": "noun",
+      "phonetic": "/fuːd/",
+      "definition": "Things that people or animals eat to live and grow.",
+      "definitionZh": "食物；食品",
+      "examples": [
+        "Fresh food is available at the market.",
+        "The children prepared food together."
+      ],
+      "tip": "Pay attention to the context in which “food” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "Things that people or animals eat to live and grow.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Things that people or animals eat to live and grow.",
+          "definitionZh": "食物；食品",
+          "examples": [
+            "Fresh food is available at the market.",
+            "The children prepared food together."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "form",
+      "part": "noun / verb",
+      "phonetic": "/fɔːrm/",
+      "definition": "The shape or structure of something, a document to complete, or to create or develop something.",
+      "definitionZh": "形式；形状；表格；形成",
+      "examples": [
+        "Please fill in this form.",
+        "Clouds began to form over the hills."
+      ],
+      "tip": "Pay attention to the context in which “form” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The shape or structure of something, a document to complete, or to create or develop something.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The shape or structure of something, a document to complete, or to create or develop something.",
+          "definitionZh": "形式；形状；表格；形成",
+          "examples": [
+            "Please fill in this form.",
+            "Clouds began to form over the hills."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "front",
+      "part": "noun / adjective",
+      "phonetic": "/frʌnt/",
+      "definition": "The part or side that faces forward or is most visible; or located at the forward part.",
+      "definitionZh": "前面；正面；前部的",
+      "examples": [
+        "Wait for me at the front of the building.",
+        "The front door was open."
+      ],
+      "tip": "Pay attention to the context in which “front” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The part or side that faces forward or is most visible; or located at the forward part.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The part or side that faces forward or is most visible; or located at the forward part.",
+          "definitionZh": "前面；正面；前部的",
+          "examples": [
+            "Wait for me at the front of the building.",
+            "The front door was open."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "future",
+      "part": "noun / adjective",
+      "phonetic": "/ˈfjuːtʃər/",
+      "definition": "The time that is yet to come; or relating to that time.",
+      "definitionZh": "未来；将来；未来的",
+      "examples": [
+        "We are planning for the future.",
+        "She hopes to study abroad in the future."
+      ],
+      "tip": "Pay attention to the context in which “future” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The time that is yet to come; or relating to that time.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The time that is yet to come; or relating to that time.",
+          "definitionZh": "未来；将来；未来的",
+          "examples": [
+            "We are planning for the future.",
+            "She hopes to study abroad in the future."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grade",
+      "part": "noun / verb",
+      "phonetic": "/ɡreɪd/",
+      "definition": "A level or mark showing quality or achievement; or to assess and assign such a level.",
+      "definitionZh": "等级；成绩；年级；评分",
+      "examples": [
+        "He received a high grade in science.",
+        "The teacher will grade the essays."
+      ],
+      "tip": "Pay attention to the context in which “grade” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A level or mark showing quality or achievement; or to assess and assign such a level.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A level or mark showing quality or achievement; or to assess and assign such a level.",
+          "definitionZh": "等级；成绩；年级；评分",
+          "examples": [
+            "He received a high grade in science.",
+            "The teacher will grade the essays."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ground",
+      "part": "noun / verb",
+      "phonetic": "/ɡraʊnd/",
+      "definition": "The surface of the earth; a reason or basis for something; or to place something on the ground.",
+      "definitionZh": "地面；土地；理由；基础",
+      "examples": [
+        "The ground was wet after the rain.",
+        "There are good grounds for concern."
+      ],
+      "tip": "Pay attention to the context in which “ground” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The surface of the earth; a reason or basis for something; or to place something on the ground.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The surface of the earth; a reason or basis for something; or to place something on the ground.",
+          "definitionZh": "地面；土地；理由；基础",
+          "examples": [
+            "The ground was wet after the rain.",
+            "There are good grounds for concern."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "group",
+      "part": "noun / verb",
+      "phonetic": "/ɡruːp/",
+      "definition": "A number of people or things considered together; or to put them together.",
+      "definitionZh": "群体；组；团体；分组",
+      "examples": [
+        "Our group finished the project early.",
+        "Group the words by meaning."
+      ],
+      "tip": "Pay attention to the context in which “group” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A number of people or things considered together; or to put them together.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A number of people or things considered together; or to put them together.",
+          "definitionZh": "群体；组；团体；分组",
+          "examples": [
+            "Our group finished the project early.",
+            "Group the words by meaning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "growth",
+      "part": "noun",
+      "phonetic": "/ɡroʊθ/",
+      "definition": "The process of becoming larger, developing, or increasing in amount or importance.",
+      "definitionZh": "成长；生长；增长；发展",
+      "examples": [
+        "The plant's growth slowed in winter.",
+        "The company reported strong growth."
+      ],
+      "tip": "Pay attention to the context in which “growth” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The process of becoming larger, developing, or increasing in amount or importance.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The process of becoming larger, developing, or increasing in amount or importance.",
+          "definitionZh": "成长；生长；增长；发展",
+          "examples": [
+            "The plant's growth slowed in winter.",
+            "The company reported strong growth."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "half",
+      "part": "noun / adjective / adverb",
+      "phonetic": "/hæf/",
+      "definition": "One of two equal parts of something; or an amount equal to one of those parts.",
+      "definitionZh": "一半；半个；一半的",
+      "examples": [
+        "I ate half of the sandwich.",
+        "The journey took half an hour."
+      ],
+      "tip": "Pay attention to the context in which “half” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "One of two equal parts of something; or an amount equal to one of those parts.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of two equal parts of something; or an amount equal to one of those parts.",
+          "definitionZh": "一半；半个；一半的",
+          "examples": [
+            "I ate half of the sandwich.",
+            "The journey took half an hour."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "history",
+      "part": "noun",
+      "phonetic": "/ˈhɪstəri/",
+      "definition": "The study or record of past events, especially those involving people and societies.",
+      "definitionZh": "历史；历史学；经历",
+      "examples": [
+        "We learned about the history of the city.",
+        "The building has a long history."
+      ],
+      "tip": "Pay attention to the context in which “history” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The study or record of past events, especially those involving people and societies.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The study or record of past events, especially those involving people and societies.",
+          "definitionZh": "历史；历史学；经历",
+          "examples": [
+            "We learned about the history of the city.",
+            "The building has a long history."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "idea",
+      "part": "noun",
+      "phonetic": "/aɪˈdiːə/",
+      "definition": "A thought, plan, or suggestion formed in the mind.",
+      "definitionZh": "想法；主意；概念",
+      "examples": [
+        "That is a great idea.",
+        "She has an idea for a new project."
+      ],
+      "tip": "Pay attention to the context in which “idea” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A thought, plan, or suggestion formed in the mind.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A thought, plan, or suggestion formed in the mind.",
+          "definitionZh": "想法；主意；概念",
+          "examples": [
+            "That is a great idea.",
+            "She has an idea for a new project."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "information",
+      "part": "noun",
+      "phonetic": "/ˌɪnfərˈmeɪʃən/",
+      "definition": "Facts or details that help someone understand something or make a decision.",
+      "definitionZh": "信息；资料；情报",
+      "examples": [
+        "The website provides useful information.",
+        "Please keep this information private."
+      ],
+      "tip": "Pay attention to the context in which “information” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "Facts or details that help someone understand something or make a decision.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Facts or details that help someone understand something or make a decision.",
+          "definitionZh": "信息；资料；情报",
+          "examples": [
+            "The website provides useful information.",
+            "Please keep this information private."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "item",
+      "part": "noun",
+      "phonetic": "/ˈaɪtəm/",
+      "definition": "A single thing in a list, group, or collection, especially one for sale or discussion.",
+      "definitionZh": "项目；物品；条目",
+      "examples": [
+        "Each item has a price label.",
+        "Choose one item from the list."
+      ],
+      "tip": "Pay attention to the context in which “item” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A single thing in a list, group, or collection, especially one for sale or discussion.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A single thing in a list, group, or collection, especially one for sale or discussion.",
+          "definitionZh": "项目；物品；条目",
+          "examples": [
+            "Each item has a price label.",
+            "Choose one item from the list."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "level",
+      "part": "noun / adjective / verb",
+      "phonetic": "/ˈlevəl/",
+      "definition": "A position or amount on a scale; a floor or stage; or to make something flat or equal.",
+      "definitionZh": "水平；等级；层次；使平整",
+      "examples": [
+        "The water level is rising.",
+        "This course is suitable for your level."
+      ],
+      "tip": "Pay attention to the context in which “level” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A position or amount on a scale; a floor or stage; or to make something flat or equal.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A position or amount on a scale; a floor or stage; or to make something flat or equal.",
+          "definitionZh": "水平；等级；层次；使平整",
+          "examples": [
+            "The water level is rising.",
+            "This course is suitable for your level."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "life",
+      "part": "noun",
+      "phonetic": "/laɪf/",
+      "definition": "The condition of being alive, the period during which someone lives, or the experiences of living.",
+      "definitionZh": "生命；生活；人生",
+      "examples": [
+        "Plant life depends on water and light.",
+        "She enjoys life in the city."
+      ],
+      "tip": "Pay attention to the context in which “life” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The condition of being alive, the period during which someone lives, or the experiences of living.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The condition of being alive, the period during which someone lives, or the experiences of living.",
+          "definitionZh": "生命；生活；人生",
+          "examples": [
+            "Plant life depends on water and light.",
+            "She enjoys life in the city."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "line",
+      "part": "noun / verb",
+      "phonetic": "/laɪn/",
+      "definition": "A long, narrow mark or shape; a row of people or things; or to form a row along something.",
+      "definitionZh": "线；线条；队伍；台词",
+      "examples": [
+        "Draw a straight line across the page.",
+        "We waited in line for tickets."
+      ],
+      "tip": "Pay attention to the context in which “line” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A long, narrow mark or shape; a row of people or things; or to form a row along something.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A long, narrow mark or shape; a row of people or things; or to form a row along something.",
+          "definitionZh": "线；线条；队伍；台词",
+          "examples": [
+            "Draw a straight line across the page.",
+            "We waited in line for tickets."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "list",
+      "part": "noun / verb",
+      "phonetic": "/lɪst/",
+      "definition": "A set of names, items, or details written one after another; or to write them down.",
+      "definitionZh": "清单；目录；列出",
+      "examples": [
+        "I made a shopping list.",
+        "Please list your main reasons."
+      ],
+      "tip": "Pay attention to the context in which “list” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A set of names, items, or details written one after another; or to write them down.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A set of names, items, or details written one after another; or to write them down.",
+          "definitionZh": "清单；目录；列出",
+          "examples": [
+            "I made a shopping list.",
+            "Please list your main reasons."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "location",
+      "part": "noun",
+      "phonetic": "/loʊˈkeɪʃən/",
+      "definition": "A particular place or position where someone or something is, or where an event happens.",
+      "definitionZh": "地点；位置；定位",
+      "examples": [
+        "The app can share your location.",
+        "They chose a quiet location for the event."
+      ],
+      "tip": "Pay attention to the context in which “location” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A particular place or position where someone or something is, or where an event happens.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A particular place or position where someone or something is, or where an event happens.",
+          "definitionZh": "地点；位置；定位",
+          "examples": [
+            "The app can share your location.",
+            "They chose a quiet location for the event."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "loss",
+      "part": "noun",
+      "phonetic": "/lɔːs/",
+      "definition": "The fact of no longer having something, or the amount by which something decreases.",
+      "definitionZh": "失去；损失；亏损",
+      "examples": [
+        "The loss of power stopped the machine.",
+        "The company reported a financial loss."
+      ],
+      "tip": "Pay attention to the context in which “loss” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The fact of no longer having something, or the amount by which something decreases.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The fact of no longer having something, or the amount by which something decreases.",
+          "definitionZh": "失去；损失；亏损",
+          "examples": [
+            "The loss of power stopped the machine.",
+            "The company reported a financial loss."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "luck",
+      "part": "noun",
+      "phonetic": "/lʌk/",
+      "definition": "Good or bad things that happen by chance rather than through planning or effort.",
+      "definitionZh": "运气；幸运；机遇",
+      "examples": [
+        "Good luck with your exam.",
+        "We had bad luck with the weather."
+      ],
+      "tip": "Pay attention to the context in which “luck” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "Good or bad things that happen by chance rather than through planning or effort.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Good or bad things that happen by chance rather than through planning or effort.",
+          "definitionZh": "运气；幸运；机遇",
+          "examples": [
+            "Good luck with your exam.",
+            "We had bad luck with the weather."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "main",
+      "part": "adjective / noun",
+      "phonetic": "/meɪn/",
+      "definition": "The most important or largest part of something; the principal part.",
+      "definitionZh": "主要的；最重要的；主干",
+      "examples": [
+        "The main entrance is on the left.",
+        "Our main concern is safety."
+      ],
+      "tip": "Pay attention to the context in which “main” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The most important or largest part of something; the principal part.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "The most important or largest part of something; the principal part.",
+          "definitionZh": "主要的；最重要的；主干",
+          "examples": [
+            "The main entrance is on the left.",
+            "Our main concern is safety."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "material",
+      "part": "noun / adjective",
+      "phonetic": "/məˈtɪriəl/",
+      "definition": "A substance used to make things, or information and resources used for a purpose; relating to physical things.",
+      "definitionZh": "材料；原料；资料；物质的",
+      "examples": [
+        "Wood is a common building material.",
+        "The teacher prepared reading material."
+      ],
+      "tip": "Pay attention to the context in which “material” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A substance used to make things, or information and resources used for a purpose; relating to physical things.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A substance used to make things, or information and resources used for a purpose; relating to physical things.",
+          "definitionZh": "材料；原料；资料；物质的",
+          "examples": [
+            "Wood is a common building material.",
+            "The teacher prepared reading material."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "matter",
+      "part": "noun / verb",
+      "phonetic": "/ˈmætər/",
+      "definition": "A subject or situation to consider; physical substance; or to be important.",
+      "definitionZh": "事情；问题；物质；要紧",
+      "examples": [
+        "We need to discuss an important matter.",
+        "Your opinion matters to us."
+      ],
+      "tip": "Pay attention to the context in which “matter” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A subject or situation to consider; physical substance; or to be important.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A subject or situation to consider; physical substance; or to be important.",
+          "definitionZh": "事情；问题；物质；要紧",
+          "examples": [
+            "We need to discuss an important matter.",
+            "Your opinion matters to us."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "meal",
+      "part": "noun",
+      "phonetic": "/miːl/",
+      "definition": "An occasion when people eat, or the food eaten at that time.",
+      "definitionZh": "一餐；饭；膳食",
+      "examples": [
+        "We had a simple meal at home.",
+        "Breakfast is my favourite meal."
+      ],
+      "tip": "Pay attention to the context in which “meal” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "An occasion when people eat, or the food eaten at that time.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An occasion when people eat, or the food eaten at that time.",
+          "definitionZh": "一餐；饭；膳食",
+          "examples": [
+            "We had a simple meal at home.",
+            "Breakfast is my favourite meal."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "memory",
+      "part": "noun",
+      "phonetic": "/ˈmeməri/",
+      "definition": "The ability to remember information or experiences; or something remembered.",
+      "definitionZh": "记忆力；记忆；回忆",
+      "examples": [
+        "Her memory is excellent.",
+        "That song brings back a happy memory."
+      ],
+      "tip": "Pay attention to the context in which “memory” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The ability to remember information or experiences; or something remembered.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The ability to remember information or experiences; or something remembered.",
+          "definitionZh": "记忆力；记忆；回忆",
+          "examples": [
+            "Her memory is excellent.",
+            "That song brings back a happy memory."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "middle",
+      "part": "noun / adjective",
+      "phonetic": "/ˈmɪdəl/",
+      "definition": "The centre point or part between two ends; or located at the centre.",
+      "definitionZh": "中间；中央；中部的",
+      "examples": [
+        "Put the table in the middle of the room.",
+        "He arrived in the middle of the film."
+      ],
+      "tip": "Pay attention to the context in which “middle” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The centre point or part between two ends; or located at the centre.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The centre point or part between two ends; or located at the centre.",
+          "definitionZh": "中间；中央；中部的",
+          "examples": [
+            "Put the table in the middle of the room.",
+            "He arrived in the middle of the film."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mind",
+      "part": "noun / verb",
+      "phonetic": "/maɪnd/",
+      "definition": "The part of a person that thinks, feels, and remembers; or to object to something.",
+      "definitionZh": "头脑；思想；介意",
+      "examples": [
+        "Keep an open mind when you listen.",
+        "Would you mind closing the window?"
+      ],
+      "tip": "Pay attention to the context in which “mind” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "The part of a person that thinks, feels, and remembers; or to object to something.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The part of a person that thinks, feels, and remembers; or to object to something.",
+          "definitionZh": "头脑；思想；介意",
+          "examples": [
+            "Keep an open mind when you listen.",
+            "Would you mind closing the window?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "moment",
+      "part": "noun",
+      "phonetic": "/ˈmoʊmənt/",
+      "definition": "A very short period of time, or a particular point in time.",
+      "definitionZh": "片刻；瞬间；时刻",
+      "examples": [
+        "Please wait a moment.",
+        "It was a special moment for the family."
+      ],
+      "tip": "Pay attention to the context in which “moment” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A very short period of time, or a particular point in time.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A very short period of time, or a particular point in time.",
+          "definitionZh": "片刻；瞬间；时刻",
+          "examples": [
+            "Please wait a moment.",
+            "It was a special moment for the family."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "money",
+      "part": "noun",
+      "phonetic": "/ˈmʌni/",
+      "definition": "What people use to buy goods and services, usually in the form of coins, notes, or digital balances.",
+      "definitionZh": "钱；金钱；货币",
+      "examples": [
+        "She saved money for a new laptop.",
+        "You can pay by card or with cash."
+      ],
+      "tip": "Pay attention to the context in which “money” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "What people use to buy goods and services, usually in the form of coins, notes, or digital balances.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "What people use to buy goods and services, usually in the form of coins, notes, or digital balances.",
+          "definitionZh": "钱；金钱；货币",
+          "examples": [
+            "She saved money for a new laptop.",
+            "You can pay by card or with cash."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "name",
+      "part": "noun / verb",
+      "phonetic": "/neɪm/",
+      "definition": "A word used to identify a person, place, or thing; or to give something a name.",
+      "definitionZh": "名字；名称；命名",
+      "examples": [
+        "Please write your name here.",
+        "They named the puppy Milo."
+      ],
+      "tip": "Pay attention to the context in which “name” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A word used to identify a person, place, or thing; or to give something a name.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A word used to identify a person, place, or thing; or to give something a name.",
+          "definitionZh": "名字；名称；命名",
+          "examples": [
+            "Please write your name here.",
+            "They named the puppy Milo."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "news",
+      "part": "noun",
+      "phonetic": "/nuːz/",
+      "definition": "Information about recent events, especially when shared through television, newspapers, or the internet.",
+      "definitionZh": "新闻；消息；资讯",
+      "examples": [
+        "I heard the news this morning.",
+        "The local news starts at six."
+      ],
+      "tip": "Pay attention to the context in which “news” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "Information about recent events, especially when shared through television, newspapers, or the internet.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Information about recent events, especially when shared through television, newspapers, or the internet.",
+          "definitionZh": "新闻；消息；资讯",
+          "examples": [
+            "I heard the news this morning.",
+            "The local news starts at six."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "noise",
+      "part": "noun",
+      "phonetic": "/nɔɪz/",
+      "definition": "A sound, especially one that is loud, unpleasant, or unwanted.",
+      "definitionZh": "噪音；声响；吵闹声",
+      "examples": [
+        "The noise kept me awake.",
+        "Please do not make noise in the library."
+      ],
+      "tip": "Pay attention to the context in which “noise” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A sound, especially one that is loud, unpleasant, or unwanted.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A sound, especially one that is loud, unpleasant, or unwanted.",
+          "definitionZh": "噪音；声响；吵闹声",
+          "examples": [
+            "The noise kept me awake.",
+            "Please do not make noise in the library."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "note",
+      "part": "noun / verb",
+      "phonetic": "/noʊt/",
+      "definition": "A short written record or message; or to notice and record something.",
+      "definitionZh": "笔记；便条；音符；注意到",
+      "examples": [
+        "I left a note on the desk.",
+        "Please note the change in time."
+      ],
+      "tip": "Pay attention to the context in which “note” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A short written record or message; or to notice and record something.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A short written record or message; or to notice and record something.",
+          "definitionZh": "笔记；便条；音符；注意到",
+          "examples": [
+            "I left a note on the desk.",
+            "Please note the change in time."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "number",
+      "part": "noun / verb",
+      "phonetic": "/ˈnʌmbər/",
+      "definition": "A mathematical symbol or amount; or to give things a position in a series.",
+      "definitionZh": "数字；号码；数量；编号",
+      "examples": [
+        "What is your phone number?",
+        "Number the pages from one to ten."
+      ],
+      "tip": "Pay attention to the context in which “number” is used, as its meaning can change with the sentence.",
+      "course": "en",
+      "breakdown": "A mathematical symbol or amount; or to give things a position in a series.",
+      "related": "",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A mathematical symbol or amount; or to give things a position in a series.",
+          "definitionZh": "数字；号码；数量；编号",
+          "examples": [
+            "What is your phone number?",
+            "Number the pages from one to ten."
+          ]
+        }
+      ]
+    }
+  ]
+}
