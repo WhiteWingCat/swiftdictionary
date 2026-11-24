@@ -646,6 +646,12 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
     translationFor:card=>card.definitionZh||card.definition,
     uiText:english=>english
   });
+  const blankStart=flashcardsSource.indexOf("  function blankAllOccurrences(");
+  const blankEnd=flashcardsSource.indexOf("\n  function makeRound",blankStart);
+  assert.ok(blankStart>=0&&blankEnd>blankStart,"Flashcards must expose its real sentence-cloze helper");
+  context.blankAllOccurrences=vm.runInContext("("+flashcardsSource.slice(blankStart,blankEnd).trim()+")",context);
+  assert.equal(context.blankAllOccurrences("I can learn apple and apple today.","apple"),"I can learn _____ and _____ today.");
+  assert.equal(context.blankAllOccurrences("我喜欢苹果和苹果。","苹果",true),"我喜欢_____和_____。");
   const makeRound=vm.runInContext("("+roundSource+")",context);
   const deck=["apple","bridge","curious","discover","good morning","station","APPLE","good  morning"].map((word,index)=>({
     word,definition:"English meaning "+index,definitionZh:"中文释义 "+index,
