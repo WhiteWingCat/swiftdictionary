@@ -294,6 +294,6 @@
 .daily-activity-backdrop .daily-review-correct{border-color:#4d8a68!important;background:#173528!important;color:#b5e9c8!important}.daily-activity-backdrop .daily-review-correct small{display:block;font-weight:750}
 
 
-/* U2.8.0 Quiz review spacing: reserve a clearer lane between the score and top-right close control. */
-.quiz-review-score{margin-right:104px}
-@media(max-width:620px){.quiz-review-score{width:calc(100% - 88px);margin-right:88px}}
+/* U2.8.0 Quiz review spacing: keep the score panel clear of the top-right close control. */
+.quiz-review-score{margin-right:120px}
+@media(max-width:620px){.quiz-review-score{width:calc(100% - 104px);margin-right:104px}}
