@@ -638,6 +638,29 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
 });
 
 
+test("Chinese Translation Recall hides Chinese choices until the answer phase",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","translation","sentence"]);
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator('[data-action="set-duration"][data-value="60"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="translation"]').click();
+  await page.locator("#flashDifficulty").selectOption("beginner");
+  await page.locator("#flashGameCollection").selectOption("all");
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game")).toBeVisible();
+  const memory=await page.locator("#flashMemory").innerText();
+  expect(memory).not.toMatch(/[一-龥]/);
+  await expect(page.locator("#flashOptions .flash-option.is-hidden")).toHaveCount(4);
+  await page.locator('[data-action="phase-action"]').click();
+  const options=await page.locator("#flashOptions .flash-option").allTextContents();
+  expect(options).toHaveLength(4);
+  expect(new Set(options.map(value=>value.trim())).size).toBe(4);
+  expect(options.every(value=>/[一-龥]/.test(value))).toBe(true);
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+});
+
 test("Chinese Sentence Recall blanks every repeated character and keeps choices hidden",async({page})=>{
   await page.clock.install();
   await openMockFlashcards(page);
