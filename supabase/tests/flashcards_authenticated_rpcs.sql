@@ -48,9 +48,13 @@ $test$;
 
 reset role;
 
+-- Simulate an elapsed challenge in this disposable test transaction. The
+-- production identity guard correctly prevents clients from editing started_at.
+alter table private.flashcard_sessions disable trigger guard_flashcard_session_identity_update;
 update private.flashcard_sessions
 set started_at=now()-interval '121 seconds'
 where id=(select session_id from pg_temp.flashcard_test_session);
+alter table private.flashcard_sessions enable trigger guard_flashcard_session_identity_update;
 
 set local role authenticated;
 do $test$
