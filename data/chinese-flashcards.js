@@ -17536,13 +17536,10 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "contentStatus": "draft",
       "pinyin": "jiào shī",
       "availableModes": [
-        "word",
-        "translation"
+        "word"
       ],
       "difficulty": "beginner",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0089",
@@ -26065,13 +26062,10 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "contentStatus": "draft",
       "pinyin": "xià jì",
       "availableModes": [
-        "word",
-        "translation"
+        "word"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0461",
