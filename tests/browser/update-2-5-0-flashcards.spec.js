@@ -642,6 +642,7 @@ test("Chinese Sentence Recall blanks every repeated character and keeps choices 
   await page.clock.install();
   await openMockFlashcards(page);
   await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","translation","sentence"]);
   await page.locator("#translationSelect").selectOption("en");
   await page.locator('[data-action="set-duration"][data-value="60"]').click();
   await page.locator('[data-action="open-setup"][data-mode="sentence"]').click();
