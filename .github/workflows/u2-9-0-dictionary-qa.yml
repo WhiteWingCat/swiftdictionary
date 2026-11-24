@@ -1,0 +1,36 @@
+name: SwiftDictionary U2.9.0 English dictionary QA
+
+on:
+  push:
+    branches:
+      - feature/update-2-9-0-english-dictionary-collections
+    paths:
+      - "index.html"
+      - "data/english-expansion*"
+      - "scripts/dictionary/**"
+      - ".github/workflows/u2-9-0-dictionary-qa.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "data/english-expansion*"
+      - "scripts/dictionary/**"
+      - ".github/workflows/u2-9-0-dictionary-qa.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-english-dictionary:
+    name: Validate English dictionary data and runtime integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate baseline, expansion batches, senses and runtime dataset
+        run: node scripts/dictionary/validate-english-expansion.mjs
