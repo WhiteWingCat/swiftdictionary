@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add a second contextual example to another set of existing technical and academic English entries.",
+  "status": "editorially-authored; awaiting integration",
+  "sourceBaselineBlob": "b65c4102d0d9781b0b54de182dc344fa387e5802",
+  "entries": [
+    {
+      "word": "biomagnification",
+      "addExamples": [
+        "Predators at the top of the food chain may experience greater biomagnification of persistent pollutants."
+      ]
+    },
+    {
+      "word": "biomimicry",
+      "addExamples": [
+        "The building's cooling system uses biomimicry to copy the airflow of termite mounds."
+      ]
+    },
+    {
+      "word": "birefringence",
+      "addExamples": [
+        "The mineral's birefringence became visible when it was viewed through a polarising microscope."
+      ]
+    },
+    {
+      "word": "cartography",
+      "addExamples": [
+        "Modern cartography combines satellite images with detailed geographic data."
+      ]
+    },
+    {
+      "word": "catabolism",
+      "addExamples": [
+        "During catabolism, the body breaks down complex molecules to release energy."
+      ]
+    },
+    {
+      "word": "catalysis",
+      "addExamples": [
+        "The catalyst increased the rate of catalysis without being consumed in the reaction."
+      ]
+    },
+    {
+      "word": "chelation",
+      "addExamples": [
+        "Chelation can bind certain metal ions and help remove them from a solution."
+      ]
+    },
+    {
+      "word": "chronometry",
+      "addExamples": [
+        "Accurate chronometry was essential for comparing the timing of the two experiments."
+      ]
+    },
+    {
+      "word": "chronotope",
+      "addExamples": [
+        "The novel's chronotope connects a particular setting with the historical period in which the story unfolds."
+      ]
+    },
+    {
+      "word": "circadian",
+      "addExamples": [
+        "A regular sleep schedule can help maintain a healthy circadian rhythm."
+      ]
+    },
+    {
+      "word": "cladistics",
+      "addExamples": [
+        "The researchers used cladistics to infer evolutionary relationships among the species."
+      ]
+    },
+    {
+      "word": "clathrate",
+      "addExamples": [
+        "Methane can be trapped inside a water-based clathrate under suitable pressure and temperature."
+      ]
+    },
+    {
+      "word": "coercivity",
+      "addExamples": [
+        "The material's coercivity determines how resistant it is to changes in magnetisation."
+      ]
+    },
+    {
+      "word": "cohort",
+      "addExamples": [
+        "The study followed a cohort of students from their first year to graduation."
+      ]
+    },
+    {
+      "word": "commensalism",
+      "addExamples": [
+        "The example of commensalism involved one species benefiting while the other was largely unaffected."
+      ]
+    },
+    {
+      "word": "concomitant",
+      "addExamples": [
+        "The new treatment produced a concomitant reduction in swelling."
+      ]
+    },
+    {
+      "word": "confound",
+      "addExamples": [
+        "A sudden change in temperature could confound the results of the experiment."
+      ]
+    },
+    {
+      "word": "confounding",
+      "addExamples": [
+        "The researchers discussed possible confounding from differences in age and diet."
+      ]
+    },
+    {
+      "word": "conjugation",
+      "addExamples": [
+        "In bacteria, conjugation can transfer genetic material from one cell to another."
+      ]
+    },
+    {
+      "word": "contingency",
+      "addExamples": [
+        "The project plan includes a contingency in case the equipment arrives late."
+      ]
+    },
+    {
+      "word": "counterfactual",
+      "addExamples": [
+        "The report compared the observed result with a counterfactual in which the policy was not introduced."
+      ]
+    },
+    {
+      "word": "cryosphere",
+      "addExamples": [
+        "The cryosphere includes glaciers, ice sheets, sea ice and permanently frozen ground."
+      ]
+    },
+    {
+      "word": "cryptography",
+      "addExamples": [
+        "Modern cryptography helps protect messages and transactions sent over the internet."
+      ]
+    },
+    {
+      "word": "cytokinesis",
+      "addExamples": [
+        "Cytokinesis usually follows nuclear division and separates one cell into two daughter cells."
+      ]
+    },
+    {
+      "word": "deamination",
+      "addExamples": [
+        "Deamination removes an amino group from a molecule during metabolism."
+      ]
+    },
+    {
+      "word": "decarbonization",
+      "addExamples": [
+        "The city published a plan for the decarbonization of its public transport system."
+      ]
+    },
+    {
+      "word": "decolonization",
+      "addExamples": [
+        "The museum's exhibition explores decolonization and the return of cultural objects."
+      ]
+    },
+    {
+      "word": "demography",
+      "addExamples": [
+        "Demography helps planners understand how a population changes over time."
+      ]
+    },
+    {
+      "word": "deontology",
+      "addExamples": [
+        "Deontology evaluates actions by considering duties and moral rules."
+      ]
+    },
+    {
+      "word": "diagenesis",
+      "addExamples": [
+        "Diagenesis changed the sediment after it was buried beneath younger layers."
+      ]
+    }
+  ]
+}
