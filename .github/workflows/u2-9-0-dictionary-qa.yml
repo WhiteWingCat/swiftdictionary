@@ -9,6 +9,8 @@ on:
       - "data/english-expansion*"
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
+      - "tests/browser/u2-9-0-english-expansion.spec.js"
+      - "playwright.config.js"
   pull_request:
     branches:
       - main
@@ -17,6 +19,8 @@ on:
       - "data/english-expansion*"
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
+      - "tests/browser/u2-9-0-english-expansion.spec.js"
+      - "playwright.config.js"
 
 permissions:
   contents: read
@@ -34,3 +38,11 @@ jobs:
           node-version: 22
       - name: Validate baseline, expansion batches, senses and runtime dataset
         run: node scripts/dictionary/validate-english-expansion.mjs
+      - name: Install Playwright test runner
+        run: |
+          npm init -y
+          npm install --no-save @playwright/test
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run English expansion browser smoke tests
+        run: npx playwright test tests/browser/u2-9-0-english-expansion.spec.js
