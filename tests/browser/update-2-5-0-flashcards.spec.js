@@ -91,7 +91,7 @@ test("Switching course remaps an open Mixed Recall setup to Translation Recall i
   await expect(page.locator("#flashSetupTitle")).toHaveText("Translation Recall");
   await expect(page.locator('#flashcardsPage .flash-mode[data-mode="mixed"]')).toHaveCount(0);
   await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
-  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('[data-action="close-overlay"]').last().click();
 });
 
 test("Dashboard tabs switch their visible panels",async({page})=>{
@@ -241,7 +241,7 @@ test("Mixed Recall starts as a mixed session and records mode-specific weak answ
   await page.locator('[data-action="review-detail"]').click();
   await expect(page.locator(".flash-review-detail")).toBeVisible();
   await expect(page.locator(".flash-review-detail")).toContainText("aberration");
-  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('[data-action="close-overlay"]').last().click();
   await page.locator("#accountButton").click();
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
@@ -356,7 +356,7 @@ test("Dashboard Flashcard statistics load and Weak Memory opens without leaving 
   await page.locator("#dashboardFlashcardSection [data-dashboard-flashcard-review]").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toBeVisible();
-  await page.locator('#flashOverlayRoot [data-action="close-overlay"]').click();
+  await page.locator('#flashOverlayRoot [data-action="close-overlay"]').last().click();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toHaveCount(0);
   await expect(page.locator("#profilePage")).toBeVisible();
 });
@@ -378,7 +378,7 @@ test("Flashcards main page and English recall prompts use Simplified Chinese tra
   await page.locator('[data-action="open-review"]').click();
   await expect(page.locator(".flash-review-tab").first()).toHaveText("单词回忆");
   await expect(page.locator(".flash-review-tab").nth(1)).toHaveText("释义回忆");
-  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('[data-action="close-overlay"]').last().click();
   await page.locator("#translationSelect").selectOption("en");
 });
 
@@ -543,7 +543,7 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
   await page.locator('[data-action="dismiss-review-item"]').click();
   await expect(page.locator(".flash-review-item")).toHaveCount(0);
   await expect(page.locator(".flash-review-dismiss-notice")).toContainText(/game history|游戏记录/);
-  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('[data-action="close-overlay"]').last().click();
   await expect(page.locator('[data-action="open-review"]')).toContainText("(0)");
   await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
 });
@@ -560,8 +560,7 @@ test("Recent games paginate ten at a time and game review has a top close contro
     }));
     window.__swiftDictionaryMock.seedFlashcardData({history});
   });
-  await page.locator('[data-page="dictionary"]').click();
-  await page.locator('[data-page="flashcards"]').click();
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
   await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
   await expect(page.locator('[data-action="history-next"]')).toBeVisible();
   await page.locator('[data-action="history-next"]').click();
@@ -605,7 +604,7 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
   const intro=page.locator("#learningIntroBackdrop");
   if(await intro.isVisible())await page.locator("#learningIntroDismiss").click();
   await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator(".hero-banner")).toBeVisible();
+  await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
   await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(10);
   await expect(page.locator("[data-quiz-history-next]")).toBeVisible();
   await page.locator("[data-quiz-history-next]").click();
@@ -615,12 +614,10 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
   await page.locator("#quizHistory [data-quiz-review]").first().click();
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("body")).toHaveClass(/quiz-focused/);
-  await expect(page.locator(".hero-banner")).toBeHidden();
   await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
   await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
   await page.locator("#quizResultsContent [data-quiz-review-close]").click();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("body")).not.toHaveClass(/quiz-focused/);
-  await expect(page.locator(".hero-banner")).toBeVisible();
   await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
 });
