@@ -166,6 +166,8 @@ async function startQuiz(page,difficulty="beginner") {
   await modal.locator('[data-confirm="yes"]').click();
   await expect(modal).toBeHidden();
   await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
+  await expect(page.locator(".hero-banner")).toBeHidden();
 }
 
 async function submitQuiz(page) {
@@ -178,6 +180,9 @@ async function submitQuiz(page) {
   expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
   await modal.locator('[data-confirm="yes"]').click();
   await expect(modal).toBeHidden();
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
+  await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
 }
 
 async function updateTranslationPreference(userId, language) {
