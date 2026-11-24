@@ -148,6 +148,7 @@ for(const c of [...(pack.characters||[]),...(pack.phrases||[])]){
 const allCards=[...(pack.characters||[]),...(pack.vocabulary||[]),...(pack.phrases||[])];
 for(const card of allCards){
  if(card.availableModes?.includes("definition")&&norm(card.definitionCueZh||card.definitionZh).includes(norm(card.word)))errors.push("Definition Recall clue reveals its target: "+card.word);
+ if(card.availableModes?.includes("translation")&&card.translationLanguages?.includes("zh")&&norm(card.translationZh).includes(norm(card.word)))errors.push("Chinese Translation Recall clue reveals its target: "+card.word);
 }
 function cleanEnglishGlossForCheck(value){
  let text=String(value||"");
