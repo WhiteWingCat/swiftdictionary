@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add second contextual examples to another set of specialist English baseline entries.",
+  "status": "editorially-authored; awaiting integration",
+  "sourceBaselineBlob": "cf2a385318a0747adfa0c3e8d7fe8ef7521f77c9",
+  "entries": [
+    {
+      "word": "locus",
+      "addExamples": [
+        "The study identified a genetic locus associated with the trait."
+      ]
+    },
+    {
+      "word": "longitudinal",
+      "addExamples": [
+        "The longitudinal study followed participants for ten years."
+      ]
+    },
+    {
+      "word": "metacognition",
+      "addExamples": [
+        "Metacognition helps learners notice which study strategies work best."
+      ]
+    },
+    {
+      "word": "metonymy",
+      "addExamples": [
+        "In the phrase “the crown announced”, “the crown” is an example of metonymy."
+      ]
+    },
+    {
+      "word": "metrology",
+      "addExamples": [
+        "Metrology helps ensure that measurements are accurate and traceable."
+      ]
+    },
+    {
+      "word": "microbiome",
+      "addExamples": [
+        "Diet can influence the composition of the gut microbiome."
+      ]
+    },
+    {
+      "word": "mimesis",
+      "addExamples": [
+        "The novel uses mimesis to represent everyday speech and behaviour."
+      ]
+    },
+    {
+      "word": "mitigation",
+      "addExamples": [
+        "Flood mitigation measures include restoring wetlands and improving drainage."
+      ]
+    },
+    {
+      "word": "morphogenesis",
+      "addExamples": [
+        "Morphogenesis shapes the development of organs in an embryo."
+      ]
+    },
+    {
+      "word": "mutagenesis",
+      "addExamples": [
+        "The researchers used targeted mutagenesis to study the gene's function."
+      ]
+    },
+    {
+      "word": "mycorrhiza",
+      "addExamples": [
+        "A mycorrhiza connects fungal threads with plant roots and can improve nutrient uptake."
+      ]
+    },
+    {
+      "word": "neoliberalism",
+      "addExamples": [
+        "The lecture examines debates about neoliberalism and public services."
+      ]
+    },
+    {
+      "word": "neoteny",
+      "addExamples": [
+        "Neoteny describes the retention of juvenile traits into adulthood."
+      ]
+    },
+    {
+      "word": "neurogenesis",
+      "addExamples": [
+        "Some forms of neurogenesis continue in specific regions of the adult brain."
+      ]
+    },
+    {
+      "word": "neuroplasticity",
+      "addExamples": [
+        "Learning a new skill can involve neuroplasticity in the brain."
+      ]
+    },
+    {
+      "word": "ontogeny",
+      "addExamples": [
+        "The study tracks the ontogeny of the animal from embryo to adult."
+      ]
+    },
+    {
+      "word": "ontology",
+      "addExamples": [
+        "The database uses an ontology to organise related concepts."
+      ]
+    },
+    {
+      "word": "operationalize",
+      "addExamples": [
+        "The researchers had to operationalize the idea of wellbeing before measuring it."
+      ]
+    },
+    {
+      "word": "paleoclimatology",
+      "addExamples": [
+        "Paleoclimatology uses natural records to reconstruct ancient climates."
+      ]
+    },
+    {
+      "word": "paleoecology",
+      "addExamples": [
+        "Paleoecology helps scientists understand how ecosystems responded to past climate change."
+      ]
+    },
+    {
+      "word": "paleography",
+      "addExamples": [
+        "Paleography allowed the historian to read the handwritten manuscript."
+      ]
+    },
+    {
+      "word": "palimpsest",
+      "addExamples": [
+        "The old city is a palimpsest of buildings from different historical periods."
+      ]
+    },
+    {
+      "word": "paradigm",
+      "addExamples": [
+        "The discovery challenged the prevailing paradigm in the field."
+      ]
+    },
+    {
+      "word": "parsimony",
+      "addExamples": [
+        "The principle of parsimony favours the simplest explanation that fits the evidence."
+      ]
+    },
+    {
+      "word": "path dependence",
+      "addExamples": [
+        "The transport system shows path dependence because earlier decisions shaped later options."
+      ]
+    },
+    {
+      "word": "pharmacokinetics",
+      "addExamples": [
+        "Pharmacokinetics describes how the body absorbs and processes a medicine."
+      ]
+    },
+    {
+      "word": "phenomenology",
+      "addExamples": [
+        "The course introduces phenomenology through the study of lived experience."
+      ]
+    },
+    {
+      "word": "phenotype",
+      "addExamples": [
+        "The phenotype can be influenced by both genes and the environment."
+      ]
+    },
+    {
+      "word": "phylogeny",
+      "addExamples": [
+        "The researchers used DNA evidence to reconstruct the species' phylogeny."
+      ]
+    },
+    {
+      "word": "phytoremediation",
+      "addExamples": [
+        "Phytoremediation uses plants to remove or contain pollutants in soil."
+      ]
+    }
+  ]
+}
