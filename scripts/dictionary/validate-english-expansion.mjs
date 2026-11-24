@@ -59,11 +59,12 @@ for (const file of batchFiles) {
     seen.add(key);
     allNew.push(key);
 
-    for (const field of ["part","phonetic","definition","definitionZh","tip","course","breakdown","related"]) {
+    for (const field of ["part","phonetic","definition","definitionZh","tip","course","breakdown"]) {
       if (typeof entry[field] !== "string" || !entry[field].trim()) {
         errors.push(file + ": " + word + " missing " + field);
       }
     }
+    if (typeof entry.related !== "string") errors.push(file + ": " + word + " related must be a string (empty is allowed)");
     for (const field of ["examples","senses","categories"]) {
       if (!Array.isArray(entry[field]) || entry[field].length === 0) {
         errors.push(file + ": " + word + " missing " + field);
