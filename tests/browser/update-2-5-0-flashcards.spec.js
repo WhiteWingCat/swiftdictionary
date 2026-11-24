@@ -688,6 +688,7 @@ test("Chinese Sentence Recall blanks every repeated character and keeps choices 
   await expect(page.locator("#flashMemory")).toContainText("_____");
   await expect(page.locator("#flashMemory")).not.toContainText(target.word);
   await expect(page.locator("#flashOptions .flash-option.is-hidden")).toHaveCount(4);
+  await expect(page.locator("#flashOptions .flash-option")).toHaveText(["隐藏答案","隐藏答案","隐藏答案","隐藏答案"]);
   await expect(page.locator("#flashOptions")).not.toContainText(target.word);
   await page.evaluate(()=>{
     if(window.__originalFlashcardRandom){Math.random=window.__originalFlashcardRandom;delete window.__originalFlashcardRandom;}
