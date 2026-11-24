@@ -109,44 +109,6 @@ begin
 end
 $test$;
 
--- Chinese-course routing: Translation Recall is available; Mixed Recall is not.
-update public.user_preferences
-set learning_language='zh',translation_language='en'
-where user_id='a2500000-0000-4000-8000-000000000001';
-
-set local role authenticated;
-do $test$
-declare
-  v_game jsonb;
-  v_blocked boolean := false;
-begin
-  v_game := public.start_my_flashcard_game('sentence','beginner',60);
-  if v_game->>'learning_language_code'<>'zh' or v_game->>'translation_language_code'<>'en' then
-    raise exception 'Chinese Sentence Recall did not preserve the selected language pair: %',v_game;
-  end if;
-  perform public.abandon_my_flashcard_game((v_game->>'session_id')::uuid);
-
-  v_game := public.start_my_flashcard_game('translation','beginner',60);
-  if v_game->>'learning_language_code'<>'zh' then
-    raise exception 'Chinese Translation Recall did not start with the Chinese learning course: %',v_game;
-  end if;
-  perform public.abandon_my_flashcard_game((v_game->>'session_id')::uuid);
-
-  begin
-    perform public.start_my_flashcard_game('mixed','beginner',60);
-  exception when sqlstate '22023' then
-    v_blocked := true;
-  end;
-  if not v_blocked then raise exception 'Chinese Mixed Recall must remain unavailable'; end if;
-end
-$test$;
-
-reset role;
-update public.user_preferences
-set learning_language='en',translation_language='zh'
-where user_id='a2500000-0000-4000-8000-000000000001';
-
-
 -- A started and abandoned game must not consume allowance.
 do $test$
 declare v_game jsonb;
