@@ -32,7 +32,7 @@ test("new English entries open in the existing detail drawer", async ({ page }) 
 
   await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
   await expect(page.locator("#modalBackdrop")).toContainText("post office");
-  await expect(page.locator("#modalBackdrop")).toContainText("邮局");
+  await expect(page.locator("#modalDefinition")).toContainText("A place where people can send letters and parcels");
 });
 
 test("switching to Chinese keeps the existing character-only catalogue isolated", async ({ page }) => {
