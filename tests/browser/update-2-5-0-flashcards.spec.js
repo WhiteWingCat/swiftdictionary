@@ -616,9 +616,11 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("body")).toHaveClass(/quiz-focused/);
   await expect(page.locator(".hero-banner")).toBeHidden();
+  await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
   await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
   await page.locator("#quizResultsContent [data-quiz-review-close]").click();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("body")).not.toHaveClass(/quiz-focused/);
   await expect(page.locator(".hero-banner")).toBeVisible();
+  await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
 });
