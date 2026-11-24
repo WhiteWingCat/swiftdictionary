@@ -146,6 +146,11 @@ for(const c of [...(pack.characters||[]),...(pack.phrases||[])]){
  if(blankAllOccurrencesForCheck(sentence,word).includes(word))errors.push("Sentence Recall would still reveal repeated target "+word);
 }
 const allCards=[...(pack.characters||[]),...(pack.vocabulary||[]),...(pack.phrases||[])];
+for(const card of allCards){
+ if(!Array.isArray(card.translationLanguages))errors.push("Flashcard "+card.word+" must declare supported translation languages");
+ if(/\\p{Script=Han}/u.test(String(card.translationEn||"")))errors.push("English translation cue for "+card.word+" contains Chinese characters or classifier annotations");
+ if(card.translationLanguages?.includes("en")&&!String(card.translationEn||"").trim())errors.push("Flashcard "+card.word+" advertises English translation without an English gloss");
+}
 function cueFor(card,mode,language){
  if(mode==="word")return card.pinyin;
  if(mode==="definition")return card.definitionCueZh||card.definitionZh;
