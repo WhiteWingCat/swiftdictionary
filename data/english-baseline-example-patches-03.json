@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add a second contextual example to another set of existing technical and academic English entries.",
-  "status": "editorially-authored; awaiting integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "b65c4102d0d9781b0b54de182dc344fa387e5802",
   "entries": [
     {
@@ -185,5 +185,6 @@
         "Diagenesis changed the sediment after it was buried beneath younger layers."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "7756a0138e5e773da9bb0eba6f2f2f352b59e50d"
 }
