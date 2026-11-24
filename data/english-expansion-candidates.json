@@ -1,0 +1,4061 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Editorial candidate inventory for the English dictionary expansion. This is an internal work file, not runtime dictionary content.",
+  "baseline": {
+    "existingEnglishEntries": 810,
+    "sourceCommit": "c53d12a06045700a884a244d3b9fe69e6e6e8f95",
+    "duplicateComparison": "case-insensitive exact headword comparison"
+  },
+  "rules": [
+    "Candidates are not approved dictionary entries until definition, part of speech, pronunciation, Simplified Chinese sense translation, and examples have been authored and reviewed.",
+    "Do not add a candidate if it is an inflectional variant better represented under an existing lemma.",
+    "A candidate may receive multiple reviewed categories during content authoring.",
+    "Prefer common and useful vocabulary; reject weak or low-value candidates rather than padding the target."
+  ],
+  "summary": {
+    "candidateCount": 660,
+    "existingDuplicatesRejected": 185,
+    "categoryCandidateCounts": {
+      "Actions": 71,
+      "Activities": 49,
+      "Nature & Environment": 66,
+      "Everyday Terms": 142,
+      "Education": 46,
+      "Places": 71,
+      "People & Relationships": 69,
+      "History & Culture": 38,
+      "Science & Technology": 41,
+      "Emotions & Descriptions": 90
+    }
+  },
+  "candidates": [
+    {
+      "word": "adjust",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "advise",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "agree",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "announce",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "apply",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "attach",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "breathe",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "calculate",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cancel",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "celebrate",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "charge",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "chase",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "connect",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "continue",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "control",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "convince",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "copy",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "correct",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "damage",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "deliver",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "divide",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "doubt",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "earn",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "enjoy",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "enter",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "escape",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "examine",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "exchange",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "exist",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "explore",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fail",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fix",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "guess",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "happen",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hide",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "influence",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "inform",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "introduce",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "invite",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "join",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "judge",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "kick",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "knock",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lend",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lift",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "measure",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "offer",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "promise",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "protect",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "prove",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "publish",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pull",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "push",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "receive",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "reply",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "report",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rescue",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "return",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "review",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "save",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "search",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "select",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "share",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "solve",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "survive",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "throw",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "volunteer",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Actions",
+        "Activities"
+      ]
+    },
+    {
+      "word": "vote",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "warn",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "waste",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Actions",
+        "Nature & Environment"
+      ]
+    },
+    {
+      "word": "worry",
+      "category": "Actions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "address",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "age",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "amount",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "area",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "article",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "attention",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "average",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "background",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "beginning",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bill",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bit",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bottom",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "budget",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "business",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cause",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "chance",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "claim",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "class",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "condition",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "connection",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "contact",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cost",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "country",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "course",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ]
+    },
+    {
+      "word": "culture",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "customer",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "direction",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "effect",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "end",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "event",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "example",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fact",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "family",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "feature",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "field",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Places"
+      ]
+    },
+    {
+      "word": "figure",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "food",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "form",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "front",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "future",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "grade",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ground",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "group",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "growth",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "half",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "history",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "idea",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "information",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "item",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "level",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "life",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "line",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "list",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "location",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "loss",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "luck",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "main",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "material",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "matter",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "meal",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "memory",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "middle",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mind",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "moment",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "money",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "name",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "news",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "noise",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "note",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "number",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "object",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "office",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Places"
+      ]
+    },
+    {
+      "word": "order",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "owner",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "page",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pair",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "paper",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "part",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "party",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "period",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "person",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "People & Relationships"
+      ]
+    },
+    {
+      "word": "place",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "position",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "power",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "price",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "problem",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "product",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "quality",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "question",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ]
+    },
+    {
+      "word": "reason",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "record",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "role",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "room",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rule",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "safety",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sample",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "school",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "science",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "service",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "shape",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "side",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sign",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "skill",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "situation",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "size",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "society",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sort",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sound",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "space",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sport",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "staff",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stage",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "state",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "story",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "subject",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ]
+    },
+    {
+      "word": "success",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "suggestion",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "system",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "task",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "team",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "term",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "test",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thing",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thought",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "time",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tool",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "topic",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "total",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "touch",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tradition",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "traffic",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "trouble",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "type",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Everyday Terms",
+        "Activities"
+      ]
+    },
+    {
+      "word": "view",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "voice",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "way",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weather",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "week",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weight",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "whole",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "word",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "world",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "act",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bake",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "camp",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "chat",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "climb",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "draw",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "exercise",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Activities",
+        "Education"
+      ]
+    },
+    {
+      "word": "fish",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "garden",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Activities",
+        "Places"
+      ]
+    },
+    {
+      "word": "hike",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "jog",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "knit",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "paint",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "photograph",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "practise",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "read",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "shop",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Activities",
+        "Places"
+      ]
+    },
+    {
+      "word": "skate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ski",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sleep",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "train",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "write",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "yoga",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cycle",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "meditate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sew",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sail",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "surf",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "snorkel",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "picnic",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "barbecue",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bowl",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "box",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "canoe",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "craft",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Activities",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "debate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "decorate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "design",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "dine",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "golf",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hunt",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ice-skate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "kayak",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "march",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "model",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "motor",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tweet",
+      "category": "Activities",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "airport",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "apartment",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "avenue",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bakery",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bank",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "beach",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bedroom",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "building",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bus-stop",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cafe",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cafeteria",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "campus",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "capital",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "castle",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cave",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "church",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cinema",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "clinic",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "coast",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Places",
+        "Nature & Environment"
+      ]
+    },
+    {
+      "word": "college",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "countryside",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "court",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "crossing",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "department-store",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "desert",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "destination",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "dining-room",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "downtown",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "driveway",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "factory",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "farm",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "forest",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "garage",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "gate",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "gym",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "harbour",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hotel",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "house",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "island",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "kitchen",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lake",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "neighbourhood",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "park",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "path",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pharmacy",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "playground",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "police-station",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "post-office",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "prison",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "river",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "road",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rooftop",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sidewalk",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "store",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "street",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "studio",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "supermarket",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "temple",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "theatre",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Places",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "town",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "university",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "village",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "warehouse",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "waterfall",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "workplace",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "zoo",
+      "category": "Places",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "adult",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ancestor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "aunt",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "baby",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bachelor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "boyfriend",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bride",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "brother",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "buddy",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "child",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "citizen",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "classmate",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cousin",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "couple",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "daughter",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "neighbour",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "enemy",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "father",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "female",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "friend",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "gentleman",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "girl",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "grandfather",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "grandmother",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "guest",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "guy",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "husband",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "infant",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "kid",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lady",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "leader",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "male",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "manager",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "member",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mentor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mother",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "nephew",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "niece",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "partner",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "passenger",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "peer",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "parent",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pedestrian",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "people",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "player",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "police",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "officer",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "politician",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "population",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "People & Relationships",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "professor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "relative",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "roommate",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sailor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "scientist",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sibling",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sister",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "son",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stranger",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "student",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "People & Relationships",
+        "Education"
+      ]
+    },
+    {
+      "word": "teenager",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tourist",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "uncle",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "visitor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "waiter",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wife",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "woman",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "worker",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "youth",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "algorithm",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "app",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "battery",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "browser",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cable",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "camera",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "channel",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "chip",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "click",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "computer",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "data",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "device",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "digital",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "download",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "email",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "engine",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "file",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hardware",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "internet",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "keyboard",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "laptop",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "machine",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "network",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "online",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "password",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "printer",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "program",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "robot",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "screen",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "software",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "smartphone",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "social-media",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "speaker",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "technology",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "telephone",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "television",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "text-message",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "upload",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "video",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "website",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wireless",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ancient",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "art",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "artist",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ceremony",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "character",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "civilization",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "community",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "concert",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "costume",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "custom",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "democracy",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "festival",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fiction",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "folklore",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "generation",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "heritage",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "holiday",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "identity",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "language",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "legend",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "literature",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "monument",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "myth",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "nation",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "novel",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "painting",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "poem",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "poet",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "religion",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ritual",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sculpture",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "symbol",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tribe",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "war",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "animal",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "atmosphere",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "autumn",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "branch",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "breeze",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "climate",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cloud",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "coral",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "creature",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "crop",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "daylight",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "earth",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "earthquake",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ecosystem",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "energy",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "feather",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fire",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "flower",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fog",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "grass",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "habitat",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "harvest",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hill",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "insect",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "leaf",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lightning",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "meadow",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "metal",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mineral",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "moon",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mountain",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ocean",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "organic",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "planet",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "plant",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pollution",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pond",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rain",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rainbow",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "recycle",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rock",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "root",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "season",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "seed",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sky",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "soil",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "solar",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "spring",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "star",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stone",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "storm",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stream",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "summer",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sunrise",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sunset",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thunder",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tree",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "valley",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "vegetation",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "volcano",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "water",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wind",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "winter",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wood",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "academy",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "alphabet",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "assignment",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "blackboard",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "chapter",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "classroom",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "coach",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "curriculum",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "dictionary",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "education",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "essay",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "exam",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "experiment",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "grammar",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "homework",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "instructor",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "knowledge",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lecture",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lesson",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mark",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mathematics",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "meaning",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "notebook",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "paragraph",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pen",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pencil",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "presentation",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "principal",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pupil",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "research",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "semester",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sentence",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "spelling",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "study",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "teacher",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "textbook",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "vocabulary",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "able",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "absent",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "afraid",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "alive",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "amazing",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "angry",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "attractive",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "awful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "beautiful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "bright",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "careful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cheerful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "clever",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "comfortable",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "confused",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "cool",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "dangerous",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "dark",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "delighted",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "different",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "difficult",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "dirty",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "easy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "empty",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "excited",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "famous",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fantastic",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fast",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "favourite",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fine",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fit",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "flat",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fresh",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "friendly",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "funny",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "gentle",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "glad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "good",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "great",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "happy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hard",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "healthy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "helpful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hot",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hungry",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "important",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "impossible",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lazy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "loud",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lucky",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "nice",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "noisy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "normal",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "odd",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "perfect",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pleasant",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "poor",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "popular",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "quiet",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ready",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "real",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rich",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rude",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "safe",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "scared",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "shy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "smart",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "soft",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "special",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "strange",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "strong",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stupid",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sweet",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tall",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "terrible",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thirsty",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tired",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tough",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ugly",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "unhappy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "unique",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "warm",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weak",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weird",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wise",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "worried",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "young",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    }
+  ]
+}
