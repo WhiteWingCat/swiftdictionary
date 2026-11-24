@@ -880,7 +880,10 @@
       // Allowance usage is shared across courses, while review history is language-scoped.
       // If another course consumed today's quota, keep the scheduled item visible with a
       // disabled "Daily limit reached" action instead of showing an empty panel.
-      if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false));
+      if(!cards.length && scheduled[0]) {
+        const replayRow=historicalReplayRows.find(row=>row.content_id===scheduled[0].id);
+        cards.push(replayRow?renderCard(scheduled[0],0,true,replayRow):renderCard(scheduled[0],0,false));
+      }
       addHistoricalReplayIfEmpty();
     } else if (isEnabled) {
       const seen = new Set();
@@ -897,7 +900,13 @@
         cards.push(renderCard(item,null,false));
         added++;
       }
-      if(!cards.length && availableForPlan){ const item=chooseContent(type,used); if(item) cards.push(renderCard(item,null,false)); }
+      if(!cards.length && availableForPlan){
+        const item=chooseContent(type,used);
+        if(item){
+          const replayRow=historicalReplayRows.find(row=>row.content_id===item.id);
+          cards.push(replayRow?renderCard(item,null,true,replayRow):renderCard(item,null,false));
+        }
+      }
       addHistoricalReplayIfEmpty();
     }
     const tabs = allTypes.map(tabType => {
