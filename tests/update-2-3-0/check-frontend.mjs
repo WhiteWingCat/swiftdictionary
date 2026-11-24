@@ -611,9 +611,9 @@ if (!mockElements.dailyActivityGrid.innerHTML.includes('data-start-daily="daily_
 }
 const renderedTopicCards = mockElements.dailyActivityGrid.innerHTML
   .split('<article class="daily-activity-card" data-activity-card="daily_topic">').slice(1);
-if (!renderedTopicCards.some(card => card.includes("Completed · replay is free") && card.includes("Past simple or present perfect?"))
+if (renderedTopicCards.some(card => card.includes("Completed · replay is free"))
     || !renderedTopicCards.some(card => card.includes("New activity") && !card.includes("Past simple or present perfect?"))) {
-  throw new Error("Daily Topic must preserve completed review content while selecting a separate unused activity.");
+  throw new Error("Daily Topic must hide prior-day completed review cards while selecting a separate unused activity.");
 }
 mockData.daily_activity_sessions = curated.topics.map(item => item.id).map(content_id => ({
   user_id:"test-user",activity_type:"daily_topic",language_code:"en",content_id,topic_id:"test-topic",
