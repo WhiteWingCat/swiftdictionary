@@ -581,6 +581,8 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
   test.setTimeout(60000);
   console.log("[quiz-pagination] opening mock app");
   await openMockFlashcards(page);
+  // Keep the fixed mock-control widget from covering pagination controls.
+  await page.locator("#swiftMockPanel").evaluate(node=>node.hidden=true);
   console.log("[quiz-pagination] seeding 12 mock sessions");
   await page.evaluate(()=>{
     const question={
