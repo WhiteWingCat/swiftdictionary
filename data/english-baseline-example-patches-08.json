@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add second examples to the final set of specialist baseline entries.",
-  "status": "editorially-authored; awaiting integration",
-  "sourceBaselineBlob": "d20fc053dd0adc4495676b9a313e6e863c1792be",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "858ff9623cf375b983b684bb2ed65a396b280e38",
   "entries": [
     {
       "word": "rheology",
@@ -185,5 +185,6 @@
         "Time is plotted along the x-axis of the graph."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "648a602bb7490d9213acdb0852dfd9140b33b66e"
 }
