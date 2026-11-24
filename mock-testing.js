@@ -490,7 +490,7 @@
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
       const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard")?.daily_limit||0;
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
-      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),review_items:own("flashcard_review_items"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
+      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),review_items:own("flashcard_review_items"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,100)},error:null};
     }
     if (name==="dismiss_my_flashcard_review_item") {
       const key=String(args.p_card_key||""),mode=String(args.p_mode||"");
