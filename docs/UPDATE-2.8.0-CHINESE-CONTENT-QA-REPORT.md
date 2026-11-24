@@ -22,6 +22,7 @@ The bank contains **1,447 cards**: 519 single characters, 904 multi-character vo
 - Duplicate terms, missing mode-specific fields, and mode eligibility are checked.
 - Every eligible target must have at least three distinct distractors, allowing four unique choices in Word, Definition, English Translation, Chinese Translation, and Sentence modes.
 - A final cue-collision scan found seven duplicate English-gloss groups affecting eight cards and four duplicate Chinese-equivalent groups affecting four characters. Those cards remain available in other recall modes but are excluded from the affected translation language; the runtime now also draws translation distractors only from cards eligible in the selected language. The validator requires every enabled translation cue to identify a single card.
+- A second scan found four duplicate Sentence Recall prompts after target blanking. Added five sentence-only example overrides to distinguish those prompts while preserving the original dictionary examples; the validator now checks uniqueness after applying the same all-occurrences blanking used by the game.
 - Found **20 examples** where the target character appeared more than once. Sentence Recall now blanks every occurrence, and answer options remain hidden during the memory phase.
 
 ## Release and legal notes
