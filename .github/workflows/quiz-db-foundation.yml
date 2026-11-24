@@ -172,6 +172,7 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124160000_swiftdictionary_update_2_8_0_chinese_quiz_content_polish.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124170000_swiftdictionary_update_2_8_0_quiz_active_option_pinyin_redaction.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124180000_swiftdictionary_update_2_8_0_chinese_quiz_draft_pinyin_leak_sweep.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124190000_swiftdictionary_update_2_8_0_chinese_quiz_source_sync.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_quiz_content_polish.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_chinese_runtime_u2_8_0.sql"
 
