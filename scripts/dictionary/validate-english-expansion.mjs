@@ -177,6 +177,13 @@ for (const file of batchFiles) {
         errors.push(file + ": " + word + " has an incomplete sense");
       }
     }
+    const declaredParts = new Set(String(entry.part || "").split(/[—–-]/)[0].trim().toLowerCase().replace(/\\bverb phrase\\b/g, "verb").split(/\\s*\\/\\s*/).map(x => x.trim()).filter(Boolean));
+    const senseParts = new Set((entry.senses || []).flatMap(sense =>
+      String(sense.part || "").split(/[—–-]/)[0].trim().toLowerCase().replace(/\\bverb phrase\\b/g, "verb").split(/\\s*\\/\\s*/).map(x => x.trim()).filter(Boolean)
+    ));
+    for (const part of declaredParts) {
+      if (!senseParts.has(part)) errors.push(file + ": " + word + " declares " + part + " but has no corresponding sense record");
+    }
     for (const category of entry.categories || []) {
       if (!allowedCategories.has(category)) errors.push(file + ": " + word + " has unapproved category: " + category);
       categoryCounts[category] = (categoryCounts[category] || 0) + 1;
