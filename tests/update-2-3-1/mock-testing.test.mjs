@@ -731,7 +731,7 @@ test("Chinese Mixed Recall includes Translation Recall and rejects definition-cu
   });
   const makeRound=vm.runInContext("("+roundSource+")",context);
   const deck=["苹果","香蕉","橘子","葡萄","西瓜"].map((word,index)=>({
-    word,pinyin:"pinyin"+index,translationEn:"English cue "+index,translationZh:"",
+    word,pinyin:"pinyin"+index,translationEn:"English cue "+index,translationZh:"",translationLanguages:["en","zh"],
     definitionCueZh:"中文描述"+index,definitionZh:"中文描述"+index,
     examples:["我喜欢"+word+"。"],availableModes:["translation"]
   }));
