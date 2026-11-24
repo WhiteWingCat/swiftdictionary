@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Sense-level corrections for existing English baseline entries; apply by exact normalized headword during consolidated integration.",
-  "status": "editorially-authored; awaiting full review and integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "71332fdf57a38dbf00c49ca49aaf517e51958002",
   "patches": [
     {
@@ -695,5 +695,6 @@
         }
       ]
     }
-  ]
+  ],
+  "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
 }
