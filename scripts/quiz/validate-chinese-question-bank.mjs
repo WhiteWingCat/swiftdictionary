@@ -61,6 +61,11 @@ for(const [i,q] of (pack.questions||[]).entries()){
    if(answerEn.length>=4&&promptEn.includes(answerEn))errors.push(at+" exposes the complete English answer in its prompt translation");
    if(promptPy&&answerPy.length>=4&&promptPy.includes(answerPy))errors.push(at+" exposes the correct option Pinyin in its prompt Pinyin guide");
    if(promptPy&&isPinyinText(correct.learning_text)&&answerZh.length>=4&&promptPy.includes(answerZh))errors.push(at+" exposes a Pinyin-form answer in its prompt Pinyin guide");
+  }else if(questionType==="chinese_translation"&&correct){
+   const answerZh=norm(correct.translation_text);
+   for(const [field,prompt] of [["prompt_learning",q.prompt_learning],["prompt_translation",q.prompt_translation],["prompt_pinyin",q.prompt_pinyin]]){
+    if(answerZh.length>=2&&norm(prompt).includes(answerZh))errors.push(at+" exposes the correct Chinese translation in "+field);
+   }
   }
  }
  const p=norm(q.prompt_learning);if(prompts.has(p))errors.push(at+" duplicates a Chinese prompt");prompts.add(p);
