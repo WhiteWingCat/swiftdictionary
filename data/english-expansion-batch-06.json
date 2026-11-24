@@ -2557,6 +2557,15 @@
             "We spent half a day at the museum.",
             "The half-empty bottle was on the table."
           ]
+        },
+        {
+          "part": "adverb",
+          "definition": "To a degree that is about 50 percent or not complete.",
+          "definitionZh": "达到约一半的程度；不完全地。",
+          "examples": [
+            "I was only half listening to the conversation.",
+            "The job was half finished when the rain started."
+          ]
         }
       ]
     },
@@ -2710,6 +2719,15 @@
           "examples": [
             "Make sure the table is level.",
             "The road is almost level here."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make a surface flat or bring things to the same height or amount.",
+          "definitionZh": "使表面平坦；使不同事物达到相同高度或水平。",
+          "examples": [
+            "Workers levelled the ground before laying the path.",
+            "The new policy aims to level the playing field for small businesses."
           ]
         }
       ]
