@@ -1487,7 +1487,7 @@ test("Daily Learning resets completed content and allowance automatically at loc
   await page.evaluate(()=>window.initialiseDailyLearning());
   const oldContent=page.locator('#dailyActivityGrid [data-content-id="'+contentId+'"]');
   await expect(oldContent).toBeVisible();
-  await expect(oldContent).toContainText(/Review completed content|Completed/);
+  await expect(oldContent).toContainText(/Review completed content|Completed|重温已完成内容/);
   await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count)).toBe(1);
   const usageCallsBeforeMidnight=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="get_my_learning_allowance_usage").length);
   await page.clock.fastForward(31000);

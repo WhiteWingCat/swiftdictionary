@@ -391,7 +391,7 @@
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
   function clearDailyResetTimer() {
-    if (dailyResetTimer !== null) window.clearTimeout(dailyResetTimer);
+    if (dailyResetTimer !== null && typeof window.clearTimeout === "function") window.clearTimeout(dailyResetTimer);
     dailyResetTimer = null;
   }
   function refreshDailyWindowIfNeeded() {
@@ -406,7 +406,7 @@
     clearDailyResetTimer();
     if (!currentUser || !snapshot.day) return;
     const nextStart = Date.parse(zonedMidnightUtc(addDays(snapshot.day), snapshot.timezone || "UTC"));
-    if (!Number.isFinite(nextStart)) return;
+    if (!Number.isFinite(nextStart) || typeof window.setTimeout !== "function") return;
     dailyResetTimer = window.setTimeout(refreshDailyWindowIfNeeded, Math.max(1000, nextStart - Date.now() + 350));
   }
   function effectiveAllowanceTimezone(prefs, now = Date.now()) {
