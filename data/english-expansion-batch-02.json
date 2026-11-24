@@ -704,40 +704,49 @@
       ]
     },
     {
-      "word": "choice",
-      "part": "noun",
-      "phonetic": "/tʃɔɪs/",
-      "definition": "The act of choosing between possibilities; the person or thing selected; or the range of options available.",
-      "definitionZh": "选择；抉择；被选中的人或物；选项",
+      "word": "contact",
+      "part": "noun / verb",
+      "phonetic": "/ˈkɑːntækt/ (noun), /kənˈtækt/ (verb)",
+      "definition": "Communication with someone; a person you know who may help you; or to communicate with or touch someone or something.",
+      "definitionZh": "联系；接触；联系人；联络；联系某人",
       "examples": [
-        "You have a choice between tea and coffee.",
-        "That was a difficult choice to make."
+        "Please contact the office if you have any questions.",
+        "I keep in contact with my former classmates."
       ],
-      "tip": "The adjective is “chosen” only as a past participle; “choice” is also used before a noun in phrases such as choice ingredients.",
+      "tip": "As a noun, “contact” often means communication or a person you can reach. As a verb, it means get in touch with someone.",
       "course": "en",
-      "breakdown": "Refers both to the decision and to the option selected or available.",
-      "related": "option; decision; select; choose",
+      "breakdown": "Can refer to communication, a useful person, physical touching, or the act of getting in touch.",
+      "related": "communication; connection; reach; touch",
       "categories": [
         "Everyday Terms",
-        "Education"
+        "People & Relationships"
       ],
       "senses": [
         {
-          "part": "noun — act of choosing",
-          "definition": "The act of deciding which person or thing you want from two or more possibilities.",
-          "definitionZh": "从两个或多个可能选项中决定想要哪一个的行为。",
+          "part": "noun — communication",
+          "definition": "The act of communicating or keeping in touch with a person or organisation.",
+          "definitionZh": "与某人或某个机构沟通或保持联系的行为。",
           "examples": [
-            "Choosing a university is an important choice.",
-            "It was your choice to leave early."
+            "You can make contact by email.",
+            "We lost contact after graduation."
           ]
         },
         {
-          "part": "noun — selected option",
-          "definition": "A person or thing that has been selected, or one of the options available.",
-          "definitionZh": "被选中的人或事物；可供选择的选项之一。",
+          "part": "noun — person",
+          "definition": "A person you know who may provide information, help, or an introduction.",
+          "definitionZh": "可能提供信息、帮助或引荐的熟人；联系人。",
           "examples": [
-            "My first choice is the blue shirt.",
-            "There is a wide choice of meals."
+            "She has a contact at the travel agency.",
+            "I asked my business contacts for advice."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To communicate with someone by phone, email, message, or another method.",
+          "definitionZh": "通过电话、电子邮件、消息或其他方式与某人联系。",
+          "examples": [
+            "Please contact me when you arrive.",
+            "The school contacted every parent."
           ]
         }
       ]
