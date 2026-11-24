@@ -5,6 +5,8 @@ const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8
 const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
 const dailyLearning = fs.readFileSync(new URL("../../daily-learning.js", import.meta.url), "utf8");
 const flashcards = fs.readFileSync(new URL("../../flashcards.js", import.meta.url), "utf8");
+const confirmationScript = fs.readFileSync(new URL("../../permanent-lesson-confirmation.js", import.meta.url), "utf8");
+const lessonsCss = fs.readFileSync(new URL("../../lessons-ui.css", import.meta.url), "utf8");
 const quizTranslationMigration = fs.readFileSync(new URL("../../supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql", import.meta.url), "utf8");
 const inlineStyles = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi)];
 if (inlineStyles.length !== 1) {
@@ -36,6 +38,16 @@ const appScript = scripts.map(match => match[1]).find(source => source.includes(
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
 
 new vm.Script(appScript, { filename: "index.html:inline-app-script" });
+new vm.Script(confirmationScript, { filename: "permanent-lesson-confirmation.js" });
+new vm.Script(dailyLearning, { filename: "daily-learning.js" });
+new vm.Script(flashcards, { filename: "flashcards.js" });
+new vm.Script(mockTesting, { filename: "mock-testing.js" });
+if (!html.includes("permanent-lesson-confirmation.js?v=2.8.0-r1") || !confirmationScript.includes("window.showLearningAllowanceConfirmation")) throw new Error("Shared centered confirmation dialog is not loaded.");
+if (!appScript.includes("showLearningAllowanceConfirmation(warning") || !appScript.includes("showLearningAllowanceConfirmation(submitWarning") || appScript.includes("window.confirm(warning)") || appScript.includes("confirm(\"Submit this Quiz?")) throw new Error("Quiz start and submission must use the website confirmation dialog, not browser prompts.");
+if (!dailyLearning.includes("snapshot.completedToday || []") || !dailyLearning.includes("scheduleDailyReset()") || !dailyLearning.includes("refreshDailyWindowIfNeeded") || !dailyLearning.includes("visibilitychange")) throw new Error("Daily Learning reset and current-day display guards are missing.");
+if (!pageCss.includes(".dashboard-allowance-progress-track") || !appScript.includes("Complete \"+maximum+\" of any permanent lessons today.") || !appScript.includes("Participate in a Quiz test.") || !appScript.includes("Play \"+maximum+\" Flashcard game") || !pageCss.includes(".dashboard-daily-history{display:grid;grid-template-columns:1fr") || !pageCss.includes(".dashboard-history-group-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))")) throw new Error("Dashboard allowance tasks or row-based Daily History styling is incomplete.");
+if (!flashcards.includes("dismiss_my_flashcard_review_item") || !flashcards.includes('data-action="dismiss-review-item"') || !flashcards.includes("flash-review-tab[data-value=translation]{background:#bd762e") || !flashcards.includes(".flash-home > .flash-section:not(.learning-auth-card)") || !mockTesting.includes("seedFlashcardData") || !mockTesting.includes("dismiss_my_flashcard_review_item")) throw new Error("Flashcards panel, Translation Recall, or manual dismissal behavior is incomplete.");
+if (!lessonsCss.includes("#permanentLessonsPanel .difficulty-tab.active{border-color:#7894c9;background:#1b2534") || !lessonsCss.includes("#permanentLessonsPanel .difficulty-tab{min-width:112px")) throw new Error("Permanent Lessons difficulty tabs must share a consistent base fill.");
 
 const requiredMarkup = [
   'id="quizPage"', 'id="quizSignedOut"', 'id="quizHome"', 'id="quizSession"',

@@ -130,11 +130,15 @@
     .dashboard-tab.is-active { color:var(--text); border-color:var(--accent); background:var(--accent-bg); font-weight:700; }
     .dashboard-tab-panel { display:grid; gap:14px; }
     .dashboard-tab-panel[hidden], .quiz-home[hidden], .dashboard-review-overlay[hidden] { display:none !important; }
-    .dashboard-allowance-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:10px; margin:14px 0; }
-    .dashboard-allowance-card { display:grid; gap:5px; min-width:0; padding:13px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
-    .dashboard-allowance-card strong { font-size:.86rem; }
-    .dashboard-allowance-card b { font-size:1.3rem; color:var(--accent); }
-    .dashboard-allowance-card small { color:var(--muted); }
+    .dashboard-allowance-grid { display:grid; grid-template-columns:1fr; gap:9px; margin:14px 0; }
+    .dashboard-allowance-card { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:7px 14px; min-width:0; padding:13px 15px; border:1px solid var(--border); border-radius:13px; background:var(--panel-hover); }
+    .dashboard-allowance-card strong { min-width:0; font-size:.9rem; line-height:1.45; }
+    .dashboard-allowance-card b { font-size:.96rem; color:var(--accent); white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .dashboard-allowance-card small { grid-column:1/-1; color:var(--muted); font-size:.76rem; }
+    .dashboard-allowance-progress-track { grid-column:1/-1; height:6px; overflow:hidden; border-radius:999px; background:#ffffff14; }
+    .dashboard-allowance-progress-track span { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--accent),#85a8db); transition:width .2s ease; }
+    .dashboard-allowance-card.is-complete { border-color:#5d8c78; }
+    .dashboard-allowance-card.is-unavailable { opacity:.72; }
     .dashboard-daily-history { display:grid; gap:9px; }
     .dashboard-history-row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
     .dashboard-history-row-main { display:grid; gap:4px; min-width:0; }
@@ -623,14 +627,14 @@
     .dashboard-tab-panel{gap:16px}.dashboard-panel-enter{animation:dashboardPanelIn .24s ease both}
     @keyframes dashboardPanelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
     .dashboard-history-shell{padding:clamp(16px,2.5vw,24px)}.dashboard-history-heading h3{margin:0 0 4px}
-    .dashboard-daily-history{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+    .dashboard-daily-history{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
     .dashboard-history-group{min-width:0;padding:14px;border:1px solid var(--border);border-radius:15px;background:#121a27;box-shadow:0 8px 20px #0002}
     .dashboard-history-group>header{display:flex;align-items:center;gap:10px;margin:-1px 0 13px;padding:0 0 12px;border:0;border-bottom:1px solid var(--border);background:transparent}
     .dashboard-history-group-icon{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:#ffffff14;font-size:1.2rem}
     .dashboard-history-group header h4{margin:0;font-size:.98rem}.dashboard-history-group header p{margin:2px 0 0;color:var(--muted);font-size:.76rem}
     .dashboard-history-lessons .dashboard-history-group-icon{color:#e5c17e;background:#8b672b35}.dashboard-history-quiz .dashboard-history-group-icon{color:#8fb9f2;background:#345b8a45}.dashboard-history-flashcards .dashboard-history-group-icon{color:#d4a9f4;background:#6a438a45}
-    .dashboard-history-group-items{display:grid;gap:9px}.dashboard-history-group .dashboard-history-row{display:grid;align-items:start;padding:10px;border-radius:11px;background:#1a2432}
-    .dashboard-history-group .dashboard-history-actions button{width:100%;font-size:.78rem;padding:7px}.dashboard-history-empty{margin:0;font-size:.82rem;line-height:1.5}.dashboard-history-timezone{grid-column:1/-1;margin:0}
+    .dashboard-history-group-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:9px}.dashboard-history-group .dashboard-history-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border-radius:11px;background:#1a2432}.dashboard-history-group .dashboard-history-row-main{flex:1;min-width:0}.dashboard-history-group .dashboard-history-actions{flex:0 0 auto}.dashboard-history-group .dashboard-history-actions button{width:auto;white-space:nowrap;font-size:.78rem;padding:7px 10px}.dashboard-history-empty{margin:0;font-size:.82rem;line-height:1.5}.dashboard-history-timezone{grid-column:1/-1;margin:0}
+    @media(max-width:560px){.dashboard-history-group-items{grid-template-columns:1fr}.dashboard-history-group .dashboard-history-row{align-items:flex-start;flex-direction:column}.dashboard-history-group .dashboard-history-actions{width:100%}.dashboard-history-group .dashboard-history-actions button{width:100%}}
     @media(max-width:860px){.dashboard-daily-history{grid-template-columns:1fr}.dashboard-tab-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:480px){.dashboard-hero-content{align-items:flex-start}.dashboard-hero-banner .dashboard-avatar{width:54px;height:54px;flex-basis:54px;font-size:1.8rem}.dashboard-tab{font-size:.82rem;justify-content:flex-start}.dashboard-tab-icon{width:24px;height:24px;flex-basis:24px}}
     .quiz-difficulty-card{padding:clamp(18px,3vw,26px);border:1px solid #3d4d67;border-radius:20px;background:linear-gradient(145deg,#1c2636,#171e2b);box-shadow:0 14px 32px #0003}
@@ -19834,25 +19838,38 @@ async function completeLesson(x){
     function renderDashboardAllowanceBars(plan,limits,usageRows,timezone,personalLessonExemption) {
       const host=document.getElementById("dashboardAllowanceBars");
       if(!host)return;
-      const types=["lesson","quiz","flashcard","daily_topic","daily_application","daily_discovery","daily_revision"];
-      const labels={lesson:"Permanent lessons",quiz:"Quiz",flashcard:"Flashcards",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision"};
+      const types=["lesson","daily_topic","daily_application","daily_discovery","daily_revision","quiz","flashcard"];
+      const taskText={
+        lesson:maximum=>"Complete "+maximum+" of any permanent lessons today.",
+        daily_topic:()=>"Complete Daily Topic of any course.",
+        daily_application:()=>"Complete Daily Application of any course.",
+        daily_discovery:()=>"Complete Daily Discovery of any course.",
+        daily_revision:()=>"Complete Daily Revision of any course.",
+        quiz:()=>"Participate in a Quiz test.",
+        flashcard:maximum=>"Play "+maximum+" Flashcard game"+(maximum===1?"":"s")+" today."
+      };
+      host.setAttribute("role","list");
       host.innerHTML=types.map(type=>{
         const row=limits.find(item=>item.plan_code===plan&&item.activity_type===type);
         if(type==="lesson"&&personalLessonExemption)
-          return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>Unlimited</b><small>Personal testing access</small></div>';
-        if(!row||!row.is_enabled||!Number.isFinite(Number(row.daily_limit)))
-          return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>Unavailable</b><small>Not enabled for this plan</small></div>';
-        const maximum=Math.max(0,Number(row.daily_limit));
+          return '<div class="dashboard-allowance-card" role="listitem"><strong>Complete permanent lessons at your own pace today.</strong><b>Unlimited</b><small>Personal testing access</small></div>';
+        if(!row||!row.is_enabled||!Number.isFinite(Number(row.daily_limit))||Number(row.daily_limit)<=0)
+          return '<div class="dashboard-allowance-card is-unavailable" role="listitem"><strong>'+taskText[type](0)+'</strong><b>Unavailable</b><small>Not enabled for this plan</small></div>';
+        const maximum=Math.max(0,Math.floor(Number(row.daily_limit)));
+        const task=taskText[type](maximum);
         const usage=Array.isArray(usageRows)?usageRows.find(item=>item.activity_type===type):null;
         if(!usage||!Number.isInteger(Number(usage.used_count))||Number(usage.used_count)<0)
-          return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>— / '+maximum+'</b><small>Usage unavailable</small></div>';
-        const used=Math.max(0,Number(usage.used_count)),remaining=Math.max(0,maximum-used);
-        return '<div class="dashboard-allowance-card"><strong>'+labels[type]+'</strong><b>'+remaining+' / '+maximum+'</b><small>'+used+' completed today</small></div>';
+          return '<div class="dashboard-allowance-card" role="listitem"><strong>'+task+'</strong><b>— / '+maximum+'</b><small>Progress unavailable; refresh to try again.</small></div>';
+        const used=Math.max(0,Number(usage.used_count));
+        const completed=Math.min(maximum,used);
+        const percent=maximum?Math.min(100,completed/maximum*100):0;
+        const complete=completed>=maximum;
+        return '<div class="dashboard-allowance-card'+(complete?' is-complete':'')+'" role="listitem"><strong>'+task+'</strong><b>'+completed+'/'+maximum+'</b><div class="dashboard-allowance-progress-track" role="progressbar" aria-label="'+task+' '+completed+' of '+maximum+'" aria-valuemin="0" aria-valuemax="'+maximum+'" aria-valuenow="'+completed+'"><span style="width:'+percent+'%"></span></div><small>'+(complete?"Task complete for today.":"Progress resets at local midnight.")+'</small></div>';
       }).join("");
       const note=document.getElementById("allowanceDetails");
       if(note)note.textContent=Array.isArray(usageRows)
-        ?(plan==="premium"?"Premium":"Free")+" plan · Resets at midnight ("+timezone+"). Only successful completions use an allowance."
-        :"Allowance usage could not be loaded from the server. Counts are not estimated from learning history.";
+        ?(plan==="premium"?"Premium":"Free")+" plan · Resets at midnight ("+String(timezone||"UTC")+"). Lesson, Daily activity and Flashcard tasks count on completion; Quiz allowance is used when a test starts."
+        :"Allowance progress could not be loaded from the server. Counts are not estimated from learning history.";
     }
 
     function formatTopicName(topicId) {
@@ -20573,7 +20590,10 @@ async function completeLesson(x){
       const requestedTranslation=translationSelector.value||translationLanguage||"en";
       const requestedUserId=currentUser?.id||null;
       const warning=requestedTranslation==="zh"?"开始这场测验会立即使用一次每日测验额度。即使之后放弃测验，此额度也不会退还。要继续吗？":"Starting this Quiz will use one daily Quiz allowance immediately. The allowance will not be refunded if you later abandon the session. Continue?";
-      if(!window.confirm(warning))return;
+      if(typeof window.showLearningAllowanceConfirmation!=="function"){quizStatus(quizT("The confirmation dialog could not be loaded. Please refresh before starting the Quiz.","确认对话框无法加载，请刷新页面后再开始测验。"),true);return;}
+      const confirmed=await window.showLearningAllowanceConfirmation(warning,{confirmLabel:requestedTranslation==="zh"?"开始测验":"Start Quiz",cancelLabel:requestedTranslation==="zh"?"取消":"Cancel"});
+      if(!confirmed)return;
+      if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was waiting for confirmation. Please try again.","等待确认期间账户发生变化，请重试。"),true);return;}
       quizPageState.userId=requestedUserId||quizPageState.userId;courseSelector.disabled=true;translationSelector.disabled=true;
       try{
         quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
@@ -20587,13 +20607,29 @@ async function completeLesson(x){
       finally{courseSelector.disabled=false;translationSelector.disabled=false;}
     }
     async function quizSubmit(){
-      const s=quizPageState.session;if(!s)return;
+      const s=quizPageState.session;if(!s||quizPageState.saving)return;
       const missing=s.questions.filter(q=>!q.selected_option_id).length;
       if(missing){quizStatus("Please answer all "+missing+" remaining question"+(missing===1?"":"s")+" before submitting.",true);return;}
-      if(!confirm("Submit this Quiz? You will be able to review every answer, but cannot change it afterwards."))return;
+      const sessionId=s.session_id,userId=currentUser?.id||null,translationCode=quizEffectiveTranslationCode(s),useChinese=translationCode==="zh";
+      const submitWarning=useChinese
+        ?"确定提交并结束本次测验吗？提交后你可以查看答案，但不能再更改作答。"
+        :"Submit this Quiz and finish your attempt? You can review your answers afterwards, but you cannot change them.";
+      if(typeof window.showLearningAllowanceConfirmation!=="function"){
+        quizStatus(useChinese?"确认对话框无法加载，请刷新页面后再提交。":"The confirmation dialog could not be loaded. Please refresh before submitting.",true);
+        return;
+      }
+      const confirmed=await window.showLearningAllowanceConfirmation(submitWarning,{
+        confirmLabel:useChinese?"提交测验":"Submit Quiz",
+        cancelLabel:useChinese?"继续作答":"Keep answering"
+      });
+      if(!confirmed)return;
+      if(currentUser?.id!==userId||quizPageState.session?.session_id!==sessionId){
+        quizStatus(useChinese?"测验或账户已发生变化，请检查当前测验后再提交。":"The Quiz or account changed while awaiting confirmation. Please check the current session before submitting.",true);
+        return;
+      }
       try{
         quizStatus("Submitting your Quiz…");quizPageState.saving=true;
-        const {data,error}=await quizCall("submit_my_quiz",{p_session_id:s.session_id});if(error)throw error;
+        const {data,error}=await quizCall("submit_my_quiz",{p_session_id:sessionId});if(error)throw error;
         quizPageState.saving=false;quizPageState.result=data;quizRenderResult(data);
         await quizLoadHistoryAndAvailability();
       }catch(error){quizPageState.saving=false;quizStatus(error.message||"Could not submit the Quiz.",true);}
@@ -20914,6 +20950,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
   </script>
 
   <script src="daily-learning.js?v=2.8.0-r2"></script>
+  <script src="permanent-lesson-confirmation.js?v=2.8.0-r1"></script>
   <script src="data/chinese-flashcards.js?v=2.8.0-draft2"></script>
   <script src="flashcards.js?v=2.8.0-r3"></script>
   <script src="account-deletion.js?v=2.6.0-r4"></script>

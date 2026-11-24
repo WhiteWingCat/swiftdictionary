@@ -91,6 +91,7 @@
       #flashcardsPage .flash-banner h2{font-size:2.2rem;margin:0 0 8px;color:#f4f8ff}
       #flashcardsPage .flash-banner p{margin:0;color:#c4d4ea}
       #flashcardsPage .flash-section{border-radius:18px;box-shadow:0 8px 22px #0002}
+      #flashcardsPage .flash-home > .flash-section:not(.learning-auth-card){padding:clamp(18px,2.4vw,28px);border:1px solid #394a63;border-radius:21px;background:linear-gradient(145deg,#1b2535,#19212f);box-shadow:0 8px 22px #0003}
       #flashcardsPage .flash-mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}
       #flashcardsPage .flash-mode{display:flex;align-items:center;gap:12px;min-height:88px;border:0;border-radius:17px;color:#fff;padding:15px;text-align:left;font-weight:750;box-shadow:0 7px 0 #0005,0 12px 20px #0003;transition:transform .16s}
       #flashcardsPage .flash-mode:hover{transform:translateY(-2px)}
@@ -139,6 +140,12 @@
       .flash-overlay-root .flash-review-tab[aria-selected=true]{background:#344e77}
       .flash-overlay-root .flash-review-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
       .flash-overlay-root .flash-review-list button{width:100%;text-align:left;margin:5px 0;padding:11px;border-radius:10px;background:#242e40;border:1px solid #3c4a60;color:#eef3ff}
+      .flash-overlay-root .flash-review-item{display:grid;grid-template-columns:minmax(0,1fr) 40px;align-items:stretch;gap:7px;margin:5px 0}
+      .flash-overlay-root .flash-review-item .flash-review-entry{min-width:0;margin:0}
+      .flash-overlay-root .flash-review-item .flash-review-dismiss{display:grid;place-items:center;width:40px;min-height:40px;margin:0;padding:0;border-radius:10px;background:#2c3545;border:1px solid #52617a;color:#dce5f3;font-size:1.2rem;font-weight:800}
+      .flash-overlay-root .flash-review-item .flash-review-dismiss:hover{background:#63353d;border-color:#a65c66;color:#fff}
+      .flash-overlay-root .flash-review-item .flash-review-dismiss:focus-visible{outline:2px solid #f3b4bb;outline-offset:2px}
+      .flash-overlay-root .flash-review-dismiss-notice{margin:8px 0;padding:9px 12px;border:1px solid #4d8069;border-radius:10px;background:#173529;color:#c8f0d8;font-size:.84rem}
       .flash-overlay-root .flash-review-detail{background:#202a3a;border:1px solid #3b4a62;border-radius:14px;padding:16px;animation:flashSlideIn .22s ease-out}
       #flashcardsPage .flash-banner{position:relative;padding-right:30px;display:flex;align-items:center;justify-content:space-between;gap:18px}
       #flashcardsPage .flash-banner-copy{flex:1;min-width:0}
@@ -193,6 +200,7 @@
       .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=definition]{background:#2865b2;box-shadow:0 4px 0 #173d70,0 7px 12px #0003}
       .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=mixed]{background:#b33f91;box-shadow:0 4px 0 #70275a,0 7px 12px #0003}
       .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=sentence]{background:#7650b8;box-shadow:0 4px 0 #493176,0 7px 12px #0003}
+      .flash-overlay-root .flash-review-modal .flash-review-tab[data-value=translation]{background:#bd762e;box-shadow:0 4px 0 #79491e,0 7px 12px #0003}
       .flash-overlay-root .flash-review-modal .flash-review-tab[aria-selected=true]{filter:brightness(1.18);transform:translateY(-1px)}
       @media(max-width:650px){.flash-overlay-root .flash-review-modal{min-height:min(620px,calc(100dvh - 32px));height:calc(100dvh - 32px)}.flash-overlay-root .flash-review-modal .flash-review-layout{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}}
       @keyframes flashSlideIn{from{transform:translateX(-18px);opacity:0}to{transform:translateX(0);opacity:1}}
@@ -577,7 +585,7 @@
     overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal" role="dialog" aria-modal="true" aria-labelledby="flashSetupTitle"><h2 id="flashSetupTitle">${modeLabel(mode)}</h2><p class="flash-muted">${uiText("Your selected challenge duration is shown beside the recall modes. Memory and answer windows become shorter after every round, including incorrect answers and timeouts.","挑战时长已在回忆模式旁显示。每完成一轮后，记忆和答题时间都会缩短，包括答错或超时。")}</p><div class="flash-modal-grid"><label>${uiText("Difficulty","难度")}<select id="flashDifficulty"><option value="beginner">${difficultyLabel("beginner")}</option><option value="intermediate">${difficultyLabel("intermediate")}</option><option value="advanced">${difficultyLabel("advanced")}</option></select></label><label>${uiText("Card set","卡片范围")}<select id="flashGameCollection">${sets.map(([v,l])=>`<option value="${v}" ${state.cardSet===v?"selected":""}>${l}</option>`).join("")}</select></label></div>${modeNote?`<p class="flash-muted">${modeNote}</p>`:""}<p class="flash-muted">${uiText("Beginner starts with longer memory and answer windows. Intermediate and Advanced reduce the time more quickly.","初级提供较长的记忆和答题时间；中级和高级的时间缩短速度更快。")}</p><div class="flash-modal-actions"><button class="flash-secondary" data-action="close-overlay">${uiText("Cancel","取消")}</button><button class="flash-primary" data-action="begin-game">${uiText("Begin","开始")}</button></div></section></div>`;
   }
   function openReviewPrompt(){
-    state.reviewMode="word";state.reviewSelected=null;renderReviewPrompt();
+    state.reviewMode="word";state.reviewSelected=null;state.reviewNotice="";renderReviewPrompt();
   }
   function renderReviewPrompt(){
     const overlay=overlayRoot;if(!overlay)return;
@@ -589,7 +597,9 @@
     const resolve=key=>{if(key.startsWith("dict:zh:"))return words("zh").find(w=>w.word.toLowerCase()===key.slice(8));if(key.startsWith("dict:"))return words("en").find(w=>w.word.toLowerCase()===key.slice(5));const c=state.data.cards.find(x=>cardKey(x)===key);return c?mapCustomCard(c):null;};
     const card=selected?resolve(selected.card_key):null;
     const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`:'<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<button data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}</button>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
+    const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
+    const removeLabel=uiText("Remove from weak-memory review","从薄弱记忆列表中移除");
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
     const list=overlay.querySelector(".flash-review-list"),detailPanel=overlay.querySelector("#flashReviewDetail");
     if(list)list.scrollTop=previousListScroll;
     if(detailPanel)detailPanel.scrollTop=previousDetailScroll;
@@ -663,6 +673,18 @@
       if(action==="review-game"){await openGameReview(value);return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
       if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
+      if(action==="dismiss-review-item"){
+        const cardKey=button.dataset.cardKey,mode=button.dataset.mode;
+        if(!cardKey||!mode)throw new Error("This weak-memory item could not be identified.");
+        button.disabled=true;
+        const {data,error}=await supabaseClient.rpc("dismiss_my_flashcard_review_item",{p_card_key:cardKey,p_mode:mode});
+        if(error)throw error;
+        if(data?.dismissed===false){await loadData();renderReviewPrompt();return;}
+        state.data.review_items=(state.data.review_items||[]).filter(item=>!(item.card_key===cardKey&&item.mode===mode));
+        if(state.reviewSelected===cardKey&&state.reviewMode===mode)state.reviewSelected=null;
+        state.reviewNotice=uiText("Removed from weak-memory review. Your game history and learning statistics were kept.","已从薄弱记忆复习列表中移除。游戏记录和学习统计会保留。");
+        render();renderReviewPrompt();return;
+      }
       if(action==="mode"){state.mode=value;render();return;}
       if(action==="select-collection"){state.collectionId=value;render();return;}
       if(action==="start-game"){await startGame();return;}

@@ -52,6 +52,9 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#lessonCards .lesson-card").first()).toBeVisible();
   await expect(page.locator("#lessonDifficultySummary")).toContainText("lessons");
+  const difficultyTabFills=await page.locator("#permanentLessonsPanel .difficulty-tab").evaluateAll(nodes=>nodes.map(node=>{const style=getComputedStyle(node);return style.backgroundColor+"|"+style.backgroundImage;}));
+  expect(difficultyTabFills).toHaveLength(3);
+  expect(new Set(difficultyTabFills).size).toBe(1);
 
   for (const difficulty of ["intermediate", "advanced", "beginner"]) {
     await page.locator(`[data-difficulty="${difficulty}"]`).click();
@@ -685,6 +688,7 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
         listeners: [],
         rpcCalls: [],
         sessions: [],
+        allowanceDay: null,
         allowanceUsage: [
           { activity_type: "lesson", used_count: 0 },
           { activity_type: "daily_topic", used_count: 0 },
@@ -827,9 +831,12 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
         from(table) { return query(table); },
         async rpc(name, args) {
           state.rpcCalls.push({ name, args: structuredClone(args) });
-          if (name === "get_my_learning_allowance_usage") return state.legacySchema
-            ? { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } }
-            : { data: state.allowanceUsage, error: null };
+          if (name === "get_my_learning_allowance_usage") {
+            if (state.legacySchema) return { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } };
+            const localDay=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kuala_Lumpur",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+            if(state.allowanceDay!==localDay){state.allowanceDay=localDay;state.allowanceUsage.forEach(row=>{row.used_count=0;});}
+            return { data: state.allowanceUsage, error: null };
+          }
           if (name === "is_personal_learning_test_access") return { data: false, error: null };
           if (name === "complete_permanent_lesson" || name === "complete_permanent_lesson_for_language") {
             const learningLanguage = name === "complete_permanent_lesson" ? "en" : args.p_learning_language;
@@ -1458,4 +1465,38 @@ test("historical Daily Learning reviews do not consume today's new activity slot
   expect(startCalls).toBe(0);
   await page.locator("#dailyActivityReader [data-daily-close]").click();
   await expect(page.locator("#dailyActivityReader")).toBeHidden();
+});
+
+test("Daily Learning resets completed content and allowance automatically at local midnight", async ({ page }) => {
+  await page.clock.install({time:new Date("2026-11-24T15:59:30.000Z")});
+  await page.emulateTimezone("Asia/Kuala_Lumpur");
+  await installDailyLearningMock(page,"daily-midnight-reset-user");
+  await page.goto("/");
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  const startButton=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"] [data-start-daily="daily_topic"]').first();
+  await expect(startButton).toBeVisible();
+  const contentId=await startButton.getAttribute("data-content-id");
+  expect(contentId).toBeTruthy();
+  await page.evaluate(({contentId})=>{
+    const state=window.__swiftDailyMock;
+    state.tables.daily_activity_sessions.push({
+      id:"daily-midnight-session",user_id:state.user.id,activity_type:"daily_topic",language_code:"en",
+      content_id:contentId,topic_id:null,difficulty:"beginner",source:"topic",status:"completed",
+      started_at:"2026-11-24T15:58:00.000Z",completed_at:"2026-11-24T15:59:00.000Z",
+      correct_count:1,question_count:1
+    });
+    state.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count=1;
+  },{contentId});
+  await page.evaluate(()=>window.initialiseDailyLearning());
+  const oldContent=page.locator('#dailyActivityGrid [data-content-id="'+contentId+'"]');
+  await expect(oldContent).toBeVisible();
+  await expect(oldContent).toContainText(/Review completed content|Completed/);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count)).toBe(1);
+  const usageCallsBeforeMidnight=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="get_my_learning_allowance_usage").length);
+  await page.clock.fastForward(31000);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="get_my_learning_allowance_usage").length)).toBeGreaterThan(usageCallsBeforeMidnight);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count)).toBe(0);
+  await expect(page.locator('#dailyActivityGrid [data-content-id="'+contentId+'"]')).toHaveCount(0);
+  await expect(page.locator('#dailyActivityGrid [data-activity-card="daily_topic"] [data-start-daily="daily_topic"]').first()).toBeEnabled();
 });

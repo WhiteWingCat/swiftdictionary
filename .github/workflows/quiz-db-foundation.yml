@@ -166,6 +166,8 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123147000_swiftdictionary_update_2_8_0_chinese_greeting_distractors.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123148000_swiftdictionary_update_2_8_0_quiz_start_allowance_error_copy.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123149000_swiftdictionary_update_2_8_0_chinese_quiz_pinyin_leak_scan_fix.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124120000_swiftdictionary_update_2_8_0_flashcard_review_item_dismissal.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcard_review_item_dismissal.sql"
 
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -223,9 +225,9 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
       - name: Run signed-out Flashcards and Preferences browser regressions
-        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast"
+        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually"
       - name: Run permanent Lessons allowance notification regression
-        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes"
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes|Daily Learning resets completed content and allowance automatically at local midnight"
 
       - name: Run Supabase security advisors against the local Quiz schema
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -268,7 +270,11 @@ jobs:
       - name: Validate application JavaScript and Quiz frontend integration
         run: |
           node --check flashcards.js
+          node --check daily-learning.js
+          node --check permanent-lesson-confirmation.js
+          node --check mock-testing.js
           node scripts/quiz/validate-quiz-frontend.mjs
+          node tests/update-2-5-0/check-flashcards-page.mjs
 
       - name: Validate Chinese Quiz and Flashcard draft banks
         run: |

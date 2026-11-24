@@ -511,3 +511,39 @@ test("Flashcards shows a five-second toast when the daily allowance is exhausted
   await page.waitForTimeout(5200);
   await expect(page.locator("#swiftDictionaryToast")).not.toHaveClass(/is-visible/);
 });
+
+test("Flashcards home panels match Lessons and Quiz styling; weak-memory items can be dismissed individually",async({page})=>{
+  await openMockFlashcards(page);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.activeUser())).not.toBeNull();
+  const now=new Date().toISOString();
+  await page.evaluate(async({now})=>{
+    window.__swiftDictionaryMock.seedFlashcardData({
+      reviewItems:[{card_key:"dict:zh:你",mode:"translation",incorrect_count:2,last_incorrect_at:now}],
+      history:[{id:"11111111-1111-4111-8111-111111111111",mode:"translation",difficulty:"beginner",status:"completed",words_seen:1,correct_count:0,incorrect_count:1,unanswered_count:0,started_at:now,completed_at:now,duration_seconds:60,learning_language_code:"zh",translation_language_code:"en"}]
+    });
+    await window.SwiftDictionaryFlashcards.refreshDashboardData();
+  },{now});
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
+  const panelStyles=await page.locator("#flashcardsPage .flash-home > .flash-section").evaluateAll(nodes=>nodes.map(node=>{
+    const style=getComputedStyle(node);
+    return {radius:style.borderRadius,background:style.backgroundImage,shadow:style.boxShadow};
+  }));
+  expect(panelStyles).toHaveLength(3);
+  expect(panelStyles.every(style=>style.radius==="21px"&&style.background.includes("linear-gradient")&&style.shadow!=="none")).toBe(true);
+  const recentGames=page.locator("#flashcardsPage .flash-home > .flash-section").last();
+  await expect(recentGames).toContainText("Recent games");
+  await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
+  await page.locator('[data-action="open-review"]').click();
+  const translationTab=page.locator('.flash-review-tab[data-value="translation"]');
+  await expect(translationTab).toHaveCSS("background-color","rgb(189, 118, 46)");
+  await translationTab.click();
+  await expect(page.locator(".flash-review-item")).toHaveCount(1);
+  await page.locator('[data-action="dismiss-review-item"]').click();
+  await expect(page.locator(".flash-review-item")).toHaveCount(0);
+  await expect(page.locator(".flash-review-dismiss-notice")).toContainText(/game history|游戏记录/);
+  await page.locator('[data-action="close-overlay"]').click();
+  await expect(page.locator('[data-action="open-review"]')).toContainText("(0)");
+  await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
+});

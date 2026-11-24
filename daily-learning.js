@@ -374,10 +374,12 @@
 
   let preferences = Object.fromEntries(preferenceKeys.map(key => [key, true]));
   let selectedDailyTab = "daily_topic";
-  let snapshot = { timezone:"UTC", day:"", plan:"free", limits:{}, completed:{}, openSessions:[], dailyResults:[], content:{} };
+  let snapshot = { timezone:"UTC", day:"", plan:"free", limits:{}, completed:{}, completedToday:[], openSessions:[], dailyResults:[], content:{} };
   let readerState = null;
   let loadSequence = 0;
   let preferenceListenersReady = false;
+  let dailyResetTimer = null;
+  let dailyResetRefreshInFlight = false;
 
   const byId = id => document.getElementById(id);
   const esc = value => escapeHTML(String(value ?? ""));
@@ -388,6 +390,25 @@
   const dailyDiscoveryPool = () => isChineseLearningCourse() ? chineseDailyLearning.discovery : dailyDiscoveryVocabulary;
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
+  function clearDailyResetTimer() {
+    if (dailyResetTimer !== null) window.clearTimeout(dailyResetTimer);
+    dailyResetTimer = null;
+  }
+  function refreshDailyWindowIfNeeded() {
+    const lessonsPage = byId("lessonsPage");
+    const pageIsVisible = location.hash === "#lessons" || !!(lessonsPage && !lessonsPage.hidden);
+    if (!currentUser || !snapshot.day || !pageIsVisible || dailyResetRefreshInFlight) return;
+    if (localDayStart(snapshot.timezone || "UTC") === snapshot.day) return;
+    dailyResetRefreshInFlight = true;
+    void initialiseDailyLearning().finally(() => { dailyResetRefreshInFlight = false; });
+  }
+  function scheduleDailyReset() {
+    clearDailyResetTimer();
+    if (!currentUser || !snapshot.day) return;
+    const nextStart = Date.parse(zonedMidnightUtc(addDays(snapshot.day), snapshot.timezone || "UTC"));
+    if (!Number.isFinite(nextStart)) return;
+    dailyResetTimer = window.setTimeout(refreshDailyWindowIfNeeded, Math.max(1000, nextStart - Date.now() + 350));
+  }
   function effectiveAllowanceTimezone(prefs, now = Date.now()) {
     const until = Date.parse(prefs?.allowance_timezone_until || "");
     if (prefs?.allowance_timezone && Number.isFinite(until) && until > now) {
@@ -669,7 +690,8 @@
     const grid = byId("dailyActivityGrid");
     if (!supabaseClient || !currentUser) {
       preferences = Object.fromEntries(preferenceKeys.map(key => [key, true]));
-      snapshot = { timezone:"UTC", day:localDayStart("UTC"), learningLanguage:"en", plan:"free", limits:{}, completed:{}, openSessions:[], dailyResults:[], content:{} };
+      clearDailyResetTimer();
+      snapshot = { timezone:"UTC", day:localDayStart("UTC"), learningLanguage:"en", plan:"free", limits:{}, completed:{}, completedToday:[], openSessions:[], dailyResults:[], content:{} };
       applyPreferenceInputs(false);
       status.textContent = "Sign in to start activities and sync your preferences and progress across devices.";
       renderCards();
@@ -771,6 +793,7 @@
     for (const type of Object.keys(activityMeta)) snapshot.content[type] = chooseContent(type,slots[type]);
     renderDailyStatus();
     renderCards();
+    scheduleDailyReset();
   }
 
   function applyPreferenceInputs(signedIn) {
@@ -792,7 +815,7 @@
     const limit = Number(limitConfig?.limit);
     const used = Number(snapshot.completed[type] || 0);
     const remaining = Number.isFinite(limit) ? Math.max(0,limit-used) : null;
-    const completedRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
+    const completedRows = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
@@ -1444,6 +1467,7 @@
   bindPreferenceControls();
   window.addEventListener("swift-auth-updated",() => {
     const userId = currentUser?.id || null;
+    if (!userId) clearDailyResetTimer();
     if (location.hash === "#lessons" && userId && window.__swiftDailyLearningHydratedFor !== userId) {
       window.__swiftDailyLearningHydratedFor = userId;
       initialiseDailyLearning();
@@ -1452,5 +1476,13 @@
   window.addEventListener("swift-course-preferences-updated",() => {
     if (location.hash === "#lessons" && currentUser) void initialiseDailyLearning();
   });
+  window.addEventListener("hashchange",refreshDailyWindowIfNeeded);
+  window.addEventListener("focus",refreshDailyWindowIfNeeded);
+  document.addEventListener("visibilitychange",() => { if (!document.hidden) refreshDailyWindowIfNeeded(); });
+  const lessonsPage = byId("lessonsPage");
+  if (lessonsPage && typeof MutationObserver !== "undefined") {
+    new MutationObserver(() => { if (!lessonsPage.hidden) refreshDailyWindowIfNeeded(); })
+      .observe(lessonsPage,{attributes:true,attributeFilter:["hidden"]});
+  }
   if (location.hash === "#lessons") initialiseDailyLearning();
 })();

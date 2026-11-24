@@ -9,6 +9,7 @@ const recallMigration=fs.readFileSync("supabase/migrations/20261118100415_flashc
 const deletionMigration=fs.readFileSync("supabase/migrations/20261118100736_flashcards_review_history_deletion.sql","utf8");
 const durationMigration=fs.readFileSync("supabase/migrations/20261119094011_swiftdictionary_update_2_5_0_flashcards_60_120_second_challenges.sql","utf8");
 const reviewIndexMigration=fs.readFileSync("supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql","utf8");
+const dismissalMigration=fs.readFileSync("supabase/migrations/20261124120000_swiftdictionary_update_2_8_0_flashcard_review_item_dismissal.sql","utf8");
 
 let inlineCount=0;
 for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
@@ -87,4 +88,7 @@ for(const word of ["thanks","excuse me","good morning","good afternoon","good ev
 for(const word of ["station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-places-getting-around"').test(html))throw new Error("Missing places lesson link for "+word);
 if(!html.includes("60-second or 120-second challenge")||!html.includes("Mixed Recall combines word, definition and sentence prompts"))throw new Error("Flashcards introduction still contains outdated challenge or mode information.");
 if(!html.includes('translationLanguage==="zh"&&chineseIntroCopy[page]'))throw new Error("Simplified Chinese Quiz/Flashcards introductions are missing.");
+if(!flashcards.includes("dismiss_my_flashcard_review_item")||!flashcards.includes('data-action="dismiss-review-item"')||!mock.includes("seedFlashcardData"))throw new Error("Weak-memory items need account-scoped manual dismissal in the client and mock adapter.");
+if(!dismissalMigration.includes("private.dismiss_my_flashcard_review_item_impl")||!dismissalMigration.includes("security definer")||!dismissalMigration.includes("security invoker")||!dismissalMigration.includes("grant execute on function public.dismiss_my_flashcard_review_item"))throw new Error("Weak-memory dismissal RPC must use least-privilege authenticated grants.");
+if(!flashcards.includes(".flash-home > .flash-section:not(.learning-auth-card)")||!flashcards.includes("flash-review-tab[data-value=translation]{background:#bd762e"))throw new Error("Flashcards panels or Translation Recall review styling are missing.");
 console.log("Flashcards page checks passed; syntax-checked "+inlineCount+" inline application script(s).");

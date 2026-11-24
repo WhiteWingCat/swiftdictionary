@@ -9,7 +9,7 @@ const errors=[];
 const emitSql=process.argv.includes("--emit-sql");
 const approve=process.argv.includes("--approve-for-release");
 if(approve&&!emitSql){console.error("--approve-for-release requires --emit-sql");process.exit(1);}
-const ids=new Set(),prompts=new Set();
+const ids=new Set(),prompts=new Set(),sourceLessonIds=new Set();
 const counts={beginner:0,intermediate:0,advanced:0};
 const translationCounts={beginner:0,intermediate:0,advanced:0};
 const topics={beginner:new Set(),intermediate:new Set(),advanced:new Set()};
@@ -21,6 +21,7 @@ for(const [i,q] of (pack.questions||[]).entries()){
  const at="questions["+i+"]";
  if(!q.question_id||ids.has(q.question_id))errors.push(at+" has a missing or duplicate question_id");ids.add(q.question_id);
  const lesson=map.lessons?.[q.source_lesson_id];
+ if(lesson)sourceLessonIds.add(q.source_lesson_id);
  if(!lesson)errors.push(at+" has no approved Chinese lesson mapping");
  else{
   if(q.question_type==="chinese_translation"){translationCounts[lesson.difficulty]++;translationTopics[lesson.difficulty].add(lesson.topic_id);}
@@ -58,6 +59,7 @@ for(const [d,min] of Object.entries({beginner:30,intermediate:36,advanced:48})){
 if(errors.length){console.error("Chinese Quiz draft validation failed:");for(const e of errors)console.error(" - "+e);process.exit(1);}
 console.log("Chinese Quiz draft validation passed: "+pack.questions.length+" total questions.");
 for(const d of Object.keys(counts))console.log(d+": "+counts[d]+" knowledge + "+translationCounts[d]+" English-to-Chinese translation questions; "+topics[d].size+" knowledge topics and "+translationTopics[d].size+" translation topics.");
+console.log("Source coverage: "+sourceLessonIds.size+" permanent lesson origins; every question is mapped to a lesson and the validator requires English prompt and explanation translations.");
 console.log("Draft status remains non-releasable until independent linguistic, answer-key, distractor, and objective QA is signed off.");
 if(emitSql){
  if(approve){console.error("Refusing to approve Chinese Quiz content automatically. Human owner approval and independent QA must be recorded separately.");process.exit(1);}

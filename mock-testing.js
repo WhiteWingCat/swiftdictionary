@@ -492,6 +492,15 @@
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
       return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),review_items:own("flashcard_review_items"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
     }
+    if (name==="dismiss_my_flashcard_review_item") {
+      const key=String(args.p_card_key||""),mode=String(args.p_mode||"");
+      const rows=tables.flashcard_review_items||[];
+      const remaining=rows.filter(row=>row.user_id!==user.id||row.card_key!==key||row.mode!==mode);
+      const removed=rows.length-remaining.length;
+      tables.flashcard_review_items=remaining;
+      persist(db);
+      return {data:{dismissed:removed>0},error:null};
+    }
     if (name==="save_my_flashcard_collection") {
       const rows=(tables.flashcard_collections||=[]), action=args.p_action;
       if(action==="create"){
@@ -701,6 +710,13 @@
       }
     } catch(error) { console.error("[SwiftDictionary mock] Reset failed.",error); }
   }
+  function seedFlashcardData({reviewItems = [], history = []} = {}) {
+    const db = state();
+    const userId = activeUser?.id;
+    db.tables.flashcard_review_items = reviewItems.map(row => ({...clone(row),user_id:userId}));
+    db.tables.flashcard_sessions = history.map(row => ({...clone(row),user_id:userId}));
+    persist(db);
+  }
   // Deliberately exposed only while the preview-only mock adapter is active.
   // This small surface also lets local unit tests verify identity isolation.
   window.__swiftDictionaryMock = Object.freeze({
@@ -708,6 +724,7 @@
     activeUser:()=>activeUser?.id || null,
     reset:resetMockStore,
     selectionGeneration,
+    seedFlashcardData,
     getClient:()=>client
   });
 

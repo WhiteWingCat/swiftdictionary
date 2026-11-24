@@ -109,12 +109,13 @@ async function openQuiz(page, session) {
     localStorage.setItem(key, JSON.stringify(value));
   }, { key: storageKey, value: session });
   const browserDiagnostics = [];
+  page.__quizNativeDialogCount = 0;
   page.on("console", message => {
     if (message.type() === "error") browserDiagnostics.push("console: " + message.text());
   });
   page.on("pageerror", error => browserDiagnostics.push("pageerror: " + error.message));
   page.on("requestfailed", request => browserDiagnostics.push("requestfailed: " + request.url() + " " + (request.failure()?.errorText || "")));
-  page.on("dialog", async dialog => { const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
+  page.on("dialog", async dialog => { page.__quizNativeDialogCount=(page.__quizNativeDialogCount||0)+1; const custom=page.__quizDialogHandler; if(custom){page.__quizDialogHandler=null;await custom(dialog);}else await dialog.accept(); });
   await page.goto("/#quiz");
   const availabilityResponse = await api.post(apiUrl + "/rest/v1/rpc/get_my_quiz_availability", {
     headers: { apikey: anonKey, Authorization: "Bearer " + session.access_token },
@@ -152,6 +153,30 @@ async function openQuiz(page, session) {
       JSON.stringify(diagnostics) + "; browser errors: " + browserDiagnostics.join(" | ") +
       "; original error: " + error.message);
   }
+}
+
+async function startQuiz(page,difficulty="beginner") {
+  const nativeDialogsBefore=page.__quizNativeDialogCount||0;
+  await page.locator(`[data-quiz-start="${difficulty}"]`).click();
+  const modal=page.locator(".lesson-start-confirm-backdrop");
+  await expect(modal).toBeVisible({timeout:10000});
+  const filter=await modal.evaluate(node=>getComputedStyle(node).backdropFilter);
+  expect(filter).toContain("blur");
+  expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
+  await modal.locator('[data-confirm="yes"]').click();
+  await expect(modal).toBeHidden();
+}
+
+async function submitQuiz(page) {
+  const nativeDialogsBefore=page.__quizNativeDialogCount||0;
+  await page.locator("#quizSubmit").click();
+  const modal=page.locator(".lesson-start-confirm-backdrop");
+  await expect(modal).toBeVisible({timeout:10000});
+  const filter=await modal.evaluate(node=>getComputedStyle(node).backdropFilter);
+  expect(filter).toContain("blur");
+  expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
+  await modal.locator('[data-confirm="yes"]').click();
+  await expect(modal).toBeHidden();
 }
 
 async function updateTranslationPreference(userId, language) {
@@ -250,7 +275,7 @@ test("Free user can switch translation in an open permanent lesson and complete 
     "Beginner availability diagnostics: " + await page.locator("#quizDifficultyGrid").innerText()
   ).toBeEnabled();
 
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession"),
     "Beginner Quiz failed to render. Status: " + await page.locator("#quizStatus").innerText()
   ).toBeVisible({ timeout: 15000 });
@@ -349,7 +374,21 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await expect(page.locator("#quizNext")).toBeHidden();
   await expect(page.locator("#quizSubmit")).toBeEnabled();
 
+  const nativeDialogsBeforeSubmit=page.__quizNativeDialogCount||0;
+  const submitPrompt=page.locator(".lesson-start-confirm-backdrop");
   await page.locator("#quizSubmit").click();
+  await expect(submitPrompt).toBeVisible();
+  await expect(submitPrompt.locator("p")).toContainText(/Submit this Quiz|提交/);
+  const submitBackdropFilter=await submitPrompt.evaluate(node=>getComputedStyle(node).backdropFilter);
+  expect(submitBackdropFilter).toContain("blur");
+  expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBeforeSubmit);
+  await submitPrompt.locator('[data-confirm="no"]').click();
+  await expect(submitPrompt).toBeHidden();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await page.locator("#quizSubmit").click();
+  await expect(submitPrompt).toBeVisible();
+  await submitPrompt.locator('[data-confirm="yes"]').click();
+  await expect(submitPrompt).toBeHidden();
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("#quizResultsContent .quiz-review-summary")).toContainText("100%");
   await expect(page.locator("#quizResultsContent .quiz-review-score")).toContainText("10 / 10 correct");
@@ -391,7 +430,7 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
   // changed to Chinese, which is not present in this active session.
   await updateTranslationPreference(freeUserId, "en");
   await openQuiz(page, freeSession);
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
   await page.locator('[data-quiz-option="b"]').click();
@@ -515,7 +554,7 @@ test("Premium user has three daily Quiz starts; abandonment does not refund allo
   page.on("request",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"request",url:request.url(),body:request.postData()});});
   page.on("response",async response=>{if(response.url().includes("/rpc/start_my_quiz")){let body="";try{body=await response.text();}catch{}startDiagnostics.push({event:"response",status:response.status(),body});}});
   page.on("requestfailed",request=>{if(request.url().includes("/rpc/start_my_quiz"))startDiagnostics.push({event:"failed",error:request.failure()?.errorText||"unknown"});});
-  await page.locator('[data-quiz-start="advanced"]').click();
+  await startQuiz(page,"advanced");
   try {
     await expect(page.locator("#quizSession")).toBeVisible({ timeout: 15000 });
   } catch (error) {
@@ -557,11 +596,11 @@ test("Quiz start confirmation warns about allowance and cancellation does not co
     expect(dialog.message()).toMatch(/abandon|放弃测验/);
     await dialog.dismiss();
   };
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
   await expect(page.locator("#quizSession")).toBeHidden();
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizAllowanceText")).toHaveText("0 / 1 今日剩余");
 });
@@ -582,7 +621,7 @@ test("Quiz overview follows translation preference and selector changes preserve
   await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
   await expect(page.locator("#preferenceRefreshToast")).not.toHaveClass(/visible/,{timeout:5000});
 
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizHome")).toBeHidden();
   const languageState = await page.evaluate(() => ({ selector:document.querySelector("#translationSelect")?.value, global:translationLanguage, sessionView:quizPageState.sessionView, sessionVisible:!document.querySelector("#quizSession")?.hidden }));
@@ -609,7 +648,7 @@ test("Translation changes on the Quiz overview do not auto-open an unfinished se
   await expect(page.locator("#quizRefresh")).toHaveText("刷新");
   await expect(page.locator(".quiz-difficulty-heading h2")).toHaveText("选择难度");
   await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
   await page.locator("#quizBackHome").click();
   await expect(page.locator("#quizHome")).toBeVisible();
@@ -645,7 +684,7 @@ test("Learning course selector enables Chinese Quiz and shows a short refresh co
 test("Chinese Quiz choices do not reveal answers through English translations or Pinyin",async({page})=>{
   await openQuiz(page,freeSession);
   await selectCourse(page,"zh");
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizQuestionArea .quiz-option-copy small")).toHaveCount(0);
   await expect(page.locator("#quizQuestionArea .quiz-option-pinyin")).toHaveCount(0);
@@ -665,7 +704,7 @@ test("Quiz overview and active test use the redesigned layout and directional tr
     window.__quizScreenAnimations=[];
     document.getElementById("quizSession").addEventListener("animationstart",event=>window.__quizScreenAnimations.push(event.animationName));
   });
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect.poll(()=>page.evaluate(()=>window.__quizScreenAnimations)).toContain("quizScreenEnter");
   await expect(page.locator(".quiz-question-card")).toBeVisible();
@@ -684,7 +723,7 @@ test("Quiz overview and active test use the redesigned layout and directional tr
 
 test("Daily History reviews a completed Quiz without leaving Dashboard",async({page})=>{
   await openQuiz(page,freeSession);
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
   for(let position=1;position<=10;position++){
     await page.locator("#quizQuestionArea .quiz-option").first().click();
@@ -791,7 +830,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   await openQuiz(page,freeSession);
   await expect(page.locator("#courseSelect")).toHaveValue("zh");
   await expect(page.locator("#translationSelect")).toHaveValue("en");
-  await page.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(page,"beginner");
   await expect(page.locator("#quizSession")).toBeVisible({timeout:15000});
   const chineseSnapshot=await page.evaluate(()=>({
     selector:document.getElementById("translationSelect")?.value,
@@ -1020,4 +1059,87 @@ test("Chinese Flashcard games save per-card snapshots and support read-only revi
   expect(review.items.length).toBeGreaterThan(0);
   expect(review.items[0].mode).toBe("word");
   expect(review.items[0].card.course).toBe("zh");
+});
+
+test("Quiz start allowance warning uses the centered website dialog and cancellation does not consume allowance", async ({ page }) => {
+  const user=await createRuntimeUser("quiz-start-confirmation-ui","free");
+  const session=await signIn(user.email,user.password);
+  await openQuiz(page,session);
+  const nativeDialogsBefore=page.__quizNativeDialogCount||0;
+  const modal=page.locator(".lesson-start-confirm-backdrop");
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(modal).toBeVisible();
+  await expect(modal.locator(".lesson-start-confirm-dialog")).toBeVisible();
+  await expect(modal.locator("p")).toContainText(/allowance|额度/);
+  const filter=await modal.evaluate(node=>getComputedStyle(node).backdropFilter);
+  expect(filter).toContain("blur");
+  expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
+  await modal.locator('[data-confirm="no"]').click();
+  await expect(modal).toBeHidden();
+  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
+  await page.locator('[data-quiz-start="beginner"]').click();
+  await expect(modal).toBeVisible();
+  await expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
+  await modal.locator('[data-confirm="yes"]').click();
+  await expect(page.locator("#quizSession")).toBeVisible();
+  await expect(page.locator("#quizAllowanceText")).toHaveText("0 / 1 今日剩余");
+});
+
+test("Chinese Quiz shows English translations for knowledge prompts when English is selected", async ({ page }) => {
+  const user=await createRuntimeUser("chinese-quiz-english-prompt-support","free");
+  const session=await signIn(user.email,user.password);
+  await openQuiz(page,session);
+  await selectCourseAndWaitForSave(page,"zh");
+  await selectTranslationAndWaitForSave(page,"en");
+  await startQuiz(page,"beginner");
+  const questionCount=await page.evaluate(()=>quizPageState.session.questions.length);
+  expect(questionCount).toBe(10);
+  let knowledgeQuestions=0;
+  for(let position=1;position<=questionCount;position++){
+    const current=await page.evaluate(()=>{
+      const question=quizPageState.session.questions.find(item=>item.position===quizPageState.session.current_position);
+      return {type:question?.question_type,prompt:question?.prompt_learning,translation:question?.prompt_translation};
+    });
+    if(current.type==="chinese_translation"){
+      expect(String(current.prompt||"").trim()).not.toBe("");
+      await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toHaveCount(0);
+    }else{
+      knowledgeQuestions++;
+      expect(String(current.translation||"").trim()).not.toBe("");
+      await expect(page.locator("#quizQuestionArea .quiz-question-translation")).toContainText(current.translation);
+    }
+    if(position<questionCount){
+      await page.locator("#quizQuestionArea .quiz-option").first().click();
+      await page.locator("#quizNext").click();
+      await page.waitForFunction(expected=>!quizPageState.saving&&quizPageState.session?.current_position===expected,position+1);
+    }
+  }
+  expect(knowledgeQuestions).toBeGreaterThan(0);
+});
+
+test("Dashboard allowance progress is presented as actionable tasks and Daily History groups are arranged in rows", async ({ page }) => {
+  const user=await createRuntimeUser("dashboard-allowance-task-list","free");
+  const session=await signIn(user.email,user.password);
+  await openQuiz(page,session);
+  await page.goto("/#profile");
+  await expect(page.locator("#profilePage")).toBeVisible({timeout:20000});
+  await expect(page.locator("#profileContent")).toBeVisible({timeout:20000});
+  await page.locator('[data-dashboard-tab="progress"]').click();
+  const tasks=page.locator("#dashboardAllowanceBars .dashboard-allowance-card");
+  await expect(tasks).toHaveCount(7);
+  await expect(tasks.nth(0)).toContainText("Complete 5 of any permanent lessons today.");
+  await expect(tasks.nth(0)).toContainText("0/5");
+  await expect(tasks.nth(1)).toContainText("Complete Daily Topic of any course.");
+  await expect(tasks.nth(1)).toContainText("0/1");
+  await expect(tasks.nth(2)).toContainText("Complete Daily Application of any course.");
+  await expect(tasks.nth(3)).toContainText("Complete Daily Discovery of any course.");
+  await expect(tasks.nth(4)).toContainText("Complete Daily Revision of any course.");
+  await expect(tasks.nth(5)).toContainText("Participate in a Quiz test.");
+  await expect(tasks.nth(5)).toContainText("0/1");
+  await expect(tasks.nth(6)).toContainText("Play 3 Flashcard games today.");
+  await expect(tasks.nth(6)).toContainText("0/3");
+  await page.locator('[data-dashboard-tab="history"]').click();
+  await expect(page.locator("#dashboardDailyHistory .dashboard-history-group")).toHaveCount(3);
+  const historyColumns=await page.locator("#dashboardDailyHistory").evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(" ").filter(Boolean).length);
+  expect(historyColumns).toBe(1);
 });
