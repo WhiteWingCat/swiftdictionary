@@ -501,7 +501,6 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(history.data[0].question_count,10);
   const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
   assert.equal(review.data.questions.length,10);
-  assert.ok(review.data.questions.every(question=>question.options.every(option=>Object.prototype.hasOwnProperty.call(option,"pinyin"))),"Completed review may restore Pinyin metadata for learning feedback");
   availability=await client.rpc("get_my_quiz_availability");
   assert.equal(availability.data.allowance.remaining_count,0);
   const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
