@@ -75,7 +75,7 @@ test("signed-out Flashcards visitors still see the page banner and title", () =>
 });
 
 test("account deletion loads after the main app, without an async config-loader race", () => {
-  assert.ok(index.indexOf('<script src="flashcards.js?v=2.6.1-r1"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
+  assert.ok(index.indexOf('<script src="flashcards.js?v=2.8.0-r4"></script>') < index.indexOf('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.doesNotMatch(config, /moduleScript\\.async\\s*=\\s*true/);
   assert.doesNotMatch(build, /moduleScript\\.async\\s*=\\s*true/);
   assert.match(build, /Account deletion is loaded explicitly after the main app script/);
@@ -131,7 +131,7 @@ test("Lessons and Quiz use the shared Flashcards-style signed-out card treatment
   assert.match(index, /id="quizSignedOut" class="coming-card learning-auth-card"/);
   assert.match(index, /id="lessonsSignedOut" class="learning-auth-card"/);
   assert.match(index, /class="primary-button learning-auth-button"/);
-  assert.match(flashcards, /flash-section coming-card learning-auth-card/);
+  assert.match(flashcards, /flash-section learning-auth-card/);
 });
 
 test("Delete Account card is present in Preferences before Learning history", () => {
@@ -146,11 +146,12 @@ test("Flashcards resets and re-renders its signed-out view immediately on sign-o
 });
 
 test("updated auth-sensitive scripts use fresh cache-busting versions", () => {
-  assert.ok(index.includes('<script src="flashcards.js?v=2.6.1-r1"></script>'));
+  assert.ok(index.includes('<script src="data/chinese-flashcards.js?v=2.8.0-draft3"></script>'));
+  assert.ok(index.includes('<script src="flashcards.js?v=2.8.0-r4"></script>'));
   assert.ok(index.includes('<script src="account-deletion.js?v=2.6.0-r4"></script>'));
   assert.match(build, /account-deletion\[\.\]js.*2\.6\.0-r5/);
-  assert.match(build, /daily-learning\[\.\]js.*2\.7.0-r10/);
-  assert.match(build, /flashcards\[\.\]js.*2\.6\.1-r1/);
+  assert.ok(build.includes("(daily-learning[.]js)") && build.includes("2.8.0-r1"));
+  assert.ok(build.includes("(flashcards[.]js)") && build.includes("2.8.0-r1"));
 });
 
 test("Flashcards auth hydration is awaitable by the main account initializer", () => {

@@ -47,9 +47,29 @@ end
 $test$;
 
 reset role;
-update private.flashcard_sessions
-set started_at=now()-interval '121 seconds'
-where id=(select session_id from pg_temp.flashcard_test_session);
+
+-- Simulate an elapsed challenge in this disposable test transaction. The
+-- U2.8.0 identity guard is present on Staging but may not yet exist in older
+-- migration fixtures, so disable it only when installed and always restore it.
+do $fixture$
+declare has_identity_guard boolean;
+begin
+  select exists(
+    select 1 from pg_catalog.pg_trigger
+    where tgrelid='private.flashcard_sessions'::regclass
+      and tgname='guard_flashcard_session_identity_update' and not tgisinternal
+  ) into has_identity_guard;
+  if has_identity_guard then
+    execute 'alter table private.flashcard_sessions disable trigger guard_flashcard_session_identity_update';
+  end if;
+  update private.flashcard_sessions
+  set started_at=now()-interval '121 seconds'
+  where id=(select session_id from pg_temp.flashcard_test_session);
+  if has_identity_guard then
+    execute 'alter table private.flashcard_sessions enable trigger guard_flashcard_session_identity_update';
+  end if;
+end
+$fixture$;
 
 set local role authenticated;
 do $test$
@@ -57,8 +77,16 @@ declare v_result jsonb; v_data jsonb; v_allowance jsonb;
 begin
   v_result := public.complete_my_flashcard_game(
     (select session_id from pg_temp.flashcard_test_session),
-    '[{"card_key":"dict:hello","correct":true,"unanswered":false},
-      {"card_key":"dict:goodbye","correct":false,"unanswered":true}]'::jsonb
+    '[
+      {"card_key":"dict:hello","mode":"word","correct":true,"unanswered":false,
+       "snapshot":{"prompt":"hello","card":{"word":"hello"},"recall_mode":"word",
+        "options":[{"text":"hello","card_key":"dict:hello"},{"text":"goodbye","card_key":"dict:goodbye"},{"text":"thanks","card_key":"dict:thanks"},{"text":"please","card_key":"dict:please"}],
+        "correct_answer":"hello","selected_answer":"hello","correct_option_index":0,"selected_option_index":0}},
+      {"card_key":"dict:goodbye","mode":"word","correct":false,"unanswered":true,
+       "snapshot":{"prompt":"goodbye","card":{"word":"goodbye"},"recall_mode":"word",
+        "options":[{"text":"hello","card_key":"dict:hello"},{"text":"goodbye","card_key":"dict:goodbye"},{"text":"thanks","card_key":"dict:thanks"},{"text":"please","card_key":"dict:please"}],
+        "correct_answer":"goodbye","selected_answer":null,"correct_option_index":1,"selected_option_index":null}}
+    ]'::jsonb
   );
   if (v_result->>'words_seen')::integer <> 2
      or (v_result->>'correct_count')::integer <> 1

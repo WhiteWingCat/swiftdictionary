@@ -52,6 +52,9 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
   await expect(page.locator("#lessonsPage")).toBeVisible();
   await expect(page.locator("#lessonCards .lesson-card").first()).toBeVisible();
   await expect(page.locator("#lessonDifficultySummary")).toContainText("lessons");
+  const difficultyTabFills=await page.locator("#permanentLessonsPanel .difficulty-tab").evaluateAll(nodes=>nodes.map(node=>{const style=getComputedStyle(node);return style.backgroundColor+"|"+style.backgroundImage;}));
+  expect(difficultyTabFills).toHaveLength(3);
+  expect(new Set(difficultyTabFills).size).toBe(1);
 
   for (const difficulty of ["intermediate", "advanced", "beginner"]) {
     await page.locator(`[data-difficulty="${difficulty}"]`).click();
@@ -326,6 +329,9 @@ test("Chinese course completion stores progress separately from English", async 
   await page.locator("#courseSelect").selectOption("zh");
   await page.locator('[data-page="lessons"]').click();
   await page.locator("#lessonCards .lesson-card").first().click();
+  const lessonStartPrompt=page.locator(".lesson-start-confirm-backdrop");
+  await expect(lessonStartPrompt).toBeVisible();
+  await lessonStartPrompt.locator('[data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
   // Insert the English row after the mock has returned the newly inserted zh row.
   await page.evaluate(id => {
@@ -685,6 +691,7 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
         listeners: [],
         rpcCalls: [],
         sessions: [],
+        allowanceDay: null,
         allowanceUsage: [
           { activity_type: "lesson", used_count: 0 },
           { activity_type: "daily_topic", used_count: 0 },
@@ -827,9 +834,12 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
         from(table) { return query(table); },
         async rpc(name, args) {
           state.rpcCalls.push({ name, args: structuredClone(args) });
-          if (name === "get_my_learning_allowance_usage") return state.legacySchema
-            ? { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } }
-            : { data: state.allowanceUsage, error: null };
+          if (name === "get_my_learning_allowance_usage") {
+            if (state.legacySchema) return { data:null, error:{ code:"PGRST202", message:"Could not find the get_my_learning_allowance_usage function in the schema cache" } };
+            const localDay=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kuala_Lumpur",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+            if(state.allowanceDay!==localDay){state.allowanceDay=localDay;state.allowanceUsage.forEach(row=>{row.used_count=0;});}
+            return { data: state.allowanceUsage, error: null };
+          }
           if (name === "is_personal_learning_test_access") return { data: false, error: null };
           if (name === "complete_permanent_lesson" || name === "complete_permanent_lesson_for_language") {
             const learningLanguage = name === "complete_permanent_lesson" ? "en" : args.p_learning_language;
@@ -1088,6 +1098,9 @@ test("Permanent lessons open on their own page and refresh language without losi
   await page.goto("/");
   await page.locator('[data-page="lessons"]').click();
   await page.locator("#lessonCards .lesson-card").first().click();
+  const lessonStartPrompt=page.locator(".lesson-start-confirm-backdrop");
+  await expect(lessonStartPrompt).toBeVisible();
+  await lessonStartPrompt.locator('[data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
   await expect(page.locator("#lessonsPage")).toBeHidden();
   await expect(page.locator("#lessonReaderContent")).toContainText("本课目标");
@@ -1213,8 +1226,8 @@ test("Dashboard shows saved words, course recency, ledger allowances and practic
   await expect(page.locator("#dashboardAvatar")).toHaveText("🦊");
   await expect(page.locator("#activeLanguagesList .active-language-row").first()).toContainText("简体中文");
   await expect(page.locator("#activeLanguagesList .active-language-row").first()).toContainText("Last active");
-  await expect(page.locator("#dashboardAllowanceBars")).toContainText("3 of 5 remaining");
-  await expect(page.locator("#dashboardAllowanceBars")).toContainText("0 of 1 remaining");
+  await expect(page.locator("#dashboardAllowanceBars")).toContainText("2/5");
+  await expect(page.locator("#dashboardAllowanceBars")).toContainText("0/1");
   await expect(page.locator("#practiceAccuracy")).toHaveText("33%");
   await expect(page.locator("#practiceReviewTopics")).toContainText("Sentence Basics");
   await page.locator("#favoriteEnglishGrid").locator("xpath=..").locator("summary").click();
@@ -1262,7 +1275,7 @@ test("Dashboard remains readable on the legacy 2.2 database while Daily Learning
   await expect(page.locator("#profileHeading")).toHaveText("Your Dashboard");
   await expect(page.locator("#favoriteEnglishGrid")).toContainText("hello");
   await expect(page.locator("#activeLanguagesList")).toContainText("English");
-  await expect(page.locator("#dashboardAllowanceBars")).toContainText("Usage unavailable");
+  await expect(page.locator("#dashboardAllowanceBars")).toContainText("Progress unavailable");
   await expect(page.locator("#allowanceDetails")).toContainText("Counts are not estimated from learning history.");
   await expect(page.locator("#practiceInsightsDetails")).toContainText("Daily activity practice data will appear after the matching server update");
 
@@ -1425,7 +1438,7 @@ test("completed Chinese Daily Learning activities remain reviewable when the pag
   }
 });
 
-test("historical Daily Learning reviews do not consume today's new activity slots", async ({ page }) => {
+test("prior-day Daily Learning completions stay out of today's activity slots", async ({ page }) => {
   await installDailyLearningMock(page,"historical-daily-review-user","free");
   await page.goto("/");
   await page.evaluate(() => {
@@ -1446,16 +1459,40 @@ test("historical Daily Learning reviews do not consume today's new activity slot
   await page.locator('[data-page="lessons"]').click();
   await page.locator('[data-daily-tab="daily_topic"]').click();
   const cards=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"]');
-  await expect(cards).toHaveCount(2);
-  const completedCard=cards.filter({hasText:"已完成 · 可免费重温"});
-  await expect(completedCard).toHaveCount(1);
+  await expect(cards).toHaveCount(1);
+  await expect(cards.filter({hasText:"已完成 · 可免费重温"})).toHaveCount(0);
   await expect(cards.filter({hasText:"新活动"})).toHaveCount(1);
-  await expect(completedCard.locator("[data-start-daily]")).toHaveText("重温已完成内容");
-  await completedCard.locator("[data-start-daily]").click();
-  await expect(page.locator("#dailyActivityReader")).toBeVisible();
-  await expect(page.locator("#dailyActivityReader")).toContainText("四声");
-  const startCalls=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="start_daily_activity_session").length);
-  expect(startCalls).toBe(0);
-  await page.locator("#dailyActivityReader [data-daily-close]").click();
-  await expect(page.locator("#dailyActivityReader")).toBeHidden();
+});
+
+test("Daily Learning resets completed content and allowance automatically at local midnight", async ({ page }) => {
+  await page.clock.install({time:new Date("2026-11-24T15:59:30.000Z")});
+  await installDailyLearningMock(page,"daily-midnight-reset-user");
+  await page.goto("/");
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+  const startButton=page.locator('#dailyActivityGrid [data-activity-card="daily_topic"] [data-start-daily="daily_topic"]').first();
+  await expect(startButton).toBeVisible();
+  const contentId=await startButton.getAttribute("data-content-id");
+  expect(contentId).toBeTruthy();
+  await page.evaluate(({contentId})=>{
+    const state=window.__swiftDailyMock;
+    state.tables.daily_activity_sessions.push({
+      id:"daily-midnight-session",user_id:state.user.id,activity_type:"daily_topic",language_code:"en",
+      content_id:contentId,topic_id:null,difficulty:"beginner",source:"topic",status:"completed",
+      started_at:"2026-11-24T15:58:00.000Z",completed_at:"2026-11-24T15:59:00.000Z",
+      correct_count:1,question_count:1
+    });
+    state.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count=1;
+  },{contentId});
+  await page.evaluate(()=>window.initialiseDailyLearning());
+  const oldContent=page.locator('#dailyActivityGrid [data-content-id="'+contentId+'"]');
+  await expect(oldContent).toBeVisible();
+  await expect(oldContent).toContainText(/Review completed content|Completed|重温已完成内容/);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count)).toBe(1);
+  const usageCallsBeforeMidnight=await page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="get_my_learning_allowance_usage").length);
+  await page.clock.fastForward(31000);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.rpcCalls.filter(call=>call.name==="get_my_learning_allowance_usage").length)).toBeGreaterThan(usageCallsBeforeMidnight);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDailyMock.allowanceUsage.find(row=>row.activity_type==="daily_topic").used_count)).toBe(0);
+  await expect(page.locator('#dailyActivityGrid [data-content-id="'+contentId+'"]')).toHaveCount(0);
+  await expect(page.locator('#dailyActivityGrid [data-activity-card="daily_topic"] [data-start-daily="daily_topic"]').first()).toBeEnabled();
 });

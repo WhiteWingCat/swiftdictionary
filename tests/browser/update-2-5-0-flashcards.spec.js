@@ -68,6 +68,97 @@ test("Mode-specific schedules use fixed 0.2 second reductions and respect caps",
   }
 });
 
+test("Recall mode slot swaps between Mixed and Translation by learning course",async({page})=>{
+  await openMockFlashcards(page);
+  const englishModes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode));
+  expect(englishModes).toEqual(["word","definition","mixed","sentence"]);
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","translation","sentence"]);
+  await expect(page.locator('.flash-mode[data-mode="mixed"]')).toHaveCount(0);
+  await page.locator("#courseSelect").selectOption("en");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
+  await expect(page.locator('.flash-mode[data-mode="translation"]')).toHaveCount(0);
+  await page.locator("#courseSelect").selectOption("zh");
+  const translationRecallColor=await page.locator('.flash-mode[data-mode="translation"]').evaluate(node=>getComputedStyle(node).backgroundColor);
+  expect(translationRecallColor).toBe("rgb(189, 118, 46)");
+});
+
+test("Switching course remaps an open Mixed Recall setup to Translation Recall in the same slot",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator('#flashcardsPage .flash-mode[data-mode="mixed"]').click();
+  await expect(page.locator("#flashSetupTitle")).toHaveText("Mixed Recall");
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect(page.locator("#flashSetupTitle")).toHaveText("Translation Recall");
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="mixed"]')).toHaveCount(0);
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
+  await page.locator('[data-action="close-overlay"]').last().click();
+});
+
+test("Dashboard tabs switch their visible panels",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await expect(page.locator("#dashboardTabFavourites")).toBeVisible();
+  for(const name of ["progress","history","analytics","favourites"]){
+    await page.locator('[data-dashboard-tab="'+name+'"]').click();
+    const panel="#dashboardTab"+name[0].toUpperCase()+name.slice(1);
+    await expect(page.locator(panel)).toBeVisible();
+    for(const other of ["favourites","progress","history","analytics"])if(other!==name){
+      const otherPanel="#dashboardTab"+other[0].toUpperCase()+other.slice(1);
+      await expect(page.locator(otherPanel)).toBeHidden();
+    }
+    await expect(page.locator('[data-dashboard-tab="'+name+'"]')).toHaveAttribute("aria-selected","true");
+  }
+});
+
+test("Daily History lesson and Daily Learning reviews stay inside Dashboard",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  await page.evaluate(()=>{
+    document.querySelector("#dashboardDailyHistory").innerHTML=
+      '<button type="button" data-dashboard-daily-lesson-review="b-sentence" data-difficulty="beginner" data-language-code="en">Review lesson</button>';
+  });
+  await page.locator("[data-dashboard-daily-lesson-review]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
+  await expect(page.locator("#dashboardReviewContent")).toContainText("Build a clear basic sentence");
+  expect(new URL(page.url()).hash).toBe("#profile");
+  await page.locator("[data-dashboard-review-close]").click();
+  await page.evaluate(()=>{
+    document.querySelector("#dashboardDailyHistory").innerHTML=
+      '<button type="button" data-dashboard-daily-activity-review="true" data-activity-type="daily_topic" data-content-id="topic-present-perfect-01" data-topic-id="verb-tenses" data-difficulty="intermediate" data-language-code="en">Review activity</button>';
+  });
+  await page.locator("[data-dashboard-daily-activity-review]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeVisible();
+  await expect(page.locator("#dailyActivityReader")).toContainText("Past simple or present perfect?");
+  await expect(page.locator("#profilePage")).toBeVisible();
+  expect(new URL(page.url()).hash).toBe("#profile");
+  await page.locator("#dailyActivityReader [data-daily-close]").click();
+  await expect(page.locator("#dailyActivityReader")).toBeHidden();
+});
+
+test("Chinese permanent lesson Daily History review uses the Chinese lesson catalogue in place",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  await page.evaluate(()=>{
+    document.querySelector("#dashboardDailyHistory").innerHTML=
+      '<button type="button" data-dashboard-daily-lesson-review="zh-b-pinyin-foundations" data-difficulty="beginner" data-language-code="zh">Review Chinese lesson</button>';
+  });
+  await page.locator("[data-dashboard-daily-lesson-review]").click();
+  await expect(page.locator("#dashboardReviewOverlay")).toBeVisible();
+  await expect(page.locator("#dashboardReviewContent")).toContainText("拼音基础与四声");
+  await expect(page.locator("#dashboardReviewContent")).toContainText("拼音与发音");
+  expect(new URL(page.url()).hash).toBe("#profile");
+});
+
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
@@ -150,6 +241,17 @@ test("Mixed Recall starts as a mixed session and records mode-specific weak answ
   await page.locator('[data-action="review-detail"]').click();
   await expect(page.locator(".flash-review-detail")).toBeVisible();
   await expect(page.locator(".flash-review-detail")).toContainText("aberration");
+  await page.locator('[data-action="close-overlay"]').last().click();
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await page.locator('[data-dashboard-tab="history"]').click();
+  const historyReview=page.locator("[data-dashboard-flashcard-review-game]");
+  await expect(historyReview).toBeVisible();
+  await historyReview.click();
+  await expect(page.locator("#profilePage")).toBeVisible();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal")).toBeVisible();
+  expect(new URL(page.url()).hash).toBe("#profile");
 });
 
 test("60-second completion shows results and requires closing the prompt to return home",async({page})=>{
@@ -244,15 +346,17 @@ test("Dashboard Flashcard statistics load and Weak Memory opens without leaving 
   await page.locator("#accountButton").click();
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
-  await expect(page.locator("#dashboardFlashcardSection")).toBeVisible();
+  await page.locator('[data-dashboard-tab="progress"]').click();
   await expect(page.locator("#profileContent #allowanceDetails")).toBeVisible();
+  await page.locator('[data-dashboard-tab="analytics"]').click();
+  await expect(page.locator("#dashboardFlashcardSection")).toBeVisible();
   await expect(page.locator("#profileContent #practiceAccuracy")).toBeVisible();
   await expect(page.locator("#dashboardFlashcardGames")).not.toHaveText("—");
   await expect(page.locator("#dashboardFlashcardAttempts")).not.toHaveText("—");
   await page.locator("#dashboardFlashcardSection [data-dashboard-flashcard-review]").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toBeVisible();
-  await page.locator('#flashOverlayRoot [data-action="close-overlay"]').click();
+  await page.locator('#flashOverlayRoot [data-action="close-overlay"]').last().click();
   await expect(page.locator("#flashOverlayRoot .flash-review-modal")).toHaveCount(0);
   await expect(page.locator("#profilePage")).toBeVisible();
 });
@@ -274,7 +378,7 @@ test("Flashcards main page and English recall prompts use Simplified Chinese tra
   await page.locator('[data-action="open-review"]').click();
   await expect(page.locator(".flash-review-tab").first()).toHaveText("单词回忆");
   await expect(page.locator(".flash-review-tab").nth(1)).toHaveText("释义回忆");
-  await page.locator('[data-action="close-overlay"]').click();
+  await page.locator('[data-action="close-overlay"]').last().click();
   await page.locator("#translationSelect").selectOption("en");
 });
 
@@ -335,10 +439,10 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
   await expect.poll(async()=>page.locator("#flashcardsApp").textContent()).toContain("12");
   await page.locator('[data-action="open-review"]').click();
   const list=page.locator(".flash-review-list");
-  await expect(list.locator("button")).toHaveCount(12);
+  await expect(list.locator(".flash-review-entry")).toHaveCount(12);
   await list.evaluate(el=>{el.scrollTop=el.scrollHeight;});
   const before=await list.evaluate(el=>el.scrollTop);
-  await list.locator("button").first().evaluate(button=>button.click());
+  await list.locator(".flash-review-entry").first().evaluate(button=>button.click());
   const after=await list.evaluate(el=>el.scrollTop);
   expect(after).toBe(before);
   await expect(page.locator(".flash-review-detail")).toBeVisible();
@@ -399,6 +503,249 @@ test("Flashcards shows a five-second toast when the daily allowance is exhausted
   }
   await expect(page.locator("#swiftDictionaryToast")).toContainText("Flashcards allowance");
   await expect(page.locator("#swiftDictionaryToast")).toHaveClass(/is-visible/);
+  await page.locator('[data-action="close-result"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="word"]').click();
+  await expect(page.locator("#swiftDictionaryToast")).toContainText("Flashcards allowance");
+  await expect(page.locator("#swiftDictionaryToast")).toHaveClass(/is-visible/);
+  await expect(page.locator("#flashSetupTitle")).toBeHidden();
   await page.waitForTimeout(5200);
   await expect(page.locator("#swiftDictionaryToast")).not.toHaveClass(/is-visible/);
+});
+
+test("Flashcards home panels match Lessons and Quiz styling; weak-memory items can be dismissed individually",async({page})=>{
+  await openMockFlashcards(page);
+  await expect.poll(()=>page.evaluate(()=>window.__swiftDictionaryMock.activeUser())).not.toBeNull();
+  const now=new Date().toISOString();
+  await page.evaluate(async({now})=>{
+    window.__swiftDictionaryMock.seedFlashcardData({
+      reviewItems:[{card_key:"dict:zh:你",mode:"translation",incorrect_count:2,last_incorrect_at:now}],
+      history:[{id:"11111111-1111-4111-8111-111111111111",mode:"translation",difficulty:"beginner",status:"completed",words_seen:1,correct_count:0,incorrect_count:1,unanswered_count:0,started_at:now,completed_at:now,duration_seconds:60,learning_language_code:"zh",translation_language_code:"en"}]
+    });
+    await window.SwiftDictionaryFlashcards.refreshDashboardData();
+  },{now});
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator('#flashcardsPage .flash-mode[data-mode="translation"]')).toBeVisible();
+  const panelStyles=await page.locator("#flashcardsPage .flash-home > .flash-section").evaluateAll(nodes=>nodes.map(node=>{
+    const style=getComputedStyle(node);
+    return {radius:style.borderRadius,background:style.backgroundImage,shadow:style.boxShadow};
+  }));
+  expect(panelStyles).toHaveLength(3);
+  expect(panelStyles.every(style=>style.radius==="21px"&&style.background.includes("linear-gradient")&&style.shadow!=="none")).toBe(true);
+  const recentGames=page.locator("#flashcardsPage .flash-home > .flash-section").last();
+  await expect(recentGames).toContainText("Recent games");
+  await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
+  await page.locator('[data-action="open-review"]').click();
+  const translationTab=page.locator('.flash-review-tab[data-value="translation"]');
+  await expect(translationTab).toHaveCSS("background-color","rgb(189, 118, 46)");
+  await translationTab.click();
+  await expect(page.locator(".flash-review-item")).toHaveCount(1);
+  await page.locator('[data-action="dismiss-review-item"]').click();
+  await expect(page.locator(".flash-review-item")).toHaveCount(0);
+  await expect(page.locator(".flash-review-dismiss-notice")).toContainText(/game history|游戏记录/);
+  await page.locator('[data-action="close-overlay"]').last().click();
+  await expect(page.locator('[data-action="open-review"]')).toContainText("(0)");
+  await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
+});
+
+test("Recent games paginate ten at a time and game review has a top close control",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(()=>{
+    const history=Array.from({length:23},(_,index)=>({
+      id:"mock-history-"+index,mode:"word",difficulty:"beginner",status:"completed",
+      started_at:new Date(Date.now()-index*60000).toISOString(),
+      completed_at:new Date(Date.now()-index*60000).toISOString(),
+      words_seen:10,correct_count:7,incorrect_count:3,unanswered_count:0,
+      review_available:true,review_items:[]
+    }));
+    window.__swiftDictionaryMock.seedFlashcardData({history});
+  });
+  await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
+  await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
+  await expect(page.locator('[data-action="history-next"]')).toBeVisible();
+  await page.locator('[data-action="history-next"]').click();
+  await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
+  await expect(page.locator('[data-action="history-next"]')).toBeVisible();
+  await page.locator('[data-action="history-next"]').click();
+  await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(3);
+  await expect(page.locator('[data-action="history-next"]')).toHaveCount(0);
+  await page.locator('[data-action="history-prev"]').click();
+  await page.locator('[data-action="review-game"]').first().click();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal .flash-modal-close-top")).toBeVisible();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal [data-action='close-overlay']")).toHaveCount(2);
+  await page.locator("#flashOverlayRoot .flash-game-review-modal .flash-modal-close-top").click();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal")).toHaveCount(0);
+});
+
+test("Quiz history paginates ten sessions and review closes from the top corner",async({page})=>{
+  test.setTimeout(60000);
+  console.log("[quiz-pagination] opening mock app");
+  await openMockFlashcards(page);
+  // Keep the fixed mock-control widget from covering pagination controls.
+  await page.locator("#swiftMockPanel").evaluate(node=>node.hidden=true);
+  console.log("[quiz-pagination] seeding 12 mock sessions");
+  await page.evaluate(()=>{
+    const question={
+      question_id:"mock-review-question",position:1,question_type:"knowledge",
+      prompt_learning:"Choose the correct example.",prompt_translation:"选择正确的例子。",
+      selected_option_id:"a",correct_option_id:"a",
+      explanation_learning:"This is the correct example.",explanation_translation:"这是正确的例子。",
+      options:[
+        {id:"a",learning_text:"Correct answer",translation_text:"正确答案"},
+        {id:"b",learning_text:"Other answer",translation_text:"其他答案"}
+      ]
+    };
+    const history=Array.from({length:12},(_,index)=>({
+      session_id:"mock-quiz-history-"+index,difficulty:"beginner",status:"completed",
+      question_count:1,current_position:1,learning_language_code:"en",translation_language_code:"zh",
+      started_at:new Date(Date.now()-index*60000).toISOString(),
+      completed_at:new Date(Date.now()-index*60000).toISOString(),
+      correct_count:1,percentage:100,questions:[question]
+    }));
+    window.__swiftDictionaryMock.seedQuizHistory({history});
+  });
+  console.log("[quiz-pagination] navigating to Quiz");
+  await page.locator('[data-page="quiz"]').click({timeout:5000});
+  await expect(page.locator("#quizPage")).toBeVisible();
+  const intro=page.locator("#learningIntroBackdrop");
+  if(await intro.isVisible())await page.locator("#learningIntroDismiss").click({timeout:5000});
+  console.log("[quiz-pagination] checking first page");
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
+  await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(10);
+  await expect(page.locator("[data-quiz-history-next]")).toBeVisible();
+  console.log("[quiz-pagination] checking second page");
+  await page.locator("[data-quiz-history-next]").click({timeout:5000});
+  await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(2);
+  await expect(page.locator("[data-quiz-history-next]")).toHaveCount(0);
+  await page.locator("[data-quiz-history-prev]").click({timeout:5000});
+  console.log("[quiz-pagination] opening answer review");
+  await page.locator("#quizHistory [data-quiz-review]").first().click({timeout:5000});
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("body")).toHaveClass(/quiz-focused/);
+  await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
+  await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
+  const reviewCloseBox=await page.locator("#quizResultsContent [data-quiz-review-close]").boundingBox();
+  const reviewScoreBox=await page.locator("#quizResultsContent .quiz-review-score").boundingBox();
+  expect(reviewCloseBox.x).toBeGreaterThan(reviewScoreBox.x+reviewScoreBox.width);
+
+  console.log("[quiz-pagination] closing answer review");
+  await page.locator("#quizResultsContent [data-quiz-review-close]").click({timeout:5000});
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("body")).not.toHaveClass(/quiz-focused/);
+  await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
+  console.log("[quiz-pagination] passed");
+});
+
+
+test("Chinese Translation Recall hides Chinese choices until the answer phase",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","translation","sentence"]);
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator('[data-action="set-duration"][data-value="60"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="translation"]').click();
+  await page.locator("#flashDifficulty").selectOption("beginner");
+  await page.locator("#flashGameCollection").selectOption("all");
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game")).toBeVisible();
+  const memory=await page.locator("#flashMemory").innerText();
+  expect(memory).not.toMatch(/[一-龥]/);
+  await expect(page.locator("#flashOptions .flash-option.is-hidden")).toHaveCount(4);
+  await page.locator('[data-action="phase-action"]').click();
+  const options=await page.locator("#flashOptions .flash-option").allTextContents();
+  expect(options).toHaveLength(4);
+  expect(new Set(options.map(value=>value.trim())).size).toBe(4);
+  expect(options.every(value=>/[一-龥]/.test(value))).toBe(true);
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+});
+
+test("Chinese Translation Recall only uses cards with a unique cue in the selected language",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  for(const language of ["en","zh"]){
+    await page.locator("#translationSelect").selectOption(language);
+    await beginRecall(page,"translation","beginner","all",60);
+    await page.locator('[data-action="phase-action"]').click();
+    const options=await page.locator("#flashOptions .flash-option").allTextContents();
+    expect(options).toHaveLength(4);
+    expect(new Set(options.map(value=>value.trim())).size).toBe(4);
+    const eligible=await page.evaluate(({language,options})=>{
+      const bank=window.SWIFT_CHINESE_FLASHCARDS;
+      const cards=[...bank.characters,...bank.vocabulary,...bank.phrases];
+      const byWord=new Map(cards.map(card=>[card.word,card]));
+      return options.map(value=>({word:value.trim(),supported:byWord.get(value.trim())?.translationLanguages?.includes(language)===true}));
+    },{language,options});
+    expect(eligible.every(item=>item.supported),JSON.stringify({language,eligible})).toBe(true);
+    await page.locator('[data-action="leave-game"]').click();
+    await expect(page.locator(".flash-banner")).toBeVisible();
+  }
+});
+
+test("Chinese Sentence Recall uses curated examples when source examples would create ambiguous prompts",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator('[data-action="set-duration"][data-value="60"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="sentence"]').click();
+  await page.locator("#flashDifficulty").selectOption("beginner");
+  await page.locator("#flashGameCollection").selectOption("all");
+  const target=await page.evaluate(()=>{
+    const bank=window.SWIFT_CHINESE_FLASHCARDS;
+    const pool=[...bank.characters,...bank.vocabulary,...bank.phrases].filter(card=>Array.isArray(card.availableModes)&&card.availableModes.includes("sentence")&&(card.sentenceExampleZh||card.exampleZh));
+    const card=pool.find(item=>item.word==="近");
+    if(!card)throw new Error("Sentence Recall override for 近 is missing");
+    return {index:pool.indexOf(card),total:pool.length,word:card.word};
+  });
+  await page.evaluate(({index,total})=>{
+    window.__originalFlashcardRandom=Math.random;
+    Math.random=()=>((index+0.25)/total);
+  },target);
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game")).toBeVisible();
+  await expect(page.locator("#flashMemory")).toHaveText("这家商店离地铁站很_____。");
+  await expect(page.locator("#flashMemory")).not.toContainText(target.word);
+  await page.evaluate(()=>{
+    if(window.__originalFlashcardRandom){Math.random=window.__originalFlashcardRandom;delete window.__originalFlashcardRandom;}
+  });
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+});
+
+test("Chinese Sentence Recall blanks every repeated character and keeps choices hidden",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(node=>node.dataset.mode))).toEqual(["word","definition","translation","sentence"]);
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator('[data-action="set-duration"][data-value="60"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="sentence"]').click();
+  await page.locator("#flashDifficulty").selectOption("beginner");
+  await page.locator("#flashGameCollection").selectOption("all");
+  const target=await page.evaluate(()=>{
+    const bank=window.SWIFT_CHINESE_FLASHCARDS;
+    const pool=[...bank.characters,...bank.vocabulary,...bank.phrases].filter(card=>Array.isArray(card.availableModes)&&card.availableModes.includes("sentence")&&card.exampleZh);
+    const card=pool.find(item=>item.word==="常"&&item.exampleZh.split(item.word).length-1>1);
+    if(!card)throw new Error("Repeated Chinese target 常 is missing from the Flashcard bank");
+    return {index:pool.indexOf(card),total:pool.length,word:card.word};
+  });
+  await page.evaluate(({index,total})=>{
+    window.__originalFlashcardRandom=Math.random;
+    const value=(index+0.25)/total;
+    Math.random=()=>value;
+  },target);
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game"),"Chinese Sentence Recall did not start.").toBeVisible();
+  await expect(page.locator("#flashMemory")).toContainText("_____");
+  await expect(page.locator("#flashMemory")).not.toContainText(target.word);
+  await expect(page.locator("#flashOptions .flash-option.is-hidden")).toHaveCount(4);
+  await expect(page.locator("#flashOptions .flash-option")).toHaveText(["Hidden answer","Hidden answer","Hidden answer","Hidden answer"]);
+  await expect(page.locator("#flashOptions")).not.toContainText(target.word);
+  await page.evaluate(()=>{
+    if(window.__originalFlashcardRandom){Math.random=window.__originalFlashcardRandom;delete window.__originalFlashcardRandom;}
+  });
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
 });

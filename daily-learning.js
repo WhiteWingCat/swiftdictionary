@@ -374,10 +374,12 @@
 
   let preferences = Object.fromEntries(preferenceKeys.map(key => [key, true]));
   let selectedDailyTab = "daily_topic";
-  let snapshot = { timezone:"UTC", day:"", plan:"free", limits:{}, completed:{}, openSessions:[], dailyResults:[], content:{} };
+  let snapshot = { timezone:"UTC", day:"", plan:"free", limits:{}, completed:{}, completedToday:[], openSessions:[], dailyResults:[], content:{} };
   let readerState = null;
   let loadSequence = 0;
   let preferenceListenersReady = false;
+  let dailyResetTimer = null;
+  let dailyResetRefreshInFlight = false;
 
   const byId = id => document.getElementById(id);
   const esc = value => escapeHTML(String(value ?? ""));
@@ -388,6 +390,25 @@
   const dailyDiscoveryPool = () => isChineseLearningCourse() ? chineseDailyLearning.discovery : dailyDiscoveryVocabulary;
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
+  function clearDailyResetTimer() {
+    if (dailyResetTimer !== null && typeof window.clearTimeout === "function") window.clearTimeout(dailyResetTimer);
+    dailyResetTimer = null;
+  }
+  function refreshDailyWindowIfNeeded() {
+    const lessonsPage = byId("lessonsPage");
+    const pageIsVisible = location.hash === "#lessons" || !!(lessonsPage && !lessonsPage.hidden);
+    if (!currentUser || !snapshot.day || !pageIsVisible || dailyResetRefreshInFlight) return;
+    if (localDayStart(snapshot.timezone || "UTC") === snapshot.day) return;
+    dailyResetRefreshInFlight = true;
+    void initialiseDailyLearning().finally(() => { dailyResetRefreshInFlight = false; });
+  }
+  function scheduleDailyReset() {
+    clearDailyResetTimer();
+    if (!currentUser || !snapshot.day) return;
+    const nextStart = Date.parse(zonedMidnightUtc(addDays(snapshot.day), snapshot.timezone || "UTC"));
+    if (!Number.isFinite(nextStart) || typeof window.setTimeout !== "function") return;
+    dailyResetTimer = window.setTimeout(refreshDailyWindowIfNeeded, Math.max(1000, nextStart - Date.now() + 350));
+  }
   function effectiveAllowanceTimezone(prefs, now = Date.now()) {
     const until = Date.parse(prefs?.allowance_timezone_until || "");
     if (prefs?.allowance_timezone && Number.isFinite(until) && until > now) {
@@ -618,7 +639,7 @@
       // If the curated pool is exhausted, fall back to a free replay.
       return available.length
         ? available[(baseIndex + slot + accountOffset) % available.length]
-        : pool[(baseIndex + slot + accountOffset) % pool.length];
+        : {...pool[(baseIndex + slot + accountOffset) % pool.length],__freeReplay:true};
     }
     const candidates = revisionCandidates(snapshot.lessonResults, snapshot.dailyResults, snapshot.completedToday);
     const best = candidates[0];
@@ -669,7 +690,8 @@
     const grid = byId("dailyActivityGrid");
     if (!supabaseClient || !currentUser) {
       preferences = Object.fromEntries(preferenceKeys.map(key => [key, true]));
-      snapshot = { timezone:"UTC", day:localDayStart("UTC"), learningLanguage:"en", plan:"free", limits:{}, completed:{}, openSessions:[], dailyResults:[], content:{} };
+      clearDailyResetTimer();
+      snapshot = { timezone:"UTC", day:localDayStart("UTC"), learningLanguage:"en", plan:"free", limits:{}, completed:{}, completedToday:[], openSessions:[], dailyResults:[], content:{} };
       applyPreferenceInputs(false);
       status.textContent = "Sign in to start activities and sync your preferences and progress across devices.";
       renderCards();
@@ -706,7 +728,7 @@
       && (!entitlement.valid_until || Date.parse(entitlement.valid_until) > now);
     const plan = active ? entitlement.plan_code : "free";
 
-    const [limitResult, usageResult, lessonResult, dailyResult, openSessionResult] = await Promise.all([
+    const [limitResult, usageResult, lessonResult, dailyResultInitial, openSessionResult] = await Promise.all([
       supabaseClient.from("learning_plan_limits")
         .select("activity_type,daily_limit,is_enabled")
         .eq("plan_code",plan)
@@ -716,7 +738,7 @@
         .select("topic_id,correct_count,question_count,attempted_at")
         .eq("user_id",userId).eq("learning_language",prefs.learning_language || "en").order("attempted_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
-        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,completed_at,status,started_at,language_code")
+        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at,status,started_at,language_code")
         .eq("user_id",userId).eq("language_code",language).eq("status","completed")
         .order("completed_at",{ascending:false}).limit(200),
       supabaseClient.from("daily_activity_sessions")
@@ -725,6 +747,14 @@
         .order("started_at",{ascending:false}).limit(10)
     ]);
     if (sequence !== loadSequence) return;
+    let dailyResult=dailyResultInitial;
+    if(dailyResult.error&&/first_try_correct_count|incorrect_attempt_count|retry_count|PGRST204|42703/i.test(dailyResult.error.message||"")){
+      dailyResult=await supabaseClient.from("daily_activity_sessions")
+        .select("activity_type,content_id,topic_id,difficulty,source,correct_count,question_count,completed_at,status,started_at,language_code")
+        .eq("user_id",userId).eq("language_code",language).eq("status","completed")
+        .order("completed_at",{ascending:false}).limit(200);
+      if(!dailyResult.error)dailyResult.data=(dailyResult.data||[]).map(row=>({...row,first_try_correct_count:null,incorrect_attempt_count:null,retry_count:null}));
+    }
     for (const result of [limitResult,usageResult,lessonResult,dailyResult,openSessionResult]) if (result.error) throw result.error;
 
     const limits = {};
@@ -763,6 +793,7 @@
     for (const type of Object.keys(activityMeta)) snapshot.content[type] = chooseContent(type,slots[type]);
     renderDailyStatus();
     renderCards();
+    scheduleDailyReset();
   }
 
   function applyPreferenceInputs(signedIn) {
@@ -784,7 +815,8 @@
     const limit = Number(limitConfig?.limit);
     const used = Number(snapshot.completed[type] || 0);
     const remaining = Number.isFinite(limit) ? Math.max(0,limit-used) : null;
-    const completedRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
+    const completedRows = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
+    const historicalReplayRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0));
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
@@ -799,11 +831,12 @@
       ? dailyUi("Explore useful Chinese characters, their readings and examples.","认识常用汉字、读音和语境例句。")
       : dailyUi(meta.description,meta.descriptionZh);
     const contentByKey = new Map();
-    const renderCard = (content,discoveryIndex=null,reviewOnly=false) => {
-      const reviewSession = reviewOnly ? completedRows.find(row => row.content_id === content.id) || null : null;
+    const renderCard = (content,discoveryIndex=null,reviewOnly=false,reviewRow=null) => {
+      const replayOnly = reviewOnly || content.__freeReplay === true;
+      const reviewSession = replayOnly ? (reviewRow || historicalReplayRows.find(row => row.content_id === content.id) || completedRows.find(row => row.content_id === content.id) || null) : null;
       contentByKey.set(type + "|" + content.id,{content,session:reviewSession});
-      const activeSession = reviewOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
-      const alreadyCompleted = reviewOnly || (snapshot.dailyResults || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
+      const activeSession = replayOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
+      const alreadyCompleted = replayOnly || (snapshot.completedToday || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
       const allowanceUnavailable = !availableForPlan;
       const exhausted = !activeSession && !alreadyCompleted && !allowanceUnavailable && remaining <= 0;
       const statusLabel = activeSession ? dailyUi("In progress","进行中") : alreadyCompleted ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : exhausted ? dailyUi("Daily limit reached","今日额度已用完") : dailyUi("New activity","新活动");
@@ -823,6 +856,12 @@
         + '</div><div class="daily-activity-card-action"><button type="button" class="primary-button" data-label="' + esc(buttonLabel) + '" data-start-daily="' + type + '" data-content-id="' + esc(content.id) + '"' + indexAttribute + (disabled ? " disabled" : "") + ">" + esc(buttonLabel) + "</button></div></article>";
     };
     let cards = [];
+    const addHistoricalReplayIfEmpty = () => {
+      if (cards.length || !historicalReplayRows.length) return;
+      const row = historicalReplayRows[0];
+      const item = resolveSessionContent(type,row,snapshot.content[type]);
+      if (item) cards.push(renderCard(item,null,true,row));
+    };
     if (isEnabled && type === "daily_discovery") {
       const scheduled = Array.isArray(snapshot.content.daily_discovery) ? snapshot.content.daily_discovery : chooseContent("daily_discovery",0);
       const seen = new Set();
@@ -842,7 +881,11 @@
       // Allowance usage is shared across courses, while review history is language-scoped.
       // If another course consumed today's quota, keep the scheduled item visible with a
       // disabled "Daily limit reached" action instead of showing an empty panel.
-      if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false));
+      if(!cards.length && scheduled[0]) {
+        const replayRow=historicalReplayRows.find(row=>row.content_id===scheduled[0].id);
+        cards.push(replayRow?renderCard(scheduled[0],0,true,replayRow):renderCard(scheduled[0],0,false));
+      }
+      addHistoricalReplayIfEmpty();
     } else if (isEnabled) {
       const seen = new Set();
       completedRows.forEach(row => { if(seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,snapshot.content[type]); if(item) cards.push(renderCard(item,null,true)); });
@@ -858,7 +901,14 @@
         cards.push(renderCard(item,null,false));
         added++;
       }
-      if(!cards.length && availableForPlan){ const item=chooseContent(type,used); if(item) cards.push(renderCard(item,null,false)); }
+      if(!cards.length && availableForPlan){
+        const item=chooseContent(type,used);
+        if(item){
+          const replayRow=historicalReplayRows.find(row=>row.content_id===item.id);
+          cards.push(replayRow?renderCard(item,null,true,replayRow):renderCard(item,null,false));
+        }
+      }
+      addHistoricalReplayIfEmpty();
     }
     const tabs = allTypes.map(tabType => {
       const tabMeta=activityMeta[tabType],active=tabType===type,enabled=preferences[tabType+"_enabled"]!==false;
@@ -914,7 +964,7 @@
     }
   }
 
-  function renderReader(activityType,content,session,existingState=null) {
+  function renderReader(activityType,content,session,existingState=null,options={}) {
     const reader = byId("dailyActivityReader");
     if(reader.parentElement!==document.body)document.body.appendChild(reader);
     const isDiscovery = activityType === "daily_discovery";
@@ -929,7 +979,7 @@
     reader.classList.remove("closing");
     reader.removeAttribute("aria-hidden");
     document.body.style.overflow = "hidden";
-    readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false) };
+    readerState = existingState || { activityType,content,session,firstTry:(content.questions || []).map(() => null),passed:(content.questions || []).map(() => false),attempts:(content.questions || []).map(() => 0),lastChecked:(content.questions || []).map(() => null),incorrectAttemptCount:0,retryCount:0 };
     const closeButton = '<button type="button" class="icon-button" data-daily-close aria-label="' + esc(dailyUi("Close activity","关闭活动")) + '">×</button>';
     let html = "";
     if (isDiscovery) {
@@ -942,7 +992,8 @@
         + '<p class="daily-discovery-frequency-note">' + esc(dailyUi("A less-common word to recognise and understand. Frequency classification is curated, not a live conversational-corpus ranking.","认识并理解一个较少见的词汇。目前词频分类由编辑整理，并非实时口语语料库排名。")) + '</p>'
         + '<p class="muted-note">' + esc(completed ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : dailyUi("In progress · no allowance used until completion","进行中 · 完成后才会扣除次数")) + '</p>';
     } else {
-      html = '<div class="daily-drawer-actions"><button type="button" class="secondary-button" data-daily-back>' + esc(dailyUi("← Back to Lessons","← 返回课程")) + '</button>' + closeButton + '</div>'
+      const dashboardBackAction=options.fromDashboard?"":'<button type="button" class="secondary-button" data-daily-back>' + esc(dailyUi("← Back to Lessons","← 返回课程")) + '</button>';
+      html = '<div class="daily-drawer-actions">' + dashboardBackAction + closeButton + '</div>'
         + '<div class="daily-activity-meta"><span class="daily-activity-tag">' + esc(dailyUi(activityMeta[activityType].title,activityMeta[activityType].titleZh)) + '</span>'
         + (completed ? '<span class="daily-activity-tag">' + esc(dailyUi("Completed · replay is free","已完成 · 可免费重温")) + '</span>' : '<span class="daily-activity-tag">' + esc(dailyUi("In progress · no allowance used yet","进行中 · 尚未扣除次数")) + '</span>')
         + '</div><h2>' + esc(dailyTitle(content)) + '</h2>';
@@ -965,7 +1016,8 @@
         content.questions.forEach((question,index) => {
           html += '<div class="daily-question" data-daily-question="' + index + '"><strong>' + (index+1) + '. ' + dailyQuestionPrompt(question) + '</strong>';
           question.options.forEach((option,optionIndex) => {
-            html += '<label><input type="radio" name="daily-question-' + index + '" value="' + optionIndex + '"' + (completed ? " disabled" : "") + '> <span>' + dailyQuestionOption(option) + '</span></label>';
+            const correctAnswer=completed&&optionIndex===Number(question.answer);
+            html += '<label class="'+(correctAnswer?'daily-review-correct':'')+'"><input type="radio" name="daily-question-' + index + '" value="' + optionIndex + '"' + (completed ? " disabled" : "") + '> <span>' + dailyQuestionOption(option) + '</span>' + (correctAnswer?'<small>'+dailyUi("Correct answer","正确答案")+'</small>':'') + '</label>';
           });
           html += '<p class="daily-question-feedback" id="daily-feedback-' + index + '" role="status"></p></div>';
         });
@@ -1079,7 +1131,16 @@
         continue;
       }
       const correct = Number(selected.value) === content.questions[i].answer;
-      if (firstTry[i] === null) firstTry[i] = correct;
+      const submittedValue=String(selected.value);
+      if (firstTry[i] === null) {
+        firstTry[i] = correct;readerState.attempts[i]=1;readerState.lastChecked[i]=submittedValue;
+        if(!correct)readerState.incorrectAttemptCount=(readerState.incorrectAttemptCount||0)+1;
+      } else if(readerState.lastChecked[i]!==submittedValue) {
+        readerState.retryCount=(readerState.retryCount||0)+1;
+        readerState.attempts[i]=(readerState.attempts[i]||0)+1;
+        readerState.lastChecked[i]=submittedValue;
+        if(!correct)readerState.incorrectAttemptCount=(readerState.incorrectAttemptCount||0)+1;
+      }
       passed[i] = correct;
       const question = content.questions[i];
       const explanation = isChineseLearningCourse() ? (translationLanguage === "en" ? (question.explanationEn || question.explanation || "") : (question.explanation || "")) : (translationLanguage === "zh" && question.zh ? question.zh : question.explanation || "");
@@ -1122,6 +1183,7 @@
   async function completeDailyActivity() {
     if (!readerState || !currentUser || !supabaseClient) return;
     const {activityType,content,session,firstTry,passed} = readerState;
+    const practiceMetrics={firstTryCorrectCount:firstTry.filter(value=>value===true).length,incorrectAttemptCount:readerState.incorrectAttemptCount||0,retryCount:readerState.retryCount||0};
     if ((activityType === "daily_application" || activityType === "daily_revision") && !passed.every(Boolean)) {
       byId("dailyPracticeStatus").textContent = "Check every answer and correct any mistakes before completing.";
       return;
@@ -1139,11 +1201,16 @@
       args.p_question_count = content.questions.length;
     }
     let saved;
+    let metricsWarning="";
     try {
       const {data,error} = await supabaseClient.rpc("complete_daily_activity_session",args);
       if (error) throw error;
       saved = Array.isArray(data) ? data[0] : data;
       if (!saved) throw new Error("The completion could not be confirmed.");
+      if(activityType==="daily_application"||activityType==="daily_revision"){
+        const metrics=await supabaseClient.rpc("record_my_daily_practice_attempt",{p_session_id:session.id,p_first_try_correct_count:practiceMetrics.firstTryCorrectCount,p_incorrect_attempt_count:practiceMetrics.incorrectAttemptCount,p_retry_count:practiceMetrics.retryCount});
+        if(metrics.error)metricsWarning=metrics.error.message||"Practice details could not be saved.";
+      }
       closeDailyReader();
     } catch (error) {
       byId("dailyLearningStatus").textContent = error.message || "Completion could not be saved. Your session remains in progress.";
@@ -1153,6 +1220,7 @@
     try {
       await loadDailyData();
       byId("dailyLearningStatus").textContent = dailyUi("Activity completed successfully. ","活动已成功完成。") + byId("dailyLearningStatus").textContent;
+      if(metricsWarning)byId("dailyLearningStatus").textContent += dailyUi(" Practice statistics could not be saved: ","练习统计无法保存：")+metricsWarning;
     } catch (error) {
       byId("dailyLearningStatus").textContent = dailyUi("Activity completed successfully. The remaining allowance display could not be refreshed: ","活动已成功完成，但无法刷新剩余额度显示：") + (error.message || "Please reload the page.");
     }
@@ -1386,10 +1454,39 @@
   window.installSwiftAllowanceNotifications = installAllowanceNotifications;
   window.addEventListener("swift-auth-updated", installAllowanceNotifications);
 
+  window.SwiftDictionaryDailyLearning = {
+    reviewFromDashboard(row) {
+      if (!currentUser || !row) throw new Error("Sign in to review your completed activity.");
+      const activityType=String(row.activity_type||"");
+      if (!activityMeta[activityType]) throw new Error("This daily activity type is not supported for review.");
+      const previousCourse=course;
+      const languageCode=row.language_code==="zh"?"zh":"en";
+      course=languageCode;
+      try {
+        const session={
+          id:row.id||row.session_id||null,
+          activity_type:activityType,
+          content_id:String(row.content_id||""),
+          topic_id:row.topic_id||null,
+          difficulty:row.difficulty||null,
+          status:"completed",
+          language_code:languageCode
+        };
+        const content=resolveSessionContent(activityType,session,null);
+        if(!content)throw new Error("The original daily activity content is no longer available for review.");
+        renderReader(activityType,content,session,null,{fromDashboard:true});
+        return true;
+      } finally {
+        course=previousCourse;
+      }
+    }
+  };
+
   window.initialiseDailyLearning = initialiseDailyLearning;
   bindPreferenceControls();
   window.addEventListener("swift-auth-updated",() => {
     const userId = currentUser?.id || null;
+    if (!userId) clearDailyResetTimer();
     if (location.hash === "#lessons" && userId && window.__swiftDailyLearningHydratedFor !== userId) {
       window.__swiftDailyLearningHydratedFor = userId;
       initialiseDailyLearning();
@@ -1398,5 +1495,14 @@
   window.addEventListener("swift-course-preferences-updated",() => {
     if (location.hash === "#lessons" && currentUser) void initialiseDailyLearning();
   });
+  window.addEventListener("hashchange",refreshDailyWindowIfNeeded);
+  window.addEventListener("focus",refreshDailyWindowIfNeeded);
+  window.addEventListener("pageshow",refreshDailyWindowIfNeeded);
+  if (typeof document.addEventListener === "function") document.addEventListener("visibilitychange",() => { if (!document.hidden) refreshDailyWindowIfNeeded(); });
+  const lessonsPage = byId("lessonsPage");
+  if (lessonsPage && typeof MutationObserver !== "undefined") {
+    new MutationObserver(() => { if (!lessonsPage.hidden) refreshDailyWindowIfNeeded(); })
+      .observe(lessonsPage,{attributes:true,attributeFilter:["hidden"]});
+  }
   if (location.hash === "#lessons") initialiseDailyLearning();
 })();

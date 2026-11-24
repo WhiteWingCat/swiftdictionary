@@ -43,3 +43,23 @@ The minimum and target checks are per selected difficulty. Because question IDs 
 - The current 2.4.0 production content release is explicitly owner-authorized with human review deferred. Do not infer that structural validation certifies educational accuracy; record and correct issues found during live testing.
 - No learner personal data is part of this content pack.
 - This batch introduces original authored educational text; maintain a provenance note for future additions.
+
+
+## Chinese-learning draft bank — Update 2.8.0
+
+- File: `questions.zh-en.draft.json`
+- Learning course: Simplified Chinese
+- Supporting translation language: English
+- Current status: draft only; no automatic approval or live availability.
+- Current draft: 128 Chinese-language knowledge questions (44 Beginner, 36 Intermediate, 48 Advanced) plus 17 English-to-Chinese translation questions (7 Beginner, 5 Intermediate, 5 Advanced).
+- The knowledge bank alone meets the approved three-session preferred capacity targets. Translation questions are supplemental and are eligible only when the learner selects English as the translation language. Selecting Chinese excludes all English-to-Chinese integration items and keeps question prompts, answers, Pinyin and explanations in Chinese.
+- Translation items are authored as English prompts with Simplified Chinese answer choices, Pinyin support and Chinese explanations. The renderer displays Chinese answers as primary text and English glosses as supporting text only in the English translation preference.
+- The bank is mapped to the permanent Chinese lesson catalogue and learning objectives. Every topic has at least one translation item; no translation item is a language-only duplicate of an existing prompt.
+
+### Chinese bank workflow
+
+1. Edit `questions.zh-en.draft.json` and `curriculum-map.zh.json`. Keep every question linked to a valid permanent lesson and learning objective.
+2. Run `node scripts/quiz/validate-chinese-question-bank.mjs` to check lesson/objective mapping, question types, Pinyin, four distinct options, unique prompts, and the minimum knowledge/translation coverage.
+3. Run `node scripts/quiz/validate-chinese-question-bank.mjs --emit-sql` only to produce a draft-only import. The exporter writes `status='draft'` and never approves content.
+4. Complete independent Simplified Chinese/English linguistic review, answer-key verification, distractor review, Pinyin review, and mode-overlap review before owner release approval.
+5. Do not apply the Chinese Quiz import or mark any question approved in staging or production until the separate release gate is satisfied.

@@ -242,47 +242,68 @@
           : dailyRows(db,activity_type).length
     }));
   }
-  let quizDraftBankPromise=null;
-  async function loadQuizDraftBank() {
-    if(!quizDraftBankPromise) {
-      quizDraftBankPromise=(async()=>{
+  const quizDraftBankPromises=new Map();
+  async function loadQuizDraftBank(learningLanguage="en") {
+    const language=learningLanguage==="zh"?"zh":"en";
+    if(!quizDraftBankPromises.has(language)) {
+      quizDraftBankPromises.set(language,(async()=>{
+        const bankPath=language==="zh"?"questions.zh-en.draft.json":"questions.en-zh.draft.json";
+        const mapPath=language==="zh"?"curriculum-map.zh.json":"curriculum-map.en.json";
         const [bankResponse,mapResponse]=await Promise.all([
-          fetch("/content/quiz/questions.en-zh.draft.json",{cache:"no-store"}),
-          fetch("/content/quiz/curriculum-map.en.json",{cache:"no-store"})
+          fetch("/content/quiz/"+bankPath,{cache:"no-store"}),
+          fetch("/content/quiz/"+mapPath,{cache:"no-store"})
         ]);
-        if(!bankResponse.ok||!mapResponse.ok) throw new Error("The draft Quiz question bank could not be loaded in Mock Test Mode.");
+        if(!bankResponse.ok||!mapResponse.ok)throw new Error("The draft Quiz question bank could not be loaded in Mock Test Mode.");
         const [bank,curriculum]=await Promise.all([bankResponse.json(),mapResponse.json()]);
-        if(bank.status!=="draft") throw new Error("Mock Quiz may load only content explicitly marked as draft.");
-        if(!Array.isArray(bank.questions)||bank.questions.length!==199) throw new Error("The draft Quiz bank must contain exactly 199 questions.");
-        if(bank.questions.some(question=>!question.learning_objective_id)) throw new Error("Every draft Quiz question must link to a permanent lesson learning objective.");
+        if(bank.status!=="draft")throw new Error("Mock Quiz may load only content explicitly marked as draft.");
+        if(bank.learning_language_code!==language||(language==="zh"&&bank.translation_language_code!=="en"))throw new Error("The draft Quiz bank does not match the selected language pair.");
+        if(bank.questions.some(question=>!question.learning_objective_id))throw new Error("Every draft Quiz question must link to a permanent lesson learning objective.");
         const normalizeOption=value=>String(value??"").normalize("NFKC").toLocaleLowerCase("zh").replace(/[\s\p{P}\p{S}]+/gu,"");
         const mapped=bank.questions.map(question=>{
-          const source=curriculum[question.source_lesson_id];
-          if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty)) throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
-          if(!Array.isArray(source.objectives)||!source.objectives.some(objective=>objective.id===question.learning_objective_id)) throw new Error("A draft Quiz question has no matching permanent lesson objective: "+question.question_id);
-          if(!question.question_id||!question.prompt_learning||!question.prompt_translation||!Array.isArray(question.options)||question.options.length!==4) throw new Error("A draft Quiz question is incomplete: "+question.question_id);
-          if(new Set(question.options.map(option=>option.id)).size!==4) throw new Error("A draft Quiz question contains duplicate option IDs: "+question.question_id);
-          if(!question.options.some(option=>option.id===question.correct_option_id)) throw new Error("A draft Quiz answer key is invalid: "+question.question_id);
-          if(!question.explanation_learning||!question.explanation_translation) throw new Error("A draft Quiz explanation is incomplete: "+question.question_id);
-          if(question.options.some(option=>!option.id||!option.learning_text||!option.translation_text)) throw new Error("A draft Quiz option is incomplete: "+question.question_id);
-          if(new Set(question.options.map(option=>normalizeOption(option.learning_text))).size!==4) throw new Error("A draft Quiz question contains duplicate English options: "+question.question_id);
-          if(new Set(question.options.map(option=>normalizeOption(option.translation_text))).size!==4) throw new Error("A draft Quiz question contains duplicate Chinese options: "+question.question_id);
+          const source=curriculum.lessons?.[question.source_lesson_id]||curriculum[question.source_lesson_id];
+          if(!source||!["beginner","intermediate","advanced"].includes(source.difficulty))throw new Error("A draft Quiz question has no valid curriculum mapping: "+question.question_id);
+          if(!Array.isArray(source.objectives)||!source.objectives.some(objective=>objective.id===question.learning_objective_id))throw new Error("A draft Quiz question has no matching permanent lesson objective: "+question.question_id);
+          if(!question.question_id||!question.prompt_learning||!question.prompt_translation||!Array.isArray(question.options)||question.options.length!==4)throw new Error("A draft Quiz question is incomplete: "+question.question_id);
+          if(new Set(question.options.map(option=>option.id)).size!==4)throw new Error("A draft Quiz question contains duplicate option IDs: "+question.question_id);
+          if(!question.options.some(option=>option.id===question.correct_option_id))throw new Error("A draft Quiz answer key is invalid: "+question.question_id);
+          if(!question.explanation_learning||!question.explanation_translation)throw new Error("A draft Quiz explanation is incomplete: "+question.question_id);
+          if(question.options.some(option=>!option.id||!option.learning_text||!option.translation_text))throw new Error("A draft Quiz option is incomplete: "+question.question_id);
+          if(new Set(question.options.map(option=>normalizeOption(option.learning_text))).size!==4)throw new Error("A draft Quiz question contains duplicate learning-language options: "+question.question_id);
+          if(new Set(question.options.map(option=>normalizeOption(option.translation_text))).size!==4)throw new Error("A draft Quiz question contains duplicate translation-language options: "+question.question_id);
           const questionType=question.question_type||"knowledge";
-          if(!["knowledge","word_definition","chinese_translation"].includes(questionType)) throw new Error("A draft Quiz question has an unsupported question type: "+question.question_id);
-          if(questionType==="chinese_translation"&&question.answer_language_code!=="zh") throw new Error("A Chinese translation question must target Simplified Chinese: "+question.question_id);
-          if(questionType==="word_definition"&&question.answer_language_code!=="en") throw new Error("A word-definition question must target English: "+question.question_id);
+          if(language==="zh"){
+            if(!["knowledge","chinese_translation"].includes(questionType)||question.answer_language_code!=="zh")throw new Error("A Chinese Quiz question must be knowledge or English-to-Chinese translation: "+question.question_id);
+            if(questionType==="knowledge"&&!question.prompt_pinyin)throw new Error("A Chinese knowledge prompt is missing Pinyin: "+question.question_id);
+            if(questionType==="chinese_translation"&&question.prompt_pinyin)throw new Error("An English translation prompt must not include Chinese Pinyin: "+question.question_id);
+            if(question.options.some(option=>!option.pinyin&&!/^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+(?:\s+[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň]+)*$/iu.test(option.learning_text||"")))throw new Error("A Chinese Quiz answer option is missing Pinyin: "+question.question_id);
+          }else{
+            if(!["knowledge","word_definition","chinese_translation"].includes(questionType))throw new Error("A draft Quiz question has an unsupported question type: "+question.question_id);
+            if(questionType==="chinese_translation"&&question.answer_language_code!=="zh")throw new Error("A Chinese translation question must target Simplified Chinese: "+question.question_id);
+            if(questionType==="word_definition"&&question.answer_language_code!=="en")throw new Error("A word-definition question must target English: "+question.question_id);
+          }
           return {...question,question_type:questionType,topic_id:source.topic_id,source_difficulty:source.difficulty};
         });
-        const counts=mapped.reduce((result,question)=>(result[question.source_difficulty]++,result),{beginner:0,intermediate:0,advanced:0});
-        const translationCounts=mapped.filter(question=>question.question_type==="chinese_translation").reduce((result,question)=>(result[question.source_difficulty]++,result),{beginner:0,intermediate:0,advanced:0});
-        const definitionCounts=mapped.filter(question=>question.question_type==="word_definition").reduce((result,question)=>(result[question.source_difficulty]++,result),{beginner:0,intermediate:0,advanced:0});
-        if(counts.beginner!==56||counts.intermediate!==62||counts.advanced!==81) throw new Error("The draft Quiz bank difficulty totals do not match the expected 56/62/81 distribution.");
-        if(translationCounts.beginner!==21||translationCounts.intermediate!==21||translationCounts.advanced!==28) throw new Error("The Chinese integration bank must contain 21/21/28 questions by difficulty.");
-        if(definitionCounts.beginner!==5||definitionCounts.intermediate!==5||definitionCounts.advanced!==5) throw new Error("The word-definition bank must contain five questions at each difficulty.");
+        const counts={beginner:0,intermediate:0,advanced:0};
+        const translationCounts={beginner:0,intermediate:0,advanced:0};
+        const definitionCounts={beginner:0,intermediate:0,advanced:0};
+        for(const question of mapped){
+          if(question.question_type==="chinese_translation")translationCounts[question.source_difficulty]++;
+          else if(question.question_type==="word_definition")definitionCounts[question.source_difficulty]++;
+          else counts[question.source_difficulty]++;
+        }
+        if(language==="zh"){
+          for(const [difficulty,minimum] of Object.entries({beginner:30,intermediate:36,advanced:48}))if(counts[difficulty]<minimum)throw new Error("The Chinese Quiz needs at least "+minimum+" knowledge questions at "+difficulty+" difficulty.");
+          for(const difficulty of ["beginner","intermediate","advanced"])if(translationCounts[difficulty]<1)throw new Error("The Chinese Quiz needs English-to-Chinese translation coverage at "+difficulty+" difficulty.");
+        }else{
+          if(mapped.length!==199)throw new Error("The draft English Quiz bank must contain exactly 199 questions.");
+          if(counts.beginner+translationCounts.beginner+definitionCounts.beginner!==56||counts.intermediate+translationCounts.intermediate+definitionCounts.intermediate!==62||counts.advanced+translationCounts.advanced+definitionCounts.advanced!==81)throw new Error("The draft English Quiz bank difficulty totals do not match the expected 56/62/81 distribution.");
+          if(translationCounts.beginner!==21||translationCounts.intermediate!==21||translationCounts.advanced!==28)throw new Error("The Chinese integration bank must contain 21/21/28 questions by difficulty.");
+          if(definitionCounts.beginner!==5||definitionCounts.intermediate!==5||definitionCounts.advanced!==5)throw new Error("The word-definition bank must contain five questions at each difficulty.");
+        }
         return {questions:mapped,counts,translationCounts,definitionCounts};
-      })().catch(error=>{quizDraftBankPromise=null;throw error;});
+      })().catch(error=>{quizDraftBankPromises.delete(language);throw error;}));
     }
-    return quizDraftBankPromise;
+    return quizDraftBankPromises.get(language);
   }
   function shuffled(items) {
     const result=items.slice();
@@ -297,40 +318,56 @@
     for(let i=0;i<seed.length;i++){hash^=seed.charCodeAt(i);hash=Math.imul(hash,16777619);}
     return 1+((hash>>>0)%7);
   }
-  async function quizMockQuestions(sessionId,difficulty,translationLanguageCode="zh",userId=activeUser.id,localDate=today("UTC"),reservedIds=[]) {
-    const bank=await loadQuizDraftBank();
-    const composition=difficulty==="beginner"
-      ? {beginner:10}
-      : difficulty==="intermediate"
-        ? {intermediate:12,beginner:3}
-        : {advanced:12,intermediate:6,beginner:2};
+  async function quizMockQuestions(sessionId,difficulty,translationLanguageCode="zh",userId=activeUser.id,localDate=today("UTC"),reservedIds=[],learningLanguageCode="en") {
+    const bank=await loadQuizDraftBank(learningLanguageCode);
     const selected=[];
     const reserved=new Set(reservedIds);
-    const definitionPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="word_definition"&&!reserved.has(question.question_id));
-    if(definitionPool.length<1) throw new Error("Not enough unseen lesson-aligned definition questions for "+difficulty+" Quiz today.");
-    selected.push(...shuffled(definitionPool).slice(0,1));
-    composition[difficulty]-=1;
-    const chineseTargetCount=translationLanguageCode==="zh"?dailyChineseQuestionCount(userId,localDate,difficulty):0;
-    if(chineseTargetCount){
-      const translationPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="chinese_translation"&&!reserved.has(question.question_id));
-      if(translationPool.length<chineseTargetCount) throw new Error("Not enough unseen Chinese translation questions for "+difficulty+" Quiz today.");
-      selected.push(...shuffled(translationPool).slice(0,chineseTargetCount));
-      composition[difficulty]-=chineseTargetCount;
-    }
-    for(const [level,amount] of Object.entries(composition)) {
-      const pool=bank.questions.filter(question=>question.source_difficulty===level&&(question.question_type||"knowledge")==="knowledge"&&!reserved.has(question.question_id));
-      if(pool.length<amount) throw new Error("Not enough unseen lesson-aligned knowledge questions for "+level+" difficulty.");
-      selected.push(...shuffled(pool).slice(0,amount));
+    if(learningLanguageCode==="zh"){
+      const composition=difficulty==="beginner"
+        ? {beginner:10}
+        : difficulty==="intermediate"
+          ? {intermediate:12,beginner:3}
+          : {advanced:12,intermediate:6,beginner:2};
+      for(const [level,amount] of Object.entries(composition)){
+        const pool=bank.questions.filter(question=>question.source_difficulty===level
+          &&(question.question_type==="knowledge"||(translationLanguageCode==="en"&&question.question_type==="chinese_translation"))
+          &&!reserved.has(question.question_id));
+        if(pool.length<amount)throw new Error("Not enough unseen Chinese Quiz questions for "+level+" difficulty.");
+        selected.push(...shuffled(pool).slice(0,amount));
+      }
+    }else{
+      const composition=difficulty==="beginner"
+        ? {beginner:10}
+        : difficulty==="intermediate"
+          ? {intermediate:12,beginner:3}
+          : {advanced:12,intermediate:6,beginner:2};
+      const definitionPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="word_definition"&&!reserved.has(question.question_id));
+      if(definitionPool.length<1)throw new Error("Not enough unseen lesson-aligned definition questions for "+difficulty+" Quiz today.");
+      selected.push(...shuffled(definitionPool).slice(0,1));
+      composition[difficulty]-=1;
+      const chineseTargetCount=translationLanguageCode==="zh"?dailyChineseQuestionCount(userId,localDate,difficulty):0;
+      if(chineseTargetCount){
+        const translationPool=bank.questions.filter(question=>question.source_difficulty===difficulty&&question.question_type==="chinese_translation"&&!reserved.has(question.question_id));
+        if(translationPool.length<chineseTargetCount)throw new Error("Not enough unseen Chinese translation questions for "+difficulty+" Quiz today.");
+        selected.push(...shuffled(translationPool).slice(0,chineseTargetCount));
+        composition[difficulty]-=chineseTargetCount;
+      }
+      for(const [level,amount] of Object.entries(composition)){
+        const pool=bank.questions.filter(question=>question.source_difficulty===level&&question.question_type==="knowledge"&&!reserved.has(question.question_id));
+        if(pool.length<amount)throw new Error("Not enough unseen lesson-aligned knowledge questions for "+level+" difficulty.");
+        selected.push(...shuffled(pool).slice(0,amount));
+      }
     }
     return shuffled(selected).map((question,index)=>{
-      const options=shuffled(question.options).map(option=>({id:option.id,learning_text:option.learning_text,translation_text:option.translation_text}));
+      const options=shuffled(question.options).map(option=>({id:option.id,learning_text:option.learning_text,translation_text:option.translation_text,pinyin:option.pinyin||null}));
       return {
         question_id:question.question_id,source_lesson_id:question.source_lesson_id,
         topic_id:question.topic_id,source_difficulty:question.source_difficulty,question_type:question.question_type||"knowledge",
         answer_language_code:question.answer_language_code||null,position:index+1,
-        prompt_learning:question.prompt_learning,prompt_translation:question.prompt_translation,
+        prompt_learning:question.prompt_learning,prompt_translation:question.prompt_translation,prompt_pinyin:question.prompt_pinyin||null,
         options,selected_option_id:null,correct_option_id:question.correct_option_id,
-        learning_objective_id:question.learning_objective_id,explanation_learning:question.explanation_learning,explanation_translation:question.explanation_translation
+        learning_objective_id:question.learning_objective_id,explanation_learning:question.explanation_learning,
+        explanation_translation:question.explanation_translation,explanation_pinyin:question.explanation_pinyin||null
       };
     });
   }
@@ -346,7 +383,11 @@
       questions:clone(session.questions).map(question=>{
         const item={...question};
         if(!includeReview){
-          delete item.correct_option_id;delete item.explanation_learning;delete item.explanation_translation;
+          delete item.correct_option_id;delete item.explanation_learning;delete item.explanation_translation;delete item.explanation_pinyin;
+          item.options=(item.options||[]).map(option=>{
+            const {pinyin,...visible}=option;
+            return visible;
+          });
         } else {
           item.is_correct=item.selected_option_id===item.correct_option_id;
         }
@@ -376,7 +417,9 @@
   async function mockRpc(name,args) {
     const db=state(), tables=db.tables, user=activeUser;
     if (name==="get_my_quiz_availability") {
-      const bank=await loadQuizDraftBank();
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const learningLanguageCode=preference.learning_language==="zh"?"zh":"en";
+      const bank=await loadQuizDraftBank(learningLanguageCode);
       return {data:quizMockAvailability(db,user,bank.counts),error:null};
     }
     if (name==="get_my_active_quiz") {
@@ -386,21 +429,25 @@
     if (name==="start_my_quiz") {
       const active=(tables.quiz_sessions||[]).find(row=>row.status==="in_progress");
       if(active)return {data:{status:"active_session_exists",session:quizMockPayload(active)},error:null};
-      const availability=quizMockAvailability(db,user);
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const learningLanguageCode=args.p_learning_language==="zh"?"zh":args.p_learning_language==="en"?"en":preference.learning_language==="zh"?"zh":"en";
+      const translationLanguageCode=args.p_translation_language==="zh"?"zh":args.p_translation_language==="en"?"en":preference.translation_language==="en"?"en":learningLanguageCode==="zh"?"en":"zh";
+      const bank=await loadQuizDraftBank(learningLanguageCode);
+      const availability=quizMockAvailability(db,user,bank.counts);
       if(availability.allowance.remaining_count<1)return {data:null,error:error("Daily Quiz completion allowance exhausted.","P0001")};
       const difficulty=args.p_difficulty;
       if(!["beginner","intermediate","advanced"].includes(difficulty))return {data:null,error:error("Invalid Quiz difficulty.","22023")};
       const count=difficulty==="beginner"?10:difficulty==="intermediate"?15:20;
       const sessionId="mock-quiz-session-"+(++sequence);
-      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
       const timezone=preference.allowance_timezone||preference.timezone||"UTC";
       const localDate=today(timezone);
-      const translationLanguageCode=preference.translation_language==="en"?"en":"zh";
       const reservedIds=(tables.quiz_sessions||[]).filter(row=>row.local_date===localDate).flatMap(row=>(row.questions||[]).map(question=>question.question_id));
-      const questions=await quizMockQuestions(sessionId,difficulty,translationLanguageCode,user.id,localDate,reservedIds);
+      const questions=await quizMockQuestions(sessionId,difficulty,translationLanguageCode,user.id,localDate,reservedIds,learningLanguageCode);
       const chineseCount=questions.filter(question=>question.question_type==="chinese_translation").length;
-      const sourceComposition=difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10";
-      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,learning_language_code:"en",translation_language_code:translationLanguageCode,source_composition:sourceComposition+"; chinese_translation:"+chineseCount,local_date:localDate,started_at:now(),completed_at:null,questions};
+      const sourceComposition=learningLanguageCode==="zh"
+        ? difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10"
+        : difficulty==="advanced"?"advanced:12, intermediate:6, beginner:2":difficulty==="intermediate"?"intermediate:12, beginner:3":"beginner:10";
+      const session={session_id:sessionId,user_id:user.id,difficulty,status:"in_progress",question_count:count,current_position:1,learning_language_code:learningLanguageCode,translation_language_code:translationLanguageCode,source_composition:sourceComposition+"; chinese_translation:"+chineseCount,local_date:localDate,started_at:now(),completed_at:null,questions};
       (tables.quiz_sessions||=[]).push(session);persist(db);
       return {data:quizMockPayload(session),error:null};
     }
@@ -447,7 +494,16 @@
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
       const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard")?.daily_limit||0;
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
-      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),review_items:own("flashcard_review_items"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,30)},error:null};
+      return {data:{allowance:{plan,daily_limit:limit,used_count:used,remaining:Math.max(0,limit-used)},collections:own("flashcard_collections"),cards:own("flashcard_cards"),mastery:own("flashcard_mastery"),review_items:own("flashcard_review_items"),history:own("flashcard_sessions").filter(row=>row.status==="completed").sort((a,b)=>String(b.started_at).localeCompare(String(a.started_at))).slice(0,100)},error:null};
+    }
+    if (name==="dismiss_my_flashcard_review_item") {
+      const key=String(args.p_card_key||""),mode=String(args.p_mode||"");
+      const rows=tables.flashcard_review_items||[];
+      const remaining=rows.filter(row=>row.user_id!==user.id||row.card_key!==key||row.mode!==mode);
+      const removed=rows.length-remaining.length;
+      tables.flashcard_review_items=remaining;
+      persist(db);
+      return {data:{dismissed:removed>0},error:null};
     }
     if (name==="save_my_flashcard_collection") {
       const rows=(tables.flashcard_collections||=[]), action=args.p_action;
@@ -496,16 +552,21 @@
     }
     if (name==="start_my_flashcard_game") {
       const difficulty=args.p_difficulty,mode=args.p_mode,duration=Number(args.p_duration_seconds)||60;
-      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","mixed","sentence"].includes(mode)||![60,120].includes(duration))return {data:null,error:error("Invalid Flashcard mode, difficulty or challenge duration.","22023")};
-      const pref=tables.user_preferences?.[0]||{};
-      if((pref.learning_language||"en")!=="en")return {data:null,error:error("Flashcards currently support the English learning course only.")};
+      const userPreference=tables.user_preferences?.find(item=>item.user_id===user.id)||{};
+      const learningLanguage=userPreference.learning_language||"en";
+      const translationLanguage=userPreference.translation_language||"zh";
+      const allowedModes=learningLanguage==="zh"?["word","definition","translation","sentence"]:["word","definition","mixed","sentence"];
+      if(!["beginner","intermediate","advanced"].includes(difficulty)||![60,120].includes(duration)
+        ||!["en","zh"].includes(learningLanguage)||!["en","zh"].includes(translationLanguage)||!allowedModes.includes(mode)){
+        return {data:null,error:error("Invalid Flashcard language, mode, difficulty or challenge duration.","22023")};
+      }
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
       const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard");
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
       if(!limit?.is_enabled||used>=limit.daily_limit)return {data:null,error:error("Daily Flashcard game allowance exhausted.","P0001")};
       (tables.flashcard_sessions||[]).filter(row=>row.user_id===user.id&&row.status==="in_progress").forEach(row=>row.status="abandoned");
-      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null};
-      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:duration},error:null};
+      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null,learning_language_code:learningLanguage,translation_language_code:translationLanguage};
+      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:duration,learning_language_code:learningLanguage,translation_language_code:translationLanguage},error:null};
     }
     if (name==="complete_my_flashcard_game") {
       const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id);
@@ -532,10 +593,34 @@
         else{mastery.incorrect_count++;mastery.current_streak=0;mastery.last_result="incorrect";}
         mastery.last_seen_at=now();mastery.updated_at=now();
       }
+      session.review_items=args.p_results.map((result,index)=>({
+        position:index+1,card_key:result.card_key,recall_mode:result.mode||session.mode,
+        prompt:result.snapshot?.prompt||"",card:clone(result.snapshot?.card||{}),
+        options:clone(result.snapshot?.options||[]),
+        selected_option_index:result.snapshot?.selected_option_index??null,
+        correct_option_index:result.snapshot?.correct_option_index??null,
+        selected_answer:result.snapshot?.selected_answer??null,
+        correct_answer:result.snapshot?.correct_answer??null,
+        is_correct:!!result.correct,unanswered:!!result.unanswered
+      }));
       Object.assign(session,{status:"completed",words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered,completed_at:now()});
-      (tables.learning_activity_log||=[]).push({user_id:user.id,activity_type:"flashcard",event_type:"completed",language_code:"en",created_at:now()});
+      (tables.learning_activity_log||=[]).push({user_id:user.id,activity_type:"flashcard",event_type:"completed",language_code:session.learning_language_code||"en",created_at:now()});
       (tables.flashcard_allowance_events||=[]).push({user_id:user.id,created_at:now()});
       persist(db);return {data:{completed:true,words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered},error:null};
+    }
+    if (name==="get_my_flashcard_game_review") {
+      const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id&&row.status==="completed");
+      if(!session)return {data:null,error:error("Flashcard game not found.")};
+      const items=Array.isArray(session.review_items)?session.review_items:[];
+      return {data:{
+        session_id:session.id,mode:session.mode,difficulty:session.difficulty,
+        learning_language_code:session.learning_language_code||"en",
+        translation_language_code:session.translation_language_code||"zh",
+        duration_seconds:session.duration_seconds,started_at:session.started_at,
+        completed_at:session.completed_at,words_seen:session.words_seen,
+        correct_count:session.correct_count,incorrect_count:session.incorrect_count,
+        unanswered_count:session.unanswered_count,review_available:items.length>0,items
+      },error:null};
     }
     if (name==="abandon_my_flashcard_game") {
       const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id&&row.status==="in_progress");
@@ -633,6 +718,19 @@
       }
     } catch(error) { console.error("[SwiftDictionary mock] Reset failed.",error); }
   }
+  function seedQuizHistory({history = []} = {}) {
+    const db = state();
+    const userId = activeUser?.id;
+    db.tables.quiz_sessions = history.map(row => ({...clone(row),user_id:userId}));
+    persist(db);
+  }
+  function seedFlashcardData({reviewItems = [], history = []} = {}) {
+    const db = state();
+    const userId = activeUser?.id;
+    db.tables.flashcard_review_items = reviewItems.map(row => ({...clone(row),user_id:userId}));
+    db.tables.flashcard_sessions = history.map(row => ({...clone(row),user_id:userId}));
+    persist(db);
+  }
   // Deliberately exposed only while the preview-only mock adapter is active.
   // This small surface also lets local unit tests verify identity isolation.
   window.__swiftDictionaryMock = Object.freeze({
@@ -640,6 +738,8 @@
     activeUser:()=>activeUser?.id || null,
     reset:resetMockStore,
     selectionGeneration,
+    seedFlashcardData,
+    seedQuizHistory,
     getClient:()=>client
   });
 

@@ -6,9 +6,10 @@
 .permanent-lessons-heading h2{margin:0 0 7px;color:#f5f8ff;font-size:clamp(1.45rem,2.5vw,2rem)}
 .permanent-lessons-heading p:not(.eyebrow){max-width:720px;margin:0;color:#d0dced;line-height:1.65}
 #permanentLessonsPanel .difficulty-tabs{display:flex;flex-wrap:wrap;gap:9px;width:max-content;max-width:100%;margin:19px 0 14px;padding:6px;border:1px solid #3a4a65;border-radius:15px;background:#080e1952}
-#permanentLessonsPanel .difficulty-tab{min-width:112px;padding:10px 17px;border:1px solid transparent;border-radius:10px;background:transparent;color:#d5deed;font-weight:750;transition:transform .2s,background .2s,color .2s,box-shadow .2s}
-#permanentLessonsPanel .difficulty-tab:hover{transform:translateY(-2px);background:#90aada1f;color:#fff}
-#permanentLessonsPanel .difficulty-tab.active{border-color:#7894c9;background:linear-gradient(135deg,#405a88,#30456b);color:#fff;box-shadow:0 5px 14px #0003,inset 0 1px #ffffff1f}
+#permanentLessonsPanel .difficulty-tab{min-width:112px;padding:10px 17px;border:1px solid transparent;border-radius:10px;background:#1b2534;color:#d5deed;font-weight:750;transition:transform .2s,background .2s,color .2s,box-shadow .2s}
+#permanentLessonsPanel .difficulty-tab:hover:not(.active){transform:translateY(-2px);background:#223149;color:#fff}
+#permanentLessonsPanel .difficulty-tab.active{border-color:#7894c9;background:#1b2534;color:#fff;box-shadow:inset 0 0 0 1px #ffffff0a}
+#permanentLessonsPanel .difficulty-tab.active:hover{transform:none;background:#1b2534}
 #lessonLibrary{min-width:0;padding:clamp(15px,2vw,23px);border:1px solid #3b4d69;border-radius:17px;background:#0a101b52;box-shadow:inset 0 1px #ffffff09}
 #lessonAllowance{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 17px;padding:15px 18px;border-color:#536b94;border-radius:14px;background:linear-gradient(110deg,#435b8952,#24334c7a);box-shadow:0 8px 22px #0003}
 #lessonAllowance strong{color:#f1f6ff}#lessonAllowance small{color:#d1def1;line-height:1.5}
@@ -289,3 +290,10 @@
   }
   #dailyActivityReader.closing .daily-activity-modal { opacity:0; }
 }
+
+.daily-activity-backdrop .daily-review-correct{border-color:#4d8a68!important;background:#173528!important;color:#b5e9c8!important}.daily-activity-backdrop .daily-review-correct small{display:block;font-weight:750}
+
+
+/* U2.8.0 Quiz review spacing: keep the score panel clear of the top-right close control. */
+.quiz-review-score{margin-right:120px}
+@media(max-width:620px){.quiz-review-score{width:calc(100% - 104px);margin-right:104px}}

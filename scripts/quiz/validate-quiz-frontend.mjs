@@ -4,12 +4,50 @@ import vm from "node:vm";
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
 const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
 const dailyLearning = fs.readFileSync(new URL("../../daily-learning.js", import.meta.url), "utf8");
+const flashcards = fs.readFileSync(new URL("../../flashcards.js", import.meta.url), "utf8");
+const confirmationScript = fs.readFileSync(new URL("../../permanent-lesson-confirmation.js", import.meta.url), "utf8");
+const lessonsCss = fs.readFileSync(new URL("../../lessons-ui.css", import.meta.url), "utf8");
 const quizTranslationMigration = fs.readFileSync(new URL("../../supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql", import.meta.url), "utf8");
+const inlineStyles = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi)];
+if (inlineStyles.length !== 1) {
+  throw new Error("The main page must contain one complete inline stylesheet; malformed style boundaries can expose CSS as visible page text.");
+}
+const pageCss = inlineStyles.map(match => match[1]).join("\n");
+for (const selector of [
+  ".quiz-home-hero", ".quiz-question-card", ".quiz-review-summary",
+  ".quiz-difficulty-option[data-difficulty=beginner]",
+  ".quiz-difficulty-option[data-difficulty=intermediate]",
+  ".quiz-difficulty-option[data-difficulty=advanced]",
+  ".dashboard-hero-banner", ".dashboard-tab-icon",
+  ".dashboard-tab[data-dashboard-tab=favourites]",
+  ".dashboard-tab[data-dashboard-tab=progress]",
+  ".dashboard-tab[data-dashboard-tab=history]",
+  ".dashboard-tab[data-dashboard-tab=analytics]",
+  ".dashboard-tab-panel[hidden]"
+]) {
+  if (!pageCss.includes(selector)) {
+    throw new Error("Required Quiz/Dashboard styling must remain inside the main stylesheet: " + selector);
+  }
+}
+if (!flashcards.includes("#flashcardsPage .flash-mode[data-mode=translation]{background:#bd762e")) {
+  throw new Error("Translation Recall must retain its orange visual treatment.");
+}
+
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
 
 new vm.Script(appScript, { filename: "index.html:inline-app-script" });
+new vm.Script(confirmationScript, { filename: "permanent-lesson-confirmation.js" });
+new vm.Script(dailyLearning, { filename: "daily-learning.js" });
+new vm.Script(flashcards, { filename: "flashcards.js" });
+new vm.Script(mockTesting, { filename: "mock-testing.js" });
+if (!html.includes("permanent-lesson-confirmation.js?v=2.8.0-r1") || !confirmationScript.includes("window.showLearningAllowanceConfirmation")) throw new Error("Shared centered confirmation dialog is not loaded.");
+if (!appScript.includes("showLearningAllowanceConfirmation(warning") || !appScript.includes("showLearningAllowanceConfirmation(submitWarning") || appScript.includes("window.confirm(warning)") || appScript.includes("confirm(\"Submit this Quiz?")) throw new Error("Quiz start and submission must use the website confirmation dialog, not browser prompts.");
+if (!dailyLearning.includes("snapshot.completedToday || []") || !dailyLearning.includes("scheduleDailyReset()") || !dailyLearning.includes("refreshDailyWindowIfNeeded") || !dailyLearning.includes("visibilitychange")) throw new Error("Daily Learning reset and current-day display guards are missing.");
+if (!pageCss.includes(".dashboard-allowance-progress-track") || !appScript.includes("of any permanent lessons today.") || !appScript.includes("Participate in a Quiz test.") || !appScript.includes("Flashcard game") || !pageCss.includes(".dashboard-daily-history{display:grid;grid-template-columns:1fr") || !pageCss.includes(".dashboard-history-group-items{display:grid;grid-template-columns:1fr") || !pageCss.includes(".dashboard-history-group .dashboard-history-row{align-items:center;flex-direction:row") || !pageCss.includes("body.quiz-focused .hero-banner,body.quiz-focused #quizPage > .learning-banner,body.quiz-focused #profilePage > .dashboard-hero-banner{display:none") || !pageCss.includes(".quiz-history-pagination{display:flex;justify-content:flex-end") || !appScript.includes("data-quiz-review-close") || !flashcards.includes("flash-history-pagination") || !flashcards.includes("flash-modal-close-top") || !flashcards.includes("historyPage*10,state.historyPage*10+10")) throw new Error("Dashboard allowance tasks or row-based Daily History styling is incomplete.");
+if (!flashcards.includes("dismiss_my_flashcard_review_item") || !flashcards.includes('data-action="dismiss-review-item"') || !flashcards.includes("flash-review-tab[data-value=translation]{background:#bd762e") || !flashcards.includes(".flash-home > .flash-section:not(.learning-auth-card)") || !mockTesting.includes("seedFlashcardData") || !mockTesting.includes("dismiss_my_flashcard_review_item")) throw new Error("Flashcards panel, Translation Recall, or manual dismissal behavior is incomplete.");
+if (!lessonsCss.includes("#permanentLessonsPanel .difficulty-tab.active{border-color:#7894c9;background:#1b2534") || !lessonsCss.includes("#permanentLessonsPanel .difficulty-tab{min-width:112px")) throw new Error("Permanent Lessons difficulty tabs must share a consistent base fill.");
 
 const requiredMarkup = [
   'id="quizPage"', 'id="quizSignedOut"', 'id="quizHome"', 'id="quizSession"',
@@ -110,6 +148,17 @@ if (!mockTesting.includes("async function loadQuizDraftBank") || !mockTesting.in
     !mockTesting.includes("questions.en-zh.draft.json") || !mockTesting.includes("curriculum-map.en.json")) {
   throw new Error("Mock Quiz must load and validate only the bilingual draft question bank and its curriculum map.");
 }
+if (!mockTesting.includes("questions.zh-en.draft.json") || !mockTesting.includes("curriculum-map.zh.json") ||
+    !mockTesting.includes('learningLanguageCode==="zh"') || !mockTesting.includes('translationLanguageCode==="en"')) {
+  throw new Error("Mock Quiz must load the Chinese draft bank and conditionally include English-to-Chinese items.");
+}
+if (appScript.includes('if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.")')) {
+  throw new Error("Chinese Quiz must be accessible when Chinese is the selected learning course.");
+}
+if (!appScript.includes('function quizTranslationVisible(code){return code === "zh" || code === "en";}') ||
+    !appScript.includes('showTranslation&&!chineseTranslationQuestion')) {
+  throw new Error("Quiz must display the selected translation in either learning-language direction without duplicating translation prompts.");
+}
 if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
   throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");
 }
@@ -131,12 +180,13 @@ if (!html.includes('id="practiceQuizWrongAnswers"') ||
     !appScript.includes("openLesson(lessonId)")) {
   throw new Error("Practice Insights must aggregate completed Quiz reviews and link missed questions to their source lessons.");
 }
-if (!html.includes('data-dashboard-quiz-review=') ||
-    !html.includes('escapeHTML(quizT("Review","查看"))') ||
-    html.includes("\\\\'+quizEscape") ||
-    !html.includes('quizReview(button.dataset.dashboardQuizReview,"profile")') ||
-    !html.includes('quizPageState.returnPage==="profile"?"← Back to Dashboard"')) {
-  throw new Error("Dashboard Quiz history must render a valid Review button and retain its direct answer-review action.");
+if (!html.includes('data-dashboard-daily-quiz-review=') ||
+    !html.includes('quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard"') ||
+    html.includes('quizEl("dashboardQuizHistory").addEventListener') ||
+    html.includes('id="dashboardQuizHistory"') ||
+    !html.includes('dashboard-history-quiz') ||
+    !html.includes('data-dashboard-tab="history"')) {
+  throw new Error("Dashboard Quiz history must render inside the Quiz segment of Daily History and retain its direct answer-review action.");
 }
 if (!html.includes('quizPageState.result = null;') ||
     !html.includes('quizPageState.sessionView = false;') ||
@@ -171,4 +221,31 @@ for (const internalLabel of [
     throw new Error("Internal bank/allowance diagnostics must not be rendered in Quiz difficulty cards: " + internalLabel);
   }
 }
-console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese availability states exist, lesson translation refresh and Quiz snapshot fallback are wired, simplified difficulty cards and last-question navigation are present, mock answer positions are randomized, answer review is wired, and private Quiz tables are not queried directly.");
+if (!html.includes('class="quiz-home-hero"') || !html.includes('class="quiz-question-card"') ||
+    !html.includes("quizSlideFromRight") || !html.includes("quizSlideFromLeft")) {
+  throw new Error("The U2.8.0 Quiz overview and active test UI redesign or directional question transitions are missing.");
+}
+if (!html.includes("quiz-screen-enter") || !appScript.includes("quizAnimateScreen(element)") ||
+    !appScript.includes("function quizRenderSession(transitionDirection=null)") ||
+    !appScript.includes('quizRenderSession(direction)') ||
+    !appScript.includes('data-dashboard-daily-quiz-review') ||
+    !dailyLearning.includes('daily-review-correct')) {
+  throw new Error("U2.8.0 active-test transitions or completed-activity review contracts are incomplete.");
+}
+if (!html.includes(".dashboard-tab-panel[hidden]") || !appScript.includes("setDashboardTab(activeDashboardTab)") ||
+    !appScript.includes("data-dashboard-daily-lesson-review") || !appScript.includes("data-dashboard-daily-activity-review") ||
+    !appScript.includes('quizReview(quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard")') ||
+    !appScript.includes("reviewGame(gameReview.dataset.dashboardFlashcardReviewGame)")) {
+  throw new Error("Dashboard tabs and in-place review actions for all Daily History activity types are incomplete.");
+}
+if (!dailyLearning.includes("window.SwiftDictionaryDailyLearning") ||
+    !dailyLearning.includes("reviewFromDashboard(row)") ||
+    !dailyLearning.includes("options.fromDashboard")) {
+  throw new Error("Completed Daily Learning content must be reviewable without navigating away from Dashboard.");
+}
+if (!appScript.includes("function openDashboardLessonReview") || !appScript.includes("function openDashboardReview") ||
+    !appScript.includes('data-dashboard-review-close')) {
+  throw new Error("Dashboard must provide an in-place read-only review surface for completed lessons and Quiz sessions.");
+}
+
+console.log("Quiz frontend validation passed: inline JavaScript parses, required Quiz screens/RPCs exist, account-scoped learning introductions and Chinese Quiz language routing and selected translation display are wired, lesson translation refresh and Quiz snapshot fallback are wired, simplified difficulty cards and last-question navigation are present, mock answer positions are randomized, answer review is wired, and private Quiz tables are not queried directly.");

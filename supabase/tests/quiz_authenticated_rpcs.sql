@@ -5,14 +5,16 @@ begin;
 insert into auth.users(id) values
  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa'),
  ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'),
- ('cccccccc-cccc-4ccc-8ccc-cccccccccccc')
+ ('cccccccc-cccc-4ccc-8ccc-cccccccccccc'),
+ ('ffffffff-ffff-4fff-8fff-ffffffffffff')
 on conflict (id) do nothing;
 
 insert into public.user_preferences(user_id,learning_language,translation_language,timezone)
 values
  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','en','en','Asia/Kuala_Lumpur'),
  ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb','en','en','Asia/Kuala_Lumpur'),
- ('cccccccc-cccc-4ccc-8ccc-cccccccccccc','en','en','Asia/Kuala_Lumpur')
+ ('cccccccc-cccc-4ccc-8ccc-cccccccccccc','en','en','Asia/Kuala_Lumpur'),
+ ('ffffffff-ffff-4fff-8fff-ffffffffffff','en','en','Asia/Kuala_Lumpur')
 on conflict (user_id) do update set
   learning_language=excluded.learning_language,
   translation_language=excluded.translation_language,
@@ -22,7 +24,8 @@ insert into public.user_entitlements(user_id,plan_code,status)
 values
  ('aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','free','active'),
  ('bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb','premium','active'),
- ('cccccccc-cccc-4ccc-8ccc-cccccccccccc','free','active')
+ ('cccccccc-cccc-4ccc-8ccc-cccccccccccc','free','active'),
+ ('ffffffff-ffff-4fff-8fff-ffffffffffff','premium','active')
 on conflict (user_id) do update set
   plan_code=excluded.plan_code,status='active',valid_from=null,valid_until=null;
 
@@ -63,7 +66,7 @@ select
   'synthetic-objective-'||prefix,
   'Select the correct answer for '||prefix||' question '||n||'.',
   '请选择'||prefix||'第'||n||'题的正确答案。',
-  '[{"id":"a","learning_text":"Correct","translation_text":"正确"},{"id":"b","learning_text":"Wrong one","translation_text":"错误一"},{"id":"c","learning_text":"Wrong two","translation_text":"错误二"},{"id":"d","learning_text":"Wrong three","translation_text":"错误三"}]'::jsonb,
+  '[{"id":"a","learning_text":"Correct","translation_text":"正确","pinyin":"zheng4que4"},{"id":"b","learning_text":"Wrong one","translation_text":"错误一","pinyin":"cuo4wu4yi1"},{"id":"c","learning_text":"Wrong two","translation_text":"错误二","pinyin":"cuo4wu4er4"},{"id":"d","learning_text":"Wrong three","translation_text":"错误三","pinyin":"cuo4wu4san1"}]'::jsonb,
   'a',
   'The first option is correct.',
   '第一个选项是正确答案。',
@@ -159,19 +162,25 @@ values
   'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
   now(),
   now()+interval '1 hour'
+ ),
+ (
+  '99999999-9999-4999-8999-999999999999',
+  'ffffffff-ffff-4fff-8fff-ffffffffffff',
+  now(),
+  now()+interval '1 hour'
  )
 on conflict (id) do update set
   user_id=excluded.user_id,created_at=excluded.created_at,not_after=excluded.not_after;
 
 create temporary table quiz_test_refs(
   user_a_session_id uuid,
-  user_c_used_ids text[]
+  user_d_used_ids text[]
 );
 grant select,insert on quiz_test_refs to authenticated;
 
 set local role authenticated;
 
--- Test User A: Free plan, abandoned questions remain reserved, one completion/day.
+-- Test User A: Free plan, one start/day; the start consumes allowance immediately.
 select set_config('request.jwt.claim.sub','aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',true);
 select set_config('request.jwt.claims',
   '{"sub":"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa","session_id":"dddddddd-dddd-4ddd-8ddd-dddddddddddd"}',true);
@@ -185,12 +194,11 @@ declare
   v_result jsonb;
   v_q jsonb;
   v_question_id text;
-  v_first_ids text[];
-  v_second_ids text[];
   v_session_id uuid;
   v_count integer;
   v_max_topic integer;
   v_failed boolean;
+  v_pinyin_review_supported boolean;
 begin
   v_availability:=public.get_my_quiz_availability();
   if jsonb_array_length(v_availability->'difficulties')<>3
@@ -215,6 +223,13 @@ begin
      or (v_first->'questions'->0) ? 'explanation_learning' then
     raise exception 'Active Quiz payload leaked answer keys or explanations';
   end if;
+  if exists(
+    select 1 from jsonb_array_elements(v_first->'questions') q,
+      lateral jsonb_array_elements(q->'options') o
+    where o ? 'pinyin'
+  ) then
+    raise exception 'Active Quiz payload leaked option Pinyin answer hints';
+  end if;
   select max(question_total)::integer into v_max_topic
   from (
     select count(*) question_total
@@ -228,28 +243,14 @@ begin
     raise exception 'Beginner Quiz did not cover at least three topics';
   end if;
 
-  select array_agg(q->>'question_id') into v_first_ids
-  from jsonb_array_elements(v_first->'questions') q;
-
   v_result:=public.get_my_active_quiz();
   if v_result->>'session_id'<>v_first->>'session_id' then
     raise exception 'Active Quiz could not be resumed';
   end if;
 
-  perform public.abandon_my_quiz(v_session_id);
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoning a Quiz must not consume allowance';
-  end if;
-
-  v_second:=public.start_my_quiz('beginner');
-  if jsonb_array_length(v_second->'questions')<>10 then
-    raise exception 'Second Beginner Quiz did not start after abandonment';
-  end if;
-  select array_agg(q->>'question_id') into v_second_ids
-  from jsonb_array_elements(v_second->'questions') q;
-  if v_first_ids && v_second_ids then
-    raise exception 'A question was repeated on the same local day after abandonment';
-  end if;
+  -- Complete this same session. The successful start has already consumed
+  -- the single Free allowance; completion must not charge it a second time.
+  v_second:=v_first;
 
   -- Change an answer before submission, then save all answers.
   v_q:=v_second->'questions'->0;
@@ -282,6 +283,17 @@ begin
      or not ((v_result->'questions'->0) ? 'explanation_learning') then
     raise exception 'Completed review did not reveal the answer and explanation';
   end if;
+  select exists(
+    select 1 from information_schema.columns
+    where table_schema='private' and table_name='quiz_session_questions'
+      and column_name='explanation_pinyin_snapshot'
+  ) into v_pinyin_review_supported;
+  if v_pinyin_review_supported and not exists(
+    select 1 from jsonb_array_elements(v_result->'questions'->0->'options') o
+    where o ? 'pinyin'
+  ) then
+    raise exception 'U2.8.0 completed review should retain option Pinyin for learning feedback';
+  end if;
 
   -- Duplicate submit is idempotent and must not charge a second completion.
   v_result:=public.submit_my_quiz((v_second->>'session_id')::uuid);
@@ -290,7 +302,7 @@ begin
     raise exception 'Repeated submit created more than one completion event';
   end if;
   if public.test_current_quiz_usage()<>1 then
-    raise exception 'Free allowance ledger did not charge exactly once';
+    raise exception 'Free allowance ledger did not charge exactly one Quiz start';
   end if;
 
   v_result:=public.get_my_quiz_history(20);
@@ -341,7 +353,7 @@ $ownership$;
 
 
 -- User C exercises the authenticated Chinese-translation mix, answer-language
--- metadata and the one-definition rule. Abandonment remains free.
+-- metadata and the one-definition rule. Abandonment does not refund a charged start.
 select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
 select set_config('request.jwt.claims','{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc"}',true);
 update public.user_preferences set translation_language='zh'
@@ -389,8 +401,8 @@ begin
   end if;
   v_session_id:=(v_session->>'session_id')::uuid;
   perform public.abandon_my_quiz(v_session_id);
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoning the Chinese-mix test session consumed allowance';
+  if public.test_current_quiz_usage()<>1 then
+    raise exception 'Abandoning the Chinese-mix test session refunded its start allowance';
   end if;
 end;
 $chinese_mix$;
@@ -400,8 +412,8 @@ where user_id='cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 select set_config('request.jwt.claim.sub','bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',true);
 select set_config('request.jwt.claims','{"sub":"bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"}',true);
 
--- Premium user: exactly three completions/day, no same-day reuse between sessions,
--- and a fourth start is blocked by the server-side completion allowance.
+-- Premium user: exactly three starts/day, no same-day reuse between sessions,
+-- and a fourth start is blocked by the server-side start allowance.
 do $premium$
 declare
   v_session jsonb;
@@ -459,7 +471,7 @@ begin
   end loop;
 
   v_count:=public.test_current_quiz_usage();
-  if v_count<>3 then raise exception 'Premium daily allowance did not charge three completions'; end if;
+  if v_count<>3 then raise exception 'Premium daily allowance did not charge three Quiz starts'; end if;
 
   v_failed:=false;
   begin
@@ -470,9 +482,10 @@ begin
 end;
 $premium$;
 
--- User C validates Advanced composition and cross-difficulty no-repeat after abandonment.
-select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
-select set_config('request.jwt.claims','{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc"}',true);
+-- User D (Premium) validates Advanced composition and cross-difficulty no-repeat after abandonment.
+-- Three starts are available: Advanced, Beginner, then a post-history-deletion start.
+select set_config('request.jwt.claim.sub','ffffffff-ffff-4fff-8fff-ffffffffffff',true);
+select set_config('request.jwt.claims','{"sub":"ffffffff-ffff-4fff-8fff-ffffffffffff","session_id":"99999999-9999-4999-8999-999999999999"}',true);
 do $advanced$
 declare
   v_advanced jsonb;
@@ -501,56 +514,25 @@ begin
   if v_seen && v_new then
     raise exception 'A question repeated across Advanced and Beginner on the same local day';
   end if;
-  insert into pg_temp.quiz_test_refs(user_c_used_ids) values (v_seen||v_new);
+  insert into pg_temp.quiz_test_refs(user_d_used_ids) values (v_seen||v_new);
   perform public.abandon_my_quiz((v_beginner->>'session_id')::uuid);
 end;
 $advanced$;
 
 
--- The Chinese course currently has no approved Quiz curriculum and must stay unavailable.
-update public.user_preferences
-set learning_language='zh'
-where user_id=auth.uid();
-
-do $unsupported_course$
-declare
-  v_availability jsonb;
-  v_failed boolean:=false;
-begin
-  v_availability:=public.get_my_quiz_availability();
-  if exists (
-    select 1 from jsonb_array_elements(v_availability->'difficulties') d
-    where coalesce((d->>'available')::boolean,false)
-       or d->>'reason'<>'learning_course_not_supported'
-  ) then
-    raise exception 'Unsupported Chinese learning course was incorrectly offered';
-  end if;
-
-  begin
-    perform public.start_my_quiz('beginner');
-  exception when insufficient_privilege then
-    v_failed:=true;
-  end;
-  if not v_failed then
-    raise exception 'Quiz start accepted an unsupported learning course';
-  end if;
-end;
-$unsupported_course$;
-
-
 -- History deletion removes answer/session snapshots but retains the minimal
 -- same-day question reservation ledger until its local-day retention expires.
-select set_config('request.jwt.claim.sub','cccccccc-cccc-4ccc-8ccc-cccccccccccc',true);
+select set_config('request.jwt.claim.sub','ffffffff-ffff-4fff-8fff-ffffffffffff',true);
 select set_config('request.jwt.claims',
-  '{"sub":"cccccccc-cccc-4ccc-8ccc-cccccccccccc","session_id":"eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee"}',true);
+  '{"sub":"ffffffff-ffff-4fff-8fff-ffffffffffff","session_id":"99999999-9999-4999-8999-999999999999"}',true);
 do $c_history_delete$
 begin
   perform public.delete_my_learning_history();
   if public.test_my_quiz_session_count()<>0 then
     raise exception 'Quiz session snapshots remained after history deletion';
   end if;
-  if public.test_current_quiz_usage()<>0 then
-    raise exception 'Abandoned history deletion changed the completion allowance';
+  if public.test_current_quiz_usage()<>2 then
+    raise exception 'History deletion changed the two consumed Quiz starts';
   end if;
 end;
 $c_history_delete$;
@@ -565,7 +547,7 @@ declare
   v_new_ids text[];
   v_used_ids text[];
 begin
-  v_used_ids:=(select user_c_used_ids from pg_temp.quiz_test_refs where user_c_used_ids is not null limit 1);
+  v_used_ids:=(select user_d_used_ids from pg_temp.quiz_test_refs where user_d_used_ids is not null limit 1);
   v_session:=public.start_my_quiz('beginner');
   select array_agg(q->>'question_id') into v_new_ids
   from jsonb_array_elements(v_session->'questions') q;

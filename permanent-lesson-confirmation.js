@@ -1,14 +1,19 @@
 (() => {
   "use strict";
+  if (window.__swiftLearningConfirmationInstalled) return;
+  window.__swiftLearningConfirmationInstalled = true;
   const copy = "Selecting this lesson will consume one daily lessons allowance, are you sure?";
   let approvedButton = null;
   let backdrop = null;
   let lastFocused = null;
   let pendingNewStartStatus = false;
+  let pendingResolver = null;
 
   function closeDialog(confirmed) {
     if (!backdrop) return;
     const button = approvedButton;
+    const resolve = pendingResolver;
+    pendingResolver = null;
     backdrop.classList.remove("is-open");
     const finish = () => {
       backdrop?.remove();
@@ -22,19 +27,22 @@
         lastFocused.focus();
       }
       lastFocused = null;
+      if (resolve) resolve(confirmed);
     };
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) finish();
     else window.setTimeout(finish, 190);
   }
 
-  function showDialog(button) {
-    if (backdrop) return;
+  function showDialog(button, message = copy, labels = {}) {
+    if (backdrop) return false;
     approvedButton = button;
     lastFocused = document.activeElement;
     backdrop = document.createElement("div");
     backdrop.className = "lesson-start-confirm-backdrop";
     backdrop.innerHTML = '<section class="lesson-start-confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="lessonStartConfirmMessage"><p id="lessonStartConfirmMessage"></p><div class="lesson-start-confirm-actions"><button type="button" data-confirm="no">Cancel</button><button type="button" data-confirm="yes">Confirm</button></div></section>';
-    backdrop.querySelector("p").textContent = copy;
+    backdrop.querySelector("p").textContent = String(message || "");
+    backdrop.querySelector('[data-confirm="no"]').textContent = labels.cancelLabel || "Cancel";
+    backdrop.querySelector('[data-confirm="yes"]').textContent = labels.confirmLabel || "Confirm";
     backdrop.addEventListener("click", event => {
       if (event.target === backdrop || event.target.closest('[data-confirm="no"]')) closeDialog(false);
       if (event.target.closest('[data-confirm="yes"]')) closeDialog(true);
@@ -52,7 +60,17 @@
       backdrop?.classList.add("is-open");
       backdrop?.querySelector('[data-confirm="yes"]')?.focus();
     });
+    return true;
   }
+
+  window.showLearningAllowanceConfirmation = (message, labels = {}) => new Promise(resolve => {
+    if (backdrop) { resolve(false); return; }
+    pendingResolver = resolve;
+    if (!showDialog(null, message, labels)) {
+      pendingResolver = null;
+      resolve(false);
+    }
+  });
 
   document.addEventListener("click", event => {
     const button = event.target.closest("#lessonCards .lesson-card");

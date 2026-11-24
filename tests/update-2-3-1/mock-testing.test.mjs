@@ -468,6 +468,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(first.source_lesson_id,firstDraft.source_lesson_id);
   assert.equal(first.learning_objective_id,firstDraft.learning_objective_id,"Mock Quiz snapshots must retain the mapped permanent lesson objective.");
   assert.equal(first.correct_option_id,undefined,"Answer keys must stay hidden before submission");
+  assert.ok(first.options.every(option=>!Object.prototype.hasOwnProperty.call(option,"pinyin")),"Option Pinyin must stay hidden while the Quiz is active");
   assert.deepEqual(Array.from(first.options,option=>option.id).sort(),["a","b","c","d"]);
   const firstCorrectOption=first.options.find(option=>option.id===firstDraft.correct_option_id);
   assert.ok(firstCorrectOption);
@@ -622,7 +623,7 @@ test("Flash Recall filters out targets that cannot produce four distinct choices
     "The game must stop presenting questions rather than recycle a previously seen target");
   assert.doesNotMatch(source,/usedQuestionKeys\.clear\(\)/,
     "The used-question set must never be reset mid-game when the deck is exhausted");
-  assert.match(source,/const target=questionPool\[Math\.floor\(Math\.random\(\)\*questionPool\.length\)\]/,
+  assert.match(source,/const chosenPool=freshPools\[Math\.floor\(Math\.random\(\)\*freshPools\.length\)\]/,
     "Gameplay must select only from validated targets that have not already appeared in this challenge");
   assert.match(source,/state\.usedQuestionKeys\.add\(questionKey\(target\)\)/,
     "Each selected question must be recorded to prevent repetition for the entire challenge");
@@ -639,12 +640,19 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
   assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
   const roundSource=flashcardsSource.slice(start,end);
   const context=vm.createContext({
-    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set()},
+    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set(),game:{learningLanguage:"en"}},
+    course:"en",
     cardKey:card=>"dict:"+String(card.word).toLowerCase(),
     questionKey:card=>String(card.word||card.dictionary_word||card.front_text||"").normalize("NFKC").trim().replace(/\s+/g," ").toLocaleLowerCase(),
     translationFor:card=>card.definitionZh||card.definition,
     uiText:english=>english
   });
+  const blankStart=flashcardsSource.indexOf("  function blankAllOccurrences(");
+  const blankEnd=flashcardsSource.indexOf("\n  function makeRound",blankStart);
+  assert.ok(blankStart>=0&&blankEnd>blankStart,"Flashcards must expose its real sentence-cloze helper");
+  context.blankAllOccurrences=vm.runInContext("("+flashcardsSource.slice(blankStart,blankEnd).trim()+")",context);
+  assert.equal(context.blankAllOccurrences("I can learn apple and apple today.","apple"),"I can learn _____ and _____ today.");
+  assert.equal(context.blankAllOccurrences("我喜欢苹果和苹果。","苹果",true),"我喜欢_____和_____。");
   const makeRound=vm.runInContext("("+roundSource+")",context);
   const deck=["apple","bridge","curious","discover","good morning","station","APPLE","good  morning"].map((word,index)=>({
     word,definition:"English meaning "+index,definitionZh:"中文释义 "+index,
@@ -661,12 +669,29 @@ test("Flash Recall never repeats a target within one challenge, even after exhau
   assert.equal(makeRound(deck),null,"After all unique targets are used, no repeated question should be returned");
 });
 
-test("Flashcards explains the English-course limitation and resets collection selection after deletion",()=>{
-  assert.match(flashcardsSource,/English course required[\s\S]*Switch your Learning Course to English/,
-    "Chinese-course users must receive a clear explanation instead of a blank page");
+test("Flashcards supports Chinese-course banks and resets collection selection after deletion",()=>{
+  assert.match(flashcardsSource,/function words\(language=state\.game\?\.learningLanguage\|\|course\)/,
+    "Flashcards must select its dictionary bank from the active learning language");
+  assert.match(flashcardsSource,/if\(language==="zh"\).*SWIFT_CHINESE_FLASHCARDS/s,
+    "Chinese-course users must receive Chinese character, vocabulary and phrase cards");
   const handler=flashcardsSource.slice(flashcardsSource.indexOf('if(action==="delete-collection")'),flashcardsSource.indexOf('if(action==="remove-card")'));
   assert.ok(handler.indexOf('state.collectionId="all"')<handler.indexOf('await collectionAction("delete"'),
     "Deleting the selected collection must reset selection before the reload/render");
+});
+
+test("Mock Flashcards supports Chinese recall modes and keeps Mixed Recall English-only",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const updated=await client.from("user_preferences").update({learning_language:"zh",translation_language:"en"}).eq("user_id","mock-user-a");
+  assert.equal(updated.error,null);
+  const started=await client.rpc("start_my_flashcard_game",{p_mode:"sentence",p_difficulty:"beginner",p_duration_seconds:60});
+  assert.equal(started.error,null);
+  assert.equal(started.data.learning_language_code,"zh");
+  assert.equal(started.data.translation_language_code,"en");
+  const mixed=await client.rpc("start_my_flashcard_game",{p_mode:"mixed",p_difficulty:"beginner",p_duration_seconds:60});
+  assert.equal(mixed.error.code,"22023","Chinese course must use Translation Recall rather than Mixed Recall");
+  const abandoned=await client.rpc("abandon_my_flashcard_game",{p_session_id:started.data.session_id});
+  assert.equal(abandoned.error,null);
 });
 
 test("Flash Recall prevents duplicate starts and locks the screen while saving or abandoning",()=>{
@@ -680,4 +705,57 @@ test("Flash Recall prevents duplicate starts and locks the screen while saving o
     "The learner must see feedback while results are saved");
   assert.match(flashcardsSource,/state\.finishing=false;await loadData\(\)/,
     "The interface must refresh after abandonment or completion");
+});
+
+test("Mock Quiz supports Chinese knowledge and English-gated translation banks",()=>{
+  assert.match(source,/questions\.zh-en\.draft\.json/);
+  assert.match(source,/curriculum-map\.zh\.json/);
+  assert.match(source,/question\.question_type==="knowledge"\|\|\(translationLanguageCode==="en"&&question\.question_type==="chinese_translation"\)/);
+  assert.match(source,/intermediate:12,beginner:3/);
+  assert.match(source,/advanced:12,intermediate:6,beginner:2/);
+});
+
+
+test("Chinese Mixed Recall includes Translation Recall and rejects answer-revealing Chinese cues",()=>{
+  const start=flashcardsSource.indexOf("function makeRound(deck){");
+  const end=flashcardsSource.indexOf("function durationLabel",start);
+  assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
+  const roundSource=flashcardsSource.slice(start,end);
+  const context=vm.createContext({
+    state:{mode:"mixed",weakOnly:false,weakKeys:new Set(),usedQuestionKeys:new Set(),game:{learningLanguage:"zh",translationLanguage:"en"}},
+    course:"zh",translationLanguage:"en",
+    cardKey:card=>"dict:zh:"+String(card.word).toLowerCase(),
+    questionKey:card=>String(card.word||"").normalize("NFKC").trim().toLowerCase(),
+    translationFor:card=>card.translationEn||"",
+    uiText:english=>english
+  });
+  const makeRound=vm.runInContext("("+roundSource+")",context);
+  const deck=["苹果","香蕉","橘子","葡萄","西瓜"].map((word,index)=>({
+    word,pinyin:"pinyin"+index,translationEn:"English cue "+index,translationZh:"",translationLanguages:["en","zh"],
+    definitionCueZh:"中文描述"+index,definitionZh:"中文描述"+index,
+    examples:["我喜欢"+word+"。"],availableModes:["translation"]
+  }));
+  const round=makeRound(deck);
+  assert.equal(round.mode,"translation","Chinese Mixed Recall must sample Translation Recall when it is available");
+  assert.equal(round.memory,round.target.translationEn,"English-selected Translation Recall must use a direct English equivalent");
+
+  context.state.game.translationLanguage="zh";
+  context.state.usedQuestionKeys=new Set();
+  context.translationFor=card=>card.translationZh||"";
+  const reused=deck.map(card=>({...card,translationZh:card.definitionCueZh,availableModes:["translation"]}));
+  assert.throws(()=>makeRound(reused),/does not contain four distinct choices/,
+    "Chinese-selected Translation Recall must not reuse a definition cue");
+
+  context.state.mode="definition";
+  const leakedDefinition=deck.map(card=>({...card,availableModes:["definition"],definitionCueZh:"这是关于"+card.word+"的说明"}));
+  assert.throws(()=>makeRound(leakedDefinition),/does not contain four distinct choices/,
+    "Definition Recall must reject a clue that contains its target");
+
+  context.state.mode="translation";
+  context.state.game.translationLanguage="zh";
+  context.translationFor=card=>card.translationZh||"";
+  const leakedTranslation=deck.map(card=>({...card,translationZh:"相关表达"+card.word,translationLanguages:["zh"],availableModes:["translation"]}));
+  assert.throws(()=>makeRound(leakedTranslation),/does not contain four distinct choices/,
+    "Chinese Translation Recall must reject a cue that contains its target");
+  assert.match(flashcardsSource,/chinese\?\["word","definition","translation","sentence"\]:\["word","definition","sentence"\]/);
 });

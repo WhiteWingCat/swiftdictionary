@@ -22,6 +22,7 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body.quiz-focused .hero-banner,body.quiz-focused #quizPage > .learning-banner,body.quiz-focused #profilePage > .dashboard-hero-banner{display:none}
     body {
       margin: 0;
       background: var(--bg);
@@ -124,6 +125,28 @@
     .coming-card, .profile-card { border:1px solid var(--border); background:var(--panel); border-radius:16px; padding:22px; margin:18px 0; box-shadow:var(--shadow); }
     .coming-card { text-align:center; padding:54px 22px; }
     .coming-card .coming-label { display:inline-block; color:var(--accent); background:var(--accent-bg); border:1px solid #4c5b8b; border-radius:999px; padding:5px 12px; font-size:.8rem; font-weight:700; }
+    .quiz-question-pinyin,.quiz-option-pinyin { display:block; margin-top:4px; color:var(--muted); font-size:.9em; font-weight:500; letter-spacing:.02em; }
+    .dashboard-tab-bar { display:flex; gap:8px; overflow-x:auto; padding:4px 0 12px; margin-bottom:16px; border-bottom:1px solid var(--border); }
+    .dashboard-tab { flex:0 0 auto; border:1px solid var(--border); border-radius:999px; padding:9px 14px; color:var(--muted); background:var(--panel); font:inherit; cursor:pointer; }
+    .dashboard-tab.is-active { color:var(--text); border-color:var(--accent); background:var(--accent-bg); font-weight:700; }
+    .dashboard-tab-panel { display:grid; gap:14px; }
+    .dashboard-tab-panel[hidden], .quiz-home[hidden], .dashboard-review-overlay[hidden] { display:none !important; }
+    .dashboard-allowance-grid { display:grid; grid-template-columns:1fr; gap:9px; margin:14px 0; }
+    .dashboard-allowance-card { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:7px 14px; min-width:0; padding:13px 15px; border:1px solid var(--border); border-radius:13px; background:var(--panel-hover); }
+    .dashboard-allowance-card strong { min-width:0; font-size:.9rem; line-height:1.45; }
+    .dashboard-allowance-card b { font-size:.96rem; color:var(--accent); white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .dashboard-allowance-card small { grid-column:1/-1; color:var(--muted); font-size:.76rem; }
+    .dashboard-allowance-progress-track { grid-column:1/-1; height:6px; overflow:hidden; border-radius:999px; background:#ffffff14; }
+    .dashboard-allowance-progress-track span { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--accent),#85a8db); transition:width .2s ease; }
+    .dashboard-allowance-card.is-complete { border-color:#5d8c78; }
+    .dashboard-allowance-card.is-unavailable { opacity:.72; }
+    .dashboard-daily-history { display:grid; gap:9px; }
+    .dashboard-history-row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--panel-hover); }
+    .dashboard-history-row-main { display:grid; gap:4px; min-width:0; }
+    .dashboard-history-row-main small { color:var(--muted); }
+    .dashboard-history-actions { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    @media(max-width:620px){.dashboard-history-row{align-items:flex-start;flex-direction:column}.dashboard-history-actions{width:100%}.dashboard-history-actions button{width:100%}}
+    .dashboard-history-kind { display:inline-flex; width:max-content; padding:2px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted); font-size:.72rem; }
     .profile-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
     .stat-card { border:1px solid var(--border); border-radius:13px; padding:16px; background:var(--panel-hover); }
     .stat-card strong { display:block; color:var(--accent); font-size:1.7rem; }
@@ -418,6 +441,8 @@
     .quiz-difficulty-option[aria-disabled="true"]{opacity:.82}
     @media(max-width:760px){.course-controls{width:100%;justify-content:stretch}.course-controls label{flex:1}.course-controls select{min-width:0}.quiz-difficulty-grid{grid-template-columns:1fr}}
     .quiz-history-list{display:grid;gap:8px;margin-top:14px}
+    .quiz-history-pagination{display:flex;justify-content:flex-end;gap:9px;margin-top:12px}
+    .quiz-history-pagination button{min-width:110px}
     .quiz-history-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:11px;background:var(--panel-hover)}
     .quiz-history-row strong{display:block}.quiz-history-row small{color:var(--muted)}
     .quiz-history-score{font-size:1.1rem;font-weight:800;color:var(--accent);white-space:nowrap}
@@ -520,8 +545,127 @@
     .lesson-question label{align-items:flex-start}
     .lesson-question label .lesson-bilingual-block{flex:1;min-width:0}
     .lesson-example .lesson-bilingual-block,.lesson-content-box li .lesson-bilingual-block{width:100%}
+
+    /* U2.8.0 Quiz overview and active-test redesign */
+    .quiz-home{display:grid;gap:18px}
+    .quiz-home-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;padding:clamp(22px,4vw,34px);border:1px solid #3d5278;border-radius:22px;background:radial-gradient(circle at 88% 10%,rgba(135,166,226,.22),transparent 28%),linear-gradient(125deg,#1a2942 0%,#202e49 54%,#172336 100%);box-shadow:0 16px 34px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.07)}
+    .quiz-home-kicker{margin:0 0 8px;color:#aebfe6;font-size:.72rem;font-weight:850;letter-spacing:.14em}
+    .quiz-home-hero h2{margin:0 0 8px;color:#f5f7ff;font-size:clamp(1.45rem,3vw,2rem);letter-spacing:-.035em}
+    .quiz-home-hero p{max-width:650px;margin:0;color:#c7d2e8;line-height:1.65}
+    .quiz-home-benefits{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+    .quiz-home-benefits span{padding:6px 10px;border:1px solid #52658a;border-radius:999px;background:#ffffff0b;color:#e1e9fa;font-size:.78rem;font-weight:650}
+    .quiz-home-hero-stat{display:grid;justify-items:center;gap:3px;min-width:116px;padding:17px;border:1px solid #647ba7;border-radius:18px;background:#111c31a8;color:#eaf0ff}
+    .quiz-home-hero-stat strong{font-size:2rem;line-height:1.1;font-weight:900}
+    .quiz-home-hero-stat span{font-size:.72rem;color:#bdcbe5;text-align:center}
+    .quiz-difficulty-card{padding:clamp(18px,3vw,26px);border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,#1b202b,#171c26);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    .quiz-difficulty-option{position:relative;overflow:hidden;min-height:225px;padding:22px;border:1px solid #465575;border-radius:18px;background:linear-gradient(155deg,#263552 0%,#1c2940 60%,#172235 100%);box-shadow:0 8px 0 #0e1726,0 14px 22px rgba(0,0,0,.2);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .quiz-difficulty-option:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#7fa7ed,#b7c9f2 55%,transparent)}
+    .quiz-difficulty-option:hover{transform:translateY(-3px);border-color:#9ab4e8;box-shadow:0 10px 0 #0e1726,0 19px 30px rgba(0,0,0,.25)}
+    .quiz-difficulty-option h3{color:#f5f7ff;font-size:1.25rem}
+    .quiz-difficulty-option p{color:#c7d2e8;min-height:4.5em}
+    .quiz-difficulty-count{border-color:#657fac;background:#314568;color:#edf3ff}
+    .quiz-difficulty-option button{min-height:44px;border-radius:12px}
+    .quiz-session-shell{max-width:940px;margin:22px auto;padding:clamp(18px,3vw,30px);border:1px solid #405276;border-radius:22px;background:linear-gradient(150deg,#1b2639 0%,#191f2b 48%,#171b24 100%);box-shadow:0 18px 42px rgba(0,0,0,.28)}
+    .quiz-session-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-bottom:17px;border-bottom:1px solid #3a465d}
+    .quiz-session-top-meta{display:flex;align-items:center;gap:10px}
+    .quiz-session-label{color:#9fb2da;font-size:.7rem;font-weight:850;letter-spacing:.13em}
+    .quiz-session-top .daily-activity-tag{padding:7px 12px;border:1px solid #52678d;border-radius:999px;background:#293a59;color:#e5edff;font-weight:750}
+    .quiz-progress-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 9px;color:#e7edf9;font-variant-numeric:tabular-nums}
+    .quiz-progress-heading strong{font-size:.94rem}
+    .quiz-progress-heading span{color:#aebbd2;font-size:.82rem}
+    .quiz-progress-track{height:9px;border:0;background:#303b50}
+    .quiz-progress-track span{border-radius:99px;background:linear-gradient(90deg,#7199e0,#b8cbf3);box-shadow:0 0 14px #83a6e955}
+    .quiz-question-card{margin-top:22px;padding:clamp(18px,3vw,28px);border:1px solid #3e4d68;border-radius:19px;background:linear-gradient(145deg,#202b3e,#1b2433 65%,#19212d);box-shadow:0 12px 28px rgba(0,0,0,.2)}
+    .quiz-question-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+    .quiz-question-index{color:#a9bee9;font-size:.72rem;font-weight:850;letter-spacing:.13em}
+    .quiz-question-topic{max-width:60%;padding:5px 10px;border:1px solid #455775;border-radius:999px;color:#c4d1e9;font-size:.75rem;text-align:right}
+    .quiz-question-prompt{margin:0 0 9px;color:#f4f6fc;font-size:clamp(1.25rem,2.8vw,1.75rem);line-height:1.45;letter-spacing:-.02em}
+    .quiz-question-pinyin{color:#b8c8e8;font-size:1rem}
+    .quiz-question-translation{margin:8px 0 0;color:#b9c7df;font-size:.96rem;line-height:1.6}
+    .quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0 4px}
+    .quiz-option{min-height:76px;padding:15px;border:1px solid #465673;border-radius:14px;background:linear-gradient(145deg,#28364c,#222e42);color:#f1f5ff;box-shadow:0 4px 0 #121c2b;transition:transform .15s ease,border-color .15s ease,background .15s ease}
+    .quiz-option:hover{transform:translateY(-2px);border-color:#91a9d5;background:#2d3e59}
+    .quiz-option[aria-pressed="true"]{border-color:#a8c1f1;background:linear-gradient(145deg,#344d76,#293e60);box-shadow:0 0 0 2px #8eace544,0 4px 0 #14233a}
+    .quiz-option-letter{width:34px;height:34px;flex-basis:34px;border-color:#657a9f;border-radius:10px;background:#ffffff0b;color:#dce7fa}
+    .quiz-option-copy{font-size:.97rem;line-height:1.5}
+    .quiz-question-actions{display:flex;justify-content:space-between;gap:12px;margin:18px 0 16px}
+    .quiz-question-actions button{min-width:120px;min-height:44px;border-radius:12px}
+    .quiz-submit-row{padding-top:18px;border-top:1px solid #3a465d}
+    .quiz-submit-row p{color:#aebbd2}
+    .quiz-submit-row .primary-button{min-height:44px;border-radius:12px}
+    .quiz-transition-next{animation:quizSlideFromRight .24s ease both}
+    .quiz-transition-previous{animation:quizSlideFromLeft .24s ease both}
+    .quiz-screen-enter{animation:quizScreenEnter .22s ease both}
+    @keyframes quizScreenEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes quizSlideFromRight{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes quizSlideFromLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+    .dashboard-review-overlay{position:fixed;inset:0;z-index:10080;display:grid;place-items:center;padding:18px;background:rgba(5,9,16,.78);backdrop-filter:blur(8px)}
+    .dashboard-review-dialog{width:min(900px,100%);max-height:min(90dvh,900px);overflow:auto;padding:clamp(18px,3vw,28px);border:1px solid #45516a;border-radius:22px;background:#191f2a;color:var(--text);box-shadow:0 24px 70px rgba(0,0,0,.5)}
+    .dashboard-review-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .dashboard-review-header h2{margin:0;font-size:1.45rem}
+    .dashboard-review-header .eyebrow{margin:0 0 5px}
+    .dashboard-review-close{flex:0 0 auto;width:40px;height:40px;border:1px solid var(--border);border-radius:12px;background:var(--panel-hover);color:var(--text);font-size:1.35rem}
+    .dashboard-review-content{display:grid;gap:14px}
+    .dashboard-review-content .quiz-review-question{padding:17px;border-radius:14px}
+    .dashboard-lesson-review .lesson-content-box{margin-top:14px}
+    .dashboard-lesson-review .lesson-review-complete{display:inline-flex;padding:6px 10px;border:1px solid #4d8a68;border-radius:999px;background:#173528;color:#a9e7c0;font-size:.8rem;font-weight:750}
+    .dashboard-lesson-review .lesson-review-options{display:grid;gap:7px;padding-left:26px}.dashboard-lesson-review .lesson-review-options li{padding:8px 10px;border:1px solid var(--border);border-radius:9px;background:var(--panel-hover)}.dashboard-lesson-review .lesson-review-options li.is-correct{border-color:#4d8a68;background:#173528;color:#b5e9c8}.dashboard-lesson-review .lesson-review-options small{display:block;font-weight:750}
+    @media(max-width:760px){.quiz-home-hero{grid-template-columns:1fr}.quiz-home-hero-stat{justify-items:start;width:max-content;min-width:120px}.quiz-options{grid-template-columns:1fr}.quiz-question-actions button{min-width:0}.quiz-session-shell{margin:12px auto}.quiz-question-topic{max-width:55%}}
+    @media(prefers-reduced-motion:reduce){.quiz-transition-next,.quiz-transition-previous,.quiz-screen-enter{animation:none!important}.quiz-option,.quiz-difficulty-option{transition:none!important}}
+
+    .dashboard-hero-banner{position:relative;overflow:hidden;margin:0 0 22px;padding:28px clamp(18px,3vw,34px);border:1px solid #425574;border-radius:20px;background:radial-gradient(circle at 90% 5%,rgba(132,166,225,.25),transparent 32%),linear-gradient(125deg,#1b2b45 0%,#1d3540 54%,#172435 100%);box-shadow:0 16px 36px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.06)}
+    .dashboard-hero-content{position:relative;z-index:1;display:flex;align-items:center;gap:20px}
+    .dashboard-hero-banner h1{margin:0;color:#f5f7ff;letter-spacing:-.03em}.dashboard-hero-banner .page-intro{margin:5px 0 0;color:#d1dced}
+    .dashboard-hero-kicker{margin:0 0 5px;color:#a9c1e9;font-size:.7rem;font-weight:850;letter-spacing:.16em}
+    .dashboard-hero-banner .dashboard-avatar{flex:0 0 70px;width:70px;height:70px;background:#ffffff16;border-color:#ffffff38;box-shadow:0 8px 22px #0003}
+    .dashboard-tab-bar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;overflow:visible;padding:0;margin:0 0 18px;border:0}
+    .dashboard-tab{display:flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:10px 12px;border-radius:14px;color:#e9edf6;font-weight:750;box-shadow:0 5px 0 #0003,0 10px 18px #0002;transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+    .dashboard-tab:hover{transform:translateY(-2px);filter:brightness(1.08)}.dashboard-tab.is-active{color:#fff;box-shadow:0 2px 0 #0003,0 7px 18px #0003;transform:translateY(1px)}
+    .dashboard-tab-icon{display:grid;place-items:center;width:27px;height:27px;flex:0 0 27px;border-radius:9px;background:#ffffff25;font-size:1.05rem}
+    .dashboard-tab[data-dashboard-tab=favourites]{background:linear-gradient(140deg,#9b7133,#68471f);border-color:#c99a51}
+    .dashboard-tab[data-dashboard-tab=progress]{background:linear-gradient(140deg,#287e75,#18544f);border-color:#54b6a9}
+    .dashboard-tab[data-dashboard-tab=history]{background:linear-gradient(140deg,#416da8,#2a466e);border-color:#729bd2}
+    .dashboard-tab[data-dashboard-tab=analytics]{background:linear-gradient(140deg,#8058a9,#4e376e);border-color:#a783cf}
+    .dashboard-tab-panel>.profile-card,.dashboard-tab-panel>.profile-grid{border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);box-shadow:0 13px 28px rgba(0,0,0,.2)}
+    .dashboard-tab-panel{gap:16px}.dashboard-panel-enter{animation:dashboardPanelIn .24s ease both}
+    @keyframes dashboardPanelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .dashboard-history-shell{padding:clamp(16px,2.5vw,24px)}.dashboard-history-heading h3{margin:0 0 4px}
+    .dashboard-daily-history{display:grid;grid-template-columns:1fr;gap:12px;margin-top:16px}
+    .dashboard-history-group{min-width:0;padding:14px;border:1px solid var(--border);border-radius:15px;background:#121a27;box-shadow:0 8px 20px #0002}
+    .dashboard-history-group>header{display:flex;align-items:center;gap:10px;margin:-1px 0 13px;padding:0 0 12px;border:0;border-bottom:1px solid var(--border);background:transparent}
+    .dashboard-history-group-icon{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:#ffffff14;font-size:1.2rem}
+    .dashboard-history-group header h4{margin:0;font-size:.98rem}.dashboard-history-group header p{margin:2px 0 0;color:var(--muted);font-size:.76rem}
+    .dashboard-history-lessons .dashboard-history-group-icon{color:#e5c17e;background:#8b672b35}.dashboard-history-quiz .dashboard-history-group-icon{color:#8fb9f2;background:#345b8a45}.dashboard-history-flashcards .dashboard-history-group-icon{color:#d4a9f4;background:#6a438a45}
+    .dashboard-history-group-items{display:grid;grid-template-columns:1fr;gap:9px}.dashboard-history-group .dashboard-history-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border-radius:11px;background:#1a2432}.dashboard-history-group .dashboard-history-row-main{flex:1;min-width:0}.dashboard-history-group .dashboard-history-actions{flex:0 0 auto}.dashboard-history-group .dashboard-history-actions button{width:auto;white-space:nowrap;font-size:.78rem;padding:7px 10px}.dashboard-history-empty{margin:0;font-size:.82rem;line-height:1.5}.dashboard-history-timezone{grid-column:1/-1;margin:0}
+    @media(max-width:560px){.dashboard-history-group-items{grid-template-columns:1fr}.dashboard-history-group .dashboard-history-row{align-items:center;flex-direction:row;flex-wrap:wrap}.dashboard-history-group .dashboard-history-row-main{flex:1 1 220px}.dashboard-history-group .dashboard-history-actions{width:auto}.dashboard-history-group .dashboard-history-actions button{width:auto}}
+    @media(max-width:860px){.dashboard-daily-history{grid-template-columns:1fr}.dashboard-tab-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:480px){.dashboard-hero-content{align-items:flex-start}.dashboard-hero-banner .dashboard-avatar{width:54px;height:54px;flex-basis:54px;font-size:1.8rem}.dashboard-tab{font-size:.82rem;justify-content:flex-start}.dashboard-tab-icon{width:24px;height:24px;flex-basis:24px}}
+    .quiz-difficulty-card{padding:clamp(18px,3vw,26px);border:1px solid #3d4d67;border-radius:20px;background:linear-gradient(145deg,#1c2636,#171e2b);box-shadow:0 14px 32px #0003}
+    .quiz-allowance-card{border-color:#526b8c;background:linear-gradient(135deg,#263c59,#1c2a40);box-shadow:0 8px 18px #0003}
+    .quiz-difficulty-option[data-difficulty=beginner]{background:linear-gradient(150deg,#245c50,#193b36);border-color:#4b9c85;box-shadow:0 7px 0 #102c28,0 14px 24px #0003}
+    .quiz-difficulty-option[data-difficulty=intermediate]{background:linear-gradient(150deg,#285a91,#1b365a);border-color:#5d91c8;box-shadow:0 7px 0 #142b49,0 14px 24px #0003}
+    .quiz-difficulty-option[data-difficulty=advanced]{background:linear-gradient(150deg,#704d91,#452e62);border-color:#a27ac7;box-shadow:0 7px 0 #302047,0 14px 24px #0003}
+    .quiz-difficulty-option[data-difficulty=beginner] .quiz-difficulty-count{background:#286d5d;border-color:#72b59f}.quiz-difficulty-option[data-difficulty=intermediate] .quiz-difficulty-count{background:#2d659d;border-color:#82b1e2}.quiz-difficulty-option[data-difficulty=advanced] .quiz-difficulty-count{background:#7955a0;border-color:#b99cda}
+    .quiz-history-shell{padding:clamp(18px,3vw,26px);border:1px solid #3b4c68;border-radius:18px;background:linear-gradient(145deg,#1b2638,#171e2a);box-shadow:0 13px 28px #0003}
+    .quiz-review-summary{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 20px;padding:22px 76px 22px 22px;border:1px solid #455c7e;border-radius:18px;background:radial-gradient(circle at 90% 10%,#718fc42c,transparent 36%),linear-gradient(135deg,#233652,#1b2739);box-shadow:0 12px 26px #0003}
+    .quiz-review-summary h2{margin:3px 0 4px;color:#f4f7ff}.quiz-review-summary p{margin:0;color:#c5d1e5}.quiz-review-heading{min-width:0;flex:1}.quiz-review-close-top{position:absolute;top:14px;right:14px;width:36px;height:36px;min-width:36px;padding:0;display:grid;place-items:center;font-size:1.4rem;line-height:1;border-radius:10px}
+    .quiz-review-score{display:grid;justify-items:center;gap:3px;min-width:110px;margin-right:120px;padding:12px;border:1px solid #6984ae;border-radius:15px;background:#101b2d99;color:#eef4ff}
+    .quiz-review-score strong{font-size:2rem;line-height:1.1}.quiz-review-score span{font-size:.78rem}
+    .quiz-review-list{display:grid;gap:14px}.quiz-review-question{padding:18px;border:1px solid #35465f;border-radius:16px;background:linear-gradient(145deg,#1d293a,#17212f);box-shadow:0 9px 20px #0002}
+    .quiz-review-question-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;color:#aebfda;font-size:.72rem;font-weight:850;letter-spacing:.1em}
+    .quiz-review-result-pill{padding:5px 9px;border-radius:999px;background:#294b3d;color:#a9e4c1;font-size:.72rem;letter-spacing:0}.quiz-review-result-pill.is-incorrect{background:#58333b;color:#ffb7be}
+    .quiz-review-question h3{margin:0 0 10px;color:#f0f4fb;font-size:1.05rem}.quiz-review-options{display:grid;gap:7px}
+    .quiz-review-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #35445b;border-radius:11px;background:#111b29;color:#d5dceb}
+    .quiz-review-option.correct{border-color:#4e9876;background:#1b3a31;color:#e1f8e9}.quiz-review-option.chosen-wrong{border-color:#a85d66;background:#3b252e;color:#ffe5e7}
+    .quiz-review-option-letter{display:grid;place-items:center;width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:#ffffff14;font-size:.78rem;font-weight:800}
+    .quiz-review-option-copy{display:grid;gap:3px;min-width:0;flex:1}.quiz-review-option-copy small{color:inherit;opacity:.78}.quiz-review-option-status{font-size:.75rem;font-weight:800;text-align:right}
+    .quiz-review-explanation{margin-top:12px;padding:12px 14px;border:1px solid #405474;border-left:3px solid #8da8d2;border-radius:10px;background:#202e43}
+    .quiz-review-explanation strong{color:#d9e5f7}.quiz-review-explanation p{margin:5px 0 0;color:#c8d5e8}
+    @media(max-width:620px){.quiz-review-summary{align-items:flex-start;flex-direction:column;padding:58px 22px 22px}.quiz-review-score{display:flex;align-items:baseline;justify-items:start;width:calc(100% - 104px);margin-right:104px;justify-content:space-between}.quiz-review-close-top{top:14px;right:14px}.quiz-review-option{align-items:flex-start}.quiz-review-option-status{max-width:82px}}
+
+
 </style>
-<link rel="stylesheet" href="lessons-ui.css?v=2.7.0-ui7">
+<link rel="stylesheet" href="lessons-ui.css?v=2.8.0-ui11">
 </head>
 <body>
   <div id="swiftAuthLoading" class="swift-auth-loading" role="status" aria-live="polite" aria-label="Preparing your SwiftDictionary account">
@@ -653,15 +797,16 @@
       <p id="quizStatus" class="muted-note" role="status" aria-live="polite"></p>
       
       <section id="quizSignedOut" class="coming-card learning-auth-card" hidden><h2>Sign in to use Quiz</h2><p>Your Quiz sessions and progress are saved securely to your account, so you can continue across devices.</p><button id="quizSignIn" class="primary-button learning-auth-button" type="button">Sign in</button></section>
-      <section id="quizHome" hidden>
+      <section id="quizHome" class="quiz-home" hidden>
+        <div class="quiz-home-hero"><div><p class="quiz-home-kicker">YOUR NEXT CHALLENGE</p><h2>Choose your challenge</h2><p>Build confidence through a focused set of mixed-topic questions. Take your time, move between questions and review every answer when you finish.</p><div class="quiz-home-benefits"><span>Untimed sessions</span><span>Save and resume</span><span>Full answer review</span></div></div><div class="quiz-home-hero-stat"><strong>10–20</strong><span>questions per session</span></div></div>
         <div class="quiz-overview-grid">
           <article class="profile-card quiz-active-card" id="quizActiveCard" hidden><h2>Continue your Quiz</h2><p id="quizActiveDescription">You have an unfinished Quiz.</p><button id="quizResume" class="primary-button" type="button">Resume Quiz</button></article>
         </div>
         <div class="profile-card quiz-difficulty-card"><div class="quiz-section-heading quiz-difficulty-heading"><div><h2>Choose a difficulty</h2><p class="muted-note">Each session contains a fixed set of mixed-topic questions.</p></div><article class="quiz-allowance-card"><div><strong>Daily Quiz allowance</strong><p id="quizAllowanceText" class="quiz-allowance-number">—</p></div><p id="quizAllowanceNote" class="muted-note">Allowance resets at midnight in your configured timezone.</p></article></div><div id="quizDifficultyGrid" class="quiz-difficulty-grid"></div></div>
-        <div class="profile-card"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
+        <div class="profile-card quiz-history-shell"><div class="quiz-section-heading"><div><h2>Quiz history</h2><p class="muted-note">Your completed sessions and scores.</p></div></div><div id="quizHistory" class="quiz-history-list"><p class="muted-note">Loading history…</p></div></div>
       </section>
-      <section id="quizSession" class="profile-card quiz-session-card" hidden>
-        <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div>
+      <section id="quizSession" class="profile-card quiz-session-card quiz-session-shell" hidden>
+        <div class="quiz-session-top"><button id="quizBackHome" class="secondary-button" type="button">← Quiz overview</button><div class="quiz-session-top-meta"><span class="quiz-session-label">IN PROGRESS</span><span id="quizSessionDifficulty" class="daily-activity-tag">Beginner</span></div></div>
         <div class="quiz-progress-heading"><strong id="quizQuestionCounter">Question 1 of 10</strong><span id="quizAnsweredCounter">0 answered</span></div><div class="quiz-progress-track"><span id="quizProgressFill"></span></div>
         <div id="quizQuestionArea"></div>
         <div class="quiz-question-actions"><button id="quizPrevious" class="secondary-button" type="button">Previous</button><button id="quizNext" class="primary-button" type="button">Next</button></div>
@@ -677,37 +822,58 @@
       <div id="flashcardsApp" class="flash-home" aria-live="polite"></div>
     </section>
     <section id="profilePage" class="page-panel" hidden aria-labelledby="profileHeading">
-      <div class="dashboard-heading"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div>
+      <section class="dashboard-hero-banner"><div class="dashboard-hero-content"><span id="dashboardAvatar" class="dashboard-avatar" aria-hidden="true">🐦</span><div><p class="dashboard-hero-kicker">YOUR LEARNING SPACE</p><h1 id="profileHeading">Your Dashboard</h1><p id="profileWelcome" class="page-intro">Your learning progress and account overview.</p></div></div></section>
       <div id="profileSignedOut" class="coming-card" hidden><h2>Sign in to view your Dashboard</h2><p class="page-intro" style="margin:0 auto 16px">Your dashboard and learning progress are available after signing in.</p><button type="button" class="primary-button" id="profileSignIn">Sign in</button></div>
       <div id="profileContent" hidden>
-        <div class="profile-grid">
-          <div class="stat-card"><strong id="totalActivity">0</strong><span>Completed learning activities</span></div>
-          <div class="stat-card"><strong id="todayActivity">0</strong><span>Completions today</span></div>
-          <div class="stat-card"><strong id="activeLanguageCount">0</strong><span>Active learning courses</span><div id="activeLanguagesList" class="active-language-list muted-note">No learning activity recorded yet.</div></div>
-        </div>
-        <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details></section>
-        <section class="profile-card"><h3>Learning progress</h3><p class="muted-note">Your progress is based on successful lesson and daily activity completions. Dictionary searches and saved words are not restricted or counted as lesson activity.</p>
-          <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
-          <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-bars"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
-          <details open><summary>Quiz history</summary><div id="dashboardQuizHistory" class="quiz-history-list"><p class="muted-note">Loading Quiz history…</p></div></details>
+        <nav class="dashboard-tab-bar" role="tablist" aria-label="Dashboard sections">
+          <button type="button" class="dashboard-tab is-active" role="tab" aria-selected="true" aria-controls="dashboardTabFavourites" data-dashboard-tab="favourites"><span class="dashboard-tab-icon" aria-hidden="true">★</span><span>Favourites</span></button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabProgress" data-dashboard-tab="progress"><span class="dashboard-tab-icon" aria-hidden="true">↗</span><span>Learning Progress</span></button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabHistory" data-dashboard-tab="history"><span class="dashboard-tab-icon" aria-hidden="true">◷</span><span>Daily History</span></button>
+          <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabAnalytics" data-dashboard-tab="analytics"><span class="dashboard-tab-icon" aria-hidden="true">▥</span><span>Analytics</span></button>
+        </nav>
+        <section id="dashboardTabFavourites" class="dashboard-tab-panel" role="tabpanel">
+          <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details></section>
         </section>
-        <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
-          <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
-          <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
-          <div class="stat-card"><strong id="dashboardFlashcardAccuracy">—</strong><span>Recent accuracy</span></div>
-        </div><div class="profile-card" style="margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h4 style="margin:0 0 5px">Weak Memory</h4><p id="dashboardFlashcardWeakSummary" class="muted-note" style="margin:0">Loading weak-memory summary…</p></div><button type="button" class="primary-button" data-dashboard-flashcard-review>Review weak memory</button></div></div><p id="dashboardFlashcardStatus" class="muted-note">Statistics are based on your recent completed Flashcard games.</p></section>
-        <section class="profile-card"><h3>Practice insights</h3>
+        <section id="dashboardTabProgress" class="dashboard-tab-panel" role="tabpanel" hidden>
           <div class="profile-grid">
-            <div class="stat-card"><strong id="practiceAccuracy">—</strong><span>Recent practice accuracy</span></div>
-            <div class="stat-card"><strong id="practiceTopicsDue">0</strong><span>Topics needing review</span></div>
-            <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
+            <div class="stat-card"><strong id="totalActivity">0</strong><span>Completed learning activities</span></div>
+            <div class="stat-card"><strong id="todayActivity">0</strong><span>Completions today</span></div>
+            <div class="stat-card"><strong id="activeLanguageCount">0</strong><span>Active learning courses</span><div id="activeLanguagesList" class="active-language-list muted-note">No learning activity recorded yet.</div></div>
           </div>
-          <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Needs another attempt: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
-          <h4 class="review-topics-heading">Quiz answers to revisit</h4>
-          <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
-          <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
+          <section class="profile-card"><h3>Learning progress</h3><p class="muted-note">Your progress is based on successful lesson and daily activity completions. Dictionary searches and saved words are not restricted or counted as lesson activity.</p>
+            <details open><summary>Activity overview</summary><div id="progressDetails" class="muted-note">No learning activity recorded yet.</div></details>
+            <details open><summary>Daily allowance</summary><div id="dashboardAllowanceBars" class="dashboard-allowance-grid"></div><p id="allowanceDetails" class="muted-note">Daily allowances will appear here.</p></details>
+          </section>
+        </section>
+        <section id="dashboardTabHistory" class="dashboard-tab-panel" role="tabpanel" hidden>
+          <section class="profile-card dashboard-history-shell"><div class="dashboard-history-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h3>Daily History</h3><p class="muted-note">Your completed learning sessions, grouped by activity.</p></div></div><div id="dashboardDailyHistory" class="dashboard-daily-history"><p class="muted-note">Loading today's learning history…</p></div></section>
+        </section>
+        <section id="dashboardTabAnalytics" class="dashboard-tab-panel" role="tabpanel" hidden>
+          <section class="profile-card" id="dashboardFlashcardSection"><h3>Flashcard statistics</h3><div class="profile-grid">
+            <div class="stat-card"><strong id="dashboardFlashcardGames">—</strong><span>Recent games completed</span></div>
+            <div class="stat-card"><strong id="dashboardFlashcardAttempts">—</strong><span>Questions attempted</span></div>
+            <div class="stat-card"><strong id="dashboardFlashcardAccuracy">—</strong><span>Recent accuracy</span></div>
+          </div><div class="profile-card" style="margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h4 style="margin:0 0 5px">Weak Memory</h4><p id="dashboardFlashcardWeakSummary" class="muted-note" style="margin:0">Loading weak-memory summary…</p></div><button type="button" class="primary-button" data-dashboard-flashcard-review>Review weak memory</button></div></div><p id="dashboardFlashcardStatus" class="muted-note">Statistics are based on your recent completed Flashcard games.</p></section>
+          <section class="profile-card"><h3>Practice insights</h3>
+            <div class="profile-grid">
+              <div class="stat-card"><strong id="practiceAccuracy">—</strong><span>Recent practice accuracy</span></div>
+              <div class="stat-card"><strong id="practiceTopicsDue">0</strong><span>Topics needing review</span></div>
+              <div class="stat-card"><strong id="practiceSummaries">0</strong><span>Recent practice summaries</span></div>
+              <div class="stat-card"><strong id="practiceRetries">0</strong><span>Retry attempts</span></div>
+            </div>
+            <div class="practice-chart-wrap"><div id="practiceChart" class="practice-chart" role="img" aria-label="No practice data recorded yet"><span id="practiceCorrectSegment" class="practice-correct-segment"></span><span id="practiceIncorrectSegment" class="practice-incorrect-segment"></span></div><div class="practice-chart-legend"><span><i class="legend-dot correct"></i> Correct first attempts: <strong id="practiceCorrectCount">0</strong></span><span><i class="legend-dot incorrect"></i> Incorrect first attempts: <strong id="practiceIncorrectCount">0</strong></span></div></div><h4 class="review-topics-heading">Topics to review</h4><ul id="practiceReviewTopics" class="review-topic-list"><li class="muted-note">Complete more practice to receive topic recommendations.</li></ul>
+            <h4 class="review-topics-heading">Quiz answers to revisit</h4>
+            <ul id="practiceQuizWrongAnswers" class="practice-quiz-wrong-list"><li class="muted-note">Complete a Quiz to see missed questions and their related lessons.</li></ul>
+            <p id="practiceInsightsDetails" class="muted-note">Practice Insights combines lesson practice, Daily Learning and completed Quiz reviews. Missed Quiz questions can link back to their source lessons.</p>
+          </section>
         </section>
         <section class="profile-card"><h3>Account</h3><p id="profileEmail" class="muted-note"></p><button type="button" id="profileSignOut" class="secondary-button">Sign out</button></section>
+      </div>
+      <div id="dashboardReviewOverlay" class="dashboard-review-overlay" hidden>
+        <section class="dashboard-review-dialog" role="dialog" aria-modal="true" aria-labelledby="dashboardReviewTitle">
+          <header class="dashboard-review-header"><div><p class="eyebrow">DAILY HISTORY</p><h2 id="dashboardReviewTitle">Activity review</h2></div><button type="button" class="dashboard-review-close" data-dashboard-review-close aria-label="Close review">×</button></header>
+          <div id="dashboardReviewContent" class="dashboard-review-content"></div>
+        </section>
       </div>
     </section>
     <section id="preferencesPage" class="page-panel" hidden aria-labelledby="preferencesHeading">
@@ -796,7 +962,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script src="supabase-config.js"></script>
-  <script src="mock-testing.js"></script>
+  <script src="mock-testing.js?v=2.8.0-r2"></script>
   <script src="data/chinese-characters.js"></script>
   <script src="data/chinese-daily-learning.js"></script>
   <script src="data/chinese-lessons.js"></script>
@@ -19078,7 +19244,7 @@ function lessonPractice(x){
   });
 }
     function shuffleLessonOptionOrders(x){const src=x.practices||[x.practice],previous=ls.lastPracticeOptionOrders?.[x.id]||[];const orders=src.map((q,i)=>{const base=q.options.map((_,j)=>j);let order=base.slice();for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.length>1&&previous[i]&&order.every((v,j)=>v===previous[i][j])){for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.every((v,j)=>v===previous[i][j]))order.push(order.shift());}return order;});ls.lastPracticeOptionOrders={...(ls.lastPracticeOptionOrders||{}),[x.id]:orders.map(a=>a.slice())};ls.practiceOptionOrders={...(ls.practiceOptionOrders||{}),[x.id]:orders};}
-    const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
+    const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],practiceAttemptCounts:[],practiceLastChecked:[],practiceIncorrectAttemptCount:0,practiceRetryCount:0,allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
     const el=id=>document.getElementById(id);
 const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
     const lessons=()=>course==="zh"?(chineseLessonData[ls.difficulty]||[]):(lessonData[ls.difficulty]||[]);
@@ -19150,6 +19316,7 @@ function lessonTopicKey(x){
       const selectedAnswers=preservePractice?qs.map((q,i)=>document.querySelector('input[name="lessonAnswer'+i+'"]:checked')?.value??null):[];
       if(!preservePractice||!Array.isArray(ls.practicePassed)||ls.practicePassed.length!==qs.length)ls.practicePassed=qs.map(()=>false);
       if(!preservePractice||!Array.isArray(ls.practiceFirstTry)||ls.practiceFirstTry.length!==qs.length)ls.practiceFirstTry=qs.map(()=>null);
+      if(!preservePractice||!Array.isArray(ls.practiceAttemptCounts)||ls.practiceAttemptCounts.length!==qs.length){ls.practiceAttemptCounts=qs.map(()=>0);ls.practiceLastChecked=qs.map(()=>null);ls.practiceIncorrectAttemptCount=0;ls.practiceRetryCount=0;}
       const zh=translationLanguage==="zh";
       const examples=lessonExpandableGroup(lessonField(x,"examples"),(s,extra)=>'<div class="lesson-example lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'>'+lessonRenderText(s)+'</div>',zh);
       const explanationValue=lessonField(x,"explanation");
@@ -19179,7 +19346,14 @@ function lessonTopicKey(x){
         const i=Number(button.dataset.question),q=qs[i],v=document.querySelector('input[name="lessonAnswer'+i+'"]:checked'),feedback=el("lessonAnswerFeedback"+i);
         if(!v){feedback.textContent=zh?"请先选择一个答案。":"Choose an answer first.";return;}
         const correct=Number(v.value)===q.answer;
-        if(ls.practiceFirstTry[i]===null)ls.practiceFirstTry[i]=correct;
+        const submittedValue=String(v.value);
+        if(ls.practiceFirstTry[i]===null){
+          ls.practiceFirstTry[i]=correct;ls.practiceAttemptCounts[i]=1;ls.practiceLastChecked[i]=submittedValue;
+          if(!correct)ls.practiceIncorrectAttemptCount++;
+        }else if(ls.practiceLastChecked[i]!==submittedValue){
+          ls.practiceRetryCount++;ls.practiceAttemptCounts[i]=(ls.practiceAttemptCounts[i]||0)+1;ls.practiceLastChecked[i]=submittedValue;
+          if(!correct)ls.practiceIncorrectAttemptCount++;
+        }
         ls.practicePassed[i]=correct;
         feedback.textContent=correct?(zh?"正确，做得好！":"Correct — well done."):(zh?"还不正确。请重新查看讲解后再试一次。":"Not quite. Review the explanation and try again.");
         feedback.style.color=correct?"#9bd7b3":"#f0a0a0";
@@ -19275,9 +19449,16 @@ async function saveCompletedLessonPractice(x){
           p_correct_count:firstTryCorrect,p_question_count:practice.length
         });
         if(error)throw error;
-        el("lessonStatus").textContent=data===true
+        let attemptWarning="";
+        const attemptResult=await supabaseClient.rpc("record_my_lesson_practice_attempt",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_first_try_correct_count:firstTryCorrect,p_question_count:practice.length,
+          p_incorrect_attempt_count:ls.practiceIncorrectAttemptCount||0,p_retry_count:ls.practiceRetryCount||0
+        });
+        if(attemptResult.error)attemptWarning=attemptResult.error.message||"Attempt statistics could not be saved.";
+        el("lessonStatus").textContent=(data===true
           ?(zh?"复习练习记录已保存，不会消耗课程额度。":"Practice summary saved for adaptive revision. No lesson allowance was used.")
-          :(zh?"本课程的练习记录已存在，不会消耗课程额度。":"This lesson's practice summary was already recorded. No lesson allowance was used.");
+          :(zh?"本课程的练习记录已存在，不会消耗课程额度。":"This lesson's practice summary was already recorded. No lesson allowance was used."))+(attemptWarning?(zh?" 但尝试次数统计无法保存：":" Attempt statistics could not be saved: ")+attemptWarning:"");
       }catch(e){
         el("lessonStatus").textContent=(zh?"无法保存练习记录：":"Could not save the practice summary: ")+(e.message||"Please try again.");
       }finally{
@@ -19306,6 +19487,12 @@ async function completeLesson(x){
         if(!saved)throw new Error("The completion service returned no saved progress.");
         Object.assign(p,saved);
         el("lessonStatus").textContent=zh?"课程已完成，可免费复习。":"Lesson completed. You may revisit it for free.";
+        const attemptResult=await supabaseClient.rpc("record_my_lesson_practice_attempt",{
+          p_learning_language:course,p_difficulty:ls.difficulty,p_lesson_id:x.id,p_topic_id:topicId,
+          p_first_try_correct_count:firstTryCorrect,p_question_count:practice.length,
+          p_incorrect_attempt_count:ls.practiceIncorrectAttemptCount||0,p_retry_count:ls.practiceRetryCount||0
+        });
+        if(attemptResult.error)el("lessonStatus").textContent+=(zh?" 尝试次数统计无法保存：":" Attempt statistics could not be saved: ")+(attemptResult.error.message||"Please refresh and retry.");
         await loadLessonAllowance();
         renderLessons();
         renderLesson(x);
@@ -19366,8 +19553,29 @@ async function completeLesson(x){
     window.addEventListener("hashchange", showHashPage);
     window.addEventListener("popstate", showHashPage);
     document.getElementById("profileContent").addEventListener("click", event => {
-      if (event.target.closest("[data-dashboard-flashcard-review]")) {
-        if (window.SwiftDictionaryFlashcards?.openReviewFromDashboard) window.SwiftDictionaryFlashcards.openReviewFromDashboard();
+      const tabButton=event.target.closest("[data-dashboard-tab]");
+      if(tabButton){setDashboardTab(tabButton.dataset.dashboardTab);return;}
+      if(event.target.closest("[data-dashboard-flashcard-review]")) {
+        if(window.SwiftDictionaryFlashcards?.openReviewFromDashboard)window.SwiftDictionaryFlashcards.openReviewFromDashboard();
+        return;
+      }
+      const gameReview=event.target.closest("[data-dashboard-flashcard-review-game]");
+      if(gameReview&&window.SwiftDictionaryFlashcards?.reviewGame) {
+        window.SwiftDictionaryFlashcards.reviewGame(gameReview.dataset.dashboardFlashcardReviewGame);
+        return;
+      }
+      const quizReviewButton=event.target.closest("[data-dashboard-daily-quiz-review]");
+      if(quizReviewButton){quizReview(quizReviewButton.dataset.dashboardDailyQuizReview||quizReviewButton.dataset.dashboardQuizReview,"dashboard");return;}
+      const lessonReviewButton=event.target.closest("[data-dashboard-daily-lesson-review]");
+      if(lessonReviewButton){openDashboardLessonReview(lessonReviewButton.dataset.dashboardDailyLessonReview,lessonReviewButton.dataset.difficulty,lessonReviewButton.dataset.languageCode);return;}
+      const dailyReviewButton=event.target.closest("[data-dashboard-daily-activity-review]");
+      if(dailyReviewButton){
+        try{window.SwiftDictionaryDailyLearning?.reviewFromDashboard({
+          id:dailyReviewButton.dataset.sessionId,activity_type:dailyReviewButton.dataset.activityType,
+          content_id:dailyReviewButton.dataset.contentId,topic_id:dailyReviewButton.dataset.topicId,
+          difficulty:dailyReviewButton.dataset.difficulty,language_code:dailyReviewButton.dataset.languageCode
+        });}catch(error){openDashboardReview("Activity review",'<p class="muted-note">'+escapeHTML(error.message||"This activity could not be reviewed.")+'</p>');}
+        return;
       }
     });
     document.getElementById("profileSignIn").addEventListener("click", () => document.getElementById("accountDialog").classList.add("open"));
@@ -19631,36 +19839,153 @@ async function completeLesson(x){
     }
 
     function renderDashboardAllowanceBars(plan,limits,usageRows,timezone,personalLessonExemption) {
-      const host = document.getElementById("dashboardAllowanceBars");
-      if (!host) return;
-      const types = ["lesson","quiz","flashcard","daily_topic","daily_application","daily_discovery","daily_revision"];
-      const labels = { lesson:"Permanent lessons",quiz:"Quiz",flashcard:"Flashcards",daily_topic:"Daily Topic",daily_application:"Daily Application",daily_discovery:"Daily Discovery",daily_revision:"Daily Revision" };
-      host.innerHTML = types.map(type => {
-        const row = limits.find(item => item.plan_code === plan && item.activity_type === type);
-        if (type === "lesson" && personalLessonExemption) {
-          return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>Unlimited · personal testing access</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill" style="width:0%"></div></div></div>';
-        }
-        if (!row || !row.is_enabled || !Number.isFinite(Number(row.daily_limit))) {
-          return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>Unavailable for this plan</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill" style="width:0%"></div></div></div>';
-        }
-        const maximum = Math.max(0,Number(row.daily_limit));
-        const usage = Array.isArray(usageRows) ? usageRows.find(item => item.activity_type === type) : null;
-        if (!usage || !Number.isInteger(Number(usage.used_count)) || Number(usage.used_count) < 0) {
-          return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>Usage unavailable · server allowance data not loaded</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill" style="width:0%"></div></div></div>';
-        }
-        const used = Math.max(0,Number(usage.used_count));
-        const remaining = Math.max(0,maximum-used);
-        const percent = maximum ? Math.min(100,used/maximum*100) : 0;
-        return '<div class="allowance-bar-row"><div class="allowance-bar-heading"><strong>' + labels[type] + '</strong><span>' + remaining + ' of ' + maximum + ' remaining · ' + used + ' used</span></div><div class="allowance-bar-track"><div class="allowance-bar-fill' + (remaining === 0 ? ' exhausted' : '') + '" style="width:' + percent + '%"></div></div></div>';
+      const host=document.getElementById("dashboardAllowanceBars");
+      if(!host)return;
+      const types=["lesson","daily_topic","daily_application","daily_discovery","daily_revision","quiz","flashcard"];
+      const taskText={
+        lesson:maximum=>"Complete "+maximum+" of any permanent lessons today.",
+        daily_topic:()=>"Complete Daily Topic of any course.",
+        daily_application:()=>"Complete Daily Application of any course.",
+        daily_discovery:()=>"Complete Daily Discovery of any course.",
+        daily_revision:()=>"Complete Daily Revision of any course.",
+        quiz:()=>"Participate in a Quiz test.",
+        flashcard:maximum=>"Play "+maximum+" Flashcard game"+(maximum===1?"":"s")+" today."
+      };
+      const unavailableText={lesson:"Permanent lessons are not enabled on this plan.",daily_topic:"Daily Topic is not enabled on this plan.",daily_application:"Daily Application is not enabled on this plan.",daily_discovery:"Daily Discovery is not enabled on this plan.",daily_revision:"Daily Revision is not enabled on this plan.",quiz:"Quiz is not enabled on this plan.",flashcard:"Flashcards are not enabled on this plan."};
+      host.setAttribute("role","list");
+      host.innerHTML=types.map(type=>{
+        const row=limits.find(item=>item.plan_code===plan&&item.activity_type===type);
+        if(type==="lesson"&&personalLessonExemption)
+          return '<div class="dashboard-allowance-card" role="listitem"><strong>Complete permanent lessons at your own pace today.</strong><b>Unlimited</b><small>Personal testing access</small></div>';
+        if(!row||!row.is_enabled||!Number.isFinite(Number(row.daily_limit))||Number(row.daily_limit)<=0)
+          return '<div class="dashboard-allowance-card is-unavailable" role="listitem"><strong>'+unavailableText[type]+'</strong><b>Unavailable</b><small>Not enabled for this plan</small></div>';
+        const maximum=Math.max(0,Math.floor(Number(row.daily_limit)));
+        const task=taskText[type](maximum);
+        const usage=Array.isArray(usageRows)?usageRows.find(item=>item.activity_type===type):null;
+        if(!usage||!Number.isInteger(Number(usage.used_count))||Number(usage.used_count)<0)
+          return '<div class="dashboard-allowance-card" role="listitem"><strong>'+task+'</strong><b>— / '+maximum+'</b><small>Progress unavailable; refresh to try again.</small></div>';
+        const used=Math.max(0,Number(usage.used_count));
+        const completed=Math.min(maximum,used);
+        const percent=maximum?Math.min(100,completed/maximum*100):0;
+        const complete=completed>=maximum;
+        return '<div class="dashboard-allowance-card'+(complete?' is-complete':'')+'" role="listitem"><strong>'+task+'</strong><b>'+completed+'/'+maximum+'</b><div class="dashboard-allowance-progress-track" role="progressbar" aria-label="'+task+' '+completed+' of '+maximum+'" aria-valuemin="0" aria-valuemax="'+maximum+'" aria-valuenow="'+completed+'"><span style="width:'+percent+'%"></span></div><small>'+(complete?"Task complete for today.":"Progress resets at local midnight.")+'</small></div>';
       }).join("");
-      const note = document.getElementById("allowanceDetails");
-      if (note) note.textContent = Array.isArray(usageRows)
-        ? (plan === "premium" ? "Premium" : "Free") + " plan · Resets at midnight (" + timezone + "). Only successful completions use an allowance."
-        : "Allowance usage could not be loaded from the server. Counts are not estimated from learning history.";
+      const note=document.getElementById("allowanceDetails");
+      if(note)note.textContent=Array.isArray(usageRows)
+        ?(plan==="premium"?"Premium":"Free")+" plan · Resets at midnight ("+String(timezone||"UTC")+"). Lesson, Daily activity and Flashcard tasks count on completion; Quiz allowance is used when a test starts."
+        :"Allowance progress could not be loaded from the server. Counts are not estimated from learning history.";
     }
 
     function formatTopicName(topicId) {
       return String(topicId || "").replaceAll("-"," ").replace(/\b\w/g,character=>character.toUpperCase());
+    }
+
+    let activeDashboardTab="favourites";
+    function setDashboardTab(tabName) {
+      const allowed=["favourites","progress","history","analytics"],selected=allowed.includes(tabName)?tabName:"favourites",previous=activeDashboardTab;
+      activeDashboardTab=selected;
+      document.querySelectorAll("[data-dashboard-tab]").forEach(button=>{const active=button.dataset.dashboardTab===selected;button.classList.toggle("is-active",active);button.setAttribute("aria-selected",active?"true":"false");button.tabIndex=active?0:-1;});
+      allowed.forEach(name=>{const panel=document.getElementById("dashboardTab"+name[0].toUpperCase()+name.slice(1));if(!panel)return;const entering=name===selected;panel.hidden=!entering;if(entering&&previous!==selected){panel.classList.remove("dashboard-panel-enter");void panel.offsetWidth;panel.classList.add("dashboard-panel-enter");}});
+    }
+    document.querySelectorAll("[data-dashboard-tab]").forEach(button=>button.addEventListener("keydown",event=>{
+      if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key))return;
+      event.preventDefault();
+      const tabs=[...document.querySelectorAll("[data-dashboard-tab]")];
+      const current=tabs.indexOf(button);
+      const next=event.key==="Home"?0:event.key==="End"?tabs.length-1:(current+(event.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length;
+      setDashboardTab(tabs[next].dataset.dashboardTab);tabs[next].focus();
+    }));
+
+    let dashboardReviewPreviousOverflow="";
+    function openDashboardReview(title,html){
+      const overlay=document.getElementById("dashboardReviewOverlay");
+      if(!overlay)return;
+      dashboardReviewPreviousOverflow=document.body.style.overflow;
+      document.getElementById("dashboardReviewTitle").textContent=title||"Activity review";
+      document.getElementById("dashboardReviewContent").innerHTML=html||"";
+      overlay.hidden=false;document.body.style.overflow="hidden";
+      overlay.querySelector("[data-dashboard-review-close]")?.focus();
+    }
+    function closeDashboardReview(){
+      const overlay=document.getElementById("dashboardReviewOverlay");
+      if(!overlay||overlay.hidden)return;
+      overlay.hidden=true;document.getElementById("dashboardReviewContent").innerHTML="";
+      document.body.classList.remove("quiz-focused");
+      document.body.style.overflow=dashboardReviewPreviousOverflow;
+    }
+    document.getElementById("dashboardReviewOverlay").addEventListener("click",event=>{
+      if(event.target===event.currentTarget||event.target.closest("[data-dashboard-review-close]"))closeDashboardReview();
+    });
+    document.addEventListener("keydown",event=>{
+      if(event.key==="Escape"&&!document.getElementById("dashboardReviewOverlay").hidden)closeDashboardReview();
+    });
+    function openDashboardLessonReview(lessonId,difficulty,languageCode){
+      const targetCourse=languageCode==="zh"?"zh":"en";
+      const lesson=((targetCourse==="zh"?chineseLessonData:lessonData)[difficulty]||[]).find(item=>item.id===lessonId);
+      if(!lesson){openDashboardReview("Lesson review",'<p class="muted-note">The original lesson content is not available in this version.</p>');return;}
+      const previousCourse=course,previousTranslation=translationLanguage;
+      course=targetCourse;
+      try{
+        const zh=translationLanguage==="zh";
+        const field=key=>lessonField(lesson,key);
+        const examples=(field("examples")||[]).map(value=>'<div class="lesson-example">'+lessonRenderText(value)+'</div>').join("");
+        const explanation=field("explanation");
+        const explanationHtml=Array.isArray(explanation)?explanation.map(value=>'<p class="lesson-explanation-paragraph">'+lessonRenderText(value)+'</p>').join(""):'<p>'+lessonRenderText(explanation||"")+'</p>';
+        const breakdown=field("breakdown");
+        const breakdownHtml=breakdown?'<h3>'+(zh?"句子结构":"Sentence breakdown")+'</h3>'+lessonRenderText(breakdown.title)+'<p>'+lessonRenderText(breakdown.intro)+'</p>'+(breakdown.sentence?'<div class="lesson-breakdown-sentence">'+breakdown.sentence.map(part=>'<span class="lesson-breakdown-token"><mark class="lesson-focus-'+escapeHTML(part.role)+'">'+lessonRenderText(part.text)+'</mark></span>').join("")+'</div>':"")+'<div class="lesson-breakdown">'+(breakdown.parts||[]).map(part=>'<span><strong>'+lessonRenderText(part.text)+'</strong><small>'+lessonRenderText(part.label)+'</small></span>').join("")+'</div>':"";
+        const points=(field("points")||[]).map(value=>'<li>'+lessonRenderText(value)+'</li>').join("");
+        const mistakes=(field("mistakes")||[]).map(value=>'<li>'+lessonRenderText(value)+'</li>').join("");
+        const practice=lessonPractice(lesson);
+        const practiceHtml=practice.map((question,index)=>'<article class="lesson-question"><h4 class="lesson-question-title">'+(index+1)+'. '+lessonRenderText(question.q)+'</h4><ol class="lesson-review-options">'+question.options.map((option,optionIndex)=>'<li class="'+(optionIndex===question.answer?'is-correct':'')+'">'+lessonRenderText(option)+(optionIndex===question.answer?'<small>'+(zh?'正确答案':'Correct answer')+'</small>':'')+'</li>').join("")+'</ol></article>').join("");
+        const topic=targetCourse==="zh"?lessonRenderText(lesson.topicDisplay):escapeHTML(field("topic")||"");
+        const html='<article class="dashboard-lesson-review"><span class="lesson-review-complete">'+(zh?"已完成 · 只读复习":"Completed · Read-only review")+'</span><p class="eyebrow">'+escapeHTML(difficulty.toUpperCase())+' · '+topic+'</p><h2>'+lessonRenderText(field("title"))+'</h2><p class="page-intro">'+lessonRenderText(field("summary"))+'</p><div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3><ul>'+points+'</ul><h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+mistakes+'</ul><h3>'+(zh?"练习题":"Practice questions")+'</h3><p class="muted-note">'+(zh?"只读复习：显示正确答案，不会重新提交练习或更改进度。":"Read-only review: correct answers are shown. No practice is resubmitted and progress is unchanged.")+'</p>'+practiceHtml+'</div></article>';
+        openDashboardReview(zh?"课程复习":"Lesson review",html);
+      }finally{course=previousCourse;translationLanguage=previousTranslation;}
+    }
+
+    function dashboardDailyContentTitle(row) {
+      const language=row.language_code||row.learning_language||"en",rawId=String(row.content_id||""),contentId=rawId.startsWith("revision:")?rawId.split(":")[2]:(rawId.split(":")[0]||rawId);
+      const catalog=window.SWIFT_CHINESE_DAILY_LEARNING||{};
+      const entries=[...(catalog.topics||[]),...(catalog.applications||[]),...(catalog.discovery||[])];
+      if(language==="zh"){
+        const match=entries.find(item=>item.id===contentId||item.id===row.topic_id||item.topicId===row.topic_id);
+        if(match)return match.titleZh||match.title||match.word||match.titleEn||formatTopicName(row.topic_id||contentId);
+      }
+      return formatTopicName(contentId||row.topic_id||row.activity_type||"Daily activity");
+    }
+    function dashboardLessonTopicTitle(row) {
+      if((row.learning_language||"en")==="zh"){
+        const lessons=window.SWIFT_CHINESE_LESSONS||{};
+        const match=Object.values(lessons).flat().find(item=>item.id===row.lesson_id);
+        if(match)return match.topicDisplay?.zh||match.topic||match.title?.zh||formatTopicName(row.lesson_id);
+      }
+      return formatTopicName(row.lesson_id);
+    }
+    function renderDashboardDailyHistory({today,timezone,lessonRows,dailyRows,quizRows,flashcardRows}) {
+      const host=document.getElementById("dashboardDailyHistory");if(!host)return;
+      const localDate=timestamp=>timestamp?new Intl.DateTimeFormat("en-CA",{timeZone:timezone,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(timestamp)):"";
+      const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(translationLanguage==="zh"?"zh-CN":"en-US",{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
+      const groups={lessons:[],quiz:[],flashcards:[]};
+      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:dashboardLessonTopicTitle(row),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
+      for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:formatTopicName(row.activity_type||"Daily activity"),title:dashboardDailyContentTitle(row),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at,activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id});
+      for(const row of quizRows||[])if(localDate(row.completed_at)===today)groups.quiz.push({type:"Quiz",title:(quizDifficultyLabels[row.difficulty]||row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id});
+      for(const row of flashcardRows||[])if(localDate(row.completed_at)===today)groups.flashcards.push({type:"Flashcards",title:modeLabelForDashboard(row.mode)+" · "+(row.difficulty||""),detail:(row.correct_count??0)+"/"+(row.words_seen??0)+" correct",at:row.completed_at,sessionId:row.id});
+      const renderGroup=(key,title,icon,empty)=>{
+        const items=groups[key].sort((a,b)=>Date.parse(b.at||0)-Date.parse(a.at||0));
+        const content=items.length?items.map(item=>{
+          let action="";
+          if(item.type==="Lesson"&&item.lessonId)action='<button type="button" class="secondary-button" data-dashboard-daily-lesson-review="'+escapeHTML(item.lessonId)+'" data-difficulty="'+escapeHTML(item.difficulty||"beginner")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'">'+escapeHTML(quizT("Review lesson","复习课程"))+'</button>';
+          else if(item.activityType&&item.contentId)action='<button type="button" class="secondary-button" data-dashboard-daily-activity-review="true" data-activity-type="'+escapeHTML(item.activityType)+'" data-content-id="'+escapeHTML(item.contentId)+'" data-topic-id="'+escapeHTML(item.topicId||"")+'" data-difficulty="'+escapeHTML(item.difficulty||"")+'" data-language-code="'+escapeHTML(item.languageCode||"en")+'" data-session-id="'+escapeHTML(item.sessionId||"")+'">'+escapeHTML(quizT("Review activity","复习活动"))+'</button>';
+          else if(item.type==="Quiz"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-daily-quiz-review="'+escapeHTML(item.sessionId)+'">'+escapeHTML(quizT("Review answers","查看答案"))+'</button>';
+          else if(item.type==="Flashcards"&&item.sessionId)action='<button type="button" class="secondary-button" data-dashboard-flashcard-review-game="'+escapeHTML(item.sessionId)+'">'+escapeHTML(quizT("Review game","查看游戏"))+'</button>';
+          return '<article class="dashboard-history-row"><div class="dashboard-history-row-main"><span class="dashboard-history-kind">'+escapeHTML(item.type)+'</span><strong>'+escapeHTML(item.title)+'</strong><small>'+escapeHTML(item.detail)+' · '+escapeHTML(timeLabel(item.at))+'</small></div><div class="dashboard-history-actions">'+action+'</div></article>';
+        }).join(""):'<p class="muted-note dashboard-history-empty">'+empty+'</p>';
+        return '<section class="dashboard-history-group dashboard-history-'+key+'"><header><span class="dashboard-history-group-icon" aria-hidden="true">'+icon+'</span><div><h4>'+title+'</h4><p>'+items.length+' '+(items.length===1?"activity":"activities")+'</p></div></header><div class="dashboard-history-group-items">'+content+'</div></section>';
+      };
+      host.innerHTML=renderGroup("lessons","Lessons","▤","No completed lessons or daily learning activities yet today.")+renderGroup("quiz","Quiz","✎","No completed Quizzes yet today.")+renderGroup("flashcards","Flashcards","▣","No completed Flashcard games yet today.")+'<p class="muted-note dashboard-history-timezone">Today is calculated using '+escapeHTML(timezone)+'. Older records are retained.</p>';
+    }
+    function modeLabelForDashboard(mode) {
+      return ({word:"Word Recall",definition:"Definition Recall",translation:"Translation Recall",mixed:"Mixed Recall",sentence:"Sentence Recall"})[mode]||"Flashcard game";
     }
 
     async function loadProfileData() {
@@ -19673,13 +19998,14 @@ async function completeLesson(x){
       const signedOut = document.getElementById("profileSignedOut");
       const content = document.getElementById("profileContent");
       signedOut.hidden = true; content.hidden = false;
+      setDashboardTab(activeDashboardTab);
       document.getElementById("profileEmail").textContent = currentUser.email || "Signed-in account";
       try {
         await preferenceWriteQueue;
         if (!stillSameAccount()) return;
         await ensureProfileRows();
         if (!stillSameAccount()) return;
-        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
+        const [profileInitialQ,prefsInitialQ,activityInitialQ,entitlementQ,limitsQ,lessonPracticeQ,practiceAttemptsQ,lessonProgressQ,dailyPracticeInitialQ,savedWordsQ,allowanceUsageQ,personalTestQ,quizHistoryQ,quizAvailabilityQ,flashcardAllowanceQ,flashcardDataQ] = await Promise.all([
           supabaseClient.from("profiles").select("display_name,avatar_icon").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("user_preferences").select("learning_language,translation_language,timezone,allowance_timezone,allowance_timezone_until").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("learning_activity_log").select("activity_type,event_type,language_code,created_at",{count:"exact"})
@@ -19687,12 +20013,14 @@ async function completeLesson(x){
             .order("created_at",{ascending:false}).limit(1000),
           supabaseClient.from("user_entitlements").select("plan_code,status,valid_from,valid_until").eq("user_id",accountIdAtStart).maybeSingle(),
           supabaseClient.from("learning_plan_limits").select("plan_code,activity_type,daily_limit,is_enabled"),
-          supabaseClient.from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
-          supabaseClient.from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
+          supabaseClient.from("lesson_practice_results").select("topic_id,learning_language,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
+          supabaseClient.rpc("get_my_lesson_practice_attempts",{p_limit:100}),
+          supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
+          supabaseClient.from("daily_activity_sessions").select("id,activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
           supabaseClient.rpc("is_personal_learning_test_access"),
-          supabaseClient.rpc("get_my_quiz_history",{p_limit:5}),
+          supabaseClient.rpc("get_my_quiz_history",{p_limit:100}),
           supabaseClient.rpc("get_my_quiz_availability"),
           supabaseClient.rpc("get_my_flashcard_allowance"),
           Promise.resolve(supabaseClient.rpc("get_my_flashcard_data")).catch(error=>({data:null,error}))
@@ -19722,11 +20050,12 @@ async function completeLesson(x){
           dailyPracticeQ = {data:[],error:null};
           dailyPracticeUnavailable = true;
         }
-        for (const q of [profileQ,prefsQ,activityQ,entitlementQ,limitsQ,lessonPracticeQ,dailyPracticeQ,savedWordsQ]) if (q.error) throw q.error;
+        for (const q of [profileQ,prefsQ,activityQ,entitlementQ,limitsQ,lessonPracticeQ,lessonProgressQ,dailyPracticeQ,savedWordsQ]) if (q.error) throw q.error;
         const allowanceUsageRows = allowanceUsageQ.error ? null : (allowanceUsageQ.data || []);
         const personalTestAccess = personalTestQ.error ? false : personalTestQ.data === true;
         const prefs = prefsQ.data || {learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()};
         const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
+        const activeLearningLanguage=preferenceSelectionChanged?course:prefs.learning_language;
         profilePreferences = preferenceSelectionChanged
           ? {...prefs,learning_language:course,translation_language:translationLanguage}
           : prefs;
@@ -19817,6 +20146,12 @@ async function completeLesson(x){
         renderDashboardAllowanceBars(plan,limits,dashboardAllowanceUsageRows,tz,personalTestAccess);
         const flashcardData=flashcardDataQ.error?null:(flashcardDataQ.data||{});
         const flashcardHistory=Array.isArray(flashcardData?.history)?flashcardData.history:[];
+        renderDashboardDailyHistory({
+          today,timezone:tz,lessonRows:lessonProgressQ.data||[],
+          dailyRows:dailyPracticeQ.data||[],
+          quizRows:quizHistoryQ.error?[]:(quizHistoryQ.data||[]),
+          flashcardRows:flashcardHistory
+        });
         const flashcardAttempts=flashcardHistory.reduce((sum,row)=>sum+Math.max(0,Number(row.words_seen)||0),0);
         const flashcardCorrect=flashcardHistory.reduce((sum,row)=>sum+Math.max(0,Number(row.correct_count)||0),0);
         const flashcardWeakItems=(flashcardData?.review_items||[]).filter(row=>Number(row.incorrect_count)>0);
@@ -19829,19 +20164,6 @@ async function completeLesson(x){
         document.getElementById("dashboardFlashcardStatus").textContent=flashcardData
           ? "Based on your latest "+flashcardHistory.length+" completed games."
           : "Flashcard statistics will appear here when the feature is available.";
-        const dashboardQuizHost=document.getElementById("dashboardQuizHistory");
-        if(dashboardQuizHost) {
-          const quizRows=quizHistoryQ.error?[]:(Array.isArray(quizHistoryQ.data)?quizHistoryQ.data:[]);
-          dashboardQuizHost.innerHTML=quizHistoryQ.error
-            ? '<p class="muted-note">Quiz history is unavailable until the Update 2.4.0 Quiz database functions are installed.</p>'
-            : quizRows.length?quizRows.map(row=>{
-              const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
-              const difficulty=quizDifficultyLabels[row.difficulty]||row.difficulty||"Quiz";
-              return '<div class="quiz-history-row"><div><strong>'+escapeHTML(difficulty)+' · '+escapeHTML(row.correct_count??"—")+'/'+escapeHTML(row.question_count??"—")+' correct</strong><small>'+escapeHTML(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+escapeHTML(row.percentage??0)+'%</span><button type="button" class="secondary-button" data-dashboard-quiz-review="'+escapeHTML(row.session_id)+'">'+escapeHTML(quizT("Review","查看"))+'</button></div></div>';
-            }).join("")
-            : '<p class="muted-note">No completed Quizzes yet. Your scores and answer reviews will appear here.</p>';
-        }
-
         // Use the existing account-scoped Quiz review RPC to calculate topic
         // accuracy and identify missed questions. No duplicate answer records are stored.
         const quizPracticeRows = [];
@@ -19853,6 +20175,7 @@ async function completeLesson(x){
             try {
               const {data,error} = await supabaseClient.rpc("get_my_quiz_review",{p_session_id:historyRow.session_id});
               if (error || !data) { quizReviewFailureCount += 1; return; }
+              if(data.learning_language_code!==activeLearningLanguage)return;
               const topicTotals = new Map();
               for (const question of data.questions || []) {
                 if (!question.topic_id || !question.selected_option_id) continue;
@@ -19884,9 +20207,20 @@ async function completeLesson(x){
           }));
         }
         if (!stillSameAccount()) return;
+        const savedLessonAttempts=practiceAttemptsQ.error?[]:(practiceAttemptsQ.data||[]);
+        const lessonRows=savedLessonAttempts.length
+          ?savedLessonAttempts.filter(row=>row.learning_language===activeLearningLanguage).map(row=>({
+            topic_id:row.topic_id,correct_count:row.first_try_correct_count,question_count:row.question_count,
+            retry_count:row.retry_count||0,incorrect_attempt_count:row.incorrect_attempt_count||0,practice_at:row.completed_at
+          }))
+          :(lessonPracticeQ.data||[]).filter(row=>!row.learning_language||row.learning_language===activeLearningLanguage).map(row=>({...row,practice_at:row.attempted_at,retry_count:0}));
+        const dailyRows=(dailyPracticeQ.data||[]).filter(row=>row.language_code===activeLearningLanguage).map(row=>({
+          ...row,correct_count:row.first_try_correct_count??row.correct_count,
+          retry_count:row.retry_count||0,incorrect_attempt_count:row.incorrect_attempt_count||0,practice_at:row.completed_at
+        }));
         const practiceRows = [
-          ...(lessonPracticeQ.data || []).map(row=>({...row,practice_at:row.attempted_at})),
-          ...(dailyPracticeQ.data || []).map(row=>({...row,practice_at:row.completed_at})),
+          ...lessonRows,
+          ...dailyRows,
           ...quizPracticeRows
         ].filter(row=>row.topic_id && Number(row.question_count)>0
           && Number.isFinite(Number(row.correct_count))
@@ -19905,6 +20239,7 @@ async function completeLesson(x){
         document.getElementById("practiceIncorrectSegment").style.width = recentQuestions ? (incorrectCount/recentQuestions*100)+"%" : "0%";
         document.getElementById("practiceChart").setAttribute("aria-label",recentQuestions ? recentCorrect+" correct first attempts and "+incorrectCount+" incorrect first attempts out of "+recentQuestions+" questions." : "No practice data recorded yet.");
         document.getElementById("practiceSummaries").textContent = recentPractice.length;
+        document.getElementById("practiceRetries").textContent = recentPractice.reduce((sum,row)=>sum+Math.max(0,Number(row.retry_count)||0),0);
         const byTopic = new Map();
         for (const row of practiceRows) {
           const entries = byTopic.get(row.topic_id) || [];
@@ -20011,11 +20346,11 @@ async function completeLesson(x){
 
     // Update 2.4.0 Quiz frontend. All question data and answer keys are served
     // by authenticated RPCs; the browser never queries the private Quiz tables.
-    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], historyPage:0, saving:false, selectedReviewId:null, returnPage:"quiz" };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
-    function quizTranslationVisible(code){return code === "zh";}
+    function quizTranslationVisible(code){return code === "zh" || code === "en";}
     function quizEffectiveTranslationCode(snapshot){
       const learningCode=snapshot?.learning_language_code||"en";
       const savedTranslation=snapshot?.translation_language_code||"en";
@@ -20046,6 +20381,13 @@ async function completeLesson(x){
       const page=quizEl("quizPage");if(!page)return;
       const set=(selector,en,zh)=>{const node=page.querySelector(selector);if(node)node.textContent=quizT(en,zh);};
       set(".learning-banner .eyebrow","Knowledge check","知识测验");
+      set(".quiz-home-kicker","YOUR NEXT CHALLENGE","开始下一场挑战");
+      set(".quiz-home-hero h2","Choose your challenge","选择你的挑战");
+      set(".quiz-home-hero > div > p:nth-of-type(2)","Build confidence through a focused set of mixed-topic questions. Take your time, move between questions and review every answer when you finish.","通过多主题问题巩固知识。你可以按自己的节奏作答、切换题目，并在完成后查看所有答案。");
+      const benefitLabels=page.querySelectorAll(".quiz-home-benefits span");
+      if(benefitLabels.length===3){benefitLabels[0].textContent=quizT("Untimed sessions","不限时测验");benefitLabels[1].textContent=quizT("Save and resume","保存并继续");benefitLabels[2].textContent=quizT("Full answer review","完整答案复习");}
+      const heroStat=page.querySelector(".quiz-home-hero-stat span");if(heroStat)heroStat.textContent=quizT("questions per session","每场题目数");
+      const sessionLabel=page.querySelector(".quiz-session-label");if(sessionLabel)sessionLabel.textContent=quizT("IN PROGRESS","进行中");
       set("#quizHeading","Quiz","测验");
       set(".learning-banner .page-intro","Test your understanding with mixed-topic questions. There is no timer and no pass or fail.","通过不同主题的问题检验你的理解。测验没有计时，也没有通过或不通过的判定。");
       set("#quizRefresh","Refresh","刷新");
@@ -20077,10 +20419,18 @@ async function completeLesson(x){
     }
     function quizStatus(message, isError=false){const el=quizEl("quizStatus");if(el){el.textContent=message||"";el.classList.toggle("quiz-error",!!isError);}}
     function quizCall(name,args){if(!supabaseClient||!currentUser)throw new Error("Please sign in to use Quiz.");return supabaseClient.rpc(name,args||{});}
+    function quizAnimateScreen(element){
+      if(!element)return;
+      element.classList.remove("quiz-screen-enter");void element.offsetWidth;
+      element.classList.add("quiz-screen-enter");
+      element.addEventListener("animationend",()=>element.classList.remove("quiz-screen-enter"),{once:true});
+    }
     function quizShowHome(){
-      quizPageState.sessionView=false;
-      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
+      quizPageState.sessionView=false;document.body.classList.remove("quiz-focused");
+      const home=quizEl("quizHome"),animate=home.hidden;
+      home.hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
       quizEl("quizSignedOut").hidden=true;
+      if(animate)quizAnimateScreen(home);
     }
     function quizRenderAvailability(data){
       quizPageState.availability=data;
@@ -20091,16 +20441,15 @@ async function completeLesson(x){
       quizEl("quizActiveCard").hidden=!active;
       if(active)quizEl("quizActiveDescription").textContent=quizT("You have an unfinished Quiz. Your saved answers are waiting.","你有一份尚未完成的测验，已保存的答案可继续作答。");
       const list=data.difficulties||[];
+      const chineseCourse=data.learning_language_code==="zh";
       quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
         const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
         const count=item.difficulty==="beginner"?10:item.difficulty==="intermediate"?15:20;
-        const description=item.difficulty==="beginner"
-          ?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。")
-          :item.difficulty==="intermediate"
-            ?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。")
-            :quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。");
+        const description=chineseCourse
+          ?(item.difficulty==="beginner"?quizT("Build a foundation in Chinese characters, Pinyin, pronunciation and everyday expressions.","建立汉字、拼音、发音和日常表达的基础。"):item.difficulty==="intermediate"?quizT("Apply Chinese grammar, sentence patterns and common vocabulary in context.","在语境中运用中文语法、句型和常用词汇。"):quizT("Strengthen nuanced vocabulary, complex grammar and natural Chinese expression.","加强对细微词义、复杂语法和自然中文表达的掌握。"))
+          :(item.difficulty==="beginner"?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。"):item.difficulty==="intermediate"?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。"):quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。"));
         const translatedLabel=quizT(label,({beginner:"初级",intermediate:"中级",advanced:"高级"})[item.difficulty]||label);
-        return '<article class="quiz-difficulty-option" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
+        return '<article class="quiz-difficulty-option" data-difficulty="'+quizEscape(item.difficulty)+'" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
       }).join("");
       quizEl("quizDifficultyGrid").querySelectorAll("[data-quiz-start]").forEach(button=>{
         button.addEventListener("click",()=>{if(!button.disabled)quizStart(button.dataset.quizStart);});
@@ -20109,13 +20458,17 @@ async function completeLesson(x){
     }
     function quizRenderHistory(rows){
       quizPageState.history=Array.isArray(rows)?rows:[];
+      quizPageState.historyPage=Math.min(quizPageState.historyPage||0,Math.max(0,Math.ceil(quizPageState.history.length/10)-1));
       const host=quizEl("quizHistory");
       if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">'+quizEscape(quizT("No completed Quizzes yet. Your results will appear here.","目前还没有已完成的测验。完成测验后，成绩会显示在这里。"))+'</p>';return;}
-      host.innerHTML=quizPageState.history.map(row=>{
+      const page=quizPageState.historyPage||0,visible=quizPageState.history.slice(page*10,page*10+10);
+      host.innerHTML=visible.map(row=>{
         const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
         const difficultyLabel=quizT(quizDifficultyLabels[row.difficulty]||row.difficulty,({beginner:"初级",intermediate:"中级",advanced:"高级"})[row.difficulty]||row.difficulty);
         return '<div class="quiz-history-row"><div><strong>'+quizEscape(difficultyLabel)+' · '+quizEscape(row.question_count)+quizEscape(quizT(" questions"," 道题"))+'</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">'+quizEscape(quizT("Review","查看"))+'</button></div></div>';
-      }).join("");
+      }).join("")+(quizPageState.history.length>10?'<div class="quiz-history-pagination">'+(page>0?'<button type="button" class="secondary-button" data-quiz-history-prev>'+quizEscape(quizT("Previous page","上一页"))+'</button>':'')+((page+1)*10<quizPageState.history.length?'<button type="button" class="secondary-button" data-quiz-history-next>'+quizEscape(quizT("Next page","下一页"))+'</button>':'')+'</div>':'');
+      host.querySelector("[data-quiz-history-next]")?.addEventListener("click",()=>{quizPageState.historyPage++;quizRenderHistory(quizPageState.history);});
+      host.querySelector("[data-quiz-history-prev]")?.addEventListener("click",()=>{quizPageState.historyPage=Math.max(0,quizPageState.historyPage-1);quizRenderHistory(quizPageState.history);});
     }
     async function quizLoadHome(){
       if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus(quizT("Sign in to access your account's Quiz sessions.","登录后即可查看账户中的测验记录。"));return;}
@@ -20124,7 +20477,7 @@ async function completeLesson(x){
       const requestedUserId=currentUser.id;
       const [availability,history,active]=await Promise.all([
         quizCall("get_my_quiz_availability"),
-        quizCall("get_my_quiz_history",{p_limit:20}),
+        quizCall("get_my_quiz_history",{p_limit:100}),
         quizCall("get_my_active_quiz")
       ]);
       if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
@@ -20147,14 +20500,16 @@ async function completeLesson(x){
       }
       quizPageState.session=active.data||null;
       quizPageState.sessionView=false;
-      quizEl("quizHome").hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      quizShowHome();
       quizStatus("");
     }
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
-    function quizRenderSession(){
+    function quizRenderSession(transitionDirection=null){
       const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
-      quizPageState.sessionView=true;
+      quizPageState.sessionView=true;document.body.classList.add("quiz-focused");
+      const sessionWasHidden=quizEl("quizSession").hidden;
       quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+      if(sessionWasHidden)quizAnimateScreen(quizEl("quizSession"));
       const pos=Math.min(Math.max(1,Number(s.current_position)||1),s.question_count);
       const q=s.questions[pos-1];if(!q){quizStatus("Question data is missing from this session.",true);return;}
       const answered=s.questions.filter(x=>x.selected_option_id).length;
@@ -20163,20 +20518,30 @@ async function completeLesson(x){
       quizEl("quizAnsweredCounter").textContent=quizT(answered+" answered","已作答 "+answered+" 题");
       quizEl("quizProgressFill").style.width=(answered/s.question_count*100)+"%";
       const effectiveTranslation=quizEffectiveTranslationCode(s);
-      const showTranslation=effectiveTranslation!== (s.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
+      const showTranslation=effectiveTranslation!==(s.learning_language_code||"en")&&quizTranslationVisible(effectiveTranslation);
       quizUpdateTranslationNotice(s);
-      quizEl("quizQuestionArea").dataset.questionType=q.question_type||"";
+      const area=quizEl("quizQuestionArea");
+      area.dataset.questionType=q.question_type||"";
       const chineseTranslationQuestion=q.question_type==="chinese_translation";
-      quizEl("quizQuestionArea").innerHTML='<h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="Answer options">'+(q.options||[]).map((option,index)=>{
+      const topicLabel=q.topic_id?formatTopicName(q.topic_id):quizT("Mixed-topic question","多主题题目");
+      const options=(q.options||[]).map((option,index)=>{
         const primaryText=chineseTranslationQuestion?option.translation_text:option.learning_text;
-        const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:"");
+        const secondaryText=s.learning_language_code==="zh"?"":(chineseTranslationQuestion?(effectiveTranslation==="en"?option.learning_text:""):(showTranslation?option.translation_text:""));
         return '<button type="button" class="quiz-option" data-quiz-option="'+quizEscape(option.id)+'" aria-pressed="'+(q.selected_option_id===option.id)+'"><span class="quiz-option-letter">'+String.fromCharCode(65+index)+'</span><span class="quiz-option-copy"><span>'+quizEscape(primaryText)+'</span>'+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</span></button>';
-      }).join("")+'</div>';
+      }).join("");
+      area.innerHTML='<article class="quiz-question-card"><div class="quiz-question-card-head"><span class="quiz-question-index">'+quizT("QUESTION "+pos,"第 "+pos+" 题")+'</span><span class="quiz-question-topic">'+quizEscape(topicLabel)+'</span></div><h2 class="quiz-question-prompt">'+quizEscape(q.prompt_learning)+'</h2>'+(s.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-options" role="group" aria-label="'+quizEscape(quizT("Answer options","答案选项"))+'">'+options+'</div></article>';
+      area.setAttribute("aria-label",quizT("Question and answer options","题目与答案选项"));
+      area.classList.remove("quiz-transition-next","quiz-transition-previous");
+      if(transitionDirection==="next"||transitionDirection==="previous"){
+        void area.offsetWidth;
+        area.classList.add("quiz-transition-"+transitionDirection);
+        area.addEventListener("animationend",()=>area.classList.remove("quiz-transition-next","quiz-transition-previous"),{once:true});
+      }
       quizEl("quizPrevious").textContent=quizT("Previous","上一题");
-      quizEl("quizQuestionArea").setAttribute("aria-label",quizT("Answer options","答案选项"));
-      quizEl("quizPrevious").disabled=pos<=1;
+      quizEl("quizPrevious").disabled=pos<=1||quizPageState.saving;
       quizEl("quizNext").hidden=pos>=s.question_count;
       quizEl("quizNext").textContent=quizT("Next","下一题");
+      quizEl("quizNext").disabled=quizPageState.saving;
       quizEl("quizSubmit").disabled=answered!==s.question_count||quizPageState.saving;
       quizEl("quizSubmit").textContent=answered===s.question_count?quizT("Submit Quiz","提交测验"):quizT("Answer all questions to submit","请回答所有问题后再提交");
       quizStatus("");
@@ -20223,7 +20588,8 @@ async function completeLesson(x){
     async function quizMove(position){
       const s=quizPageState.session;if(!s||quizPageState.saving)return;
       const next=Math.max(1,Math.min(s.question_count,position));if(next===s.current_position)return;
-      try{await quizSaveCurrent(next);quizPageState.session.current_position=next;quizRenderSession();}
+      const direction=next>s.current_position?"next":"previous";
+      try{await quizSaveCurrent(next);quizPageState.session.current_position=next;quizRenderSession(direction);}
       catch{}
     }
     async function quizStart(difficulty){
@@ -20232,41 +20598,47 @@ async function completeLesson(x){
       const requestedCourse=courseSelector.value||course||"en";
       const requestedTranslation=translationSelector.value||translationLanguage||"en";
       const requestedUserId=currentUser?.id||null;
-      quizPageState.userId=requestedUserId||quizPageState.userId;
-      courseSelector.disabled=true;
-      translationSelector.disabled=true;
+      const warning=requestedTranslation==="zh"?"开始这场测验会立即使用一次每日测验额度。即使之后放弃测验，此额度也不会退还。要继续吗？":"Starting this Quiz will use one daily Quiz allowance immediately. The allowance will not be refunded if you later abandon the session. Continue?";
+      if(typeof window.showLearningAllowanceConfirmation!=="function"){quizStatus(quizT("The confirmation dialog could not be loaded. Please refresh before starting the Quiz.","确认对话框无法加载，请刷新页面后再开始测验。"),true);return;}
+      const confirmed=await window.showLearningAllowanceConfirmation(warning,{confirmLabel:requestedTranslation==="zh"?"开始测验":"Start Quiz",cancelLabel:requestedTranslation==="zh"?"取消":"Cancel"});
+      if(!confirmed)return;
+      if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was waiting for confirmation. Please try again.","等待确认期间账户发生变化，请重试。"),true);return;}
+      quizPageState.userId=requestedUserId||quizPageState.userId;courseSelector.disabled=true;translationSelector.disabled=true;
       try{
         quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
-        const {data,error}=await quizCall("start_my_quiz",{
-          p_difficulty:difficulty,
-          p_learning_language:requestedCourse,
-          p_translation_language:requestedTranslation
-        });if(error)throw error;
+        const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty,p_learning_language:requestedCourse,p_translation_language:requestedTranslation});if(error)throw error;
         if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
-        const session=data&&data.session?data.session:data;
-        if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
-        course=requestedCourse;
-        translationLanguage=requestedTranslation;
-        courseSelector.value=requestedCourse;
-        translationSelector.value=requestedTranslation;
-        document.getElementById("preferenceLearning").value=requestedCourse;
-        document.getElementById("preferenceTranslation").value=requestedTranslation;
-        quizApplyPageTranslation();
-        quizPageState.session=session;quizRenderSession();
-      }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});quizStatus(error.message||"Could not start this Quiz.",true);}}
-      finally{
-        courseSelector.disabled=false;
-        translationSelector.disabled=false;
-      }
+        const session=data&&data.session?data.session:data;if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
+        course=requestedCourse;translationLanguage=requestedTranslation;courseSelector.value=requestedCourse;translationSelector.value=requestedTranslation;
+        document.getElementById("preferenceLearning").value=requestedCourse;document.getElementById("preferenceTranslation").value=requestedTranslation;
+        quizApplyPageTranslation();quizPageState.session=session;quizRenderSession();await quizLoadHistoryAndAvailability();
+      }catch(error){if(currentUser?.id===requestedUserId){await quizLoadHome().catch(()=>{});const message=/Daily Quiz (?:allowance exhausted|start limit reached)/i.test(error.message||"")?quizT("Your daily Quiz allowance is exhausted.","今日测验额度已用完。"):(error.message||"Could not start this Quiz.");quizStatus(message,true);}}
+      finally{courseSelector.disabled=false;translationSelector.disabled=false;}
     }
     async function quizSubmit(){
-      const s=quizPageState.session;if(!s)return;
+      const s=quizPageState.session;if(!s||quizPageState.saving)return;
       const missing=s.questions.filter(q=>!q.selected_option_id).length;
       if(missing){quizStatus("Please answer all "+missing+" remaining question"+(missing===1?"":"s")+" before submitting.",true);return;}
-      if(!confirm("Submit this Quiz? You will be able to review every answer, but cannot change it afterwards."))return;
+      const sessionId=s.session_id,userId=currentUser?.id||null,translationCode=quizEffectiveTranslationCode(s),useChinese=translationCode==="zh";
+      const submitWarning=useChinese
+        ?"确定提交并结束本次测验吗？提交后你可以查看答案，但不能再更改作答。"
+        :"Submit this Quiz and finish your attempt? You can review your answers afterwards, but you cannot change them.";
+      if(typeof window.showLearningAllowanceConfirmation!=="function"){
+        quizStatus(useChinese?"确认对话框无法加载，请刷新页面后再提交。":"The confirmation dialog could not be loaded. Please refresh before submitting.",true);
+        return;
+      }
+      const confirmed=await window.showLearningAllowanceConfirmation(submitWarning,{
+        confirmLabel:useChinese?"提交测验":"Submit Quiz",
+        cancelLabel:useChinese?"继续作答":"Keep answering"
+      });
+      if(!confirmed)return;
+      if(currentUser?.id!==userId||quizPageState.session?.session_id!==sessionId){
+        quizStatus(useChinese?"测验或账户已发生变化，请检查当前测验后再提交。":"The Quiz or account changed while awaiting confirmation. Please check the current session before submitting.",true);
+        return;
+      }
       try{
         quizStatus("Submitting your Quiz…");quizPageState.saving=true;
-        const {data,error}=await quizCall("submit_my_quiz",{p_session_id:s.session_id});if(error)throw error;
+        const {data,error}=await quizCall("submit_my_quiz",{p_session_id:sessionId});if(error)throw error;
         quizPageState.saving=false;quizPageState.result=data;quizRenderResult(data);
         await quizLoadHistoryAndAvailability();
       }catch(error){quizPageState.saving=false;quizStatus(error.message||"Could not submit the Quiz.",true);}
@@ -20277,31 +20649,44 @@ async function completeLesson(x){
         if(!a.error)quizRenderAvailability(a.data||{});if(!h.error)quizRenderHistory(h.data||[]);
       }catch(error){console.warn("Quiz overview refresh failed:",error.message);}
     }
-    function quizRenderResult(data){
-      quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
-      const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0;
-      const effectiveTranslation=quizEffectiveTranslationCode(data);
-      const showTranslation=effectiveTranslation!== (data.learning_language_code||"en") && quizTranslationVisible(effectiveTranslation);
-      quizUpdateTranslationNotice(data);
-      const questions=data.questions||[];
-      quizEl("quizResultsContent").innerHTML='<div class="quiz-results-score"><span class="eyebrow">Quiz completed</span><strong>'+pct+'%</strong><h2>'+score+' correct out of '+total+'</h2><p class="muted-note">Your score is recorded. There is no pass or fail result.</p></div><h2>Answer review</h2><div class="quiz-review-list">'+questions.map((q,index)=>{
-        const chineseTranslationQuestion=q.question_type==="chinese_translation";
+    function quizBuildResultMarkup(data){
+      const score=Number(data.correct_count)||0,total=Number(data.question_count)||0,pct=Number(data.percentage)||0,effectiveTranslation=quizEffectiveTranslationCode(data),showTranslation=effectiveTranslation!==(data.learning_language_code||"en")&&quizTranslationVisible(effectiveTranslation),questions=data.questions||[];
+      const questionCards=questions.map((q,index)=>{
+        const chineseTranslationQuestion=q.question_type==="chinese_translation",chosen=q.options?.find(o=>o.id===q.selected_option_id),isCorrect=!!chosen&&chosen.id===q.correct_option_id;
         const opts=(q.options||[]).map((o,i)=>{
-          const correct=o.id===q.correct_option_id,chosen=o.id===q.selected_option_id;
-          const primaryText=chineseTranslationQuestion?o.translation_text:o.learning_text;
-          const secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?" · "+o.learning_text:""):(showTranslation?" · "+o.translation_text:"");
-          return '<div class="quiz-review-option '+(correct?'correct':chosen?'chosen-wrong':'')+'">'+String.fromCharCode(65+i)+'. '+quizEscape(primaryText)+(secondaryText?quizEscape(secondaryText):'')+(correct?' — Correct answer':chosen?' — Your answer':'')+'</div>';
+          const correct=o.id===q.correct_option_id,selected=o.id===q.selected_option_id,primaryText=chineseTranslationQuestion?o.translation_text:o.learning_text,secondaryText=chineseTranslationQuestion?(effectiveTranslation==="en"?" · "+o.learning_text:""):(showTranslation?" · "+o.translation_text:"");
+          return '<div class="quiz-review-option '+(correct?'correct':selected?'chosen-wrong':'')+'"><span class="quiz-review-option-letter">'+String.fromCharCode(65+i)+'</span><div class="quiz-review-option-copy"><strong>'+quizEscape(primaryText)+'</strong>'+(data.learning_language_code==="zh"&&o.pinyin?'<small class="quiz-option-pinyin">'+quizEscape(o.pinyin)+'</small>':'')+(secondaryText?'<small>'+quizEscape(secondaryText)+'</small>':'')+'</div><span class="quiz-review-option-status">'+(correct?'✓ Correct':selected?'Your answer':'')+'</span></div>';
         }).join("");
-        return '<article class="quiz-review-question"><h3>'+((index+1)+'. ')+quizEscape(q.prompt_learning)+'</h3>'+(showTranslation?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+opts+'<div class="quiz-review-explanation"><strong>Explanation</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
-      }).join("")+'</div>';
+        return '<article class="quiz-review-question"><header class="quiz-review-question-head"><span>QUESTION '+(index+1)+'</span><span class="quiz-review-result-pill '+(isCorrect?'is-correct':'is-incorrect')+'">'+(isCorrect?'Correct':'Review needed')+'</span></header><h3>'+quizEscape(q.prompt_learning)+'</h3>'+(data.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-review-options">'+opts+'</div><div class="quiz-review-explanation"><strong>Why this is correct</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(data.learning_language_code==="zh"&&q.explanation_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.explanation_pinyin)+'</p>':'')+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
+      }).join("");
+      return '<div class="quiz-review-summary"><div class="quiz-review-heading"><span class="eyebrow">QUIZ COMPLETED</span><h2>Answer review</h2><p>Your answers and the correct explanations are shown below.</p></div><div class="quiz-review-score"><strong>'+pct+'%</strong><span>'+score+' / '+total+' correct</span></div><button type="button" class="secondary-button quiz-review-close-top" data-quiz-review-close aria-label="Close Quiz review" title="Close">×</button></div><div class="quiz-review-list">'+questionCards+'</div>';
+    }
+    function quizRenderResult(data){
+      const resultsWereHidden=quizEl("quizResults").hidden;
+      quizPageState.result=data;quizPageState.sessionView=false;document.body.classList.add("quiz-focused");quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      if(resultsWereHidden)quizAnimateScreen(quizEl("quizResults"));
+      quizUpdateTranslationNotice(data);
+      quizEl("quizResultsContent").innerHTML=quizBuildResultMarkup(data);
       quizEl("quizResultsHome").textContent=quizPageState.returnPage==="profile"?"← Back to Dashboard":"← Back to Quiz";
       quizEl("quizResults").hidden=false;quizStatus("");
     }
     async function quizReview(sessionId,returnPage="quiz"){
       quizPageState.returnPage=returnPage;
-      quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
-      try{quizStatus("Loading answer review…");const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;quizRenderResult(data);}
-      catch(error){quizStatus("Could not load this Quiz review: "+error.message,true);}
+      try{
+        quizStatus(quizT("Loading answer review…","正在加载答案复习…"));
+        const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;
+        if(returnPage==="dashboard"){
+          document.body.classList.add("quiz-focused");
+          openDashboardReview(quizT("Quiz review","测验复习"),quizBuildResultMarkup(data));
+          quizStatus("");
+          return;
+        }
+        quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
+        quizRenderResult(data);
+      }catch(error){
+        if(returnPage==="dashboard")openDashboardReview(quizT("Quiz review","测验复习"),'<p class="muted-note">'+quizEscape(error.message||"Could not load this Quiz review.")+'</p>');
+        else quizStatus("Could not load this Quiz review: "+error.message,true);
+      }
     }
     async function quizAbandon(){
       const s=quizPageState.session;if(!s)return;
@@ -20348,7 +20733,6 @@ async function completeLesson(x){
         if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus("Sign in to access Quiz.");return;}
         await quizSyncCoursePreferences();
         applyLearningCourseAvailability();
-        if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.");quizPageState.loaded=true;return;}
         await quizLoadHome();quizPageState.loaded=true;
       }catch(error){quizStatus("Quiz is not ready on this environment yet. "+(error.message||""),true);}
       finally{quizPageState.loading=false;}
@@ -20358,7 +20742,6 @@ async function completeLesson(x){
     quizEl("lessonsSignIn").addEventListener("click",()=>{quizEl("menuSignIn").click();});
 
     quizEl("quizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-review]");if(button)quizReview(button.dataset.quizReview);});
-    quizEl("dashboardQuizHistory").addEventListener("click",event=>{const button=event.target.closest("[data-dashboard-quiz-review]");if(button){showPage("quiz",true,{skipQuizInitialise:true});quizReview(button.dataset.dashboardQuizReview,"profile");}});
     quizEl("quizResume").addEventListener("click",async()=>{try{const {data,error}=await quizCall("get_my_active_quiz");if(error)throw error;if(!data)throw new Error("No unfinished Quiz was found.");quizPageState.session=data;quizRenderSession();}catch(error){quizStatus(error.message,true);}});
     quizEl("quizQuestionArea").addEventListener("click",event=>{const button=event.target.closest("[data-quiz-option]");if(button)quizChooseOption(button.dataset.quizOption);});
     quizEl("quizPrevious").addEventListener("click",()=>quizMove((quizPageState.session?.current_position||1)-1));
@@ -20366,6 +20749,7 @@ async function completeLesson(x){
     quizEl("quizSubmit").addEventListener("click",quizSubmit);
     quizEl("quizAbandon").addEventListener("click",quizAbandon);
     quizEl("quizBackHome").addEventListener("click",async()=>{quizPageState.sessionView=false;await quizLoadHome();});
+    quizEl("quizResultsContent").addEventListener("click",async event=>{if(event.target.closest("[data-quiz-review-close]")){const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();}});
     quizEl("quizResultsHome").addEventListener("click",async()=>{const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();});
     window.addEventListener("swift-auth-updated",()=>{
       const nextUserId=currentUser?.id||null;
@@ -20373,7 +20757,8 @@ async function completeLesson(x){
       // session that the learner has already resumed when that same account's
       // delayed auth notification arrives. Reset only when identity changes.
       if(quizPageState.userId===nextUserId)return;
-      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,sessionView:false,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
+      document.body.classList.remove("quiz-focused");
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,sessionView:false,result:null,history:[],historyPage:0,saving:false,selectedReviewId:null,returnPage:"quiz"};
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
@@ -20500,19 +20885,19 @@ quizEl("lessonsChineseUnavailable").hidden=true;
       quizEl("dailyLearningPage").hidden=!lessonsSignedIn;
 quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=!lessonsSignedIn;
 quizEl("lessonLibrary").hidden=!lessonsSignedIn;
-      quizEl("quizChineseUnavailable").hidden=!chinese;
-      const quizSignedIn=!chinese&&!!currentUser;
+      quizEl("quizChineseUnavailable").hidden=true;
+      const quizSignedIn=!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
       const showQuizSession=quizSignedIn&&!showQuizResults&&!!quizPageState.session&&!!quizPageState.sessionView;
       const showQuizHome=quizSignedIn&&!showQuizResults&&!showQuizSession;
       quizEl("quizHome").hidden=!showQuizHome;
       quizEl("quizSession").hidden=!showQuizSession;
       quizEl("quizResults").hidden=!showQuizResults;
-      quizEl("quizSignedOut").hidden=chinese||!!currentUser;
-      quizUpdateTranslationNotice(chinese?null:(quizPageState.session||quizPageState.result));
-      quizEl("flashcardsChineseUnavailable").hidden=!chinese;
+      quizEl("quizSignedOut").hidden=!!currentUser;
+      quizUpdateTranslationNotice(quizPageState.session||quizPageState.result);
+      quizEl("flashcardsChineseUnavailable").hidden=true;
       const flashComing=quizEl("flashcardsPage").querySelector(".coming-card");
-      if(flashComing)flashComing.hidden=chinese;
+      if(flashComing)flashComing.hidden=true;
     }
     const originalRememberCoursePreferences = rememberCoursePreferences;
     rememberCoursePreferences = function(){originalRememberCoursePreferences();applyLearningCourseAvailability();};
@@ -20576,8 +20961,10 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
     });
   </script>
 
-  <script src="daily-learning.js"></script>
-  <script src="flashcards.js?v=2.6.1-r1"></script>
+  <script src="daily-learning.js?v=2.8.0-r4"></script>
+  <script src="permanent-lesson-confirmation.js?v=2.8.0-r1"></script>
+  <script src="data/chinese-flashcards.js?v=2.8.0-draft3"></script>
+  <script src="flashcards.js?v=2.8.0-r4"></script>
   <script src="account-deletion.js?v=2.6.0-r4"></script>
 <div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>

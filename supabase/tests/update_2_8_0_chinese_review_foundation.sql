@@ -1,0 +1,281 @@
+-- U2.8.0 schema and owner-scoped practice-attempt RPC test.
+begin;
+
+do $security_wrapper_assertions$
+begin
+  if (select p.prosecdef from pg_catalog.pg_proc p
+      where p.oid='public.is_personal_learning_test_access()'::regprocedure) then
+    raise exception 'Personal learning test-access RPC must remain SECURITY INVOKER';
+  end if;
+  if (select p.prosecdef from pg_catalog.pg_proc p
+      where p.oid='public.record_completed_lesson_practice_result_for_language(text,text,text,text,integer,integer)'::regprocedure) then
+    raise exception 'Lesson practice result public RPC must remain SECURITY INVOKER';
+  end if;
+  if not (select p.prosecdef from pg_catalog.pg_proc p
+      where p.oid='private.record_completed_lesson_practice_result_for_language_impl(text,text,text,text,integer,integer)'::regprocedure) then
+    raise exception 'Private lesson practice implementation must remain SECURITY DEFINER';
+  end if;
+  if has_function_privilege('anon','public.is_personal_learning_test_access()','EXECUTE')
+     or has_function_privilege('anon','public.record_completed_lesson_practice_result_for_language(text,text,text,text,integer,integer)','EXECUTE') then
+    raise exception 'Anonymous users must not execute authenticated lesson RPCs';
+  end if;
+end;
+$security_wrapper_assertions$;
+
+insert into auth.users(id,aud,role,email,email_confirmed_at,created_at,updated_at)
+values
+ ('28000000-0000-4000-8000-000000000001','authenticated','authenticated','u280-practice@example.invalid',now(),now(),now()),
+ ('28000000-0000-4000-8000-000000000002','authenticated','authenticated','u280-other@example.invalid',now(),now(),now())
+on conflict(id) do nothing;
+
+insert into private.flashcard_sessions(
+ id,user_id,mode,difficulty,status,words_seen,correct_count,incorrect_count,
+ unanswered_count,started_at,completed_at,duration_seconds,learning_language_code,translation_language_code
+) values
+ ('28000000-0000-4000-8000-000000000101','28000000-0000-4000-8000-000000000001','word','beginner','in_progress',null,null,null,null,now()-interval '2 minutes',null,60,'zh','zh'),
+ ('28000000-0000-4000-8000-000000000102','28000000-0000-4000-8000-000000000002','word','beginner','completed',1,1,0,0,now()-interval '2 minutes',now(),60,'zh','zh');
+
+select set_config('request.jwt.claims',
+ '{"sub":"28000000-0000-4000-8000-000000000001","role":"authenticated"}',true);
+
+insert into private.flashcard_session_items(
+ session_id,user_id,position,card_key,recall_mode,prompt_snapshot,card_snapshot,options_snapshot,
+ selected_option_index,correct_option_index,selected_answer_snapshot,correct_answer_snapshot,is_correct,unanswered
+) values (
+ '28000000-0000-4000-8000-000000000101','28000000-0000-4000-8000-000000000001',1,
+ 'dict:zh:好','word','Choose the correct Pinyin pronunciation',
+ '{"word":"好","pinyin":"hǎo","translation_zh":"很好","course":"zh"}'::jsonb,
+ '[{"text":"hǎo","card_key":"dict:zh:好","word":"好"},{"text":"hào","card_key":"dict:zh:号","word":"号"},{"text":"hāo","card_key":"dict:zh:蒿","word":"蒿"},{"text":"hǎi","card_key":"dict:zh:海","word":"海"}]'::jsonb,
+ 0,0,'hǎo','hǎo',true,false
+);
+update private.flashcard_sessions set status='completed',words_seen=1,correct_count=1,incorrect_count=0,unanswered_count=0,completed_at=now()
+where id='28000000-0000-4000-8000-000000000101';
+
+insert into private.learning_content_catalog(activity_type,content_id,topic_id,difficulty,language_code,is_active)
+values('permanent_lesson','u280-test-lesson','u280-test-topic','beginner','zh',true)
+on conflict(activity_type,content_id,language_code)
+do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=true;
+
+insert into public.user_preferences(user_id,learning_language,translation_language,timezone)
+values('28000000-0000-4000-8000-000000000001','zh','zh','Asia/Kuala_Lumpur')
+on conflict(user_id) do update set learning_language='zh',translation_language='zh',timezone='Asia/Kuala_Lumpur';
+
+insert into private.learning_content_catalog(activity_type,content_id,topic_id,difficulty,language_code,is_active)
+values('daily_application','u280-daily-application','u280-daily-topic','beginner','zh',true)
+on conflict(activity_type,content_id,language_code)
+do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=true;
+
+insert into private.learning_content_catalog(activity_type,content_id,topic_id,difficulty,language_code,is_active)
+select 'permanent_lesson',
+       'u280-zh-'||d.code||'-lesson-'||n::text,
+       'u280-topic-'||d.code||'-'||n::text,
+       d.code,'zh',true
+from (values('beginner'),('intermediate'),('advanced')) as d(code)
+cross join generate_series(1,3) as n
+on conflict(activity_type,content_id,language_code)
+do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=true;
+
+with numbered as (
+ select gs,
+   case when gs<=30 then 'beginner' when gs<=66 then 'intermediate' else 'advanced' end as difficulty,
+   ((gs-1)%3)+1 as topic_number
+ from generate_series(1,114) as gs
+)
+insert into private.quiz_question_bank(
+ question_id,revision,learning_language_code,translation_language_code,
+ source_lesson_id,topic_id,difficulty,question_type,answer_language_code,
+ learning_objective_id,prompt_learning,prompt_translation,prompt_pinyin,options,
+ correct_option_id,explanation_learning,explanation_translation,explanation_pinyin,status,approved_at
+)
+select
+ 'u280-zh-'||difficulty||'-'||lpad(gs::text,3,'0'),1,'zh','en',
+ 'u280-zh-'||difficulty||'-lesson-'||topic_number,
+ 'u280-topic-'||difficulty||'-'||topic_number,difficulty,'knowledge','zh',
+ 'u280-objective','测试题目 '||gs||'：请选择正确的汉字。',
+ 'Test question '||gs||': choose the correct Chinese character.',
+ 'cè shì tí mù, qǐng xuǎn zé zhèng què de hàn zì.',
+ jsonb_build_array(
+  jsonb_build_object('id','o1','learning_text','好','translation_text','good','pinyin','hǎo'),
+  jsonb_build_object('id','o2','learning_text','大','translation_text','big','pinyin','dà'),
+  jsonb_build_object('id','o3','learning_text','小','translation_text','small','pinyin','xiǎo'),
+  jsonb_build_object('id','o4','learning_text','人','translation_text','person','pinyin','rén')
+ ),
+ 'o1','“好”表示良好、不错或令人满意。','“好” means good, well or satisfactory.',
+ 'hǎo biǎo shì liáng hǎo, bú cuò huò lìng rén mǎn yì.','approved',now()
+from numbered
+on conflict(question_id,revision) do nothing;
+
+-- Supplemental English-prompt / Chinese-answer items are eligible only for
+-- the Chinese-learning + English-translation preference.
+with numbered as (
+ select gs,
+   case when gs<=30 then 'beginner' when gs<=60 then 'intermediate' else 'advanced' end as difficulty,
+   ((gs-1)%3)+1 as topic_number
+ from generate_series(1,90) as gs
+)
+insert into private.quiz_question_bank(
+ question_id,revision,learning_language_code,translation_language_code,
+ source_lesson_id,topic_id,difficulty,question_type,answer_language_code,
+ learning_objective_id,prompt_learning,prompt_translation,prompt_pinyin,options,
+ correct_option_id,explanation_learning,explanation_translation,explanation_pinyin,status,approved_at
+)
+select
+ 'u280-zh-'||difficulty||'-translation-'||lpad(gs::text,3,'0'),1,'zh','en',
+ 'u280-zh-'||difficulty||'-lesson-'||topic_number,
+ 'u280-topic-'||difficulty||'-'||topic_number,difficulty,'chinese_translation','zh',
+ 'u280-objective','Choose the Simplified Chinese equivalent of test phrase '||gs||'.',
+ 'Choose the most natural Simplified Chinese equivalent.','',
+ jsonb_build_array(
+  jsonb_build_object('id','o1','learning_text','good morning','translation_text','早上好','pinyin','zǎo shang hǎo'),
+  jsonb_build_object('id','o2','learning_text','thank you','translation_text','谢谢','pinyin','xiè xie'),
+  jsonb_build_object('id','o3','learning_text','goodbye','translation_text','再见','pinyin','zài jiàn'),
+  jsonb_build_object('id','o4','learning_text','you are welcome','translation_text','不客气','pinyin','bú kè qi')
+ ),
+ 'o1','“早上好”是早晨见面时常用的问候语。','早上好 is a common greeting used when meeting someone in the morning.',
+ '“zǎo shang hǎo” shì zǎo chén jiàn miàn shí cháng yòng de wèn hòu yǔ.','approved',now()
+from numbered
+on conflict(question_id,revision) do nothing;
+
+set local role authenticated;
+select set_config('request.jwt.claims',
+ '{"sub":"28000000-0000-4000-8000-000000000001","role":"authenticated"}',true);
+
+-- Exercise the protected lifecycle RPCs rather than bypassing their triggers.
+create temporary table u280_daily_session_ref(session_id uuid) on commit drop;
+insert into pg_temp.u280_daily_session_ref(session_id)
+select (public.start_daily_activity_session(
+ 'daily_application','u280-daily-application','u280-daily-topic','beginner','daily'
+)).id;
+select public.complete_daily_activity_session(
+ (select session_id from pg_temp.u280_daily_session_ref),3,5
+);
+
+do $test$
+declare v_saved jsonb; v_rows jsonb; v_quiz1 jsonb; v_daily_session_id uuid; v_quiz2 jsonb; v_quiz_mid jsonb; v_quiz_adv jsonb; v_avail jsonb; v_overlap integer; v_daily jsonb;
+ v_mid_i integer; v_mid_b integer; v_adv_a integer; v_adv_i integer; v_adv_b integer;
+begin
+ if auth.uid()<>'28000000-0000-4000-8000-000000000001'::uuid then
+   raise exception 'Test JWT subject was not recognised';
+ end if;
+ v_saved:=public.record_my_lesson_practice_attempt(
+   'zh','beginner','u280-test-lesson','u280-test-topic',3,5,4,2
+ );
+ if coalesce((v_saved->>'saved')::boolean,false) is not true then
+   raise exception 'Practice attempt was not saved: %',v_saved;
+ end if;
+ v_rows:=public.get_my_lesson_practice_attempts(10);
+ if jsonb_array_length(v_rows)<>1
+    or (v_rows->0->>'first_try_correct_count')::integer<>3
+    or (v_rows->0->>'incorrect_attempt_count')::integer<>4
+    or (v_rows->0->>'retry_count')::integer<>2 then
+   raise exception 'Practice attempt aggregates were not preserved: %',v_rows;
+ end if;
+ select session_id into v_daily_session_id from pg_temp.u280_daily_session_ref;
+ v_daily:=public.record_my_daily_practice_attempt(
+   v_daily_session_id,2,4,3
+ );
+ if (v_daily->>'first_try_correct_count')::integer<>2
+    or (v_daily->>'incorrect_attempt_count')::integer<>4
+    or (v_daily->>'retry_count')::integer<>3 then
+   raise exception 'Daily Learning first-try/retry statistics were not saved: %',v_daily;
+ end if;
+ v_rows:=public.get_my_flashcard_game_review('28000000-0000-4000-8000-000000000101');
+ if coalesce((v_rows->>'review_available')::boolean,false) is not true
+    or jsonb_array_length(v_rows->'items')<>1
+    or coalesce((v_rows->'items'->0->>'is_correct')::boolean,false) is not true then
+   raise exception 'Full completed Flashcard review did not return correct cards: %',v_rows;
+ end if;
+ v_avail:=public.get_my_quiz_availability();
+ if jsonb_array_length(v_avail->'difficulties')<>3
+    or exists(select 1 from jsonb_array_elements(v_avail->'difficulties') d where coalesce((d->>'available')::boolean,false) is not true) then
+   raise exception 'Chinese Quiz bank availability did not satisfy the configured minimums: %',v_avail;
+ end if;
+ v_quiz1:=public.start_my_quiz('beginner','zh','zh');
+ if v_quiz1->>'learning_language_code'<>'zh'
+    or v_quiz1->>'translation_language_code'<>'zh'
+    or jsonb_array_length(v_quiz1->'questions')<>10
+    or exists(select 1 from jsonb_array_elements(v_quiz1->'questions') q where nullif(q->>'prompt_pinyin','') is null
+       or q->>'question_type'<>'knowledge'
+       or exists(select 1 from jsonb_array_elements(q->'options') o where nullif(o->>'pinyin','') is null)) then
+   raise exception 'Chinese Quiz did not return a Pinyin-complete Chinese-focused session: %',v_quiz1;
+ end if;
+ perform public.abandon_my_quiz((v_quiz1->>'session_id')::uuid);
+ v_quiz2:=public.start_my_quiz('beginner','zh','en');
+ if v_quiz2->>'translation_language_code'<>'en'
+    or (select count(*) from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation')<>1
+    or (select count(*) from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='knowledge')<>9
+    or exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='knowledge' and nullif(q->>'prompt_translation','') is null)
+    or exists(select 1 from jsonb_array_elements(v_quiz2->'questions') q where q->>'question_type'='chinese_translation' and nullif(q->>'prompt_pinyin','') is not null) then
+   raise exception 'Chinese Quiz did not include English-to-Chinese items only for the English translation preference: %',v_quiz2;
+ end if;
+ select count(*) into v_overlap
+ from jsonb_array_elements(v_quiz1->'questions') a
+ join jsonb_array_elements(v_quiz2->'questions') b
+   on a->>'question_id'=b->>'question_id';
+ if v_overlap<>0 then raise exception 'Chinese Quiz repeated questions across translation preferences'; end if;
+
+ perform public.abandon_my_quiz((v_quiz2->>'session_id')::uuid);
+ v_quiz_mid:=public.start_my_quiz('intermediate','zh','en');
+ select count(*) filter(where q->>'source_difficulty'='intermediate')::integer,
+        count(*) filter(where q->>'source_difficulty'='beginner')::integer
+   into v_mid_i,v_mid_b
+ from jsonb_array_elements(v_quiz_mid->'questions') q;
+ if jsonb_array_length(v_quiz_mid->'questions')<>15 or v_mid_i<>12 or v_mid_b<>3 then
+   raise exception 'Chinese Intermediate Quiz composition must be 12 intermediate + 3 beginner: %',v_quiz_mid;
+ end if;
+ perform public.abandon_my_quiz((v_quiz_mid->>'session_id')::uuid);
+
+ v_quiz_adv:=public.start_my_quiz('advanced','zh','en');
+ select count(*) filter(where q->>'source_difficulty'='advanced')::integer,
+        count(*) filter(where q->>'source_difficulty'='intermediate')::integer,
+        count(*) filter(where q->>'source_difficulty'='beginner')::integer
+   into v_adv_a,v_adv_i,v_adv_b
+ from jsonb_array_elements(v_quiz_adv->'questions') q;
+ if jsonb_array_length(v_quiz_adv->'questions')<>20 or v_adv_a<>12 or v_adv_i<>6 or v_adv_b<>2 then
+   raise exception 'Chinese Advanced Quiz composition must be 12 advanced + 6 intermediate + 2 beginner: %',v_quiz_adv;
+ end if;
+ perform public.abandon_my_quiz((v_quiz_adv->>'session_id')::uuid);
+
+ begin
+   perform public.get_my_flashcard_game_review('28000000-0000-4000-8000-000000000102');
+   raise exception 'Another account Flashcard review was exposed';
+ exception when sqlstate 'P0002' then null;
+ end;
+ begin
+   perform public.record_my_lesson_practice_attempt('zh','beginner','not-approved','u280-test-topic',1,1,0,0);
+   raise exception 'Unapproved lesson attempt was accepted';
+ exception when sqlstate '22023' then null;
+ end;
+end
+$test$;
+
+reset role;
+
+do $test$
+begin
+ if not (select relrowsecurity from pg_class where oid='private.lesson_practice_attempts'::regclass) then
+   raise exception 'Practice attempt table must have RLS enabled';
+ end if;
+ if has_table_privilege('authenticated','private.lesson_practice_attempts','SELECT')
+    or has_table_privilege('anon','private.lesson_practice_attempts','SELECT') then
+   raise exception 'Direct API-role access to practice attempts must remain revoked';
+ end if;
+ if not (select relrowsecurity from pg_class where oid='private.flashcard_session_items'::regclass) then
+   raise exception 'Flashcard snapshot table must have RLS enabled';
+ end if;
+ if has_table_privilege('authenticated','private.flashcard_session_items','SELECT')
+    or has_table_privilege('anon','private.flashcard_session_items','SELECT') then
+   raise exception 'Direct API-role access to Flashcard snapshots must remain revoked';
+ end if;
+ if not exists(select 1 from pg_constraint where conname='flashcard_sessions_mode_check'
+   and pg_get_constraintdef(oid) like '%translation%') then
+   raise exception 'Translation Recall must be accepted by Flashcard session mode constraint';
+ end if;
+ if not exists(select 1 from pg_attribute where attrelid='private.quiz_session_questions'::regclass
+   and attname='learning_language_code_snapshot' and attnotnull) then
+   raise exception 'Quiz question language snapshot is missing';
+ end if;
+end
+$test$;
+
+rollback;

@@ -21,7 +21,7 @@ assert(daily.includes("function setDailyPreferenceStatus"));
 assert(daily.includes('byId("dailyPreferencesStatus")'));
 const permanent=html.slice(l0,l1);
 for(const id of ['class="difficulty-tabs"','id="lessonAllowance"','id="lessonCards"'])assert(permanent.includes(id));
-assert(html.includes("lessons-ui.css?v=2.7.0-ui7"));
+assert(html.includes("lessons-ui.css?v=2.8.0-ui11"));
 assert.match(html, /dailyLearningPage"\)\.hidden=!lessonsSignedIn/); assert(html.includes('class="lesson-key-point lesson-expandable-item"'));
 for(const key of ["daily_topic","daily_application","daily_discovery","daily_revision"])assert(css.includes('.daily-activity-tab[data-daily-tab="'+key+'"]'));
 assert(css.includes("border-bottom-color:var(--daily-theme-bg)")); assert(css.includes("grid-template-columns:repeat(4,minmax(0,1fr))")); assert(css.includes("overflow:visible!important")); assert(css.includes("width:50vw")); assert(css.includes("max-width:1320px")); assert(css.includes("flex-basis:62vw;width:62vw")); assert(css.includes("flex-basis:100vw;width:100vw"));
@@ -53,7 +53,7 @@ assert(normalDrawerRule.includes("opacity:1;") && !normalDrawerRule.includes("op
 assert(html.includes('id="dailyLearningAllowanceNote"'));
 assert(daily.includes("Each activity has one daily allowance shared between English and Simplified Chinese."));
 assert(daily.includes("每种活动在英语和简体中文课程之间共用每日额度。"));
-assert(daily.includes('if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false))'), "Daily Discovery must show a locked item when the shared allowance was spent in another course.");
+assert(daily.includes('if(!cards.length && scheduled[0]) {') && daily.includes('const replayRow=historicalReplayRows.find(row=>row.content_id===scheduled[0].id)') && daily.includes('cards.push(replayRow?renderCard(scheduled[0],0,true,replayRow):renderCard(scheduled[0],0,false))'), "Daily Discovery must keep a scheduled item visible when the shared allowance was spent in another course.");
 assert(css.includes("animation:none !important"));
 assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
@@ -66,7 +66,8 @@ console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, t
 assert(daily.includes('const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";'));
 assert(daily.includes('drawerPanel.getBoundingClientRect()'));
 assert(daily.includes('window.addEventListener("swiftdictionary:course-changed"'));
-assert(daily.includes('snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed"'));
+assert(daily.includes('snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed"'));
+assert(daily.includes("snapshot.dailyResults || []"),"All-time history remains available to prevent reusing previously completed content.");
 assert(daily.includes('.eq("language_code",language).eq("status","completed")'));
 assert(daily.includes('.eq("language_code",language).eq("status","in_progress")'));
 assert(daily.includes('panelDescription'));
@@ -123,7 +124,7 @@ assert(css.includes("#dailyActivityReader.open .daily-activity-modal"));
 assert(css.includes("#dailyActivityReader.closing .daily-activity-modal"));
 assert(css.includes("transition:opacity .12s ease !important") && css.includes("transform:none !important"), "Reduced-motion users should receive a brief fade without the sliding panel.");
 assert(build.includes("lessons-ui") && build.includes("2.7.0-r9"));
-assert(build.includes("daily-learning[.]js") && build.includes("2.7.0-r10"));
+assert(build.includes("daily-learning[.]js") && build.includes("2.8.0-r1"));
 
 assert(daily.includes(" ? 120 : 500"));
 

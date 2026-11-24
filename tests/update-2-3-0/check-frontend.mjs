@@ -421,9 +421,11 @@ const languageSnapshot = dailyScript.indexOf("learningLanguage:language");
 if (languageDeclaration < 0 || languageSnapshot < 0 || languageDeclaration > languageSnapshot) {
   throw new Error("Daily Learning must declare the saved learning language before building its snapshot.");
 }
+if (!dailyScript.includes('from("lesson_practice_results")') || !dailyScript.includes('from("daily_activity_sessions")')) {
+  throw new Error("Daily Learning practice-history queries must remain in daily-learning.js.");
+}
 for (const fragment of [
-  'from("lesson_practice_results").select("topic_id,correct_count,question_count,attempted_at")',
-  'from("daily_activity_sessions").select("topic_id,correct_count,question_count,completed_at")',
+  'rpc("get_my_lesson_practice_attempts"',
   'getElementById("practiceAccuracy").textContent',
   'getElementById("practiceTopicsDue").textContent',
   'getElementById("practiceSummaries").textContent'
@@ -460,7 +462,7 @@ const dashboardStart = html.indexOf('<section id="profilePage"');
 const preferencesStart = html.indexOf('<section id="preferencesPage"');
 const dashboardShell = html.slice(dashboardStart,preferencesStart);
 const preferencesShell = html.slice(preferencesStart);
-if (/Account preferences|Delete Account|Learning history/i.test(dashboardShell)
+if (/id="preferencesForm"|id="accountDeletionCard"|id="deleteLearningHistoryButton"/i.test(dashboardShell)
     || !/Account preferences/i.test(preferencesShell)
     || !/id="accountDeletionCard"/i.test(preferencesShell)
     || !/Delete Account/i.test(preferencesShell)
@@ -475,7 +477,7 @@ if (dailyScript.includes('.from("daily_activity_sessions").insert(')
   throw new Error("Daily Learning frontend must use server RPCs, not direct activity-log/session INSERTs.");
 }
 if (!dailyScript.includes("const disabled = !!disabledReason || (exhausted && !alreadyCompleted);")
-    || !dailyScript.includes("const completedRows = (snapshot.dailyResults || [])")
+    || !dailyScript.includes("const completedRows = (snapshot.completedToday || [])")
     || !dailyScript.includes("renderCard(item,null,true)")
     || !dailyScript.includes("role=\"tablist\"")
     || !dailyScript.includes("daily-activity-cards")
@@ -609,9 +611,9 @@ if (!mockElements.dailyActivityGrid.innerHTML.includes('data-start-daily="daily_
 }
 const renderedTopicCards = mockElements.dailyActivityGrid.innerHTML
   .split('<article class="daily-activity-card" data-activity-card="daily_topic">').slice(1);
-if (!renderedTopicCards.some(card => card.includes("Completed · replay is free") && card.includes("Past simple or present perfect?"))
+if (renderedTopicCards.some(card => card.includes("Completed · replay is free"))
     || !renderedTopicCards.some(card => card.includes("New activity") && !card.includes("Past simple or present perfect?"))) {
-  throw new Error("Daily Topic must preserve completed review content while selecting a separate unused activity.");
+  throw new Error("Daily Topic must hide prior-day completed review cards while selecting a separate unused activity.");
 }
 mockData.daily_activity_sessions = curated.topics.map(item => item.id).map(content_id => ({
   user_id:"test-user",activity_type:"daily_topic",language_code:"en",content_id,topic_id:"test-topic",

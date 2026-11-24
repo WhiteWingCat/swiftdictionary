@@ -170,3 +170,111 @@ begin
   end loop;
 end;
 $runtime_fixture_assert$;
+
+-- Chinese-learning synthetic bank for U2.8.0 browser coverage. These rows
+-- exist only in the disposable local Supabase CI database.
+insert into private.learning_content_catalog(
+  activity_type,content_id,topic_id,difficulty,language_code,is_active
+)
+select 'permanent_lesson',
+       'zh-'||d.prefix||'-runtime-lesson-'||n,
+       'quiz-runtime-topic-zh-'||d.prefix||'-'||n,
+       d.difficulty,'zh',true
+from (values ('b','beginner'),('i','intermediate'),('a','advanced')) d(prefix,difficulty)
+cross join generate_series(1,3) n
+on conflict(activity_type,content_id,language_code)
+do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=true;
+
+with numbered as (
+ select gs,
+   case when gs<=30 then 'beginner' when gs<=66 then 'intermediate' else 'advanced' end as difficulty,
+   case when gs<=30 then 'b' when gs<=66 then 'i' else 'a' end as prefix,
+   ((gs-1)%3)+1 as topic_number
+ from generate_series(1,114) gs
+)
+insert into private.quiz_question_bank(
+ question_id,revision,learning_language_code,translation_language_code,
+ source_lesson_id,topic_id,difficulty,question_type,answer_language_code,
+ learning_objective_id,prompt_learning,prompt_translation,prompt_pinyin,options,
+ correct_option_id,explanation_learning,explanation_translation,explanation_pinyin,status,approved_at
+)
+select
+ 'zh-'||prefix||'-runtime-'||lpad(gs::text,3,'0'),1,'zh','en',
+ 'zh-'||prefix||'-runtime-lesson-'||topic_number,
+ 'quiz-runtime-topic-zh-'||prefix||'-'||topic_number,difficulty,'knowledge','zh',
+ 'zh-runtime-objective-'||prefix,
+ '哪个汉字表示“好”？','Which Chinese character means “good”?','nǎ gè hàn zì biǎo shì hǎo?',
+ jsonb_build_array(
+  jsonb_build_object('id','o1','learning_text','好','translation_text','good','pinyin','hǎo'),
+  jsonb_build_object('id','o2','learning_text','大','translation_text','big','pinyin','dà'),
+  jsonb_build_object('id','o3','learning_text','小','translation_text','small','pinyin','xiǎo'),
+  jsonb_build_object('id','o4','learning_text','人','translation_text','person','pinyin','rén')
+ ),
+ 'o1','“好”表示良好、不错或令人满意。','好 means good, well or satisfactory.',
+ '“hǎo” biǎo shì liáng hǎo, bú cuò huò lìng rén mǎn yì.','approved',now()
+from numbered
+on conflict(question_id,revision) do nothing;
+
+with numbered as (
+ select gs,
+   case when gs<=7 then 'beginner' when gs<=12 then 'intermediate' else 'advanced' end as difficulty,
+   case when gs<=7 then 'b' when gs<=12 then 'i' else 'a' end as prefix,
+   ((gs-1)%3)+1 as topic_number
+ from generate_series(1,17) gs
+)
+insert into private.quiz_question_bank(
+ question_id,revision,learning_language_code,translation_language_code,
+ source_lesson_id,topic_id,difficulty,question_type,answer_language_code,
+ learning_objective_id,prompt_learning,prompt_translation,prompt_pinyin,options,
+ correct_option_id,explanation_learning,explanation_translation,explanation_pinyin,status,approved_at
+)
+select
+ 'zh-'||prefix||'-runtime-en-'||lpad(gs::text,3,'0'),1,'zh','en',
+ 'zh-'||prefix||'-runtime-lesson-'||topic_number,
+ 'quiz-runtime-topic-zh-'||prefix||'-'||topic_number,difficulty,'chinese_translation','zh',
+ 'zh-runtime-objective-'||prefix,
+ 'Translate “good morning” into Simplified Chinese (runtime item '||gs||').',
+ 'Choose the most natural Simplified Chinese equivalent.','',
+ jsonb_build_array(
+  jsonb_build_object('id','o1','learning_text','good morning','translation_text','早上好','pinyin','zǎo shang hǎo'),
+  jsonb_build_object('id','o2','learning_text','thank you','translation_text','谢谢','pinyin','xiè xie'),
+  jsonb_build_object('id','o3','learning_text','goodbye','translation_text','再见','pinyin','zài jiàn'),
+  jsonb_build_object('id','o4','learning_text','you are welcome','translation_text','不客气','pinyin','bú kè qi')
+ ),
+ 'o1','“早上好”是早晨见面时常用的问候语。','早上好 is a common morning greeting.',
+ '“zǎo shang hǎo” shì zǎo chén jiàn miàn shí cháng yòng de wèn hòu yǔ.','approved',now()
+from numbered
+on conflict(question_id,revision) do nothing;
+
+do $chinese_runtime_fixture_assert$
+declare v record;
+begin
+  for v in
+    select d.difficulty,
+      count(q.question_id) filter(where q.question_type='knowledge')::integer as knowledge_count,
+      count(distinct q.topic_id) filter(where q.question_type='knowledge')::integer as knowledge_topics,
+      count(q.question_id) filter(where q.question_type='chinese_translation')::integer as translation_count,
+      count(distinct q.topic_id) filter(where q.question_type='chinese_translation')::integer as translation_topics
+    from (values ('beginner'),('intermediate'),('advanced')) d(difficulty)
+    left join private.quiz_question_bank q
+      on q.difficulty=d.difficulty
+     and q.learning_language_code='zh'
+     and q.translation_language_code='en'
+     and q.status='approved'
+     and q.question_id like case d.difficulty
+       when 'beginner' then 'zh-b-runtime-%'
+       when 'intermediate' then 'zh-i-runtime-%'
+       else 'zh-a-runtime-%' end
+    group by d.difficulty
+  loop
+    if v.knowledge_count < (case v.difficulty when 'beginner' then 30 when 'intermediate' then 36 else 48 end)
+       or v.knowledge_topics < 3
+       or v.translation_count < (case v.difficulty when 'beginner' then 7 when 'intermediate' then 5 else 5 end)
+       or v.translation_topics < 3 then
+      raise exception 'Chinese runtime fixture invalid for %: knowledge %, topics %, translations %',
+        v.difficulty,v.knowledge_count,v.knowledge_topics,v.translation_count;
+    end if;
+  end loop;
+end;
+$chinese_runtime_fixture_assert$;
+

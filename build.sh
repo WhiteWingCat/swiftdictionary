@@ -22,11 +22,11 @@ else
   environment_name="preview/staging"
 fi
 
-# Refresh browser caches for Update 2.6.1 authentication and learning-data initialization while preserving U2.7.0 UI assets.
+# Refresh browser caches for U2.8.0 Flashcards while preserving the U2.7.0 lesson UI assets.
 if [[ -f index.html ]]; then
   sed -i -E 's#(account-deletion[.]js)([?]v=[^"]*)?#\1?v=2.6.0-r5#g' index.html
-  sed -i -E 's#(daily-learning[.]js)([?]v=[^"]*)?#\1?v=2.7.0-r10#g' index.html
-  sed -i -E 's#(flashcards[.]js)([?]v=[^"]*)?#\1?v=2.6.1-r1#g' index.html
+  sed -i -E 's#(daily-learning[.]js)([?]v=[^"]*)?#\1?v=2.8.0-r1#g' index.html
+  sed -i -E 's#(flashcards[.]js)([?]v=[^"]*)?#\1?v=2.8.0-r1#g' index.html
   sed -i -E 's#(lessons-ui[.]css)([?]v=[^"]*)?#\1?v=2.7.0-r9#g' index.html
   if ! grep -q 'permanent-lesson-confirmation.js' index.html; then
     sed -i 's#</body>#<script src="permanent-lesson-confirmation.js?v=2.7.0-r3"></script></body>#' index.html

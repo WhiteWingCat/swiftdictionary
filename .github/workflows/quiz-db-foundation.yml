@@ -8,6 +8,7 @@ on:
       - feature/update-2-5-0-flashcards
       - feature/update-2-6-0-legal-privacy-security
       - feature/update-2-7-0-chinese-dictionary-lessons
+      - feature/update-2-8-0-chinese-quiz-flashcards
   pull_request:
     branches:
       - main
@@ -134,6 +135,47 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_7_0_language_aware_lessons.sql"
 
+      - name: Apply U2.8.0 Chinese review foundation and privacy regression tests
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123120000_swiftdictionary_update_2_8_0_chinese_review_foundation.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123121000_swiftdictionary_update_2_8_0_flashcard_language_and_snapshots.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123122000_swiftdictionary_update_2_8_0_chinese_quiz_runtime.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123123000_swiftdictionary_update_2_8_0_daily_practice_attempt_metrics.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123124000_swiftdictionary_update_2_8_0_quiz_source_composition_guard.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123125000_swiftdictionary_update_2_8_0_security_invoker_wrappers.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_review_foundation.sql"
+
+      - name: Apply U2.8.0 supplemental Flashcard and Quiz quality migrations
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          # Keep the local integration schema aligned with staging. The review
+          # alias migration is required by the browser response contract.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123130000_swiftdictionary_update_2_8_0_flashcard_review_mode_alias.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123131000_swiftdictionary_update_2_8_0_chinese_quiz_content.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123132000_swiftdictionary_update_2_8_0_foreign_key_indexes.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123140000_swiftdictionary_update_2_8_0_quiz_start_allowance_and_chinese_question_quality.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123141000_swiftdictionary_update_2_8_0_chinese_quiz_revision_preservation.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123142000_swiftdictionary_update_2_8_0_final_chinese_quiz_prompt_cleanup.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123143000_swiftdictionary_update_2_8_0_chinese_quiz_translation_prompt_quality.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123144000_swiftdictionary_update_2_8_0_final_quiz_translation_prompt_revision.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123145000_swiftdictionary_update_2_8_0_learning_intro_rls_initplan_optimization.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123146000_swiftdictionary_update_2_8_0_chinese_quiz_distractor_quality.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123147000_swiftdictionary_update_2_8_0_chinese_greeting_distractors.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123148000_swiftdictionary_update_2_8_0_quiz_start_allowance_error_copy.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261123149000_swiftdictionary_update_2_8_0_chinese_quiz_pinyin_leak_scan_fix.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124120000_swiftdictionary_update_2_8_0_flashcard_review_item_dismissal.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcard_review_item_dismissal.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124150000_swiftdictionary_update_2_8_0_flashcard_history_capacity.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124160000_swiftdictionary_update_2_8_0_chinese_quiz_content_polish.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124170000_swiftdictionary_update_2_8_0_quiz_active_option_pinyin_redaction.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124180000_swiftdictionary_update_2_8_0_chinese_quiz_draft_pinyin_leak_sweep.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261124190000_swiftdictionary_update_2_8_0_chinese_quiz_source_sync.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_8_0_chinese_quiz_content_polish.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcards_chinese_runtime_u2_8_0.sql"
+
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
@@ -146,6 +188,7 @@ jobs:
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_rpc_test_observers.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_authenticated_rpcs.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_chinese_runtime_u2_8_0.sql"
 
       - name: Validate and import draft Quiz content in local Supabase
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -166,10 +209,12 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-approved-export.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          # The legacy import guard intentionally requires a completely empty bank,
+          # including the 145-row Chinese U2.8.0 fixture imported earlier in this job.
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261117113917_swiftdictionary_update_2_4_0_quiz_content_release.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_release_content_import_assertions.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank where question_id like 'quiz-%'"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -c "delete from private.quiz_question_bank"
 
       - name: Seed disposable synthetic approved Quiz content
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -187,9 +232,9 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
       - name: Run signed-out Flashcards and Preferences browser regressions
-        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast"
+        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually|Recent games paginate ten at a time|Quiz history paginates ten sessions|Chinese Sentence Recall blanks every repeated character and keeps choices hidden"
       - name: Run permanent Lessons allowance notification regression
-        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes"
+        run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes|Daily Learning resets completed content and allowance automatically at local midnight"
 
       - name: Run Supabase security advisors against the local Quiz schema
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -229,8 +274,19 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
-      - name: Validate Quiz frontend integration and inline JavaScript
-        run: node scripts/quiz/validate-quiz-frontend.mjs
+      - name: Validate application JavaScript and Quiz frontend integration
+        run: |
+          node --check flashcards.js
+          node --check daily-learning.js
+          node --check permanent-lesson-confirmation.js
+          node --check mock-testing.js
+          node scripts/quiz/validate-quiz-frontend.mjs
+          node tests/update-2-5-0/check-flashcards-page.mjs
+
+      - name: Validate Chinese Quiz and Flashcard draft banks
+        run: |
+          node scripts/quiz/validate-chinese-question-bank.mjs
+          node scripts/flashcards/validate-chinese-card-bank.mjs
 
       - name: Prepare disposable Supabase-compatible Auth and learning schema
         run: |
@@ -255,6 +311,11 @@ jobs:
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117113912_swiftdictionary_update_2_4_0_quiz_authenticated_question_types.sql
           psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql
           psql -v ON_ERROR_STOP=1 -f supabase/tests/quiz_translation_language_eligibility_fix.sql
+          # The focused PostgreSQL fixture models the pre-U2.8.0 table shape;
+          # add the pinyin field consumed by the shared start-allowance migration.
+          psql -v ON_ERROR_STOP=1 -c "alter table private.quiz_question_bank add column if not exists prompt_pinyin text"
+          # Quiz allowance is charged on successful session creation in U2.8.0.
+          psql -v ON_ERROR_STOP=1 -f supabase/migrations/20261123140000_swiftdictionary_update_2_8_0_quiz_start_allowance_and_chinese_question_quality.sql
 
       - name: Validate and import draft Quiz content in PostgreSQL
         run: |
