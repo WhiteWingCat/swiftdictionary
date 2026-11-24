@@ -49,12 +49,27 @@ $test$;
 reset role;
 
 -- Simulate an elapsed challenge in this disposable test transaction. The
--- production identity guard correctly prevents clients from editing started_at.
-alter table private.flashcard_sessions disable trigger guard_flashcard_session_identity_update;
-update private.flashcard_sessions
-set started_at=now()-interval '121 seconds'
-where id=(select session_id from pg_temp.flashcard_test_session);
-alter table private.flashcard_sessions enable trigger guard_flashcard_session_identity_update;
+-- U2.8.0 identity guard is present on Staging but may not yet exist in older
+-- migration fixtures, so disable it only when installed and always restore it.
+do $fixture$
+declare has_identity_guard boolean;
+begin
+  select exists(
+    select 1 from pg_catalog.pg_trigger
+    where tgrelid='private.flashcard_sessions'::regclass
+      and tgname='guard_flashcard_session_identity_update' and not tgisinternal
+  ) into has_identity_guard;
+  if has_identity_guard then
+    execute 'alter table private.flashcard_sessions disable trigger guard_flashcard_session_identity_update';
+  end if;
+  update private.flashcard_sessions
+  set started_at=now()-interval '121 seconds'
+  where id=(select session_id from pg_temp.flashcard_test_session);
+  if has_identity_guard then
+    execute 'alter table private.flashcard_sessions enable trigger guard_flashcard_session_identity_update';
+  end if;
+end
+$fixture$;
 
 set local role authenticated;
 do $test$
