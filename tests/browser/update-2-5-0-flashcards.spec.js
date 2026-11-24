@@ -577,3 +577,48 @@ test("Recent games paginate ten at a time and game review has a top close contro
   await page.locator("#flashOverlayRoot .flash-game-review-modal .flash-modal-close-top").click();
   await expect(page.locator("#flashOverlayRoot .flash-game-review-modal")).toHaveCount(0);
 });
+
+test("Quiz history paginates ten sessions and review closes from the top corner",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(()=>{
+    const question={
+      question_id:"mock-review-question",position:1,question_type:"knowledge",
+      prompt_learning:"Choose the correct example.",prompt_translation:"选择正确的例子。",
+      selected_option_id:"a",correct_option_id:"a",
+      explanation_learning:"This is the correct example.",explanation_translation:"这是正确的例子。",
+      options:[
+        {id:"a",learning_text:"Correct answer",translation_text:"正确答案"},
+        {id:"b",learning_text:"Other answer",translation_text:"其他答案"}
+      ]
+    };
+    const history=Array.from({length:12},(_,index)=>({
+      session_id:"mock-quiz-history-"+index,difficulty:"beginner",status:"completed",
+      question_count:1,current_position:1,learning_language_code:"en",translation_language_code:"zh",
+      started_at:new Date(Date.now()-index*60000).toISOString(),
+      completed_at:new Date(Date.now()-index*60000).toISOString(),
+      correct_count:1,percentage:100,questions:[question]
+    }));
+    window.__swiftDictionaryMock.seedQuizHistory({history});
+  });
+  await page.locator('[data-page="quiz"]').click();
+  await expect(page.locator("#quizPage")).toBeVisible();
+  const intro=page.locator("#learningIntroBackdrop");
+  if(await intro.isVisible())await page.locator("#learningIntroDismiss").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator(".hero-banner")).toBeVisible();
+  await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(10);
+  await expect(page.locator("[data-quiz-history-next]")).toBeVisible();
+  await page.locator("[data-quiz-history-next]").click();
+  await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(2);
+  await expect(page.locator("[data-quiz-history-next]")).toHaveCount(0);
+  await page.locator("[data-quiz-history-prev]").click();
+  await page.locator("#quizHistory [data-quiz-review]").first().click();
+  await expect(page.locator("#quizResults")).toBeVisible();
+  await expect(page.locator("body")).toHaveClass(/quiz-focused/);
+  await expect(page.locator(".hero-banner")).toBeHidden();
+  await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
+  await page.locator("#quizResultsContent [data-quiz-review-close]").click();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("body")).not.toHaveClass(/quiz-focused/);
+  await expect(page.locator(".hero-banner")).toBeVisible();
+});
