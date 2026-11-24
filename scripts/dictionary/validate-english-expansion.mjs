@@ -166,7 +166,7 @@ for (const file of batchFiles) {
     }
     if (!Array.isArray(entry.examples) || entry.examples.length < 2) errors.push(file + ": " + word + " should have at least two examples");
     if (entry.course !== "en") errors.push(file + ": " + word + " must belong to the English course");
-    if (!/^\/.+\/$/.test(entry.phonetic || "")) errors.push(file + ": " + word + " pronunciation should be slash-delimited IPA");
+    if (!/\/[^/]+\//.test(entry.phonetic || "")) errors.push(file + ": " + word + " pronunciation should contain slash-delimited IPA");
 
     for (const sense of entry.senses || []) {
       if (typeof sense.part !== "string" || !sense.part.trim() ||
