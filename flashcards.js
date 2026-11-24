@@ -21,7 +21,7 @@
   const timingFor=(mode,difficulty)=>timing[mode]?.[difficulty]||timing.word[difficulty];
   const state = {
     ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,roundRecorded:false,usedQuestionKeys:new Set(),reviewSession:null,data:{collections:[],cards:[],mastery:[],history:[]},
-    collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,
+    collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,historyPage:0,
     phase:"idle",round:null,roundIndex:0,results:[],memory:5,answer:12,phaseEnds:0,
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
@@ -117,6 +117,11 @@
       .flash-overlay-root .flash-modal select{width:100%;background:#101722;color:#f5f7ff;border:1px solid #414d61;border-radius:12px;padding:11px}
       .flash-overlay-root .flash-modal label{display:grid;gap:7px;margin:14px 0;color:#c8d0df}
       .flash-overlay-root .flash-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+      .flash-overlay-root .flash-modal-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:0 0 12px}
+      .flash-overlay-root .flash-modal-heading h2{margin:0}
+      .flash-overlay-root .flash-modal-close-top{flex:0 0 auto;display:grid;place-items:center;width:38px;height:38px;border:1px solid #56647a;border-radius:50%;background:#263246;color:#f5f7ff;font-size:1.4rem;line-height:1;cursor:pointer}
+      .flash-overlay-root .flash-history-pagination{display:flex;justify-content:flex-end;gap:9px;margin-top:12px}
+      .flash-overlay-root .flash-history-pagination button{border:1px solid #53617b;border-radius:999px;padding:8px 14px;background:#25334d;color:#f5f7ff}
       #flashcardsPage .flash-game{width:min(900px,100%);max-width:900px}
       #flashcardsPage .flash-gauge-row{display:flex;align-items:center;gap:12px;margin:16px 0}
       #flashcardsPage .flash-round-gauge{height:14px;background:#30394a;border-radius:99px;overflow:hidden;margin:0;display:flex;flex:1;min-width:0}
@@ -247,7 +252,7 @@
         </section>
         <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>${uiText("Review weak memory","复习薄弱记忆")}</h2><p class="flash-muted">${uiText("Revisit answers you missed in previous games.","重新复习之前答错的内容。")}</p></div><button class="flash-primary" data-action="open-review">${uiText("Review weak memory","复习薄弱记忆")} (${weakItems.length})</button></div></section>
         <section class="flash-section"><h2>${uiText("Recent games","最近的游戏")}</h2>
-          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(0,6).map(g=>`<div class="flash-card-row"><div><strong>${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))}</strong><small>${g.correct_count}/${g.words_seen} ${uiText("correct","答对")} · ${escapeHtml(g.completed_at||"")}</small></div><button class="flash-secondary" data-action="review-game" data-value="${g.id}">${uiText("Review game","复习游戏")}</button></div>`).join("")+'</div>':'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
+          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(state.historyPage*10,state.historyPage*10+10).map(g=>`<div class="flash-card-row"><div><strong>${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))}</strong><small>${g.correct_count}/${g.words_seen} ${uiText("correct","答对")} · ${escapeHtml(g.completed_at||"")}</small></div><button class="flash-secondary" data-action="review-game" data-value="${g.id}">${uiText("Review game","复习游戏")}</button></div>`).join("")+'</div>'+(state.data.history.length>10?'<div class="flash-history-pagination">'+(state.historyPage>0?'<button class="flash-secondary" data-action="history-prev">'+uiText("Previous page","上一页")+'</button>':'')+(state.historyPage*10+10<state.data.history.length?'<button class="flash-secondary" data-action="history-next">'+uiText("Next page","下一页")+'</button>':'')+'</div>':''):'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
         </section>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
@@ -599,7 +604,7 @@
     const detail=card?`<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`:'<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
     const notice=state.reviewNotice?'<p class="flash-review-dismiss-notice" role="status">'+escapeHtml(state.reviewNotice)+"</p>":"";
     const removeLabel=uiText("Remove from weak-memory review","从薄弱记忆列表中移除");
-    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
+    overlay.innerHTML=`<div class="flash-modal-backdrop"><section class="flash-modal flash-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashReviewTitle"><div class="flash-modal-heading"><h2 id="flashReviewTitle">${uiText("Review weak memory","复习薄弱记忆")}</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div>${notice}<div class="flash-review-tabs">${Object.entries(labels).map(([id,label])=>`<button class="flash-review-tab" data-action="review-tab" data-value="${id}" aria-selected="${state.reviewMode===id}">${label}${uiText(" Recall","回忆")}</button>`).join("")}</div><div class="flash-review-layout"><div class="flash-review-list">${items.length?items.map(item=>{const c=resolve(item.card_key);return `<div class="flash-review-item"><button class="flash-review-entry" data-action="review-detail" data-value="${escapeHtml(item.card_key)}">${escapeHtml(c?.word||c?.front_text||item.card_key)}</button><button type="button" class="flash-review-dismiss" data-action="dismiss-review-item" data-card-key="${escapeHtml(item.card_key)}" data-mode="${escapeHtml(item.mode)}" aria-label="${escapeHtml(removeLabel)}" title="${escapeHtml(removeLabel)}"><span aria-hidden="true">×</span></button></div>`;}).join(""):'<p class="flash-muted">'+uiText("No incorrect answers in this recall mode yet.","此回忆模式目前没有答错记录。")+'</p>'}</div><div id="flashReviewDetail">${detail}</div></div><div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay"><span aria-hidden="true">×</span> ${uiText("Close","关闭")}</button></div></section></div>`;
     const list=overlay.querySelector(".flash-review-list"),detailPanel=overlay.querySelector("#flashReviewDetail");
     if(list)list.scrollTop=previousListScroll;
     if(detailPanel)detailPanel.scrollTop=previousDetailScroll;
@@ -630,10 +635,11 @@
         const translation=data.translation_language_code==="zh"?card.translation_zh:card.translation_en;
         return '<article class="flash-review-card"><div class="flash-review-card-head"><strong>#'+item.position+' · '+escapeHtml(modeLabel(item.recall_mode))+'</strong><span>'+status+'</span></div><h3>'+escapeHtml(card.word||"")+'</h3>'+(card.pinyin?'<p>'+escapeHtml(card.pinyin)+'</p>':"")+'<p>'+escapeHtml(item.prompt||"")+'</p>'+(translation?'<p class="flash-muted">'+escapeHtml(translation)+'</p>':"")+'<ol>'+options+'</ol>'+(card.example?'<p><em>'+escapeHtml(card.example)+'</em></p>':"")+'</article>';
       }).join("");
-    overlayRoot.innerHTML='<div class="flash-modal-backdrop"><section class="flash-modal flash-game-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashGameReviewTitle"><h2 id="flashGameReviewTitle">'+title+'</h2><p class="flash-muted">'+escapeHtml(difficultyLabel(data.difficulty))+' · '+escapeHtml(modeLabel(data.mode))+' · '+Number(data.correct_count||0)+'/'+Number(data.words_seen||0)+' '+uiText("correct","答对")+'</p>'+content+'<div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay">'+uiText("Close","关闭")+'</button></div></section></div>';
+    overlayRoot.innerHTML='<div class="flash-modal-backdrop"><section class="flash-modal flash-game-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashGameReviewTitle"><div class="flash-modal-heading"><h2 id="flashGameReviewTitle">'+title+'</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div><p class="flash-muted">'+escapeHtml(difficultyLabel(data.difficulty))+' · '+escapeHtml(modeLabel(data.mode))+' · '+Number(data.correct_count||0)+'/'+Number(data.words_seen||0)+' '+uiText("correct","答对")+'</p>'+content+'<div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay">'+uiText("Close","关闭")+'</button></div></section></div>';
   }
   async function loadData(){
     if(!currentUser||!supabaseClient)return;
+    state.historyPage=0;
     state.loading=true;render();
     const {data,error}=await supabaseClient.rpc("get_my_flashcard_data");
     state.loading=false;
@@ -671,6 +677,8 @@
       if(action==="begin-game"){state.difficulty=overlayRoot.querySelector("#flashDifficulty").value;state.cardSet=overlayRoot.querySelector("#flashGameCollection").value;state.collectionId="all";state.weakOnly=false;state.weakKeys.clear();closeOverlay();await startGame();return;}
       if(action==="open-review"){openReviewPrompt();return;}
       if(action==="review-game"){await openGameReview(value);return;}
+      if(action==="history-next"){if((state.historyPage+1)*10<state.data.history.length){state.historyPage++;render();}return;}
+      if(action==="history-prev"){state.historyPage=Math.max(0,state.historyPage-1);render();return;}
       if(action==="review-tab"){state.reviewMode=value;state.reviewSelected=null;renderReviewPrompt();return;}
       if(action==="review-detail"){state.reviewSelected=value;renderReviewPrompt();return;}
       if(action==="dismiss-review-item"){
