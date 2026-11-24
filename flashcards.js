@@ -295,15 +295,15 @@
     return [...targets,...distractors];
   }
   function blankAllOccurrences(sentence,word,chinese=false){
- const source=String(sentence||""),target=String(word||"");
- if(!source||!target)return source+" _____";
- const blanked=chinese
-  ? source.split(target).join("_____")
-  : source.replace(new RegExp("\\b"+target.replace(/[.*+?^()|[\]\\{}$]/g,"\\function makeRound")+"\\b","gi"),"_____");
- const collapsed=blanked.replace(/(?:_____){2,}/g,"_____");
- return collapsed===source?source+" _____":collapsed;
-}
-function makeRound(deck){
+    const source=String(sentence||""),target=String(word||"");
+    if(!source||!target)return source+" _____";
+    const blanked=chinese
+      ? source.split(target).join("_____")
+      : source.replace(new RegExp("\\b"+target.replace(/[.*+?^()|[\]\\{}$]/g,match=>"\\"+match)+"\\b","gi"),"_____");
+    const collapsed=blanked.replace(/(?:_____){2,}/g,"_____");
+    return collapsed===source?source+" _____":collapsed;
+  }
+  function makeRound(deck){
     const chinese=(state.game?.learningLanguage||course)==="zh";
     const normalize=v=>String(v||"").normalize("NFKC").replace(/[\s\p{P}\p{S}]+/gu,"").toLocaleLowerCase();
     const cueFor=(w,mode)=>{
