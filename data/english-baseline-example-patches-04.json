@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add second contextual examples to further existing technical and academic English entries.",
-  "status": "editorially-authored; awaiting integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "455680e0318d34c96e272538b674132a1ff1c84f",
   "entries": [
     {
@@ -185,5 +185,6 @@
         "The course examines how rivers, glaciers and wind shape landforms."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "4b15e9bc092dba6ce88ce00cb3ea82db2d04116c"
 }
