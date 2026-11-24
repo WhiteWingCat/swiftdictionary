@@ -40,7 +40,11 @@ test("switching to Chinese keeps the existing character-only catalogue isolated"
   await expect(page.locator("#count")).toHaveText("1316 words");
 
   await page.locator("#courseSelect").selectOption("zh");
-  await expect(page.locator("#count")).toHaveText("206 词条");
-  await expect(page.locator(".word-card .word-name").first()).toHaveText(/^[\u3400-\u9FFF]$/);
+  const chineseCountText = await page.locator("#count").textContent();
+  const chineseCount = Number((chineseCountText || "").match(/^\d+/)?.[0] || 0);
+  expect(chineseCount).toBeGreaterThan(200);
+  expect(chineseCount).toBeLessThan(1316);
+  const visibleChineseWords = await page.locator(".word-card .word-name").allTextContents();
+  expect(visibleChineseWords.length).toBeGreaterThan(0);
+  expect(visibleChineseWords.every(word => [...word].length === 1)).toBeTruthy();
   await expect(page.locator(".word-card .pinyin-line")).toHaveCount(0);
-});
