@@ -11,7 +11,7 @@
     "baselineEntries": 810,
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
-    "entriesWithFewerThanTwoExamples": 186,
+    "entriesWithFewerThanTwoExamples": 156,
     "entriesWithoutExplicitSenses": 570,
     "multiPartOfSpeechWithoutExplicitSenses": 0,
     "entriesWithExplicitSenses": 240,
@@ -21,36 +21,6 @@
   },
   "issueQueues": {
     "fewerThanTwoExamples": [
-      "diapause",
-      "diaspora",
-      "dichotomy",
-      "differentiation",
-      "dihedral",
-      "dilution",
-      "disambiguation",
-      "dissonance",
-      "ecotone",
-      "efficacy",
-      "endemic",
-      "endogeneity",
-      "epistasis",
-      "epistemic",
-      "epistemology",
-      "equifinality",
-      "eschatology",
-      "ethnography",
-      "eutrophication",
-      "exaptation",
-      "exogenous",
-      "falsifiability",
-      "fermentation",
-      "fiduciary",
-      "fluorescence",
-      "fluvial",
-      "forensic",
-      "genealogy",
-      "geochronology",
-      "geomorphology",
       "hermeneutics",
       "heteroskedasticity",
       "heuristic",
@@ -835,14 +805,15 @@
     "sensePatchedHeadwords": 140,
     "newSenseRecords": 282,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
-    "examplePatchedHeadwords": 72,
-    "addedExampleSentences": 72,
+    "examplePatchedHeadwords": 102,
+    "addedExampleSentences": 102,
     "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 0,
-    "projectedRemainingEntriesWithFewerThanTwoExamples": 186,
+    "projectedRemainingEntriesWithFewerThanTwoExamples": 156,
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
       "data/english-baseline-example-patches-02.json",
-      "data/english-baseline-example-patches-03.json"
+      "data/english-baseline-example-patches-03.json",
+      "data/english-baseline-example-patches-04.json"
     ],
     "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615",
     "sensePatchFiles": [
@@ -856,8 +827,9 @@
       "628e4fbd7ab7e9bf832e1190455b100b21c27d08",
       "704a9f4649188bc9f826604c7bd222862594cdde",
       "9ae5bfa214aef39de5973867ed9ded6d6b2003fc",
-      "7756a0138e5e773da9bb0eba6f2f2f352b59e50d"
+      "7756a0138e5e773da9bb0eba6f2f2f352b59e50d",
+      "4b15e9bc092dba6ce88ce00cb3ea82db2d04116c"
     ]
   },
-  "currentBaselineBlob": "455680e0318d34c96e272538b674132a1ff1c84f"
+  "currentBaselineBlob": "54a48306ce4cfdcc275f14d9505f035f3754ae9b"
 }
