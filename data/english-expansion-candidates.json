@@ -28,8 +28,8 @@
       "Science & Technology": 41,
       "Emotions & Descriptions": 90
     },
-    "authoredCount": 80,
-    "remainingCandidateCount": 580
+    "authoredCount": 100,
+    "remainingCandidateCount": 560
   },
   "candidates": [
     {
@@ -2053,25 +2053,25 @@
       "word": "adult",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "ancestor",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "aunt",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "baby",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "bachelor",
@@ -2083,25 +2083,25 @@
       "word": "boyfriend",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "bride",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "brother",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "buddy",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "child",
@@ -2113,43 +2113,43 @@
       "word": "citizen",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "classmate",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "cousin",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "couple",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "daughter",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "neighbour",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "enemy",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "father",
@@ -2161,7 +2161,7 @@
       "word": "female",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "friend",
@@ -2173,7 +2173,7 @@
       "word": "gentleman",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "girl",
@@ -2185,19 +2185,19 @@
       "word": "grandfather",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "grandmother",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "guest",
       "category": "People & Relationships",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-05"
     },
     {
       "word": "guy",
