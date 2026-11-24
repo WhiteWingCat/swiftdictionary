@@ -1748,9 +1748,13 @@
     "sensePatchedHeadwords": 30,
     "newSenseRecords": 60,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
-    "examplePatchedHeadwords": 30,
-    "addedExampleSentences": 30,
+    "examplePatchedHeadwords": 42,
+    "addedExampleSentences": 42,
     "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 110,
-    "projectedRemainingEntriesWithFewerThanTwoExamples": 228
+    "projectedRemainingEntriesWithFewerThanTwoExamples": 216,
+    "examplePatchFiles": [
+      "data/english-baseline-example-patches-01.json",
+      "data/english-baseline-example-patches-02.json"
+    ]
   }
 }
