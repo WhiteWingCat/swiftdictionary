@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Sense-level corrections for additional common multi-part-of-speech English baseline entries.",
+  "status": "editorially-authored; awaiting final editorial review and integration",
+  "sourceBaselineBlob": "ee59e22257a83b4130248d22a8a99254a70c2a10",
+  "patches": [
+    {
+      "word": "beam",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To smile broadly because you are happy, proud or pleased.",
+          "definitionZh": "眉开眼笑；面露喜色",
+          "examples": [
+            "She beamed with pride when her team won.",
+            "He beamed at the children as they entered the room."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A long, strong piece of wood, metal or another material used to support a structure; also a narrow line of light.",
+          "definitionZh": "横梁；光束",
+          "examples": [
+            "A wooden beam supports the roof.",
+            "A beam of sunlight came through the window."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "blink",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To close and open your eyes quickly, usually without thinking.",
+          "definitionZh": "眨眼",
+          "examples": [
+            "Try not to blink while the eye drops are being applied.",
+            "She blinked in the bright sunlight."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The quick action of closing and opening the eyes; a very brief moment.",
+          "definitionZh": "眨眼；瞬间",
+          "examples": [
+            "He disappeared in the blink of an eye.",
+            "A single blink can spread moisture across the eye."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "blush",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To become red in the face, often because of embarrassment, shyness or excitement.",
+          "definitionZh": "脸红；羞红脸",
+          "examples": [
+            "She blushed when everyone praised her work.",
+            "He began to blush after making the mistake."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A red or pink colour in the face, especially caused by embarrassment or emotion.",
+          "definitionZh": "红晕；脸红",
+          "examples": [
+            "A blush appeared on her cheeks.",
+            "He tried to hide his blush by looking away."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bother",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To annoy, worry or trouble someone; or to make the effort to do something.",
+          "definitionZh": "打扰；烦扰；费心",
+          "examples": [
+            "The noise did not bother me while I was working.",
+            "Please do not bother to print the document."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "Trouble, effort or inconvenience caused by something.",
+          "definitionZh": "麻烦；烦扰；费事",
+          "examples": [
+            "Sorry for the bother, but could you check this file?",
+            "Getting a replacement should not be too much bother."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "calm",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Peaceful and not excited, angry or worried; without strong movement or noise.",
+          "definitionZh": "平静的；冷静的；风平浪静的",
+          "examples": [
+            "She remained calm during the interview.",
+            "The sea was calm early in the morning."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make someone or something less upset, excited or active.",
+          "definitionZh": "使平静；使镇定",
+          "examples": [
+            "The teacher spoke gently to calm the class.",
+            "A short walk helps calm my mind."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "caress",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To touch someone or something gently, usually to show affection.",
+          "definitionZh": "轻抚；爱抚",
+          "examples": [
+            "She gently caressed the dog's head.",
+            "He caressed the baby's cheek with one finger."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A gentle, affectionate touch.",
+          "definitionZh": "轻抚；爱抚",
+          "examples": [
+            "The cat leaned into her gentle caress.",
+            "A soft caress helped comfort the child."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "chuckle",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To laugh quietly, often in a warm or restrained way.",
+          "definitionZh": "轻声笑；暗笑",
+          "examples": [
+            "He chuckled at the joke.",
+            "She chuckled softly while reading the message."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A quiet, short laugh.",
+          "definitionZh": "轻笑；低声笑",
+          "examples": [
+            "A quiet chuckle came from the back of the room.",
+            "His answer earned a chuckle from the audience."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "clutch",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To hold something tightly, often because of fear, urgency or strong emotion.",
+          "definitionZh": "紧抓；紧握",
+          "examples": [
+            "She clutched her bag while walking through the crowd.",
+            "The child clutched his father's hand."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A tight hold or grasp; in a vehicle, a mechanism that connects and disconnects the engine from the transmission.",
+          "definitionZh": "紧握；离合器",
+          "examples": [
+            "He kept a firm clutch on the rope.",
+            "Press the clutch before changing gear in a manual car."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "comfort",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make someone feel less sad, worried or distressed.",
+          "definitionZh": "安慰；抚慰",
+          "examples": [
+            "Her friends comforted her after the difficult day.",
+            "He tried to comfort the child after the fall."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A state of physical ease or a feeling of relief and support.",
+          "definitionZh": "舒适；安慰；慰藉",
+          "examples": [
+            "The soft chair provides comfort during long meetings.",
+            "Her message was a great comfort to him."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "compromise",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An agreement in which each side gives up part of what it wants.",
+          "definitionZh": "妥协；折中方案",
+          "examples": [
+            "After a long discussion, they reached a compromise.",
+            "The final design was a compromise between cost and quality."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To weaken, damage or put something at risk; or to reach an agreement by giving up part of what one wants.",
+          "definitionZh": "损害；危及；妥协",
+          "examples": [
+            "Sharing the password could compromise account security.",
+            "Both sides agreed to compromise on the meeting time."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "crouch",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To bend your knees and lower your body close to the ground.",
+          "definitionZh": "蹲下；蹲伏",
+          "examples": [
+            "The player crouched behind the wall.",
+            "She crouched to speak to the small child."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A low position in which the knees are bent and the body is close to the ground.",
+          "definitionZh": "蹲姿；蹲伏姿势",
+          "examples": [
+            "He held a crouch while waiting for the signal.",
+            "The exercise begins with a deep crouch."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dread",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To feel great fear or anxiety about something that may happen.",
+          "definitionZh": "害怕；担忧；惧怕",
+          "examples": [
+            "I dread speaking in front of a large audience.",
+            "She dreaded the difficult conversation."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A strong feeling of fear or worry about something that may happen.",
+          "definitionZh": "恐惧；忧惧",
+          "examples": [
+            "He felt a sense of dread before opening the letter.",
+            "The sound filled her with dread."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "embrace",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To hold someone closely in your arms; or to accept an idea, change or opportunity willingly.",
+          "definitionZh": "拥抱；欣然接受",
+          "examples": [
+            "She embraced her brother after months apart.",
+            "He embraced the chance to start over."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A close hug; or the willing acceptance of an idea or change.",
+          "definitionZh": "拥抱；欣然接受",
+          "examples": [
+            "They greeted each other with a warm embrace.",
+            "The embrace of new technology changed the industry."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "encounter",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To meet or experience someone or something, especially unexpectedly.",
+          "definitionZh": "遇见；遭遇；碰到",
+          "examples": [
+            "I encountered a problem while installing the software.",
+            "Travellers may encounter delays during heavy rain."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A meeting or experience, especially one that is unexpected or unusual.",
+          "definitionZh": "相遇；遭遇；经历",
+          "examples": [
+            "It was an unexpected encounter with an old friend.",
+            "The team described the encounter as a valuable learning experience."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "envy",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To wish that you had something that another person has.",
+          "definitionZh": "羡慕；嫉妒",
+          "examples": [
+            "I envy her ability to stay calm under pressure.",
+            "He envied his friends' opportunity to travel."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A feeling of wanting something that another person has.",
+          "definitionZh": "羡慕；嫉妒",
+          "examples": [
+            "She felt a little envy when she saw their new home.",
+            "His success was admired rather than treated with envy."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fidget",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make small, restless movements because you are nervous, bored or impatient.",
+          "definitionZh": "坐立不安；烦躁地动来动去",
+          "examples": [
+            "The child began to fidget during the long meeting.",
+            "He fidgets with his pen when he feels nervous."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A small, restless movement made because someone is nervous or impatient.",
+          "definitionZh": "烦躁的小动作；坐立不安",
+          "examples": [
+            "Her constant fidget gave away her nervousness.",
+            "He tried to stop every little fidget during the interview."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "frown",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To draw your eyebrows together, usually because you are worried, confused or displeased.",
+          "definitionZh": "皱眉",
+          "examples": [
+            "She frowned when she read the confusing instructions.",
+            "He frowned at the unexpected result."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An expression made by drawing the eyebrows together, often showing worry or displeasure.",
+          "definitionZh": "皱眉；不悦的表情",
+          "examples": [
+            "A frown appeared on his face.",
+            "She answered with a slight frown."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gasp",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To take a sudden breath because of shock, surprise, pain or difficulty breathing.",
+          "definitionZh": "倒吸一口气；喘气",
+          "examples": [
+            "She gasped when she saw the damage.",
+            "He was gasping for breath after the race."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sudden, sharp breath taken because of surprise, shock or difficulty breathing.",
+          "definitionZh": "喘息；倒吸气",
+          "examples": [
+            "There was a gasp from the audience when the lights went out.",
+            "He let out a gasp as the cold water touched his skin."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gaze",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To look steadily at someone or something, often with admiration or deep thought.",
+          "definitionZh": "凝视；注视",
+          "examples": [
+            "They gazed at the stars in silence.",
+            "She gazed out of the window while thinking."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A steady, often thoughtful or admiring look.",
+          "definitionZh": "凝视；注视",
+          "examples": [
+            "His gaze moved towards the doorway.",
+            "She met his gaze and smiled."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gesture",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make a movement with your hand, head or body to communicate something.",
+          "definitionZh": "做手势；示意",
+          "examples": [
+            "He gestured toward the empty chair.",
+            "The guide gestured for us to follow."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A movement or action that communicates an idea or feeling; or an action showing kindness or support.",
+          "definitionZh": "手势；姿态；表示",
+          "examples": [
+            "Her small gesture of kindness stayed with me.",
+            "He made a gesture towards the door."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "giggle",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To laugh in a light, high-pitched way, often because of amusement or nervousness.",
+          "definitionZh": "咯咯笑；傻笑",
+          "examples": [
+            "The children giggled at the funny picture.",
+            "She began to giggle when she felt nervous."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A light, high-pitched laugh.",
+          "definitionZh": "咯咯笑声；傻笑",
+          "examples": [
+            "A giggle came from the back of the classroom.",
+            "He tried to hide a giggle during the serious speech."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "glance",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To look quickly at someone or something.",
+          "definitionZh": "瞥一眼；匆匆一看",
+          "examples": [
+            "She glanced at the clock before leaving.",
+            "He glanced over the report during lunch."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A quick look at someone or something.",
+          "definitionZh": "一瞥；匆匆一看",
+          "examples": [
+            "At first glance, the two designs look similar.",
+            "She gave the timetable a quick glance."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "glare",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To look at someone angrily or fiercely.",
+          "definitionZh": "怒视；瞪视",
+          "examples": [
+            "The teacher glared at the students who were talking.",
+            "He glared at the driver who blocked the crossing."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An angry, fierce look; or an unpleasantly strong light.",
+          "definitionZh": "怒视；刺眼的强光",
+          "examples": [
+            "She gave him a cold glare.",
+            "The glare from the screen made it difficult to read."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grip",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To hold something firmly or tightly.",
+          "definitionZh": "紧握；抓牢",
+          "examples": [
+            "Grip the handle firmly before lifting the box.",
+            "Fear gripped him when he heard the sudden noise."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A firm hold or the ability to hold something securely; also the part of an object designed to be held.",
+          "definitionZh": "紧握；抓力；握柄",
+          "examples": [
+            "The shoes provide a good grip on wet ground.",
+            "The camera has a comfortable rubber grip."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grumble",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To complain in a low, unhappy voice.",
+          "definitionZh": "抱怨；嘟囔",
+          "examples": [
+            "He grumbled about the long wait.",
+            "The workers grumbled when the schedule changed."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A low complaint or an unhappy sound.",
+          "definitionZh": "抱怨；低声嘟囔",
+          "examples": [
+            "There was a grumble from the back of the room.",
+            "A quiet grumble followed the announcement."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "handle",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To deal with a situation, problem or person; or to control or use something.",
+          "definitionZh": "处理；应对；操作",
+          "examples": [
+            "She handled the customer complaint calmly.",
+            "Can you handle the equipment safely?"
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The part of an object that is held in order to open, carry or control it.",
+          "definitionZh": "把手；柄",
+          "examples": [
+            "The door handle is loose.",
+            "Hold the pan by its handle."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hunch",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To bend your body forward and raise your shoulders, often because you are cold, afraid or concentrating.",
+          "definitionZh": "弓身；耸肩",
+          "examples": [
+            "He hunched over his desk to read the small print.",
+            "She hunched her shoulders against the cold wind."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A feeling or belief about something without having clear proof; an intuitive guess.",
+          "definitionZh": "直觉；预感；猜想",
+          "examples": [
+            "I have a hunch that the missing file is in this folder.",
+            "Her hunch turned out to be correct."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "laugh",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make sounds and movements that show amusement or happiness.",
+          "definitionZh": "笑；发笑",
+          "examples": [
+            "The audience laughed at the comedian's joke.",
+            "We laughed together about the mistake."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The sound or act of laughing.",
+          "definitionZh": "笑声；笑",
+          "examples": [
+            "Her laugh is easy to recognise.",
+            "There was a loud laugh from the next room."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lean",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To angle or rest your body against something for support, or to incline in a particular direction.",
+          "definitionZh": "倾斜；倚靠；依靠",
+          "examples": [
+            "Please do not lean against the glass door.",
+            "He leaned forward to hear the speaker."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A tendency or preference towards a particular choice, style or position.",
+          "definitionZh": "倾向；偏好",
+          "examples": [
+            "The design has a clear lean towards simplicity.",
+            "Her writing shows a lean towards practical examples."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mention",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To refer to something briefly, without explaining it in detail.",
+          "definitionZh": "提及；说起",
+          "examples": [
+            "He mentioned your name during the meeting.",
+            "Did I mention that I got the job?"
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A brief reference to someone or something.",
+          "definitionZh": "提及；提到",
+          "examples": [
+            "There was no mention of the new schedule in the email.",
+            "Her name received a brief mention in the report."
+          ]
+        }
+      ]
+    }
+  ]
+}
