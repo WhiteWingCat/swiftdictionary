@@ -11,46 +11,16 @@
     "baselineEntries": 810,
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
-    "entriesWithFewerThanTwoExamples": 258,
-    "entriesWithoutExplicitSenses": 710,
-    "multiPartOfSpeechWithoutExplicitSenses": 140,
-    "entriesWithExplicitSenses": 100,
-    "totalExplicitSenses": 244,
+    "entriesWithFewerThanTwoExamples": 216,
+    "entriesWithoutExplicitSenses": 680,
+    "multiPartOfSpeechWithoutExplicitSenses": 110,
+    "entriesWithExplicitSenses": 130,
+    "totalExplicitSenses": 304,
     "entriesMissingOptionalBreakdownOrRelated": 38,
     "entriesWithoutCategoryAssignments": 810
   },
   "issueQueues": {
     "fewerThanTwoExamples": [
-      "aberration",
-      "abiotic",
-      "ablation",
-      "abrogate",
-      "abscission",
-      "accretion",
-      "acoustics",
-      "allometry",
-      "allosteric",
-      "anachronism",
-      "anastomosis",
-      "anomie",
-      "anthropogenic",
-      "apocryphal",
-      "apodictic",
-      "apoptosis",
-      "arbitrage",
-      "archival",
-      "ascertain",
-      "asymptotic",
-      "atavism",
-      "autochthonous",
-      "autopoiesis",
-      "baroclinic",
-      "baroque",
-      "benthic",
-      "bifurcation",
-      "bioaccumulation",
-      "bioavailability",
-      "biogeography",
       "biomagnification",
       "biomimicry",
       "birefringence",
@@ -266,19 +236,7 @@
       "good morning",
       "good afternoon",
       "good evening",
-      "take care",
-      "station",
-      "market",
-      "library",
-      "hospital",
-      "restaurant",
-      "museum",
-      "entrance",
-      "exit",
-      "corner",
-      "bridge",
-      "ticket",
-      "platform"
+      "take care"
     ],
     "noExplicitSenseArray": [
       "aberration",
@@ -289,7 +247,6 @@
       "abscission",
       "abundant",
       "accept",
-      "access",
       "accretion",
       "accurate",
       "achievable",
@@ -330,7 +287,6 @@
       "appointment",
       "appreciate",
       "apprehensive",
-      "approach",
       "arbitrage",
       "archival",
       "argue",
@@ -340,7 +296,6 @@
       "assume",
       "asymptotic",
       "atavism",
-      "attempt",
       "attend",
       "autochthonous",
       "autopoiesis",
@@ -348,7 +303,6 @@
       "avoid",
       "aware",
       "awkward",
-      "balance",
       "barely",
       "baroclinic",
       "baroque",
@@ -359,7 +313,6 @@
       "believable",
       "believe",
       "belong",
-      "benefit",
       "benthic",
       "bewildered",
       "bifurcation",
@@ -389,7 +342,6 @@
       "catabolism",
       "catalysis",
       "certain",
-      "challenge",
       "chelation",
       "cherish",
       "choice",
@@ -413,7 +365,6 @@
       "compare",
       "compassionate",
       "complain",
-      "complete",
       "composed",
       "compromise",
       "concentrate",
@@ -454,7 +405,6 @@
       "decolonization",
       "defiant",
       "definitely",
-      "delay",
       "demography",
       "deontology",
       "depend",
@@ -463,7 +413,6 @@
       "deserve",
       "despite",
       "despondent",
-      "detail",
       "develop",
       "diagenesis",
       "diapause",
@@ -477,12 +426,10 @@
       "disambiguation",
       "disappoint",
       "disappointed",
-      "discipline",
       "discover",
       "discuss",
       "dismayed",
       "dissonance",
-      "draft",
       "dread",
       "eager",
       "ecotone",
@@ -522,12 +469,10 @@
       "exaptation",
       "exogenous",
       "expect",
-      "experience",
       "explain",
       "express",
       "expression",
       "factor",
-      "fair",
       "falsifiability",
       "familiar",
       "familiarity",
@@ -541,7 +486,6 @@
       "fluorescence",
       "flustered",
       "fluvial",
-      "focus",
       "forensic",
       "forgive",
       "fortunately",
@@ -589,19 +533,16 @@
       "imagine",
       "imitate",
       "immediately",
-      "impact",
       "impatient",
       "improve",
       "improvement",
       "impulsive",
       "include",
-      "increase",
       "independent",
       "individual",
       "insecure",
       "instead",
       "intentional",
-      "interest",
       "interpret",
       "interrupt",
       "interview",
@@ -609,7 +550,6 @@
       "isostasy",
       "isotope",
       "isotropy",
-      "issue",
       "jargon",
       "jealous",
       "jettison",
@@ -684,7 +624,6 @@
       "neuroplasticity",
       "nevertheless",
       "nod",
-      "notice",
       "observe",
       "obvious",
       "occasionally",
@@ -726,7 +665,6 @@
       "phytoremediation",
       "plebiscite",
       "pleiotropy",
-      "point",
       "polish",
       "polite",
       "politely",
@@ -737,8 +675,6 @@
       "posture",
       "pout",
       "practical",
-      "practice",
-      "praise",
       "precise",
       "prefer",
       "prepare",
@@ -747,9 +683,7 @@
       "priority",
       "privacy",
       "probably",
-      "process",
       "professional",
-      "progress",
       "propaedeutic",
       "proud",
       "provenance",
@@ -791,13 +725,11 @@
       "rejoice",
       "relationship",
       "relax",
-      "release",
       "relevant",
       "reliable",
       "reluctant",
       "remind",
       "reminisce",
-      "repair",
       "replace",
       "replication",
       "require",
@@ -810,19 +742,15 @@
       "respond",
       "responsible",
       "restrain",
-      "result",
       "retort",
       "retreat",
       "revise",
       "rheology",
       "rhythm",
-      "risk",
       "roughly",
       "routine",
       "salience",
-      "schedule",
       "scoff",
-      "secure",
       "sedimentology",
       "self-aware",
       "semiotics",
@@ -994,29 +922,9 @@
     ],
     "multiPartOfSpeechWithoutSenseArray": [
       {
-        "word": "access",
-        "part": "noun / verb",
-        "definition": "The ability or right to enter, use, or obtain something."
-      },
-      {
         "word": "alternative",
         "part": "noun / adjective",
         "definition": "Another choice or possibility."
-      },
-      {
-        "word": "approach",
-        "part": "noun / verb",
-        "definition": "A way of dealing with something; to move closer."
-      },
-      {
-        "word": "attempt",
-        "part": "noun / verb",
-        "definition": "An effort to do something difficult."
-      },
-      {
-        "word": "balance",
-        "part": "noun / verb",
-        "definition": "A steady or equal condition; to keep things in the right proportions."
       },
       {
         "word": "baroque",
@@ -1027,11 +935,6 @@
         "word": "beam",
         "part": "verb / noun",
         "definition": "To smile broadly because you are happy, proud, or pleased."
-      },
-      {
-        "word": "benefit",
-        "part": "noun / verb",
-        "definition": "An advantage or helpful result; to be helped by something."
       },
       {
         "word": "blink",
@@ -1064,11 +967,6 @@
         "definition": "To touch someone or something gently, usually in an affectionate way."
       },
       {
-        "word": "challenge",
-        "part": "noun / verb",
-        "definition": "A difficult task that tests your ability; to question or test."
-      },
-      {
         "word": "chuckle",
         "part": "verb / noun",
         "definition": "To laugh quietly, often in a warm or restrained way."
@@ -1082,11 +980,6 @@
         "word": "comfort",
         "part": "verb / noun",
         "definition": "To make someone feel less sad, worried, or distressed; a feeling of ease or relief."
-      },
-      {
-        "word": "complete",
-        "part": "adjective / verb",
-        "definition": "Having all parts; to finish doing something."
       },
       {
         "word": "compromise",
@@ -1114,29 +1007,9 @@
         "definition": "To bend your knees and lower your body close to the ground."
       },
       {
-        "word": "delay",
-        "part": "noun / verb",
-        "definition": "A period of waiting or something that happens later than planned."
-      },
-      {
-        "word": "detail",
-        "part": "noun / verb",
-        "definition": "A small piece of information; to describe something fully."
-      },
-      {
         "word": "dihedral",
         "part": "adjective / noun",
         "definition": "Relating to two intersecting planes or the angle between them."
-      },
-      {
-        "word": "discipline",
-        "part": "noun / verb",
-        "definition": "Training or control that helps someone follow rules or reach goals."
-      },
-      {
-        "word": "draft",
-        "part": "noun / verb",
-        "definition": "An early version of a piece of work; to prepare a first version."
       },
       {
         "word": "dread",
@@ -1169,16 +1042,6 @@
         "definition": "To wish you had something that another person has."
       },
       {
-        "word": "experience",
-        "part": "noun / verb",
-        "definition": "Knowledge gained by doing something; to go through an event or feeling."
-      },
-      {
-        "word": "fair",
-        "part": "adjective / noun",
-        "definition": "Reasonable and treating people equally; an event where goods are shown or sold."
-      },
-      {
         "word": "fidget",
         "part": "verb / noun",
         "definition": "To make small, restless movements because you are nervous, bored, or impatient."
@@ -1187,11 +1050,6 @@
         "word": "fiduciary",
         "part": "adjective / noun",
         "definition": "Involving a duty to act in another person's best interests; a person who holds that duty."
-      },
-      {
-        "word": "focus",
-        "part": "noun / verb",
-        "definition": "The centre of attention; to give attention to one thing."
       },
       {
         "word": "frown",
@@ -1264,34 +1122,14 @@
         "definition": "To bend your body forward and raise your shoulders, often from cold, fear, or concentration."
       },
       {
-        "word": "impact",
-        "part": "noun / verb",
-        "definition": "A strong effect or influence."
-      },
-      {
-        "word": "increase",
-        "part": "verb / noun",
-        "definition": "To become or make greater in amount, size, or degree."
-      },
-      {
         "word": "individual",
         "part": "noun / adjective",
         "definition": "One person or thing considered separately; relating to one person."
       },
       {
-        "word": "interest",
-        "part": "noun / verb",
-        "definition": "A feeling of wanting to know more; to attract someone’s attention."
-      },
-      {
         "word": "interview",
         "part": "noun / verb",
         "definition": "A formal meeting to ask questions, often for a job; to question someone."
-      },
-      {
-        "word": "issue",
-        "part": "noun / verb",
-        "definition": "An important topic or problem; to officially give something."
       },
       {
         "word": "laugh",
@@ -1344,11 +1182,6 @@
         "definition": "To move your head down and up, often to show agreement or understanding."
       },
       {
-        "word": "notice",
-        "part": "verb / noun",
-        "definition": "To see, hear, or become aware of something; a written announcement."
-      },
-      {
         "word": "otherwise",
         "part": "adverb / conjunction",
         "definition": "In a different way; if not; or apart from that."
@@ -1369,11 +1202,6 @@
         "definition": "Able to wait or deal with difficulties without becoming annoyed; also, a person receiving medical care."
       },
       {
-        "word": "point",
-        "part": "verb / noun",
-        "definition": "To direct a finger or object toward someone or something."
-      },
-      {
         "word": "polish",
         "part": "verb / noun",
         "definition": "To improve something by making small refinements; a smooth finish."
@@ -1384,29 +1212,9 @@
         "definition": "To push your lips forward to show displeasure, disappointment, or sulking."
       },
       {
-        "word": "practice",
-        "part": "noun / verb",
-        "definition": "Repeated activity to improve a skill; to do something repeatedly."
-      },
-      {
-        "word": "praise",
-        "part": "noun / verb",
-        "definition": "Expression of approval or admiration; to express approval."
-      },
-      {
-        "word": "process",
-        "part": "noun / verb",
-        "definition": "A series of steps; to deal with information or material."
-      },
-      {
         "word": "professional",
         "part": "adjective / noun",
         "definition": "Relating to a job or career; a person with specialized training."
-      },
-      {
-        "word": "progress",
-        "part": "noun / verb",
-        "definition": "Forward movement toward a goal; to develop or improve."
       },
       {
         "word": "propaedeutic",
@@ -1429,24 +1237,9 @@
         "definition": "To move back suddenly because of fear, shock, pain, or disgust."
       },
       {
-        "word": "release",
-        "part": "verb / noun",
-        "definition": "To let go of something held or trapped; to allow something to become free."
-      },
-      {
-        "word": "repair",
-        "part": "verb / noun",
-        "definition": "To fix something that is broken or damaged."
-      },
-      {
         "word": "resolve",
         "part": "verb / noun",
         "definition": "To solve a problem or make a firm decision."
-      },
-      {
-        "word": "result",
-        "part": "noun / verb",
-        "definition": "Something that happens because of an action; to happen because of something."
       },
       {
         "word": "retort",
@@ -1459,29 +1252,14 @@
         "definition": "To move back or away from a difficult, threatening, or uncomfortable situation."
       },
       {
-        "word": "risk",
-        "part": "noun / verb",
-        "definition": "The possibility of harm or loss; to expose to danger."
-      },
-      {
         "word": "routine",
         "part": "noun / adjective",
         "definition": "A regular way of doing things; ordinary and usual."
       },
       {
-        "word": "schedule",
-        "part": "noun / verb",
-        "definition": "A plan that lists times for events or tasks; to arrange a time."
-      },
-      {
         "word": "scoff",
         "part": "verb / noun",
         "definition": "To laugh or speak about something with contempt or disbelief."
-      },
-      {
-        "word": "secure",
-        "part": "adjective / verb",
-        "definition": "Protected from danger or unauthorised access; to obtain something."
       },
       {
         "word": "shriek",
@@ -1743,7 +1521,7 @@
     "One-example entries need a second natural, context-appropriate example; preserve existing examples unless they are inaccurate."
   ],
   "editorialPatches": {
-    "status": "authored; not yet merged into the runtime baseline",
+    "status": "integrated into feature-branch index.html",
     "sensePatchFile": "data/english-baseline-sense-patches-01.json",
     "sensePatchedHeadwords": 30,
     "newSenseRecords": 60,
@@ -1755,6 +1533,8 @@
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
       "data/english-baseline-example-patches-02.json"
-    ]
-  }
+    ],
+    "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
+  },
+  "currentBaselineBlob": "ee59e22257a83b4130248d22a8a99254a70c2a10"
 }
