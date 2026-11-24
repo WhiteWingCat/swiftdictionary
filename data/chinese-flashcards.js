@@ -56,8 +56,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -85,8 +84,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -114,8 +112,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -143,8 +140,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -172,8 +168,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -201,8 +196,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -230,8 +224,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -259,8 +252,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -288,8 +280,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -317,8 +308,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -346,8 +336,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -375,8 +364,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -404,8 +392,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -461,8 +448,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -490,8 +476,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -577,8 +562,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -606,8 +590,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -693,8 +676,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -722,8 +704,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -751,8 +732,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -780,8 +760,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -809,8 +788,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -919,8 +897,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -948,8 +925,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -977,8 +953,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1006,8 +981,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1035,8 +1009,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1149,8 +1122,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1207,8 +1179,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1236,8 +1207,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1265,8 +1235,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1294,8 +1263,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1323,8 +1291,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1381,8 +1348,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1410,8 +1376,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1468,8 +1433,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1527,8 +1491,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1614,8 +1577,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1672,8 +1634,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1701,8 +1662,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1730,8 +1690,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1789,8 +1748,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1906,8 +1864,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1935,8 +1892,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1964,8 +1920,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -1993,8 +1948,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2052,8 +2006,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2081,8 +2034,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2110,8 +2062,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2139,8 +2090,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2196,8 +2146,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2225,8 +2174,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2254,8 +2202,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2283,8 +2230,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2340,8 +2286,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2369,8 +2314,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2398,8 +2342,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2427,8 +2370,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2485,8 +2427,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2514,8 +2455,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2572,8 +2512,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2601,8 +2540,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2658,8 +2596,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2687,8 +2624,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2743,8 +2679,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2829,8 +2764,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2858,8 +2792,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2917,8 +2850,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2946,8 +2878,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -2975,8 +2906,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3004,8 +2934,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3033,8 +2962,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3062,8 +2990,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3091,8 +3018,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3120,8 +3046,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3177,8 +3102,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3235,8 +3159,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3264,8 +3187,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3293,8 +3215,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3322,8 +3243,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3351,8 +3271,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3380,8 +3299,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3409,8 +3327,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3438,8 +3355,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3467,8 +3383,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3496,8 +3411,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3525,8 +3439,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3554,8 +3467,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3583,8 +3495,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3612,8 +3523,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3641,8 +3551,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3670,8 +3579,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3699,8 +3607,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3728,8 +3635,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3757,8 +3663,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3786,8 +3691,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3815,8 +3719,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3844,8 +3747,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3873,8 +3775,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3902,8 +3803,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3931,8 +3831,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -3989,8 +3888,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4018,8 +3916,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4047,8 +3944,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4076,8 +3972,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4105,8 +4000,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4162,8 +4056,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4191,8 +4084,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4220,8 +4112,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4337,8 +4228,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4366,8 +4256,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4395,8 +4284,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4424,8 +4312,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4453,8 +4340,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4482,8 +4368,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4511,8 +4396,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4540,8 +4424,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4569,8 +4452,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4598,8 +4480,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4627,8 +4508,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4656,8 +4536,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4685,8 +4564,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4714,8 +4592,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4743,8 +4620,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4772,8 +4648,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4801,8 +4676,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4830,8 +4704,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4859,8 +4732,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4888,8 +4760,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4946,8 +4817,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -4975,8 +4845,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5004,8 +4873,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5033,8 +4901,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5062,8 +4929,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5091,8 +4957,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5120,8 +4985,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5149,8 +5013,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5178,8 +5041,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5207,8 +5069,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5236,8 +5097,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5265,8 +5125,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5294,8 +5153,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5323,8 +5181,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5352,8 +5209,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5381,8 +5237,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5410,8 +5265,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5467,8 +5321,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5496,8 +5349,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5525,8 +5377,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5554,8 +5405,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5583,8 +5433,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5612,8 +5461,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5668,8 +5516,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5697,8 +5544,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5726,8 +5572,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5755,8 +5600,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5784,8 +5628,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5813,8 +5656,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5842,8 +5684,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5871,8 +5712,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5900,8 +5740,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5929,8 +5768,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5958,8 +5796,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -5987,8 +5824,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6016,8 +5852,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6045,8 +5880,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6074,8 +5908,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6103,8 +5936,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6132,8 +5964,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6161,8 +5992,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6190,8 +6020,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6219,8 +6048,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6248,8 +6076,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6277,8 +6104,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6306,8 +6132,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6335,8 +6160,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6364,8 +6188,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6393,8 +6216,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6449,8 +6271,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6478,8 +6299,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6507,8 +6327,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6536,8 +6355,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6565,8 +6383,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6594,8 +6411,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6623,8 +6439,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6652,8 +6467,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6710,8 +6524,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6739,8 +6552,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6768,8 +6580,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6797,8 +6608,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6826,8 +6636,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6855,8 +6664,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6884,8 +6692,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6913,8 +6720,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6942,8 +6748,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -6971,8 +6776,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7000,8 +6804,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7029,8 +6832,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7087,8 +6889,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7146,8 +6947,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7175,8 +6975,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7204,8 +7003,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7233,8 +7031,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7262,8 +7059,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7321,8 +7117,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7350,8 +7145,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7379,8 +7173,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7408,8 +7201,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7437,8 +7229,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7466,8 +7257,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7495,8 +7285,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7524,8 +7313,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7553,8 +7341,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7582,8 +7369,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7611,8 +7397,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7640,8 +7425,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7669,8 +7453,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7698,8 +7481,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7727,8 +7509,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7756,8 +7537,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7785,8 +7565,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7814,8 +7593,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7843,8 +7621,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7872,8 +7649,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7901,8 +7677,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7930,8 +7705,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7959,8 +7733,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -7988,8 +7761,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8017,8 +7789,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8046,8 +7817,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8075,8 +7845,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8164,8 +7933,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8193,8 +7961,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8222,8 +7989,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8251,8 +8017,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8280,8 +8045,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8309,8 +8073,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8366,8 +8129,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8395,8 +8157,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8424,8 +8185,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8453,8 +8213,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8482,8 +8241,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8511,8 +8269,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8540,8 +8297,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8598,8 +8354,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8627,8 +8382,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8656,8 +8410,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8685,8 +8438,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8714,8 +8466,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8743,8 +8494,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8772,8 +8522,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8801,8 +8550,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8830,8 +8578,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8859,8 +8606,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8888,8 +8634,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8917,8 +8662,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8946,8 +8690,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8975,8 +8718,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9004,8 +8746,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9033,8 +8774,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9062,8 +8802,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9091,8 +8830,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9120,8 +8858,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9149,8 +8886,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9178,8 +8914,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9207,8 +8942,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9236,8 +8970,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9265,8 +8998,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9294,8 +9026,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9323,8 +9054,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9352,8 +9082,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9381,8 +9110,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9440,8 +9168,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9469,8 +9196,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9498,8 +9224,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9527,8 +9252,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9556,8 +9280,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9585,8 +9308,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9614,8 +9336,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9643,8 +9364,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9672,8 +9392,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9701,8 +9420,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9730,8 +9448,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9759,8 +9476,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9788,8 +9504,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9817,8 +9532,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9846,8 +9560,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9875,8 +9588,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ],
       "sentenceExampleZh": "这家商店离地铁站很近。"
     },
@@ -9905,8 +9617,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9934,8 +9645,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9963,8 +9673,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -9992,8 +9701,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10021,8 +9729,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10050,8 +9757,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10079,8 +9785,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10108,8 +9813,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10167,8 +9871,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10196,8 +9899,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10253,8 +9955,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10282,8 +9983,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10311,8 +10011,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10340,8 +10039,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10369,8 +10067,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10428,8 +10125,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10457,8 +10153,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10486,8 +10181,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10515,8 +10209,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10544,8 +10237,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10573,8 +10265,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10602,8 +10293,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10631,8 +10321,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10660,8 +10349,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10689,8 +10377,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10718,8 +10405,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10747,8 +10433,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10776,8 +10461,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10805,8 +10489,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10834,8 +10517,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10863,8 +10545,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10892,8 +10573,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10921,8 +10601,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -10950,8 +10629,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11009,8 +10687,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11038,8 +10715,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11067,8 +10743,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11096,8 +10771,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11125,8 +10799,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11154,8 +10827,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11183,8 +10855,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11212,8 +10883,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11241,8 +10911,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11270,8 +10939,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11299,8 +10967,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11328,8 +10995,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11357,8 +11023,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11386,8 +11051,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11415,8 +11079,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11444,8 +11107,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11473,8 +11135,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11502,8 +11163,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11531,8 +11191,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11560,8 +11219,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11589,8 +11247,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11647,8 +11304,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11762,8 +11418,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11791,8 +11446,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11936,8 +11590,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -11992,8 +11645,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12021,8 +11673,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12050,8 +11701,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12079,8 +11729,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12138,8 +11787,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12167,8 +11815,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12196,8 +11843,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12225,8 +11871,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12254,8 +11899,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12310,8 +11954,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12339,8 +11982,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12368,8 +12010,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12397,8 +12038,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12426,8 +12066,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12455,8 +12094,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12484,8 +12122,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12513,8 +12150,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12570,8 +12206,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12599,8 +12234,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12628,8 +12262,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12657,8 +12290,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12686,8 +12318,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12715,8 +12346,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12744,8 +12374,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12773,8 +12402,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12802,8 +12430,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12831,8 +12458,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12860,8 +12486,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12889,8 +12514,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12918,8 +12542,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12947,8 +12570,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12976,8 +12598,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13005,8 +12626,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13064,8 +12684,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13093,8 +12712,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13122,8 +12740,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13151,8 +12768,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13180,8 +12796,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13209,8 +12824,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13238,8 +12852,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13267,8 +12880,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13296,8 +12908,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13325,8 +12936,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13354,8 +12964,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13383,8 +12992,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13412,8 +13020,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13441,8 +13048,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13470,8 +13076,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13499,8 +13104,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13528,8 +13132,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13584,8 +13187,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13613,8 +13215,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13642,8 +13243,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13671,8 +13271,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13700,8 +13299,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13729,8 +13327,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13758,8 +13355,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13787,8 +13383,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13816,8 +13411,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13845,8 +13439,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13874,8 +13467,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13903,8 +13495,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13932,8 +13523,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13961,8 +13551,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -13990,8 +13579,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14046,8 +13634,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14103,8 +13690,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14132,8 +13718,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14161,8 +13746,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14190,8 +13774,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14219,8 +13802,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14248,8 +13830,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14277,8 +13858,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14306,8 +13886,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14335,8 +13914,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14364,8 +13942,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14393,8 +13970,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14422,8 +13998,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14451,8 +14026,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14480,8 +14054,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14509,8 +14082,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14538,8 +14110,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14567,8 +14138,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14596,8 +14166,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14625,8 +14194,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14654,8 +14222,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14683,8 +14250,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14712,8 +14278,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14741,8 +14306,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14770,8 +14334,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14799,8 +14362,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14828,8 +14390,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14857,8 +14418,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14886,8 +14446,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14915,8 +14474,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -14972,8 +14530,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -15001,8 +14558,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -15030,8 +14586,7 @@ window.SWIFT_CHINESE_FLASHCARDS =
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     }
   ],
