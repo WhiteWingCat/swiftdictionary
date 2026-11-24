@@ -35,12 +35,14 @@ select q.*,u.prompt_learning as next_prompt_learning,u.prompt_pinyin as next_pro
  u.set_prompt_pinyin,u.prompt_translation as next_prompt_translation,
  u.explanation_learning as next_explanation_learning,u.explanation_translation as next_explanation_translation
 from private.quiz_question_bank q join _u28_chinese_quiz_polish_updates u using(question_id)
-where q.status='approved' and q.learning_language_code='zh' and q.translation_language_code='en';
+where q.status in ('approved','draft')
+ and q.learning_language_code='zh' and q.translation_language_code='en'
+ and q.revision=(select max(x.revision) from private.quiz_question_bank x where x.question_id=q.question_id);
 do $$
 declare expected_count integer := 23;
 begin
  if (select count(*) from _u28_chinese_quiz_polish_updates)<>expected_count then raise exception 'Chinese Quiz polish manifest count mismatch'; end if;
- if (select count(*) from _u28_chinese_quiz_polish_current)<>expected_count then raise exception 'Expected one current approved row for each Chinese Quiz polish update'; end if;
+ if (select count(*) from _u28_chinese_quiz_polish_current)<>expected_count then raise exception 'Expected one current draft or approved row for each Chinese Quiz polish update'; end if;
  if exists(select 1 from _u28_chinese_quiz_polish_current c where c.revision<>(select max(x.revision) from private.quiz_question_bank x where x.question_id=c.question_id)) then raise exception 'An approved Chinese Quiz row is not the latest revision'; end if;
  if exists(select 1 from _u28_chinese_quiz_polish_current c join private.quiz_question_bank n on n.question_id=c.question_id and n.revision=c.revision+1) then raise exception 'A Chinese Quiz polish revision already exists'; end if;
 end $$;
@@ -54,7 +56,7 @@ insert into private.quiz_question_bank (
 select c.question_id,c.revision+1,c.learning_language_code,c.translation_language_code,c.source_lesson_id,c.topic_id,c.difficulty,
  coalesce(c.next_prompt_learning,c.prompt_learning),coalesce(c.next_prompt_translation,c.prompt_translation),
  c.options,c.correct_option_id,coalesce(c.next_explanation_learning,c.explanation_learning),
- coalesce(c.next_explanation_translation,c.explanation_translation),'approved',now(),c.question_type,
+ coalesce(c.next_explanation_translation,c.explanation_translation),c.status,case when c.status='approved' then now() else null end,c.question_type,
  c.answer_language_code,c.learning_objective_id,
  case when c.set_prompt_pinyin then c.next_prompt_pinyin else c.prompt_pinyin end,c.explanation_pinyin
 from _u28_chinese_quiz_polish_current c;
@@ -63,7 +65,7 @@ declare expected_count integer := 23; active_count integer;
 begin
  select count(*) into active_count from private.quiz_question_bank q
  join _u28_chinese_quiz_polish_updates u using(question_id)
- where q.status='approved' and q.revision=(select max(x.revision) from private.quiz_question_bank x where x.question_id=q.question_id);
+ where q.status in ('approved','draft') and q.revision=(select max(x.revision) from private.quiz_question_bank x where x.question_id=q.question_id);
  if active_count<>expected_count then raise exception 'Chinese Quiz polish did not create the expected active revisions'; end if;
 end $$;
 drop table _u28_chinese_quiz_polish_current;
