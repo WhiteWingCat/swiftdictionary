@@ -966,6 +966,7 @@
   <script src="data/chinese-characters.js"></script>
   <script src="data/chinese-daily-learning.js"></script>
   <script src="data/chinese-lessons.js"></script>
+  <script src="data/english-expansion.js?v=2.9.0-u1"></script>
   <script>
     // Starter vocabulary. Add more entries by following this same object structure.
     const englishWords = [
@@ -18227,6 +18228,8 @@
         "related": "See the related everyday communication and places lessons."
     }
     ];
+    // Append the separately maintained U2.9.0 English expansion before dictionary state is initialised.
+    englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));
     const chineseWords = [
   {
     "word": "一",
