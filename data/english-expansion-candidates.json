@@ -28,8 +28,8 @@
       "Science & Technology": 41,
       "Emotions & Descriptions": 90
     },
-    "authoredCount": 420,
-    "remainingCandidateCount": 240,
+    "authoredCount": 464,
+    "remainingCandidateCount": 196,
     "lastUpdated": "2026-11-24"
   },
   "candidates": [
@@ -2714,7 +2714,7 @@
       "word": "ancient",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "art",
@@ -2726,13 +2726,13 @@
       "word": "artist",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "ceremony",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "character",
@@ -2750,13 +2750,13 @@
       "word": "community",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "concert",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "costume",
@@ -2768,7 +2768,7 @@
       "word": "custom",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "democracy",
@@ -2780,7 +2780,7 @@
       "word": "festival",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "fiction",
@@ -2804,13 +2804,13 @@
       "word": "heritage",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "holiday",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "identity",
@@ -2822,25 +2822,25 @@
       "word": "language",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "legend",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "literature",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "monument",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "myth",
@@ -2852,7 +2852,7 @@
       "word": "nation",
       "category": "History & Culture",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "novel",
@@ -2918,19 +2918,19 @@
       "word": "animal",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "atmosphere",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "autumn",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "branch",
@@ -2942,25 +2942,25 @@
       "word": "breeze",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "climate",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "cloud",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "coral",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "creature",
@@ -2972,7 +2972,7 @@
       "word": "crop",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "daylight",
@@ -2984,25 +2984,25 @@
       "word": "earth",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "earthquake",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "ecosystem",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "energy",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "feather",
@@ -3020,7 +3020,7 @@
       "word": "flower",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "fog",
@@ -3038,7 +3038,7 @@
       "word": "habitat",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "harvest",
@@ -3056,19 +3056,19 @@
       "word": "insect",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "leaf",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "lightning",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "meadow",
@@ -3098,13 +3098,13 @@
       "word": "mountain",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "ocean",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "organic",
@@ -3116,7 +3116,7 @@
       "word": "planet",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "plant",
@@ -3128,7 +3128,7 @@
       "word": "pollution",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "pond",
@@ -3152,7 +3152,7 @@
       "word": "recycle",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "rock",
@@ -3170,25 +3170,25 @@
       "word": "season",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "seed",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "sky",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "soil",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "solar",
@@ -3206,7 +3206,7 @@
       "word": "star",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "stone",
@@ -3218,7 +3218,7 @@
       "word": "storm",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "stream",
@@ -3254,13 +3254,13 @@
       "word": "tree",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "valley",
       "category": "Nature & Environment",
       "priority": "core",
-      "status": "candidate"
+      "status": "authored-batch-10"
     },
     {
       "word": "vegetation",
