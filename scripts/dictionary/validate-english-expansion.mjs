@@ -21,7 +21,9 @@ const arrayEnd = source.indexOf("\n    ];", arrayStart) + 6;
 if (arrayEnd < arrayStart) throw new Error("Could not locate end of englishWords array.");
 const baseline = JSON.parse(source.slice(arrayStart, arrayEnd).trim());
 const candidatesDoc = JSON.parse(fs.readFileSync(candidatePath, "utf8"));
-const candidateWords = new Set(candidatesDoc.candidates.map(x => normalizeHeadword(x.word)));
+const normalizedCandidates = candidatesDoc.candidates.map(x => normalizeHeadword(x.word));
+const candidateWords = new Set(normalizedCandidates);
+if (candidateWords.size !== normalizedCandidates.length) throw new Error("Candidate inventory contains duplicate normalised headwords.");
 const baselineWords = new Set();
 const baselineDuplicates = [];
 for (const entry of baseline) {
