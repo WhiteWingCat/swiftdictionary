@@ -12,10 +12,10 @@
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
     "entriesWithFewerThanTwoExamples": 216,
-    "entriesWithoutExplicitSenses": 620,
-    "multiPartOfSpeechWithoutExplicitSenses": 50,
-    "entriesWithExplicitSenses": 190,
-    "totalExplicitSenses": 426,
+    "entriesWithoutExplicitSenses": 570,
+    "multiPartOfSpeechWithoutExplicitSenses": 0,
+    "entriesWithExplicitSenses": 240,
+    "totalExplicitSenses": 526,
     "entriesMissingOptionalBreakdownOrRelated": 38,
     "entriesWithoutCategoryAssignments": 810
   },
@@ -304,7 +304,6 @@
       "awkward",
       "barely",
       "baroclinic",
-      "baroque",
       "basically",
       "beckon",
       "behave",
@@ -326,7 +325,6 @@
       "brave",
       "brief",
       "bristle",
-      "brood",
       "candidate",
       "capable",
       "career",
@@ -357,12 +355,10 @@
       "complain",
       "composed",
       "concentrate",
-      "concomitant",
       "confidence",
       "confident",
       "confirm",
       "confound",
-      "confounding",
       "confuse",
       "conjugation",
       "consider",
@@ -374,7 +370,6 @@
       "contingency",
       "convenient",
       "cooperate",
-      "counterfactual",
       "crave",
       "create",
       "creative",
@@ -408,7 +403,6 @@
       "dichotomy",
       "difference",
       "differentiation",
-      "dihedral",
       "dilution",
       "directly",
       "disambiguation",
@@ -460,7 +454,6 @@
       "familiarity",
       "feedback",
       "fermentation",
-      "fiduciary",
       "flexible",
       "flexibly",
       "flinch",
@@ -480,18 +473,15 @@
       "gently",
       "geochronology",
       "geomorphology",
-      "glower",
       "goal",
       "gradually",
       "grateful",
       "grieve",
-      "grimace",
       "habit",
       "hermeneutics",
       "hesitate",
       "hesitation",
       "heteroskedasticity",
-      "heuristic",
       "historiography",
       "homology",
       "honest",
@@ -509,13 +499,11 @@
       "impulsive",
       "include",
       "independent",
-      "individual",
       "insecure",
       "instead",
       "intentional",
       "interpret",
       "interrupt",
-      "interview",
       "involve",
       "isostasy",
       "isotope",
@@ -553,21 +541,18 @@
       "lithification",
       "lithography",
       "lithosphere",
-      "littoral",
       "locus",
       "lonely",
       "longitudinal",
       "maintain",
       "manage",
       "meaningful",
-      "meanwhile",
       "metacognition",
       "method",
       "metonymy",
       "metrology",
       "microbiome",
       "mimesis",
-      "mimic",
       "misunderstanding",
       "mitigation",
       "moreover",
@@ -575,11 +560,8 @@
       "motivate",
       "motivation",
       "mourn",
-      "mumble",
-      "murmur",
       "muster",
       "mutagenesis",
-      "mutter",
       "mycorrhiza",
       "natural",
       "necessary",
@@ -590,7 +572,6 @@
       "neurogenesis",
       "neuroplasticity",
       "nevertheless",
-      "nod",
       "observe",
       "obvious",
       "occasionally",
@@ -605,7 +586,6 @@
       "outcome",
       "overwhelm",
       "overwhelmed",
-      "pace",
       "paleoclimatology",
       "paleoecology",
       "paleography",
@@ -613,7 +593,6 @@
       "paradigm",
       "parsimony",
       "participate",
-      "pat",
       "path dependence",
       "patiently",
       "pattern",
@@ -630,7 +609,6 @@
       "phytoremediation",
       "plebiscite",
       "pleiotropy",
-      "polish",
       "polite",
       "politely",
       "polymorphism",
@@ -638,7 +616,6 @@
       "portfolio",
       "possibility",
       "posture",
-      "pout",
       "practical",
       "precise",
       "prefer",
@@ -648,7 +625,6 @@
       "priority",
       "privacy",
       "probably",
-      "propaedeutic",
       "proud",
       "provenance",
       "provide",
@@ -659,7 +635,6 @@
       "quanta",
       "quantitative",
       "quantization",
-      "quantum",
       "quiescent",
       "quietly",
       "quintessence",
@@ -698,7 +673,6 @@
       "requirement",
       "resent",
       "resentful",
-      "resolve",
       "resource",
       "respectful",
       "respond",
@@ -719,68 +693,47 @@
       "seriously",
       "similarly",
       "simple",
-      "slump",
-      "smirk",
-      "snarl",
-      "sneer",
-      "sniffle",
       "soar",
-      "sob",
       "solution",
       "soothe",
       "specific",
-      "squeeze",
-      "squint",
-      "stagger",
-      "stare",
       "startle",
       "startled",
       "stiffen",
-      "stoic",
       "stoichiometry",
       "straighten",
       "strategy",
       "stratigraphy",
       "strength",
-      "stroke",
-      "stumble",
       "subtle",
       "successful",
       "suggest",
-      "sulk",
       "summary",
       "supportive",
-      "surge",
       "syncretism",
       "synecdoche",
-      "tap",
       "taphonomy",
       "taxonomy",
       "telemetry",
       "teleology",
       "temporary",
-      "tense",
       "tessellation",
       "thanatology",
       "therefore",
       "thermodynamics",
       "thoughtful",
-      "throughout",
       "timid",
       "timing",
       "tolerant",
       "toponymy",
       "transdisciplinary",
       "transduction",
-      "tremble",
       "triangulation",
       "trophic",
-      "trust",
       "turbidity",
       "typical",
       "ubiquitination",
       "understand",
-      "understanding",
       "uneasy",
       "unexpected",
       "unfortunately",
@@ -803,15 +756,12 @@
       "whereas",
       "whether",
       "willing",
-      "wince",
       "withdraw",
-      "within",
       "wonderful",
       "workload",
       "worthwhile",
       "x-axis",
       "xenobiology",
-      "xenobiotic",
       "xenogenesis",
       "xenograft",
       "xenolith",
@@ -860,258 +810,7 @@
       "ticket",
       "platform"
     ],
-    "multiPartOfSpeechWithoutSenseArray": [
-      {
-        "word": "baroque",
-        "part": "adjective / noun",
-        "definition": "Describing an elaborate artistic style, especially associated with dramatic detail and ornamentation; also the style itself."
-      },
-      {
-        "word": "brood",
-        "part": "verb / noun",
-        "definition": "To think for a long time about something unhappy or worrying."
-      },
-      {
-        "word": "concomitant",
-        "part": "adjective / noun",
-        "definition": "Occurring alongside another event or condition; something that accompanies it."
-      },
-      {
-        "word": "confounding",
-        "part": "noun / adjective",
-        "definition": "The mixing of effects that makes a relationship difficult to interpret."
-      },
-      {
-        "word": "counterfactual",
-        "part": "adjective / noun",
-        "definition": "Considering what would be true if an event had happened differently; a statement about such an alternative."
-      },
-      {
-        "word": "dihedral",
-        "part": "adjective / noun",
-        "definition": "Relating to two intersecting planes or the angle between them."
-      },
-      {
-        "word": "fiduciary",
-        "part": "adjective / noun",
-        "definition": "Involving a duty to act in another person's best interests; a person who holds that duty."
-      },
-      {
-        "word": "glower",
-        "part": "verb / noun",
-        "definition": "To look at someone angrily, usually in silence."
-      },
-      {
-        "word": "grimace",
-        "part": "verb / noun",
-        "definition": "To twist your face into an expression of pain, disgust, or discomfort."
-      },
-      {
-        "word": "heuristic",
-        "part": "noun / adjective",
-        "definition": "A practical rule or strategy that helps solve a problem quickly, though it may not always give the best answer."
-      },
-      {
-        "word": "individual",
-        "part": "noun / adjective",
-        "definition": "One person or thing considered separately; relating to one person."
-      },
-      {
-        "word": "interview",
-        "part": "noun / verb",
-        "definition": "A formal meeting to ask questions, often for a job; to question someone."
-      },
-      {
-        "word": "littoral",
-        "part": "adjective / noun",
-        "definition": "Relating to the shore of a sea or lake; the shore zone itself."
-      },
-      {
-        "word": "meanwhile",
-        "part": "adverb / noun",
-        "definition": "During the same period of time."
-      },
-      {
-        "word": "mimic",
-        "part": "verb / noun",
-        "definition": "To copy someone's voice, movements, or behavior."
-      },
-      {
-        "word": "mumble",
-        "part": "verb / noun",
-        "definition": "To speak in a quiet, unclear way, making your words difficult to understand."
-      },
-      {
-        "word": "murmur",
-        "part": "verb / noun",
-        "definition": "To speak in a low, soft voice, often gently or indistinctly."
-      },
-      {
-        "word": "mutter",
-        "part": "verb / noun",
-        "definition": "To speak quietly and unclearly, often because you are annoyed or do not want to be heard."
-      },
-      {
-        "word": "nod",
-        "part": "verb / noun",
-        "definition": "To move your head down and up, often to show agreement or understanding."
-      },
-      {
-        "word": "pace",
-        "part": "verb / noun",
-        "definition": "To walk back and forth repeatedly, often because you are worried or impatient."
-      },
-      {
-        "word": "pat",
-        "part": "verb / noun",
-        "definition": "To touch someone or something lightly and repeatedly with your hand."
-      },
-      {
-        "word": "polish",
-        "part": "verb / noun",
-        "definition": "To improve something by making small refinements; a smooth finish."
-      },
-      {
-        "word": "pout",
-        "part": "verb / noun",
-        "definition": "To push your lips forward to show displeasure, disappointment, or sulking."
-      },
-      {
-        "word": "propaedeutic",
-        "part": "adjective / noun",
-        "definition": "Serving as an introduction or preparatory instruction for a more advanced subject."
-      },
-      {
-        "word": "quantum",
-        "part": "noun / adjective",
-        "definition": "A discrete amount of a physical quantity; also relating to quantum theory."
-      },
-      {
-        "word": "resolve",
-        "part": "verb / noun",
-        "definition": "To solve a problem or make a firm decision."
-      },
-      {
-        "word": "slump",
-        "part": "verb / noun",
-        "definition": "To sit, stand, or fall with your body leaning heavily and your shoulders lowered."
-      },
-      {
-        "word": "smirk",
-        "part": "verb / noun",
-        "definition": "To smile in a way that suggests smugness, secret amusement, or self-satisfaction."
-      },
-      {
-        "word": "snarl",
-        "part": "verb / noun",
-        "definition": "To speak in an angry, harsh voice; for an animal to show its teeth while growling."
-      },
-      {
-        "word": "sneer",
-        "part": "verb / noun",
-        "definition": "To show contempt by speaking or smiling in a scornful way."
-      },
-      {
-        "word": "sniffle",
-        "part": "verb / noun",
-        "definition": "To sniff repeatedly, often because you are crying or have a cold."
-      },
-      {
-        "word": "sob",
-        "part": "verb / noun",
-        "definition": "To cry with repeated, uneven breaths."
-      },
-      {
-        "word": "squeeze",
-        "part": "verb / noun",
-        "definition": "To press something firmly, often with your fingers or hands."
-      },
-      {
-        "word": "squint",
-        "part": "verb / noun",
-        "definition": "To partly close your eyes to see better or because of bright light."
-      },
-      {
-        "word": "stagger",
-        "part": "verb / noun",
-        "definition": "To walk or move unsteadily, as if you might fall."
-      },
-      {
-        "word": "stare",
-        "part": "verb / noun",
-        "definition": "To look at someone or something for a long time, often without looking away."
-      },
-      {
-        "word": "stoic",
-        "part": "adjective / noun",
-        "definition": "Calm and controlled during pain or difficulty, without showing much emotion."
-      },
-      {
-        "word": "stroke",
-        "part": "verb / noun",
-        "definition": "To move your hand gently over a surface, hair, or an animal."
-      },
-      {
-        "word": "stumble",
-        "part": "verb / noun",
-        "definition": "To trip or lose your balance while walking; to make a mistake while speaking or doing something."
-      },
-      {
-        "word": "sulk",
-        "part": "verb / noun",
-        "definition": "To remain silent and unhappy because you feel annoyed or disappointed."
-      },
-      {
-        "word": "surge",
-        "part": "verb / noun",
-        "definition": "To move or rise suddenly and powerfully; a sudden increase or strong feeling."
-      },
-      {
-        "word": "tap",
-        "part": "verb / noun",
-        "definition": "To touch something lightly, often with a finger or a small object."
-      },
-      {
-        "word": "tense",
-        "part": "verb / adjective",
-        "definition": "To become tight or anxious; tight, nervous, or strained."
-      },
-      {
-        "word": "throughout",
-        "part": "preposition / adverb",
-        "definition": "In every part of a place or during the whole of a period."
-      },
-      {
-        "word": "tremble",
-        "part": "verb / noun",
-        "definition": "To shake slightly, often because of fear, cold, anger, or strong emotion."
-      },
-      {
-        "word": "trust",
-        "part": "noun / verb",
-        "definition": "Belief that someone is honest or reliable; to believe in someone’s honesty."
-      },
-      {
-        "word": "understanding",
-        "part": "noun / adjective",
-        "definition": "Knowledge of something; showing sympathy toward another person."
-      },
-      {
-        "word": "wince",
-        "part": "verb / noun",
-        "definition": "To make a brief expression or movement showing pain, embarrassment, or discomfort."
-      },
-      {
-        "word": "within",
-        "part": "preposition / adverb",
-        "definition": "Inside a particular area, limit, or period of time."
-      },
-      {
-        "word": "xenobiotic",
-        "part": "noun / adjective",
-        "definition": "A chemical substance foreign to a living organism or biological system."
-      }
-    ],
+    "multiPartOfSpeechWithoutSenseArray": [],
     "missingOptionalBreakdownOrRelated": [
       "interpret",
       "pattern",
@@ -1163,12 +862,12 @@
   "editorialPatches": {
     "status": "integrated into feature-branch index.html",
     "sensePatchFile": "data/english-baseline-sense-patches-01.json",
-    "sensePatchedHeadwords": 90,
-    "newSenseRecords": 182,
+    "sensePatchedHeadwords": 140,
+    "newSenseRecords": 282,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
     "examplePatchedHeadwords": 42,
     "addedExampleSentences": 42,
-    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 50,
+    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 0,
     "projectedRemainingEntriesWithFewerThanTwoExamples": 216,
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
@@ -1178,13 +877,15 @@
     "sensePatchFiles": [
       "data/english-baseline-sense-patches-01.json",
       "data/english-baseline-sense-patches-02.json",
-      "data/english-baseline-sense-patches-03.json"
+      "data/english-baseline-sense-patches-03.json",
+      "data/english-baseline-sense-patches-04.json"
     ],
     "appliedCommits": [
       "9c09415afe879e1960dd254e6243e07c2dbb8615",
       "628e4fbd7ab7e9bf832e1190455b100b21c27d08",
-      "704a9f4649188bc9f826604c7bd222862594cdde"
+      "704a9f4649188bc9f826604c7bd222862594cdde",
+      "9ae5bfa214aef39de5973867ed9ded6d6b2003fc"
     ]
   },
-  "currentBaselineBlob": "pending verification after integration"
+  "currentBaselineBlob": "b65c4102d0d9781b0b54de182dc344fa387e5802"
 }
