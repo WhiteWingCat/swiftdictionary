@@ -1,0 +1,941 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 2,
+  "theme": "Everyday terms and core concepts",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "address",
+      "part": "noun / verb",
+      "phonetic": "/ˈædres/ (noun), /əˈdres/ (verb)",
+      "definition": "The details that identify where someone lives or where something is located; or to speak to someone or deal with a problem.",
+      "definitionZh": "地址；称呼；向……讲话；处理（问题）",
+      "examples": [
+        "Please write your home address on the form.",
+        "The manager addressed the team's concerns."
+      ],
+      "tip": "As a noun, the stress is usually on the first syllable; as a verb, it is usually on the second.",
+      "course": "en",
+      "breakdown": "The noun identifies a location; the verb can mean speak to an audience or take action on an issue.",
+      "related": "location; residence; speak to; deal with",
+      "categories": [
+        "Everyday Terms",
+        "Places",
+        "Actions"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The details used to identify the location of a home, building, or other place.",
+          "definitionZh": "用于确定住宅、建筑物或其他地点位置的信息。",
+          "examples": [
+            "I changed my email address last month.",
+            "What is the address of the new library?"
+          ]
+        },
+        {
+          "part": "verb — speak to",
+          "definition": "To speak to a person or group, often formally.",
+          "definitionZh": "向某个人或群体讲话，通常较为正式。",
+          "examples": [
+            "The principal addressed the students at assembly.",
+            "She addressed the audience before the performance."
+          ]
+        },
+        {
+          "part": "verb — deal with",
+          "definition": "To take action to deal with a question, problem, or situation.",
+          "definitionZh": "采取行动处理某个问题、疑问或情况。",
+          "examples": [
+            "We must address the safety concerns.",
+            "The report addresses several important issues."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "age",
+      "part": "noun / verb",
+      "phonetic": "/eɪdʒ/",
+      "definition": "The length of time that a person or thing has existed; or to become older over time.",
+      "definitionZh": "年龄；年纪；时代；变老；老化",
+      "examples": [
+        "What is the age of the building?",
+        "Some materials age better than others."
+      ],
+      "tip": "Use “at the age of” for a specific age. “Age” can also describe a historical period, as in the Stone Age.",
+      "course": "en",
+      "breakdown": "Can refer to a person's years, the time something has existed, or a long historical period.",
+      "related": "old; young; elderly; era",
+      "categories": [
+        "Everyday Terms",
+        "History & Culture",
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — years lived",
+          "definition": "The number of years that a person or animal has lived.",
+          "definitionZh": "一个人或动物已经生活的年数；年龄。",
+          "examples": [
+            "Children of the same age often share interests.",
+            "She started learning music at the age of six."
+          ]
+        },
+        {
+          "part": "noun — period of history",
+          "definition": "A particular period in history or a stage in the development of something.",
+          "definitionZh": "历史上的某个时期，或某事物发展过程中的阶段。",
+          "examples": [
+            "The Bronze Age followed the Stone Age.",
+            "We live in the digital age."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To become older or to change as time passes.",
+          "definitionZh": "随着时间推移而变老或发生变化。",
+          "examples": [
+            "Wine can improve as it ages.",
+            "The photograph has aged badly in the sunlight."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "amount",
+      "part": "noun / verb",
+      "phonetic": "/əˈmaʊnt/",
+      "definition": "A quantity or total of something; or, in the phrase “amount to”, to be equal to or have the effect of something.",
+      "definitionZh": "数量；总额；合计为；相当于",
+      "examples": [
+        "We spent a large amount of money on repairs.",
+        "The small changes amount to a major improvement."
+      ],
+      "tip": "Use “amount” mainly with uncountable things; use “number” with countable items.",
+      "course": "en",
+      "breakdown": "The noun refers to quantity; “amount to” is a common verb phrase meaning equal or add up to.",
+      "related": "quantity; total; sum; number",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A quantity of something, especially something that is not counted as separate items.",
+          "definitionZh": "某种事物的数量，尤指不按单个项目计数的事物。",
+          "examples": [
+            "Add a small amount of salt.",
+            "The amount of information was overwhelming."
+          ]
+        },
+        {
+          "part": "verb phrase — amount to",
+          "definition": "To add up to a particular total, or to have a particular meaning or effect.",
+          "definitionZh": "总计达到某个数额，或实际上意味着、构成某种结果。",
+          "examples": [
+            "The bills amount to more than one hundred dollars.",
+            "His actions amounted to a refusal."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "area",
+      "part": "noun",
+      "phonetic": "/ˈeriə/",
+      "definition": "A particular part of a place, surface, or subject; or the size of a surface measured in square units.",
+      "definitionZh": "地区；区域；面积；领域",
+      "examples": [
+        "This area is popular with tourists.",
+        "The room has an area of twenty square metres."
+      ],
+      "tip": "“Area” can refer to a physical location, a measured surface, or a subject of knowledge.",
+      "course": "en",
+      "breakdown": "The context shows whether it means a place, a measurement, or a field of activity.",
+      "related": "region; zone; space; field",
+      "categories": [
+        "Everyday Terms",
+        "Places",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — place",
+          "definition": "A particular part of a town, country, building, or other location.",
+          "definitionZh": "城镇、国家、建筑物或其他地点中的某个区域。",
+          "examples": [
+            "There are several cafés in this area.",
+            "The children played in a quiet area of the park."
+          ]
+        },
+        {
+          "part": "noun — size of a surface",
+          "definition": "The amount of space covered by a flat surface, measured in square units.",
+          "definitionZh": "平面所占的空间大小，以平方单位计算；面积。",
+          "examples": [
+            "Calculate the area of the triangle.",
+            "The garden has an area of fifty square metres."
+          ]
+        },
+        {
+          "part": "noun — subject or activity",
+          "definition": "A particular subject, skill, or part of someone's work or interest.",
+          "definitionZh": "某个特定的学科、技能或工作与兴趣领域。",
+          "examples": [
+            "Marketing is not my strongest area.",
+            "The course covers several areas of science."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "article",
+      "part": "noun",
+      "phonetic": "/ˈɑːrtɪkəl/",
+      "definition": "A piece of writing in a newspaper, magazine, or website; an item or object; or a word such as “a”, “an”, or “the” in grammar.",
+      "definitionZh": "文章；物品；条款；冠词",
+      "examples": [
+        "I read an interesting article about wildlife.",
+        "In English, “a” and “the” are articles."
+      ],
+      "tip": "In grammar, English articles are “a”, “an”, and “the”. In publishing, an article is a written piece on a topic.",
+      "course": "en",
+      "breakdown": "The meaning depends on whether the context is writing, grammar, law, or a general object.",
+      "related": "essay; report; item; a; an; the",
+      "categories": [
+        "Everyday Terms",
+        "Education",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun — written piece",
+          "definition": "A piece of writing about a subject, published in a newspaper, magazine, or online.",
+          "definitionZh": "在报纸、杂志或网络上发表的关于某个主题的文章。",
+          "examples": [
+            "She wrote an article about city transport.",
+            "I found the article on the school's website."
+          ]
+        },
+        {
+          "part": "noun — grammar",
+          "definition": "A word used before a noun to show whether it refers to something specific or general.",
+          "definitionZh": "放在名词前，用来表示所指事物是特定还是泛指的词；冠词。",
+          "examples": [
+            "“An” is used before a vowel sound.",
+            "The word “the” is a definite article."
+          ]
+        },
+        {
+          "part": "noun — object or item",
+          "definition": "An individual object or item, especially one of a group of things.",
+          "definitionZh": "单独的一件物品，尤指一组物品中的一件。",
+          "examples": [
+            "The shop sells household articles.",
+            "Each article must be labelled before storage."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "attention",
+      "part": "noun",
+      "phonetic": "/əˈtenʃən/",
+      "definition": "The act of carefully watching, listening to, or thinking about something; or the interest and notice given to someone or something.",
+      "definitionZh": "注意；留心；关注；照料",
+      "examples": [
+        "Please pay attention to the instructions.",
+        "The new design attracted a lot of attention."
+      ],
+      "tip": "Common phrases include pay attention to, attract attention, and bring something to someone's attention.",
+      "course": "en",
+      "breakdown": "Usually uncountable when referring to focus or interest; “attentions” has a different, more formal use.",
+      "related": "focus; notice; concentration; care",
+      "categories": [
+        "Everyday Terms",
+        "Education",
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — focus",
+          "definition": "The act of concentrating on something by watching, listening, or thinking carefully.",
+          "definitionZh": "通过仔细观察、聆听或思考而集中精神；注意力。",
+          "examples": [
+            "You need to give the speaker your full attention.",
+            "The child has difficulty keeping attention in class."
+          ]
+        },
+        {
+          "part": "noun — interest or notice",
+          "definition": "Interest or public notice given to a person, event, or subject.",
+          "definitionZh": "人们对某个人、事件或主题表现出的兴趣或关注。",
+          "examples": [
+            "The story received international attention.",
+            "Her bright jacket attracted attention."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "average",
+      "part": "noun / adjective / verb",
+      "phonetic": "/ˈævərɪdʒ/",
+      "definition": "A typical level or amount; the result of adding several numbers and dividing by how many there are; or to have a particular amount as a usual result.",
+      "definitionZh": "平均数；平均的；普通的；平均达到",
+      "examples": [
+        "The average score was eighty percent.",
+        "This town averages more rain in winter."
+      ],
+      "tip": "As a noun in mathematics, the average is commonly the arithmetic mean. As an adjective, it can mean typical or ordinary.",
+      "course": "en",
+      "breakdown": "Can describe a mathematical value or something typical compared with others.",
+      "related": "mean; typical; ordinary; calculate",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — mathematical value",
+          "definition": "A number found by adding a group of numbers and dividing the total by the number of values.",
+          "definitionZh": "将一组数字相加，再除以数字的个数所得出的数；平均数。",
+          "examples": [
+            "The average of four and six is five.",
+            "Calculate the average of these test scores."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Typical or usual when compared with other people or things of the same kind.",
+          "definitionZh": "与同类的人或事物相比，具有典型或通常水平的。",
+          "examples": [
+            "The average adult needs regular sleep.",
+            "It was an average performance, not an excellent one."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To have a particular amount, rate, or result as the usual figure over a period of time.",
+          "definitionZh": "在一段时间内通常达到某个数量、比率或结果。",
+          "examples": [
+            "The team averages two goals per game.",
+            "The area averages a high temperature in July."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "background",
+      "part": "noun / adjective",
+      "phonetic": "/ˈbækɡraʊnd/",
+      "definition": "The part behind the main subject; a person's education, experience, or family history; or the conditions that help explain a situation.",
+      "definitionZh": "背景；经历；出身；幕后；背景的",
+      "examples": [
+        "The photo has a mountain in the background.",
+        "She has a background in graphic design."
+      ],
+      "tip": "“In the background” can mean physically behind something or happening without being the main focus.",
+      "course": "en",
+      "breakdown": "Can refer to a visual setting, personal experience, or information that explains a situation.",
+      "related": "setting; history; experience; context",
+      "categories": [
+        "Everyday Terms",
+        "People & Relationships",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — behind the main subject",
+          "definition": "The part of a picture, scene, or place that is behind the main person or object.",
+          "definitionZh": "图像、场景或地点中位于主要人物或物体后面的部分。",
+          "examples": [
+            "A tree appears in the background of the photograph.",
+            "The singer stood in front of a blue background."
+          ]
+        },
+        {
+          "part": "noun — personal experience",
+          "definition": "A person's education, family history, culture, or previous experience.",
+          "definitionZh": "一个人的教育、家庭历史、文化或以往经历。",
+          "examples": [
+            "Applicants should describe their educational background.",
+            "We come from different cultural backgrounds."
+          ]
+        },
+        {
+          "part": "noun — context",
+          "definition": "Information about earlier events or conditions that helps explain a situation.",
+          "definitionZh": "有助于解释某种情况的先前事件或条件信息；背景资料。",
+          "examples": [
+            "The report provides background to the decision.",
+            "I need some background information before the meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "beginning",
+      "part": "noun",
+      "phonetic": "/bɪˈɡɪnɪŋ/",
+      "definition": "The point at which something starts, or the first part of an event, period, story, or process.",
+      "definitionZh": "开始；开端；起初；开头部分",
+      "examples": [
+        "We are only at the beginning of the project.",
+        "Read the beginning of the story again."
+      ],
+      "tip": "Often used in “at the beginning of” and “from the beginning”. The verb is “begin”.",
+      "course": "en",
+      "breakdown": "Refers to the starting point or earliest part of something.",
+      "related": "start; opening; first; begin",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — starting point",
+          "definition": "The time or point when an event, activity, or process starts.",
+          "definitionZh": "事件、活动或过程开始的时间或节点。",
+          "examples": [
+            "At the beginning of the year, we set new goals.",
+            "The beginning of the meeting was delayed."
+          ]
+        },
+        {
+          "part": "noun — first part",
+          "definition": "The first section of a story, book, period, or sequence.",
+          "definitionZh": "故事、书籍、时期或顺序中的第一部分。",
+          "examples": [
+            "The beginning of the film is quite funny.",
+            "I missed the beginning of the lesson."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bill",
+      "part": "noun / verb",
+      "phonetic": "/bɪl/",
+      "definition": "A statement showing how much money is owed; a proposed law; a banknote; or to send someone a request for payment.",
+      "definitionZh": "账单；法案；纸币；开账单；收费",
+      "examples": [
+        "Could we have the bill, please?",
+        "The restaurant billed us for the extra meal."
+      ],
+      "tip": "In restaurants, “bill” is common in British English; “check” is more common in American English.",
+      "course": "en",
+      "breakdown": "The meaning depends on the context: payment, government, money, or advertising.",
+      "related": "invoice; check; fee; law",
+      "categories": [
+        "Everyday Terms",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun — payment statement",
+          "definition": "A document or statement showing the amount of money that must be paid.",
+          "definitionZh": "列明应付金额的文件或账单。",
+          "examples": [
+            "The electricity bill arrived yesterday.",
+            "Can we have the bill after dessert?"
+          ]
+        },
+        {
+          "part": "noun — proposed law",
+          "definition": "A proposal for a new law that is discussed by a parliament or other law-making body.",
+          "definitionZh": "由议会或其他立法机构讨论的法律提案；法案。",
+          "examples": [
+            "The bill will be debated next week.",
+            "Members voted against the proposed bill."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To send someone a statement asking them to pay for goods or services.",
+          "definitionZh": "向某人发送账单，要求其支付商品或服务费用。",
+          "examples": [
+            "The hotel billed the company directly.",
+            "We will bill you at the end of the month."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bit",
+      "part": "noun",
+      "phonetic": "/bɪt/",
+      "definition": "A small piece or amount of something; an informal short period; or a unit of information in computing.",
+      "definitionZh": "一点；少量；小块；短时间；比特",
+      "examples": [
+        "Would you like a bit of cake?",
+        "Wait a bit and I will be ready."
+      ],
+      "tip": "“A bit” often means a little. In computing, a bit is the smallest basic unit of digital information.",
+      "course": "en",
+      "breakdown": "A flexible informal word for a small amount, a short time, or a digital unit.",
+      "related": "piece; little; small amount; byte",
+      "categories": [
+        "Everyday Terms",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun — small piece or amount",
+          "definition": "A small piece, part, or quantity of something.",
+          "definitionZh": "某物的一小块、一部分或少量。",
+          "examples": [
+            "He broke off a bit of chocolate.",
+            "There is a bit of water left in the bottle."
+          ]
+        },
+        {
+          "part": "noun — short time",
+          "definition": "An informal word for a short period of time.",
+          "definitionZh": "短时间；片刻。",
+          "examples": [
+            "Stay here for a bit.",
+            "I will be back in a little bit."
+          ]
+        },
+        {
+          "part": "noun — computing",
+          "definition": "A basic unit of digital information that can have a value of zero or one.",
+          "definitionZh": "数字信息的基本单位，其值可以是零或一；比特。",
+          "examples": [
+            "A byte contains eight bits.",
+            "The file stores one bit of information for each setting."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bottom",
+      "part": "noun / adjective",
+      "phonetic": "/ˈbɑːtəm/",
+      "definition": "The lowest part of something; the surface or side underneath; or the lowest position in a ranking or list.",
+      "definitionZh": "底部；底端；底层；最下面的；末位的",
+      "examples": [
+        "Your shoes are at the bottom of the stairs.",
+        "The team finished at the bottom of the table."
+      ],
+      "tip": "Common phrases include at the bottom of, from top to bottom, and bottom line.",
+      "course": "en",
+      "breakdown": "Usually identifies the lowest part or position, physically or figuratively.",
+      "related": "base; lower; top; underneath",
+      "categories": [
+        "Everyday Terms",
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun — lowest part",
+          "definition": "The lowest part or end of an object, container, or place.",
+          "definitionZh": "物体、容器或地点最低的部分或末端。",
+          "examples": [
+            "There is a small hole at the bottom of the bag.",
+            "The village lies at the bottom of the hill."
+          ]
+        },
+        {
+          "part": "noun — lowest position",
+          "definition": "The lowest position in a list, ranking, or situation.",
+          "definitionZh": "名单、排名或某种情况中的最低位置。",
+          "examples": [
+            "Our team was at the bottom of the league.",
+            "The price has reached the bottom of its range."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Located at the lowest part or end of something.",
+          "definitionZh": "位于某物最下面部分或末端的。",
+          "examples": [
+            "Open the bottom drawer.",
+            "The bottom shelf is easier for children to reach."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "budget",
+      "part": "noun / verb / adjective",
+      "phonetic": "/ˈbʌdʒɪt/",
+      "definition": "A plan for how money will be earned and spent; the amount of money available for a purpose; or to plan spending within that amount.",
+      "definitionZh": "预算；经费；编制预算；经济型的",
+      "examples": [
+        "We need to stay within our monthly budget.",
+        "They budgeted carefully for the trip."
+      ],
+      "tip": "Common phrases include on a budget, budget for something, and within budget.",
+      "course": "en",
+      "breakdown": "Can refer to a spending plan, the available amount of money, or the act of planning expenses.",
+      "related": "plan; allowance; expense; finance",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A plan showing how money will be received and spent over a period of time.",
+          "definitionZh": "说明一段时间内收入和支出安排的计划；预算。",
+          "examples": [
+            "The school has a limited budget for new books.",
+            "We made a budget for our holiday."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To plan how much money can be spent and make sure spending stays within that limit.",
+          "definitionZh": "规划可支出的金额，并确保花费不超过限额。",
+          "examples": [
+            "You should budget for transport and food.",
+            "They budgeted carefully before buying a car."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Designed or sold to be relatively inexpensive.",
+          "definitionZh": "为价格相对低廉而设计或销售的；经济型的。",
+          "examples": [
+            "We stayed in a budget hotel.",
+            "The company offers a budget version of the device."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cause",
+      "part": "noun / verb",
+      "phonetic": "/kɔːz/",
+      "definition": "A person, event, or thing that makes something happen; a reason for a result; or to make something happen.",
+      "definitionZh": "原因；起因；事业；导致；引起",
+      "examples": [
+        "What was the cause of the delay?",
+        "Heavy rain caused the road to flood."
+      ],
+      "tip": "The noun “cause” often answers why something happened; the verb “cause” is followed by an effect.",
+      "course": "en",
+      "breakdown": "Distinguish the reason for an event from the action of making that event happen.",
+      "related": "reason; source; result; lead to",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — reason",
+          "definition": "The person, event, or condition that makes something happen.",
+          "definitionZh": "促使某事发生的人、事件或条件；原因。",
+          "examples": [
+            "The cause of the fire is still unknown.",
+            "Lack of sleep was the main cause of his tiredness."
+          ]
+        },
+        {
+          "part": "noun — social purpose",
+          "definition": "An aim, belief, or organisation that people support because they think it is important.",
+          "definitionZh": "人们认为重要并愿意支持的目标、信念或组织；事业。",
+          "examples": [
+            "She works for a good cause.",
+            "The group raised money for the environmental cause."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make something happen, especially something that produces a result or problem.",
+          "definitionZh": "使某事发生，尤指造成某种结果或问题。",
+          "examples": [
+            "The broken pipe caused serious damage.",
+            "His comment caused confusion."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "chance",
+      "part": "noun / verb",
+      "phonetic": "/tʃæns/",
+      "definition": "The possibility that something may happen; an opportunity to do something; or to do something despite uncertainty.",
+      "definitionZh": "机会；可能性；运气；冒险做某事",
+      "examples": [
+        "There is a good chance of rain tomorrow.",
+        "This is your chance to ask a question."
+      ],
+      "tip": "Common phrases include by chance, take a chance, and have a chance of doing something.",
+      "course": "en",
+      "breakdown": "Can refer to probability, an opportunity, or an action taken without certainty.",
+      "related": "opportunity; possibility; risk; luck",
+      "categories": [
+        "Everyday Terms",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun — possibility",
+          "definition": "The likelihood or possibility that something will happen.",
+          "definitionZh": "某事发生的可能性。",
+          "examples": [
+            "There is a chance that the train will be late.",
+            "What are the chances of winning?"
+          ]
+        },
+        {
+          "part": "noun — opportunity",
+          "definition": "A suitable time or opportunity to do something.",
+          "definitionZh": "做某事的合适时机或机会。",
+          "examples": [
+            "I never had a chance to say goodbye.",
+            "She got a chance to study abroad."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To do or experience something when the result is uncertain, often involving risk.",
+          "definitionZh": "在结果不确定时做某事或尝试某事，通常带有风险。",
+          "examples": [
+            "I wouldn't chance driving in this storm.",
+            "He chanced upon an old friend at the market."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "choice",
+      "part": "noun",
+      "phonetic": "/tʃɔɪs/",
+      "definition": "The act of choosing between possibilities; the person or thing selected; or the range of options available.",
+      "definitionZh": "选择；抉择；被选中的人或物；选项",
+      "examples": [
+        "You have a choice between tea and coffee.",
+        "That was a difficult choice to make."
+      ],
+      "tip": "The adjective is “chosen” only as a past participle; “choice” is also used before a noun in phrases such as choice ingredients.",
+      "course": "en",
+      "breakdown": "Refers both to the decision and to the option selected or available.",
+      "related": "option; decision; select; choose",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — act of choosing",
+          "definition": "The act of deciding which person or thing you want from two or more possibilities.",
+          "definitionZh": "从两个或多个可能选项中决定想要哪一个的行为。",
+          "examples": [
+            "Choosing a university is an important choice.",
+            "It was your choice to leave early."
+          ]
+        },
+        {
+          "part": "noun — selected option",
+          "definition": "A person or thing that has been selected, or one of the options available.",
+          "definitionZh": "被选中的人或事物；可供选择的选项之一。",
+          "examples": [
+            "My first choice is the blue shirt.",
+            "There is a wide choice of meals."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "claim",
+      "part": "noun / verb",
+      "phonetic": "/kleɪm/",
+      "definition": "To say that something is true, often without having proved it; to ask officially for something you have a right to; or a statement that something is true.",
+      "definitionZh": "声称；宣称；索取；索赔；主张",
+      "examples": [
+        "He claims that he saw the accident.",
+        "You can claim a refund with the receipt."
+      ],
+      "tip": "A claim is an assertion or formal request. “Claim that” introduces a statement; “claim for” often relates to compensation.",
+      "course": "en",
+      "breakdown": "Can describe an unproven statement, a request for something owed, or the statement itself.",
+      "related": "assert; state; request; demand",
+      "categories": [
+        "Everyday Terms",
+        "Actions"
+      ],
+      "senses": [
+        {
+          "part": "verb — say something is true",
+          "definition": "To state that something is true, especially when it has not yet been proved.",
+          "definitionZh": "表示某事属实，尤指尚未得到证实的说法。",
+          "examples": [
+            "The company claims that its product is safer.",
+            "She claimed she had never met him."
+          ]
+        },
+        {
+          "part": "verb — ask for something owed",
+          "definition": "To formally ask for money, property, or a benefit that you believe you have a right to receive.",
+          "definitionZh": "正式要求获得自己认为有权得到的金钱、财产或福利。",
+          "examples": [
+            "You can claim travel expenses from your employer.",
+            "He claimed a refund for the damaged item."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A statement that something is true, or a formal request for money or a right.",
+          "definitionZh": "关于某事属实的陈述；或正式提出的金钱、权利请求。",
+          "examples": [
+            "The report makes a surprising claim.",
+            "She submitted an insurance claim."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "class",
+      "part": "noun / verb",
+      "phonetic": "/klæs/",
+      "definition": "A group of students taught together; a lesson or course; a category of people or things; or a level of quality or social position.",
+      "definitionZh": "班级；课程；类别；等级；社会阶层",
+      "examples": [
+        "Our class starts at nine.",
+        "The museum has a large collection of objects from this class."
+      ],
+      "tip": "“Class” can refer to a school group, a lesson, a category, or social class. “Class” as a verb is less common and means to classify.",
+      "course": "en",
+      "breakdown": "Its meaning depends on education, classification, social structure, or quality.",
+      "related": "lesson; group; category; course",
+      "categories": [
+        "Everyday Terms",
+        "Education",
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — student group or lesson",
+          "definition": "A group of students who learn together, or a period of teaching.",
+          "definitionZh": "一起学习的一组学生；或一段授课时间。",
+          "examples": [
+            "There are twenty students in my class.",
+            "We have an English class every Monday."
+          ]
+        },
+        {
+          "part": "noun — category",
+          "definition": "A group of people or things that share similar features.",
+          "definitionZh": "具有相似特征的一组人或事物；类别。",
+          "examples": [
+            "This class of machine is very reliable.",
+            "The library has a separate class for reference books."
+          ]
+        },
+        {
+          "part": "noun — social or quality level",
+          "definition": "A division of society based on economic or social position, or a level of quality.",
+          "definitionZh": "根据经济或社会地位划分的社会群体；或质量等级。",
+          "examples": [
+            "The novel explores differences between social classes.",
+            "She showed great class under pressure."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "condition",
+      "part": "noun / verb",
+      "phonetic": "/kənˈdɪʃən/",
+      "definition": "The state that a person or thing is in; a rule that must be met; or to train someone or prepare something for a particular situation.",
+      "definitionZh": "状况；状态；条件；使适应；训练",
+      "examples": [
+        "The car is in excellent condition.",
+        "You can borrow the book on one condition."
+      ],
+      "tip": "Common phrases include in good condition, on condition that, and under certain conditions.",
+      "course": "en",
+      "breakdown": "Can refer to a state, a requirement, or the process of preparing or training.",
+      "related": "state; situation; requirement; prepare",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — state",
+          "definition": "The physical or general state that a person, object, or place is in.",
+          "definitionZh": "人、物品或地点所处的身体或总体状态。",
+          "examples": [
+            "The house is still in good condition.",
+            "Her condition improved after treatment."
+          ]
+        },
+        {
+          "part": "noun — requirement",
+          "definition": "A rule, fact, or situation that must exist or be accepted for something else to happen.",
+          "definitionZh": "某事发生前必须存在或接受的规则、事实或情况；条件。",
+          "examples": [
+            "You can join on the condition that you follow the rules.",
+            "The offer is subject to certain conditions."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To train or prepare a person or animal, or to treat something so that it is suitable for use.",
+          "definitionZh": "训练或使人、动物做好准备；或处理某物，使其适合使用。",
+          "examples": [
+            "The athletes conditioned their bodies for the race.",
+            "Use a product to condition dry hair."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "connection",
+      "part": "noun",
+      "phonetic": "/kəˈnekʃən/",
+      "definition": "A link between people, places, ideas, or devices; a relationship or association; or a transport service that allows a journey to continue.",
+      "definitionZh": "连接；联系；关系；转乘；接驳",
+      "examples": [
+        "There is a strong connection between sleep and health.",
+        "We missed our train connection."
+      ],
+      "tip": "“Connection” can be physical, social, logical, digital, or related to travel.",
+      "course": "en",
+      "breakdown": "The noun form of “connect”; it describes a link or relationship rather than the act of joining.",
+      "related": "link; relationship; contact; connect",
+      "categories": [
+        "Everyday Terms",
+        "People & Relationships",
+        "Science & Technology",
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun — link or relationship",
+          "definition": "A relationship or association between people, things, ideas, or events.",
+          "definitionZh": "人与人、事物、想法或事件之间的关系或关联。",
+          "examples": [
+            "There is a connection between diet and health.",
+            "They discovered a connection between the two cases."
+          ]
+        },
+        {
+          "part": "noun — physical or digital link",
+          "definition": "A physical or electronic link that allows devices, systems, or places to communicate or work together.",
+          "definitionZh": "使设备、系统或地点能够通信或共同运作的实体或电子连接。",
+          "examples": [
+            "Check the internet connection before the call.",
+            "The cable provides a connection to the monitor."
+          ]
+        },
+        {
+          "part": "noun — travel transfer",
+          "definition": "A service or route that allows a passenger to continue a journey by changing trains, buses, or planes.",
+          "definitionZh": "乘客通过更换火车、巴士或飞机继续行程的接驳或转乘服务。",
+          "examples": [
+            "We have a forty-minute connection in Singapore.",
+            "The airport connection was cancelled."
+          ]
+        }
+      ]
+    }
+  ]
+}
