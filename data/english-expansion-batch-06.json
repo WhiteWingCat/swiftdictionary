@@ -2933,6 +2933,104 @@
           ]
         }
       ]
+    },
+    {
+      "word": "college",
+      "part": "noun",
+      "phonetic": "/ˈkɑːlɪdʒ/",
+      "definition": "An educational institution where people study after secondary school, often for a diploma or degree.",
+      "definitionZh": "学院；大学；专科学校",
+      "examples": [
+        "She plans to attend college next year.",
+        "The college offers courses in design and technology."
+      ],
+      "tip": "The meaning and level of a college differ between countries.",
+      "course": "en",
+      "breakdown": "A place for further education after secondary school.",
+      "related": "university; student; campus",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An educational institution for study after secondary school.",
+          "definitionZh": "中学毕业后继续学习的教育机构；学院或大学。",
+          "examples": [
+            "He teaches at a local college.",
+            "My sister is applying to college."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "countryside",
+      "part": "noun",
+      "phonetic": "/ˈkʌntrisaɪd/",
+      "definition": "Land and areas outside towns and cities, especially places with fields, villages, and natural scenery.",
+      "definitionZh": "乡村；农村地区；乡间",
+      "examples": [
+        "We spent the weekend in the countryside.",
+        "The countryside is quiet after sunset."
+      ],
+      "tip": "“Countryside” usually refers to rural areas as a whole rather than one specific village.",
+      "course": "en",
+      "breakdown": "The rural area beyond towns and cities.",
+      "related": "rural; village; farmland",
+      "categories": [
+        "Places",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Areas of land outside towns and cities, often with farms and natural landscapes.",
+          "definitionZh": "城镇和城市以外的地区，通常有农田和自然景观；乡村。",
+          "examples": [
+            "They moved to the countryside for a quieter life.",
+            "The countryside attracts visitors in spring."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "court",
+      "part": "noun",
+      "phonetic": "/kɔːrt/",
+      "definition": "A place where legal cases are heard; an area marked for playing sports; or a formal group or royal household.",
+      "definitionZh": "法院；法庭；球场；宫廷",
+      "examples": [
+        "The case will be heard in court.",
+        "They practised tennis on the outdoor court."
+      ],
+      "tip": "The meaning depends strongly on context: legal, sporting, or historical.",
+      "course": "en",
+      "breakdown": "A word used for legal venues, sports areas, and some formal institutions.",
+      "related": "judge; law; tennis; courtroom",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — legal venue",
+          "definition": "A place or institution where a judge hears legal cases.",
+          "definitionZh": "法官审理法律案件的场所或机构；法院或法庭。",
+          "examples": [
+            "The witness arrived at court early.",
+            "The court delivered its decision."
+          ]
+        },
+        {
+          "part": "noun — sports area",
+          "definition": "An area marked for playing a sport such as tennis or basketball.",
+          "definitionZh": "用于进行网球或篮球等运动的划定场地；球场。",
+          "examples": [
+            "The children played basketball on the court.",
+            "The tennis court was wet after the rain."
+          ]
+        }
+      ]
     }
   ]
 }
