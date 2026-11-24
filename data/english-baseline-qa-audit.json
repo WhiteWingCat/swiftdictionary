@@ -12,10 +12,10 @@
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
     "entriesWithFewerThanTwoExamples": 0,
-    "entriesWithoutExplicitSenses": 560,
+    "entriesWithoutExplicitSenses": 558,
     "multiPartOfSpeechWithoutExplicitSenses": 0,
-    "entriesWithExplicitSenses": 250,
-    "totalExplicitSenses": 546,
+    "entriesWithExplicitSenses": 252,
+    "totalExplicitSenses": 550,
     "entriesMissingOptionalBreakdownOrRelated": 38,
     "entriesWithoutCategoryAssignments": 810
   },
@@ -75,7 +75,6 @@
       "autochthonous",
       "autopoiesis",
       "available",
-      "avoid",
       "aware",
       "awkward",
       "barely",
@@ -157,7 +156,6 @@
       "deadline",
       "deamination",
       "decarbonization",
-      "decide",
       "decision",
       "decolonization",
       "defiant",
@@ -632,13 +630,14 @@
     "The baseline has no category assignments; Phase 3 must classify all baseline entries as well as new additions.",
     "One-example entries need a second natural, context-appropriate example; preserve existing examples unless they are inaccurate.",
     "An additional 10 common baseline verbs now have separate, sense-level English definitions, Simplified Chinese translations and contextual examples. This increases the explicit-sense coverage while preserving single-POS classification where appropriate.",
-    "All 810 baseline entries now have at least two contextual examples. A final duplicate-example scan found one repeated example in “paradigm”; it was replaced with a distinct context. The remaining example queue is empty."
+    "All 810 baseline entries now have at least two contextual examples. A final duplicate-example scan found one repeated example in “paradigm”; it was replaced with a distinct context. The remaining example queue is empty.",
+    "Two additional high-frequency verbs, “avoid” and “decide”, now have separate sense records for their distinct common meanings."
   ],
   "editorialPatches": {
     "status": "integrated into feature-branch index.html",
     "sensePatchFile": "data/english-baseline-sense-patches-01.json",
-    "sensePatchedHeadwords": 150,
-    "newSenseRecords": 302,
+    "sensePatchedHeadwords": 152,
+    "newSenseRecords": 306,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
     "examplePatchedHeadwords": 258,
     "addedExampleSentences": 258,
@@ -655,13 +654,14 @@
       "data/english-baseline-example-patches-08.json",
       "data/english-baseline-example-patches-09.json"
     ],
-    "appliedCommit": "1a91abc3cb3d13df9cdc650f80d944f566189ba2",
+    "appliedCommit": "b173cde9d37bd746edcb9c7e7b203dcef2610db4",
     "sensePatchFiles": [
       "data/english-baseline-sense-patches-01.json",
       "data/english-baseline-sense-patches-02.json",
       "data/english-baseline-sense-patches-03.json",
       "data/english-baseline-sense-patches-04.json",
-      "data/english-baseline-sense-patches-05.json"
+      "data/english-baseline-sense-patches-05.json",
+      "data/english-baseline-sense-patches-06.json"
     ],
     "appliedCommits": [
       "9c09415afe879e1960dd254e6243e07c2dbb8615",
@@ -676,8 +676,9 @@
       "612af08a00714f698a62426f0a6f84bc3b6fa6de",
       "648a602bb7490d9213acdb0852dfd9140b33b66e",
       "a7170f63f1a085a5fc81da50e877b67dd31e1947",
-      "1a91abc3cb3d13df9cdc650f80d944f566189ba2"
+      "1a91abc3cb3d13df9cdc650f80d944f566189ba2",
+      "b173cde9d37bd746edcb9c7e7b203dcef2610db4"
     ]
   },
-  "currentBaselineBlob": "be585fc72253acacfc896111360ff8f8929119a9"
+  "currentBaselineBlob": "134a4914cb5a7daf607d6d2112f1504cc926d6ef"
 }
