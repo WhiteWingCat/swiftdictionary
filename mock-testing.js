@@ -383,7 +383,11 @@
       questions:clone(session.questions).map(question=>{
         const item={...question};
         if(!includeReview){
-          delete item.correct_option_id;delete item.explanation_learning;delete item.explanation_translation;
+          delete item.correct_option_id;delete item.explanation_learning;delete item.explanation_translation;delete item.explanation_pinyin;
+          item.options=(item.options||[]).map(option=>{
+            const {pinyin,...visible}=option;
+            return visible;
+          });
         } else {
           item.is_correct=item.selected_option_id===item.correct_option_id;
         }
