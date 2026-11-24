@@ -4308,6 +4308,963 @@
           ]
         }
       ]
+    },
+    {
+      "word": "person",
+      "part": "noun",
+      "phonetic": "/ˈpɜːrsən/",
+      "definition": "A human being, considered as an individual.",
+      "definitionZh": "人；个人",
+      "examples": [
+        "Each person needs a ticket to enter.",
+        "She is the right person for the job."
+      ],
+      "tip": "Use “person” for one individual; the usual plural is “people,” not “persons,” in everyday speech.",
+      "course": "en",
+      "breakdown": "A human being, considered as an individual.",
+      "related": "individual;human",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A human being, considered as an individual.",
+          "definitionZh": "人；个人",
+          "examples": [
+            "Each person needs a ticket to enter.",
+            "She is the right person for the job."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "question",
+      "part": "noun / verb",
+      "phonetic": "/ˈkwestʃən/",
+      "definition": "A sentence or request asking for information; or to express doubt about something.",
+      "definitionZh": "问题；疑问；质疑",
+      "examples": [
+        "The teacher asked us a difficult question.",
+        "No one questioned the need for more time."
+      ],
+      "tip": "A question asks for information; “question” as a verb can mean to challenge whether something is true.",
+      "course": "en",
+      "breakdown": "A sentence or request asking for information; or to express doubt about something.",
+      "related": "query;inquiry",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A sentence or request asking for information; or to express doubt about something.",
+          "definitionZh": "问题；疑问；质疑",
+          "examples": [
+            "The teacher asked us a difficult question.",
+            "No one questioned the need for more time."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "office",
+      "part": "noun",
+      "phonetic": "/ˈɔːfɪs/",
+      "definition": "A room or building where people work, especially doing administrative or professional tasks.",
+      "definitionZh": "办公室；办事处",
+      "examples": [
+        "My office is on the fourth floor.",
+        "Please contact the admissions office for details."
+      ],
+      "tip": "“Office” can mean a workplace or a department that provides a particular service.",
+      "course": "en",
+      "breakdown": "A room or building where people work, especially doing administrative or professional tasks.",
+      "related": "workplace;department",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A room or building where people work, especially doing administrative or professional tasks.",
+          "definitionZh": "办公室；办事处",
+          "examples": [
+            "My office is on the fourth floor.",
+            "Please contact the admissions office for details."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "school",
+      "part": "noun",
+      "phonetic": "/skuːl/",
+      "definition": "A place where children or students receive education; or a group with shared ideas or methods.",
+      "definitionZh": "学校；学派",
+      "examples": [
+        "The children walk to school every morning.",
+        "She studied at an art school."
+      ],
+      "tip": "“At school” refers to being a student or attending classes; “the school” identifies the institution.",
+      "course": "en",
+      "breakdown": "A place where children or students receive education; or a group with shared ideas or methods.",
+      "related": "academy;institution",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where children or students receive education; or a group with shared ideas or methods.",
+          "definitionZh": "学校；学派",
+          "examples": [
+            "The children walk to school every morning.",
+            "She studied at an art school."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "subject",
+      "part": "noun",
+      "phonetic": "/ˈsʌbdʒɪkt/",
+      "definition": "A topic studied or discussed; or a person or thing being examined or described.",
+      "definitionZh": "科目；主题；对象",
+      "examples": [
+        "Science is my favourite subject.",
+        "The article deals with a difficult subject."
+      ],
+      "tip": "A school subject is an area of study; a subject can also be the topic of a conversation or text.",
+      "course": "en",
+      "breakdown": "A topic studied or discussed; or a person or thing being examined or described.",
+      "related": "topic;course",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A topic studied or discussed; or a person or thing being examined or described.",
+          "definitionZh": "科目；主题；对象",
+          "examples": [
+            "Science is my favourite subject.",
+            "The article deals with a difficult subject."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "type",
+      "part": "noun / verb",
+      "phonetic": "/taɪp/",
+      "definition": "A kind, category or group of things with shared features; or to write using a keyboard.",
+      "definitionZh": "类型；种类；打字",
+      "examples": [
+        "What type of music do you enjoy?",
+        "Please type your name into the box."
+      ],
+      "tip": "“Type” can mean a category or the action of entering text on a keyboard.",
+      "course": "en",
+      "breakdown": "A kind, category or group of things with shared features; or to write using a keyboard.",
+      "related": "kind;category",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A kind, category or group of things with shared features; or to write using a keyboard.",
+          "definitionZh": "类型；种类；打字",
+          "examples": [
+            "What type of music do you enjoy?",
+            "Please type your name into the box."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tradition",
+      "part": "noun",
+      "phonetic": "/trəˈdɪʃən/",
+      "definition": "A custom, belief or way of doing something that has continued in a group or society over time.",
+      "definitionZh": "传统；惯例",
+      "examples": [
+        "It is a family tradition to cook together on holidays.",
+        "The festival celebrates a local tradition."
+      ],
+      "tip": "A tradition is passed on over time; a habit is usually an individual's repeated behaviour.",
+      "course": "en",
+      "breakdown": "A custom, belief or way of doing something that has continued in a group or society over time.",
+      "related": "custom;practice",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A custom, belief or way of doing something that has continued in a group or society over time.",
+          "definitionZh": "传统；惯例",
+          "examples": [
+            "It is a family tradition to cook together on holidays.",
+            "The festival celebrates a local tradition."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "student",
+      "part": "noun",
+      "phonetic": "/ˈstuːdənt/",
+      "definition": "A person who is studying at a school, college or university.",
+      "definitionZh": "学生",
+      "examples": [
+        "Every student must bring a notebook to class.",
+        "The university has students from many countries."
+      ],
+      "tip": "Use “student” for someone who studies; “pupil” is more common for children at school in British English.",
+      "course": "en",
+      "breakdown": "A person who is studying at a school, college or university.",
+      "related": "learner;pupil",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who is studying at a school, college or university.",
+          "definitionZh": "学生",
+          "examples": [
+            "Every student must bring a notebook to class.",
+            "The university has students from many countries."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "assignment",
+      "part": "noun",
+      "phonetic": "/əˈsaɪnmənt/",
+      "definition": "A piece of work given to someone, especially a student or employee, to complete.",
+      "definitionZh": "作业；任务；分配",
+      "examples": [
+        "I have to finish my history assignment tonight.",
+        "The manager gave him a new assignment."
+      ],
+      "tip": "An assignment is usually a specific task given by someone else.",
+      "course": "en",
+      "breakdown": "A piece of work given to someone, especially a student or employee, to complete.",
+      "related": "task;homework",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A piece of work given to someone, especially a student or employee, to complete.",
+          "definitionZh": "作业；任务；分配",
+          "examples": [
+            "I have to finish my history assignment tonight.",
+            "The manager gave him a new assignment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "classroom",
+      "part": "noun",
+      "phonetic": "/ˈklæsruːm/",
+      "definition": "A room where a class of students is taught.",
+      "definitionZh": "教室",
+      "examples": [
+        "Please keep the classroom clean.",
+        "The students returned to the classroom after lunch."
+      ],
+      "tip": "Use “in the classroom” for the place where teaching happens.",
+      "course": "en",
+      "breakdown": "A room where a class of students is taught.",
+      "related": "class;schoolroom",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A room where a class of students is taught.",
+          "definitionZh": "教室",
+          "examples": [
+            "Please keep the classroom clean.",
+            "The students returned to the classroom after lunch."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dictionary",
+      "part": "noun",
+      "phonetic": "/ˈdɪkʃəneri/",
+      "definition": "A book or digital resource that explains the meanings, pronunciation and use of words.",
+      "definitionZh": "词典；字典",
+      "examples": [
+        "I checked the spelling in an online dictionary.",
+        "This dictionary includes example sentences."
+      ],
+      "tip": "A dictionary explains words; a glossary usually explains terms related to one subject or text.",
+      "course": "en",
+      "breakdown": "A book or digital resource that explains the meanings, pronunciation and use of words.",
+      "related": "glossary;wordbook",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A book or digital resource that explains the meanings, pronunciation and use of words.",
+          "definitionZh": "词典；字典",
+          "examples": [
+            "I checked the spelling in an online dictionary.",
+            "This dictionary includes example sentences."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "essay",
+      "part": "noun",
+      "phonetic": "/ˈeseɪ/",
+      "definition": "A short piece of writing that presents information, ideas or an argument about a subject.",
+      "definitionZh": "短文；文章；议论文",
+      "examples": [
+        "She wrote an essay about climate change.",
+        "The assignment requires a 500-word essay."
+      ],
+      "tip": "An essay usually develops one main topic or argument in connected paragraphs.",
+      "course": "en",
+      "breakdown": "A short piece of writing that presents information, ideas or an argument about a subject.",
+      "related": "composition;paper",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A short piece of writing that presents information, ideas or an argument about a subject.",
+          "definitionZh": "短文；文章；议论文",
+          "examples": [
+            "She wrote an essay about climate change.",
+            "The assignment requires a 500-word essay."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "exam",
+      "part": "noun",
+      "phonetic": "/ɪɡˈzæm/",
+      "definition": "A formal test of someone's knowledge or ability in a subject.",
+      "definitionZh": "考试",
+      "examples": [
+        "He studied every evening before the exam.",
+        "The final exam covers all six chapters."
+      ],
+      "tip": "“Exam” is a shortened form of “examination”; “take an exam” means sit for a test.",
+      "course": "en",
+      "breakdown": "A formal test of someone's knowledge or ability in a subject.",
+      "related": "test;examination",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A formal test of someone's knowledge or ability in a subject.",
+          "definitionZh": "考试",
+          "examples": [
+            "He studied every evening before the exam.",
+            "The final exam covers all six chapters."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grammar",
+      "part": "noun",
+      "phonetic": "/ˈɡræmər/",
+      "definition": "The rules and patterns that describe how words are formed and combined in a language.",
+      "definitionZh": "语法",
+      "examples": [
+        "Good grammar makes your writing easier to understand.",
+        "We are learning English grammar this term."
+      ],
+      "tip": "“Grammar” is generally uncountable when referring to the rules of a language.",
+      "course": "en",
+      "breakdown": "The rules and patterns that describe how words are formed and combined in a language.",
+      "related": "syntax;language",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The rules and patterns that describe how words are formed and combined in a language.",
+          "definitionZh": "语法",
+          "examples": [
+            "Good grammar makes your writing easier to understand.",
+            "We are learning English grammar this term."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "homework",
+      "part": "noun",
+      "phonetic": "/ˈhoʊmwɜːrk/",
+      "definition": "Schoolwork that students are expected to do outside class.",
+      "definitionZh": "家庭作业",
+      "examples": [
+        "I usually do my homework after dinner.",
+        "The teacher gave us too much homework today."
+      ],
+      "tip": "“Homework” is uncountable; say “a piece of homework” or “some homework,” not “homeworks.”",
+      "course": "en",
+      "breakdown": "Schoolwork that students are expected to do outside class.",
+      "related": "schoolwork;assignment",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Schoolwork that students are expected to do outside class.",
+          "definitionZh": "家庭作业",
+          "examples": [
+            "I usually do my homework after dinner.",
+            "The teacher gave us too much homework today."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lesson",
+      "part": "noun",
+      "phonetic": "/ˈlesən/",
+      "definition": "A period of teaching or learning about a particular subject or skill; or something learned from experience.",
+      "definitionZh": "课程；课；教训",
+      "examples": [
+        "Our English lesson starts at nine.",
+        "The accident taught him an important lesson."
+      ],
+      "tip": "A lesson can be a teaching session or an experience that helps someone learn.",
+      "course": "en",
+      "breakdown": "A period of teaching or learning about a particular subject or skill; or something learned from experience.",
+      "related": "class;session",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A period of teaching or learning about a particular subject or skill; or something learned from experience.",
+          "definitionZh": "课程；课；教训",
+          "examples": [
+            "Our English lesson starts at nine.",
+            "The accident taught him an important lesson."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "meaning",
+      "part": "noun",
+      "phonetic": "/ˈmiːnɪŋ/",
+      "definition": "The idea or message that a word, sign, action or event expresses.",
+      "definitionZh": "意思；含义；意义",
+      "examples": [
+        "Can you explain the meaning of this word?",
+        "The poem has a deeper meaning."
+      ],
+      "tip": "Use “meaning of” to introduce what a word, sign or action expresses.",
+      "course": "en",
+      "breakdown": "The idea or message that a word, sign, action or event expresses.",
+      "related": "definition;significance",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The idea or message that a word, sign, action or event expresses.",
+          "definitionZh": "意思；含义；意义",
+          "examples": [
+            "Can you explain the meaning of this word?",
+            "The poem has a deeper meaning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "notebook",
+      "part": "noun",
+      "phonetic": "/ˈnoʊtbʊk/",
+      "definition": "A small book of blank or lined pages used for writing notes.",
+      "definitionZh": "笔记本",
+      "examples": [
+        "She wrote the new vocabulary in her notebook.",
+        "I left my notebook in the classroom."
+      ],
+      "tip": "A notebook is used for writing notes; a laptop is a portable computer.",
+      "course": "en",
+      "breakdown": "A small book of blank or lined pages used for writing notes.",
+      "related": "notepad;journal",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small book of blank or lined pages used for writing notes.",
+          "definitionZh": "笔记本",
+          "examples": [
+            "She wrote the new vocabulary in her notebook.",
+            "I left my notebook in the classroom."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "paragraph",
+      "part": "noun",
+      "phonetic": "/ˈpærəɡræf/",
+      "definition": "A section of writing that develops one main idea and usually begins on a new line.",
+      "definitionZh": "段落",
+      "examples": [
+        "Write one main idea in each paragraph.",
+        "The final paragraph summarises the argument."
+      ],
+      "tip": "A paragraph is part of a text; a sentence is a complete grammatical unit within it.",
+      "course": "en",
+      "breakdown": "A section of writing that develops one main idea and usually begins on a new line.",
+      "related": "section;passage",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A section of writing that develops one main idea and usually begins on a new line.",
+          "definitionZh": "段落",
+          "examples": [
+            "Write one main idea in each paragraph.",
+            "The final paragraph summarises the argument."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pencil",
+      "part": "noun",
+      "phonetic": "/ˈpensəl/",
+      "definition": "A writing or drawing tool with a narrow piece of graphite or another marking material inside.",
+      "definitionZh": "铅笔",
+      "examples": [
+        "You can erase the marks made by a pencil.",
+        "He sketched the design with a soft pencil."
+      ],
+      "tip": "Use “a pencil” for the tool; “pencil in” as a verb means to make a temporary arrangement.",
+      "course": "en",
+      "breakdown": "A writing or drawing tool with a narrow piece of graphite or another marking material inside.",
+      "related": "pen;writing tool",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A writing or drawing tool with a narrow piece of graphite or another marking material inside.",
+          "definitionZh": "铅笔",
+          "examples": [
+            "You can erase the marks made by a pencil.",
+            "He sketched the design with a soft pencil."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sentence",
+      "part": "noun",
+      "phonetic": "/ˈsentəns/",
+      "definition": "A group of words that expresses a complete thought; or a punishment given by a court.",
+      "definitionZh": "句子；判决；刑罚",
+      "examples": [
+        "Write a complete sentence for each word.",
+        "The judge announced the sentence in court."
+      ],
+      "tip": "In language learning, a sentence expresses a complete thought; in law, it can mean a court's punishment.",
+      "course": "en",
+      "breakdown": "A group of words that expresses a complete thought; or a punishment given by a court.",
+      "related": "statement;phrase",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A group of words that expresses a complete thought; or a punishment given by a court.",
+          "definitionZh": "句子；判决；刑罚",
+          "examples": [
+            "Write a complete sentence for each word.",
+            "The judge announced the sentence in court."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "teacher",
+      "part": "noun",
+      "phonetic": "/ˈtiːtʃər/",
+      "definition": "A person whose job is to help others learn, especially in a school.",
+      "definitionZh": "教师；老师",
+      "examples": [
+        "Our teacher explained the grammar clearly.",
+        "The new teacher joined the school in August."
+      ],
+      "tip": "Use “teacher of” before the subject, such as “a teacher of science.”",
+      "course": "en",
+      "breakdown": "A person whose job is to help others learn, especially in a school.",
+      "related": "instructor;educator",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person whose job is to help others learn, especially in a school.",
+          "definitionZh": "教师；老师",
+          "examples": [
+            "Our teacher explained the grammar clearly.",
+            "The new teacher joined the school in August."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "textbook",
+      "part": "noun",
+      "phonetic": "/ˈtekstbʊk/",
+      "definition": "A book that presents information about a subject for students to study.",
+      "definitionZh": "教科书；课本",
+      "examples": [
+        "The textbook includes exercises at the end of each chapter.",
+        "We use a different textbook for mathematics."
+      ],
+      "tip": "A textbook is designed for learning a subject; a workbook usually contains exercises to complete.",
+      "course": "en",
+      "breakdown": "A book that presents information about a subject for students to study.",
+      "related": "coursebook;workbook",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A book that presents information about a subject for students to study.",
+          "definitionZh": "教科书；课本",
+          "examples": [
+            "The textbook includes exercises at the end of each chapter.",
+            "We use a different textbook for mathematics."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "vocabulary",
+      "part": "noun",
+      "phonetic": "/vəˈkæbjəleri/",
+      "definition": "The words known or used by a person, group or language.",
+      "definitionZh": "词汇；词汇量",
+      "examples": [
+        "Reading regularly can improve your vocabulary.",
+        "The lesson introduces vocabulary about travel."
+      ],
+      "tip": "“Vocabulary” is usually uncountable; use “a vocabulary item” or “a set of words” for individual entries.",
+      "course": "en",
+      "breakdown": "The words known or used by a person, group or language.",
+      "related": "word stock;lexicon",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The words known or used by a person, group or language.",
+          "definitionZh": "词汇；词汇量",
+          "examples": [
+            "Reading regularly can improve your vocabulary.",
+            "The lesson introduces vocabulary about travel."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "chapter",
+      "part": "noun",
+      "phonetic": "/ˈtʃæptər/",
+      "definition": "One of the main sections of a book or a period in someone's life or in an organisation's history.",
+      "definitionZh": "章节；篇章；阶段",
+      "examples": [
+        "We read the first chapter before class.",
+        "Moving abroad began a new chapter in her life."
+      ],
+      "tip": "A chapter can be a section of a book or a figurative new stage in life.",
+      "course": "en",
+      "breakdown": "One of the main sections of a book or a period in someone's life or in an organisation's history.",
+      "related": "section;part",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the main sections of a book or a period in someone's life or in an organisation's history.",
+          "definitionZh": "章节；篇章；阶段",
+          "examples": [
+            "We read the first chapter before class.",
+            "Moving abroad began a new chapter in her life."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lecture",
+      "part": "noun / verb",
+      "phonetic": "/ˈlektʃər/",
+      "definition": "A formal talk given to teach people about a subject; or to give such a talk.",
+      "definitionZh": "讲座；演讲；授课",
+      "examples": [
+        "The professor gave a lecture on modern history.",
+        "She lectures at the university twice a week."
+      ],
+      "tip": "A lecture is usually a formal teaching talk; “lecture someone” can also mean to criticise them in a long, serious way.",
+      "course": "en",
+      "breakdown": "A formal talk given to teach people about a subject; or to give such a talk.",
+      "related": "talk;presentation",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A formal talk given to teach people about a subject; or to give such a talk.",
+          "definitionZh": "讲座；演讲；授课",
+          "examples": [
+            "The professor gave a lecture on modern history.",
+            "She lectures at the university twice a week."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "research",
+      "part": "noun / verb",
+      "phonetic": "/ˈriːsɜːrtʃ/",
+      "definition": "Careful study to discover facts or reach new understanding; or to carry out such study.",
+      "definitionZh": "研究；调查",
+      "examples": [
+        "The students conducted research on local history.",
+        "I need to research the topic before writing."
+      ],
+      "tip": "“Research” is usually uncountable as a noun; say “some research” or “a research project.”",
+      "course": "en",
+      "breakdown": "Careful study to discover facts or reach new understanding; or to carry out such study.",
+      "related": "study;investigation",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "Careful study to discover facts or reach new understanding; or to carry out such study.",
+          "definitionZh": "研究；调查",
+          "examples": [
+            "The students conducted research on local history.",
+            "I need to research the topic before writing."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "study",
+      "part": "noun / verb",
+      "phonetic": "/ˈstʌdi/",
+      "definition": "The activity of learning about a subject; or to spend time learning, reading or investigating it carefully.",
+      "definitionZh": "学习；研究；书房",
+      "examples": [
+        "She studies English for an hour each day.",
+        "The study found a link between sleep and memory."
+      ],
+      "tip": "As a verb, “study” means to learn or investigate; as a noun, it can mean learning or a research project.",
+      "course": "en",
+      "breakdown": "The activity of learning about a subject; or to spend time learning, reading or investigating it carefully.",
+      "related": "learning;research",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The activity of learning about a subject; or to spend time learning, reading or investigating it carefully.",
+          "definitionZh": "学习；研究；书房",
+          "examples": [
+            "She studies English for an hour each day.",
+            "The study found a link between sleep and memory."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "university",
+      "part": "noun",
+      "phonetic": "/ˌjuːnɪˈvɜːrsəti/",
+      "definition": "An institution where students study for degrees and where research is carried out.",
+      "definitionZh": "大学",
+      "examples": [
+        "He hopes to attend university next year.",
+        "The university offers courses in design and engineering."
+      ],
+      "tip": "In British English, people often say “go to university”; in American English, “go to college” is also common.",
+      "course": "en",
+      "breakdown": "An institution where students study for degrees and where research is carried out.",
+      "related": "college;institution",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An institution where students study for degrees and where research is carried out.",
+          "definitionZh": "大学",
+          "examples": [
+            "He hopes to attend university next year.",
+            "The university offers courses in design and engineering."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hotel",
+      "part": "noun",
+      "phonetic": "/hoʊˈtel/",
+      "definition": "A building where people pay to stay for a short time, usually while travelling.",
+      "definitionZh": "酒店；旅馆",
+      "examples": [
+        "We booked a hotel near the station.",
+        "The hotel offers breakfast to its guests."
+      ],
+      "tip": "Use “stay at a hotel” when talking about accommodation.",
+      "course": "en",
+      "breakdown": "A building where people pay to stay for a short time, usually while travelling.",
+      "related": "accommodation;inn",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A building where people pay to stay for a short time, usually while travelling.",
+          "definitionZh": "酒店；旅馆",
+          "examples": [
+            "We booked a hotel near the station.",
+            "The hotel offers breakfast to its guests."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "neighbourhood",
+      "part": "noun",
+      "phonetic": "/ˈneɪbərhʊd/",
+      "definition": "An area of a town or city where people live, often considered as a community.",
+      "definitionZh": "街区；社区；邻近地区",
+      "examples": [
+        "There is a small park in our neighbourhood.",
+        "The neighbourhood has become quieter in recent years."
+      ],
+      "tip": "“Neighbourhood” is the British spelling; “neighborhood” is the American spelling.",
+      "course": "en",
+      "breakdown": "An area of a town or city where people live, often considered as a community.",
+      "related": "district;community",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An area of a town or city where people live, often considered as a community.",
+          "definitionZh": "街区；社区；邻近地区",
+          "examples": [
+            "There is a small park in our neighbourhood.",
+            "The neighbourhood has become quieter in recent years."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "park",
+      "part": "noun / verb",
+      "phonetic": "/pɑːrk/",
+      "definition": "A public area of land for recreation; or to leave a vehicle in a particular place.",
+      "definitionZh": "公园；停车",
+      "examples": [
+        "The children played football in the park.",
+        "You cannot park your car here."
+      ],
+      "tip": "As a noun, “park” is a public green space; as a verb, it often means to leave a vehicle somewhere.",
+      "course": "en",
+      "breakdown": "A public area of land for recreation; or to leave a vehicle in a particular place.",
+      "related": "garden;parking area",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A public area of land for recreation; or to leave a vehicle in a particular place.",
+          "definitionZh": "公园；停车",
+          "examples": [
+            "The children played football in the park.",
+            "You cannot park your car here."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pharmacy",
+      "part": "noun",
+      "phonetic": "/ˈfɑːrməsi/",
+      "definition": "A shop or department where medicines are prepared or sold.",
+      "definitionZh": "药房；药店",
+      "examples": [
+        "I bought some medicine at the pharmacy.",
+        "The pharmacy closes at six this evening."
+      ],
+      "tip": "In some countries, “chemist” is also used for a pharmacy or the person who prepares medicines.",
+      "course": "en",
+      "breakdown": "A shop or department where medicines are prepared or sold.",
+      "related": "drugstore;chemist",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A shop or department where medicines are prepared or sold.",
+          "definitionZh": "药房；药店",
+          "examples": [
+            "I bought some medicine at the pharmacy.",
+            "The pharmacy closes at six this evening."
+          ]
+        }
+      ]
     }
   ]
 }
