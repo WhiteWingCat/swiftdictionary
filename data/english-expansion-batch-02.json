@@ -330,10 +330,10 @@
     },
     {
       "word": "background",
-      "part": "noun / adjective",
+      "part": "noun",
       "phonetic": "/ˈbækɡraʊnd/",
       "definition": "The part behind the main subject; a person's education, experience, or family history; or the conditions that help explain a situation.",
-      "definitionZh": "背景；经历；出身；幕后；背景的",
+      "definitionZh": "背景；经历；出身；背景资料。",
       "examples": [
         "The photo has a mountain in the background.",
         "She has a background in graphic design."
@@ -844,6 +844,15 @@
           "examples": [
             "The novel explores differences between social classes.",
             "She showed great class under pressure."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To place someone or something in a particular group or category.",
+          "definitionZh": "将某人或某物归入特定群体或类别；分类。",
+          "examples": [
+            "The material is classed as hazardous.",
+            "Researchers class the samples by age."
           ]
         }
       ]
