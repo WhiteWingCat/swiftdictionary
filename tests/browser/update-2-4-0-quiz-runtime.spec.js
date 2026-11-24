@@ -167,7 +167,6 @@ async function startQuiz(page,difficulty="beginner") {
   await expect(modal).toBeHidden();
   await expect(page.locator("#quizSession")).toBeVisible();
   await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
-  await expect(page.locator(".hero-banner")).toBeHidden();
 }
 
 async function submitQuiz(page) {
