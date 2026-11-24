@@ -710,6 +710,12 @@
       }
     } catch(error) { console.error("[SwiftDictionary mock] Reset failed.",error); }
   }
+  function seedQuizHistory({history = []} = {}) {
+    const db = state();
+    const userId = activeUser?.id;
+    db.tables.quiz_sessions = history.map(row => ({...clone(row),user_id:userId}));
+    persist(db);
+  }
   function seedFlashcardData({reviewItems = [], history = []} = {}) {
     const db = state();
     const userId = activeUser?.id;
@@ -725,6 +731,7 @@
     reset:resetMockStore,
     selectionGeneration,
     seedFlashcardData,
+    seedQuizHistory,
     getClient:()=>client
   });
 
