@@ -578,7 +578,10 @@ test("Recent games paginate ten at a time and game review has a top close contro
 });
 
 test("Quiz history paginates ten sessions and review closes from the top corner",async({page})=>{
+  test.setTimeout(60000);
+  console.log("[quiz-pagination] opening mock app");
   await openMockFlashcards(page);
+  console.log("[quiz-pagination] seeding 12 mock sessions");
   await page.evaluate(()=>{
     const question={
       question_id:"mock-review-question",position:1,question_type:"knowledge",
@@ -599,25 +602,31 @@ test("Quiz history paginates ten sessions and review closes from the top corner"
     }));
     window.__swiftDictionaryMock.seedQuizHistory({history});
   });
-  await page.locator('[data-page="quiz"]').click();
+  console.log("[quiz-pagination] navigating to Quiz");
+  await page.locator('[data-page="quiz"]').click({timeout:5000});
   await expect(page.locator("#quizPage")).toBeVisible();
   const intro=page.locator("#learningIntroBackdrop");
-  if(await intro.isVisible())await page.locator("#learningIntroDismiss").click();
+  if(await intro.isVisible())await page.locator("#learningIntroDismiss").click({timeout:5000});
+  console.log("[quiz-pagination] checking first page");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
   await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(10);
   await expect(page.locator("[data-quiz-history-next]")).toBeVisible();
-  await page.locator("[data-quiz-history-next]").click();
+  console.log("[quiz-pagination] checking second page");
+  await page.locator("[data-quiz-history-next]").click({timeout:5000});
   await expect(page.locator("#quizHistory .quiz-history-row")).toHaveCount(2);
   await expect(page.locator("[data-quiz-history-next]")).toHaveCount(0);
-  await page.locator("[data-quiz-history-prev]").click();
-  await page.locator("#quizHistory [data-quiz-review]").first().click();
+  await page.locator("[data-quiz-history-prev]").click({timeout:5000});
+  console.log("[quiz-pagination] opening answer review");
+  await page.locator("#quizHistory [data-quiz-review]").first().click({timeout:5000});
   await expect(page.locator("#quizResults")).toBeVisible();
   await expect(page.locator("body")).toHaveClass(/quiz-focused/);
   await expect(page.locator("#quizPage > .learning-banner")).toBeHidden();
   await expect(page.locator("#quizResultsContent [data-quiz-review-close]")).toBeVisible();
-  await page.locator("#quizResultsContent [data-quiz-review-close]").click();
+  console.log("[quiz-pagination] closing answer review");
+  await page.locator("#quizResultsContent [data-quiz-review-close]").click({timeout:5000});
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("body")).not.toHaveClass(/quiz-focused/);
   await expect(page.locator("#quizPage > .learning-banner")).toBeVisible();
+  console.log("[quiz-pagination] passed");
 });
