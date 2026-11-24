@@ -48,6 +48,40 @@ $test$;
 
 reset role;
 
+update private.flashcard_sessions
+set started_at=now()-interval '121 seconds'
+where id=(select session_id from pg_temp.flashcard_test_session);
+
+set local role authenticated;
+do $test$
+declare v_result jsonb; v_data jsonb; v_allowance jsonb;
+begin
+  v_result := public.complete_my_flashcard_game(
+    (select session_id from pg_temp.flashcard_test_session),
+    '[{"card_key":"dict:hello","correct":true,"unanswered":false},
+      {"card_key":"dict:goodbye","correct":false,"unanswered":true}]'::jsonb
+  );
+  if (v_result->>'words_seen')::integer <> 2
+     or (v_result->>'correct_count')::integer <> 1
+     or (v_result->>'incorrect_count')::integer <> 1
+     or (v_result->>'unanswered_count')::integer <> 1 then
+    raise exception 'Flash Recall aggregate counts are incorrect: %',v_result;
+  end if;
+  v_data := public.get_my_flashcard_data();
+  v_allowance := public.get_my_flashcard_allowance();
+  if (v_allowance->>'daily_limit')::integer <> 3
+     or (v_allowance->>'used_count')::integer <> 1
+     or (v_allowance->>'remaining')::integer <> 2 then
+    raise exception 'Dedicated Flashcard allowance RPC is incorrect: %',v_allowance;
+  end if;
+  if (v_data->'allowance'->>'daily_limit')::integer <> 3
+     or (v_data->'allowance'->>'used_count')::integer <> 1
+     or (v_data->'allowance'->>'remaining')::integer <> 2 then
+    raise exception 'Flashcard allowance summary is incorrect: %',v_data->'allowance';
+  end if;
+end
+$test$;
+
 -- Chinese-course routing: Translation Recall is available; Mixed Recall is not.
 update public.user_preferences
 set learning_language='zh',translation_language='en'
@@ -85,39 +119,6 @@ update public.user_preferences
 set learning_language='en',translation_language='zh'
 where user_id='a2500000-0000-4000-8000-000000000001';
 
-update private.flashcard_sessions
-set started_at=now()-interval '121 seconds'
-where id=(select session_id from pg_temp.flashcard_test_session);
-
-set local role authenticated;
-do $test$
-declare v_result jsonb; v_data jsonb; v_allowance jsonb;
-begin
-  v_result := public.complete_my_flashcard_game(
-    (select session_id from pg_temp.flashcard_test_session),
-    '[{"card_key":"dict:hello","correct":true,"unanswered":false},
-      {"card_key":"dict:goodbye","correct":false,"unanswered":true}]'::jsonb
-  );
-  if (v_result->>'words_seen')::integer <> 2
-     or (v_result->>'correct_count')::integer <> 1
-     or (v_result->>'incorrect_count')::integer <> 1
-     or (v_result->>'unanswered_count')::integer <> 1 then
-    raise exception 'Flash Recall aggregate counts are incorrect: %',v_result;
-  end if;
-  v_data := public.get_my_flashcard_data();
-  v_allowance := public.get_my_flashcard_allowance();
-  if (v_allowance->>'daily_limit')::integer <> 3
-     or (v_allowance->>'used_count')::integer <> 1
-     or (v_allowance->>'remaining')::integer <> 2 then
-    raise exception 'Dedicated Flashcard allowance RPC is incorrect: %',v_allowance;
-  end if;
-  if (v_data->'allowance'->>'daily_limit')::integer <> 3
-     or (v_data->'allowance'->>'used_count')::integer <> 1
-     or (v_data->'allowance'->>'remaining')::integer <> 2 then
-    raise exception 'Flashcard allowance summary is incorrect: %',v_data->'allowance';
-  end if;
-end
-$test$;
 
 -- A started and abandoned game must not consume allowance.
 do $test$
