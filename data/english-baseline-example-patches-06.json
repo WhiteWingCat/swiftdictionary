@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add second contextual examples to another set of specialist English baseline entries.",
-  "status": "editorially-authored; awaiting integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "cf2a385318a0747adfa0c3e8d7fe8ef7521f77c9",
   "entries": [
     {
@@ -185,5 +185,6 @@
         "Phytoremediation uses plants to remove or contain pollutants in soil."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "4d5b8fdd26d35327139517ed9903714b0aa2de5e"
 }
