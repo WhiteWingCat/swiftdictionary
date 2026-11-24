@@ -31,9 +31,10 @@ for (const entry of baseline) {
 }
 
 const batchFiles = fs.readdirSync(batchDir)
-  .filter(name => /^english-expansion-batch-\\d+\\.json$/.test(name))
+  .filter(name => /^english-expansion-batch-\d+\.json$/.test(name))
   .sort();
 const errors = [];
+const allowedCategories = new Set(["Actions","Everyday Terms","Activities","Places","People & Relationships","Science & Technology","History & Culture","Nature & Environment","Education","Emotions & Descriptions"]);
 const allNew = [];
 const categoryCounts = {};
 const batchReports = [];
@@ -78,6 +79,7 @@ for (const file of batchFiles) {
       }
     }
     for (const category of entry.categories || []) {
+      if (!allowedCategories.has(category)) errors.push(file + ": " + word + " has unapproved category: " + category);
       if (!categoryCounts[category]) categoryCounts[category] = 0;
       categoryCounts[category]++;
     }
