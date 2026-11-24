@@ -3456,3 +3456,17 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - Quiz browser/authentication tests used disposable local Supabase environments and synthetic test accounts.
 - The earlier staging question-bank audit was read-only. No Production or live Supabase migration/write was performed as part of this remediation.
 - PR #16 remains a draft and has not been merged. U2.8.0 remains in staging; Production is unchanged.
+
+
+## 2026-11-24 — U2.8.0 final Chinese Quiz and Flashcards content QA
+
+- Latest feature branch head: `931c40242a2061cfe82f2f2a899720f4380b9f68`; PR #16 remains open and draft, based on `main`.
+- Final Quiz Answer Review spacing feedback was applied; the total-correct score now has additional clearance from the top-right close button. Stylesheet cache key is `2.8.0-ui11`.
+- Reviewed all 145 Chinese Quiz items (128 knowledge and 17 English-to-Chinese translation questions). Automated validation and staging SQL audit found 145 unique active questions, four unique options each, valid correct-option keys, unique prompts and zero answer leaks. Authenticated session payloads omit correct-option IDs and review explanations until a completed session; question and option order are randomized. Review RPCs are owner-scoped and completion-gated.
+- Chinese Flashcards: 519 characters, 904 vocabulary terms and 24 phrases. Source checks passed for 519/519 character records and 904/904 numeric/accented vocabulary Pinyin pairs. All eligible targets have three distinct distractors; sentence recall blanks all target occurrences.
+- Content corrections: duplicate English cues for `教师/老师` and `夏天/夏季` were resolved by disabling English Translation Recall for `教师` and `夏季`. 490 answer-revealing Definition Recall cues and 445 answer-revealing Chinese Translation Recall cues were removed from those modes. Runtime and validator checks now reject target-containing Chinese definition/translation cues. The `没问题` Chinese cue was refined to `没有问题`.
+- Validated mode coverage: Word 1,447; Definition 53; English Translation 1,437; Chinese Translation 71; Sentence 543. 27 character cards still lack a reviewed Chinese equivalent and remain excluded from Chinese Translation Recall. The content bank remains draft; no release status was automatically changed.
+- Latest-head checks passed: Quiz/Flashcard validators, 22 authenticated Quiz Chromium runtime tests, Flashcards browser checks, PostgreSQL migration/allowance and ACL regressions, Supabase CLI Auth, Chinese Dictionary/Lessons checks, Chromium regression smoke tests, Supabase security advisors, Cloudflare Pages and build-routing guard.
+- The separate `Workers Builds: swiftdictionary-testing` check remains failed for the retired testing Worker; Cloudflare Pages succeeded.
+- No Production Supabase migration/write or Production deployment occurred. No additional staging migration was required. PR #16 remains unmerged.
+- Full details: `docs/conversation-archive/2026-11-24-update-2-8-0-chinese-quiz-flashcard-polishing.md`.
