@@ -12,7 +12,7 @@ const indexPath = path.join(root, "index.html");
 const candidatePath = path.join(root, "data/english-expansion-candidates.json");
 const batchDir = path.join(root, "data");
 const source = fs.readFileSync(indexPath, "utf8");
-const normalizeHeadword = value => String(value || "").trim().toLowerCase().replace(/[-\\s]+/g, " ");
+const normalizeHeadword = value => String(value || "").trim().toLowerCase().replace(/[-\s]+/g, " ");
 const marker = "const englishWords = ";
 const markerAt = source.indexOf(marker);
 if (markerAt < 0) throw new Error("Could not locate embedded englishWords array.");
