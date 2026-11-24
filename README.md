@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.8.0 — Chinese Quiz & Flashcards Expansion
 
-> **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 24 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application merge to `main` and production Pages deployment are pending final latest-head CI verification. Do not describe the application release as complete until the merge and production deployment have succeeded.
+> **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 25 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application was merged to `main` on 2026-11-24 (merge commit `5e4c8c979770773047b2fad0ef845c9a944bfff2`). Production Pages deployment verification is the remaining release step.
 
 ## Update 2.8.0 scope
 
@@ -18,7 +18,7 @@
 ## U2.8.0 Supabase rollout
 
 - The isolated staging project and Production Supabase project now both have the complete U2.8.0 migration sequence applied in order. Production rollout completed on 2026-11-24 after comparing its live U2.7.0 migration ledger and schema with the release migration sequence. Production verification confirms the new review/practice tables and Flashcard snapshot tables exist; the latest Chinese Quiz bank has 145 approved questions, 128 knowledge and 17 translation questions, four unique choices, valid answer keys, complete lesson/objective mappings and zero detected correct-answer text/Pinyin leaks. Previous question revisions remain preserved as retired history where applicable.
-- The production migration ledger records all 24 U2.8.0 migration steps. The exact source SQL is under `supabase/migrations/`.
+- The production migration ledger records all 25 U2.8.0 migration steps. The exact source SQL is under `supabase/migrations/`.
 - Keep the migration-history and schema preflight step for any future environment; do not assume staging and production ledgers are identical.
 
 ## Previous release baseline
@@ -180,7 +180,7 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ## Release history
 
-- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merge and deployment pending latest-head CI.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
+- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merged to `main`; production Pages deployment verification pending.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
 - **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
 - **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
 - **SwiftDictionary Update 2.5.0:** English Flashcards experience, review progress and allowance integration.
