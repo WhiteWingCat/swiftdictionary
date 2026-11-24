@@ -52,20 +52,18 @@ begin
   or (length(answer_py)>=4 and prompt_py<>'' and strpos(prompt_py,answer_py)>0)
   or (answer_zh ~ '^[a-züǖǘǚǜāáǎàēéěèīíǐìōóǒòūúǔùńň ]+$' and length(answer_zh)>=4 and prompt_py<>'' and strpos(prompt_py,answer_zh)>0);
  if leak_count<>0 then raise exception 'Found % direct-answer or Pinyin-guide leaks',leak_count; end if;
- with latest as (
+ if exists(select 1 from (
   select distinct on(question_id) * from private.quiz_question_bank
   where learning_language_code='zh' and translation_language_code='en'
   order by question_id,revision desc
- )
- if exists(select 1 from latest where status in ('approved','draft') and question_id in ('zh-en-b-pinyin-foundations-05','zh-en-b-pinyin-foundations-06') and coalesce(btrim(prompt_pinyin),'')<>'') then
+ ) latest where status in ('approved','draft') and question_id in ('zh-en-b-pinyin-foundations-05','zh-en-b-pinyin-foundations-06') and coalesce(btrim(prompt_pinyin),'')<>'') then
   raise exception 'Pinyin foundation prompts must not expose their Pinyin answers';
  end if;
- with latest as (
+ if exists(select 1 from (
   select distinct on(question_id) * from private.quiz_question_bank
   where learning_language_code='zh' and translation_language_code='en'
   order by question_id,revision desc
- )
- if exists(select 1 from latest where status in ('approved','draft') and question_id='zh-en-i-grammar-particles-06' and prompt_pinyin ilike '%nǐ ne%') then
+ ) latest where status in ('approved','draft') and question_id='zh-en-i-grammar-particles-06' and prompt_pinyin ilike '%nǐ ne%') then
   raise exception 'Topic-return Pinyin answer leaked into its prompt guide';
  end if;
 end $$;
