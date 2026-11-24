@@ -1,0 +1,1285 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 10,
+  "theme": "Nature, environment and cultural life",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "animal",
+      "part": "noun",
+      "phonetic": "/ˈænɪməl/",
+      "definition": "A living creature that can move and sense its surroundings, but is not a plant or human being.",
+      "definitionZh": "动物",
+      "examples": [
+        "The animal moved quietly through the grass.",
+        "Some animals are active at night."
+      ],
+      "tip": "“Animal” is a broad term that includes mammals, birds, fish, insects and many other groups.",
+      "course": "en",
+      "breakdown": "A living creature that can move and sense its surroundings, but is not a plant or human being.",
+      "related": "creature;wildlife",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A living creature that can move and sense its surroundings, but is not a plant or human being.",
+          "definitionZh": "动物",
+          "examples": [
+            "The animal moved quietly through the grass.",
+            "Some animals are active at night."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "atmosphere",
+      "part": "noun",
+      "phonetic": "/ˈætməsfɪr/",
+      "definition": "The layer of gases surrounding a planet; or the feeling or mood of a place or situation.",
+      "definitionZh": "大气层；气氛",
+      "examples": [
+        "Earth's atmosphere helps protect life on the planet.",
+        "The café has a relaxed atmosphere."
+      ],
+      "tip": "“Atmosphere” can refer to gases around a planet or the mood created by a place.",
+      "course": "en",
+      "breakdown": "The layer of gases surrounding a planet; or the feeling or mood of a place or situation.",
+      "related": "air;ambience",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The layer of gases surrounding a planet; or the feeling or mood of a place or situation.",
+          "definitionZh": "大气层；气氛",
+          "examples": [
+            "Earth's atmosphere helps protect life on the planet.",
+            "The café has a relaxed atmosphere."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "autumn",
+      "part": "noun",
+      "phonetic": "/ˈɔːtəm/",
+      "definition": "The season between summer and winter, when temperatures become cooler and many trees lose their leaves.",
+      "definitionZh": "秋天；秋季",
+      "examples": [
+        "The leaves turn red and gold in autumn.",
+        "We usually travel in early autumn."
+      ],
+      "tip": "“Autumn” is common in British English; “fall” is common in American English.",
+      "course": "en",
+      "breakdown": "The season between summer and winter, when temperatures become cooler and many trees lose their leaves.",
+      "related": "fall;season",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The season between summer and winter, when temperatures become cooler and many trees lose their leaves.",
+          "definitionZh": "秋天；秋季",
+          "examples": [
+            "The leaves turn red and gold in autumn.",
+            "We usually travel in early autumn."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "breeze",
+      "part": "noun / verb",
+      "phonetic": "/briːz/",
+      "definition": "A light, gentle wind; or to move easily and quickly through something.",
+      "definitionZh": "微风；轻风",
+      "examples": [
+        "A cool breeze came through the open window.",
+        "She breezed through the first part of the test."
+      ],
+      "tip": "As a noun, “breeze” is a gentle wind; informally, the verb can mean complete something easily.",
+      "course": "en",
+      "breakdown": "A light, gentle wind; or to move easily and quickly through something.",
+      "related": "wind;gust",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A light, gentle wind; or to move easily and quickly through something.",
+          "definitionZh": "微风；轻风",
+          "examples": [
+            "A cool breeze came through the open window.",
+            "She breezed through the first part of the test."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "climate",
+      "part": "noun",
+      "phonetic": "/ˈklaɪmət/",
+      "definition": "The usual weather conditions of a region over a long period of time; or the general atmosphere of a situation.",
+      "definitionZh": "气候；氛围",
+      "examples": [
+        "The region has a warm, humid climate.",
+        "The company is trying to create a supportive work climate."
+      ],
+      "tip": "Climate describes long-term patterns; weather describes conditions at a particular time.",
+      "course": "en",
+      "breakdown": "The usual weather conditions of a region over a long period of time; or the general atmosphere of a situation.",
+      "related": "weather pattern;conditions",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The usual weather conditions of a region over a long period of time; or the general atmosphere of a situation.",
+          "definitionZh": "气候；氛围",
+          "examples": [
+            "The region has a warm, humid climate.",
+            "The company is trying to create a supportive work climate."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cloud",
+      "part": "noun / verb",
+      "phonetic": "/klaʊd/",
+      "definition": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
+      "definitionZh": "云；云层；使模糊",
+      "examples": [
+        "Dark clouds gathered before the storm.",
+        "Anger can cloud a person's judgement."
+      ],
+      "tip": "As a noun, “cloud” refers to a visible mass in the sky; as a verb, it can mean obscure or confuse.",
+      "course": "en",
+      "breakdown": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
+      "related": "vapour;mist",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
+          "definitionZh": "云；云层；使模糊",
+          "examples": [
+            "Dark clouds gathered before the storm.",
+            "Anger can cloud a person's judgement."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "coral",
+      "part": "noun / adjective",
+      "phonetic": "/ˈkɔːrəl/",
+      "definition": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+      "definitionZh": "珊瑚；珊瑚色的",
+      "examples": [
+        "The reef is home to many kinds of coral.",
+        "Coral reefs support a wide range of marine life."
+      ],
+      "tip": "Coral reefs are living ecosystems and can be damaged by warming seas and pollution.",
+      "course": "en",
+      "breakdown": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+      "related": "reef;marine organism",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / adjective",
+          "definition": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+          "definitionZh": "珊瑚；珊瑚色的",
+          "examples": [
+            "The reef is home to many kinds of coral.",
+            "Coral reefs support a wide range of marine life."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "crop",
+      "part": "noun / verb",
+      "phonetic": "/krɑːp/",
+      "definition": "A plant grown and collected for food or other use; or to cut something short.",
+      "definitionZh": "农作物；庄稼；裁剪",
+      "examples": [
+        "Rice is an important crop in many countries.",
+        "Farmers grow crops during the rainy season."
+      ],
+      "tip": "A crop is a plant grown for harvest; “crop” as a verb can also mean cut an image or hair shorter.",
+      "course": "en",
+      "breakdown": "A plant grown and collected for food or other use; or to cut something short.",
+      "related": "harvest;produce",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A plant grown and collected for food or other use; or to cut something short.",
+          "definitionZh": "农作物；庄稼；裁剪",
+          "examples": [
+            "Rice is an important crop in many countries.",
+            "Farmers grow crops during the rainy season."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "earth",
+      "part": "noun",
+      "phonetic": "/ɜːrθ/",
+      "definition": "The planet on which people live; or the soil and ground beneath our feet.",
+      "definitionZh": "地球；泥土；大地",
+      "examples": [
+        "Earth moves around the Sun.",
+        "The children planted seeds in the earth."
+      ],
+      "tip": "Use “Earth” with a capital letter when referring to the planet; lowercase “earth” can mean soil.",
+      "course": "en",
+      "breakdown": "The planet on which people live; or the soil and ground beneath our feet.",
+      "related": "world;soil",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The planet on which people live; or the soil and ground beneath our feet.",
+          "definitionZh": "地球；泥土；大地",
+          "examples": [
+            "Earth moves around the Sun.",
+            "The children planted seeds in the earth."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "earthquake",
+      "part": "noun",
+      "phonetic": "/ˈɜːrθkweɪk/",
+      "definition": "A sudden movement of the ground caused by activity within the Earth's crust.",
+      "definitionZh": "地震",
+      "examples": [
+        "The earthquake damaged several buildings.",
+        "Scientists monitor the region for signs of another earthquake."
+      ],
+      "tip": "An earthquake is measured by its magnitude and can cause shaking, landslides or tsunamis.",
+      "course": "en",
+      "breakdown": "A sudden movement of the ground caused by activity within the Earth's crust.",
+      "related": "tremor;seismic event",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A sudden movement of the ground caused by activity within the Earth's crust.",
+          "definitionZh": "地震",
+          "examples": [
+            "The earthquake damaged several buildings.",
+            "Scientists monitor the region for signs of another earthquake."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ecosystem",
+      "part": "noun",
+      "phonetic": "/ˈiːkoʊˌsɪstəm/",
+      "definition": "A community of living things and the non-living environment that interact in a particular area.",
+      "definitionZh": "生态系统",
+      "examples": [
+        "A forest is an ecosystem with many connected species.",
+        "Pollution can damage a river ecosystem."
+      ],
+      "tip": "An ecosystem includes organisms and their physical environment, not just the animals living there.",
+      "course": "en",
+      "breakdown": "A community of living things and the non-living environment that interact in a particular area.",
+      "related": "habitat;ecological community",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A community of living things and the non-living environment that interact in a particular area.",
+          "definitionZh": "生态系统",
+          "examples": [
+            "A forest is an ecosystem with many connected species.",
+            "Pollution can damage a river ecosystem."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "energy",
+      "part": "noun",
+      "phonetic": "/ˈenərdʒi/",
+      "definition": "The ability to do work or cause change; or the strength and enthusiasm someone has.",
+      "definitionZh": "能量；能源；精力",
+      "examples": [
+        "Solar panels turn sunlight into electrical energy.",
+        "I have more energy after a good night's sleep."
+      ],
+      "tip": "“Energy” can refer to physical power, sources of electricity or a person's vitality.",
+      "course": "en",
+      "breakdown": "The ability to do work or cause change; or the strength and enthusiasm someone has.",
+      "related": "power;vitality",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The ability to do work or cause change; or the strength and enthusiasm someone has.",
+          "definitionZh": "能量；能源；精力",
+          "examples": [
+            "Solar panels turn sunlight into electrical energy.",
+            "I have more energy after a good night's sleep."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "flower",
+      "part": "noun / verb",
+      "phonetic": "/ˈflaʊər/",
+      "definition": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
+      "definitionZh": "花；开花",
+      "examples": [
+        "The garden is full of flowers in spring.",
+        "The project began to flower after the team received support."
+      ],
+      "tip": "As a noun, “flower” is the reproductive part of a plant; as a verb, it can mean develop or flourish.",
+      "course": "en",
+      "breakdown": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
+      "related": "blossom;bloom",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
+          "definitionZh": "花；开花",
+          "examples": [
+            "The garden is full of flowers in spring.",
+            "The project began to flower after the team received support."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "habitat",
+      "part": "noun",
+      "phonetic": "/ˈhæbɪtæt/",
+      "definition": "The natural home or environment of a plant or animal.",
+      "definitionZh": "栖息地；生境",
+      "examples": [
+        "Wetlands provide a habitat for many birds.",
+        "Building roads can destroy animal habitats."
+      ],
+      "tip": "A habitat provides the food, shelter and conditions an organism needs to live.",
+      "course": "en",
+      "breakdown": "The natural home or environment of a plant or animal.",
+      "related": "environment;home",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The natural home or environment of a plant or animal.",
+          "definitionZh": "栖息地；生境",
+          "examples": [
+            "Wetlands provide a habitat for many birds.",
+            "Building roads can destroy animal habitats."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "insect",
+      "part": "noun",
+      "phonetic": "/ˈɪnsekt/",
+      "definition": "A small animal with six legs and usually one or two pairs of wings.",
+      "definitionZh": "昆虫",
+      "examples": [
+        "A butterfly is a colourful insect.",
+        "Some insects help plants by carrying pollen."
+      ],
+      "tip": "Insects have six legs; spiders are not insects because they have eight legs.",
+      "course": "en",
+      "breakdown": "A small animal with six legs and usually one or two pairs of wings.",
+      "related": "bug;arthropod",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small animal with six legs and usually one or two pairs of wings.",
+          "definitionZh": "昆虫",
+          "examples": [
+            "A butterfly is a colourful insect.",
+            "Some insects help plants by carrying pollen."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "leaf",
+      "part": "noun",
+      "phonetic": "/liːf/",
+      "definition": "A flat, usually green part of a plant that grows from a stem or branch.",
+      "definitionZh": "叶子；叶片",
+      "examples": [
+        "A yellow leaf fell from the tree.",
+        "The plant has broad leaves that collect sunlight."
+      ],
+      "tip": "The plural of “leaf” is “leaves.”",
+      "course": "en",
+      "breakdown": "A flat, usually green part of a plant that grows from a stem or branch.",
+      "related": "foliage;blade",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A flat, usually green part of a plant that grows from a stem or branch.",
+          "definitionZh": "叶子；叶片",
+          "examples": [
+            "A yellow leaf fell from the tree.",
+            "The plant has broad leaves that collect sunlight."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lightning",
+      "part": "noun",
+      "phonetic": "/ˈlaɪtnɪŋ/",
+      "definition": "A sudden bright flash of electricity in the sky during a storm.",
+      "definitionZh": "闪电",
+      "examples": [
+        "Lightning lit up the sky during the storm.",
+        "We went indoors when we saw the lightning."
+      ],
+      "tip": "Lightning is the flash of electricity; thunder is the sound caused by the same event.",
+      "course": "en",
+      "breakdown": "A sudden bright flash of electricity in the sky during a storm.",
+      "related": "electric discharge;flash",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A sudden bright flash of electricity in the sky during a storm.",
+          "definitionZh": "闪电",
+          "examples": [
+            "Lightning lit up the sky during the storm.",
+            "We went indoors when we saw the lightning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mountain",
+      "part": "noun",
+      "phonetic": "/ˈmaʊntən/",
+      "definition": "A very high natural area of land, higher and steeper than a hill.",
+      "definitionZh": "山；山脉",
+      "examples": [
+        "They climbed the mountain before sunrise.",
+        "Snow covered the top of the mountain."
+      ],
+      "tip": "A mountain is generally higher and steeper than a hill, though exact definitions vary.",
+      "course": "en",
+      "breakdown": "A very high natural area of land, higher and steeper than a hill.",
+      "related": "peak;mount",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A very high natural area of land, higher and steeper than a hill.",
+          "definitionZh": "山；山脉",
+          "examples": [
+            "They climbed the mountain before sunrise.",
+            "Snow covered the top of the mountain."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ocean",
+      "part": "noun",
+      "phonetic": "/ˈoʊʃən/",
+      "definition": "One of the very large areas of salt water that cover most of Earth's surface.",
+      "definitionZh": "海洋",
+      "examples": [
+        "The Pacific Ocean is the largest ocean on Earth.",
+        "Many species live deep in the ocean."
+      ],
+      "tip": "An ocean is larger than a sea; the five named oceans are connected parts of one global body of water.",
+      "course": "en",
+      "breakdown": "One of the very large areas of salt water that cover most of Earth's surface.",
+      "related": "sea;marine waters",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the very large areas of salt water that cover most of Earth's surface.",
+          "definitionZh": "海洋",
+          "examples": [
+            "The Pacific Ocean is the largest ocean on Earth.",
+            "Many species live deep in the ocean."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "planet",
+      "part": "noun",
+      "phonetic": "/ˈplænɪt/",
+      "definition": "A large round object in space that moves around a star and does not produce its own light.",
+      "definitionZh": "行星",
+      "examples": [
+        "Mars is the fourth planet from the Sun.",
+        "Scientists are searching for planets beyond our solar system."
+      ],
+      "tip": "A planet orbits a star; a moon orbits a planet.",
+      "course": "en",
+      "breakdown": "A large round object in space that moves around a star and does not produce its own light.",
+      "related": "world;celestial body",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large round object in space that moves around a star and does not produce its own light.",
+          "definitionZh": "行星",
+          "examples": [
+            "Mars is the fourth planet from the Sun.",
+            "Scientists are searching for planets beyond our solar system."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pollution",
+      "part": "noun",
+      "phonetic": "/pəˈluːʃən/",
+      "definition": "Harmful substances or waste that make air, water or land dirty or unsafe.",
+      "definitionZh": "污染",
+      "examples": [
+        "Plastic pollution threatens marine animals.",
+        "The city introduced measures to reduce air pollution."
+      ],
+      "tip": "“Pollution” is usually uncountable; name the type, such as air, water or noise pollution.",
+      "course": "en",
+      "breakdown": "Harmful substances or waste that make air, water or land dirty or unsafe.",
+      "related": "contamination;waste",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Harmful substances or waste that make air, water or land dirty or unsafe.",
+          "definitionZh": "污染",
+          "examples": [
+            "Plastic pollution threatens marine animals.",
+            "The city introduced measures to reduce air pollution."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "recycle",
+      "part": "verb",
+      "phonetic": "/ˌriːˈsaɪkəl/",
+      "definition": "To process used materials so they can be made into new products instead of being thrown away.",
+      "definitionZh": "回收利用；再循环",
+      "examples": [
+        "Please recycle paper and plastic bottles.",
+        "The company recycles old electronic equipment."
+      ],
+      "tip": "Use “recycle” for processing materials; “reuse” means use an item again without necessarily processing it.",
+      "course": "en",
+      "breakdown": "To process used materials so they can be made into new products instead of being thrown away.",
+      "related": "reuse;process",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To process used materials so they can be made into new products instead of being thrown away.",
+          "definitionZh": "回收利用；再循环",
+          "examples": [
+            "Please recycle paper and plastic bottles.",
+            "The company recycles old electronic equipment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "season",
+      "part": "noun",
+      "phonetic": "/ˈsiːzən/",
+      "definition": "One of the main periods of the year, such as spring, summer, autumn or winter; or a regular period for an activity.",
+      "definitionZh": "季节；旺季；赛季",
+      "examples": [
+        "Spring is my favourite season.",
+        "The football season begins in August."
+      ],
+      "tip": "A season can be part of the year or a period when an activity or event takes place.",
+      "course": "en",
+      "breakdown": "One of the main periods of the year, such as spring, summer, autumn or winter; or a regular period for an activity.",
+      "related": "period;time of year",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the main periods of the year, such as spring, summer, autumn or winter; or a regular period for an activity.",
+          "definitionZh": "季节；旺季；赛季",
+          "examples": [
+            "Spring is my favourite season.",
+            "The football season begins in August."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "seed",
+      "part": "noun / verb",
+      "phonetic": "/siːd/",
+      "definition": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
+      "definitionZh": "种子；播种",
+      "examples": [
+        "Each seed needs water and sunlight to grow.",
+        "They seeded the field with grass."
+      ],
+      "tip": "As a noun, a seed can grow into a plant; as a verb, it means to sow seeds or arrange competitors in a tournament.",
+      "course": "en",
+      "breakdown": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
+      "related": "kernel;grain",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
+          "definitionZh": "种子；播种",
+          "examples": [
+            "Each seed needs water and sunlight to grow.",
+            "They seeded the field with grass."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sky",
+      "part": "noun",
+      "phonetic": "/skaɪ/",
+      "definition": "The space above the Earth where clouds, the Sun, the Moon and stars can be seen.",
+      "definitionZh": "天空",
+      "examples": [
+        "The sky turned pink at sunset.",
+        "Dark clouds covered the sky."
+      ],
+      "tip": "Use “in the sky” for things visible above the ground.",
+      "course": "en",
+      "breakdown": "The space above the Earth where clouds, the Sun, the Moon and stars can be seen.",
+      "related": "heavens;firmament",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The space above the Earth where clouds, the Sun, the Moon and stars can be seen.",
+          "definitionZh": "天空",
+          "examples": [
+            "The sky turned pink at sunset.",
+            "Dark clouds covered the sky."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "soil",
+      "part": "noun / verb",
+      "phonetic": "/sɔɪl/",
+      "definition": "The upper layer of earth in which plants grow; or to make something dirty.",
+      "definitionZh": "土壤；泥土；弄脏",
+      "examples": [
+        "Healthy soil helps crops grow.",
+        "The rain soaked the soil in the garden."
+      ],
+      "tip": "“Soil” is the material plants grow in; as a verb, it means make something dirty.",
+      "course": "en",
+      "breakdown": "The upper layer of earth in which plants grow; or to make something dirty.",
+      "related": "earth;ground",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The upper layer of earth in which plants grow; or to make something dirty.",
+          "definitionZh": "土壤；泥土；弄脏",
+          "examples": [
+            "Healthy soil helps crops grow.",
+            "The rain soaked the soil in the garden."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "star",
+      "part": "noun / verb",
+      "phonetic": "/stɑːr/",
+      "definition": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
+      "definitionZh": "星星；恒星；主演",
+      "examples": [
+        "We could see a bright star above the hills.",
+        "She will star in the school musical."
+      ],
+      "tip": "The Sun is a star; as a verb, “star” can mean appear as the main performer.",
+      "course": "en",
+      "breakdown": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
+      "related": "sun;celestial body",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
+          "definitionZh": "星星；恒星；主演",
+          "examples": [
+            "We could see a bright star above the hills.",
+            "She will star in the school musical."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "storm",
+      "part": "noun / verb",
+      "phonetic": "/stɔːrm/",
+      "definition": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
+      "definitionZh": "暴风雨；风暴；冲进",
+      "examples": [
+        "The storm brought heavy rain and strong winds.",
+        "The children watched the storm from indoors."
+      ],
+      "tip": "A storm can involve wind, rain, snow or thunder; “storm out” means leave angrily.",
+      "course": "en",
+      "breakdown": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
+      "related": "tempest;downpour",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
+          "definitionZh": "暴风雨；风暴；冲进",
+          "examples": [
+            "The storm brought heavy rain and strong winds.",
+            "The children watched the storm from indoors."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tree",
+      "part": "noun",
+      "phonetic": "/triː/",
+      "definition": "A tall plant with a hard trunk, branches and leaves or needles.",
+      "definitionZh": "树；树木",
+      "examples": [
+        "A large tree provides shade in the garden.",
+        "The birds built a nest in the tree."
+      ],
+      "tip": "A tree has a trunk and branches; a shrub is usually smaller and has several woody stems.",
+      "course": "en",
+      "breakdown": "A tall plant with a hard trunk, branches and leaves or needles.",
+      "related": "plant;wood",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A tall plant with a hard trunk, branches and leaves or needles.",
+          "definitionZh": "树；树木",
+          "examples": [
+            "A large tree provides shade in the garden.",
+            "The birds built a nest in the tree."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "valley",
+      "part": "noun",
+      "phonetic": "/ˈvæli/",
+      "definition": "A low area of land between hills or mountains, often with a river running through it.",
+      "definitionZh": "山谷；河谷",
+      "examples": [
+        "A small village lies in the valley.",
+        "The morning fog covered the valley."
+      ],
+      "tip": "A valley is lower than the surrounding land and is often shaped by rivers or glaciers.",
+      "course": "en",
+      "breakdown": "A low area of land between hills or mountains, often with a river running through it.",
+      "related": "dale;lowland",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A low area of land between hills or mountains, often with a river running through it.",
+          "definitionZh": "山谷；河谷",
+          "examples": [
+            "A small village lies in the valley.",
+            "The morning fog covered the valley."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ancient",
+      "part": "adjective",
+      "phonetic": "/ˈeɪnʃənt/",
+      "definition": "Belonging to a very distant past, especially a historical period long before the present.",
+      "definitionZh": "古代的；古老的",
+      "examples": [
+        "The museum displays ancient tools and pottery.",
+        "They visited the ruins of an ancient city."
+      ],
+      "tip": "“Ancient” usually refers to a distant historical past, not simply something old.",
+      "course": "en",
+      "breakdown": "Belonging to a very distant past, especially a historical period long before the present.",
+      "related": "antique;historic",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Belonging to a very distant past, especially a historical period long before the present.",
+          "definitionZh": "古代的；古老的",
+          "examples": [
+            "The museum displays ancient tools and pottery.",
+            "They visited the ruins of an ancient city."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "artist",
+      "part": "noun",
+      "phonetic": "/ˈɑːrtɪst/",
+      "definition": "A person who creates art, such as paintings, drawings, music or performances.",
+      "definitionZh": "艺术家；艺人",
+      "examples": [
+        "The artist displayed her paintings in a gallery.",
+        "He works as a digital artist for a game studio."
+      ],
+      "tip": "An artist may work in visual art, music, performance or another creative field.",
+      "course": "en",
+      "breakdown": "A person who creates art, such as paintings, drawings, music or performances.",
+      "related": "creator;painter",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who creates art, such as paintings, drawings, music or performances.",
+          "definitionZh": "艺术家；艺人",
+          "examples": [
+            "The artist displayed her paintings in a gallery.",
+            "He works as a digital artist for a game studio."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ceremony",
+      "part": "noun",
+      "phonetic": "/ˈserəˌmoʊni/",
+      "definition": "A formal event held to mark an important occasion or follow a tradition.",
+      "definitionZh": "典礼；仪式",
+      "examples": [
+        "The graduation ceremony begins at ten.",
+        "They held a small ceremony to welcome the new members."
+      ],
+      "tip": "A ceremony is usually a planned formal event; a ritual is a repeated action with cultural or religious meaning.",
+      "course": "en",
+      "breakdown": "A formal event held to mark an important occasion or follow a tradition.",
+      "related": "event;ritual",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A formal event held to mark an important occasion or follow a tradition.",
+          "definitionZh": "典礼；仪式",
+          "examples": [
+            "The graduation ceremony begins at ten.",
+            "They held a small ceremony to welcome the new members."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "community",
+      "part": "noun",
+      "phonetic": "/kəˈmjuːnəti/",
+      "definition": "A group of people who live in the same area or share an interest, identity or purpose.",
+      "definitionZh": "社区；群体；社群",
+      "examples": [
+        "The local community organised a clean-up day.",
+        "An online community can connect people with shared interests."
+      ],
+      "tip": "A community may be based on location or shared interests, not only on where people live.",
+      "course": "en",
+      "breakdown": "A group of people who live in the same area or share an interest, identity or purpose.",
+      "related": "society;group",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A group of people who live in the same area or share an interest, identity or purpose.",
+          "definitionZh": "社区；群体；社群",
+          "examples": [
+            "The local community organised a clean-up day.",
+            "An online community can connect people with shared interests."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "concert",
+      "part": "noun",
+      "phonetic": "/ˈkɑːnsərt/",
+      "definition": "A public performance of music, usually given by one or more musicians or groups.",
+      "definitionZh": "音乐会；演唱会",
+      "examples": [
+        "We bought tickets for the concert next month.",
+        "The band performed live at an outdoor concert."
+      ],
+      "tip": "A concert is a live music event; a recital is usually a smaller performance by one musician or a small group.",
+      "course": "en",
+      "breakdown": "A public performance of music, usually given by one or more musicians or groups.",
+      "related": "performance;show",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A public performance of music, usually given by one or more musicians or groups.",
+          "definitionZh": "音乐会；演唱会",
+          "examples": [
+            "We bought tickets for the concert next month.",
+            "The band performed live at an outdoor concert."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "custom",
+      "part": "noun",
+      "phonetic": "/ˈkʌstəm/",
+      "definition": "A traditional way of behaving or doing something in a particular society or group.",
+      "definitionZh": "习俗；风俗；惯例",
+      "examples": [
+        "It is a local custom to greet guests with tea.",
+        "The custom has been passed down for generations."
+      ],
+      "tip": "A custom is a social practice shared by a group; a habit is usually an individual's repeated action.",
+      "course": "en",
+      "breakdown": "A traditional way of behaving or doing something in a particular society or group.",
+      "related": "tradition;practice",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A traditional way of behaving or doing something in a particular society or group.",
+          "definitionZh": "习俗；风俗；惯例",
+          "examples": [
+            "It is a local custom to greet guests with tea.",
+            "The custom has been passed down for generations."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "festival",
+      "part": "noun",
+      "phonetic": "/ˈfestɪvəl/",
+      "definition": "A special event or series of events, often held regularly, to celebrate a culture, tradition, art or activity.",
+      "definitionZh": "节日；庆典；艺术节",
+      "examples": [
+        "The city holds a music festival every summer.",
+        "Families gathered for the harvest festival."
+      ],
+      "tip": "A festival may celebrate a cultural or religious occasion or focus on music, food or the arts.",
+      "course": "en",
+      "breakdown": "A special event or series of events, often held regularly, to celebrate a culture, tradition, art or activity.",
+      "related": "celebration;fair",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A special event or series of events, often held regularly, to celebrate a culture, tradition, art or activity.",
+          "definitionZh": "节日；庆典；艺术节",
+          "examples": [
+            "The city holds a music festival every summer.",
+            "Families gathered for the harvest festival."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "heritage",
+      "part": "noun",
+      "phonetic": "/ˈherɪtɪdʒ/",
+      "definition": "The traditions, achievements, buildings and cultural features passed down from earlier generations.",
+      "definitionZh": "遗产；文化遗产",
+      "examples": [
+        "The museum protects the region's cultural heritage.",
+        "Traditional crafts are an important part of our heritage."
+      ],
+      "tip": "“Heritage” often refers to cultural or historical things inherited from earlier generations.",
+      "course": "en",
+      "breakdown": "The traditions, achievements, buildings and cultural features passed down from earlier generations.",
+      "related": "legacy;inheritance",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The traditions, achievements, buildings and cultural features passed down from earlier generations.",
+          "definitionZh": "遗产；文化遗产",
+          "examples": [
+            "The museum protects the region's cultural heritage.",
+            "Traditional crafts are an important part of our heritage."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "holiday",
+      "part": "noun",
+      "phonetic": "/ˈhɑːləˌdeɪ/",
+      "definition": "A period when someone does not work or study, often spent relaxing or travelling; or a special day of celebration.",
+      "definitionZh": "假期；节日",
+      "examples": [
+        "We are going on holiday in December.",
+        "The school is closed for the public holiday."
+      ],
+      "tip": "British English often uses “on holiday”; American English commonly uses “on vacation.”",
+      "course": "en",
+      "breakdown": "A period when someone does not work or study, often spent relaxing or travelling; or a special day of celebration.",
+      "related": "vacation;break",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A period when someone does not work or study, often spent relaxing or travelling; or a special day of celebration.",
+          "definitionZh": "假期；节日",
+          "examples": [
+            "We are going on holiday in December.",
+            "The school is closed for the public holiday."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "language",
+      "part": "noun",
+      "phonetic": "/ˈlæŋɡwɪdʒ/",
+      "definition": "A system of words, sounds or signs used by people to communicate.",
+      "definitionZh": "语言",
+      "examples": [
+        "English is the main language used in the class.",
+        "Learning a new language takes regular practice."
+      ],
+      "tip": "“Language” can refer to a spoken, written or signed system of communication.",
+      "course": "en",
+      "breakdown": "A system of words, sounds or signs used by people to communicate.",
+      "related": "speech;tongue",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A system of words, sounds or signs used by people to communicate.",
+          "definitionZh": "语言",
+          "examples": [
+            "English is the main language used in the class.",
+            "Learning a new language takes regular practice."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "legend",
+      "part": "noun",
+      "phonetic": "/ˈledʒənd/",
+      "definition": "A traditional story, sometimes based on real people or events, that may include extraordinary or supernatural details.",
+      "definitionZh": "传说；传奇人物",
+      "examples": [
+        "The village has a legend about a hidden treasure.",
+        "She is a local legend in the world of football."
+      ],
+      "tip": "A legend is a traditional story; a myth often explains beliefs about the world or gods.",
+      "course": "en",
+      "breakdown": "A traditional story, sometimes based on real people or events, that may include extraordinary or supernatural details.",
+      "related": "folktale;myth",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A traditional story, sometimes based on real people or events, that may include extraordinary or supernatural details.",
+          "definitionZh": "传说；传奇人物",
+          "examples": [
+            "The village has a legend about a hidden treasure.",
+            "She is a local legend in the world of football."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "literature",
+      "part": "noun",
+      "phonetic": "/ˈlɪtərətʃər/",
+      "definition": "Written works, especially those valued for artistic quality, such as novels, poems and plays.",
+      "definitionZh": "文学；文献",
+      "examples": [
+        "She studies English literature at university.",
+        "The library has a large collection of children's literature."
+      ],
+      "tip": "“Literature” is usually uncountable when referring to written works as a field or body of writing.",
+      "course": "en",
+      "breakdown": "Written works, especially those valued for artistic quality, such as novels, poems and plays.",
+      "related": "writing;fiction",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Written works, especially those valued for artistic quality, such as novels, poems and plays.",
+          "definitionZh": "文学；文献",
+          "examples": [
+            "She studies English literature at university.",
+            "The library has a large collection of children's literature."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "monument",
+      "part": "noun",
+      "phonetic": "/ˈmɑːnjəmənt/",
+      "definition": "A building, statue or other structure created to remember a person or important event.",
+      "definitionZh": "纪念碑；纪念建筑",
+      "examples": [
+        "The monument honours people who served in the war.",
+        "Tourists gathered around the ancient monument."
+      ],
+      "tip": "A monument is built to preserve memory; a memorial can be a structure, event or other form of remembrance.",
+      "course": "en",
+      "breakdown": "A building, statue or other structure created to remember a person or important event.",
+      "related": "memorial;statue",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A building, statue or other structure created to remember a person or important event.",
+          "definitionZh": "纪念碑；纪念建筑",
+          "examples": [
+            "The monument honours people who served in the war.",
+            "Tourists gathered around the ancient monument."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "nation",
+      "part": "noun",
+      "phonetic": "/ˈneɪʃən/",
+      "definition": "A country or large group of people with a shared identity, history or government.",
+      "definitionZh": "国家；民族",
+      "examples": [
+        "The nation celebrated its independence day.",
+        "The agreement was signed by leaders from several nations."
+      ],
+      "tip": "“Nation” can refer to a country or a people with a shared identity; “nationality” refers to legal or cultural belonging.",
+      "course": "en",
+      "breakdown": "A country or large group of people with a shared identity, history or government.",
+      "related": "country;people",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A country or large group of people with a shared identity, history or government.",
+          "definitionZh": "国家；民族",
+          "examples": [
+            "The nation celebrated its independence day.",
+            "The agreement was signed by leaders from several nations."
+          ]
+        }
+      ]
+    }
+  ]
+}
