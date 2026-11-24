@@ -226,7 +226,7 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           CI=true npx playwright test tests/browser/update-2-4-0-quiz-runtime.spec.js --config=playwright.config.js
       - name: Run signed-out Flashcards and Preferences browser regressions
-        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually"
+        run: npx playwright test tests/browser/update-2-5-0-flashcards.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "signing out restores|Preferences deletion controls|Flashcards shows a five-second toast|weak-memory items can be dismissed individually|Recent games paginate ten at a time"
       - name: Run permanent Lessons allowance notification regression
         run: npx playwright test tests/browser/update-2-3-0-smoke.spec.js --config=playwright.config.js --workers=1 --retries=0 --grep "permanent Lessons allowance exhaustion shows a notification|signed-in Daily Topic completes|Daily Learning resets completed content and allowance automatically at local midnight"
 
