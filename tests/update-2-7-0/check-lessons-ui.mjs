@@ -66,7 +66,8 @@ console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, t
 assert(daily.includes('const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";'));
 assert(daily.includes('drawerPanel.getBoundingClientRect()'));
 assert(daily.includes('window.addEventListener("swiftdictionary:course-changed"'));
-assert(daily.includes('snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed"'));
+assert(daily.includes('snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed"'));
+assert(daily.includes("snapshot.dailyResults || []"),"All-time history remains available to prevent reusing previously completed content.");
 assert(daily.includes('.eq("language_code",language).eq("status","completed")'));
 assert(daily.includes('.eq("language_code",language).eq("status","in_progress")'));
 assert(daily.includes('panelDescription'));

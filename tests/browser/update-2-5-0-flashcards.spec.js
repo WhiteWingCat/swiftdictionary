@@ -439,10 +439,10 @@ test("Weak Memory review keeps the list scroll position when selecting an item",
   await expect.poll(async()=>page.locator("#flashcardsApp").textContent()).toContain("12");
   await page.locator('[data-action="open-review"]').click();
   const list=page.locator(".flash-review-list");
-  await expect(list.locator("button")).toHaveCount(12);
+  await expect(list.locator(".flash-review-entry")).toHaveCount(12);
   await list.evaluate(el=>{el.scrollTop=el.scrollHeight;});
   const before=await list.evaluate(el=>el.scrollTop);
-  await list.locator("button").first().evaluate(button=>button.click());
+  await list.locator(".flash-review-entry").first().evaluate(button=>button.click());
   const after=await list.evaluate(el=>el.scrollTop);
   expect(after).toBe(before);
   await expect(page.locator(".flash-review-detail")).toBeVisible();
