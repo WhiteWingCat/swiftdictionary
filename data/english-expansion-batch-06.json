@@ -60,6 +60,15 @@
             "I have no doubt that she will succeed.",
             "He began to doubt his decision."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To feel uncertain about something or to question whether it is true.",
+          "definitionZh": "对某事感到不确定；怀疑某事是否属实。",
+          "examples": [
+            "I doubt that the shop is still open.",
+            "She began to doubt her decision."
+          ]
         }
       ]
     },
@@ -176,6 +185,15 @@
             "The cat escaped through the open window.",
             "They planned their escape at night."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of getting away from a place, person, or difficult situation.",
+          "definitionZh": "逃离某个地方、某个人或困境的行为；逃脱。",
+          "examples": [
+            "Their escape was planned carefully.",
+            "The fire escape was blocked by boxes."
+          ]
         }
       ]
     },
@@ -233,6 +251,15 @@
           "examples": [
             "We exchanged phone numbers.",
             "The shop will exchange the shirt."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To give something to someone and receive something in return.",
+          "definitionZh": "与他人互相给予并交换物品、信息或服务。",
+          "examples": [
+            "We exchanged phone numbers after the meeting.",
+            "The shop agreed to exchange the damaged item."
           ]
         }
       ]
@@ -321,6 +348,15 @@
             "The engine failed to start.",
             "One mistake does not mean you have failed."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "An unsuccessful result, especially an informal term for a failing mark or attempt.",
+          "definitionZh": "失败的结果；尤指考试或任务中的不及格（非正式用法）。",
+          "examples": [
+            "The teacher marked the test as a fail.",
+            "Forgetting the key was a complete fail."
+          ]
         }
       ]
     },
@@ -350,6 +386,15 @@
             "Can you fix the broken chair?",
             "We need to fix a date for the meeting."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "A solution or repair that corrects a problem, often a quick or temporary one.",
+          "definitionZh": "解决问题的方法或修复措施，常指快速或临时的解决办法。",
+          "examples": [
+            "The update includes a fix for the login problem.",
+            "A fresh coat of paint was only a temporary fix."
+          ]
         }
       ]
     },
@@ -378,6 +423,15 @@
           "examples": [
             "Can you guess what is inside the box?",
             "My guess was close to the correct answer."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An answer or opinion given without being certain that it is correct.",
+          "definitionZh": "在没有把握的情况下作出的猜测或估计。",
+          "examples": [
+            "That was a good guess.",
+            "My guess is that the train will be late."
           ]
         }
       ]
@@ -465,6 +519,15 @@
           "examples": [
             "Friends can have a strong influence on us.",
             "Weather may influence our travel plans."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To affect the way someone thinks, behaves, or the way something develops.",
+          "definitionZh": "影响某人的想法、行为或某件事的发展。",
+          "examples": [
+            "Her teachers influenced her choice of career.",
+            "The weather may influence our plans."
           ]
         }
       ]
@@ -611,6 +674,15 @@
             "Do not judge people by their appearance.",
             "The judge listened to both sides."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "An official who makes decisions in a court or decides the result of a competition.",
+          "definitionZh": "在法庭上作出裁决，或在比赛中评定结果的官员；法官；裁判。",
+          "examples": [
+            "The judge listened to both sides.",
+            "A panel of judges selected the winning design."
+          ]
         }
       ]
     },
@@ -640,6 +712,15 @@
             "He kicked the ball into the goal.",
             "The child gave the door a gentle kick."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act of hitting or moving something with the foot.",
+          "definitionZh": "用脚踢或推动某物的动作；一脚。",
+          "examples": [
+            "He gave the ball a powerful kick.",
+            "One kick was enough to open the loose panel."
+          ]
         }
       ]
     },
@@ -668,6 +749,15 @@
           "examples": [
             "Please knock before entering.",
             "I heard a knock at the door."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A short sound made by hitting a door or another hard surface.",
+          "definitionZh": "敲击门或其他坚硬表面时发出的短促声音；敲门声。",
+          "examples": [
+            "I heard a knock at the front door.",
+            "There was a loud knock on the window."
           ]
         }
       ]
@@ -727,6 +817,15 @@
             "Please lift the box carefully.",
             "We took the lift to the fifth floor."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "A device that carries people or goods between floors; in British English, also a ride in a vehicle.",
+          "definitionZh": "运送人员或货物上下楼层的电梯；在英式英语中也可指搭便车。",
+          "examples": [
+            "We took the lift to the sixth floor.",
+            "Could you give me a lift to the station?"
+          ]
         }
       ]
     },
@@ -755,6 +854,15 @@
           "examples": [
             "Measure the table before buying a cover.",
             "The government introduced safety measures."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An action taken to achieve a purpose or prevent a problem; a standard unit or amount.",
+          "definitionZh": "为达到目的或防止问题而采取的措施；衡量事物的标准或单位。",
+          "examples": [
+            "The school introduced safety measures.",
+            "A centimetre is a unit of measure."
           ]
         }
       ]
@@ -785,6 +893,15 @@
             "She offered to help us move.",
             "The shop has a special offer today."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "A proposal to give, do, or provide something; or a special price or deal.",
+          "definitionZh": "提供某物或做某事的提议；特价或优惠。",
+          "examples": [
+            "She received an offer of a new job.",
+            "The shop has a special offer this week."
+          ]
         }
       ]
     },
@@ -813,6 +930,15 @@
           "examples": [
             "He made a promise to call.",
             "I promise I will be careful."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To tell someone that you will certainly do or not do something.",
+          "definitionZh": "向某人保证自己一定会做或不会做某事。",
+          "examples": [
+            "I promise to call you tomorrow.",
+            "He promised his parents that he would be careful."
           ]
         }
       ]
@@ -930,6 +1056,15 @@
             "Pull the door gently to open it.",
             "Give the handle a firm pull."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act of using force to move something towards yourself; an influence or attraction.",
+          "definitionZh": "用力将某物拉向自己的动作；吸引力或影响力。",
+          "examples": [
+            "Give the handle a firm pull.",
+            "The campaign gained a strong pull with younger voters."
+          ]
         }
       ]
     },
@@ -958,6 +1093,15 @@
           "examples": [
             "Push the button to start the machine.",
             "The team made a final push to finish."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act of moving something away with force; an organised effort to achieve something.",
+          "definitionZh": "用力向外推动的动作；为实现目标而作出的努力。",
+          "examples": [
+            "The door needs a hard push.",
+            "There is a new push to improve road safety."
           ]
         }
       ]
@@ -1017,6 +1161,15 @@
             "Please reply to my email by Friday.",
             "I am still waiting for her reply."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "An answer given by speaking, writing, or sending a message.",
+          "definitionZh": "通过说话、写作或发送消息作出的回答；答复。",
+          "examples": [
+            "I sent a reply to the invitation.",
+            "We are still waiting for their reply."
+          ]
         }
       ]
     },
@@ -1045,6 +1198,15 @@
           "examples": [
             "She wrote a report about the trip.",
             "Please report any damage to the manager."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To give information about an event, situation, or problem, especially to an authority or the public.",
+          "definitionZh": "向有关方面或公众提供有关事件、情况或问题的信息；报告；报道。",
+          "examples": [
+            "Please report any damage to the manager.",
+            "The newspaper reported the result this morning."
           ]
         }
       ]
@@ -1075,6 +1237,15 @@
             "Firefighters rescued the family.",
             "The rescue took several hours."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of saving someone or something from danger or difficulty.",
+          "definitionZh": "将某人或某物从危险或困境中救出的行为；营救；救援。",
+          "examples": [
+            "The rescue took several hours.",
+            "A rescue team arrived before sunset."
+          ]
         }
       ]
     },
@@ -1104,6 +1275,15 @@
             "Please return the books next week.",
             "She returned home after work."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of coming or going back to a place, or of giving something back.",
+          "definitionZh": "返回某地或归还某物的行为；回来；归还。",
+          "examples": [
+            "Her return to work was delayed.",
+            "The shop allows the return of unused items."
+          ]
         }
       ]
     },
@@ -1132,6 +1312,15 @@
           "examples": [
             "I read a review before buying the phone.",
             "Let's review the main points."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To examine or consider something again, often to check it or make a decision.",
+          "definitionZh": "再次检查或考虑某事，通常是为了核实情况或作出决定。",
+          "examples": [
+            "The manager will review your application.",
+            "Let's review the main points before the test."
           ]
         }
       ]
@@ -1191,6 +1380,15 @@
             "The police began a search of the area.",
             "Search the website for more information."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To look carefully through a place or information to find someone or something.",
+          "definitionZh": "仔细查看某个地方或信息，以寻找某人或某物。",
+          "examples": [
+            "Police searched the building for evidence.",
+            "I searched online for a reliable guide."
+          ]
         }
       ]
     },
@@ -1248,6 +1446,15 @@
           "examples": [
             "We share the same office.",
             "Please share your ideas with the group."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A part or amount of something that belongs or is given to one person or group.",
+          "definitionZh": "属于或分配给某个人或群体的一部分；份额。",
+          "examples": [
+            "Everyone should receive a fair share.",
+            "She owns a small share of the company."
           ]
         }
       ]
@@ -1336,6 +1543,15 @@
             "Throw the ball to me.",
             "He made a long throw across the field."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act of sending something through the air with the hand.",
+          "definitionZh": "用手将某物抛向空中的动作；投掷。",
+          "examples": [
+            "His first throw landed near the target.",
+            "The player made a long throw across the field."
+          ]
         }
       ]
     },
@@ -1365,6 +1581,15 @@
             "A volunteer helped at the event.",
             "She volunteered to lead the group."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To offer to do something willingly, without being asked or expecting payment.",
+          "definitionZh": "主动提出自愿做某事，通常不要求报酬。",
+          "examples": [
+            "She volunteered to organise the event.",
+            "Several students volunteered to help."
+          ]
         }
       ]
     },
@@ -1393,6 +1618,15 @@
           "examples": [
             "Every member has the right to vote.",
             "The final vote takes place tomorrow."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make a formal choice in an election or decision.",
+          "definitionZh": "在选举或正式决策中表达自己的选择；投票。",
+          "examples": [
+            "Residents will vote for a new council member.",
+            "The committee voted on the proposal."
           ]
         }
       ]
@@ -1452,6 +1686,15 @@
             "Do not waste clean water.",
             "Food waste is a serious problem."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To use time, money, or another resource carelessly or without a useful result.",
+          "definitionZh": "不恰当地使用时间、金钱或其他资源，使其未能发挥应有作用；浪费。",
+          "examples": [
+            "Do not waste your time on unreliable sources.",
+            "We wasted a lot of food at the event."
+          ]
         }
       ]
     },
@@ -1480,6 +1723,15 @@
           "examples": [
             "Try not to worry about the result.",
             "Money is a constant worry for him."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A feeling of anxiety about a problem or something that may happen.",
+          "definitionZh": "对问题或可能发生的事情感到焦虑；担忧；烦恼。",
+          "examples": [
+            "Money is a constant worry for some families.",
+            "Her biggest worry was missing the flight."
           ]
         }
       ]
@@ -1538,6 +1790,15 @@
           "examples": [
             "The cost of travel has increased.",
             "How much does the repair cost?"
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To require a particular amount of money, time, or effort.",
+          "definitionZh": "需要花费一定数量的金钱、时间或精力。",
+          "examples": [
+            "The tickets cost twenty dollars each.",
+            "The mistake cost us several hours."
           ]
         }
       ]
@@ -1742,6 +2003,15 @@
             "We walked to the end of the road.",
             "The meeting will end at noon."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To bring an activity, event, or period of time to a finish.",
+          "definitionZh": "使活动、事件或一段时间结束；终止。",
+          "examples": [
+            "The meeting ended at noon.",
+            "They ended the discussion with a clear decision."
+          ]
         }
       ]
     },
@@ -1834,10 +2104,10 @@
     },
     {
       "word": "family",
-      "part": "noun / adjective",
+      "part": "noun",
       "phonetic": "/ˈfæməli/",
-      "definition": "A group of people related by birth, marriage, or close bonds; or intended for families.",
-      "definitionZh": "家庭；家人；家族；适合家庭的",
+      "definition": "A group of people related by birth, marriage, or close bonds.",
+      "definitionZh": "家庭；家人；家族",
       "examples": [
         "My family meets every Sunday.",
         "This is a family restaurant."
@@ -1886,6 +2156,15 @@
           "examples": [
             "The phone has a useful safety feature.",
             "The programme features local artists."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To include or present someone or something as an important part.",
+          "definitionZh": "将某人或某物作为重要部分纳入或呈现；以……为特色。",
+          "examples": [
+            "The exhibition features work by local artists.",
+            "The app will feature a new search tool."
           ]
         }
       ]
@@ -1945,6 +2224,15 @@
             "The latest figures show an increase.",
             "I cannot figure out how the device works."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To calculate or work out an amount, or to think or believe something.",
+          "definitionZh": "计算或弄清某个数额；认为；推断。",
+          "examples": [
+            "We need to figure out the total cost.",
+            "I figured that she would arrive later."
+          ]
         }
       ]
     },
@@ -2003,6 +2291,15 @@
             "Please fill in this form.",
             "Clouds began to form over the hills."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To create, develop, or come together into a particular shape or group.",
+          "definitionZh": "形成、建立或聚集成某种形状或群体。",
+          "examples": [
+            "The students formed a line outside.",
+            "Clouds began to form over the hills."
+          ]
         }
       ]
     },
@@ -2031,6 +2328,15 @@
           "examples": [
             "Wait for me at the front of the building.",
             "The front door was open."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Located at or relating to the forward part of something.",
+          "definitionZh": "位于某物前部的；与正面有关的。",
+          "examples": [
+            "Please use the front entrance.",
+            "The front seats were already taken."
           ]
         }
       ]
@@ -2061,6 +2367,15 @@
             "We are planning for the future.",
             "She hopes to study abroad in the future."
           ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Relating to a time that has not yet happened.",
+          "definitionZh": "与尚未到来的时间有关的；未来的。",
+          "examples": [
+            "We need to consider future costs.",
+            "Future generations will use this technology."
+          ]
         }
       ]
     },
@@ -2089,6 +2404,15 @@
           "examples": [
             "He received a high grade in science.",
             "The teacher will grade the essays."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To assess work or performance and assign a mark or level.",
+          "definitionZh": "评估作业或表现，并给予分数或等级；评分。",
+          "examples": [
+            "Teachers grade the exams next week.",
+            "The essays were graded fairly."
           ]
         }
       ]
@@ -2119,6 +2443,15 @@
             "The ground was wet after the rain.",
             "There are good grounds for concern."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To prevent an aircraft or person from leaving, or to establish something on a firm basis.",
+          "definitionZh": "禁止飞机起飞或限制某人外出；使某事建立在可靠基础上。",
+          "examples": [
+            "Heavy fog grounded several flights.",
+            "The report grounds its conclusions in clear evidence."
+          ]
         }
       ]
     },
@@ -2147,6 +2480,15 @@
           "examples": [
             "Our group finished the project early.",
             "Group the words by meaning."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To arrange people or things into sets according to shared features.",
+          "definitionZh": "根据共同特征将人或事物归类或分组。",
+          "examples": [
+            "Please group the words by topic.",
+            "The students were grouped according to their level."
           ]
         }
       ]
@@ -2205,6 +2547,15 @@
           "examples": [
             "I ate half of the sandwich.",
             "The journey took half an hour."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Equal to one of two parts of something; partly or not complete.",
+          "definitionZh": "相当于某物两个部分之一的；不完全的；半个的。",
+          "examples": [
+            "We spent half a day at the museum.",
+            "The half-empty bottle was on the table."
           ]
         }
       ]
@@ -2351,6 +2702,15 @@
             "The water level is rising.",
             "This course is suitable for your level."
           ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Flat, even, or at the same height or amount.",
+          "definitionZh": "平坦的；水平的；处于相同高度或程度的。",
+          "examples": [
+            "Make sure the table is level.",
+            "The road is almost level here."
+          ]
         }
       ]
     },
@@ -2409,6 +2769,15 @@
             "Draw a straight line across the page.",
             "We waited in line for tickets."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To cover the inside of something with a layer, or to form a row along an edge.",
+          "definitionZh": "用一层材料铺在某物内部；沿边缘排成一行。",
+          "examples": [
+            "Line the baking tray with paper.",
+            "Trees line both sides of the road."
+          ]
         }
       ]
     },
@@ -2437,6 +2806,15 @@
           "examples": [
             "I made a shopping list.",
             "Please list your main reasons."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To write or state a series of names, items, or details.",
+          "definitionZh": "写下或说出一系列名称、项目或细节；列出。",
+          "examples": [
+            "Please list your three main goals.",
+            "The website lists all available courses."
           ]
         }
       ]
@@ -2554,6 +2932,15 @@
             "The main entrance is on the left.",
             "Our main concern is safety."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "A principal pipe or cable that carries a public supply such as water or electricity.",
+          "definitionZh": "输送水、电等公共供应的主要管道或线路；主管道；干线。",
+          "examples": [
+            "A leak was found in the main.",
+            "The workers repaired the water main."
+          ]
         }
       ]
     },
@@ -2583,6 +2970,15 @@
             "Wood is a common building material.",
             "The teacher prepared reading material."
           ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Important or relevant enough to affect a decision or situation.",
+          "definitionZh": "重要到足以影响决定或情况的；实质性的。",
+          "examples": [
+            "The report contains no material errors.",
+            "There was a material difference between the two offers."
+          ]
         }
       ]
     },
@@ -2611,6 +3007,15 @@
           "examples": [
             "We need to discuss an important matter.",
             "Your opinion matters to us."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To be important or have an effect on a situation.",
+          "definitionZh": "具有重要性；对某种情况产生影响；要紧。",
+          "examples": [
+            "Your opinion matters to us.",
+            "It does not matter which route we take."
           ]
         }
       ]
@@ -2699,6 +3104,15 @@
             "Put the table in the middle of the room.",
             "He arrived in the middle of the film."
           ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Located at or near the centre of a place, period, or group.",
+          "definitionZh": "位于某个地点、时期或群体中央或附近的；中间的。",
+          "examples": [
+            "She is the middle child in her family.",
+            "We met in the middle section of the hall."
+          ]
         }
       ]
     },
@@ -2727,6 +3141,15 @@
           "examples": [
             "Keep an open mind when you listen.",
             "Would you mind closing the window?"
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To object to something, be bothered by it, or be willing to take care of something.",
+          "definitionZh": "对某事介意或反对；愿意照看或处理某事。",
+          "examples": [
+            "Would you mind opening the window?",
+            "I do not mind waiting a few minutes."
           ]
         }
       ]
@@ -2815,6 +3238,15 @@
             "Please write your name here.",
             "They named the puppy Milo."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To give someone or something a name, or to identify someone or something.",
+          "definitionZh": "给某人或某物取名；说出或指出某人或某物。",
+          "examples": [
+            "They named the puppy Milo.",
+            "Can you name three countries in Asia?"
+          ]
         }
       ]
     },
@@ -2902,6 +3334,15 @@
             "I left a note on the desk.",
             "Please note the change in time."
           ]
+        },
+        {
+          "part": "verb",
+          "definition": "To notice something or record it for attention or future reference.",
+          "definitionZh": "注意到某事，或将其记录下来以便留意或日后参考。",
+          "examples": [
+            "Please note the change in opening hours.",
+            "She noted his name in her notebook."
+          ]
         }
       ]
     },
@@ -2930,6 +3371,15 @@
           "examples": [
             "What is your phone number?",
             "Number the pages from one to ten."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To give items numbers in order, or to amount to a particular total.",
+          "definitionZh": "按顺序给项目编号；总数达到某个数量。",
+          "examples": [
+            "Number the pages before you submit the report.",
+            "The visitors numbered more than five hundred."
           ]
         }
       ]
