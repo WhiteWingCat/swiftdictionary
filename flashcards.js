@@ -39,7 +39,19 @@
   function uiText(en,zh){return (state.game?.translationLanguage||state.reviewSession?.translation_language_code||translationLanguage)==="zh"?zh:en;}
   function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),translation:uiText("Translation Recall","翻译回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
   function difficultyLabel(level){return ({beginner:uiText("Beginner","初级"),intermediate:uiText("Intermediate","中级"),advanced:uiText("Advanced","高级")})[level]||level;}
-  function translationFor(word){const language=state.game?.translationLanguage||translationLanguage;if((word.course||state.game?.learningLanguage||course)==="zh")return language==="zh"?(word.translationZh||""):(word.translationEn||word.definition||"");return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;}
+  function cleanEnglishGloss(value){
+    let text=String(value||"");
+    text=text.replace(/;?\\s*CL\\s*:[^;]*/gi,"");
+    text=text.replace(/\\([^)]*\\p{Script=Han}[^)]*\\)/gu,"");
+    text=text.replace(/\\[[^\\]]*\\p{Script=Han}[^\\]]*\\]/gu,"");
+    text=text.split(/\\s*;\\s*/).filter(part=>part.trim()&&!/\\p{Script=Han}/u.test(part)).join("; ");
+    return text.replace(/\\(\\s*\\)/g,"").replace(/\\[\\s*\\]/g,"").replace(/\\s{2,}/g," ").replace(/\\s+([,;:.])/g,"$1").replace(/[,;:.]\\s*$/,"").trim();
+  }
+  function translationFor(word){
+    const language=state.game?.translationLanguage||translationLanguage;
+    if((word.course||state.game?.learningLanguage||course)==="zh")return language==="zh"?(word.translationZh||""):cleanEnglishGloss(word.translationEn||word.definition||"");
+    return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;
+  }
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
       example_text:(word.examples||[])[0]||"",translation_text:translationFor(word),position:0};
@@ -322,7 +334,7 @@
       if(!chinese)return true;
       if(mode==="translation"){
         const language=state.game?.translationLanguage||translationLanguage;
-        if(Array.isArray(w.translationLanguages)&&!w.translationLanguages.includes(language))return false;
+        if(!Array.isArray(w.translationLanguages)||!w.translationLanguages.includes(language))return false;
         const cue=translationFor(w);
         if(!cue)return false;
         if(language==="zh"){
@@ -349,7 +361,7 @@
         for(const c of modeCards){if(c===target)continue;const v=optionValue(c),k=normalize(v);if(k&&k!==key)d.add(k);}
         return d.size>=3;
       });
-      return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(questionKey(item)))};
+      return {mode,viable,fresh:viable.filter(item=>!state.usedQuestionKeys.has(questionKey(item))),modeCards};
     }).filter(pool=>pool.viable.length);
     if(!pools.length)throw new Error("This card set does not contain four distinct choices for the selected recall mode.");
     const freshPools=pools.filter(pool=>pool.fresh.length);
@@ -379,7 +391,7 @@
       prompt=uiText("Which word completes the sentence?","哪个单词最适合填入句子？");correct=target.word;
     }
     const distinct=new Map();
-    for(const c of available){if(c===target)continue;const value=optionValue(c),k=normalize(value);if(k&&k!==normalize(optionValue(target))&&!distinct.has(k))distinct.set(k,c);}
+    for(const c of chosenPool.modeCards){if(c===target)continue;const value=optionValue(c),k=normalize(value);if(k&&k!==normalize(optionValue(target))&&!distinct.has(k))distinct.set(k,c);}
     const distractors=[...distinct.values()];
     for(let i=distractors.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[distractors[i],distractors[j]]=[distractors[j],distractors[i]];}
     const chosen=[target,...distractors.slice(0,3)];
