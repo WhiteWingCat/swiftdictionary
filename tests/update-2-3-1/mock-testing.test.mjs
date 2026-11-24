@@ -678,6 +678,21 @@ test("Flashcards supports Chinese-course banks and resets collection selection a
     "Deleting the selected collection must reset selection before the reload/render");
 });
 
+test("Mock Flashcards supports Chinese recall modes and keeps Mixed Recall English-only",async()=>{
+  const env=makeContext("feature-update-2-5-0-flashcards.swiftdictionary-testing.pages.dev");
+  const client=env.window.supabase.createClient();
+  const updated=await client.from("user_preferences").update({learning_language:"zh",translation_language:"en"}).eq("user_id","mock-user-a");
+  assert.equal(updated.error,null);
+  const started=await client.rpc("start_my_flashcard_game",{p_mode:"sentence",p_difficulty:"beginner",p_duration_seconds:60});
+  assert.equal(started.error,null);
+  assert.equal(started.data.learning_language_code,"zh");
+  assert.equal(started.data.translation_language_code,"en");
+  const mixed=await client.rpc("start_my_flashcard_game",{p_mode:"mixed",p_difficulty:"beginner",p_duration_seconds:60});
+  assert.equal(mixed.error.code,"22023","Chinese course must use Translation Recall rather than Mixed Recall");
+  const abandoned=await client.rpc("abandon_my_flashcard_game",{p_session_id:started.data.session_id});
+  assert.equal(abandoned.error,null);
+});
+
 test("Flash Recall prevents duplicate starts and locks the screen while saving or abandoning",()=>{
   assert.match(flashcardsSource,/if\(state\.starting\)return/,
     "A second start request must not create another server session");
