@@ -804,17 +804,39 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   expect(hasChineseKnowledgeTranslation).toBe(true);
 
   const waitForRenderedQuestion=async targetPage=>{
-    await expect.poll(()=>targetPage.evaluate(()=>{
-      const session=typeof quizPageState!=="undefined"?quizPageState.session:null;
-      const question=session?.questions?.find(q=>q.position===session.current_position);
-      const area=document.getElementById("quizQuestionArea");
-      if(!question||!area)return false;
-      const pinyin=!!area.querySelector(".quiz-question-pinyin");
-      const translation=!!area.querySelector(".quiz-question-translation");
-      return area.dataset.questionType===question.question_type
-        && pinyin===!!question.prompt_pinyin
-        && (question.question_type==="chinese_translation"?!translation:translation===!!question.prompt_translation);
-    }),{timeout:10000}).toBe(true);
+    let renderedSnapshot=null;
+    await expect.poll(async()=>{
+      renderedSnapshot=await targetPage.evaluate(()=>{
+        const session=typeof quizPageState!=="undefined"?quizPageState.session:null;
+        const question=session?.questions?.find(q=>q.position===session.current_position);
+        const area=document.getElementById("quizQuestionArea");
+        if(!question||!area)return false;
+        const text=selector=>area.querySelector(selector)?.textContent?.trim()||"";
+        const selectedTranslation=document.getElementById("translationSelect")?.value||"en";
+        const showTranslation=selectedTranslation!==(session.learning_language_code||"en")
+          && question.question_type!=="chinese_translation";
+        const expectedPinyin=session.learning_language_code==="zh"?String(question.prompt_pinyin||"").trim():"";
+        const expectedTranslation=showTranslation?String(question.prompt_translation||"").trim():"";
+        const actual={
+          prompt:text(".quiz-question-prompt"),
+          pinyin:text(".quiz-question-pinyin"),
+          translation:text(".quiz-question-translation")
+        };
+        return {
+          question,
+          actual,
+          matches:area.dataset.questionType===(question.question_type||"")
+            && actual.prompt===String(question.prompt_learning||"").trim()
+            && actual.pinyin===expectedPinyin
+            && actual.translation===expectedTranslation
+        };
+      });
+      return renderedSnapshot?.matches===true;
+    },{timeout:10000}).toBe(true);
+    // Return the exact question snapshot whose prompt and optional language
+    // fields were compared with the DOM, avoiding a second read racing a
+    // pending next-question render.
+    return renderedSnapshot.question;
   };
 
   let foundTranslationQuestion=false;
@@ -823,8 +845,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     // The server session position can advance before the directional UI transition
     // has finished. Compare the state and rendered prompt contract atomically so
     // same-type adjacent questions cannot make a stale DOM assertion pass/fail.
-    await waitForRenderedQuestion(page);
-    const currentQuestion=await page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position));
+    const currentQuestion=await waitForRenderedQuestion(page);
     const type=currentQuestion?.question_type;
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
