@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); implementation not yet started.  
+**Status:** Owner-approved plan (2026-11-24); implementation in progress on the feature branch (Phase 1 complete; Phase 2 in progress).  
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -193,7 +193,9 @@ Before merge/release:
 
 ## 7. Current status / recovery point
 
-- Plan approved on 2026-11-24.
-- Implementation has not started.
-- No U2.9.0 code, dictionary content, migrations, schema, staging or production changes have been made as part of this planning approval.
-- Begin with Phase 1 only after a separate owner instruction to start development.
+- Plan approved on 2026-11-24; the owner subsequently instructed development to begin.
+- Phase 1 repository/content/data audit is complete. The baseline contains 810 unique English entries; the read-only Favorite/saved-word review confirmed account-owned saved words with RLS and no existing collection CRUD/mixed-language membership.
+- Phase 2 is in progress. 506 new English entries are authored across eleven JSON batches; the baseline/addition comparison found zero duplicate overlaps. The projected dictionary size after integration is 1,316 entries.
+- The structural target has been reached, but full linguistic QA, review of the 810 existing entries, consolidated runtime integration and execution of the standalone Node validator remain open.
+- No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
+- No Supabase schema, data or policy changes, production changes, merge or deployment have been made. Continue with Phase 2 QA and integration, then follow the approved sequence.
