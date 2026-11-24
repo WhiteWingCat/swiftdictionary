@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "batch": 7,
-  "theme": "Places and people in everyday life",
+  "theme": "Expanded everyday vocabulary across places, people, emotions, activities, nature, technology, culture and education",
   "status": "editorially-authored; awaiting automated and integrated QA",
   "entries": [
     {
@@ -1538,6 +1538,5110 @@
           "examples": [
             "All visitors must sign in at reception.",
             "We had visitors from another city this weekend."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "afraid",
+      "part": "adjective",
+      "phonetic": "/əˈfreɪd/",
+      "definition": "Feeling fear or worry about something that may happen or cause harm.",
+      "definitionZh": "害怕的；恐惧的",
+      "examples": [
+        "The child was afraid of the dark.",
+        "She felt afraid when she heard the strange noise."
+      ],
+      "tip": "Use “afraid of” before a noun or “afraid to” before an action.",
+      "course": "en",
+      "breakdown": "Feeling fear or worry about something that may happen or cause harm.",
+      "related": "scared;frightened",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Feeling fear or worry about something that may happen or cause harm.",
+          "definitionZh": "害怕的；恐惧的",
+          "examples": [
+            "The child was afraid of the dark.",
+            "She felt afraid when she heard the strange noise."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "alive",
+      "part": "adjective",
+      "phonetic": "/əˈlaɪv/",
+      "definition": "Living and not dead; or still active, present or full of energy.",
+      "definitionZh": "活着的；有活力的",
+      "examples": [
+        "The flowers are still alive after the cold night.",
+        "The city comes alive after sunset."
+      ],
+      "tip": "“Alive” usually follows a verb such as “be,” “stay” or “remain”; it is not normally placed before a noun.",
+      "course": "en",
+      "breakdown": "Living and not dead; or still active, present or full of energy.",
+      "related": "living;active",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Living and not dead; or still active, present or full of energy.",
+          "definitionZh": "活着的；有活力的",
+          "examples": [
+            "The flowers are still alive after the cold night.",
+            "The city comes alive after sunset."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "amazing",
+      "part": "adjective",
+      "phonetic": "/əˈmeɪzɪŋ/",
+      "definition": "Causing great surprise, admiration or pleasure.",
+      "definitionZh": "令人惊叹的；了不起的",
+      "examples": [
+        "The view from the mountain was amazing.",
+        "She did an amazing job on the project."
+      ],
+      "tip": "“Amazing” describes something that causes amazement; “amazed” describes how a person feels.",
+      "course": "en",
+      "breakdown": "Causing great surprise, admiration or pleasure.",
+      "related": "astonishing;wonderful",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Causing great surprise, admiration or pleasure.",
+          "definitionZh": "令人惊叹的；了不起的",
+          "examples": [
+            "The view from the mountain was amazing.",
+            "She did an amazing job on the project."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "angry",
+      "part": "adjective",
+      "phonetic": "/ˈæŋɡri/",
+      "definition": "Feeling strong annoyance or displeasure because of something unfair, upsetting or unwanted.",
+      "definitionZh": "生气的；愤怒的",
+      "examples": [
+        "He was angry about the unfair decision.",
+        "Please do not get angry with your sister."
+      ],
+      "tip": "Use “angry with” for a person and “angry about” for a situation or issue.",
+      "course": "en",
+      "breakdown": "Feeling strong annoyance or displeasure because of something unfair, upsetting or unwanted.",
+      "related": "annoyed;upset",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Feeling strong annoyance or displeasure because of something unfair, upsetting or unwanted.",
+          "definitionZh": "生气的；愤怒的",
+          "examples": [
+            "He was angry about the unfair decision.",
+            "Please do not get angry with your sister."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "attractive",
+      "part": "adjective",
+      "phonetic": "/əˈtræktɪv/",
+      "definition": "Pleasant or interesting to look at; or likely to make someone interested.",
+      "definitionZh": "有吸引力的；迷人的",
+      "examples": [
+        "The building has an attractive design.",
+        "The company offered an attractive salary."
+      ],
+      "tip": "“Attractive” can describe appearance, qualities or an offer that appeals to people.",
+      "course": "en",
+      "breakdown": "Pleasant or interesting to look at; or likely to make someone interested.",
+      "related": "appealing;beautiful",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Pleasant or interesting to look at; or likely to make someone interested.",
+          "definitionZh": "有吸引力的；迷人的",
+          "examples": [
+            "The building has an attractive design.",
+            "The company offered an attractive salary."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "awful",
+      "part": "adjective",
+      "phonetic": "/ˈɔːfəl/",
+      "definition": "Very bad, unpleasant or upsetting.",
+      "definitionZh": "糟糕的；可怕的",
+      "examples": [
+        "The weather was awful during our trip.",
+        "I felt awful after staying up all night."
+      ],
+      "tip": "“Awful” is a strong negative adjective and is more intense than “bad.”",
+      "course": "en",
+      "breakdown": "Very bad, unpleasant or upsetting.",
+      "related": "terrible;horrible",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Very bad, unpleasant or upsetting.",
+          "definitionZh": "糟糕的；可怕的",
+          "examples": [
+            "The weather was awful during our trip.",
+            "I felt awful after staying up all night."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "beautiful",
+      "part": "adjective",
+      "phonetic": "/ˈbjuːtɪfəl/",
+      "definition": "Very pleasing to see, hear or experience.",
+      "definitionZh": "美丽的；漂亮的；美好的",
+      "examples": [
+        "They watched a beautiful sunset over the sea.",
+        "She has a beautiful singing voice."
+      ],
+      "tip": "“Beautiful” can describe appearance, sound, places and experiences.",
+      "course": "en",
+      "breakdown": "Very pleasing to see, hear or experience.",
+      "related": "lovely;attractive",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Very pleasing to see, hear or experience.",
+          "definitionZh": "美丽的；漂亮的；美好的",
+          "examples": [
+            "They watched a beautiful sunset over the sea.",
+            "She has a beautiful singing voice."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bright",
+      "part": "adjective",
+      "phonetic": "/braɪt/",
+      "definition": "Giving or reflecting a lot of light; or intelligent, cheerful or likely to be successful.",
+      "definitionZh": "明亮的；聪明的；有希望的",
+      "examples": [
+        "The room is bright in the morning.",
+        "She is a bright student with many ideas."
+      ],
+      "tip": "“Bright” can describe light, intelligence, colour or a promising future.",
+      "course": "en",
+      "breakdown": "Giving or reflecting a lot of light; or intelligent, cheerful or likely to be successful.",
+      "related": "shiny;clever",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Giving or reflecting a lot of light; or intelligent, cheerful or likely to be successful.",
+          "definitionZh": "明亮的；聪明的；有希望的",
+          "examples": [
+            "The room is bright in the morning.",
+            "She is a bright student with many ideas."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "careful",
+      "part": "adjective",
+      "phonetic": "/ˈkerfəl/",
+      "definition": "Taking care to avoid mistakes, danger or damage.",
+      "definitionZh": "小心的；仔细的",
+      "examples": [
+        "Be careful when you cross the busy road.",
+        "She is careful with her money."
+      ],
+      "tip": "Use “careful with” for handling something and “careful about” for a concern or decision.",
+      "course": "en",
+      "breakdown": "Taking care to avoid mistakes, danger or damage.",
+      "related": "cautious;attentive",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Taking care to avoid mistakes, danger or damage.",
+          "definitionZh": "小心的；仔细的",
+          "examples": [
+            "Be careful when you cross the busy road.",
+            "She is careful with her money."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cheerful",
+      "part": "adjective",
+      "phonetic": "/ˈtʃɪrfəl/",
+      "definition": "Happy and positive, or showing happiness through behaviour and expression.",
+      "definitionZh": "快乐的；开朗的",
+      "examples": [
+        "He gave us a cheerful greeting.",
+        "The bright colours make the room feel cheerful."
+      ],
+      "tip": "“Cheerful” describes a generally positive mood; “cheered” often describes a change in someone's mood.",
+      "course": "en",
+      "breakdown": "Happy and positive, or showing happiness through behaviour and expression.",
+      "related": "happy;positive",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Happy and positive, or showing happiness through behaviour and expression.",
+          "definitionZh": "快乐的；开朗的",
+          "examples": [
+            "He gave us a cheerful greeting.",
+            "The bright colours make the room feel cheerful."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "clever",
+      "part": "adjective",
+      "phonetic": "/ˈklevər/",
+      "definition": "Quick to understand, learn or find solutions; showing intelligence or skill.",
+      "definitionZh": "聪明的；机灵的",
+      "examples": [
+        "That was a clever way to solve the problem.",
+        "She is clever at finding practical solutions."
+      ],
+      "tip": "“Clever” often suggests quick thinking or skill; “intelligent” is a broader description of mental ability.",
+      "course": "en",
+      "breakdown": "Quick to understand, learn or find solutions; showing intelligence or skill.",
+      "related": "smart;bright",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Quick to understand, learn or find solutions; showing intelligence or skill.",
+          "definitionZh": "聪明的；机灵的",
+          "examples": [
+            "That was a clever way to solve the problem.",
+            "She is clever at finding practical solutions."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "comfortable",
+      "part": "adjective",
+      "phonetic": "/ˈkʌmftərbəl/",
+      "definition": "Providing physical ease or making someone feel relaxed and free from worry.",
+      "definitionZh": "舒适的；自在的",
+      "examples": [
+        "These shoes are comfortable for walking.",
+        "I feel comfortable speaking in front of the class."
+      ],
+      "tip": "Use “comfortable with” for feeling at ease about a person, situation or idea.",
+      "course": "en",
+      "breakdown": "Providing physical ease or making someone feel relaxed and free from worry.",
+      "related": "cosy;relaxed",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Providing physical ease or making someone feel relaxed and free from worry.",
+          "definitionZh": "舒适的；自在的",
+          "examples": [
+            "These shoes are comfortable for walking.",
+            "I feel comfortable speaking in front of the class."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "confused",
+      "part": "adjective",
+      "phonetic": "/kənˈfjuːzd/",
+      "definition": "Unable to understand something clearly or to think clearly about it.",
+      "definitionZh": "困惑的；迷茫的",
+      "examples": [
+        "I was confused by the new instructions.",
+        "The students looked confused after the explanation."
+      ],
+      "tip": "“Confused” describes a person's feeling; “confusing” describes something that causes that feeling.",
+      "course": "en",
+      "breakdown": "Unable to understand something clearly or to think clearly about it.",
+      "related": "puzzled;uncertain",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Unable to understand something clearly or to think clearly about it.",
+          "definitionZh": "困惑的；迷茫的",
+          "examples": [
+            "I was confused by the new instructions.",
+            "The students looked confused after the explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cool",
+      "part": "adjective / noun / verb",
+      "phonetic": "/kuːl/",
+      "definition": "Slightly cold; calm and confident; or fashionable and admired.",
+      "definitionZh": "凉爽的；冷静的；很酷的",
+      "examples": [
+        "The evening air feels cool.",
+        "She stayed cool during the difficult interview."
+      ],
+      "tip": "“Cool” has several informal meanings; context shows whether it refers to temperature, behaviour or style.",
+      "course": "en",
+      "breakdown": "Slightly cold; calm and confident; or fashionable and admired.",
+      "related": "chilly;calm",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / noun / verb",
+          "definition": "Slightly cold; calm and confident; or fashionable and admired.",
+          "definitionZh": "凉爽的；冷静的；很酷的",
+          "examples": [
+            "The evening air feels cool.",
+            "She stayed cool during the difficult interview."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dangerous",
+      "part": "adjective",
+      "phonetic": "/ˈdeɪndʒərəs/",
+      "definition": "Likely to cause harm, injury or damage.",
+      "definitionZh": "危险的",
+      "examples": [
+        "It is dangerous to swim during a storm.",
+        "The road becomes dangerous when it is wet."
+      ],
+      "tip": "Use “dangerous to” before an action and “dangerous for” before the person or thing at risk.",
+      "course": "en",
+      "breakdown": "Likely to cause harm, injury or damage.",
+      "related": "unsafe;risky",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Likely to cause harm, injury or damage.",
+          "definitionZh": "危险的",
+          "examples": [
+            "It is dangerous to swim during a storm.",
+            "The road becomes dangerous when it is wet."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "delighted",
+      "part": "adjective",
+      "phonetic": "/dɪˈlaɪtɪd/",
+      "definition": "Very pleased and happy about something.",
+      "definitionZh": "高兴的；欣喜的",
+      "examples": [
+        "We were delighted to hear the good news.",
+        "She was delighted with her exam results."
+      ],
+      "tip": "Use “delighted to” before an action and “delighted with” before the thing that pleased someone.",
+      "course": "en",
+      "breakdown": "Very pleased and happy about something.",
+      "related": "pleased;thrilled",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Very pleased and happy about something.",
+          "definitionZh": "高兴的；欣喜的",
+          "examples": [
+            "We were delighted to hear the good news.",
+            "She was delighted with her exam results."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "different",
+      "part": "adjective",
+      "phonetic": "/ˈdɪfərənt/",
+      "definition": "Not the same as another person or thing; having distinct qualities.",
+      "definitionZh": "不同的；有差异的",
+      "examples": [
+        "The two designs look very different.",
+        "We tried a different approach to the problem."
+      ],
+      "tip": "Use “different from” in standard formal English; “different to” is also common in some varieties.",
+      "course": "en",
+      "breakdown": "Not the same as another person or thing; having distinct qualities.",
+      "related": "distinct;unlike",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Not the same as another person or thing; having distinct qualities.",
+          "definitionZh": "不同的；有差异的",
+          "examples": [
+            "The two designs look very different.",
+            "We tried a different approach to the problem."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "difficult",
+      "part": "adjective",
+      "phonetic": "/ˈdɪfɪkəlt/",
+      "definition": "Not easy to do, understand or deal with.",
+      "definitionZh": "困难的；艰难的",
+      "examples": [
+        "The final question was difficult to answer.",
+        "It can be difficult to change a long-standing habit."
+      ],
+      "tip": "Use “difficult to” before a verb and “difficult for” before the person facing the challenge.",
+      "course": "en",
+      "breakdown": "Not easy to do, understand or deal with.",
+      "related": "hard;challenging",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Not easy to do, understand or deal with.",
+          "definitionZh": "困难的；艰难的",
+          "examples": [
+            "The final question was difficult to answer.",
+            "It can be difficult to change a long-standing habit."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dirty",
+      "part": "adjective / verb",
+      "phonetic": "/ˈdɜːrti/",
+      "definition": "Not clean; covered with dust, marks or other unwanted material; or to make something unclean.",
+      "definitionZh": "脏的；弄脏",
+      "examples": [
+        "Your shoes are dirty from the rain.",
+        "Be careful not to dirty the white shirt."
+      ],
+      "tip": "“Dirty” describes something unclean; as a verb, it means to make something dirty.",
+      "course": "en",
+      "breakdown": "Not clean; covered with dust, marks or other unwanted material; or to make something unclean.",
+      "related": "unclean;soiled",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / verb",
+          "definition": "Not clean; covered with dust, marks or other unwanted material; or to make something unclean.",
+          "definitionZh": "脏的；弄脏",
+          "examples": [
+            "Your shoes are dirty from the rain.",
+            "Be careful not to dirty the white shirt."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "easy",
+      "part": "adjective",
+      "phonetic": "/ˈiːzi/",
+      "definition": "Not difficult to do, understand or achieve; requiring little effort.",
+      "definitionZh": "容易的；轻松的",
+      "examples": [
+        "The first exercise is easy to understand.",
+        "It is not easy to learn a new language quickly."
+      ],
+      "tip": "Use “easy to” before a verb; “easy for” identifies the person who finds something simple.",
+      "course": "en",
+      "breakdown": "Not difficult to do, understand or achieve; requiring little effort.",
+      "related": "simple;effortless",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Not difficult to do, understand or achieve; requiring little effort.",
+          "definitionZh": "容易的；轻松的",
+          "examples": [
+            "The first exercise is easy to understand.",
+            "It is not easy to learn a new language quickly."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "empty",
+      "part": "adjective / verb",
+      "phonetic": "/ˈempti/",
+      "definition": "Containing nothing or no one; or to remove everything from a container or place.",
+      "definitionZh": "空的；倒空",
+      "examples": [
+        "The room was empty when we arrived.",
+        "Please empty the box before recycling it."
+      ],
+      "tip": "“Empty” can describe a container with nothing inside or the action of removing its contents.",
+      "course": "en",
+      "breakdown": "Containing nothing or no one; or to remove everything from a container or place.",
+      "related": "vacant;blank",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / verb",
+          "definition": "Containing nothing or no one; or to remove everything from a container or place.",
+          "definitionZh": "空的；倒空",
+          "examples": [
+            "The room was empty when we arrived.",
+            "Please empty the box before recycling it."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "excited",
+      "part": "adjective",
+      "phonetic": "/ɪkˈsaɪtɪd/",
+      "definition": "Feeling very happy and enthusiastic about something that is going to happen.",
+      "definitionZh": "兴奋的；激动的",
+      "examples": [
+        "The children were excited about the school trip.",
+        "I am excited to start my new job."
+      ],
+      "tip": "“Excited” describes how someone feels; “exciting” describes something that causes excitement.",
+      "course": "en",
+      "breakdown": "Feeling very happy and enthusiastic about something that is going to happen.",
+      "related": "enthusiastic;eager",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Feeling very happy and enthusiastic about something that is going to happen.",
+          "definitionZh": "兴奋的；激动的",
+          "examples": [
+            "The children were excited about the school trip.",
+            "I am excited to start my new job."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "famous",
+      "part": "adjective",
+      "phonetic": "/ˈfeɪməs/",
+      "definition": "Known by many people, usually because of an achievement, quality or public role.",
+      "definitionZh": "著名的；有名的",
+      "examples": [
+        "The city is famous for its old buildings.",
+        "She became famous after winning the competition."
+      ],
+      "tip": "Use “famous for” to explain why someone or something is well known.",
+      "course": "en",
+      "breakdown": "Known by many people, usually because of an achievement, quality or public role.",
+      "related": "well-known;celebrated",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Known by many people, usually because of an achievement, quality or public role.",
+          "definitionZh": "著名的；有名的",
+          "examples": [
+            "The city is famous for its old buildings.",
+            "She became famous after winning the competition."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fantastic",
+      "part": "adjective",
+      "phonetic": "/fænˈtæstɪk/",
+      "definition": "Extremely good, enjoyable or impressive.",
+      "definitionZh": "极好的；了不起的",
+      "examples": [
+        "We had a fantastic time at the festival.",
+        "Your idea sounds fantastic."
+      ],
+      "tip": "“Fantastic” is an enthusiastic informal way to say that something is excellent.",
+      "course": "en",
+      "breakdown": "Extremely good, enjoyable or impressive.",
+      "related": "excellent;wonderful",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Extremely good, enjoyable or impressive.",
+          "definitionZh": "极好的；了不起的",
+          "examples": [
+            "We had a fantastic time at the festival.",
+            "Your idea sounds fantastic."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fast",
+      "part": "adjective / adverb / noun",
+      "phonetic": "/fæst/",
+      "definition": "Moving, happening or operating at high speed; or a period of not eating.",
+      "definitionZh": "快的；迅速地；禁食",
+      "examples": [
+        "This train is faster than the local service.",
+        "She can type very fast."
+      ],
+      "tip": "“Fast” can be an adjective or adverb; the adverb form is not “fastly.”",
+      "course": "en",
+      "breakdown": "Moving, happening or operating at high speed; or a period of not eating.",
+      "related": "quick;rapid",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / adverb / noun",
+          "definition": "Moving, happening or operating at high speed; or a period of not eating.",
+          "definitionZh": "快的；迅速地；禁食",
+          "examples": [
+            "This train is faster than the local service.",
+            "She can type very fast."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "favourite",
+      "part": "adjective / noun",
+      "phonetic": "/ˈfeɪvərɪt/",
+      "definition": "Liked more than others; or a person or thing someone likes best.",
+      "definitionZh": "最喜欢的；特别喜爱的；最爱",
+      "examples": [
+        "Blue is my favourite colour.",
+        "That café is one of my favourites."
+      ],
+      "tip": "“Favourite” is the British spelling; American English uses “favorite.”",
+      "course": "en",
+      "breakdown": "Liked more than others; or a person or thing someone likes best.",
+      "related": "preferred;beloved",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / noun",
+          "definition": "Liked more than others; or a person or thing someone likes best.",
+          "definitionZh": "最喜欢的；特别喜爱的；最爱",
+          "examples": [
+            "Blue is my favourite colour.",
+            "That café is one of my favourites."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fine",
+      "part": "adjective / adverb / noun",
+      "phonetic": "/faɪn/",
+      "definition": "Good or satisfactory; healthy or well; or a sum of money paid as punishment.",
+      "definitionZh": "好的；不错的；罚款",
+      "examples": [
+        "Are you feeling fine today?",
+        "The driver had to pay a fine for parking illegally."
+      ],
+      "tip": "“Fine” can mean satisfactory, well or a financial penalty; the intended meaning depends on context.",
+      "course": "en",
+      "breakdown": "Good or satisfactory; healthy or well; or a sum of money paid as punishment.",
+      "related": "well;acceptable",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / adverb / noun",
+          "definition": "Good or satisfactory; healthy or well; or a sum of money paid as punishment.",
+          "definitionZh": "好的；不错的；罚款",
+          "examples": [
+            "Are you feeling fine today?",
+            "The driver had to pay a fine for parking illegally."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fit",
+      "part": "adjective / verb / noun",
+      "phonetic": "/fɪt/",
+      "definition": "Healthy and physically strong; the right size or shape; or to be the correct size or to place something into position.",
+      "definitionZh": "健康的；合适的；安装",
+      "examples": [
+        "He stays fit by cycling to work.",
+        "This key does not fit the lock."
+      ],
+      "tip": "“Fit” can describe health or suitability; as a verb, it can mean to be the right size or to install something.",
+      "course": "en",
+      "breakdown": "Healthy and physically strong; the right size or shape; or to be the correct size or to place something into position.",
+      "related": "healthy;suitable",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / verb / noun",
+          "definition": "Healthy and physically strong; the right size or shape; or to be the correct size or to place something into position.",
+          "definitionZh": "健康的；合适的；安装",
+          "examples": [
+            "He stays fit by cycling to work.",
+            "This key does not fit the lock."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "flat",
+      "part": "adjective / noun",
+      "phonetic": "/flæt/",
+      "definition": "Level and smooth, without a raised or curved surface; or a set of rooms forming one home.",
+      "definitionZh": "平的；平坦的；公寓",
+      "examples": [
+        "The road is flat for most of the route.",
+        "They rented a small flat near the station."
+      ],
+      "tip": "“Flat” is British English for an apartment; it can also describe a surface or something that has lost air.",
+      "course": "en",
+      "breakdown": "Level and smooth, without a raised or curved surface; or a set of rooms forming one home.",
+      "related": "level;apartment",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / noun",
+          "definition": "Level and smooth, without a raised or curved surface; or a set of rooms forming one home.",
+          "definitionZh": "平的；平坦的；公寓",
+          "examples": [
+            "The road is flat for most of the route.",
+            "They rented a small flat near the station."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fresh",
+      "part": "adjective",
+      "phonetic": "/freʃ/",
+      "definition": "Recently made, gathered or prepared; clean, cool or new in quality.",
+      "definitionZh": "新鲜的；清新的；新近的",
+      "examples": [
+        "We bought fresh vegetables at the market.",
+        "A fresh breeze came through the window."
+      ],
+      "tip": "“Fresh” can refer to food, air, ideas or something recently made or started.",
+      "course": "en",
+      "breakdown": "Recently made, gathered or prepared; clean, cool or new in quality.",
+      "related": "new;recent",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Recently made, gathered or prepared; clean, cool or new in quality.",
+          "definitionZh": "新鲜的；清新的；新近的",
+          "examples": [
+            "We bought fresh vegetables at the market.",
+            "A fresh breeze came through the window."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "friendly",
+      "part": "adjective",
+      "phonetic": "/ˈfrendli/",
+      "definition": "Kind, pleasant and welcoming towards other people.",
+      "definitionZh": "友好的；亲切的",
+      "examples": [
+        "The staff were friendly and helpful.",
+        "Our new neighbour seems very friendly."
+      ],
+      "tip": "“Friendly” describes behaviour or atmosphere; use “friendly to” or “friendly with” depending on the relationship.",
+      "course": "en",
+      "breakdown": "Kind, pleasant and welcoming towards other people.",
+      "related": "kind;welcoming",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Kind, pleasant and welcoming towards other people.",
+          "definitionZh": "友好的；亲切的",
+          "examples": [
+            "The staff were friendly and helpful.",
+            "Our new neighbour seems very friendly."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "funny",
+      "part": "adjective",
+      "phonetic": "/ˈfʌni/",
+      "definition": "Causing laughter or amusement; or strange and difficult to explain.",
+      "definitionZh": "有趣的；好笑的；奇怪的",
+      "examples": [
+        "He told a funny story at dinner.",
+        "There is a funny smell coming from the kitchen."
+      ],
+      "tip": "“Funny” can mean humorous or strange; context determines which meaning is intended.",
+      "course": "en",
+      "breakdown": "Causing laughter or amusement; or strange and difficult to explain.",
+      "related": "humorous;strange",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Causing laughter or amusement; or strange and difficult to explain.",
+          "definitionZh": "有趣的；好笑的；奇怪的",
+          "examples": [
+            "He told a funny story at dinner.",
+            "There is a funny smell coming from the kitchen."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gentle",
+      "part": "adjective",
+      "phonetic": "/ˈdʒentəl/",
+      "definition": "Kind, calm and careful, or not strong, rough or severe.",
+      "definitionZh": "温柔的；轻柔的；温和的",
+      "examples": [
+        "Use gentle movements when handling the baby.",
+        "A gentle rain began to fall."
+      ],
+      "tip": "“Gentle” can describe a person's manner, a movement, weather or a mild effect.",
+      "course": "en",
+      "breakdown": "Kind, calm and careful, or not strong, rough or severe.",
+      "related": "mild;soft",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Kind, calm and careful, or not strong, rough or severe.",
+          "definitionZh": "温柔的；轻柔的；温和的",
+          "examples": [
+            "Use gentle movements when handling the baby.",
+            "A gentle rain began to fall."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "glad",
+      "part": "adjective",
+      "phonetic": "/ɡlæd/",
+      "definition": "Feeling pleased, happy or grateful about something.",
+      "definitionZh": "高兴的；乐意的",
+      "examples": [
+        "I am glad you arrived safely.",
+        "She was glad to help her classmates."
+      ],
+      "tip": "Use “glad to” before an action and “glad that” before a statement.",
+      "course": "en",
+      "breakdown": "Feeling pleased, happy or grateful about something.",
+      "related": "pleased;happy",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Feeling pleased, happy or grateful about something.",
+          "definitionZh": "高兴的；乐意的",
+          "examples": [
+            "I am glad you arrived safely.",
+            "She was glad to help her classmates."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "healthy",
+      "part": "adjective",
+      "phonetic": "/ˈhelθi/",
+      "definition": "In good physical or mental condition; or likely to support good health or development.",
+      "definitionZh": "健康的；有益健康的",
+      "examples": [
+        "A healthy diet includes a variety of foods.",
+        "Regular exercise helps people stay healthy."
+      ],
+      "tip": "“Healthy” describes a person or something that supports health; “healthful” is a less common alternative for beneficial things.",
+      "course": "en",
+      "breakdown": "In good physical or mental condition; or likely to support good health or development.",
+      "related": "well;fit",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "In good physical or mental condition; or likely to support good health or development.",
+          "definitionZh": "健康的；有益健康的",
+          "examples": [
+            "A healthy diet includes a variety of foods.",
+            "Regular exercise helps people stay healthy."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "helpful",
+      "part": "adjective",
+      "phonetic": "/ˈhelpfəl/",
+      "definition": "Giving useful assistance, information or support.",
+      "definitionZh": "有帮助的；乐于助人的",
+      "examples": [
+        "The guide was very helpful during our visit.",
+        "It is helpful to write down new words."
+      ],
+      "tip": "“Helpful” can describe a person who gives help or information that makes a task easier.",
+      "course": "en",
+      "breakdown": "Giving useful assistance, information or support.",
+      "related": "useful;supportive",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Giving useful assistance, information or support.",
+          "definitionZh": "有帮助的；乐于助人的",
+          "examples": [
+            "The guide was very helpful during our visit.",
+            "It is helpful to write down new words."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hungry",
+      "part": "adjective",
+      "phonetic": "/ˈhʌŋɡri/",
+      "definition": "Needing or wanting food; or strongly wanting something.",
+      "definitionZh": "饥饿的；渴望的",
+      "examples": [
+        "I am hungry because I skipped breakfast.",
+        "The team is hungry for success."
+      ],
+      "tip": "Use “hungry for” to describe a strong desire for something beyond food.",
+      "course": "en",
+      "breakdown": "Needing or wanting food; or strongly wanting something.",
+      "related": "starving;keen",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Needing or wanting food; or strongly wanting something.",
+          "definitionZh": "饥饿的；渴望的",
+          "examples": [
+            "I am hungry because I skipped breakfast.",
+            "The team is hungry for success."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "important",
+      "part": "adjective",
+      "phonetic": "/ɪmˈpɔːrtənt/",
+      "definition": "Having great value, influence or meaning; deserving attention.",
+      "definitionZh": "重要的；有意义的",
+      "examples": [
+        "It is important to save your work regularly.",
+        "Family is important to her."
+      ],
+      "tip": "Use “important to” for the person or group that values something and “important for” for its purpose or benefit.",
+      "course": "en",
+      "breakdown": "Having great value, influence or meaning; deserving attention.",
+      "related": "significant;essential",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Having great value, influence or meaning; deserving attention.",
+          "definitionZh": "重要的；有意义的",
+          "examples": [
+            "It is important to save your work regularly.",
+            "Family is important to her."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "impossible",
+      "part": "adjective",
+      "phonetic": "/ɪmˈpɑːsəbəl/",
+      "definition": "Unable to happen, be done or be achieved.",
+      "definitionZh": "不可能的；办不到的",
+      "examples": [
+        "It is impossible to finish the project in one hour.",
+        "The task seemed impossible at first."
+      ],
+      "tip": "Use “impossible to” before a verb to describe something that cannot be done.",
+      "course": "en",
+      "breakdown": "Unable to happen, be done or be achieved.",
+      "related": "unachievable;infeasible",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Unable to happen, be done or be achieved.",
+          "definitionZh": "不可能的；办不到的",
+          "examples": [
+            "It is impossible to finish the project in one hour.",
+            "The task seemed impossible at first."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lazy",
+      "part": "adjective",
+      "phonetic": "/ˈleɪzi/",
+      "definition": "Unwilling to make an effort or work when effort is needed.",
+      "definitionZh": "懒惰的；懒散的",
+      "examples": [
+        "I felt lazy and stayed on the sofa all afternoon.",
+        "It was a lazy Sunday with no plans."
+      ],
+      "tip": "“Lazy” can describe a person, action or relaxed period; avoid using it as a judgment without context.",
+      "course": "en",
+      "breakdown": "Unwilling to make an effort or work when effort is needed.",
+      "related": "idle;inactive",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Unwilling to make an effort or work when effort is needed.",
+          "definitionZh": "懒惰的；懒散的",
+          "examples": [
+            "I felt lazy and stayed on the sofa all afternoon.",
+            "It was a lazy Sunday with no plans."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "loud",
+      "part": "adjective / adverb",
+      "phonetic": "/laʊd/",
+      "definition": "Making or producing a lot of sound; or in a way that can be heard clearly.",
+      "definitionZh": "大声的；响亮的",
+      "examples": [
+        "The music was too loud for the small room.",
+        "Please do not speak so loud in the library."
+      ],
+      "tip": "“Loud” is commonly used as an adjective and informally as an adverb; “loudly” is the standard adverb form.",
+      "course": "en",
+      "breakdown": "Making or producing a lot of sound; or in a way that can be heard clearly.",
+      "related": "noisy;strong",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective / adverb",
+          "definition": "Making or producing a lot of sound; or in a way that can be heard clearly.",
+          "definitionZh": "大声的；响亮的",
+          "examples": [
+            "The music was too loud for the small room.",
+            "Please do not speak so loud in the library."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lucky",
+      "part": "adjective",
+      "phonetic": "/ˈlʌki/",
+      "definition": "Having good things happen by chance; or bringing good fortune.",
+      "definitionZh": "幸运的；走运的",
+      "examples": [
+        "We were lucky to catch the last train.",
+        "Some people believe this number is lucky."
+      ],
+      "tip": "Use “lucky to” before an action and “lucky that” before a statement.",
+      "course": "en",
+      "breakdown": "Having good things happen by chance; or bringing good fortune.",
+      "related": "fortunate;blessed",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Having good things happen by chance; or bringing good fortune.",
+          "definitionZh": "幸运的；走运的",
+          "examples": [
+            "We were lucky to catch the last train.",
+            "Some people believe this number is lucky."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "nice",
+      "part": "adjective",
+      "phonetic": "/naɪs/",
+      "definition": "Pleasant, enjoyable or kind; often used to express general approval.",
+      "definitionZh": "好的；愉快的；友善的",
+      "examples": [
+        "We had a nice meal at the new restaurant.",
+        "It was nice of you to help me."
+      ],
+      "tip": "“Nice” is common in everyday English but can be vague; choose a more specific adjective when precision matters.",
+      "course": "en",
+      "breakdown": "Pleasant, enjoyable or kind; often used to express general approval.",
+      "related": "pleasant;kind",
+      "categories": [
+        "Emotions & Descriptions"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Pleasant, enjoyable or kind; often used to express general approval.",
+          "definitionZh": "好的；愉快的；友善的",
+          "examples": [
+            "We had a nice meal at the new restaurant.",
+            "It was nice of you to help me."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "act",
+      "part": "noun / verb",
+      "phonetic": "/ækt/",
+      "definition": "To do something or behave in a particular way; or one thing someone does.",
+      "definitionZh": "行动；行为；表演",
+      "examples": [
+        "You must act quickly in an emergency.",
+        "The first act of the play begins with a song."
+      ],
+      "tip": "As a verb, “act” means to do or behave; as a noun, it can mean an action or a section of a play.",
+      "course": "en",
+      "breakdown": "To do something or behave in a particular way; or one thing someone does.",
+      "related": "do;perform",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "To do something or behave in a particular way; or one thing someone does.",
+          "definitionZh": "行动；行为；表演",
+          "examples": [
+            "You must act quickly in an emergency.",
+            "The first act of the play begins with a song."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "yoga",
+      "part": "noun",
+      "phonetic": "/ˈjoʊɡə/",
+      "definition": "A practice involving physical postures, breathing and meditation to support health and wellbeing.",
+      "definitionZh": "瑜伽",
+      "examples": [
+        "She does yoga every morning before work.",
+        "The yoga class focuses on balance and breathing."
+      ],
+      "tip": "“Do yoga” is the usual expression for taking part in this activity.",
+      "course": "en",
+      "breakdown": "A practice involving physical postures, breathing and meditation to support health and wellbeing.",
+      "related": "meditation;exercise",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A practice involving physical postures, breathing and meditation to support health and wellbeing.",
+          "definitionZh": "瑜伽",
+          "examples": [
+            "She does yoga every morning before work.",
+            "The yoga class focuses on balance and breathing."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cycle",
+      "part": "verb / noun",
+      "phonetic": "/ˈsaɪkəl/",
+      "definition": "To ride a bicycle; or a series of events that repeats in the same order.",
+      "definitionZh": "骑自行车；循环；周期",
+      "examples": [
+        "We cycle to the park on weekends.",
+        "The seasons form a yearly cycle."
+      ],
+      "tip": "As a verb, “cycle” can mean ride a bicycle; as a noun, it can describe a repeating sequence.",
+      "course": "en",
+      "breakdown": "To ride a bicycle; or a series of events that repeats in the same order.",
+      "related": "ride;revolve",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To ride a bicycle; or a series of events that repeats in the same order.",
+          "definitionZh": "骑自行车；循环；周期",
+          "examples": [
+            "We cycle to the park on weekends.",
+            "The seasons form a yearly cycle."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "meditate",
+      "part": "verb",
+      "phonetic": "/ˈmedɪteɪt/",
+      "definition": "To spend time quietly focusing the mind, often to become calm or more aware.",
+      "definitionZh": "冥想；沉思",
+      "examples": [
+        "He meditates for ten minutes each morning.",
+        "She sat quietly to meditate before the meeting."
+      ],
+      "tip": "Use “meditate on” when describing a subject someone thinks about deeply.",
+      "course": "en",
+      "breakdown": "To spend time quietly focusing the mind, often to become calm or more aware.",
+      "related": "reflect;contemplate",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To spend time quietly focusing the mind, often to become calm or more aware.",
+          "definitionZh": "冥想；沉思",
+          "examples": [
+            "He meditates for ten minutes each morning.",
+            "She sat quietly to meditate before the meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sew",
+      "part": "verb",
+      "phonetic": "/soʊ/",
+      "definition": "To join or repair pieces of cloth using a needle and thread.",
+      "definitionZh": "缝纫；缝补",
+      "examples": [
+        "My grandmother taught me how to sew a button.",
+        "She sewed a small bag from leftover fabric."
+      ],
+      "tip": "The past tense and past participle are both “sewed” or “sewn,” depending on use.",
+      "course": "en",
+      "breakdown": "To join or repair pieces of cloth using a needle and thread.",
+      "related": "stitch;embroider",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To join or repair pieces of cloth using a needle and thread.",
+          "definitionZh": "缝纫；缝补",
+          "examples": [
+            "My grandmother taught me how to sew a button.",
+            "She sewed a small bag from leftover fabric."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sail",
+      "part": "verb / noun",
+      "phonetic": "/seɪl/",
+      "definition": "To travel across water in a boat or ship; or a large piece of cloth that catches the wind.",
+      "definitionZh": "航行；扬帆；帆",
+      "examples": [
+        "They sailed around the island for a week.",
+        "The boat's white sail caught the wind."
+      ],
+      "tip": "“Sail” can describe travelling by boat or the fabric that moves a sailing boat.",
+      "course": "en",
+      "breakdown": "To travel across water in a boat or ship; or a large piece of cloth that catches the wind.",
+      "related": "navigate;cruise",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To travel across water in a boat or ship; or a large piece of cloth that catches the wind.",
+          "definitionZh": "航行；扬帆；帆",
+          "examples": [
+            "They sailed around the island for a week.",
+            "The boat's white sail caught the wind."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "surf",
+      "part": "verb / noun",
+      "phonetic": "/sɜːrf/",
+      "definition": "To ride on waves using a surfboard; or to move from one website or page to another online.",
+      "definitionZh": "冲浪；浏览网页",
+      "examples": [
+        "We learned to surf at the beach.",
+        "I surf the web to find design references."
+      ],
+      "tip": "“Surf” can refer to the water sport or, informally, browsing the internet.",
+      "course": "en",
+      "breakdown": "To ride on waves using a surfboard; or to move from one website or page to another online.",
+      "related": "wave-ride;browse",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To ride on waves using a surfboard; or to move from one website or page to another online.",
+          "definitionZh": "冲浪；浏览网页",
+          "examples": [
+            "We learned to surf at the beach.",
+            "I surf the web to find design references."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "snorkel",
+      "part": "verb / noun",
+      "phonetic": "/ˈsnɔːrkəl/",
+      "definition": "To swim near the surface while breathing through a tube and looking underwater; or the tube used for this activity.",
+      "definitionZh": "浮潜；呼吸管",
+      "examples": [
+        "We snorkelled near the coral reef.",
+        "He bought a new snorkel for the trip."
+      ],
+      "tip": "“Snorkel” can be used as a verb for the activity or a noun for the breathing tube.",
+      "course": "en",
+      "breakdown": "To swim near the surface while breathing through a tube and looking underwater; or the tube used for this activity.",
+      "related": "dive;swim",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To swim near the surface while breathing through a tube and looking underwater; or the tube used for this activity.",
+          "definitionZh": "浮潜；呼吸管",
+          "examples": [
+            "We snorkelled near the coral reef.",
+            "He bought a new snorkel for the trip."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "picnic",
+      "part": "noun / verb",
+      "phonetic": "/ˈpɪknɪk/",
+      "definition": "A meal eaten outdoors, often in a park or countryside; or to eat such a meal.",
+      "definitionZh": "野餐",
+      "examples": [
+        "We had a picnic beside the lake.",
+        "They plan to picnic in the park if the weather is fine."
+      ],
+      "tip": "“Have a picnic” is more common than using “picnic” as a verb in everyday conversation.",
+      "course": "en",
+      "breakdown": "A meal eaten outdoors, often in a park or countryside; or to eat such a meal.",
+      "related": "outdoor meal;outing",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A meal eaten outdoors, often in a park or countryside; or to eat such a meal.",
+          "definitionZh": "野餐",
+          "examples": [
+            "We had a picnic beside the lake.",
+            "They plan to picnic in the park if the weather is fine."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "barbecue",
+      "part": "noun / verb",
+      "phonetic": "/ˈbɑːrbɪkjuː/",
+      "definition": "A meal or gathering where food is cooked outdoors over a fire or grill; or to cook food in this way.",
+      "definitionZh": "烧烤；户外烤肉",
+      "examples": [
+        "We are having a barbecue in the garden.",
+        "He barbecued vegetables for dinner."
+      ],
+      "tip": "“Barbecue” can refer to the cooking method, the food or the social event; “BBQ” is a common abbreviation.",
+      "course": "en",
+      "breakdown": "A meal or gathering where food is cooked outdoors over a fire or grill; or to cook food in this way.",
+      "related": "grill;cookout",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A meal or gathering where food is cooked outdoors over a fire or grill; or to cook food in this way.",
+          "definitionZh": "烧烤；户外烤肉",
+          "examples": [
+            "We are having a barbecue in the garden.",
+            "He barbecued vegetables for dinner."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bowl",
+      "part": "noun / verb",
+      "phonetic": "/boʊl/",
+      "definition": "A round, deep container for food; or to roll a ball in a game such as bowling or cricket.",
+      "definitionZh": "碗；投球；打保龄球",
+      "examples": [
+        "She served the soup in a large bowl.",
+        "They bowl together every Friday evening."
+      ],
+      "tip": "As a noun, “bowl” is a container; as a verb, it can refer to playing bowling or delivering a ball in cricket.",
+      "course": "en",
+      "breakdown": "A round, deep container for food; or to roll a ball in a game such as bowling or cricket.",
+      "related": "dish;roll",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A round, deep container for food; or to roll a ball in a game such as bowling or cricket.",
+          "definitionZh": "碗；投球；打保龄球",
+          "examples": [
+            "She served the soup in a large bowl.",
+            "They bowl together every Friday evening."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "box",
+      "part": "noun / verb",
+      "phonetic": "/bɑːks/",
+      "definition": "A container with flat sides; or to fight using boxing techniques.",
+      "definitionZh": "盒子；拳击",
+      "examples": [
+        "The books arrived in a cardboard box.",
+        "He learned to box at a local sports club."
+      ],
+      "tip": "“Box” as a verb usually refers to the sport; “box up” means to put items into boxes.",
+      "course": "en",
+      "breakdown": "A container with flat sides; or to fight using boxing techniques.",
+      "related": "container;boxing",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A container with flat sides; or to fight using boxing techniques.",
+          "definitionZh": "盒子；拳击",
+          "examples": [
+            "The books arrived in a cardboard box.",
+            "He learned to box at a local sports club."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "canoe",
+      "part": "noun / verb",
+      "phonetic": "/kəˈnuː/",
+      "definition": "A narrow, light boat moved with a paddle; or to travel in such a boat.",
+      "definitionZh": "独木舟；划独木舟",
+      "examples": [
+        "We hired a canoe on the river.",
+        "They canoed across the lake in the afternoon."
+      ],
+      "tip": "Use “go canoeing” for the activity and “a canoe” for the boat.",
+      "course": "en",
+      "breakdown": "A narrow, light boat moved with a paddle; or to travel in such a boat.",
+      "related": "kayak;paddle",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A narrow, light boat moved with a paddle; or to travel in such a boat.",
+          "definitionZh": "独木舟；划独木舟",
+          "examples": [
+            "We hired a canoe on the river.",
+            "They canoed across the lake in the afternoon."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "debate",
+      "part": "noun / verb",
+      "phonetic": "/dɪˈbeɪt/",
+      "definition": "A formal discussion in which people present different opinions; or to discuss a subject from different sides.",
+      "definitionZh": "辩论；讨论",
+      "examples": [
+        "The class held a debate about school uniforms.",
+        "Experts continue to debate the best solution."
+      ],
+      "tip": "Use “debate about” or “debate whether” to introduce the topic being discussed.",
+      "course": "en",
+      "breakdown": "A formal discussion in which people present different opinions; or to discuss a subject from different sides.",
+      "related": "discussion;argument",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A formal discussion in which people present different opinions; or to discuss a subject from different sides.",
+          "definitionZh": "辩论；讨论",
+          "examples": [
+            "The class held a debate about school uniforms.",
+            "Experts continue to debate the best solution."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "decorate",
+      "part": "verb",
+      "phonetic": "/ˈdekəreɪt/",
+      "definition": "To make a place or object more attractive by adding colours, objects or designs.",
+      "definitionZh": "装饰；装潢",
+      "examples": [
+        "We decorated the room with paper flowers.",
+        "She likes to decorate cakes for birthdays."
+      ],
+      "tip": "Use “decorate with” to introduce the materials or objects added.",
+      "course": "en",
+      "breakdown": "To make a place or object more attractive by adding colours, objects or designs.",
+      "related": "adorn;embellish",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make a place or object more attractive by adding colours, objects or designs.",
+          "definitionZh": "装饰；装潢",
+          "examples": [
+            "We decorated the room with paper flowers.",
+            "She likes to decorate cakes for birthdays."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "design",
+      "part": "noun / verb",
+      "phonetic": "/dɪˈzaɪn/",
+      "definition": "A plan or drawing showing how something will look or work; or to create such a plan.",
+      "definitionZh": "设计；设计图",
+      "examples": [
+        "The designer presented three logo designs.",
+        "They designed a simple app for students."
+      ],
+      "tip": "As a noun, “design” is the plan or result; as a verb, it is the process of creating it.",
+      "course": "en",
+      "breakdown": "A plan or drawing showing how something will look or work; or to create such a plan.",
+      "related": "plan;create",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A plan or drawing showing how something will look or work; or to create such a plan.",
+          "definitionZh": "设计；设计图",
+          "examples": [
+            "The designer presented three logo designs.",
+            "They designed a simple app for students."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dine",
+      "part": "verb",
+      "phonetic": "/daɪn/",
+      "definition": "To eat a meal, especially dinner, often in a formal or special setting.",
+      "definitionZh": "进餐；用餐",
+      "examples": [
+        "Guests will dine in the main hall.",
+        "We dined at a small restaurant by the river."
+      ],
+      "tip": "“Dine” is more formal than “eat”; “dine out” means to eat at a restaurant.",
+      "course": "en",
+      "breakdown": "To eat a meal, especially dinner, often in a formal or special setting.",
+      "related": "eat;have dinner",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To eat a meal, especially dinner, often in a formal or special setting.",
+          "definitionZh": "进餐；用餐",
+          "examples": [
+            "Guests will dine in the main hall.",
+            "We dined at a small restaurant by the river."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "golf",
+      "part": "noun / verb",
+      "phonetic": "/ɡɑːlf/",
+      "definition": "A sport in which players use clubs to hit a small ball into a series of holes in as few strokes as possible; or to play this sport.",
+      "definitionZh": "高尔夫球；打高尔夫",
+      "examples": [
+        "My uncle plays golf every Saturday.",
+        "They went golfing during their holiday."
+      ],
+      "tip": "“Play golf” is the standard phrase; “go golfing” is also common in American English.",
+      "course": "en",
+      "breakdown": "A sport in which players use clubs to hit a small ball into a series of holes in as few strokes as possible; or to play this sport.",
+      "related": "sport;putting",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A sport in which players use clubs to hit a small ball into a series of holes in as few strokes as possible; or to play this sport.",
+          "definitionZh": "高尔夫球；打高尔夫",
+          "examples": [
+            "My uncle plays golf every Saturday.",
+            "They went golfing during their holiday."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hunt",
+      "part": "verb / noun",
+      "phonetic": "/hʌnt/",
+      "definition": "To search for or chase an animal in order to catch or kill it; or a search for something.",
+      "definitionZh": "狩猎；寻找；搜寻",
+      "examples": [
+        "The birds hunt for food near the river.",
+        "We went on a hunt for the missing keys."
+      ],
+      "tip": "“Hunt for” means search for something; the noun can refer to the search itself.",
+      "course": "en",
+      "breakdown": "To search for or chase an animal in order to catch or kill it; or a search for something.",
+      "related": "search;track",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To search for or chase an animal in order to catch or kill it; or a search for something.",
+          "definitionZh": "狩猎；寻找；搜寻",
+          "examples": [
+            "The birds hunt for food near the river.",
+            "We went on a hunt for the missing keys."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ice skate",
+      "part": "verb",
+      "phonetic": "/ˈaɪs skeɪt/",
+      "definition": "To move across ice using special boots with metal blades attached underneath.",
+      "definitionZh": "滑冰",
+      "examples": [
+        "The children learned to ice-skate during the winter holiday.",
+        "She ice-skates at the rink twice a week."
+      ],
+      "tip": "Use “go ice-skating” to describe the activity as a leisure plan.",
+      "course": "en",
+      "breakdown": "To move across ice using special boots with metal blades attached underneath.",
+      "related": "skate;glide",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move across ice using special boots with metal blades attached underneath.",
+          "definitionZh": "滑冰",
+          "examples": [
+            "The children learned to ice-skate during the winter holiday.",
+            "She ice-skates at the rink twice a week."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "kayak",
+      "part": "noun / verb",
+      "phonetic": "/ˈkaɪæk/",
+      "definition": "A small, narrow boat moved with a double-bladed paddle; or to travel in one.",
+      "definitionZh": "皮划艇；划皮划艇",
+      "examples": [
+        "We rented a kayak near the beach.",
+        "They kayaked along the quiet river."
+      ],
+      "tip": "Use “go kayaking” for the activity and “a kayak” for the boat.",
+      "course": "en",
+      "breakdown": "A small, narrow boat moved with a double-bladed paddle; or to travel in one.",
+      "related": "canoe;paddle",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A small, narrow boat moved with a double-bladed paddle; or to travel in one.",
+          "definitionZh": "皮划艇；划皮划艇",
+          "examples": [
+            "We rented a kayak near the beach.",
+            "They kayaked along the quiet river."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "march",
+      "part": "verb / noun",
+      "phonetic": "/mɑːrtʃ/",
+      "definition": "To walk with regular, deliberate steps, often as a group; or an organised public walk to express an opinion.",
+      "definitionZh": "行进；齐步走；游行",
+      "examples": [
+        "The band marched through the town.",
+        "Thousands joined a peaceful march."
+      ],
+      "tip": "As a verb, “march” can mean walk in a disciplined way; as a noun, it can mean a public demonstration.",
+      "course": "en",
+      "breakdown": "To walk with regular, deliberate steps, often as a group; or an organised public walk to express an opinion.",
+      "related": "parade;walk",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To walk with regular, deliberate steps, often as a group; or an organised public walk to express an opinion.",
+          "definitionZh": "行进；齐步走；游行",
+          "examples": [
+            "The band marched through the town.",
+            "Thousands joined a peaceful march."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "model",
+      "part": "noun / verb",
+      "phonetic": "/ˈmɑːdəl/",
+      "definition": "A small copy or representation of something; or to display clothes, products or ideas for others to see.",
+      "definitionZh": "模型；模特；展示",
+      "examples": [
+        "The students built a model of the solar system.",
+        "She models clothes for an online shop."
+      ],
+      "tip": "“Model” can mean a representation, a person who displays products or the act of presenting them.",
+      "course": "en",
+      "breakdown": "A small copy or representation of something; or to display clothes, products or ideas for others to see.",
+      "related": "replica;demonstrate",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A small copy or representation of something; or to display clothes, products or ideas for others to see.",
+          "definitionZh": "模型；模特；展示",
+          "examples": [
+            "The students built a model of the solar system.",
+            "She models clothes for an online shop."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "motor",
+      "part": "noun / verb",
+      "phonetic": "/ˈmoʊtər/",
+      "definition": "A machine that changes energy into movement; or to travel using a motor vehicle.",
+      "definitionZh": "发动机；马达；驾车行驶",
+      "examples": [
+        "The motor makes a strange noise.",
+        "They motored along the coast after lunch."
+      ],
+      "tip": "“Motor” is often used as a noun for an engine; as a verb it is less common and means travel by motor vehicle.",
+      "course": "en",
+      "breakdown": "A machine that changes energy into movement; or to travel using a motor vehicle.",
+      "related": "engine;drive",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A machine that changes energy into movement; or to travel using a motor vehicle.",
+          "definitionZh": "发动机；马达；驾车行驶",
+          "examples": [
+            "The motor makes a strange noise.",
+            "They motored along the coast after lunch."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tweet",
+      "part": "noun / verb",
+      "phonetic": "/twiːt/",
+      "definition": "A short message posted on the social media platform X; or to make a short, high-pitched sound like a small bird.",
+      "definitionZh": "推文；发短消息；鸟鸣",
+      "examples": [
+        "She posted a tweet about the event.",
+        "Small birds tweeted in the trees."
+      ],
+      "tip": "The social-media meaning is platform-specific; the original verb also describes a bird's short call.",
+      "course": "en",
+      "breakdown": "A short message posted on the social media platform X; or to make a short, high-pitched sound like a small bird.",
+      "related": "post;chirp",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A short message posted on the social media platform X; or to make a short, high-pitched sound like a small bird.",
+          "definitionZh": "推文；发短消息；鸟鸣",
+          "examples": [
+            "She posted a tweet about the event.",
+            "Small birds tweeted in the trees."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "algorithm",
+      "part": "noun",
+      "phonetic": "/ˈælɡəˌrɪðəm/",
+      "definition": "A set of ordered steps or rules used to solve a problem or perform a calculation, especially by a computer.",
+      "definitionZh": "算法",
+      "examples": [
+        "The search engine uses an algorithm to rank results.",
+        "Students wrote a simple algorithm for sorting numbers."
+      ],
+      "tip": "An algorithm is a method or procedure; it is not limited to computer software.",
+      "course": "en",
+      "breakdown": "A set of ordered steps or rules used to solve a problem or perform a calculation, especially by a computer.",
+      "related": "procedure;method",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A set of ordered steps or rules used to solve a problem or perform a calculation, especially by a computer.",
+          "definitionZh": "算法",
+          "examples": [
+            "The search engine uses an algorithm to rank results.",
+            "Students wrote a simple algorithm for sorting numbers."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "app",
+      "part": "noun",
+      "phonetic": "/æp/",
+      "definition": "A software programme designed to perform a particular task on a phone, tablet or computer.",
+      "definitionZh": "应用程序；应用软件",
+      "examples": [
+        "I use a language-learning app every day.",
+        "The app needs permission to access the camera."
+      ],
+      "tip": "“App” is short for “application”; it usually refers to software used on a digital device.",
+      "course": "en",
+      "breakdown": "A software programme designed to perform a particular task on a phone, tablet or computer.",
+      "related": "application;software",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A software programme designed to perform a particular task on a phone, tablet or computer.",
+          "definitionZh": "应用程序；应用软件",
+          "examples": [
+            "I use a language-learning app every day.",
+            "The app needs permission to access the camera."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "battery",
+      "part": "noun",
+      "phonetic": "/ˈbætəri/",
+      "definition": "A device that stores chemical energy and supplies electrical power to equipment.",
+      "definitionZh": "电池",
+      "examples": [
+        "My phone battery is almost empty.",
+        "The remote control needs two batteries."
+      ],
+      "tip": "Use “battery life” for how long a battery can power a device before it needs charging.",
+      "course": "en",
+      "breakdown": "A device that stores chemical energy and supplies electrical power to equipment.",
+      "related": "cell;power source",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A device that stores chemical energy and supplies electrical power to equipment.",
+          "definitionZh": "电池",
+          "examples": [
+            "My phone battery is almost empty.",
+            "The remote control needs two batteries."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "browser",
+      "part": "noun",
+      "phonetic": "/ˈbraʊzər/",
+      "definition": "A computer programme used to access and view websites on the internet.",
+      "definitionZh": "浏览器",
+      "examples": [
+        "Open the page in your web browser.",
+        "The browser saved the website in its history."
+      ],
+      "tip": "A browser displays websites; a search engine helps users find information online.",
+      "course": "en",
+      "breakdown": "A computer programme used to access and view websites on the internet.",
+      "related": "web browser;client",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A computer programme used to access and view websites on the internet.",
+          "definitionZh": "浏览器",
+          "examples": [
+            "Open the page in your web browser.",
+            "The browser saved the website in its history."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cable",
+      "part": "noun / verb",
+      "phonetic": "/ˈkeɪbəl/",
+      "definition": "A thick wire or group of wires used to carry electricity or data; or to send a message by cable.",
+      "definitionZh": "电缆；电线；有线电视",
+      "examples": [
+        "The monitor is connected to the computer by a cable.",
+        "Please check that the power cable is plugged in."
+      ],
+      "tip": "A cable may carry electricity, data or signals; “wire” often refers to a single metal conductor.",
+      "course": "en",
+      "breakdown": "A thick wire or group of wires used to carry electricity or data; or to send a message by cable.",
+      "related": "wire;cord",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A thick wire or group of wires used to carry electricity or data; or to send a message by cable.",
+          "definitionZh": "电缆；电线；有线电视",
+          "examples": [
+            "The monitor is connected to the computer by a cable.",
+            "Please check that the power cable is plugged in."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "camera",
+      "part": "noun",
+      "phonetic": "/ˈkæmərə/",
+      "definition": "A device used to take photographs or record video.",
+      "definitionZh": "相机；摄像机",
+      "examples": [
+        "The camera takes clear photos in low light.",
+        "She used her phone camera to record the presentation."
+      ],
+      "tip": "A camera can capture still images or moving video; a lens is one of its main optical parts.",
+      "course": "en",
+      "breakdown": "A device used to take photographs or record video.",
+      "related": "photographic device;camcorder",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A device used to take photographs or record video.",
+          "definitionZh": "相机；摄像机",
+          "examples": [
+            "The camera takes clear photos in low light.",
+            "She used her phone camera to record the presentation."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "computer",
+      "part": "noun",
+      "phonetic": "/kəmˈpjuːtər/",
+      "definition": "An electronic device that stores and processes information according to instructions from software.",
+      "definitionZh": "电脑；计算机",
+      "examples": [
+        "I use a computer to edit videos.",
+        "The computer needs to restart after the update."
+      ],
+      "tip": "A computer includes hardware and software; a laptop is a portable type of computer.",
+      "course": "en",
+      "breakdown": "An electronic device that stores and processes information according to instructions from software.",
+      "related": "PC;machine",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An electronic device that stores and processes information according to instructions from software.",
+          "definitionZh": "电脑；计算机",
+          "examples": [
+            "I use a computer to edit videos.",
+            "The computer needs to restart after the update."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "data",
+      "part": "noun",
+      "phonetic": "/ˈdeɪtə/",
+      "definition": "Facts or information collected for reference, analysis or use by a computer.",
+      "definitionZh": "数据；资料",
+      "examples": [
+        "The team analysed data from the survey.",
+        "Please back up your data before updating the system."
+      ],
+      "tip": "“Data” is commonly treated as an uncountable singular noun in everyday use, though formal scientific writing may use a plural verb.",
+      "course": "en",
+      "breakdown": "Facts or information collected for reference, analysis or use by a computer.",
+      "related": "information;statistics",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Facts or information collected for reference, analysis or use by a computer.",
+          "definitionZh": "数据；资料",
+          "examples": [
+            "The team analysed data from the survey.",
+            "Please back up your data before updating the system."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "device",
+      "part": "noun",
+      "phonetic": "/dɪˈvaɪs/",
+      "definition": "A piece of equipment made for a particular purpose, especially an electronic or mechanical one.",
+      "definitionZh": "设备；装置；器械",
+      "examples": [
+        "This device measures the room temperature.",
+        "Connect the device to a power source."
+      ],
+      "tip": "A device is a general term for a piece of equipment; “gadget” often suggests a small, useful electronic item.",
+      "course": "en",
+      "breakdown": "A piece of equipment made for a particular purpose, especially an electronic or mechanical one.",
+      "related": "equipment;gadget",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A piece of equipment made for a particular purpose, especially an electronic or mechanical one.",
+          "definitionZh": "设备；装置；器械",
+          "examples": [
+            "This device measures the room temperature.",
+            "Connect the device to a power source."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "digital",
+      "part": "adjective",
+      "phonetic": "/ˈdɪdʒɪtəl/",
+      "definition": "Using or relating to information represented electronically, especially by computers.",
+      "definitionZh": "数字的；数码的",
+      "examples": [
+        "The library offers digital copies of old books.",
+        "She keeps a digital record of her expenses."
+      ],
+      "tip": "“Digital” often describes electronic information or technology, in contrast with analogue systems.",
+      "course": "en",
+      "breakdown": "Using or relating to information represented electronically, especially by computers.",
+      "related": "electronic;computerised",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Using or relating to information represented electronically, especially by computers.",
+          "definitionZh": "数字的；数码的",
+          "examples": [
+            "The library offers digital copies of old books.",
+            "She keeps a digital record of her expenses."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "download",
+      "part": "verb / noun",
+      "phonetic": "/ˌdaʊnˈloʊd/",
+      "definition": "To copy data or a file from the internet or another computer to your own device; or the file or process itself.",
+      "definitionZh": "下载；下载内容",
+      "examples": [
+        "You can download the document from the website.",
+        "The download took less than a minute."
+      ],
+      "tip": "“Download” usually means receive a file; “upload” means send a file from your device to another system.",
+      "course": "en",
+      "breakdown": "To copy data or a file from the internet or another computer to your own device; or the file or process itself.",
+      "related": "save;transfer",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To copy data or a file from the internet or another computer to your own device; or the file or process itself.",
+          "definitionZh": "下载；下载内容",
+          "examples": [
+            "You can download the document from the website.",
+            "The download took less than a minute."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "email",
+      "part": "noun / verb",
+      "phonetic": "/ˈiːmeɪl/",
+      "definition": "A message sent electronically over the internet; or to send someone such a message.",
+      "definitionZh": "电子邮件；发邮件",
+      "examples": [
+        "I received an email from the school.",
+        "Please email the completed form to the office."
+      ],
+      "tip": "“Email” can be a message or the act of sending one; “an email address” identifies the recipient.",
+      "course": "en",
+      "breakdown": "A message sent electronically over the internet; or to send someone such a message.",
+      "related": "message;electronic mail",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A message sent electronically over the internet; or to send someone such a message.",
+          "definitionZh": "电子邮件；发邮件",
+          "examples": [
+            "I received an email from the school.",
+            "Please email the completed form to the office."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "file",
+      "part": "noun / verb",
+      "phonetic": "/faɪl/",
+      "definition": "A collection of information stored under one name on a computer; or to arrange documents or submit them officially.",
+      "definitionZh": "文件；档案；归档",
+      "examples": [
+        "Save the image as a separate file.",
+        "Please file the report with the other documents."
+      ],
+      "tip": "A computer file stores digital information; as a verb, “file” can mean organise papers or submit a formal document.",
+      "course": "en",
+      "breakdown": "A collection of information stored under one name on a computer; or to arrange documents or submit them officially.",
+      "related": "document;record",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A collection of information stored under one name on a computer; or to arrange documents or submit them officially.",
+          "definitionZh": "文件；档案；归档",
+          "examples": [
+            "Save the image as a separate file.",
+            "Please file the report with the other documents."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "internet",
+      "part": "noun",
+      "phonetic": "/ˈɪntərnet/",
+      "definition": "The worldwide system of connected computer networks that allows people to share information and communicate.",
+      "definitionZh": "互联网",
+      "examples": [
+        "The internet makes it easy to find information.",
+        "We lost our internet connection during the storm."
+      ],
+      "tip": "“Internet” refers to the global network; the web is one service that operates through it.",
+      "course": "en",
+      "breakdown": "The worldwide system of connected computer networks that allows people to share information and communicate.",
+      "related": "online network;web",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The worldwide system of connected computer networks that allows people to share information and communicate.",
+          "definitionZh": "互联网",
+          "examples": [
+            "The internet makes it easy to find information.",
+            "We lost our internet connection during the storm."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "keyboard",
+      "part": "noun",
+      "phonetic": "/ˈkiːbɔːrd/",
+      "definition": "A set of keys used to enter letters, numbers and commands into a computer or other device.",
+      "definitionZh": "键盘",
+      "examples": [
+        "The keyboard is not working properly.",
+        "She typed the password on the keyboard."
+      ],
+      "tip": "A keyboard can be physical or displayed on a touchscreen.",
+      "course": "en",
+      "breakdown": "A set of keys used to enter letters, numbers and commands into a computer or other device.",
+      "related": "keypad;input device",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A set of keys used to enter letters, numbers and commands into a computer or other device.",
+          "definitionZh": "键盘",
+          "examples": [
+            "The keyboard is not working properly.",
+            "She typed the password on the keyboard."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "laptop",
+      "part": "noun",
+      "phonetic": "/ˈlæptɑːp/",
+      "definition": "A portable computer with a screen and keyboard joined together, designed to be used on a person's lap or desk.",
+      "definitionZh": "笔记本电脑",
+      "examples": [
+        "He takes his laptop to the library.",
+        "My laptop battery lasts about six hours."
+      ],
+      "tip": "“Laptop” is a type of portable computer; “notebook computer” is another name for a similar device.",
+      "course": "en",
+      "breakdown": "A portable computer with a screen and keyboard joined together, designed to be used on a person's lap or desk.",
+      "related": "notebook computer;portable PC",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A portable computer with a screen and keyboard joined together, designed to be used on a person's lap or desk.",
+          "definitionZh": "笔记本电脑",
+          "examples": [
+            "He takes his laptop to the library.",
+            "My laptop battery lasts about six hours."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "network",
+      "part": "noun / verb",
+      "phonetic": "/ˈnetwɜːrk/",
+      "definition": "A group of connected people, computers or systems; or to connect with others for information or opportunities.",
+      "definitionZh": "网络；人际关系网；建立联系",
+      "examples": [
+        "The office network stopped working this morning.",
+        "Designers network with other professionals at events."
+      ],
+      "tip": "A network may connect devices or people; “networking” often refers to building professional relationships.",
+      "course": "en",
+      "breakdown": "A group of connected people, computers or systems; or to connect with others for information or opportunities.",
+      "related": "system;connection",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A group of connected people, computers or systems; or to connect with others for information or opportunities.",
+          "definitionZh": "网络；人际关系网；建立联系",
+          "examples": [
+            "The office network stopped working this morning.",
+            "Designers network with other professionals at events."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "password",
+      "part": "noun",
+      "phonetic": "/ˈpæsˌwɜːrd/",
+      "definition": "A secret word or combination of characters used to prove a user's identity and access a system.",
+      "definitionZh": "密码",
+      "examples": [
+        "Choose a strong password for your account.",
+        "Never share your password with strangers."
+      ],
+      "tip": "A password should be unique and difficult to guess; a passcode is often a shorter numeric or device code.",
+      "course": "en",
+      "breakdown": "A secret word or combination of characters used to prove a user's identity and access a system.",
+      "related": "passcode;credential",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A secret word or combination of characters used to prove a user's identity and access a system.",
+          "definitionZh": "密码",
+          "examples": [
+            "Choose a strong password for your account.",
+            "Never share your password with strangers."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "printer",
+      "part": "noun",
+      "phonetic": "/ˈprɪntər/",
+      "definition": "A machine that produces text or images on paper from a computer or other digital device.",
+      "definitionZh": "打印机",
+      "examples": [
+        "The printer is out of paper.",
+        "I printed the document using the office printer."
+      ],
+      "tip": "A printer creates a paper copy; a scanner does the reverse by turning paper documents into digital files.",
+      "course": "en",
+      "breakdown": "A machine that produces text or images on paper from a computer or other digital device.",
+      "related": "printing machine;scanner",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A machine that produces text or images on paper from a computer or other digital device.",
+          "definitionZh": "打印机",
+          "examples": [
+            "The printer is out of paper.",
+            "I printed the document using the office printer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "robot",
+      "part": "noun",
+      "phonetic": "/ˈroʊbɑːt/",
+      "definition": "A machine that can carry out tasks automatically, often controlled by a computer.",
+      "definitionZh": "机器人",
+      "examples": [
+        "The factory uses a robot to assemble small parts.",
+        "The robot can move objects from one shelf to another."
+      ],
+      "tip": "A robot may be programmed to perform physical tasks or software-based actions.",
+      "course": "en",
+      "breakdown": "A machine that can carry out tasks automatically, often controlled by a computer.",
+      "related": "automaton;machine",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A machine that can carry out tasks automatically, often controlled by a computer.",
+          "definitionZh": "机器人",
+          "examples": [
+            "The factory uses a robot to assemble small parts.",
+            "The robot can move objects from one shelf to another."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "screen",
+      "part": "noun / verb",
+      "phonetic": "/skriːn/",
+      "definition": "The flat surface on a device that displays images and information; or to examine people or things for a particular purpose.",
+      "definitionZh": "屏幕；显示器；筛查",
+      "examples": [
+        "The phone screen is cracked.",
+        "The company screens applicants before interviews."
+      ],
+      "tip": "As a noun, “screen” often means a display; as a verb, it can mean check or filter.",
+      "course": "en",
+      "breakdown": "The flat surface on a device that displays images and information; or to examine people or things for a particular purpose.",
+      "related": "display;monitor",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The flat surface on a device that displays images and information; or to examine people or things for a particular purpose.",
+          "definitionZh": "屏幕；显示器；筛查",
+          "examples": [
+            "The phone screen is cracked.",
+            "The company screens applicants before interviews."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "software",
+      "part": "noun",
+      "phonetic": "/ˈsɔːftwer/",
+      "definition": "The programmes and instructions that tell a computer or device what to do.",
+      "definitionZh": "软件",
+      "examples": [
+        "The software needs to be updated.",
+        "This design software is easy to use."
+      ],
+      "tip": "“Software” is uncountable; use “a software programme” or “an application” for one item.",
+      "course": "en",
+      "breakdown": "The programmes and instructions that tell a computer or device what to do.",
+      "related": "programme;application",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The programmes and instructions that tell a computer or device what to do.",
+          "definitionZh": "软件",
+          "examples": [
+            "The software needs to be updated.",
+            "This design software is easy to use."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "animal",
+      "part": "noun",
+      "phonetic": "/ˈænɪməl/",
+      "definition": "A living creature that can move and sense its surroundings, but is not a plant or human being.",
+      "definitionZh": "动物",
+      "examples": [
+        "The animal moved quietly through the grass.",
+        "Some animals are active at night."
+      ],
+      "tip": "“Animal” is a broad term that includes mammals, birds, fish, insects and many other groups.",
+      "course": "en",
+      "breakdown": "A living creature that can move and sense its surroundings, but is not a plant or human being.",
+      "related": "creature;wildlife",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A living creature that can move and sense its surroundings, but is not a plant or human being.",
+          "definitionZh": "动物",
+          "examples": [
+            "The animal moved quietly through the grass.",
+            "Some animals are active at night."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "atmosphere",
+      "part": "noun",
+      "phonetic": "/ˈætməsfɪr/",
+      "definition": "The layer of gases surrounding a planet; or the feeling or mood of a place or situation.",
+      "definitionZh": "大气层；气氛",
+      "examples": [
+        "Earth's atmosphere helps protect life on the planet.",
+        "The café has a relaxed atmosphere."
+      ],
+      "tip": "“Atmosphere” can refer to gases around a planet or the mood created by a place.",
+      "course": "en",
+      "breakdown": "The layer of gases surrounding a planet; or the feeling or mood of a place or situation.",
+      "related": "air;ambience",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The layer of gases surrounding a planet; or the feeling or mood of a place or situation.",
+          "definitionZh": "大气层；气氛",
+          "examples": [
+            "Earth's atmosphere helps protect life on the planet.",
+            "The café has a relaxed atmosphere."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "autumn",
+      "part": "noun",
+      "phonetic": "/ˈɔːtəm/",
+      "definition": "The season between summer and winter, when temperatures become cooler and many trees lose their leaves.",
+      "definitionZh": "秋天；秋季",
+      "examples": [
+        "The leaves turn red and gold in autumn.",
+        "We usually travel in early autumn."
+      ],
+      "tip": "“Autumn” is common in British English; “fall” is common in American English.",
+      "course": "en",
+      "breakdown": "The season between summer and winter, when temperatures become cooler and many trees lose their leaves.",
+      "related": "fall;season",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The season between summer and winter, when temperatures become cooler and many trees lose their leaves.",
+          "definitionZh": "秋天；秋季",
+          "examples": [
+            "The leaves turn red and gold in autumn.",
+            "We usually travel in early autumn."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "breeze",
+      "part": "noun / verb",
+      "phonetic": "/briːz/",
+      "definition": "A light, gentle wind; or to move easily and quickly through something.",
+      "definitionZh": "微风；轻风",
+      "examples": [
+        "A cool breeze came through the open window.",
+        "She breezed through the first part of the test."
+      ],
+      "tip": "As a noun, “breeze” is a gentle wind; informally, the verb can mean complete something easily.",
+      "course": "en",
+      "breakdown": "A light, gentle wind; or to move easily and quickly through something.",
+      "related": "wind;gust",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A light, gentle wind; or to move easily and quickly through something.",
+          "definitionZh": "微风；轻风",
+          "examples": [
+            "A cool breeze came through the open window.",
+            "She breezed through the first part of the test."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "climate",
+      "part": "noun",
+      "phonetic": "/ˈklaɪmət/",
+      "definition": "The usual weather conditions of a region over a long period of time; or the general atmosphere of a situation.",
+      "definitionZh": "气候；氛围",
+      "examples": [
+        "The region has a warm, humid climate.",
+        "The company is trying to create a supportive work climate."
+      ],
+      "tip": "Climate describes long-term patterns; weather describes conditions at a particular time.",
+      "course": "en",
+      "breakdown": "The usual weather conditions of a region over a long period of time; or the general atmosphere of a situation.",
+      "related": "weather pattern;conditions",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The usual weather conditions of a region over a long period of time; or the general atmosphere of a situation.",
+          "definitionZh": "气候；氛围",
+          "examples": [
+            "The region has a warm, humid climate.",
+            "The company is trying to create a supportive work climate."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cloud",
+      "part": "noun / verb",
+      "phonetic": "/klaʊd/",
+      "definition": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
+      "definitionZh": "云；云层；使模糊",
+      "examples": [
+        "Dark clouds gathered before the storm.",
+        "Anger can cloud a person's judgement."
+      ],
+      "tip": "As a noun, “cloud” refers to a visible mass in the sky; as a verb, it can mean obscure or confuse.",
+      "course": "en",
+      "breakdown": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
+      "related": "vapour;mist",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
+          "definitionZh": "云；云层；使模糊",
+          "examples": [
+            "Dark clouds gathered before the storm.",
+            "Anger can cloud a person's judgement."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "coral",
+      "part": "noun / adjective",
+      "phonetic": "/ˈkɔːrəl/",
+      "definition": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+      "definitionZh": "珊瑚；珊瑚色的",
+      "examples": [
+        "The reef is home to many kinds of coral.",
+        "Coral reefs support a wide range of marine life."
+      ],
+      "tip": "Coral reefs are living ecosystems and can be damaged by warming seas and pollution.",
+      "course": "en",
+      "breakdown": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+      "related": "reef;marine organism",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / adjective",
+          "definition": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+          "definitionZh": "珊瑚；珊瑚色的",
+          "examples": [
+            "The reef is home to many kinds of coral.",
+            "Coral reefs support a wide range of marine life."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "crop",
+      "part": "noun / verb",
+      "phonetic": "/krɑːp/",
+      "definition": "A plant grown and collected for food or other use; or to cut something short.",
+      "definitionZh": "农作物；庄稼；裁剪",
+      "examples": [
+        "Rice is an important crop in many countries.",
+        "Farmers grow crops during the rainy season."
+      ],
+      "tip": "A crop is a plant grown for harvest; “crop” as a verb can also mean cut an image or hair shorter.",
+      "course": "en",
+      "breakdown": "A plant grown and collected for food or other use; or to cut something short.",
+      "related": "harvest;produce",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A plant grown and collected for food or other use; or to cut something short.",
+          "definitionZh": "农作物；庄稼；裁剪",
+          "examples": [
+            "Rice is an important crop in many countries.",
+            "Farmers grow crops during the rainy season."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "earth",
+      "part": "noun",
+      "phonetic": "/ɜːrθ/",
+      "definition": "The planet on which people live; or the soil and ground beneath our feet.",
+      "definitionZh": "地球；泥土；大地",
+      "examples": [
+        "Earth moves around the Sun.",
+        "The children planted seeds in the earth."
+      ],
+      "tip": "Use “Earth” with a capital letter when referring to the planet; lowercase “earth” can mean soil.",
+      "course": "en",
+      "breakdown": "The planet on which people live; or the soil and ground beneath our feet.",
+      "related": "world;soil",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The planet on which people live; or the soil and ground beneath our feet.",
+          "definitionZh": "地球；泥土；大地",
+          "examples": [
+            "Earth moves around the Sun.",
+            "The children planted seeds in the earth."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "earthquake",
+      "part": "noun",
+      "phonetic": "/ˈɜːrθkweɪk/",
+      "definition": "A sudden movement of the ground caused by activity within the Earth's crust.",
+      "definitionZh": "地震",
+      "examples": [
+        "The earthquake damaged several buildings.",
+        "Scientists monitor the region for signs of another earthquake."
+      ],
+      "tip": "An earthquake is measured by its magnitude and can cause shaking, landslides or tsunamis.",
+      "course": "en",
+      "breakdown": "A sudden movement of the ground caused by activity within the Earth's crust.",
+      "related": "tremor;seismic event",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A sudden movement of the ground caused by activity within the Earth's crust.",
+          "definitionZh": "地震",
+          "examples": [
+            "The earthquake damaged several buildings.",
+            "Scientists monitor the region for signs of another earthquake."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ecosystem",
+      "part": "noun",
+      "phonetic": "/ˈiːkoʊˌsɪstəm/",
+      "definition": "A community of living things and the non-living environment that interact in a particular area.",
+      "definitionZh": "生态系统",
+      "examples": [
+        "A forest is an ecosystem with many connected species.",
+        "Pollution can damage a river ecosystem."
+      ],
+      "tip": "An ecosystem includes organisms and their physical environment, not just the animals living there.",
+      "course": "en",
+      "breakdown": "A community of living things and the non-living environment that interact in a particular area.",
+      "related": "habitat;ecological community",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A community of living things and the non-living environment that interact in a particular area.",
+          "definitionZh": "生态系统",
+          "examples": [
+            "A forest is an ecosystem with many connected species.",
+            "Pollution can damage a river ecosystem."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "energy",
+      "part": "noun",
+      "phonetic": "/ˈenərdʒi/",
+      "definition": "The ability to do work or cause change; or the strength and enthusiasm someone has.",
+      "definitionZh": "能量；能源；精力",
+      "examples": [
+        "Solar panels turn sunlight into electrical energy.",
+        "I have more energy after a good night's sleep."
+      ],
+      "tip": "“Energy” can refer to physical power, sources of electricity or a person's vitality.",
+      "course": "en",
+      "breakdown": "The ability to do work or cause change; or the strength and enthusiasm someone has.",
+      "related": "power;vitality",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The ability to do work or cause change; or the strength and enthusiasm someone has.",
+          "definitionZh": "能量；能源；精力",
+          "examples": [
+            "Solar panels turn sunlight into electrical energy.",
+            "I have more energy after a good night's sleep."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "flower",
+      "part": "noun / verb",
+      "phonetic": "/ˈflaʊər/",
+      "definition": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
+      "definitionZh": "花；开花",
+      "examples": [
+        "The garden is full of flowers in spring.",
+        "The project began to flower after the team received support."
+      ],
+      "tip": "As a noun, “flower” is the reproductive part of a plant; as a verb, it can mean develop or flourish.",
+      "course": "en",
+      "breakdown": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
+      "related": "blossom;bloom",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
+          "definitionZh": "花；开花",
+          "examples": [
+            "The garden is full of flowers in spring.",
+            "The project began to flower after the team received support."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "habitat",
+      "part": "noun",
+      "phonetic": "/ˈhæbɪtæt/",
+      "definition": "The natural home or environment of a plant or animal.",
+      "definitionZh": "栖息地；生境",
+      "examples": [
+        "Wetlands provide a habitat for many birds.",
+        "Building roads can destroy animal habitats."
+      ],
+      "tip": "A habitat provides the food, shelter and conditions an organism needs to live.",
+      "course": "en",
+      "breakdown": "The natural home or environment of a plant or animal.",
+      "related": "environment;home",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The natural home or environment of a plant or animal.",
+          "definitionZh": "栖息地；生境",
+          "examples": [
+            "Wetlands provide a habitat for many birds.",
+            "Building roads can destroy animal habitats."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "insect",
+      "part": "noun",
+      "phonetic": "/ˈɪnsekt/",
+      "definition": "A small animal with six legs and usually one or two pairs of wings.",
+      "definitionZh": "昆虫",
+      "examples": [
+        "A butterfly is a colourful insect.",
+        "Some insects help plants by carrying pollen."
+      ],
+      "tip": "Insects have six legs; spiders are not insects because they have eight legs.",
+      "course": "en",
+      "breakdown": "A small animal with six legs and usually one or two pairs of wings.",
+      "related": "bug;arthropod",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small animal with six legs and usually one or two pairs of wings.",
+          "definitionZh": "昆虫",
+          "examples": [
+            "A butterfly is a colourful insect.",
+            "Some insects help plants by carrying pollen."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "leaf",
+      "part": "noun",
+      "phonetic": "/liːf/",
+      "definition": "A flat, usually green part of a plant that grows from a stem or branch.",
+      "definitionZh": "叶子；叶片",
+      "examples": [
+        "A yellow leaf fell from the tree.",
+        "The plant has broad leaves that collect sunlight."
+      ],
+      "tip": "The plural of “leaf” is “leaves.”",
+      "course": "en",
+      "breakdown": "A flat, usually green part of a plant that grows from a stem or branch.",
+      "related": "foliage;blade",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A flat, usually green part of a plant that grows from a stem or branch.",
+          "definitionZh": "叶子；叶片",
+          "examples": [
+            "A yellow leaf fell from the tree.",
+            "The plant has broad leaves that collect sunlight."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lightning",
+      "part": "noun",
+      "phonetic": "/ˈlaɪtnɪŋ/",
+      "definition": "A sudden bright flash of electricity in the sky during a storm.",
+      "definitionZh": "闪电",
+      "examples": [
+        "Lightning lit up the sky during the storm.",
+        "We went indoors when we saw the lightning."
+      ],
+      "tip": "Lightning is the flash of electricity; thunder is the sound caused by the same event.",
+      "course": "en",
+      "breakdown": "A sudden bright flash of electricity in the sky during a storm.",
+      "related": "electric discharge;flash",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A sudden bright flash of electricity in the sky during a storm.",
+          "definitionZh": "闪电",
+          "examples": [
+            "Lightning lit up the sky during the storm.",
+            "We went indoors when we saw the lightning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mountain",
+      "part": "noun",
+      "phonetic": "/ˈmaʊntən/",
+      "definition": "A very high natural area of land, higher and steeper than a hill.",
+      "definitionZh": "山；山脉",
+      "examples": [
+        "They climbed the mountain before sunrise.",
+        "Snow covered the top of the mountain."
+      ],
+      "tip": "A mountain is generally higher and steeper than a hill, though exact definitions vary.",
+      "course": "en",
+      "breakdown": "A very high natural area of land, higher and steeper than a hill.",
+      "related": "peak;mount",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A very high natural area of land, higher and steeper than a hill.",
+          "definitionZh": "山；山脉",
+          "examples": [
+            "They climbed the mountain before sunrise.",
+            "Snow covered the top of the mountain."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ocean",
+      "part": "noun",
+      "phonetic": "/ˈoʊʃən/",
+      "definition": "One of the very large areas of salt water that cover most of Earth's surface.",
+      "definitionZh": "海洋",
+      "examples": [
+        "The Pacific Ocean is the largest ocean on Earth.",
+        "Many species live deep in the ocean."
+      ],
+      "tip": "An ocean is larger than a sea; the five named oceans are connected parts of one global body of water.",
+      "course": "en",
+      "breakdown": "One of the very large areas of salt water that cover most of Earth's surface.",
+      "related": "sea;marine waters",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the very large areas of salt water that cover most of Earth's surface.",
+          "definitionZh": "海洋",
+          "examples": [
+            "The Pacific Ocean is the largest ocean on Earth.",
+            "Many species live deep in the ocean."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "planet",
+      "part": "noun",
+      "phonetic": "/ˈplænɪt/",
+      "definition": "A large round object in space that moves around a star and does not produce its own light.",
+      "definitionZh": "行星",
+      "examples": [
+        "Mars is the fourth planet from the Sun.",
+        "Scientists are searching for planets beyond our solar system."
+      ],
+      "tip": "A planet orbits a star; a moon orbits a planet.",
+      "course": "en",
+      "breakdown": "A large round object in space that moves around a star and does not produce its own light.",
+      "related": "world;celestial body",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large round object in space that moves around a star and does not produce its own light.",
+          "definitionZh": "行星",
+          "examples": [
+            "Mars is the fourth planet from the Sun.",
+            "Scientists are searching for planets beyond our solar system."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pollution",
+      "part": "noun",
+      "phonetic": "/pəˈluːʃən/",
+      "definition": "Harmful substances or waste that make air, water or land dirty or unsafe.",
+      "definitionZh": "污染",
+      "examples": [
+        "Plastic pollution threatens marine animals.",
+        "The city introduced measures to reduce air pollution."
+      ],
+      "tip": "“Pollution” is usually uncountable; name the type, such as air, water or noise pollution.",
+      "course": "en",
+      "breakdown": "Harmful substances or waste that make air, water or land dirty or unsafe.",
+      "related": "contamination;waste",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Harmful substances or waste that make air, water or land dirty or unsafe.",
+          "definitionZh": "污染",
+          "examples": [
+            "Plastic pollution threatens marine animals.",
+            "The city introduced measures to reduce air pollution."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "recycle",
+      "part": "verb",
+      "phonetic": "/ˌriːˈsaɪkəl/",
+      "definition": "To process used materials so they can be made into new products instead of being thrown away.",
+      "definitionZh": "回收利用；再循环",
+      "examples": [
+        "Please recycle paper and plastic bottles.",
+        "The company recycles old electronic equipment."
+      ],
+      "tip": "Use “recycle” for processing materials; “reuse” means use an item again without necessarily processing it.",
+      "course": "en",
+      "breakdown": "To process used materials so they can be made into new products instead of being thrown away.",
+      "related": "reuse;process",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To process used materials so they can be made into new products instead of being thrown away.",
+          "definitionZh": "回收利用；再循环",
+          "examples": [
+            "Please recycle paper and plastic bottles.",
+            "The company recycles old electronic equipment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "season",
+      "part": "noun",
+      "phonetic": "/ˈsiːzən/",
+      "definition": "One of the main periods of the year, such as spring, summer, autumn or winter; or a regular period for an activity.",
+      "definitionZh": "季节；旺季；赛季",
+      "examples": [
+        "Spring is my favourite season.",
+        "The football season begins in August."
+      ],
+      "tip": "A season can be part of the year or a period when an activity or event takes place.",
+      "course": "en",
+      "breakdown": "One of the main periods of the year, such as spring, summer, autumn or winter; or a regular period for an activity.",
+      "related": "period;time of year",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the main periods of the year, such as spring, summer, autumn or winter; or a regular period for an activity.",
+          "definitionZh": "季节；旺季；赛季",
+          "examples": [
+            "Spring is my favourite season.",
+            "The football season begins in August."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "seed",
+      "part": "noun / verb",
+      "phonetic": "/siːd/",
+      "definition": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
+      "definitionZh": "种子；播种",
+      "examples": [
+        "Each seed needs water and sunlight to grow.",
+        "They seeded the field with grass."
+      ],
+      "tip": "As a noun, a seed can grow into a plant; as a verb, it means to sow seeds or arrange competitors in a tournament.",
+      "course": "en",
+      "breakdown": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
+      "related": "kernel;grain",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
+          "definitionZh": "种子；播种",
+          "examples": [
+            "Each seed needs water and sunlight to grow.",
+            "They seeded the field with grass."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sky",
+      "part": "noun",
+      "phonetic": "/skaɪ/",
+      "definition": "The space above the Earth where clouds, the Sun, the Moon and stars can be seen.",
+      "definitionZh": "天空",
+      "examples": [
+        "The sky turned pink at sunset.",
+        "Dark clouds covered the sky."
+      ],
+      "tip": "Use “in the sky” for things visible above the ground.",
+      "course": "en",
+      "breakdown": "The space above the Earth where clouds, the Sun, the Moon and stars can be seen.",
+      "related": "heavens;firmament",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The space above the Earth where clouds, the Sun, the Moon and stars can be seen.",
+          "definitionZh": "天空",
+          "examples": [
+            "The sky turned pink at sunset.",
+            "Dark clouds covered the sky."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "soil",
+      "part": "noun / verb",
+      "phonetic": "/sɔɪl/",
+      "definition": "The upper layer of earth in which plants grow; or to make something dirty.",
+      "definitionZh": "土壤；泥土；弄脏",
+      "examples": [
+        "Healthy soil helps crops grow.",
+        "The rain soaked the soil in the garden."
+      ],
+      "tip": "“Soil” is the material plants grow in; as a verb, it means make something dirty.",
+      "course": "en",
+      "breakdown": "The upper layer of earth in which plants grow; or to make something dirty.",
+      "related": "earth;ground",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "The upper layer of earth in which plants grow; or to make something dirty.",
+          "definitionZh": "土壤；泥土；弄脏",
+          "examples": [
+            "Healthy soil helps crops grow.",
+            "The rain soaked the soil in the garden."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "star",
+      "part": "noun / verb",
+      "phonetic": "/stɑːr/",
+      "definition": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
+      "definitionZh": "星星；恒星；主演",
+      "examples": [
+        "We could see a bright star above the hills.",
+        "She will star in the school musical."
+      ],
+      "tip": "The Sun is a star; as a verb, “star” can mean appear as the main performer.",
+      "course": "en",
+      "breakdown": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
+      "related": "sun;celestial body",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
+          "definitionZh": "星星；恒星；主演",
+          "examples": [
+            "We could see a bright star above the hills.",
+            "She will star in the school musical."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "storm",
+      "part": "noun / verb",
+      "phonetic": "/stɔːrm/",
+      "definition": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
+      "definitionZh": "暴风雨；风暴；冲进",
+      "examples": [
+        "The storm brought heavy rain and strong winds.",
+        "The children watched the storm from indoors."
+      ],
+      "tip": "A storm can involve wind, rain, snow or thunder; “storm out” means leave angrily.",
+      "course": "en",
+      "breakdown": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
+      "related": "tempest;downpour",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
+          "definitionZh": "暴风雨；风暴；冲进",
+          "examples": [
+            "The storm brought heavy rain and strong winds.",
+            "The children watched the storm from indoors."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tree",
+      "part": "noun",
+      "phonetic": "/triː/",
+      "definition": "A tall plant with a hard trunk, branches and leaves or needles.",
+      "definitionZh": "树；树木",
+      "examples": [
+        "A large tree provides shade in the garden.",
+        "The birds built a nest in the tree."
+      ],
+      "tip": "A tree has a trunk and branches; a shrub is usually smaller and has several woody stems.",
+      "course": "en",
+      "breakdown": "A tall plant with a hard trunk, branches and leaves or needles.",
+      "related": "plant;wood",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A tall plant with a hard trunk, branches and leaves or needles.",
+          "definitionZh": "树；树木",
+          "examples": [
+            "A large tree provides shade in the garden.",
+            "The birds built a nest in the tree."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "valley",
+      "part": "noun",
+      "phonetic": "/ˈvæli/",
+      "definition": "A low area of land between hills or mountains, often with a river running through it.",
+      "definitionZh": "山谷；河谷",
+      "examples": [
+        "A small village lies in the valley.",
+        "The morning fog covered the valley."
+      ],
+      "tip": "A valley is lower than the surrounding land and is often shaped by rivers or glaciers.",
+      "course": "en",
+      "breakdown": "A low area of land between hills or mountains, often with a river running through it.",
+      "related": "dale;lowland",
+      "categories": [
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A low area of land between hills or mountains, often with a river running through it.",
+          "definitionZh": "山谷；河谷",
+          "examples": [
+            "A small village lies in the valley.",
+            "The morning fog covered the valley."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ancient",
+      "part": "adjective",
+      "phonetic": "/ˈeɪnʃənt/",
+      "definition": "Belonging to a very distant past, especially a historical period long before the present.",
+      "definitionZh": "古代的；古老的",
+      "examples": [
+        "The museum displays ancient tools and pottery.",
+        "They visited the ruins of an ancient city."
+      ],
+      "tip": "“Ancient” usually refers to a distant historical past, not simply something old.",
+      "course": "en",
+      "breakdown": "Belonging to a very distant past, especially a historical period long before the present.",
+      "related": "antique;historic",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Belonging to a very distant past, especially a historical period long before the present.",
+          "definitionZh": "古代的；古老的",
+          "examples": [
+            "The museum displays ancient tools and pottery.",
+            "They visited the ruins of an ancient city."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "artist",
+      "part": "noun",
+      "phonetic": "/ˈɑːrtɪst/",
+      "definition": "A person who creates art, such as paintings, drawings, music or performances.",
+      "definitionZh": "艺术家；艺人",
+      "examples": [
+        "The artist displayed her paintings in a gallery.",
+        "He works as a digital artist for a game studio."
+      ],
+      "tip": "An artist may work in visual art, music, performance or another creative field.",
+      "course": "en",
+      "breakdown": "A person who creates art, such as paintings, drawings, music or performances.",
+      "related": "creator;painter",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who creates art, such as paintings, drawings, music or performances.",
+          "definitionZh": "艺术家；艺人",
+          "examples": [
+            "The artist displayed her paintings in a gallery.",
+            "He works as a digital artist for a game studio."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ceremony",
+      "part": "noun",
+      "phonetic": "/ˈserəˌmoʊni/",
+      "definition": "A formal event held to mark an important occasion or follow a tradition.",
+      "definitionZh": "典礼；仪式",
+      "examples": [
+        "The graduation ceremony begins at ten.",
+        "They held a small ceremony to welcome the new members."
+      ],
+      "tip": "A ceremony is usually a planned formal event; a ritual is a repeated action with cultural or religious meaning.",
+      "course": "en",
+      "breakdown": "A formal event held to mark an important occasion or follow a tradition.",
+      "related": "event;ritual",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A formal event held to mark an important occasion or follow a tradition.",
+          "definitionZh": "典礼；仪式",
+          "examples": [
+            "The graduation ceremony begins at ten.",
+            "They held a small ceremony to welcome the new members."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "community",
+      "part": "noun",
+      "phonetic": "/kəˈmjuːnəti/",
+      "definition": "A group of people who live in the same area or share an interest, identity or purpose.",
+      "definitionZh": "社区；群体；社群",
+      "examples": [
+        "The local community organised a clean-up day.",
+        "An online community can connect people with shared interests."
+      ],
+      "tip": "A community may be based on location or shared interests, not only on where people live.",
+      "course": "en",
+      "breakdown": "A group of people who live in the same area or share an interest, identity or purpose.",
+      "related": "society;group",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A group of people who live in the same area or share an interest, identity or purpose.",
+          "definitionZh": "社区；群体；社群",
+          "examples": [
+            "The local community organised a clean-up day.",
+            "An online community can connect people with shared interests."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "concert",
+      "part": "noun",
+      "phonetic": "/ˈkɑːnsərt/",
+      "definition": "A public performance of music, usually given by one or more musicians or groups.",
+      "definitionZh": "音乐会；演唱会",
+      "examples": [
+        "We bought tickets for the concert next month.",
+        "The band performed live at an outdoor concert."
+      ],
+      "tip": "A concert is a live music event; a recital is usually a smaller performance by one musician or a small group.",
+      "course": "en",
+      "breakdown": "A public performance of music, usually given by one or more musicians or groups.",
+      "related": "performance;show",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A public performance of music, usually given by one or more musicians or groups.",
+          "definitionZh": "音乐会；演唱会",
+          "examples": [
+            "We bought tickets for the concert next month.",
+            "The band performed live at an outdoor concert."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "custom",
+      "part": "noun",
+      "phonetic": "/ˈkʌstəm/",
+      "definition": "A traditional way of behaving or doing something in a particular society or group.",
+      "definitionZh": "习俗；风俗；惯例",
+      "examples": [
+        "It is a local custom to greet guests with tea.",
+        "The custom has been passed down for generations."
+      ],
+      "tip": "A custom is a social practice shared by a group; a habit is usually an individual's repeated action.",
+      "course": "en",
+      "breakdown": "A traditional way of behaving or doing something in a particular society or group.",
+      "related": "tradition;practice",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A traditional way of behaving or doing something in a particular society or group.",
+          "definitionZh": "习俗；风俗；惯例",
+          "examples": [
+            "It is a local custom to greet guests with tea.",
+            "The custom has been passed down for generations."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "festival",
+      "part": "noun",
+      "phonetic": "/ˈfestɪvəl/",
+      "definition": "A special event or series of events, often held regularly, to celebrate a culture, tradition, art or activity.",
+      "definitionZh": "节日；庆典；艺术节",
+      "examples": [
+        "The city holds a music festival every summer.",
+        "Families gathered for the harvest festival."
+      ],
+      "tip": "A festival may celebrate a cultural or religious occasion or focus on music, food or the arts.",
+      "course": "en",
+      "breakdown": "A special event or series of events, often held regularly, to celebrate a culture, tradition, art or activity.",
+      "related": "celebration;fair",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A special event or series of events, often held regularly, to celebrate a culture, tradition, art or activity.",
+          "definitionZh": "节日；庆典；艺术节",
+          "examples": [
+            "The city holds a music festival every summer.",
+            "Families gathered for the harvest festival."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "heritage",
+      "part": "noun",
+      "phonetic": "/ˈherɪtɪdʒ/",
+      "definition": "The traditions, achievements, buildings and cultural features passed down from earlier generations.",
+      "definitionZh": "遗产；文化遗产",
+      "examples": [
+        "The museum protects the region's cultural heritage.",
+        "Traditional crafts are an important part of our heritage."
+      ],
+      "tip": "“Heritage” often refers to cultural or historical things inherited from earlier generations.",
+      "course": "en",
+      "breakdown": "The traditions, achievements, buildings and cultural features passed down from earlier generations.",
+      "related": "legacy;inheritance",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The traditions, achievements, buildings and cultural features passed down from earlier generations.",
+          "definitionZh": "遗产；文化遗产",
+          "examples": [
+            "The museum protects the region's cultural heritage.",
+            "Traditional crafts are an important part of our heritage."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "holiday",
+      "part": "noun",
+      "phonetic": "/ˈhɑːləˌdeɪ/",
+      "definition": "A period when someone does not work or study, often spent relaxing or travelling; or a special day of celebration.",
+      "definitionZh": "假期；节日",
+      "examples": [
+        "We are going on holiday in December.",
+        "The school is closed for the public holiday."
+      ],
+      "tip": "British English often uses “on holiday”; American English commonly uses “on vacation.”",
+      "course": "en",
+      "breakdown": "A period when someone does not work or study, often spent relaxing or travelling; or a special day of celebration.",
+      "related": "vacation;break",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A period when someone does not work or study, often spent relaxing or travelling; or a special day of celebration.",
+          "definitionZh": "假期；节日",
+          "examples": [
+            "We are going on holiday in December.",
+            "The school is closed for the public holiday."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "language",
+      "part": "noun",
+      "phonetic": "/ˈlæŋɡwɪdʒ/",
+      "definition": "A system of words, sounds or signs used by people to communicate.",
+      "definitionZh": "语言",
+      "examples": [
+        "English is the main language used in the class.",
+        "Learning a new language takes regular practice."
+      ],
+      "tip": "“Language” can refer to a spoken, written or signed system of communication.",
+      "course": "en",
+      "breakdown": "A system of words, sounds or signs used by people to communicate.",
+      "related": "speech;tongue",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A system of words, sounds or signs used by people to communicate.",
+          "definitionZh": "语言",
+          "examples": [
+            "English is the main language used in the class.",
+            "Learning a new language takes regular practice."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "legend",
+      "part": "noun",
+      "phonetic": "/ˈledʒənd/",
+      "definition": "A traditional story, sometimes based on real people or events, that may include extraordinary or supernatural details.",
+      "definitionZh": "传说；传奇人物",
+      "examples": [
+        "The village has a legend about a hidden treasure.",
+        "She is a local legend in the world of football."
+      ],
+      "tip": "A legend is a traditional story; a myth often explains beliefs about the world or gods.",
+      "course": "en",
+      "breakdown": "A traditional story, sometimes based on real people or events, that may include extraordinary or supernatural details.",
+      "related": "folktale;myth",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A traditional story, sometimes based on real people or events, that may include extraordinary or supernatural details.",
+          "definitionZh": "传说；传奇人物",
+          "examples": [
+            "The village has a legend about a hidden treasure.",
+            "She is a local legend in the world of football."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "literature",
+      "part": "noun",
+      "phonetic": "/ˈlɪtərətʃər/",
+      "definition": "Written works, especially those valued for artistic quality, such as novels, poems and plays.",
+      "definitionZh": "文学；文献",
+      "examples": [
+        "She studies English literature at university.",
+        "The library has a large collection of children's literature."
+      ],
+      "tip": "“Literature” is usually uncountable when referring to written works as a field or body of writing.",
+      "course": "en",
+      "breakdown": "Written works, especially those valued for artistic quality, such as novels, poems and plays.",
+      "related": "writing;fiction",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Written works, especially those valued for artistic quality, such as novels, poems and plays.",
+          "definitionZh": "文学；文献",
+          "examples": [
+            "She studies English literature at university.",
+            "The library has a large collection of children's literature."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "monument",
+      "part": "noun",
+      "phonetic": "/ˈmɑːnjəmənt/",
+      "definition": "A building, statue or other structure created to remember a person or important event.",
+      "definitionZh": "纪念碑；纪念建筑",
+      "examples": [
+        "The monument honours people who served in the war.",
+        "Tourists gathered around the ancient monument."
+      ],
+      "tip": "A monument is built to preserve memory; a memorial can be a structure, event or other form of remembrance.",
+      "course": "en",
+      "breakdown": "A building, statue or other structure created to remember a person or important event.",
+      "related": "memorial;statue",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A building, statue or other structure created to remember a person or important event.",
+          "definitionZh": "纪念碑；纪念建筑",
+          "examples": [
+            "The monument honours people who served in the war.",
+            "Tourists gathered around the ancient monument."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "nation",
+      "part": "noun",
+      "phonetic": "/ˈneɪʃən/",
+      "definition": "A country or large group of people with a shared identity, history or government.",
+      "definitionZh": "国家；民族",
+      "examples": [
+        "The nation celebrated its independence day.",
+        "The agreement was signed by leaders from several nations."
+      ],
+      "tip": "“Nation” can refer to a country or a people with a shared identity; “nationality” refers to legal or cultural belonging.",
+      "course": "en",
+      "breakdown": "A country or large group of people with a shared identity, history or government.",
+      "related": "country;people",
+      "categories": [
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A country or large group of people with a shared identity, history or government.",
+          "definitionZh": "国家；民族",
+          "examples": [
+            "The nation celebrated its independence day.",
+            "The agreement was signed by leaders from several nations."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "channel",
+      "part": "noun / verb",
+      "phonetic": "/ˈtʃænəl/",
+      "definition": "A route through which water, information or signals can pass; or to direct something through a particular route.",
+      "definitionZh": "频道；渠道；海峡；引导",
+      "examples": [
+        "The documentary is on a different television channel.",
+        "The company uses social media to channel customer feedback."
+      ],
+      "tip": "“Channel” can refer to a TV station, communication route or narrow waterway; context determines the meaning.",
+      "course": "en",
+      "breakdown": "A route through which water, information or signals can pass; or to direct something through a particular route.",
+      "related": "station;route",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A route through which water, information or signals can pass; or to direct something through a particular route.",
+          "definitionZh": "频道；渠道；海峡；引导",
+          "examples": [
+            "The documentary is on a different television channel.",
+            "The company uses social media to channel customer feedback."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "chip",
+      "part": "noun / verb",
+      "phonetic": "/tʃɪp/",
+      "definition": "A small piece broken from a larger object; a thin slice of food; or a tiny electronic circuit.",
+      "definitionZh": "碎片；薯片；芯片",
+      "examples": [
+        "A chip of paint came off the wall.",
+        "The new phone uses a more powerful computer chip."
+      ],
+      "tip": "“Chip” has several common meanings, including a small piece, a snack and an electronic component.",
+      "course": "en",
+      "breakdown": "A small piece broken from a larger object; a thin slice of food; or a tiny electronic circuit.",
+      "related": "fragment;microchip",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A small piece broken from a larger object; a thin slice of food; or a tiny electronic circuit.",
+          "definitionZh": "碎片；薯片；芯片",
+          "examples": [
+            "A chip of paint came off the wall.",
+            "The new phone uses a more powerful computer chip."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "click",
+      "part": "verb / noun",
+      "phonetic": "/klɪk/",
+      "definition": "To press and release a button on a mouse or screen; or the short sound made by that action.",
+      "definitionZh": "点击；咔哒声",
+      "examples": [
+        "Click the link to open the article.",
+        "I heard a click when the door locked."
+      ],
+      "tip": "“Click on” is common before a link or button; “click with someone” means get along well.",
+      "course": "en",
+      "breakdown": "To press and release a button on a mouse or screen; or the short sound made by that action.",
+      "related": "tap;press",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To press and release a button on a mouse or screen; or the short sound made by that action.",
+          "definitionZh": "点击；咔哒声",
+          "examples": [
+            "Click the link to open the article.",
+            "I heard a click when the door locked."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "engine",
+      "part": "noun",
+      "phonetic": "/ˈendʒɪn/",
+      "definition": "A machine that uses energy to produce movement or power, especially in a vehicle.",
+      "definitionZh": "发动机；引擎",
+      "examples": [
+        "The car engine needs to be checked.",
+        "The search engine found several useful pages."
+      ],
+      "tip": "An engine produces power or movement; a motor is a related term often used for smaller machines or electric devices.",
+      "course": "en",
+      "breakdown": "A machine that uses energy to produce movement or power, especially in a vehicle.",
+      "related": "motor;power unit",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A machine that uses energy to produce movement or power, especially in a vehicle.",
+          "definitionZh": "发动机；引擎",
+          "examples": [
+            "The car engine needs to be checked.",
+            "The search engine found several useful pages."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hardware",
+      "part": "noun",
+      "phonetic": "/ˈhɑːrdwer/",
+      "definition": "The physical parts of a computer or electronic system, rather than the programmes it uses.",
+      "definitionZh": "硬件",
+      "examples": [
+        "The new software requires better computer hardware.",
+        "The technician replaced the damaged hardware."
+      ],
+      "tip": "“Hardware” is usually uncountable and refers to physical equipment; “software” refers to programmes and instructions.",
+      "course": "en",
+      "breakdown": "The physical parts of a computer or electronic system, rather than the programmes it uses.",
+      "related": "equipment;components",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The physical parts of a computer or electronic system, rather than the programmes it uses.",
+          "definitionZh": "硬件",
+          "examples": [
+            "The new software requires better computer hardware.",
+            "The technician replaced the damaged hardware."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "machine",
+      "part": "noun / verb",
+      "phonetic": "/məˈʃiːn/",
+      "definition": "A device with moving parts that uses power to perform work; or to make something using machinery.",
+      "definitionZh": "机器；机械；用机器加工",
+      "examples": [
+        "The machine prints labels automatically.",
+        "The factory machines metal parts for vehicles."
+      ],
+      "tip": "A machine performs work; “machinery” is the uncountable term for machines considered as a group.",
+      "course": "en",
+      "breakdown": "A device with moving parts that uses power to perform work; or to make something using machinery.",
+      "related": "device;equipment",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A device with moving parts that uses power to perform work; or to make something using machinery.",
+          "definitionZh": "机器；机械；用机器加工",
+          "examples": [
+            "The machine prints labels automatically.",
+            "The factory machines metal parts for vehicles."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "online",
+      "part": "adjective / adverb",
+      "phonetic": "/ˌɑːnˈlaɪn/",
+      "definition": "Connected to or available through the internet.",
+      "definitionZh": "在线的；联网的",
+      "examples": [
+        "You can book the tickets online.",
+        "The online meeting starts at three."
+      ],
+      "tip": "“Online” is commonly used for services, communication and activities accessed through the internet.",
+      "course": "en",
+      "breakdown": "Connected to or available through the internet.",
+      "related": "connected;internet-based",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "adjective / adverb",
+          "definition": "Connected to or available through the internet.",
+          "definitionZh": "在线的；联网的",
+          "examples": [
+            "You can book the tickets online.",
+            "The online meeting starts at three."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "program",
+      "part": "noun / verb",
+      "phonetic": "/ˈproʊɡræm/",
+      "definition": "A set of instructions that a computer follows; or to give a device instructions to perform tasks.",
+      "definitionZh": "程序；计划；编程",
+      "examples": [
+        "The program helps students practise vocabulary.",
+        "She learned to program a small robot."
+      ],
+      "tip": "“Program” is the American spelling; British English often uses “programme” for events or broadcasts, but “program” is common in computing.",
+      "course": "en",
+      "breakdown": "A set of instructions that a computer follows; or to give a device instructions to perform tasks.",
+      "related": "software;application",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A set of instructions that a computer follows; or to give a device instructions to perform tasks.",
+          "definitionZh": "程序；计划；编程",
+          "examples": [
+            "The program helps students practise vocabulary.",
+            "She learned to program a small robot."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "smartphone",
+      "part": "noun",
+      "phonetic": "/ˈsmɑːrtfoʊn/",
+      "definition": "A mobile phone that can run applications and connect to the internet like a small computer.",
+      "definitionZh": "智能手机",
+      "examples": [
+        "He uses his smartphone to take photographs.",
+        "The app works on most modern smartphones."
+      ],
+      "tip": "A smartphone combines phone functions with computer features such as apps, web access and a touchscreen.",
+      "course": "en",
+      "breakdown": "A mobile phone that can run applications and connect to the internet like a small computer.",
+      "related": "mobile phone;handset",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A mobile phone that can run applications and connect to the internet like a small computer.",
+          "definitionZh": "智能手机",
+          "examples": [
+            "He uses his smartphone to take photographs.",
+            "The app works on most modern smartphones."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "social media",
+      "part": "noun",
+      "phonetic": "/ˌsoʊʃəl ˈmiːdiə/",
+      "definition": "Websites and applications that let users create content, share information and communicate with others.",
+      "definitionZh": "社交媒体",
+      "examples": [
+        "Many artists share their work on social media.",
+        "The school published the announcement through its social-media accounts."
+      ],
+      "tip": "“Social media” refers to online platforms and services where users create, share and discuss content.",
+      "course": "en",
+      "breakdown": "Websites and applications that let users create content, share information and communicate with others.",
+      "related": "social networks;platforms",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Websites and applications that let users create content, share information and communicate with others.",
+          "definitionZh": "社交媒体",
+          "examples": [
+            "Many artists share their work on social media.",
+            "The school published the announcement through its social-media accounts."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "speaker",
+      "part": "noun",
+      "phonetic": "/ˈspiːkər/",
+      "definition": "A person who speaks to an audience; or a device that produces sound from an audio signal.",
+      "definitionZh": "演讲者；扬声器；音箱",
+      "examples": [
+        "The speaker answered questions after the talk.",
+        "The laptop speakers are not very loud."
+      ],
+      "tip": "“Speaker” can mean a person giving a talk or an audio device; context makes the meaning clear.",
+      "course": "en",
+      "breakdown": "A person who speaks to an audience; or a device that produces sound from an audio signal.",
+      "related": "presenter;loudspeaker",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who speaks to an audience; or a device that produces sound from an audio signal.",
+          "definitionZh": "演讲者；扬声器；音箱",
+          "examples": [
+            "The speaker answered questions after the talk.",
+            "The laptop speakers are not very loud."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "technology",
+      "part": "noun",
+      "phonetic": "/tekˈnɑːlədʒi/",
+      "definition": "The use of scientific knowledge and tools to create methods, machines and systems for practical purposes.",
+      "definitionZh": "技术；科技",
+      "examples": [
+        "Technology has changed the way people communicate.",
+        "The school provides training in digital technology."
+      ],
+      "tip": "“Technology” is usually uncountable when referring to the field or tools in general.",
+      "course": "en",
+      "breakdown": "The use of scientific knowledge and tools to create methods, machines and systems for practical purposes.",
+      "related": "tech;engineering",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The use of scientific knowledge and tools to create methods, machines and systems for practical purposes.",
+          "definitionZh": "技术；科技",
+          "examples": [
+            "Technology has changed the way people communicate.",
+            "The school provides training in digital technology."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "telephone",
+      "part": "noun / verb",
+      "phonetic": "/ˈtelɪfoʊn/",
+      "definition": "A device or system used to speak to someone over a distance; or to call someone.",
+      "definitionZh": "电话；打电话",
+      "examples": [
+        "The office telephone rang during the meeting.",
+        "I telephoned the clinic to change my appointment."
+      ],
+      "tip": "“Telephone” is more formal than “phone”; it can refer to the device or the act of calling.",
+      "course": "en",
+      "breakdown": "A device or system used to speak to someone over a distance; or to call someone.",
+      "related": "phone;call",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A device or system used to speak to someone over a distance; or to call someone.",
+          "definitionZh": "电话；打电话",
+          "examples": [
+            "The office telephone rang during the meeting.",
+            "I telephoned the clinic to change my appointment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "television",
+      "part": "noun",
+      "phonetic": "/ˈtelɪvɪʒən/",
+      "definition": "A device or system for receiving and showing programmes with sound and moving images.",
+      "definitionZh": "电视；电视机；电视节目",
+      "examples": [
+        "They watched the news on television.",
+        "The television in the living room is quite old."
+      ],
+      "tip": "“Television” can refer to the device, the medium or the programmes; “TV” is the common abbreviation.",
+      "course": "en",
+      "breakdown": "A device or system for receiving and showing programmes with sound and moving images.",
+      "related": "TV;broadcast",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A device or system for receiving and showing programmes with sound and moving images.",
+          "definitionZh": "电视；电视机；电视节目",
+          "examples": [
+            "They watched the news on television.",
+            "The television in the living room is quite old."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "text message",
+      "part": "noun / verb",
+      "phonetic": "/ˈtekst ˌmesɪdʒ/",
+      "definition": "A short written message sent from one mobile phone or digital device to another; or to send such a message.",
+      "definitionZh": "短信；发短信",
+      "examples": [
+        "I received a text message from the delivery company.",
+        "Please text-message me when you arrive."
+      ],
+      "tip": "“Text message” is usually written as two words; “text” is a common verb meaning to send one.",
+      "course": "en",
+      "breakdown": "A short written message sent from one mobile phone or digital device to another; or to send such a message.",
+      "related": "SMS;text",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A short written message sent from one mobile phone or digital device to another; or to send such a message.",
+          "definitionZh": "短信；发短信",
+          "examples": [
+            "I received a text message from the delivery company.",
+            "Please text-message me when you arrive."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "upload",
+      "part": "verb / noun",
+      "phonetic": "/ˌʌpˈloʊd/",
+      "definition": "To send a file or data from a device to an online service or another computer; or the process or file sent.",
+      "definitionZh": "上传；上传内容",
+      "examples": [
+        "Upload your assignment before midnight.",
+        "The video upload failed because the connection was weak."
+      ],
+      "tip": "“Upload” means send data to another system; “download” means receive it onto your device.",
+      "course": "en",
+      "breakdown": "To send a file or data from a device to an online service or another computer; or the process or file sent.",
+      "related": "send;transfer",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb / noun",
+          "definition": "To send a file or data from a device to an online service or another computer; or the process or file sent.",
+          "definitionZh": "上传；上传内容",
+          "examples": [
+            "Upload your assignment before midnight.",
+            "The video upload failed because the connection was weak."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "video",
+      "part": "noun / verb",
+      "phonetic": "/ˈvɪdioʊ/",
+      "definition": "A recording of moving images, usually with sound; or to record or send images electronically.",
+      "definitionZh": "视频；录像；录制视频",
+      "examples": [
+        "She watched a short video about the solar system.",
+        "We video-called our relatives last night."
+      ],
+      "tip": "“Video” can refer to a recording or the act of recording; “video call” is a common way to communicate face to face online.",
+      "course": "en",
+      "breakdown": "A recording of moving images, usually with sound; or to record or send images electronically.",
+      "related": "clip;recording",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A recording of moving images, usually with sound; or to record or send images electronically.",
+          "definitionZh": "视频；录像；录制视频",
+          "examples": [
+            "She watched a short video about the solar system.",
+            "We video-called our relatives last night."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "website",
+      "part": "noun",
+      "phonetic": "/ˈwebsaɪt/",
+      "definition": "A collection of related pages and information available under one internet address.",
+      "definitionZh": "网站",
+      "examples": [
+        "The school website lists the term dates.",
+        "I found the instructions on the official website."
+      ],
+      "tip": "A website contains web pages; a web page is one individual page within it.",
+      "course": "en",
+      "breakdown": "A collection of related pages and information available under one internet address.",
+      "related": "site;web page",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A collection of related pages and information available under one internet address.",
+          "definitionZh": "网站",
+          "examples": [
+            "The school website lists the term dates.",
+            "I found the instructions on the official website."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "wireless",
+      "part": "adjective / noun",
+      "phonetic": "/ˈwaɪərləs/",
+      "definition": "Using radio signals rather than physical wires to send information or power; or a wireless connection or device.",
+      "definitionZh": "无线的；无线通信",
+      "examples": [
+        "The headphones connect to the phone wirelessly.",
+        "We use a wireless network at home."
+      ],
+      "tip": "“Wireless” describes a connection without a physical cable; Wi-Fi is one common wireless networking technology.",
+      "course": "en",
+      "breakdown": "Using radio signals rather than physical wires to send information or power; or a wireless connection or device.",
+      "related": "Wi-Fi;radio",
+      "categories": [
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "adjective / noun",
+          "definition": "Using radio signals rather than physical wires to send information or power; or a wireless connection or device.",
+          "definitionZh": "无线的；无线通信",
+          "examples": [
+            "The headphones connect to the phone wirelessly.",
+            "We use a wireless network at home."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "crossing",
+      "part": "noun",
+      "phonetic": "/ˈkrɔːsɪŋ/",
+      "definition": "A place where people or vehicles can cross a road, railway or body of water; or the act of crossing.",
+      "definitionZh": "交叉口；人行横道；渡口",
+      "examples": [
+        "Use the pedestrian crossing near the traffic lights.",
+        "The ferry crossing takes about twenty minutes."
+      ],
+      "tip": "A crossing is a designated place or route across an obstacle; a crosswalk is a common American term for a pedestrian crossing.",
+      "course": "en",
+      "breakdown": "A place where people or vehicles can cross a road, railway or body of water; or the act of crossing.",
+      "related": "crosswalk;intersection",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where people or vehicles can cross a road, railway or body of water; or the act of crossing.",
+          "definitionZh": "交叉口；人行横道；渡口",
+          "examples": [
+            "Use the pedestrian crossing near the traffic lights.",
+            "The ferry crossing takes about twenty minutes."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "department store",
+      "part": "noun",
+      "phonetic": "/dɪˈpɑːrtmənt ˌstɔːr/",
+      "definition": "A large shop divided into sections that sell different kinds of products, such as clothes, furniture and cosmetics.",
+      "definitionZh": "百货商店",
+      "examples": [
+        "We bought a suitcase at the department store.",
+        "The department store has a café on the top floor."
+      ],
+      "tip": "A department store is a large retail shop divided into sections for different types of products.",
+      "course": "en",
+      "breakdown": "A large shop divided into sections that sell different kinds of products, such as clothes, furniture and cosmetics.",
+      "related": "retail store;shop",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large shop divided into sections that sell different kinds of products, such as clothes, furniture and cosmetics.",
+          "definitionZh": "百货商店",
+          "examples": [
+            "We bought a suitcase at the department store.",
+            "The department store has a café on the top floor."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dining room",
+      "part": "noun",
+      "phonetic": "/ˈdaɪnɪŋ ˌruːm/",
+      "definition": "A room in a house or building where people sit and eat meals.",
+      "definitionZh": "餐厅；饭厅",
+      "examples": [
+        "The family eats dinner together in the dining room.",
+        "We set the table in the dining room."
+      ],
+      "tip": "A dining room is used for eating meals; a kitchen is where food is prepared.",
+      "course": "en",
+      "breakdown": "A room in a house or building where people sit and eat meals.",
+      "related": "dining area;meal room",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A room in a house or building where people sit and eat meals.",
+          "definitionZh": "餐厅；饭厅",
+          "examples": [
+            "The family eats dinner together in the dining room.",
+            "We set the table in the dining room."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "driveway",
+      "part": "noun",
+      "phonetic": "/ˈdraɪvweɪ/",
+      "definition": "A private road or short path leading from a street to a house, garage or other building.",
+      "definitionZh": "私人车道；入户车道",
+      "examples": [
+        "Please do not park across the neighbour's driveway.",
+        "The children played basketball in the driveway."
+      ],
+      "tip": "A driveway connects a property to a road; a pavement or sidewalk is for pedestrians.",
+      "course": "en",
+      "breakdown": "A private road or short path leading from a street to a house, garage or other building.",
+      "related": "access road;entrance",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A private road or short path leading from a street to a house, garage or other building.",
+          "definitionZh": "车道；私人 driveway",
+          "examples": [
+            "Please do not park across the neighbour's driveway.",
+            "The children played basketball in the driveway."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gate",
+      "part": "noun",
+      "phonetic": "/ɡeɪt/",
+      "definition": "A movable barrier that opens and closes an entrance in a fence or wall; or an airport boarding area.",
+      "definitionZh": "大门；栅门；登机口",
+      "examples": [
+        "Please close the garden gate behind you.",
+        "Our flight leaves from gate twelve."
+      ],
+      "tip": "“Gate” can mean an entrance barrier or an airport departure point.",
+      "course": "en",
+      "breakdown": "A movable barrier that opens and closes an entrance in a fence or wall; or an airport boarding area.",
+      "related": "entrance;barrier",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A movable barrier that opens and closes an entrance in a fence or wall; or an airport boarding area.",
+          "definitionZh": "大门；栅门；登机口",
+          "examples": [
+            "Please close the garden gate behind you.",
+            "Our flight leaves from gate twelve."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "house",
+      "part": "noun / verb",
+      "phonetic": "/haʊs/",
+      "definition": "A building where people live; or to provide a place for someone or something.",
+      "definitionZh": "房子；住宅；安置",
+      "examples": [
+        "They bought a small house near the park.",
+        "The building houses a collection of old maps."
+      ],
+      "tip": "As a noun, “house” is a home building; as a verb, it means provide space or accommodation.",
+      "course": "en",
+      "breakdown": "A building where people live; or to provide a place for someone or something.",
+      "related": "home;residence",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A building where people live; or to provide a place for someone or something.",
+          "definitionZh": "房子；住宅；安置",
+          "examples": [
+            "They bought a small house near the park.",
+            "The building houses a collection of old maps."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "river",
+      "part": "noun",
+      "phonetic": "/ˈrɪvər/",
+      "definition": "A large natural flow of water that moves across land towards a sea, lake or another river.",
+      "definitionZh": "河流；江",
+      "examples": [
+        "The river flows through the centre of the town.",
+        "They crossed the river by boat."
+      ],
+      "tip": "A river flows across land; a stream is usually smaller and narrower.",
+      "course": "en",
+      "breakdown": "A large natural flow of water that moves across land towards a sea, lake or another river.",
+      "related": "stream;waterway",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large natural flow of water that moves across land towards a sea, lake or another river.",
+          "definitionZh": "河流；江",
+          "examples": [
+            "The river flows through the centre of the town.",
+            "They crossed the river by boat."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "road",
+      "part": "noun",
+      "phonetic": "/roʊd/",
+      "definition": "A prepared surface or route for vehicles and people to travel between places.",
+      "definitionZh": "道路；公路",
+      "examples": [
+        "The road was closed because of flooding.",
+        "We drove along a narrow mountain road."
+      ],
+      "tip": "A road is a route for travel; a street is usually a road within a town or city and may have buildings along it.",
+      "course": "en",
+      "breakdown": "A prepared surface or route for vehicles and people to travel between places.",
+      "related": "street;highway",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A prepared surface or route for vehicles and people to travel between places.",
+          "definitionZh": "道路；公路",
+          "examples": [
+            "The road was closed because of flooding.",
+            "We drove along a narrow mountain road."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "store",
+      "part": "noun / verb",
+      "phonetic": "/stɔːr/",
+      "definition": "A shop where goods are sold; or to keep something for future use.",
+      "definitionZh": "商店；储存",
+      "examples": [
+        "I bought a notebook at the store.",
+        "Store the files in a safe location."
+      ],
+      "tip": "“Store” is commonly used for a shop in American English; as a verb it means keep something for later use.",
+      "course": "en",
+      "breakdown": "A shop where goods are sold; or to keep something for future use.",
+      "related": "shop;retail outlet",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A shop where goods are sold; or to keep something for future use.",
+          "definitionZh": "商店；储存",
+          "examples": [
+            "I bought a notebook at the store.",
+            "Store the files in a safe location."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "street",
+      "part": "noun",
+      "phonetic": "/striːt/",
+      "definition": "A public road in a town or city, usually with buildings along one or both sides.",
+      "definitionZh": "街道；大街",
+      "examples": [
+        "The café is on the next street.",
+        "Children were playing in the street."
+      ],
+      "tip": "A street is usually within a built-up area; a road is a more general route between places.",
+      "course": "en",
+      "breakdown": "A public road in a town or city, usually with buildings along one or both sides.",
+      "related": "road;avenue",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A public road in a town or city, usually with buildings along one or both sides.",
+          "definitionZh": "街道；大街",
+          "examples": [
+            "The café is on the next street.",
+            "Children were playing in the street."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "studio",
+      "part": "noun",
+      "phonetic": "/ˈstuːdioʊ/",
+      "definition": "A room or building where an artist, photographer, musician or other professional works; or a place where broadcasts or films are made.",
+      "definitionZh": "工作室；摄影棚；录音室",
+      "examples": [
+        "The artist works in a small studio.",
+        "The news was recorded in a television studio."
+      ],
+      "tip": "A studio is designed for creative work or recording; a workshop is usually used for making or repairing things.",
+      "course": "en",
+      "breakdown": "A room or building where an artist, photographer, musician or other professional works; or a place where broadcasts or films are made.",
+      "related": "workroom;recording space",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A room or building where an artist, photographer, musician or other professional works; or a place where broadcasts or films are made.",
+          "definitionZh": "工作室；摄影棚；录音室",
+          "examples": [
+            "The artist works in a small studio.",
+            "The news was recorded in a television studio."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "town",
+      "part": "noun",
+      "phonetic": "/taʊn/",
+      "definition": "A place where people live and work that is usually larger than a village but smaller than a city.",
+      "definitionZh": "城镇；市镇",
+      "examples": [
+        "The town has a busy market square.",
+        "We moved to a quiet town near the coast."
+      ],
+      "tip": "The distinction between a town and a city varies by country and legal system.",
+      "course": "en",
+      "breakdown": "A place where people live and work that is usually larger than a village but smaller than a city.",
+      "related": "small city;municipality",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where people live and work that is usually larger than a village but smaller than a city.",
+          "definitionZh": "城镇；市镇",
+          "examples": [
+            "The town has a busy market square.",
+            "We moved to a quiet town near the coast."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "academy",
+      "part": "noun",
+      "phonetic": "/əˈkædəmi/",
+      "definition": "A school or institution that provides specialised education or training; or an organisation for promoting an art or science.",
+      "definitionZh": "学院；专科学院；学会",
+      "examples": [
+        "She studied animation at an arts academy.",
+        "The academy offers evening language classes."
+      ],
+      "tip": "An academy may be an educational institution or a professional society.",
+      "course": "en",
+      "breakdown": "A school or institution that provides specialised education or training; or an organisation for promoting an art or science.",
+      "related": "school;institute",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A school or institution that provides specialised education or training; or an organisation for promoting an art or science.",
+          "definitionZh": "学院；专科学院；学会",
+          "examples": [
+            "She studied animation at an arts academy.",
+            "The academy offers evening language classes."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "alphabet",
+      "part": "noun",
+      "phonetic": "/ˈælfəbet/",
+      "definition": "A set of letters used in writing a language, arranged in a fixed order.",
+      "definitionZh": "字母表",
+      "examples": [
+        "Children learn the alphabet before they start reading.",
+        "The English alphabet has twenty-six letters."
+      ],
+      "tip": "An alphabet is a writing system based on letters; some languages use other writing systems.",
+      "course": "en",
+      "breakdown": "A set of letters used in writing a language, arranged in a fixed order.",
+      "related": "letters;script",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A set of letters used in writing a language, arranged in a fixed order.",
+          "definitionZh": "字母表",
+          "examples": [
+            "Children learn the alphabet before they start reading.",
+            "The English alphabet has twenty-six letters."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "curriculum",
+      "part": "noun",
+      "phonetic": "/kəˈrɪkjələm/",
+      "definition": "The subjects and learning content included in a course or educational programme.",
+      "definitionZh": "课程；课程设置",
+      "examples": [
+        "The school updated its science curriculum.",
+        "The curriculum includes both theory and practical work."
+      ],
+      "tip": "“Curriculum” is the singular form; the plural is “curricula” or “curriculums.”",
+      "course": "en",
+      "breakdown": "The subjects and learning content included in a course or educational programme.",
+      "related": "syllabus;programme",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The subjects and learning content included in a course or educational programme.",
+          "definitionZh": "课程；课程设置",
+          "examples": [
+            "The school updated its science curriculum.",
+            "The curriculum includes both theory and practical work."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "education",
+      "part": "noun",
+      "phonetic": "/ˌedʒuˈkeɪʃən/",
+      "definition": "The process of teaching and learning, especially in schools, colleges and other institutions.",
+      "definitionZh": "教育",
+      "examples": [
+        "Education can create opportunities for people.",
+        "The country invests in public education."
+      ],
+      "tip": "“Education” is usually uncountable when referring to the general process or system.",
+      "course": "en",
+      "breakdown": "The process of teaching and learning, especially in schools, colleges and other institutions.",
+      "related": "learning;instruction",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The process of teaching and learning, especially in schools, colleges and other institutions.",
+          "definitionZh": "教育",
+          "examples": [
+            "Education can create opportunities for people.",
+            "The country invests in public education."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "experiment",
+      "part": "noun / verb",
+      "phonetic": "/ɪkˈsperɪmənt/",
+      "definition": "A scientific test carried out to discover or demonstrate something; or to try a new method or idea.",
+      "definitionZh": "实验；试验；尝试",
+      "examples": [
+        "The students carried out an experiment in the laboratory.",
+        "The team experimented with different materials."
+      ],
+      "tip": "As a noun, an experiment is a test; as a verb, “experiment with” means try something to see what happens.",
+      "course": "en",
+      "breakdown": "A scientific test carried out to discover or demonstrate something; or to try a new method or idea.",
+      "related": "test;trial",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A scientific test carried out to discover or demonstrate something; or to try a new method or idea.",
+          "definitionZh": "实验；试验；尝试",
+          "examples": [
+            "The students carried out an experiment in the laboratory.",
+            "The team experimented with different materials."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "instructor",
+      "part": "noun",
+      "phonetic": "/ɪnˈstrʌktər/",
+      "definition": "A person who teaches a practical skill or subject, often in a specialised setting.",
+      "definitionZh": "教练；指导员；讲师",
+      "examples": [
+        "The driving instructor explained the rules clearly.",
+        "A swimming instructor helped the children learn safely."
+      ],
+      "tip": "An instructor often teaches a practical skill; “teacher” is a broader term used in many settings.",
+      "course": "en",
+      "breakdown": "A person who teaches a practical skill or subject, often in a specialised setting.",
+      "related": "teacher;trainer",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who teaches a practical skill or subject, often in a specialised setting.",
+          "definitionZh": "教练；指导员；讲师",
+          "examples": [
+            "The driving instructor explained the rules clearly.",
+            "A swimming instructor helped the children learn safely."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "knowledge",
+      "part": "noun",
+      "phonetic": "/ˈnɑːlɪdʒ/",
+      "definition": "Information, understanding and skills gained through learning or experience.",
+      "definitionZh": "知识；学识",
+      "examples": [
+        "Reading gives us knowledge about the world.",
+        "She has a good knowledge of computer graphics."
+      ],
+      "tip": "“Knowledge” is uncountable; say “some knowledge” or “a piece of knowledge” only when a specific fact is meant.",
+      "course": "en",
+      "breakdown": "Information, understanding and skills gained through learning or experience.",
+      "related": "understanding;expertise",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Information, understanding and skills gained through learning or experience.",
+          "definitionZh": "知识；学识",
+          "examples": [
+            "Reading gives us knowledge about the world.",
+            "She has a good knowledge of computer graphics."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mathematics",
+      "part": "noun",
+      "phonetic": "/ˌmæθəˈmætɪks/",
+      "definition": "The study of numbers, quantities, shapes and patterns, including how they relate to one another.",
+      "definitionZh": "数学",
+      "examples": [
+        "Mathematics helps students develop problem-solving skills.",
+        "He enjoys mathematics more than history."
+      ],
+      "tip": "“Mathematics” is often shortened to “math” in American English and “maths” in British English.",
+      "course": "en",
+      "breakdown": "The study of numbers, quantities, shapes and patterns, including how they relate to one another.",
+      "related": "math;maths",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The study of numbers, quantities, shapes and patterns, including how they relate to one another.",
+          "definitionZh": "数学",
+          "examples": [
+            "Mathematics helps students develop problem-solving skills.",
+            "He enjoys mathematics more than history."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pupil",
+      "part": "noun",
+      "phonetic": "/ˈpjuːpəl/",
+      "definition": "A person, especially a child, who is taught at a school.",
+      "definitionZh": "小学生；学生",
+      "examples": [
+        "The pupils lined up outside the classroom.",
+        "Each pupil received a new workbook."
+      ],
+      "tip": "“Pupil” is especially common in British English for schoolchildren; “student” is used more broadly.",
+      "course": "en",
+      "breakdown": "A person, especially a child, who is taught at a school.",
+      "related": "student;learner",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person, especially a child, who is taught at a school.",
+          "definitionZh": "小学生；学生",
+          "examples": [
+            "The pupils lined up outside the classroom.",
+            "Each pupil received a new workbook."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "semester",
+      "part": "noun",
+      "phonetic": "/səˈmestər/",
+      "definition": "One of the two main periods into which an academic year is often divided.",
+      "definitionZh": "学期",
+      "examples": [
+        "The new semester begins in September.",
+        "She plans to study abroad next semester."
+      ],
+      "tip": "A semester usually lasts around half an academic year; some institutions use terms or trimesters instead.",
+      "course": "en",
+      "breakdown": "One of the two main periods into which an academic year is often divided.",
+      "related": "term;academic period",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the two main periods into which an academic year is often divided.",
+          "definitionZh": "学期",
+          "examples": [
+            "The new semester begins in September.",
+            "She plans to study abroad next semester."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "spelling",
+      "part": "noun",
+      "phonetic": "/ˈspelɪŋ/",
+      "definition": "The way a word is written using the correct letters in the correct order.",
+      "definitionZh": "拼写；拼法",
+      "examples": [
+        "The spelling of this word is difficult to remember.",
+        "The teacher checked the students' spelling."
+      ],
+      "tip": "Spelling concerns written letters; pronunciation concerns how a word is spoken.",
+      "course": "en",
+      "breakdown": "The way a word is written using the correct letters in the correct order.",
+      "related": "orthography;written form",
+      "categories": [
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The way a word is written using the correct letters in the correct order.",
+          "definitionZh": "拼写；拼法",
+          "examples": [
+            "The spelling of this word is difficult to remember.",
+            "The teacher checked the students' spelling."
           ]
         }
       ]
