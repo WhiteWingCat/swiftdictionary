@@ -3399,3 +3399,60 @@ Detailed implementation and initial CI findings: [U2.8.0 staging feedback remedi
 
 
 - Latest feature branch commit at this checkpoint: `6baf19012164ee14e6c485ee3312e695b26c106f`. The previous attempt showed the Chinese translation-preference test also assumed non-null Pinyin/translation fields on every knowledge question. The test was corrected to assert only the fields actually present on the current question and to verify that active Chinese answer options never expose option-side Pinyin or translation. On this latest head, Cloudflare build-routing, Dashboard/allowance, PostgreSQL allowance, Supabase CLI Auth compatibility, Flashcards browser, Chinese Dictionary browser and ACL checks are green. The Quiz DB foundation's authenticated local-Supabase Chromium runtime suite remains in progress; release readiness is therefore still pending.
+
+
+## 2026-11-24 — U2.8.0 staging CSS overlay, owner-feedback verification, and authenticated Quiz closeout
+
+### Staging presentation correction
+
+- Owner reported that the U2.8.0 staging preview displayed what looked like source code/scripts over the SwiftDictionary interface.
+- Repository inspection identified the exact cause in `index.html`: the main stylesheet's closing `</style>` tag appeared before the newly added Dashboard and Quiz CSS. The remaining CSS was therefore emitted as visible page text.
+- Corrected the stylesheet boundary in feature-branch commit `cc2063440f67eca2c277df12c789f4150312c205`.
+- Added a regression guard in `scripts/quiz/validate-quiz-frontend.mjs`. It now verifies that the Quiz overview/session, difficulty, review, Dashboard hero, Dashboard tab and Dashboard panel selectors remain inside the main stylesheet, and that Translation Recall retains its orange CSS treatment.
+- Cloudflare Pages confirmed successful deployment of the corrected feature branch. The stable preview is `https://feature-update-2-8-0-chinese.swiftdictionary.pages.dev/`.
+
+### Owner-feedback implementation verification
+
+The two U2.8.0 staging-feedback rounds were checked against the feature branch implementation and dedicated browser assertions. Verified behaviours include:
+
+- Redesigned Quiz overview and active-question experience, including directional question transitions.
+- Functional Dashboard tabs that switch their corresponding visible panels.
+- Course-aware recall modes: Mixed Recall for English and Translation Recall for Chinese, occupying the same third mode position.
+- In-place Daily History reviews, with separate Lessons, Quiz and Flashcards history sections; normal Quiz navigation opens the Quiz overview rather than a completed review.
+- Chinese Quiz answer choices do not expose answer hints through English translations or Pinyin.
+- Quiz start confirmation explains the allowance charge; cancelling does not consume an allowance.
+- Redesigned Quiz difficulty/review presentation and distinct difficulty styling.
+- Orange Translation Recall visual treatment and Flashcards allowance-exhaustion notification.
+- Dashboard hero/tab styling, Flashcards Dashboard statistics and in-place Weak Memory review.
+- Existing Chinese Lessons/Daily Learning, history, Preferences and account-isolation regressions remain covered by their dependent suites.
+
+### Quiz browser-test synchronization correction
+
+- The first post-fix authenticated browser run exposed an intermittent test race: the test could accept the previous question while its answer-save/navigation RPC was still in flight, then compare that snapshot against the next rendered question.
+- The test was strengthened to wait for `quizPageState.saving` to clear, verify the expected question position, and compare the same question snapshot against the rendered prompt, Pinyin and translation.
+- This was a test synchronization correction; the application's answer-save and navigation protections were retained.
+- Final test correction commit: `c994e271a7296c0ee8dec5d69d6a4376a0fb0b45`.
+
+### Final validation on `c994e27`
+
+Successful checks:
+
+- Quiz database foundation and authenticated Quiz RPC/session/allowance lifecycle.
+- Authenticated Chromium Quiz runtime, including selected translation language and Chinese question-type coverage.
+- Signed-out Flashcards and Preferences browser regressions.
+- Permanent Lessons allowance notification regression.
+- Supabase security advisors against the disposable local Quiz schema.
+- Update 2.3.x Dashboard/allowance regressions.
+- Update 2.5.0 Flashcards checks.
+- Update 2.6.0 ACL drift regression.
+- Update 2.7.0 Chinese dictionary and lesson-start allowance checks.
+- PostgreSQL migration/allowance tests, Supabase CLI Auth compatibility, Chromium browser regression smoke tests and Cloudflare build-routing guard.
+- Cloudflare Pages deployment check: successful.
+
+The push and pull-request Quiz foundation workflows both completed successfully on `c994e27`. The separate `Workers Builds: swiftdictionary-testing` check still reports failure for the retired testing Worker; it is not the active SwiftDictionary Pages deployment and does not negate the successful Pages deployment.
+
+### Environment and release state
+
+- Quiz browser/authentication tests used disposable local Supabase environments and synthetic test accounts.
+- The earlier staging question-bank audit was read-only. No Production or live Supabase migration/write was performed as part of this remediation.
+- PR #16 remains a draft and has not been merged. U2.8.0 remains in staging; Production is unchanged.
