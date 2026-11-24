@@ -4,7 +4,33 @@ import vm from "node:vm";
 const html = fs.readFileSync(new URL("../../index.html", import.meta.url), "utf8");
 const mockTesting = fs.readFileSync(new URL("../../mock-testing.js", import.meta.url), "utf8");
 const dailyLearning = fs.readFileSync(new URL("../../daily-learning.js", import.meta.url), "utf8");
+const flashcards = fs.readFileSync(new URL("../../flashcards.js", import.meta.url), "utf8");
 const quizTranslationMigration = fs.readFileSync(new URL("../../supabase/migrations/20261117132100_swiftdictionary_update_2_4_1_quiz_translation_language_fix.sql", import.meta.url), "utf8");
+const inlineStyles = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/gi)];
+if (inlineStyles.length !== 1) {
+  throw new Error("The main page must contain one complete inline stylesheet; malformed style boundaries can expose CSS as visible page text.");
+}
+const pageCss = inlineStyles.map(match => match[1]).join("\n");
+for (const selector of [
+  ".quiz-home-hero", ".quiz-question-card", ".quiz-review-summary",
+  ".quiz-difficulty-option[data-difficulty=beginner]",
+  ".quiz-difficulty-option[data-difficulty=intermediate]",
+  ".quiz-difficulty-option[data-difficulty=advanced]",
+  ".dashboard-hero-banner", ".dashboard-tab-icon",
+  ".dashboard-tab[data-dashboard-tab=favourites]",
+  ".dashboard-tab[data-dashboard-tab=progress]",
+  ".dashboard-tab[data-dashboard-tab=history]",
+  ".dashboard-tab[data-dashboard-tab=analytics]",
+  ".dashboard-tab-panel[hidden]"
+]) {
+  if (!pageCss.includes(selector)) {
+    throw new Error("Required Quiz/Dashboard styling must remain inside the main stylesheet: " + selector);
+  }
+}
+if (!flashcards.includes("#flashcardsPage .flash-mode[data-mode=translation]{background:#bd762e")) {
+  throw new Error("Translation Recall must retain its orange visual treatment.");
+}
+
 const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
 const appScript = scripts.map(match => match[1]).find(source => source.includes("let supabaseClient = null"));
 if (!appScript) throw new Error("Could not locate the main SwiftDictionary application script.");
