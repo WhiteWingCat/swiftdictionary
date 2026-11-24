@@ -716,7 +716,7 @@ test("Mock Quiz supports Chinese knowledge and English-gated translation banks",
 });
 
 
-test("Chinese Mixed Recall includes Translation Recall and rejects definition-cue reuse",()=>{
+test("Chinese Mixed Recall includes Translation Recall and rejects answer-revealing Chinese cues",()=>{
   const start=flashcardsSource.indexOf("function makeRound(deck){");
   const end=flashcardsSource.indexOf("function durationLabel",start);
   assert.ok(start>=0&&end>start,"Flashcards must expose its round builder");
