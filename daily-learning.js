@@ -639,7 +639,7 @@
       // If the curated pool is exhausted, fall back to a free replay.
       return available.length
         ? available[(baseIndex + slot + accountOffset) % available.length]
-        : pool[(baseIndex + slot + accountOffset) % pool.length];
+        : {...pool[(baseIndex + slot + accountOffset) % pool.length],__freeReplay:true};
     }
     const candidates = revisionCandidates(snapshot.lessonResults, snapshot.dailyResults, snapshot.completedToday);
     const best = candidates[0];
@@ -832,10 +832,11 @@
       : dailyUi(meta.description,meta.descriptionZh);
     const contentByKey = new Map();
     const renderCard = (content,discoveryIndex=null,reviewOnly=false,reviewRow=null) => {
-      const reviewSession = reviewOnly ? (reviewRow || completedRows.find(row => row.content_id === content.id) || null) : null;
+      const replayOnly = reviewOnly || content.__freeReplay === true;
+      const reviewSession = replayOnly ? (reviewRow || historicalReplayRows.find(row => row.content_id === content.id) || completedRows.find(row => row.content_id === content.id) || null) : null;
       contentByKey.set(type + "|" + content.id,{content,session:reviewSession});
-      const activeSession = reviewOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
-      const alreadyCompleted = reviewOnly || (snapshot.completedToday || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
+      const activeSession = replayOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
+      const alreadyCompleted = replayOnly || (snapshot.completedToday || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
       const allowanceUnavailable = !availableForPlan;
       const exhausted = !activeSession && !alreadyCompleted && !allowanceUnavailable && remaining <= 0;
       const statusLabel = activeSession ? dailyUi("In progress","进行中") : alreadyCompleted ? dailyUi("Completed · replay is free","已完成 · 可免费重温") : exhausted ? dailyUi("Daily limit reached","今日额度已用完") : dailyUi("New activity","新活动");

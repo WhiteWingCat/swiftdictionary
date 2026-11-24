@@ -53,7 +53,7 @@ assert(normalDrawerRule.includes("opacity:1;") && !normalDrawerRule.includes("op
 assert(html.includes('id="dailyLearningAllowanceNote"'));
 assert(daily.includes("Each activity has one daily allowance shared between English and Simplified Chinese."));
 assert(daily.includes("每种活动在英语和简体中文课程之间共用每日额度。"));
-assert(daily.includes('if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false))'), "Daily Discovery must show a locked item when the shared allowance was spent in another course.");
+assert(daily.includes('if(!cards.length && scheduled[0]) {') && daily.includes('const replayRow=historicalReplayRows.find(row=>row.content_id===scheduled[0].id)') && daily.includes('cards.push(replayRow?renderCard(scheduled[0],0,true,replayRow):renderCard(scheduled[0],0,false))'), "Daily Discovery must keep a scheduled item visible when the shared allowance was spent in another course.");
 assert(css.includes("animation:none !important"));
 assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includes("transform:translate3d(0,0,0) !important"));
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
