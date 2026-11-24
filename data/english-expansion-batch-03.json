@@ -209,6 +209,15 @@
             "The festival draws visitors from many countries.",
             "Her talk drew a large audience."
           ]
+        },
+        {
+          "part": "noun",
+          "definition": "A result in a game or competition in which neither side wins; a tie.",
+          "definitionZh": "比赛中双方均未获胜的结果；平局。",
+          "examples": [
+            "The match ended in a draw.",
+            "Neither team was satisfied with the draw."
+          ]
         }
       ]
     },
