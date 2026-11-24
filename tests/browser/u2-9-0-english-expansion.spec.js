@@ -28,7 +28,6 @@ test("English expansion loads before dictionary state and preserves headword-onl
 test("new English entries open in the existing detail drawer", async ({ page }) => {
   await page.goto("/");
   await page.locator("#search").fill("post office");
-  await page.locator(".word-card").getByRole("button").count().catch(() => {});
   await page.locator(".word-card").first().click();
 
   await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
