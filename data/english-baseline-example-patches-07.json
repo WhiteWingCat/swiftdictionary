@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add second examples to further academic and technical baseline entries.",
-  "status": "editorially-authored; awaiting integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "88037a61659d997bfb2e521d1f355c8e2149ed09",
   "entries": [
     {
@@ -185,5 +185,6 @@
         "The team attempted a replication of the original experiment."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "4fec3a8649dc1d86bc1cc7f26c211c021e26105c"
 }
