@@ -66,7 +66,7 @@ select
   'synthetic-objective-'||prefix,
   'Select the correct answer for '||prefix||' question '||n||'.',
   '请选择'||prefix||'第'||n||'题的正确答案。',
-  '[{"id":"a","learning_text":"Correct","translation_text":"正确"},{"id":"b","learning_text":"Wrong one","translation_text":"错误一"},{"id":"c","learning_text":"Wrong two","translation_text":"错误二"},{"id":"d","learning_text":"Wrong three","translation_text":"错误三"}]'::jsonb,
+  '[{"id":"a","learning_text":"Correct","translation_text":"正确","pinyin":"zheng4que4"},{"id":"b","learning_text":"Wrong one","translation_text":"错误一","pinyin":"cuo4wu4yi1"},{"id":"c","learning_text":"Wrong two","translation_text":"错误二","pinyin":"cuo4wu4er4"},{"id":"d","learning_text":"Wrong three","translation_text":"错误三","pinyin":"cuo4wu4san1"}]'::jsonb,
   'a',
   'The first option is correct.',
   '第一个选项是正确答案。',
@@ -222,6 +222,13 @@ begin
      or (v_first->'questions'->0) ? 'explanation_learning' then
     raise exception 'Active Quiz payload leaked answer keys or explanations';
   end if;
+  if exists(
+    select 1 from jsonb_array_elements(v_first->'questions') q,
+      lateral jsonb_array_elements(q->'options') o
+    where o ? 'pinyin'
+  ) then
+    raise exception 'Active Quiz payload leaked option Pinyin answer hints';
+  end if;
   select max(question_total)::integer into v_max_topic
   from (
     select count(*) question_total
@@ -274,6 +281,12 @@ begin
   if not ((v_result->'questions'->0) ? 'correct_option_id')
      or not ((v_result->'questions'->0) ? 'explanation_learning') then
     raise exception 'Completed review did not reveal the answer and explanation';
+  end if;
+  if not exists(
+    select 1 from jsonb_array_elements(v_result->'questions'->0->'options') o
+    where o ? 'pinyin'
+  ) then
+    raise exception 'Completed review should retain option Pinyin for learning feedback';
   end if;
 
   -- Duplicate submit is idempotent and must not charge a second completion.
