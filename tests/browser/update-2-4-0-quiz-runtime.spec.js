@@ -165,6 +165,7 @@ async function startQuiz(page,difficulty="beginner") {
   expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
   await modal.locator('[data-confirm="yes"]').click();
   await expect(modal).toBeHidden();
+  await expect(page.locator("#quizSession")).toBeVisible();
 }
 
 async function submitQuiz(page) {
@@ -1121,7 +1122,8 @@ test("Dashboard allowance progress is presented as actionable tasks and Daily Hi
   const user=await createRuntimeUser("dashboard-allowance-task-list","free");
   const session=await signIn(user.email,user.password);
   await openQuiz(page,session);
-  await page.goto("/#profile");
+  await page.locator("#accountButton").click();
+  await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible({timeout:20000});
   await expect(page.locator("#profileContent")).toBeVisible({timeout:20000});
   await page.locator('[data-dashboard-tab="progress"]').click();

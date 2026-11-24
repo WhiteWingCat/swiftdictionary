@@ -1478,6 +1478,7 @@
   });
   window.addEventListener("hashchange",refreshDailyWindowIfNeeded);
   window.addEventListener("focus",refreshDailyWindowIfNeeded);
+  window.addEventListener("pageshow",refreshDailyWindowIfNeeded);
   if (typeof document.addEventListener === "function") document.addEventListener("visibilitychange",() => { if (!document.hidden) refreshDailyWindowIfNeeded(); });
   const lessonsPage = byId("lessonsPage");
   if (lessonsPage && typeof MutationObserver !== "undefined") {
