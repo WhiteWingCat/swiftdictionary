@@ -332,6 +332,11 @@
     };
     const supportsMode=(w,mode)=>{
       if(!chinese)return true;
+      if(mode==="definition"){
+        if(Array.isArray(w.availableModes)&&!w.availableModes.includes("definition"))return false;
+        const cue=cueFor(w,mode);
+        return !!cue&&!normalize(cue).includes(normalize(w.word));
+      }
       if(mode==="translation"){
         const language=state.game?.translationLanguage||translationLanguage;
         if(!Array.isArray(w.translationLanguages)||!w.translationLanguages.includes(language))return false;
@@ -339,7 +344,7 @@
         if(!cue)return false;
         if(language==="zh"){
           const definition=w.definitionCueZh||w.definitionZh||"";
-          return normalize(cue)!==normalize(definition);
+          return normalize(cue)!==normalize(definition)&&!normalize(cue).includes(normalize(w.word));
         }
         return true;
       }
