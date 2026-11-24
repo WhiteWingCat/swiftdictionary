@@ -12,10 +12,10 @@
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
     "entriesWithFewerThanTwoExamples": 66,
-    "entriesWithoutExplicitSenses": 570,
+    "entriesWithoutExplicitSenses": 560,
     "multiPartOfSpeechWithoutExplicitSenses": 0,
-    "entriesWithExplicitSenses": 240,
-    "totalExplicitSenses": 526,
+    "entriesWithExplicitSenses": 250,
+    "totalExplicitSenses": 546,
     "entriesMissingOptionalBreakdownOrRelated": 38,
     "entriesWithoutCategoryAssignments": 810
   },
@@ -96,7 +96,6 @@
       "abrogate",
       "abscission",
       "abundant",
-      "accept",
       "accretion",
       "accurate",
       "achievable",
@@ -106,16 +105,13 @@
       "actually",
       "adapt",
       "adaptable",
-      "add",
       "admire",
-      "admit",
       "adore",
       "advantage",
       "advice",
       "afford",
       "allometry",
       "allosteric",
-      "allow",
       "although",
       "amaze",
       "anachronism",
@@ -131,7 +127,6 @@
       "apologize",
       "apoptosis",
       "apparently",
-      "appear",
       "application",
       "appointment",
       "appreciate",
@@ -139,13 +134,11 @@
       "arbitrage",
       "archival",
       "argue",
-      "arrange",
       "arrive",
       "ascertain",
       "assume",
       "asymptotic",
       "atavism",
-      "attend",
       "autochthonous",
       "autopoiesis",
       "available",
@@ -158,8 +151,6 @@
       "beckon",
       "behave",
       "believable",
-      "believe",
-      "belong",
       "benthic",
       "bewildered",
       "bifurcation",
@@ -246,7 +237,6 @@
       "deserve",
       "despite",
       "despondent",
-      "develop",
       "diagenesis",
       "diapause",
       "diaspora",
@@ -707,13 +697,14 @@
     "Entries without an explicit senses array may still be single-sense words; editorial review must decide whether distinct senses are needed.",
     "Entries with multiple parts of speech but no senses array are a priority for sense separation and POS review.",
     "The baseline has no category assignments; Phase 3 must classify all baseline entries as well as new additions.",
-    "One-example entries need a second natural, context-appropriate example; preserve existing examples unless they are inaccurate."
+    "One-example entries need a second natural, context-appropriate example; preserve existing examples unless they are inaccurate.",
+    "An additional 10 common baseline verbs now have separate, sense-level English definitions, Simplified Chinese translations and contextual examples. This increases the explicit-sense coverage while preserving single-POS classification where appropriate."
   ],
   "editorialPatches": {
     "status": "integrated into feature-branch index.html",
     "sensePatchFile": "data/english-baseline-sense-patches-01.json",
-    "sensePatchedHeadwords": 140,
-    "newSenseRecords": 282,
+    "sensePatchedHeadwords": 150,
+    "newSenseRecords": 302,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
     "examplePatchedHeadwords": 192,
     "addedExampleSentences": 192,
@@ -728,12 +719,13 @@
       "data/english-baseline-example-patches-06.json",
       "data/english-baseline-example-patches-07.json"
     ],
-    "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615",
+    "appliedCommit": "612af08a00714f698a62426f0a6f84bc3b6fa6de",
     "sensePatchFiles": [
       "data/english-baseline-sense-patches-01.json",
       "data/english-baseline-sense-patches-02.json",
       "data/english-baseline-sense-patches-03.json",
-      "data/english-baseline-sense-patches-04.json"
+      "data/english-baseline-sense-patches-04.json",
+      "data/english-baseline-sense-patches-05.json"
     ],
     "appliedCommits": [
       "9c09415afe879e1960dd254e6243e07c2dbb8615",
@@ -744,8 +736,9 @@
       "4b15e9bc092dba6ce88ce00cb3ea82db2d04116c",
       "8579c9fc8d49b0fb3b5afcc582e9b882990ca359",
       "4d5b8fdd26d35327139517ed9903714b0aa2de5e",
-      "4fec3a8649dc1d86bc1cc7f26c211c021e26105c"
+      "4fec3a8649dc1d86bc1cc7f26c211c021e26105c",
+      "612af08a00714f698a62426f0a6f84bc3b6fa6de"
     ]
   },
-  "currentBaselineBlob": "d20fc053dd0adc4495676b9a313e6e863c1792be"
+  "currentBaselineBlob": "858ff9623cf375b983b684bb2ed65a396b280e38"
 }
