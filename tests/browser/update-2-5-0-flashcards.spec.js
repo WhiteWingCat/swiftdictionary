@@ -737,7 +737,7 @@ test("Chinese Sentence Recall blanks every repeated character and keeps choices 
     Math.random=()=>value;
   },target);
   await page.locator('[data-action="begin-game"]').click();
-  await expect(page.locator(".flash-game"),"Chinese Sentence Recall did not start. Flashcard notice: "+(await page.locator("#flashNotice").textContent())).toBeVisible();
+  await expect(page.locator(".flash-game"),"Chinese Sentence Recall did not start.").toBeVisible();
   await expect(page.locator("#flashMemory")).toContainText("_____");
   await expect(page.locator("#flashMemory")).not.toContainText(target.word);
   await expect(page.locator("#flashOptions .flash-option.is-hidden")).toHaveCount(4);
