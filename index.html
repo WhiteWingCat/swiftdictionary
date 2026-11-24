@@ -22,7 +22,7 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body.quiz-focused .hero-banner{display:none}
+    body.quiz-focused .hero-banner,body.quiz-focused #quizPage > .learning-banner,body.quiz-focused #profilePage > .dashboard-hero-banner{display:none}
     body {
       margin: 0;
       background: var(--bg);
@@ -19910,6 +19910,7 @@ async function completeLesson(x){
       const overlay=document.getElementById("dashboardReviewOverlay");
       if(!overlay||overlay.hidden)return;
       overlay.hidden=true;document.getElementById("dashboardReviewContent").innerHTML="";
+      document.body.classList.remove("quiz-focused");
       document.body.style.overflow=dashboardReviewPreviousOverflow;
     }
     document.getElementById("dashboardReviewOverlay").addEventListener("click",event=>{
@@ -20675,6 +20676,7 @@ async function completeLesson(x){
         quizStatus(quizT("Loading answer review…","正在加载答案复习…"));
         const {data,error}=await quizCall("get_my_quiz_review",{p_session_id:sessionId});if(error)throw error;
         if(returnPage==="dashboard"){
+          document.body.classList.add("quiz-focused");
           openDashboardReview(quizT("Quiz review","测验复习"),quizBuildResultMarkup(data));
           quizStatus("");
           return;
