@@ -3,7 +3,7 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-24 (U2.8.0 completed, merged and owner-confirmed live; Update 2.9.0 plan approved and documented; development not yet started.)  
+> **Last consolidated:** 2026-11-24 (U2.8.0 completed, merged and owner-confirmed live; U2.9.0 implementation started, Phase 1 audit complete and Phase 2 content target reached; full QA remains in progress.)  
 **Current baseline:** Update 2.8.0 (Chinese Course Quiz & Flashcards) is completed and deployed to the live website, as confirmed by the owner on 2026-11-24.  
 **Current work:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — is in development following the owner's separate start instruction on 2026-11-24. Phase 1 audit is complete; Phase 2 has 506 authored English entries across eleven batches and remains in progress pending full linguistic QA and runtime integration. The feature branch is `feature/update-2-9-0-english-dictionary-collections`. The approved scope and acceptance criteria remain in `docs/UPDATE-2.9.0-DEVELOPMENT-PLAN.md`. No staging preview has been prepared; per owner instruction, wait until Phase 4 is fully implemented and internally validated. No production merge, deployment or Supabase database change has occurred.  
 **Record status:** Updates 2.4.0 through 2.8.0 are completed according to the release history and owner confirmation. Update 2.9.0 is approved for planning and subsequent development when separately instructed. Update 3.0.0 — Introduction to Malay course — remains the next major roadmap milestone after 2.9.0.
