@@ -51,7 +51,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "帮助、协助",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -81,7 +80,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "袋子或包装物",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -111,7 +109,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "准备、预备",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -141,7 +138,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "比较",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -171,7 +167,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "边缘、旁边",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -201,7 +196,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "经常、常常",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -231,7 +225,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示场所、场地或活动发生的地点",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -261,7 +254,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "用声音唱歌",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -291,7 +283,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "次数、顺序",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -321,7 +312,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示击打，也用于“打电话”“打球”等常见搭配",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -351,7 +341,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "尺寸、程度或年龄较大",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -381,7 +370,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示土地、地面或地点",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -411,7 +399,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "弟弟",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -469,7 +456,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "小点、位置",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -499,7 +485,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "移动、使动",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -529,7 +514,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示总括范围内的全部",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -559,7 +543,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "需要进食的状态",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -589,7 +572,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "孩子、儿子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -619,7 +601,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "放置",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -649,7 +630,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "在空中移动",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -679,7 +659,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "不、不是",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -709,7 +688,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "分开、分配",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -739,7 +717,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "干燥",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -769,7 +746,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "位置、程度或高度较大",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -799,7 +775,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "告诉、通知",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -829,7 +804,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "歌曲",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -859,7 +833,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "beginner",
@@ -887,7 +860,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "价格高",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -917,7 +889,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "beginner",
@@ -943,7 +914,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "经过、越过",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -973,7 +943,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "孩子、儿童",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1003,7 +972,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "汉族",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1033,7 +1001,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "编号、标记、名称或日期",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1063,7 +1030,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "等待、问候",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1093,7 +1059,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "beginner",
@@ -1121,7 +1086,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "不好",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1151,7 +1115,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "快乐、喜悦",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1181,7 +1144,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "机器、器械",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1211,7 +1173,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "多少",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1241,7 +1202,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "记录、记下",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1271,7 +1231,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "不真实、假的",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1301,7 +1260,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "中间、之间",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1331,7 +1289,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "看见、遇见",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1361,7 +1318,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "教授、教导",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1391,7 +1347,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "呼喊、称呼",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1421,7 +1376,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "感觉、察觉",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1451,7 +1405,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "介绍",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1481,7 +1434,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "现在、当前",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1511,7 +1463,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "进入、前往",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1571,7 +1522,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "干净、纯净",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1659,7 +1609,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "检查、考查",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1689,7 +1638,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "口干、需要喝水",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1719,7 +1667,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "客人、来访者",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1749,7 +1696,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "课程、课堂或学科",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1779,7 +1725,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "块状物、碎块",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1839,7 +1784,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "疲倦、劳累",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1869,7 +1813,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "温度低",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1929,7 +1872,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "多层建筑",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1959,7 +1901,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "马这种动物",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -1989,7 +1930,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "用于“什么、怎么、多么”等词，构成疑问或程度表达",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2019,7 +1959,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "妹妹",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2049,7 +1988,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "名字、名声",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2109,7 +2047,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "乳汁、牛奶",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2139,7 +2076,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "男性、男人",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2169,7 +2105,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "不容易、困难",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2199,7 +2134,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "脑、头脑",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2257,7 +2191,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "侧边、旁边",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2287,7 +2220,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "快速用脚移动、逃跑或为某事奔走",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2317,7 +2249,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "朋友",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2347,7 +2278,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "票券、选票或钞票",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2405,7 +2335,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "一段时间、阶段或期限",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2435,7 +2364,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "空气、气体",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2465,7 +2393,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "蒸汽、水汽",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2495,7 +2422,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "球形物体",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2525,7 +2451,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "温度高",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2555,7 +2480,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "认出、认识",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2585,7 +2509,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "商业、商人",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2615,7 +2538,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "接续、继承",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2645,7 +2567,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 shén 时常用于“什么”",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2675,7 +2596,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "老师、师傅或专家",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2733,7 +2653,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "时间、小时、时期或季节",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2763,7 +2682,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "认识、辨认",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2793,7 +2711,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "beginner",
@@ -2821,7 +2738,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "尝试、测试",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2851,7 +2767,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "看、观察、看待",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2909,7 +2824,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "送去、递交",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2939,7 +2853,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "告诉、陈述",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -2999,7 +2912,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "身体、形体",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3029,7 +2941,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "条状物",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3059,7 +2970,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "相同、一样",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3089,7 +2999,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "图画、地图、图表",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3119,7 +3028,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "玩耍、娱乐",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3149,7 +3057,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "网、网络",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3179,7 +3086,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "忘记、没能记住",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3209,7 +3115,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "文字、语言、文化",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3267,7 +3172,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "中午、午时",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3297,7 +3201,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "呼吸",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3327,7 +3230,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "练习、学习",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3357,7 +3259,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "洗涤、清洗",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3387,7 +3288,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "喜欢、喜爱",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3417,7 +3317,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "连接、系住",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3447,7 +3346,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "先前、首先",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3477,7 +3375,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "出现",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3507,7 +3404,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "笑、微笑",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3537,7 +3433,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "一些、几个",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3567,7 +3462,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "感谢、道谢",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3597,7 +3491,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "新的、刚出现的",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3627,7 +3520,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "星星、天体",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3657,7 +3549,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示行走、进行，也可表示可以或可行",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3687,7 +3578,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "兴起、兴盛",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3717,7 +3607,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "休息、停止",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3747,7 +3636,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "样子、形状",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3777,7 +3665,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "爷爷",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3807,7 +3694,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "书本、文件的一页",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3837,7 +3723,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "影子、影像",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3867,7 +3752,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "使用、运用",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3897,7 +3781,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "右边、右侧",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3927,7 +3810,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "语言、话语、方言",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3957,7 +3839,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "元",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -3987,7 +3868,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "距离大、遥远",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4017,7 +3897,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "怎样、如何",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4047,7 +3926,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "寻找、查找",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4077,7 +3955,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示动作或状态持续",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4107,7 +3984,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "真实、真正",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4137,7 +4013,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "端正、正确",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4167,7 +4042,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "知道、了解",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4197,7 +4071,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "重量大",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4227,7 +4100,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "准确、标准",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4257,7 +4129,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "孩子、儿子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4286,7 +4157,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "程度最高",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4316,7 +4186,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "昨天",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4346,7 +4215,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "左边、左侧",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4376,7 +4244,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "做、从事",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4436,7 +4303,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "种类、方式或样子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4466,7 +4332,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "木板、板子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4496,7 +4361,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "处理、办理",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4526,7 +4390,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "吃饱、满足",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4556,7 +4419,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "报告、通知",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4586,7 +4448,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "必须、一定、必然",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4616,7 +4477,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "改变、变化",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4646,7 +4506,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示方便、便利，也可表示随后或于是",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4676,7 +4535,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "遍及、到处",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4706,7 +4564,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表面、表示",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4736,7 +4593,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "部门、部分、部队",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4766,7 +4622,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "才能、才华",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4796,7 +4651,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "参加、参与",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4826,7 +4680,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "餐饭、用餐",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4856,7 +4709,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "层次、层面",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4886,7 +4738,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "检查、查找、调查",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4916,7 +4767,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "超过、超越、超出",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4946,7 +4796,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "早晨、清晨",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -4976,7 +4825,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "称重、称呼、称赞",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5006,7 +4854,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "成功、完成",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5036,7 +4883,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "清楚、明白",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5066,7 +4912,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 chù 时表示地点、方面或部门",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5096,7 +4941,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "船只、船舶",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5126,7 +4970,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "吹气、吹风",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5156,7 +4999,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "春天、春季",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5186,7 +5028,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "词语、言辞",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5216,7 +5057,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "带子、区域",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5246,7 +5086,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "单独、单一",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5276,7 +5115,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "但是、然而",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5306,7 +5144,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "倒置、倒下",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5336,7 +5173,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "低、矮",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5366,7 +5202,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "典籍、标准",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5396,7 +5231,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "掉落、掉下来",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5426,7 +5260,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "确定、规定、决定",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5456,7 +5289,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "冬天、冬季",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5486,7 +5318,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "程度、度数、限度",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5516,7 +5347,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "长度短、时间短",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5546,7 +5376,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "段落、部分、阶段",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5576,7 +5405,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "队伍、团队或小组",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5634,7 +5462,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示发送、发出、发生或发展",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5664,7 +5491,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "法律、方法、法则",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5694,7 +5520,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "份额、部分",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5724,7 +5549,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "封闭、封口",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5754,7 +5578,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "返回、恢复",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5784,7 +5607,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "应该、应当",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5814,7 +5636,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "intermediate",
@@ -5842,7 +5663,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "感觉、感受",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5872,7 +5692,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "刚刚、刚才",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5902,7 +5721,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "公共、公有",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5932,7 +5750,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "卡片、卡车",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5962,7 +5779,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "健康、安康",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -5992,7 +5808,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "倚靠、靠近",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6022,7 +5837,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "学科、科目",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6052,7 +5866,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "可以、能够",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6082,7 +5895,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "克，重量单位",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6112,7 +5924,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "刻、雕刻",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6142,7 +5953,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示空的、没有东西，也可指天空或空气",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6172,7 +5982,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "哭泣、流泪",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6202,7 +6011,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "筷子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6232,7 +6040,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "拉、拖、牵引",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6262,7 +6069,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "蓝色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6292,7 +6098,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "篮子、篮筐",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6322,7 +6127,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示快乐、喜悦或以某事为乐",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6352,7 +6156,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "离开、分开",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6382,7 +6185,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "礼物、礼节、礼仪",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6412,7 +6214,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "道理、逻辑、原则",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6442,7 +6243,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "锋利、有利",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6472,7 +6272,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "例子、实例",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6502,7 +6301,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "脸、面部",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6532,7 +6330,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "练习、训练",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6562,7 +6359,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "凉爽、微冷",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6592,7 +6388,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "明亮、光亮",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6622,7 +6417,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "intermediate",
@@ -6650,7 +6444,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "数量、容量",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6680,7 +6473,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "留下、保留",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6710,7 +6502,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "流动、流淌",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6740,7 +6531,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "旅行、旅途",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6770,7 +6560,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "绿色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6800,7 +6589,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "观点、理论",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6830,7 +6618,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "装满、充满",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6860,7 +6647,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "末尾、最后阶段",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6890,7 +6676,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "眼睛",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6920,7 +6705,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "做、处理、摆弄",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6950,7 +6734,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "努力、尽力",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -6980,7 +6763,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "爬行、攀爬",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7010,7 +6792,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "害怕、畏惧",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7040,7 +6821,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "排列、排队",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7070,7 +6850,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "触碰、碰撞",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7100,7 +6879,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "篇章、文章",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7130,7 +6908,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "薄片、片段",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7160,7 +6937,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "漂浮、漂流",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7190,7 +6966,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "平坦、平整",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7220,7 +6995,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "瓶子、瓶状容器",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7250,7 +7024,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "普遍、普通",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7280,7 +7053,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "他、她、它的",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7310,7 +7082,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "骑马、骑车",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7370,7 +7141,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "墙壁、围墙",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7400,7 +7170,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "而且、并且",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7430,7 +7199,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "腿",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7460,7 +7228,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "完成、结束",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7490,7 +7257,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "碗",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7550,7 +7316,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "国王、君主",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7580,7 +7345,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "前往、朝向",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7610,7 +7374,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "作为、成为、做",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7640,7 +7403,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "位置、地点",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7670,7 +7432,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "味道、气味",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7700,7 +7461,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "喂食、饲养",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7730,7 +7490,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "温暖、温和",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7760,7 +7519,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "听见、听闻",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7790,7 +7548,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "事务、业务",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7820,7 +7577,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "物品、事物",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7850,7 +7606,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "夏天、夏季",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7880,7 +7635,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "相互、彼此",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7910,7 +7664,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "声音、回响",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7940,7 +7693,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "朝向、面向",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -7970,7 +7722,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "像、相似",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8000,7 +7751,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "信件、邮件",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8030,7 +7780,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "姓氏",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8060,7 +7809,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "必须、应当",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8090,7 +7838,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "允许、答应、许诺",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8120,7 +7867,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "选择、挑选",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8150,7 +7896,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "颜色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8180,7 +7925,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "太阳、阳光",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8210,7 +7954,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "养育、饲养",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8240,7 +7983,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "行业、职业、工作",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8270,7 +8012,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "夜晚、夜间",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8300,7 +8041,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "适宜、合适",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8330,7 +8070,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "已经",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8420,7 +8159,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "意思、想法、意义",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8450,7 +8188,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "原因、因素",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8480,7 +8217,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "阴天、阴暗",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8510,7 +8246,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "声音、音调",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8540,7 +8275,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "银、银色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8570,7 +8304,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "印刷、盖印",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8600,7 +8333,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "应该、应当",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8629,7 +8361,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "英国、英语",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8659,7 +8390,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "欢迎、迎接",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8689,7 +8419,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "永远、永久",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8719,7 +8448,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "由、从",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8749,7 +8477,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "油、油脂、石油",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8779,7 +8506,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "游泳、游玩、旅行",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8809,7 +8535,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "又一次、也",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8839,7 +8564,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "在、向、从、比",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8869,7 +8593,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "养育、教育、培养",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8899,7 +8622,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "园子、花园、公园",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8929,7 +8651,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "共同、一起",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8959,7 +8680,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "狗",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -8989,7 +8709,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "足够、充分",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9019,7 +8738,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "原因、缘故",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9049,7 +8767,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "照顾、关照",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9079,7 +8796,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "观看、观察",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9109,7 +8825,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "习惯、惯常",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9139,7 +8854,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "宽广、广大",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9169,7 +8883,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "海洋、大海",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9199,7 +8912,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "喊叫、大声呼喊",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9229,7 +8941,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "河流",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9259,7 +8970,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "黑色、黑暗",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9289,7 +8999,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "红色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9319,7 +9028,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "忽然、突然",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9349,7 +9057,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "湖泊",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9379,7 +9086,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "保护、守护",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9409,7 +9115,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "划船、划动",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9439,7 +9144,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "画画、绘画",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9469,7 +9173,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "交换、更换、替换",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9499,7 +9202,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "黄色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9529,7 +9231,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "生活、活着",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9559,7 +9260,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "或者、或许",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9589,7 +9289,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "级别、等级、年级",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9619,7 +9318,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "紧急、急迫",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9649,7 +9347,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "自己、本人",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9679,7 +9376,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "计算、计数",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9739,7 +9435,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "成绩、功绩",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9769,7 +9464,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "增加、添加",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9799,7 +9493,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "检查、检验、检视",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9829,7 +9522,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "件",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9859,7 +9551,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "健康、强健",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9889,7 +9580,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "讲话、讲解、讲课",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9919,7 +9609,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "交给、交付、交钱",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9949,7 +9638,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示角落、角度、动物的角，也可作人民币单位",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -9979,7 +9667,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "饺子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10009,7 +9696,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "接收、接听、迎接",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10039,7 +9725,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "街道、街巷",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10069,7 +9754,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "节日、季节",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10099,7 +9783,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "打结、结合",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10129,7 +9812,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "借入、借出",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10159,7 +9841,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "斤",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10189,7 +9870,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "距离短、接近",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10220,7 +9900,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "经过、经历",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10250,7 +9929,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "眼珠、眼睛",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10280,7 +9958,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "安静、平静",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10310,7 +9987,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "时间长、很久",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10340,7 +10016,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "酒类饮品",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10370,7 +10045,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "举起、抬起",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10400,7 +10074,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "句子、语句",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10430,7 +10103,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "青色",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10460,7 +10132,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "重量小",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10491,7 +10162,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "清澈、干净",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10521,7 +10191,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "感情、情绪、心情",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10551,7 +10220,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "intermediate",
@@ -10580,7 +10248,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "秋天、秋季",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10610,7 +10277,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "寻找、请求、要求",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10640,7 +10306,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "拿取、取得、选择",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10670,7 +10335,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "全部、整个、完整",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10700,7 +10364,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "确实、真实、准确",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10760,7 +10423,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "让步、允许",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10790,7 +10452,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "如同、好像",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10820,7 +10481,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "进入、加入",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10850,7 +10510,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "颜色、色彩",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10880,7 +10539,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "声音、声调、声响",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10910,7 +10568,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "省份、省级行政区",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10940,7 +10597,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "真实、实际",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -10970,7 +10626,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "吃、食物",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11000,7 +10655,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "使得、使某人做某事",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11030,7 +10684,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "显示、表示、示范",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11060,7 +10713,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "市场、城市",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11090,7 +10742,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "适合、适宜",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11120,7 +10771,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "房间、室内空间",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11150,7 +10800,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "收到、收集",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11180,7 +10829,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "接受、受到",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11210,7 +10858,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "舒展、放松",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11240,7 +10887,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "成熟、熟透",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11270,7 +10916,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "数数、计算",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11300,7 +10945,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "顺着、顺从",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11360,7 +11004,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "思考、考虑",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11390,7 +11033,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "计算、算出",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11420,7 +11062,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "虽然、尽管",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11450,7 +11091,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "跟随、随着",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11480,7 +11120,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "地方、处所",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11510,7 +11149,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "状态、形态、态度",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11540,7 +11178,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "厅堂、大厅",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11570,7 +11207,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "讨要、请求、讨论",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11600,7 +11236,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "套上、套住",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11630,7 +11265,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "特别、特殊",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11660,7 +11294,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "疼痛、痛",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11690,7 +11323,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "提起、拿起",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11720,7 +11352,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "题目、问题、主题",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11750,7 +11381,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "铁、铁器",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11780,7 +11410,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "庭院、院落",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11810,7 +11439,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "停止、停下",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11840,7 +11468,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "挺直、支撑",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11870,7 +11497,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "通过、连通、沟通",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11900,7 +11526,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "推、推动",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11930,7 +11555,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "原本、原先",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11960,7 +11584,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "希望、心愿",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -11990,7 +11613,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "超过、跨过",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12020,7 +11642,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "移动、运输",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12078,7 +11699,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 zāng 表示不干净",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12108,7 +11728,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "洗浴",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12138,7 +11757,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 zhàn 表示占据、占用",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12168,7 +11786,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "发光、照亮",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12226,7 +11843,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "不弯曲",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12286,7 +11902,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "一轮、环绕",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12316,7 +11931,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "主要的",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12346,7 +11960,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "intermediate",
@@ -12374,7 +11987,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "穿戴、装入、安装",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12404,7 +12016,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "自己",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12434,7 +12045,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "租用或出租",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12464,7 +12074,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "组合、组织",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12524,7 +12133,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "座位或底座",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12554,7 +12162,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "按下、压住",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12584,7 +12191,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "移动、搬运",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12614,7 +12220,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "保护、保卫",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12644,7 +12249,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "被子",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12674,7 +12278,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "advanced",
@@ -12702,7 +12305,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "标记、标志",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12732,7 +12334,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "并且、同时",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12762,7 +12363,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "播种、传播",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12792,7 +12392,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "修补、补充",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12822,7 +12421,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "布料",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12852,7 +12450,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "脚步、步伐",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12882,7 +12479,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "材料、木材",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12912,7 +12508,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "采摘、采集",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12942,7 +12537,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "颜色、色彩",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -12971,7 +12565,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "曾经、以前",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13001,7 +12594,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "观察、考察、审查",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13031,7 +12623,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "生产、产生",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13061,7 +12652,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "工厂、厂房",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13091,7 +12681,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 cháo 表示朝向或朝代",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13121,7 +12710,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "声音大、吵闹",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13151,7 +12739,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "衬里、衬托",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13181,7 +12768,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "城市、城镇",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13211,7 +12797,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "过程、程序、路程",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13241,7 +12826,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "拿着、保持",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13271,7 +12855,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "充满、充足",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13301,7 +12884,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "开始、最初",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13331,7 +12913,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "去掉、清除",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13361,7 +12942,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "基础、根基",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13391,7 +12971,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "表示传递、传播或传授",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13421,7 +13000,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 chuàng 表示创造、开创",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13481,7 +13059,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "村庄、乡村",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13511,7 +13088,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "存在、保存",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13541,7 +13117,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "到达、达到",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13571,7 +13146,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "时代、年代",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13601,7 +13175,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 dài 表示等待或对待",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13631,7 +13204,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "刀具、刀片",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13661,7 +13233,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "引导、指导",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13691,7 +13262,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "底部、底面",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13721,7 +13291,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 diào 表示调动或调查",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13751,7 +13320,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "订立、预订",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13781,7 +13349,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "断开、折断",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13811,7 +13378,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "停顿、暂停",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13841,7 +13407,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "烦恼、心烦",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13871,7 +13436,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "相反、反面",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13901,7 +13465,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "典范、范例",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13931,7 +13494,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "防备、防护",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13961,7 +13523,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "访问、拜访",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -13991,7 +13552,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "advanced",
@@ -14019,7 +13579,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "费用、花费",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14049,7 +13608,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "仅仅、只有",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14079,7 +13637,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 jǐn 常表示尽量",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14109,7 +13666,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "紧密、紧张",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14139,7 +13695,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "精细、精华",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14169,7 +13724,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "景色、风景",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14199,7 +13753,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "警告、提醒",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14229,7 +13782,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "环境、境地",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14259,7 +13811,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "旧的、以前的",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14289,7 +13840,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "救助、救援",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14319,7 +13869,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "工具、器具",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14349,7 +13898,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "戏剧、剧集",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14379,7 +13927,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "依据、根据",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14409,7 +13956,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "决定、决断",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14439,7 +13985,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "断绝、绝对",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14469,7 +14014,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": null,
       "availableModes": [
         "word",
-        "definition",
         "sentence"
       ],
       "difficulty": "advanced",
@@ -14497,7 +14041,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "害怕、恐惧",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14555,7 +14098,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "情况、状况",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14585,7 +14127,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "困住、困难",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14615,7 +14156,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "海浪、波浪",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14645,7 +14185,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "种类、类别",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14675,7 +14214,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "李子、李树",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14705,7 +14243,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "经历、历史",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14735,7 +14272,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "站立、建立",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14765,7 +14301,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "美丽、秀丽",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14795,7 +14330,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "连接、连续",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14825,7 +14359,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "联合、联系",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14855,7 +14388,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "强烈、猛烈",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14885,7 +14417,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "带领、领取",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14915,7 +14446,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "另外、另一个",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14945,7 +14475,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "中国文化中的龙",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -14975,7 +14504,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "记录、录制",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15005,7 +14533,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "混乱、杂乱",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15035,7 +14562,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "读 luò 常表示落下、降落",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15065,7 +14591,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "麻类植物",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15095,7 +14620,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "冒出、冒险",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15125,7 +14649,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "媒介、媒人",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15155,7 +14678,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "每一个、每次",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15185,7 +14707,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "美丽、美好",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15215,7 +14736,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "迷路、着迷",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15245,7 +14765,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "人民、民众",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15275,7 +14794,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "生命、命运",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15305,7 +14823,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "某个、某人",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15335,7 +14852,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "母亲",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15365,7 +14881,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "里面、内部",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15395,7 +14910,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "念书、读出",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15425,7 +14939,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "母亲",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15454,7 +14967,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "农业、农民",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15484,7 +14996,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "温暖、暖和",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
@@ -15514,7 +15025,6 @@ window.SWIFT_CHINESE_FLASHCARDS =
       "translationZh": "拍打、拍摄",
       "availableModes": [
         "word",
-        "definition",
         "translation",
         "sentence"
       ],
