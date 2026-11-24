@@ -164,10 +164,11 @@ function supports(card,mode,language){
 const coverage={word:0,definition:0,translation_en:0,translation_zh:0,sentence:0};
 for(const [mode,language,key] of [["word","zh","word"],["definition","zh","definition"],["translation","en","translation_en"],["translation","zh","translation_zh"],["sentence","zh","sentence"]]){
  const eligible=allCards.filter(card=>supports(card,mode,language));coverage[key]=eligible.length;
- if(mode==="definition"||mode==="translation"){
+ if(mode==="definition"||mode==="translation"||mode==="sentence"){
   const cueGroups=new Map();
   for(const card of eligible){
-   const cue=norm(cueFor(card,mode,language));
+   const rawCue=mode==="sentence"?blankAllOccurrencesForCheck(card.exampleZh,card.word):cueFor(card,mode,language);
+   const cue=norm(rawCue);
    if(cue){const group=cueGroups.get(cue)||[];group.push(card.word);cueGroups.set(cue,group);}
   }
   for(const words of cueGroups.values())if(words.length>1)errors.push("Ambiguous "+key+" cue is shared by: "+words.join(", "));
