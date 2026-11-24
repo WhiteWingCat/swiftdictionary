@@ -757,5 +757,5 @@ test("Chinese Mixed Recall includes Translation Recall and rejects definition-cu
   const leakedTranslation=deck.map(card=>({...card,translationZh:"相关表达"+card.word,translationLanguages:["zh"],availableModes:["translation"]}));
   assert.throws(()=>makeRound(leakedTranslation),/does not contain four distinct choices/,
     "Chinese Translation Recall must reject a cue that contains its target");
-  assert.match(flashcardsSource,/chinese\?\["word","definition","translation","sentence"\]:\["word","definition","translation","sentence"\]/);
+  assert.match(flashcardsSource,/chinese\?\["word","definition","translation","sentence"\]:\["word","definition","sentence"\]/);
 });
