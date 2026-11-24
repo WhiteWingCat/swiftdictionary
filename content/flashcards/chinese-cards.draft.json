@@ -10205,7 +10205,8 @@
       "translationLanguages": [
         "en",
         "zh"
-      ]
+      ],
+      "sentenceExampleZh": "这家商店离地铁站很近。"
     },
     {
       "id": "zh-char-7ecf",
@@ -10475,7 +10476,8 @@
       "translationLanguages": [
         "en",
         "zh"
-      ]
+      ],
+      "sentenceExampleZh": "这件行李很轻，可以自己拿。"
     },
     {
       "id": "zh-char-6e05",
@@ -10563,7 +10565,8 @@
       "difficulty": "intermediate",
       "translationLanguages": [
         "en"
-      ]
+      ],
+      "sentenceExampleZh": "雨停后，天气终于放晴了。"
     },
     {
       "id": "zh-char-79cb",
@@ -36634,7 +36637,8 @@
       "sourceIds": [
         "swift-authored"
       ],
-      "contentStatus": "draft"
+      "contentStatus": "draft",
+      "sentenceExampleZh": "刚才的声音太小了，请再说一遍。"
     },
     {
       "id": "zh-phrase-014",
@@ -36709,7 +36713,8 @@
       "sourceIds": [
         "swift-authored"
       ],
-      "contentStatus": "draft"
+      "contentStatus": "draft",
+      "sentenceExampleZh": "我搬不动这个箱子，可以帮我吗？"
     },
     {
       "id": "zh-phrase-017",
