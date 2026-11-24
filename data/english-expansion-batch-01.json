@@ -435,7 +435,7 @@
     },
     {
       "word": "chase",
-      "part": "noun",
+      "part": "verb / noun",
       "phonetic": "/tʃeɪs/",
       "definition": "The act of following someone or something in order to catch or reach them.",
       "definitionZh": "追赶或追逐某人或某物的行为；追逐。",
@@ -468,6 +468,15 @@
           "examples": [
             "She is chasing her dream of becoming a writer.",
             "He spent years chasing success."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of following someone or something in order to catch or reach them.",
+          "definitionZh": "追赶或追逐某人或某物的行为；追逐。",
+          "examples": [
+            "The chase continued through the narrow streets.",
+            "After a long chase, the dog caught the ball."
           ]
         }
       ]
