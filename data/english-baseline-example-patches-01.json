@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add a second context-appropriate example to existing English baseline entries that currently have one example.",
-  "status": "editorially-authored; awaiting integrated QA",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "71332fdf57a38dbf00c49ca49aaf517e51958002",
   "entries": [
     {
@@ -185,5 +185,6 @@
         "Island biogeography examines how distance and island size affect species diversity."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
 }
