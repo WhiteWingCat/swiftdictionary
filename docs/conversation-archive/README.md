@@ -180,3 +180,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.8.0 — second owner feedback remediation](2026-11-23-update-2-8-0-second-owner-feedback-remediation.md) — records the 12-point Quiz, Flashcards and Dashboard feedback round, Chinese answer-leak audit across both prompt languages, start-based Quiz allowance, staging SQL migrations, RLS performance fix, validation status and unchanged production boundary.
+
+## 2026-11-24
+
+- [Update 2.9.0 — planning approval and Premium collection-limit decision](2026-11-24-update-2-9-0-planning-approval-and-premium-collection-limits.md) — records the owner-approved English dictionary expansion, full definition/grammar audit, mixed-language Favorite collections, English filters, Chinese translation QA, visual-only Premium preparation, optional English learning-content expansion, approved development sequence, and proposed Free 16/Premium 40 collection-folder capacities with future enforcement and downgrade safeguards.
