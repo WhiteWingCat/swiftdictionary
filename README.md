@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.8.0 — Chinese Quiz & Flashcards Expansion
 
-> **Release status (2026-11-24):** U2.8.0 implementation and staging QA are in final review. The staging database includes the complete U2.8.0 migration sequence, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. Production remains on U2.7.0; U2.8.0 has not yet been merged or deployed. Do not describe the release as complete until the application merge, production migration verification and production deployment have all succeeded.
+> **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 24 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application merge to `main` and production Pages deployment are pending final latest-head CI verification. Do not describe the application release as complete until the merge and production deployment have succeeded.
 
 ## Update 2.8.0 scope
 
