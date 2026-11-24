@@ -43,11 +43,11 @@ declare expected_count integer := 23;
 begin
  if (select count(*) from _u28_chinese_quiz_polish_updates)<>expected_count then raise exception 'Chinese Quiz polish manifest count mismatch'; end if;
  if (select count(*) from _u28_chinese_quiz_polish_current)<>expected_count then raise exception 'Expected one current draft or approved row for each Chinese Quiz polish update'; end if;
- if exists(select 1 from _u28_chinese_quiz_polish_current c where c.revision<>(select max(x.revision) from private.quiz_question_bank x where x.question_id=c.question_id)) then raise exception 'An approved Chinese Quiz row is not the latest revision'; end if;
+ if exists(select 1 from _u28_chinese_quiz_polish_current c where c.revision<>(select max(x.revision) from private.quiz_question_bank x where x.question_id=c.question_id)) then raise exception 'A Chinese Quiz row is not the latest revision'; end if;
  if exists(select 1 from _u28_chinese_quiz_polish_current c join private.quiz_question_bank n on n.question_id=c.question_id and n.revision=c.revision+1) then raise exception 'A Chinese Quiz polish revision already exists'; end if;
 end $$;
 update private.quiz_question_bank q set status='retired',approved_at=null,updated_at=now()
-from _u28_chinese_quiz_polish_current c where q.question_id=c.question_id and q.revision=c.revision and q.status='approved';
+from _u28_chinese_quiz_polish_current c where q.question_id=c.question_id and q.revision=c.revision and q.status in ('approved','draft');
 insert into private.quiz_question_bank (
  question_id,revision,learning_language_code,translation_language_code,source_lesson_id,topic_id,difficulty,
  prompt_learning,prompt_translation,options,correct_option_id,explanation_learning,explanation_translation,
