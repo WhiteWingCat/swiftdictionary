@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Sense-level corrections for additional common multi-part-of-speech English baseline entries.",
-  "status": "editorially-authored; awaiting final editorial review and integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "ee59e22257a83b4130248d22a8a99254a70c2a10",
   "patches": [
     {
@@ -695,5 +695,6 @@
         }
       ]
     }
-  ]
+  ],
+  "appliedCommit": "628e4fbd7ab7e9bf832e1190455b100b21c27d08"
 }
