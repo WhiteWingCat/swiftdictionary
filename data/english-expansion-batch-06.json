@@ -3031,6 +3031,1283 @@
           ]
         }
       ]
+    },
+    {
+      "word": "object",
+      "part": "noun",
+      "phonetic": "/ˈɑːbdʒekt/",
+      "definition": "A thing that can be seen or touched, rather than a person or idea.",
+      "definitionZh": "物体；物品；对象",
+      "examples": [
+        "She placed the small object on the table.",
+        "The museum displayed objects from daily life."
+      ],
+      "tip": "Use “object” for a physical thing; in grammar and computing it can have more specific meanings.",
+      "course": "en",
+      "breakdown": "A thing that can be seen or touched, rather than a person or idea.",
+      "related": "item;thing",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A thing that can be seen or touched, rather than a person or idea.",
+          "definitionZh": "物体；物品；对象",
+          "examples": [
+            "She placed the small object on the table.",
+            "The museum displayed objects from daily life."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "order",
+      "part": "noun / verb",
+      "phonetic": "/ˈɔːrdər/",
+      "definition": "A request for goods or food; an arrangement; or to ask for something to be supplied.",
+      "definitionZh": "订单；点餐；顺序；命令",
+      "examples": [
+        "We placed an order for two coffees.",
+        "Please put the books in alphabetical order."
+      ],
+      "tip": "“In order” can mean arranged correctly; “order” can also mean to request or command.",
+      "course": "en",
+      "breakdown": "A request for goods or food; an arrangement; or to ask for something to be supplied.",
+      "related": "request;arrangement",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A request for goods or food; an arrangement; or to ask for something to be supplied.",
+          "definitionZh": "订单；点餐；顺序；命令",
+          "examples": [
+            "We placed an order for two coffees.",
+            "Please put the books in alphabetical order."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "A request for goods or food; an arrangement; or to ask for something to be supplied.",
+          "definitionZh": "订单；点餐；顺序；命令",
+          "examples": [
+            "We placed an order for two coffees.",
+            "Please put the books in alphabetical order."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "owner",
+      "part": "noun",
+      "phonetic": "/ˈoʊnər/",
+      "definition": "A person or organisation that legally possesses something.",
+      "definitionZh": "所有者；主人；业主",
+      "examples": [
+        "The owner of the shop greeted us.",
+        "Please return the keys to their owner."
+      ],
+      "tip": "Use “owner of” before the thing or place someone possesses.",
+      "course": "en",
+      "breakdown": "A person or organisation that legally possesses something.",
+      "related": "ownership;possessor",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person or organisation that legally possesses something.",
+          "definitionZh": "所有者；主人；业主",
+          "examples": [
+            "The owner of the shop greeted us.",
+            "Please return the keys to their owner."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "page",
+      "part": "noun",
+      "phonetic": "/peɪdʒ/",
+      "definition": "One side of a sheet in a book, magazine or document; or a section of a website.",
+      "definitionZh": "页；页面",
+      "examples": [
+        "Turn to page twelve, please.",
+        "The information is on the last page of the website."
+      ],
+      "tip": "A page can be part of a printed book or a digital document.",
+      "course": "en",
+      "breakdown": "One side of a sheet in a book, magazine or document; or a section of a website.",
+      "related": "sheet;webpage",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One side of a sheet in a book, magazine or document; or a section of a website.",
+          "definitionZh": "页；页面",
+          "examples": [
+            "Turn to page twelve, please.",
+            "The information is on the last page of the website."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pair",
+      "part": "noun",
+      "phonetic": "/per/",
+      "definition": "Two people or things that are used or considered together.",
+      "definitionZh": "一对；一双；一副",
+      "examples": [
+        "I bought a pair of comfortable shoes.",
+        "The pair of friends walked home together."
+      ],
+      "tip": "Use “a pair of” with plural countable nouns, such as shoes or gloves.",
+      "course": "en",
+      "breakdown": "Two people or things that are used or considered together.",
+      "related": "couple;duo",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Two people or things that are used or considered together.",
+          "definitionZh": "一对；一双；一副",
+          "examples": [
+            "I bought a pair of comfortable shoes.",
+            "The pair of friends walked home together."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "paper",
+      "part": "noun",
+      "phonetic": "/ˈpeɪpər/",
+      "definition": "Thin material used for writing or printing; also a newspaper, document or academic article.",
+      "definitionZh": "纸；报纸；文件；论文",
+      "examples": [
+        "Could you give me a piece of paper?",
+        "She presented her research in a scientific paper."
+      ],
+      "tip": "“Paper” is usually uncountable when it means the material, but countable for a newspaper or article.",
+      "course": "en",
+      "breakdown": "Thin material used for writing or printing; also a newspaper, document or academic article.",
+      "related": "document;sheet",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Thin material used for writing or printing; also a newspaper, document or academic article.",
+          "definitionZh": "纸；报纸；文件；论文",
+          "examples": [
+            "Could you give me a piece of paper?",
+            "She presented her research in a scientific paper."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "part",
+      "part": "noun",
+      "phonetic": "/pɑːrt/",
+      "definition": "A piece or section of something; or a role in an activity or performance.",
+      "definitionZh": "部分；部件；角色",
+      "examples": [
+        "This is the most difficult part of the task.",
+        "He played the main part in the school show."
+      ],
+      "tip": "“Part of” means one section or member of a larger whole.",
+      "course": "en",
+      "breakdown": "A piece or section of something; or a role in an activity or performance.",
+      "related": "section;piece",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A piece or section of something; or a role in an activity or performance.",
+          "definitionZh": "部分；部件；角色",
+          "examples": [
+            "This is the most difficult part of the task.",
+            "He played the main part in the school show."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "party",
+      "part": "noun",
+      "phonetic": "/ˈpɑːrti/",
+      "definition": "A social event where people meet for enjoyment; or a group involved in an agreement or activity.",
+      "definitionZh": "派对；聚会；一方；团体",
+      "examples": [
+        "We're having a small party on Saturday.",
+        "Both parties agreed to the new plan."
+      ],
+      "tip": "In everyday conversation, “party” often means a celebration; in formal contexts it can mean a side in an agreement.",
+      "course": "en",
+      "breakdown": "A social event where people meet for enjoyment; or a group involved in an agreement or activity.",
+      "related": "celebration;group",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A social event where people meet for enjoyment; or a group involved in an agreement or activity.",
+          "definitionZh": "派对；聚会；一方；团体",
+          "examples": [
+            "We're having a small party on Saturday.",
+            "Both parties agreed to the new plan."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "period",
+      "part": "noun",
+      "phonetic": "/ˈpɪriəd/",
+      "definition": "A length of time; or a lesson or stage within a timetable or process.",
+      "definitionZh": "时期；期间；课时",
+      "examples": [
+        "She lived in Japan for a short period.",
+        "Our next class is during the second period."
+      ],
+      "tip": "“For a period of time” describes duration; “period” can also mean a punctuation mark in American English.",
+      "course": "en",
+      "breakdown": "A length of time; or a lesson or stage within a timetable or process.",
+      "related": "time;stage",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A length of time; or a lesson or stage within a timetable or process.",
+          "definitionZh": "时期；期间；课时",
+          "examples": [
+            "She lived in Japan for a short period.",
+            "Our next class is during the second period."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "place",
+      "part": "noun / verb",
+      "phonetic": "/pleɪs/",
+      "definition": "A particular location or position; or to put something somewhere.",
+      "definitionZh": "地方；地点；位置；放置",
+      "examples": [
+        "This is a quiet place to study.",
+        "Please place your bag under the desk."
+      ],
+      "tip": "“Place” can be a noun for a location or a verb meaning to put something somewhere.",
+      "course": "en",
+      "breakdown": "A particular location or position; or to put something somewhere.",
+      "related": "location;spot",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A particular location or position; or to put something somewhere.",
+          "definitionZh": "地方；地点；位置；放置",
+          "examples": [
+            "This is a quiet place to study.",
+            "Please place your bag under the desk."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "A particular location or position; or to put something somewhere.",
+          "definitionZh": "地方；地点；位置；放置",
+          "examples": [
+            "This is a quiet place to study.",
+            "Please place your bag under the desk."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "position",
+      "part": "noun / verb",
+      "phonetic": "/pəˈzɪʃən/",
+      "definition": "The place where someone or something is; a job or role; or to put something in a particular place.",
+      "definitionZh": "位置；职位；立场；安置",
+      "examples": [
+        "The chairs are in the correct position.",
+        "She applied for a teaching position."
+      ],
+      "tip": "The meaning may be physical location, employment, or someone's opinion, depending on context.",
+      "course": "en",
+      "breakdown": "The place where someone or something is; a job or role; or to put something in a particular place.",
+      "related": "location;role",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The place where someone or something is; a job or role; or to put something in a particular place.",
+          "definitionZh": "位置；职位；立场；安置",
+          "examples": [
+            "The chairs are in the correct position.",
+            "She applied for a teaching position."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "The place where someone or something is; a job or role; or to put something in a particular place.",
+          "definitionZh": "位置；职位；立场；安置",
+          "examples": [
+            "The chairs are in the correct position.",
+            "She applied for a teaching position."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "power",
+      "part": "noun",
+      "phonetic": "/ˈpaʊər/",
+      "definition": "The ability or authority to control, influence or do something; or energy supplied to operate equipment.",
+      "definitionZh": "力量；权力；电力",
+      "examples": [
+        "The new manager has the power to make that decision.",
+        "The storm caused a power cut."
+      ],
+      "tip": "“Power” can refer to authority, physical ability or electricity; check the context.",
+      "course": "en",
+      "breakdown": "The ability or authority to control, influence or do something; or energy supplied to operate equipment.",
+      "related": "authority;energy",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The ability or authority to control, influence or do something; or energy supplied to operate equipment.",
+          "definitionZh": "力量；权力；电力",
+          "examples": [
+            "The new manager has the power to make that decision.",
+            "The storm caused a power cut."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "price",
+      "part": "noun / verb",
+      "phonetic": "/praɪs/",
+      "definition": "The amount of money needed to buy something; or to set that amount.",
+      "definitionZh": "价格；价钱；定价",
+      "examples": [
+        "The price of the ticket has increased.",
+        "The shop priced the items clearly."
+      ],
+      "tip": "Use “price of” for the cost of something; “price” is different from “cost” in some contexts.",
+      "course": "en",
+      "breakdown": "The amount of money needed to buy something; or to set that amount.",
+      "related": "cost;fee",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The amount of money needed to buy something; or to set that amount.",
+          "definitionZh": "价格；价钱；定价",
+          "examples": [
+            "The price of the ticket has increased.",
+            "The shop priced the items clearly."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "The amount of money needed to buy something; or to set that amount.",
+          "definitionZh": "价格；价钱；定价",
+          "examples": [
+            "The price of the ticket has increased.",
+            "The shop priced the items clearly."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "problem",
+      "part": "noun",
+      "phonetic": "/ˈprɑːbləm/",
+      "definition": "A situation or matter that causes difficulty and needs attention or a solution.",
+      "definitionZh": "问题；难题；困难",
+      "examples": [
+        "We need to find a solution to this problem.",
+        "There was a problem with the train service."
+      ],
+      "tip": "A problem is something difficult; a question is something asked to get information or an answer.",
+      "course": "en",
+      "breakdown": "A situation or matter that causes difficulty and needs attention or a solution.",
+      "related": "difficulty;issue",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A situation or matter that causes difficulty and needs attention or a solution.",
+          "definitionZh": "问题；难题；困难",
+          "examples": [
+            "We need to find a solution to this problem.",
+            "There was a problem with the train service."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "product",
+      "part": "noun",
+      "phonetic": "/ˈprɑːdʌkt/",
+      "definition": "Something made or grown to be sold or used; or the result of multiplying numbers.",
+      "definitionZh": "产品；制品；乘积",
+      "examples": [
+        "This product is made from recycled materials.",
+        "The product of six and four is twenty-four."
+      ],
+      "tip": "In shopping, a product is an item for sale; in mathematics, it is the result of multiplication.",
+      "course": "en",
+      "breakdown": "Something made or grown to be sold or used; or the result of multiplying numbers.",
+      "related": "item;goods",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Something made or grown to be sold or used; or the result of multiplying numbers.",
+          "definitionZh": "产品；制品；乘积",
+          "examples": [
+            "This product is made from recycled materials.",
+            "The product of six and four is twenty-four."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "quality",
+      "part": "noun",
+      "phonetic": "/ˈkwɑːləti/",
+      "definition": "How good or bad something is; or a feature or characteristic of a person or thing.",
+      "definitionZh": "质量；品质；特征",
+      "examples": [
+        "The hotel is known for its high quality of service.",
+        "Patience is an important quality in a teacher."
+      ],
+      "tip": "“Quality” can describe a level of excellence or a characteristic someone or something has.",
+      "course": "en",
+      "breakdown": "How good or bad something is; or a feature or characteristic of a person or thing.",
+      "related": "standard;characteristic",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "How good or bad something is; or a feature or characteristic of a person or thing.",
+          "definitionZh": "质量；品质；特征",
+          "examples": [
+            "The hotel is known for its high quality of service.",
+            "Patience is an important quality in a teacher."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "reason",
+      "part": "noun / verb",
+      "phonetic": "/ˈriːzən/",
+      "definition": "An explanation for why something happens or is done; or to think logically.",
+      "definitionZh": "原因；理由；推理",
+      "examples": [
+        "What is the reason for the delay?",
+        "We reasoned that taking the earlier train would be safer."
+      ],
+      "tip": "Use “reason for” to introduce a cause and “reason why” to introduce an explanation.",
+      "course": "en",
+      "breakdown": "An explanation for why something happens or is done; or to think logically.",
+      "related": "cause;explanation",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An explanation for why something happens or is done; or to think logically.",
+          "definitionZh": "原因；理由；推理",
+          "examples": [
+            "What is the reason for the delay?",
+            "We reasoned that taking the earlier train would be safer."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "An explanation for why something happens or is done; or to think logically.",
+          "definitionZh": "原因；理由；推理",
+          "examples": [
+            "What is the reason for the delay?",
+            "We reasoned that taking the earlier train would be safer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "record",
+      "part": "noun / verb",
+      "phonetic": "/ˈrekərd/",
+      "definition": "Information kept for future reference; or to write down, store or capture information.",
+      "definitionZh": "记录；档案；录制",
+      "examples": [
+        "Keep a record of your expenses.",
+        "The camera records video in high definition."
+      ],
+      "tip": "The noun is usually stressed on the first syllable (/ˈrekərd/); the verb is stressed on the second (/rɪˈkɔːrd/).",
+      "course": "en",
+      "breakdown": "Information kept for future reference; or to write down, store or capture information.",
+      "related": "document;log",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Information kept for future reference; or to write down, store or capture information.",
+          "definitionZh": "记录；档案；录制",
+          "examples": [
+            "Keep a record of your expenses.",
+            "The camera records video in high definition."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "Information kept for future reference; or to write down, store or capture information.",
+          "definitionZh": "记录；档案；录制",
+          "examples": [
+            "Keep a record of your expenses.",
+            "The camera records video in high definition."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "role",
+      "part": "noun",
+      "phonetic": "/roʊl/",
+      "definition": "The function or part that someone or something has in a situation, group or activity.",
+      "definitionZh": "角色；作用；职责",
+      "examples": [
+        "Everyone has a role to play in the project.",
+        "Parents play an important role in a child's development."
+      ],
+      "tip": "Use “role in” to describe someone's function within an activity or situation.",
+      "course": "en",
+      "breakdown": "The function or part that someone or something has in a situation, group or activity.",
+      "related": "function;part",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The function or part that someone or something has in a situation, group or activity.",
+          "definitionZh": "角色；作用；职责",
+          "examples": [
+            "Everyone has a role to play in the project.",
+            "Parents play an important role in a child's development."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "room",
+      "part": "noun",
+      "phonetic": "/ruːm/",
+      "definition": "A part of a building enclosed by walls; or space available for someone or something.",
+      "definitionZh": "房间；空间",
+      "examples": [
+        "There are two bedrooms in the apartment.",
+        "There isn't enough room for another chair."
+      ],
+      "tip": "“Room” is countable for a separate space in a building, but often uncountable when it means available space.",
+      "course": "en",
+      "breakdown": "A part of a building enclosed by walls; or space available for someone or something.",
+      "related": "space;bedroom",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A part of a building enclosed by walls; or space available for someone or something.",
+          "definitionZh": "房间；空间",
+          "examples": [
+            "There are two bedrooms in the apartment.",
+            "There isn't enough room for another chair."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "rule",
+      "part": "noun / verb",
+      "phonetic": "/ruːl/",
+      "definition": "An official or accepted instruction that controls what people may do; or to control or decide something.",
+      "definitionZh": "规则；规定；裁定",
+      "examples": [
+        "Every player must follow the rules.",
+        "The judge ruled that the evidence could be used."
+      ],
+      "tip": "“Rule” can mean a regulation, while “rule out” means to decide that something is not possible.",
+      "course": "en",
+      "breakdown": "An official or accepted instruction that controls what people may do; or to control or decide something.",
+      "related": "regulation;law",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An official or accepted instruction that controls what people may do; or to control or decide something.",
+          "definitionZh": "规则；规定；裁定",
+          "examples": [
+            "Every player must follow the rules.",
+            "The judge ruled that the evidence could be used."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "An official or accepted instruction that controls what people may do; or to control or decide something.",
+          "definitionZh": "规则；规定；裁定",
+          "examples": [
+            "Every player must follow the rules.",
+            "The judge ruled that the evidence could be used."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "safety",
+      "part": "noun",
+      "phonetic": "/ˈseɪfti/",
+      "definition": "The condition of being protected from danger, injury or harm.",
+      "definitionZh": "安全；平安",
+      "examples": [
+        "Please read the safety instructions before using the machine.",
+        "The children arrived home in safety."
+      ],
+      "tip": "“Safety” is usually uncountable; use “safe” as the adjective.",
+      "course": "en",
+      "breakdown": "The condition of being protected from danger, injury or harm.",
+      "related": "protection;security",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The condition of being protected from danger, injury or harm.",
+          "definitionZh": "安全；平安",
+          "examples": [
+            "Please read the safety instructions before using the machine.",
+            "The children arrived home in safety."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sample",
+      "part": "noun / verb",
+      "phonetic": "/ˈsæmpəl/",
+      "definition": "A small amount or example used to represent or test a larger group; or to try a small amount.",
+      "definitionZh": "样本；样品；试用",
+      "examples": [
+        "The shop gave us a free sample of the new drink.",
+        "Researchers sampled water from the river."
+      ],
+      "tip": "A sample is a small part chosen to represent a larger whole.",
+      "course": "en",
+      "breakdown": "A small amount or example used to represent or test a larger group; or to try a small amount.",
+      "related": "specimen;example",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small amount or example used to represent or test a larger group; or to try a small amount.",
+          "definitionZh": "样本；样品；试用",
+          "examples": [
+            "The shop gave us a free sample of the new drink.",
+            "Researchers sampled water from the river."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "A small amount or example used to represent or test a larger group; or to try a small amount.",
+          "definitionZh": "样本；样品；试用",
+          "examples": [
+            "The shop gave us a free sample of the new drink.",
+            "Researchers sampled water from the river."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "science",
+      "part": "noun",
+      "phonetic": "/ˈsaɪəns/",
+      "definition": "The systematic study of the natural world through observation and experiments.",
+      "definitionZh": "科学",
+      "examples": [
+        "Science helps us understand how the natural world works.",
+        "She is interested in science and technology."
+      ],
+      "tip": "“Science” is generally uncountable when referring to the field of study.",
+      "course": "en",
+      "breakdown": "The systematic study of the natural world through observation and experiments.",
+      "related": "research;study",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The systematic study of the natural world through observation and experiments.",
+          "definitionZh": "科学",
+          "examples": [
+            "Science helps us understand how the natural world works.",
+            "She is interested in science and technology."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "service",
+      "part": "noun / verb",
+      "phonetic": "/ˈsɜːrvɪs/",
+      "definition": "Work done to help or meet the needs of others; or to provide maintenance or assistance.",
+      "definitionZh": "服务；维修；服役",
+      "examples": [
+        "The restaurant is known for its friendly service.",
+        "The technician services the machines every month."
+      ],
+      "tip": "“Service” can mean help provided to customers or regular maintenance of equipment.",
+      "course": "en",
+      "breakdown": "Work done to help or meet the needs of others; or to provide maintenance or assistance.",
+      "related": "assistance;maintenance",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Work done to help or meet the needs of others; or to provide maintenance or assistance.",
+          "definitionZh": "服务；维修；服役",
+          "examples": [
+            "The restaurant is known for its friendly service.",
+            "The technician services the machines every month."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "Work done to help or meet the needs of others; or to provide maintenance or assistance.",
+          "definitionZh": "服务；维修；服役",
+          "examples": [
+            "The restaurant is known for its friendly service.",
+            "The technician services the machines every month."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "shape",
+      "part": "noun / verb",
+      "phonetic": "/ʃeɪp/",
+      "definition": "The form or outline of something; or to influence how something develops.",
+      "definitionZh": "形状；外形；塑造",
+      "examples": [
+        "The table has a round shape.",
+        "Early experiences can shape a person's character."
+      ],
+      "tip": "“Shape” can refer to physical form or the process of influencing development.",
+      "course": "en",
+      "breakdown": "The form or outline of something; or to influence how something develops.",
+      "related": "form;outline",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The form or outline of something; or to influence how something develops.",
+          "definitionZh": "形状；外形；塑造",
+          "examples": [
+            "The table has a round shape.",
+            "Early experiences can shape a person's character."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "The form or outline of something; or to influence how something develops.",
+          "definitionZh": "形状；外形；塑造",
+          "examples": [
+            "The table has a round shape.",
+            "Early experiences can shape a person's character."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "side",
+      "part": "noun",
+      "phonetic": "/saɪd/",
+      "definition": "One of the surfaces, edges or parts of something; or one group in a disagreement or competition.",
+      "definitionZh": "侧面；一边；一方",
+      "examples": [
+        "Write your name on the other side of the paper.",
+        "Which side are you supporting in the match?"
+      ],
+      "tip": "“On the other hand” introduces a contrasting point; “side” can also mean a team or position.",
+      "course": "en",
+      "breakdown": "One of the surfaces, edges or parts of something; or one group in a disagreement or competition.",
+      "related": "edge;part",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of the surfaces, edges or parts of something; or one group in a disagreement or competition.",
+          "definitionZh": "侧面；一边；一方",
+          "examples": [
+            "Write your name on the other side of the paper.",
+            "Which side are you supporting in the match?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sign",
+      "part": "noun / verb",
+      "phonetic": "/saɪn/",
+      "definition": "A mark, notice or movement that gives information; or to write one's name on a document.",
+      "definitionZh": "标志；迹象；签名；签署",
+      "examples": [
+        "The sign shows where the exit is.",
+        "Please sign the form at the bottom."
+      ],
+      "tip": "As a noun, a sign gives information; as a verb, “sign” often means to write your name.",
+      "course": "en",
+      "breakdown": "A mark, notice or movement that gives information; or to write one's name on a document.",
+      "related": "notice;symbol",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A mark, notice or movement that gives information; or to write one's name on a document.",
+          "definitionZh": "标志；迹象；签名；签署",
+          "examples": [
+            "The sign shows where the exit is.",
+            "Please sign the form at the bottom."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "A mark, notice or movement that gives information; or to write one's name on a document.",
+          "definitionZh": "标志；迹象；签名；签署",
+          "examples": [
+            "The sign shows where the exit is.",
+            "Please sign the form at the bottom."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "skill",
+      "part": "noun",
+      "phonetic": "/skɪl/",
+      "definition": "The ability to do something well, usually gained through practice or training.",
+      "definitionZh": "技能；技巧",
+      "examples": [
+        "Communication is an important skill at work.",
+        "She developed her drawing skills through daily practice."
+      ],
+      "tip": "Use “skill in” or “skill at” to describe an area someone is good at.",
+      "course": "en",
+      "breakdown": "The ability to do something well, usually gained through practice or training.",
+      "related": "ability;talent",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The ability to do something well, usually gained through practice or training.",
+          "definitionZh": "技能；技巧",
+          "examples": [
+            "Communication is an important skill at work.",
+            "She developed her drawing skills through daily practice."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "situation",
+      "part": "noun",
+      "phonetic": "/ˌsɪtʃuˈeɪʃən/",
+      "definition": "The set of conditions or facts that exist at a particular time and place.",
+      "definitionZh": "情况；局面；处境",
+      "examples": [
+        "We need to understand the situation before making a decision.",
+        "The emergency team handled the situation calmly."
+      ],
+      "tip": "“Situation” describes the circumstances, not necessarily a problem.",
+      "course": "en",
+      "breakdown": "The set of conditions or facts that exist at a particular time and place.",
+      "related": "circumstances;condition",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The set of conditions or facts that exist at a particular time and place.",
+          "definitionZh": "情况；局面；处境",
+          "examples": [
+            "We need to understand the situation before making a decision.",
+            "The emergency team handled the situation calmly."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "size",
+      "part": "noun / verb",
+      "phonetic": "/saɪz/",
+      "definition": "How large or small something is; or to classify or prepare something according to size.",
+      "definitionZh": "大小；尺寸；尺码",
+      "examples": [
+        "What size shirt do you wear?",
+        "The company sizes the boxes to fit each product."
+      ],
+      "tip": "Use “size” for measurements or clothing labels; “size up” can mean to assess something.",
+      "course": "en",
+      "breakdown": "How large or small something is; or to classify or prepare something according to size.",
+      "related": "measurement;dimension",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "How large or small something is; or to classify or prepare something according to size.",
+          "definitionZh": "大小；尺寸；尺码",
+          "examples": [
+            "What size shirt do you wear?",
+            "The company sizes the boxes to fit each product."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "How large or small something is; or to classify or prepare something according to size.",
+          "definitionZh": "大小；尺寸；尺码",
+          "examples": [
+            "What size shirt do you wear?",
+            "The company sizes the boxes to fit each product."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "society",
+      "part": "noun",
+      "phonetic": "/səˈsaɪəti/",
+      "definition": "People living together in an organised community, or the system and culture they share.",
+      "definitionZh": "社会；社群；协会",
+      "examples": [
+        "Education plays an important role in society.",
+        "The society organises events for local artists."
+      ],
+      "tip": "“Society” can mean the wider community or a formal organisation formed around a shared interest.",
+      "course": "en",
+      "breakdown": "People living together in an organised community, or the system and culture they share.",
+      "related": "community;public",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "People living together in an organised community, or the system and culture they share.",
+          "definitionZh": "社会；社群；协会",
+          "examples": [
+            "Education plays an important role in society.",
+            "The society organises events for local artists."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sound",
+      "part": "noun / verb",
+      "phonetic": "/saʊnd/",
+      "definition": "Something that can be heard; or to seem a particular way when spoken about.",
+      "definitionZh": "声音；声响；听起来",
+      "examples": [
+        "I heard a strange sound outside.",
+        "Your plan sounds reasonable to me."
+      ],
+      "tip": "As a noun, “sound” is something heard; as a linking verb, it describes an impression.",
+      "course": "en",
+      "breakdown": "Something that can be heard; or to seem a particular way when spoken about.",
+      "related": "noise;audio",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Something that can be heard; or to seem a particular way when spoken about.",
+          "definitionZh": "声音；声响；听起来",
+          "examples": [
+            "I heard a strange sound outside.",
+            "Your plan sounds reasonable to me."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "Something that can be heard; or to seem a particular way when spoken about.",
+          "definitionZh": "声音；声响；听起来",
+          "examples": [
+            "I heard a strange sound outside.",
+            "Your plan sounds reasonable to me."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "space",
+      "part": "noun",
+      "phonetic": "/speɪs/",
+      "definition": "An empty area or the amount of room available; or the area beyond Earth's atmosphere.",
+      "definitionZh": "空间；空地；太空",
+      "examples": [
+        "There is not enough space in the cupboard.",
+        "The astronauts travelled into space."
+      ],
+      "tip": "“Space” is usually uncountable when it means room or the universe beyond Earth.",
+      "course": "en",
+      "breakdown": "An empty area or the amount of room available; or the area beyond Earth's atmosphere.",
+      "related": "room;area",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An empty area or the amount of room available; or the area beyond Earth's atmosphere.",
+          "definitionZh": "空间；空地；太空",
+          "examples": [
+            "There is not enough space in the cupboard.",
+            "The astronauts travelled into space."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sport",
+      "part": "noun",
+      "phonetic": "/spɔːrt/",
+      "definition": "A physical activity or game, often involving skill, competition and rules.",
+      "definitionZh": "运动；体育项目",
+      "examples": [
+        "Basketball is a popular sport at our school.",
+        "He enjoys watching sport on television."
+      ],
+      "tip": "In British English, “sport” is often uncountable when referring to sports in general; individual activities are countable.",
+      "course": "en",
+      "breakdown": "A physical activity or game, often involving skill, competition and rules.",
+      "related": "game;athletics",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A physical activity or game, often involving skill, competition and rules.",
+          "definitionZh": "运动；体育项目",
+          "examples": [
+            "Basketball is a popular sport at our school.",
+            "He enjoys watching sport on television."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "staff",
+      "part": "noun",
+      "phonetic": "/stæf/",
+      "definition": "The people who work for an organisation or business.",
+      "definitionZh": "全体员工；职员",
+      "examples": [
+        "The hotel staff were helpful and polite.",
+        "All staff must attend the safety meeting."
+      ],
+      "tip": "“Staff” is usually treated as a plural group in British English and as a collective noun in American English.",
+      "course": "en",
+      "breakdown": "The people who work for an organisation or business.",
+      "related": "employees;personnel",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The people who work for an organisation or business.",
+          "definitionZh": "全体员工；职员",
+          "examples": [
+            "The hotel staff were helpful and polite.",
+            "All staff must attend the safety meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "story",
+      "part": "noun",
+      "phonetic": "/ˈstɔːri/",
+      "definition": "A description of real or imagined events; or one level of a building in American English.",
+      "definitionZh": "故事；叙述；楼层",
+      "examples": [
+        "Grandpa told us a story before bed.",
+        "Their office is on the third story of the building."
+      ],
+      "tip": "“Story” can mean a narrative; in American English it can also mean a floor of a building.",
+      "course": "en",
+      "breakdown": "A description of real or imagined events; or one level of a building in American English.",
+      "related": "tale;narrative",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A description of real or imagined events; or one level of a building in American English.",
+          "definitionZh": "故事；叙述；楼层",
+          "examples": [
+            "Grandpa told us a story before bed.",
+            "Their office is on the third story of the building."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "success",
+      "part": "noun",
+      "phonetic": "/səkˈses/",
+      "definition": "The achievement of an aim or a result that is wanted or admired.",
+      "definitionZh": "成功；成就",
+      "examples": [
+        "Her success came from years of hard work.",
+        "The event was a great success."
+      ],
+      "tip": "“Success” is a noun; use “successful” as the adjective and “succeed” as the verb.",
+      "course": "en",
+      "breakdown": "The achievement of an aim or a result that is wanted or admired.",
+      "related": "achievement;accomplishment",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The achievement of an aim or a result that is wanted or admired.",
+          "definitionZh": "成功；成就",
+          "examples": [
+            "Her success came from years of hard work.",
+            "The event was a great success."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "task",
+      "part": "noun",
+      "phonetic": "/tæsk/",
+      "definition": "A piece of work or an activity that someone needs to complete.",
+      "definitionZh": "任务；工作",
+      "examples": [
+        "I have one more task to finish today.",
+        "The teacher gave the class a short writing task."
+      ],
+      "tip": "A task is a specific piece of work, while a job can refer to regular employment or a larger responsibility.",
+      "course": "en",
+      "breakdown": "A piece of work or an activity that someone needs to complete.",
+      "related": "assignment;duty",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A piece of work or an activity that someone needs to complete.",
+          "definitionZh": "任务；工作",
+          "examples": [
+            "I have one more task to finish today.",
+            "The teacher gave the class a short writing task."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "team",
+      "part": "noun",
+      "phonetic": "/tiːm/",
+      "definition": "A group of people who work or play together to achieve a shared goal.",
+      "definitionZh": "团队；队伍",
+      "examples": [
+        "Our team finished the project ahead of schedule.",
+        "She plays on the school basketball team."
+      ],
+      "tip": "Use “team” for people working together; “teamwork” describes their cooperation.",
+      "course": "en",
+      "breakdown": "A group of people who work or play together to achieve a shared goal.",
+      "related": "group;squad",
+      "categories": [
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A group of people who work or play together to achieve a shared goal.",
+          "definitionZh": "团队；队伍",
+          "examples": [
+            "Our team finished the project ahead of schedule.",
+            "She plays on the school basketball team."
+          ]
+        }
+      ]
     }
   ]
 }
