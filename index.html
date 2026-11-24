@@ -22,6 +22,7 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body.quiz-focused .hero-banner{display:none}
     body {
       margin: 0;
       background: var(--bg);
@@ -440,6 +441,8 @@
     .quiz-difficulty-option[aria-disabled="true"]{opacity:.82}
     @media(max-width:760px){.course-controls{width:100%;justify-content:stretch}.course-controls label{flex:1}.course-controls select{min-width:0}.quiz-difficulty-grid{grid-template-columns:1fr}}
     .quiz-history-list{display:grid;gap:8px;margin-top:14px}
+    .quiz-history-pagination{display:flex;justify-content:flex-end;gap:9px;margin-top:12px}
+    .quiz-history-pagination button{min-width:110px}
     .quiz-history-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:11px;background:var(--panel-hover)}
     .quiz-history-row strong{display:block}.quiz-history-row small{color:var(--muted)}
     .quiz-history-score{font-size:1.1rem;font-weight:800;color:var(--accent);white-space:nowrap}
@@ -633,8 +636,8 @@
     .dashboard-history-group-icon{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:#ffffff14;font-size:1.2rem}
     .dashboard-history-group header h4{margin:0;font-size:.98rem}.dashboard-history-group header p{margin:2px 0 0;color:var(--muted);font-size:.76rem}
     .dashboard-history-lessons .dashboard-history-group-icon{color:#e5c17e;background:#8b672b35}.dashboard-history-quiz .dashboard-history-group-icon{color:#8fb9f2;background:#345b8a45}.dashboard-history-flashcards .dashboard-history-group-icon{color:#d4a9f4;background:#6a438a45}
-    .dashboard-history-group-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:9px}.dashboard-history-group .dashboard-history-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border-radius:11px;background:#1a2432}.dashboard-history-group .dashboard-history-row-main{flex:1;min-width:0}.dashboard-history-group .dashboard-history-actions{flex:0 0 auto}.dashboard-history-group .dashboard-history-actions button{width:auto;white-space:nowrap;font-size:.78rem;padding:7px 10px}.dashboard-history-empty{margin:0;font-size:.82rem;line-height:1.5}.dashboard-history-timezone{grid-column:1/-1;margin:0}
-    @media(max-width:560px){.dashboard-history-group-items{grid-template-columns:1fr}.dashboard-history-group .dashboard-history-row{align-items:flex-start;flex-direction:column}.dashboard-history-group .dashboard-history-actions{width:100%}.dashboard-history-group .dashboard-history-actions button{width:100%}}
+    .dashboard-history-group-items{display:grid;grid-template-columns:1fr;gap:9px}.dashboard-history-group .dashboard-history-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border-radius:11px;background:#1a2432}.dashboard-history-group .dashboard-history-row-main{flex:1;min-width:0}.dashboard-history-group .dashboard-history-actions{flex:0 0 auto}.dashboard-history-group .dashboard-history-actions button{width:auto;white-space:nowrap;font-size:.78rem;padding:7px 10px}.dashboard-history-empty{margin:0;font-size:.82rem;line-height:1.5}.dashboard-history-timezone{grid-column:1/-1;margin:0}
+    @media(max-width:560px){.dashboard-history-group-items{grid-template-columns:1fr}.dashboard-history-group .dashboard-history-row{align-items:center;flex-direction:row;flex-wrap:wrap}.dashboard-history-group .dashboard-history-row-main{flex:1 1 220px}.dashboard-history-group .dashboard-history-actions{width:auto}.dashboard-history-group .dashboard-history-actions button{width:auto}}
     @media(max-width:860px){.dashboard-daily-history{grid-template-columns:1fr}.dashboard-tab-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:480px){.dashboard-hero-content{align-items:flex-start}.dashboard-hero-banner .dashboard-avatar{width:54px;height:54px;flex-basis:54px;font-size:1.8rem}.dashboard-tab{font-size:.82rem;justify-content:flex-start}.dashboard-tab-icon{width:24px;height:24px;flex-basis:24px}}
     .quiz-difficulty-card{padding:clamp(18px,3vw,26px);border:1px solid #3d4d67;border-radius:20px;background:linear-gradient(145deg,#1c2636,#171e2b);box-shadow:0 14px 32px #0003}
@@ -20342,7 +20345,7 @@ async function completeLesson(x){
 
     // Update 2.4.0 Quiz frontend. All question data and answer keys are served
     // by authenticated RPCs; the browser never queries the private Quiz tables.
-    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], saving:false, selectedReviewId:null, returnPage:"quiz" };
+    let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], historyPage:0, saving:false, selectedReviewId:null, returnPage:"quiz" };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
@@ -20422,7 +20425,7 @@ async function completeLesson(x){
       element.addEventListener("animationend",()=>element.classList.remove("quiz-screen-enter"),{once:true});
     }
     function quizShowHome(){
-      quizPageState.sessionView=false;
+      quizPageState.sessionView=false;document.body.classList.remove("quiz-focused");
       const home=quizEl("quizHome"),animate=home.hidden;
       home.hidden=false;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;
       quizEl("quizSignedOut").hidden=true;
@@ -20454,13 +20457,17 @@ async function completeLesson(x){
     }
     function quizRenderHistory(rows){
       quizPageState.history=Array.isArray(rows)?rows:[];
+      quizPageState.historyPage=Math.min(quizPageState.historyPage||0,Math.max(0,Math.ceil(quizPageState.history.length/10)-1));
       const host=quizEl("quizHistory");
       if(!quizPageState.history.length){host.innerHTML='<p class="muted-note">'+quizEscape(quizT("No completed Quizzes yet. Your results will appear here.","目前还没有已完成的测验。完成测验后，成绩会显示在这里。"))+'</p>';return;}
-      host.innerHTML=quizPageState.history.map(row=>{
+      const page=quizPageState.historyPage||0,visible=quizPageState.history.slice(page*10,page*10+10);
+      host.innerHTML=visible.map(row=>{
         const date=row.completed_at?new Date(row.completed_at).toLocaleString(translationLanguage==="zh"?"zh-CN":"en-US"):quizT("Completed","已完成");
         const difficultyLabel=quizT(quizDifficultyLabels[row.difficulty]||row.difficulty,({beginner:"初级",intermediate:"中级",advanced:"高级"})[row.difficulty]||row.difficulty);
         return '<div class="quiz-history-row"><div><strong>'+quizEscape(difficultyLabel)+' · '+quizEscape(row.question_count)+quizEscape(quizT(" questions"," 道题"))+'</strong><small>'+quizEscape(date)+'</small></div><div style="display:flex;align-items:center;gap:12px"><span class="quiz-history-score">'+quizEscape(row.percentage)+'%</span><button type="button" class="secondary-button" data-quiz-review="'+quizEscape(row.session_id)+'">'+quizEscape(quizT("Review","查看"))+'</button></div></div>';
-      }).join("");
+      }).join("")+(quizPageState.history.length>10?'<div class="quiz-history-pagination">'+(page>0?'<button type="button" class="secondary-button" data-quiz-history-prev>'+quizEscape(quizT("Previous page","上一页"))+'</button>':'')+((page+1)*10<quizPageState.history.length?'<button type="button" class="secondary-button" data-quiz-history-next>'+quizEscape(quizT("Next page","下一页"))+'</button>':'')+'</div>':'');
+      host.querySelector("[data-quiz-history-next]")?.addEventListener("click",()=>{quizPageState.historyPage++;quizRenderHistory(quizPageState.history);});
+      host.querySelector("[data-quiz-history-prev]")?.addEventListener("click",()=>{quizPageState.historyPage=Math.max(0,quizPageState.historyPage-1);quizRenderHistory(quizPageState.history);});
     }
     async function quizLoadHome(){
       if(!currentUser){quizEl("quizSignedOut").hidden=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=true;quizStatus(quizT("Sign in to access your account's Quiz sessions.","登录后即可查看账户中的测验记录。"));return;}
@@ -20469,7 +20476,7 @@ async function completeLesson(x){
       const requestedUserId=currentUser.id;
       const [availability,history,active]=await Promise.all([
         quizCall("get_my_quiz_availability"),
-        quizCall("get_my_quiz_history",{p_limit:20}),
+        quizCall("get_my_quiz_history",{p_limit:100}),
         quizCall("get_my_active_quiz")
       ]);
       if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
@@ -20498,7 +20505,7 @@ async function completeLesson(x){
     function quizCurrentQuestion(){const s=quizPageState.session;return s&&Array.isArray(s.questions)?s.questions[(s.current_position||1)-1]:null;}
     function quizRenderSession(transitionDirection=null){
       const s=quizPageState.session;if(!s||!s.questions){quizStatus("The saved Quiz session could not be displayed.",true);return;}
-      quizPageState.sessionView=true;
+      quizPageState.sessionView=true;document.body.classList.add("quiz-focused");
       const sessionWasHidden=quizEl("quizSession").hidden;
       quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=false;quizEl("quizResults").hidden=true;quizEl("quizSignedOut").hidden=true;
       if(sessionWasHidden)quizAnimateScreen(quizEl("quizSession"));
@@ -20651,11 +20658,11 @@ async function completeLesson(x){
         }).join("");
         return '<article class="quiz-review-question"><header class="quiz-review-question-head"><span>QUESTION '+(index+1)+'</span><span class="quiz-review-result-pill '+(isCorrect?'is-correct':'is-incorrect')+'">'+(isCorrect?'Correct':'Review needed')+'</span></header><h3>'+quizEscape(q.prompt_learning)+'</h3>'+(data.learning_language_code==="zh"&&q.prompt_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.prompt_pinyin)+'</p>':'')+(showTranslation&&!chineseTranslationQuestion?'<p class="quiz-question-translation">'+quizEscape(q.prompt_translation)+'</p>':'')+'<div class="quiz-review-options">'+opts+'</div><div class="quiz-review-explanation"><strong>Why this is correct</strong><p>'+quizEscape(q.explanation_learning)+'</p>'+(data.learning_language_code==="zh"&&q.explanation_pinyin?'<p class="quiz-question-pinyin">'+quizEscape(q.explanation_pinyin)+'</p>':'')+(showTranslation?'<p>'+quizEscape(q.explanation_translation)+'</p>':'')+'</div></article>';
       }).join("");
-      return '<div class="quiz-review-summary"><div><span class="eyebrow">QUIZ COMPLETED</span><h2>Answer review</h2><p>Your answers and the correct explanations are shown below.</p></div><div class="quiz-review-score"><strong>'+pct+'%</strong><span>'+score+' / '+total+' correct</span></div></div><div class="quiz-review-list">'+questionCards+'</div>';
+      return '<div class="quiz-review-summary"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px"><div><span class="eyebrow">QUIZ COMPLETED</span><h2>Answer review</h2><p>Your answers and the correct explanations are shown below.</p></div><button type="button" class="secondary-button" data-quiz-review-close aria-label="Close Quiz review" title="Close">×</button></div><div class="quiz-review-score"><strong>'+pct+'%</strong><span>'+score+' / '+total+' correct</span></div></div><div class="quiz-review-list">'+questionCards+'</div>';
     }
     function quizRenderResult(data){
       const resultsWereHidden=quizEl("quizResults").hidden;
-      quizPageState.result=data;quizPageState.sessionView=false;quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
+      quizPageState.result=data;quizPageState.sessionView=false;document.body.classList.add("quiz-focused");quizEl("quizHome").hidden=true;quizEl("quizSession").hidden=true;quizEl("quizResults").hidden=false;
       if(resultsWereHidden)quizAnimateScreen(quizEl("quizResults"));
       quizUpdateTranslationNotice(data);
       quizEl("quizResultsContent").innerHTML=quizBuildResultMarkup(data);
@@ -20740,6 +20747,7 @@ async function completeLesson(x){
     quizEl("quizSubmit").addEventListener("click",quizSubmit);
     quizEl("quizAbandon").addEventListener("click",quizAbandon);
     quizEl("quizBackHome").addEventListener("click",async()=>{quizPageState.sessionView=false;await quizLoadHome();});
+    quizEl("quizResultsContent").addEventListener("click",async event=>{if(event.target.closest("[data-quiz-review-close]")){const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();}});
     quizEl("quizResultsHome").addEventListener("click",async()=>{const returnPage=quizPageState.returnPage||"quiz";quizPageState.result=null;quizPageState.returnPage="quiz";if(returnPage!=="quiz"){showPage(returnPage);return;}await quizLoadHome();});
     window.addEventListener("swift-auth-updated",()=>{
       const nextUserId=currentUser?.id||null;
@@ -20747,7 +20755,8 @@ async function completeLesson(x){
       // session that the learner has already resumed when that same account's
       // delayed auth notification arrives. Reset only when identity changes.
       if(quizPageState.userId===nextUserId)return;
-      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,sessionView:false,result:null,history:[],saving:false,selectedReviewId:null,returnPage:"quiz"};
+      document.body.classList.remove("quiz-focused");
+      quizPageState={loaded:false,loading:false,userId:nextUserId,availability:null,session:null,sessionView:false,result:null,history:[],historyPage:0,saving:false,selectedReviewId:null,returnPage:"quiz"};
       if(location.hash==="#quiz")initialiseQuizPage();
     });
 
