@@ -547,3 +547,33 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
   await expect(page.locator('[data-action="open-review"]')).toContainText("(0)");
   await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
 });
+
+test("Recent games paginate ten at a time and game review has a top close control",async({page})=>{
+  await openMockFlashcards(page);
+  await page.evaluate(()=>{
+    const history=Array.from({length:23},(_,index)=>({
+      id:"mock-history-"+index,mode:"word",difficulty:"beginner",status:"completed",
+      started_at:new Date(Date.now()-index*60000).toISOString(),
+      completed_at:new Date(Date.now()-index*60000).toISOString(),
+      words_seen:10,correct_count:7,incorrect_count:3,unanswered_count:0,
+      review_available:true,review_items:[]
+    }));
+    window.__swiftDictionaryMock.seedFlashcardData({history});
+  });
+  await page.locator('[data-page="dictionary"]').click();
+  await page.locator('[data-page="flashcards"]').click();
+  await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
+  await expect(page.locator('[data-action="history-next"]')).toBeVisible();
+  await page.locator('[data-action="history-next"]').click();
+  await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
+  await expect(page.locator('[data-action="history-next"]')).toBeVisible();
+  await page.locator('[data-action="history-next"]').click();
+  await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(3);
+  await expect(page.locator('[data-action="history-next"]')).toHaveCount(0);
+  await page.locator('[data-action="history-prev"]').click();
+  await page.locator('[data-action="review-game"]').first().click();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal .flash-modal-close-top")).toBeVisible();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal [data-action='close-overlay']")).toHaveCount(2);
+  await page.locator("#flashOverlayRoot .flash-game-review-modal .flash-modal-close-top").click();
+  await expect(page.locator("#flashOverlayRoot .flash-game-review-modal")).toHaveCount(0);
+});
