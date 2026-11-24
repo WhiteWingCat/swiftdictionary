@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.8.0 — Chinese Quiz & Flashcards Expansion
 
-> **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 25 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application was merged to `main` on 2026-11-24 (merge commit `5e4c8c979770773047b2fad0ef845c9a944bfff2`). Production Pages deployment verification is the remaining release step.
+> **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 25 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application was merged to `main` on 2026-11-24 (merge commit `5e4c8c979770773047b2fad0ef845c9a944bfff2`). Cloudflare Pages reported successful deployments for both the merge commit and the follow-up README commit on `main`.
 
 ## Update 2.8.0 scope
 
@@ -180,7 +180,7 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ## Release history
 
-- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merged to `main`; production Pages deployment verification pending.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
+- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merged to `main`; Cloudflare Pages deployment succeeded on 2026-11-24.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
 - **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
 - **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
 - **SwiftDictionary Update 2.5.0:** English Flashcards experience, review progress and allowance integration.
@@ -193,4 +193,4 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ---
 
-*Release note: the application release is deployed. Database rollout and formal Malaysia PDPA/international legal review remain separate outstanding activities.*
+*Release note: Update 2.8.0 is merged and deployed through Cloudflare Pages, with all 25 Production Supabase migrations applied and verified. Formal Malaysia PDPA/international legal review remains outstanding.*
