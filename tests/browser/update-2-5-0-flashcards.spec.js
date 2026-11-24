@@ -661,6 +661,28 @@ test("Chinese Translation Recall hides Chinese choices until the answer phase",a
   await expect(page.locator(".flash-banner")).toBeVisible();
 });
 
+test("Chinese Translation Recall only uses cards with a unique cue in the selected language",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  for(const language of ["en","zh"]){
+    await page.locator("#translationSelect").selectOption(language);
+    await beginRecall(page,"translation","beginner","all",60);
+    await page.locator('[data-action="phase-action"]').click();
+    const options=await page.locator("#flashOptions .flash-option").allTextContents();
+    expect(options).toHaveLength(4);
+    expect(new Set(options.map(value=>value.trim())).size).toBe(4);
+    const eligible=await page.evaluate(({language,options})=>{
+      const bank=window.SWIFT_CHINESE_FLASHCARDS;
+      const cards=[...bank.characters,...bank.vocabulary,...bank.phrases];
+      const byWord=new Map(cards.map(card=>[card.word,card]));
+      return options.map(value=>({word:value.trim(),supported:byWord.get(value.trim())?.translationLanguages?.includes(language)===true}));
+    },{language,options});
+    expect(eligible.every(item=>item.supported),JSON.stringify({language,eligible})).toBe(true);
+    await page.locator('[data-action="leave-game"]').click();
+    await expect(page.locator(".flash-banner")).toBeVisible();
+  }
+});
+
 test("Chinese Sentence Recall blanks every repeated character and keeps choices hidden",async({page})=>{
   await page.clock.install();
   await openMockFlashcards(page);
