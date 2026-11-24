@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Sense-level corrections for a third group of existing English baseline entries with multiple parts of speech.",
-  "status": "editorially-authored; awaiting final review and integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "c320135a30877680bafc6bba2eddf58cbd21baf9",
   "patches": [
     {
@@ -713,5 +713,6 @@
         }
       ]
     }
-  ]
+  ],
+  "appliedCommit": "704a9f4649188bc9f826604c7bd222862594cdde"
 }
