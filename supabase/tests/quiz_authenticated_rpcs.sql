@@ -198,6 +198,7 @@ declare
   v_count integer;
   v_max_topic integer;
   v_failed boolean;
+  v_pinyin_review_supported boolean;
 begin
   v_availability:=public.get_my_quiz_availability();
   if jsonb_array_length(v_availability->'difficulties')<>3
@@ -282,11 +283,16 @@ begin
      or not ((v_result->'questions'->0) ? 'explanation_learning') then
     raise exception 'Completed review did not reveal the answer and explanation';
   end if;
-  if not exists(
+  select exists(
+    select 1 from information_schema.columns
+    where table_schema='private' and table_name='quiz_session_questions'
+      and column_name='explanation_pinyin_snapshot'
+  ) into v_pinyin_review_supported;
+  if v_pinyin_review_supported and not exists(
     select 1 from jsonb_array_elements(v_result->'questions'->0->'options') o
     where o ? 'pinyin'
   ) then
-    raise exception 'Completed review should retain option Pinyin for learning feedback';
+    raise exception 'U2.8.0 completed review should retain option Pinyin for learning feedback';
   end if;
 
   -- Duplicate submit is idempotent and must not charge a second completion.
