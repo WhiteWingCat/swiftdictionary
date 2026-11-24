@@ -12,7 +12,7 @@ if(generatedStart<0)errors.push("Generated Chinese Flashcard bank assignment is 
 let generated={};
 try{generated=JSON.parse(generatedSource.slice(generatedStart+1).trim().replace(/;$/,""));}
 catch{errors.push("Generated Chinese Flashcard bank is not valid JSON");}
-const commonSyncFields=["word","pinyin","translationEn","translationZh","availableModes","difficulty","translationLanguages","sourceIds","contentStatus","examplePinyin"];
+const commonSyncFields=["word","pinyin","translationEn","translationZh","availableModes","difficulty","translationLanguages","sourceIds","contentStatus","examplePinyin","sentenceExampleZh"];
 const syncFieldsByGroup={
  characters:[...commonSyncFields,"definitionCueZh","definitionZh","exampleZh","related","hskLevel"],
  vocabulary:[...commonSyncFields,"pinyinNumeric"],
@@ -139,7 +139,8 @@ function blankAllOccurrencesForCheck(sentence,word){
  return blanked===source?source+" _____":blanked;
 }
 for(const c of [...(pack.characters||[]),...(pack.phrases||[])]){
- const sentence=String(c.exampleZh||""),word=String(c.word||"");
+ const sourceExample=String(c.exampleZh||""),sentence=String(c.sentenceExampleZh||sourceExample),word=String(c.word||"");
+ if(!sourceExample.includes(word))errors.push("Source example does not contain its target: "+word);
  if(!sentence.includes(word))errors.push("Sentence Recall example does not contain its target: "+word);
  const occurrences=sentence.split(word).length-1;if(occurrences>1)repeatedSentenceTargets++;
  if(blankAllOccurrencesForCheck(sentence,word).includes(word))errors.push("Sentence Recall would still reveal repeated target "+word);
@@ -149,7 +150,7 @@ function cueFor(card,mode,language){
  if(mode==="word")return card.pinyin;
  if(mode==="definition")return card.definitionCueZh||card.definitionZh;
  if(mode==="translation")return language==="zh"?card.translationZh:card.translationEn;
- if(mode==="sentence")return card.exampleZh;
+ if(mode==="sentence")return card.sentenceExampleZh||card.exampleZh;
  return "";
 }
 function supports(card,mode,language){
@@ -167,7 +168,7 @@ for(const [mode,language,key] of [["word","zh","word"],["definition","zh","defin
  if(mode==="definition"||mode==="translation"||mode==="sentence"){
   const cueGroups=new Map();
   for(const card of eligible){
-   const rawCue=mode==="sentence"?blankAllOccurrencesForCheck(card.exampleZh,card.word):cueFor(card,mode,language);
+   const rawCue=mode==="sentence"?blankAllOccurrencesForCheck(card.sentenceExampleZh||card.exampleZh,card.word):cueFor(card,mode,language);
    const cue=norm(rawCue);
    if(cue){const group=cueGroups.get(cue)||[];group.push(card.word);cueGroups.set(cue,group);}
   }
