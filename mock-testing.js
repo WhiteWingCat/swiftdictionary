@@ -548,17 +548,21 @@
     }
     if (name==="start_my_flashcard_game") {
       const difficulty=args.p_difficulty,mode=args.p_mode,duration=Number(args.p_duration_seconds)||60;
-      if(!["beginner","intermediate","advanced"].includes(difficulty)||!["word","definition","mixed","sentence"].includes(mode)||![60,120].includes(duration))return {data:null,error:error("Invalid Flashcard mode, difficulty or challenge duration.","22023")};
-      const pref=tables.user_preferences?.[0]||{};
-      if((pref.learning_language||"en")!=="en")return {data:null,error:error("Flashcards currently support the English learning course only.")};
+      const userPreference=tables.user_preferences?.find(item=>item.user_id===user.id)||{};
+      const learningLanguage=userPreference.learning_language||"en";
+      const translationLanguage=userPreference.translation_language||"zh";
+      const allowedModes=learningLanguage==="zh"?["word","definition","translation","sentence"]:["word","definition","mixed","sentence"];
+      if(!["beginner","intermediate","advanced"].includes(difficulty)||![60,120].includes(duration)
+        ||!["en","zh"].includes(learningLanguage)||!["en","zh"].includes(translationLanguage)||!allowedModes.includes(mode)){
+        return {data:null,error:error("Invalid Flashcard language, mode, difficulty or challenge duration.","22023")};
+      }
       const plan=(tables.user_entitlements||[]).find(row=>row.user_id===user.id)?.plan_code||"free";
       const limit=(tables.learning_plan_limits||[]).find(row=>row.plan_code===plan&&row.activity_type==="flashcard");
       const used=usageRows(db).find(row=>row.activity_type==="flashcard")?.used_count||0;
       if(!limit?.is_enabled||used>=limit.daily_limit)return {data:null,error:error("Daily Flashcard game allowance exhausted.","P0001")};
       (tables.flashcard_sessions||[]).filter(row=>row.user_id===user.id&&row.status==="in_progress").forEach(row=>row.status="abandoned");
-      const userPreference=tables.user_preferences?.find(item=>item.user_id===user.id)||{};
-      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null,learning_language_code:userPreference.learning_language||"en",translation_language_code:userPreference.translation_language||"zh"};
-      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:duration},error:null};
+      const row={id:"mock-flash-session-"+(++sequence),user_id:user.id,mode,difficulty,duration_seconds:duration,status:"in_progress",started_at:now(),completed_at:null,learning_language_code:learningLanguage,translation_language_code:translationLanguage};
+      tables.flashcard_sessions.push(row);persist(db);return {data:{session_id:row.id,started_at:row.started_at,duration_seconds:duration,learning_language_code:learningLanguage,translation_language_code:translationLanguage},error:null};
     }
     if (name==="complete_my_flashcard_game") {
       const session=(tables.flashcard_sessions||[]).find(row=>row.id===args.p_session_id&&row.user_id===user.id);
@@ -596,7 +600,7 @@
         is_correct:!!result.correct,unanswered:!!result.unanswered
       }));
       Object.assign(session,{status:"completed",words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered,completed_at:now()});
-      (tables.learning_activity_log||=[]).push({user_id:user.id,activity_type:"flashcard",event_type:"completed",language_code:"en",created_at:now()});
+      (tables.learning_activity_log||=[]).push({user_id:user.id,activity_type:"flashcard",event_type:"completed",language_code:session.learning_language_code||"en",created_at:now()});
       (tables.flashcard_allowance_events||=[]).push({user_id:user.id,created_at:now()});
       persist(db);return {data:{completed:true,words_seen:args.p_results.length,correct_count:correct,incorrect_count:incorrect,unanswered_count:unanswered},error:null};
     }
