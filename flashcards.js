@@ -26,7 +26,7 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
-  function words(language=state.game?.learningLanguage||course){if(language==="zh"){const bank=window.SWIFT_CHINESE_FLASHCARDS||{};const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:w.exampleZh?[w.exampleZh]:[],phonetic:w.pinyin||""}));return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);}return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
+  function words(language=state.game?.learningLanguage||course){if(language==="zh"){const bank=window.SWIFT_CHINESE_FLASHCARDS||{};const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);}return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
   function cardsForCollection(){
     const cards=state.data.cards||[];
