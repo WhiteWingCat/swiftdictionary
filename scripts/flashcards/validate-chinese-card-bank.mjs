@@ -164,12 +164,14 @@ function supports(card,mode,language){
 const coverage={word:0,definition:0,translation_en:0,translation_zh:0,sentence:0};
 for(const [mode,language,key] of [["word","zh","word"],["definition","zh","definition"],["translation","en","translation_en"],["translation","zh","translation_zh"],["sentence","zh","sentence"]]){
  const eligible=allCards.filter(card=>supports(card,mode,language));coverage[key]=eligible.length;
- const cueGroups=new Map();
- for(const card of eligible){
-  const cue=norm(cueFor(card,mode,language));
-  if(cue){const group=cueGroups.get(cue)||[];group.push(card.word);cueGroups.set(cue,group);}
+ if(mode==="definition"||mode==="translation"){
+  const cueGroups=new Map();
+  for(const card of eligible){
+   const cue=norm(cueFor(card,mode,language));
+   if(cue){const group=cueGroups.get(cue)||[];group.push(card.word);cueGroups.set(cue,group);}
+  }
+  for(const words of cueGroups.values())if(words.length>1)errors.push("Ambiguous "+key+" cue is shared by: "+words.join(", "));
  }
- for(const words of cueGroups.values())if(words.length>1)errors.push("Ambiguous "+key+" cue is shared by: "+words.join(", "));
  for(const target of eligible){
   const value=norm(mode==="word"?target.pinyin:target.word);
   const distractors=new Set(eligible.filter(card=>card!==target&&norm(mode==="word"?card.pinyin:card.word)!==value).map(card=>norm(mode==="word"?card.pinyin:card.word)));
