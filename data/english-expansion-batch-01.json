@@ -435,10 +435,10 @@
     },
     {
       "word": "chase",
-      "part": "verb / noun",
+      "part": "noun",
       "phonetic": "/tʃeɪs/",
-      "definition": "To run or move after someone or something in order to catch or reach it; or an attempt to catch someone or something.",
-      "definitionZh": "追赶；追逐；追捕；追逐行为",
+      "definition": "The act of following someone or something in order to catch or reach them.",
+      "definitionZh": "追赶或追逐某人或某物的行为；追逐。",
       "examples": [
         "The dog chased the ball across the garden.",
         "The police chased the stolen car."
