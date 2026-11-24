@@ -816,6 +816,7 @@
     const used = Number(snapshot.completed[type] || 0);
     const remaining = Number.isFinite(limit) ? Math.max(0,limit-used) : null;
     const completedRows = (snapshot.completedToday || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0)).slice(0,6);
+    const historicalReplayRows = (snapshot.dailyResults || []).filter(row => row.activity_type === type && row.status === "completed" && row.content_id).sort((a,b) => Date.parse(b.completed_at || 0) - Date.parse(a.completed_at || 0));
     const activeRows = (snapshot.openSessions || []).filter(row => row.activity_type === type);
     const isEnabled = preferences[type + "_enabled"] !== false;
     const availableForPlan = !!limitConfig && limitConfig.enabled !== false && Number.isFinite(limit) && limit > 0;
@@ -830,8 +831,8 @@
       ? dailyUi("Explore useful Chinese characters, their readings and examples.","认识常用汉字、读音和语境例句。")
       : dailyUi(meta.description,meta.descriptionZh);
     const contentByKey = new Map();
-    const renderCard = (content,discoveryIndex=null,reviewOnly=false) => {
-      const reviewSession = reviewOnly ? completedRows.find(row => row.content_id === content.id) || null : null;
+    const renderCard = (content,discoveryIndex=null,reviewOnly=false,reviewRow=null) => {
+      const reviewSession = reviewOnly ? (reviewRow || completedRows.find(row => row.content_id === content.id) || null) : null;
       contentByKey.set(type + "|" + content.id,{content,session:reviewSession});
       const activeSession = reviewOnly ? null : activeRows.find(row => row.content_id === content.id) || null;
       const alreadyCompleted = reviewOnly || (snapshot.completedToday || []).some(row => row.activity_type === type && row.content_id === content.id && row.status === "completed");
@@ -854,6 +855,12 @@
         + '</div><div class="daily-activity-card-action"><button type="button" class="primary-button" data-label="' + esc(buttonLabel) + '" data-start-daily="' + type + '" data-content-id="' + esc(content.id) + '"' + indexAttribute + (disabled ? " disabled" : "") + ">" + esc(buttonLabel) + "</button></div></article>";
     };
     let cards = [];
+    const addHistoricalReplayIfEmpty = () => {
+      if (cards.length || !historicalReplayRows.length) return;
+      const row = historicalReplayRows[0];
+      const item = resolveSessionContent(type,row,snapshot.content[type]);
+      if (item) cards.push(renderCard(item,null,true,row));
+    };
     if (isEnabled && type === "daily_discovery") {
       const scheduled = Array.isArray(snapshot.content.daily_discovery) ? snapshot.content.daily_discovery : chooseContent("daily_discovery",0);
       const seen = new Set();
@@ -874,6 +881,7 @@
       // If another course consumed today's quota, keep the scheduled item visible with a
       // disabled "Daily limit reached" action instead of showing an empty panel.
       if(!cards.length && scheduled[0]) cards.push(renderCard(scheduled[0],0,false));
+      addHistoricalReplayIfEmpty();
     } else if (isEnabled) {
       const seen = new Set();
       completedRows.forEach(row => { if(seen.has(row.content_id)) return; seen.add(row.content_id); const item=resolveSessionContent(type,row,snapshot.content[type]); if(item) cards.push(renderCard(item,null,true)); });
@@ -890,6 +898,7 @@
         added++;
       }
       if(!cards.length && availableForPlan){ const item=chooseContent(type,used); if(item) cards.push(renderCard(item,null,false)); }
+      addHistoricalReplayIfEmpty();
     }
     const tabs = allTypes.map(tabType => {
       const tabMeta=activityMeta[tabType],active=tabType===type,enabled=preferences[tabType+"_enabled"]!==false;
