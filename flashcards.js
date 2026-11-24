@@ -436,7 +436,7 @@
     if(memory){memory.classList.remove("is-blurred");memory.textContent=state.round.memory;}
     if(overlay)overlay.hidden=true;if(label)label.textContent=uiText("Memorise the card","请记住卡片内容");
     const phaseAction=$("#flashPhaseAction");if(phaseAction){phaseAction.hidden=false;phaseAction.disabled=false;phaseAction.textContent=uiText("Answer now","立即作答");}
-    if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option is-hidden" data-action="answer" data-index="${i}" disabled>Hidden answer</button>`).join("");
+    if(options)options.innerHTML=state.round.options.map((o,i)=>`<button class="flash-option is-hidden" data-action="answer" data-index="${i}" disabled>${uiText("Hidden answer","隐藏答案")}</button>`).join("");
     if(question)question.textContent=state.round.prompt;
     state.phaseTimer=setTimeout(showAnswers,state.phaseDuration);
   }
