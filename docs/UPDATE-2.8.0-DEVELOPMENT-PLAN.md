@@ -461,3 +461,15 @@ This feedback adds no new personal-data category, analytics vendor, advertising,
 
 
 - Latest feature branch commit at this checkpoint: `6baf19012164ee14e6c485ee3312e695b26c106f`. The previous attempt showed the Chinese translation-preference test also assumed non-null Pinyin/translation fields on every knowledge question. The test was corrected to assert only the fields actually present on the current question and to verify that active Chinese answer options never expose option-side Pinyin or translation. On this latest head, Cloudflare build-routing, Dashboard/allowance, PostgreSQL allowance, Supabase CLI Auth compatibility, Flashcards browser, Chinese Dictionary browser and ACL checks are green. The Quiz DB foundation's authenticated local-Supabase Chromium runtime suite remains in progress; release readiness is therefore still pending.
+
+
+## Final content-polishing checkpoint — 2026-11-24
+
+- Owner's final Quiz Answer Review spacing adjustment is complete.
+- Chinese Quiz review: all 145 questions received a content pass; validators and staging SQL checks confirm unique prompts/options, valid answer keys and zero answer leaks. Active session payloads hide answer keys until the authenticated owner opens a completed review.
+- Chinese Flashcard review: 1,447 cards remain in the draft bank. Source/Pinyin checks and distractor checks pass. The audit identified and corrected ambiguous English translation cues, and answer-revealing Chinese definition/translation cues are now excluded from those specific modes at both data and runtime level.
+- Current mode coverage: Word 1,447; Definition 53; English Translation 1,437; Chinese Translation 71; Sentence 543. The reduced Chinese Definition/Translation coverage is intentional until target-safe clues are authored and reviewed. The 27 character cards without reviewed Chinese equivalents remain excluded from Chinese Translation Recall.
+- Current feature head: `931c40242a2061cfe82f2f2a899720f4380b9f68`. All relevant CI, authenticated Quiz runtime, Flashcards browser, PostgreSQL, ACL, Supabase security-advisor, Chinese Dictionary/Lessons, Cloudflare Pages and routing checks passed.
+- The separate retired testing Worker build check remains failed; active Cloudflare Pages deployment succeeded.
+- No Production changes were made. PR #16 remains draft and unmerged. No further staging-preview testing was requested or provided.
+- Detailed audit: `docs/conversation-archive/2026-11-24-update-2-8-0-chinese-quiz-flashcard-polishing.md`.
