@@ -807,7 +807,12 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     let renderedSnapshot=null;
     await expect.poll(async()=>{
       renderedSnapshot=await targetPage.evaluate(()=>{
-        const session=typeof quizPageState!=="undefined"?quizPageState.session:null;
+        const pageState=typeof quizPageState!=="undefined"?quizPageState:null;
+        // Wait for answer-save/navigation RPCs to finish before accepting a
+        // DOM match. Otherwise the previous question can match briefly while
+        // quizMove is still pending and then change underneath the assertions.
+        if(!pageState||pageState.saving)return false;
+        const session=pageState.session;
         const question=session?.questions?.find(q=>q.position===session.current_position);
         const area=document.getElementById("quizQuestionArea");
         if(!question||!area)return false;
@@ -846,6 +851,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     // has finished. Compare the state and rendered prompt contract atomically so
     // same-type adjacent questions cannot make a stale DOM assertion pass/fail.
     const currentQuestion=await waitForRenderedQuestion(page);
+    expect(Number(currentQuestion?.position)).toBe(position);
     const type=currentQuestion?.question_type;
     if(type==="chinese_translation"){
       foundTranslationQuestion=true;
@@ -865,7 +871,12 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
     await expect(area.locator(".quiz-option-pinyin")).toHaveCount(0);
     await expect(area.locator(".quiz-option-translation")).toHaveCount(0);
     await area.locator(".quiz-option").first().click();
-    if(position<10)await page.locator("#quizNext").click();
+    if(position<10){
+      await page.locator("#quizNext").click();
+      await expect.poll(()=>page.evaluate(expectedPosition=>
+        !quizPageState.saving&&quizPageState.session?.current_position===expectedPosition
+      ,position+1),{timeout:10000}).toBe(true);
+    }
   }
   expect(foundTranslationQuestion).toBe(true);
 
