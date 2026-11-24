@@ -1,30 +1,116 @@
 #!/usr/bin/env node
 /**
  * SwiftDictionary U2.9.0 English expansion validator.
- * Run from repository root: node scripts/dictionary/validate-english-expansion.mjs
- * This validates authored expansion batches against the embedded main English word bank.
+ * Run from the repository root:
+ *   node scripts/dictionary/validate-english-expansion.mjs
+ * Optional explicit baseline source:
+ *   node scripts/dictionary/validate-english-expansion.mjs --baseline path/to/app-source.js
+ *
+ * The validator checks authored JSON batches against the embedded English word bank.
+ * It deliberately fails when it cannot locate that baseline rather than reporting a
+ * misleading "no duplicate" result.
  */
 import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const indexPath = path.join(root, "index.html");
-const candidatePath = path.join(root, "data/english-expansion-candidates.json");
-const batchDir = path.join(root, "data");
-const source = fs.readFileSync(indexPath, "utf8");
-const normalizeHeadword = value => String(value || "").trim().toLowerCase().replace(/[-\s]+/g, " ");
-const marker = "const englishWords = ";
-const markerAt = source.indexOf(marker);
-if (markerAt < 0) throw new Error("Could not locate embedded englishWords array.");
-const arrayStart = markerAt + marker.length;
-const closing = /\n\s*\];/.exec(source.slice(arrayStart));
-if (!closing) throw new Error("Could not locate end of englishWords array.");
-const arrayEnd = arrayStart + closing.index + closing[0].lastIndexOf("]") + 1;
-const baseline = JSON.parse(source.slice(arrayStart, arrayEnd).trim());
+const args = process.argv.slice(2);
+const baselineArg = args.indexOf("--baseline");
+const explicitBaseline = baselineArg >= 0 ? args[baselineArg + 1] : null;
+if (baselineArg >= 0 && !explicitBaseline) {
+  throw new Error("--baseline requires a source-file path.");
+}
+
+const dataDir = path.join(root, "data");
+const candidatePath = path.join(dataDir, "english-expansion-candidates.json");
+const normalizeHeadword = value => String(value || "").normalize("NFKC").trim().toLowerCase().replace(/[\s-]+/g, " ");
+
+function listSourceFiles(dir) {
+  const results = [];
+  for (const item of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (item.name === ".git" || item.name === "node_modules" || item.name === "dist" || item.name === "build") continue;
+    const full = path.join(dir, item.name);
+    if (item.isDirectory()) results.push(...listSourceFiles(full));
+    else if (/\.(?:html?|mjs|cjs|js)$/i.test(item.name) && fs.statSync(full).size > 0) results.push(full);
+  }
+  return results;
+}
+
+// Find the closing bracket for a JavaScript array while ignoring brackets in strings/comments.
+function findArrayEnd(source, start) {
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let lineComment = false;
+  let blockComment = false;
+  for (let i = start; i < source.length; i++) {
+    const ch = source[i];
+    const next = source[i + 1];
+    if (lineComment) {
+      if (ch === "\n") lineComment = false;
+      continue;
+    }
+    if (blockComment) {
+      if (ch === "*" && next === "/") { blockComment = false; i++; }
+      continue;
+    }
+    if (quote) {
+      if (escaped) { escaped = false; continue; }
+      if (ch === "\\") { escaped = true; continue; }
+      if (ch === quote) quote = null;
+      continue;
+    }
+    if (ch === "/" && next === "/") { lineComment = true; i++; continue; }
+    if (ch === "/" && next === "*") { blockComment = true; i++; continue; }
+    if (ch === "\"" || ch === "'" || ch === "`") { quote = ch; continue; }
+    if (ch === "[") depth++;
+    if (ch === "]") {
+      depth--;
+      if (depth === 0) return i + 1;
+    }
+  }
+  return -1;
+}
+
+function locateBaseline() {
+  const files = explicitBaseline
+    ? [path.resolve(root, explicitBaseline)]
+    : listSourceFiles(root);
+  const markers = [
+    /(?:const|let|var)\s+englishWords\s*=\s*\[/,
+    /(?:const|let|var)\s+englishDictionary\s*=\s*\[/
+  ];
+  for (const file of files) {
+    if (!fs.existsSync(file)) continue;
+    const source = fs.readFileSync(file, "utf8");
+    for (const marker of markers) {
+      const match = marker.exec(source);
+      if (!match) continue;
+      const start = source.indexOf("[", match.index);
+      const end = findArrayEnd(source, start);
+      if (end < 0) throw new Error("Found an English word-bank declaration but could not parse its array boundary in " + path.relative(root, file));
+      try {
+        const entries = JSON.parse(source.slice(start, end));
+        if (Array.isArray(entries) && entries.length) return { file, entries };
+      } catch (error) {
+        throw new Error("English word bank in " + path.relative(root, file) + " is not JSON-compatible: " + error.message);
+      }
+    }
+  }
+  throw new Error("Could not locate a non-empty embedded englishWords/englishDictionary array. Supply --baseline with the application source file containing it.");
+}
+
+if (!fs.existsSync(candidatePath)) throw new Error("Missing candidate inventory: " + path.relative(root, candidatePath));
 const candidatesDoc = JSON.parse(fs.readFileSync(candidatePath, "utf8"));
+if (!Array.isArray(candidatesDoc.candidates)) throw new Error("Candidate inventory must contain a candidates array.");
+const baselineDoc = locateBaseline();
+const baseline = baselineDoc.entries;
+
 const normalizedCandidates = candidatesDoc.candidates.map(x => normalizeHeadword(x.word));
 const candidateWords = new Set(normalizedCandidates);
-if (candidateWords.size !== normalizedCandidates.length) throw new Error("Candidate inventory contains duplicate normalised headwords.");
+const errors = [];
+if (candidateWords.size !== normalizedCandidates.length) errors.push("Candidate inventory contains duplicate normalised headwords.");
+
 const baselineWords = new Set();
 const baselineDuplicates = [];
 for (const entry of baseline) {
@@ -34,28 +120,36 @@ for (const entry of baseline) {
   baselineWords.add(key);
 }
 
-const batchFiles = fs.readdirSync(batchDir)
+const batchFiles = fs.readdirSync(dataDir)
   .filter(name => /^english-expansion-batch-\d+\.json$/.test(name))
-  .sort();
-const errors = [];
-const allowedCategories = new Set(["Actions","Everyday Terms","Activities","Places","People & Relationships","Science & Technology","History & Culture","Nature & Environment","Education","Emotions & Descriptions"]);
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+const allowedCategories = new Set([
+  "Actions", "Everyday Terms", "Activities", "Places", "People & Relationships",
+  "Science & Technology", "History & Culture", "Nature & Environment", "Education",
+  "Emotions & Descriptions"
+]);
 const allNew = [];
 const categoryCounts = {};
 const batchReports = [];
 
 for (const file of batchFiles) {
-  const doc = JSON.parse(fs.readFileSync(path.join(batchDir, file), "utf8"));
+  let doc;
+  try {
+    doc = JSON.parse(fs.readFileSync(path.join(dataDir, file), "utf8"));
+  } catch (error) {
+    errors.push(file + ": invalid JSON: " + error.message);
+    continue;
+  }
   const entries = doc.entries;
   if (!Array.isArray(entries)) {
     errors.push(file + ": entries must be an array");
     continue;
   }
   const seen = new Set();
-  const words = [];
   for (const entry of entries) {
     const word = String(entry.word || "").trim();
     const key = normalizeHeadword(word);
-    words.push(word);
     if (!word) errors.push(file + ": empty headword");
     if (baselineWords.has(key)) errors.push(file + ": duplicate of baseline: " + word);
     if (seen.has(key)) errors.push(file + ": duplicate in batch: " + word);
@@ -63,33 +157,32 @@ for (const file of batchFiles) {
     seen.add(key);
     allNew.push(key);
 
-    for (const field of ["part","phonetic","definition","definitionZh","tip","course","breakdown"]) {
-      if (typeof entry[field] !== "string" || !entry[field].trim()) {
-        errors.push(file + ": " + word + " missing " + field);
-      }
+    for (const field of ["part", "phonetic", "definition", "definitionZh", "tip", "course", "breakdown"]) {
+      if (typeof entry[field] !== "string" || !entry[field].trim()) errors.push(file + ": " + word + " missing " + field);
     }
     if (typeof entry.related !== "string") errors.push(file + ": " + word + " related must be a string (empty is allowed)");
-    for (const field of ["examples","senses","categories"]) {
-      if (!Array.isArray(entry[field]) || entry[field].length === 0) {
-        errors.push(file + ": " + word + " missing " + field);
-      }
+    for (const field of ["examples", "senses", "categories"]) {
+      if (!Array.isArray(entry[field]) || entry[field].length === 0) errors.push(file + ": " + word + " missing " + field);
     }
-    if (!Array.isArray(entry.examples) || entry.examples.length < 2) {
-      errors.push(file + ": " + word + " should have at least two examples");
-    }
+    if (!Array.isArray(entry.examples) || entry.examples.length < 2) errors.push(file + ": " + word + " should have at least two examples");
+    if (entry.course !== "en") errors.push(file + ": " + word + " must belong to the English course");
+    if (!/^\/.+\/$/.test(entry.phonetic || "")) errors.push(file + ": " + word + " pronunciation should be slash-delimited IPA");
+
     for (const sense of entry.senses || []) {
-      if (!sense.part || !sense.definition || !sense.definitionZh ||
-          !Array.isArray(sense.examples) || sense.examples.length < 1) {
+      if (typeof sense.part !== "string" || !sense.part.trim() ||
+          typeof sense.definition !== "string" || !sense.definition.trim() ||
+          typeof sense.definitionZh !== "string" || !sense.definitionZh.trim() ||
+          !Array.isArray(sense.examples) || sense.examples.length < 1 ||
+          sense.examples.some(example => typeof example !== "string" || !example.trim())) {
         errors.push(file + ": " + word + " has an incomplete sense");
       }
     }
     for (const category of entry.categories || []) {
       if (!allowedCategories.has(category)) errors.push(file + ": " + word + " has unapproved category: " + category);
-      if (!categoryCounts[category]) categoryCounts[category] = 0;
-      categoryCounts[category]++;
+      categoryCounts[category] = (categoryCounts[category] || 0) + 1;
     }
   }
-  batchReports.push({ file, entries: entries.length, words });
+  batchReports.push({ file, entries: entries.length });
 }
 
 const allSeen = new Set();
@@ -98,9 +191,11 @@ for (const word of allNew) {
   allSeen.add(word);
 }
 if (baselineDuplicates.length) errors.push("baseline contains duplicate headwords: " + baselineDuplicates.join(", "));
+if (batchFiles.length === 0) errors.push("No english-expansion-batch-NN.json files were found.");
 
 const report = {
   update: "2.9.0",
+  baselineFile: path.relative(root, baselineDoc.file),
   baselineCount: baseline.length,
   baselineUniqueCount: baselineWords.size,
   candidateCount: candidatesDoc.candidates.length,
