@@ -1,4 +1,28 @@
-# SwiftDictionary Update 2.7.0 — Chinese Course & Dictionary Expansion
+# SwiftDictionary Update 2.8.0 — Chinese Quiz & Flashcards Expansion
+
+> **Release status (2026-11-24):** U2.8.0 implementation and staging QA are in final review. The staging database includes the complete U2.8.0 migration sequence, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. Production remains on U2.7.0; U2.8.0 has not yet been merged or deployed. Do not describe the release as complete until the application merge, production migration verification and production deployment have all succeeded.
+
+## Update 2.8.0 scope
+
+- Adds Chinese-course Quiz questions across Beginner, Intermediate and Advanced. The reviewed staging bank contains 145 approved questions mapped to the 17 Chinese permanent lessons.
+- Keeps the established Quiz structure: 10/15/20 questions by difficulty, four options, no timer, editable answers until submission, review after submission, same-day question reservation and existing Free/Premium allowances. A new Quiz session consumes its allowance after successful session creation; cancelling the confirmation does not.
+- Adds Chinese Flashcard content for single characters, multi-character vocabulary and useful expressions, with course-specific Word Recall, Definition Recall, Translation Recall and Sentence Recall. English retains Mixed Recall; Chinese does not expose Mixed Recall.
+- Captures course and translation-language preferences at session start. Chinese-course activities with Chinese translation preference remain Chinese-focused and do not leak English prompts or explanations into active play.
+- Preserves full completed Flashcard game snapshots for read-only review, including correctly answered cards.
+- Redesigns Quiz landing, active-test and answer-review interfaces; improves Dashboard tabs, allowance overview, Daily History review and Practice Insights.
+- Adds topic-linked lesson/Quiz practice signals while retaining privacy-minimised aggregate performance data and account ownership controls.
+- Preserves existing allowance amounts, timezone resets, account isolation, custom Flashcard collections and unlimited dictionary search.
+
+> The Chinese Flashcard source bank contains 1,447 cards (519 characters, 904 vocabulary items and 24 authored phrases). Content validation checks mode-specific fields, distinct distractors, translation cue uniqueness and Sentence Recall prompt uniqueness. See `docs/UPDATE-2.8.0-CHINESE-CONTENT-QA-REPORT.md`.
+
+## U2.8.0 Supabase rollout
+
+- The isolated staging project has the U2.8.0 migrations applied. The final two migration steps were applied during the 2026-11-24 QA handoff and verified: the latest approved Chinese Quiz bank remains 145 questions, with four unique options, valid answer keys, active Chinese lesson mappings and zero detected correct-answer Pinyin/text leakage.
+- Production is still on U2.7.0. Production migrations must be reviewed and applied in order before the U2.8.0 release can be considered complete.
+- Never apply staging-only changes to production by assuming migration history is identical. Compare the live migration ledger and schema first.
+
+## Previous release baseline
+
 
 > **Released:** Update 2.7.0 was merged into `main` on 2026-11-22 (merge commit `1d74e4925456c23b96223a94e64827b42c9cb869`). The GitHub Pages and Cloudflare Pages deployment checks both completed successfully for this commit. The three U2.7.0 Supabase migrations remain staging-only and have not been applied to production.
 
@@ -76,8 +100,8 @@ The application has five main pages: **Dictionary**, **Lessons**, **Quiz**, **Fl
 - **Dictionary:** English word search and Simplified Chinese character search, detailed definitions and examples, translation-language switching, saved words and Chinese stroke-order learning.
 - **Lessons:** English and Chinese permanent lesson libraries, Beginner/Intermediate/Advanced difficulty levels, interactive practice, course-specific progress and completed-lesson review.
 - **Daily Learning:** Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision, with account-synchronised preferences and daily allowances.
-- **Quiz:** The English Quiz experience, including its 199-question bank, progress and allowance integration.
-- **Flashcards:** English Flashcards, review progress and allowance integration.
+- **Quiz:** English Quiz (199-question bank) and Chinese Quiz (145 approved staging questions), with course-aware sessions, progress, answer review and allowance integration.
+- **Flashcards:** English and Chinese Flashcards, including course-specific recall modes, review snapshots, progress and allowance integration.
 - **Profile:** Learning progress, preferences, timezone, account information and account/data-management controls.
 
 Quiz and Flashcards are available features delivered in Updates 2.4.0 and 2.5.0. They are not Coming Soon placeholders.
@@ -99,7 +123,7 @@ The daily activity limits are shared across English and Chinese for the same act
 
 Premium entitlement infrastructure exists, but this project does not currently include a payment, checkout or subscription-purchase flow. Premium values in this table describe the configured entitlement limits, not an available purchase offer.
 
-## Supabase changes in Update 2.7.0
+## Supabase changes in Update 2.8.0\n\nU2.8.0 adds database support for Chinese Quiz sessions and question-bank composition, Chinese Flashcard language snapshots and full-game review, lesson/Quiz practice metrics, Dashboard history review and related security/allowance safeguards. The authoritative ordered SQL files are in `supabase/migrations/`; review the actual production migration ledger before rollout. Staging has been brought through the latest two content-safety/source-sync migrations. Production has not received U2.8.0 migrations.\n\n## Supabase changes in Update 2.7.0
 
 This update adds three migrations:
 
@@ -156,7 +180,7 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ## Release history
 
-- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
+- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging migration sequence verified; production rollout and release deployment remain pending.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
 - **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
 - **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
 - **SwiftDictionary Update 2.5.0:** English Flashcards experience, review progress and allowance integration.
