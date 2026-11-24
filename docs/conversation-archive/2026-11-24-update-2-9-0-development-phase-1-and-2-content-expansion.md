@@ -16,7 +16,7 @@ Continue the owner-authorised Update 2.9.0 work after reading the latest Master 
 ## Branch and repository state
 
 - Application branch: `feature/update-2-9-0-english-dictionary-collections`.
-- Latest recorded feature-branch commit at this checkpoint: `f2ef3b1e233818ebd5363c328d6c9689a4a9372d`.
+- Latest recorded feature-branch commit at this checkpoint: `22bc284e00cfcc41582319712974ac3ba861a9b8`.
 - The feature branch is 55 commits ahead of `main` and 0 commits behind at the checkpoint.
 - No pull request was opened.
 - No staging preview was created.
@@ -36,14 +36,14 @@ Completed.
 ### Existing English baseline content scan
 
 - All 810 entries have a headword, part of speech, pronunciation, English definition, Simplified Chinese definition, examples array and tip.
-- 258 entries have fewer than two general example sentences.
-- 100 entries contain a `senses` array, comprising 244 senses; all 244 have a Simplified Chinese sense translation.
-- 710 entries do not have an explicit `senses` array and require review for missing or conflated meanings.
+- After the Phase 2 editorial corrections integrated on the feature branch, 216 entries still have fewer than two general example sentences (42 second examples were added).
+- 130 entries now contain a `senses` array, comprising 304 senses; all 304 have a Simplified Chinese sense translation (30 entries received 60 POS-specific sense records).
+- 680 entries do not have an explicit `senses` array; 110 of these have multiple parts of speech and remain a priority for sense separation.
 - 38 entries lack the optional `breakdown` and `related` fields.
 - None of the 810 baseline entries has category assignments. Phase 3 must classify existing entries as well as the new additions.
 - All 810 pronunciations passed a basic slash-delimited notation check. Phonetic accuracy and accent consistency remain editorial QA tasks.
 
-This is a structural inventory, not a linguistic accuracy certification.
+This is a structural inventory, not a linguistic accuracy certification. The 30 sense patches and 42 example patches are now integrated into the feature-branch `index.html` at commit `9c09415afe879e1960dd254e6243e07c2dbb8615`.
 
 ## Phase 2 — English expansion and accuracy review
 
@@ -96,7 +96,7 @@ Category assignment counts for the new entries (a multi-category entry counts on
 | Education | 59 |
 | Emotions & Descriptions | 43 |
 
-A reproducible validator was added at `scripts/dictionary/validate-english-expansion.mjs`. It was corrected so an empty related-word string is allowed, and duplicate comparisons normalise spaces and hyphens. The standalone script has not yet been executed in an actual checked-out Node/CI environment; the connector-side audit performed equivalent checks and additionally verified the full baseline overlap.
+A reproducible validator was added at `scripts/dictionary/validate-english-expansion.mjs`. It was corrected so an empty related-word string is allowed, and duplicate comparisons normalise spaces and hyphens. The standalone script has not yet been executed in an actual checked-out Node/CI environment; the connector-side audit performed equivalent checks and additionally verified the full baseline overlap after the baseline patches were integrated.
 
 ### Editorial and integration gates still open
 
