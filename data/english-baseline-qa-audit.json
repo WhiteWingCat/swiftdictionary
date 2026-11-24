@@ -1741,5 +1741,16 @@
     "Entries with multiple parts of speech but no senses array are a priority for sense separation and POS review.",
     "The baseline has no category assignments; Phase 3 must classify all baseline entries as well as new additions.",
     "One-example entries need a second natural, context-appropriate example; preserve existing examples unless they are inaccurate."
-  ]
+  ],
+  "editorialPatches": {
+    "status": "authored; not yet merged into the runtime baseline",
+    "sensePatchFile": "data/english-baseline-sense-patches-01.json",
+    "sensePatchedHeadwords": 30,
+    "newSenseRecords": 60,
+    "examplePatchFile": "data/english-baseline-example-patches-01.json",
+    "examplePatchedHeadwords": 30,
+    "addedExampleSentences": 30,
+    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 110,
+    "projectedRemainingEntriesWithFewerThanTwoExamples": 228
+  }
 }
