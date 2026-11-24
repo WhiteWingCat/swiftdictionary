@@ -745,5 +745,17 @@ test("Chinese Mixed Recall includes Translation Recall and rejects definition-cu
   const reused=deck.map(card=>({...card,translationZh:card.definitionCueZh,availableModes:["translation"]}));
   assert.throws(()=>makeRound(reused),/does not contain four distinct choices/,
     "Chinese-selected Translation Recall must not reuse a definition cue");
-  assert.match(flashcardsSource,/chinese\?\["word","definition","translation","sentence"\]:\["word","definition","sentence"\]/);
+
+  context.state.mode="definition";
+  const leakedDefinition=deck.map(card=>({...card,availableModes:["definition"],definitionCueZh:"这是关于"+card.word+"的说明"}));
+  assert.throws(()=>makeRound(leakedDefinition),/does not contain four distinct choices/,
+    "Definition Recall must reject a clue that contains its target");
+
+  context.state.mode="translation";
+  context.state.game.translationLanguage="zh";
+  context.translationFor=card=>card.translationZh||"";
+  const leakedTranslation=deck.map(card=>({...card,translationZh:"相关表达"+card.word,translationLanguages:["zh"],availableModes:["translation"]}));
+  assert.throws(()=>makeRound(leakedTranslation),/does not contain four distinct choices/,
+    "Chinese Translation Recall must reject a cue that contains its target");
+  assert.match(flashcardsSource,/chinese\?\["word","definition","translation","sentence"\]:\["word","definition","translation","sentence"\]/);
 });
