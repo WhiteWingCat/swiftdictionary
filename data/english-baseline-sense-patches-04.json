@@ -1,0 +1,1159 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Final sense-level corrections for the remaining multi-part-of-speech entries in the existing English baseline.",
+  "status": "editorially-authored; awaiting integration",
+  "sourceBaselineBlob": "29e95877c6c6359fd50104a5d430a31c62861ff2",
+  "patches": [
+    {
+      "word": "baroque",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Belonging to or resembling an elaborate artistic style known for dramatic detail, rich decoration and strong contrasts.",
+          "definitionZh": "巴洛克风格的；繁复华丽的",
+          "examples": [
+            "The museum displayed an elaborate Baroque altar.",
+            "The palace has a richly decorated Baroque ceiling."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An artistic and architectural style that developed in Europe from the late sixteenth century, known for dramatic forms and elaborate ornament.",
+          "definitionZh": "巴洛克艺术；巴洛克风格",
+          "examples": [
+            "The exhibition explores the Baroque in European painting.",
+            "The church is an important example of the Baroque."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "brood",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To think for a long time about something unhappy or worrying.",
+          "definitionZh": "忧思；苦想；闷闷不乐地思考",
+          "examples": [
+            "She brooded over the argument all evening.",
+            "He tends to brood when he feels he has made a mistake."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A group of young birds or other animals born or hatched at the same time.",
+          "definitionZh": "一窝幼鸟；一窝幼崽",
+          "examples": [
+            "The hen led her brood across the yard.",
+            "A duck and her brood swam near the reeds."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "concomitant",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Happening or existing at the same time as something else, and often connected with it.",
+          "definitionZh": "伴随发生的；同时存在的",
+          "examples": [
+            "The treatment reduced pain, with a concomitant improvement in mobility.",
+            "Rapid growth brought concomitant changes to the town."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "Something that happens or exists as a natural or closely connected result of another thing.",
+          "definitionZh": "伴随现象；伴随发生的事物",
+          "examples": [
+            "Higher costs were a concomitant of the expansion.",
+            "The report examined stress and its common concomitants."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "confounding",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The mixing of effects or influences that makes it difficult to identify the true relationship between variables.",
+          "definitionZh": "混杂；混杂因素造成的干扰",
+          "examples": [
+            "The researchers adjusted for age to reduce confounding.",
+            "Confounding can make a simple comparison misleading."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Causing confusion or making something difficult to understand.",
+          "definitionZh": "令人困惑的；混淆视听的",
+          "examples": [
+            "The results were confounding at first.",
+            "A confounding detail changed the team's interpretation."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "counterfactual",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Describing an imagined situation that is different from what actually happened.",
+          "definitionZh": "反事实的；与实际情况相反的",
+          "examples": [
+            "The analyst ran a counterfactual scenario without the policy change.",
+            "The study compared actual outcomes with counterfactual estimates."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A statement or imagined situation about what would have happened if events had been different.",
+          "definitionZh": "反事实陈述；反事实情境",
+          "examples": [
+            "The historian used a counterfactual to explore another possible outcome.",
+            "A counterfactual asks what might have happened under different conditions."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dihedral",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Relating to two intersecting planes or to the angle formed between them.",
+          "definitionZh": "二面角的；由两个平面相交形成的",
+          "examples": [
+            "The model's dihedral angle changed the wing's stability.",
+            "The engineer measured the dihedral angle between the two surfaces."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The angle formed by two intersecting planes.",
+          "definitionZh": "二面角",
+          "examples": [
+            "The dihedral was measured between the faces of the structure.",
+            "A larger dihedral can affect the stability of an aircraft wing."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fiduciary",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Involving a legal or ethical duty to act in another person's best interests.",
+          "definitionZh": "受托责任的；信义义务的",
+          "examples": [
+            "A fiduciary must manage the client's assets with appropriate care.",
+            "The director has fiduciary duties to the company."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A person or organisation that is trusted to manage money, property or decisions for someone else.",
+          "definitionZh": "受托人；受托机构",
+          "examples": [
+            "The court appointed a fiduciary to manage the estate.",
+            "A fiduciary must avoid using the position for personal gain."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "glower",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To look at someone angrily, usually in silence.",
+          "definitionZh": "怒目而视；瞪视",
+          "examples": [
+            "She glowered at the muddy footprints on the floor.",
+            "He sat in the corner, glowering at everyone."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An angry, unfriendly look.",
+          "definitionZh": "怒视；怒容",
+          "examples": [
+            "He gave the visitor a cold glower.",
+            "Her glower made it clear that she was unhappy."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grimace",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To twist your face into an expression showing pain, disgust or discomfort.",
+          "definitionZh": "做鬼脸；因痛苦而扭曲面容",
+          "examples": [
+            "She grimaced as she tasted the bitter medicine.",
+            "He grimaced when he stood up too quickly."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A facial expression showing pain, disgust or discomfort.",
+          "definitionZh": "鬼脸；痛苦或厌恶的表情",
+          "examples": [
+            "A grimace crossed his face when he heard the news.",
+            "She tried to hide a grimace during the examination."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "heuristic",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A practical rule or strategy that helps solve a problem quickly, even if it does not always produce the best answer.",
+          "definitionZh": "启发式方法；经验法则",
+          "examples": [
+            "The designer used a simple heuristic to prioritise urgent tasks.",
+            "A useful heuristic is to check the source before sharing a claim."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Helping someone discover or solve something through practical exploration rather than a fixed procedure.",
+          "definitionZh": "启发式的；探索性的",
+          "examples": [
+            "The class used a heuristic approach to investigate the problem.",
+            "The guide provides heuristic techniques for early-stage research."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "individual",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One person or thing considered separately from a group.",
+          "definitionZh": "个人；个体",
+          "examples": [
+            "Each individual has different strengths.",
+            "The programme offers support to every individual."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Relating to one person or thing rather than a group; separate or particular.",
+          "definitionZh": "个人的；个别的；单独的",
+          "examples": [
+            "Please put each item in an individual box.",
+            "The teacher gave each student individual feedback."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "interview",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A formal meeting in which one person asks another questions, often to assess suitability for a job or to gather information.",
+          "definitionZh": "面试；采访；访谈",
+          "examples": [
+            "I have an interview on Monday morning.",
+            "The newspaper published an interview with the artist."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To ask someone questions in a formal meeting or for a report, study or broadcast.",
+          "definitionZh": "面试；采访；访谈",
+          "examples": [
+            "The manager interviewed several applicants.",
+            "Researchers interviewed residents about the new transport plan."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "littoral",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Relating to the shore of a sea or lake.",
+          "definitionZh": "沿岸的；滨岸的",
+          "examples": [
+            "Littoral habitats were affected by the rising water level.",
+            "The study examined littoral vegetation around the lake."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The area along the shore of a sea or lake.",
+          "definitionZh": "沿岸地带；滨岸区",
+          "examples": [
+            "Several species live in the shallow littoral.",
+            "The littoral supports plants adapted to changing water levels."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "meanwhile",
+      "senses": [
+        {
+          "part": "adverb",
+          "definition": "During the same period of time as something else is happening.",
+          "definitionZh": "与此同时；在此期间",
+          "examples": [
+            "I will prepare dinner; meanwhile, you can set the table.",
+            "The office was busy; meanwhile, the phones kept ringing."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The period of time between two events; usually used in the phrase “in the meanwhile”.",
+          "definitionZh": "其间；此期间",
+          "examples": [
+            "In the meanwhile, the team continued testing the system.",
+            "We can review the draft in the meanwhile."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mimic",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To copy someone's voice, movements or behaviour, often to entertain or imitate.",
+          "definitionZh": "模仿；仿效",
+          "examples": [
+            "The child mimicked his father's walk.",
+            "Some birds can mimic human speech."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A person or animal that imitates the voice, movements or behaviour of another.",
+          "definitionZh": "模仿者；善于模仿的人",
+          "examples": [
+            "The performer was a skilled mimic of famous actors.",
+            "The bird is an excellent mimic of other calls."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mumble",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak in a quiet, unclear way, making the words difficult to understand.",
+          "definitionZh": "含糊地说；咕哝",
+          "examples": [
+            "He mumbled his answer into his collar.",
+            "Please do not mumble; I can barely hear you."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A quiet, unclear way of speaking or a sound made in this way.",
+          "definitionZh": "含糊不清的话；咕哝声",
+          "examples": [
+            "I could hear a mumble from the next room.",
+            "His reply came out as a quiet mumble."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "murmur",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak in a low, soft voice, often gently or indistinctly.",
+          "definitionZh": "低声说；轻声低语",
+          "examples": [
+            "He murmured a few reassuring words.",
+            "She murmured a thank-you before leaving."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A low, soft or indistinct sound or voice.",
+          "definitionZh": "低语；低声；轻微声响",
+          "examples": [
+            "A murmur of conversation filled the room.",
+            "The crowd gave a quiet murmur of agreement."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mutter",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak quietly and unclearly, often because you are annoyed or do not want to be heard.",
+          "definitionZh": "嘟囔；低声抱怨",
+          "examples": [
+            "He muttered an apology and looked away.",
+            "She muttered something about the traffic."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A quiet, unclear remark, often expressing annoyance.",
+          "definitionZh": "嘟囔声；低声抱怨",
+          "examples": [
+            "A mutter of disapproval came from the audience.",
+            "He answered with a mutter that nobody could hear."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "nod",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move your head down and up, often to show agreement, understanding or greeting.",
+          "definitionZh": "点头；点头示意",
+          "examples": [
+            "She nodded to show that she understood.",
+            "He nodded at the receptionist as he walked past."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A movement of the head that shows agreement, recognition or greeting.",
+          "definitionZh": "点头；点头示意",
+          "examples": [
+            "He gave a quick nod before leaving.",
+            "A nod from the teacher showed that the answer was correct."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pace",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To walk back and forth repeatedly, often because you are worried, impatient or thinking.",
+          "definitionZh": "来回踱步；踱来踱去",
+          "examples": [
+            "He paced the hallway while waiting for the call.",
+            "She began to pace when the meeting ran late."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The speed or rhythm at which someone moves or an activity happens; also one step in walking.",
+          "definitionZh": "速度；节奏；步伐",
+          "examples": [
+            "The team worked at a steady pace.",
+            "She quickened her pace to catch the bus."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pat",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To touch someone or something lightly and repeatedly with your hand.",
+          "definitionZh": "轻拍；轻抚",
+          "examples": [
+            "He patted the dog gently on the back.",
+            "She patted the child's shoulder to reassure him."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A light, gentle touch made with the hand.",
+          "definitionZh": "轻拍；轻抚",
+          "examples": [
+            "He gave the dog a gentle pat.",
+            "A reassuring pat on the shoulder helped her relax."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "polish",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make a surface smooth and shiny by rubbing it; or to improve a piece of work by making small changes.",
+          "definitionZh": "擦亮；磨光；润色",
+          "examples": [
+            "She polished the silver until it shone.",
+            "I need to polish my portfolio before sending it."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A substance used to clean, protect or make a surface shiny; or a refined quality in a performance or piece of work.",
+          "definitionZh": "上光剂；抛光剂；润色；精致度",
+          "examples": [
+            "Use a little shoe polish on the leather.",
+            "The final presentation had a level of polish that impressed the client."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pout",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To push your lips forward to show displeasure, disappointment or sulking.",
+          "definitionZh": "噘嘴；撅嘴；生闷气",
+          "examples": [
+            "The child pouted when the game ended.",
+            "He gave a playful pout when she refused to share the dessert."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A facial expression made by pushing the lips forward.",
+          "definitionZh": "噘嘴；撅嘴的表情",
+          "examples": [
+            "She made a small pout for the photograph.",
+            "His exaggerated pout made everyone laugh."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "propaedeutic",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Serving as an introduction or preparatory instruction for a more advanced subject.",
+          "definitionZh": "预备性的；导论性的",
+          "examples": [
+            "The course offered propaedeutic training before the specialist programme.",
+            "Students completed a propaedeutic module before beginning advanced research."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A preparatory course or introduction to a more advanced subject.",
+          "definitionZh": "预备课程；入门导论",
+          "examples": [
+            "The university requires a propaedeutic before the specialist course.",
+            "The short propaedeutic introduced students to the basic concepts."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "quantum",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A discrete amount or unit of a physical quantity, especially in quantum physics.",
+          "definitionZh": "量子；量值单位",
+          "examples": [
+            "The article explains how a quantum state can change during measurement.",
+            "A photon is a quantum of electromagnetic radiation."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Relating to quantum theory or the behaviour of very small particles and energy.",
+          "definitionZh": "量子的；量子理论的",
+          "examples": [
+            "The team studies quantum computing.",
+            "The experiment tested a quantum effect at very low temperatures."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "resolve",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To solve a problem, disagreement or difficulty; or to make a firm decision to do something.",
+          "definitionZh": "解决；处理；决心",
+          "examples": [
+            "We worked together to resolve the issue.",
+            "She resolved to practise every morning."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "Firm determination to do something, especially when it is difficult.",
+          "definitionZh": "决心；坚定意志",
+          "examples": [
+            "She spoke with resolve despite the criticism.",
+            "His resolve to finish the course never weakened."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "slump",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To sit, stand or fall with your body leaning heavily and your shoulders lowered; or to decrease suddenly.",
+          "definitionZh": "瘫坐；垂头；骤降",
+          "examples": [
+            "He slumped into the chair after a long shift.",
+            "Sales slumped during the quiet season."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sudden fall in activity, value or performance; or a heavy, collapsed posture.",
+          "definitionZh": "暴跌；低迷；瘫坐姿势",
+          "examples": [
+            "The industry experienced a slump in demand.",
+            "After the long journey, he sat in a tired slump."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "smirk",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To smile in a way that suggests smugness, secret amusement or self-satisfaction.",
+          "definitionZh": "得意地笑；傻笑；幸灾乐祸地笑",
+          "examples": [
+            "He smirked as if he knew something everyone else did not.",
+            "She smirked when her prediction proved correct."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A smug or self-satisfied smile.",
+          "definitionZh": "得意的笑；自鸣得意的表情",
+          "examples": [
+            "A small smirk appeared on his face.",
+            "She gave him a smirk and returned to her work."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "snarl",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak in an angry, harsh voice; or for an animal to show its teeth while growling.",
+          "definitionZh": "怒吼；咆哮；龇牙",
+          "examples": [
+            "He snarled a warning when they came too close.",
+            "The dog snarled at the stranger near the gate."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An angry growl or harsh, angry remark.",
+          "definitionZh": "咆哮声；怒骂",
+          "examples": [
+            "A low snarl came from behind the fence.",
+            "His reply was a snarl rather than an explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sneer",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To show contempt by speaking or smiling in a scornful way.",
+          "definitionZh": "讥笑；轻蔑地笑",
+          "examples": [
+            "He sneered at the suggestion instead of considering it.",
+            "She sneered when she heard the excuse."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A scornful expression or remark that shows contempt.",
+          "definitionZh": "讥笑；轻蔑的表情或言语",
+          "examples": [
+            "A sneer crossed her face.",
+            "His comment was delivered with a sneer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sniffle",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To sniff repeatedly, often because you are crying or have a cold.",
+          "definitionZh": "抽鼻子；啜泣；吸鼻涕",
+          "examples": [
+            "He sniffled and wiped his eyes.",
+            "I have been sniffling all morning because of this cold."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A repeated sniff, often caused by crying or a cold.",
+          "definitionZh": "抽鼻子声；啜泣声",
+          "examples": [
+            "A quiet sniffle came from the back of the room.",
+            "She tried to hide a sniffle during the speech."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sob",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To cry with repeated, uneven breaths.",
+          "definitionZh": "啜泣；抽泣",
+          "examples": [
+            "He sobbed quietly after saying goodbye.",
+            "She tried to speak through her sobs."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A short, uneven breath or sound made while crying.",
+          "definitionZh": "啜泣声；抽泣",
+          "examples": [
+            "A sob escaped before she could answer.",
+            "He heard a quiet sob from the next room."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "squeeze",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To press something firmly, often with your fingers or hands, or to force something into a small space.",
+          "definitionZh": "挤压；紧握；塞入",
+          "examples": [
+            "She squeezed his hand to reassure him.",
+            "He squeezed the wet cloth over the sink."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A firm pressing or tight hold; an uncomfortable shortage of space, money or time.",
+          "definitionZh": "挤压；紧握；压力；短缺",
+          "examples": [
+            "Give the tube a gentle squeeze.",
+            "The family felt the squeeze as living costs increased."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "squint",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To partly close your eyes to see better or because of bright light.",
+          "definitionZh": "眯眼看；眯起眼睛",
+          "examples": [
+            "She squinted at the tiny writing on the label.",
+            "He squinted into the afternoon sun."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A way of looking with the eyes partly closed; also a condition in which the eyes do not point in the same direction.",
+          "definitionZh": "眯眼；斜视",
+          "examples": [
+            "He gave the label a squint before reading it.",
+            "The child was examined for a possible squint."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stagger",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To walk or move unsteadily, as if you might fall; or to shock someone greatly.",
+          "definitionZh": "踉跄；摇摇欲坠；使震惊",
+          "examples": [
+            "He staggered out of the room after the exhausting workout.",
+            "The sudden news left her staggering with shock."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An unsteady movement or step.",
+          "definitionZh": "踉跄；蹒跚的一步",
+          "examples": [
+            "He took a stagger before catching the rail.",
+            "The injured player made a brief stagger and stopped."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stare",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To look at someone or something for a long time, often without looking away.",
+          "definitionZh": "盯着看；凝视",
+          "examples": [
+            "The child stared at the enormous cake.",
+            "She stared out of the window, lost in thought."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A long, fixed look at someone or something.",
+          "definitionZh": "凝视；盯视",
+          "examples": [
+            "He gave the screen a puzzled stare.",
+            "Her intense stare made him look away."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stoic",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Calm and controlled during pain or difficulty, without showing much emotion.",
+          "definitionZh": "坚忍的；冷静克制的",
+          "examples": [
+            "He remained stoic while the doctor treated his injury.",
+            "Her stoic expression gave little away."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A person who accepts pain or difficulty without showing strong emotion; historically, a follower of Stoicism.",
+          "definitionZh": "坚忍的人；斯多葛学派人物",
+          "examples": [
+            "A true stoic does not complain about every small difficulty.",
+            "The philosopher was a Stoic who taught self-control."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stroke",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move your hand gently over a surface, someone's hair or an animal.",
+          "definitionZh": "抚摸；轻抚",
+          "examples": [
+            "She stroked the cat behind its ears.",
+            "He stroked his chin while thinking."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A gentle movement of the hand; a single movement of a pen or brush; or a sudden medical event affecting the brain.",
+          "definitionZh": "抚摸；笔画；中风；划水动作",
+          "examples": [
+            "The painting was made with short, careful brush strokes.",
+            "The hospital treated him quickly after the stroke."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stumble",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To trip or lose your balance while walking; or to make a mistake while speaking or doing something.",
+          "definitionZh": "绊倒；踉跄；结结巴巴",
+          "examples": [
+            "He stumbled on the uneven pavement.",
+            "She stumbled over her words when she was introduced."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A trip or unsteady step; or a mistake that interrupts progress.",
+          "definitionZh": "绊脚；踉跄；失误",
+          "examples": [
+            "One stumble sent him onto the grass.",
+            "The team recovered quickly from an early stumble."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sulk",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To remain silent and unhappy because you feel annoyed or disappointed.",
+          "definitionZh": "生闷气；闷闷不乐",
+          "examples": [
+            "He sulked after his suggestion was rejected.",
+            "She went off to sulk in her room."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A period of silent, unhappy behaviour caused by annoyance or disappointment.",
+          "definitionZh": "闷闷不乐；生闷气的状态",
+          "examples": [
+            "He went into a sulk after losing the game.",
+            "Her brief sulk ended when her friend apologised."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "surge",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move or rise suddenly and powerfully; or to increase quickly in amount or strength.",
+          "definitionZh": "汹涌；激增；猛冲",
+          "examples": [
+            "The crowd surged toward the open gates.",
+            "Demand for the product surged after the announcement."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sudden powerful movement, increase or strong feeling.",
+          "definitionZh": "激增；浪潮；强烈感受",
+          "examples": [
+            "A surge of relief washed over her.",
+            "The hospital faced a surge in patients."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tap",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To touch something lightly, often with a finger or a small object; or to draw liquid from a source.",
+          "definitionZh": "轻敲；轻拍；开发利用",
+          "examples": [
+            "She tapped his shoulder to get his attention.",
+            "The company hopes to tap into a new market."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A light hit or touch; or a device that controls the flow of water or another liquid.",
+          "definitionZh": "轻敲；水龙头；阀门",
+          "examples": [
+            "He gave the screen a quick tap.",
+            "Turn off the tap when you finish washing your hands."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tense",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Nervous, worried or strained; or stretched tightly.",
+          "definitionZh": "紧张的；绷紧的",
+          "examples": [
+            "The room felt tense before the announcement.",
+            "His shoulders were tense after the long drive."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make a muscle or part of the body tight, often because of stress or preparation.",
+          "definitionZh": "使绷紧；使紧张",
+          "examples": [
+            "His jaw tensed as he listened to the argument.",
+            "Try not to tense your shoulders while typing."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "throughout",
+      "senses": [
+        {
+          "part": "preposition",
+          "definition": "In every part of a place or during the whole period of an event.",
+          "definitionZh": "遍及；贯穿整个期间",
+          "examples": [
+            "It rained throughout the night.",
+            "The museum is popular throughout the country."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "In every part or from beginning to end.",
+          "definitionZh": "到处；自始至终",
+          "examples": [
+            "The building was clean throughout.",
+            "The book is consistently engaging throughout."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tremble",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To shake slightly, often because of fear, cold, anger or strong emotion.",
+          "definitionZh": "颤抖；发抖",
+          "examples": [
+            "Her hands trembled as she opened the letter.",
+            "His voice trembled when he spoke about his father."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A slight shaking movement or sound.",
+          "definitionZh": "颤抖；震颤",
+          "examples": [
+            "There was a tremble in her voice.",
+            "A slight tremble ran through the window frame."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "trust",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Belief that someone is honest, reliable or likely to do what they promise.",
+          "definitionZh": "信任；信赖",
+          "examples": [
+            "Trust takes time to build.",
+            "The agreement depends on mutual trust."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To believe that someone is honest or reliable, or that something is safe or correct.",
+          "definitionZh": "信任；相信；放心交给",
+          "examples": [
+            "I trust her to finish the task.",
+            "You should not trust every message you receive online."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "understanding",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Knowledge of a subject or situation; or an agreement reached through discussion.",
+          "definitionZh": "理解；了解；共识",
+          "examples": [
+            "We reached an understanding after talking.",
+            "A clear understanding of the rules helps prevent mistakes."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Kind and sympathetic towards someone else's problems or feelings.",
+          "definitionZh": "善解人意的；体谅的",
+          "examples": [
+            "Thanks for being understanding about the delay.",
+            "The teacher was understanding when the student explained the situation."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "wince",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make a brief expression or movement showing pain, embarrassment or discomfort.",
+          "definitionZh": "畏缩；因痛苦而皱眉",
+          "examples": [
+            "She winced when the doctor touched the bruise.",
+            "He winced at the harsh criticism."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A brief facial expression or movement showing pain or discomfort.",
+          "definitionZh": "畏缩的表情；痛苦的反应",
+          "examples": [
+            "A small wince crossed his face.",
+            "She gave a wince when she moved her injured arm."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "within",
+      "senses": [
+        {
+          "part": "preposition",
+          "definition": "Inside a particular area, limit, group or period of time.",
+          "definitionZh": "在……之内；不超过",
+          "examples": [
+            "Please reply within two days.",
+            "The café is within walking distance."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "Inside or on the inner part of something.",
+          "definitionZh": "在里面；在内部",
+          "examples": [
+            "The building looks ordinary outside but is beautiful within.",
+            "The answer lies within."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "xenobiotic",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A chemical substance that is foreign to a living organism or biological system.",
+          "definitionZh": "外源性化合物；异生物质",
+          "examples": [
+            "The liver metabolises many xenobiotic compounds.",
+            "Researchers measured the xenobiotic in blood samples."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Describing a chemical substance that is foreign to an organism or its normal biological processes.",
+          "definitionZh": "外源性的；异生物的",
+          "examples": [
+            "The study examined xenobiotic exposure in aquatic animals.",
+            "Xenobiotic compounds may be processed by liver enzymes."
+          ]
+        }
+      ]
+    }
+  ]
+}
