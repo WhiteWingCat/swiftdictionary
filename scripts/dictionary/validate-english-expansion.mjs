@@ -12,6 +12,7 @@ const indexPath = path.join(root, "index.html");
 const candidatePath = path.join(root, "data/english-expansion-candidates.json");
 const batchDir = path.join(root, "data");
 const source = fs.readFileSync(indexPath, "utf8");
+const normalizeHeadword = value => String(value || "").trim().toLowerCase().replace(/[-\\s]+/g, " ");
 const marker = "const englishWords = ";
 const markerAt = source.indexOf(marker);
 if (markerAt < 0) throw new Error("Could not locate embedded englishWords array.");
@@ -20,11 +21,11 @@ const arrayEnd = source.indexOf("\n    ];", arrayStart) + 6;
 if (arrayEnd < arrayStart) throw new Error("Could not locate end of englishWords array.");
 const baseline = JSON.parse(source.slice(arrayStart, arrayEnd).trim());
 const candidatesDoc = JSON.parse(fs.readFileSync(candidatePath, "utf8"));
-const candidateWords = new Set(candidatesDoc.candidates.map(x => String(x.word).toLowerCase()));
+const candidateWords = new Set(candidatesDoc.candidates.map(x => normalizeHeadword(x.word)));
 const baselineWords = new Set();
 const baselineDuplicates = [];
 for (const entry of baseline) {
-  const key = String(entry.word || "").trim().toLowerCase();
+  const key = normalizeHeadword(entry.word);
   if (!key) baselineDuplicates.push("(empty headword)");
   else if (baselineWords.has(key)) baselineDuplicates.push(key);
   baselineWords.add(key);
@@ -50,7 +51,7 @@ for (const file of batchFiles) {
   const words = [];
   for (const entry of entries) {
     const word = String(entry.word || "").trim();
-    const key = word.toLowerCase();
+    const key = normalizeHeadword(word);
     words.push(word);
     if (!word) errors.push(file + ": empty headword");
     if (baselineWords.has(key)) errors.push(file + ": duplicate of baseline: " + word);
