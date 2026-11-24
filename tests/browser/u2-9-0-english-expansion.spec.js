@@ -48,3 +48,4 @@ test("switching to Chinese keeps the existing character-only catalogue isolated"
   expect(visibleChineseWords.length).toBeGreaterThan(0);
   expect(visibleChineseWords.every(word => [...word].length === 1)).toBeTruthy();
   await expect(page.locator(".word-card .pinyin-line")).toHaveCount(0);
+});
