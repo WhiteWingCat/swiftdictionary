@@ -11,7 +11,7 @@
     "baselineEntries": 810,
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
-    "entriesWithFewerThanTwoExamples": 96,
+    "entriesWithFewerThanTwoExamples": 66,
     "entriesWithoutExplicitSenses": 570,
     "multiPartOfSpeechWithoutExplicitSenses": 0,
     "entriesWithExplicitSenses": 240,
@@ -21,36 +21,6 @@
   },
   "issueQueues": {
     "fewerThanTwoExamples": [
-      "lexicography",
-      "lexicon",
-      "liminality",
-      "lineage",
-      "lithification",
-      "lithography",
-      "lithosphere",
-      "littoral",
-      "plebiscite",
-      "pleiotropy",
-      "polymorphism",
-      "propaedeutic",
-      "provenance",
-      "pseudoscience",
-      "psychometrics",
-      "quanta",
-      "quantitative",
-      "quantization",
-      "quantum",
-      "quarantine",
-      "quiescent",
-      "quintessence",
-      "quintile",
-      "quorum",
-      "quorum-sensing",
-      "quotient",
-      "radiometry",
-      "reciprocity",
-      "reification",
-      "replication",
       "rheology",
       "salience",
       "sedimentology",
@@ -745,17 +715,18 @@
     "sensePatchedHeadwords": 140,
     "newSenseRecords": 282,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
-    "examplePatchedHeadwords": 162,
-    "addedExampleSentences": 162,
+    "examplePatchedHeadwords": 192,
+    "addedExampleSentences": 192,
     "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 0,
-    "projectedRemainingEntriesWithFewerThanTwoExamples": 96,
+    "projectedRemainingEntriesWithFewerThanTwoExamples": 66,
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
       "data/english-baseline-example-patches-02.json",
       "data/english-baseline-example-patches-03.json",
       "data/english-baseline-example-patches-04.json",
       "data/english-baseline-example-patches-05.json",
-      "data/english-baseline-example-patches-06.json"
+      "data/english-baseline-example-patches-06.json",
+      "data/english-baseline-example-patches-07.json"
     ],
     "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615",
     "sensePatchFiles": [
@@ -772,8 +743,9 @@
       "7756a0138e5e773da9bb0eba6f2f2f352b59e50d",
       "4b15e9bc092dba6ce88ce00cb3ea82db2d04116c",
       "8579c9fc8d49b0fb3b5afcc582e9b882990ca359",
-      "4d5b8fdd26d35327139517ed9903714b0aa2de5e"
+      "4d5b8fdd26d35327139517ed9903714b0aa2de5e",
+      "4fec3a8649dc1d86bc1cc7f26c211c021e26105c"
     ]
   },
-  "currentBaselineBlob": "88037a61659d997bfb2e521d1f355c8e2149ed09"
+  "currentBaselineBlob": "d20fc053dd0adc4495676b9a313e6e863c1792be"
 }
