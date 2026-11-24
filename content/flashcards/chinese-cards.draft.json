@@ -17544,13 +17544,10 @@
       "contentStatus": "draft",
       "pinyin": "jiào shī",
       "availableModes": [
-        "word",
-        "translation"
+        "word"
       ],
       "difficulty": "beginner",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0089",
@@ -26073,13 +26070,10 @@
       "contentStatus": "draft",
       "pinyin": "xià jì",
       "availableModes": [
-        "word",
-        "translation"
+        "word"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0461",
