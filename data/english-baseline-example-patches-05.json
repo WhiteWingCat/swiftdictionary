@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "update": "2.9.0",
   "purpose": "Add second contextual examples to another set of academic and technical English baseline entries.",
-  "status": "editorially-authored; awaiting integration",
+  "status": "integrated into feature-branch index.html",
   "sourceBaselineBlob": "54a48306ce4cfdcc275f14d9505f035f3754ae9b",
   "entries": [
     {
@@ -185,5 +185,6 @@
         "The test is designed to detect latent infection before symptoms appear."
       ]
     }
-  ]
+  ],
+  "appliedCommit": "8579c9fc8d49b0fb3b5afcc582e9b882990ca359"
 }
