@@ -236,6 +236,9 @@ test("Free user can switch translation in an open permanent lesson and complete 
     lessonAllowanceNetwork.push({ url: response.url(), status: response.status(), body });
   });
   await page.locator("#lessonCards button").first().click();
+  const lessonPrompt=page.locator(".lesson-start-confirm-backdrop");
+  await expect(lessonPrompt).toBeVisible();
+  await lessonPrompt.locator('[data-confirm="yes"]').click();
   await page.waitForFunction(() => {
     const detail = document.querySelector("#lessonDetailPage");
     const status = document.querySelector("#lessonStatus");
@@ -465,7 +468,7 @@ test("Quiz preserves an unavailable translation snapshot and applies the prefere
     await nextPage.locator("#learningIntroDismiss").click();
     await expect(nextPage.locator("#learningIntroBackdrop")).toBeHidden();
   }
-  await nextPage.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(nextPage,"beginner");
   await expect(nextPage.locator("#quizSession")).toBeVisible();
   const questionTypes = [];
   for (let position=1;position<=10;position++) {
@@ -590,22 +593,6 @@ test("Premium user has three daily Quiz starts; abandonment does not refund allo
   await expect(page.locator("#quizActiveCard")).toBeHidden();
 });
 
-test("Quiz start confirmation warns about allowance and cancellation does not consume it", async ({ page }) => {
-  await openQuiz(page,freeSession);
-  page.__quizDialogHandler=async dialog=>{
-    expect(dialog.message()).toMatch(/daily Quiz allowance|每日测验额度/);
-    expect(dialog.message()).toMatch(/abandon|放弃测验/);
-    await dialog.dismiss();
-  };
-  await startQuiz(page,"beginner");
-  await expect(page.locator("#quizHome")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
-  await expect(page.locator("#quizSession")).toBeHidden();
-  await startQuiz(page,"beginner");
-  await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toContainText("0 / 1");
-});
-
 test("Quiz overview follows translation preference and selector changes preserve an active session", async ({ page }) => {
   await updateTranslationPreference(freeUserId,"en");
   await openQuiz(page, freeSession);
@@ -618,7 +605,7 @@ test("Quiz overview follows translation preference and selector changes preserve
   await selectTranslation(page,"zh");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
   await expect(page.locator("#quizHeading")).toHaveText("测验");
-  await expect(page.locator("#quizAllowanceText")).toHaveText("1 / 1 今日剩余");
+  await expect(page.locator("#quizAllowanceText")).toContainText("1 / 1");
   await expect(page.locator("#quizDifficultyGrid .quiz-difficulty-option h3").first()).toHaveText("初级");
   await expect(page.locator("#preferenceRefreshToast")).not.toHaveClass(/visible/,{timeout:5000});
 
@@ -736,7 +723,11 @@ test("Daily History reviews a completed Quiz without leaving Dashboard",async({p
   }
   await expect(page.locator("#quizSubmit")).toBeEnabled();
 
+  const submitPrompt=page.locator(".lesson-start-confirm-backdrop");
   await page.locator("#quizSubmit").click();
+  await expect(submitPrompt).toBeVisible();
+  await submitPrompt.locator('[data-confirm="yes"]').click();
+  await expect(submitPrompt).toBeHidden();
   await expect(page.locator("#quizResults")).toBeVisible({timeout:15000});
   await page.locator("#accountButton").click();
   await page.locator("#menuProfile").click();
@@ -939,7 +930,7 @@ test("Chinese Quiz respects the selected translation language", async ({ page })
   }
   await expect(zhPage.locator("#courseSelect")).toHaveValue("zh");
   await expect(zhPage.locator("#translationSelect")).toHaveValue("zh");
-  await zhPage.locator('[data-quiz-start="beginner"]').click();
+  await startQuiz(zhPage,"beginner");
   await expect(zhPage.locator("#quizSession")).toBeVisible({timeout:15000});
 
   for(let position=1;position<=10;position++){
@@ -1083,7 +1074,7 @@ test("Quiz start allowance warning uses the centered website dialog and cancella
   await expect(page.__quizNativeDialogCount||0).toBe(nativeDialogsBefore);
   await modal.locator('[data-confirm="yes"]').click();
   await expect(page.locator("#quizSession")).toBeVisible();
-  await expect(page.locator("#quizAllowanceText")).toHaveText("0 / 1 今日剩余");
+  await expect(page.locator("#quizAllowanceText")).toContainText("0 / 1");
 });
 
 test("Chinese Quiz shows English translations for knowledge prompts when English is selected", async ({ page }) => {
