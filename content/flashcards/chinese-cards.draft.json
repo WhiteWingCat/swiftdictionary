@@ -929,9 +929,7 @@
         "sentence"
       ],
       "difficulty": "beginner",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-char-8fc7",
@@ -4273,8 +4271,7 @@
       ],
       "difficulty": "beginner",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -8617,8 +8614,7 @@
       ],
       "difficulty": "intermediate",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -12957,8 +12953,7 @@
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -15441,8 +15436,7 @@
       ],
       "difficulty": "advanced",
       "translationLanguages": [
-        "en",
-        "zh"
+        "en"
       ]
     },
     {
@@ -16384,9 +16378,7 @@
         "translation"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0038",
@@ -16982,9 +16974,7 @@
         "translation"
       ],
       "difficulty": "beginner",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0064",
@@ -17097,9 +17087,7 @@
         "translation"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0069",
@@ -22962,9 +22950,7 @@
         "translation"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0325",
@@ -22985,9 +22971,7 @@
         "translation"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0326",
@@ -31794,9 +31778,7 @@
         "translation"
       ],
       "difficulty": "intermediate",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0709",
@@ -33680,9 +33662,7 @@
         "translation"
       ],
       "difficulty": "advanced",
-      "translationLanguages": [
-        "en"
-      ]
+      "translationLanguages": []
     },
     {
       "id": "zh-vocab-0791",
@@ -36937,7 +36917,7 @@
   "modeReadiness": {
     "word": "characters, vocabulary and phrases; pinyin QA required",
     "definition": "characters and authored phrases; multi-character vocabulary needs original Chinese descriptive cues",
-    "translation": "Chinese-selected Translation Recall is enabled only when a distinct direct-equivalent cue exists; 23 character entries are withheld from this mode pending human synonym review. English-selected translation remains available.",
+    "translation": "English and Chinese Translation Recall are available only when a card has a language-specific cue that uniquely identifies one answer. 27 character entries are withheld from Chinese Translation Recall pending synonym review.",
     "sentence": "characters and authored phrases; multi-character vocabulary needs contextual example sentences"
   }
 }
