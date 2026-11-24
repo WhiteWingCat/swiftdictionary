@@ -17,7 +17,7 @@ const marker = "const englishWords = ";
 const markerAt = source.indexOf(marker);
 if (markerAt < 0) throw new Error("Could not locate embedded englishWords array.");
 const arrayStart = markerAt + marker.length;
-const closing = /\n\\s*\\];/.exec(source.slice(arrayStart));
+const closing = /\n\s*\];/.exec(source.slice(arrayStart));
 if (!closing) throw new Error("Could not locate end of englishWords array.");
 const arrayEnd = arrayStart + closing.index + closing[0].lastIndexOf("]") + 1;
 const baseline = JSON.parse(source.slice(arrayStart, arrayEnd).trim());
