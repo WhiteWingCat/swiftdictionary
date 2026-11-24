@@ -12,10 +12,10 @@
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
     "entriesWithFewerThanTwoExamples": 216,
-    "entriesWithoutExplicitSenses": 680,
-    "multiPartOfSpeechWithoutExplicitSenses": 110,
-    "entriesWithExplicitSenses": 130,
-    "totalExplicitSenses": 304,
+    "entriesWithoutExplicitSenses": 650,
+    "multiPartOfSpeechWithoutExplicitSenses": 80,
+    "entriesWithExplicitSenses": 160,
+    "totalExplicitSenses": 364,
     "entriesMissingOptionalBreakdownOrRelated": 38,
     "entriesWithoutCategoryAssignments": 810
   },
@@ -307,7 +307,6 @@
       "baroclinic",
       "baroque",
       "basically",
-      "beam",
       "beckon",
       "behave",
       "believable",
@@ -322,22 +321,17 @@
       "biomagnification",
       "biomimicry",
       "birefringence",
-      "blink",
-      "blush",
       "bold",
       "borrow",
-      "bother",
       "boundary",
       "brave",
       "brief",
       "bristle",
       "brood",
-      "calm",
       "candidate",
       "capable",
       "career",
       "carefully",
-      "caress",
       "cartography",
       "catabolism",
       "catalysis",
@@ -347,26 +341,22 @@
       "choice",
       "chronometry",
       "chronotope",
-      "chuckle",
       "circadian",
       "cladistics",
       "clarify",
       "clathrate",
       "clearly",
-      "clutch",
       "coercivity",
       "cohort",
       "collaborate",
       "collaboration",
       "colleague",
-      "comfort",
       "commensalism",
       "communicate",
       "compare",
       "compassionate",
       "complain",
       "composed",
-      "compromise",
       "concentrate",
       "concomitant",
       "confidence",
@@ -390,7 +380,6 @@
       "create",
       "creative",
       "criticise",
-      "crouch",
       "cryosphere",
       "cryptography",
       "curiosity",
@@ -430,7 +419,6 @@
       "discuss",
       "dismayed",
       "dissonance",
-      "dread",
       "eager",
       "ecotone",
       "effective",
@@ -440,18 +428,15 @@
       "either",
       "elated",
       "embarrassed",
-      "embrace",
       "emergency",
       "emotion",
       "empathetic",
       "empathy",
-      "encounter",
       "encourage",
       "endemic",
       "endogeneity",
       "enough",
       "environment",
-      "envy",
       "epistasis",
       "epistemic",
       "epistemology",
@@ -478,7 +463,6 @@
       "familiarity",
       "feedback",
       "fermentation",
-      "fidget",
       "fiduciary",
       "flexible",
       "flexibly",
@@ -491,31 +475,21 @@
       "fortunately",
       "frequent",
       "frequently",
-      "frown",
       "frustrated",
-      "gasp",
       "gather",
       "gawk",
-      "gaze",
       "genealogy",
       "generally",
       "gently",
       "geochronology",
       "geomorphology",
-      "gesture",
-      "giggle",
-      "glance",
-      "glare",
       "glower",
       "goal",
       "gradually",
       "grateful",
       "grieve",
       "grimace",
-      "grip",
-      "grumble",
       "habit",
-      "handle",
       "hermeneutics",
       "hesitate",
       "hesitation",
@@ -526,7 +500,6 @@
       "honest",
       "honestly",
       "however",
-      "hunch",
       "hydrology",
       "hydrolysis",
       "ignore",
@@ -574,8 +547,6 @@
       "lacustrine",
       "latency",
       "latent",
-      "laugh",
-      "lean",
       "lexicography",
       "lexicon",
       "liminality",
@@ -593,7 +564,6 @@
       "manage",
       "meaningful",
       "meanwhile",
-      "mention",
       "metacognition",
       "method",
       "metonymy",
@@ -932,59 +902,9 @@
         "definition": "Describing an elaborate artistic style, especially associated with dramatic detail and ornamentation; also the style itself."
       },
       {
-        "word": "beam",
-        "part": "verb / noun",
-        "definition": "To smile broadly because you are happy, proud, or pleased."
-      },
-      {
-        "word": "blink",
-        "part": "verb / noun",
-        "definition": "To close and open your eyes quickly."
-      },
-      {
-        "word": "blush",
-        "part": "verb / noun",
-        "definition": "To become red in the face, often because of embarrassment, shyness, or excitement."
-      },
-      {
-        "word": "bother",
-        "part": "verb / noun",
-        "definition": "To annoy or worry someone; trouble or effort."
-      },
-      {
         "word": "brood",
         "part": "verb / noun",
         "definition": "To think for a long time about something unhappy or worrying."
-      },
-      {
-        "word": "calm",
-        "part": "adjective / verb",
-        "definition": "Peaceful and not excited, angry, or worried; to make someone less upset."
-      },
-      {
-        "word": "caress",
-        "part": "verb / noun",
-        "definition": "To touch someone or something gently, usually in an affectionate way."
-      },
-      {
-        "word": "chuckle",
-        "part": "verb / noun",
-        "definition": "To laugh quietly, often in a warm or restrained way."
-      },
-      {
-        "word": "clutch",
-        "part": "verb / noun",
-        "definition": "To hold something tightly, often because of fear, urgency, or strong emotion."
-      },
-      {
-        "word": "comfort",
-        "part": "verb / noun",
-        "definition": "To make someone feel less sad, worried, or distressed; a feeling of ease or relief."
-      },
-      {
-        "word": "compromise",
-        "part": "noun / verb",
-        "definition": "An agreement where each side gives up part of what it wants."
       },
       {
         "word": "concomitant",
@@ -1002,19 +922,9 @@
         "definition": "Considering what would be true if an event had happened differently; a statement about such an alternative."
       },
       {
-        "word": "crouch",
-        "part": "verb / noun",
-        "definition": "To bend your knees and lower your body close to the ground."
-      },
-      {
         "word": "dihedral",
         "part": "adjective / noun",
         "definition": "Relating to two intersecting planes or the angle between them."
-      },
-      {
-        "word": "dread",
-        "part": "verb / noun",
-        "definition": "To feel great fear or anxiety about something that may happen."
       },
       {
         "word": "either",
@@ -1022,69 +932,14 @@
         "definition": "One or the other of two options; used in negative statements to mean “also not”."
       },
       {
-        "word": "embrace",
-        "part": "verb / noun",
-        "definition": "To hold someone closely in your arms; to accept an idea or change willingly."
-      },
-      {
-        "word": "encounter",
-        "part": "verb / noun",
-        "definition": "To meet or experience something, especially unexpectedly."
-      },
-      {
         "word": "enough",
         "part": "determiner / adverb / pronoun",
         "definition": "As much or as many as needed."
       },
       {
-        "word": "envy",
-        "part": "verb / noun",
-        "definition": "To wish you had something that another person has."
-      },
-      {
-        "word": "fidget",
-        "part": "verb / noun",
-        "definition": "To make small, restless movements because you are nervous, bored, or impatient."
-      },
-      {
         "word": "fiduciary",
         "part": "adjective / noun",
         "definition": "Involving a duty to act in another person's best interests; a person who holds that duty."
-      },
-      {
-        "word": "frown",
-        "part": "verb / noun",
-        "definition": "To draw your eyebrows together, usually because you are worried, confused, or displeased."
-      },
-      {
-        "word": "gasp",
-        "part": "verb / noun",
-        "definition": "To take a sudden breath because of shock, surprise, pain, or difficulty breathing."
-      },
-      {
-        "word": "gaze",
-        "part": "verb / noun",
-        "definition": "To look steadily at someone or something, often with admiration or thoughtfulness."
-      },
-      {
-        "word": "gesture",
-        "part": "verb / noun",
-        "definition": "To make a movement with your hand, head, or body to communicate something."
-      },
-      {
-        "word": "giggle",
-        "part": "verb / noun",
-        "definition": "To laugh in a light, high-pitched, often nervous or playful way."
-      },
-      {
-        "word": "glance",
-        "part": "verb / noun",
-        "definition": "To look quickly at someone or something."
-      },
-      {
-        "word": "glare",
-        "part": "verb / noun",
-        "definition": "To look at someone angrily or fiercely."
       },
       {
         "word": "glower",
@@ -1097,29 +952,9 @@
         "definition": "To twist your face into an expression of pain, disgust, or discomfort."
       },
       {
-        "word": "grip",
-        "part": "verb / noun",
-        "definition": "To hold something firmly; the way something is held or the power to hold."
-      },
-      {
-        "word": "grumble",
-        "part": "verb / noun",
-        "definition": "To complain in a low, unhappy voice."
-      },
-      {
-        "word": "handle",
-        "part": "verb / noun",
-        "definition": "To deal with a situation or control something; a part used to hold an object."
-      },
-      {
         "word": "heuristic",
         "part": "noun / adjective",
         "definition": "A practical rule or strategy that helps solve a problem quickly, though it may not always give the best answer."
-      },
-      {
-        "word": "hunch",
-        "part": "verb / noun",
-        "definition": "To bend your body forward and raise your shoulders, often from cold, fear, or concentration."
       },
       {
         "word": "individual",
@@ -1132,16 +967,6 @@
         "definition": "A formal meeting to ask questions, often for a job; to question someone."
       },
       {
-        "word": "laugh",
-        "part": "verb / noun",
-        "definition": "To make sounds and movements that show amusement or happiness."
-      },
-      {
-        "word": "lean",
-        "part": "verb / noun",
-        "definition": "To angle your body toward or away from something, often for support."
-      },
-      {
         "word": "littoral",
         "part": "adjective / noun",
         "definition": "Relating to the shore of a sea or lake; the shore zone itself."
@@ -1150,11 +975,6 @@
         "word": "meanwhile",
         "part": "adverb / noun",
         "definition": "During the same period of time."
-      },
-      {
-        "word": "mention",
-        "part": "verb / noun",
-        "definition": "To refer to something briefly; a brief reference."
       },
       {
         "word": "mimic",
@@ -1523,18 +1343,26 @@
   "editorialPatches": {
     "status": "integrated into feature-branch index.html",
     "sensePatchFile": "data/english-baseline-sense-patches-01.json",
-    "sensePatchedHeadwords": 30,
-    "newSenseRecords": 60,
+    "sensePatchedHeadwords": 60,
+    "newSenseRecords": 120,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
     "examplePatchedHeadwords": 42,
     "addedExampleSentences": 42,
-    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 110,
+    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 80,
     "projectedRemainingEntriesWithFewerThanTwoExamples": 216,
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
       "data/english-baseline-example-patches-02.json"
     ],
-    "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
+    "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615",
+    "sensePatchFiles": [
+      "data/english-baseline-sense-patches-01.json",
+      "data/english-baseline-sense-patches-02.json"
+    ],
+    "appliedCommits": [
+      "9c09415afe879e1960dd254e6243e07c2dbb8615",
+      "628e4fbd7ab7e9bf832e1190455b100b21c27d08"
+    ]
   },
-  "currentBaselineBlob": "ee59e22257a83b4130248d22a8a99254a70c2a10"
+  "currentBaselineBlob": "c320135a30877680bafc6bba2eddf58cbd21baf9"
 }
