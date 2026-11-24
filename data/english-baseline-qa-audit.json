@@ -11,7 +11,7 @@
     "baselineEntries": 810,
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
-    "entriesWithFewerThanTwoExamples": 216,
+    "entriesWithFewerThanTwoExamples": 186,
     "entriesWithoutExplicitSenses": 570,
     "multiPartOfSpeechWithoutExplicitSenses": 0,
     "entriesWithExplicitSenses": 240,
@@ -21,36 +21,6 @@
   },
   "issueQueues": {
     "fewerThanTwoExamples": [
-      "biomagnification",
-      "biomimicry",
-      "birefringence",
-      "cartography",
-      "catabolism",
-      "catalysis",
-      "chelation",
-      "chronometry",
-      "chronotope",
-      "circadian",
-      "cladistics",
-      "clathrate",
-      "coercivity",
-      "cohort",
-      "commensalism",
-      "concomitant",
-      "confound",
-      "confounding",
-      "conjugation",
-      "contingency",
-      "counterfactual",
-      "cryosphere",
-      "cryptography",
-      "cytokinesis",
-      "deamination",
-      "decarbonization",
-      "decolonization",
-      "demography",
-      "deontology",
-      "diagenesis",
       "diapause",
       "diaspora",
       "dichotomy",
@@ -865,13 +835,14 @@
     "sensePatchedHeadwords": 140,
     "newSenseRecords": 282,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
-    "examplePatchedHeadwords": 42,
-    "addedExampleSentences": 42,
+    "examplePatchedHeadwords": 72,
+    "addedExampleSentences": 72,
     "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 0,
-    "projectedRemainingEntriesWithFewerThanTwoExamples": 216,
+    "projectedRemainingEntriesWithFewerThanTwoExamples": 186,
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
-      "data/english-baseline-example-patches-02.json"
+      "data/english-baseline-example-patches-02.json",
+      "data/english-baseline-example-patches-03.json"
     ],
     "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615",
     "sensePatchFiles": [
@@ -884,8 +855,9 @@
       "9c09415afe879e1960dd254e6243e07c2dbb8615",
       "628e4fbd7ab7e9bf832e1190455b100b21c27d08",
       "704a9f4649188bc9f826604c7bd222862594cdde",
-      "9ae5bfa214aef39de5973867ed9ded6d6b2003fc"
+      "9ae5bfa214aef39de5973867ed9ded6d6b2003fc",
+      "7756a0138e5e773da9bb0eba6f2f2f352b59e50d"
     ]
   },
-  "currentBaselineBlob": "b65c4102d0d9781b0b54de182dc344fa387e5802"
+  "currentBaselineBlob": "455680e0318d34c96e272538b674132a1ff1c84f"
 }
