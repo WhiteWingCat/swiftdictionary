@@ -12,10 +12,10 @@
     "uniqueHeadwords": 810,
     "duplicateHeadwords": 0,
     "entriesWithFewerThanTwoExamples": 216,
-    "entriesWithoutExplicitSenses": 650,
-    "multiPartOfSpeechWithoutExplicitSenses": 80,
-    "entriesWithExplicitSenses": 160,
-    "totalExplicitSenses": 364,
+    "entriesWithoutExplicitSenses": 620,
+    "multiPartOfSpeechWithoutExplicitSenses": 50,
+    "entriesWithExplicitSenses": 190,
+    "totalExplicitSenses": 426,
     "entriesMissingOptionalBreakdownOrRelated": 38,
     "entriesWithoutCategoryAssignments": 810
   },
@@ -266,7 +266,6 @@
       "allometry",
       "allosteric",
       "allow",
-      "alternative",
       "although",
       "amaze",
       "anachronism",
@@ -425,7 +424,6 @@
       "efficacy",
       "efficient",
       "effort",
-      "either",
       "elated",
       "embarrassed",
       "emergency",
@@ -435,7 +433,6 @@
       "encourage",
       "endemic",
       "endogeneity",
-      "enough",
       "environment",
       "epistasis",
       "epistemic",
@@ -605,7 +602,6 @@
       "option",
       "ordinary",
       "organize",
-      "otherwise",
       "outcome",
       "overwhelm",
       "overwhelmed",
@@ -619,7 +615,6 @@
       "participate",
       "pat",
       "path dependence",
-      "patient",
       "patiently",
       "pattern",
       "perform",
@@ -653,7 +648,6 @@
       "priority",
       "privacy",
       "probably",
-      "professional",
       "propaedeutic",
       "proud",
       "provenance",
@@ -666,7 +660,6 @@
       "quantitative",
       "quantization",
       "quantum",
-      "quarantine",
       "quiescent",
       "quietly",
       "quintessence",
@@ -685,7 +678,6 @@
       "reciprocity",
       "recognise",
       "recognize",
-      "recoil",
       "recommend",
       "reconsider",
       "reduce",
@@ -712,15 +704,11 @@
       "respond",
       "responsible",
       "restrain",
-      "retort",
-      "retreat",
       "revise",
       "rheology",
       "rhythm",
       "roughly",
-      "routine",
       "salience",
-      "scoff",
       "sedimentology",
       "self-aware",
       "semiotics",
@@ -729,15 +717,9 @@
       "serendipity",
       "serious",
       "seriously",
-      "shriek",
-      "shrug",
-      "shudder",
-      "sigh",
       "similarly",
       "simple",
-      "sink",
       "slump",
-      "smile",
       "smirk",
       "snarl",
       "sneer",
@@ -750,7 +732,6 @@
       "squeeze",
       "squint",
       "stagger",
-      "stammer",
       "stare",
       "startle",
       "startled",
@@ -768,7 +749,6 @@
       "suggest",
       "sulk",
       "summary",
-      "support",
       "supportive",
       "surge",
       "syncretism",
@@ -805,16 +785,12 @@
       "unexpected",
       "unfortunately",
       "unless",
-      "update",
-      "upset",
       "urgent",
       "useful",
-      "usual",
       "usufruct",
       "vague",
       "validate",
       "valuable",
-      "value",
       "variography",
       "various",
       "vectorization",
@@ -822,20 +798,16 @@
       "version",
       "volumetric",
       "vulnerable",
-      "wave",
       "waver",
       "weakness",
       "whereas",
       "whether",
-      "whisper",
       "willing",
       "wince",
       "withdraw",
       "within",
-      "wonder",
       "wonderful",
       "workload",
-      "worth",
       "worthwhile",
       "x-axis",
       "xenobiology",
@@ -851,8 +823,6 @@
       "yardstick",
       "yearn",
       "yeoman",
-      "yet",
-      "yield",
       "yielding",
       "yottabyte",
       "yottameter",
@@ -892,11 +862,6 @@
     ],
     "multiPartOfSpeechWithoutSenseArray": [
       {
-        "word": "alternative",
-        "part": "noun / adjective",
-        "definition": "Another choice or possibility."
-      },
-      {
         "word": "baroque",
         "part": "adjective / noun",
         "definition": "Describing an elaborate artistic style, especially associated with dramatic detail and ornamentation; also the style itself."
@@ -925,16 +890,6 @@
         "word": "dihedral",
         "part": "adjective / noun",
         "definition": "Relating to two intersecting planes or the angle between them."
-      },
-      {
-        "word": "either",
-        "part": "determiner / pronoun / adverb",
-        "definition": "One or the other of two options; used in negative statements to mean “also not”."
-      },
-      {
-        "word": "enough",
-        "part": "determiner / adverb / pronoun",
-        "definition": "As much or as many as needed."
       },
       {
         "word": "fiduciary",
@@ -1002,11 +957,6 @@
         "definition": "To move your head down and up, often to show agreement or understanding."
       },
       {
-        "word": "otherwise",
-        "part": "adverb / conjunction",
-        "definition": "In a different way; if not; or apart from that."
-      },
-      {
         "word": "pace",
         "part": "verb / noun",
         "definition": "To walk back and forth repeatedly, often because you are worried or impatient."
@@ -1015,11 +965,6 @@
         "word": "pat",
         "part": "verb / noun",
         "definition": "To touch someone or something lightly and repeatedly with your hand."
-      },
-      {
-        "word": "patient",
-        "part": "adjective / noun",
-        "definition": "Able to wait or deal with difficulties without becoming annoyed; also, a person receiving medical care."
       },
       {
         "word": "polish",
@@ -1032,11 +977,6 @@
         "definition": "To push your lips forward to show displeasure, disappointment, or sulking."
       },
       {
-        "word": "professional",
-        "part": "adjective / noun",
-        "definition": "Relating to a job or career; a person with specialized training."
-      },
-      {
         "word": "propaedeutic",
         "part": "adjective / noun",
         "definition": "Serving as an introduction or preparatory instruction for a more advanced subject."
@@ -1047,74 +987,14 @@
         "definition": "A discrete amount of a physical quantity; also relating to quantum theory."
       },
       {
-        "word": "quarantine",
-        "part": "noun / verb",
-        "definition": "A period or measure of isolation used to prevent the spread of disease or to contain a security threat."
-      },
-      {
-        "word": "recoil",
-        "part": "verb / noun",
-        "definition": "To move back suddenly because of fear, shock, pain, or disgust."
-      },
-      {
         "word": "resolve",
         "part": "verb / noun",
         "definition": "To solve a problem or make a firm decision."
       },
       {
-        "word": "retort",
-        "part": "verb / noun",
-        "definition": "To reply quickly and sharply, often in an angry or witty way."
-      },
-      {
-        "word": "retreat",
-        "part": "verb / noun",
-        "definition": "To move back or away from a difficult, threatening, or uncomfortable situation."
-      },
-      {
-        "word": "routine",
-        "part": "noun / adjective",
-        "definition": "A regular way of doing things; ordinary and usual."
-      },
-      {
-        "word": "scoff",
-        "part": "verb / noun",
-        "definition": "To laugh or speak about something with contempt or disbelief."
-      },
-      {
-        "word": "shriek",
-        "part": "verb / noun",
-        "definition": "To make a very high, loud sound because of fear, excitement, or pain."
-      },
-      {
-        "word": "shrug",
-        "part": "verb / noun",
-        "definition": "To raise and lower your shoulders to show uncertainty, indifference, or that you do not know."
-      },
-      {
-        "word": "shudder",
-        "part": "verb / noun",
-        "definition": "To shake suddenly, often because of fear, disgust, or cold."
-      },
-      {
-        "word": "sigh",
-        "part": "verb / noun",
-        "definition": "To breathe out audibly, often because of relief, sadness, tiredness, or frustration."
-      },
-      {
-        "word": "sink",
-        "part": "verb / noun",
-        "definition": "To move down below a surface or to lower gradually; the act of doing so."
-      },
-      {
         "word": "slump",
         "part": "verb / noun",
         "definition": "To sit, stand, or fall with your body leaning heavily and your shoulders lowered."
-      },
-      {
-        "word": "smile",
-        "part": "verb / noun",
-        "definition": "To form a pleasant expression by turning up the corners of your mouth."
       },
       {
         "word": "smirk",
@@ -1157,11 +1037,6 @@
         "definition": "To walk or move unsteadily, as if you might fall."
       },
       {
-        "word": "stammer",
-        "part": "verb / noun",
-        "definition": "To speak with repeated sounds or pauses, often because of nervousness or difficulty speaking."
-      },
-      {
         "word": "stare",
         "part": "verb / noun",
         "definition": "To look at someone or something for a long time, often without looking away."
@@ -1185,11 +1060,6 @@
         "word": "sulk",
         "part": "verb / noun",
         "definition": "To remain silent and unhappy because you feel annoyed or disappointed."
-      },
-      {
-        "word": "support",
-        "part": "noun / verb",
-        "definition": "Help, encouragement, or assistance; to help someone or something."
       },
       {
         "word": "surge",
@@ -1227,36 +1097,6 @@
         "definition": "Knowledge of something; showing sympathy toward another person."
       },
       {
-        "word": "update",
-        "part": "noun / verb",
-        "definition": "The latest information; to make something current."
-      },
-      {
-        "word": "upset",
-        "part": "adjective / verb",
-        "definition": "Unhappy, worried, or emotionally disturbed; to make someone feel that way."
-      },
-      {
-        "word": "usual",
-        "part": "adjective / noun",
-        "definition": "Normal or happening most of the time."
-      },
-      {
-        "word": "value",
-        "part": "noun / verb",
-        "definition": "The importance, usefulness, or price of something; to consider important."
-      },
-      {
-        "word": "wave",
-        "part": "verb / noun",
-        "definition": "To move your hand to greet someone, attract attention, or say goodbye."
-      },
-      {
-        "word": "whisper",
-        "part": "verb / noun",
-        "definition": "To speak very quietly, using the breath rather than a normal voice."
-      },
-      {
         "word": "wince",
         "part": "verb / noun",
         "definition": "To make a brief expression or movement showing pain, embarrassment, or discomfort."
@@ -1267,29 +1107,9 @@
         "definition": "Inside a particular area, limit, or period of time."
       },
       {
-        "word": "wonder",
-        "part": "verb / noun",
-        "definition": "To want to know something or think about it with curiosity; a feeling of amazement."
-      },
-      {
-        "word": "worth",
-        "part": "adjective / noun",
-        "definition": "Having a value or being deserving of a particular action."
-      },
-      {
         "word": "xenobiotic",
         "part": "noun / adjective",
         "definition": "A chemical substance foreign to a living organism or biological system."
-      },
-      {
-        "word": "yet",
-        "part": "adverb / conjunction",
-        "definition": "Until now; nevertheless; or at a time in the future."
-      },
-      {
-        "word": "yield",
-        "part": "verb / noun",
-        "definition": "To give way or stop resisting; to produce or provide a result."
       }
     ],
     "missingOptionalBreakdownOrRelated": [
@@ -1343,12 +1163,12 @@
   "editorialPatches": {
     "status": "integrated into feature-branch index.html",
     "sensePatchFile": "data/english-baseline-sense-patches-01.json",
-    "sensePatchedHeadwords": 60,
-    "newSenseRecords": 120,
+    "sensePatchedHeadwords": 90,
+    "newSenseRecords": 182,
     "examplePatchFile": "data/english-baseline-example-patches-01.json",
     "examplePatchedHeadwords": 42,
     "addedExampleSentences": 42,
-    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 80,
+    "projectedRemainingMultiPartOfSpeechWithoutSenseArray": 50,
     "projectedRemainingEntriesWithFewerThanTwoExamples": 216,
     "examplePatchFiles": [
       "data/english-baseline-example-patches-01.json",
@@ -1357,12 +1177,14 @@
     "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615",
     "sensePatchFiles": [
       "data/english-baseline-sense-patches-01.json",
-      "data/english-baseline-sense-patches-02.json"
+      "data/english-baseline-sense-patches-02.json",
+      "data/english-baseline-sense-patches-03.json"
     ],
     "appliedCommits": [
       "9c09415afe879e1960dd254e6243e07c2dbb8615",
-      "628e4fbd7ab7e9bf832e1190455b100b21c27d08"
+      "628e4fbd7ab7e9bf832e1190455b100b21c27d08",
+      "704a9f4649188bc9f826604c7bd222862594cdde"
     ]
   },
-  "currentBaselineBlob": "c320135a30877680bafc6bba2eddf58cbd21baf9"
+  "currentBaselineBlob": "pending verification after integration"
 }
