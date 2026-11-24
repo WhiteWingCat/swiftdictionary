@@ -468,6 +468,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(first.source_lesson_id,firstDraft.source_lesson_id);
   assert.equal(first.learning_objective_id,firstDraft.learning_objective_id,"Mock Quiz snapshots must retain the mapped permanent lesson objective.");
   assert.equal(first.correct_option_id,undefined,"Answer keys must stay hidden before submission");
+  assert.ok(first.options.every(option=>!Object.prototype.hasOwnProperty.call(option,"pinyin")),"Option Pinyin must stay hidden while the Quiz is active");
   assert.deepEqual(Array.from(first.options,option=>option.id).sort(),["a","b","c","d"]);
   const firstCorrectOption=first.options.find(option=>option.id===firstDraft.correct_option_id);
   assert.ok(firstCorrectOption);
@@ -500,6 +501,7 @@ test("mock Quiz supports Free session resume, answer saving, submission, history
   assert.equal(history.data[0].question_count,10);
   const review=await client.rpc("get_my_quiz_review",{p_session_id:active.data.session_id});
   assert.equal(review.data.questions.length,10);
+  assert.ok(review.data.questions.every(question=>question.options.every(option=>Object.prototype.hasOwnProperty.call(option,"pinyin"))),"Completed review may restore Pinyin metadata for learning feedback");
   availability=await client.rpc("get_my_quiz_availability");
   assert.equal(availability.data.allowance.remaining_count,0);
   const exhausted=await client.rpc("start_my_quiz",{p_difficulty:"beginner"});
