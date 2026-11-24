@@ -683,6 +683,37 @@ test("Chinese Translation Recall only uses cards with a unique cue in the select
   }
 });
 
+test("Chinese Sentence Recall uses curated examples when source examples would create ambiguous prompts",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator("#translationSelect").selectOption("en");
+  await page.locator('[data-action="set-duration"][data-value="60"]').click();
+  await page.locator('[data-action="open-setup"][data-mode="sentence"]').click();
+  await page.locator("#flashDifficulty").selectOption("beginner");
+  await page.locator("#flashGameCollection").selectOption("all");
+  const target=await page.evaluate(()=>{
+    const bank=window.SWIFT_CHINESE_FLASHCARDS;
+    const pool=[...bank.characters,...bank.vocabulary,...bank.phrases].filter(card=>Array.isArray(card.availableModes)&&card.availableModes.includes("sentence")&&(card.sentenceExampleZh||card.exampleZh));
+    const card=pool.find(item=>item.word==="近");
+    if(!card)throw new Error("Sentence Recall override for 近 is missing");
+    return {index:pool.indexOf(card),total:pool.length,word:card.word};
+  });
+  await page.evaluate(({index,total})=>{
+    window.__originalFlashcardRandom=Math.random;
+    Math.random=()=>((index+0.25)/total);
+  },target);
+  await page.locator('[data-action="begin-game"]').click();
+  await expect(page.locator(".flash-game")).toBeVisible();
+  await expect(page.locator("#flashMemory")).toHaveText("这家商店离地铁站很_____。");
+  await expect(page.locator("#flashMemory")).not.toContainText(target.word);
+  await page.evaluate(()=>{
+    if(window.__originalFlashcardRandom){Math.random=window.__originalFlashcardRandom;delete window.__originalFlashcardRandom;}
+  });
+  await page.locator('[data-action="leave-game"]').click();
+  await expect(page.locator(".flash-banner")).toBeVisible();
+});
+
 test("Chinese Sentence Recall blanks every repeated character and keeps choices hidden",async({page})=>{
   await page.clock.install();
   await openMockFlashcards(page);
