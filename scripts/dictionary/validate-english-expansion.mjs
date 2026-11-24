@@ -130,6 +130,7 @@ const allowedCategories = new Set([
   "Emotions & Descriptions"
 ]);
 const allNew = [];
+const allEntries = [];
 const categoryCounts = {};
 const batchReports = [];
 
@@ -156,6 +157,7 @@ for (const file of batchFiles) {
     if (!candidateWords.has(key)) errors.push(file + ": not in candidate inventory: " + word);
     seen.add(key);
     allNew.push(key);
+    allEntries.push(entry);
 
     for (const field of ["part", "phonetic", "definition", "definitionZh", "tip", "course", "breakdown"]) {
       if (typeof entry[field] !== "string" || !entry[field].trim()) errors.push(file + ": " + word + " missing " + field);
@@ -192,6 +194,43 @@ for (const file of batchFiles) {
   batchReports.push({ file, entries: entries.length });
 }
 
+const runtimePath = path.join(dataDir, "english-expansion.js");
+let runtimeEntries = [];
+if (!fs.existsSync(runtimePath)) {
+  errors.push("Missing runtime dataset: " + path.relative(root, runtimePath));
+} else {
+  const runtimeSource = fs.readFileSync(runtimePath, "utf8");
+  const runtimeMarker = "window.SWIFT_ENGLISH_EXPANSION = ";
+  const runtimeStart = runtimeSource.indexOf(runtimeMarker);
+  const runtimeEnd = runtimeSource.lastIndexOf(";");
+  if (runtimeStart < 0 || runtimeEnd <= runtimeStart) {
+    errors.push("Runtime dataset does not expose window.SWIFT_ENGLISH_EXPANSION.");
+  } else {
+    try {
+      runtimeEntries = JSON.parse(runtimeSource.slice(runtimeStart + runtimeMarker.length, runtimeEnd).trim());
+      if (!Array.isArray(runtimeEntries)) errors.push("Runtime English expansion must be an array.");
+      if (JSON.stringify(runtimeEntries) !== JSON.stringify(allEntries)) {
+        errors.push("Runtime English expansion does not exactly match the ordered batch source files.");
+      }
+    } catch (error) {
+      errors.push("Runtime English expansion is invalid JSON: " + error.message);
+    }
+  }
+}
+
+const appSource = fs.readFileSync(baselineDoc.file, "utf8");
+const runtimeScriptAt = appSource.indexOf("data/english-expansion.js");
+const inlineEnglishAt = appSource.indexOf("const englishWords = [");
+const appendAt = appSource.indexOf("englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));");
+const chineseArrayAt = appSource.indexOf("const chineseWords = [");
+const dictionaryStateAt = appSource.indexOf("let words = course === \\"zh\\" ? chineseWords : englishWords;");
+if (runtimeScriptAt < 0 || inlineEnglishAt < 0 || runtimeScriptAt > inlineEnglishAt) {
+  errors.push("Runtime expansion script must load before the inline English dictionary declaration.");
+}
+if (appendAt < 0 || chineseArrayAt < 0 || appendAt > chineseArrayAt || (dictionaryStateAt >= 0 && appendAt > dictionaryStateAt)) {
+  errors.push("Runtime expansion must be appended before Chinese dictionary and dictionary state initialisation.");
+}
+
 const allSeen = new Set();
 for (const word of allNew) {
   if (allSeen.has(word)) errors.push("duplicate across batches: " + word);
@@ -207,6 +246,7 @@ const report = {
   baselineUniqueCount: baselineWords.size,
   candidateCount: candidatesDoc.candidates.length,
   authoredCount: allNew.length,
+  runtimeCount: runtimeEntries.length,
   finalProjectedCount: baselineWords.size + allSeen.size,
   batches: batchReports,
   categoryCounts,
