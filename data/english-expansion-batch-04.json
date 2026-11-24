@@ -411,10 +411,10 @@
     },
     {
       "word": "capital",
-      "part": "noun / adjective",
+      "part": "noun",
       "phonetic": "/ˈkæpɪtəl/",
       "definition": "The city where a country's government is based; money or property used for business; or a letter of the larger form used at the beginning of names and sentences.",
-      "definitionZh": "首都；资本；大写字母；主要的",
+      "definitionZh": "首都；资本；大写字母。",
       "examples": [
         "Kuala Lumpur is the capital of Malaysia.",
         "Write your name with a capital letter."
