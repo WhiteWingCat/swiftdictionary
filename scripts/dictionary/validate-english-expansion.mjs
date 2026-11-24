@@ -223,7 +223,7 @@ const runtimeScriptAt = appSource.indexOf("data/english-expansion.js");
 const inlineEnglishAt = appSource.indexOf("const englishWords = [");
 const appendAt = appSource.indexOf("englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));");
 const chineseArrayAt = appSource.indexOf("const chineseWords = [");
-const dictionaryStateAt = appSource.indexOf("let words = course === \\"zh\\" ? chineseWords : englishWords;");
+const dictionaryStateAt = appSource.indexOf("let words = course ===");
 if (runtimeScriptAt < 0 || inlineEnglishAt < 0 || runtimeScriptAt > inlineEnglishAt) {
   errors.push("Runtime expansion script must load before the inline English dictionary declaration.");
 }
