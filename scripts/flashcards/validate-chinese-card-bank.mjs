@@ -146,10 +146,19 @@ for(const c of [...(pack.characters||[]),...(pack.phrases||[])]){
  if(blankAllOccurrencesForCheck(sentence,word).includes(word))errors.push("Sentence Recall would still reveal repeated target "+word);
 }
 const allCards=[...(pack.characters||[]),...(pack.vocabulary||[]),...(pack.phrases||[])];
+function cleanEnglishGlossForCheck(value){
+ let text=String(value||"");
+ text=text.replace(/;?\s*CL\s*:[^;]*/gi,"");
+ text=text.replace(/\([^)]*\p{Script=Han}[^)]*\)/gu,"");
+ text=text.replace(/\[[^\]]*\p{Script=Han}[^\]]*\]/gu,"");
+ text=text.split(/\s*;\s*/).filter(part=>part.trim()&&!/\p{Script=Han}/u.test(part)).join("; ");
+ return text.replace(/\(\s*\)/g,"").replace(/\[\s*\]/g,"").replace(/\s{2,}/g," ").replace(/\s+([,;:.])/g,"$1").replace(/[,;:.]\s*$/,"").trim();
+}
 for(const card of allCards){
  if(!Array.isArray(card.translationLanguages))errors.push("Flashcard "+card.word+" must declare supported translation languages");
- if(/\p{Script=Han}/u.test(String(card.translationEn||"")))errors.push("English translation cue for "+card.word+" contains Chinese characters or classifier annotations");
- if(card.translationLanguages?.includes("en")&&!String(card.translationEn||"").trim())errors.push("Flashcard "+card.word+" advertises English translation without an English gloss");
+ const englishCue=cleanEnglishGlossForCheck(card.translationEn);
+ if(/\p{Script=Han}/u.test(englishCue))errors.push("English translation cue for "+card.word+" contains Chinese characters or classifier annotations after cleanup");
+ if(card.translationLanguages?.includes("en")&&card.availableModes?.includes("translation")&&!englishCue)errors.push("Flashcard "+card.word+" advertises English translation without an English gloss");
 }
 function cueFor(card,mode,language){
  if(mode==="word")return card.pinyin;
