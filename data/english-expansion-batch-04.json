@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 4,
+  "theme": "Everyday places and public facilities",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "airport",
+      "part": "noun",
+      "phonetic": "/ˈerpɔːrt/",
+      "definition": "A place where aircraft take off and land, with facilities for passengers and air travel.",
+      "definitionZh": "机场；航空港",
+      "examples": [
+        "We arrived at the airport two hours early.",
+        "The airport is connected to the city by train."
+      ],
+      "tip": "An airport usually has terminals, check-in areas, security checks, and runways.",
+      "course": "en",
+      "breakdown": "Refers to the whole facility used for air travel, not only the runway.",
+      "related": "aircraft; airline; terminal; runway",
+      "categories": [
+        "Places",
+        "Travel"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where passenger or cargo aircraft take off and land, and where travellers use airport services.",
+          "definitionZh": "供客运或货运飞机起降，并为旅客提供航空服务的场所。",
+          "examples": [
+            "The airport was busy during the holiday season.",
+            "Our flight leaves from the international airport."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "apartment",
+      "part": "noun",
+      "phonetic": "/əˈpɑːrtmənt/",
+      "definition": "A set of rooms for living in, usually on one floor of a larger building.",
+      "definitionZh": "公寓；套房",
+      "examples": [
+        "They rent a small apartment near the station.",
+        "The apartment has two bedrooms and a balcony."
+      ],
+      "tip": "“Apartment” is common in American English; “flat” is commonly used in British English.",
+      "course": "en",
+      "breakdown": "A private home within a larger residential building.",
+      "related": "flat; home; building; rent",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A private set of rooms used as a home within a larger building containing other homes.",
+          "definitionZh": "位于包含多个住宅的大楼内、供个人或家庭居住的一套独立房间；公寓。",
+          "examples": [
+            "She lives in a modern apartment downtown.",
+            "We are looking for a two-bedroom apartment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "avenue",
+      "part": "noun",
+      "phonetic": "/ˈævənuː/",
+      "definition": "A wide road in a town or city, often lined with trees or buildings; or a possible way to achieve something.",
+      "definitionZh": "林荫大道；大街；途径；方法",
+      "examples": [
+        "The hotel is on a quiet avenue.",
+        "Education can open new avenues for young people."
+      ],
+      "tip": "In street names, “Avenue” is often shortened to “Ave.”",
+      "course": "en",
+      "breakdown": "Can refer to a type of road or, figuratively, a possible approach or opportunity.",
+      "related": "street; road; boulevard; approach",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — road",
+          "definition": "A wide street in a town or city, sometimes with trees along its sides.",
+          "definitionZh": "城镇或城市中较宽的道路，有时两侧种有树木；大道。",
+          "examples": [
+            "The museum stands along a tree-lined avenue.",
+            "Turn left at the next avenue."
+          ]
+        },
+        {
+          "part": "noun — possible way",
+          "definition": "A possible method or opportunity for achieving something.",
+          "definitionZh": "实现某事的一种可能方法或机会；途径。",
+          "examples": [
+            "We are exploring every avenue to solve the problem.",
+            "The course offers an avenue into the industry."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bakery",
+      "part": "noun",
+      "phonetic": "/ˈbeɪkəri/",
+      "definition": "A shop or place where bread, cakes, and other baked foods are made or sold.",
+      "definitionZh": "面包店；烘焙坊",
+      "examples": [
+        "I bought fresh bread from the bakery.",
+        "The bakery opens before sunrise."
+      ],
+      "tip": "A bakery may make its own products, sell baked goods, or do both.",
+      "course": "en",
+      "breakdown": "The place is associated with baking and selling bread, cakes, pastries, and similar food.",
+      "related": "baker; bread; cake; pastry",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A shop or workplace where bread, cakes, and other baked goods are produced or sold.",
+          "definitionZh": "制作或销售面包、蛋糕及其他烘焙食品的商店或工作场所。",
+          "examples": [
+            "The bakery sells warm croissants every morning.",
+            "He works at a bakery near the market."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bank",
+      "part": "noun / verb",
+      "phonetic": "/bæŋk/",
+      "definition": "An organisation that keeps money and provides financial services; the land beside a river; or to deposit money in a bank.",
+      "definitionZh": "银行；河岸；存入银行；依靠",
+      "examples": [
+        "I need to visit the bank after work.",
+        "They sat on the bank of the river."
+      ],
+      "tip": "The meaning is clear from context: financial services or the side of a river. The verb “bank” can mean deposit money.",
+      "course": "en",
+      "breakdown": "A common word with two distinct noun meanings and a related financial verb.",
+      "related": "money; account; riverbank; deposit",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — financial organisation",
+          "definition": "An organisation that keeps customers' money, provides accounts, and offers financial services.",
+          "definitionZh": "保管客户资金、提供账户及金融服务的机构；银行。",
+          "examples": [
+            "She opened a savings account at the bank.",
+            "The bank closes at four in the afternoon."
+          ]
+        },
+        {
+          "part": "noun — side of a river",
+          "definition": "The land along the edge of a river or stream.",
+          "definitionZh": "河流或溪流边缘的陆地；河岸。",
+          "examples": [
+            "We walked along the river bank.",
+            "A tree fell onto the bank after the storm."
+          ]
+        },
+        {
+          "part": "verb — deposit money",
+          "definition": "To put money into a bank account.",
+          "definitionZh": "将钱存入银行账户。",
+          "examples": [
+            "He banks part of his salary every month.",
+            "You can bank the cheque at any branch."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "beach",
+      "part": "noun / verb",
+      "phonetic": "/biːtʃ/",
+      "definition": "An area of sand or small stones beside the sea or a lake; or to bring a boat onto a shore.",
+      "definitionZh": "海滩；沙滩；使船搁浅",
+      "examples": [
+        "We spent the afternoon at the beach.",
+        "The boat was beached near the harbour."
+      ],
+      "tip": "A beach can be sandy, rocky, or covered with small stones.",
+      "course": "en",
+      "breakdown": "Usually refers to the shore area where people walk or relax; the verb is less common.",
+      "related": "shore; coast; seaside; sand",
+      "categories": [
+        "Places",
+        "Nature & Environment",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An area of sand or small stones beside the sea, a lake, or another body of water.",
+          "definitionZh": "海洋、湖泊或其他水域旁由沙子或小石子构成的区域；海滩。",
+          "examples": [
+            "The children built sandcastles on the beach.",
+            "The beach was quiet early in the morning."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To bring a boat onto a shore and leave it there.",
+          "definitionZh": "将船驶到岸边并停放在岸上；使船搁浅。",
+          "examples": [
+            "They beached the small boat before the storm.",
+            "The damaged vessel was beached for repairs."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bedroom",
+      "part": "noun",
+      "phonetic": "/ˈbedruːm/",
+      "definition": "A room in a home or other building where people sleep.",
+      "definitionZh": "卧室；睡房",
+      "examples": [
+        "My bedroom has a large window.",
+        "The house has three bedrooms."
+      ],
+      "tip": "A “one-bedroom apartment” has one separate bedroom in addition to its other living areas.",
+      "course": "en",
+      "breakdown": "A room mainly used for sleeping, usually containing a bed.",
+      "related": "bed; home; room; sleep",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A room in a house, apartment, or other building that is used mainly for sleeping.",
+          "definitionZh": "住宅、公寓或其他建筑物中主要用于睡觉的房间；卧室。",
+          "examples": [
+            "Please keep your bedroom tidy.",
+            "The guest bedroom is upstairs."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "building",
+      "part": "noun",
+      "phonetic": "/ˈbɪldɪŋ/",
+      "definition": "A structure with walls and a roof, such as a house, school, or office; or the process of constructing something.",
+      "definitionZh": "建筑物；大楼；建造；建设",
+      "examples": [
+        "That building was designed by a local architect.",
+        "The building of the bridge took two years."
+      ],
+      "tip": "As a noun, “building” usually means a physical structure; “the building of” can refer to construction as an activity.",
+      "course": "en",
+      "breakdown": "Can refer to the finished structure or, in some contexts, the act of constructing it.",
+      "related": "structure; construction; house; tower",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — structure",
+          "definition": "A structure with walls and a roof, especially one used for living, working, or public activities.",
+          "definitionZh": "具有墙壁和屋顶的结构，尤指用于居住、工作或公共活动的建筑物。",
+          "examples": [
+            "The office building has twenty floors.",
+            "That old building is now a museum."
+          ]
+        },
+        {
+          "part": "noun — construction activity",
+          "definition": "The process or activity of constructing something.",
+          "definitionZh": "建造某物的过程或活动。",
+          "examples": [
+            "The building of the new school is almost complete.",
+            "Road building can cause traffic delays."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bus-stop",
+      "part": "noun",
+      "phonetic": "/ˈbʌs stɑːp/",
+      "definition": "A place beside a road where buses stop to let passengers get on or off.",
+      "definitionZh": "巴士站；公交车站",
+      "examples": [
+        "I waited at the bus stop for ten minutes.",
+        "The next bus stop is outside the library."
+      ],
+      "tip": "Also commonly written as “bus stop” without a hyphen.",
+      "course": "en",
+      "breakdown": "A designated stopping place for buses, usually marked by a sign or shelter.",
+      "related": "bus; station; route; passenger",
+      "categories": [
+        "Places",
+        "Travel"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A designated place where a bus stops so passengers can board or leave it.",
+          "definitionZh": "巴士停靠、供乘客上车或下车的指定地点；巴士站。",
+          "examples": [
+            "There is a bus stop across the street.",
+            "The driver stopped at every bus stop along the route."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cafe",
+      "part": "noun",
+      "phonetic": "/kæˈfeɪ/",
+      "definition": "A small restaurant or shop where people can buy drinks and light meals.",
+      "definitionZh": "咖啡馆；小餐馆",
+      "examples": [
+        "We met at a cafe near the office.",
+        "The cafe serves coffee, sandwiches, and cakes."
+      ],
+      "tip": "Also spelled “café”. A cafe usually has a more casual atmosphere than a formal restaurant.",
+      "course": "en",
+      "breakdown": "A place for drinks and simple meals, often with tables for customers to sit and talk.",
+      "related": "coffee shop; restaurant; bakery; menu",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small restaurant or shop where customers can buy drinks and light meals, often to eat on the premises.",
+          "definitionZh": "顾客可以购买饮料和简餐、通常也可在店内用餐的小餐馆或商店；咖啡馆。",
+          "examples": [
+            "The cafe has outdoor seating.",
+            "Let's have lunch at the cafe downstairs."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cafeteria",
+      "part": "noun",
+      "phonetic": "/ˌkæfəˈtɪriə/",
+      "definition": "A place where people serve themselves from a counter and eat meals, often in a school, workplace, or public building.",
+      "definitionZh": "自助餐厅；食堂",
+      "examples": [
+        "Students eat lunch in the school cafeteria.",
+        "The office cafeteria is closed on Sundays."
+      ],
+      "tip": "A cafeteria usually offers self-service food; the word is especially common in schools and workplaces.",
+      "course": "en",
+      "breakdown": "A dining area where customers typically choose food at a counter before sitting down.",
+      "related": "canteen; dining hall; lunch; food",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A dining place where people choose food from a counter, pay, and usually carry it to their table.",
+          "definitionZh": "人们从柜台选择食物、付款并通常自行端到座位用餐的场所；自助餐厅或食堂。",
+          "examples": [
+            "The hospital cafeteria serves meals all day.",
+            "We had lunch in the university cafeteria."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "campus",
+      "part": "noun",
+      "phonetic": "/ˈkæmpəs/",
+      "definition": "The land and buildings belonging to a university, college, or school.",
+      "definitionZh": "校园；大学校园；校区",
+      "examples": [
+        "The library is in the centre of the campus.",
+        "There are several cafés on campus."
+      ],
+      "tip": "“On campus” means within the school or university grounds; “off campus” means outside them.",
+      "course": "en",
+      "breakdown": "Usually refers to the grounds and buildings of an educational institution as a whole.",
+      "related": "university; college; school; grounds",
+      "categories": [
+        "Places",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The grounds and buildings of a university, college, or other educational institution.",
+          "definitionZh": "大学、学院或其他教育机构所属的土地和建筑物；校园。",
+          "examples": [
+            "The campus has a large sports field.",
+            "She lives on campus during the semester."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "capital",
+      "part": "noun / adjective",
+      "phonetic": "/ˈkæpɪtəl/",
+      "definition": "The city where a country's government is based; money or property used for business; or a letter of the larger form used at the beginning of names and sentences.",
+      "definitionZh": "首都；资本；大写字母；主要的",
+      "examples": [
+        "Kuala Lumpur is the capital of Malaysia.",
+        "Write your name with a capital letter."
+      ],
+      "tip": "“Capital” has several distinct meanings in geography, business, and writing.",
+      "course": "en",
+      "breakdown": "Context identifies whether it refers to a city, financial resources, or letter form.",
+      "related": "city; funds; investment; uppercase",
+      "categories": [
+        "Places",
+        "Everyday Terms",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun — city",
+          "definition": "The city where a country's central government is located.",
+          "definitionZh": "一国中央政府所在地的城市；首都。",
+          "examples": [
+            "Tokyo is the capital of Japan.",
+            "The capital attracts visitors from across the country."
+          ]
+        },
+        {
+          "part": "noun — business funds",
+          "definition": "Money or other resources used to start or operate a business or investment.",
+          "definitionZh": "用于创办或经营企业、进行投资的资金或其他资源；资本。",
+          "examples": [
+            "The company needs more capital to expand.",
+            "Investors provided the capital for the project."
+          ]
+        },
+        {
+          "part": "noun — letter",
+          "definition": "A large letter used at the beginning of a sentence or in a proper name.",
+          "definitionZh": "用于句首或专有名称开头的大写字母。",
+          "examples": [
+            "The name begins with a capital.",
+            "Use a capital letter for country names."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "castle",
+      "part": "noun",
+      "phonetic": "/ˈkæsəl/",
+      "definition": "A large strong building from the past, often with thick walls and towers, built to defend a place or house important people.",
+      "definitionZh": "城堡；堡垒",
+      "examples": [
+        "The old castle stands on a hill.",
+        "We visited a medieval castle during our trip."
+      ],
+      "tip": "Castles were often built for defence and as homes for rulers or nobles.",
+      "course": "en",
+      "breakdown": "Usually refers to a historic fortified building, rather than an ordinary modern house.",
+      "related": "fortress; palace; tower; medieval",
+      "categories": [
+        "Places",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large historic building with strong walls and towers, built mainly for defence and sometimes used as a residence.",
+          "definitionZh": "具有坚固城墙和塔楼的大型历史建筑，主要用于防御，有时也作为居所；城堡。",
+          "examples": [
+            "The castle was built in the thirteenth century.",
+            "A stone bridge leads to the castle entrance."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cave",
+      "part": "noun / verb",
+      "phonetic": "/keɪv/",
+      "definition": "A large natural hole or chamber in the side of a hill or underground; or to collapse inward.",
+      "definitionZh": "洞穴；山洞；坍塌；屈服",
+      "examples": [
+        "Bats were sleeping inside the cave.",
+        "The roof began to cave in after the storm."
+      ],
+      "tip": "The phrasal verb “cave in” can mean physically collapse or give in to pressure.",
+      "course": "en",
+      "breakdown": "The noun is a natural underground space; the verb is most often used in the phrase “cave in”.",
+      "related": "cavern; tunnel; collapse; underground",
+      "categories": [
+        "Places",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large natural hole or chamber in rock, often extending underground or into a hill.",
+          "definitionZh": "岩石中较大的天然洞口或空间，通常延伸至地下或山体内部；洞穴。",
+          "examples": [
+            "The explorers entered a dark cave.",
+            "Water dripped from the roof of the cave."
+          ]
+        },
+        {
+          "part": "verb — cave in",
+          "definition": "To collapse inward, or to give way under pressure.",
+          "definitionZh": "向内坍塌；或在压力下让步。",
+          "examples": [
+            "Part of the roof caved in.",
+            "He finally caved in and agreed to help."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "church",
+      "part": "noun",
+      "phonetic": "/tʃɜːrtʃ/",
+      "definition": "A building used for Christian religious services; or the Christian community or organisation as a whole.",
+      "definitionZh": "教堂；基督教会；教会",
+      "examples": [
+        "The church is next to the town hall.",
+        "The church holds a service every Sunday."
+      ],
+      "tip": "“Church” can mean the building or the religious community; capitalisation may depend on the name or institution.",
+      "course": "en",
+      "breakdown": "Refers to a Christian place of worship or the wider religious institution and community.",
+      "related": "chapel; cathedral; worship; congregation",
+      "categories": [
+        "Places",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun — building",
+          "definition": "A building where Christians gather for religious services and worship.",
+          "definitionZh": "基督徒聚集举行宗教仪式和敬拜活动的建筑物；教堂。",
+          "examples": [
+            "The village church is more than two hundred years old.",
+            "They walked to church on Sunday morning."
+          ]
+        },
+        {
+          "part": "noun — organisation",
+          "definition": "The Christian religious community or an organised Christian institution.",
+          "definitionZh": "基督教宗教团体或有组织的基督教机构；教会。",
+          "examples": [
+            "The church supports several local charities.",
+            "She works for the church."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cinema",
+      "part": "noun",
+      "phonetic": "/ˈsɪnəmə/",
+      "definition": "A building where people pay to watch films; or the art and industry of making films.",
+      "definitionZh": "电影院；电影艺术；电影业",
+      "examples": [
+        "We are going to the cinema tonight.",
+        "He studies the history of world cinema."
+      ],
+      "tip": "“Cinema” is common in British English; “movie theater” is common in American English for the building.",
+      "course": "en",
+      "breakdown": "Can refer to a place where films are shown or the medium and industry of filmmaking.",
+      "related": "movie theatre; film; screening; actor",
+      "categories": [
+        "Places",
+        "History & Culture",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun — building",
+          "definition": "A place where people watch films on a large screen, usually after buying a ticket.",
+          "definitionZh": "人们通常购票后在大屏幕上观看电影的场所；电影院。",
+          "examples": [
+            "The cinema has six screens.",
+            "We booked seats at the cinema online."
+          ]
+        },
+        {
+          "part": "noun — art and industry",
+          "definition": "The art, business, and medium of making and showing films.",
+          "definitionZh": "制作和放映电影的艺术、行业及媒介；电影艺术或电影业。",
+          "examples": [
+            "She is interested in Asian cinema.",
+            "The course explores the history of cinema."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "clinic",
+      "part": "noun",
+      "phonetic": "/ˈklɪnɪk/",
+      "definition": "A place where people receive medical advice or treatment, often without staying overnight; or a meeting where expert advice or training is given.",
+      "definitionZh": "诊所；门诊部；专题指导活动",
+      "examples": [
+        "He went to the clinic for a check-up.",
+        "The sports clinic teaches young players basic skills."
+      ],
+      "tip": "A clinic usually provides appointments and treatment without the overnight stay associated with a hospital.",
+      "course": "en",
+      "breakdown": "Most commonly a medical facility, but can also describe a short expert-led training session.",
+      "related": "hospital; doctor; medical centre; treatment",
+      "categories": [
+        "Places",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — medical facility",
+          "definition": "A place where people receive medical examinations, advice, or treatment, usually without staying overnight.",
+          "definitionZh": "人们接受医疗检查、建议或治疗的场所，通常不需要留院过夜；诊所或门诊部。",
+          "examples": [
+            "The clinic opens at eight in the morning.",
+            "She works at a dental clinic."
+          ]
+        },
+        {
+          "part": "noun — training session",
+          "definition": "A short event in which an expert gives practical advice or instruction about a skill.",
+          "definitionZh": "由专家就某项技能提供实际建议或指导的短期活动。",
+          "examples": [
+            "The coach held a basketball clinic for children.",
+            "The workshop included a writing clinic."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "coast",
+      "part": "noun / verb",
+      "phonetic": "/koʊst/",
+      "definition": "The land beside the sea; or to move smoothly without using much power, effort, or control.",
+      "definitionZh": "海岸；沿海地区；滑行；轻松前进",
+      "examples": [
+        "They drove along the coast.",
+        "The bicycle coasted down the hill."
+      ],
+      "tip": "“Coast” as a verb often describes a vehicle moving downhill or continuing with little effort.",
+      "course": "en",
+      "breakdown": "The noun refers to a geographical edge of land; the verb describes smooth movement or progress with little effort.",
+      "related": "shore; seaside; coastline; glide",
+      "categories": [
+        "Places",
+        "Nature & Environment",
+        "Actions"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The area of land next to the sea or ocean.",
+          "definitionZh": "与海洋相邻的陆地区域；海岸或沿海地区。",
+          "examples": [
+            "Many towns along the coast depend on tourism.",
+            "We watched the sunset from the coast."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To move smoothly, especially downhill, without using much power or effort.",
+          "definitionZh": "平稳移动，尤指下坡时不需要太多动力或力气；滑行。",
+          "examples": [
+            "The car coasted to a stop.",
+            "He coasted down the hill on his bicycle."
+          ]
+        }
+      ]
+    }
+  ]
+}
