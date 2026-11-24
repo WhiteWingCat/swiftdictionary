@@ -1,0 +1,1546 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 7,
+  "theme": "Places and people in everyday life",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "desert",
+      "part": "noun / verb",
+      "phonetic": "/ˈdezərt/",
+      "definition": "A large, dry area of land that receives very little rain; or to leave someone or something when support is needed.",
+      "definitionZh": "沙漠；抛弃；遗弃",
+      "examples": [
+        "Few plants can survive in the desert.",
+        "He felt that his friends had deserted him."
+      ],
+      "tip": "The noun is stressed on the first syllable (/ˈdezərt/); the verb is stressed on the second (/dɪˈzɜːrt/).",
+      "course": "en",
+      "breakdown": "A large, dry area of land that receives very little rain; or to leave someone or something when support is needed.",
+      "related": "dryland;wilderness",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A large, dry area of land that receives very little rain; or to leave someone or something when support is needed.",
+          "definitionZh": "沙漠；抛弃；遗弃",
+          "examples": [
+            "Few plants can survive in the desert.",
+            "He felt that his friends had deserted him."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "destination",
+      "part": "noun",
+      "phonetic": "/ˌdestɪˈneɪʃən/",
+      "definition": "The place that someone or something is going to.",
+      "definitionZh": "目的地；终点",
+      "examples": [
+        "Our final destination is the coast.",
+        "Check the destination before boarding the train."
+      ],
+      "tip": "Use “destination” for the place at the end of a journey.",
+      "course": "en",
+      "breakdown": "The place that someone or something is going to.",
+      "related": "endpoint;arrival point",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The place that someone or something is going to.",
+          "definitionZh": "目的地；终点",
+          "examples": [
+            "Our final destination is the coast.",
+            "Check the destination before boarding the train."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "downtown",
+      "part": "noun / adjective / adverb",
+      "phonetic": "/ˌdaʊnˈtaʊn/",
+      "definition": "The central business or shopping area of a town or city.",
+      "definitionZh": "市中心；闹市区",
+      "examples": [
+        "The hotel is located downtown.",
+        "We took a bus to the downtown area."
+      ],
+      "tip": "“Downtown” is especially common in North American English; British English often uses “city centre” or “town centre.”",
+      "course": "en",
+      "breakdown": "The central business or shopping area of a town or city.",
+      "related": "city centre;centre",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / adjective / adverb",
+          "definition": "The central business or shopping area of a town or city.",
+          "definitionZh": "市中心；闹市区",
+          "examples": [
+            "The hotel is located downtown.",
+            "We took a bus to the downtown area."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "factory",
+      "part": "noun",
+      "phonetic": "/ˈfæktəri/",
+      "definition": "A building or group of buildings where goods are made, usually by machines.",
+      "definitionZh": "工厂",
+      "examples": [
+        "The factory makes parts for cars.",
+        "Hundreds of people work at the factory."
+      ],
+      "tip": "Use “in a factory” for the workplace and “at the factory” for the site.",
+      "course": "en",
+      "breakdown": "A building or group of buildings where goods are made, usually by machines.",
+      "related": "plant;workshop",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A building or group of buildings where goods are made, usually by machines.",
+          "definitionZh": "工厂",
+          "examples": [
+            "The factory makes parts for cars.",
+            "Hundreds of people work at the factory."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "farm",
+      "part": "noun / verb",
+      "phonetic": "/fɑːrm/",
+      "definition": "An area of land used for growing crops or keeping animals; or to grow crops or raise animals for a living.",
+      "definitionZh": "农场；务农",
+      "examples": [
+        "My grandparents live on a small farm.",
+        "They farm rice in the valley."
+      ],
+      "tip": "A farm is the place; “to farm” describes the work of producing food or raising animals.",
+      "course": "en",
+      "breakdown": "An area of land used for growing crops or keeping animals; or to grow crops or raise animals for a living.",
+      "related": "ranch;agricultural land",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "An area of land used for growing crops or keeping animals; or to grow crops or raise animals for a living.",
+          "definitionZh": "农场；务农",
+          "examples": [
+            "My grandparents live on a small farm.",
+            "They farm rice in the valley."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "forest",
+      "part": "noun",
+      "phonetic": "/ˈfɔːrɪst/",
+      "definition": "A large area covered mainly with trees and other plants.",
+      "definitionZh": "森林",
+      "examples": [
+        "We walked through the forest in the morning.",
+        "Many animals depend on the forest for shelter."
+      ],
+      "tip": "A forest is generally larger and more densely wooded than a small group of trees.",
+      "course": "en",
+      "breakdown": "A large area covered mainly with trees and other plants.",
+      "related": "woodland;woods",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large area covered mainly with trees and other plants.",
+          "definitionZh": "森林",
+          "examples": [
+            "We walked through the forest in the morning.",
+            "Many animals depend on the forest for shelter."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "garage",
+      "part": "noun",
+      "phonetic": "/ɡəˈrɑːʒ/",
+      "definition": "A building or part of a building where a car is kept or repaired.",
+      "definitionZh": "车库；汽车修理厂",
+      "examples": [
+        "He parked his bicycle in the garage.",
+        "The car is being repaired at a local garage."
+      ],
+      "tip": "A home garage stores vehicles; a commercial garage may repair them.",
+      "course": "en",
+      "breakdown": "A building or part of a building where a car is kept or repaired.",
+      "related": "carport;workshop",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A building or part of a building where a car is kept or repaired.",
+          "definitionZh": "车库；汽车修理厂",
+          "examples": [
+            "He parked his bicycle in the garage.",
+            "The car is being repaired at a local garage."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gym",
+      "part": "noun",
+      "phonetic": "/dʒɪm/",
+      "definition": "A place with equipment for exercise, fitness training or indoor sports.",
+      "definitionZh": "健身房；体育馆",
+      "examples": [
+        "I go to the gym three times a week.",
+        "The school gym is used for basketball practice."
+      ],
+      "tip": "“Gym” is short for “gymnasium”; it can refer to a fitness centre or a school sports hall.",
+      "course": "en",
+      "breakdown": "A place with equipment for exercise, fitness training or indoor sports.",
+      "related": "fitness centre;gymnasium",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place with equipment for exercise, fitness training or indoor sports.",
+          "definitionZh": "健身房；体育馆",
+          "examples": [
+            "I go to the gym three times a week.",
+            "The school gym is used for basketball practice."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "harbour",
+      "part": "noun / verb",
+      "phonetic": "/ˈhɑːrbər/",
+      "definition": "A sheltered area of water where ships and boats can stay safely; or to keep a thought or feeling.",
+      "definitionZh": "港口；海港；心怀",
+      "examples": [
+        "The fishing boats returned to the harbour.",
+        "She still harbours doubts about the plan."
+      ],
+      "tip": "“Harbour” is the British spelling; “harbor” is the American spelling.",
+      "course": "en",
+      "breakdown": "A sheltered area of water where ships and boats can stay safely; or to keep a thought or feeling.",
+      "related": "port;dock",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A sheltered area of water where ships and boats can stay safely; or to keep a thought or feeling.",
+          "definitionZh": "港口；海港；心怀",
+          "examples": [
+            "The fishing boats returned to the harbour.",
+            "She still harbours doubts about the plan."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "island",
+      "part": "noun",
+      "phonetic": "/ˈaɪlənd/",
+      "definition": "An area of land completely surrounded by water.",
+      "definitionZh": "岛；岛屿",
+      "examples": [
+        "They spent their holiday on a tropical island.",
+        "The island can only be reached by boat."
+      ],
+      "tip": "An island is surrounded by water on all sides; a peninsula is connected to a larger land area.",
+      "course": "en",
+      "breakdown": "An area of land completely surrounded by water.",
+      "related": "isle;atoll",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An area of land completely surrounded by water.",
+          "definitionZh": "岛；岛屿",
+          "examples": [
+            "They spent their holiday on a tropical island.",
+            "The island can only be reached by boat."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "kitchen",
+      "part": "noun",
+      "phonetic": "/ˈkɪtʃən/",
+      "definition": "A room or area where food is prepared and cooked.",
+      "definitionZh": "厨房",
+      "examples": [
+        "The kitchen smells of fresh bread.",
+        "We keep the plates in the kitchen cupboard."
+      ],
+      "tip": "Use “in the kitchen” for the room where meals are prepared.",
+      "course": "en",
+      "breakdown": "A room or area where food is prepared and cooked.",
+      "related": "cookroom;galley",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A room or area where food is prepared and cooked.",
+          "definitionZh": "厨房",
+          "examples": [
+            "The kitchen smells of fresh bread.",
+            "We keep the plates in the kitchen cupboard."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "lake",
+      "part": "noun",
+      "phonetic": "/leɪk/",
+      "definition": "A large area of water surrounded by land.",
+      "definitionZh": "湖；湖泊",
+      "examples": [
+        "We went fishing at the lake.",
+        "The lake freezes during some winters."
+      ],
+      "tip": "A lake is surrounded by land; a sea is a much larger body of salt water.",
+      "course": "en",
+      "breakdown": "A large area of water surrounded by land.",
+      "related": "pond;reservoir",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large area of water surrounded by land.",
+          "definitionZh": "湖；湖泊",
+          "examples": [
+            "We went fishing at the lake.",
+            "The lake freezes during some winters."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "path",
+      "part": "noun",
+      "phonetic": "/pæθ/",
+      "definition": "A narrow way or track for people to walk along; or a route to reach a goal.",
+      "definitionZh": "小路；路径；途径",
+      "examples": [
+        "Follow the path through the garden.",
+        "Education can provide a path to new opportunities."
+      ],
+      "tip": "A path can be a physical walkway or a figurative route toward a goal.",
+      "course": "en",
+      "breakdown": "A narrow way or track for people to walk along; or a route to reach a goal.",
+      "related": "trail;route",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A narrow way or track for people to walk along; or a route to reach a goal.",
+          "definitionZh": "小路；路径；途径",
+          "examples": [
+            "Follow the path through the garden.",
+            "Education can provide a path to new opportunities."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "playground",
+      "part": "noun",
+      "phonetic": "/ˈpleɪɡraʊnd/",
+      "definition": "An outdoor area designed for children to play, often with swings and climbing equipment.",
+      "definitionZh": "游乐场；操场",
+      "examples": [
+        "The children ran to the playground after school.",
+        "The new playground has a safe surface."
+      ],
+      "tip": "A playground is usually for children's play; a playing field is a larger open area for sports.",
+      "course": "en",
+      "breakdown": "An outdoor area designed for children to play, often with swings and climbing equipment.",
+      "related": "play area;park",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An outdoor area designed for children to play, often with swings and climbing equipment.",
+          "definitionZh": "游乐场；操场",
+          "examples": [
+            "The children ran to the playground after school.",
+            "The new playground has a safe surface."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "police-station",
+      "part": "noun",
+      "phonetic": "/pəˈliːs ˌsteɪʃən/",
+      "definition": "A local office or building where police officers work and members of the public can report incidents.",
+      "definitionZh": "警察局；派出所",
+      "examples": [
+        "She went to the police station to report her lost bag.",
+        "The police station is next to the town hall."
+      ],
+      "tip": "Use “at the police station” for the location and “report something to the police” for the action.",
+      "course": "en",
+      "breakdown": "A local office or building where police officers work and members of the public can report incidents.",
+      "related": "station;police office",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A local office or building where police officers work and members of the public can report incidents.",
+          "definitionZh": "警察局；派出所",
+          "examples": [
+            "She went to the police station to report her lost bag.",
+            "The police station is next to the town hall."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "post-office",
+      "part": "noun",
+      "phonetic": "/ˈpoʊst ˌɔːfɪs/",
+      "definition": "A place where people can send letters and parcels and access postal services.",
+      "definitionZh": "邮局",
+      "examples": [
+        "I went to the post office to send a parcel.",
+        "The post office closes at five."
+      ],
+      "tip": "A post office handles postal services; a mailbox is a container where letters are collected.",
+      "course": "en",
+      "breakdown": "A place where people can send letters and parcels and access postal services.",
+      "related": "postal office;mail centre",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where people can send letters and parcels and access postal services.",
+          "definitionZh": "邮局",
+          "examples": [
+            "I went to the post office to send a parcel.",
+            "The post office closes at five."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "prison",
+      "part": "noun",
+      "phonetic": "/ˈprɪzən/",
+      "definition": "A place where people are kept as punishment after being convicted of a crime or while awaiting trial.",
+      "definitionZh": "监狱",
+      "examples": [
+        "The prisoner was transferred to another prison.",
+        "The prison has a library and education programmes."
+      ],
+      "tip": "“Prison” is the institution; “prisoner” is a person held there.",
+      "course": "en",
+      "breakdown": "A place where people are kept as punishment after being convicted of a crime or while awaiting trial.",
+      "related": "jail;correctional facility",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where people are kept as punishment after being convicted of a crime or while awaiting trial.",
+          "definitionZh": "监狱",
+          "examples": [
+            "The prisoner was transferred to another prison.",
+            "The prison has a library and education programmes."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "rooftop",
+      "part": "noun",
+      "phonetic": "/ˈruːftɑːp/",
+      "definition": "The outside upper surface or top of a building.",
+      "definitionZh": "屋顶；楼顶",
+      "examples": [
+        "They watched the sunset from the rooftop.",
+        "The hotel has a rooftop garden."
+      ],
+      "tip": "A rooftop is the top surface of a building; an attic is a space inside the roof.",
+      "course": "en",
+      "breakdown": "The outside upper surface or top of a building.",
+      "related": "roof;terrace",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The outside upper surface or top of a building.",
+          "definitionZh": "屋顶；楼顶",
+          "examples": [
+            "They watched the sunset from the rooftop.",
+            "The hotel has a rooftop garden."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sidewalk",
+      "part": "noun",
+      "phonetic": "/ˈsaɪdwɔːk/",
+      "definition": "A paved path beside a road for people to walk on.",
+      "definitionZh": "人行道",
+      "examples": [
+        "Please keep bicycles off the sidewalk.",
+        "A tree had fallen across the sidewalk."
+      ],
+      "tip": "“Sidewalk” is American English; British English usually uses “pavement.”",
+      "course": "en",
+      "breakdown": "A paved path beside a road for people to walk on.",
+      "related": "pavement;footpath",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A paved path beside a road for people to walk on.",
+          "definitionZh": "人行道",
+          "examples": [
+            "Please keep bicycles off the sidewalk.",
+            "A tree had fallen across the sidewalk."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "supermarket",
+      "part": "noun",
+      "phonetic": "/ˈsuːpərˌmɑːrkɪt/",
+      "definition": "A large shop that sells food and many household products for customers to choose themselves.",
+      "definitionZh": "超市",
+      "examples": [
+        "We buy fresh vegetables at the supermarket.",
+        "The supermarket is open until ten tonight."
+      ],
+      "tip": "A supermarket is generally larger than a small grocery shop.",
+      "course": "en",
+      "breakdown": "A large shop that sells food and many household products for customers to choose themselves.",
+      "related": "grocery store;market",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large shop that sells food and many household products for customers to choose themselves.",
+          "definitionZh": "超市",
+          "examples": [
+            "We buy fresh vegetables at the supermarket.",
+            "The supermarket is open until ten tonight."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "temple",
+      "part": "noun",
+      "phonetic": "/ˈtempəl/",
+      "definition": "A building used for religious worship, especially in some Asian religions.",
+      "definitionZh": "寺庙；庙宇",
+      "examples": [
+        "Visitors removed their shoes before entering the temple.",
+        "The ancient temple attracts many tourists."
+      ],
+      "tip": "A temple is a place of worship; the exact design and use vary across religions and cultures.",
+      "course": "en",
+      "breakdown": "A building used for religious worship, especially in some Asian religions.",
+      "related": "shrine;place of worship",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A building used for religious worship, especially in some Asian religions.",
+          "definitionZh": "寺庙；庙宇",
+          "examples": [
+            "Visitors removed their shoes before entering the temple.",
+            "The ancient temple attracts many tourists."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "village",
+      "part": "noun",
+      "phonetic": "/ˈvɪlɪdʒ/",
+      "definition": "A small community or settlement, usually smaller than a town.",
+      "definitionZh": "村庄；乡村",
+      "examples": [
+        "My aunt lives in a quiet village.",
+        "The village holds a market every Sunday."
+      ],
+      "tip": "A village is usually smaller than a town, though the distinction varies by country.",
+      "course": "en",
+      "breakdown": "A small community or settlement, usually smaller than a town.",
+      "related": "settlement;hamlet",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small community or settlement, usually smaller than a town.",
+          "definitionZh": "村庄；乡村",
+          "examples": [
+            "My aunt lives in a quiet village.",
+            "The village holds a market every Sunday."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "warehouse",
+      "part": "noun",
+      "phonetic": "/ˈwerhaʊs/",
+      "definition": "A large building used for storing goods before they are sold or transported.",
+      "definitionZh": "仓库",
+      "examples": [
+        "The company stores its products in a warehouse.",
+        "Trucks deliver goods to the warehouse every morning."
+      ],
+      "tip": "A warehouse is for storage; a factory is where products are made.",
+      "course": "en",
+      "breakdown": "A large building used for storing goods before they are sold or transported.",
+      "related": "storage facility;depot",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A large building used for storing goods before they are sold or transported.",
+          "definitionZh": "仓库",
+          "examples": [
+            "The company stores its products in a warehouse.",
+            "Trucks deliver goods to the warehouse every morning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "waterfall",
+      "part": "noun",
+      "phonetic": "/ˈwɔːtərˌfɔːl/",
+      "definition": "A place where water flows over a steep edge or down a high drop in a river.",
+      "definitionZh": "瀑布",
+      "examples": [
+        "We could hear the waterfall before we saw it.",
+        "The waterfall is especially powerful after heavy rain."
+      ],
+      "tip": "A waterfall is a natural drop in flowing water; a cascade is a series of smaller drops.",
+      "course": "en",
+      "breakdown": "A place where water flows over a steep edge or down a high drop in a river.",
+      "related": "cascade;falls",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where water flows over a steep edge or down a high drop in a river.",
+          "definitionZh": "瀑布",
+          "examples": [
+            "We could hear the waterfall before we saw it.",
+            "The waterfall is especially powerful after heavy rain."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "workplace",
+      "part": "noun",
+      "phonetic": "/ˈwɜːrkˌpleɪs/",
+      "definition": "A place where a person works, such as an office, shop, factory or other location.",
+      "definitionZh": "工作场所；职场",
+      "examples": [
+        "Everyone should feel safe in the workplace.",
+        "The company moved to a larger workplace."
+      ],
+      "tip": "“Workplace” is a general term and does not specify the kind of building or job.",
+      "course": "en",
+      "breakdown": "A place where a person works, such as an office, shop, factory or other location.",
+      "related": "work environment;office",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where a person works, such as an office, shop, factory or other location.",
+          "definitionZh": "工作场所；职场",
+          "examples": [
+            "Everyone should feel safe in the workplace.",
+            "The company moved to a larger workplace."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "zoo",
+      "part": "noun",
+      "phonetic": "/zuː/",
+      "definition": "A place where wild animals are kept so that people can see and learn about them.",
+      "definitionZh": "动物园",
+      "examples": [
+        "The children saw elephants at the zoo.",
+        "The zoo runs a programme to protect endangered species."
+      ],
+      "tip": "A modern zoo may also support animal care, education and conservation.",
+      "course": "en",
+      "breakdown": "A place where wild animals are kept so that people can see and learn about them.",
+      "related": "zoological park;wildlife park",
+      "categories": [
+        "Places"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where wild animals are kept so that people can see and learn about them.",
+          "definitionZh": "动物园",
+          "examples": [
+            "The children saw elephants at the zoo.",
+            "The zoo runs a programme to protect endangered species."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "child",
+      "part": "noun",
+      "phonetic": "/tʃaɪld/",
+      "definition": "A young person who has not reached adulthood; or a son or daughter of any age when viewed in relation to a parent.",
+      "definitionZh": "孩子；儿童；子女",
+      "examples": [
+        "The child was excited about the school trip.",
+        "They have one child and two grandchildren."
+      ],
+      "tip": "The plural of “child” is “children,” not “childs.”",
+      "course": "en",
+      "breakdown": "A young person who has not reached adulthood; or a son or daughter of any age when viewed in relation to a parent.",
+      "related": "kid;youngster",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A young person who has not reached adulthood; or a son or daughter of any age when viewed in relation to a parent.",
+          "definitionZh": "孩子；儿童；子女",
+          "examples": [
+            "The child was excited about the school trip.",
+            "They have one child and two grandchildren."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "father",
+      "part": "noun / verb",
+      "phonetic": "/ˈfɑːðər/",
+      "definition": "A male parent; or to become the father of a child or create something.",
+      "definitionZh": "父亲；爸爸；创立",
+      "examples": [
+        "Her father taught her how to ride a bicycle.",
+        "The project was fathered by a small research team."
+      ],
+      "tip": "“Father” is more formal than “dad”; as a verb, it can mean to create or originate something.",
+      "course": "en",
+      "breakdown": "A male parent; or to become the father of a child or create something.",
+      "related": "dad;parent",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A male parent; or to become the father of a child or create something.",
+          "definitionZh": "父亲；爸爸；创立",
+          "examples": [
+            "Her father taught her how to ride a bicycle.",
+            "The project was fathered by a small research team."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "friend",
+      "part": "noun",
+      "phonetic": "/frend/",
+      "definition": "A person whom someone knows well and likes, and with whom they have a relationship of trust and affection.",
+      "definitionZh": "朋友",
+      "examples": [
+        "My friend helped me prepare for the interview.",
+        "We have been friends since primary school."
+      ],
+      "tip": "Use “a friend of mine” to mean one of your friends.",
+      "course": "en",
+      "breakdown": "A person whom someone knows well and likes, and with whom they have a relationship of trust and affection.",
+      "related": "companion;mate",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person whom someone knows well and likes, and with whom they have a relationship of trust and affection.",
+          "definitionZh": "朋友",
+          "examples": [
+            "My friend helped me prepare for the interview.",
+            "We have been friends since primary school."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "girl",
+      "part": "noun",
+      "phonetic": "/ɡɜːrl/",
+      "definition": "A female child or young person.",
+      "definitionZh": "女孩；女孩子",
+      "examples": [
+        "The girl is reading a book by the window.",
+        "When she was a girl, she lived near the sea."
+      ],
+      "tip": "Use “girl” for a child or young person; “woman” is generally used for an adult.",
+      "course": "en",
+      "breakdown": "A female child or young person.",
+      "related": "young woman;child",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A female child or young person.",
+          "definitionZh": "女孩；女孩子",
+          "examples": [
+            "The girl is reading a book by the window.",
+            "When she was a girl, she lived near the sea."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "husband",
+      "part": "noun",
+      "phonetic": "/ˈhʌzbənd/",
+      "definition": "A man who is married to someone.",
+      "definitionZh": "丈夫",
+      "examples": [
+        "Her husband works as a chef.",
+        "They celebrated their tenth wedding anniversary with her husband."
+      ],
+      "tip": "“Husband” describes a marital relationship; “partner” is a broader term.",
+      "course": "en",
+      "breakdown": "A man who is married to someone.",
+      "related": "spouse;partner",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A man who is married to someone.",
+          "definitionZh": "丈夫",
+          "examples": [
+            "Her husband works as a chef.",
+            "They celebrated their tenth wedding anniversary with her husband."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "infant",
+      "part": "noun / adjective",
+      "phonetic": "/ˈɪnfənt/",
+      "definition": "A very young child, especially a baby during the first year or early stage of life.",
+      "definitionZh": "婴儿；幼儿",
+      "examples": [
+        "The clinic provides care for infants.",
+        "The infant was sleeping peacefully."
+      ],
+      "tip": "“Infant” is more formal than “baby” and is common in medical or official contexts.",
+      "course": "en",
+      "breakdown": "A very young child, especially a baby during the first year or early stage of life.",
+      "related": "baby;newborn",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / adjective",
+          "definition": "A very young child, especially a baby during the first year or early stage of life.",
+          "definitionZh": "婴儿；幼儿",
+          "examples": [
+            "The clinic provides care for infants.",
+            "The infant was sleeping peacefully."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "leader",
+      "part": "noun",
+      "phonetic": "/ˈliːdər/",
+      "definition": "A person who guides or directs a group, organisation or activity.",
+      "definitionZh": "领导者；领袖；负责人",
+      "examples": [
+        "The team leader explained the new plan.",
+        "A good leader listens to different opinions."
+      ],
+      "tip": "A leader guides a group; a manager is usually responsible for organising work or resources.",
+      "course": "en",
+      "breakdown": "A person who guides or directs a group, organisation or activity.",
+      "related": "chief;guide",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who guides or directs a group, organisation or activity.",
+          "definitionZh": "领导者；领袖；负责人",
+          "examples": [
+            "The team leader explained the new plan.",
+            "A good leader listens to different opinions."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "manager",
+      "part": "noun",
+      "phonetic": "/ˈmænɪdʒər/",
+      "definition": "A person responsible for organising and controlling the work of a business, team or department.",
+      "definitionZh": "经理；管理者",
+      "examples": [
+        "The store manager welcomed the new employees.",
+        "She spoke to her manager about the schedule."
+      ],
+      "tip": "Use “manager of” before the organisation or team being managed.",
+      "course": "en",
+      "breakdown": "A person responsible for organising and controlling the work of a business, team or department.",
+      "related": "supervisor;director",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person responsible for organising and controlling the work of a business, team or department.",
+          "definitionZh": "经理；管理者",
+          "examples": [
+            "The store manager welcomed the new employees.",
+            "She spoke to her manager about the schedule."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "member",
+      "part": "noun",
+      "phonetic": "/ˈmembər/",
+      "definition": "A person who belongs to a group, organisation, team or community.",
+      "definitionZh": "成员；会员",
+      "examples": [
+        "Each member of the club received a card.",
+        "She is a member of the school debate team."
+      ],
+      "tip": "Use “member of” to identify the group someone belongs to.",
+      "course": "en",
+      "breakdown": "A person who belongs to a group, organisation, team or community.",
+      "related": "participant;associate",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who belongs to a group, organisation, team or community.",
+          "definitionZh": "成员；会员",
+          "examples": [
+            "Each member of the club received a card.",
+            "She is a member of the school debate team."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mentor",
+      "part": "noun / verb",
+      "phonetic": "/ˈmentɔːr/",
+      "definition": "An experienced person who advises and supports someone with less experience; or to provide that guidance.",
+      "definitionZh": "导师；指导者；指导",
+      "examples": [
+        "My mentor helped me prepare my portfolio.",
+        "She mentors new employees at the studio."
+      ],
+      "tip": "A mentor offers guidance over time; a teacher may focus more directly on instruction.",
+      "course": "en",
+      "breakdown": "An experienced person who advises and supports someone with less experience; or to provide that guidance.",
+      "related": "adviser;guide",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "An experienced person who advises and supports someone with less experience; or to provide that guidance.",
+          "definitionZh": "导师；指导者；指导",
+          "examples": [
+            "My mentor helped me prepare my portfolio.",
+            "She mentors new employees at the studio."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "mother",
+      "part": "noun / verb",
+      "phonetic": "/ˈmʌðər/",
+      "definition": "A female parent; or to care for someone in a protective way.",
+      "definitionZh": "母亲；妈妈；照料",
+      "examples": [
+        "His mother works at a local school.",
+        "She mothered the younger children when their parents were away."
+      ],
+      "tip": "“Mother” is more formal than “mum” or “mom”; as a verb it can mean to care for someone protectively.",
+      "course": "en",
+      "breakdown": "A female parent; or to care for someone in a protective way.",
+      "related": "mum;mom;parent",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A female parent; or to care for someone in a protective way.",
+          "definitionZh": "母亲；妈妈；照料",
+          "examples": [
+            "His mother works at a local school.",
+            "She mothered the younger children when their parents were away."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "nephew",
+      "part": "noun",
+      "phonetic": "/ˈnefjuː/",
+      "definition": "The son of someone's brother or sister, or of their spouse's brother or sister.",
+      "definitionZh": "侄子；外甥",
+      "examples": [
+        "My nephew is starting secondary school this year.",
+        "She bought a birthday present for her nephew."
+      ],
+      "tip": "A nephew is a male child of your sibling; a niece is a female child of your sibling.",
+      "course": "en",
+      "breakdown": "The son of someone's brother or sister, or of their spouse's brother or sister.",
+      "related": "niece;relative",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The son of someone's brother or sister, or of their spouse's brother or sister.",
+          "definitionZh": "侄子；外甥",
+          "examples": [
+            "My nephew is starting secondary school this year.",
+            "She bought a birthday present for her nephew."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "niece",
+      "part": "noun",
+      "phonetic": "/niːs/",
+      "definition": "The daughter of someone's brother or sister, or of their spouse's brother or sister.",
+      "definitionZh": "侄女；外甥女",
+      "examples": [
+        "My niece enjoys drawing animals.",
+        "He is taking his niece to the museum."
+      ],
+      "tip": "A niece is a female child of your sibling; a nephew is a male child of your sibling.",
+      "course": "en",
+      "breakdown": "The daughter of someone's brother or sister, or of their spouse's brother or sister.",
+      "related": "nephew;relative",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The daughter of someone's brother or sister, or of their spouse's brother or sister.",
+          "definitionZh": "侄女；外甥女",
+          "examples": [
+            "My niece enjoys drawing animals.",
+            "He is taking his niece to the museum."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "partner",
+      "part": "noun / verb",
+      "phonetic": "/ˈpɑːrtnər/",
+      "definition": "A person someone works or does an activity with; or someone in a marriage or romantic relationship.",
+      "definitionZh": "伙伴；搭档；伴侣；合伙人",
+      "examples": [
+        "Please discuss the question with your partner.",
+        "Her business partner manages the accounts."
+      ],
+      "tip": "“Partner” can refer to a workmate, business associate or relationship partner; context makes the meaning clear.",
+      "course": "en",
+      "breakdown": "A person someone works or does an activity with; or someone in a marriage or romantic relationship.",
+      "related": "colleague;companion",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A person someone works or does an activity with; or someone in a marriage or romantic relationship.",
+          "definitionZh": "伙伴；搭档；伴侣；合伙人",
+          "examples": [
+            "Please discuss the question with your partner.",
+            "Her business partner manages the accounts."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "passenger",
+      "part": "noun",
+      "phonetic": "/ˈpæsɪndʒər/",
+      "definition": "A person travelling in a vehicle, ship or aircraft who is not operating it.",
+      "definitionZh": "乘客",
+      "examples": [
+        "All passengers must wear their seat belts.",
+        "The bus was full of passengers."
+      ],
+      "tip": "A passenger travels in a vehicle but is not the driver, pilot or crew member operating it.",
+      "course": "en",
+      "breakdown": "A person travelling in a vehicle, ship or aircraft who is not operating it.",
+      "related": "traveller;commuter",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person travelling in a vehicle, ship or aircraft who is not operating it.",
+          "definitionZh": "乘客",
+          "examples": [
+            "All passengers must wear their seat belts.",
+            "The bus was full of passengers."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "parent",
+      "part": "noun / verb",
+      "phonetic": "/ˈperənt/",
+      "definition": "A person's mother or father; or to raise and care for a child.",
+      "definitionZh": "父母；家长；养育",
+      "examples": [
+        "Every parent wants their child to feel supported.",
+        "They parent their children with patience and care."
+      ],
+      "tip": "“Parent” can refer to one mother or father; “parents” usually refers to both.",
+      "course": "en",
+      "breakdown": "A person's mother or father; or to raise and care for a child.",
+      "related": "mother;father;guardian",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / verb",
+          "definition": "A person's mother or father; or to raise and care for a child.",
+          "definitionZh": "父母；家长；养育",
+          "examples": [
+            "Every parent wants their child to feel supported.",
+            "They parent their children with patience and care."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "pedestrian",
+      "part": "noun / adjective",
+      "phonetic": "/pəˈdestriən/",
+      "definition": "A person travelling on foot rather than in a vehicle; or relating to walking.",
+      "definitionZh": "行人；步行者",
+      "examples": [
+        "Pedestrians should use the crossing.",
+        "The street has a pedestrian-only area."
+      ],
+      "tip": "A pedestrian is someone walking in a public place; a pedestrian crossing is a marked place to cross a road.",
+      "course": "en",
+      "breakdown": "A person travelling on foot rather than in a vehicle; or relating to walking.",
+      "related": "walker;passer-by",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / adjective",
+          "definition": "A person travelling on foot rather than in a vehicle; or relating to walking.",
+          "definitionZh": "行人；步行者",
+          "examples": [
+            "Pedestrians should use the crossing.",
+            "The street has a pedestrian-only area."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "player",
+      "part": "noun",
+      "phonetic": "/ˈpleɪər/",
+      "definition": "A person who takes part in a sport, game or musical performance; or an important participant in an activity.",
+      "definitionZh": "选手；球员；演奏者；参与者",
+      "examples": [
+        "The player scored two goals in the final.",
+        "She is a talented piano player."
+      ],
+      "tip": "A player can take part in a sport, game or music; it can also describe an influential participant in a field.",
+      "course": "en",
+      "breakdown": "A person who takes part in a sport, game or musical performance; or an important participant in an activity.",
+      "related": "athlete;performer",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who takes part in a sport, game or musical performance; or an important participant in an activity.",
+          "definitionZh": "选手；球员；演奏者；参与者",
+          "examples": [
+            "The player scored two goals in the final.",
+            "She is a talented piano player."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "professor",
+      "part": "noun",
+      "phonetic": "/prəˈfesər/",
+      "definition": "A senior academic who teaches and conducts research at a university or similar institution.",
+      "definitionZh": "教授",
+      "examples": [
+        "The professor gave a talk about modern design.",
+        "She became a professor of biology last year."
+      ],
+      "tip": "Academic titles differ by country; in some systems, “professor” is a senior rank rather than a general term for any university teacher.",
+      "course": "en",
+      "breakdown": "A senior academic who teaches and conducts research at a university or similar institution.",
+      "related": "academic;lecturer",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A senior academic who teaches and conducts research at a university or similar institution.",
+          "definitionZh": "教授",
+          "examples": [
+            "The professor gave a talk about modern design.",
+            "She became a professor of biology last year."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "relative",
+      "part": "noun / adjective",
+      "phonetic": "/ˈrelətɪv/",
+      "definition": "A member of someone's family; or considered in relation to something else rather than absolutely.",
+      "definitionZh": "亲戚；亲属；相对的",
+      "examples": [
+        "We visited several relatives during the holiday.",
+        "The cost is low relative to the quality."
+      ],
+      "tip": "As a noun, “relative” means a family member; as an adjective, it means considered in comparison with something else.",
+      "course": "en",
+      "breakdown": "A member of someone's family; or considered in relation to something else rather than absolutely.",
+      "related": "family member;relation",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun / adjective",
+          "definition": "A member of someone's family; or considered in relation to something else rather than absolutely.",
+          "definitionZh": "亲戚；亲属；相对的",
+          "examples": [
+            "We visited several relatives during the holiday.",
+            "The cost is low relative to the quality."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "roommate",
+      "part": "noun",
+      "phonetic": "/ˈruːmˌmeɪt/",
+      "definition": "A person who shares a room, apartment or house with another person.",
+      "definitionZh": "室友；合租伙伴",
+      "examples": [
+        "My roommate and I share the cooking.",
+        "She found a new roommate near campus."
+      ],
+      "tip": "“Roommate” is common in American English; “flatmate” is common in British English for someone sharing a flat.",
+      "course": "en",
+      "breakdown": "A person who shares a room, apartment or house with another person.",
+      "related": "flatmate;housemate",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who shares a room, apartment or house with another person.",
+          "definitionZh": "室友；合租伙伴",
+          "examples": [
+            "My roommate and I share the cooking.",
+            "She found a new roommate near campus."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "scientist",
+      "part": "noun",
+      "phonetic": "/ˈsaɪəntɪst/",
+      "definition": "A person who studies or works in science, often carrying out research or experiments.",
+      "definitionZh": "科学家",
+      "examples": [
+        "The scientist studied how plants respond to light.",
+        "A team of scientists published the results."
+      ],
+      "tip": "A scientist may specialise in fields such as biology, chemistry or physics.",
+      "course": "en",
+      "breakdown": "A person who studies or works in science, often carrying out research or experiments.",
+      "related": "researcher;scholar",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who studies or works in science, often carrying out research or experiments.",
+          "definitionZh": "科学家",
+          "examples": [
+            "The scientist studied how plants respond to light.",
+            "A team of scientists published the results."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sibling",
+      "part": "noun",
+      "phonetic": "/ˈsɪblɪŋ/",
+      "definition": "A person's brother or sister.",
+      "definitionZh": "兄弟姐妹",
+      "examples": [
+        "She has two siblings, an older brother and a younger sister.",
+        "The siblings grew up in the same town."
+      ],
+      "tip": "“Sibling” is a gender-neutral word for a brother or sister.",
+      "course": "en",
+      "breakdown": "A person's brother or sister.",
+      "related": "brother;sister",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person's brother or sister.",
+          "definitionZh": "兄弟姐妹",
+          "examples": [
+            "She has two siblings, an older brother and a younger sister.",
+            "The siblings grew up in the same town."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stranger",
+      "part": "noun",
+      "phonetic": "/ˈstreɪndʒər/",
+      "definition": "A person whom someone does not know.",
+      "definitionZh": "陌生人",
+      "examples": [
+        "Do not share personal information with a stranger.",
+        "A stranger offered to help carry the bags."
+      ],
+      "tip": "A stranger is someone unfamiliar to you; “foreigner” specifically refers to someone from another country.",
+      "course": "en",
+      "breakdown": "A person whom someone does not know.",
+      "related": "unknown person;outsider",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person whom someone does not know.",
+          "definitionZh": "陌生人",
+          "examples": [
+            "Do not share personal information with a stranger.",
+            "A stranger offered to help carry the bags."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "teenager",
+      "part": "noun",
+      "phonetic": "/ˈtiːnˌeɪdʒər/",
+      "definition": "A person aged from thirteen to nineteen.",
+      "definitionZh": "青少年；十几岁的年轻人",
+      "examples": [
+        "The programme is designed for teenagers.",
+        "Many teenagers enjoy spending time with friends."
+      ],
+      "tip": "The ages thirteen to nineteen end in “-teen,” which is why they are called the teenage years.",
+      "course": "en",
+      "breakdown": "A person aged from thirteen to nineteen.",
+      "related": "adolescent;young person",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person aged from thirteen to nineteen.",
+          "definitionZh": "青少年；十几岁的年轻人",
+          "examples": [
+            "The programme is designed for teenagers.",
+            "Many teenagers enjoy spending time with friends."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "tourist",
+      "part": "noun",
+      "phonetic": "/ˈtʊrɪst/",
+      "definition": "A person who travels to a place for pleasure or interest, usually for a limited time.",
+      "definitionZh": "游客；观光客",
+      "examples": [
+        "The city attracts tourists from around the world.",
+        "A tourist asked us for directions to the museum."
+      ],
+      "tip": "A tourist visits a place; a traveller is a broader term for someone who travels.",
+      "course": "en",
+      "breakdown": "A person who travels to a place for pleasure or interest, usually for a limited time.",
+      "related": "visitor;sightseer",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who travels to a place for pleasure or interest, usually for a limited time.",
+          "definitionZh": "游客；观光客",
+          "examples": [
+            "The city attracts tourists from around the world.",
+            "A tourist asked us for directions to the museum."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "visitor",
+      "part": "noun",
+      "phonetic": "/ˈvɪzɪtər/",
+      "definition": "A person who goes to a place for a short time, often as a guest.",
+      "definitionZh": "访客；来访者",
+      "examples": [
+        "All visitors must sign in at reception.",
+        "We had visitors from another city this weekend."
+      ],
+      "tip": "A visitor may come to a home, workplace, institution or tourist attraction.",
+      "course": "en",
+      "breakdown": "A person who goes to a place for a short time, often as a guest.",
+      "related": "guest;caller",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who goes to a place for a short time, often as a guest.",
+          "definitionZh": "访客；来访者",
+          "examples": [
+            "All visitors must sign in at reception.",
+            "We had visitors from another city this weekend."
+          ]
+        }
+      ]
+    }
+  ]
+}
