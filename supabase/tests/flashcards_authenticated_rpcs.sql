@@ -62,8 +62,16 @@ declare v_result jsonb; v_data jsonb; v_allowance jsonb;
 begin
   v_result := public.complete_my_flashcard_game(
     (select session_id from pg_temp.flashcard_test_session),
-    '[{"card_key":"dict:hello","correct":true,"unanswered":false},
-      {"card_key":"dict:goodbye","correct":false,"unanswered":true}]'::jsonb
+    '[
+      {"card_key":"dict:hello","mode":"word","correct":true,"unanswered":false,
+       "snapshot":{"prompt":"hello","card":{"word":"hello"},"recall_mode":"word",
+        "options":[{"text":"hello","card_key":"dict:hello"},{"text":"goodbye","card_key":"dict:goodbye"},{"text":"thanks","card_key":"dict:thanks"},{"text":"please","card_key":"dict:please"}],
+        "correct_answer":"hello","selected_answer":"hello","correct_option_index":0,"selected_option_index":0}},
+      {"card_key":"dict:goodbye","mode":"word","correct":false,"unanswered":true,
+       "snapshot":{"prompt":"goodbye","card":{"word":"goodbye"},"recall_mode":"word",
+        "options":[{"text":"hello","card_key":"dict:hello"},{"text":"goodbye","card_key":"dict:goodbye"},{"text":"thanks","card_key":"dict:thanks"},{"text":"please","card_key":"dict:please"}],
+        "correct_answer":"goodbye","selected_answer":null,"correct_option_index":1,"selected_option_index":null}}
+    ]'::jsonb
   );
   if (v_result->>'words_seen')::integer <> 2
      or (v_result->>'correct_count')::integer <> 1
