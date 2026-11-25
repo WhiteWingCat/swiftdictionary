@@ -217,6 +217,10 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   expect(longWordGeometry.width).toBeGreaterThanOrEqual(132);
   expect(longWordGeometry.scrollWidth).toBeLessThanOrEqual(longWordGeometry.clientWidth + 1);
   expect((await panel.boundingBox()).width).toBeCloseTo(panelBox.width, 0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  const mobileLongWord = await longWord.evaluate(node => ({ width: node.getBoundingClientRect().width, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth }));
+  expect(mobileLongWord.width).toBeGreaterThanOrEqual(132);
+  expect(mobileLongWord.scrollWidth).toBeLessThanOrEqual(mobileLongWord.clientWidth + 1);
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
   const collectionGridTracks = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node =>
     getComputedStyle(node).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
