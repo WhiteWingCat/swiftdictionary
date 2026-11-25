@@ -14,9 +14,15 @@ on:
       - "scripts/dictionary/validate-english-phase3.mjs"
       - "scripts/dictionary/audit-english-catalogue.mjs"
       - "tests/browser/u2-9-0-english-categories.spec.js"
+      - "favorite-collections.js"
+      - "account-deletion.js"
+      - "tests/browser/u2-9-0-favorite-collections.spec.js"
+      - "supabase/migrations/*favorite_collections*"
+      - "supabase/tests/favorite_collections.sql"
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
       - "tests/browser/u2-9-0-english-expansion.spec.js"
+      - "tests/browser/u2-9-0-favorite-collections.spec.js"
       - "playwright.config.js"
   pull_request:
     branches:
@@ -62,7 +68,7 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Run English expansion browser smoke tests
-        run: npx playwright test tests/browser/u2-9-0-english-expansion.spec.js tests/browser/u2-9-0-english-categories.spec.js
+        run: npx playwright test tests/browser/u2-9-0-english-expansion.spec.js tests/browser/u2-9-0-english-categories.spec.js tests/browser/u2-9-0-favorite-collections.spec.js
       - name: Preserve whole-catalogue audit report
         uses: actions/upload-artifact@v4
         with:
