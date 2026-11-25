@@ -3655,3 +3655,8 @@ The U2.9.0 Favorite Collections SQL regression script was executed successfully 
 ### Phase 4 browser QA follow-up — 2026-11-25
 
 GitHub Actions run 45547406099 succeeded on commit e4a605bc4ee880882b2b7ed998450e7f014eb27d: all 12 Playwright tests passed, including the new mocked Favorite Collections workflow. English expansion validation, Phase 3 category/translation audit and whole-catalogue editorial audit also passed, and the audit artifact uploaded. Earlier failures were corrected (hidden section CSS and test ordering assumption). This remains mocked Supabase coverage; live authenticated CRUD, two-account authorization, actual dashboard placement and full responsive/accessibility validation remain outstanding. No staging preview or production change has occurred.
+
+
+### Phase 4 Realtime follow-up — 2026-11-25
+
+The staging publication initially contained no public tables, so added and applied migration 20261125043448 to publish only favorite_collections and favorite_collection_items for Postgres Changes delivery. RLS remains enforced. The strengthened SQL regression, including Realtime publication membership, passed with rollback. The cache-safe loader was moved to supabase-config.js and scheduled at DOMContentLoaded after app scripts; a p4 cache-busting query is used. A real-app-shell loader browser test was added. Prior CI run 45547652317 passed all 12 tests before these follow-up changes; a new run is pending. Authenticated live CRUD, adversarial cross-account RLS, actual dashboard placement and real Realtime delivery remain unverified.
