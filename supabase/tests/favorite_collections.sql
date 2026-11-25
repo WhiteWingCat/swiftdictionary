@@ -2,7 +2,7 @@
 -- Run after the migration in the isolated staging database.
 begin;
 
-do $$
+do $p4schema$
 declare
   v_rls_collections boolean;
   v_rls_items boolean;
@@ -172,7 +172,7 @@ begin
      or has_function_privilege('authenticated','private.broadcast_favorite_collection_changes()','execute') then
     raise exception 'Broadcast trigger function must not be executable by API roles';
   end if;
-end $;
+end $p4schema$;
 
 -- Exercise actual PostgreSQL RLS as the authenticated role using two existing
 -- staging accounts. All test folders and memberships are rolled back below.
