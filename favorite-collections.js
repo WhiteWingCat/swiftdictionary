@@ -69,7 +69,7 @@
       #swiftFavoriteCollections .fc-folder-caret{width:1.1em;flex:none;color:var(--muted,#687386);transition:transform .18s ease}
       #swiftFavoriteCollections .fc-folder-toggle[aria-expanded=true] .fc-folder-caret{transform:rotate(90deg)}
       #swiftFavoriteCollections .fc-folder-menu-wrap{position:relative;flex:none}
-      #swiftFavoriteCollections .fc-menu{position:absolute;right:0;top:calc(100% + 5px);z-index:5;min-width:145px;padding:5px;border:1px solid var(--border,#dce2ea);border-radius:10px;background:#fff;color:#263247;box-shadow:0 10px 28px rgba(31,49,74,.14)}
+      #swiftFavoriteCollections .fc-menu{position:absolute;right:0;top:calc(100% + 5px);z-index:5;min-width:145px;padding:5px;border:1px solid var(--border,#2d323d);border-radius:10px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);color:var(--text,#f3f4f6);box-shadow:0 14px 34px rgba(0,0,0,.38)}
       #swiftFavoriteCollections .fc-menu[hidden]{display:none}
       #swiftFavoriteCollections .fc-menu button{display:block;width:100%;padding:8px 10px;border:0;background:transparent;text-align:left;box-shadow:none}
       #swiftFavoriteCollections .fc-menu button:hover{background:rgba(100,120,150,.08)}
@@ -77,8 +77,8 @@
       #swiftFavoriteCollections .fc-expanded[hidden]{display:none}
       #swiftFavoriteCollections .fc-language-group{margin-top:12px}
       #swiftFavoriteCollections .fc-language-group h4{margin:0 0 8px;color:var(--muted,#687386);font-size:.82rem;font-weight:750}
-      #swiftFavoriteCollections .fc-expanded-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
-      #swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px}
+      #swiftFavoriteCollections .fc-expanded-grid{min-width:0;grid-auto-rows:1fr}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid{min-width:0}
       #swiftFavoriteCollections .fc-word-card{display:block;min-width:0}
       #swiftFavoriteCollections .fc-word-open{display:flex;width:100%;min-width:0;box-shadow:0 2px 7px rgba(31,49,74,.08)}
       #swiftFavoriteCollections .fc-expanded-grid.character-grid .fc-word-open{width:100%;min-height:66px;aspect-ratio:1/1;justify-content:center;padding:5px}
@@ -86,19 +86,19 @@
       #collectionAddButton[hidden]{display:none!important}
       #swiftFavoriteCollections .fc-button:focus-visible,.fc-dialog button:focus-visible,.fc-dialog input:focus-visible{outline:2px solid var(--accent,#6d9bd0);outline-offset:2px}
       .fc-overlay[hidden]{display:none!important}
-      .fc-overlay{position:fixed;inset:0;z-index:10020;display:grid;place-items:center;padding:16px;background:rgba(28,39,56,.28);backdrop-filter:blur(5px)}
-      .fc-dialog{width:min(620px,100%);max-height:min(88dvh,760px);overflow:auto;padding:22px;border:1px solid #e1e6ed;border-radius:16px;background:#fff;color:#263247;box-shadow:0 20px 70px rgba(31,49,74,.18)}
+      .fc-overlay{position:fixed;inset:0;z-index:10020;display:grid;place-items:center;padding:16px;background:rgba(0,0,0,.58);backdrop-filter:blur(7px)}
+      .fc-dialog{width:min(620px,100%);max-height:min(88dvh,760px);overflow:auto;padding:22px;border:1px solid #34435a;border-radius:16px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);color:#f3f4f6;box-shadow:0 24px 76px rgba(0,0,0,.5)}
       .fc-dialog h2{margin:0;font-size:1.3rem}
       .fc-dialog .fc-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
-      .fc-dialog p{color:#687386;line-height:1.5}
+      .fc-dialog p{color:#a1a7b4;line-height:1.5}
       .fc-dialog label{display:block;margin:14px 0 6px;font-size:.9rem}
-      .fc-dialog input[type=text]{box-sizing:border-box;width:100%;padding:11px 12px;border:1px solid #d6dde7;border-radius:9px;background:#fff;color:#263247;font:inherit}
+      .fc-dialog input[type=text]{box-sizing:border-box;width:100%;padding:11px 12px;border:1px solid #3a4558;border-radius:9px;background:#111821;color:#f3f4f6;font:inherit}
       .fc-dialog .fc-error{min-height:1.3em;color:#b42318;font-size:.88rem}
       .fc-dialog .fc-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:16px}
       .fc-dialog .fc-word-list{display:grid;gap:8px;margin-top:12px;max-height:38dvh;overflow:auto}
-      .fc-dialog .fc-word-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border:1px solid #e3e8ef;border-radius:9px}
+      .fc-dialog .fc-word-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border:1px solid #34435a;border-radius:9px;background:#202a3a}
       .fc-dialog .fc-word-row label{display:flex;align-items:center;gap:9px;min-width:0;margin:0;overflow-wrap:anywhere}
-      .fc-dialog .fc-word-row small{color:#687386}
+      .fc-dialog .fc-word-row small{color:#a1a7b4}
       .fc-dialog .fc-inline-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
       .fc-dialog button:disabled{opacity:.55;cursor:wait}
       @media(max-width:520px){#swiftFavoriteCollections{padding:14px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
@@ -214,9 +214,20 @@
       showError(error, "");
       try {
         const result = mode === "create"
-          ? await c.from(COLLECTIONS).insert({ user_id: user.id, name }).select("id,name").single()
+          ? await c.rpc("create_my_favorite_collection", { p_name: name })
           : await c.from(COLLECTIONS).update({ name, updated_at: new Date().toISOString() }).eq("id", collection.id).select("id,name").single();
-        if (result.error) throw result.error;
+        if (result.error) {
+          if (mode === "create" && result.error.message === "COLLECTION_FOLDER_LIMIT_REACHED") {
+            let detail = {};
+            try { detail = JSON.parse(result.error.details || "{}"); } catch {}
+            const limit = Number(detail.folder_limit) || (detail.plan_code === "premium" ? 40 : 16);
+            const plan = detail.plan_code === "premium" ? "Premium" : "Free";
+            showError(error, `You've reached the ${limit}-folder limit for the ${plan} plan. Remove an existing folder before creating another.`);
+            submit.disabled = false;
+            return;
+          }
+          throw result.error;
+        }
         closeDialog();
         if (mode === "rename") expandedCollectionIds.add(collection.id);
         await refresh();
@@ -354,7 +365,7 @@
       if (!groups[code].length) continue;
       const languageGroup = el("section", "fc-language-group");
       languageGroup.append(el("h4", "", code === "zh" ? "简体中文" : "English"));
-      const grid = el("div", code === "zh" ? "fc-expanded-grid character-grid" : "fc-expanded-grid");
+      const grid = el("div", code === "zh" ? "word-grid favorite-word-grid fc-expanded-grid character-grid" : "word-grid favorite-word-grid fc-expanded-grid");
       for (const row of groups[code]) {
         const line = el("div", "fc-word-card");
         const open = button("", () => window.dispatchEvent(new CustomEvent("swift-collections-open-word", {
