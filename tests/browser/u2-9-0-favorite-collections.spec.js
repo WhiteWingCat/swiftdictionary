@@ -6,9 +6,9 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
       favorite_collections: [],
       favorite_collection_items: [],
       saved_words: [
-        { id: 101, user_id: "test-user-a", word: "hello", course: "en", created_at: "2026-11-25T00:00:00Z" },
-        { id: 102, user_id: "test-user-a", word: "你好", course: "zh", created_at: "2026-11-25T00:01:00Z" },
-        { id: 201, user_id: "test-user-b", word: "secret", course: "en", created_at: "2026-11-25T00:02:00Z" }
+        { id: 101, user_id: "test-user-a", word: "hello", course: "en" },
+        { id: 102, user_id: "test-user-a", word: "你好", course: "zh" },
+        { id: 201, user_id: "test-user-b", word: "secret", course: "en" }
       ]
     };
     const activeUserId = () => window.currentUser?.id;
