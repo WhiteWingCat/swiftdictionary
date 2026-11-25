@@ -24,6 +24,7 @@ if (baselineArg >= 0 && !explicitBaseline) {
 const dataDir = path.join(root, "data");
 const candidatePath = path.join(dataDir, "english-expansion-candidates.json");
 const normalizeHeadword = value => String(value || "").normalize("NFKC").trim().toLowerCase().replace(/[\s-]+/g, " ");
+const extractParts = value => String(value || "").split(/[—–-]/)[0].toLowerCase().replace(/\bverb phrase\b/g, "verb").split(/\s*\/\s*/).map(x => x.trim()).filter(Boolean);
 
 function listSourceFiles(dir) {
   const results = [];
@@ -120,6 +121,53 @@ for (const entry of baseline) {
   baselineWords.add(key);
 }
 
+const baselineChecks = {
+  missingCoreFields: 0,
+  insufficientExamples: 0,
+  invalidPronunciationFormat: 0,
+  incompleteSenses: 0,
+  missingDeclaredPosSenses: 0
+};
+for (const entry of baseline) {
+  const word = String(entry.word || "(empty headword)");
+  for (const field of ["word", "part", "phonetic", "definition", "definitionZh", "tip"]) {
+    if (typeof entry[field] !== "string" || !entry[field].trim()) {
+      baselineChecks.missingCoreFields++;
+      errors.push("baseline: " + word + " missing " + field);
+    }
+  }
+  if (!Array.isArray(entry.examples) || entry.examples.length < 2 ||
+      entry.examples.some(example => typeof example !== "string" || !example.trim())) {
+    baselineChecks.insufficientExamples++;
+    errors.push("baseline: " + word + " must have at least two non-empty general examples");
+  }
+  if (!/\\/[^/]+\\//.test(entry.phonetic || "")) {
+    baselineChecks.invalidPronunciationFormat++;
+    errors.push("baseline: " + word + " pronunciation should contain slash-delimited IPA");
+  }
+  const senses = Array.isArray(entry.senses) ? entry.senses : [];
+  for (const sense of senses) {
+    if (typeof sense.part !== "string" || !sense.part.trim() ||
+        typeof sense.definition !== "string" || !sense.definition.trim() ||
+        typeof sense.definitionZh !== "string" || !sense.definitionZh.trim() ||
+        !Array.isArray(sense.examples) || sense.examples.length < 1 ||
+        sense.examples.some(example => typeof example !== "string" || !example.trim())) {
+      baselineChecks.incompleteSenses++;
+      errors.push("baseline: " + word + " has an incomplete sense");
+    }
+  }
+  const declaredParts = new Set(extractParts(entry.part));
+  const senseParts = new Set(senses.flatMap(sense => extractParts(sense.part)));
+  if (declaredParts.size > 1) {
+    for (const part of declaredParts) {
+      if (!senseParts.has(part)) {
+        baselineChecks.missingDeclaredPosSenses++;
+        errors.push("baseline: " + word + " declares " + part + " but has no corresponding sense record");
+      }
+    }
+  }
+}
+
 const batchFiles = fs.readdirSync(dataDir)
   .filter(name => /^english-expansion-batch-\d+\.json$/.test(name))
   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
@@ -179,10 +227,8 @@ for (const file of batchFiles) {
         errors.push(file + ": " + word + " has an incomplete sense");
       }
     }
-    const declaredParts = new Set(String(entry.part || "").split(/[—–-]/)[0].trim().toLowerCase().replace(/\bverb phrase\b/g, "verb").split(/\s*\/\s*/).map(x => x.trim()).filter(Boolean));
-    const senseParts = new Set((entry.senses || []).flatMap(sense =>
-      String(sense.part || "").split(/[—–-]/)[0].trim().toLowerCase().replace(/\bverb phrase\b/g, "verb").split(/\s*\/\s*/).map(x => x.trim()).filter(Boolean)
-    ));
+    const declaredParts = new Set(extractParts(entry.part));
+    const senseParts = new Set((entry.senses || []).flatMap(sense => extractParts(sense.part)));
     for (const part of declaredParts) {
       if (!senseParts.has(part)) errors.push(file + ": " + word + " declares " + part + " but has no corresponding sense record");
     }
@@ -244,6 +290,7 @@ const report = {
   baselineFile: path.relative(root, baselineDoc.file),
   baselineCount: baseline.length,
   baselineUniqueCount: baselineWords.size,
+  baselineChecks,
   candidateCount: candidatesDoc.candidates.length,
   authoredCount: allNew.length,
   runtimeCount: runtimeEntries.length,
