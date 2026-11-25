@@ -7280,22 +7280,22 @@
         {
           "id": "a",
           "learning_text": "They didn't visit us.",
-          "translation_text": "他们没有来看我们。"
+          "translation_text": "他们昨天没有来看我们。"
         },
         {
           "id": "b",
           "learning_text": "They don't visited us.",
-          "translation_text": "他们不来看我们（错误结构）。"
+          "translation_text": "他们不来看我们。（动词形式不正确）"
         },
         {
           "id": "c",
           "learning_text": "They didn't visited us.",
-          "translation_text": "他们没有来看我们（错误结构）。"
+          "translation_text": "他们昨天没有来看我们。（缺少动词原形）"
         },
         {
           "id": "d",
           "learning_text": "They weren't visit us.",
-          "translation_text": "他们没有来看我们（错误结构）。"
+          "translation_text": "他们并没有来拜访我们。（be 动词结构错误）"
         }
       ],
       "correct_option_id": "a",
@@ -7478,22 +7478,22 @@
         {
           "id": "a",
           "learning_text": "where I had put the keys",
-          "translation_text": "我把钥匙放在哪里了"
+          "translation_text": "我把钥匙放在哪里了。"
         },
         {
           "id": "b",
           "learning_text": "where did I put the keys",
-          "translation_text": "我把钥匙放在哪里了（疑问句倒装）"
+          "translation_text": "我把钥匙放在哪里了？（保留直接疑问句语序）"
         },
         {
           "id": "c",
           "learning_text": "where I put did the keys",
-          "translation_text": "我把钥匙放在哪里了（语序错误）"
+          "translation_text": "我把钥匙放在哪里了？（助动词位置错误）"
         },
         {
           "id": "d",
           "learning_text": "where had I put the keys",
-          "translation_text": "我把钥匙放在哪里了（疑问句倒装）"
+          "translation_text": "我把钥匙放在哪里了？（主语与动词倒装）"
         }
       ],
       "correct_option_id": "a",
