@@ -10,6 +10,7 @@ test.beforeEach(async ({ page }) => {
 
 test("English topic filters combine with headword search and preserve POS filters", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#courseSelect").selectOption("en");
   const topics = page.locator("#englishTopicCategoryRow");
   await expect(topics).toBeVisible();
   await expect(topics.locator("button")).toHaveCount(11);
@@ -33,6 +34,8 @@ test("English topic filters combine with headword search and preserve POS filter
 
 test("Simplified Chinese translation switching refreshes an open multi-sense English entry", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#courseSelect").selectOption("en");
+  await page.locator("#translationSelect").selectOption("zh");
   await page.locator("#search").fill("accept");
   await page.locator(".word-card").first().click();
   await expect(page.locator("#modalDefinition")).toContainText("接受");
@@ -47,6 +50,7 @@ test("Simplified Chinese translation switching refreshes an open multi-sense Eng
 
 test("English topic filters remain separate from Chinese character filters", async ({ page }) => {
   await page.goto("/");
+  await page.locator("#courseSelect").selectOption("en");
   await expect(page.locator("#englishTopicCategoryRow")).toBeVisible();
   await page.locator("#courseSelect").selectOption("zh");
   await expect(page.locator("#englishTopicCategoryRow")).toBeHidden();
