@@ -67,3 +67,8 @@ Next:
 ## Follow-up — SQL schema regression passed
 
 The collections SQL regression was strengthened to inspect the owner predicates in all collection and membership policies, then executed successfully against the isolated staging project. The transaction rolled back with no assertion failures. This confirms schema/policy structure and grants, but does not replace authenticated two-account API testing. The frontend module also gained a one-time initialization guard, dialog focus handling and signed-out create-button disabling. CI and real browser verification remain outstanding.
+
+
+## Follow-up — mocked browser regression passed
+
+GitHub Actions run 45547406099 completed successfully on application commit e4a605bc4ee880882b2b7ed998450e7f014eb27d. All 12 browser tests passed, including the new Favorite Collections mocked interaction test; the English expansion validator, Phase 3 audit and whole-catalogue editorial audit also passed, and the audit artifact uploaded successfully. The new test covers create, mixed English/Chinese membership, rename, removing a selected word, and deleting a folder without deleting saved-word records. Two earlier failures were corrected: hidden section styling on the panel/modal and an incorrect test assumption about membership ordering. The test uses a mocked Supabase client, so live authenticated CRUD and adversarial cross-account authorization remain outstanding. The browser logs confirm the app loaded favorite-collections.js through the account-deletion.js loader; actual placement on the real Favorite words dashboard and live staging API verification remain open. No staging preview was created.
