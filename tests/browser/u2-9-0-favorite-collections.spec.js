@@ -435,7 +435,7 @@ test("Premium plan opens a dedicated comparison page with all six complete featu
   await expect(rows.nth(4)).toContainText("10 per local day");
   await expect(rows.nth(5)).toContainText("16 folders");
   await expect(rows.nth(5)).toContainText("40 folders");
-  await expect(page.getByText("Proposed future benefit", { exact: true })).toBeVisible();
+  await expect(page.getByText("Active folder limit", { exact: true })).toBeVisible();
   await expect(page.getByText("Premium is not currently available to purchase.")).toBeVisible();
   await expect(page.locator("button,[role=dialog]")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
