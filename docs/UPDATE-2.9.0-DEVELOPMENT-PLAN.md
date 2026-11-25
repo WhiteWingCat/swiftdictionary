@@ -641,3 +641,19 @@ The folder-cap implementation uses existing account identity and existing collec
 - Fixed by assigning each rendered lesson card a stable `data-lesson-id` and resolving the current card by that ID when the original node has been replaced. If the refreshed card is now disabled, the confirmation closes with an explanatory lesson-status message instead of silently doing nothing.
 - Extended the authenticated Quiz runtime browser test to force a lesson-topic filter re-render while the confirmation is open, then confirm the start. Extended the U2.7 static regression to assert the stable-ID fallback.
 - The first failing run was not caused by the new Quiz content; the failure occurred before Quiz launch, at the permanent lesson start. The later run on commit `78280d4` is exercising the explicit race regression. Await the final Local Supabase Auth/RPC job result before calling this resolved.
+
+
+### 14.8 Final consolidated validation and preview handoff — 2026-11-25
+
+- Latest feature commit: `78280d4`.
+- U2.9.0 English QA passed, including dictionary data checks, whole-catalogue audit, 214-question Quiz draft validation, Mock Quiz/Flashcards regression and 16 Playwright browser tests covering the dark-blue panels, active folder limits, no capacity counter, dictionary-sized English grid, Chinese square grid, Premium route and responsive layout.
+- Local Supabase Auth/RPC integration passed. This includes authenticated Quiz runtime, signed-out Flashcards/Preferences, permanent Lessons allowance notification, local Supabase security-advisor checks and the new lesson-confirmation re-render regression. The previously observed lesson-start race is now fixed and verified.
+- Quiz database foundation passed. The 214-row draft import and the separate 199-row previously owner-authorized release export both passed; the 15 Phase 6 additions remain unapproved draft-only rows and are not part of the release export.
+- Cross-version regression passed on the latest commit: U2.3 allowance/dashboard, U2.5 Flashcards (including Chromium mock-user browser tests), U2.6 ACL, U2.7 Chinese dictionary/lessons and lesson-start allowance, PostgreSQL migration/allowance tests, Chromium regression smoke tests, Supabase CLI local Auth compatibility, and Cloudflare build-routing guard.
+- Cloudflare Pages successfully deployed latest commit `78280d4`:
+  - Unique deployment: https://b7576dea.swiftdictionary.pages.dev
+  - Branch preview: https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev
+  - Premium comparison: append `/premium-plan.html`.
+- The separate `Workers Builds: swiftdictionary-testing` check failed. This is a Cloudflare Workers production build for a separate worker service; the Cloudflare Pages deployment and routing guard both passed. It does not block the Pages staging preview, but remains an infrastructure issue to investigate before final release.
+- The Free 16 / Premium 40 folder-cap migration and complete staging SQL transaction regression passed earlier. No production migration, entitlement assignment, merge, payment integration or production deployment occurred.
+- Staging preview is ready for owner review. PR #18 remains open; do not merge until the owner accepts the preview and the independent Workers build issue has been assessed.
