@@ -844,16 +844,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To become the father of a child; also, to originate or create something.",
-          "definitionZh": "成为孩子的父亲；创立或促成某事。",
+          "definition": "A male parent",
+          "definitionZh": "父亲；爸爸",
           "examples": [
             "Her father taught her how to ride a bicycle."
           ]
         },
         {
           "part": "verb",
-          "definition": "to become the father of a child or create something.",
-          "definitionZh": "创立",
+          "definition": "To become the father of a child; also, to originate or create something.",
+          "definitionZh": "成为孩子的父亲；创立或促成某事。",
           "examples": [
             "The project was fathered by a small research team."
           ]
@@ -1126,16 +1126,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To care for or protect someone in a nurturing, motherly way.",
-          "definitionZh": "像母亲一样悉心照料或保护某人。",
+          "definition": "A female parent",
+          "definitionZh": "母亲；妈妈",
           "examples": [
             "His mother works at a local school."
           ]
         },
         {
           "part": "verb",
-          "definition": "to care for someone in a protective way.",
-          "definitionZh": "照料",
+          "definition": "To care for or protect someone in a nurturing, motherly way.",
+          "definitionZh": "像母亲一样悉心照料或保护某人。",
           "examples": [
             "She mothered the younger children when their parents were away."
           ]
@@ -1322,16 +1322,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "Designed for or used by people who are walking rather than travelling in vehicles.",
-          "definitionZh": "供行人步行的；与步行者有关的。",
+          "definition": "A person travelling on foot rather than in a vehicle",
+          "definitionZh": "行人",
           "examples": [
             "Pedestrians should use the crossing."
           ]
         },
         {
           "part": "adjective",
-          "definition": "relating to walking.",
-          "definitionZh": "步行者",
+          "definition": "Designed for or used by people who are walking rather than travelling in vehicles.",
+          "definitionZh": "供行人步行的；与步行者有关的。",
           "examples": [
             "The street has a pedestrian-only area."
           ]
@@ -2433,8 +2433,8 @@
         },
         {
           "part": "noun",
-          "definition": "a person or thing someone likes best.",
-          "definitionZh": "最爱",
+          "definition": "A person or thing someone likes more than the others.",
+          "definitionZh": "最喜欢的人或事物；最爱。",
           "examples": [
             "That café is one of my favourites."
           ]
@@ -3266,16 +3266,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To eat a meal outdoors, usually in a park or the countryside.",
-          "definitionZh": "在户外用餐，通常是在公园或乡间野餐。",
+          "definition": "A meal eaten outdoors, often in a park or countryside",
+          "definitionZh": "野餐",
           "examples": [
             "We had a picnic beside the lake."
           ]
         },
         {
           "part": "verb",
-          "definition": "to eat such a meal.",
-          "definitionZh": "野餐",
+          "definition": "To eat a meal outdoors, usually in a park or the countryside.",
+          "definitionZh": "在户外用餐，通常是在公园或乡间野餐。",
           "examples": [
             "They plan to picnic in the park if the weather is fine."
           ]
@@ -3511,16 +3511,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To plan and create how something will look, work, or be made.",
-          "definitionZh": "设计或规划某物的外观、功能或制作方式。",
+          "definition": "A plan or drawing showing how something will look or work",
+          "definitionZh": "设计",
           "examples": [
             "The designer presented three logo designs."
           ]
         },
         {
           "part": "verb",
-          "definition": "to create such a plan.",
-          "definitionZh": "设计图",
+          "definition": "To plan and create how something will look, work, or be made.",
+          "definitionZh": "设计或规划某物的外观、功能或制作方式。",
           "examples": [
             "They designed a simple app for students."
           ]
@@ -3576,16 +3576,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To play the sport of golf.",
-          "definitionZh": "打高尔夫球。",
+          "definition": "A sport in which players use clubs to hit a small ball into a series of holes in as few strokes as possible",
+          "definitionZh": "高尔夫球",
           "examples": [
             "My uncle plays golf every Saturday."
           ]
         },
         {
           "part": "verb",
-          "definition": "to play this sport.",
-          "definitionZh": "打高尔夫",
+          "definition": "To play the sport of golf.",
+          "definitionZh": "打高尔夫球。",
           "examples": [
             "They went golfing during their holiday."
           ]
@@ -3677,16 +3677,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To travel on water in a kayak using a paddle.",
-          "definitionZh": "使用桨划皮划艇在水面上行进。",
+          "definition": "A small, narrow boat moved with a double-bladed paddle",
+          "definitionZh": "皮划艇",
           "examples": [
             "We rented a kayak near the beach."
           ]
         },
         {
           "part": "verb",
-          "definition": "to travel in one.",
-          "definitionZh": "划皮划艇",
+          "definition": "To travel on water in a kayak using a paddle.",
+          "definitionZh": "使用桨划皮划艇在水面上行进。",
           "examples": [
             "They kayaked along the quiet river."
           ]
@@ -4626,16 +4626,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To move through or complete something easily and quickly.",
-          "definitionZh": "轻松而迅速地通过或完成某事。",
+          "definition": "A light, gentle wind",
+          "definitionZh": "微风",
           "examples": [
             "A cool breeze came through the open window."
           ]
         },
         {
           "part": "verb",
-          "definition": "to move easily and quickly through something.",
-          "definitionZh": "轻风",
+          "definition": "To move through or complete something easily and quickly.",
+          "definitionZh": "轻松而迅速地通过或完成某事。",
           "examples": [
             "She breezed through the first part of the test."
           ]
@@ -4727,18 +4727,18 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "Having a pinkish-orange colour similar to coral.",
-          "definitionZh": "珊瑚色的；呈粉橙色的。",
+          "definition": "A hard substance formed by tiny sea animals, often creating reefs",
+          "definitionZh": "珊瑚",
           "examples": [
             "The reef is home to many kinds of coral."
           ]
         },
         {
           "part": "adjective",
-          "definition": "relating to coral.",
-          "definitionZh": "珊瑚色的",
+          "definition": "Having a pinkish-orange colour similar to coral.",
+          "definitionZh": "珊瑚色的；呈粉橙色的。",
           "examples": [
-            "Coral reefs support a wide range of marine life."
+            "She wore a coral dress to the wedding."
           ]
         }
       ]
@@ -6269,16 +6269,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To speak to someone by calling them on a telephone.",
-          "definitionZh": "通过电话给某人打电话；与某人通话。",
+          "definition": "A device or system used to speak to someone over a distance",
+          "definitionZh": "电话",
           "examples": [
             "The office telephone rang during the meeting."
           ]
         },
         {
           "part": "verb",
-          "definition": "to call someone.",
-          "definitionZh": "打电话",
+          "definition": "To speak to someone by calling them on a telephone.",
+          "definitionZh": "通过电话给某人打电话；与某人通话。",
           "examples": [
             "I telephoned the clinic to change my appointment."
           ]
@@ -6334,16 +6334,16 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "To send someone a short written message by mobile phone or digital device.",
-          "definitionZh": "通过手机或数字设备向某人发送短信。",
+          "definition": "A short written message sent from one mobile phone or digital device to another",
+          "definitionZh": "短信",
           "examples": [
             "I received a text message from the delivery company."
           ]
         },
         {
           "part": "verb",
-          "definition": "to send such a message.",
-          "definitionZh": "发短信",
+          "definition": "To send someone a short written message by mobile phone or digital device.",
+          "definitionZh": "通过手机或数字设备向某人发送短信。",
           "examples": [
             "Please text-message me when you arrive."
           ]
