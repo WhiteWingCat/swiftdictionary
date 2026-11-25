@@ -587,7 +587,6 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
   const dialog = page.getByRole("dialog", { name: "Add words to Science" });
   await dialog.getByLabel(/bioavailability/).check();
   await dialog.getByRole("button", { name: "Add selected" }).click();
-  await folder.locator(".fc-folder-toggle").click();
   const collectionGrid = folder.locator(".fc-expanded-grid:not(.character-grid)").first();
   await expect(collectionGrid.getByText("bioavailability")).toBeVisible();
   const after = await collectionGrid.evaluate(grid => ({
