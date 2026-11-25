@@ -138,6 +138,12 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await create.click();
   const createDialog = page.getByRole("dialog");
   await expect(createDialog).toHaveAttribute("aria-modal", "true");
+  const collectionDialogTheme = await createDialog.evaluate(node => ({
+    backgroundImage: getComputedStyle(node).backgroundImage,
+    color: getComputedStyle(node).color
+  }));
+  expect(collectionDialogTheme.backgroundImage).not.toBe("none");
+  expect(collectionDialogTheme.color).toBe("rgb(243, 244, 246)");
   await expect(page.locator("#fcCollectionName")).toBeFocused();
   await page.keyboard.press("Shift+Tab");
   await expect(createDialog.getByRole("button", { name: "Close" })).toBeFocused();
@@ -426,6 +432,14 @@ test("Premium plan opens a dedicated comparison page with all six complete featu
   await trigger.click();
   await page.waitForURL(/premium-plan\.html(?:$|\?)/);
   await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
+  const premiumTheme = await page.evaluate(() => ({
+    body: getComputedStyle(document.body).backgroundColor,
+    heroImage: getComputedStyle(document.querySelector(".premium-hero")).backgroundImage,
+    comparisonImage: getComputedStyle(document.querySelector(".premium-comparison")).backgroundImage
+  }));
+  expect(premiumTheme.body).toBe("rgb(17, 19, 24)");
+  expect(premiumTheme.heroImage).not.toBe("none");
+  expect(premiumTheme.comparisonImage).not.toBe("none");
   await expect(page.getByRole("table", { name: "Free and Premium plan comparison" })).toBeVisible();
   const rows = page.locator(".premium-comparison-row");
   await expect(rows).toHaveCount(6);
