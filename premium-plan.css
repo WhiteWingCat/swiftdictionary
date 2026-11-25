@@ -33,7 +33,7 @@ body{margin:0;background:var(--sd-bg);color:var(--sd-text);font-family:Inter,ui-
 .premium-value strong{display:block;color:#edf2fc;font-size:1.02rem}
 .premium-value.premium-tier{background:rgba(70,94,145,.13)}
 .premium-unlimited{display:inline-flex;align-items:center;gap:7px;color:#9bd7b3!important}
-.premium-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.premium-capacity{display:inline-flex;align-items:center;margin-top:7px;padding:3px 9px;border:1px solid #455775;border-radius:999px;background:#253653;color:#cbd9f6;font-size:.72rem;font-weight:800;letter-spacing:.03em}.premium-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
 .premium-note{padding:17px 18px;border:1px solid #34435a;border-radius:15px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);color:#b9c3d3;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.22)}
 .premium-note strong{display:block;margin-bottom:5px;color:#edf2fc}
 .premium-footer{margin:24px 0 0;color:#8994a6;text-align:center;font-size:.82rem;line-height:1.6}
