@@ -3680,3 +3680,8 @@ Run 45548503961 passed all 13 Playwright tests, including mocked blank/duplicate
 ### Phase 4 saved-word schema correction — 2026-11-25
 
 Staging schema inspection found saved_words contains id (bigint), user_id (uuid), course (text) and word (text), without created_at. The collection picker was changed to order by id descending, test fixtures now match the actual table, and the SQL regression asserts this schema contract. The strengthened SQL regression passed against staging. Browser CI for the final schema-aligned change is in progress. This was caught before staging preview/production rollout.
+
+
+### Phase 4 schema-aligned browser QA — 2026-11-25
+
+Run 45548857974 passed all 13 Playwright tests after aligning the saved-word picker with the real saved_words schema (id, user_id, course, word; no created_at). The SQL regression now asserts this schema and passed. Browser coverage includes name validation, mixed-language collection membership, CRUD, account-switch UI isolation, real-app loader and Favorite words placement. Staging retains 14 saved words, zero collection/membership rows and both collection tables in supabase_realtime. Security advisor findings remain unchanged. The two collection indexes are unused only because staging has no collection data; they support planned query and FK patterns. Live authenticated CRUD, adversarial API-level RLS, actual Realtime event delivery and signed-in desktop/mobile/accessibility checks remain open.
