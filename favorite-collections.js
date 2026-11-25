@@ -14,7 +14,7 @@
   let overlay = null;
   let currentCollection = null;
   let realtimeChannel = null;
-  let refreshQueued = false;
+  let refreshSequence = 0;
 
   const getClient = () => {
     if (window.supabaseClient) return window.supabaseClient;
@@ -199,6 +199,7 @@
 
   async function refresh() {
     if (!panel) return;
+    const requestSequence = ++refreshSequence;
     const list = panel.querySelector(".fc-list");
     list.replaceChildren();
     const user = getUser(), c = getClient();
@@ -213,6 +214,7 @@
     }
     list.append(el("p", "fc-muted", "Loading collections…"));
     const { data, error } = await c.from(COLLECTIONS).select("id,name,created_at").order("created_at", { ascending: true });
+    if (requestSequence !== refreshSequence || getUser()?.id !== user.id || !panel?.isConnected) return;
     list.replaceChildren();
     if (error) {
       list.append(el("p", "fc-muted", "Collections could not be loaded. Check your connection and try again."));
@@ -223,6 +225,7 @@
       return;
     }
     const membershipResult = await c.from(ITEMS).select("collection_id");
+    if (requestSequence !== refreshSequence || getUser()?.id !== user.id || !panel?.isConnected) return;
     const counts = new Map();
     if (!membershipResult.error) {
       for (const item of membershipResult.data || []) {
@@ -239,6 +242,8 @@
   }
 
   async function openCollection(collection) {
+    const userId = getUser()?.id;
+    if (!userId) return;
     currentCollection = collection;
     const dialog = showDialog(collection.name);
     const description = el("p", "", "Words in this folder. Removing a word here does not remove it from Favorite words.");
@@ -258,6 +263,7 @@
       .select("saved_word_id, saved_words(id,word,course)")
       .eq("collection_id", collection.id)
       .order("created_at", { ascending: true });
+    if (getUser()?.id !== userId || currentCollection?.id !== collection.id || overlay?.hidden) return;
     list.replaceChildren();
     if (error) {
       list.append(el("p", "fc-muted", "Could not load this collection. Please retry."));
@@ -282,6 +288,8 @@
   }
 
   async function addWords(collection) {
+    const userId = getUser()?.id;
+    if (!userId) return;
     const dialog = showDialog("Add saved words");
     dialog.append(el("p", "", "Select any saved English or Chinese words to add to this collection."));
     const list = el("div", "fc-word-list");
@@ -311,6 +319,7 @@
       c.from(WORDS).select("id,word,course").order("id", { ascending: false }),
       c.from(ITEMS).select("saved_word_id").eq("collection_id", collection.id)
     ]);
+    if (getUser()?.id !== userId || currentCollection?.id !== collection.id || overlay?.hidden) return;
     list.replaceChildren();
     if (wordsError || existingError) {
       list.append(el("p", "fc-muted", "Could not load your saved words. Please try again."));
@@ -368,6 +377,7 @@
   }
 
   function syncAuth() {
+    ++refreshSequence;
     const user = getUser();
     if (user?.id !== activeUser?.id) {
       activeUser = user || null;
