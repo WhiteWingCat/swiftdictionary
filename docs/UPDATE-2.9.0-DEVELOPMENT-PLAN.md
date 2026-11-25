@@ -759,8 +759,8 @@ Phase 6 is expanded beyond the initial Quiz-only draft addition. It may proceed 
 - Relevant official references: JPDP Act 709 and amendments at https://www.pdp.gov.my/en/akta/pdp-act-2010-en/ ; JPDP cross-border guideline at https://www.pdp.gov.my/en/akta/personal-data-protection-guidelines-on-cross-border-transfer-of-personal-data-cbpdt/ ; European Commission GDPR principles at https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/principles-gdpr_en .
 
 ### Validation and release boundary
-- Automated GitHub Actions runs were triggered for the updated branch but remain queued/pending at this checkpoint. Do not report browser or full CI validation as passed until the latest-head runs complete successfully.
-- The next gate is to finish latest-head browser/CI validation, resolve any failures, confirm Supabase staging migrations/tests and then inspect the existing Cloudflare Pages staging deployment. Do not create or share a refreshed staging preview until the new work is fully validated.
+- At this checkpoint the updated-branch GitHub Actions runs were queued/pending; they were subsequently completed successfully on the final head, as recorded in Section 13.
+- The next gate at this checkpoint was latest-head browser/CI validation and Pages deployment verification. That gate is now complete; the deployed staging preview is available for owner review. Do not merge or deploy to production before explicit owner approval.
 - No production database migration, production deployment, merge, subscription activation, entitlement mutation or allowance change has been performed.
 
 
