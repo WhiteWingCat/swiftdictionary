@@ -392,7 +392,7 @@ test("Premium plan opens a dedicated comparison page with all six complete featu
   const trigger = page.locator("#premiumPlanOpen");
   await expect(trigger).toBeVisible();
   await trigger.click();
-  await page.waitForURL(/premium-plan\\.html(?:$|\\?)/);
+  await page.waitForURL(/premium-plan\.html(?:$|\?)/);
   await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
   await expect(page.getByRole("table", { name: "Free and Premium plan comparison" })).toBeVisible();
   const rows = page.locator(".premium-comparison-row");
