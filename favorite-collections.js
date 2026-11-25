@@ -16,6 +16,7 @@
   let realtimeChannel = null;
   let refreshSequence = 0;
   const expandedCollectionIds = new Set();
+  const collectionLoadSequence = new Map();
   let dialogReturnFocus = null;
 
   const getClient = () => {
@@ -160,8 +161,8 @@
     return overlay;
   }
 
-  function showDialog(title) {
-    if (!overlay || overlay.hidden) dialogReturnFocus = document.activeElement;
+  function showDialog(title, returnFocus = null) {
+    if (!overlay || overlay.hidden) dialogReturnFocus = returnFocus || document.activeElement;
     const root = ensureOverlay();
     const dialog = root.firstChild;
     dialog.replaceChildren();
@@ -190,8 +191,8 @@
     node.textContent = message || "";
   }
 
-  async function openNameDialog(mode, collection = null) {
-    const dialog = showDialog(mode === "create" ? "Create a collection" : "Rename collection");
+  async function openNameDialog(mode, collection = null, returnFocus = null) {
+    const dialog = showDialog(mode === "create" ? "Create a collection" : "Rename collection", returnFocus);
     const label = el("label", "", "Collection name");
     label.htmlFor = "fcCollectionName";
     const input = el("input");
@@ -276,7 +277,10 @@
     const toggle = button("", () => {
       const isOpen = !expandedCollectionIds.has(collection.id);
       if (isOpen) expandedCollectionIds.add(collection.id);
-      else expandedCollectionIds.delete(collection.id);
+      else {
+        expandedCollectionIds.delete(collection.id);
+        collectionLoadSequence.set(collection.id, (collectionLoadSequence.get(collection.id) || 0) + 1);
+      }
       toggle.setAttribute("aria-expanded", String(isOpen));
       caret.textContent = "›";
       toggle.querySelector(".fc-folder-count").textContent = countError ? "Open folder" : `${count} words`;
@@ -306,13 +310,13 @@
     menu.hidden = true;
     menu.setAttribute("role", "menu");
     const menuAction = (label, action) => {
-      const item = button(label, () => { menu.hidden = true; menuButton.setAttribute("aria-expanded", "false"); action(); }, "");
+      const item = button(label, () => { menu.hidden = true; menuButton.setAttribute("aria-expanded", "false"); action(menuButton); }, "");
       item.setAttribute("role", "menuitem");
       menu.append(item);
     };
-    menuAction("Add words", () => openAddWordsDialog(collection));
-    menuAction("Rename", () => openNameDialog("rename", collection));
-    menuAction("Remove", () => removeCollection(collection));
+    menuAction("Add words", returnFocus => openAddWordsDialog(collection, returnFocus));
+    menuAction("Rename", returnFocus => openNameDialog("rename", collection, returnFocus));
+    menuAction("Remove", returnFocus => removeCollection(collection, returnFocus));
     menuWrap.append(menuButton, menu);
     head.append(toggle, menuWrap);
     const content = el("div", "fc-expanded");
@@ -326,13 +330,15 @@
   async function loadCollectionWords(collection, content) {
     const userId = getUser()?.id;
     if (!userId || !content?.isConnected) return;
+    const requestSequence = (collectionLoadSequence.get(collection.id) || 0) + 1;
+    collectionLoadSequence.set(collection.id, requestSequence);
     content.replaceChildren(el("p", "fc-muted", "Loading saved words…"));
     const c = getClient();
     const { data, error } = await c.from(ITEMS)
       .select("saved_word_id, saved_words(id,word,course)")
       .eq("collection_id", collection.id)
       .order("created_at", { ascending: true });
-    if (getUser()?.id !== userId || !content.isConnected || !expandedCollectionIds.has(collection.id)) return;
+    if (getUser()?.id !== userId || !content.isConnected || !expandedCollectionIds.has(collection.id) || collectionLoadSequence.get(collection.id) !== requestSequence) return;
     content.replaceChildren();
     if (error) {
       content.append(el("p", "fc-muted", "Could not load this collection. Please retry."));
@@ -374,10 +380,10 @@
     }
   }
 
-  async function openAddWordsDialog(collection) {
+  async function openAddWordsDialog(collection, returnFocus = null) {
     const userId = getUser()?.id;
     if (!userId) return;
-    const dialog = showDialog("Add words to " + collection.name);
+    const dialog = showDialog("Add words to " + collection.name, returnFocus);
     dialog.append(el("p", "", "Select saved English or Chinese words to include in this folder."));
     const list = el("div", "fc-word-list");
     list.append(el("p", "fc-muted", "Loading your saved words…"));
@@ -433,18 +439,18 @@
     }
   }
 
-  async function openWordCollectionsDialog(word, course) {
+  async function openWordCollectionsDialog(word, course, returnFocus = null) {
     const userId = getUser()?.id;
     const c = getClient();
     if (!userId || !c) {
-      const dialog = showDialog("Sign in required");
+      const dialog = showDialog("Sign in required", returnFocus);
       dialog.append(el("p", "", "Sign in to add saved words to your collections."));
       const signInActions = el("div", "fc-actions");
       signInActions.append(button("Close", closeDialog, "fc-button fc-primary"));
       dialog.append(signInActions);
       return;
     }
-    const dialog = showDialog("Add to collection");
+    const dialog = showDialog("Add to collection", returnFocus);
     dialog.append(el("p", "", `Choose the folders that should contain “${word}”.`));
     const list = el("div", "fc-word-list");
     list.append(el("p", "fc-muted", "Loading your collections…"));
@@ -523,8 +529,8 @@
     }
   }
 
-  async function removeCollection(collection) {
-    const dialog = showDialog("Remove this folder?");
+  async function removeCollection(collection, returnFocus = null) {
+    const dialog = showDialog("Remove this folder?", returnFocus);
     dialog.append(el("p", "", `“${collection.name}” and its folder memberships will be removed. Your saved words will remain in Favorite words.`));
     const error = el("p", "fc-error");
     dialog.append(error);
@@ -561,7 +567,7 @@
   });
   window.addEventListener("swift-collections-open-word-picker", event => {
     const detail = event.detail || {};
-    if (detail.word && (detail.course === "en" || detail.course === "zh")) openWordCollectionsDialog(detail.word, detail.course);
+    if (detail.word && (detail.course === "en" || detail.course === "zh")) openWordCollectionsDialog(detail.word, detail.course, detail.trigger || null);
   });
   window.addEventListener("swift-favorite-words-updated", () => refresh());
   window.addEventListener("swift-favorite-word-toggled", event => {
@@ -569,8 +575,11 @@
   });
   function bindSync() {
     const c = getClient(), user = getUser();
+    if (realtimeChannel) {
+      try { (c || client)?.removeChannel(realtimeChannel); } catch {}
+      realtimeChannel = null;
+    }
     if (!c || !user) return;
-    if (realtimeChannel) { try { c.removeChannel(realtimeChannel); } catch {} }
     realtimeChannel = c.channel("favorite-collections:" + user.id, { config: { private: true } })
       .on("broadcast", { event: "INSERT" }, () => refresh())
       .on("broadcast", { event: "UPDATE" }, () => refresh())
@@ -599,6 +608,8 @@
     const user = getUser();
     if (user?.id !== activeUser?.id) {
       activeUser = user || null;
+      expandedCollectionIds.clear();
+      collectionLoadSequence.clear();
       if (overlay && !overlay.hidden) closeDialog();
       if (panel) refresh();
       bindSync();
@@ -620,7 +631,13 @@
     const c = getClient();
     if (c?.auth?.onAuthStateChange) {
       c.auth.onAuthStateChange((_event, session) => {
-        activeUser = session?.user || null;
+        const nextUser = session?.user || null;
+        if (nextUser?.id !== activeUser?.id) {
+          expandedCollectionIds.clear();
+          collectionLoadSequence.clear();
+          if (overlay && !overlay.hidden) closeDialog();
+        }
+        activeUser = nextUser;
         if (panel) refresh();
         bindSync();
       });
