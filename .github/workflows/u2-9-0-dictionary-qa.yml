@@ -17,6 +17,8 @@ on:
       - "scripts/dictionary/audit-english-catalogue.mjs"
       - "tests/browser/u2-9-0-english-categories.spec.js"
       - "favorite-collections.js"
+      - "mock-testing.js"
+      - "tests/update-2-3-1/mock-testing.test.mjs"
       - "account-deletion.js"
       - "supabase-config.js"
       - "tests/browser/u2-9-0-favorite-collections.spec.js"
@@ -75,6 +77,8 @@ jobs:
         run: node scripts/dictionary/audit-english-catalogue.mjs
       - name: Validate aligned English Quiz draft content
         run: node scripts/quiz/validate-question-bank.mjs
+      - name: Run Mock Quiz and Flashcards regression tests against expanded draft bank
+        run: node --test tests/update-2-3-1/mock-testing.test.mjs
       - name: Install Playwright test runner
         run: |
           npm init -y
