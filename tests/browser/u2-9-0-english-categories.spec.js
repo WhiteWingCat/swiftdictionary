@@ -175,3 +175,31 @@ test("every English topic category returns entries and keeps pagination scoped t
   await page.locator("#nextPage").click();
   await expect(page.locator("#pageStatus")).toHaveText("Page 2 of 5");
 });
+
+test("editorially corrected expansion senses display context-aligned Chinese translations", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#courseSelect").selectOption("en");
+  await page.locator("#translationSelect").selectOption("zh");
+  const cases = [
+    ["lecture", "作正式演讲"],
+    ["father", "成为孩子的父亲"],
+    ["mother", "像母亲一样悉心照料"],
+    ["pedestrian", "供行人步行的"],
+    ["favourite", "最喜欢的人或事物"],
+    ["cycle", "骑自行车"],
+    ["picnic", "在户外用餐"],
+    ["design", "设计或规划"],
+    ["golf", "打高尔夫球"],
+    ["kayak", "使用桨划皮划艇"],
+    ["breeze", "轻松而迅速地"],
+    ["coral", "珊瑚色的"],
+    ["telephone", "通过电话给某人打电话"],
+    ["text message", "发送短信"]
+  ];
+  for (const [word, expectedChinese] of cases) {
+    await page.locator("#search").fill(word);
+    await page.locator(".word-card").first().click();
+    await expect(page.locator("#modalDefinition")).toContainText(expectedChinese);
+    await page.locator("#closeButton").click();
+  }
+});
