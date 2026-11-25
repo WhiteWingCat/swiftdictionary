@@ -144,6 +144,20 @@ async function installCollectionsFixture(page) {
 test("Your Collections folders expand inline, use a custom actions menu, and open the shared saved-word detail flow", async ({ page }) => {
   await installCollectionsFixture(page);
   const panel = page.locator("#swiftFavoriteCollections");
+  const favoriteGrid = page.locator("#favoriteEnglishGrid");
+  await favoriteGrid.evaluate(grid => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "word-card";
+    card.innerHTML = '<span class="word-name">bioavailability</span>';
+    grid.append(card);
+  });
+  await page.locator("#profilePage details > summary").click();
+  await expect(favoriteGrid.locator(".word-card")).toBeVisible();
+  const favoriteReference = await favoriteGrid.evaluate(grid => ({
+    cardWidth: grid.firstElementChild.getBoundingClientRect().width,
+    tracks: getComputedStyle(grid).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
+  }));
   await expect(panel.getByText("Customize and organize any saved words to your preferences.")).toBeVisible();
   const panelBox = await panel.boundingBox();
   expect(panelBox.width).toBeLessThanOrEqual(390);
@@ -214,19 +228,19 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   const longWord = card.getByRole("button", { name: "Open saved word bioavailability" });
   await expect(longWord).toBeVisible();
   const longWordGeometry = await longWord.evaluate(node => ({ width: node.getBoundingClientRect().width, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth }));
-  expect(longWordGeometry.width).toBeGreaterThanOrEqual(132);
+  expect(longWordGeometry.width).toBeCloseTo(favoriteReference.cardWidth, 0);
   expect(longWordGeometry.scrollWidth).toBeLessThanOrEqual(longWordGeometry.clientWidth + 1);
   expect((await panel.boundingBox()).width).toBeCloseTo(panelBox.width, 0);
   await page.setViewportSize({ width: 390, height: 844 });
   const mobileLongWord = await longWord.evaluate(node => ({ width: node.getBoundingClientRect().width, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth }));
-  expect(mobileLongWord.width).toBeGreaterThanOrEqual(132);
+  expect(mobileLongWord.width).toBeCloseTo(favoriteReference.cardWidth, 0);
   expect(mobileLongWord.scrollWidth).toBeLessThanOrEqual(mobileLongWord.clientWidth + 1);
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
   const collectionGridTracks = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node =>
     getComputedStyle(node).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
   );
-  expect(collectionGridTracks.length).toBeGreaterThan(0);
-  expect(collectionGridTracks.every(width => width >= 110)).toBe(true);
+  expect(collectionGridTracks.length).toBe(favoriteReference.tracks.length);
+  collectionGridTracks.forEach((width, index) => expect(width).toBeCloseTo(favoriteReference.tracks[index], 0));
   await expect(card.locator(".fc-expanded-grid:not(.character-grid) .fc-word-open").first()).toHaveCSS("min-height", "58px");
 
   await expect(card.locator(".fc-word-remove")).toHaveCount(0);
