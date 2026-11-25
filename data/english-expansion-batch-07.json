@@ -1306,15 +1306,15 @@
       "word": "pedestrian",
       "part": "noun / adjective",
       "phonetic": "/pəˈdestriən/",
-      "definition": "A person travelling on foot rather than in a vehicle; or relating to walking.",
-      "definitionZh": "行人；步行者",
+      "definition": "A person travelling on foot rather than in a vehicle; or designed for or used by people travelling on foot.",
+      "definitionZh": "行人；步行者；步行的；与行人有关的。",
       "examples": [
         "Pedestrians should use the crossing.",
         "The street has a pedestrian-only area."
       ],
       "tip": "A pedestrian is someone walking in a public place; a pedestrian crossing is a marked place to cross a road.",
       "course": "en",
-      "breakdown": "A person travelling on foot rather than in a vehicle; or relating to walking.",
+      "breakdown": "A person travelling on foot rather than in a vehicle; or designed for or used by people travelling on foot.",
       "related": "walker;passer-by",
       "categories": [
         "People & Relationships"
@@ -4610,15 +4610,15 @@
       "word": "breeze",
       "part": "noun / verb",
       "phonetic": "/briːz/",
-      "definition": "A light, gentle wind; or to move easily and quickly through something.",
-      "definitionZh": "微风；轻风",
+      "definition": "A light, gentle wind; or to move through or complete something easily and quickly.",
+      "definitionZh": "微风；轻风；轻松而迅速地完成或通过。",
       "examples": [
         "A cool breeze came through the open window.",
         "She breezed through the first part of the test."
       ],
       "tip": "As a noun, “breeze” is a gentle wind; informally, the verb can mean complete something easily.",
       "course": "en",
-      "breakdown": "A light, gentle wind; or to move easily and quickly through something.",
+      "breakdown": "A light, gentle wind; or to move through or complete something easily and quickly.",
       "related": "wind;gust",
       "categories": [
         "Nature & Environment"
@@ -4711,15 +4711,15 @@
       "word": "coral",
       "part": "noun / adjective",
       "phonetic": "/ˈkɔːrəl/",
-      "definition": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
-      "definitionZh": "珊瑚；珊瑚色的",
+      "definition": "A hard substance formed by tiny sea animals, often creating reefs; or a pinkish-orange colour similar to coral.",
+      "definitionZh": "珊瑚；珊瑚色的；粉橙色的。",
       "examples": [
         "The reef is home to many kinds of coral.",
         "Coral reefs support a wide range of marine life."
       ],
       "tip": "Coral reefs are living ecosystems and can be damaged by warming seas and pollution.",
       "course": "en",
-      "breakdown": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
+      "breakdown": "A hard substance formed by tiny sea animals, often creating reefs; or a pinkish-orange colour similar to coral.",
       "related": "reef;marine organism",
       "categories": [
         "Nature & Environment"
