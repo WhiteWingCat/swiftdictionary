@@ -104,3 +104,10 @@ Initial successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4c
 - Responsive/mobile and keyboard accessibility are included. Tests cover no purchase action, Escape close, focus restoration and narrow mobile fit.
 - Latest CI run **45541902319**, commit `0279d056fa1b11c0f31b1263ac918daacab0edcd`, passed all workflow steps and nine browser tests.
 - Legal check: informational-only, no new personal-data processing or consumer transaction. Actual Premium activation still requires separate Malaysia/international payment, tax, consumer disclosure, cancellation/refund and processor review.
+
+## Expanded category, pagination and Premium UI regression
+
+- Added tests for all ten topic categories, topic-scoped pagination across five Actions pages, and reset of English topic selection after switching to Chinese and back.
+- Premium UI tests cover proposed 16/40 folder capacities, unlimited free dictionary search, future-only disclosure, no checkout/payment/subscription action, Escape/focus restoration and narrow-mobile fit.
+- Latest full CI run **45542196426**, commit `70f3e27486a8609aa11c22c29fae6529cb94fe09`, passed both validators and all ten browser tests.
+- Phase 3 remains in progress pending broader semantic/editorial review; Phase 4 remains blocked. No staging preview.
