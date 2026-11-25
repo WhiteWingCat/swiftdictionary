@@ -77,7 +77,7 @@
       #swiftFavoriteCollections .fc-expanded[hidden]{display:none}
       #swiftFavoriteCollections .fc-language-group{margin-top:12px}
       #swiftFavoriteCollections .fc-language-group h4{margin:0 0 8px;color:var(--muted,#687386);font-size:.82rem;font-weight:750}
-      #swiftFavoriteCollections .fc-expanded-grid{min-width:0;grid-auto-rows:1fr}
+      #swiftFavoriteCollections .fc-expanded-grid{min-width:0;grid-auto-rows:1fr;grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
       #swiftFavoriteCollections .fc-expanded-grid.character-grid{min-width:0}
       #swiftFavoriteCollections .fc-word-card{display:block;min-width:0}
       #swiftFavoriteCollections .fc-word-open{display:flex;width:100%;min-width:0;box-shadow:0 2px 7px rgba(31,49,74,.08)}
