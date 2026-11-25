@@ -268,3 +268,11 @@ The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core
 - Added keyboard handling, focus restoration/containment and narrow-mobile responsive styling. Playwright checks confirm future-only copy, no purchase action and mobile fit.
 - Latest CI run **45541902319**, commit `0279d056fa1b11c0f31b1263ac918daacab0edcd`, passed both validators and all nine browser tests.
 - Malaysia/general legal check: no transaction or new personal-data processing is introduced. Payment, recurring billing, tax, consumer disclosure, cancellation/refund and payment-provider obligations must be reviewed before any actual Premium activation. Folder capacities remain proposals only.
+
+
+### Phase 3 expanded interaction regression — 2026-11-25
+
+- Added coverage for all ten topic categories, verified each returns entries, checked topic-scoped pagination across five Actions pages, and verified switching to Chinese resets the English topic selection.
+- Expanded Premium UI regression for future-only copy, no purchase action, Escape/focus restoration and mobile fit.
+- Latest full CI run **45542196426**, commit `70f3e27486a8609aa11c22c29fae6529cb94fe09`, passed both validators and all ten browser tests.
+- Core implementation is integrated; broader semantic/editorial review remains open. Phase 3 remains in progress and Phase 4 is blocked.
