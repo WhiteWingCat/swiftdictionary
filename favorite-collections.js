@@ -308,7 +308,7 @@
     dialog.append(actions);
     const c = getClient();
     const [{ data: words, error: wordsError }, { data: existing, error: existingError }] = await Promise.all([
-      c.from(WORDS).select("id,word,course").order("created_at", { ascending: false }),
+      c.from(WORDS).select("id,word,course").order("id", { ascending: false }),
       c.from(ITEMS).select("saved_word_id").eq("collection_id", collection.id)
     ]);
     list.replaceChildren();
