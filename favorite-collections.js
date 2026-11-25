@@ -370,10 +370,27 @@
     const c = getClient(), user = getUser();
     if (!c || !user) return;
     if (realtimeChannel) { try { c.removeChannel(realtimeChannel); } catch {} }
-    realtimeChannel = c.channel("favorite-collections-" + user.id)
-      .on("postgres_changes", { event: "*", schema: "public", table: COLLECTIONS, filter: "user_id=eq." + user.id }, () => refresh())
-      .on("postgres_changes", { event: "*", schema: "public", table: ITEMS }, () => refresh())
-      .subscribe();
+    realtimeChannel = c.channel("favorite-collections:" + user.id, { config: { private: true } })
+      .on("broadcast", { event: "INSERT" }, () => refresh())
+      .on("broadcast", { event: "UPDATE" }, () => refresh())
+      .on("broadcast", { event: "DELETE" }, () => refresh())
+      .subscribe(status => {
+        if (status === "SUBSCRIBED") {
+          const warning = panel?.querySelector("#swiftFavoriteCollectionsSyncStatus");
+          warning?.remove();
+          refresh();
+        } else if (status === "CHANNEL_ERROR" || status === "TIMED_OUT") {
+          if (!panel) return;
+          let warning = panel.querySelector("#swiftFavoriteCollectionsSyncStatus");
+          if (!warning) {
+            warning = el("p", "fc-muted");
+            warning.id = "swiftFavoriteCollectionsSyncStatus";
+            warning.setAttribute("role", "status");
+            panel.append(warning);
+          }
+          warning.textContent = "Live sync is temporarily unavailable. Collections will refresh when you return to this page.";
+        }
+      });
   }
 
   function syncAuth() {
