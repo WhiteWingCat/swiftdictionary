@@ -7581,8 +7581,8 @@
         },
         {
           "id": "b",
-          "learning_text": "Who did open the window?",
-          "translation_text": "谁打开了窗户？（通常不是中性疑问句语序）"
+          "learning_text": "Who did the manager call?",
+          "translation_text": "经理给谁打了电话？（who 是宾语，不是主语）"
         },
         {
           "id": "c",
