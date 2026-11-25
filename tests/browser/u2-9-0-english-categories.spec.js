@@ -73,3 +73,25 @@ test("English topic filters remain separate from Chinese character filters", asy
   await page.locator("#courseSelect").selectOption("en");
   await expect(page.locator("#englishTopicCategoryRow")).toBeVisible();
 });
+
+test("English topic filters wrap and remain usable on a narrow mobile viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.locator("#courseSelect").selectOption("en");
+  await page.locator("#openDictionaryFilters").click();
+
+  const topicRow = page.locator("#englishTopicCategoryRow");
+  await expect(topicRow).toBeVisible();
+  await expect(topicRow.locator("button")).toHaveCount(11);
+  const panel = page.locator("#dictionaryFiltersPanel");
+  const dimensions = await panel.evaluate(node => ({
+    clientWidth: node.clientWidth,
+    scrollWidth: node.scrollWidth
+  }));
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 2);
+
+  await topicRow.getByRole("button", { name: "Places", exact: true }).click();
+  const count = Number((await page.locator("#count").textContent()).match(/^\d+/)[0]);
+  expect(count).toBeGreaterThan(0);
+  expect(count).toBeLessThan(1316);
+});
