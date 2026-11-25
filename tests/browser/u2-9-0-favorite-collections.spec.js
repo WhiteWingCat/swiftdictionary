@@ -78,8 +78,12 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     window.__collectionsTestChannels = [];
     window.__collectionsTestClient = {
       from: table => new Query(table),
-      channel: name => {
-        const channel = { name, removed: false, on() { return this; }, subscribe() { return this; } };
+      channel: (name, options) => {
+        const channel = {
+          name, options, removed: false, handlers: [], statusCallback: null,
+          on(type, filter, callback) { this.handlers.push({ type, event: filter.event, callback }); return this; },
+          subscribe(callback) { this.statusCallback = callback; return this; }
+        };
         window.__collectionsTestChannels.push(channel);
         return channel;
       },
@@ -106,6 +110,21 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   });
   const panel = page.locator("#swiftFavoriteCollections");
   await expect(panel).toBeVisible();
+  const realtimeSetup = await page.evaluate(() => {
+    const channel = window.__collectionsTestChannels[0];
+    return {
+      name: channel?.name,
+      isPrivate: channel?.options?.config?.private,
+      handlers: channel?.handlers?.map(handler => [handler.type, handler.event]).sort()
+    };
+  });
+  expect(realtimeSetup.name).toBe("favorite-collections:test-user-a");
+  expect(realtimeSetup.isPrivate).toBe(true);
+  expect(realtimeSetup.handlers).toEqual([
+    ["broadcast", "DELETE"],
+    ["broadcast", "INSERT"],
+    ["broadcast", "UPDATE"]
+  ]);
   const panelBox = await panel.boundingBox();
   expect(panelBox.width).toBeLessThanOrEqual(390);
   await panel.getByRole("button", { name: "＋ New folder" }).click();
