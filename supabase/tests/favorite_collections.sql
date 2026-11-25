@@ -23,7 +23,9 @@ begin
   join pg_catalog.pg_namespace n on n.oid=p.pronamespace
   where n.nspname='public'
     and p.proname='reorder_my_favorite_collection'
-    and pg_catalog.pg_get_function_identity_arguments(p.oid)='p_collection_id uuid, p_new_position integer';
+    and p.pronargs=2
+    and p.proargtypes[0]='uuid'::pg_catalog.regtype
+    and p.proargtypes[1]='integer'::pg_catalog.regtype;
   if v_reorder_invoker is distinct from true then
     raise exception 'Collection reorder RPC must execute with invoker privileges and rely on owner-scoped RLS';
   end if;
