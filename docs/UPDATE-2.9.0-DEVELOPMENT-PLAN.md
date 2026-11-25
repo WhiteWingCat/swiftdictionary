@@ -361,3 +361,8 @@ The static collections SQL regression script was executed against isolated stagi
 ### Phase 4 mocked browser QA follow-up — 2026-11-25
 
 GitHub Actions run 45547406099 passed on commit e4a605bc4ee880882b2b7ed998450e7f014eb27d. All 12 browser tests passed, including Favorite Collections mocked CRUD and mixed-language membership; all English dictionary validators and the whole-catalogue audit passed. Earlier test failures were fixed by replacing hidden section containers with divs and targeting the intended membership row rather than assuming sort order. This is mocked Supabase coverage, not live authenticated API verification. The module request through the account-deletion.js loader is visible in the browser logs. Real dashboard placement, live staging CRUD, cross-account RLS behaviour, responsive/accessibility checks and staging preview remain outstanding.
+
+
+### Phase 4 Realtime and loader checkpoint — 2026-11-25
+
+Added and applied the isolated staging Realtime migration 20261125043448_swiftdictionary_update_2_9_0_favorite_collections_realtime.sql, adding only favorite_collections and favorite_collection_items to supabase_realtime. The strengthened SQL regression, including publication membership, passed with rollback. The frontend loader now runs from supabase-config.js at DOMContentLoaded after core app bindings are declared, and loads favorite-collections.js?v=2.9.0-p4 to avoid stale cache. A new real-app-shell loader test has been added; a new CI run is being triggered. The prior run 45547652317 passed all 12 tests before this new loader test and Realtime migration. Live authenticated API tests, two-account authorization, actual dashboard placement and cross-device event delivery remain outstanding.
