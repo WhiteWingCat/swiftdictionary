@@ -89,7 +89,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   await page.evaluate(() => {
     const heading = document.createElement("h2");
     heading.textContent = "Favorite words";
-    const section = document.createElement("section");
+    const section = document.createElement("div");
     section.append(heading);
     document.body.append(section);
   });
