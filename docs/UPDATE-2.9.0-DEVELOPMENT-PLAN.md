@@ -276,3 +276,9 @@ The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core
 - Expanded Premium UI regression for future-only copy, no purchase action, Escape/focus restoration and mobile fit.
 - Latest full CI run **45542196426**, commit `70f3e27486a8609aa11c22c29fae6529cb94fe09`, passed both validators and all ten browser tests.
 - Core implementation is integrated; broader semantic/editorial review remains open. Phase 3 remains in progress and Phase 4 is blocked.
+
+
+### Expansion-data translation and category regression — 2026-11-25
+
+- Added browser checks for an expansion entry's explicit multi-sense Chinese translations and live English/Chinese switching, plus category filtering of an expansion-only headword.
+- Latest full CI run **45542376568**, commit `234c0b2edb4b61e8d6dac0ed03c52db8c4a15083`, passed both validators and all ten browser tests.
