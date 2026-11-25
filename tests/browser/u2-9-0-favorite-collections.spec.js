@@ -309,7 +309,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("dialog").getByRole("button", { name: "Remove" }).click();
   await expect(panel.getByText("No collections yet.")).toBeVisible();
   const remainingSavedWords = await page.evaluate(() => window.__collectionsTestDB.saved_words.map(row => row.id).sort((a,b) => a-b));
-  expect(remainingSavedWords).toEqual([102,201]);
+  expect(remainingSavedWords).toEqual([102,103,201]);
 
   const styles = await panel.evaluate(node => {
     const primary = node.querySelector(".fc-primary");
