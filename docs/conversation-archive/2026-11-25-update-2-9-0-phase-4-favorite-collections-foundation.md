@@ -82,3 +82,8 @@ A staging inspection showed supabase_realtime initially had no public tables. Ad
 ## Final CI correction — loader and Realtime tests passed
 
 The real-app-shell loader test was included in GitHub Actions run 45547652317, which passed all 13 Playwright tests. Run 45547784739 also passed all 13 tests after the SQL regression was extended to assert that both collection tables belong to supabase_realtime. Run 45547828600 passed after workflow path filters were corrected. The earlier note that run 45547652317 preceded the loader test was inaccurate; this addendum is authoritative. These browser tests still use a mocked Supabase client for CRUD; live authenticated operations, two-account RLS testing and actual Realtime event receipt between authenticated sessions remain outstanding.
+
+
+## Follow-up — dashboard placement verified
+
+GitHub Actions run 45548152492 passed all 13 tests. Its real application-shell DOM assertion confirmed the existing Favorite words profile card is found and the new Your collections panel is its immediate next sibling, before Learning progress. The versioned module loader also passed its app-shell check. Temporary DOM diagnostics were removed while retaining the placement assertion. This verifies structural placement, not visual review in a signed-in device session. Live authenticated CRUD, two-account RLS/API tests, actual Realtime event receipt and responsive/accessibility review remain outstanding.
