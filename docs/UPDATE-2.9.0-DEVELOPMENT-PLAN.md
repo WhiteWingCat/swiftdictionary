@@ -657,3 +657,45 @@ The folder-cap implementation uses existing account identity and existing collec
 - The separate `Workers Builds: swiftdictionary-testing` check failed. This is a Cloudflare Workers production build for a separate worker service; the Cloudflare Pages deployment and routing guard both passed. It does not block the Pages staging preview, but remains an infrastructure issue to investigate before final release.
 - The Free 16 / Premium 40 folder-cap migration and complete staging SQL transaction regression passed earlier. No production migration, entitlement assignment, merge, payment integration or production deployment occurred.
 - Staging preview is ready for owner review. PR #18 remains open; do not merge until the owner accepts the preview and the independent Workers build issue has been assessed.
+
+
+## 10. Owner feedback addendum — 2026-11-25 (post-staging review)
+
+The following refinements are approved for continued U2.9.0 work. They supplement, and do not replace, the approved scope and release boundaries above.
+
+### Phase 4 — Collections layout, ordering and motion
+
+**Preserve dictionary card geometry**
+- Adding an English saved word to a collection must not change the Favorite/Dictionary card's intended width, height, typography or wrapping behaviour.
+- The collection grid must retain the same minimum track/card dimensions as the Dictionary/Favorite word grid. A long headword such as "bioavailability" must remain fully readable; it must not be clipped, squeezed into a narrower track or pushed under an adjacent card.
+- The folder/panel container must not resize or reflow its surrounding panel merely because a collection gains a word. Test before/after membership changes at desktop and narrow mobile widths, including long English headwords and Chinese square cards.
+
+**User-controlled folder order**
+- Add drag-and-drop reordering to the Your Collections folder list. Users must be able to move any folder to the top, bottom or any position between existing folders.
+- Persist order per authenticated account across reloads, sessions and devices. Newly created folders should be inserted predictably (default to the end) without resetting existing order.
+- Implement ownership-checked server-side persistence and concurrency-safe ordering. Do not trust client-side ordering or allow cross-account folder IDs to be changed.
+- Provide a visible drag handle, clear drop-position feedback, touch-friendly interaction and a keyboard-accessible alternative (move up/down controls or equivalent). Respect reduced-motion preferences.
+- Inspect the current collections schema/RPCs before migration. Add only the minimum ordering field/index/RPC required; preserve folder names, IDs, memberships and the active Free 16/Premium 40 creation limits. Validate RLS/ACL and rollback-safe SQL tests in isolated staging only.
+
+**Consistent expand/collapse animation**
+- Add a restrained, consistent expand/collapse transition to Your Collections folders, Favorite words, and other existing UI features that use the same interaction pattern.
+- Animate content height/opacity (and any relevant disclosure indicator) without causing layout jumps, clipping, scroll-position surprises or delayed interaction. Keep collapsed content inaccessible to keyboard/screen-reader navigation.
+- Respect `prefers-reduced-motion`; reduced-motion users should receive an immediate or near-immediate state change.
+- Identify all shared expand/collapse patterns before implementation and avoid introducing inconsistent one-off animations.
+
+### Phase 6 — broaden optional English learning content
+
+Phase 6 is expanded beyond the initial Quiz-only draft addition. It may proceed only after core Phases 1–5 acceptance criteria remain satisfied; optional content must not delay or weaken core QA.
+
+- **Permanent English Lessons:** add new original lessons only where there is a clear curriculum gap or meaningful progression. Prioritise concepts/vocabulary not already adequately taught in the existing 15-lesson English catalogue. Preserve Beginner/Intermediate/Advanced progression, selected Simplified Chinese translation, no timer/time pressure, existing practice/answer semantics, lesson resume/completion behaviour and per-difficulty progress. Add lesson-aligned objectives before drafting dependent Quiz questions.
+- **English Quiz:** continue the 15-question Phase 6 addition as draft-only. Expand further only where the new or existing lessons justify it. Every question must map to an active permanent lesson, topic, difficulty and curriculum objective; keep four distinct options, one unambiguous answer, bilingual prompt/feedback and original distractors. Draft content stays unapproved unless separately reviewed and explicitly approved by the owner. Never silently alter the already approved 199-question release subset.
+- **English Flashcards:** inspect the actual English card-source and recall-mode pipeline. The 506-word dictionary expansion already flows through the shared `englishWords` dataset; do not count that automatic availability as a new Flashcards content addition. Add meaningful original learning material only if the existing card model supports a pedagogically useful extension (for example, curated multiword expressions, collocations or lesson-linked vocabulary) without duplicating dictionary entries or weakening recall quality. Preserve English/Chinese direction, recall modes, answer validation, progress, session/game rules and allowances. If no substantive gap is found, document why no separate card bank is needed rather than padding content.
+- Report lesson, question and flashcard content counts separately, including draft/approved status and objective coverage. Run all existing English/Chinese Lessons, Quiz, Flashcards, allowance, progress and account regression tests.
+
+### Cross-cutting acceptance and safety
+
+- Do not create or provide a refreshed staging preview until the new Collections sizing, reorder persistence, expand/collapse motion, and Phase 5/Phase 6 work are implemented and internally validated.
+- No production merge, production deployment, production Supabase migration, Premium purchase/activation or entitlement mutation without separate explicit owner approval.
+- Preserve active Free 16/Premium 40 folder creation limits, existing folders on downgrade, unlimited free dictionary search and all existing learning allowance values.
+- Perform the standing Malaysia-specific and general international legal/privacy/licensing planning review for new user-data schema behaviour and new learning content. Reordering adds no intended new personal-data category, but account-linked ordering remains subject to owner-scoped access, minimisation, retention and deletion semantics. New lesson/Quiz/Flashcard content must be original or appropriately licensed.
+- Test desktop, mobile/touch, keyboard accessibility, reduced motion, account switching, cross-device sync, RLS/ACL, concurrency, error handling and rollback behaviour. Report automated checks separately from authenticated live-staging checks.
