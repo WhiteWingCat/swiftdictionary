@@ -335,13 +335,12 @@ test("Your Collections folders can be dragged to the top or bottom of the list",
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
     .toEqual(["Third", "First", "Second"]);
-  const second = panel.locator(".fc-folder-card").filter({ hasText: "Second" });
-  await second.locator(".fc-drag-handle").dragTo(panel.locator(".fc-folder-card").last(), { targetPosition: { x: 12, y: 90 } });
+  await first.locator(".fc-drag-handle").dragTo(panel.locator(".fc-folder-card").last(), { targetPosition: { x: 12, y: 90 } });
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
-    .toEqual(["Third", "First", "Second"]);
+    .toEqual(["Third", "Second", "First"]);
   await expect(panel.locator(".fc-folder-card").first()).toContainText("Third");
-  await expect(panel.locator(".fc-folder-card").last()).toContainText("Second");
+  await expect(panel.locator(".fc-folder-card").last()).toContainText("First");
 });
 
 test("Your Collections remain account-isolated and replace private Realtime channels when accounts switch", async ({ page }) => {
