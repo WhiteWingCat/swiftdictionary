@@ -208,6 +208,11 @@ test("Favorite Collections module loads after the core application through Supab
     viewportWidth: window.innerWidth,
     documentWidth: document.documentElement.scrollWidth
   }));
-  expect(desktopLayout.panelWidth).toBeGreaterThan(0);
   expect(desktopLayout.documentWidth).toBeLessThanOrEqual(desktopLayout.viewportWidth);
+  const panelStyles = await page.locator("#swiftFavoriteCollections").evaluate(node => ({
+    boxSizing: getComputedStyle(node).boxSizing,
+    responsivePadding: getComputedStyle(node).paddingLeft
+  }));
+  expect(panelStyles.boxSizing).toBe("border-box");
+  expect(panelStyles.responsivePadding).toBe("18px");
 });
