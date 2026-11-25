@@ -11,6 +11,8 @@ on:
       - "english-category-filters.js"
       - "premium-plan.css"
       - "premium-plan.js"
+      - "premium-plan.html"
+      - "premium-plan.html"
       - "scripts/dictionary/validate-english-phase3.mjs"
       - "scripts/dictionary/audit-english-catalogue.mjs"
       - "tests/browser/u2-9-0-english-categories.spec.js"
