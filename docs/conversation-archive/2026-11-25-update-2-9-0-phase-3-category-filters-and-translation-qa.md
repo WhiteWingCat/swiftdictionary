@@ -111,3 +111,10 @@ Initial successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4c
 - Premium UI tests cover proposed 16/40 folder capacities, unlimited free dictionary search, future-only disclosure, no checkout/payment/subscription action, Escape/focus restoration and narrow-mobile fit.
 - Latest full CI run **45542196426**, commit `70f3e27486a8609aa11c22c29fae6529cb94fe09`, passed both validators and all ten browser tests.
 - Phase 3 remains in progress pending broader semantic/editorial review; Phase 4 remains blocked. No staging preview.
+
+## Expansion-content regression follow-up
+
+- Added a browser check for the Phase 2 expansion entry `adjust`: both explicit Chinese senses render and update immediately when switching language.
+- Added a browser check that expansion-only `accretion` is returned by the Science & Technology topic filter.
+- Latest full CI run **45542376568**, commit `234c0b2edb4b61e8d6dac0ed03c52db8c4a15083`, passed both validators and all ten browser tests.
+- Phase 3 remains in progress; Phase 4 and staging remain blocked.
