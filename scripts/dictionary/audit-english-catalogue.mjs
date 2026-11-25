@@ -42,6 +42,7 @@ const catStart=catSource.indexOf(catMarker),catEnd=catSource.lastIndexOf(";");
 if(catStart<0||catEnd<=catStart)throw new Error("Malformed baseline categories");
 const baselineCategories=JSON.parse(catSource.slice(catStart+catMarker.length,catEnd).trim());
 const allowed=["Actions","Everyday Terms","Activities","Places","People & Relationships","Science & Technology","History & Culture","Nature & Environment","Education","Emotions & Descriptions"];
+const allowedParts=new Set(["noun","verb","adjective","adverb","preposition","conjunction","interjection","pronoun","determiner","auxiliary verb","modal verb","proper noun","noun phrase","verb phrase","phrase","numeral","number"]);
 const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
 const hasCjk=s=>/[㐀-鿿]/.test(String(s||""));
 const records=[
@@ -61,6 +62,7 @@ for(const e of records){
  if(seen.has(key))report.checks.duplicateHeadwords.push({word:w,also:seen.get(key)});
  else seen.set(key,e._source);
  const parts=String(e.part||"").split(/[;,/]/).map(x=>x.trim().toLowerCase()).filter(Boolean);
+ for(const part of parts)if(!allowedParts.has(part))report.checks.invalidPartsOfSpeech.push({word:w,part});
  if(!w||!e.part||!e.definition||!e.definitionZh||!e.phonetic)report.checks.missingFields.push({word:w,source:e._source});
  if(!/\/[^/]+\//.test(e.phonetic||""))report.checks.missingFields.push({word:w,field:"slash-delimited IPA"});
  if(!Array.isArray(e.examples)||e.examples.length<2||e.examples.some(x=>!String(x||"").trim()))report.checks.insufficientExamples.push(w);
