@@ -104,4 +104,35 @@ comment on column public.favorite_collections.sort_order is
 comment on function public.reorder_my_favorite_collection(uuid, integer) is
   'Moves one authenticated owner collection to a zero-based position with per-account transaction serialization.';
 
+
+-- Newly created folders append after the account's current final position.
+-- The existing create RPC holds the same account advisory lock, preventing
+-- simultaneous creates from receiving the same position.
+create or replace function private.assign_favorite_collection_order()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $function$
+begin
+  if new.user_id is null or new.user_id <> auth.uid() then
+    raise exception 'Collection owner mismatch' using errcode = '42501';
+  end if;
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended(new.user_id::text, 0)
+  );
+  select coalesce(max(c.sort_order) + 1, 0)
+    into new.sort_order
+  from public.favorite_collections c
+  where c.user_id = new.user_id;
+  return new;
+end;
+$function$;
+
+revoke all on function private.assign_favorite_collection_order() from public, anon, authenticated;
+drop trigger if exists favorite_collections_assign_order on public.favorite_collections;
+create trigger favorite_collections_assign_order
+before insert on public.favorite_collections
+for each row execute function private.assign_favorite_collection_order();
+
 commit;
