@@ -42,10 +42,15 @@ begin
     pg_catalog.hashtextextended(v_user_id::text, 0)
   );
 
-  select c.sort_order into v_old_position
-  from public.favorite_collections c
-  where c.id = p_collection_id and c.user_id = v_user_id
-  for update;
+  select ordered.current_position into v_old_position
+  from (
+    select c.id,
+           row_number() over (order by c.sort_order, c.created_at, c.id) - 1 as current_position
+    from public.favorite_collections c
+    where c.user_id = v_user_id
+    for update
+  ) ordered
+  where ordered.id = p_collection_id;
 
   if not found then
     raise exception 'Collection not found' using errcode = '42501';
@@ -65,19 +70,24 @@ begin
 
   -- sort_order is deliberately not unique-constrained, so a single set-based
   -- update can compact the list without transient collisions or extra broadcasts.
-  with position_keys as (
+  with current_order as (
     select c.id,
-      case
-        when c.id = p_collection_id then p_new_position
-        when p_new_position < v_old_position
-          then c.sort_order
-             + case when c.sort_order >= p_new_position then 1 else 0 end
-        else c.sort_order
-             - case when c.sort_order > v_old_position
-                       and c.sort_order <= p_new_position then 1 else 0 end
-      end as position_key
+           row_number() over (order by c.sort_order, c.created_at, c.id) - 1 as current_position
     from public.favorite_collections c
     where c.user_id = v_user_id
+  ),
+  position_keys as (
+    select current_order.id,
+      case
+        when current_order.id = p_collection_id then p_new_position
+        when p_new_position < v_old_position
+          then current_order.current_position
+             + case when current_order.current_position >= p_new_position then 1 else 0 end
+        else current_order.current_position
+             - case when current_order.current_position > v_old_position
+                       and current_order.current_position <= p_new_position then 1 else 0 end
+      end as position_key
+    from current_order
   ),
   ranked as (
     select id, row_number() over (order by position_key, id) - 1 as new_position
