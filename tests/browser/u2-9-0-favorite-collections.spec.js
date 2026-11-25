@@ -151,4 +151,22 @@ test("Favorite Collections module loads after the core application through Supab
     })).filter(node => node.text || node.aria || node.id).slice(0, 35)
   }));
   console.log("U2.9.0_APP_DOM_SNAPSHOT=" + JSON.stringify(snapshot));
+  const placement = await page.evaluate(() => {
+    const favoriteHeading = [...document.querySelectorAll("h1,h2,h3,h4,h5")]
+      .find(node => node.textContent.trim().toLowerCase() === "favorite words");
+    const favoriteCard = favoriteHeading?.closest(".profile-card,section");
+    const collectionsPanel = document.getElementById("swiftFavoriteCollections");
+    return {
+      foundFavoriteCard: !!favoriteCard,
+      foundCollectionsPanel: !!collectionsPanel,
+      directlyBelowFavoriteWords: !!favoriteCard && collectionsPanel?.previousElementSibling === favoriteCard,
+      title: collectionsPanel?.querySelector("#swiftFavoriteCollectionsTitle")?.textContent.trim() || ""
+    };
+  });
+  expect(placement).toEqual({
+    foundFavoriteCard: true,
+    foundCollectionsPanel: true,
+    directlyBelowFavoriteWords: true,
+    title: "Your collections"
+  });
 });
