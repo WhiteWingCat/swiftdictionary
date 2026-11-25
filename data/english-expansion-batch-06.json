@@ -54,11 +54,11 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A feeling of uncertainty about something; or to question whether something is true.",
-          "definitionZh": "怀疑；疑问；不确定",
+          "definition": "A feeling of uncertainty about whether something is true or what will happen.",
+          "definitionZh": "怀疑；疑虑；不确定",
           "examples": [
             "I have no doubt that she will succeed.",
-            "He began to doubt his decision."
+            "She had serious doubts about the plan."
           ]
         },
         {
@@ -179,11 +179,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To get away from a place, person, or situation; or the act of getting away.",
+          "definition": "To get away from a place, person, or difficult situation.",
           "definitionZh": "逃脱；逃离；摆脱",
           "examples": [
-            "The cat escaped through the open window.",
-            "They planned their escape at night."
+            "The cat escaped through the open window."
           ]
         },
         {
@@ -246,11 +245,11 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The act of giving something and receiving something else; or to give one thing for another.",
+          "definition": "An act of giving something and receiving something else in return.",
           "definitionZh": "交换；交流；兑换",
           "examples": [
-            "We exchanged phone numbers.",
-            "The shop will exchange the shirt."
+            "The exchange of ideas helped the team.",
+            "The two countries agreed to a cultural exchange."
           ]
         },
         {
@@ -342,7 +341,7 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To be unsuccessful in doing something; or an unsuccessful result.",
+          "definition": "To be unsuccessful in doing something or reaching a desired result.",
           "definitionZh": "失败；未能；不及格",
           "examples": [
             "The engine failed to start.",
@@ -418,11 +417,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To give an answer without being certain; or an answer based on limited information.",
+          "definition": "To give an answer or estimate without being certain that it is correct.",
           "definitionZh": "猜测；推测；猜想",
           "examples": [
-            "Can you guess what is inside the box?",
-            "My guess was close to the correct answer."
+            "Can you guess what is inside the box?"
           ]
         },
         {
@@ -514,11 +512,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The power to affect a person or situation; or to have such an effect.",
+          "definition": "The power or effect that a person or thing has on another.",
           "definitionZh": "影响；作用；影响力",
           "examples": [
-            "Friends can have a strong influence on us.",
-            "Weather may influence our travel plans."
+            "Friends can have a strong influence on us."
           ]
         },
         {
@@ -668,8 +665,8 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To form an opinion about someone or something; or a person who makes decisions in a court or competition.",
-          "definitionZh": "判断；评判；法官；裁判",
+          "definition": "To form an opinion about someone or something after considering the available information.",
+          "definitionZh": "判断；评判；评价",
           "examples": [
             "Do not judge people by their appearance.",
             "Try not to judge a book by its cover."
@@ -706,11 +703,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To hit or move something with your foot; or the action of doing so.",
-          "definitionZh": "踢；踹；一脚",
+          "definition": "To hit or move something with the foot.",
+          "definitionZh": "踢；踹",
           "examples": [
-            "He kicked the ball into the goal.",
-            "The child gave the door a gentle kick."
+            "He kicked the ball into the goal."
           ]
         },
         {
@@ -744,11 +740,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To hit a door or surface to make a sound; or the sound made by hitting it.",
-          "definitionZh": "敲；击；敲门声",
+          "definition": "To hit a door or surface, usually to attract attention or make a sound.",
+          "definitionZh": "敲；击；敲门",
           "examples": [
-            "Please knock before entering.",
-            "I heard a knock at the door."
+            "Please knock before entering."
           ]
         },
         {
@@ -811,11 +806,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To raise something to a higher position; or an act or device that raises people or things.",
-          "definitionZh": "举起；抬起；电梯；提升",
+          "definition": "To raise something to a higher position.",
+          "definitionZh": "举起；抬起；提起",
           "examples": [
-            "Please lift the box carefully.",
-            "We took the lift to the fifth floor."
+            "Please lift the box carefully."
           ]
         },
         {
@@ -849,11 +843,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To find the size, amount, or level of something; or a unit or action used for comparison.",
-          "definitionZh": "测量；衡量；措施；单位",
+          "definition": "To find the size, amount, or level of something using a suitable unit or method.",
+          "definitionZh": "测量；衡量",
           "examples": [
-            "Measure the table before buying a cover.",
-            "The government introduced safety measures."
+            "Measure the table before buying a cover."
           ]
         },
         {
@@ -887,11 +880,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To say that you are willing to give or do something; or a proposal to do so.",
-          "definitionZh": "提供；主动给予；提议；报价",
+          "definition": "To say that you are willing to give, provide, or do something.",
+          "definitionZh": "提供；主动给予；提议",
           "examples": [
-            "She offered to help us move.",
-            "The shop has a special offer today."
+            "She offered to help us move."
           ]
         },
         {
@@ -925,11 +917,11 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A statement that you will do something; or to say that you will do it.",
-          "definitionZh": "承诺；保证；答应",
+          "definition": "A statement that someone will certainly do or not do something.",
+          "definitionZh": "承诺；保证；诺言",
           "examples": [
             "He made a promise to call.",
-            "I promise I will be careful."
+            "She kept her promise to return the book."
           ]
         },
         {
@@ -1050,11 +1042,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To use force to move something toward yourself; or the act of doing so.",
-          "definitionZh": "拉；拖；吸引力",
+          "definition": "To use force to move something toward yourself or in a particular direction.",
+          "definitionZh": "拉；拖；拽",
           "examples": [
-            "Pull the door gently to open it.",
-            "Give the handle a firm pull."
+            "Pull the door gently to open it."
           ]
         },
         {
@@ -1088,11 +1079,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To use force to move something away from yourself; or an effort to make progress.",
-          "definitionZh": "推；推动；努力",
+          "definition": "To use force to move something away from yourself or in a particular direction.",
+          "definitionZh": "推；推动",
           "examples": [
-            "Push the button to start the machine.",
-            "The team made a final push to finish."
+            "Push the button to start the machine."
           ]
         },
         {
@@ -1155,11 +1145,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To answer someone by speaking, writing, or using a message; or the answer itself.",
+          "definition": "To answer someone by speaking, writing, or sending a message.",
           "definitionZh": "回答；回复；答复",
           "examples": [
-            "Please reply to my email by Friday.",
-            "I am still waiting for her reply."
+            "Please reply to my email by Friday."
           ]
         },
         {
@@ -1193,7 +1182,7 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A spoken or written account of information; or to give information about an event or situation.",
+          "definition": "A spoken or written account that gives information about an event, situation, or investigation.",
           "definitionZh": "报告；报道；汇报",
           "examples": [
             "She wrote a report about the trip.",
@@ -1231,7 +1220,7 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To save someone or something from danger; or the act of saving them.",
+          "definition": "To save someone or something from danger or a difficult situation.",
           "definitionZh": "营救；救援；救助",
           "examples": [
             "Firefighters rescued the family.",
@@ -1307,11 +1296,11 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A careful look at something to assess it; or to examine it again.",
+          "definition": "A careful examination or assessment of something; also a written or spoken opinion about a book, film, or product.",
           "definitionZh": "评论；评审；复习；审查",
           "examples": [
             "I read a review before buying the phone.",
-            "Let's review the main points."
+            "The review praised the film's visual effects."
           ]
         },
         {
@@ -1374,11 +1363,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "An attempt to find someone or something; or to look carefully for it.",
+          "definition": "An attempt to find someone or something by looking carefully.",
           "definitionZh": "搜索；搜寻；寻找",
           "examples": [
-            "The police began a search of the area.",
-            "Search the website for more information."
+            "The police began a search of the area."
           ]
         },
         {
@@ -1537,11 +1525,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To send something through the air using your hand; or the act of doing so.",
+          "definition": "To send something through the air using your hand.",
           "definitionZh": "投；扔；抛；投掷",
           "examples": [
-            "Throw the ball to me.",
-            "He made a long throw across the field."
+            "Throw the ball to me."
           ]
         },
         {
@@ -1575,11 +1562,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A person who freely offers to do something without being paid; or to offer to do it.",
-          "definitionZh": "志愿者；自愿做；主动提出",
+          "definition": "A person who freely offers to do something, usually without being paid.",
+          "definitionZh": "志愿者",
           "examples": [
-            "A volunteer helped at the event.",
-            "She volunteered to lead the group."
+            "A volunteer helped at the event."
           ]
         },
         {
@@ -1613,11 +1599,11 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A choice made in an election or decision; or to express that choice formally.",
-          "definitionZh": "投票；选举；选票",
+          "definition": "A choice expressed in an election or formal decision-making process; the act or result of voting.",
+          "definitionZh": "投票；选票；表决",
           "examples": [
-            "Every member has the right to vote.",
-            "The final vote takes place tomorrow."
+            "The final vote takes place tomorrow.",
+            "The proposal received a majority of votes."
           ]
         },
         {
@@ -1718,11 +1704,10 @@
       "senses": [
         {
           "part": "verb",
-          "definition": "To feel anxious about something; or a feeling of anxiety.",
+          "definition": "To feel anxious or troubled about something that may happen or has happened.",
           "definitionZh": "担心；忧虑；烦恼",
           "examples": [
-            "Try not to worry about the result.",
-            "Money is a constant worry for him."
+            "Try not to worry about the result."
           ]
         },
         {
@@ -1785,11 +1770,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The amount of money needed to buy or do something; or to require that amount.",
+          "definition": "The amount of money, time, or effort needed to buy, do, or achieve something.",
           "definitionZh": "费用；成本；花费",
           "examples": [
-            "The cost of travel has increased.",
-            "How much does the repair cost?"
+            "The cost of travel has increased."
           ]
         },
         {
@@ -1997,11 +1981,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The final part or point of something; or to bring something to a finish.",
+          "definition": "The final part, point, or stage of something.",
           "definitionZh": "结束；末端；终点",
           "examples": [
-            "We walked to the end of the road.",
-            "The meeting will end at noon."
+            "We walked to the end of the road."
           ]
         },
         {
@@ -2151,11 +2134,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "An important or noticeable part of something; or to include someone or something as a main part.",
-          "definitionZh": "特征；特点；特色；以……为特色",
+          "definition": "An important or noticeable part, quality, or characteristic of something.",
+          "definitionZh": "特征；特点；特色",
           "examples": [
-            "The phone has a useful safety feature.",
-            "The programme features local artists."
+            "The phone has a useful safety feature."
           ]
         },
         {
@@ -2399,11 +2381,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A level or mark showing quality or achievement; or to assess and assign such a level.",
-          "definitionZh": "等级；成绩；年级；评分",
+          "definition": "A level or mark showing quality, standard, or achievement; also a school year or level.",
+          "definitionZh": "等级；成绩；年级",
           "examples": [
-            "He received a high grade in science.",
-            "The teacher will grade the essays."
+            "He received a high grade in science."
           ]
         },
         {
@@ -2437,7 +2418,7 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The surface of the earth; a reason or basis for something; or to place something on the ground.",
+          "definition": "The surface of the earth; a reason or basis for something.",
           "definitionZh": "地面；土地；理由；基础",
           "examples": [
             "The ground was wet after the rain.",
@@ -2475,11 +2456,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A number of people or things considered together; or to put them together.",
-          "definitionZh": "群体；组；团体；分组",
+          "definition": "A number of people or things considered together because they share something.",
+          "definitionZh": "群体；组；团体",
           "examples": [
-            "Our group finished the project early.",
-            "Group the words by meaning."
+            "Our group finished the project early."
           ]
         },
         {
@@ -2705,8 +2685,8 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A position or amount on a scale; a floor or stage; or to make something flat or equal.",
-          "definitionZh": "水平；等级；层次；使平整",
+          "definition": "A position or amount on a scale; a floor or stage in a building or process.",
+          "definitionZh": "水平；等级；层次",
           "examples": [
             "The water level is rising.",
             "This course is suitable for your level."
@@ -2781,7 +2761,7 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A long, narrow mark or shape; a row of people or things; or to form a row along something.",
+          "definition": "A long, narrow mark or shape; a row of people or things.",
           "definitionZh": "线；线条；队伍；台词",
           "examples": [
             "Draw a straight line across the page.",
@@ -2819,11 +2799,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A set of names, items, or details written one after another; or to write them down.",
-          "definitionZh": "清单；目录；列出",
+          "definition": "A set of names, items, or details written one after another.",
+          "definitionZh": "清单；目录；列表",
           "examples": [
-            "I made a shopping list.",
-            "Please list your main reasons."
+            "I made a shopping list."
           ]
         },
         {
@@ -3020,8 +2999,8 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A subject or situation to consider; physical substance; or to be important.",
-          "definitionZh": "事情；问题；物质；要紧",
+          "definition": "A subject or situation that needs to be considered; physical substance.",
+          "definitionZh": "事情；问题；物质",
           "examples": [
             "We need to discuss an important matter.",
             "The matter was discussed at yesterday's meeting."
@@ -3154,11 +3133,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The part of a person that thinks, feels, and remembers; or to object to something.",
-          "definitionZh": "头脑；思想；介意",
+          "definition": "The part of a person that thinks, feels, remembers, and makes decisions.",
+          "definitionZh": "头脑；思想；心智",
           "examples": [
-            "Keep an open mind when you listen.",
-            "Would you mind closing the window?"
+            "Keep an open mind when you listen."
           ]
         },
         {
@@ -3250,8 +3228,8 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A word used to identify a person, place, or thing; or to give something a name.",
-          "definitionZh": "名字；名称；命名",
+          "definition": "A word or set of words used to identify a person, place, or thing.",
+          "definitionZh": "名字；名称",
           "examples": [
             "Please write your name here.",
             "Her name appears at the top of the list."
@@ -3346,11 +3324,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A short written record or message; or to notice and record something.",
-          "definitionZh": "笔记；便条；音符；注意到",
+          "definition": "A short written record or message; a musical sound or tone.",
+          "definitionZh": "笔记；便条；音符",
           "examples": [
-            "I left a note on the desk.",
-            "Please note the change in time."
+            "I left a note on the desk."
           ]
         },
         {
@@ -3384,11 +3361,10 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A mathematical symbol or amount; or to give things a position in a series.",
-          "definitionZh": "数字；号码；数量；编号",
+          "definition": "A mathematical symbol or amount; a quantity or identifying number.",
+          "definitionZh": "数字；号码；数量",
           "examples": [
-            "What is your phone number?",
-            "Number the pages from one to ten."
+            "What is your phone number?"
           ]
         },
         {
