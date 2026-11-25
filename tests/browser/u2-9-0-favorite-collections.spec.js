@@ -101,6 +101,14 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   await page.getByRole("button", { name: "Create folder" }).click();
   await expect(panel.getByText("Travel")).toBeVisible();
 
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(page.getByRole("alert")).toHaveText("Enter a collection name.");
+  await page.locator("#fcCollectionName").fill("travel");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(page.getByRole("alert")).toHaveText("You already have a collection with that name.");
+  await page.getByRole("button", { name: "Cancel" }).click();
+
   await panel.getByRole("button", { name: /Travel/ }).click();
   await page.getByRole("button", { name: "Add saved words" }).click();
   await expect(page.getByText("hello")).toBeVisible();
@@ -127,6 +135,24 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   expect(remaining).toEqual([101, 102, 201]);
   const membershipCount = await page.evaluate(() => window.__collectionsTestDB.favorite_collection_items.length);
   expect(membershipCount).toBe(0);
+
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Private A");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(panel.getByText("Private A")).toBeVisible();
+
+  await page.evaluate(() => {
+    window.currentUser = { id: "test-user-b" };
+    window.dispatchEvent(new Event("swift-auth-updated"));
+  });
+  await expect(panel.getByText("No collections yet.")).toBeVisible();
+  await expect(panel.getByText("Private A")).toHaveCount(0);
+
+  await page.evaluate(() => {
+    window.currentUser = { id: "test-user-a" };
+    window.dispatchEvent(new Event("swift-auth-updated"));
+  });
+  await expect(panel.getByText("Private A")).toBeVisible();
 });
 
 
