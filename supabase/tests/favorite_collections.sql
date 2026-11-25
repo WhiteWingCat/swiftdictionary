@@ -199,6 +199,9 @@ begin
   if has_function_privilege('anon','public.reorder_my_favorite_collection(uuid,integer)','execute') then
     raise exception 'Anonymous users must not execute the collection reorder RPC';
   end if;
+  if (select prosecdef from pg_proc where oid='public.reorder_my_favorite_collection(uuid,integer)'::regprocedure) is true then
+    raise exception 'Collection reorder RPC must use SECURITY INVOKER and rely on owner-scoped RLS';
+  end if;
 end $p4schema$;
 
 -- Exercise actual PostgreSQL RLS as the authenticated role using two existing
