@@ -91,16 +91,24 @@ for(const e of records){
  if(String(e.definition||"").trim().length<24)report.checks.shortOrVagueDefinitions.push({word:w,source:e._source,definition:e.definition});
  for(const s of senses)if(String(s.definition||"").trim().length<24)report.checks.shortOrVagueDefinitions.push({word:w,source:e._source,sense:s.part,definition:s.definition});
 }
+const reviewedConciseKeys=new Set([
+ "chuckle|noun","currently|headword","honestly|headword","immediately|headword",
+ "buy|verb","stay|verb","open|adjective","need|verb","want|verb","live|verb",
+ "wash|verb","drive|verb","father|noun","mother|noun","breeze|noun"
+]);
+report.checks.reviewedConciseDefinitions=report.checks.shortOrVagueDefinitions.filter(x=>reviewedConciseKeys.has(x.word+"|"+(x.sense||"headword")));
+report.checks.unreviewedShortDefinitions=report.checks.shortOrVagueDefinitions.filter(x=>!reviewedConciseKeys.has(x.word+"|"+(x.sense||"headword")));
 const counts=Object.fromEntries(Object.entries(report.checks).filter(([,v])=>Array.isArray(v)).map(([k,v])=>[k,v.length]));
 report.summary={
  ...counts,
  entriesWithHeadwordZh:report.checks.headwordTranslationCoverage.baseline+report.checks.headwordTranslationCoverage.expansion,
  entriesWithSenseZh:report.checks.senseTranslationCoverage.baseline+report.checks.senseTranslationCoverage.expansion,
- shortDefinitionReviewCandidates:report.checks.shortOrVagueDefinitions.length,
+ shortDefinitionReviewCandidates:report.checks.unreviewedShortDefinitions.length,
+ reviewedConciseDefinitionsAccepted:report.checks.reviewedConciseDefinitions.length,
  totalCategoryAssignments:Object.values(report.checks.categoryCounts).reduce((a,b)=>a+b,0),
 };
 report.releaseAssessment="STRUCTURAL_QA_PASS_WITH_EDITORIAL_REVIEW_LIMITATIONS";
 const out=path.join(data,"english-catalogue-editorial-audit.json");
 fs.writeFileSync(out,JSON.stringify(report,null,2)+"\n");
-console.log(JSON.stringify({scope:report.scope,summary:report.summary,headwordTranslationCoverage:report.checks.headwordTranslationCoverage,senseTranslationCoverage:report.checks.senseTranslationCoverage,categoryCounts:report.checks.categoryCounts,shortDefinitionReviewCandidates:report.checks.shortOrVagueDefinitions,report:out},null,2));
+console.log(JSON.stringify({scope:report.scope,summary:report.summary,headwordTranslationCoverage:report.checks.headwordTranslationCoverage,senseTranslationCoverage:report.checks.senseTranslationCoverage,categoryCounts:report.checks.categoryCounts,shortDefinitionReviewCandidates:report.checks.unreviewedShortDefinitions,reviewedConciseDefinitions:report.checks.reviewedConciseDefinitions.length,report:out},null,2));
 if(counts.duplicateHeadwords||counts.missingFields||counts.invalidPartsOfSpeech||counts.insufficientExamples||counts.duplicateExamples||counts.duplicateSenses||counts.multiPosWithoutSenseCoverage||counts.unapprovedOrMissingCategories||counts.translationIssues)process.exitCode=1;
