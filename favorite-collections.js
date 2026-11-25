@@ -351,7 +351,9 @@
     if (expanded) content.classList.add("is-open");
     content.append(el("p", "fc-muted", "Loading saved words…"));
     const orderControls = el("div", "fc-folder-order");
-    const dragHandle = button("⠿", () => {}, "fc-button fc-drag-handle");
+    const dragHandle = el("span", "fc-button fc-drag-handle", "⠿");
+    dragHandle.setAttribute("role", "button");
+    dragHandle.tabIndex = 0;
     dragHandle.draggable = true;
     dragHandle.setAttribute("aria-label", "Drag " + collection.name + " to reorder");
     dragHandle.title = "Drag to reorder folders";
@@ -372,8 +374,7 @@
       panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
     });
     card.addEventListener("dragover", event => {
-      const movingId = event.dataTransfer?.getData("text/plain");
-      if (!movingId || movingId === collection.id) return;
+      if (!event.dataTransfer?.types?.includes("text/plain")) return;
       event.preventDefault();
       const rect = card.getBoundingClientRect();
       card.classList.toggle("is-drop-before", event.clientY <= rect.top + rect.height / 2);
