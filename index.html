@@ -666,6 +666,7 @@
 
 </style>
 <link rel="stylesheet" href="lessons-ui.css?v=2.8.0-ui11">
+<link rel="stylesheet" href="premium-plan.css?v=2.9.0-p3">
 </head>
 <body>
   <div id="swiftAuthLoading" class="swift-auth-loading" role="status" aria-live="polite" aria-label="Preparing your SwiftDictionary account">
@@ -682,6 +683,7 @@
           <label class="course-selector-wrap course-selector-pill" for="courseSelect"><span class="course-control-icon" aria-hidden="true">📘</span><select id="courseSelect" aria-label="Learning course"><option value="en">English</option><option value="zh">简体中文</option></select></label>
           <label class="course-selector-wrap course-selector-pill" for="translationSelect"><span class="course-control-icon" aria-hidden="true">🌐</span><select id="translationSelect" aria-label="Translation language"><option value="en">English</option><option value="zh">简体中文</option></select></label>
         </div>
+        <button id="premiumPlanOpen" class="secondary-button premium-plan-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="premiumPlanDialog">Premium plan</button>
         <div class="account-menu-wrap"><button id="accountButton" class="account-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu"><span id="accountAvatar" class="account-avatar" aria-hidden="true">🐦</span><span id="accountButtonLabel">Account</span><span aria-hidden="true">⌄</span></button>
           <div id="accountMenu" class="account-menu" hidden>
             <div id="accountMenuEmail" class="menu-email">Not signed in</div>
@@ -950,7 +952,40 @@
     </article>
   </div>
 
-  <div id="accountDialog" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><article class="modal" style="padding:24px;max-width:520px;min-width:min(440px,100%);height:auto;max-height:90dvh;border-radius:18px;margin:auto;transform:none;animation:none"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h2 id="accountTitle">Your SwiftDictionary account</h2><button id="accountClose" class="icon-button" type="button" aria-label="Close account dialog">×</button></div><p>Sign in with Google to keep saved words and learning activity linked to your account across devices.</p><button id="googleSignIn" class="primary-button" type="button">Continue with Google</button> <button id="signOutButton" class="secondary-button" type="button" hidden>Sign out</button><p id="accountStatus" class="account-status" aria-live="polite">Account sync needs setup by the site owner. Local saved words still work on this device.</p><p class="tip">Your account feature uses Supabase authentication. Follow the README setup steps before enabling it publicly.</p></article></div>
+  <div id="premiumPlanDialog" class="modal-backdrop premium-plan-dialog" role="dialog" aria-modal="true" aria-labelledby="premiumPlanTitle">
+    <article class="modal premium-plan-modal">
+      <div class="premium-plan-content">
+        <div class="premium-plan-header">
+          <div><p class="eyebrow">FUTURE PLAN</p><h2 id="premiumPlanTitle">Get Premium Plan</h2></div>
+          <button class="icon-button" type="button" data-premium-plan-close aria-label="Close Premium plan information">×</button>
+        </div>
+        <p class="premium-plan-intro">SwiftDictionary's dictionary search will remain free and unlimited. A Premium plan is being explored for a future release, with benefits intended to extend beyond daily learning allowances.</p>
+        <div class="premium-plan-grid">
+          <section class="premium-plan-card" aria-labelledby="premiumFreeTitle">
+            <h3 id="premiumFreeTitle">Free</h3>
+            <p class="plan-status">Planned standard access</p>
+            <ul>
+              <li>Unlimited dictionary word-grid search</li>
+              <li>Up to <strong>16 collection folders</strong> once Collections launches</li>
+              <li>Standard daily learning allowances</li>
+            </ul>
+          </section>
+          <section class="premium-plan-card" aria-labelledby="premiumPaidTitle">
+            <h3 id="premiumPaidTitle">Premium</h3>
+            <p class="plan-status">Proposed future benefits</p>
+            <ul>
+              <li>Up to <strong>40 collection folders</strong> once Collections launches</li>
+              <li>Higher daily learning allowances</li>
+              <li>More room to organise and review saved vocabulary</li>
+            </ul>
+          </section>
+        </div>
+        <p class="premium-plan-note"><strong>Not available yet.</strong> Folder capacities and Premium benefits are proposals and may change before any launch. Collections and Premium are not activated by this page. There is no checkout, payment or subscription action.</p>
+        <div class="premium-plan-actions"><button class="secondary-button" type="button" data-premium-plan-close>Close</button></div>
+      </div>
+    </article>
+  </div>
+<div id="accountDialog" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><article class="modal" style="padding:24px;max-width:520px;min-width:min(440px,100%);height:auto;max-height:90dvh;border-radius:18px;margin:auto;transform:none;animation:none"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h2 id="accountTitle">Your SwiftDictionary account</h2><button id="accountClose" class="icon-button" type="button" aria-label="Close account dialog">×</button></div><p>Sign in with Google to keep saved words and learning activity linked to your account across devices.</p><button id="googleSignIn" class="primary-button" type="button">Continue with Google</button> <button id="signOutButton" class="secondary-button" type="button" hidden>Sign out</button><p id="accountStatus" class="account-status" aria-live="polite">Account sync needs setup by the site owner. Local saved words still work on this device.</p><p class="tip">Your account feature uses Supabase authentication. Follow the README setup steps before enabling it publicly.</p></article></div>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <div id="learningIntroBackdrop" class="learning-intro-backdrop" hidden>
     <section class="learning-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="learningIntroTitle">
@@ -25285,6 +25320,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
   <script src="flashcards.js?v=2.8.0-r4"></script>
   <script src="account-deletion.js?v=2.6.0-r4"></script>
   <script src="english-category-filters.js?v=2.9.0-p3"></script>
+  <script src="premium-plan.js?v=2.9.0-p3"></script>
 <div id="preferenceRefreshToast" class="preference-refresh-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
