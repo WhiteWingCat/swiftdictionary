@@ -8,6 +8,7 @@ async function installCollectionsFixture(page) {
       saved_words: [
         { id: 101, user_id: "test-user-a", word: "hello", course: "en" },
         { id: 102, user_id: "test-user-a", word: "你", course: "zh" },
+        { id: 103, user_id: "test-user-a", word: "bioavailability", course: "en" },
         { id: 201, user_id: "test-user-b", word: "secret", course: "en" }
       ]
     };
@@ -92,6 +93,18 @@ async function installCollectionsFixture(page) {
     window.__collectionsTestClient = {
       from: table => new Query(table),
       rpc: async (name, args) => {
+        if (name === "reorder_my_favorite_collection") {
+          const row = db.favorite_collections.find(item => item.id === args.p_collection_id && item.user_id === activeUserId());
+          if (!row) return { data: null, error: { message: "row-level security violation" } };
+          const owned = db.favorite_collections.filter(item => item.user_id === activeUserId()).sort((a,b) => a.sort_order - b.sort_order);
+          const target = Number(args.p_new_position);
+          if (!Number.isInteger(target) || target < 0 || target >= owned.length) return { data: null, error: { message: "invalid position" } };
+          const old = owned.findIndex(item => item.id === row.id);
+          owned.splice(old, 1);
+          owned.splice(target, 0, row);
+          owned.forEach((item,index) => { item.sort_order = index; });
+          return { data: true, error: null };
+        }
         if (name !== "create_my_favorite_collection") return { data: null, error: { message: "Unknown RPC" } };
         const limit = window.__collectionsTestPlan === "premium" ? 40 : 16;
         const count = db.favorite_collections.filter(row => row.user_id === activeUserId()).length;
@@ -102,7 +115,8 @@ async function installCollectionsFixture(page) {
         const nameValue = String(args?.p_name || "").trim();
         if (!nameValue || nameValue.length > 48) return { data: null, error: { message: "Invalid collection name" } };
         if (db.favorite_collections.some(row => row.user_id === activeUserId() && row.name.toLowerCase() === nameValue.toLowerCase())) return { data: null, error: { message: "duplicate key unique constraint" } };
-        const row = { id: "collection-" + (db.favorite_collections.length + 1), user_id: activeUserId(), name: nameValue, created_at: new Date().toISOString() };
+        const owned = db.favorite_collections.filter(item => item.user_id === activeUserId());
+        const row = { id: "collection-" + (db.favorite_collections.length + 1), user_id: activeUserId(), name: nameValue, sort_order: owned.length ? Math.max(...owned.map(item => item.sort_order || 0)) + 1 : 0, created_at: new Date().toISOString() };
         db.favorite_collections.push(row);
         return { data: { id: row.id, name: row.name }, error: null };
       },
@@ -175,6 +189,17 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("button", { name: "Create folder" }).click();
   await expect(panel.getByText("Work")).toBeVisible();
 
+  // Folder order can be changed with accessible controls and persists in the account data.
+  const workOrderCard = panel.locator(".fc-folder-card").filter({ has: panel.getByText("Work", { exact: true }) });
+  await workOrderCard.getByRole("button", { name: "Move Work up" }).click();
+  await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
+    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
+    .toEqual(["Work", "Travel"]);
+  await workOrderCard.getByRole("button", { name: "Move Work down" }).click();
+  await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
+    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
+    .toEqual(["Travel", "Work"]);
+
   await card.getByRole("button", { name: "More options for Travel" }).click();
   const menu = card.getByRole("menu");
   await expect(menu).toBeVisible();
@@ -182,9 +207,15 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(page.getByRole("dialog", { name: "Add words to Travel" })).toBeVisible();
   await page.locator('input[type="checkbox"][value="101"]').check();
   await page.locator('input[type="checkbox"][value="102"]').check();
+  await page.locator('input[type="checkbox"][value="103"]').check();
   await page.getByRole("button", { name: "Add selected" }).click();
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
   await expect(card.getByRole("button", { name: "Open saved word 你" })).toBeVisible();
+  const longWord = card.getByRole("button", { name: "Open saved word bioavailability" });
+  await expect(longWord).toBeVisible();
+  const longWordGeometry = await longWord.evaluate(node => ({ width: node.getBoundingClientRect().width, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth }));
+  expect(longWordGeometry.width).toBeGreaterThanOrEqual(132);
+  expect(longWordGeometry.scrollWidth).toBeLessThanOrEqual(longWordGeometry.clientWidth + 1);
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
   const collectionGridTracks = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node =>
     getComputedStyle(node).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
