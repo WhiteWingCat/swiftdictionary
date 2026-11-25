@@ -226,14 +226,12 @@ begin
   end if;
 
   perform set_config('request.jwt.claim.sub', user_a::text, true);
-  insert into public.favorite_collections(user_id,name)
-  values(user_a,'__p4a_' || suffix) returning id into collection_a;
+  collection_a := (public.create_my_favorite_collection('__p4a_' || suffix)->>'id')::uuid;
   insert into public.favorite_collection_items(collection_id,saved_word_id)
   values(collection_a,word_a);
 
   perform set_config('request.jwt.claim.sub', user_b::text, true);
-  insert into public.favorite_collections(user_id,name)
-  values(user_b,'__p4b_' || suffix) returning id into collection_b;
+  collection_b := (public.create_my_favorite_collection('__p4b_' || suffix)->>'id')::uuid;
   select count(*) into visible_count from public.favorite_collections where id=collection_a;
   if visible_count <> 0 then raise exception 'Account B can read Account A collection'; end if;
   select count(*) into visible_count from public.favorite_collection_items where collection_id=collection_a;
