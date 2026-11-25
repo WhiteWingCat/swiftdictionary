@@ -200,7 +200,7 @@ Before merge/release:
 - The baseline-aware Node validator, runtime equality/load-order checks and all three Playwright browser smoke tests passed in GitHub Actions run `45537066279` on commit `399ad92e06cd93bcc9f1cc6eabb7a7222c22d45c`.
 - Internal model-assisted editorial QA is complete. This is not independent professional/native-speaker certification of every pronunciation or translation; that limitation is documented for release review.
 - Phase 3 implementation is in progress; Phase 4 has not started. No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
-- No Supabase schema, data or policy changes, production changes, merge or deployment have been made. Continue with Phase 2 QA and integration, then follow the approved sequence.
+- No Supabase schema, data or policy changes, production changes, merge or deployment have been made. Continue Phase 3 semantic/editorial and responsive regression review, then begin Phase 4 only after Phase 3 acceptance is met.
 
 
 ## 8. Implementation checkpoint — 2026-11-25
