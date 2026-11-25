@@ -134,6 +134,7 @@
       details.append(content);
       details.dataset.swiftAnimatedDisclosure = "true";
       summary.setAttribute("aria-expanded", String(details.open));
+      content.inert = !details.open;
       if (details.open) {
         content.classList.add("is-open");
         content.style.maxHeight = "none";
@@ -147,6 +148,7 @@
         if (opening) {
           details.open = true;
           content.hidden = false;
+          content.inert = false;
           content.style.maxHeight = "0px";
           requestAnimationFrame(() => {
             content.classList.add("is-open");
@@ -158,16 +160,17 @@
         } else if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
           content.classList.remove("is-open");
           content.style.maxHeight = "0px";
+          content.inert = true;
           details.open = false;
         } else {
+          content.inert = true;
           content.style.maxHeight = content.scrollHeight + "px";
           requestAnimationFrame(() => {
             content.classList.remove("is-open");
             content.style.maxHeight = "0px";
           });
           content.addEventListener("transitionend", event => {
-            if (event.target === content && event.propertyName === "max-height" && !summary.matches(":focus-visible")) details.open = false;
-            else if (event.target === content && event.propertyName === "max-height") details.open = false;
+            if (event.target === content && event.propertyName === "max-height") details.open = false;
           }, { once: true });
         }
       });
