@@ -366,3 +366,8 @@ GitHub Actions run 45547406099 passed on commit e4a605bc4ee880882b2b7ed998450e7f
 ### Phase 4 Realtime and loader checkpoint — 2026-11-25
 
 Added and applied the isolated staging Realtime migration 20261125043448_swiftdictionary_update_2_9_0_favorite_collections_realtime.sql, adding only favorite_collections and favorite_collection_items to supabase_realtime. The strengthened SQL regression, including publication membership, passed with rollback. The frontend loader now runs from supabase-config.js at DOMContentLoaded after core app bindings are declared, and loads favorite-collections.js?v=2.9.0-p4 to avoid stale cache. A new real-app-shell loader test has been added; a new CI run is being triggered. The prior run 45547652317 passed all 12 tests before this new loader test and Realtime migration. Live authenticated API tests, two-account authorization, actual dashboard placement and cross-device event delivery remain outstanding.
+
+
+### Realtime and loader CI result — passed
+
+Run 45547652317 passed all 13 browser tests, including the real application-shell test that verifies the Favorite Collections module loads through supabase-config.js after the core app. Run 45547784739 passed all 13 browser tests after the SQL regression gained a Realtime publication assertion, and run 45547828600 passed after workflow path filters were corrected. The strengthened SQL regression was separately executed against staging and passed. CRUD browser interactions use a mocked Supabase client; live authenticated CRUD, two-account authorization and actual Realtime delivery remain unverified.
