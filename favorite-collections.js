@@ -365,7 +365,7 @@
       if (!groups[code].length) continue;
       const languageGroup = el("section", "fc-language-group");
       languageGroup.append(el("h4", "", code === "zh" ? "简体中文" : "English"));
-      const grid = el("div", code === "zh" ? "word-grid favorite-word-grid fc-expanded-grid character-grid" : "word-grid favorite-word-grid fc-expanded-grid");
+      const grid = el("div", code === "zh" ? "word-grid fc-expanded-grid character-grid" : "word-grid fc-expanded-grid");
       for (const row of groups[code]) {
         const line = el("div", "fc-word-card");
         const open = button("", () => window.dispatchEvent(new CustomEvent("swift-collections-open-word", {
