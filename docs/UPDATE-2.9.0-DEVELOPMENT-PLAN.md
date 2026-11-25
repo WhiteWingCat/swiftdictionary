@@ -241,3 +241,12 @@ The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core
 - Malaysia/general legal and privacy check: the phase adds public editorial category metadata and UI only, with no new personal-data collection, tracking, external processor, Supabase change, or payment/subscription feature. Existing PDPA, global 16+ age screening, content-provenance/licensing and privacy obligations remain applicable; this is not legal clearance.
 - No Supabase schema/data/policy write, staging preview, production merge/deployment, payment integration or Premium enforcement occurred. Dictionary search remains free and unlimited; proposed 16-Free/40-Premium folder caps remain future planning only.
 - **Phase 3 remains in progress** pending broader semantic/editorial spot checks of category assignments and Chinese translations, plus responsive and interaction regression. Phase 4 remains blocked until Phase 3 acceptance criteria are satisfied. Staging preview remains withheld until Phase 4 implementation and internal validation are complete.
+
+
+### Phase 3 follow-up — editorial spot checks and mobile regression (2026-11-25)
+
+- An additional semantic scan manually corrected 89 clearly specialist baseline headwords that had been too broadly classified, including science/environment, history/culture and education terms.
+- Latest combined category assignment counts: Actions 442; Everyday Terms 307; Activities 62; Places 85; People & Relationships 71; Science & Technology 147; History & Culture 46; Nature & Environment 73; Education 70; Emotions & Descriptions 233.
+- Added a 390px narrow-viewport Playwright test for filter wrapping, horizontal overflow and an actual Places-filter selection.
+- Latest full CI run **45540937597**, commit `82ba00e4d6913eede952a3d7f0aa998d93054784`, passed both data validators, Playwright/Chromium setup and all seven browser tests.
+- This improves automated and targeted category QA but does not replace a full human/native-speaker review of every category or Chinese translation. Phase 3 remains in progress; Phase 4 remains blocked.
