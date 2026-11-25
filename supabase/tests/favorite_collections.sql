@@ -256,7 +256,7 @@ begin
   delete from public.favorite_collections where id=collection_a2;
   perform public.reorder_my_favorite_collection(collection_a3,0);
   if (select sort_order from public.favorite_collections where id=collection_a3) <> 0
-     or (select sort_order from public.favorite_collections where id=collection_a) <> v_base_count + 2 then
+     or (select sort_order from public.favorite_collections where id=collection_a) <> v_base_count + 1 then
     raise exception 'Reorder failed to normalise folder positions after deletion';
   end if;
   insert into public.favorite_collection_items(collection_id,saved_word_id)
