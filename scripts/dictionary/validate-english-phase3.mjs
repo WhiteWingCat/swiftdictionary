@@ -33,21 +33,27 @@ if(categoryStart<0||categoryEnd<=categoryStart)throw new Error("Malformed baseli
 const categoryMap=JSON.parse(categorySource.slice(categoryStart+marker.length,categoryEnd).trim());
 const batches=fs.readdirSync(data).filter(x=>/^english-expansion-batch-\d+\.json$/.test(x)).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 const expansion=batches.flatMap(file=>JSON.parse(fs.readFileSync(path.join(data,file),"utf8")).entries||[]);
-const summary={baselineEntries:baseline.length,baselineCategorised:0,baselineMissingZh:0,baselineSenseCount:0,baselineSenseMissingZh:0,expansionEntries:expansion.length,expansionMissingZh:0,expansionSenseCount:0,expansionSenseMissingZh:0,categoryCounts:{},errors};
+const summary={baselineEntries:baseline.length,baselineCategorised:0,baselineMissingZh:0,baselineSenseCount:0,baselineSenseMissingZh:0,expansionEntries:expansion.length,expansionMissingZh:0,expansionSenseCount:0,expansionSenseMissingZh:0,headwordTranslationsWithoutCjk:0,senseTranslationsWithoutCjk:0,placeholderTranslations:0,categoryCounts:{},errors};
+const containsCjk=value=>/[\\u3400-\\u9fff]/.test(String(value||""));
+const placeholderTranslation=/translation pending|待翻译|待补充|翻译待|\\bTODO\\b|\\bN\\/A\\b|常见语境[:：]/i;
+function auditTranslation(value,label){
+ if(!containsCjk(value)){summary[label]++;errors.push("Translation has no Simplified Chinese characters: "+label);}
+ if(placeholderTranslation.test(String(value||""))){summary.placeholderTranslations++;errors.push("Placeholder/fallback translation found: "+String(value));}
+}
 for(const item of baseline){
  const key=String(item.word||"").toLowerCase(),cats=categoryMap[key];
  if(!Array.isArray(cats)||!cats.length){errors.push("Baseline word lacks category metadata: "+item.word);continue;}
  summary.baselineCategorised++;
  for(const cat of cats){if(!allowed.includes(cat))errors.push(item.word+" has unapproved category "+cat);summary.categoryCounts[cat]=(summary.categoryCounts[cat]||0)+1;}
- if(typeof item.definitionZh!=="string"||!item.definitionZh.trim()){summary.baselineMissingZh++;errors.push("Baseline word lacks Simplified Chinese definition: "+item.word);}
- for(const sense of item.senses||[]){summary.baselineSenseCount++;if(typeof sense.definitionZh!=="string"||!sense.definitionZh.trim()){summary.baselineSenseMissingZh++;errors.push("Baseline sense lacks Simplified Chinese definition: "+item.word+" / "+sense.part);}}
+ if(typeof item.definitionZh!=="string"||!item.definitionZh.trim()){summary.baselineMissingZh++;errors.push("Baseline word lacks Simplified Chinese definition: "+item.word);}else auditTranslation(item.definitionZh,"headwordTranslationsWithoutCjk");
+ for(const sense of item.senses||[]){summary.baselineSenseCount++;if(typeof sense.definitionZh!=="string"||!sense.definitionZh.trim()){summary.baselineSenseMissingZh++;errors.push("Baseline sense lacks Simplified Chinese definition: "+item.word+" / "+sense.part);}else auditTranslation(sense.definitionZh,"senseTranslationsWithoutCjk");}
 }
 for(const item of expansion){
  const cats=item.categories;
  if(!Array.isArray(cats)||!cats.length)errors.push("Expansion word lacks category metadata: "+item.word);
  for(const cat of cats||[]){if(!allowed.includes(cat))errors.push(item.word+" has unapproved category "+cat);summary.categoryCounts[cat]=(summary.categoryCounts[cat]||0)+1;}
- if(typeof item.definitionZh!=="string"||!item.definitionZh.trim()){summary.expansionMissingZh++;errors.push("Expansion word lacks Simplified Chinese definition: "+item.word);}
- for(const sense of item.senses||[]){summary.expansionSenseCount++;if(typeof sense.definitionZh!=="string"||!sense.definitionZh.trim()){summary.expansionSenseMissingZh++;errors.push("Expansion sense lacks Simplified Chinese definition: "+item.word+" / "+sense.part);}}
+ if(typeof item.definitionZh!=="string"||!item.definitionZh.trim()){summary.expansionMissingZh++;errors.push("Expansion word lacks Simplified Chinese definition: "+item.word);}else auditTranslation(item.definitionZh,"headwordTranslationsWithoutCjk");
+ for(const sense of item.senses||[]){summary.expansionSenseCount++;if(typeof sense.definitionZh!=="string"||!sense.definitionZh.trim()){summary.expansionSenseMissingZh++;errors.push("Expansion sense lacks Simplified Chinese definition: "+item.word+" / "+sense.part);}else auditTranslation(sense.definitionZh,"senseTranslationsWithoutCjk");}
 }
 const requiredScripts=[
  ["data/english-baseline-categories.js", "data/english-baseline-categories.js"],
