@@ -106,7 +106,7 @@ async function installCollectionsFixture(page) {
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("about:blank");
-  await page.setContent("<!doctype html><html><head></head><body><section><h2>Favorite words</h2></section></body></html>");
+  await page.setContent("<!doctype html><html><head></head><body><section class="profile-card" style="background: rgb(255, 255, 255);"><h2>Favorite words</h2></section></body></html>");
   await page.evaluate(() => window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; }));
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
@@ -166,21 +166,29 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(card.getByRole("button", { name: "Open saved word 你" })).toBeVisible();
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
 
-  await card.getByRole("button", { name: "Remove hello from this folder" }).click();
-  await expect(card.getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
+  await expect(card.locator(".fc-word-remove")).toHaveCount(0);
+  await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
   expect(await page.evaluate(() => window.__collectionsTestDB.saved_words.some(row => row.id === 101))).toBe(true);
 
-  await card.getByRole("button", { name: "Open saved word 你" }).click();
+  const folderRowStyle = await card.locator(".fc-folder-head").evaluate(node => getComputedStyle(node).flexDirection);
+  expect(folderRowStyle).toBe("row");
+  const favoriteBackground = await page.locator("section.profile-card").first().evaluate(node => getComputedStyle(node).backgroundColor);
+  const collectionsBackground = await panel.evaluate(node => getComputedStyle(node).backgroundColor);
+  expect(collectionsBackground).toBe(favoriteBackground);
+
+  await card.getByRole("button", { name: "Open saved word hello" }).click();
   await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
   const membershipDialog = page.getByRole("dialog", { name: "Add to collection" });
   await expect(membershipDialog).toBeVisible();
   const folderChoices = membershipDialog.locator('input[type="checkbox"]');
   await expect(folderChoices).toHaveCount(2);
-  await expect(folderChoices.nth(0)).not.toBeChecked();
+  await expect(folderChoices.nth(0)).toBeChecked();
   await expect(folderChoices.nth(1)).not.toBeChecked();
-  await folderChoices.nth(1).check();
+  await folderChoices.nth(0).uncheck();
   await membershipDialog.getByRole("button", { name: "Save" }).click();
   await expect(membershipDialog).toBeHidden();
+  await expect(card.getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
+  expect(await page.evaluate(() => window.__collectionsTestDB.saved_words.some(row => row.id === 101))).toBe(true);
   const workCard = panel.locator(".fc-folder-card").nth(1);
   const workToggle = workCard.locator(".fc-folder-toggle");
   await workToggle.click();
