@@ -111,7 +111,7 @@
       .fc-dialog .fc-word-row small{color:#a1a7b4}
       .fc-dialog .fc-inline-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
       .fc-dialog button:disabled{opacity:.55;cursor:wait}
-      @media(max-width:520px){#swiftFavoriteCollections{padding:14px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
+      @media(max-width:520px){#swiftFavoriteCollections{padding:22px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
 
       @media(prefers-reduced-motion:reduce){#swiftFavoriteCollections *, .fc-dialog *, .fc-disclosure-content{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
     `;
