@@ -60,3 +60,16 @@ The owner also asked that the next planned phase proceed alongside this feedback
 ## Legal/privacy review
 
 Folder caps use existing account identity and existing account-owned collection rows; no new personal-data category, processor, tracking or transaction was added. Existing folders must remain intact on downgrade. Premium is not available to purchase. Any real Premium launch requires a separate Malaysia-specific and international privacy, consumer and payment review. This is planning, not legal advice or compliance clearance.
+
+
+## Follow-up validation and Quiz release boundary — 2026-11-25
+
+- The U2.9.0 QA run on feature commit `7a1aaea` passed English dictionary validation, category/translation audit, whole-catalogue audit, 214-question Quiz draft validation, Mock Quiz/Flashcards regression tests and **16 Playwright browser tests**.
+- The 15 new Phase 6 Quiz questions remain draft-only. To preserve the earlier owner-authorized 199-question release, the first 199 source questions are marked `release_approved: true` and the 15 Phase 6 additions are `false`. Default SQL export includes all 214 as drafts; `--approve-for-release` exports only the previously authorized 199. No Phase 6 addition was approved or made live.
+- Updated `mock-testing.js` for the 214-question source bank while preserving the old 199-question release subset and 56/62/81 release distribution. Updated the draft-import SQL assertion to verify all 15 Phase 6 rows remain draft, map to active lessons/objectives and contain valid four-option answer records.
+- The disposable Quiz database foundation job passed both the 214-question draft import and the separate 199-question approved release-export regression.
+- Cross-version tests on the same feature commit passed: Flashcards unit/mock and Chromium browser tests; Chinese dictionary and lesson browser tests; U2.7 lesson-start allowance; U2.3 allowance/dashboard; U2.6 ACL; PostgreSQL migration/allowance; Chromium regression smoke; and Cloudflare build-routing guard.
+- Cloudflare Pages successfully deployed commit `7a1aaea`: unique URL https://bf0603b6.swiftdictionary.pages.dev and branch preview https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev. The Pages deployment and build-routing guard passed.
+- The separate `Workers Builds: swiftdictionary-testing` check failed again. This is independent from the successful Pages deployment and should be triaged as a Workers build configuration/infrastructure issue.
+- The separate Local Supabase Auth/RPC integration job was still running authenticated Quiz runtime tests, signed-out Flashcards/Preferences, permanent Lessons allowance notification and local security-advisor checks at the time of this archive update.
+- No production migration, production merge, production deployment, Premium payment or entitlement assignment occurred.
