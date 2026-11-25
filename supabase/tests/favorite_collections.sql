@@ -129,8 +129,8 @@ begin
   from pg_publication_tables
   where pubname='supabase_realtime' and schemaname='public'
     and tablename in ('favorite_collections','favorite_collection_items');
-  if v_realtime_table_count <> 2 then
-    raise exception 'Both collection tables must be in supabase_realtime publication; found %',v_realtime_table_count;
+  if v_realtime_table_count <> 0 then
+    raise exception 'Collection tables must stay out of Postgres Changes; private Broadcast is the only sync channel (found % publication entries)',v_realtime_table_count;
   end if;
 
   select c.relrowsecurity into v_realtime_rls
