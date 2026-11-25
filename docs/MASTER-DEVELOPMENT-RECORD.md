@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-25 (U2.8.0 completed, merged and owner-confirmed live; U2.9.0 Phases 1–3 complete; Phase 4 Your Collections interaction refinements deployed to controlled staging review; Phases 5–6 and final release QA remain open.)
+> **Last consolidated:** 2026-11-25 (U2.8.0 completed, merged and owner-confirmed live; U2.9.0 Phases 1–5 implemented, Phase 6 optional English content additions implemented, latest-head CI/regression matrix passed, Cloudflare Pages staging preview ready for owner review.)
 **Current baseline:** Update 2.8.0 (Chinese Course Quiz & Flashcards) is completed and deployed to the live website, as confirmed by the owner on 2026-11-24.  
-**Current work:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — is in development. Phases 1–3 are complete. Phase 4 Favorite Collections has a working account-owned schema/RLS/private Broadcast foundation and is undergoing owner review of revised folder interactions on `feature/u2-9-0-collections-feedback` (PR #18). The current controlled Cloudflare Pages preview is routed to isolated staging Supabase. The revised UI uses inline expandable folders, custom folder actions, and Add to collection from the shared word detail panel. Browser regression, SQL cascade/RLS and CI checks have passed; the owner must review the latest preview. Phases 5–6 and final release QA remain open. Production Supabase, production data, `main`, payment and Premium entitlement enforcement remain untouched.
-**Record status:** Updates 2.4.0 through 2.8.0 are completed according to release history and owner confirmation. Update 2.9.0 is approved; Phases 1–3 are complete and Phase 4 Favorite Collections is in progress. Visual-only Premium preparation remains in scope; subscription/payment activation and entitlement enforcement remain excluded.
+**Current work:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — has completed implementation of Phases 1–5 and the optional Phase 6 content additions. The latest feature head is `6409b7981656d27a6385400862df3557a757828d` on `feature/u2-9-0-collections-feedback` (PR #18 remains open). All latest-head U2.9.0, Flashcards, Quiz DB/Auth, U2.3 allowance/dashboard, U2.6 ACL, U2.7 Chinese and Cloudflare build-routing workflows passed. The controlled Cloudflare Pages preview is routed to isolated staging Supabase: https://adc32f85.swiftdictionary.pages.dev (branch preview https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev). The owner must review the latest preview; no merge or production release is authorised. Production Supabase, production data, `main`, payment and Premium entitlement enforcement remain untouched.
+**Record status:** Updates 2.4.0 through 2.8.0 are completed according to release history and owner confirmation. Update 2.9.0 implementation and latest automated validation are complete; owner staging acceptance and final release approval remain open. The 30 new Phase 6 Quiz questions remain draft-only. Visual-only Premium preparation is implemented; subscription/payment activation and entitlement enforcement remain excluded.
 
 ---
 
@@ -3822,3 +3822,54 @@ Run 45548857974 passed all 13 Playwright tests after aligning the saved-word pic
 - Successful latest branch checks on source checkpoint d27750988a6e2ad097436b0810b237c7f44d449f: U2.9.0 English QA run 45598338317; U2.3 allowance/dashboard run 45598338297; U2.5 Flashcards browser run 45598338382; U2.6 ACL run 45598338168; U2.7 Chinese regression run 45598338333; Cloudflare build-routing guard 45598338207. The local Supabase Auth/RPC job has passed U2.9.0 migrations, collections SQL/RLS tests, lesson-catalogue allowlist tests, Quiz draft import and 199-row release export. Authenticated Chromium Quiz runtime and final local security-advisor steps were still running at this checkpoint.
 - No refreshed staging preview has been handed to the owner. PR #18 remains open. No merge, production deployment, production database write, Premium checkout or entitlement assignment occurred.
 - Legal/privacy: the new sort_order field is account-owned ordering metadata; no new personal-data category, tracking or processor was introduced. New lesson and Flashcards content is original. This is planning, not legal clearance; Malaysia PDPA, international privacy/16+ safeguards and future Premium consumer/payment review remain open.
+
+
+## U2.9.0 final owner-feedback closeout and staging review — 2026-11-25
+
+The latest authoritative execution plan is `docs/UPDATE-2.9.0-DEVELOPMENT-PLAN.md`; the detailed session archive is `docs/conversation-archive/2026-11-25-update-2-9-0-owner-feedback-closeout-and-staging-review.md`.
+
+### Final owner feedback implemented
+
+- **Favorite/Collections sizing:** panel padding and responsive grid rules now match Favorite words at desktop/mobile. Folder border width is accounted for without changing the outer panel width. The long headword `bioavailability` is a regression case; tests compare Favorite and collection track/card geometry and text overflow.
+- **Persistent ordering:** account-owned `favorite_collections.sort_order` and reorder RPC persist folder order. Drag/drop supports any position, including top/bottom; touch-friendly and keyboard move controls are available. Reorder uses per-account advisory/row locks and owner-scoped RLS. The exposed RPC is SECURITY INVOKER.
+- **Expand/collapse:** Your Collections, Favorite words and other Dashboard disclosure details use consistent height/opacity transitions. Collapsed content is inert; reduced-motion users receive immediate changes.
+- **Lessons:** three original bilingual English permanent lessons were added (question forms/negatives, passive voice, reported speech). The active catalogue now contains 20 lessons (8 Beginner, 6 Intermediate, 6 Advanced).
+- **Quiz:** 229 source questions = 199 previously owner-approved + 30 draft-only Phase 6 additions. All 30 drafts remain unapproved and excluded from the approved release subset.
+- **Flashcards:** curated English multiword expressions increased from 15 to 25 with ten original bilingual additions. Ordinary English word cards continue to use the shared dictionary data.
+
+### Staging database and security
+
+- Four U2.9.0 migrations were applied only to isolated staging project `ivatvkfrtifgfheeaelj`: capacity limits `20261125085850`, ordering `20261125105110`, lesson allowlist `20261125105244`, reorder SECURITY INVOKER hardening `20261125105351`.
+- Migration filenames were reconciled to the exact versions recorded in staging migration history to avoid a later CLI push replaying already-applied migrations.
+- Staging SQL tests passed for collection RLS/account isolation, folder ordering, capacity, membership and lesson catalogue. Staging retained the existing two collections/nine memberships after rollback-based tests.
+- Supabase health advisor returned no findings. Security advisor reports no new Collections-specific issue; pre-existing private-schema informational notices and leaked-password-protection configuration remain.
+- No production database migration/write or production data change occurred.
+
+### Latest-head validation
+
+All checks passed on application commit `6409b7981656d27a6385400862df3557a757828d`:
+
+| Workflow | Run |
+|---|---:|
+| U2.9.0 English dictionary/content/Chromium QA | `45601282736` |
+| Flashcards syntax, integration, mock and Chromium tests | `45601282876` |
+| Quiz database foundation and local Supabase Auth/RPC integration | `45601282873` |
+| U2.3 allowance/dashboard regression | `45601282803` |
+| U2.6 ACL drift regression | `45601282613` |
+| U2.7 Chinese dictionary/lesson and allowance regression | `45601282617` |
+| Cloudflare build-routing guard | `45601282708` |
+
+The Quiz DB/Auth workflow passed the U2.9.0 Collections migrations/RLS/order/security tests, explicit grants, Quiz draft import, the separate 199-question approved release export, authenticated Quiz runtime, signed-out Flashcards/Preferences, permanent Lessons allowance notification checks and local Supabase security advisors. The U2.9.0 browser suite passed collection sizing, ordering, animation/reduced-motion, account isolation, shared detail, capacity and lesson-content coverage.
+
+### Staging preview and release boundary
+
+- Cloudflare Pages deployed commit `6409b79` successfully.
+- Deployment-specific preview: https://adc32f85.swiftdictionary.pages.dev
+- Branch preview: https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev
+- Cloudflare build-routing guard passed. A separate Workers Builds check is not the Pages deployment and must not be conflated with a Pages failure.
+- PR #18 remains open against `main`. Owner review is the remaining gate. Do not merge or deploy to production until explicitly approved.
+- No production Supabase migration/write, production deployment, Premium purchase/activation, entitlement mutation or allowance change occurred. Dictionary word-grid search remains free and unlimited; existing allowances and Free 16/Premium 40 folder capacities remain unchanged.
+
+### Legal/privacy planning
+
+The `sort_order` field is minimal account-linked preference metadata and adds no new personal-data category or tracking purpose. Malaysia PDPA Act 709 and its 2024 amendments, JPDP breach-notification/DPO/registration guidance, Section 129 cross-border transfer requirements, Singapore staging/Japan production regions, GDPR territorial scope and jurisdiction-specific child-consent rules were considered. Confirm operator/controller scope, processor terms, transfer safeguards and privacy notices before public release. New learning content is original and should retain provenance. This is planning, not legal advice, legal clearance or licensing certification.
