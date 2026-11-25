@@ -108,7 +108,11 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
         return { name, type: typeof value, isArray: Array.isArray(value), keys: value && typeof value === "object" ? Object.keys(value).slice(0,8) : [] };
       } catch { return { name, type: "unavailable" }; }
     });
+    const data = eval("lessonData");
     return { symbols, windowKeys: Object.keys(window).filter(key => /lesson/i.test(key)).slice(0,40),
+      lessonData: Object.fromEntries(Object.entries(data).map(([level,items]) => [level,{count:items.length,first:items[0],last:items.at(-1)}])),
+      lessonsFunction: String(eval("lessons")).slice(0,1800),
+      renderLessonsFunction: String(window.renderLessons).slice(0,1800),
       disclosures: [...document.querySelectorAll("#profilePage details,#profilePage [aria-expanded]")].map(node => ({tag:node.tagName,id:node.id,cls:String(node.className||"").slice(0,80),text:(node.innerText||node.textContent||"").trim().slice(0,60),expanded:node.getAttribute("aria-expanded")})).slice(0,40) };
   })));
   const favoriteDisclosure = page.locator("#dashboardTabFavourites details").first();
