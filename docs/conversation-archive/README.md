@@ -186,3 +186,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [Update 2.9.0 — development Phase 1 and Phase 2 content expansion](2026-11-24-update-2-9-0-development-phase-1-and-phase-2-content-expansion.md) — records the 810-entry baseline audit, 506 authored English additions, zero duplicate overlap, structural validation, outstanding linguistic QA/runtime integration, legal/privacy checks, feature branch and explicit no-staging-before-Phase-4 boundary.
 - [Update 2.9.0 — planning approval and Premium collection-limit decision](2026-11-24-update-2-9-0-planning-approval-and-premium-collection-limits.md) — records the owner-approved English dictionary expansion, full definition/grammar audit, mixed-language Favorite collections, English filters, Chinese translation QA, visual-only Premium preparation, optional English learning-content expansion, approved development sequence, and proposed Free 16/Premium 40 collection-folder capacities with future enforcement and downgrade safeguards.
+
+
+## 2026-11-25
+
+- [Update 2.9.0 — Phase 2 content audit and validator hardening](2026-11-25-update-2-9-0-phase-2-content-audit-and-validator-hardening.md) — records the seven-batch 506-entry expansion, baseline-wide structural audit, POS/example/definition corrections, baseline-aware Node validator, successful GitHub Actions and Playwright checks, outstanding semantic/translation QA, and the no-staging-before-Phase-4 boundary.
