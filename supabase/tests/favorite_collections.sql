@@ -349,6 +349,7 @@ declare v_user uuid;
 begin
   select user_id into v_user from _phase4_rls_test_accounts where account_no=1;
   if v_user is null then return; end if;
+  delete from public.favorite_collections where user_id=v_user;
   insert into public.user_entitlements(user_id,plan_code,status,valid_from,valid_until,source)
   values(v_user,'premium','active',pg_catalog.now() - interval '1 minute',null,'admin')
   on conflict(user_id) do update set plan_code='premium',status='active',
