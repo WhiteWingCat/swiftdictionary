@@ -112,7 +112,14 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
     return { symbols, windowKeys: Object.keys(window).filter(key => /lesson/i.test(key)).slice(0,40),
       lessonData: Object.fromEntries(Object.entries(data).map(([level,items]) => [level,{count:items.length,lessons:items.map(item=>({id:item.id,topic:item.topic,title:item.title,summary:item.summary}))}])),
       lessonFieldFunction: String(window.lessonField).slice(0,1200),
-      lessonZh: (()=>{try{const value=eval("lessonZh");return {type:typeof value,keys:Object.keys(value).slice(0,12),sample:value["b-sentence"]}}catch{return {type:"unavailable"}}})(),
+      lessonZh: (()=>{try{const value=eval("lessonZh");return {type:typeof value,keys:Object.keys(value).slice(0,20),sample:value["b-sentence"]}}catch{return {type:"unavailable"}}})(),
+      missingLessonContent: {
+        bCountable:data.beginner.find(x=>x.id==="b-countable-nouns"),
+        bGreetings:data.beginner.find(x=>x.id==="b-greetings-polite-expressions"),
+        iConditionals:data.intermediate.find(x=>x.id==="i-conditionals"),
+        aMixedConditionals:data.advanced.find(x=>x.id==="a-mixed-conditionals")
+      },
+      lessonPracticeFunction: String(window.lessonPractice).slice(0,1400),
       lessonTopicKeyFunction: String(window.lessonTopicKey).slice(0,1000),
       lessonTopicIdForFunction: String(window.lessonTopicIdFor).slice(0,1000),
       lessonRenderTextFunction: String(window.lessonRenderText).slice(0,1000),
