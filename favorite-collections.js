@@ -481,6 +481,10 @@
       return;
     }
     const savedWordId = savedRows?.[0]?.id;
+    if (!savedWordId) {
+      list.append(el("p", "fc-muted", "This word is not synced to your account yet. Wait for Favorite words to finish syncing, then try again."));
+      return;
+    }
     const { data: memberships, error: membershipError } = await c.from(ITEMS).select("collection_id").eq("saved_word_id", savedWordId);
     if (membershipError) {
       list.append(el("p", "fc-muted", "Could not load the current folder memberships."));

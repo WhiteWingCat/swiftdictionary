@@ -134,6 +134,8 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   const membershipDialog = page.getByRole("dialog", { name: "Add to collection" });
   await expect(membershipDialog).toBeVisible();
   await expect(membershipDialog.locator('input[type="checkbox"][value="collection-1"]')).toBeChecked();
+  await expect(membershipDialog.locator('input[type="checkbox"][value="collection-2"]')).not.toBeChecked();
+  await membershipDialog.locator('input[type="checkbox"][value="collection-2"]').check();
   await membershipDialog.getByRole("button", { name: "Save" }).click();
   await expect(membershipDialog).toBeHidden();
 
@@ -151,9 +153,15 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
   await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word 你好" })).toBeVisible();
 
+  const dbMembershipsAfterFavoriteRemoval = await page.evaluate(() => window.__collectionsTestDB.favorite_collection_items.filter(item => item.saved_word_id === 101).length);
+  expect(dbMembershipsAfterFavoriteRemoval).toBe(0);
+
   await panel.locator(".fc-folder-card").getByRole("button", { name: "More options for Trips" }).click();
   await panel.getByRole("menuitem", { name: "Remove" }).click();
   await expect(page.getByRole("dialog", { name: "Remove this folder?" })).toBeVisible();
+  await page.getByRole("dialog").getByRole("button", { name: "Remove" }).click();
+  await panel.locator(".fc-folder-card").getByRole("button", { name: "More options for Work" }).click();
+  await panel.getByRole("menuitem", { name: "Remove" }).click();
   await page.getByRole("dialog").getByRole("button", { name: "Remove" }).click();
   await expect(panel.getByText("No collections yet.")).toBeVisible();
 
