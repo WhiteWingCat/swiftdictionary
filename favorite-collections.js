@@ -440,7 +440,7 @@
       panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
     });
     card.addEventListener("dragover", event => {
-      if (!event.dataTransfer?.types?.includes("text/plain")) return;
+      if (!Array.from(event.dataTransfer?.types || []).includes("text/plain")) return;
       event.preventDefault();
       const rect = card.getBoundingClientRect();
       card.classList.toggle("is-drop-before", event.clientY <= rect.top + rect.height / 2);
@@ -461,13 +461,13 @@
     if (expanded) loadCollectionWords(collection, content);
   }
 
-  async function persistCollectionOrder(ids) {
+  async function persistCollectionOrder(ids, movingId) {
     const c = getClient();
     if (!c || !getUser()) return;
-    for (let position = 0; position < ids.length; position++) {
-      const result = await c.rpc("reorder_my_favorite_collection", { p_collection_id: ids[position], p_new_position: position });
-      if (result.error) { console.error("Could not save collection order", result.error); await refresh(); return; }
-    }
+    const position = ids.indexOf(movingId);
+    if (position < 0) return;
+    const result = await c.rpc("reorder_my_favorite_collection", { p_collection_id: movingId, p_new_position: position });
+    if (result.error) console.error("Could not save collection order", result.error);
     await refresh();
   }
 
@@ -476,7 +476,7 @@
     const index = ids.indexOf(collectionId), target = index + direction;
     if (index < 0 || target < 0 || target >= ids.length) return;
     [ids[index], ids[target]] = [ids[target], ids[index]];
-    await persistCollectionOrder(ids);
+    await persistCollectionOrder(ids, collectionId);
   }
 
   async function moveCollectionTo(movingId, targetId, afterTarget) {
@@ -485,7 +485,7 @@
     if (from < 0 || to < 0 || from === to) return;
     ids.splice(from, 1);
     ids.splice(ids.indexOf(targetId) + (afterTarget ? 1 : 0), 0, movingId);
-    await persistCollectionOrder(ids);
+    await persistCollectionOrder(ids, movingId);
   }
 
   async function loadCollectionWords(collection, content) {
