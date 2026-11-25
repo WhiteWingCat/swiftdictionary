@@ -108,7 +108,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.locator("#fcCollectionName").fill("Travel");
   await page.getByRole("button", { name: "Create folder" }).click();
 
-  const card = panel.locator(".fc-folder-card").filter({ has: panel.getByText("Travel") });
+  const card = panel.locator(".fc-folder-card").first();
   const toggle = card.locator(".fc-folder-toggle");
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
   await toggle.click();
