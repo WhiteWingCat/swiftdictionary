@@ -23663,6 +23663,7 @@ function lessonTopicKey(x){
         const summaryMarkup=course==="zh"?lessonRenderText(x.summary):escapeHTML(lessonField(x,"summary"));
         const b=document.createElement("button");
         b.className="lesson-card";
+        b.dataset.lessonId=x.id;
         b.disabled=blocked;
         b.innerHTML='<span class="lesson-card-main"><span class="lesson-chip">'+topicMarkup+'</span><h3>'+titleMarkup+'</h3><p>'+summaryMarkup+'</p></span><span class="lesson-status '+cls+'">'+(blocked?"Daily limit reached":status)+'</span>';
         if(blocked)b.title="Your daily lesson-completion allowance has been used. Completed lessons remain available to review.";
