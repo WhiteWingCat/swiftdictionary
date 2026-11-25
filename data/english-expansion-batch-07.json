@@ -24,11 +24,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A large, dry area of land that receives very little rain; or to leave someone or something when support is needed.",
-          "definitionZh": "沙漠；抛弃；遗弃",
+          "part": "noun",
+          "definition": "A large, dry area of land that receives very little rain",
+          "definitionZh": "沙漠；抛弃",
           "examples": [
-            "Few plants can survive in the desert.",
+            "Few plants can survive in the desert."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to leave someone or something when support is needed.",
+          "definitionZh": "遗弃",
+          "examples": [
             "He felt that his friends had deserted him."
           ]
         }
@@ -82,12 +89,27 @@
       ],
       "senses": [
         {
-          "part": "noun / adjective / adverb",
+          "part": "noun",
           "definition": "The central business or shopping area of a town or city.",
           "definitionZh": "市中心；闹市区",
           "examples": [
-            "The hotel is located downtown.",
-            "We took a bus to the downtown area."
+            "We walked around downtown after lunch."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Located in or relating to the central area of a town or city.",
+          "definitionZh": "市中心的；闹市区的",
+          "examples": [
+            "They rented a downtown apartment."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "In or towards the central area of a town or city.",
+          "definitionZh": "在市中心；往市中心",
+          "examples": [
+            "The hotel is located downtown."
           ]
         }
       ]
@@ -140,11 +162,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "An area of land used for growing crops or keeping animals; or to grow crops or raise animals for a living.",
-          "definitionZh": "农场；务农",
+          "part": "noun",
+          "definition": "An area of land used for growing crops or keeping animals",
+          "definitionZh": "农场",
           "examples": [
-            "My grandparents live on a small farm.",
+            "My grandparents live on a small farm."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to grow crops or raise animals for a living.",
+          "definitionZh": "务农",
+          "examples": [
             "They farm rice in the valley."
           ]
         }
@@ -256,11 +285,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A sheltered area of water where ships and boats can stay safely; or to keep a thought or feeling.",
-          "definitionZh": "港口；海港；心怀",
+          "part": "noun",
+          "definition": "A sheltered area of water where ships and boats can stay safely",
+          "definitionZh": "港口；海港",
           "examples": [
-            "The fishing boats returned to the harbour.",
+            "The fishing boats returned to the harbour."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to keep a thought or feeling.",
+          "definitionZh": "心怀",
+          "examples": [
             "She still harbours doubts about the plan."
           ]
         }
@@ -807,11 +843,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A male parent; or to become the father of a child or create something.",
-          "definitionZh": "父亲；爸爸；创立",
+          "part": "noun",
+          "definition": "A male parent",
+          "definitionZh": "父亲；爸爸",
           "examples": [
-            "Her father taught her how to ride a bicycle.",
+            "Her father taught her how to ride a bicycle."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to become the father of a child or create something.",
+          "definitionZh": "创立",
+          "examples": [
             "The project was fathered by a small research team."
           ]
         }
@@ -923,12 +966,19 @@
       ],
       "senses": [
         {
-          "part": "noun / adjective",
+          "part": "noun",
           "definition": "A very young child, especially a baby during the first year or early stage of life.",
           "definitionZh": "婴儿；幼儿",
           "examples": [
-            "The clinic provides care for infants.",
-            "The infant was sleeping peacefully."
+            "The clinic provides care for infants."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Relating to very young children or an early stage of development.",
+          "definitionZh": "婴儿的；幼儿的；初期的",
+          "examples": [
+            "The infant-care unit is open around the clock."
           ]
         }
       ]
@@ -1039,11 +1089,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "An experienced person who advises and supports someone with less experience; or to provide that guidance.",
-          "definitionZh": "导师；指导者；指导",
+          "part": "noun",
+          "definition": "An experienced person who advises and supports someone with less experience",
+          "definitionZh": "导师；指导者",
           "examples": [
-            "My mentor helped me prepare my portfolio.",
+            "My mentor helped me prepare my portfolio."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to provide that guidance.",
+          "definitionZh": "指导",
+          "examples": [
             "She mentors new employees at the studio."
           ]
         }
@@ -1068,11 +1125,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A female parent; or to care for someone in a protective way.",
-          "definitionZh": "母亲；妈妈；照料",
+          "part": "noun",
+          "definition": "A female parent",
+          "definitionZh": "母亲；妈妈",
           "examples": [
-            "His mother works at a local school.",
+            "His mother works at a local school."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to care for someone in a protective way.",
+          "definitionZh": "照料",
+          "examples": [
             "She mothered the younger children when their parents were away."
           ]
         }
@@ -1155,11 +1219,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A person someone works or does an activity with; or someone in a marriage or romantic relationship.",
-          "definitionZh": "伙伴；搭档；伴侣；合伙人",
+          "part": "noun",
+          "definition": "A person someone works or does an activity with",
+          "definitionZh": "伙伴；搭档；伴侣",
           "examples": [
-            "Please discuss the question with your partner.",
+            "Please discuss the question with your partner."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "someone in a marriage or romantic relationship.",
+          "definitionZh": "合伙人",
+          "examples": [
             "Her business partner manages the accounts."
           ]
         }
@@ -1213,11 +1284,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A person's mother or father; or to raise and care for a child.",
-          "definitionZh": "父母；家长；养育",
+          "part": "noun",
+          "definition": "A person's mother or father",
+          "definitionZh": "父母；家长",
           "examples": [
-            "Every parent wants their child to feel supported.",
+            "Every parent wants their child to feel supported."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to raise and care for a child.",
+          "definitionZh": "养育",
+          "examples": [
             "They parent their children with patience and care."
           ]
         }
@@ -1242,11 +1320,18 @@
       ],
       "senses": [
         {
-          "part": "noun / adjective",
-          "definition": "A person travelling on foot rather than in a vehicle; or relating to walking.",
-          "definitionZh": "行人；步行者",
+          "part": "noun",
+          "definition": "A person travelling on foot rather than in a vehicle",
+          "definitionZh": "行人",
           "examples": [
-            "Pedestrians should use the crossing.",
+            "Pedestrians should use the crossing."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "relating to walking.",
+          "definitionZh": "步行者",
+          "examples": [
             "The street has a pedestrian-only area."
           ]
         }
@@ -1329,11 +1414,18 @@
       ],
       "senses": [
         {
-          "part": "noun / adjective",
-          "definition": "A member of someone's family; or considered in relation to something else rather than absolutely.",
-          "definitionZh": "亲戚；亲属；相对的",
+          "part": "noun",
+          "definition": "A member of someone's family",
+          "definitionZh": "亲戚；亲属",
           "examples": [
-            "We visited several relatives during the holiday.",
+            "We visited several relatives during the holiday."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "considered in relation to something else rather than absolutely.",
+          "definitionZh": "相对的",
+          "examples": [
             "The cost is low relative to the quality."
           ]
         }
@@ -1938,12 +2030,28 @@
       ],
       "senses": [
         {
-          "part": "adjective / noun / verb",
+          "part": "adjective",
           "definition": "Slightly cold; calm and confident; or fashionable and admired.",
           "definitionZh": "凉爽的；冷静的；很酷的",
           "examples": [
             "The evening air feels cool.",
             "She stayed cool during the difficult interview."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A calm, confident manner or a pleasantly low temperature.",
+          "definitionZh": "冷静；凉爽",
+          "examples": [
+            "He kept his cool during the argument."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make something less warm, or to become less warm.",
+          "definitionZh": "使冷却；变凉",
+          "examples": [
+            "Let the soup cool before serving."
           ]
         }
       ]
@@ -2083,11 +2191,18 @@
       ],
       "senses": [
         {
-          "part": "adjective / verb",
-          "definition": "Not clean; covered with dust, marks or other unwanted material; or to make something unclean.",
-          "definitionZh": "脏的；弄脏",
+          "part": "adjective",
+          "definition": "Not clean; covered with dust, marks or other unwanted material",
+          "definitionZh": "脏的",
           "examples": [
-            "Your shoes are dirty from the rain.",
+            "Your shoes are dirty from the rain."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to make something unclean.",
+          "definitionZh": "弄脏",
+          "examples": [
             "Be careful not to dirty the white shirt."
           ]
         }
@@ -2141,11 +2256,18 @@
       ],
       "senses": [
         {
-          "part": "adjective / verb",
-          "definition": "Containing nothing or no one; or to remove everything from a container or place.",
-          "definitionZh": "空的；倒空",
+          "part": "adjective",
+          "definition": "Containing nothing or no one",
+          "definitionZh": "空的",
           "examples": [
-            "The room was empty when we arrived.",
+            "The room was empty when we arrived."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to remove everything from a container or place.",
+          "definitionZh": "倒空",
+          "examples": [
             "Please empty the box before recycling it."
           ]
         }
@@ -2257,12 +2379,27 @@
       ],
       "senses": [
         {
-          "part": "adjective / adverb / noun",
-          "definition": "Moving, happening or operating at high speed; or a period of not eating.",
-          "definitionZh": "快的；迅速地；禁食",
+          "part": "adjective",
+          "definition": "Moving, happening or operating at high speed.",
+          "definitionZh": "快的；迅速的",
           "examples": [
-            "This train is faster than the local service.",
+            "This train is faster than the local service."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "At high speed or in a short amount of time.",
+          "definitionZh": "迅速地；快速地",
+          "examples": [
             "She can type very fast."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A period during which a person chooses not to eat.",
+          "definitionZh": "禁食；斋戒",
+          "examples": [
+            "He completed a one-day fast."
           ]
         }
       ]
@@ -2286,11 +2423,18 @@
       ],
       "senses": [
         {
-          "part": "adjective / noun",
-          "definition": "Liked more than others; or a person or thing someone likes best.",
-          "definitionZh": "最喜欢的；特别喜爱的；最爱",
+          "part": "adjective",
+          "definition": "Liked more than others",
+          "definitionZh": "最喜欢的；特别喜爱的",
           "examples": [
-            "Blue is my favourite colour.",
+            "Blue is my favourite colour."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "a person or thing someone likes best.",
+          "definitionZh": "最爱",
+          "examples": [
             "That café is one of my favourites."
           ]
         }
@@ -2315,11 +2459,26 @@
       ],
       "senses": [
         {
-          "part": "adjective / adverb / noun",
-          "definition": "Good or satisfactory; healthy or well; or a sum of money paid as punishment.",
-          "definitionZh": "好的；不错的；罚款",
+          "part": "adjective",
+          "definition": "Good or satisfactory; healthy or well; or made up of very small or delicate parts.",
+          "definitionZh": "好的；不错的；健康的；精细的",
           "examples": [
-            "Are you feeling fine today?",
+            "Are you feeling fine today?"
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "In a satisfactory or acceptable way.",
+          "definitionZh": "很好地；令人满意地",
+          "examples": [
+            "The old computer still works fine."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sum of money that someone must pay as punishment for breaking a rule or law.",
+          "definitionZh": "罚款",
+          "examples": [
             "The driver had to pay a fine for parking illegally."
           ]
         }
@@ -2344,12 +2503,27 @@
       ],
       "senses": [
         {
-          "part": "adjective / verb / noun",
-          "definition": "Healthy and physically strong; the right size or shape; or to be the correct size or to place something into position.",
-          "definitionZh": "健康的；合适的；安装",
+          "part": "adjective",
+          "definition": "Healthy and physically strong; or suitable for a particular purpose or situation.",
+          "definitionZh": "健康的；强健的；合适的",
           "examples": [
-            "He stays fit by cycling to work.",
+            "He stays fit by cycling to work."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To be the correct size or shape for something, or to put something into a particular position.",
+          "definitionZh": "合身；适合；安装",
+          "examples": [
             "This key does not fit the lock."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sudden attack or episode of an illness, or a suitable match between things.",
+          "definitionZh": "发作；一阵；适合",
+          "examples": [
+            "The child had a coughing fit during the night."
           ]
         }
       ]
@@ -2373,11 +2547,18 @@
       ],
       "senses": [
         {
-          "part": "adjective / noun",
-          "definition": "Level and smooth, without a raised or curved surface; or a set of rooms forming one home.",
-          "definitionZh": "平的；平坦的；公寓",
+          "part": "adjective",
+          "definition": "Level and smooth, without a raised or curved surface",
+          "definitionZh": "平的；平坦的",
           "examples": [
-            "The road is flat for most of the route.",
+            "The road is flat for most of the route."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "a set of rooms forming one home.",
+          "definitionZh": "公寓",
+          "examples": [
             "They rented a small flat near the station."
           ]
         }
@@ -2721,11 +2902,18 @@
       ],
       "senses": [
         {
-          "part": "adjective / adverb",
-          "definition": "Making or producing a lot of sound; or in a way that can be heard clearly.",
-          "definitionZh": "大声的；响亮的",
+          "part": "adjective",
+          "definition": "Making or producing a lot of sound",
+          "definitionZh": "大声的",
           "examples": [
-            "The music was too loud for the small room.",
+            "The music was too loud for the small room."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "in a way that can be heard clearly.",
+          "definitionZh": "响亮的",
+          "examples": [
             "Please do not speak so loud in the library."
           ]
         }
@@ -2808,11 +2996,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "To do something or behave in a particular way; or one thing someone does.",
-          "definitionZh": "行动；行为；表演",
+          "part": "verb",
+          "definition": "To do something or behave in a particular way.",
+          "definitionZh": "行动；表现",
           "examples": [
-            "You must act quickly in an emergency.",
+            "You must act quickly in an emergency."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "One thing that someone does, or a section of a play or performance.",
+          "definitionZh": "行为；举动；表演的一幕",
+          "examples": [
             "The first act of the play begins with a song."
           ]
         }
@@ -2866,11 +3061,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To ride a bicycle; or a series of events that repeats in the same order.",
-          "definitionZh": "骑自行车；循环；周期",
+          "part": "verb",
+          "definition": "To ride a bicycle",
+          "definitionZh": "骑自行车；循环",
           "examples": [
-            "We cycle to the park on weekends.",
+            "We cycle to the park on weekends."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "a series of events that repeats in the same order.",
+          "definitionZh": "周期",
+          "examples": [
             "The seasons form a yearly cycle."
           ]
         }
@@ -2953,11 +3155,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To travel across water in a boat or ship; or a large piece of cloth that catches the wind.",
-          "definitionZh": "航行；扬帆；帆",
+          "part": "verb",
+          "definition": "To travel across water in a boat or ship",
+          "definitionZh": "航行；扬帆",
           "examples": [
-            "They sailed around the island for a week.",
+            "They sailed around the island for a week."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "a large piece of cloth that catches the wind.",
+          "definitionZh": "帆",
+          "examples": [
             "The boat's white sail caught the wind."
           ]
         }
@@ -2982,11 +3191,19 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To ride on waves using a surfboard; or to move from one website or page to another online.",
+          "part": "verb",
+          "definition": "To ride on waves using a surfboard, or to move from one website or page to another online.",
           "definitionZh": "冲浪；浏览网页",
           "examples": [
             "We learned to surf at the beach.",
+            "I surf the web to find design references."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The waves of the sea, especially when they break near the shore.",
+          "definitionZh": "海浪；拍岸浪",
+          "examples": [
             "I surf the web to find design references."
           ]
         }
@@ -3011,11 +3228,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To swim near the surface while breathing through a tube and looking underwater; or the tube used for this activity.",
-          "definitionZh": "浮潜；呼吸管",
+          "part": "verb",
+          "definition": "To swim near the surface while breathing through a tube and looking underwater",
+          "definitionZh": "浮潜",
           "examples": [
-            "We snorkelled near the coral reef.",
+            "We snorkelled near the coral reef."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "the tube used for this activity.",
+          "definitionZh": "呼吸管",
+          "examples": [
             "He bought a new snorkel for the trip."
           ]
         }
@@ -3040,11 +3264,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A meal eaten outdoors, often in a park or countryside; or to eat such a meal.",
+          "part": "noun",
+          "definition": "A meal eaten outdoors, often in a park or countryside",
           "definitionZh": "野餐",
           "examples": [
-            "We had a picnic beside the lake.",
+            "We had a picnic beside the lake."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to eat such a meal.",
+          "definitionZh": "野餐",
+          "examples": [
             "They plan to picnic in the park if the weather is fine."
           ]
         }
@@ -3069,11 +3300,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A meal or gathering where food is cooked outdoors over a fire or grill; or to cook food in this way.",
-          "definitionZh": "烧烤；户外烤肉",
+          "part": "noun",
+          "definition": "A meal or gathering where food is cooked outdoors over a fire or grill",
+          "definitionZh": "烧烤",
           "examples": [
-            "We are having a barbecue in the garden.",
+            "We are having a barbecue in the garden."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to cook food in this way.",
+          "definitionZh": "户外烤肉",
+          "examples": [
             "He barbecued vegetables for dinner."
           ]
         }
@@ -3098,11 +3336,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A round, deep container for food; or to roll a ball in a game such as bowling or cricket.",
-          "definitionZh": "碗；投球；打保龄球",
+          "part": "noun",
+          "definition": "A round, deep container for food",
+          "definitionZh": "碗；投球",
           "examples": [
-            "She served the soup in a large bowl.",
+            "She served the soup in a large bowl."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to roll a ball in a game such as bowling or cricket.",
+          "definitionZh": "打保龄球",
+          "examples": [
             "They bowl together every Friday evening."
           ]
         }
@@ -3127,11 +3372,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A container with flat sides; or to fight using boxing techniques.",
-          "definitionZh": "盒子；拳击",
+          "part": "noun",
+          "definition": "A container with flat sides",
+          "definitionZh": "盒子",
           "examples": [
-            "The books arrived in a cardboard box.",
+            "The books arrived in a cardboard box."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to fight using boxing techniques.",
+          "definitionZh": "拳击",
+          "examples": [
             "He learned to box at a local sports club."
           ]
         }
@@ -3156,11 +3408,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A narrow, light boat moved with a paddle; or to travel in such a boat.",
-          "definitionZh": "独木舟；划独木舟",
+          "part": "noun",
+          "definition": "A narrow, light boat moved with a paddle",
+          "definitionZh": "独木舟",
           "examples": [
-            "We hired a canoe on the river.",
+            "We hired a canoe on the river."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to travel in such a boat.",
+          "definitionZh": "划独木舟",
+          "examples": [
             "They canoed across the lake in the afternoon."
           ]
         }
@@ -3185,11 +3444,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A formal discussion in which people present different opinions; or to discuss a subject from different sides.",
-          "definitionZh": "辩论；讨论",
+          "part": "noun",
+          "definition": "A formal discussion in which people present different opinions",
+          "definitionZh": "辩论",
           "examples": [
-            "The class held a debate about school uniforms.",
+            "The class held a debate about school uniforms."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to discuss a subject from different sides.",
+          "definitionZh": "讨论",
+          "examples": [
             "Experts continue to debate the best solution."
           ]
         }
@@ -3243,11 +3509,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A plan or drawing showing how something will look or work; or to create such a plan.",
-          "definitionZh": "设计；设计图",
+          "part": "noun",
+          "definition": "A plan or drawing showing how something will look or work",
+          "definitionZh": "设计",
           "examples": [
-            "The designer presented three logo designs.",
+            "The designer presented three logo designs."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to create such a plan.",
+          "definitionZh": "设计图",
+          "examples": [
             "They designed a simple app for students."
           ]
         }
@@ -3301,11 +3574,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A sport in which players use clubs to hit a small ball into a series of holes in as few strokes as possible; or to play this sport.",
-          "definitionZh": "高尔夫球；打高尔夫",
+          "part": "noun",
+          "definition": "A sport in which players use clubs to hit a small ball into a series of holes in as few strokes as possible",
+          "definitionZh": "高尔夫球",
           "examples": [
-            "My uncle plays golf every Saturday.",
+            "My uncle plays golf every Saturday."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to play this sport.",
+          "definitionZh": "打高尔夫",
+          "examples": [
             "They went golfing during their holiday."
           ]
         }
@@ -3330,11 +3610,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To search for or chase an animal in order to catch or kill it; or a search for something.",
-          "definitionZh": "狩猎；寻找；搜寻",
+          "part": "verb",
+          "definition": "To search for or chase an animal in order to catch or kill it.",
+          "definitionZh": "狩猎；追捕；搜寻",
           "examples": [
-            "The birds hunt for food near the river.",
+            "The birds hunt for food near the river."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act or period of searching for something.",
+          "definitionZh": "搜寻；寻找",
+          "examples": [
             "We went on a hunt for the missing keys."
           ]
         }
@@ -3388,11 +3675,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A small, narrow boat moved with a double-bladed paddle; or to travel in one.",
-          "definitionZh": "皮划艇；划皮划艇",
+          "part": "noun",
+          "definition": "A small, narrow boat moved with a double-bladed paddle",
+          "definitionZh": "皮划艇",
           "examples": [
-            "We rented a kayak near the beach.",
+            "We rented a kayak near the beach."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to travel in one.",
+          "definitionZh": "划皮划艇",
+          "examples": [
             "They kayaked along the quiet river."
           ]
         }
@@ -3417,11 +3711,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To walk with regular, deliberate steps, often as a group; or an organised public walk to express an opinion.",
-          "definitionZh": "行进；齐步走；游行",
+          "part": "verb",
+          "definition": "To walk with regular, deliberate steps, often as a group",
+          "definitionZh": "行进；齐步走",
           "examples": [
-            "The band marched through the town.",
+            "The band marched through the town."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "an organised public walk to express an opinion.",
+          "definitionZh": "游行",
+          "examples": [
             "Thousands joined a peaceful march."
           ]
         }
@@ -3446,11 +3747,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A small copy or representation of something; or to display clothes, products or ideas for others to see.",
-          "definitionZh": "模型；模特；展示",
+          "part": "noun",
+          "definition": "A small copy or representation of something",
+          "definitionZh": "模型；模特",
           "examples": [
-            "The students built a model of the solar system.",
+            "The students built a model of the solar system."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to display clothes, products or ideas for others to see.",
+          "definitionZh": "展示",
+          "examples": [
             "She models clothes for an online shop."
           ]
         }
@@ -3475,11 +3783,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A machine that changes energy into movement; or to travel using a motor vehicle.",
-          "definitionZh": "发动机；马达；驾车行驶",
+          "part": "noun",
+          "definition": "A machine that changes energy into movement",
+          "definitionZh": "发动机；马达",
           "examples": [
-            "The motor makes a strange noise.",
+            "The motor makes a strange noise."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to travel using a motor vehicle.",
+          "definitionZh": "驾车行驶",
+          "examples": [
             "They motored along the coast after lunch."
           ]
         }
@@ -3504,11 +3819,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A short message posted on the social media platform X; or to make a short, high-pitched sound like a small bird.",
-          "definitionZh": "推文；发短消息；鸟鸣",
+          "part": "noun",
+          "definition": "A short message posted on the social media platform X",
+          "definitionZh": "推文；发短消息",
           "examples": [
-            "She posted a tweet about the event.",
+            "She posted a tweet about the event."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to make a short, high-pitched sound like a small bird.",
+          "definitionZh": "鸟鸣",
+          "examples": [
             "Small birds tweeted in the trees."
           ]
         }
@@ -3649,12 +3971,20 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A thick wire or group of wires used to carry electricity or data; or to send a message by cable.",
-          "definitionZh": "电缆；电线；有线电视",
+          "part": "noun",
+          "definition": "A thick wire or group of wires used to carry electricity or data.",
+          "definitionZh": "电缆；电线；缆线",
           "examples": [
             "The monitor is connected to the computer by a cable.",
             "Please check that the power cable is plugged in."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To send someone a message by cable; this use is now uncommon.",
+          "definitionZh": "通过电报电缆发送信息（现已少用）",
+          "examples": [
+            "The agent cabled the news to the office."
           ]
         }
       ]
@@ -3823,11 +4153,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To copy data or a file from the internet or another computer to your own device; or the file or process itself.",
-          "definitionZh": "下载；下载内容",
+          "part": "verb",
+          "definition": "To copy data or a file from the internet or another computer to your own device.",
+          "definitionZh": "下载；将文件或数据保存到本地设备",
           "examples": [
-            "You can download the document from the website.",
+            "You can download the document from the website."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A file that has been copied to a device, or the process of downloading it.",
+          "definitionZh": "下载内容；下载过程",
+          "examples": [
             "The download took less than a minute."
           ]
         }
@@ -3852,11 +4189,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A message sent electronically over the internet; or to send someone such a message.",
-          "definitionZh": "电子邮件；发邮件",
+          "part": "noun",
+          "definition": "A message sent electronically over the internet",
+          "definitionZh": "电子邮件",
           "examples": [
-            "I received an email from the school.",
+            "I received an email from the school."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to send someone such a message.",
+          "definitionZh": "发邮件",
+          "examples": [
             "Please email the completed form to the office."
           ]
         }
@@ -3881,11 +4225,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A collection of information stored under one name on a computer; or to arrange documents or submit them officially.",
-          "definitionZh": "文件；档案；归档",
+          "part": "noun",
+          "definition": "A collection of information stored under one name on a computer",
+          "definitionZh": "文件；档案",
           "examples": [
-            "Save the image as a separate file.",
+            "Save the image as a separate file."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to arrange documents or submit them officially.",
+          "definitionZh": "归档",
+          "examples": [
             "Please file the report with the other documents."
           ]
         }
@@ -3997,11 +4348,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A group of connected people, computers or systems; or to connect with others for information or opportunities.",
-          "definitionZh": "网络；人际关系网；建立联系",
+          "part": "noun",
+          "definition": "A group of connected people, computers or systems",
+          "definitionZh": "网络；人际关系网",
           "examples": [
-            "The office network stopped working this morning.",
+            "The office network stopped working this morning."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to connect with others for information or opportunities.",
+          "definitionZh": "建立联系",
+          "examples": [
             "Designers network with other professionals at events."
           ]
         }
@@ -4113,11 +4471,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "The flat surface on a device that displays images and information; or to examine people or things for a particular purpose.",
-          "definitionZh": "屏幕；显示器；筛查",
+          "part": "noun",
+          "definition": "The flat surface on a device that displays images and information",
+          "definitionZh": "屏幕；显示器",
           "examples": [
-            "The phone screen is cracked.",
+            "The phone screen is cracked."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to examine people or things for a particular purpose.",
+          "definitionZh": "筛查",
+          "examples": [
             "The company screens applicants before interviews."
           ]
         }
@@ -4258,11 +4623,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A light, gentle wind; or to move easily and quickly through something.",
-          "definitionZh": "微风；轻风",
+          "part": "noun",
+          "definition": "A light, gentle wind",
+          "definitionZh": "微风",
           "examples": [
-            "A cool breeze came through the open window.",
+            "A cool breeze came through the open window."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to move easily and quickly through something.",
+          "definitionZh": "轻风",
+          "examples": [
             "She breezed through the first part of the test."
           ]
         }
@@ -4316,11 +4688,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A mass of tiny water droplets or ice crystals in the sky; or to make something difficult to see or understand.",
-          "definitionZh": "云；云层；使模糊",
+          "part": "noun",
+          "definition": "A mass of tiny water droplets or ice crystals in the sky",
+          "definitionZh": "云；云层",
           "examples": [
-            "Dark clouds gathered before the storm.",
+            "Dark clouds gathered before the storm."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to make something difficult to see or understand.",
+          "definitionZh": "使模糊",
+          "examples": [
             "Anger can cloud a person's judgement."
           ]
         }
@@ -4345,11 +4724,18 @@
       ],
       "senses": [
         {
-          "part": "noun / adjective",
-          "definition": "A hard substance formed by tiny sea animals, often creating reefs; or relating to coral.",
-          "definitionZh": "珊瑚；珊瑚色的",
+          "part": "noun",
+          "definition": "A hard substance formed by tiny sea animals, often creating reefs",
+          "definitionZh": "珊瑚",
           "examples": [
-            "The reef is home to many kinds of coral.",
+            "The reef is home to many kinds of coral."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "relating to coral.",
+          "definitionZh": "珊瑚色的",
+          "examples": [
             "Coral reefs support a wide range of marine life."
           ]
         }
@@ -4374,11 +4760,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A plant grown and collected for food or other use; or to cut something short.",
-          "definitionZh": "农作物；庄稼；裁剪",
+          "part": "noun",
+          "definition": "A plant grown and collected for food or other use",
+          "definitionZh": "农作物；庄稼",
           "examples": [
-            "Rice is an important crop in many countries.",
+            "Rice is an important crop in many countries."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to cut something short.",
+          "definitionZh": "裁剪",
+          "examples": [
             "Farmers grow crops during the rainy season."
           ]
         }
@@ -4519,11 +4912,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "The part of a plant that produces seeds and is often colourful; or to develop successfully.",
-          "definitionZh": "花；开花",
+          "part": "noun",
+          "definition": "The part of a plant that produces seeds and is often colourful",
+          "definitionZh": "花",
           "examples": [
-            "The garden is full of flowers in spring.",
+            "The garden is full of flowers in spring."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to develop successfully.",
+          "definitionZh": "开花",
+          "examples": [
             "The project began to flower after the team received support."
           ]
         }
@@ -4838,11 +5238,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "The part of a plant that can grow into a new plant; or to plant seeds in an area.",
-          "definitionZh": "种子；播种",
+          "part": "noun",
+          "definition": "The part of a plant that can grow into a new plant",
+          "definitionZh": "种子",
           "examples": [
-            "Each seed needs water and sunlight to grow.",
+            "Each seed needs water and sunlight to grow."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to plant seeds in an area.",
+          "definitionZh": "播种",
+          "examples": [
             "They seeded the field with grass."
           ]
         }
@@ -4896,11 +5303,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "The upper layer of earth in which plants grow; or to make something dirty.",
-          "definitionZh": "土壤；泥土；弄脏",
+          "part": "noun",
+          "definition": "The upper layer of earth in which plants grow",
+          "definitionZh": "土壤；泥土",
           "examples": [
-            "Healthy soil helps crops grow.",
+            "Healthy soil helps crops grow."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to make something dirty.",
+          "definitionZh": "弄脏",
+          "examples": [
             "The rain soaked the soil in the garden."
           ]
         }
@@ -4925,11 +5339,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A large ball of hot gas in space that produces light; or to have an important role in a performance.",
-          "definitionZh": "星星；恒星；主演",
+          "part": "noun",
+          "definition": "A large ball of hot gas in space that produces light",
+          "definitionZh": "星星；恒星",
           "examples": [
-            "We could see a bright star above the hills.",
+            "We could see a bright star above the hills."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to have an important role in a performance.",
+          "definitionZh": "主演",
+          "examples": [
             "She will star in the school musical."
           ]
         }
@@ -4954,11 +5375,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A period of very bad weather with strong wind, rain, snow or thunder; or to move somewhere suddenly and forcefully.",
-          "definitionZh": "暴风雨；风暴；冲进",
+          "part": "noun",
+          "definition": "A period of very bad weather with strong wind, rain, snow or thunder",
+          "definitionZh": "暴风雨；风暴",
           "examples": [
-            "The storm brought heavy rain and strong winds.",
+            "The storm brought heavy rain and strong winds."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to move somewhere suddenly and forcefully.",
+          "definitionZh": "冲进",
+          "examples": [
             "The children watched the storm from indoors."
           ]
         }
@@ -5447,11 +5875,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A route through which water, information or signals can pass; or to direct something through a particular route.",
-          "definitionZh": "频道；渠道；海峡；引导",
+          "part": "noun",
+          "definition": "A route through which water, information or signals can pass",
+          "definitionZh": "频道；渠道；海峡",
           "examples": [
-            "The documentary is on a different television channel.",
+            "The documentary is on a different television channel."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to direct something through a particular route.",
+          "definitionZh": "引导",
+          "examples": [
             "The company uses social media to channel customer feedback."
           ]
         }
@@ -5476,12 +5911,20 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
+          "part": "noun",
           "definition": "A small piece broken from a larger object; a thin slice of food; or a tiny electronic circuit.",
           "definitionZh": "碎片；薯片；芯片",
           "examples": [
             "A chip of paint came off the wall.",
             "The new phone uses a more powerful computer chip."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To break a small piece off something, or to become damaged in this way.",
+          "definitionZh": "削下；使缺损；崩掉一小块",
+          "examples": [
+            "Be careful not to chip the edge of the glass."
           ]
         }
       ]
@@ -5505,11 +5948,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To press and release a button on a mouse or screen; or the short sound made by that action.",
-          "definitionZh": "点击；咔哒声",
+          "part": "verb",
+          "definition": "To press and release a button on a mouse or screen.",
+          "definitionZh": "点击；按下鼠标或屏幕按钮",
           "examples": [
-            "Click the link to open the article.",
+            "Click the link to open the article."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A short, sharp sound made by pressing or moving something.",
+          "definitionZh": "咔哒声；点击声",
+          "examples": [
             "I heard a click when the door locked."
           ]
         }
@@ -5592,11 +6042,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A device with moving parts that uses power to perform work; or to make something using machinery.",
-          "definitionZh": "机器；机械；用机器加工",
+          "part": "noun",
+          "definition": "A device with moving parts that uses power to perform work.",
+          "definitionZh": "机器；机械装置",
           "examples": [
-            "The machine prints labels automatically.",
+            "The machine prints labels automatically."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make or shape something by using a machine.",
+          "definitionZh": "用机器加工；机械切削",
+          "examples": [
             "The factory machines metal parts for vehicles."
           ]
         }
@@ -5621,12 +6078,19 @@
       ],
       "senses": [
         {
-          "part": "adjective / adverb",
+          "part": "adjective",
           "definition": "Connected to or available through the internet.",
           "definitionZh": "在线的；联网的",
           "examples": [
-            "You can book the tickets online.",
             "The online meeting starts at three."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "Using or through the internet.",
+          "definitionZh": "在线；通过网络",
+          "examples": [
+            "You can book the tickets online."
           ]
         }
       ]
@@ -5650,11 +6114,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A set of instructions that a computer follows; or to give a device instructions to perform tasks.",
-          "definitionZh": "程序；计划；编程",
+          "part": "noun",
+          "definition": "A set of instructions that a computer follows",
+          "definitionZh": "程序；计划",
           "examples": [
-            "The program helps students practise vocabulary.",
+            "The program helps students practise vocabulary."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to give a device instructions to perform tasks.",
+          "definitionZh": "编程",
+          "examples": [
             "She learned to program a small robot."
           ]
         }
@@ -5795,11 +6266,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A device or system used to speak to someone over a distance; or to call someone.",
-          "definitionZh": "电话；打电话",
+          "part": "noun",
+          "definition": "A device or system used to speak to someone over a distance",
+          "definitionZh": "电话",
           "examples": [
-            "The office telephone rang during the meeting.",
+            "The office telephone rang during the meeting."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to call someone.",
+          "definitionZh": "打电话",
+          "examples": [
             "I telephoned the clinic to change my appointment."
           ]
         }
@@ -5853,11 +6331,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A short written message sent from one mobile phone or digital device to another; or to send such a message.",
-          "definitionZh": "短信；发短信",
+          "part": "noun",
+          "definition": "A short written message sent from one mobile phone or digital device to another",
+          "definitionZh": "短信",
           "examples": [
-            "I received a text message from the delivery company.",
+            "I received a text message from the delivery company."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to send such a message.",
+          "definitionZh": "发短信",
+          "examples": [
             "Please text-message me when you arrive."
           ]
         }
@@ -5882,11 +6367,18 @@
       ],
       "senses": [
         {
-          "part": "verb / noun",
-          "definition": "To send a file or data from a device to an online service or another computer; or the process or file sent.",
-          "definitionZh": "上传；上传内容",
+          "part": "verb",
+          "definition": "To send a file or data from a device to an online service or another computer.",
+          "definitionZh": "上传；将文件或数据传送到网络服务",
           "examples": [
-            "Upload your assignment before midnight.",
+            "Upload your assignment before midnight."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A file or other content that has been uploaded.",
+          "definitionZh": "上传的文件；上传内容",
+          "examples": [
             "The video upload failed because the connection was weak."
           ]
         }
@@ -5911,11 +6403,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A recording of moving images, usually with sound; or to record or send images electronically.",
-          "definitionZh": "视频；录像；录制视频",
+          "part": "noun",
+          "definition": "A recording of moving images, usually with sound",
+          "definitionZh": "视频；录像",
           "examples": [
-            "She watched a short video about the solar system.",
+            "She watched a short video about the solar system."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to record or send images electronically.",
+          "definitionZh": "录制视频",
+          "examples": [
             "We video-called our relatives last night."
           ]
         }
@@ -5969,11 +6468,18 @@
       ],
       "senses": [
         {
-          "part": "adjective / noun",
-          "definition": "Using radio signals rather than physical wires to send information or power; or a wireless connection or device.",
-          "definitionZh": "无线的；无线通信",
+          "part": "adjective",
+          "definition": "Using radio signals rather than physical wires to send information or power",
+          "definitionZh": "无线的",
           "examples": [
-            "The headphones connect to the phone wirelessly.",
+            "The headphones connect to the phone wirelessly."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "a wireless connection or device.",
+          "definitionZh": "无线通信",
+          "examples": [
             "We use a wireless network at home."
           ]
         }
@@ -6143,11 +6649,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A building where people live; or to provide a place for someone or something.",
-          "definitionZh": "房子；住宅；安置",
+          "part": "noun",
+          "definition": "A building where people live",
+          "definitionZh": "房子；住宅",
           "examples": [
-            "They bought a small house near the park.",
+            "They bought a small house near the park."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to provide a place for someone or something.",
+          "definitionZh": "安置",
+          "examples": [
             "The building houses a collection of old maps."
           ]
         }
@@ -6230,11 +6743,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A shop where goods are sold; or to keep something for future use.",
-          "definitionZh": "商店；储存",
+          "part": "noun",
+          "definition": "A shop where goods are sold",
+          "definitionZh": "商店",
           "examples": [
-            "I bought a notebook at the store.",
+            "I bought a notebook at the store."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to keep something for future use.",
+          "definitionZh": "储存",
+          "examples": [
             "Store the files in a safe location."
           ]
         }
@@ -6462,11 +6982,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A scientific test carried out to discover or demonstrate something; or to try a new method or idea.",
-          "definitionZh": "实验；试验；尝试",
+          "part": "noun",
+          "definition": "A scientific test carried out to discover or demonstrate something",
+          "definitionZh": "实验；试验",
           "examples": [
-            "The students carried out an experiment in the laboratory.",
+            "The students carried out an experiment in the laboratory."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to try a new method or idea.",
+          "definitionZh": "尝试",
+          "examples": [
             "The team experimented with different materials."
           ]
         }
