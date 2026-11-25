@@ -25,3 +25,23 @@ try {
 } catch {}
 
 // account-deletion.js is loaded explicitly after the main app script in index.html.
+
+
+// U2.9.0 Favorite Collections loads after the main application scripts have
+// declared their Supabase client and current-user bindings. The versioned URL
+// also prevents stale browser/CDN caches from serving an earlier module.
+(() => {
+  const loadFavoriteCollections = () => {
+    if (document.getElementById("swiftFavoriteCollectionsScript")) return;
+    const script = document.createElement("script");
+    script.id = "swiftFavoriteCollectionsScript";
+    script.src = "favorite-collections.js?v=2.9.0-p4";
+    script.defer = true;
+    document.head.appendChild(script);
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadFavoriteCollections, { once: true });
+  } else {
+    loadFavoriteCollections();
+  }
+})();
