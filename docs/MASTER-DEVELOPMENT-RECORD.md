@@ -3665,3 +3665,8 @@ The staging publication initially contained no public tables, so added and appli
 ### Phase 4 Realtime/loader CI evidence — 2026-11-25
 
 Run 45547652317 passed all 13 Playwright tests, including the real-app-shell loader test. Run 45547784739 passed all 13 tests after the SQL regression added a publication-membership assertion, and run 45547828600 passed after workflow path filters were corrected. The staging SQL regression also passed separately. Browser CRUD is mocked; live authenticated CRUD, adversarial cross-account RLS and actual Realtime event receipt remain outstanding. The prior archive wording suggesting the loader test was added after run 45547652317 was incorrect and has been corrected in the archive addendum.
+
+
+### Phase 4 Favorite words panel placement — 2026-11-25
+
+Run 45548152492 passed all 13 Playwright tests, including an application-shell DOM assertion that Your collections is the immediate sibling after the existing Favorite words profile card and before Learning progress. The versioned supabase-config.js loader passed as well. This confirms structural placement, not a visual signed-in device review. Live authenticated CRUD, adversarial two-account RLS/API testing and actual Realtime event receipt remain outstanding.
