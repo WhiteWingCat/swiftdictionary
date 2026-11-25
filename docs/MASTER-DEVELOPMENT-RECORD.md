@@ -3660,3 +3660,8 @@ GitHub Actions run 45547406099 succeeded on commit e4a605bc4ee880882b2b7ed998450
 ### Phase 4 Realtime follow-up — 2026-11-25
 
 The staging publication initially contained no public tables, so added and applied migration 20261125043448 to publish only favorite_collections and favorite_collection_items for Postgres Changes delivery. RLS remains enforced. The strengthened SQL regression, including Realtime publication membership, passed with rollback. The cache-safe loader was moved to supabase-config.js and scheduled at DOMContentLoaded after app scripts; a p4 cache-busting query is used. A real-app-shell loader browser test was added. Prior CI run 45547652317 passed all 12 tests before these follow-up changes; a new run is pending. Authenticated live CRUD, adversarial cross-account RLS, actual dashboard placement and real Realtime delivery remain unverified.
+
+
+### Phase 4 Realtime/loader CI evidence — 2026-11-25
+
+Run 45547652317 passed all 13 Playwright tests, including the real-app-shell loader test. Run 45547784739 passed all 13 tests after the SQL regression added a publication-membership assertion, and run 45547828600 passed after workflow path filters were corrected. The staging SQL regression also passed separately. Browser CRUD is mocked; live authenticated CRUD, adversarial cross-account RLS and actual Realtime event receipt remain outstanding. The prior archive wording suggesting the loader test was added after run 45547652317 was incorrect and has been corrected in the archive addendum.
