@@ -295,8 +295,8 @@
           for(const [difficulty,minimum] of Object.entries({beginner:30,intermediate:36,advanced:48}))if(counts[difficulty]<minimum)throw new Error("The Chinese Quiz needs at least "+minimum+" knowledge questions at "+difficulty+" difficulty.");
           for(const difficulty of ["beginner","intermediate","advanced"])if(translationCounts[difficulty]<1)throw new Error("The Chinese Quiz needs English-to-Chinese translation coverage at "+difficulty+" difficulty.");
         }else{
-          if(mapped.length!==223)throw new Error("The draft English Quiz bank must contain exactly 223 questions.");
-          if(counts.beginner+translationCounts.beginner+definitionCounts.beginner!==64||counts.intermediate+translationCounts.intermediate+definitionCounts.intermediate!==70||counts.advanced+translationCounts.advanced+definitionCounts.advanced!==89)throw new Error("The draft English Quiz bank difficulty totals do not match the expected 64/70/89 distribution.");
+          if(mapped.length!==229)throw new Error("The draft English Quiz bank must contain exactly 229 questions.");
+          if(counts.beginner+translationCounts.beginner+definitionCounts.beginner!==66||counts.intermediate+translationCounts.intermediate+definitionCounts.intermediate!==72||counts.advanced+translationCounts.advanced+definitionCounts.advanced!==91)throw new Error("The draft English Quiz bank difficulty totals do not match the expected 66/72/91 distribution.");
           if(translationCounts.beginner!==21||translationCounts.intermediate!==21||translationCounts.advanced!==28)throw new Error("The Chinese integration bank must contain 21/21/28 questions by difficulty.");
           if(definitionCounts.beginner!==5||definitionCounts.intermediate!==5||definitionCounts.advanced!==5)throw new Error("The word-definition bank must contain five questions at each difficulty.");
         }
