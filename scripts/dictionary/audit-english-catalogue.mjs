@@ -100,5 +100,5 @@ report.summary={
 report.releaseAssessment="STRUCTURAL_QA_PASS_WITH_EDITORIAL_REVIEW_LIMITATIONS";
 const out=path.join(data,"english-catalogue-editorial-audit.json");
 fs.writeFileSync(out,JSON.stringify(report,null,2)+"\n");
-console.log(JSON.stringify({scope:report.scope,summary:report.summary,headwordTranslationCoverage:report.checks.headwordTranslationCoverage,senseTranslationCoverage:report.checks.senseTranslationCoverage,categoryCounts:report.checks.categoryCounts,report:out},null,2));
+console.log(JSON.stringify({scope:report.scope,summary:report.summary,headwordTranslationCoverage:report.checks.headwordTranslationCoverage,senseTranslationCoverage:report.checks.senseTranslationCoverage,categoryCounts:report.checks.categoryCounts,shortDefinitionReviewCandidates:report.checks.shortOrVagueDefinitions,report:out},null,2));
 if(counts.duplicateHeadwords||counts.missingFields||counts.invalidPartsOfSpeech||counts.insufficientExamples||counts.duplicateExamples||counts.duplicateSenses||counts.multiPosWithoutSenseCoverage||counts.unapprovedOrMissingCategories||counts.translationIssues)process.exitCode=1;
