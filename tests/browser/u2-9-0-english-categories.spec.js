@@ -95,3 +95,42 @@ test("English topic filters wrap and remain usable on a narrow mobile viewport",
   expect(count).toBeGreaterThan(0);
   expect(count).toBeLessThan(1316);
 });
+
+test("Premium information is clearly marked as future-only and has no purchase action", async ({ page }) => {
+  await page.goto("/");
+  const trigger = page.getByRole("button", { name: "Premium plan", exact: true });
+  await expect(trigger).toBeVisible();
+  await trigger.click();
+
+  const dialog = page.getByRole("dialog", { name: "Get Premium Plan" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText("dictionary search will remain free and unlimited");
+  await expect(dialog).toContainText("16 collection folders");
+  await expect(dialog).toContainText("40 collection folders");
+  await expect(dialog).toContainText("Not available yet");
+  await expect(dialog).toContainText("There is no checkout, payment or subscription action");
+  await expect(dialog.getByRole("button", { name: /purchase|subscribe|checkout|pay/i })).toHaveCount(0);
+
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+
+test("Premium information dialog fits a narrow mobile viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Premium plan", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "Get Premium Plan" });
+  await expect(dialog).toBeVisible();
+  const panel = dialog.locator(".premium-plan-modal");
+  const dimensions = await panel.evaluate(node => ({
+    clientWidth: node.clientWidth,
+    scrollWidth: node.scrollWidth,
+    clientHeight: node.clientHeight,
+    scrollHeight: node.scrollHeight
+  }));
+  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 2);
+  expect(dimensions.clientHeight).toBeLessThanOrEqual(824);
+  await dialog.getByRole("button", { name: "Close", exact: true }).click();
+  await expect(dialog).toBeHidden();
+});
