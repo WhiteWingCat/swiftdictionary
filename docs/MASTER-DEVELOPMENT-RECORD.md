@@ -3559,3 +3559,12 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - Translation field coverage remains: baseline 810 headword translations and 657 sense translations; expansion 506 headword translations and 766 sense translations; zero missing fields reported.
 - Phase 3 remains in progress pending broader editorial review of category assignments and Chinese translation semantics. Phase 4 has not started. No staging preview, Supabase change, production merge/deployment or Premium/payment enforcement occurred.
 - This phase's Malaysia/general legal check remains unchanged: no new personal-data processing or external processor; existing PDPA, global 16+ screening, privacy and content licensing obligations remain relevant.
+
+
+## 2026-11-25 — U2.9.0 Phase 3 translation-content audit strengthening
+
+- Extended `scripts/dictionary/validate-english-phase3.mjs` to require Chinese characters in each English headword/sense translation and reject known placeholder/fallback strings, not merely empty fields.
+- Latest audit: baseline 810/810 headword translations and 657/657 sense translations; expansion 506/506 headword translations and 766/766 sense translations. Zero translations without CJK characters and zero placeholder translations.
+- Targeted sense-alignment review sampled 20 high-frequency baseline entries and 8 expansion entries. Distinct English meanings remained separately translated in the reviewed cases; this remains model-assisted spot checking, not independent native-speaker certification of every translation.
+- Latest full CI run **45541339325**, commit `48ec2caabe3e8dae3fa223380efd9d51852ca6e8`, passed both data validators, Playwright/Chromium setup and all seven browser tests.
+- Phase 3 remains in progress pending broader editorial review and completion of remaining approved scope; Phase 4 has not started.
