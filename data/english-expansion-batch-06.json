@@ -672,7 +672,7 @@
           "definitionZh": "判断；评判；法官；裁判",
           "examples": [
             "Do not judge people by their appearance.",
-            "The judge listened to both sides."
+            "Try not to judge a book by its cover."
           ]
         },
         {
@@ -1062,7 +1062,7 @@
           "definition": "An act of using force to move something towards yourself; an influence or attraction.",
           "definitionZh": "用力将某物拉向自己的动作；吸引力或影响力。",
           "examples": [
-            "Give the handle a firm pull.",
+            "The child gave the rope a strong pull.",
             "The campaign gained a strong pull with younger voters."
           ]
         }
@@ -1197,7 +1197,7 @@
           "definitionZh": "报告；报道；汇报",
           "examples": [
             "She wrote a report about the trip.",
-            "Please report any damage to the manager."
+            "The report summarised the results of the survey."
           ]
         },
         {
@@ -1235,7 +1235,7 @@
           "definitionZh": "营救；救援；救助",
           "examples": [
             "Firefighters rescued the family.",
-            "The rescue took several hours."
+            "Firefighters rescued two people from the building."
           ]
         },
         {
@@ -2289,7 +2289,7 @@
           "definitionZh": "形式；形状；表格；形成",
           "examples": [
             "Please fill in this form.",
-            "Clouds began to form over the hills."
+            "Please complete the form before the interview."
           ]
         },
         {
@@ -3024,7 +3024,7 @@
           "definitionZh": "事情；问题；物质；要紧",
           "examples": [
             "We need to discuss an important matter.",
-            "Your opinion matters to us."
+            "The matter was discussed at yesterday's meeting."
           ]
         },
         {
@@ -3254,7 +3254,7 @@
           "definitionZh": "名字；名称；命名",
           "examples": [
             "Please write your name here.",
-            "They named the puppy Milo."
+            "Her name appears at the top of the list."
           ]
         },
         {
@@ -3549,20 +3549,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A request for goods or food; an arrangement; or to ask for something to be supplied.",
-          "definitionZh": "订单；点餐；顺序；命令",
+          "definition": "A request for goods or services, or the way things are arranged.",
+          "definitionZh": "订单；点餐；顺序；排列",
           "examples": [
-            "We placed an order for two coffees.",
-            "Please put the books in alphabetical order."
+            "We placed an order for a new dictionary.",
+            "The books are arranged in alphabetical order."
           ]
         },
         {
           "part": "verb",
-          "definition": "A request for goods or food; an arrangement; or to ask for something to be supplied.",
-          "definitionZh": "订单；点餐；顺序；命令",
+          "definition": "To ask for goods or services to be supplied, or to tell someone to do something.",
+          "definitionZh": "订购；点餐；命令；指示",
           "examples": [
-            "We placed an order for two coffees.",
-            "Please put the books in alphabetical order."
+            "We ordered two cups of tea.",
+            "The manager ordered the team to leave."
           ]
         }
       ]
@@ -3790,20 +3790,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A particular location or position; or to put something somewhere.",
-          "definitionZh": "地方；地点；位置；放置",
+          "definition": "A particular location, area, or position.",
+          "definitionZh": "地方；地点；位置",
           "examples": [
-            "This is a quiet place to study.",
-            "Please place your bag under the desk."
+            "This is a quiet place to read.",
+            "The place was crowded after lunch."
           ]
         },
         {
           "part": "verb",
-          "definition": "A particular location or position; or to put something somewhere.",
-          "definitionZh": "地方；地点；位置；放置",
+          "definition": "To put or set something in a particular position.",
+          "definitionZh": "放置；安放；安排",
           "examples": [
-            "This is a quiet place to study.",
-            "Please place your bag under the desk."
+            "Please place the keys on the table.",
+            "They placed the chairs in a circle."
           ]
         }
       ]
@@ -3828,20 +3828,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The place where someone or something is; a job or role; or to put something in a particular place.",
-          "definitionZh": "位置；职位；立场；安置",
+          "definition": "The place where someone or something is, a job or role, or an opinion on an issue.",
+          "definitionZh": "位置；职位；立场",
           "examples": [
-            "The chairs are in the correct position.",
+            "The camera is in the correct position.",
             "She applied for a teaching position."
           ]
         },
         {
           "part": "verb",
-          "definition": "The place where someone or something is; a job or role; or to put something in a particular place.",
-          "definitionZh": "位置；职位；立场；安置",
+          "definition": "To put someone or something in a particular place or arrangement.",
+          "definitionZh": "安置；放置；使处于某个位置",
           "examples": [
-            "The chairs are in the correct position.",
-            "She applied for a teaching position."
+            "Position the lamp beside the desk.",
+            "The team positioned the sign near the entrance."
           ]
         }
       ]
@@ -3895,20 +3895,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The amount of money needed to buy something; or to set that amount.",
-          "definitionZh": "价格；价钱；定价",
+          "definition": "The amount of money that must be paid to buy something or use a service.",
+          "definitionZh": "价格；价钱；费用",
           "examples": [
-            "The price of the ticket has increased.",
-            "The shop priced the items clearly."
+            "The price includes delivery.",
+            "We compared the prices of three models."
           ]
         },
         {
           "part": "verb",
-          "definition": "The amount of money needed to buy something; or to set that amount.",
-          "definitionZh": "价格；价钱；定价",
+          "definition": "To decide or state how much something will cost.",
+          "definitionZh": "给……定价；标价",
           "examples": [
-            "The price of the ticket has increased.",
-            "The shop priced the items clearly."
+            "The shop priced each item clearly.",
+            "They priced the tickets at twenty dollars."
           ]
         }
       ]
@@ -4020,20 +4020,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "An explanation for why something happens or is done; or to think logically.",
-          "definitionZh": "原因；理由；推理",
+          "definition": "An explanation for why something happens or is done.",
+          "definitionZh": "原因；理由；解释",
           "examples": [
-            "What is the reason for the delay?",
-            "We reasoned that taking the earlier train would be safer."
+            "There is a good reason to wait.",
+            "She explained the reason for the change."
           ]
         },
         {
           "part": "verb",
-          "definition": "An explanation for why something happens or is done; or to think logically.",
-          "definitionZh": "原因；理由；推理",
+          "definition": "To think logically about something in order to reach a conclusion.",
+          "definitionZh": "推理；思考；推断",
           "examples": [
-            "What is the reason for the delay?",
-            "We reasoned that taking the earlier train would be safer."
+            "We reasoned that the earlier train would be safer.",
+            "He reasoned through each step before deciding."
           ]
         }
       ]
@@ -4058,20 +4058,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "Information kept for future reference; or to write down, store or capture information.",
-          "definitionZh": "记录；档案；录制",
+          "definition": "Information kept in written or digital form for future reference.",
+          "definitionZh": "记录；档案；纪录",
           "examples": [
             "Keep a record of your expenses.",
-            "The camera records video in high definition."
+            "The school has a record of every student's attendance."
           ]
         },
         {
           "part": "verb",
-          "definition": "Information kept for future reference; or to write down, store or capture information.",
-          "definitionZh": "记录；档案；录制",
+          "definition": "To write down, store, or capture information, sounds, or images.",
+          "definitionZh": "记录；录下；录制",
           "examples": [
-            "Keep a record of your expenses.",
-            "The camera records video in high definition."
+            "The camera records video in high definition.",
+            "Please record the meeting's main points."
           ]
         }
       ]
@@ -4154,20 +4154,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "An official or accepted instruction that controls what people may do; or to control or decide something.",
-          "definitionZh": "规则；规定；裁定",
+          "definition": "An official or accepted instruction that states what people may or may not do.",
+          "definitionZh": "规则；规定；条例",
           "examples": [
             "Every player must follow the rules.",
-            "The judge ruled that the evidence could be used."
+            "The new rule applies to all visitors."
           ]
         },
         {
           "part": "verb",
-          "definition": "An official or accepted instruction that controls what people may do; or to control or decide something.",
-          "definitionZh": "规则；规定；裁定",
+          "definition": "To make an official decision, especially in a court, or to govern a place or group.",
+          "definitionZh": "裁定；判决；统治",
           "examples": [
-            "Every player must follow the rules.",
-            "The judge ruled that the evidence could be used."
+            "The judge ruled that the evidence could be used.",
+            "The court ruled in favour of the applicant."
           ]
         }
       ]
@@ -4221,20 +4221,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A small amount or example used to represent or test a larger group; or to try a small amount.",
-          "definitionZh": "样本；样品；试用",
+          "definition": "A small amount or example used to represent or test a larger group.",
+          "definitionZh": "样本；样品；标本",
           "examples": [
-            "The shop gave us a free sample of the new drink.",
-            "Researchers sampled water from the river."
+            "The shop gave us a free sample.",
+            "Researchers tested a sample of the water."
           ]
         },
         {
           "part": "verb",
-          "definition": "A small amount or example used to represent or test a larger group; or to try a small amount.",
-          "definitionZh": "样本；样品；试用",
+          "definition": "To take or examine a small part of something to learn about the whole.",
+          "definitionZh": "抽样；取样；品尝",
           "examples": [
-            "The shop gave us a free sample of the new drink.",
-            "Researchers sampled water from the river."
+            "The lab sampled water from the river.",
+            "The survey sampled households in each district."
           ]
         }
       ]
@@ -4288,20 +4288,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "Work done to help or meet the needs of others; or to provide maintenance or assistance.",
-          "definitionZh": "服务；维修；服役",
+          "definition": "Work done to help people or meet their needs, or a system that provides such help.",
+          "definitionZh": "服务；公共服务；业务",
           "examples": [
-            "The restaurant is known for its friendly service.",
-            "The technician services the machines every month."
+            "The restaurant is known for friendly service.",
+            "The bus service stops running at midnight."
           ]
         },
         {
           "part": "verb",
-          "definition": "Work done to help or meet the needs of others; or to provide maintenance or assistance.",
-          "definitionZh": "服务；维修；服役",
+          "definition": "To inspect, maintain, or repair a machine or vehicle so that it works properly.",
+          "definitionZh": "维修；保养；检修",
           "examples": [
-            "The restaurant is known for its friendly service.",
-            "The technician services the machines every month."
+            "The technician services the machines every month.",
+            "The company services air conditioners across the city."
           ]
         }
       ]
@@ -4326,20 +4326,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The form or outline of something; or to influence how something develops.",
-          "definitionZh": "形状；外形；塑造",
+          "definition": "The form or outline of an object, especially its external appearance.",
+          "definitionZh": "形状；外形；轮廓",
           "examples": [
             "The table has a round shape.",
-            "Early experiences can shape a person's character."
+            "The shape of the leaf is easy to recognise."
           ]
         },
         {
           "part": "verb",
-          "definition": "The form or outline of something; or to influence how something develops.",
-          "definitionZh": "形状；外形；塑造",
+          "definition": "To influence how something develops, or to give something a particular form.",
+          "definitionZh": "塑造；形成；使成形",
           "examples": [
-            "The table has a round shape.",
-            "Early experiences can shape a person's character."
+            "Early experiences shape a person's character.",
+            "The artist shaped the clay into a bowl."
           ]
         }
       ]
@@ -4393,20 +4393,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A mark, notice or movement that gives information; or to write one's name on a document.",
-          "definitionZh": "标志；迹象；签名；签署",
+          "definition": "A mark, notice, or movement that gives information or shows that something exists.",
+          "definitionZh": "标志；标牌；迹象；征兆",
           "examples": [
             "The sign shows where the exit is.",
-            "Please sign the form at the bottom."
+            "Dark clouds can be a sign of rain."
           ]
         },
         {
           "part": "verb",
-          "definition": "A mark, notice or movement that gives information; or to write one's name on a document.",
-          "definitionZh": "标志；迹象；签名；签署",
+          "definition": "To write your name on a document to show agreement or approval.",
+          "definitionZh": "签名；签署；签字",
           "examples": [
-            "The sign shows where the exit is.",
-            "Please sign the form at the bottom."
+            "Please sign the form at the bottom.",
+            "Both sides signed the agreement yesterday."
           ]
         }
       ]
@@ -4489,20 +4489,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "How large or small something is; or to classify or prepare something according to size.",
+          "definition": "How large or small something is, especially its measurements or dimensions.",
           "definitionZh": "大小；尺寸；尺码",
           "examples": [
             "What size shirt do you wear?",
-            "The company sizes the boxes to fit each product."
+            "The size of the room surprised us."
           ]
         },
         {
           "part": "verb",
-          "definition": "How large or small something is; or to classify or prepare something according to size.",
-          "definitionZh": "大小；尺寸；尺码",
+          "definition": "To classify, make, or adjust something according to a particular size.",
+          "definitionZh": "按尺寸分类；调整尺寸；定尺",
           "examples": [
-            "What size shirt do you wear?",
-            "The company sizes the boxes to fit each product."
+            "The company sizes the boxes to fit each product.",
+            "The tailor sized the jacket before making alterations."
           ]
         }
       ]
@@ -4556,20 +4556,20 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "Something that can be heard; or to seem a particular way when spoken about.",
-          "definitionZh": "声音；声响；听起来",
+          "definition": "Something that can be heard, such as a noise, voice, or musical note.",
+          "definitionZh": "声音；声响；音响",
           "examples": [
             "I heard a strange sound outside.",
-            "Your plan sounds reasonable to me."
+            "The sound of the bell filled the hall."
           ]
         },
         {
           "part": "verb",
-          "definition": "Something that can be heard; or to seem a particular way when spoken about.",
-          "definitionZh": "声音；声响；听起来",
+          "definition": "To seem a particular way when heard or described, or to produce a particular sound.",
+          "definitionZh": "听起来；发出声音；鸣响",
           "examples": [
-            "I heard a strange sound outside.",
-            "Your plan sounds reasonable to me."
+            "Your plan sounds reasonable to me.",
+            "The engine sounded louder after the repair."
           ]
         }
       ]
