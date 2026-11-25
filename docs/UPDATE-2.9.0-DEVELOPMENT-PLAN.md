@@ -565,3 +565,58 @@ A read-only query against the isolated staging project's `public.learning_plan_l
 ### Legal/privacy check
 
 This feedback round adds no new personal-data category, processor, tracking, transaction or entitlement mutation. The comparison page clearly distinguishes existing configured learning allowances from a future purchase offer and labels folder limits as proposals. Existing Malaysia PDPA, international privacy, 16+ audience, content licensing and unpublished Terms/privacy review remain open. Any actual Premium launch requires a separate legal and consumer/payment review; this is planning, not legal clearance.
+
+
+## 14. Owner feedback — theme clarification, active folder capacity, grid sizing and Phase 6 start — 2026-11-25
+
+The owner clarified the visual direction and approved the 16/40 collection folder limits as active mechanics. This section supersedes the earlier statements in Sections 12–13 that the folder limits were only proposals. The Premium page's folder capacity values are now active plan limits for accounts whose entitlement is Free or Premium; Premium itself remains unavailable for purchase and no entitlement activation/payment flow is introduced.
+
+### 14.1 Theme clarification
+
+- Keep the existing SwiftDictionary dark overall page background.
+- Use the current deep-blue dashboard panel surface (the Favorite words panel treatment) for the Premium page's hero, comparison table, notes, and relevant secondary panels.
+- Apply matching dark-blue surfaces to Your Collections custom dropdown menus, dialogs/prompts and text inputs. Do not introduce white surfaces in these application components.
+- Retain readable contrast, soft shadows, restrained blue accents, subtle motion and reduced-motion support.
+- Preserve intentionally paper-white stroke-order drawing surfaces; those are functional writing canvases, not UI panels.
+
+### 14.2 Active Collections capacity
+
+- Free account: maximum **16** folders.
+- Premium account with a valid active entitlement: maximum **40** folders.
+- No count, remaining-capacity indicator or capacity meter is shown in Your Collections.
+- When the user attempts to create another folder at the limit, show an in-site accessible error that names the account's plan and limit and explains that an existing folder must be removed before creating another.
+- Existing folders and memberships are never automatically deleted, including if a Premium entitlement later expires or changes to Free. If an account is above the Free limit after downgrade, existing folders remain available; new creation is blocked until below the Free limit or Premium access is restored.
+- Enforce the limit in PostgreSQL, not just the UI. Authenticated direct INSERT is revoked and creation goes through `public.create_my_favorite_collection(text)`, backed by a private SECURITY DEFINER implementation. The implementation derives the user from `auth.uid()`, checks the active entitlement and validity dates, serializes creates per user with a transaction-scoped advisory lock, counts the user's existing folders, then inserts only below the correct limit. Invalid/expired/missing entitlements use Free.
+- The folder-cap migration is staging-only: `20261125101500_swiftdictionary_update_2_9_0_favorite_collection_capacity_limits.sql`. It has been applied to isolated staging project `ivatvkfrtifgfheeaelj`; production remains untouched.
+- The database regression now checks that direct authenticated INSERT is unavailable, the RPC is available only to authenticated users, the original account-scoped CRUD and cross-account RLS rules still hold, Free folder 17 is rejected, Premium folder 41 is rejected, and all test mutations roll back.
+- The live isolated-staging SQL regression passed after correcting the test to use the RPC-only creation path and to reset fixture folder rows between Free and Premium cases. The test runs in a transaction and rolls back.
+
+### 14.3 English collection word-grid sizing
+
+- English saved-word cards in Your Collections use the same `word-card` / `word-grid` base sizing and 58px minimum card height as Dictionary cards.
+- The English collection grid uses `repeat(auto-fill, minmax(110px, 1fr))`, preventing the inner folder padding from squeezing each card below the dictionary card minimum width.
+- Simplified Chinese keeps its square character grid with a 66px minimum column size and 1:1 cards; the English width fix must not affect Chinese.
+- Browser tests check the English minimum track width and card height, as well as Chinese square-card behaviour.
+
+### 14.4 Phase 6 — optional aligned English learning-content expansion (started)
+
+- Audited the current English permanent lesson catalogue, Quiz question-bank source pack, curriculum objective map and Flashcards data flow.
+- Added **15 original bilingual English Quiz draft questions** to `content/quiz/questions.en-zh.draft.json`, five each at Beginner, Intermediate and Advanced. They are aligned with already-taught objectives in `b-articles`, `i-collocations` and `a-near-synonyms`; no new un-taught objective or lesson dependency is introduced.
+- Updated the Quiz content README: the draft bank now contains 214 questions (129 knowledge, 15 word-definition and 70 Chinese-translation). The pack remains draft-only; no new questions were approved, imported into staging or made selectable in the live Quiz.
+- Flashcards already derives its English learning vocabulary from the complete `englishWords` dictionary array (including the U2.9.0 expansion), rather than requiring a separate English flashcard bank. Avoid duplicating the same vocabulary into a second static deck. Existing Flashcards modes, recall timing, progress and allowances remain unchanged.
+- Added `node scripts/quiz/validate-question-bank.mjs` to the U2.9.0 QA workflow and enabled the existing disposable local Supabase Quiz integration workflow on the U2.9.0 feature branch. This validates the draft source and cross-version Quiz/Auth/allowance regressions without touching production.
+- This is an initial Phase 6 content addition, not a claim that the optional expansion is finished. Continue only with lesson-aligned material and preserve the rule that a question cannot assess material absent from its permanent lesson. Human bilingual/factual review remains required before any future approval/release.
+
+### 14.5 Validation checkpoint and recovery point
+
+- Staging migration applied successfully.
+- Direct transactional SQL verification passed for Free 16 and Premium 40, including the first rejected creation after each limit; the transaction rolled back.
+- Full `supabase/tests/favorite_collections.sql` staging regression passed after its fixtures were updated to use the new RPC-only create path.
+- Supabase health advisor returned no findings. Security advisor continues to show the existing 10 informational private-schema RLS/no-policy notices and one leaked-password-protection warning; no collections-capacity-specific finding was introduced.
+- An earlier browser run on commit `358cf32` exposed two test issues: the English grid assertion compared absolute track widths despite different inner container widths, and a Premium status locator was not exact. The UI sizing was tightened to a 110px minimum per English grid track, the assertion now tests that minimum and 58px card height, and the Premium status locator uses exact matching. A newer full QA run is queued; do not treat it as passed until the latest commit's checks complete.
+- Latest application feature branch: `feature/u2-9-0-collections-feedback`; PR #18 remains open. No production merge, production migration, production deployment, purchase flow or Premium entitlement assignment has occurred.
+- Current controlled preview deployment must be regenerated after the latest source changes and checked against the isolated staging Supabase route before handing a new preview to the owner.
+
+### Legal/privacy check
+
+The folder-cap implementation uses existing account identity and existing collection rows; it introduces no new personal-data category, processor, tracking or payment transaction. The active capacity is an access/feature entitlement. Preserve data on downgrade and do not disclose folder counts in the collection panel. Premium is not for sale or activated by this change. Before any actual Premium launch, conduct a separate Malaysia-specific and international consumer/payment/privacy review, including PDPA applicability, cross-border processing, price/tax disclosure, recurring billing, cancellation/refund and payment-provider terms. This is planning, not legal advice or compliance clearance.
