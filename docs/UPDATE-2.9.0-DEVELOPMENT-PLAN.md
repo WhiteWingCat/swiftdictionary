@@ -633,3 +633,11 @@ The folder-cap implementation uses existing account identity and existing collec
 - The separate `Workers Builds: swiftdictionary-testing` check failed again. Cloudflare Pages and its build-routing guard both passed; this is a separate Workers build configuration/infrastructure check and must be triaged independently, not mistaken for a failed Pages deployment.
 - The separate Local Supabase Auth/RPC integration job was still running authenticated Chromium Quiz runtime, signed-out Flashcards/Preferences, permanent Lessons allowance and local security-advisor checks at the time of this update. Await its final status before declaring the entire consolidated regression matrix complete.
 - The staging capacity migration and full `supabase/tests/favorite_collections.sql` transaction regression remain passed. No production data or entitlement was changed.
+
+
+### 14.7 Authenticated lesson-start race found and fixed during consolidated QA
+
+- The first full local Auth/Quiz integration run on commit `7a1aaea` found one pre-existing race in the permanent lesson confirmation flow: the lesson allowance refresh could re-render `#lessonCards` while the confirmation dialog was open, detaching the original button. Confirming then silently skipped the start because the handler required the original node to remain connected.
+- Fixed by assigning each rendered lesson card a stable `data-lesson-id` and resolving the current card by that ID when the original node has been replaced. If the refreshed card is now disabled, the confirmation closes with an explanatory lesson-status message instead of silently doing nothing.
+- Extended the authenticated Quiz runtime browser test to force a lesson-topic filter re-render while the confirmation is open, then confirm the start. Extended the U2.7 static regression to assert the stable-ID fallback.
+- The first failing run was not caused by the new Quiz content; the failure occurred before Quiz launch, at the permanent lesson start. The later run on commit `78280d4` is exercising the explicit race regression. Await the final Local Supabase Auth/RPC job result before calling this resolved.
