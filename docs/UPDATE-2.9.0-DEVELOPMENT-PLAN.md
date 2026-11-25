@@ -451,3 +451,62 @@ Run 45548857974 passed all 13 browser tests. The saved-word picker uses the actu
 - Legal/privacy: this refinement reuses existing account-owned collection names and saved-word references; no new personal-data category or third-party processor was introduced. Malaysia PDPA and general international privacy review remain pre-publication requirements.
 
 - Preview pointer follow-up: a docs-only progress-record commit `cc4081a4663af62d2ab53886d6474b2635be73de` redeployed the same application code successfully. The branch preview URL remains https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev; latest deployment-specific URL is https://4fa9c4e2.swiftdictionary.pages.dev. No application source changed in that docs-only commit.
+
+
+## 12. Owner feedback update — 2026-11-25 (Phase 4 refinement and Phase 5 expansion)
+
+The owner reviewed the controlled Phase 4 staging preview and supplied final Phase 4 visual/interaction corrections while authorising Phase 5 to proceed in parallel.
+
+### Phase 4 final staging corrections
+
+1. **Folder row layout:** render each collection folder as a full-width horizontal row, with the expand/collapse affordance and folder name/count aligned in the main row and the overflow actions at the far right. Do not stack the folder title and actions into a narrow vertical/column arrangement. Preserve responsive wrapping only where required on small screens.
+2. **No per-word X/remove control:** remove the X button from every saved-word card inside Your Collections. Collection membership is managed exclusively through the shared word detail panel's **Add to collection** control, which allows the user to uncheck/remove that folder membership. This avoids duplicate removal affordances and keeps one authoritative interaction.
+3. **Favorite-matched surface:** use the same current UI surface/background treatment as the Dashboard **Favorite words** panel for Your Collections and its word cards. Do not revive the legacy dark-panel/background treatment. The prohibition on the old dark-background design applies to all new and revised UI in this and future updates; use the current theme tokens/surface system, not hard-coded legacy dark colors.
+
+The Phase 4 feature branch and existing PR #18 remain the base for these corrections. Do not merge or deploy to production. Retain the account-owned schema/RLS/private Broadcast design, mixed-language support, shared detail panel and all passing regression coverage.
+
+### Phase 5 — dedicated Premium Plan page (expanded owner requirements)
+
+The earlier Premium information dialog is superseded. Clicking **Premium plan** must navigate to a dedicated in-app page/route, not open a prompt, browser dialog, or modal. Provide an obvious in-app way to return to the prior app page, and ensure direct loading/refresh of the Premium route works with the existing static/hash routing model.
+
+The page must show a complete, readable Free-versus-Premium comparison. Do not hide, abbreviate, collapse by default, or omit any of these six comparison areas:
+
+1. **Dictionary word-grid search:** Unlimited for both Free and Premium. This must be prominent and must never imply that search is a paid feature.
+2. **Daily Learning Capacity:** Free: 1 completion per day for each of Daily Topic, Daily Application, Daily Discovery and Daily Revision (four category allowances, shared between English and Chinese). Premium: 3 completions per day for each of those four categories (also shared between courses). Successful completion consumes an allowance; starting, resuming or abandoning does not.
+3. **Permanent Lessons Daily Allowance:** Free: 5 new permanent lesson starts per local day. Premium: 15 per local day. Resuming an unfinished lesson and reviewing a completed lesson remain free and do not consume another start.
+4. **Quiz Daily Allowance:** Free: 1 new Quiz session per local day. Premium: 3 per local day.
+5. **Flashcard Daily Allowance:** Free: 3 new Flashcard games per local day. Premium: 10 per local day.
+6. **Collections folder capacity:** Free: up to 16 folders; Premium: up to 40 folders. These capacities are still proposed future entitlements and are not enforced in U2.9.0. Label them clearly as proposed/planned, not currently active. Existing folders must never be deleted as a result of a future downgrade; the recommended future behaviour remains to preserve existing folders and block new creation above the Free cap until within the cap or Premium is regained, pending future owner approval.
+
+All daily figures above are the configured staging entitlement values verified read-only in `public.learning_plan_limits` on 2026-11-25. They describe the current entitlement configuration, not a purchase offer. Daily reset uses the learner's configured local timezone. The four Daily Learning category limits are shared across English and Chinese, not doubled by switching course.
+
+### Premium page presentation and strict implementation boundary
+
+- Use the current light/neutral theme surfaces and existing design tokens. Never use the old dark-background design.
+- Make the page polished, clear and responsive. Use restrained card elevation/drop shadows, generous spacing, hierarchy, and subtle entrance/hover transitions where appropriate. Respect `prefers-reduced-motion`.
+- Show the six areas as explicit comparison rows/sections with complete values and explanatory notes. On mobile, preserve all details in a readable stacked comparison; do not truncate or hide rows.
+- Premium remains informational only. Do not add checkout, payment provider, purchase, subscription activation, billing portal, entitlement mutation, plan switching or allowance enforcement. Do not imply that Premium is currently available to buy.
+- Keep dictionary search unlimited for both plans and keep all existing entitlement/allowance values unchanged.
+- The 16/40 folder caps remain visual proposals only. Do not enforce them in the client or database, and do not alter collection creation behaviour in Phase 4.
+- Keep the page accessible: semantic headings/table or equivalent, keyboard navigation, visible focus, sufficient contrast, reduced-motion support and direct-route fallback.
+
+### Phase 5 acceptance tests
+
+- Clicking Premium plan navigates to the dedicated page and does not open a modal/dialog or browser prompt.
+- Direct route load and refresh work; browser back/forward navigation is coherent.
+- Both plans visibly list all six comparison areas and every exact value above.
+- Unlimited dictionary search is stated for Free and Premium.
+- Daily Learning notes state the per-category and cross-course shared nature, and successful-completion semantics.
+- Lesson notes distinguish new starts from resume/review.
+- Collection capacities are clearly marked proposed/planned and no enforcement exists.
+- No purchase/payment/subscription/entitlement mutation action or external payment request is present.
+- Desktop and mobile visual checks pass; animations respect reduced-motion settings.
+- Existing dictionary, learning, account, collections and allowance regression tests continue to pass.
+
+### Updated sequencing and release gate
+
+Phase 4 final feedback corrections and Phase 5 dedicated-page work may proceed concurrently on the same U2.9.0 feature branch, with coordinated edits to avoid conflicts. Phase 6 remains optional and must not delay the requested staging preview. After both tracks are complete, run the consolidated U2.9.0 validation suite and deploy a controlled Cloudflare Pages preview routed only to isolated staging Supabase. Do not merge to `main`, apply production migrations or deploy production without separate explicit owner approval.
+
+### Legal/privacy check
+
+This Phase 5 page only presents already configured allowances and proposed folder capacities; it must not collect new personal data or initiate a transaction. The distinction between configured entitlement limits and an unavailable purchase offer must be explicit to avoid misleading consumer-facing claims. Before any actual Premium sale or activation, conduct a fresh Malaysia-specific and international legal review covering PDPA applicability, controller/processor roles, cross-border processing, consumer disclosures, pricing/tax, recurring billing, cancellation/refunds and payment-provider terms. The 16+ audience and existing privacy/retention/legal questions remain open. This is planning guidance, not legal advice or compliance clearance.
