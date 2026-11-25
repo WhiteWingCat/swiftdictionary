@@ -1,0 +1,18 @@
+/* SwiftDictionary U2.9.0 — visual-only future Premium information panel. */
+.premium-plan-trigger{white-space:nowrap;padding:9px 12px}
+.premium-plan-dialog.open{align-items:center;justify-content:center;padding:18px;z-index:10000}
+.premium-plan-modal{width:min(760px,100%);max-width:760px;min-width:0;height:auto;max-height:calc(100dvh - 36px);margin:0;border:1px solid #3a4558;border-radius:18px;transform:none;animation:none;overflow-y:auto;overscroll-behavior:contain}
+.premium-plan-content{padding:24px}
+.premium-plan-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.premium-plan-header h2{margin:3px 0 0;font-size:clamp(1.55rem,4vw,2rem)}
+.premium-plan-header .eyebrow{margin:0;color:var(--accent);font-weight:800;letter-spacing:.09em}
+.premium-plan-intro{margin:14px 0 20px;color:var(--muted);max-width:68ch}
+.premium-plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.premium-plan-card{min-width:0;padding:18px;border:1px solid var(--border);border-radius:14px;background:var(--panel)}
+.premium-plan-card h3{margin:0 0 5px;font-size:1.15rem}
+.premium-plan-card .plan-status{margin:0 0 12px;color:var(--muted);font-size:.82rem;font-weight:700}
+.premium-plan-card ul{margin:0;padding-left:20px}
+.premium-plan-card li+li{margin-top:9px}
+.premium-plan-note{margin:18px 0 0;padding:13px 15px;border:1px solid var(--border);border-radius:12px;color:var(--muted);font-size:.88rem}
+.premium-plan-actions{display:flex;justify-content:flex-end;margin-top:18px}
+@media(max-width:560px){.premium-plan-dialog.open{padding:10px}.premium-plan-modal{max-height:calc(100dvh - 20px)}.premium-plan-content{padding:18px}.premium-plan-grid{grid-template-columns:1fr}.premium-plan-trigger{padding:8px 10px;font-size:.86rem}}
