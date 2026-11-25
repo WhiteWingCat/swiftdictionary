@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); Phase 1 and Phase 2 are complete; Phase 3 is complete on the feature branch. Phase 4 has not started.  
+**Status:** Owner-approved plan (2026-11-24); Phases 1–3 are complete; Phase 4 Favorite Collections is in progress on the feature branch.  
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -317,3 +317,37 @@ The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core
 - Malaysia/general legal planning remains: existing PDPA/privacy, 16+ audience, content provenance/licensing and accessibility obligations remain applicable. Actual Premium activation requires separate consumer, payment, tax, cancellation/refund and processor review. This is planning, not legal clearance.
 - Dictionary word-grid search remains free and unlimited. Proposed folder limits remain future policy only.
 - Phase 4 may now begin on the feature branch, following the approved collections data/security design. Staging remains withheld until Phase 4 is implemented and internally validated.
+
+
+## 11. Phase 4 kickoff checkpoint — 2026-11-25
+
+Phase 4 has started on feature/update-2-9-0-english-dictionary-collections after the owner confirmed Phase 3 completion and instructed development to proceed.
+
+### Initial implementation
+
+- Added favorite-collections.js with the first implementation of the Your collections panel, in-site folder creation/rename/delete dialogs, collection detail view, mixed English/Chinese saved-word selection, membership add/remove, empty/loading/error feedback, account-aware refresh and optional Realtime refresh.
+- Wired the module to load after the main application script through account-deletion.js.
+- Added a Playwright browser spec for mocked collection CRUD, mixed-language membership and the invariant that collection deletion does not delete Favorite words.
+- Extended the U2.9.0 GitHub Actions workflow to include the new browser spec and collection-related paths.
+- Added a static SQL regression test for RLS, policy counts, cascading foreign keys, name uniqueness and grants.
+
+### Database foundation
+
+- Added public.favorite_collections and public.favorite_collection_items in the isolated staging Supabase project only.
+- Staging migration ledger version: 20261125041816 (swiftdictionary_update_2_9_0_favorite_collections).
+- Both tables have RLS enabled. Four collection policies enforce owner-scoped SELECT/INSERT/UPDATE/DELETE; three membership policies enforce owner-scoped SELECT/INSERT/DELETE and require ownership of both the collection and the saved-word row.
+- Added a case-insensitive per-user unique folder-name index, owner/creation and membership lookup indexes, and cascading foreign keys from membership to both collection and saved-word rows.
+- Names are trimmed and limited to 1–48 characters. No Free/Premium folder cap is enforced.
+- Read-only post-checks confirmed RLS and all seven policies, expected indexes and cascade constraints. Existing staging saved_words count remained 14; the new collection tables remain empty after schema checks.
+- Supabase security advisor showed no new collections-specific finding; the same pre-existing private-schema RLS informational findings and leaked-password-protection warning remain.
+
+### Remaining Phase 4 acceptance work
+
+- Verify the actual rendered Favorite words anchor and panel placement.
+- Run and fix the new Playwright suite and all existing U2.9.0 regression suites.
+- Complete authenticated staging CRUD and adversarial two-account RLS tests, including direct attempts to attach another account’s saved word to a folder.
+- Verify cross-device refresh/Realtime fallback, account switching, duplicate names, long names, error handling, concurrency, keyboard accessibility and desktop/mobile layouts.
+- Run database regression checks and Supabase advisors after any follow-up changes.
+- Update privacy/terms copy as needed before release; collections store user-created folder names and references to existing account-owned saved words. Malaysia PDPA and general international privacy/16+ safeguards remain applicable. This is planning, not legal clearance.
+
+No staging preview has been created. The first staging preview remains withheld until Phase 4 is fully implemented and internally validated. Production Supabase, production data, main, deployment, payment/subscription and entitlement enforcement remain untouched. Dictionary search remains free and unlimited; existing learning allowances remain unchanged.
