@@ -279,6 +279,7 @@ test("60-second completion shows results and requires closing the prompt to retu
 
 test("120-second challenge is available and remains active after the first 60 seconds",async({page})=>{
   await page.clock.install();
+  await page.clock.pauseAt(new Date());
   await openMockFlashcards(page);
   await beginRecall(page,"word","beginner","all",120);
   await expect(page.locator("#flashGameClock")).toHaveText("120s");
