@@ -193,9 +193,35 @@ begin
   end;
   if not denied then raise exception 'Account B inserted membership into Account A collection'; end if;
 
+  denied := false;
+  begin
+    insert into public.favorite_collection_items(collection_id,saved_word_id)
+    values(collection_b,word_a);
+  exception when insufficient_privilege then denied := true;
+  end;
+  if not denied then raise exception 'Account B added another account saved word to its own collection'; end if;
+
+  delete from public.favorite_collection_items where collection_id=collection_a;
+  get diagnostics affected = row_count;
+  if affected <> 0 then raise exception 'Account B deleted Account A membership'; end if;
+
   perform set_config('request.jwt.claim.sub', user_a::text, true);
+  update public.favorite_collections set name='__p4a_renamed_' || suffix where id=collection_a;
+  get diagnostics affected = row_count;
+  if affected <> 1 then raise exception 'Account A cannot rename its own collection'; end if;
+
+  denied := false;
+  begin
+    update public.favorite_collections set user_id=user_b where id=collection_a;
+  exception when insufficient_privilege then denied := true;
+  end;
+  if not denied then raise exception 'Account A reassigned collection ownership'; end if;
+
   select count(*) into visible_count from public.favorite_collection_items where collection_id=collection_a;
   if visible_count <> 1 then raise exception 'Account A cannot read its own membership'; end if;
+  delete from public.favorite_collection_items where collection_id=collection_a;
+  get diagnostics affected = row_count;
+  if affected <> 1 then raise exception 'Account A cannot remove its own membership'; end if;
   delete from public.favorite_collections where id=collection_a;
   get diagnostics affected = row_count;
   if affected <> 1 then raise exception 'Account A cannot delete its own collection'; end if;
