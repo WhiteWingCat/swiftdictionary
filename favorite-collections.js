@@ -93,7 +93,7 @@
       .fc-dialog p{color:#a1a7b4;line-height:1.5}
       .fc-dialog label{display:block;margin:14px 0 6px;font-size:.9rem}
       .fc-dialog input[type=text]{box-sizing:border-box;width:100%;padding:11px 12px;border:1px solid #3a4558;border-radius:9px;background:#111821;color:#f3f4f6;font:inherit}
-      .fc-dialog .fc-error{min-height:1.3em;color:#b42318;font-size:.88rem}
+      .fc-dialog .fc-error{min-height:1.3em;color:#ff9b9b;font-size:.88rem}
       .fc-dialog .fc-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:16px}
       .fc-dialog .fc-word-list{display:grid;gap:8px;margin-top:12px;max-height:38dvh;overflow:auto}
       .fc-dialog .fc-word-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px;border:1px solid #34435a;border-radius:9px;background:#202a3a}
