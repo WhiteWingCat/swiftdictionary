@@ -12,6 +12,7 @@ on:
       - "premium-plan.css"
       - "premium-plan.js"
       - "scripts/dictionary/validate-english-phase3.mjs"
+      - "scripts/dictionary/audit-english-catalogue.mjs"
       - "tests/browser/u2-9-0-english-categories.spec.js"
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
@@ -52,6 +53,8 @@ jobs:
         run: node scripts/dictionary/validate-english-expansion.mjs
       - name: Audit English topic categories and Chinese translations
         run: node scripts/dictionary/validate-english-phase3.mjs
+      - name: Run whole-catalogue editorial integrity audit
+        run: node scripts/dictionary/audit-english-catalogue.mjs
       - name: Install Playwright test runner
         run: |
           npm init -y
