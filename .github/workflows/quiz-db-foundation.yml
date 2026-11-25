@@ -185,11 +185,11 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125043448_swiftdictionary_update_2_9_0_favorite_collections_realtime.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125050023_swiftdictionary_update_2_9_0_favorite_collections_private_broadcast.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125050329_swiftdictionary_update_2_9_0_favorite_collections_remove_postgres_changes.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125101500_swiftdictionary_update_2_9_0_favorite_collection_capacity_limits.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125113000_swiftdictionary_update_2_9_0_favorite_collection_ordering.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125150000_swiftdictionary_update_2_9_0_reorder_rpc_invoker_security.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125085850_swiftdictionary_update_2_9_0_favorite_collection_capacity_limits.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125105110_swiftdictionary_update_2_9_0_favorite_collection_ordering.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125105351_swiftdictionary_update_2_9_0_reorder_rpc_invoker_security.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/favorite_collections.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125133000_swiftdictionary_update_2_9_0_english_lesson_expansion.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125105244_swiftdictionary_update_2_9_0_english_lesson_expansion.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_9_0_english_lesson_catalog.sql"
 
       - name: Verify explicit grants for all staged public tables
