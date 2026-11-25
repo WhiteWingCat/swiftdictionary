@@ -73,14 +73,22 @@
       #swiftFavoriteCollections .fc-menu[hidden]{display:none}
       #swiftFavoriteCollections .fc-menu button{display:block;width:100%;padding:8px 10px;border:0;background:transparent;text-align:left;box-shadow:none}
       #swiftFavoriteCollections .fc-menu button:hover{background:rgba(100,120,150,.08)}
-      #swiftFavoriteCollections .fc-expanded{padding:0 12px 12px}
+      #swiftFavoriteCollections .fc-expanded{padding:0 12px 0;max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease,padding .28s ease}
+      #swiftFavoriteCollections .fc-expanded.is-open{max-height:10000px;opacity:1;padding:0 12px 12px}
       #swiftFavoriteCollections .fc-expanded[hidden]{display:none}
+      #swiftFavoriteCollections .fc-folder-order{display:flex;align-items:center;gap:3px;flex:none}
+      #swiftFavoriteCollections .fc-drag-handle{cursor:grab;touch-action:pan-y;user-select:none;padding:7px 8px!important}
+      #swiftFavoriteCollections .fc-folder-card.is-dragging{opacity:.45}
+      #swiftFavoriteCollections .fc-folder-card.is-drop-before{box-shadow:inset 0 3px 0 var(--accent,#7fa9df)}
+      #swiftFavoriteCollections .fc-folder-card.is-drop-after{box-shadow:inset 0 -3px 0 var(--accent,#7fa9df)}
       #swiftFavoriteCollections .fc-language-group{margin-top:12px}
       #swiftFavoriteCollections .fc-language-group h4{margin:0 0 8px;color:var(--muted,#687386);font-size:.82rem;font-weight:750}
-      #swiftFavoriteCollections .fc-expanded-grid{min-width:0;grid-auto-rows:1fr}#swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}#swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr))}
-      #swiftFavoriteCollections .fc-expanded-grid.character-grid{min-width:0}
-      #swiftFavoriteCollections .fc-word-card{display:block;min-width:0}
-      #swiftFavoriteCollections .fc-word-open{display:flex;width:100%;min-width:0;box-shadow:0 2px 7px rgba(31,49,74,.08)}
+      #swiftFavoriteCollections .fc-expanded-grid{width:100%;min-width:0;grid-auto-rows:1fr;box-sizing:border-box}
+      #swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:12px}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:10px}
+      #swiftFavoriteCollections .fc-word-card{display:block;min-width:0;width:100%;box-sizing:border-box}
+      #swiftFavoriteCollections .fc-word-open{display:flex;width:100%;min-width:0;max-width:100%;box-sizing:border-box;box-shadow:0 2px 7px rgba(31,49,74,.08)}
+      #swiftFavoriteCollections .fc-word-open .word-name{min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:normal}
       #swiftFavoriteCollections .fc-expanded-grid.character-grid .fc-word-open{width:100%;min-height:66px;aspect-ratio:1/1;justify-content:center;padding:5px}
       #collectionAddButton{box-shadow:0 3px 10px rgba(31,49,74,.12)}
       #collectionAddButton[hidden]{display:none!important}
@@ -102,6 +110,7 @@
       .fc-dialog .fc-inline-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
       .fc-dialog button:disabled{opacity:.55;cursor:wait}
       @media(max-width:520px){#swiftFavoriteCollections{padding:14px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
+      @media(max-width:520px){#swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(min(100%,132px),1fr));gap:9px}}
       @media(prefers-reduced-motion:reduce){#swiftFavoriteCollections *, .fc-dialog *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
     `;
     document.head.appendChild(style);
@@ -257,7 +266,7 @@
       return;
     }
     list.append(el("p", "fc-muted", "Loading collections…"));
-    const { data, error } = await c.from(COLLECTIONS).select("id,name,created_at").order("created_at", { ascending: true });
+    const { data, error } = await c.from(COLLECTIONS).select("id,name,created_at,sort_order").order("sort_order", { ascending: true }).order("created_at", { ascending: true });
     if (requestSequence !== refreshSequence || getUser()?.id !== user.id || !panel?.isConnected) return;
     list.replaceChildren();
     if (error) {
@@ -294,8 +303,16 @@
       toggle.setAttribute("aria-expanded", String(isOpen));
       caret.textContent = "›";
       toggle.querySelector(".fc-folder-count").textContent = countError ? "Open folder" : `${count} words`;
-      content.hidden = !isOpen;
-      if (isOpen) loadCollectionWords(collection, content);
+      if (isOpen) {
+        content.hidden = false;
+        requestAnimationFrame(() => content.classList.add("is-open"));
+        loadCollectionWords(collection, content);
+      } else {
+        content.classList.remove("is-open");
+        content.addEventListener("transitionend", event => {
+          if (event.target === content && !expandedCollectionIds.has(collection.id)) content.hidden = true;
+        }, { once: true });
+      }
     }, "fc-folder-toggle");
     toggle.setAttribute("aria-expanded", String(expanded));
     const caret = el("span", "fc-folder-caret", "›");
@@ -331,10 +348,77 @@
     head.append(toggle, menuWrap);
     const content = el("div", "fc-expanded");
     content.hidden = !expanded;
+    if (expanded) content.classList.add("is-open");
     content.append(el("p", "fc-muted", "Loading saved words…"));
+    const orderControls = el("div", "fc-folder-order");
+    const dragHandle = button("⠿", () => {}, "fc-button fc-drag-handle");
+    dragHandle.draggable = true;
+    dragHandle.setAttribute("aria-label", "Drag " + collection.name + " to reorder");
+    dragHandle.title = "Drag to reorder folders";
+    const moveUp = button("↑", () => moveCollection(collection.id, -1), "fc-button");
+    moveUp.setAttribute("aria-label", "Move " + collection.name + " up");
+    const moveDown = button("↓", () => moveCollection(collection.id, 1), "fc-button");
+    moveDown.setAttribute("aria-label", "Move " + collection.name + " down");
+    orderControls.append(dragHandle, moveUp, moveDown);
+    head.insertBefore(orderControls, menuWrap);
+    card.dataset.collectionId = collection.id;
+    dragHandle.addEventListener("dragstart", event => {
+      card.classList.add("is-dragging");
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("text/plain", collection.id);
+    });
+    dragHandle.addEventListener("dragend", () => {
+      card.classList.remove("is-dragging");
+      panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
+    });
+    card.addEventListener("dragover", event => {
+      const movingId = event.dataTransfer?.getData("text/plain");
+      if (!movingId || movingId === collection.id) return;
+      event.preventDefault();
+      const rect = card.getBoundingClientRect();
+      card.classList.toggle("is-drop-before", event.clientY <= rect.top + rect.height / 2);
+      card.classList.toggle("is-drop-after", event.clientY > rect.top + rect.height / 2);
+    });
+    card.addEventListener("dragleave", event => {
+      if (!card.contains(event.relatedTarget)) card.classList.remove("is-drop-before","is-drop-after");
+    });
+    card.addEventListener("drop", event => {
+      event.preventDefault();
+      const movingId = event.dataTransfer?.getData("text/plain");
+      const rect = card.getBoundingClientRect();
+      card.classList.remove("is-drop-before","is-drop-after");
+      if (movingId && movingId !== collection.id) moveCollectionTo(movingId, collection.id, event.clientY > rect.top + rect.height / 2);
+    });
     card.append(head, content);
     panel.querySelector(".fc-list").append(card);
     if (expanded) loadCollectionWords(collection, content);
+  }
+
+  async function persistCollectionOrder(ids) {
+    const c = getClient();
+    if (!c || !getUser()) return;
+    for (let position = 0; position < ids.length; position++) {
+      const result = await c.rpc("reorder_my_favorite_collection", { p_collection_id: ids[position], p_new_position: position });
+      if (result.error) { console.error("Could not save collection order", result.error); await refresh(); return; }
+    }
+    await refresh();
+  }
+
+  async function moveCollection(collectionId, direction) {
+    const ids = [...panel.querySelectorAll(".fc-folder-card")].map(card => card.dataset.collectionId);
+    const index = ids.indexOf(collectionId), target = index + direction;
+    if (index < 0 || target < 0 || target >= ids.length) return;
+    [ids[index], ids[target]] = [ids[target], ids[index]];
+    await persistCollectionOrder(ids);
+  }
+
+  async function moveCollectionTo(movingId, targetId, afterTarget) {
+    const ids = [...panel.querySelectorAll(".fc-folder-card")].map(card => card.dataset.collectionId);
+    const from = ids.indexOf(movingId), to = ids.indexOf(targetId);
+    if (from < 0 || to < 0 || from === to) return;
+    ids.splice(from, 1);
+    ids.splice(ids.indexOf(targetId) + (afterTarget ? 1 : 0), 0, movingId);
+    await persistCollectionOrder(ids);
   }
 
   async function loadCollectionWords(collection, content) {
@@ -496,7 +580,7 @@
     }, "fc-button fc-primary"));
     dialog.append(actions);
     const [{ data: collections, error: collectionsError }, { data: savedRows, error: savedError }] = await Promise.all([
-      c.from(COLLECTIONS).select("id,name").order("created_at", { ascending: true }),
+      c.from(COLLECTIONS).select("id,name,sort_order").order("sort_order", { ascending: true }).order("created_at", { ascending: true }),
       c.from(WORDS).select("id").eq("word", word).eq("course", course)
     ]);
     if (getUser()?.id !== userId || overlay?.hidden) return;
