@@ -190,7 +190,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(panel.getByText("Work")).toBeVisible();
 
   // Folder order can be changed with accessible controls and persists in the account data.
-  const workOrderCard = panel.locator(".fc-folder-card").filter({ has: panel.getByText("Work", { exact: true }) });
+  const workOrderCard = panel.locator(".fc-folder-card").filter({ hasText: "Work" });
   await workOrderCard.getByRole("button", { name: "Move Work up" }).click();
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
