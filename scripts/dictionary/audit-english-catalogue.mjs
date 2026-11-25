@@ -26,7 +26,7 @@ function arrayEnd(source,start){
  throw new Error("Unclosed English dictionary array");
 }
 const app=fs.readFileSync(path.join(root,"index.html"),"utf8");
-const marker=/(?:const|let|var)\s+englishWords\s*=\s*\\[/;
+const marker=/(?:const|let|var)\s+englishWords\s*=\s*\[/;
 const match=marker.exec(app);
 if(!match)throw new Error("Cannot locate embedded englishWords baseline");
 const start=app.indexOf("[",match.index),baseline=JSON.parse(app.slice(start,arrayEnd(app,start)));
