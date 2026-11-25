@@ -136,7 +136,7 @@ test("Premium plan entry navigates to a dedicated future-only comparison page", 
   await expect(rows.nth(4)).toContainText("10 per local day");
   await expect(rows.nth(5)).toContainText("16 folders");
   await expect(rows.nth(5)).toContainText("40 folders");
-  await expect(page.locator(".premium-proposed")).toHaveText("Proposed future benefit");
+  await expect(page.locator(".premium-capacity")).toHaveText("Active folder limit");
   await expect(page.locator(".premium-status")).toContainText("Premium is not currently available to purchase.");
   await expect(page.locator("button,[role=dialog]")).toHaveCount(0);
 });
