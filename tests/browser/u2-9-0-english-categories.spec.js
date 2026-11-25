@@ -115,43 +115,46 @@ test("English topic filters wrap and remain usable on a narrow mobile viewport",
   expect(count).toBeLessThan(1316);
 });
 
-test("Premium information is clearly marked as future-only and has no purchase action", async ({ page }) => {
+test("Premium plan entry navigates to a dedicated future-only comparison page", async ({ page }) => {
   await page.goto("/");
   const trigger = page.getByRole("button", { name: "Premium plan", exact: true });
   await expect(trigger).toBeVisible();
   await trigger.click();
-
-  const dialog = page.getByRole("dialog", { name: "Get Premium Plan" });
-  await expect(dialog).toBeVisible();
-  await expect(dialog).toContainText("dictionary search will remain free and unlimited");
-  await expect(dialog).toContainText("16 collection folders");
-  await expect(dialog).toContainText("40 collection folders");
-  await expect(dialog).toContainText("Not available yet");
-  await expect(dialog).toContainText("There is no checkout, payment or subscription action");
-  await expect(dialog.getByRole("button", { name: /purchase|subscribe|checkout|pay/i })).toHaveCount(0);
-
-  await page.keyboard.press("Escape");
-  await expect(dialog).toBeHidden();
-  await expect(trigger).toBeFocused();
+  await page.waitForURL(/premium-plan\\.html(?:$|\\?)/);
+  await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
+  const rows = page.locator(".premium-comparison-row");
+  await expect(rows).toHaveCount(6);
+  await expect(rows.nth(0)).toContainText("Unlimited");
+  await expect(rows.nth(0)).toContainText("Always free");
+  await expect(rows.nth(1)).toContainText("1 completion per category / day");
+  await expect(rows.nth(1)).toContainText("3 completions per category / day");
+  await expect(rows.nth(2)).toContainText("5 per local day");
+  await expect(rows.nth(2)).toContainText("15 per local day");
+  await expect(rows.nth(3)).toContainText("1 per local day");
+  await expect(rows.nth(3)).toContainText("3 per local day");
+  await expect(rows.nth(4)).toContainText("3 per local day");
+  await expect(rows.nth(4)).toContainText("10 per local day");
+  await expect(rows.nth(5)).toContainText("16 folders");
+  await expect(rows.nth(5)).toContainText("40 folders");
+  await expect(page.locator(".premium-proposed")).toHaveText("Proposed future benefit");
+  await expect(page.locator(".premium-status")).toContainText("Premium is not currently available to purchase.");
+  await expect(page.locator("button,[role=dialog]")).toHaveCount(0);
 });
 
-test("Premium information dialog fits a narrow mobile viewport", async ({ page }) => {
+test("Premium comparison page fits a narrow mobile viewport without hiding comparison rows", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  await page.getByRole("button", { name: "Premium plan", exact: true }).click();
-  const dialog = page.getByRole("dialog", { name: "Get Premium Plan" });
-  await expect(dialog).toBeVisible();
-  const panel = dialog.locator(".premium-plan-modal");
-  const dimensions = await panel.evaluate(node => ({
-    clientWidth: node.clientWidth,
-    scrollWidth: node.scrollWidth,
-    clientHeight: node.clientHeight,
-    scrollHeight: node.scrollHeight
+  await page.goto("/premium-plan.html");
+  await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
+  const rows = page.locator(".premium-comparison-row");
+  await expect(rows).toHaveCount(6);
+  for (let index = 0; index < 6; index++) await expect(rows.nth(index)).toBeVisible();
+  const dimensions = await page.evaluate(() => ({
+    viewport: window.innerWidth,
+    document: document.documentElement.scrollWidth,
+    content: document.querySelector(".premium-shell").scrollWidth
   }));
-  expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.clientWidth + 2);
-  expect(dimensions.clientHeight).toBeLessThanOrEqual(824);
-  await dialog.getByRole("button", { name: "Close", exact: true }).click();
-  await expect(dialog).toBeHidden();
+  expect(dimensions.document).toBeLessThanOrEqual(dimensions.viewport);
+  expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
 });
 
 test("every English topic category returns entries and keeps pagination scoped to the topic", async ({ page }) => {
