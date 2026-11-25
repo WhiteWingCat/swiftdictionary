@@ -3580,3 +3580,11 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - Latest full CI run **45541902319**, commit `0279d056fa1b11c0f31b1263ac918daacab0edcd`, passed both content validators, Playwright/Chromium setup and all nine browser tests.
 - Malaysia/general legal check: informational-only UI introduces no new personal-data processing or consumer transaction. Actual Premium activation still requires separate payment, recurring-billing, tax, consumer-disclosure, cancellation/refund and processor review. Proposed folder limits are not active entitlements.
 - Phase 3 remains in progress. Phase 4 has not started; no staging preview, production merge/deployment or Supabase write occurred.
+
+
+## 2026-11-25 — U2.9.0 Phase 3 expanded category and Premium regression
+
+- Added browser coverage for all ten English topic categories, ensuring each returns entries. Verified topic-scoped pagination across five Actions pages and reset of the active English topic after switching to Chinese and back.
+- Expanded visual-only Premium UI tests for proposed 16/40 folder capacities, unlimited free dictionary search, future-only disclosure, absence of checkout/payment/subscription actions, Escape close/focus restoration and narrow-mobile fit.
+- Latest full CI run **45542196426**, commit `70f3e27486a8609aa11c22c29fae6529cb94fe09`, passed baseline/expansion validation, strengthened Phase 3 translation/category audit, Playwright/Chromium setup and all ten browser tests.
+- Phase 3 core implementation is integrated. Broader semantic/editorial review remains open; Phase 3 is not marked complete. Phase 4 has not started.
