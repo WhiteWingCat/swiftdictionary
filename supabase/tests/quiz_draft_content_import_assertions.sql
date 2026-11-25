@@ -107,8 +107,8 @@ begin
       or jsonb_array_length(q.options)<>4
       or not exists(select 1 from jsonb_array_elements(q.options) o where o->>'id'=q.correct_option_id));
 
-  if v_phase6<>24 or v_bad_phase6<>0 then
-    raise exception 'Phase 6 draft import expected 24 lesson-linked draft questions with four options; found %, invalid %',v_phase6,v_bad_phase6;
+  if v_phase6<>30 or v_bad_phase6<>0 then
+    raise exception 'Phase 6 draft import expected 30 lesson-linked draft questions with four options; found %, invalid %',v_phase6,v_bad_phase6;
   end if;
 
   if (select count(distinct topic_id) from private.quiz_question_bank
@@ -144,6 +144,6 @@ begin
   ) then
     raise exception 'Advanced batch topic distribution is unexpected';
   end if;
-  raise notice 'Quiz draft content import passed: 199 baseline questions plus 24 Phase 6 draft additions (all draft), 14 source-topic groups, 0 approved';
+  raise notice 'Quiz draft content import passed: 199 baseline questions plus 30 Phase 6 draft additions (all draft), 14 source-topic groups, 0 approved';
 end;
 $draft_import$;
