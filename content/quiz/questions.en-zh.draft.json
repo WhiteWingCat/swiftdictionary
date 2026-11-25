@@ -6585,22 +6585,22 @@
         {
           "id": "a",
           "learning_text": "a umbrella",
-          "translation_text": "a umbrella"
+          "translation_text": "错误用法：a umbrella"
         },
         {
           "id": "b",
           "learning_text": "an umbrella",
-          "translation_text": "an umbrella"
+          "translation_text": "正确用法：an umbrella"
         },
         {
           "id": "c",
           "learning_text": "the umbrella in every context",
-          "translation_text": "所有语境都用 the umbrella"
+          "translation_text": "所有语境都使用 the umbrella"
         },
         {
           "id": "d",
           "learning_text": "umbrella",
-          "translation_text": "umbrella"
+          "translation_text": "省略冠词：umbrella"
         }
       ],
       "correct_option_id": "b",
@@ -6649,22 +6649,22 @@
         {
           "id": "a",
           "learning_text": "I saw a owl near the tree.",
-          "translation_text": "I saw a owl near the tree."
+          "translation_text": "错误：a owl"
         },
         {
           "id": "b",
           "learning_text": "I saw an owl near the tree.",
-          "translation_text": "I saw an owl near the tree."
+          "translation_text": "正确：an owl"
         },
         {
           "id": "c",
           "learning_text": "I saw the owl near a tree in every context.",
-          "translation_text": "所有语境都说 I saw the owl near a tree。"
+          "translation_text": "特定语境中的 the owl"
         },
         {
           "id": "d",
           "learning_text": "I saw an the owl.",
-          "translation_text": "I saw an the owl。"
+          "translation_text": "错误：an the owl"
         }
       ],
       "correct_option_id": "b",
@@ -6681,22 +6681,22 @@
         {
           "id": "a",
           "learning_text": "a",
-          "translation_text": "a"
+          "translation_text": "不定冠词 a"
         },
         {
           "id": "b",
           "learning_text": "an",
-          "translation_text": "an"
+          "translation_text": "不定冠词 an"
         },
         {
           "id": "c",
           "learning_text": "the",
-          "translation_text": "the"
+          "translation_text": "定冠词 the"
         },
         {
           "id": "d",
           "learning_text": "some",
-          "translation_text": "some"
+          "translation_text": "一些／若干 some"
         }
       ],
       "correct_option_id": "c",
@@ -6777,22 +6777,22 @@
         {
           "id": "a",
           "learning_text": "take progress",
-          "translation_text": "take progress"
+          "translation_text": "错误搭配：take progress"
         },
         {
           "id": "b",
           "learning_text": "make progress",
-          "translation_text": "make progress"
+          "translation_text": "正确搭配：make progress"
         },
         {
           "id": "c",
           "learning_text": "raise progress",
-          "translation_text": "raise progress"
+          "translation_text": "错误搭配：raise progress"
         },
         {
           "id": "d",
           "learning_text": "do progress",
-          "translation_text": "do progress"
+          "translation_text": "错误搭配：do progress"
         }
       ],
       "correct_option_id": "b",
