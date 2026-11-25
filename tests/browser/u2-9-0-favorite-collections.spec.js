@@ -11,7 +11,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
         { id: 201, user_id: "test-user-b", word: "secret", course: "en", created_at: "2026-11-25T00:02:00Z" }
       ]
     };
-    const user = { id: "test-user-a" };
+    const activeUserId = () => window.currentUser?.id;
     class Query {
       constructor(table) { this.table = table; this.action = "select"; this.payload = null; this.filters = []; this.opts = {}; this.returning = false; this.singleRow = false; this.sort = null; }
       select(fields, opts) { this.returning = true; this.opts = opts || {}; this.fields = fields; return this; }
@@ -26,9 +26,9 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
       async run() {
         const rows = db[this.table];
         const matches = row => this.filters.every(([k,v]) => row[k] === v);
-        const own = row => this.table === "saved_words" ? row.user_id === user.id
-          : this.table === "favorite_collections" ? row.user_id === user.id
-          : db.favorite_collections.some(c => c.id === row.collection_id && c.user_id === user.id)
+        const own = row => this.table === "saved_words" ? row.user_id === activeUserId()
+          : this.table === "favorite_collections" ? row.user_id === activeUserId()
+          : db.favorite_collections.some(c => c.id === row.collection_id && c.user_id === activeUserId())
             && db.saved_words.some(w => w.id === row.saved_word_id && w.user_id === user.id);
         let data = [];
         let error = null;
@@ -36,7 +36,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
           for (const raw of (Array.isArray(this.payload) ? this.payload : [this.payload])) {
             const row = { ...raw };
             if (this.table === "favorite_collections") {
-              if (row.user_id !== user.id) { error = { message: "row-level security violation" }; break; }
+              if (row.user_id !== activeUserId()) { error = { message: "row-level security violation" }; break; }
               if (rows.some(x => x.user_id === user.id && x.name.toLowerCase() === row.name.toLowerCase())) { error = { message: "duplicate key unique constraint" }; break; }
               row.id = "collection-" + (rows.length + 1); row.created_at = new Date().toISOString(); rows.push(row); data.push(row);
             } else if (this.table === "favorite_collection_items") {
@@ -69,7 +69,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
         return { data: this.singleRow ? (data[0] || null) : (this.returning ? data : null), count: data.length, error: null };
       }
     }
-    window.currentUser = user;
+    window.currentUser = { id: "test-user-a" };
     window.__collectionsTestDB = db;
     window.__collectionsTestClient = {
       from: table => new Query(table),
