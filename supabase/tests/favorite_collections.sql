@@ -122,7 +122,7 @@ begin
   end if;
   if not has_function_privilege('authenticated','public.create_my_favorite_collection(text)','execute')
      or has_function_privilege('anon','public.create_my_favorite_collection(text)','execute')
-     or has_function_privilege('public','public.create_my_favorite_collection(text)','execute') then
+ then
     raise exception 'Public collection creation RPC privileges are incorrect';
   end if;
   if not has_function_privilege('authenticated','private.create_favorite_collection_with_limit(text)','execute')
