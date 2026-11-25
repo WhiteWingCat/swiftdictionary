@@ -369,18 +369,27 @@
       toggle.setAttribute("aria-expanded", String(isOpen));
       caret.textContent = "›";
       toggle.querySelector(".fc-folder-count").textContent = countError ? "Open folder" : `${count} words`;
+      const transitionToken = Number(content.dataset.transitionToken || 0) + 1;
+      content.dataset.transitionToken = String(transitionToken);
       if (isOpen) {
         content.hidden = false;
-        requestAnimationFrame(() => content.classList.add("is-open"));
+        content.inert = false;
+        requestAnimationFrame(() => {
+          if (content.dataset.transitionToken === String(transitionToken) && expandedCollectionIds.has(collection.id)) content.classList.add("is-open");
+        });
         loadCollectionWords(collection, content);
       } else {
+        content.inert = true;
         content.classList.remove("is-open");
         if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
           content.hidden = true;
         } else {
-          content.addEventListener("transitionend", event => {
-            if (event.target === content && event.propertyName === "max-height" && !expandedCollectionIds.has(collection.id)) content.hidden = true;
-          }, { once: true });
+          const finishCollapse = event => {
+            if (event.target !== content || event.propertyName !== "max-height") return;
+            content.removeEventListener("transitionend", finishCollapse);
+            if (content.dataset.transitionToken === String(transitionToken) && !expandedCollectionIds.has(collection.id)) content.hidden = true;
+          };
+          content.addEventListener("transitionend", finishCollapse);
         }
       }
     }, "fc-folder-toggle");
@@ -418,6 +427,7 @@
     head.append(toggle, menuWrap);
     const content = el("div", "fc-expanded");
     content.hidden = !expanded;
+    content.inert = !expanded;
     if (expanded) content.classList.add("is-open");
     content.append(el("p", "fc-muted", "Loading saved words…"));
     const orderControls = el("div", "fc-folder-order");
