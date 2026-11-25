@@ -47,6 +47,16 @@ test("Simplified Chinese translation switching refreshes an open multi-sense Eng
   await page.locator("#translationSelect").selectOption("zh");
   await expect(page.locator("#modalDefinition")).toContainText("接受");
   await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
+
+  // Single-sense baseline entries use the headword-level translation fallback.
+  await page.locator("#closeButton").click();
+  await page.locator("#search").fill("ability");
+  await page.locator(".word-card").first().click();
+  await expect(page.locator("#modalDefinition")).toContainText("能力");
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator("#modalDefinition")).toContainText("skill or power");
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#modalDefinition")).toContainText("能力");
 });
 
 test("English topic filters remain separate from Chinese character filters", async ({ page }) => {
