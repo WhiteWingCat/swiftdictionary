@@ -6,10 +6,10 @@
 - Learning course: English
 - Translation: Simplified Chinese
 - Current status: draft only
-- Current draft bank: 199 questions — 114 knowledge questions, 15 word-definition questions and 70 Chinese-translation questions.
+- Current draft bank: 214 questions — 129 knowledge questions, 15 word-definition questions and 70 Chinese-translation questions, including 15 Phase 6 additions aligned to existing permanent lessons.
 - The word-definition set contains five questions at each difficulty. Chinese-translation supply is 21 Beginner, 21 Intermediate and 28 Advanced, including one-word vocabulary items. The permanent English lessons have been expanded to teach all vocabulary, phrases, idioms, grammar structures and translation targets assessed by the draft bank.
 - In the English-learning / Simplified-Chinese translation Quiz, the planned daily mix is a stable pseudorandom 1–7 Chinese questions per session, selected per learner, local reset date and difficulty. The count changes after the learner's local daily reset and remains consistent if that difficulty is restarted on the same day. These replace questions within the fixed 10/15/20-question session lengths.
-- Each Mock User session deliberately includes one lesson-aligned word-definition question. The Chinese-translation count is randomized from 1–7 for each learner, local reset date and difficulty. The authenticated Quiz question-type migration now supports knowledge, word-definition and Chinese-translation records. The exporter includes all 199 questions as drafts; no question is automatically approved or made available.
+- Each Mock User session deliberately includes one lesson-aligned word-definition question. The Chinese-translation count is randomized from 1–7 for each learner, local reset date and difficulty. The authenticated Quiz question-type migration now supports knowledge, word-definition and Chinese-translation records. The exporter includes all 214 questions as drafts; no question is automatically approved or made available.
 
 These questions are original SwiftDictionary learning content. Do not copy third-party dictionary entries, textbook exercises, commercial question banks or online quiz sets. Keep prompts, distractors, translations and explanations independently authored. The Chinese-translation assessment questions use Chinese answer choices as the assessment target; their English glosses are supporting metadata, not the answer text.
 
