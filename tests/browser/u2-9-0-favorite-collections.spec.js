@@ -14,14 +14,14 @@ async function installCollectionsFixture(page) {
     };
     const activeUserId = () => window.currentUser?.id;
     class Query {
-      constructor(table) { this.table = table; this.action = "select"; this.payload = null; this.filters = []; this.opts = {}; this.returning = false; this.singleRow = false; this.sort = null; this.fields = ""; }
+      constructor(table) { this.table = table; this.action = "select"; this.payload = null; this.filters = []; this.opts = {}; this.returning = false; this.singleRow = false; this.sort = []; this.fields = ""; }
       select(fields, opts) { this.returning = true; this.opts = opts || {}; this.fields = fields || ""; return this; }
       insert(payload) { this.action = "insert"; this.payload = payload; return this; }
       upsert(payload) { this.action = "upsert"; this.payload = payload; return this; }
       update(payload) { this.action = "update"; this.payload = payload; return this; }
       delete() { this.action = "delete"; return this; }
       eq(key, value) { this.filters.push([key, value]); return this; }
-      order(key, options) { this.sort = [key, options || {}]; return this; }
+      order(key, options) { this.sort.push([key, options || {}]); return this; }
       single() { this.singleRow = true; return this; }
       then(resolve, reject) { return this.run().then(resolve, reject); }
       async run() {
@@ -78,7 +78,7 @@ async function installCollectionsFixture(page) {
             }
             return { ...row };
           });
-          if (this.sort) data.sort((a,b) => String(a[this.sort[0]]).localeCompare(String(b[this.sort[0]])) * (this.sort[1].ascending === false ? -1 : 1));
+          if (this.sort.length) data.sort((a,b) => { for (const [key,options] of this.sort) { const result = String(a[key] ?? "").localeCompare(String(b[key] ?? "")) * (options.ascending === false ? -1 : 1); if (result) return result; } return 0; });
         }
         if (error) return { data: null, error };
         if (this.opts.head) return { data: null, count: data.length, error: null };
