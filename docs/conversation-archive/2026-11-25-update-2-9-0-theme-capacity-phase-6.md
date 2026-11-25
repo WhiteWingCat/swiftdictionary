@@ -73,3 +73,11 @@ Folder caps use existing account identity and existing account-owned collection 
 - The separate `Workers Builds: swiftdictionary-testing` check failed again. This is independent from the successful Pages deployment and should be triaged as a Workers build configuration/infrastructure issue.
 - The separate Local Supabase Auth/RPC integration job was still running authenticated Quiz runtime tests, signed-out Flashcards/Preferences, permanent Lessons allowance notification and local security-advisor checks at the time of this archive update.
 - No production migration, production merge, production deployment, Premium payment or entitlement assignment occurred.
+
+
+## Additional regression discovered during full authenticated testing
+
+- A local Auth/Quiz integration run exposed a race in the existing permanent lesson confirmation flow. The allowance refresh could re-render the lesson list while the confirmation dialog remained open, detaching the original lesson card button; confirming then did not continue the start.
+- Fixed by adding stable `data-lesson-id` values to lesson cards and resolving the current card after re-render before continuing. If the replacement card is disabled, the user now receives the relevant status message.
+- Extended the authenticated Quiz runtime test to force a topic-filter re-render while the confirmation is open, and extended the U2.7 static UI test for the stable-ID fallback.
+- This failure happened before Quiz launch and was not caused by the Phase 6 draft questions. The updated authenticated local Supabase run on commit `78280d4` was still in progress at the time of this addendum.
