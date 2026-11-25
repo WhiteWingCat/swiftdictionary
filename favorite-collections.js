@@ -129,58 +129,98 @@
       if (details.dataset.swiftAnimatedDisclosure === "true") return;
       const summary = details.querySelector(":scope > summary");
       if (!summary) return;
-      const content = el("div", "fc-disclosure-content");
-      [...details.children].filter(child => child !== summary).forEach(child => content.append(child));
-      details.append(content);
+      // Animate the existing direct children in place. Do not wrap them:
+      // other Dashboard code relies on the saved-word grid remaining a direct
+      // child of <details>.
+      const contentNodes = [...details.children].filter(child => child !== summary);
+      if (!contentNodes.length) return;
+      contentNodes.forEach(node => node.classList.add("fc-disclosure-content"));
       details.dataset.swiftAnimatedDisclosure = "true";
       let disclosureSequence = 0;
+      const reducedMotion = () => window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+      const setInert = value => contentNodes.forEach(node => { node.inert = value; });
       summary.setAttribute("aria-expanded", String(details.open));
-      content.inert = !details.open;
+      setInert(!details.open);
       if (details.open) {
-        content.classList.add("is-open");
-        content.style.maxHeight = "none";
+        contentNodes.forEach(node => {
+          node.classList.add("is-open");
+          node.style.maxHeight = "none";
+        });
       } else {
-        content.style.maxHeight = "0px";
+        contentNodes.forEach(node => { node.style.maxHeight = "0px"; });
       }
+
       summary.addEventListener("click", event => {
         event.preventDefault();
         const opening = summary.getAttribute("aria-expanded") !== "true";
         const transitionId = ++disclosureSequence;
         summary.setAttribute("aria-expanded", String(opening));
+
         if (opening) {
           details.open = true;
-          content.hidden = false;
-          content.inert = false;
-          content.style.maxHeight = "0px";
+          setInert(false);
+          if (reducedMotion()) {
+            contentNodes.forEach(node => {
+              node.classList.add("is-open");
+              node.style.maxHeight = "none";
+            });
+            return;
+          }
+          contentNodes.forEach(node => { node.style.maxHeight = "0px"; });
           requestAnimationFrame(() => {
-            content.classList.add("is-open");
-            content.style.maxHeight = content.scrollHeight + "px";
+            if (transitionId !== disclosureSequence || !details.open) return;
+            contentNodes.forEach(node => {
+              node.classList.add("is-open");
+              node.style.maxHeight = node.scrollHeight + "px";
+            });
           });
-          const finishOpen = event => {
-            if (event.target !== content || event.propertyName !== "max-height") return;
-            content.removeEventListener("transitionend", finishOpen);
-            if (transitionId === disclosureSequence && details.open) content.style.maxHeight = "none";
-          };
-          content.addEventListener("transitionend", finishOpen);
-        } else if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
-          content.classList.remove("is-open");
-          content.style.maxHeight = "0px";
-          content.inert = true;
-          details.open = false;
-        } else {
-          content.inert = true;
-          content.style.maxHeight = content.scrollHeight + "px";
-          requestAnimationFrame(() => {
-            content.classList.remove("is-open");
-            content.style.maxHeight = "0px";
+          contentNodes.forEach(node => {
+            const finishOpen = event => {
+              if (event.target !== node || event.propertyName !== "max-height") return;
+              node.removeEventListener("transitionend", finishOpen);
+              if (transitionId === disclosureSequence && details.open) node.style.maxHeight = "none";
+            };
+            node.addEventListener("transitionend", finishOpen);
           });
-          const finishClose = event => {
-            if (event.target !== content || event.propertyName !== "max-height") return;
-            content.removeEventListener("transitionend", finishClose);
-            if (transitionId === disclosureSequence) details.open = false;
-          };
-          content.addEventListener("transitionend", finishClose);
+          return;
         }
+
+        setInert(true);
+        if (reducedMotion()) {
+          contentNodes.forEach(node => {
+            node.classList.remove("is-open");
+            node.style.maxHeight = "0px";
+          });
+          details.open = false;
+          return;
+        }
+
+        const animatedNodes = contentNodes.filter(node => node.scrollHeight > 0);
+        contentNodes.forEach(node => { node.style.maxHeight = node.scrollHeight + "px"; });
+        // Commit the measured height before transitioning to zero.
+        contentNodes.forEach(node => { void node.offsetHeight; });
+        requestAnimationFrame(() => {
+          if (transitionId !== disclosureSequence) return;
+          contentNodes.forEach(node => {
+            node.classList.remove("is-open");
+            node.style.maxHeight = "0px";
+          });
+        });
+        if (!animatedNodes.length) {
+          details.open = false;
+          return;
+        }
+        let remaining = animatedNodes.length;
+        animatedNodes.forEach(node => {
+          const finishClose = event => {
+            if (event.target !== node || event.propertyName !== "max-height") return;
+            node.removeEventListener("transitionend", finishClose);
+            if (transitionId !== disclosureSequence) return;
+            remaining -= 1;
+            if (remaining === 0) details.open = false;
+          };
+          node.addEventListener("transitionend", finishClose);
+        });
       });
     });
   }
