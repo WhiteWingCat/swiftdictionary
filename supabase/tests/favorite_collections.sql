@@ -130,4 +130,82 @@ begin
   end if;
 end $$;
 
+-- Exercise actual PostgreSQL RLS as the authenticated role using two existing
+-- staging accounts. All test folders and memberships are rolled back below.
+create temporary table _phase4_rls_test_accounts on commit drop as
+select user_id, min(id) as saved_word_id,
+       row_number() over(order by count(*) desc) as account_no
+from public.saved_words
+group by user_id
+order by count(*) desc
+limit 2;
+grant select on _phase4_rls_test_accounts to authenticated;
+
+set local role authenticated;
+do $
+declare
+  user_a uuid;
+  user_b uuid;
+  word_a bigint;
+  word_b bigint;
+  collection_a uuid;
+  collection_b uuid;
+  visible_count integer;
+  affected integer;
+  denied boolean := false;
+  suffix text := left(gen_random_uuid()::text, 24);
+begin
+  select user_id,saved_word_id into user_a,word_a
+  from _phase4_rls_test_accounts where account_no=1;
+  select user_id,saved_word_id into user_b,word_b
+  from _phase4_rls_test_accounts where account_no=2;
+
+  if user_a is null or user_b is null then
+    raise notice 'Skipped live two-account RLS exercise: staging needs saved words for two accounts';
+    return;
+  end if;
+
+  perform set_config('request.jwt.claim.sub', user_a::text, true);
+  insert into public.favorite_collections(user_id,name)
+  values(user_a,'__p4a_' || suffix) returning id into collection_a;
+  insert into public.favorite_collection_items(collection_id,saved_word_id)
+  values(collection_a,word_a);
+
+  perform set_config('request.jwt.claim.sub', user_b::text, true);
+  insert into public.favorite_collections(user_id,name)
+  values(user_b,'__p4b_' || suffix) returning id into collection_b;
+  select count(*) into visible_count from public.favorite_collections where id=collection_a;
+  if visible_count <> 0 then raise exception 'Account B can read Account A collection'; end if;
+  select count(*) into visible_count from public.favorite_collection_items where collection_id=collection_a;
+  if visible_count <> 0 then raise exception 'Account B can read Account A membership'; end if;
+
+  update public.favorite_collections set name='__p4_hijacked_' || suffix where id=collection_a;
+  get diagnostics affected = row_count;
+  if affected <> 0 then raise exception 'Account B updated Account A collection'; end if;
+  delete from public.favorite_collections where id=collection_a;
+  get diagnostics affected = row_count;
+  if affected <> 0 then raise exception 'Account B deleted Account A collection'; end if;
+
+  begin
+    insert into public.favorite_collection_items(collection_id,saved_word_id)
+    values(collection_a,word_b);
+  exception when insufficient_privilege then denied := true;
+  end;
+  if not denied then raise exception 'Account B inserted membership into Account A collection'; end if;
+
+  perform set_config('request.jwt.claim.sub', user_a::text, true);
+  select count(*) into visible_count from public.favorite_collection_items where collection_id=collection_a;
+  if visible_count <> 1 then raise exception 'Account A cannot read its own membership'; end if;
+  delete from public.favorite_collections where id=collection_a;
+  get diagnostics affected = row_count;
+  if affected <> 1 then raise exception 'Account A cannot delete its own collection'; end if;
+
+  perform set_config('request.jwt.claim.sub', user_b::text, true);
+  delete from public.favorite_collections where id=collection_b;
+  get diagnostics affected = row_count;
+  if affected <> 1 then raise exception 'Account B cannot delete its own collection'; end if;
+
+  raise notice 'PASS: authenticated two-account RLS isolation, own CRUD and foreign membership denial';
+end $;
+
 rollback;
