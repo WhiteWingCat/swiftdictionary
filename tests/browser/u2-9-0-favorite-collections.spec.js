@@ -91,6 +91,21 @@ async function installCollectionsFixture(page) {
     window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; });
     window.__collectionsTestClient = {
       from: table => new Query(table),
+      rpc: async (name, args) => {
+        if (name !== "create_my_favorite_collection") return { data: null, error: { message: "Unknown RPC" } };
+        const limit = window.__collectionsTestPlan === "premium" ? 40 : 16;
+        const count = db.favorite_collections.filter(row => row.user_id === activeUserId()).length;
+        if (count >= limit) return { data: null, error: {
+          message: "COLLECTION_FOLDER_LIMIT_REACHED",
+          details: JSON.stringify({ plan_code: window.__collectionsTestPlan || "free", folder_limit: limit, folder_count: count })
+        } };
+        const nameValue = String(args?.p_name || "").trim();
+        if (!nameValue || nameValue.length > 48) return { data: null, error: { message: "Invalid collection name" } };
+        if (db.favorite_collections.some(row => row.user_id === activeUserId() && row.name.toLowerCase() === nameValue.toLowerCase())) return { data: null, error: { message: "duplicate key unique constraint" } };
+        const row = { id: "collection-" + (db.favorite_collections.length + 1), user_id: activeUserId(), name: nameValue, created_at: new Date().toISOString() };
+        db.favorite_collections.push(row);
+        return { data: { id: row.id, name: row.name }, error: null };
+      },
       channel: (name, options) => {
         const channel = { name, options, removed: false, handlers: [], statusCallback: null,
           on(type, filter, callback) { this.handlers.push({ type, event: filter.event, callback }); return this; },
@@ -427,4 +442,39 @@ test("Premium plan opens a dedicated comparison page with all six complete featu
   await page.reload();
   await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
   await expect(rows).toHaveCount(6);
+});
+
+
+test("Your Collections enforces the Free 16-folder and Premium 40-folder limits without a capacity display", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
+  await expect(panel.getByText(/folders? remaining|16 of 16|40 of 40/i)).toHaveCount(0);
+  await page.evaluate(() => {
+    for (let i = 1; i <= 16; i++) window.__collectionsTestDB.favorite_collections.push({
+      id: "free-" + i, user_id: "test-user-a", name: "Free folder " + i, created_at: new Date(Date.now() + i).toISOString()
+    });
+  });
+  await page.evaluate(() => window.dispatchEvent(new Event("swift-favorite-words-updated")));
+  await expect(panel.locator(".fc-folder-card")).toHaveCount(16);
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("One too many");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(page.getByRole("alert")).toHaveText("You've reached the 16-folder limit for the Free plan. Remove an existing folder before creating another.");
+  await expect(panel.locator(".fc-folder-card")).toHaveCount(16);
+  await page.getByRole("button", { name: "Cancel" }).click();
+
+  await page.evaluate(() => {
+    window.__collectionsTestDB.favorite_collections = [];
+    window.__collectionsTestPlan = "premium";
+    for (let i = 1; i <= 40; i++) window.__collectionsTestDB.favorite_collections.push({
+      id: "premium-" + i, user_id: "test-user-a", name: "Premium folder " + i, created_at: new Date(Date.now() + i).toISOString()
+    });
+    window.dispatchEvent(new Event("swift-favorite-words-updated"));
+  });
+  await expect(panel.locator(".fc-folder-card")).toHaveCount(40);
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Premium overflow");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(page.getByRole("alert")).toHaveText("You've reached the 40-folder limit for the Premium plan. Remove an existing folder before creating another.");
+  await expect(panel.locator(".fc-folder-card")).toHaveCount(40);
 });
