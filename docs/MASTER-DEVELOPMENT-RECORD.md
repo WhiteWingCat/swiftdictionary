@@ -3568,3 +3568,15 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - Targeted sense-alignment review sampled 20 high-frequency baseline entries and 8 expansion entries. Distinct English meanings remained separately translated in the reviewed cases; this remains model-assisted spot checking, not independent native-speaker certification of every translation.
 - Latest full CI run **45541339325**, commit `48ec2caabe3e8dae3fa223380efd9d51852ca6e8`, passed both data validators, Playwright/Chromium setup and all seven browser tests.
 - Phase 3 remains in progress pending broader editorial review and completion of remaining approved scope; Phase 4 has not started.
+
+
+## 2026-11-25 — U2.9.0 Phase 3 visual-only Premium preparation
+
+- Added a global-header “Premium plan” entry and an in-site Free/Premium comparison dialog.
+- UI copy marks Premium and Collections as future proposals, not currently available. It states dictionary search remains free and unlimited, proposed folder capacities are 16 for Free and 40 for Premium once Collections launches, and future Premium value is intended to include higher daily learning allowances and additional organisation benefits.
+- No checkout, payment, purchase, billing portal, subscription activation, entitlement mutation, allowance change or Supabase integration was added.
+- Added responsive styling and keyboard accessibility: Escape/backdrop/close actions, focus restoration and tab focus containment.
+- Playwright covers future-only status, absence of purchase actions, keyboard close/focus restoration and mobile fit.
+- Latest full CI run **45541902319**, commit `0279d056fa1b11c0f31b1263ac918daacab0edcd`, passed both content validators, Playwright/Chromium setup and all nine browser tests.
+- Malaysia/general legal check: informational-only UI introduces no new personal-data processing or consumer transaction. Actual Premium activation still requires separate payment, recurring-billing, tax, consumer-disclosure, cancellation/refund and processor review. Proposed folder limits are not active entitlements.
+- Phase 3 remains in progress. Phase 4 has not started; no staging preview, production merge/deployment or Supabase write occurred.
