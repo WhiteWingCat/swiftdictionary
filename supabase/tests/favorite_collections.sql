@@ -221,6 +221,7 @@ declare
   word_b bigint;
   collection_a uuid;
   collection_a2 uuid;
+  collection_a3 uuid;
   collection_b uuid;
   visible_count integer;
   affected integer;
@@ -247,6 +248,13 @@ begin
   if (select sort_order from public.favorite_collections where id=collection_a2) <> 0
      or (select sort_order from public.favorite_collections where id=collection_a) <> 1 then
     raise exception 'Owner reorder RPC did not persist the requested position';
+  end if;
+  collection_a3 := (public.create_my_favorite_collection('__p4a3_' || suffix)->>'id')::uuid;
+  delete from public.favorite_collections where id=collection_a2;
+  perform public.reorder_my_favorite_collection(collection_a3,0);
+  if (select sort_order from public.favorite_collections where id=collection_a3) <> 0
+     or (select sort_order from public.favorite_collections where id=collection_a) <> 1 then
+    raise exception 'Reorder failed to normalise folder positions after deletion';
   end if;
   insert into public.favorite_collection_items(collection_id,saved_word_id)
   values(collection_a,word_a);
@@ -313,7 +321,7 @@ begin
   select count(*) into visible_count from public.favorite_collection_items where saved_word_id=word_a;
   if visible_count <> 0 then raise exception 'Deleting a saved word did not remove its collection memberships'; end if;
 
-  delete from public.favorite_collections where id in (collection_a,collection_a2);
+  delete from public.favorite_collections where id in (collection_a,collection_a3);
   get diagnostics affected = row_count;
   if affected <> 2 then raise exception 'Account A cannot delete its own collections'; end if;
 
