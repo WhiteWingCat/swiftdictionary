@@ -135,7 +135,7 @@ async function installCollectionsFixture(page) {
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("about:blank");
-  await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255)}.word-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.word-card{min-height:58px}.favorite-word-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}@media(max-width:650px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}}</style></head><body><main id="profilePage"><section class="profile-card"><details><summary><h2>Favorite words</h2></summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details></section></main></body></html>`);
+  await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255);padding:22px;border:1px solid transparent}.word-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.word-card{min-height:58px}.favorite-word-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}@media(max-width:650px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}}</style></head><body><main id="profilePage"><section class="profile-card"><details><summary><h2>Favorite words</h2></summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details></section></main></body></html>`);
   await page.evaluate(() => window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; }));
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
@@ -587,7 +587,7 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
   const dialog = page.getByRole("dialog", { name: "Add words to Science" });
   await dialog.getByLabel(/bioavailability/).check();
   await dialog.getByRole("button", { name: "Add selected" }).click();
-  await folder.getByRole("button", { name: /Science/ }).click();
+  await folder.locator(".fc-folder-toggle").click();
   const collectionGrid = folder.locator(".fc-expanded-grid:not(.character-grid)").first();
   await expect(collectionGrid.getByText("bioavailability")).toBeVisible();
   const after = await collectionGrid.evaluate(grid => ({
