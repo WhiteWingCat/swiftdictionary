@@ -306,3 +306,14 @@
     initialise();
   }
 })();
+
+
+// U2.9.0 Favorite Collections is loaded after the core app bindings are available.
+(() => {
+  if (document.getElementById("swiftFavoriteCollectionsScript")) return;
+  const script = document.createElement("script");
+  script.id = "swiftFavoriteCollectionsScript";
+  script.src = "favorite-collections.js";
+  script.defer = true;
+  document.head.appendChild(script);
+})();
