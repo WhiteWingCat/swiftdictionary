@@ -24,11 +24,19 @@ async function installCollectionsFixture(page) {
       single() { this.singleRow = true; return this; }
       then(resolve, reject) { return this.run().then(resolve, reject); }
       async run() {
+        let delayedRows = null;
+        let delayedSavedWords = null;
         if (this.table === "favorite_collections" && this.action === "select" && window.__delayNextCollectionRead) {
           window.__delayNextCollectionRead = false;
           await new Promise(resolve => setTimeout(resolve, 120));
         }
-        const rows = db[this.table];
+        if (this.table === "favorite_collection_items" && this.action === "select" && window.__delayNextMembershipRead) {
+          window.__delayNextMembershipRead = false;
+          delayedRows = db.favorite_collection_items.map(row => ({ ...row }));
+          delayedSavedWords = db.saved_words.map(row => ({ ...row }));
+          await new Promise(resolve => setTimeout(resolve, 120));
+        }
+        const rows = delayedRows || db[this.table];
         const matches = row => this.filters.every(([key,value]) => row[key] === value);
         const own = row => this.table === "saved_words" ? row.user_id === activeUserId()
           : this.table === "favorite_collections" ? row.user_id === activeUserId()
@@ -65,7 +73,7 @@ async function installCollectionsFixture(page) {
         } else {
           data = rows.filter(row => own(row) && matches(row)).map(row => {
             if (this.table === "favorite_collection_items" && this.fields.includes("saved_words")) {
-              return { ...row, saved_words: db.saved_words.find(word => word.id === row.saved_word_id) || null };
+              return { ...row, saved_words: (delayedSavedWords || db.saved_words).find(word => word.id === row.saved_word_id) || null };
             }
             return { ...row };
           });
@@ -174,7 +182,27 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await membershipDialog.getByRole("button", { name: "Save" }).click();
   await expect(membershipDialog).toBeHidden();
   const workCard = panel.locator(".fc-folder-card").nth(1);
-  await workCard.locator(".fc-folder-toggle").click();
+  const workToggle = workCard.locator(".fc-folder-toggle");
+  await workToggle.click();
+  await expect(workCard.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
+
+  // A stale first expansion response must not overwrite a newer collapsed/reopened state.
+  await workToggle.click();
+  await page.evaluate(() => { window.__delayNextMembershipRead = true; });
+  await workToggle.click();
+  await workToggle.click();
+  const workMembership = await page.evaluate(() => {
+    const row = window.__collectionsTestDB.favorite_collection_items.find(item => item.collection_id === "collection-2" && item.saved_word_id === 101);
+    window.__collectionsTestDB.favorite_collection_items = window.__collectionsTestDB.favorite_collection_items.filter(item => item !== row);
+    return row;
+  });
+  await workToggle.click();
+  await expect(workCard.getByText("This folder is empty.")).toBeVisible();
+  await page.waitForTimeout(150);
+  await expect(workCard.getByText("This folder is empty.")).toBeVisible();
+  await page.evaluate(row => { if (row) window.__collectionsTestDB.favorite_collection_items.push(row); }, workMembership);
+  await workToggle.click();
+  await workToggle.click();
   await expect(workCard.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
 
   await card.getByRole("button", { name: "More options for Travel" }).click();
@@ -210,6 +238,8 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
     return { shadow: getComputedStyle(primary).boxShadow, background: getComputedStyle(primary).backgroundColor };
   });
   expect(styles.shadow).not.toBe("none");
+  expect(styles.background).not.toBe("rgb(70, 121, 185)");
+  await expect(panel.locator("select")).toHaveCount(0);
 });
 
 test("Your Collections remain account-isolated and replace private Realtime channels when accounts switch", async ({ page }) => {
