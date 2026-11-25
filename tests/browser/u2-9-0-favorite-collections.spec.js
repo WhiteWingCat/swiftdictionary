@@ -563,6 +563,7 @@ test("Your Collections enforces the Free 16-folder and Premium 40-folder limits 
 
 test("Collection word cards preserve Favorite grid width and long headwords", async ({ page }) => {
   await installCollectionsFixture(page);
+  await page.setViewportSize({ width: 1280, height: 800 });
   const panel = page.locator("#swiftFavoriteCollections");
   const favoriteGrid = page.locator("#favoriteEnglishGrid");
   await favoriteGrid.evaluate(grid => {
@@ -572,6 +573,12 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
     card.innerHTML = '<span class="word-name">bioavailability</span>';
     grid.append(card);
   });
+  const desktopBefore = await favoriteGrid.evaluate(grid => ({
+    columns: getComputedStyle(grid).gridTemplateColumns,
+    cardWidth: grid.firstElementChild.getBoundingClientRect().width,
+    gridWidth: grid.getBoundingClientRect().width
+  }));
+  await page.setViewportSize({ width: 390, height: 844 });
   const before = await favoriteGrid.evaluate(grid => ({
     columns: getComputedStyle(grid).gridTemplateColumns,
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
@@ -597,6 +604,15 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
   expect(after.columns).toBe(before.columns);
   expect(after.cardWidth).toBeCloseTo(before.cardWidth, 0);
   expect(after.gridWidth).toBeCloseTo(before.gridWidth, 0);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  const desktopAfter = await collectionGrid.evaluate(grid => ({
+    columns: getComputedStyle(grid).gridTemplateColumns,
+    cardWidth: grid.firstElementChild.getBoundingClientRect().width,
+    gridWidth: grid.getBoundingClientRect().width
+  }));
+  expect(desktopAfter.columns).toBe(desktopBefore.columns);
+  expect(desktopAfter.cardWidth).toBeCloseTo(desktopBefore.cardWidth, 0);
+  expect(desktopAfter.gridWidth).toBeCloseTo(desktopBefore.gridWidth, 0);
   await expect(collectionGrid.locator(".word-name")).toHaveCSS("overflow-wrap", "anywhere");
 });
 
