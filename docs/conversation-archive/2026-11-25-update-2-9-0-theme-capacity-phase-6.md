@@ -81,3 +81,14 @@ Folder caps use existing account identity and existing account-owned collection 
 - Fixed by adding stable `data-lesson-id` values to lesson cards and resolving the current card after re-render before continuing. If the replacement card is disabled, the user now receives the relevant status message.
 - Extended the authenticated Quiz runtime test to force a topic-filter re-render while the confirmation is open, and extended the U2.7 static UI test for the stable-ID fallback.
 - This failure happened before Quiz launch and was not caused by the Phase 6 draft questions. The updated authenticated local Supabase run on commit `78280d4` was still in progress at the time of this addendum.
+
+
+## Final consolidated QA and staging handoff — 2026-11-25
+
+- Latest feature commit `78280d4` passed the U2.9.0 English QA workflow, including 16 Playwright browser tests, Quiz draft validation, Mock Quiz/Flashcards regression and whole-catalogue audits.
+- Local Supabase Auth/RPC integration passed, including authenticated Quiz runtime, signed-out Flashcards/Preferences, permanent Lessons allowance notifications, local security advisors and the lesson confirmation re-render test. The lesson-start race fix is verified.
+- Quiz database foundation passed the 214-question draft import and the separate 199-question previously owner-authorized release export. The 15 Phase 6 questions remain draft-only and excluded from the approved release.
+- Cross-version checks passed: U2.3 allowance/dashboard, U2.5 Flashcards and Chromium mock-user browser, U2.6 ACL, U2.7 Chinese dictionary/lessons and lesson-start allowance, PostgreSQL migration/allowance, Chromium regression smoke, Supabase CLI local Auth and Cloudflare build-routing guard.
+- Cloudflare Pages deployed commit `78280d4`: unique preview https://b7576dea.swiftdictionary.pages.dev; branch preview https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev; Premium comparison at `/premium-plan.html`.
+- The separate `Workers Builds: swiftdictionary-testing` check failed. Pages and its build-routing guard passed. The failed check belongs to a separate Cloudflare Workers production build and remains an infrastructure item to triage.
+- The staging Free 16 / Premium 40 migration and complete transactional SQL regression passed. No production migration, merge, payment flow or entitlement assignment occurred. PR #18 remains open for owner review.
