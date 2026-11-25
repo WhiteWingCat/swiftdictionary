@@ -26,6 +26,11 @@ test("English topic filters combine with headword search and preserve POS filter
   await topics.getByRole("button", { name: "All topics" }).click();
   await expect(page.locator("#count")).toHaveText("0 words");
 
+  await page.locator("#search").fill("accretion");
+  await topics.getByRole("button", { name: "Science & Technology" }).click();
+  await expect(page.locator("#count")).toHaveText("1 word");
+  await expect(page.locator(".word-card .word-name")).toHaveText("accretion");
+
   await page.locator("#search").fill("");
   await page.locator("#categoryRow").getByRole("button", { name: "Verbs", exact: true }).click();
   const verbCount = Number((await page.locator("#count").textContent()).match(/^\d+/)[0]);
@@ -57,6 +62,17 @@ test("Simplified Chinese translation switching refreshes an open multi-sense Eng
   await expect(page.locator("#modalDefinition")).toContainText("skill or power");
   await page.locator("#translationSelect").selectOption("zh");
   await expect(page.locator("#modalDefinition")).toContainText("能力");
+
+  // Expansion entries use their explicit sense-level Chinese translations.
+  await page.locator("#closeButton").click();
+  await page.locator("#search").fill("adjust");
+  await page.locator(".word-card").first().click();
+  await expect(page.locator("#modalDefinition")).toContainText("调整");
+  await expect(page.locator("#modalDefinition .definition-sense")).toHaveCount(2);
+  await page.locator("#translationSelect").selectOption("en");
+  await expect(page.locator("#modalDefinition")).toContainText("make a small change");
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#modalDefinition")).toContainText("逐渐适应");
 });
 
 test("English topic filters remain separate from Chinese character filters", async ({ page }) => {
