@@ -24,6 +24,10 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
       single() { this.singleRow = true; return this; }
       then(resolve, reject) { return this.run().then(resolve, reject); }
       async run() {
+        if (this.table === "favorite_collections" && this.action === "select" && window.__delayNextCollectionRead) {
+          window.__delayNextCollectionRead = false;
+          await new Promise(resolve => setTimeout(resolve, 120));
+        }
         const rows = db[this.table];
         const matches = row => this.filters.every(([k,v]) => row[k] === v);
         const own = row => this.table === "saved_words" ? row.user_id === activeUserId()
@@ -142,10 +146,15 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   await expect(panel.getByText("Private A")).toBeVisible();
 
   await page.evaluate(() => {
+    // Leave an older Account A refresh in flight while switching to Account B.
+    window.__delayNextCollectionRead = true;
+    window.dispatchEvent(new Event("swift-auth-updated"));
     window.currentUser = { id: "test-user-b" };
     window.dispatchEvent(new Event("swift-auth-updated"));
   });
   await expect(panel.getByText("No collections yet.")).toBeVisible();
+  await page.waitForTimeout(180);
+  await expect(panel.getByText("Private A")).toHaveCount(0);
   await expect(panel.getByText("Private A")).toHaveCount(0);
 
   await page.evaluate(() => {
