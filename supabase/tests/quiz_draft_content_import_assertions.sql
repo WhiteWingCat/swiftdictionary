@@ -144,6 +144,6 @@ begin
   ) then
     raise exception 'Advanced batch topic distribution is unexpected';
   end if;
-  raise notice 'Quiz draft content import passed: 199 baseline questions plus 24 Phase 6 draft additions (all draft), 17 source-topic groups, 0 approved';
+  raise notice 'Quiz draft content import passed: 199 baseline questions plus 24 Phase 6 draft additions (all draft), 14 source-topic groups, 0 approved';
 end;
 $draft_import$;
