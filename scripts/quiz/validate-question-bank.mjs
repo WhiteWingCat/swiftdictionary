@@ -93,9 +93,9 @@ for (const [index, q] of questions.entries()) {
   if (normalized && seenPrompts.has(normalized)) fail.push(at + " duplicates another normalized English prompt");
   seenPrompts.add(normalized);
 }
-if (questions.length !== 223) fail.push("The current draft pack must contain exactly 223 questions");
-if (counts.beginner !== 64 || counts.intermediate !== 70 || counts.advanced !== 89) fail.push("Difficulty totals must be 64 Beginner / 70 Intermediate / 89 Advanced");
-if (knowledgeCounts.beginner !== 38 || knowledgeCounts.intermediate !== 44 || knowledgeCounts.advanced !== 56) fail.push("Knowledge-question supply must be 38 Beginner / 44 Intermediate / 56 Advanced after the Phase 6 additions");
+if (questions.length !== 229) fail.push("The current draft pack must contain exactly 229 questions");
+if (counts.beginner !== 66 || counts.intermediate !== 72 || counts.advanced !== 91) fail.push("Difficulty totals must be 66 Beginner / 72 Intermediate / 91 Advanced");
+if (knowledgeCounts.beginner !== 40 || knowledgeCounts.intermediate !== 46 || knowledgeCounts.advanced !== 58) fail.push("Knowledge-question supply must be 40 Beginner / 46 Intermediate / 58 Advanced after the Phase 6 additions");
 if (definitionCounts.beginner !== 5 || definitionCounts.intermediate !== 5 || definitionCounts.advanced !== 5) fail.push("Word-definition questions must total five at each difficulty");
 if (translationCounts.beginner !== 21 || translationCounts.intermediate !== 21 || translationCounts.advanced !== 28) fail.push("Chinese translation question totals must be 21 Beginner / 21 Intermediate / 28 Advanced");
 
@@ -130,7 +130,7 @@ if (!emitSql) console.log("Draft items: " + questions.length);
 for (const difficulty of ["beginner", "intermediate", "advanced"]) {
   if (!emitSql) console.log(difficulty + ": " + counts[difficulty] + " total (" + knowledgeCounts[difficulty] + " knowledge, " + definitionCounts[difficulty] + " word definition, " + translationCounts[difficulty] + " Chinese translation) across " + topics[difficulty].size + " topics");
 }
-if (!emitSql) console.log("223 source items: 199 previously owner-approved release questions plus 24 Phase 6 draft-only additions. The source pack remains draft.");
+if (!emitSql) console.log("229 source items: 199 previously owner-approved release questions plus 30 Phase 6 draft-only additions. The source pack remains draft.");
 if (!emitSql) console.log("No difficulty becomes available until sufficient approved, lesson-aligned questions of each required type exist.");
 if (!emitSql) console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum, " + counts.beginner + "/30 target");
 if (!emitSql) console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
