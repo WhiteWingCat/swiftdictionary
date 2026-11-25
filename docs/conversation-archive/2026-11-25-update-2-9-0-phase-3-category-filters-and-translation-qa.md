@@ -95,3 +95,12 @@ Initial successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4c
 - Latest audit counts: 810 baseline headword translations, 657 baseline sense translations, 506 expansion headword translations and 766 expansion sense translations; zero missing, non-CJK or placeholder translations.
 - Targeted model-assisted spot checks covered 20 baseline and 8 expansion entries; this is not professional/native-speaker certification.
 - Latest CI run **45541339325**, commit `48ec2caabe3e8dae3fa223380efd9d51852ca6e8`, passed both data validators and all seven browser tests.
+
+## Visual-only Premium information UI
+
+- Added a global-header “Premium plan” entry and a Free/Premium comparison dialog.
+- The dialog marks Premium and Collections as future proposals, not available for purchase. It shows the proposed 16-Free/40-Premium folder capacities for the future Collections feature, higher daily learning allowances as a proposed Premium benefit, and explicitly says dictionary search remains free and unlimited.
+- No checkout, payment, purchase, billing portal, subscription activation, entitlement mutation, allowance change or Supabase integration was added.
+- Responsive/mobile and keyboard accessibility are included. Tests cover no purchase action, Escape close, focus restoration and narrow mobile fit.
+- Latest CI run **45541902319**, commit `0279d056fa1b11c0f31b1263ac918daacab0edcd`, passed all workflow steps and nine browser tests.
+- Legal check: informational-only, no new personal-data processing or consumer transaction. Actual Premium activation still requires separate Malaysia/international payment, tax, consumer disclosure, cancellation/refund and processor review.
