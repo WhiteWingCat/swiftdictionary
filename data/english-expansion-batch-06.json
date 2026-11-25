@@ -4825,11 +4825,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A sentence or request asking for information; or to express doubt about something.",
-          "definitionZh": "问题；疑问；质疑",
+          "part": "noun",
+          "definition": "A sentence or request asking for information",
+          "definitionZh": "问题；疑问",
           "examples": [
-            "The teacher asked us a difficult question.",
+            "The teacher asked us a difficult question."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to express doubt about something.",
+          "definitionZh": "质疑",
+          "examples": [
             "No one questioned the need for more time."
           ]
         }
@@ -4941,11 +4948,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A kind, category or group of things with shared features; or to write using a keyboard.",
-          "definitionZh": "类型；种类；打字",
+          "part": "noun",
+          "definition": "A kind, category or group of things with shared features",
+          "definitionZh": "类型；种类",
           "examples": [
-            "What type of music do you enjoy?",
+            "What type of music do you enjoy?"
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to write using a keyboard.",
+          "definitionZh": "打字",
+          "examples": [
             "Please type your name into the box."
           ]
         }
@@ -5521,11 +5535,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A formal talk given to teach people about a subject; or to give such a talk.",
-          "definitionZh": "讲座；演讲；授课",
+          "part": "noun",
+          "definition": "A formal talk given to teach people about a subject",
+          "definitionZh": "讲座；演讲",
           "examples": [
-            "The professor gave a lecture on modern history.",
+            "The professor gave a lecture on modern history."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to give such a talk.",
+          "definitionZh": "授课",
+          "examples": [
             "She lectures at the university twice a week."
           ]
         }
@@ -5550,11 +5571,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "Careful study to discover facts or reach new understanding; or to carry out such study.",
-          "definitionZh": "研究；调查",
+          "part": "noun",
+          "definition": "Careful study to discover facts or reach new understanding",
+          "definitionZh": "研究",
           "examples": [
-            "The students conducted research on local history.",
+            "The students conducted research on local history."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to carry out such study.",
+          "definitionZh": "调查",
+          "examples": [
             "I need to research the topic before writing."
           ]
         }
@@ -5579,11 +5607,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "The activity of learning about a subject; or to spend time learning, reading or investigating it carefully.",
-          "definitionZh": "学习；研究；书房",
+          "part": "noun",
+          "definition": "The activity of learning about a subject",
+          "definitionZh": "学习；研究",
           "examples": [
-            "She studies English for an hour each day.",
+            "She studies English for an hour each day."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to spend time learning, reading or investigating it carefully.",
+          "definitionZh": "书房",
+          "examples": [
             "The study found a link between sleep and memory."
           ]
         }
@@ -5695,11 +5730,18 @@
       ],
       "senses": [
         {
-          "part": "noun / verb",
-          "definition": "A public area of land for recreation; or to leave a vehicle in a particular place.",
-          "definitionZh": "公园；停车",
+          "part": "noun",
+          "definition": "A public area of land for recreation",
+          "definitionZh": "公园",
           "examples": [
-            "The children played football in the park.",
+            "The children played football in the park."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "to leave a vehicle in a particular place.",
+          "definitionZh": "停车",
+          "examples": [
             "You cannot park your car here."
           ]
         }
