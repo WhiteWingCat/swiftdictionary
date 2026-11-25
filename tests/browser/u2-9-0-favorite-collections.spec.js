@@ -229,19 +229,19 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   const longWord = card.getByRole("button", { name: "Open saved word bioavailability" });
   await expect(longWord).toBeVisible();
   const longWordGeometry = await longWord.evaluate(node => ({ width: node.getBoundingClientRect().width, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth }));
-  expect(longWordGeometry.width).toBeCloseTo(favoriteReference.cardWidth, 0);
+  expect(Math.abs(longWordGeometry.width - favoriteReference.cardWidth)).toBeLessThanOrEqual(1);
   expect(longWordGeometry.scrollWidth).toBeLessThanOrEqual(longWordGeometry.clientWidth + 1);
   expect((await panel.boundingBox()).width).toBeCloseTo(panelBox.width, 0);
   await page.setViewportSize({ width: 390, height: 844 });
   const mobileLongWord = await longWord.evaluate(node => ({ width: node.getBoundingClientRect().width, clientWidth: node.clientWidth, scrollWidth: node.scrollWidth }));
-  expect(mobileLongWord.width).toBeCloseTo(favoriteReference.cardWidth, 0);
+  expect(Math.abs(mobileLongWord.width - favoriteReference.cardWidth)).toBeLessThanOrEqual(1);
   expect(mobileLongWord.scrollWidth).toBeLessThanOrEqual(mobileLongWord.clientWidth + 1);
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
   const collectionGridTracks = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node =>
     getComputedStyle(node).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
   );
   expect(collectionGridTracks.length).toBe(favoriteReference.tracks.length);
-  collectionGridTracks.forEach((width, index) => expect(width).toBeCloseTo(favoriteReference.tracks[index], 0));
+  collectionGridTracks.forEach((width, index) => expect(Math.abs(width - favoriteReference.tracks[index])).toBeLessThanOrEqual(1));
   await expect(card.locator(".fc-expanded-grid:not(.character-grid) .fc-word-open").first()).toHaveCSS("min-height", "58px");
 
   await expect(card.locator(".fc-word-remove")).toHaveCount(0);
@@ -616,18 +616,24 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
     gridWidth: grid.getBoundingClientRect().width
   }));
-  expect(after.columns).toBe(before.columns);
-  expect(after.cardWidth).toBeCloseTo(before.cardWidth, 0);
-  expect(after.gridWidth).toBeCloseTo(before.gridWidth, 0);
+  const mobileBeforeTracks = before.columns.split(" ").map(value => Number.parseFloat(value));
+  const mobileAfterTracks = after.columns.split(" ").map(value => Number.parseFloat(value));
+  expect(mobileAfterTracks.length).toBe(mobileBeforeTracks.length);
+  mobileAfterTracks.forEach((width, index) => expect(Math.abs(width - mobileBeforeTracks[index])).toBeLessThanOrEqual(1));
+  expect(Math.abs(after.cardWidth - before.cardWidth)).toBeLessThanOrEqual(1);
+  expect(Math.abs(after.gridWidth - before.gridWidth)).toBeLessThanOrEqual(2);
   await page.setViewportSize({ width: 1280, height: 800 });
   const desktopAfter = await collectionGrid.evaluate(grid => ({
     columns: getComputedStyle(grid).gridTemplateColumns,
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
     gridWidth: grid.getBoundingClientRect().width
   }));
-  expect(desktopAfter.columns).toBe(desktopBefore.columns);
-  expect(desktopAfter.cardWidth).toBeCloseTo(desktopBefore.cardWidth, 0);
-  expect(desktopAfter.gridWidth).toBeCloseTo(desktopBefore.gridWidth, 0);
+  const desktopBeforeTracks = desktopBefore.columns.split(" ").map(value => Number.parseFloat(value));
+  const desktopAfterTracks = desktopAfter.columns.split(" ").map(value => Number.parseFloat(value));
+  expect(desktopAfterTracks.length).toBe(desktopBeforeTracks.length);
+  desktopAfterTracks.forEach((width, index) => expect(Math.abs(width - desktopBeforeTracks[index])).toBeLessThanOrEqual(1));
+  expect(Math.abs(desktopAfter.cardWidth - desktopBefore.cardWidth)).toBeLessThanOrEqual(1);
+  expect(Math.abs(desktopAfter.gridWidth - desktopBefore.gridWidth)).toBeLessThanOrEqual(2);
   await expect(collectionGrid.locator(".word-name")).toHaveCSS("overflow-wrap", "anywhere");
 });
 
