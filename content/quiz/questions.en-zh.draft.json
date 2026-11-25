@@ -4,7 +4,7 @@
   "learning_language_code": "en",
   "translation_language_code": "zh",
   "status": "draft",
-  "notes": "214 original SwiftDictionary questions: 129 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review is deferred until live testing and friend feedback; structural validation does not certify educational accuracy.",
+  "notes": "223 original SwiftDictionary questions: 138 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. It contains 199 existing release-approved questions plus 24 Phase 6 draft-only questions; the latter remain unapproved and are not part of the release subset. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review is deferred until live testing and friend feedback; structural validation does not certify educational accuracy.",
   "questions": [
     {
       "question_id": "quiz-beginner-001",
@@ -7236,6 +7236,303 @@
       "explanation_learning": "Imminent means likely to happen very soon; eminent means distinguished.",
       "explanation_translation": "imminent 表示即将发生；eminent 表示杰出的。",
       "learning_objective_id": "precise-word-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-006",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Choose the correct question: ___ your sister speak French?",
+      "prompt_translation": "选择正确的疑问句：___ 你的姐姐会说法语？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Does",
+          "translation_text": "助动词 Does"
+        },
+        {
+          "id": "b",
+          "learning_text": "Do",
+          "translation_text": "助动词 Do"
+        },
+        {
+          "id": "c",
+          "learning_text": "Is",
+          "translation_text": "be 动词 Is"
+        },
+        {
+          "id": "d",
+          "learning_text": "Did",
+          "translation_text": "助动词 Did"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use does with a third-person singular subject in the present simple. The main verb stays in its base form.",
+      "explanation_translation": "一般现在时中，第三人称单数主语搭配 does；主要动词保持原形。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-007",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Which sentence is the correct past simple negative?",
+      "prompt_translation": "哪一个句子是正确的一般过去时否定句？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "They didn't visit us.",
+          "translation_text": "他们没有来看我们。"
+        },
+        {
+          "id": "b",
+          "learning_text": "They don't visited us.",
+          "translation_text": "他们不来看我们（错误结构）。"
+        },
+        {
+          "id": "c",
+          "learning_text": "They didn't visited us.",
+          "translation_text": "他们没有来看我们（错误结构）。"
+        },
+        {
+          "id": "d",
+          "learning_text": "They weren't visit us.",
+          "translation_text": "他们没有来看我们（错误结构）。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use didn't + the base form of the main verb: didn't visit.",
+      "explanation_translation": "使用 didn't + 主要动词原形：didn't visit。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-008",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Choose the correct WH-question asking about a person's workplace.",
+      "prompt_translation": "选择正确的、询问某人工作地点的特殊疑问句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Where does he work?",
+          "translation_text": "他在哪里工作？"
+        },
+        {
+          "id": "b",
+          "learning_text": "Where he does work?",
+          "translation_text": "他在哪里工作？（错误语序）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Where do he works?",
+          "translation_text": "他在哪里工作？（助动词和动词形式错误）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Where is he work?",
+          "translation_text": "他在哪里工作？（错误结构）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use where + does + subject + base verb for a present simple WH-question.",
+      "explanation_translation": "一般现在时特殊疑问句使用 where + does + 主语 + 动词原形。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-006",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "The documents ___ yesterday.",
+      "prompt_translation": "这些文件昨天___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "were signed",
+          "translation_text": "被签署了"
+        },
+        {
+          "id": "b",
+          "learning_text": "signed",
+          "translation_text": "签署"
+        },
+        {
+          "id": "c",
+          "learning_text": "are signing",
+          "translation_text": "正在签署"
+        },
+        {
+          "id": "d",
+          "learning_text": "was signed",
+          "translation_text": "被签署了（主谓不一致）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The subject documents is plural, and yesterday calls for the past simple passive: were + past participle.",
+      "explanation_translation": "主语 documents 是复数，yesterday 表示过去时间，因此使用一般过去时被动语态 were + 过去分词。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-007",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "Choose the correct present perfect passive sentence.",
+      "prompt_translation": "选择正确的现在完成时被动语态句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The invitations have been sent.",
+          "translation_text": "邀请函已经寄出。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The invitations have sent.",
+          "translation_text": "邀请函已经寄出。（缺少 been）"
+        },
+        {
+          "id": "c",
+          "learning_text": "The invitations has been sent.",
+          "translation_text": "邀请函已经寄出。（主谓不一致）"
+        },
+        {
+          "id": "d",
+          "learning_text": "The invitations were send.",
+          "translation_text": "邀请函已经寄出。（过去分词错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The present perfect passive is have/has been + past participle. Invitations is plural, so use have been sent.",
+      "explanation_translation": "现在完成时被动语态结构为 have/has been + 过去分词。Invitations 是复数，因此使用 have been sent。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-008",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "When is it useful to include a by-phrase in a passive sentence?",
+      "prompt_translation": "被动语态句子中，什么时候适合使用 by 短语？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "When the person or group responsible is important.",
+          "translation_text": "当动作执行者很重要时。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Whenever a passive sentence is used.",
+          "translation_text": "每次使用被动语态时。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Only when the agent is unknown.",
+          "translation_text": "只有动作执行者未知时。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Never; passive sentences cannot name an agent.",
+          "translation_text": "从不；被动语态不能说明动作执行者。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use by + agent when identifying who performed the action adds useful information.",
+      "explanation_translation": "当说明谁执行了动作能提供重要信息时，使用 by + 动作执行者。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-006",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“I have finished the report,” Nina said. Choose the correct report.",
+      "prompt_translation": "“我已经完成报告了。”Nina 说道。选择正确的转述句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Nina said she had finished the report.",
+          "translation_text": "Nina 说她已经完成了报告。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Nina said she has finish the report.",
+          "translation_text": "Nina 说她完成报告。（错误结构）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Nina told she had finished the report.",
+          "translation_text": "Nina 告诉她完成报告。（缺少宾语）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Nina said she finished the report tomorrow.",
+          "translation_text": "Nina 说她明天完成了报告。（时间逻辑错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "With a past reporting verb, present perfect commonly backshifts to past perfect: have finished → had finished.",
+      "explanation_translation": "转述动词使用过去时，原句现在完成时通常后移为过去完成时：have finished → had finished。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-007",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“Where did you put the keys?” He asked me ___.",
+      "prompt_translation": "“你把钥匙放在哪里了？”他问我___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "where I had put the keys",
+          "translation_text": "我把钥匙放在哪里了"
+        },
+        {
+          "id": "b",
+          "learning_text": "where did I put the keys",
+          "translation_text": "我把钥匙放在哪里了（疑问句倒装）"
+        },
+        {
+          "id": "c",
+          "learning_text": "where I put did the keys",
+          "translation_text": "我把钥匙放在哪里了（语序错误）"
+        },
+        {
+          "id": "d",
+          "learning_text": "where had I put the keys",
+          "translation_text": "我把钥匙放在哪里了（疑问句倒装）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "A reported WH-question uses statement word order. With a past reporting verb, did put commonly becomes had put.",
+      "explanation_translation": "间接特殊疑问句使用陈述句语序。转述动词为过去时，did put 通常变为 had put。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-008",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“Please don't share the password,” she said to us. Choose the correct report.",
+      "prompt_translation": "“请不要分享密码。”她对我们说道。选择正确的转述句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She asked us not to share the password.",
+          "translation_text": "她要求我们不要分享密码。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She asked us don't share the password.",
+          "translation_text": "她要求我们不要分享密码。（结构错误）"
+        },
+        {
+          "id": "c",
+          "learning_text": "She told not to share the password.",
+          "translation_text": "她告诉不要分享密码。（缺少宾语）"
+        },
+        {
+          "id": "d",
+          "learning_text": "She asked us to not shared the password.",
+          "translation_text": "她要求我们不要分享密码。（动词形式错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Report a negative request with asked/told + object + not to + base verb.",
+      "explanation_translation": "转述否定请求时，使用 asked/told + 宾语 + not to + 动词原形。",
+      "learning_objective_id": "reported-speech-accuracy",
       "release_approved": false
     }
   ]
