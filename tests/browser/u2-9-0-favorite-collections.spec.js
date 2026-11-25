@@ -189,6 +189,17 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(membershipDialog).toBeHidden();
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
   expect(await page.evaluate(() => window.__collectionsTestDB.saved_words.some(row => row.id === 101))).toBe(true);
+
+  // Reassign the same saved word to Work through the same detail-panel collection picker.
+  await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
+  const reassignDialog = page.getByRole("dialog", { name: "Add to collection" });
+  await expect(reassignDialog).toBeVisible();
+  const reassignChoices = reassignDialog.locator('input[type="checkbox"]');
+  await expect(reassignChoices.nth(0)).not.toBeChecked();
+  await expect(reassignChoices.nth(1)).not.toBeChecked();
+  await reassignChoices.nth(1).check();
+  await reassignDialog.getByRole("button", { name: "Save" }).click();
+  await expect(reassignDialog).toBeHidden();
   const workCard = panel.locator(".fc-folder-card").nth(1);
   const workToggle = workCard.locator(".fc-folder-toggle");
   await workToggle.click();
@@ -409,7 +420,7 @@ test("Premium plan opens a dedicated comparison page with all six complete featu
   await expect(rows.nth(4)).toContainText("10 per local day");
   await expect(rows.nth(5)).toContainText("16 folders");
   await expect(rows.nth(5)).toContainText("40 folders");
-  await expect(page.getByText("Proposed future benefit")).toBeVisible();
+  await expect(page.getByText("Proposed future benefit", { exact: true })).toBeVisible();
   await expect(page.getByText("Premium is not currently available to purchase.")).toBeVisible();
   await expect(page.locator("button,[role=dialog]")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
