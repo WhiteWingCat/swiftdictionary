@@ -159,6 +159,12 @@ test("Chinese permanent lesson Daily History review uses the Chinese lesson cata
   expect(new URL(page.url()).hash).toBe("#profile");
 });
 
+test("English Flashcards include the curated multiword expression bank",async({page})=>{
+  await openMockFlashcards(page);
+  const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  expect(stats.englishCuratedPhraseCount).toBe(15);
+});
+
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
