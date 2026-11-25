@@ -42,13 +42,17 @@ begin
     pg_catalog.hashtextextended(v_user_id::text, 0)
   );
 
+  perform c.id
+  from public.favorite_collections c
+  where c.user_id = v_user_id
+  for update;
+
   select ordered.current_position into v_old_position
   from (
     select c.id,
            row_number() over (order by c.sort_order, c.created_at, c.id) - 1 as current_position
     from public.favorite_collections c
     where c.user_id = v_user_id
-    for update
   ) ordered
   where ordered.id = p_collection_id;
 
