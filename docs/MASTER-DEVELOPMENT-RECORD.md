@@ -3,7 +3,7 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-25 (U2.8.0 completed, merged and owner-confirmed live; U2.9.0 Phase 1 and Phase 2 complete; Phase 3 category/filter and translation-coverage implementation integrated with passing automated QA; Phase 4 not started.)  
+> **Last consolidated:** 2026-11-25 (U2.8.0 completed, merged and owner-confirmed live; U2.9.0 Phase 1, Phase 2 and Phase 3 complete; Phase 4 not started.)  
 **Current baseline:** Update 2.8.0 (Chinese Course Quiz & Flashcards) is completed and deployed to the live website, as confirmed by the owner on 2026-11-24.  
 **Current work:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — is in development following the owner's start instruction on 2026-11-24. Phase 1 and Phase 2 are complete on `feature/update-2-9-0-english-dictionary-collections`. Phase 2 integrated 506 unique English additions across seven source batches (766 sense records) into the runtime dataset, bringing the projected English catalogue to 1,316 unique headwords. The existing 810-entry baseline now has 302 entries with 657 explicit sense records; all 176 multi-POS baseline entries have POS sense coverage, and all 810 baseline entries have at least two contextual examples. Baseline-aware Node validation, runtime equality/load-order checks and all three Playwright browser smoke tests pass in GitHub Actions run `45537066279` on commit `399ad92e06cd93bcc9f1cc6eabb7a7222c22d45c`. Internal model-assisted editorial QA is complete; independent professional/native-speaker certification of every pronunciation and translation is not claimed and remains a release-review limitation. Phase 3 category/filter and translation-coverage implementation is in progress with automated QA passing; Phase 4 has not started. No staging preview has been prepared; per owner instruction, wait until Phase 4 is fully implemented and internally validated. No production merge, deployment or Supabase database change has occurred.  
 **Record status:** Updates 2.4.0 through 2.8.0 are completed according to the release history and owner confirmation. Update 2.9.0 is approved; Phase 1 and Phase 2 are complete, with Phase 3 category/translation work in progress and Phase 4 Favorite collections still pending. Visual-only Premium preparation remains in scope; subscription/payment activation and entitlement enforcement remain excluded. Update 3.0.0 — Introduction to Malay course — remains the next major roadmap milestone after 2.9.0.
@@ -3595,3 +3595,41 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - Extended browser coverage to verify Phase 2 expansion entry `adjust` displays both explicit Simplified Chinese senses and updates immediately when switching translation language; also verified expansion-only `accretion` is returned by the Science & Technology topic filter.
 - Latest full CI run **45542376568**, commit `234c0b2edb4b61e8d6dac0ed03c52db8c4a15083`, passed both content validators and all ten browser tests.
 - Phase 3 remains in progress pending broader semantic/editorial review. Phase 4 has not started.
+
+
+## 2026-11-25 — U2.9.0 Phase 3 completed
+
+
+## 2026-11-25 — Phase 3 completion checkpoint
+
+**Phase 3 is complete. Phase 4 is now the next development phase, but has not been started.** No staging preview has been created.
+
+### Full-catalogue editorial and structural audit
+
+- Added `scripts/dictionary/audit-english-catalogue.mjs`, a reproducible audit covering all 810 baseline entries and 506 expansion entries (1,316 total).
+- Latest audit: zero duplicate headwords, missing required fields, invalid parts of speech, insufficient examples, duplicate examples, duplicate senses, multi-POS entries lacking sense coverage, missing/unapproved topic categories, or structurally incomplete Chinese translations.
+- Reviewed all 15 concise-definition flags manually/model-assisted; all are intentionally concise, contextually supported definitions rather than omissions. The report records 15 reviewed and accepted, zero unresolved short-definition candidates.
+- The report is preserved as the `u2-9-0-english-catalogue-editorial-audit` artifact in the final QA run.
+
+### Editorial corrections and coverage
+
+- Corrected 14 expansion sense definitions/translations to improve self-contained meaning and English–Chinese alignment, including lecture, father, mother, pedestrian, favourite, cycle, picnic, design, golf, kayak, breeze, coral, telephone and text message.
+- Corrected the headword-level Chinese definition alignment for pedestrian, breeze and coral.
+- Translation coverage remains complete: baseline 810/810 headwords and 657/657 senses; expansion 506/506 headwords and 766/766 senses. No translation fields lack CJK characters or contain detected placeholders.
+- Category assignments cover all 1,316 entries, with 1,536 total assignments across the ten approved categories.
+
+### Interaction and responsive QA
+
+- All ten English topic categories return results; topic filtering composes with headword search and POS filtering and scopes pagination correctly.
+- Switching between English and Chinese resets/hides the English topic filter without disturbing Chinese character filtering.
+- Multi-sense and expansion translation switching is verified, including the corrected 14-entry sense translations.
+- Premium information dialog remains visual-only, clearly future-only and without payment, checkout, subscription or entitlement changes.
+- Final full CI run **45544792646**, commit `278a2c20472988935f615f1e0b2bab1d551fadde`, passed both dictionary validators, the whole-catalogue audit, Playwright/Chromium setup, all **11 browser tests**, and audit-artifact upload.
+
+### Release boundary and legal/privacy review
+
+- No Supabase schema, data, RLS policy, RPC or production database changes were made. No production merge/deployment or staging preview was created.
+- No new personal-data collection, tracking, third-party processor, payment, subscription or Premium entitlement behaviour was introduced.
+- Malaysia/general legal planning remains: existing PDPA/privacy, 16+ audience, content provenance/licensing and accessibility obligations remain applicable. Actual Premium activation requires separate consumer, payment, tax, cancellation/refund and processor review. This is planning, not legal clearance.
+- Dictionary word-grid search remains free and unlimited. Proposed folder limits remain future policy only.
+- Phase 4 may now begin on the feature branch, following the approved collections data/security design. Staging remains withheld until Phase 4 is implemented and internally validated.
