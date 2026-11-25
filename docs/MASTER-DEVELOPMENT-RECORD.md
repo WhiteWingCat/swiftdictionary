@@ -3796,3 +3796,14 @@ Run 45548857974 passed all 13 Playwright tests after aligning the saved-word pic
 - Added a stable `data-lesson-id` to rendered lesson cards and a fallback that resolves the current card by that ID before continuing. If the refreshed card has become disabled, the UI now reports the reason in lesson status.
 - Extended the authenticated Quiz runtime test to deliberately re-render the lesson list while the confirmation is open, then confirm. Extended the U2.7 static regression to cover the stable-ID fallback.
 - The failure occurred before Quiz launch and was unrelated to the 15 Phase 6 questions. The updated full Local Supabase Auth/RPC run on commit `78280d4` is still pending at this checkpoint.
+
+
+### Final consolidated U2.9.0 QA — 2026-11-25
+
+- Latest feature commit `78280d4` passed U2.9.0 English QA, including 16 Playwright browser tests, whole-catalogue validation, Quiz draft validation and Mock Quiz/Flashcards regressions.
+- Local Supabase Auth/RPC integration passed, including authenticated Quiz runtime, signed-out Flashcards/Preferences, permanent Lessons allowance notifications, local security advisors and the lesson-confirmation re-render regression. The lesson-start race fix is verified.
+- Quiz database foundation passed: 214-question draft import and separate 199-question previously owner-authorized release export. The 15 Phase 6 additions remain unapproved drafts.
+- U2.3 allowance/dashboard, U2.5 Flashcards (including Chromium browser), U2.6 ACL, U2.7 Chinese dictionary/lessons and lesson-start allowance, PostgreSQL migration/allowance, Chromium regression smoke, Supabase CLI local Auth and Cloudflare build-routing checks passed.
+- Cloudflare Pages deployed commit `78280d4`: https://b7576dea.swiftdictionary.pages.dev (branch preview https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev; Premium page at `/premium-plan.html`). Pages deployment and routing guard passed.
+- Separate `Workers Builds: swiftdictionary-testing` failed. It is a distinct Cloudflare Workers production build; Pages deployment and routing guard succeeded. Track it as an infrastructure issue, not a Pages staging failure.
+- Staging Free 16 / Premium 40 migration and full transactional SQL regression passed. No production migration, merge, entitlement assignment, Premium checkout or production deployment occurred. PR #18 remains open pending owner review.
