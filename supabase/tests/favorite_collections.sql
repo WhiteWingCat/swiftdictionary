@@ -113,6 +113,22 @@ begin
      or not has_table_privilege('authenticated','public.favorite_collection_items','insert') then
     raise exception 'Authenticated grants are incomplete';
   end if;
+  if has_table_privilege('authenticated','public.favorite_collections','insert') then
+    raise exception 'Authenticated clients must create folders only through the capacity-enforcing RPC';
+  end if;
+  if exists (select 1 from pg_policies where schemaname='public' and tablename='favorite_collections'
+      and policyname='favorite_collections_insert_own') then
+    raise exception 'Direct collection INSERT policy must be removed';
+  end if;
+  if not has_function_privilege('authenticated','public.create_my_favorite_collection(text)','execute')
+     or has_function_privilege('anon','public.create_my_favorite_collection(text)','execute')
+     or has_function_privilege('public','public.create_my_favorite_collection(text)','execute') then
+    raise exception 'Public collection creation RPC privileges are incorrect';
+  end if;
+  if not has_function_privilege('authenticated','private.create_favorite_collection_with_limit(text)','execute')
+     or has_function_privilege('anon','private.create_favorite_collection_with_limit(text)','execute') then
+    raise exception 'Private capacity implementation privileges are incorrect';
+  end if;
 
   select count(*) into v_saved_word_schema_count
   from information_schema.columns
@@ -283,5 +299,95 @@ begin
 
   raise notice 'PASS: authenticated two-account RLS isolation, own CRUD and foreign membership denial';
 end $phase4$;
+
+-- Isolate the folder-count exercise by temporarily clearing the selected
+-- staging account's collections and entitlement. The outer transaction rolls
+-- back all changes and preserves the owner's actual data.
+reset role;
+do $capacity_setup$
+declare v_user uuid;
+begin
+  select user_id into v_user from _phase4_rls_test_accounts where account_no=1;
+  if v_user is null then raise notice 'Skipped folder-capacity test: no account A fixture'; return; end if;
+  delete from public.favorite_collections where user_id=v_user;
+  delete from public.user_entitlements where user_id=v_user;
+end;
+$capacity_setup$;
+
+set local role authenticated;
+do $free_capacity$
+declare
+  v_user uuid;
+  v_suffix text := left(gen_random_uuid()::text, 20);
+  v_message text;
+  v_detail text;
+  v_denied boolean := false;
+begin
+  select user_id into v_user from _phase4_rls_test_accounts where account_no=1;
+  if v_user is null then return; end if;
+  perform set_config('request.jwt.claim.sub', v_user::text, true);
+  for i in 1..16 loop
+    perform public.create_my_favorite_collection('__free_cap_' || v_suffix || '_' || i);
+  end loop;
+  begin
+    perform public.create_my_favorite_collection('__free_cap_exceeded_' || v_suffix);
+  exception when sqlstate 'P0001' then
+    get stacked diagnostics v_message = message_text, v_detail = pg_exception_detail;
+    v_denied := v_message = 'COLLECTION_FOLDER_LIMIT_REACHED'
+      and v_detail::jsonb->>'plan_code' = 'free'
+      and (v_detail::jsonb->>'folder_limit')::integer = 16
+      and (v_detail::jsonb->>'folder_count')::integer = 16;
+  end;
+  if not v_denied then raise exception 'Free plan must reject folder 17 with a structured capacity error'; end if;
+  if (select count(*) from public.favorite_collections where user_id=v_user) <> 16 then
+    raise exception 'Free account folder count changed beyond 16';
+  end if;
+end;
+$free_capacity$;
+
+reset role;
+do $premium_setup$
+declare v_user uuid;
+begin
+  select user_id into v_user from _phase4_rls_test_accounts where account_no=1;
+  if v_user is null then return; end if;
+  insert into public.user_entitlements(user_id,plan_code,status,valid_from,valid_until,source)
+  values(v_user,'premium','active',pg_catalog.now() - interval '1 minute',null,'admin')
+  on conflict(user_id) do update set plan_code='premium',status='active',
+    valid_from=excluded.valid_from,valid_until=null,source='admin',updated_at=pg_catalog.now();
+end;
+$premium_setup$;
+
+set local role authenticated;
+do $premium_capacity$
+declare
+  v_user uuid;
+  v_suffix text := left(gen_random_uuid()::text, 20);
+  v_message text;
+  v_detail text;
+  v_denied boolean := false;
+begin
+  select user_id into v_user from _phase4_rls_test_accounts where account_no=1;
+  if v_user is null then return; end if;
+  perform set_config('request.jwt.claim.sub', v_user::text, true);
+  for i in 1..40 loop
+    perform public.create_my_favorite_collection('__premium_cap_' || v_suffix || '_' || i);
+  end loop;
+  begin
+    perform public.create_my_favorite_collection('__premium_cap_exceeded_' || v_suffix);
+  exception when sqlstate 'P0001' then
+    get stacked diagnostics v_message = message_text, v_detail = pg_exception_detail;
+    v_denied := v_message = 'COLLECTION_FOLDER_LIMIT_REACHED'
+      and v_detail::jsonb->>'plan_code' = 'premium'
+      and (v_detail::jsonb->>'folder_limit')::integer = 40
+      and (v_detail::jsonb->>'folder_count')::integer = 40;
+  end;
+  if not v_denied then raise exception 'Premium plan must reject folder 41 with a structured capacity error'; end if;
+  if (select count(*) from public.favorite_collections where user_id=v_user) <> 40 then
+    raise exception 'Premium account folder count changed beyond 40';
+  end if;
+  raise notice 'PASS: Free 16 and Premium 40 folder caps are enforced server-side';
+end;
+$premium_capacity$;
 
 rollback;
