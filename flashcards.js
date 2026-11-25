@@ -855,6 +855,7 @@
   });
   const timerApi={
     config:timing,
+    contentStats:{englishCuratedPhraseCount:curatedEnglishPhrases.length},
     reductionStep:REDUCTION_STEP,
     next(memory,answer,difficulty,mode="word"){
       const t=timingFor(mode,difficulty);
