@@ -226,6 +226,7 @@ declare
   visible_count integer;
   affected integer;
   denied boolean := false;
+  v_base_count integer := 0;
   suffix text := left(gen_random_uuid()::text, 24);
 begin
   select user_id,saved_word_id into user_a,word_a
@@ -239,21 +240,23 @@ begin
   end if;
 
   perform set_config('request.jwt.claim.sub', user_a::text, true);
+  select count(*)::integer into v_base_count
+  from public.favorite_collections where user_id = user_a;
   collection_a := (public.create_my_favorite_collection('__p4a_' || suffix)->>'id')::uuid;
   collection_a2 := (public.create_my_favorite_collection('__p4a2_' || suffix)->>'id')::uuid;
-  if (select sort_order from public.favorite_collections where id=collection_a2) <> 1 then
+  if (select sort_order from public.favorite_collections where id=collection_a2) <> v_base_count + 1 then
     raise exception 'New folders must append after existing folders';
   end if;
   perform public.reorder_my_favorite_collection(collection_a2,0);
   if (select sort_order from public.favorite_collections where id=collection_a2) <> 0
-     or (select sort_order from public.favorite_collections where id=collection_a) <> 1 then
+     or (select sort_order from public.favorite_collections where id=collection_a) <> v_base_count + 1 then
     raise exception 'Owner reorder RPC did not persist the requested position';
   end if;
   collection_a3 := (public.create_my_favorite_collection('__p4a3_' || suffix)->>'id')::uuid;
   delete from public.favorite_collections where id=collection_a2;
   perform public.reorder_my_favorite_collection(collection_a3,0);
   if (select sort_order from public.favorite_collections where id=collection_a3) <> 0
-     or (select sort_order from public.favorite_collections where id=collection_a) <> 1 then
+     or (select sort_order from public.favorite_collections where id=collection_a) <> v_base_count + 2 then
     raise exception 'Reorder failed to normalise folder positions after deletion';
   end if;
   insert into public.favorite_collection_items(collection_id,saved_word_id)
