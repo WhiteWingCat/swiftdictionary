@@ -3645,3 +3645,8 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - No staging preview, production database/schema/data change, production merge/deployment, payment integration or Premium entitlement enforcement has occurred. Dictionary search remains free and unlimited; learning allowances remain unchanged; proposed Free 16/Premium 40 folder capacities remain future policy only.
 - Legal/privacy planning: collection names are user-generated content and memberships reference existing account-owned saved words. No new tracking, identity data or processor is added. Review transparency, retention/deletion and Malaysia PDPA/general international 16+ safeguards before release; this is not legal clearance.
 - Continue Phase 4 until fully implemented and internally validated before creating the first staging preview. See the dated Phase 4 archive for detailed recovery steps.
+
+
+### Phase 4 validation follow-up — 2026-11-25
+
+The U2.9.0 Favorite Collections SQL regression script was executed successfully against isolated staging and rolled back. It checks RLS enablement, seven owner-scoped policies and their auth.uid()/collection/saved-word predicates, cascading membership foreign keys, case-insensitive per-user name uniqueness, anonymous denial and authenticated grants. Existing saved-word data remains unchanged. Authenticated two-account API testing, actual browser/CI verification and UI placement/responsive validation remain outstanding; the first staging preview remains withheld until Phase 4 is fully implemented and internally validated.
