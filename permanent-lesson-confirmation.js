@@ -19,10 +19,22 @@
       backdrop?.remove();
       backdrop = null;
       approvedButton = null;
-      if (confirmed && button && button.isConnected) {
-        pendingNewStartStatus = true;
-        button.dataset.confirmedLessonStart = "true";
-        button.click();
+      if (confirmed && button) {
+        // The allowance refresh can re-render lesson cards while the
+        // confirmation is open. Resolve the current card by stable lesson ID
+        // instead of silently dropping the confirmed start on a detached node.
+        const target = button.isConnected ? button : [...document.querySelectorAll("#lessonCards .lesson-card")]
+          .find(card => card.dataset.lessonId && card.dataset.lessonId === button.dataset.lessonId);
+        if (target?.disabled) {
+          const status = document.getElementById("lessonStatus");
+          if (status) status.textContent = target.title || "Your daily lesson-completion allowance has been used.";
+        } else if (target) {
+          pendingNewStartStatus = true;
+          target.dataset.confirmedLessonStart = "true";
+          target.click();
+        } else if (lastFocused?.isConnected) {
+          lastFocused.focus();
+        }
       } else if (lastFocused?.isConnected) {
         lastFocused.focus();
       }
