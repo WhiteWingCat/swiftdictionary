@@ -87,9 +87,7 @@
       #swiftFavoriteCollections .fc-folder-card.is-drop-after{box-shadow:inset 0 -3px 0 var(--accent,#7fa9df)}
       #swiftFavoriteCollections .fc-language-group{margin-top:12px}
       #swiftFavoriteCollections .fc-language-group h4{margin:0 0 8px;color:var(--muted,#687386);font-size:.82rem;font-weight:750}
-      #swiftFavoriteCollections .fc-expanded-grid{width:100%;min-width:0;grid-auto-rows:1fr;box-sizing:border-box}
-      #swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:12px}
-      #swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:10px}
+      #swiftFavoriteCollections .fc-expanded-grid{width:100%;min-width:0;box-sizing:border-box}
       #swiftFavoriteCollections .fc-word-card{display:block;min-width:0;width:100%;box-sizing:border-box}
       #swiftFavoriteCollections .fc-word-open{display:flex;width:100%;min-width:0;max-width:100%;box-sizing:border-box;box-shadow:0 2px 7px rgba(31,49,74,.08)}
       #swiftFavoriteCollections .fc-word-open .word-name{min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:normal}
