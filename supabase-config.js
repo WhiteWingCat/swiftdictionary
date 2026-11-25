@@ -35,7 +35,7 @@ try {
     if (document.getElementById("swiftFavoriteCollectionsScript")) return;
     const script = document.createElement("script");
     script.id = "swiftFavoriteCollectionsScript";
-    script.src = "favorite-collections.js?v=2.9.0-p4";
+    script.src = "favorite-collections.js?v=2.9.0-p4-r1";
     script.defer = true;
     document.head.appendChild(script);
   };

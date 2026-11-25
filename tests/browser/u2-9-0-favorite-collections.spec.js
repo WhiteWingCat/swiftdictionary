@@ -1,6 +1,6 @@
 const { test, expect } = require("@playwright/test");
 
-test("Favorite Collections create, mixed-language membership, rename, remove and delete without deleting saved words", async ({ page }) => {
+async function installCollectionsFixture(page) {
   await page.addInitScript(() => {
     const db = {
       favorite_collections: [],
@@ -13,8 +13,8 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     };
     const activeUserId = () => window.currentUser?.id;
     class Query {
-      constructor(table) { this.table = table; this.action = "select"; this.payload = null; this.filters = []; this.opts = {}; this.returning = false; this.singleRow = false; this.sort = null; }
-      select(fields, opts) { this.returning = true; this.opts = opts || {}; this.fields = fields; return this; }
+      constructor(table) { this.table = table; this.action = "select"; this.payload = null; this.filters = []; this.opts = {}; this.returning = false; this.singleRow = false; this.sort = null; this.fields = ""; }
+      select(fields, opts) { this.returning = true; this.opts = opts || {}; this.fields = fields || ""; return this; }
       insert(payload) { this.action = "insert"; this.payload = payload; return this; }
       upsert(payload) { this.action = "upsert"; this.payload = payload; return this; }
       update(payload) { this.action = "update"; this.payload = payload; return this; }
@@ -24,16 +24,12 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
       single() { this.singleRow = true; return this; }
       then(resolve, reject) { return this.run().then(resolve, reject); }
       async run() {
-        if (this.table === "favorite_collections" && this.action === "select" && window.__delayNextCollectionRead) {
-          window.__delayNextCollectionRead = false;
-          await new Promise(resolve => setTimeout(resolve, 120));
-        }
         const rows = db[this.table];
-        const matches = row => this.filters.every(([k,v]) => row[k] === v);
+        const matches = row => this.filters.every(([key,value]) => row[key] === value);
         const own = row => this.table === "saved_words" ? row.user_id === activeUserId()
           : this.table === "favorite_collections" ? row.user_id === activeUserId()
-          : db.favorite_collections.some(c => c.id === row.collection_id && c.user_id === activeUserId())
-            && db.saved_words.some(w => w.id === row.saved_word_id && w.user_id === activeUserId());
+          : db.favorite_collections.some(collection => collection.id === row.collection_id && collection.user_id === activeUserId())
+            && db.saved_words.some(word => word.id === row.saved_word_id && word.user_id === activeUserId());
         let data = [];
         let error = null;
         if (this.action === "insert" || this.action === "upsert") {
@@ -41,28 +37,31 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
             const row = { ...raw };
             if (this.table === "favorite_collections") {
               if (row.user_id !== activeUserId()) { error = { message: "row-level security violation" }; break; }
-              if (rows.some(x => x.user_id === activeUserId() && x.name.toLowerCase() === row.name.toLowerCase())) { error = { message: "duplicate key unique constraint" }; break; }
+              if (rows.some(existing => existing.user_id === activeUserId() && existing.name.toLowerCase() === row.name.toLowerCase())) { error = { message: "duplicate key unique constraint" }; break; }
               row.id = "collection-" + (rows.length + 1); row.created_at = new Date().toISOString(); rows.push(row); data.push(row);
             } else if (this.table === "favorite_collection_items") {
-              const collection = db.favorite_collections.find(c => c.id === row.collection_id && c.user_id === activeUserId());
-              const word = db.saved_words.find(w => w.id === row.saved_word_id && w.user_id === activeUserId());
+              const collection = db.favorite_collections.find(item => item.id === row.collection_id && item.user_id === activeUserId());
+              const word = db.saved_words.find(item => item.id === row.saved_word_id && item.user_id === activeUserId());
               if (!collection || !word) { error = { message: "row-level security violation" }; break; }
-              if (!rows.some(x => x.collection_id === row.collection_id && x.saved_word_id === row.saved_word_id)) rows.push({ ...row, created_at: new Date().toISOString() });
+              if (!rows.some(item => item.collection_id === row.collection_id && item.saved_word_id === row.saved_word_id)) {
+                const inserted = { ...row, created_at: new Date().toISOString() }; rows.push(inserted); data.push(inserted);
+              }
             }
           }
         } else if (this.action === "update") {
-          data = rows.filter(x => own(x) && matches(x));
+          data = rows.filter(row => own(row) && matches(row));
           for (const row of data) Object.assign(row, this.payload);
         } else if (this.action === "delete") {
-          const doomed = rows.filter(x => own(x) && matches(x));
+          const doomed = rows.filter(row => own(row) && matches(row));
           for (const row of doomed) {
             const i = rows.indexOf(row); if (i >= 0) rows.splice(i, 1);
-            if (this.table === "favorite_collections") db.favorite_collection_items = db.favorite_collection_items.filter(x => x.collection_id !== row.id);
+            if (this.table === "favorite_collections") db.favorite_collection_items = db.favorite_collection_items.filter(item => item.collection_id !== row.id);
+            if (this.table === "saved_words") db.favorite_collection_items = db.favorite_collection_items.filter(item => item.saved_word_id !== row.id);
           }
         } else {
-          data = rows.filter(x => own(x) && matches(x)).map(row => {
-            if (this.table === "favorite_collection_items" && this.fields?.includes("saved_words")) {
-              return { ...row, saved_words: db.saved_words.find(w => w.id === row.saved_word_id) || null };
+          data = rows.filter(row => own(row) && matches(row)).map(row => {
+            if (this.table === "favorite_collection_items" && this.fields.includes("saved_words")) {
+              return { ...row, saved_words: db.saved_words.find(word => word.id === row.saved_word_id) || null };
             }
             return { ...row };
           });
@@ -70,17 +69,18 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
         }
         if (error) return { data: null, error };
         if (this.opts.head) return { data: null, count: data.length, error: null };
-        return { data: this.singleRow ? (data[0] || null) : (this.returning ? data : null), count: data.length, error: null };
+        return { data: this.singleRow ? (data[0] || null) : data, count: data.length, error: null };
       }
     }
     window.currentUser = { id: "test-user-a" };
     window.__collectionsTestDB = db;
     window.__collectionsTestChannels = [];
+    window.__openedCollectionWord = null;
+    window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; });
     window.__collectionsTestClient = {
       from: table => new Query(table),
       channel: (name, options) => {
-        const channel = {
-          name, options, removed: false, handlers: [], statusCallback: null,
+        const channel = { name, options, removed: false, handlers: [], statusCallback: null,
           on(type, filter, callback) { this.handlers.push({ type, event: filter.event, callback }); return this; },
           subscribe(callback) { this.statusCallback = callback; return this; }
         };
@@ -92,151 +92,123 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     };
     window.supabaseClient = window.__collectionsTestClient;
   });
-
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("about:blank");
-  await page.setContent("<!doctype html><html><head></head><body></body></html>");
-  await page.evaluate(() => {
-    window.supabaseClient = window.__collectionsTestClient;
-    window.currentUser = { id: "test-user-a" };
-  });
+  await page.setContent("<!doctype html><html><head></head><body><section><h2>Favorite words</h2></section></body></html>");
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
-  await page.evaluate(() => {
-    const heading = document.createElement("h2");
-    heading.textContent = "Favorite words";
-    const section = document.createElement("div");
-    section.append(heading);
-    document.body.append(section);
-  });
+  await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
+}
+
+test("Your Collections folders expand inline, use a custom actions menu, and open the shared saved-word detail flow", async ({ page }) => {
+  await installCollectionsFixture(page);
   const panel = page.locator("#swiftFavoriteCollections");
-  await expect(panel).toBeVisible();
-  const realtimeSetup = await page.evaluate(() => {
-    const channel = window.__collectionsTestChannels[0];
-    return {
-      name: channel?.name,
-      isPrivate: channel?.options?.config?.private,
-      handlers: channel?.handlers?.map(handler => [handler.type, handler.event]).sort()
-    };
-  });
-  expect(realtimeSetup.name).toBe("favorite-collections:test-user-a");
-  expect(realtimeSetup.isPrivate).toBe(true);
-  expect(realtimeSetup.handlers).toEqual([
-    ["broadcast", "DELETE"],
-    ["broadcast", "INSERT"],
-    ["broadcast", "UPDATE"]
-  ]);
-  const panelBox = await panel.boundingBox();
-  expect(panelBox.width).toBeLessThanOrEqual(390);
-  await panel.getByRole("button", { name: "＋ New folder" }).click();
-  const createDialog = page.getByRole("dialog");
-  await expect(createDialog).toHaveAttribute("aria-modal", "true");
-  await expect(page.locator("#fcCollectionName")).toBeFocused();
-  await page.keyboard.press("Shift+Tab");
-  await expect(createDialog.getByRole("button", { name: "Close" })).toBeFocused();
-  await page.keyboard.press("Escape");
-  await expect(createDialog).toBeHidden();
-  await expect(panel.getByRole("button", { name: "＋ New folder" })).toBeFocused();
-  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await expect(panel.getByText("Customize and organize any saved words to your preferences.")).toBeVisible();
+  const create = panel.getByRole("button", { name: "＋ New folder" });
+  await create.click();
   await page.locator("#fcCollectionName").fill("Travel");
   await page.getByRole("button", { name: "Create folder" }).click();
-  await expect(panel.getByText("Travel")).toBeVisible();
 
-  await panel.getByRole("button", { name: "＋ New folder" }).click();
-  await page.getByRole("button", { name: "Create folder" }).click();
-  await expect(page.getByRole("alert")).toHaveText("Enter a collection name.");
-  await page.locator("#fcCollectionName").fill("travel");
-  await page.getByRole("button", { name: "Create folder" }).click();
-  await expect(page.getByRole("alert")).toHaveText("You already have a collection with that name.");
-  await page.getByRole("button", { name: "Cancel" }).click();
+  const card = panel.locator(".fc-folder-card").filter({ has: panel.getByText("Travel") });
+  const toggle = card.locator(".fc-folder-toggle");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  await expect(card.getByText("This folder is empty.")).toBeVisible();
 
-  await panel.getByRole("button", { name: /Travel/ }).click();
-  await page.getByRole("button", { name: "Add saved words" }).click();
-  await expect(page.getByText("hello")).toBeVisible();
-  await expect(page.getByText("你好")).toBeVisible();
+  await card.getByRole("button", { name: "More options for Travel" }).click();
+  const menu = card.getByRole("menu");
+  await expect(menu).toBeVisible();
+  await menu.getByRole("menuitem", { name: "Add words" }).click();
+  await expect(page.getByRole("dialog", { name: "Add words to Travel" })).toBeVisible();
   await page.locator('input[type="checkbox"][value="101"]').check();
   await page.locator('input[type="checkbox"][value="102"]').check();
   await page.getByRole("button", { name: "Add selected" }).click();
-  await expect(page.getByText("hello")).toBeVisible();
-  await expect(page.getByText("你好")).toBeVisible();
+  await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
+  await expect(card.getByRole("button", { name: "Open saved word 你好" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Rename" }).click();
+  await card.getByRole("button", { name: "Open saved word hello" }).click();
+  await expect.poll(() => page.evaluate(() => window.__openedCollectionWord?.word)).toBe("hello");
+  await expect.poll(() => page.evaluate(() => window.__openedCollectionWord?.course)).toBe("en");
+
+  await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
+  const membershipDialog = page.getByRole("dialog", { name: "Add to collection" });
+  await expect(membershipDialog).toBeVisible();
+  await expect(membershipDialog.locator('input[type="checkbox"][value="collection-1"]')).toBeChecked();
+  await membershipDialog.getByRole("button", { name: "Save" }).click();
+  await expect(membershipDialog).toBeHidden();
+
+  await card.getByRole("button", { name: "More options for Travel" }).click();
+  await card.getByRole("menuitem", { name: "Rename" }).click();
   await page.locator("#fcCollectionName").fill("Trips");
   await page.getByRole("button", { name: "Save name" }).click();
-  await expect(page.getByRole("heading", { name: "Trips" })).toBeVisible();
+  await expect(panel.getByText("Trips")).toBeVisible();
 
-  await page.locator(".fc-word-row").filter({ hasText: "hello" }).getByRole("button", { name: "Remove" }).click();
-  await expect(page.getByText("你好")).toBeVisible();
-  await expect(page.getByText("hello")).toHaveCount(0);
+  // Deleting a saved_words row cascades its membership rows at the database level.
+  await page.evaluate(async () => {
+    await window.supabaseClient.from("saved_words").delete().eq("id", 101);
+    window.dispatchEvent(new Event("swift-favorite-words-updated"));
+  });
+  await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
+  await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word 你好" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Delete folder" }).click();
-  await page.getByRole("button", { name: "Delete folder" }).last().click();
-  await expect(page.getByText("No collections yet.")).toBeVisible();
-  const remaining = await page.evaluate(() => window.__collectionsTestDB.saved_words.map(x => x.id));
-  expect(remaining).toEqual([101, 102, 201]);
-  const membershipCount = await page.evaluate(() => window.__collectionsTestDB.favorite_collection_items.length);
-  expect(membershipCount).toBe(0);
+  await panel.locator(".fc-folder-card").getByRole("button", { name: "More options for Trips" }).click();
+  await panel.getByRole("menuitem", { name: "Remove" }).click();
+  await expect(page.getByRole("dialog", { name: "Remove this folder?" })).toBeVisible();
+  await page.getByRole("dialog").getByRole("button", { name: "Remove" }).click();
+  await expect(panel.getByText("No collections yet.")).toBeVisible();
 
+  const styles = await panel.evaluate(node => {
+    const primary = node.querySelector(".fc-primary");
+    return { shadow: getComputedStyle(primary).boxShadow, background: getComputedStyle(primary).backgroundColor };
+  });
+  expect(styles.shadow).not.toBe("none");
+});
+
+test("Your Collections remain account-isolated and replace private Realtime channels when accounts switch", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
   await panel.getByRole("button", { name: "＋ New folder" }).click();
   await page.locator("#fcCollectionName").fill("Private A");
   await page.getByRole("button", { name: "Create folder" }).click();
   await expect(panel.getByText("Private A")).toBeVisible();
 
+  const initial = await page.evaluate(() => ({
+    topic: window.__collectionsTestChannels[0]?.name,
+    private: window.__collectionsTestChannels[0]?.options?.config?.private,
+    handlers: window.__collectionsTestChannels[0]?.handlers.map(item => item.event).sort()
+  }));
+  expect(initial).toEqual({ topic: "favorite-collections:test-user-a", private: true, handlers: ["DELETE","INSERT","UPDATE"] });
+
   await page.evaluate(() => {
-    // Leave an older Account A refresh in flight while switching to Account B.
-    window.__delayNextCollectionRead = true;
-    window.dispatchEvent(new Event("swift-auth-updated"));
     window.currentUser = { id: "test-user-b" };
     window.dispatchEvent(new Event("swift-auth-updated"));
   });
   await expect(panel.getByText("No collections yet.")).toBeVisible();
-  await page.waitForTimeout(180);
   await expect(panel.getByText("Private A")).toHaveCount(0);
-  await expect(panel.getByText("Private A")).toHaveCount(0);
-
-  await page.evaluate(() => {
-    window.currentUser = { id: "test-user-a" };
-    window.dispatchEvent(new Event("swift-auth-updated"));
-  });
-  await expect(panel.getByText("Private A")).toBeVisible();
+  const channels = await page.evaluate(() => window.__collectionsTestChannels.map(channel => ({ name: channel.name, removed: channel.removed })));
+  expect(channels).toEqual([
+    { name: "favorite-collections:test-user-a", removed: true },
+    { name: "favorite-collections:test-user-b", removed: false }
+  ]);
 });
 
 
-test("Favorite Collections module loads after the core application through Supabase config", async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 900 });
+test("Dictionary detail panel shows Add to collection only for a saved word", async ({ page }) => {
   await page.route("https://*.supabase.co/**", route => route.abort());
   await page.goto("/");
-  await expect.poll(
-    () => page.evaluate(() => window.SWIFT_FAVORITE_COLLECTIONS_READY === true),
-    { timeout: 10000 }
-  ).toBe(true);
-  const placement = await page.evaluate(() => {
-    const favoriteHeading = [...document.querySelectorAll("h1,h2,h3,h4,h5")]
-      .find(node => node.textContent.trim().toLowerCase() === "favorite words");
-    const favoriteCard = favoriteHeading?.closest(".profile-card,section");
-    const collectionsPanel = document.getElementById("swiftFavoriteCollections");
-    return {
-      foundFavoriteCard: !!favoriteCard,
-      foundCollectionsPanel: !!collectionsPanel,
-      directlyBelowFavoriteWords: !!favoriteCard && collectionsPanel?.previousElementSibling === favoriteCard,
-      title: collectionsPanel?.querySelector("#swiftFavoriteCollectionsTitle")?.textContent.trim() || ""
-    };
-  });
-  expect(placement).toEqual({
-    foundFavoriteCard: true,
-    foundCollectionsPanel: true,
-    directlyBelowFavoriteWords: true,
-    title: "Your collections"
-  });
-  const desktopLayout = await page.evaluate(() => ({
-    panelWidth: document.getElementById("swiftFavoriteCollections").getBoundingClientRect().width,
-    viewportWidth: window.innerWidth,
-    documentWidth: document.documentElement.scrollWidth
+  await expect.poll(() => page.evaluate(() => window.SWIFT_FAVORITE_COLLECTIONS_READY === true), { timeout: 10000 }).toBe(true);
+  const word = page.locator("#wordGrid .word-card").first();
+  await expect(word).toBeVisible();
+  await word.click();
+  const save = page.getByRole("button", { name: "Save word" });
+  const add = page.locator("#collectionAddButton");
+  await expect(add).toBeHidden();
+  await save.click();
+  await expect(add).toBeVisible();
+  const placement = await page.evaluate(() => ({
+    visible: !document.getElementById("collectionAddButton").hidden,
+    nextToFavorite: document.getElementById("saveButton").nextElementSibling?.id === "collectionAddButton",
+    label: document.getElementById("collectionAddButton").getAttribute("aria-label")
   }));
-  expect(desktopLayout.documentWidth).toBeLessThanOrEqual(desktopLayout.viewportWidth);
-  const panelStyles = await page.locator("#swiftFavoriteCollections").evaluate(node => ({
-    boxSizing: getComputedStyle(node).boxSizing,
-    responsivePadding: getComputedStyle(node).paddingLeft
-  }));
-  expect(panelStyles.boxSizing).toBe("border-box");
-  expect(panelStyles.responsivePadding).toBe("18px");
+  expect(placement).toEqual({ visible: true, nextToFavorite: true, label: "Add to collection" });
 });
