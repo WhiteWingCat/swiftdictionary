@@ -3788,3 +3788,11 @@ Run 45548857974 passed all 13 Playwright tests after aligning the saved-word pic
 - The separate Workers Builds check for `swiftdictionary-testing` failed again; Pages deployment and routing guard succeeded. Treat this as an independent Workers build/infrastructure issue.
 - Local Supabase Auth/RPC integration was still running authenticated Quiz browser tests, signed-out Flashcards/Preferences, permanent Lessons allowance notification and local security advisor checks. Do not close the consolidated regression matrix until this job finishes.
 - Staging Free 16/Premium 40 SQL regression passed and rolled back. No production database or entitlement was changed.
+
+
+### Authenticated lesson-start race found and fixed — 2026-11-25
+
+- The first consolidated Local Supabase Auth/Quiz run exposed a race in the permanent lesson confirmation flow: an allowance-driven lesson-card re-render could detach the button captured by the confirmation dialog, so confirming the dialog silently failed to start the lesson.
+- Added a stable `data-lesson-id` to rendered lesson cards and a fallback that resolves the current card by that ID before continuing. If the refreshed card has become disabled, the UI now reports the reason in lesson status.
+- Extended the authenticated Quiz runtime test to deliberately re-render the lesson list while the confirmation is open, then confirm. Extended the U2.7 static regression to cover the stable-ID fallback.
+- The failure occurred before Quiz launch and was unrelated to the 15 Phase 6 questions. The updated full Local Supabase Auth/RPC run on commit `78280d4` is still pending at this checkpoint.
