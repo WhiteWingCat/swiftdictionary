@@ -222,11 +222,17 @@
       list.append(el("p", "fc-muted", "No collections yet. Create a folder to organise your Favorite words."));
       return;
     }
+    const membershipResult = await c.from(ITEMS).select("collection_id");
+    const counts = new Map();
+    if (!membershipResult.error) {
+      for (const item of membershipResult.data || []) {
+        counts.set(item.collection_id, (counts.get(item.collection_id) || 0) + 1);
+      }
+    }
     for (const collection of data) {
-      const countResult = await c.from(ITEMS).select("saved_word_id", { count: "exact", head: true }).eq("collection_id", collection.id);
       const card = button("", () => openCollection(collection), "fc-folder");
       const name = el("strong", "", collection.name);
-      const count = el("small", "fc-muted", countResult.error ? "Open folder" : `${countResult.count || 0} words`);
+      const count = el("small", "fc-muted", membershipResult.error ? "Open folder" : `${counts.get(collection.id) || 0} words`);
       card.append(name, count);
       list.append(card);
     }
