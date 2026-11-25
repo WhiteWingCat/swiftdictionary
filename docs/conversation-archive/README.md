@@ -194,3 +194,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [Update 2.9.0 — Phase 2 completion](2026-11-25-update-2-9-0-phase-2-completion.md) — records the completed 506-entry expansion, 766 sense records, 38 POS-semantic corrections, baseline enrichment to 302 entries/657 senses, refreshed audit, successful full CI and Playwright smoke tests, documented linguistic-review limitation, and the no-staging-before-Phase-4 boundary.
+
+- [2026-11-25 Update 2.9.0 Phase 3 category filters and translation QA](2026-11-25-update-2-9-0-phase-3-category-filters-and-translation-qa.md) — records the ten English topic filters, 1,316-entry category coverage, baseline and expansion Simplified Chinese translation inventory, corrected browser-test assumptions, passing CI run 45540254655, legal/privacy check and remaining editorial/responsive QA gates.
