@@ -75,10 +75,15 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     }
     window.currentUser = { id: "test-user-a" };
     window.__collectionsTestDB = db;
+    window.__collectionsTestChannels = [];
     window.__collectionsTestClient = {
       from: table => new Query(table),
-      channel: () => ({ on() { return this; }, subscribe() { return this; } }),
-      removeChannel() {},
+      channel: name => {
+        const channel = { name, removed: false, on() { return this; }, subscribe() { return this; } };
+        window.__collectionsTestChannels.push(channel);
+        return channel;
+      },
+      removeChannel(channel) { channel.removed = true; },
       auth: { onAuthStateChange() {} }
     };
     window.supabaseClient = window.__collectionsTestClient;
