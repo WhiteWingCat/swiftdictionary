@@ -258,3 +258,13 @@ The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core
 - Latest audit: 810/810 baseline headword translations, 657/657 baseline sense translations, 506/506 expansion headword translations and 766/766 expansion sense translations present; zero non-CJK translation fields and zero placeholder translations.
 - Targeted sense-alignment spot checks covered 20 high-frequency baseline entries and 8 expansion entries. The sampled multi-meaning Chinese senses remained distinct and context-appropriate; this does not certify every translation.
 - Latest CI run **45541339325**, commit `48ec2caabe3e8dae3fa223380efd9d51852ca6e8`, passed both data validators and all seven browser tests.
+
+
+### P1 visual-only Premium information UI — implemented (2026-11-25)
+
+- Added a global-header “Premium plan” entry and an in-site Free/Premium comparison dialog.
+- The copy clearly identifies Premium and Collections as future proposals, not currently available. It states dictionary search remains free and unlimited, proposed Free/Premium folder capacities are 16/40 once Collections launches, and future Premium value may include higher daily learning allowances and additional organisation benefits.
+- No checkout, payment, purchase, subscription, billing portal, entitlement mutation, allowance change or Supabase integration exists in this UI.
+- Added keyboard handling, focus restoration/containment and narrow-mobile responsive styling. Playwright checks confirm future-only copy, no purchase action and mobile fit.
+- Latest CI run **45541902319**, commit `0279d056fa1b11c0f31b1263ac918daacab0edcd`, passed both validators and all nine browser tests.
+- Malaysia/general legal check: no transaction or new personal-data processing is introduced. Payment, recurring billing, tax, consumer disclosure, cancellation/refund and payment-provider obligations must be reviewed before any actual Premium activation. Folder capacities remain proposals only.
