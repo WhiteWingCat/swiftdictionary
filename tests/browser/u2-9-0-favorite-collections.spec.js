@@ -223,7 +223,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   );
   expect(collectionGridTracks.length).toBeGreaterThan(0);
   expect(collectionGridTracks.every(width => width >= 110)).toBe(true);
-  await expect(card.locator(".fc-expanded-grid:not(.character-grid) .fc-word-open")).toHaveCSS("min-height", "58px");
+  await expect(card.locator(".fc-expanded-grid:not(.character-grid) .fc-word-open").first()).toHaveCSS("min-height", "58px");
 
   await expect(card.locator(".fc-word-remove")).toHaveCount(0);
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
