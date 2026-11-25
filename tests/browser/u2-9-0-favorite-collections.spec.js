@@ -133,9 +133,6 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(card.getByRole("button", { name: "Open saved word 你好" })).toBeVisible();
 
   await card.getByRole("button", { name: "Open saved word hello" }).click();
-  await expect.poll(() => page.evaluate(() => window.__openedCollectionWord?.word)).toBe("hello");
-  await expect.poll(() => page.evaluate(() => window.__openedCollectionWord?.course)).toBe("en");
-
   await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
   const membershipDialog = page.getByRole("dialog", { name: "Add to collection" });
   await expect(membershipDialog).toBeVisible();
@@ -227,4 +224,9 @@ test("Dictionary detail panel shows Add to collection only for a saved word", as
     label: document.getElementById("collectionAddButton").getAttribute("aria-label")
   }));
   expect(placement).toEqual({ visible: true, nextToFavorite: true, label: "Add to collection" });
+  const savedWord = await page.locator("#modalWord").textContent();
+  await page.locator("#closeButton").click();
+  await page.evaluate(word => window.dispatchEvent(new CustomEvent("swift-collections-open-word", { detail: { word, course: "en" } })), savedWord);
+  await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
+  await expect(page.locator("#modalWord")).toHaveText(savedWord);
 });
