@@ -116,7 +116,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   await page.getByRole("button", { name: "Save name" }).click();
   await expect(page.getByRole("heading", { name: "Trips" })).toBeVisible();
 
-  await page.getByRole("button", { name: "Remove" }).first().click();
+  await page.locator(".fc-word-row").filter({ hasText: "hello" }).getByRole("button", { name: "Remove" }).click();
   await expect(page.getByText("你好")).toBeVisible();
   await expect(page.getByText("hello")).toHaveCount(0);
 
