@@ -73,8 +73,10 @@
       #swiftFavoriteCollections .fc-menu[hidden]{display:none}
       #swiftFavoriteCollections .fc-menu button{display:block;width:100%;padding:8px 10px;border:0;background:transparent;text-align:left;box-shadow:none}
       #swiftFavoriteCollections .fc-menu button:hover{background:rgba(100,120,150,.08)}
-      #swiftFavoriteCollections .fc-expanded{padding:0 12px 0;max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease,padding .28s ease}
-      #swiftFavoriteCollections .fc-expanded.is-open{max-height:10000px;opacity:1;padding:0 12px 12px}
+      #swiftFavoriteCollections .fc-expanded{padding:0;max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease}
+      #swiftFavoriteCollections .fc-expanded.is-open{max-height:10000px;opacity:1}
+      #swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin:12px 0 18px}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px;margin:12px 0 18px}
       #swiftFavoriteCollections .fc-expanded[hidden]{display:none}
       .fc-disclosure-content{max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease}
       .fc-disclosure-content.is-open{opacity:1}
@@ -113,7 +115,7 @@
       .fc-dialog .fc-inline-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
       .fc-dialog button:disabled{opacity:.55;cursor:wait}
       @media(max-width:520px){#swiftFavoriteCollections{padding:14px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
-      @media(max-width:520px){#swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(min(100%,132px),1fr));gap:9px}}
+      @media(max-width:520px){#swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px}}
       @media(prefers-reduced-motion:reduce){#swiftFavoriteCollections *, .fc-dialog *, .fc-disclosure-content{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
     `;
     document.head.appendChild(style);
@@ -572,7 +574,7 @@
       if (!groups[code].length) continue;
       const languageGroup = el("section", "fc-language-group");
       languageGroup.append(el("h4", "", code === "zh" ? "简体中文" : "English"));
-      const grid = el("div", code === "zh" ? "word-grid fc-expanded-grid character-grid" : "word-grid fc-expanded-grid");
+      const grid = el("div", code === "zh" ? "word-grid favorite-word-grid fc-expanded-grid character-grid" : "word-grid favorite-word-grid fc-expanded-grid");
       for (const row of groups[code]) {
         const line = el("div", "fc-word-card");
         const open = button("", () => window.dispatchEvent(new CustomEvent("swift-collections-open-word", {
