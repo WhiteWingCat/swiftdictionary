@@ -88,3 +88,10 @@ Initial successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4c
 - Latest authoritative CI run: **45540937597**, commit `82ba00e4d6913eede952a3d7f0aa998d93054784`. All workflow steps and seven browser tests passed.
 - Updated combined category assignment counts are the figures listed above. All baseline/expansion Chinese headword and sense translation fields remain complete in the automated audit.
 - Phase 3 remains in progress pending broader semantic/editorial review. No staging preview until Phase 4 is complete and internally validated.
+
+## Translation-content audit strengthening
+
+- Validator now requires CJK characters in every headword/sense Chinese translation and rejects known placeholders/fallback phrases.
+- Latest audit counts: 810 baseline headword translations, 657 baseline sense translations, 506 expansion headword translations and 766 expansion sense translations; zero missing, non-CJK or placeholder translations.
+- Targeted model-assisted spot checks covered 20 baseline and 8 expansion entries; this is not professional/native-speaker certification.
+- Latest CI run **45541339325**, commit `48ec2caabe3e8dae3fa223380efd9d51852ca6e8`, passed both data validators and all seven browser tests.
