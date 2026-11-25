@@ -116,6 +116,11 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(toggle).toHaveAttribute("aria-expanded", "true");
   await expect(card.getByText("This folder is empty.")).toBeVisible();
 
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Work");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(panel.getByText("Work")).toBeVisible();
+
   await card.getByRole("button", { name: "More options for Travel" }).click();
   const menu = card.getByRole("menu");
   await expect(menu).toBeVisible();
@@ -134,9 +139,11 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
   const membershipDialog = page.getByRole("dialog", { name: "Add to collection" });
   await expect(membershipDialog).toBeVisible();
-  await expect(membershipDialog.locator('input[type="checkbox"][value="collection-1"]')).toBeChecked();
-  await expect(membershipDialog.locator('input[type="checkbox"][value="collection-2"]')).not.toBeChecked();
-  await membershipDialog.locator('input[type="checkbox"][value="collection-2"]').check();
+  const folderChoices = membershipDialog.locator('input[type="checkbox"]');
+  await expect(folderChoices).toHaveCount(2);
+  await expect(folderChoices.nth(0)).toBeChecked();
+  await expect(folderChoices.nth(1)).not.toBeChecked();
+  await folderChoices.nth(1).check();
   await membershipDialog.getByRole("button", { name: "Save" }).click();
   await expect(membershipDialog).toBeHidden();
 
