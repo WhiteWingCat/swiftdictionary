@@ -7,7 +7,7 @@ async function installCollectionsFixture(page) {
       favorite_collection_items: [],
       saved_words: [
         { id: 101, user_id: "test-user-a", word: "hello", course: "en" },
-        { id: 102, user_id: "test-user-a", word: "你好", course: "zh" },
+        { id: 102, user_id: "test-user-a", word: "你", course: "zh" },
         { id: 201, user_id: "test-user-b", word: "secret", course: "en" }
       ]
     };
@@ -130,7 +130,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.locator('input[type="checkbox"][value="102"]').check();
   await page.getByRole("button", { name: "Add selected" }).click();
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
-  await expect(card.getByRole("button", { name: "Open saved word 你好" })).toBeVisible();
+  await expect(card.getByRole("button", { name: "Open saved word 你" })).toBeVisible();
 
   await card.getByRole("button", { name: "Open saved word hello" }).click();
   await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
@@ -156,7 +156,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
     window.dispatchEvent(new Event("swift-favorite-words-updated"));
   });
   await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
-  await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word 你好" })).toBeVisible();
+  await expect(panel.locator(".fc-folder-card").getByRole("button", { name: "Open saved word 你" })).toBeVisible();
 
   const dbMembershipsAfterFavoriteRemoval = await page.evaluate(() => window.__collectionsTestDB.favorite_collection_items.filter(item => item.saved_word_id === 101).length);
   expect(dbMembershipsAfterFavoriteRemoval).toBe(0);

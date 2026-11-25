@@ -74,10 +74,16 @@
       #swiftFavoriteCollections .fc-menu button:hover{background:rgba(255,255,255,.08)}
       #swiftFavoriteCollections .fc-expanded{padding:0 12px 12px}
       #swiftFavoriteCollections .fc-expanded[hidden]{display:none}
-      #swiftFavoriteCollections .fc-expanded-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
-      #swiftFavoriteCollections .fc-word-card{display:flex;align-items:center;justify-content:space-between;gap:7px;min-width:0;padding:9px;border:1px solid var(--border,#394456);border-radius:9px;background:var(--panel-hover,#20242d);color:inherit;text-align:left;box-shadow:0 2px 7px rgba(0,0,0,.18)}
-      #swiftFavoriteCollections .fc-word-card strong{overflow-wrap:anywhere}
-      #swiftFavoriteCollections .fc-word-remove{flex:none;padding:3px 7px!important;box-shadow:none!important}
+      #swiftFavoriteCollections .fc-language-group{margin-top:12px}
+      #swiftFavoriteCollections .fc-language-group h4{margin:0 0 8px;color:var(--muted,#aab2c0);font-size:.82rem;font-weight:750}
+      #swiftFavoriteCollections .fc-expanded-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px}
+      #swiftFavoriteCollections .fc-word-card{display:flex;align-items:stretch;gap:5px;min-width:0}
+      #swiftFavoriteCollections .fc-word-open{flex:1;min-width:0;box-shadow:0 2px 7px rgba(0,0,0,.18)}
+      #swiftFavoriteCollections .fc-word-remove{flex:none;align-self:flex-start;padding:3px 7px!important;box-shadow:none!important}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid .fc-word-card{position:relative;display:block}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid .fc-word-open{width:100%;min-height:66px;aspect-ratio:1/1;justify-content:center;padding:5px}
+      #swiftFavoriteCollections .fc-expanded-grid.character-grid .fc-word-remove{position:absolute;right:-3px;bottom:-3px;z-index:2}
       #collectionAddButton{box-shadow:0 3px 10px rgba(0,0,0,.28)}
       #collectionAddButton[hidden]{display:none!important}
       #swiftFavoriteCollections .fc-button:focus-visible,.fc-dialog button:focus-visible,.fc-dialog input:focus-visible{outline:2px solid var(--accent,#8bb8ef);outline-offset:2px}
@@ -337,22 +343,35 @@
       content.append(el("p", "fc-muted", "This folder is empty. Use … to add saved words."));
       return;
     }
-    const grid = el("div", "fc-expanded-grid");
-    for (const row of words) {
-      const line = el("div", "fc-word-card");
-      const open = button("", () => window.dispatchEvent(new CustomEvent("swift-collections-open-word", {
-        detail: { word: row.word.word, course: row.word.course, trigger: open }
-      })), "fc-folder-toggle");
-      open.setAttribute("aria-label", `Open saved word ${row.word.word}`);
-      open.append(el("strong", "", row.word.word), el("small", "fc-muted", row.word.course === "zh" ? "中文" : "EN"));
-      line.append(open, button("×", async () => {
-        const result = await c.from(ITEMS).delete().eq("collection_id", collection.id).eq("saved_word_id", row.saved_word_id);
-        if (result.error) return;
-        await refresh();
-      }, "fc-word-remove"));
-      grid.append(line);
+    const groups = { en: [], zh: [] };
+    words.forEach(row => groups[row.word.course === "zh" ? "zh" : "en"].push(row));
+    for (const code of ["en", "zh"]) {
+      if (!groups[code].length) continue;
+      const languageGroup = el("section", "fc-language-group");
+      languageGroup.append(el("h4", "", code === "zh" ? "简体中文" : "English"));
+      const grid = el("div", code === "zh" ? "fc-expanded-grid character-grid" : "fc-expanded-grid");
+      for (const row of groups[code]) {
+        const line = el("div", "fc-word-card");
+        const open = button("", () => window.dispatchEvent(new CustomEvent("swift-collections-open-word", {
+          detail: { word: row.word.word, course: row.word.course, trigger: open }
+        })), "fc-word-open word-card");
+        open.dataset.fcOpenWord = "true";
+        open.dataset.fcWord = row.word.word;
+        open.dataset.fcCourse = row.word.course;
+        open.setAttribute("aria-label", `Open saved word ${row.word.word}`);
+        open.append(el("span", "word-name", row.word.word), el("span", "saved-mark", "★"));
+        const remove = button("×", async () => {
+          const result = await c.from(ITEMS).delete().eq("collection_id", collection.id).eq("saved_word_id", row.saved_word_id);
+          if (result.error) return;
+          await refresh();
+        }, "fc-word-remove");
+        remove.setAttribute("aria-label", `Remove ${row.word.word} from this folder`);
+        line.append(open, remove);
+        grid.append(line);
+      }
+      languageGroup.append(grid);
+      content.append(languageGroup);
     }
-    content.append(grid);
   }
 
   async function openAddWordsDialog(collection) {

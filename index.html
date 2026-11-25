@@ -24212,7 +24212,9 @@ async function completeLesson(x){
       const targetCourse = detail.course === "zh" ? "zh" : "en";
       const catalog = targetCourse === "zh" ? chineseWords : englishWords;
       const item = catalog.find(entry => entry.word === detail.word);
-      if (item) openFavoriteWord(item,targetCourse,detail.trigger || null);
+      const liveTrigger = detail.trigger?.isConnected ? detail.trigger
+        : [...document.querySelectorAll("[data-fc-open-word]")].find(node => node.dataset.fcWord === detail.word && node.dataset.fcCourse === targetCourse);
+      if (item) openFavoriteWord(item,targetCourse,liveTrigger || null);
       else accountStatus.textContent = "This saved entry is not in the current dictionary catalogue, so expanded details are unavailable.";
     });
 
