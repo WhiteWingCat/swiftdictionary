@@ -188,6 +188,17 @@ begin
      or has_function_privilege('authenticated','private.broadcast_favorite_collection_changes()','execute') then
     raise exception 'Broadcast trigger function must not be executable by API roles';
   end if;
+  if not exists (
+    select 1 from information_schema.columns
+    where table_schema='public' and table_name='favorite_collections'
+      and column_name='sort_order' and data_type='integer' and is_nullable='NO'
+  ) then raise exception 'Persistent collection sort_order column is missing'; end if;
+  if to_regprocedure('public.reorder_my_favorite_collection(uuid,integer)') is null then
+    raise exception 'Owner-scoped collection reorder RPC is missing';
+  end if;
+  if has_function_privilege('anon','public.reorder_my_favorite_collection(uuid,integer)','execute') then
+    raise exception 'Anonymous users must not execute the collection reorder RPC';
+  end if;
 end $p4schema$;
 
 -- Exercise actual PostgreSQL RLS as the authenticated role using two existing
@@ -209,6 +220,7 @@ declare
   word_a bigint;
   word_b bigint;
   collection_a uuid;
+  collection_a2 uuid;
   collection_b uuid;
   visible_count integer;
   affected integer;
@@ -227,6 +239,15 @@ begin
 
   perform set_config('request.jwt.claim.sub', user_a::text, true);
   collection_a := (public.create_my_favorite_collection('__p4a_' || suffix)->>'id')::uuid;
+  collection_a2 := (public.create_my_favorite_collection('__p4a2_' || suffix)->>'id')::uuid;
+  if (select sort_order from public.favorite_collections where id=collection_a2) <> 1 then
+    raise exception 'New folders must append after existing folders';
+  end if;
+  perform public.reorder_my_favorite_collection(collection_a2,0);
+  if (select sort_order from public.favorite_collections where id=collection_a2) <> 0
+     or (select sort_order from public.favorite_collections where id=collection_a) <> 1 then
+    raise exception 'Owner reorder RPC did not persist the requested position';
+  end if;
   insert into public.favorite_collection_items(collection_id,saved_word_id)
   values(collection_a,word_a);
 
@@ -234,6 +255,12 @@ begin
   collection_b := (public.create_my_favorite_collection('__p4b_' || suffix)->>'id')::uuid;
   select count(*) into visible_count from public.favorite_collections where id=collection_a;
   if visible_count <> 0 then raise exception 'Account B can read Account A collection'; end if;
+  denied := false;
+  begin
+    perform public.reorder_my_favorite_collection(collection_a,0);
+  exception when insufficient_privilege then denied := true;
+  end;
+  if not denied then raise exception 'Account B reordered Account A collection'; end if;
   select count(*) into visible_count from public.favorite_collection_items where collection_id=collection_a;
   if visible_count <> 0 then raise exception 'Account B can read Account A membership'; end if;
 
@@ -286,9 +313,9 @@ begin
   select count(*) into visible_count from public.favorite_collection_items where saved_word_id=word_a;
   if visible_count <> 0 then raise exception 'Deleting a saved word did not remove its collection memberships'; end if;
 
-  delete from public.favorite_collections where id=collection_a;
+  delete from public.favorite_collections where id in (collection_a,collection_a2);
   get diagnostics affected = row_count;
-  if affected <> 1 then raise exception 'Account A cannot delete its own collection'; end if;
+  if affected <> 2 then raise exception 'Account A cannot delete its own collections'; end if;
 
   perform set_config('request.jwt.claim.sub', user_b::text, true);
   delete from public.favorite_collections where id=collection_b;
