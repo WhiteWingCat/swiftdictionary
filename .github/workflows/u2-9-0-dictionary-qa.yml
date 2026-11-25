@@ -30,6 +30,7 @@ on:
     paths:
       - "favorite-collections.js"
       - "account-deletion.js"
+      - "supabase-config.js"
       - "tests/browser/u2-9-0-favorite-collections.spec.js"
       - "supabase/migrations/*favorite_collections*"
       - "supabase/tests/favorite_collections.sql"
