@@ -320,6 +320,30 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(panel.locator("select")).toHaveCount(0);
 });
 
+test("Your Collections folders can be dragged to the top or bottom of the list", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
+  for (const name of ["First", "Second", "Third"]) {
+    await panel.getByRole("button", { name: "＋ New folder" }).click();
+    await page.locator("#fcCollectionName").fill(name);
+    await page.getByRole("button", { name: "Create folder" }).click();
+    await expect(panel.getByText(name, { exact: true })).toBeVisible();
+  }
+  const third = panel.locator(".fc-folder-card").filter({ hasText: "Third" });
+  const first = panel.locator(".fc-folder-card").filter({ hasText: "First" });
+  await third.locator(".fc-drag-handle").dragTo(first, { targetPosition: { x: 12, y: 8 } });
+  await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
+    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
+    .toEqual(["Third", "First", "Second"]);
+  const second = panel.locator(".fc-folder-card").filter({ hasText: "Second" });
+  await second.locator(".fc-drag-handle").dragTo(panel.locator(".fc-folder-card").last(), { targetPosition: { x: 12, y: 90 } });
+  await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
+    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
+    .toEqual(["Third", "First", "Second"]);
+  await expect(panel.locator(".fc-folder-card").first()).toContainText("Third");
+  await expect(panel.locator(".fc-folder-card").last()).toContainText("Second");
+});
+
 test("Your Collections remain account-isolated and replace private Realtime channels when accounts switch", async ({ page }) => {
   await installCollectionsFixture(page);
   const panel = page.locator("#swiftFavoriteCollections");
