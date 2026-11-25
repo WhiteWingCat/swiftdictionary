@@ -109,6 +109,9 @@ assert(confirmation.includes("Selecting this lesson will consume one daily lesso
 assert(confirmation.includes("Lesson started. One daily lesson allowance has been used. Resuming is free."));
 assert(confirmation.includes('data-confirm="yes"') && confirmation.includes('data-confirm="no"'));
 assert(confirmation.includes('button.click()'));
+assert(confirmation.includes('document.querySelectorAll("#lessonCards .lesson-card")'));
+assert(confirmation.includes('card.dataset.lessonId === button.dataset.lessonId'));
+assert(html.includes('b.dataset.lessonId=x.id'),"Lesson cards need a stable ID so a confirmation can survive allowance-triggered re-renders.");
 assert(confirmation.includes(".lesson-status.completed,.lesson-status.in-progress"));
 assert(daily.includes("daily-activity-allowance-track"));
 assert(daily.includes("daily-activity-allowance-top"));
