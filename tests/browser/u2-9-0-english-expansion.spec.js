@@ -71,7 +71,7 @@ test("English permanent lesson expansion adds three translated, practice-ready l
       })
     };
   });
-  expect(catalogue.counts).toEqual({ beginner: 7, intermediate: 7, advanced: 6 });
+  expect(catalogue.counts).toEqual({ beginner: 8, intermediate: 6, advanced: 6 });
   expect(catalogue.lessons).toEqual([
     expect.objectContaining({ id: "b-question-forms-negatives", level: "beginner", practiceCount: 5, examplesCount: 7, translationPracticeCount: 5 }),
     expect.objectContaining({ id: "i-passive-voice", level: "intermediate", practiceCount: 5, examplesCount: 6, translationPracticeCount: 5 }),
