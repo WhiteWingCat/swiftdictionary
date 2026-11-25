@@ -114,7 +114,7 @@
       .fc-dialog button:disabled{opacity:.55;cursor:wait}
       @media(max-width:520px){#swiftFavoriteCollections{padding:14px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
       @media(max-width:520px){#swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(min(100%,132px),1fr));gap:9px}}
-      @media(prefers-reduced-motion:reduce){#swiftFavoriteCollections *, .fc-dialog *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+      @media(prefers-reduced-motion:reduce){#swiftFavoriteCollections *, .fc-dialog *, .fc-disclosure-content{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
     `;
     document.head.appendChild(style);
   }
