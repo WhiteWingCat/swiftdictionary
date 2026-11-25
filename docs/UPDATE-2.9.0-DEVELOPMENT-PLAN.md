@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); Phases 1–3 are complete; Phase 4 Your Collections refinements are implemented and deployed to a controlled Cloudflare Pages staging preview for owner re-review; Phases 5–6 and final release QA remain open.  
+**Status:** Owner-approved plan (2026-11-24); Phases 1–3 complete; Phase 4 and Phase 5 implemented on the U2.9.0 feature branch and available in isolated staging for owner review; Phase 6 partially implemented (15 additional English Quiz questions remain draft-only); new post-review refinements recorded on 2026-11-25 and not yet implemented/validated.
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -699,3 +699,14 @@ Phase 6 is expanded beyond the initial Quiz-only draft addition. It may proceed 
 - Preserve active Free 16/Premium 40 folder creation limits, existing folders on downgrade, unlimited free dictionary search and all existing learning allowance values.
 - Perform the standing Malaysia-specific and general international legal/privacy/licensing planning review for new user-data schema behaviour and new learning content. Reordering adds no intended new personal-data category, but account-linked ordering remains subject to owner-scoped access, minimisation, retention and deletion semantics. New lesson/Quiz/Flashcard content must be original or appropriately licensed.
 - Test desktop, mobile/touch, keyboard accessibility, reduced motion, account switching, cross-device sync, RLS/ACL, concurrency, error handling and rollback behaviour. Report automated checks separately from authenticated live-staging checks.
+
+
+## 11. Updated execution checkpoint — 2026-11-25 (owner feedback)
+
+- The latest Master Development Record and relevant November 25 archives were reviewed before resuming.
+- The owner-approved follow-up scope is recorded in Section 10 above.
+- Latest application state observed: PR #18 remains open against `main`; head branch `feature/u2-9-0-collections-feedback`, commit `78280d40b4fce5c886fd65b53e21a957bb8a88e1`. Its latest U2.9.0 English QA run `45584558663` completed successfully. The separate Cloudflare Workers Builds failure remains distinct from Cloudflare Pages and must not be described as a Pages deployment failure.
+- The development plan addendum was committed to `docs/master-development-record` as `650953517249dc723762e757dde812dac8bdcb39`.
+- No production merge, production deployment, production Supabase write, Premium activation or allowance change was made as part of this planning update.
+- Next implementation work: fix collection card sizing against the actual Favorite/Dictionary grid at desktop and mobile widths; implement account-owned persistent folder order with a keyboard/touch-accessible reorder interaction and staging-only SQL/RLS validation; add reduced-motion-aware shared disclosure animation; then continue curriculum-led English Lessons, Quiz and Flashcards additions with strict draft/release separation.
+- No refreshed staging preview is authorised until these refinements and their automated/authenticated regression checks are complete.
