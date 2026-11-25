@@ -63,22 +63,18 @@ begin
     return true;
   end if;
 
-  -- Move every row into a temporary positive range before assigning compact
-  -- zero-based positions. The account advisory lock serializes concurrent moves.
-  update public.favorite_collections c
-  set sort_order = c.sort_order + 1000000
-  where c.user_id = v_user_id;
-
+  -- sort_order is deliberately not unique-constrained, so a single set-based
+  -- update can compact the list without transient collisions or extra broadcasts.
   with position_keys as (
     select c.id,
       case
         when c.id = p_collection_id then p_new_position
         when p_new_position < v_old_position
-          then (c.sort_order - 1000000)
-             + case when (c.sort_order - 1000000) >= p_new_position then 1 else 0 end
-        else (c.sort_order - 1000000)
-             - case when (c.sort_order - 1000000) > v_old_position
-                       and (c.sort_order - 1000000) <= p_new_position then 1 else 0 end
+          then c.sort_order
+             + case when c.sort_order >= p_new_position then 1 else 0 end
+        else c.sort_order
+             - case when c.sort_order > v_old_position
+                       and c.sort_order <= p_new_position then 1 else 0 end
       end as position_key
     from public.favorite_collections c
     where c.user_id = v_user_id
@@ -90,7 +86,9 @@ begin
   update public.favorite_collections c
   set sort_order = ranked.new_position
   from ranked
-  where ranked.id = c.id and c.user_id = v_user_id;
+  where ranked.id = c.id
+    and c.user_id = v_user_id
+    and c.sort_order <> ranked.new_position;
 
   return true;
 end;
