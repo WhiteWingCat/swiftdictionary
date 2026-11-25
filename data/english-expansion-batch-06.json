@@ -5608,18 +5608,18 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "The activity of learning about a subject",
-          "definitionZh": "学习；研究",
+          "definition": "An activity or period spent learning about a subject; a piece of research; or a room used for reading or working.",
+          "definitionZh": "学习；研究；书房",
           "examples": [
-            "She studies English for an hour each day."
+            "The study found a link between sleep and memory."
           ]
         },
         {
           "part": "verb",
-          "definition": "to spend time learning, reading or investigating it carefully.",
-          "definitionZh": "书房",
+          "definition": "To spend time learning about a subject, reading, or investigating it carefully.",
+          "definitionZh": "学习；研究",
           "examples": [
-            "The study found a link between sleep and memory."
+            "She studies English for an hour each day."
           ]
         }
       ]
