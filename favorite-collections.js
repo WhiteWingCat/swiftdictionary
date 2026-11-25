@@ -86,7 +86,7 @@
     const heading = favoriteHeading();
     if (!heading || document.getElementById("swiftFavoriteCollections")) return false;
     styles();
-    const section = el("section");
+    const section = el("div");
     section.id = "swiftFavoriteCollections";
     section.setAttribute("aria-labelledby", "swiftFavoriteCollectionsTitle");
     const head = el("div", "fc-head");
@@ -109,7 +109,7 @@
     if (overlay) return overlay;
     overlay = el("div", "fc-overlay");
     overlay.hidden = true;
-    const dialog = el("section", "fc-dialog");
+    const dialog = el("div", "fc-dialog");
     dialog.setAttribute("role", "dialog");
     dialog.setAttribute("aria-modal", "true");
     dialog.setAttribute("aria-labelledby", "fcDialogTitle");
