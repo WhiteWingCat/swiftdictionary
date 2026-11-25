@@ -4,7 +4,7 @@
   "learning_language_code": "en",
   "translation_language_code": "zh",
   "status": "draft",
-  "notes": "199 original SwiftDictionary questions: 114 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review is deferred until live testing and friend feedback; structural validation does not certify educational accuracy.",
+  "notes": "214 original SwiftDictionary questions: 129 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review is deferred until live testing and friend feedback; structural validation does not certify educational accuracy.",
   "questions": [
     {
       "question_id": "quiz-beginner-001",
@@ -6543,6 +6543,486 @@
       "explanation_learning": "The correct translation of “cautious” in this context is “谨慎的”.",
       "explanation_translation": "在本语境中，“cautious”的正确翻译是“谨慎的”。",
       "learning_objective_id": "qualified-academic-claims"
+    },
+    {
+      "question_id": "quiz-p6-beginner-001",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Which article completes the sentence? “She waited for ___ bus we had booked.”",
+      "prompt_translation": "哪个冠词可以完成句子？“She waited for ___ bus we had booked.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "一个"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "一个（用于元音音素前）"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "特指的那个"
+        },
+        {
+          "id": "d",
+          "learning_text": "no article",
+          "translation_text": "不需要冠词"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "Use the when the listener can identify the particular bus from the context.",
+      "explanation_translation": "当听者可以根据语境确定是哪一辆公交车时，使用 the。",
+      "learning_objective_id": "article-use-and-sound"
+    },
+    {
+      "question_id": "quiz-p6-beginner-002",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the natural phrase for a first mention of an object.",
+      "prompt_translation": "选择首次提到某个物品时的自然表达。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a umbrella",
+          "translation_text": "a umbrella"
+        },
+        {
+          "id": "b",
+          "learning_text": "an umbrella",
+          "translation_text": "an umbrella"
+        },
+        {
+          "id": "c",
+          "learning_text": "the umbrella in every context",
+          "translation_text": "所有语境都用 the umbrella"
+        },
+        {
+          "id": "d",
+          "learning_text": "umbrella",
+          "translation_text": "umbrella"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Umbrella begins with a vowel sound, so use an for a first mention.",
+      "explanation_translation": "umbrella 以元音音素开头，因此首次提到时使用 an。",
+      "learning_objective_id": "article-use-and-sound"
+    },
+    {
+      "question_id": "quiz-p6-beginner-003",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Why do we say “an honest answer”?",
+      "prompt_translation": "为什么我们说“an honest answer”？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The letter h is always silent in English.",
+          "translation_text": "因为英语中的 h 总是不发音。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The first sound in honest is a vowel sound.",
+          "translation_text": "因为 honest 的第一个音是元音音素。"
+        },
+        {
+          "id": "c",
+          "learning_text": "All adjectives take an.",
+          "translation_text": "所有形容词前都用 an。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Honest is an uncountable noun.",
+          "translation_text": "因为 honest 是不可数名词。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Article choice follows the first sound, and the h in honest is silent.",
+      "explanation_translation": "冠词选择取决于第一个音素；honest 中的 h 不发音。",
+      "learning_objective_id": "article-use-and-sound"
+    },
+    {
+      "question_id": "quiz-p6-beginner-004",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct sentence.",
+      "prompt_translation": "选择正确的句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I saw a owl near the tree.",
+          "translation_text": "I saw a owl near the tree."
+        },
+        {
+          "id": "b",
+          "learning_text": "I saw an owl near the tree.",
+          "translation_text": "I saw an owl near the tree."
+        },
+        {
+          "id": "c",
+          "learning_text": "I saw the owl near a tree in every context.",
+          "translation_text": "所有语境都说 I saw the owl near a tree。"
+        },
+        {
+          "id": "d",
+          "learning_text": "I saw an the owl.",
+          "translation_text": "I saw an the owl。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Owl begins with a vowel sound, so an owl is correct for a new noun.",
+      "explanation_translation": "owl 以元音音素开头；首次提到时应使用 an owl。",
+      "learning_objective_id": "article-use-and-sound"
+    },
+    {
+      "question_id": "quiz-p6-beginner-005",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Which article points to a specific, identifiable noun?",
+      "prompt_translation": "哪个冠词用于指代特定且可以确定的名词？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "a"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "an"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "the"
+        },
+        {
+          "id": "d",
+          "learning_text": "some",
+          "translation_text": "some"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The identifies a particular noun that the listener can identify.",
+      "explanation_translation": "the 用于指代听者能够确定的特定名词。",
+      "learning_objective_id": "article-use-and-sound"
+    },
+    {
+      "question_id": "quiz-p6-intermediate-001",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Choose the natural collocation.",
+      "prompt_translation": "选择自然的词语搭配。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make responsibility",
+          "translation_text": "承担责任"
+        },
+        {
+          "id": "b",
+          "learning_text": "take responsibility",
+          "translation_text": "承担责任"
+        },
+        {
+          "id": "c",
+          "learning_text": "do responsibility",
+          "translation_text": "做责任"
+        },
+        {
+          "id": "d",
+          "learning_text": "build responsibility",
+          "translation_text": "建立责任"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The standard collocation is take responsibility for something.",
+      "explanation_translation": "标准搭配是 take responsibility for something（对某事负责）。",
+      "learning_objective_id": "natural-collocations"
+    },
+    {
+      "question_id": "quiz-p6-intermediate-002",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Complete the phrase: “The team must ___ the deadline.”",
+      "prompt_translation": "完成短语：“The team must ___ the deadline.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "meet",
+          "translation_text": "达到／按时完成"
+        },
+        {
+          "id": "b",
+          "learning_text": "raise",
+          "translation_text": "提高"
+        },
+        {
+          "id": "c",
+          "learning_text": "pose",
+          "translation_text": "造成"
+        },
+        {
+          "id": "d",
+          "learning_text": "make",
+          "translation_text": "制作"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Meet a deadline means finish the work by the required time.",
+      "explanation_translation": "meet a deadline 表示在规定时间之前完成工作。",
+      "learning_objective_id": "natural-collocations"
+    },
+    {
+      "question_id": "quiz-p6-intermediate-003",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Which phrase means to make progress or improve?",
+      "prompt_translation": "哪个短语表示取得进展或有所改善？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "take progress",
+          "translation_text": "take progress"
+        },
+        {
+          "id": "b",
+          "learning_text": "make progress",
+          "translation_text": "make progress"
+        },
+        {
+          "id": "c",
+          "learning_text": "raise progress",
+          "translation_text": "raise progress"
+        },
+        {
+          "id": "d",
+          "learning_text": "do progress",
+          "translation_text": "do progress"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Make progress is the natural collocation for moving forward or improving.",
+      "explanation_translation": "make progress 是表示取得进展或改善的自然搭配。",
+      "learning_objective_id": "natural-collocations"
+    },
+    {
+      "question_id": "quiz-p6-intermediate-004",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Choose the natural collocation for bringing a point up for discussion.",
+      "prompt_translation": "选择表示提出某个问题供讨论的自然搭配。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "lift an issue",
+          "translation_text": "抬起一个问题"
+        },
+        {
+          "id": "b",
+          "learning_text": "raise an issue",
+          "translation_text": "提出一个问题"
+        },
+        {
+          "id": "c",
+          "learning_text": "make an issue",
+          "translation_text": "制作一个问题"
+        },
+        {
+          "id": "d",
+          "learning_text": "meet an issue",
+          "translation_text": "遇到一个问题"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Raise an issue means bring a point to someone's attention for discussion.",
+      "explanation_translation": "raise an issue 表示提出某个问题供他人讨论。",
+      "learning_objective_id": "natural-collocations"
+    },
+    {
+      "question_id": "quiz-p6-intermediate-005",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Choose the natural phrase.",
+      "prompt_translation": "选择自然的短语。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "highly unlikely",
+          "translation_text": "极不可能"
+        },
+        {
+          "id": "b",
+          "learning_text": "deeply rain",
+          "translation_text": "深深地下雨"
+        },
+        {
+          "id": "c",
+          "learning_text": "strongly concerned",
+          "translation_text": "强烈地担心"
+        },
+        {
+          "id": "d",
+          "learning_text": "tall deadline",
+          "translation_text": "很高的截止日期"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Highly unlikely is a common collocation meaning very improbable.",
+      "explanation_translation": "highly unlikely 是常见搭配，表示极不可能。",
+      "learning_objective_id": "natural-collocations"
+    },
+    {
+      "question_id": "quiz-p6-advanced-001",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "A writer suggests an idea indirectly. Which verb describes the writer's action?",
+      "prompt_translation": "作者间接地表达了一个想法。哪个动词描述作者的行为？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "infer",
+          "translation_text": "推断"
+        },
+        {
+          "id": "b",
+          "learning_text": "imply",
+          "translation_text": "暗示"
+        },
+        {
+          "id": "c",
+          "learning_text": "conclude",
+          "translation_text": "得出结论"
+        },
+        {
+          "id": "d",
+          "learning_text": "assume",
+          "translation_text": "假设"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "A writer or speaker implies; a reader or listener infers.",
+      "explanation_translation": "作者或说话者使用 imply（暗示）；读者或听者使用 infer（推断）。",
+      "learning_objective_id": "precise-word-choice"
+    },
+    {
+      "question_id": "quiz-p6-advanced-002",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "A reader reaches a conclusion from evidence. Which verb is correct?",
+      "prompt_translation": "读者根据证据得出结论。应该使用哪个动词？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "imply",
+          "translation_text": "暗示"
+        },
+        {
+          "id": "b",
+          "learning_text": "infer",
+          "translation_text": "推断"
+        },
+        {
+          "id": "c",
+          "learning_text": "disclose",
+          "translation_text": "披露"
+        },
+        {
+          "id": "d",
+          "learning_text": "assure",
+          "translation_text": "保证"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Infer means reach a conclusion from evidence or clues.",
+      "explanation_translation": "infer 表示根据证据或线索得出结论。",
+      "learning_objective_id": "precise-word-choice"
+    },
+    {
+      "question_id": "quiz-p6-advanced-003",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the word for a design that uses money and resources carefully.",
+      "prompt_translation": "选择表示设计节省金钱和资源的词语。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "economic",
+          "translation_text": "与经济有关的"
+        },
+        {
+          "id": "b",
+          "learning_text": "economical",
+          "translation_text": "节省资源的／经济实惠的"
+        },
+        {
+          "id": "c",
+          "learning_text": "economy",
+          "translation_text": "经济体"
+        },
+        {
+          "id": "d",
+          "learning_text": "economics",
+          "translation_text": "经济学"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Economical describes something that avoids waste or uses resources efficiently.",
+      "explanation_translation": "economical 描述避免浪费或有效利用资源的事物。",
+      "learning_objective_id": "precise-word-choice"
+    },
+    {
+      "question_id": "quiz-p6-advanced-004",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: “The organisation will ___ the new safety procedure.”",
+      "prompt_translation": "选择正确的词：“The organisation will ___ the new safety procedure.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "adapt",
+          "translation_text": "调整以适应"
+        },
+        {
+          "id": "b",
+          "learning_text": "adopt",
+          "translation_text": "采用"
+        },
+        {
+          "id": "c",
+          "learning_text": "adept",
+          "translation_text": "熟练的"
+        },
+        {
+          "id": "d",
+          "learning_text": "adapted",
+          "translation_text": "已经调整"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Adopt means take up or start using a plan or procedure; adapt means modify it.",
+      "explanation_translation": "adopt 表示采用计划或程序；adapt 表示修改以适应。",
+      "learning_objective_id": "precise-word-choice"
+    },
+    {
+      "question_id": "quiz-p6-advanced-005",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Which word means “about to happen”?",
+      "prompt_translation": "哪个词表示“即将发生”？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "eminent",
+          "translation_text": "杰出的"
+        },
+        {
+          "id": "b",
+          "learning_text": "imminent",
+          "translation_text": "即将发生的"
+        },
+        {
+          "id": "c",
+          "learning_text": "historic",
+          "translation_text": "具有历史意义的"
+        },
+        {
+          "id": "d",
+          "learning_text": "historical",
+          "translation_text": "与历史有关的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Imminent means likely to happen very soon; eminent means distinguished.",
+      "explanation_translation": "imminent 表示即将发生；eminent 表示杰出的。",
+      "learning_objective_id": "precise-word-choice"
     }
   ]
 }
