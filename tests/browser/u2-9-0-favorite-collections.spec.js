@@ -242,6 +242,17 @@ test("Your Collections remain account-isolated and replace private Realtime chan
     { name: "favorite-collections:test-user-a", removed: true },
     { name: "favorite-collections:test-user-b", removed: false }
   ]);
+
+  await page.evaluate(() => {
+    window.currentUser = null;
+    window.dispatchEvent(new Event("swift-auth-updated"));
+  });
+  await expect(panel.getByText("Sign in to create and sync collections across your devices.")).toBeVisible();
+  const signedOutChannels = await page.evaluate(() => window.__collectionsTestChannels.map(channel => ({ name: channel.name, removed: channel.removed })));
+  expect(signedOutChannels).toEqual([
+    { name: "favorite-collections:test-user-a", removed: true },
+    { name: "favorite-collections:test-user-b", removed: true }
+  ]);
 });
 
 
@@ -283,6 +294,51 @@ test("Dictionary detail panel shows Add to collection only for a saved word", as
     label: document.getElementById("collectionAddButton").getAttribute("aria-label")
   }));
   expect(placement).toEqual({ visible: true, nextToFavorite: true, label: "Add to collection" });
+
+  // Simulate an authenticated client after the local favorite is created, then
+  // click the real detail-panel action and verify the selected folder write.
+  await page.evaluate(() => {
+    const state = { memberships: [] };
+    class Query {
+      constructor(table) { this.table = table; this.filters = []; }
+      select() { return this; }
+      eq(key, value) { this.filters.push([key, value]); return this; }
+      order() { return this; }
+      upsert(rows) {
+        state.memberships.push(...(Array.isArray(rows) ? rows : [rows]));
+        return Promise.resolve({ error: null });
+      }
+      then(resolve, reject) {
+        let data = [];
+        if (this.table === "favorite_collections") data = [{ id: "folder-a", name: "Travel", created_at: "2026-01-01T00:00:00Z" }];
+        if (this.table === "saved_words") data = [{ id: 501, word: document.getElementById("modalWord").textContent, course: "en" }];
+        if (this.table === "favorite_collection_items") {
+          data = state.memberships.filter(row => this.filters.every(([key, value]) => row[key] === value)).map(row => ({ collection_id: row.collection_id }));
+        }
+        return Promise.resolve({ data, error: null }).then(resolve, reject);
+      }
+    }
+    window.__detailCollectionState = state;
+    window.currentUser = { id: "test-user-a" };
+    window.supabaseClient = {
+      from: table => new Query(table),
+      channel(name, options) {
+        return { name, options, on() { return this; }, subscribe(callback) { callback?.("SUBSCRIBED"); return this; } };
+      },
+      removeChannel() {}
+    };
+    window.dispatchEvent(new Event("swift-auth-updated"));
+    document.getElementById("collectionAddButton").disabled = false;
+  });
+  await add.click();
+  const addDialog = page.getByRole("dialog", { name: "Add to collection" });
+  await expect(addDialog).toBeVisible();
+  await addDialog.getByLabel("Travel").check();
+  await addDialog.getByRole("button", { name: "Save" }).click();
+  await expect(addDialog).toBeHidden();
+  const detailMembershipWrites = await page.evaluate(() => window.__detailCollectionState.memberships);
+  expect(detailMembershipWrites).toEqual([{ collection_id: "folder-a", saved_word_id: 501 }]);
+
   const savedWord = await page.locator("#modalWord").textContent();
   await page.locator("#closeButton").click();
   await page.evaluate(word => window.dispatchEvent(new CustomEvent("swift-collections-open-word", { detail: { word, course: "en" } })), savedWord);
