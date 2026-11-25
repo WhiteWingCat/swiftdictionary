@@ -202,6 +202,11 @@
     const list = panel.querySelector(".fc-list");
     list.replaceChildren();
     const user = getUser(), c = getClient();
+    const createButton = panel.querySelector("#swiftFavoriteCollectionCreate");
+    if (createButton) {
+      createButton.disabled = !user;
+      createButton.title = user ? "Create a collection" : "Sign in to create collections";
+    }
     if (!user || !c) {
       list.append(el("p", "fc-muted", "Sign in to create and sync collections across your devices."));
       return;
