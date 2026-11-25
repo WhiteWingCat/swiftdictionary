@@ -80,12 +80,13 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     window.supabaseClient = window.__collectionsTestClient;
   });
 
-  await page.goto("/");
+  await page.goto("about:blank");
+  await page.setContent("<!doctype html><html><head></head><body></body></html>");
   await page.evaluate(() => {
     window.supabaseClient = window.__collectionsTestClient;
     window.currentUser = { id: "test-user-a" };
   });
-  await page.addScriptTag({ url: "/favorite-collections.js" });
+  await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await page.evaluate(() => {
     const heading = document.createElement("h2");
     heading.textContent = "Favorite words";
