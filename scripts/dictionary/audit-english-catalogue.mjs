@@ -64,9 +64,11 @@ for(const e of records){
  if(!w||!e.part||!e.definition||!e.definitionZh||!e.phonetic)report.checks.missingFields.push({word:w,source:e._source});
  if(!/\/[^/]+\//.test(e.phonetic||""))report.checks.missingFields.push({word:w,field:"slash-delimited IPA"});
  if(!Array.isArray(e.examples)||e.examples.length<2||e.examples.some(x=>!String(x||"").trim()))report.checks.insufficientExamples.push(w);
- const allExamples=[...(e.examples||[]),...(e.senses||[]).flatMap(s=>s.examples||[])].map(norm).filter(Boolean);
- const exampleSeen=new Set();
- for(const ex of allExamples){if(exampleSeen.has(ex)){report.checks.duplicateExamples.push({word:w,example:ex});break;}exampleSeen.add(ex);}
+ const exampleGroups=[e.examples||[],...senses.map(s=>s.examples||[])];
+ for(const group of exampleGroups){
+  const exampleSeen=new Set();
+  for(const ex of group.map(norm).filter(Boolean)){if(exampleSeen.has(ex)){report.checks.duplicateExamples.push({word:w,example:ex});break;}exampleSeen.add(ex);}
+ }
  const senses=Array.isArray(e.senses)?e.senses:[];
  const senseSeen=new Set();
  for(const s of senses){
