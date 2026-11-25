@@ -27,7 +27,7 @@ test("English topic filters combine with headword search and preserve POS filter
   await expect(page.locator("#count")).toHaveText("0 words");
 
   await page.locator("#search").fill("");
-  await page.locator("#categoryRow").getByRole("button", { name: "Verbs" }).click();
+  await page.locator("#categoryRow").getByRole("button", { name: "Verbs", exact: true }).click();
   const verbCount = Number((await page.locator("#count").textContent()).match(/^\d+/)[0]);
   expect(verbCount).toBeGreaterThan(0);
   expect(verbCount).toBeLessThan(1316);
