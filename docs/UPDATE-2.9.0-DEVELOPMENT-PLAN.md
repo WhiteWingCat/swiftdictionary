@@ -381,3 +381,8 @@ Run 45548152492 passed all 13 Playwright tests. The app-shell DOM assertion conf
 ### Phase 4 expanded regression and staging integrity — passed
 
 Run 45548503961 passed all 13 Playwright tests. Mocked collection coverage now includes empty and duplicate names, mixed English/Chinese membership, create/rename/delete, removal without deleting saved words, and account switching between two mock users. The test double was fixed to read the active account dynamically. Folder counts were optimized to a single membership query. The SQL schema regression passed after adding the Realtime publication assertion. A post-migration staging check confirms 14 saved words remain, zero collection/membership rows exist, and both tables are published to supabase_realtime. Supabase security advisor findings remain the same ten informational private-schema notices and one leaked-password-protection warning; no collection-specific finding appeared. Live authenticated API/RLS testing, actual Realtime delivery and signed-in visual/accessibility review remain outstanding.
+
+
+### Phase 4 saved-word schema alignment
+
+Staging schema inspection showed saved_words has only id, user_id, course and word columns (no created_at). The collection picker was corrected to order by id descending, browser fixtures were aligned, and the SQL regression now asserts the existing schema contract. The strengthened SQL regression passed against staging; browser CI for this correction is in progress. No staging preview or production change has occurred.
