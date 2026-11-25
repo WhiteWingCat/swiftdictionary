@@ -36,7 +36,7 @@ The post-migration Supabase security advisor returned the same existing findings
 - Migration application: passed on isolated staging.
 - Schema/policy/index/grant inspection: passed.
 - Existing saved-word preservation check: passed (14 rows before/after; no collection test data persisted).
-- Static SQL regression test added for RLS enablement, policy counts, cascading foreign keys, name uniqueness and grants.
+- The SQL regression script was executed successfully against isolated staging and rolled back. It verifies RLS enablement, policy counts, owner-predicate structure, cascading foreign keys, name uniqueness and grants.
 - A transactional cross-account RLS impersonation test was not completed; direct adversarial RLS behaviour remains an explicit outstanding validation item.
 - The new Playwright test and workflow integration were committed, but no successful GitHub Actions run for the new collections spec has yet been verified in this checkpoint. Do not represent mocked browser coverage as live Supabase integration testing.
 - The module’s actual placement relative to the rendered Favorite words heading still needs verification against the full browser DOM, along with authenticated CRUD against the isolated staging project.
@@ -62,3 +62,8 @@ Next:
 4. Verify cross-device refresh/Realtime fallback, account switching, empty states, duplicate names, long names, failures, keyboard accessibility and mobile/desktop layouts.
 5. Run Supabase advisors and database regression checks; document any accepted findings.
 6. Only after Phase 4 is fully implemented and internally validated may the first staging preview be prepared. Production changes remain separately gated by explicit owner approval.
+
+
+## Follow-up — SQL schema regression passed
+
+The collections SQL regression was strengthened to inspect the owner predicates in all collection and membership policies, then executed successfully against the isolated staging project. The transaction rolled back with no assertion failures. This confirms schema/policy structure and grants, but does not replace authenticated two-account API testing. The frontend module also gained a one-time initialization guard, dialog focus handling and signed-out create-button disabling. CI and real browser verification remain outstanding.
