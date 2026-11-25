@@ -27,7 +27,7 @@ The ten topic categories are Actions, Everyday Terms, Activities, Places, People
 
 Topic filters are separate from the existing POS filters and compose with headword-only search, alphabet selection, saved-word filtering and pagination. The English topic row hides/resets when switching to Chinese. Existing Chinese category and pinyin filters remain unchanged.
 
-All 1,316 English entries have at least one category assignment. Combined category assignment counts (multi-category entries count in every category): Actions 442; Everyday Terms 379; Activities 62; Places 83; People & Relationships 68; Science & Technology 74; History & Culture 33; Nature & Environment 49; Education 68; Emotions & Descriptions 249.
+All 1,316 English entries have at least one category assignment. Combined category assignment counts (multi-category entries count in every category): Actions 442; Everyday Terms 307; Activities 62; Places 85; People & Relationships 71; Science & Technology 147; History & Culture 46; Nature & Environment 73; Education 70; Emotions & Descriptions 233.
 
 These baseline category assignments are initial model-assisted editorial classifications. They are not represented as independent expert review; broader semantic spot checks remain part of Phase 3.
 
@@ -52,7 +52,7 @@ Test failures and corrections:
 3. A non-exact POS selector for “Verbs” also matched “Adverbs”. It was corrected to use an exact accessible name.
 4. These were test assumptions/selectors; no application defect was inferred from them.
 
-Final successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4cb2a62b838690659bc599fffe`. All workflow steps passed:
+Initial successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4cb2a62b838690659bc599fffe`. The subsequent editorial and mobile follow-up run is recorded below. All workflow steps passed:
 - Existing Phase 2 baseline/expansion validator.
 - Phase 3 category and Chinese translation coverage audit.
 - Playwright test-runner installation.
@@ -80,3 +80,11 @@ Final successful GitHub Actions run: **45540254655**, commit `95b9253b5a796d4cb2
 - Feature progress record: `docs/U2.9.0-IMPLEMENTATION-PROGRESS.md`.
 - No staging preview or PR was created. Do not prepare staging until Phase 4 is implemented and internally validated.
 - Documentation updates belong on `docs/master-development-record`; do not merge internal records into production `main`.
+
+## Editorial and mobile follow-up
+
+- Added 89 targeted manual overrides after scanning specialist baseline entries for misclassification.
+- Added a 390px viewport test for filter wrapping, horizontal overflow and topic selection.
+- Latest authoritative CI run: **45540937597**, commit `82ba00e4d6913eede952a3d7f0aa998d93054784`. All workflow steps and seven browser tests passed.
+- Updated combined category assignment counts are the figures listed above. All baseline/expansion Chinese headword and sense translation fields remain complete in the automated audit.
+- Phase 3 remains in progress pending broader semantic/editorial review. No staging preview until Phase 4 is complete and internally validated.
