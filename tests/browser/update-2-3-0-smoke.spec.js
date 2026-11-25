@@ -133,6 +133,13 @@ test("English permanent lesson expansion adds three aligned lessons across all d
 
   await page.locator("#translationSelect").selectOption("zh");
   await expect(page.locator("#lessonCards")).toContainText("准确转述陈述、问题与请求");
+  const translatedPractice = await page.evaluate(() => {
+    const lesson = eval("lessonData").advanced.find(item => item.id === "a-reported-speech");
+    return eval("lessonPractice")(lesson);
+  });
+  expect(translatedPractice[0].q).toContain("选择正确的转述句");
+  expect(translatedPractice[0].options).toHaveLength(3);
+  expect(translatedPractice[0].answer).toBeGreaterThanOrEqual(0);
   await page.locator("#lessonCards .lesson-card").filter({hasText:"准确转述陈述、问题与请求"}).click();
   await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
   await expect(page.locator("#lessonDetailPage")).toBeVisible();
