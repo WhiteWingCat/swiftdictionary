@@ -3,6 +3,8 @@
  */
 (() => {
   "use strict";
+  if (window.SWIFT_FAVORITE_COLLECTIONS_READY) return;
+  window.SWIFT_FAVORITE_COLLECTIONS_READY = true;
   const COLLECTIONS = "favorite_collections";
   const ITEMS = "favorite_collection_items";
   const WORDS = "saved_words";
@@ -139,6 +141,7 @@
     dialog.append(head);
     root.hidden = false;
     document.body.style.overflow = "hidden";
+    head.querySelector("button")?.focus();
     return dialog;
   }
 
