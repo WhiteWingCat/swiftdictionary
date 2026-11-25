@@ -100,6 +100,17 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#dashboardTabFavourites")).toBeVisible();
+  console.log("LESSON_RUNTIME_DIAGNOSTIC", JSON.stringify(await page.evaluate(() => {
+    const candidates = ["englishLessons","permanentLessons","lessonData","lessonCatalog","lessons","LESSONS","allLessons","lessonBank","englishLessonData","courseLessons"];
+    const symbols = candidates.map(name => {
+      try {
+        const value = eval(name);
+        return { name, type: typeof value, isArray: Array.isArray(value), keys: value && typeof value === "object" ? Object.keys(value).slice(0,8) : [] };
+      } catch { return { name, type: "unavailable" }; }
+    });
+    return { symbols, windowKeys: Object.keys(window).filter(key => /lesson/i.test(key)).slice(0,40),
+      disclosures: [...document.querySelectorAll("#profilePage details,#profilePage [aria-expanded]")].map(node => ({tag:node.tagName,id:node.id,cls:String(node.className||"").slice(0,80),text:(node.innerText||node.textContent||"").trim().slice(0,60),expanded:node.getAttribute("aria-expanded")})).slice(0,40) };
+  })));
   const favoriteDisclosure = page.locator("#dashboardTabFavourites details").first();
   await expect(favoriteDisclosure).toBeVisible();
   const disclosureContent = favoriteDisclosure.locator(":scope > .fc-disclosure-content");
