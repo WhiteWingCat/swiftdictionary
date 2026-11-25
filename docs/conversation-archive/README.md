@@ -191,3 +191,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 ## 2026-11-25
 
 - [Update 2.9.0 — Phase 2 content audit and validator hardening](2026-11-25-update-2-9-0-phase-2-content-audit-and-validator-hardening.md) — records the seven-batch 506-entry expansion, baseline-wide structural audit, POS/example/definition corrections, baseline-aware Node validator, successful GitHub Actions and Playwright checks, outstanding semantic/translation QA, and the no-staging-before-Phase-4 boundary.
+
+
+- [Update 2.9.0 — Phase 2 completion](2026-11-25-update-2-9-0-phase-2-completion.md) — records the completed 506-entry expansion, 766 sense records, 38 POS-semantic corrections, baseline enrichment to 302 entries/657 senses, refreshed audit, successful full CI and Playwright smoke tests, documented linguistic-review limitation, and the no-staging-before-Phase-4 boundary.
