@@ -11,6 +11,7 @@ declare
   v_unique_index boolean;
   v_bad_policy_count integer;
   v_realtime_table_count integer;
+  v_saved_word_schema_count integer;
 begin
   select c.relrowsecurity into v_rls_collections
   from pg_class c join pg_namespace n on n.oid=c.relnamespace
@@ -107,6 +108,17 @@ begin
   if not has_table_privilege('authenticated','public.favorite_collections','select')
      or not has_table_privilege('authenticated','public.favorite_collection_items','insert') then
     raise exception 'Authenticated grants are incomplete';
+  end if;
+
+  select count(*) into v_saved_word_schema_count
+  from information_schema.columns
+  where table_schema='public' and table_name='saved_words'
+    and ((column_name='id' and data_type='bigint')
+      or (column_name='user_id' and data_type='uuid')
+      or (column_name='course' and data_type='text')
+      or (column_name='word' and data_type='text'));
+  if v_saved_word_schema_count <> 4 then
+    raise exception 'Favorite Collections expects the existing saved_words id/user_id/course/word columns; found % of 4',v_saved_word_schema_count;
   end if;
 
   select count(*) into v_realtime_table_count
