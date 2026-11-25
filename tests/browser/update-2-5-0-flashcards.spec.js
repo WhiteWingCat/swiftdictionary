@@ -100,6 +100,16 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#dashboardTabFavourites")).toBeVisible();
+  console.log("DASHBOARD_DISCLOSURE_DIAGNOSTIC", JSON.stringify(await page.evaluate(() => {
+    const heading = [...document.querySelectorAll("h1,h2,h3,h4,h5")].find(node => /favorite words/i.test(node.textContent));
+    const scope = heading?.closest(".profile-card,section") || document.querySelector("#dashboardTabFavourites");
+    return [...(scope || document).querySelectorAll("button,[aria-expanded],details,[hidden]")].map(node => ({
+      tag: node.tagName, id: node.id, cls: String(node.className || "").slice(0,120),
+      text: (node.innerText || node.textContent || "").trim().slice(0,80),
+      expanded: node.getAttribute("aria-expanded"), controls: node.getAttribute("aria-controls"),
+      hidden: node.hidden, next: node.nextElementSibling ? node.nextElementSibling.outerHTML.slice(0,220) : ""
+    })).slice(0,50);
+  })));
   for(const name of ["progress","history","analytics","favourites"]){
     await page.locator('[data-dashboard-tab="'+name+'"]').click();
     const panel="#dashboardTab"+name[0].toUpperCase()+name.slice(1);
