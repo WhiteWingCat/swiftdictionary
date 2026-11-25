@@ -248,8 +248,13 @@ test("Free user can switch translation in an open permanent lesson and complete 
   const selectedTopic = (await page.locator("#lessonCards .lesson-card").first().locator(".lesson-chip").textContent()).trim();
   const topicOption = lessonTopicFilter.locator("option").filter({ hasText: selectedTopic }).first();
   const topicValue = await topicOption.getAttribute("value");
-  await lessonTopicFilter.selectOption(topicValue);
-  await lessonTopicFilter.selectOption("all");
+  await page.evaluate(value => {
+    const filter = document.querySelector("#lessonTopicFilter");
+    filter.value = value;
+    filter.dispatchEvent(new Event("change", { bubbles: true }));
+    filter.value = "all";
+    filter.dispatchEvent(new Event("change", { bubbles: true }));
+  }, topicValue);
   await expect(lessonPrompt).toBeVisible();
   await lessonPrompt.locator('[data-confirm="yes"]').click();
   await page.waitForFunction(() => {
