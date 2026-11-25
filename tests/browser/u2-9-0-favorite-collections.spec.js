@@ -178,6 +178,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
 
 
 test("Favorite Collections module loads after the core application through Supabase config", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
   await page.route("https://*.supabase.co/**", route => route.abort());
   await page.goto("/");
   await expect.poll(
@@ -202,4 +203,11 @@ test("Favorite Collections module loads after the core application through Supab
     directlyBelowFavoriteWords: true,
     title: "Your collections"
   });
+  const desktopLayout = await page.evaluate(() => ({
+    panelWidth: document.getElementById("swiftFavoriteCollections").getBoundingClientRect().width,
+    viewportWidth: window.innerWidth,
+    documentWidth: document.documentElement.scrollWidth
+  }));
+  expect(desktopLayout.panelWidth).toBeGreaterThan(0);
+  expect(desktopLayout.documentWidth).toBeLessThanOrEqual(desktopLayout.viewportWidth);
 });
