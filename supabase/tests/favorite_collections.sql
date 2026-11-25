@@ -12,6 +12,10 @@ declare
   v_bad_policy_count integer;
   v_realtime_table_count integer;
   v_saved_word_schema_count integer;
+  v_broadcast_policy_count integer;
+  v_broadcast_trigger_count integer;
+  v_broadcast_secure boolean;
+  v_realtime_rls boolean;
 begin
   select c.relrowsecurity into v_rls_collections
   from pg_class c join pg_namespace n on n.oid=c.relnamespace
@@ -128,7 +132,47 @@ begin
   if v_realtime_table_count <> 2 then
     raise exception 'Both collection tables must be in supabase_realtime publication; found %',v_realtime_table_count;
   end if;
-end $$;
+
+  select c.relrowsecurity into v_realtime_rls
+  from pg_class c where c.oid='realtime.messages'::regclass;
+  if coalesce(v_realtime_rls,false) is not true then
+    raise exception 'Realtime messages must have RLS enabled for private broadcasts';
+  end if;
+
+  select count(*) into v_broadcast_policy_count
+  from pg_policies
+  where schemaname='realtime' and tablename='messages'
+    and policyname='authenticated can receive own favorite collection broadcasts'
+    and cmd='SELECT'
+    and coalesce(qual,'') ilike '%realtime.topic%'
+    and coalesce(qual,'') ilike '%auth.uid%'
+    and coalesce(qual,'') ilike '%broadcast%';
+  if v_broadcast_policy_count <> 1 then
+    raise exception 'Owner-scoped private Broadcast receive policy is missing or incomplete';
+  end if;
+
+  select count(*) into v_broadcast_trigger_count
+  from pg_trigger
+  where not tgisinternal
+    and tgfoid='private.broadcast_favorite_collection_changes()'::regprocedure
+    and tgname in ('favorite_collections_broadcast_changes','favorite_collection_items_broadcast_changes');
+  if v_broadcast_trigger_count <> 2 then
+    raise exception 'Both collection tables must have private Broadcast triggers; found %',v_broadcast_trigger_count;
+  end if;
+
+  select p.prosecdef and p.proconfig @> array['search_path=""']
+  into v_broadcast_secure
+  from pg_proc p
+  where p.oid='private.broadcast_favorite_collection_changes()'::regprocedure;
+  if coalesce(v_broadcast_secure,false) is not true then
+    raise exception 'Broadcast trigger must be SECURITY DEFINER with an empty search_path';
+  end if;
+
+  if has_function_privilege('anon','private.broadcast_favorite_collection_changes()','execute')
+     or has_function_privilege('authenticated','private.broadcast_favorite_collection_changes()','execute') then
+    raise exception 'Broadcast trigger function must not be executable by API roles';
+  end if;
+end $;
 
 -- Exercise actual PostgreSQL RLS as the authenticated role using two existing
 -- staging accounts. All test folders and memberships are rolled back below.
