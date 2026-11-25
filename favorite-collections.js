@@ -286,10 +286,10 @@
     }
     const validIds = new Set(data.map(item => item.id));
     for (const id of [...expandedCollectionIds]) if (!validIds.has(id)) expandedCollectionIds.delete(id);
-    for (const collection of data) renderCollection(collection, counts.get(collection.id) || 0, membershipResult.error);
+    data.forEach((collection, index) => renderCollection(collection, counts.get(collection.id) || 0, membershipResult.error, index, data.length));
   }
 
-  function renderCollection(collection, count, countError) {
+  function renderCollection(collection, count, countError, index, total) {
     const card = el("div", "fc-folder-card");
     const head = el("div", "fc-folder-head");
     const expanded = expandedCollectionIds.has(collection.id);
@@ -309,9 +309,13 @@
         loadCollectionWords(collection, content);
       } else {
         content.classList.remove("is-open");
-        content.addEventListener("transitionend", event => {
-          if (event.target === content && !expandedCollectionIds.has(collection.id)) content.hidden = true;
-        }, { once: true });
+        if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
+          content.hidden = true;
+        } else {
+          content.addEventListener("transitionend", event => {
+            if (event.target === content && event.propertyName === "max-height" && !expandedCollectionIds.has(collection.id)) content.hidden = true;
+          }, { once: true });
+        }
       }
     }, "fc-folder-toggle");
     toggle.setAttribute("aria-expanded", String(expanded));
@@ -359,8 +363,10 @@
     dragHandle.title = "Drag to reorder folders";
     const moveUp = button("↑", () => moveCollection(collection.id, -1), "fc-button");
     moveUp.setAttribute("aria-label", "Move " + collection.name + " up");
+    moveUp.disabled = index === 0;
     const moveDown = button("↓", () => moveCollection(collection.id, 1), "fc-button");
     moveDown.setAttribute("aria-label", "Move " + collection.name + " down");
+    moveDown.disabled = index === total - 1;
     orderControls.append(dragHandle, moveUp, moveDown);
     head.insertBefore(orderControls, menuWrap);
     card.dataset.collectionId = collection.id;
