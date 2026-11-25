@@ -36,11 +36,11 @@ begin
   from pg_policies
   where schemaname='public' and tablename='favorite_collections'
     and policyname in (
-      'favorite_collections_select_own','favorite_collections_insert_own',
+      'favorite_collections_select_own',
       'favorite_collections_update_own','favorite_collections_delete_own'
     );
-  if v_policy_count <> 4 then
-    raise exception 'Expected 4 owner-scoped collection policies, found %',v_policy_count;
+  if v_policy_count <> 3 then
+    raise exception 'Expected 3 owner-scoped collection policies, found %',v_policy_count;
   end if;
 
   select count(*) into v_policy_count
@@ -58,7 +58,7 @@ begin
   from pg_policies
   where schemaname='public' and tablename='favorite_collections'
     and policyname in (
-      'favorite_collections_select_own','favorite_collections_insert_own',
+      'favorite_collections_select_own',
       'favorite_collections_update_own','favorite_collections_delete_own'
     )
     and (
