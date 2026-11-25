@@ -29,7 +29,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
         const own = row => this.table === "saved_words" ? row.user_id === activeUserId()
           : this.table === "favorite_collections" ? row.user_id === activeUserId()
           : db.favorite_collections.some(c => c.id === row.collection_id && c.user_id === activeUserId())
-            && db.saved_words.some(w => w.id === row.saved_word_id && w.user_id === user.id);
+            && db.saved_words.some(w => w.id === row.saved_word_id && w.user_id === activeUserId());
         let data = [];
         let error = null;
         if (this.action === "insert" || this.action === "upsert") {
@@ -37,11 +37,11 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
             const row = { ...raw };
             if (this.table === "favorite_collections") {
               if (row.user_id !== activeUserId()) { error = { message: "row-level security violation" }; break; }
-              if (rows.some(x => x.user_id === user.id && x.name.toLowerCase() === row.name.toLowerCase())) { error = { message: "duplicate key unique constraint" }; break; }
+              if (rows.some(x => x.user_id === activeUserId() && x.name.toLowerCase() === row.name.toLowerCase())) { error = { message: "duplicate key unique constraint" }; break; }
               row.id = "collection-" + (rows.length + 1); row.created_at = new Date().toISOString(); rows.push(row); data.push(row);
             } else if (this.table === "favorite_collection_items") {
-              const collection = db.favorite_collections.find(c => c.id === row.collection_id && c.user_id === user.id);
-              const word = db.saved_words.find(w => w.id === row.saved_word_id && w.user_id === user.id);
+              const collection = db.favorite_collections.find(c => c.id === row.collection_id && c.user_id === activeUserId());
+              const word = db.saved_words.find(w => w.id === row.saved_word_id && w.user_id === activeUserId());
               if (!collection || !word) { error = { message: "row-level security violation" }; break; }
               if (!rows.some(x => x.collection_id === row.collection_id && x.saved_word_id === row.saved_word_id)) rows.push({ ...row, created_at: new Date().toISOString() });
             }
