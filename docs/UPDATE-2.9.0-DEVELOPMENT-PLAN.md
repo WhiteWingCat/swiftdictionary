@@ -510,3 +510,58 @@ Phase 4 final feedback corrections and Phase 5 dedicated-page work may proceed c
 ### Legal/privacy check
 
 This Phase 5 page only presents already configured allowances and proposed folder capacities; it must not collect new personal data or initiate a transaction. The distinction between configured entitlement limits and an unavailable purchase offer must be explicit to avoid misleading consumer-facing claims. Before any actual Premium sale or activation, conduct a fresh Malaysia-specific and international legal review covering PDPA applicability, controller/processor roles, cross-border processing, consumer disclosures, pricing/tax, recurring billing, cancellation/refunds and payment-provider terms. The 16+ audience and existing privacy/retention/legal questions remain open. This is planning guidance, not legal advice or compliance clearance.
+
+
+## 13. Implementation checkpoint — Phase 4 feedback and Phase 5 dedicated page — 2026-11-25
+
+The owner feedback has been implemented on `feature/u2-9-0-collections-feedback` (PR #18 remains open; no merge or production release was performed).
+
+### Phase 4 feedback implementation
+
+- Collection folder cards now occupy one full-width row. The folder toggle/name/count and right-aligned overflow menu remain on the same horizontal line.
+- Removed the per-word X/remove button from Your Collections. Membership removal is handled through the shared saved-word detail panel's **Add to collection** picker.
+- Your Collections copies the Favorite words card class so its surface/background matches the adjacent Dashboard card, rather than introducing a separate legacy panel treatment.
+- Reworked collection menus/dialogs to a neutral light surface with softer borders/shadows and reduced-motion handling. No old dark-background visual treatment is retained in this module.
+
+### Phase 5 implementation
+
+- Replaced the old Premium modal behaviour with navigation from the existing global **Premium plan** control to a standalone `premium-plan.html` page. The page supports direct load/refresh and a back-to-app link.
+- The page displays all six required comparison rows without collapsed details:
+  - Dictionary word-grid search: Unlimited for Free and Premium.
+  - Daily Learning: Free 1 and Premium 3 successful completions per day for each of Daily Topic, Daily Application, Daily Discovery and Daily Revision.
+  - Permanent Lessons: Free 5 and Premium 15 new starts per local day.
+  - Quiz: Free 1 and Premium 3 new sessions per local day.
+  - Flashcards: Free 3 and Premium 10 new games per local day.
+  - Collections: Free 16 and Premium 40 folders, explicitly labelled proposed future benefits only.
+- Added full explanatory notes for shared English/Chinese daily categories, successful-completion charging, local timezone resets, lesson resume/review behaviour and the inactive/proposed folder caps.
+- The page is responsive, uses a light neutral surface with restrained shadows and transitions, and respects `prefers-reduced-motion`.
+- No payment, checkout, subscription, billing, plan switch, entitlement mutation or folder-cap enforcement was added.
+
+### Read-only entitlement verification
+
+A read-only query against the isolated staging project's `public.learning_plan_limits` confirmed:
+- Free: `daily_topic=1`, `daily_application=1`, `daily_discovery=1`, `daily_revision=1`, `lesson=5`, `quiz=1`, `flashcard=3`.
+- Premium: `daily_topic=3`, `daily_application=3`, `daily_discovery=3`, `daily_revision=3`, `lesson=15`, `quiz=3`, `flashcard=10`.
+- No Supabase write or migration was performed for this feedback round. The 16/40 folder caps remain presentation-only proposals.
+
+### Automated validation and preview deployment
+
+- Updated the collections Playwright tests to verify horizontal folder rows, Favorite words surface matching, absence of X buttons, detail-picker membership removal/reassignment and dedicated Premium page navigation/content/mobile fit.
+- Replaced earlier Premium-dialog tests with dedicated-page tests.
+- GitHub Actions run **45576573180** passed the dictionary validators, whole-catalogue audit, artifact upload and all **15 Playwright browser tests**.
+- Cloudflare Pages deployed commit `9a0752c68ab5161fea88adcbfb3acb9a153725a0` successfully to isolated staging:
+  - Branch preview: https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev
+  - Unique deployment: https://60523dea.swiftdictionary.pages.dev
+- Cloudflare build-routing guard passed. The broader PR regression suite was still running at this checkpoint; do not treat the entire cross-version suite as complete until all relevant checks report final status.
+- The separate Cloudflare Workers Builds check for `swiftdictionary-testing` failed. It is distinct from the successful Cloudflare Pages deployment; investigate/triage separately before final release sign-off.
+
+### Remaining staging acceptance and release boundary
+
+- Owner should review the new preview on desktop and mobile, including the Premium route and actual signed-in Collections experience.
+- The first signed-in preview session must still verify the private Realtime channel reaches SUBSCRIBED and then test cross-device collection refresh. Automated mocked browser tests and rollback-based RLS checks are not evidence of live cross-device delivery.
+- Continue waiting for the remaining PR checks and investigate any failure before declaring consolidated U2.9.0 QA complete.
+- No merge, production Supabase migration, production deployment, Premium sale/activation or folder-cap enforcement is authorised by this checkpoint. Dictionary search remains unlimited for Free and Premium.
+
+### Legal/privacy check
+
+This feedback round adds no new personal-data category, processor, tracking, transaction or entitlement mutation. The comparison page clearly distinguishes existing configured learning allowances from a future purchase offer and labels folder limits as proposals. Existing Malaysia PDPA, international privacy, 16+ audience, content licensing and unpublished Terms/privacy review remain open. Any actual Premium launch requires a separate legal and consumer/payment review; this is planning, not legal clearance.
