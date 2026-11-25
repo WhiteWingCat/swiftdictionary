@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); Phases 1–3 are complete; Phase 4 Favorite Collections is in progress on the feature branch.  
+**Status:** Owner-approved plan (2026-11-24); Phases 1–3 are complete; Phase 4 implementation is complete and deployed to controlled Cloudflare Pages staging review; Phases 5–6 and final release QA remain open.  
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -420,3 +420,14 @@ Run 45548857974 passed all 13 browser tests. The saved-word picker uses the actu
 - Live Realtime delivery is the one acceptance check that requires a connected authenticated browser session. The staging project currently has no Realtime WebSocket client history and no daily messages partitions. Supabase creates the rolling partitions when a client first joins over WebSocket. The first staging-preview session must verify that the private channel reaches SUBSCRIBED and that changes on a second signed-in device cause the expected refresh. The app shows a fallback status if the channel errors or times out, and refreshes on focus/visibility return.
 - Staging preview readiness is therefore approved for controlled user acceptance, with live authenticated cross-device delivery explicitly marked as the first preview smoke test. This is not a claim that live two-device delivery has already been observed.
 - Legal/privacy: Malaysia PDPA and general international privacy review remains a pre-publication item for user-created collection names and account-linked saved-word references. The Terms page remains an unpublished placeholder; no legal clearance is claimed.
+
+
+### Interim staging review opened — 2026-11-25
+
+- Opened PR #17, **SwiftDictionary Update 2.9.0 — Staging review checkpoint (Phases 1–4)**, solely to organize and trigger a controlled preview review. PR: https://github.com/WhiteWingCat/swiftdictionary/pull/17
+- Cloudflare Pages reported a successful preview deployment for commit 72152496c40eede6dafbdf1bdd0c7355225a1f1e. Branch preview: https://feature-update-2-9-0-english.swiftdictionary.pages.dev (unique deployment preview: https://9abfc9c5.swiftdictionary.pages.dev).
+- This is an interim checkpoint, not a final U2.9.0 release. Phase 5 (visual-only Premium interface/navigation) and Phase 6 (optional aligned English Lessons/Quiz/Flashcards content expansion) remain open, followed by full QA and release preparation.
+- The first user acceptance smoke test is authenticated private Broadcast channel subscription and actual cross-device collection refresh. Mocked browser tests and rollback-based SQL RLS tests have passed, but live two-session Realtime delivery has not yet been observed.
+- The preview is routed through the existing build.sh environment guard to the isolated staging Supabase project (ivatvkfrtifgfheeaelj); production Supabase and the main branch have not been modified or deployed.
+- The PR explicitly prohibits merge/production rollout until all remaining phases, final release gates and owner approval are complete. Free unlimited dictionary search and existing learning allowances remain unchanged.
+- At PR creation, Cloudflare Pages preview was successful. The PR-triggered regression workflows were still running; a separate Cloudflare Workers Builds check for swiftdictionary-testing reported failure and is not the Pages deployment. Investigate/triage that check before final release sign-off.
