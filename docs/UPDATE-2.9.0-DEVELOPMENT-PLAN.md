@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); implementation in progress on the feature branch (Phase 1 complete; Phase 2 in progress).  
+**Status:** Owner-approved plan (2026-11-24); Phase 1 and Phase 2 are complete on the feature branch. Phase 3 and Phase 4 have not started.  
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -195,19 +195,33 @@ Before merge/release:
 
 - Plan approved on 2026-11-24; the owner subsequently instructed development to begin.
 - Phase 1 repository/content/data audit is complete. The baseline contains 810 unique English entries; the read-only Favorite/saved-word review confirmed account-owned saved words with RLS and no existing collection CRUD/mixed-language membership.
-- Phase 2 is in progress. 506 new English entries are authored across eleven JSON batches; the baseline/addition comparison found zero duplicate overlaps. The projected dictionary size after integration is 1,316 entries.
-- The structural target has been reached, but full linguistic QA, review of the 810 existing entries, consolidated runtime integration and execution of the standalone Node validator remain open.
-- No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
+- Phase 2 is complete on `feature/update-2-9-0-english-dictionary-collections`: 506 new English entries across seven source batches; 766 sense records; 1,316 projected unique English headwords; zero duplicate overlaps with the 810-entry baseline.
+- The existing baseline now has 302 entries with 657 explicit sense records; all 176 multi-POS baseline entries have sense coverage, and all 810 baseline entries have at least two contextual examples. All 183 multi-POS expansion entries have separate POS-specific sense records.
+- The baseline-aware Node validator, runtime equality/load-order checks and all three Playwright browser smoke tests passed in GitHub Actions run `45537066279` on commit `399ad92e06cd93bcc9f1cc6eabb7a7222c22d45c`.
+- Internal model-assisted editorial QA is complete. This is not independent professional/native-speaker certification of every pronunciation or translation; that limitation is documented for release review.
+- Phase 3 and Phase 4 have not started. No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
 - No Supabase schema, data or policy changes, production changes, merge or deployment have been made. Continue with Phase 2 QA and integration, then follow the approved sequence.
 
 
 ## 8. Implementation checkpoint — 2026-11-25
 
 - Phase 1 is complete.
-- Phase 2 has 506 new English entries across seven source batches, integrated into `data/english-expansion.js`; the projected dictionary contains 1,316 unique English headwords.
-- The 506 additions pass baseline-overlap, duplicate, required-field, example, sense-translation, category and POS-to-sense structural checks. The consolidated expansion contains 686 sense records.
-- The 810-entry baseline has been structurally audited. Five missing noun senses were added to miss, go, hold, leave and call; five short/common adverb definitions and IPA transcriptions were improved. All 176 multi-POS baseline entries now have sense records for each declared POS.
-- The baseline-aware Node validator and all three Playwright browser smoke tests pass in GitHub Actions run `45534072220` on commit `c88b637e8e9cb7042c7c7763ae41113cec2d1779`.
-- Phase 2 remains in progress until the full semantic/native-quality review and manual sense-level Simplified Chinese translation QA are complete. Automated structural checks are not treated as professional linguistic certification.
+- Phase 2 is complete: 506 new English entries across seven source batches are integrated into `data/english-expansion.js`; the projected dictionary contains 1,316 unique English headwords and 766 sense records.
+- All 183 multi-POS expansion entries have distinct POS-specific senses. The 810-entry baseline now has 302 entries with 657 explicit senses; all 176 baseline multi-POS entries have sense coverage, and every baseline entry has at least two contextual examples.
+- Final QA passed in GitHub Actions run `45537066279` on commit `399ad92e06cd93bcc9f1cc6eabb7a7222c22d45c`: baseline-aware Node validation, runtime dataset equality, script load order and all three Playwright browser smoke tests.
+- Internal model-assisted semantic/editorial and Simplified Chinese sense review is complete. It is not independent professional/native-speaker certification; that limitation is retained for release review.
 - Phase 3 and Phase 4 have not started. The first staging preview remains withheld until Phase 4 implementation and internal validation are complete.
 - No Supabase schema/data/policy changes, production merge/deployment, payment integration or Premium entitlement enforcement have occurred.
+
+
+## 9. Phase 2 completion record — 2026-11-25
+
+Phase 2 is formally complete. The 506-entry English expansion is integrated from seven source batches, with 766 sense records and a final projected English catalogue of 1,316 unique headwords. All 183 multi-POS additions now have separate POS-specific sense records, with no combined POS sense labels remaining. Thirty-eight further noun/verb definition/translation/example records were corrected after a focused semantic consistency audit.
+
+The existing 810-entry baseline was refreshed and enriched: 302 entries now contain 657 explicit sense records; all 176 multi-POS baseline entries have sense coverage; all 810 entries have at least two contextual general examples; and no duplicate baseline headwords or missing core fields remain. Twenty additional high-frequency single-POS entries received 40 separate sense records. The refreshed audit is stored in `data/english-baseline-qa-audit.json`.
+
+The 506 additions have zero duplicate headwords and zero overlap with the baseline. Required fields, Simplified Chinese sense translations, examples, approved categories, declared-POS coverage, and runtime equality pass. Latest full successful verification: GitHub Actions run `45537066279`, commit `399ad92e06cd93bcc9f1cc6eabb7a7222c22d45c`; all Node and Playwright browser checks passed.
+
+Internal model-assisted editorial QA is complete, but it is not a substitute for independent professional/native-speaker certification of every lexical nuance, IPA accent variant or translation. This is a documented release-review limitation, not a claim of certified linguistic review.
+
+Phase 3 and Phase 4 remain not started. Staging preview remains withheld until Phase 4 is implemented and internally validated. No Supabase schema/data/policy writes, production merge/deployment, payment implementation or Premium entitlement enforcement occurred during Phase 2.
