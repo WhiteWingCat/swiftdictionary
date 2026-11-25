@@ -14,7 +14,6 @@ on:
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
       - "tests/browser/u2-9-0-english-expansion.spec.js"
-      - "tests/browser/u2-9-0-english-categories.spec.js"
       - "playwright.config.js"
   pull_request:
     branches:
@@ -22,6 +21,10 @@ on:
     paths:
       - "index.html"
       - "data/english-expansion*"
+      - "data/english-baseline-categories.js"
+      - "english-category-filters.js"
+      - "scripts/dictionary/validate-english-phase3.mjs"
+      - "tests/browser/u2-9-0-english-categories.spec.js"
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
       - "tests/browser/u2-9-0-english-expansion.spec.js"
