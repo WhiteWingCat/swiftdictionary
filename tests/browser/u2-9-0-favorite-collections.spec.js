@@ -559,3 +559,67 @@ test("Your Collections enforces the Free 16-folder and Premium 40-folder limits 
   await expect(page.getByRole("alert")).toHaveText("You've reached the 40-folder limit for the Premium plan. Remove an existing folder before creating another.");
   await expect(panel.locator(".fc-folder-card")).toHaveCount(40);
 });
+
+
+test("Collection word cards preserve Favorite grid width and long headwords", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
+  const favoriteGrid = page.locator("#favoriteEnglishGrid");
+  await favoriteGrid.evaluate(grid => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "word-card";
+    card.innerHTML = '<span class="word-name">bioavailability</span>';
+    grid.append(card);
+  });
+  const before = await favoriteGrid.evaluate(grid => ({
+    columns: getComputedStyle(grid).gridTemplateColumns,
+    cardWidth: grid.firstElementChild.getBoundingClientRect().width,
+    gridWidth: grid.getBoundingClientRect().width
+  }));
+
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Science");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  const folder = panel.locator(".fc-folder-card").filter({ hasText: "Science" });
+  await folder.getByRole("button", { name: "More options for Science" }).click();
+  await panel.getByRole("menuitem", { name: "Add words" }).click();
+  const dialog = page.getByRole("dialog", { name: "Add words to Science" });
+  await dialog.getByLabel(/bioavailability/).check();
+  await dialog.getByRole("button", { name: "Add selected" }).click();
+  await folder.getByRole("button", { name: /Science/ }).click();
+  const collectionGrid = folder.locator(".fc-expanded-grid").filter({ hasNot: page.locator(".character-grid") }).first();
+  await expect(collectionGrid.getByText("bioavailability")).toBeVisible();
+  const after = await collectionGrid.evaluate(grid => ({
+    columns: getComputedStyle(grid).gridTemplateColumns,
+    cardWidth: grid.firstElementChild.getBoundingClientRect().width,
+    gridWidth: grid.getBoundingClientRect().width
+  }));
+  expect(after.columns).toBe(before.columns);
+  expect(after.cardWidth).toBeCloseTo(before.cardWidth, 0);
+  expect(after.gridWidth).toBeCloseTo(before.gridWidth, 0);
+  await expect(collectionGrid.locator(".word-name")).toHaveCSS("overflow-wrap", "anywhere");
+});
+
+test("Collection and Favorite disclosure panels animate and respect reduced motion", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Animation");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  const folder = panel.locator(".fc-folder-card").filter({ hasText: "Animation" });
+  const toggle = folder.locator(".fc-folder-toggle");
+  await toggle.click();
+  const expanded = folder.locator(".fc-expanded");
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  await expect(expanded).toHaveCSS("transition-duration", /0\.28s/);
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect.poll(() => expanded.evaluate(node => node.hidden)).toBe(true);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await toggle.click();
+  await expect(expanded).toBeVisible();
+  await toggle.click();
+  await expect(expanded).toBeHidden();
+});
