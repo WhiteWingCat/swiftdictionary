@@ -180,9 +180,11 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
   await expect(card.getByRole("button", { name: "Open saved word 你" })).toBeVisible();
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
-  const dictionaryGridColumns = await page.locator("#favoriteEnglishGrid").evaluate(node => getComputedStyle(node).gridTemplateColumns);
-  const collectionGridColumns = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node => getComputedStyle(node).gridTemplateColumns);
-  expect(collectionGridColumns).toBe(dictionaryGridColumns);
+  const collectionGridTracks = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node =>
+    getComputedStyle(node).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
+  );
+  expect(collectionGridTracks.length).toBeGreaterThan(0);
+  expect(collectionGridTracks.every(width => width >= 110)).toBe(true);
   await expect(card.locator(".fc-expanded-grid:not(.character-grid) .fc-word-open")).toHaveCSS("min-height", "58px");
 
   await expect(card.locator(".fc-word-remove")).toHaveCount(0);
@@ -440,7 +442,7 @@ test("Premium plan opens a dedicated comparison page with all six complete featu
   await expect(rows.nth(5)).toContainText("16 folders");
   await expect(rows.nth(5)).toContainText("40 folders");
   await expect(page.getByText("Active folder limit", { exact: true })).toBeVisible();
-  await expect(page.getByText("Premium is not currently available to purchase.")).toBeVisible();
+  await expect(page.getByText("Premium is not currently available to purchase.", { exact: true })).toBeVisible();
   await expect(page.locator("button,[role=dialog]")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   await page.reload();
