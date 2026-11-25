@@ -137,20 +137,6 @@ test("Favorite Collections module loads after the core application through Supab
     () => page.evaluate(() => window.SWIFT_FAVORITE_COLLECTIONS_READY === true),
     { timeout: 10000 }
   ).toBe(true);
-  const snapshot = await page.evaluate(() => ({
-    headings: [...document.querySelectorAll("h1,h2,h3,h4,h5")].map(node => ({
-      text: node.textContent.trim(),
-      visible: node.getClientRects().length > 0,
-      parentId: node.parentElement?.id || "",
-      parentClass: typeof node.parentElement?.className === "string" ? node.parentElement.className : ""
-    })),
-    buttons: [...document.querySelectorAll("button")].map(node => ({
-      text: node.textContent.trim(),
-      aria: node.getAttribute("aria-label") || "",
-      id: node.id
-    })).filter(node => node.text || node.aria || node.id).slice(0, 35)
-  }));
-  console.log("U2.9.0_APP_DOM_SNAPSHOT=" + JSON.stringify(snapshot));
   const placement = await page.evaluate(() => {
     const favoriteHeading = [...document.querySelectorAll("h1,h2,h3,h4,h5")]
       .find(node => node.textContent.trim().toLowerCase() === "favorite words");
