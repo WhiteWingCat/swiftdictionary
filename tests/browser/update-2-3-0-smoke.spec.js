@@ -110,6 +110,35 @@ test("signed-in lesson library renders and difficulty tabs switch independently"
 });
 
 
+test("English permanent lesson expansion adds three aligned lessons across all difficulties", async ({ page }) => {
+  await installDailyLearningMock(page,"u2-9-0-expanded-lesson-user");
+  await page.goto("/");
+  await page.locator("#translationSelect").selectOption("en");
+  await page.addScriptTag({path:"permanent-lesson-confirmation.js"});
+  await expect.poll(() => page.evaluate(() => window.__swiftEnglishLessonExpansionLoaded === true)).toBe(true);
+  await page.locator('[data-page="lessons"]').click();
+  await expect(page.locator("#lessonsPage")).toBeVisible();
+
+  await page.locator('[data-difficulty="beginner"]').click();
+  await expect.poll(() => page.locator("#lessonCards .lesson-card").count()).toBe(8);
+  await expect(page.locator("#lessonCards")).toContainText("Ask questions and form negative statements");
+
+  await page.locator('[data-difficulty="intermediate"]').click();
+  await expect.poll(() => page.locator("#lessonCards .lesson-card").count()).toBe(6);
+  await expect(page.locator("#lessonCards")).toContainText("Use the passive voice when the action matters");
+
+  await page.locator('[data-difficulty="advanced"]').click();
+  await expect.poll(() => page.locator("#lessonCards .lesson-card").count()).toBe(6);
+  await expect(page.locator("#lessonCards")).toContainText("Report statements, questions and requests accurately");
+
+  await page.locator("#translationSelect").selectOption("zh");
+  await expect(page.locator("#lessonCards")).toContainText("准确转述陈述、问题与请求");
+  await page.locator("#lessonCards .lesson-card").filter({hasText:"准确转述陈述、问题与请求"}).click();
+  await page.locator('.lesson-start-confirm-dialog [data-confirm="yes"]').click();
+  await expect(page.locator("#lessonDetailPage")).toBeVisible();
+  await expect(page.locator("#lessonDetailPage")).toContainText("时态后移");
+});
+
 test("lesson highlights stay inside explanations, examples and sentence breakdowns", async ({ page }) => {
   await installDailyLearningMock(page,"scoped-topic-highlight-user");
   await page.goto("/");
