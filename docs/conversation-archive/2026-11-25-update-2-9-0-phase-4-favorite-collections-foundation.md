@@ -87,3 +87,10 @@ The real-app-shell loader test was included in GitHub Actions run 45547652317, w
 ## Follow-up — dashboard placement verified
 
 GitHub Actions run 45548152492 passed all 13 tests. Its real application-shell DOM assertion confirmed the existing Favorite words profile card is found and the new Your collections panel is its immediate next sibling, before Learning progress. The versioned module loader also passed its app-shell check. Temporary DOM diagnostics were removed while retaining the placement assertion. This verifies structural placement, not visual review in a signed-in device session. Live authenticated CRUD, two-account RLS/API tests, actual Realtime event receipt and responsive/accessibility review remain outstanding.
+
+
+## Follow-up — expanded collection/account-switch tests passed
+
+GitHub Actions run 45548503961 succeeded on commit f8abf9ee71963d8c3d625ba0cd608579767e9bdd with all 13 Playwright tests passing. The mocked collections regression now covers blank-name validation, case-insensitive duplicate-name rejection, create/rename/delete, mixed English/Chinese memberships, removing a membership without deleting the saved word, and switching between two mocked accounts while ensuring the folder list is isolated. An earlier failure came from the test mock capturing a fixed account ID; it was corrected to follow the active account. The collection count display was also optimized to use one membership query. This remains mocked CRUD coverage, not live Supabase API/RLS verification.
+
+A post-Realtime staging inspection confirmed 14 saved_words rows, zero collections and zero memberships; both new tables are in supabase_realtime. The Supabase security advisor still reports ten informational private-schema RLS/no-policy notices and one leaked-password-protection warning, with no collections-specific finding. Remaining: live authenticated CRUD, adversarial two-account RLS/API denial, actual Realtime event delivery, signed-in visual desktop/mobile and accessibility review. No staging preview or production change has been made.
