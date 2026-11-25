@@ -47,7 +47,8 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
             }
           }
         } else if (this.action === "update") {
-          for (const row of rows.filter(x => own(x) && matches(x))) Object.assign(row, this.payload);
+          data = rows.filter(x => own(x) && matches(x));
+          for (const row of data) Object.assign(row, this.payload);
         } else if (this.action === "delete") {
           const doomed = rows.filter(x => own(x) && matches(x));
           for (const row of doomed) {
