@@ -24,6 +24,10 @@ async function installCollectionsFixture(page) {
       single() { this.singleRow = true; return this; }
       then(resolve, reject) { return this.run().then(resolve, reject); }
       async run() {
+        if (this.table === "favorite_collections" && this.action === "select" && window.__delayNextCollectionRead) {
+          window.__delayNextCollectionRead = false;
+          await new Promise(resolve => setTimeout(resolve, 120));
+        }
         const rows = db[this.table];
         const matches = row => this.filters.every(([key,value]) => row[key] === value);
         const own = row => this.table === "saved_words" ? row.user_id === activeUserId()
@@ -104,10 +108,23 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await installCollectionsFixture(page);
   const panel = page.locator("#swiftFavoriteCollections");
   await expect(panel.getByText("Customize and organize any saved words to your preferences.")).toBeVisible();
+  const panelBox = await panel.boundingBox();
+  expect(panelBox.width).toBeLessThanOrEqual(390);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
   const create = panel.getByRole("button", { name: "＋ New folder" });
+  await create.click();
+  const createDialog = page.getByRole("dialog");
+  await expect(createDialog).toHaveAttribute("aria-modal", "true");
+  await expect(page.locator("#fcCollectionName")).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(createDialog.getByRole("button", { name: "Close" })).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(createDialog).toBeHidden();
+  await expect(create).toBeFocused();
   await create.click();
   await page.locator("#fcCollectionName").fill("Travel");
   await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(panel.getByText("Travel")).toBeVisible();
 
   const card = panel.locator(".fc-folder-card").first();
   const toggle = card.locator(".fc-folder-toggle");
@@ -115,6 +132,14 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await toggle.click();
   await expect(toggle).toHaveAttribute("aria-expanded", "true");
   await expect(card.getByText("This folder is empty.")).toBeVisible();
+
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(page.getByRole("alert")).toHaveText("Enter a collection name.");
+  await page.locator("#fcCollectionName").fill("travel");
+  await page.getByRole("button", { name: "Create folder" }).click();
+  await expect(page.getByRole("alert")).toHaveText("You already have a collection with that name.");
+  await page.getByRole("button", { name: "Cancel" }).click();
 
   await panel.getByRole("button", { name: "＋ New folder" }).click();
   await page.locator("#fcCollectionName").fill("Work");
@@ -131,18 +156,26 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("button", { name: "Add selected" }).click();
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
   await expect(card.getByRole("button", { name: "Open saved word 你" })).toBeVisible();
+  await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
 
-  await card.getByRole("button", { name: "Open saved word hello" }).click();
+  await card.getByRole("button", { name: "Remove hello from this folder" }).click();
+  await expect(card.getByRole("button", { name: "Open saved word hello" })).toHaveCount(0);
+  expect(await page.evaluate(() => window.__collectionsTestDB.saved_words.some(row => row.id === 101))).toBe(true);
+
+  await card.getByRole("button", { name: "Open saved word 你" }).click();
   await page.evaluate(() => window.dispatchEvent(new CustomEvent("swift-collections-open-word-picker", { detail: { word: "hello", course: "en" } })));
   const membershipDialog = page.getByRole("dialog", { name: "Add to collection" });
   await expect(membershipDialog).toBeVisible();
   const folderChoices = membershipDialog.locator('input[type="checkbox"]');
   await expect(folderChoices).toHaveCount(2);
-  await expect(folderChoices.nth(0)).toBeChecked();
+  await expect(folderChoices.nth(0)).not.toBeChecked();
   await expect(folderChoices.nth(1)).not.toBeChecked();
   await folderChoices.nth(1).check();
   await membershipDialog.getByRole("button", { name: "Save" }).click();
   await expect(membershipDialog).toBeHidden();
+  const workCard = panel.locator(".fc-folder-card").nth(1);
+  await workCard.locator(".fc-folder-toggle").click();
+  await expect(workCard.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
 
   await card.getByRole("button", { name: "More options for Travel" }).click();
   await card.getByRole("menuitem", { name: "Rename" }).click();
@@ -169,6 +202,8 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await panel.getByRole("menuitem", { name: "Remove" }).click();
   await page.getByRole("dialog").getByRole("button", { name: "Remove" }).click();
   await expect(panel.getByText("No collections yet.")).toBeVisible();
+  const remainingSavedWords = await page.evaluate(() => window.__collectionsTestDB.saved_words.map(row => row.id).sort((a,b) => a-b));
+  expect(remainingSavedWords).toEqual([102,201]);
 
   const styles = await panel.evaluate(node => {
     const primary = node.querySelector(".fc-primary");
@@ -193,10 +228,14 @@ test("Your Collections remain account-isolated and replace private Realtime chan
   expect(initial).toEqual({ topic: "favorite-collections:test-user-a", private: true, handlers: ["DELETE","INSERT","UPDATE"] });
 
   await page.evaluate(() => {
+    window.__delayNextCollectionRead = true;
+    window.dispatchEvent(new Event("swift-auth-updated"));
     window.currentUser = { id: "test-user-b" };
     window.dispatchEvent(new Event("swift-auth-updated"));
   });
   await expect(panel.getByText("No collections yet.")).toBeVisible();
+  await expect(panel.getByText("Private A")).toHaveCount(0);
+  await page.waitForTimeout(180);
   await expect(panel.getByText("Private A")).toHaveCount(0);
   const channels = await page.evaluate(() => window.__collectionsTestChannels.map(channel => ({ name: channel.name, removed: channel.removed })));
   expect(channels).toEqual([
@@ -210,6 +249,26 @@ test("Dictionary detail panel shows Add to collection only for a saved word", as
   await page.route("https://*.supabase.co/**", route => route.abort());
   await page.goto("/");
   await expect.poll(() => page.evaluate(() => window.SWIFT_FAVORITE_COLLECTIONS_READY === true), { timeout: 10000 }).toBe(true);
+  const panelPlacement = await page.evaluate(() => {
+    const heading = [...document.querySelectorAll("h1,h2,h3,h4,h5")].find(node => node.textContent.trim().toLowerCase() === "favorite words");
+    const favoriteCard = heading?.closest(".profile-card,section");
+    const collectionsPanel = document.getElementById("swiftFavoriteCollections");
+    return {
+      foundFavoriteCard: !!favoriteCard,
+      directlyBelowFavoriteWords: !!favoriteCard && collectionsPanel?.previousElementSibling === favoriteCard,
+      title: collectionsPanel?.querySelector("#swiftFavoriteCollectionsTitle")?.textContent.trim() || "",
+      description: collectionsPanel?.querySelector(".fc-muted")?.textContent.trim() || "",
+      documentWidth: document.documentElement.scrollWidth,
+      viewportWidth: window.innerWidth
+    };
+  });
+  expect(panelPlacement).toMatchObject({
+    foundFavoriteCard: true,
+    directlyBelowFavoriteWords: true,
+    title: "Your collections",
+    description: "Customize and organize any saved words to your preferences."
+  });
+  expect(panelPlacement.documentWidth).toBeLessThanOrEqual(panelPlacement.viewportWidth);
   const word = page.locator("#wordGrid .word-card").first();
   await expect(word).toBeVisible();
   await word.click();
