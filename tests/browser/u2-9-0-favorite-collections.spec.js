@@ -71,15 +71,20 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     }
     window.currentUser = user;
     window.__collectionsTestDB = db;
-    window.supabaseClient = {
+    window.__collectionsTestClient = {
       from: table => new Query(table),
       channel: () => ({ on() { return this; }, subscribe() { return this; } }),
       removeChannel() {},
       auth: { onAuthStateChange() {} }
     };
+    window.supabaseClient = window.__collectionsTestClient;
   });
 
   await page.goto("/");
+  await page.evaluate(() => {
+    window.supabaseClient = window.__collectionsTestClient;
+    window.currentUser = { id: "test-user-a" };
+  });
   await page.addScriptTag({ url: "/favorite-collections.js" });
   await page.evaluate(() => {
     const heading = document.createElement("h2");
