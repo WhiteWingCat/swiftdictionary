@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); Phase 1 and Phase 2 are complete on the feature branch. Phase 3 and Phase 4 have not started.  
+**Status:** Owner-approved plan (2026-11-24); Phase 1 and Phase 2 are complete; Phase 3 category/filter and translation-coverage implementation is in progress on the feature branch. Phase 4 has not started.  
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -199,7 +199,7 @@ Before merge/release:
 - The existing baseline now has 302 entries with 657 explicit sense records; all 176 multi-POS baseline entries have sense coverage, and all 810 baseline entries have at least two contextual examples. All 183 multi-POS expansion entries have separate POS-specific sense records.
 - The baseline-aware Node validator, runtime equality/load-order checks and all three Playwright browser smoke tests passed in GitHub Actions run `45537066279` on commit `399ad92e06cd93bcc9f1cc6eabb7a7222c22d45c`.
 - Internal model-assisted editorial QA is complete. This is not independent professional/native-speaker certification of every pronunciation or translation; that limitation is documented for release review.
-- Phase 3 and Phase 4 have not started. No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
+- Phase 3 implementation is in progress; Phase 4 has not started. No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
 - No Supabase schema, data or policy changes, production changes, merge or deployment have been made. Continue with Phase 2 QA and integration, then follow the approved sequence.
 
 
@@ -225,3 +225,19 @@ The 506 additions have zero duplicate headwords and zero overlap with the baseli
 Internal model-assisted editorial QA is complete, but it is not a substitute for independent professional/native-speaker certification of every lexical nuance, IPA accent variant or translation. This is a documented release-review limitation, not a claim of certified linguistic review.
 
 Phase 3 and Phase 4 remain not started. Staging preview remains withheld until Phase 4 is implemented and internally validated. No Supabase schema/data/policy writes, production merge/deployment, payment implementation or Premium entitlement enforcement occurred during Phase 2.
+
+
+## 10. Phase 3 implementation checkpoint — 2026-11-25
+
+The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core category/filter and translation-coverage implementation is now integrated on `feature/update-2-9-0-english-dictionary-collections`.
+
+- Added `data/english-baseline-categories.js` for the 810 original English headwords. The 506 expansion entries already carry topic categories. All 1,316 entries now have at least one approved topic category; multi-category assignment is supported.
+- Added `english-category-filters.js` and wired it into `index.html`. The ten approved English topic categories appear separately from the existing part-of-speech filters. Topic filtering composes with headword-only search, alphabet selection, saved-word filtering and pagination. English topic controls hide/reset for Chinese; Chinese category and pinyin filters remain intact.
+- Added `scripts/dictionary/validate-english-phase3.mjs` to audit category coverage/labels and Simplified Chinese headword/sense translation presence across baseline and expansion content.
+- Translation inventory: all 810 baseline headword definitions have Simplified Chinese translations; 657 explicit baseline sense records are translated. All 506 expansion headword definitions and 766 expansion sense records have Simplified Chinese translations. This is structural completeness, not professional/native-speaker certification.
+- Combined category assignment counts (multi-category entries count in each category): Actions 442; Everyday Terms 379; Activities 62; Places 83; People & Relationships 68; Science & Technology 74; History & Culture 33; Nature & Environment 49; Education 68; Emotions & Descriptions 249.
+- Added Playwright coverage for topic/search/POS composition, multi-sense translation switching, single-sense translation fallback and Chinese-course filter isolation.
+- Final full CI run `45540254655`, commit `95b9253b5a796d4cb2a62b838690659bc599fffe`, passed all steps: existing Phase 2 validator, Phase 3 category/translation audit, Playwright setup, Chromium setup and six browser smoke tests. Earlier test runs failed on test assumptions/selectors; the tests were corrected and the final run is green.
+- Malaysia/general legal and privacy check: the phase adds public editorial category metadata and UI only, with no new personal-data collection, tracking, external processor, Supabase change, or payment/subscription feature. Existing PDPA, global 16+ age screening, content-provenance/licensing and privacy obligations remain applicable; this is not legal clearance.
+- No Supabase schema/data/policy write, staging preview, production merge/deployment, payment integration or Premium enforcement occurred. Dictionary search remains free and unlimited; proposed 16-Free/40-Premium folder caps remain future planning only.
+- **Phase 3 remains in progress** pending broader semantic/editorial spot checks of category assignments and Chinese translations, plus responsive and interaction regression. Phase 4 remains blocked until Phase 3 acceptance criteria are satisfied. Staging preview remains withheld until Phase 4 implementation and internal validation are complete.
