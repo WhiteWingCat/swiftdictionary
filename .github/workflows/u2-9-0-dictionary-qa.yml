@@ -63,3 +63,10 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run English expansion browser smoke tests
         run: npx playwright test tests/browser/u2-9-0-english-expansion.spec.js tests/browser/u2-9-0-english-categories.spec.js
+      - name: Preserve whole-catalogue audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: u2-9-0-english-catalogue-editorial-audit
+          path: data/english-catalogue-editorial-audit.json
+          if-no-files-found: error
+          retention-days: 30
