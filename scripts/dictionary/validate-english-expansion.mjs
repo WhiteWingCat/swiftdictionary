@@ -141,7 +141,7 @@ for (const entry of baseline) {
     baselineChecks.insufficientExamples++;
     errors.push("baseline: " + word + " must have at least two non-empty general examples");
   }
-  if (!/\\/[^/]+\\//.test(entry.phonetic || "")) {
+  if (!/\/[^/]+\//.test(entry.phonetic || "")) {
     baselineChecks.invalidPronunciationFormat++;
     errors.push("baseline: " + word + " pronunciation should contain slash-delimited IPA");
   }
