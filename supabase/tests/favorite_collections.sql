@@ -263,9 +263,15 @@ begin
 
   select count(*) into visible_count from public.favorite_collection_items where collection_id=collection_a;
   if visible_count <> 1 then raise exception 'Account A cannot read its own membership'; end if;
-  delete from public.favorite_collection_items where collection_id=collection_a;
+
+  -- Removing a saved word must cascade its membership out of every folder.
+  -- The enclosing transaction is rolled back, so the staging account's word is preserved.
+  delete from public.saved_words where id=word_a;
   get diagnostics affected = row_count;
-  if affected <> 1 then raise exception 'Account A cannot remove its own membership'; end if;
+  if affected <> 1 then raise exception 'Account A could not delete its own saved word in the cascade regression'; end if;
+  select count(*) into visible_count from public.favorite_collection_items where saved_word_id=word_a;
+  if visible_count <> 0 then raise exception 'Deleting a saved word did not remove its collection memberships'; end if;
+
   delete from public.favorite_collections where id=collection_a;
   get diagnostics affected = row_count;
   if affected <> 1 then raise exception 'Account A cannot delete its own collection'; end if;
