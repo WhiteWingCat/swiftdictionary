@@ -351,3 +351,8 @@ Phase 4 has started on feature/update-2-9-0-english-dictionary-collections after
 - Update privacy/terms copy as needed before release; collections store user-created folder names and references to existing account-owned saved words. Malaysia PDPA and general international privacy/16+ safeguards remain applicable. This is planning, not legal clearance.
 
 No staging preview has been created. The first staging preview remains withheld until Phase 4 is fully implemented and internally validated. Production Supabase, production data, main, deployment, payment/subscription and entitlement enforcement remain untouched. Dictionary search remains free and unlimited; existing learning allowances remain unchanged.
+
+
+### Phase 4 SQL regression follow-up — 2026-11-25
+
+The static collections SQL regression script was executed against isolated staging and passed with a rollback. It verifies RLS enablement, all seven owner-scoped policies, auth.uid()/owner predicates, membership checks against both collection and saved-word ownership, cascading foreign keys, case-insensitive name uniqueness, anonymous access denial and authenticated grants. This is schema/policy-structure validation, not an adversarial two-account API test. The new Playwright spec and workflow are committed, but successful CI execution remains unverified.
