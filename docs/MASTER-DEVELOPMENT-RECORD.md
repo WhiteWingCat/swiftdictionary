@@ -3775,3 +3775,16 @@ Run 45548857974 passed all 13 Playwright tests after aligning the saved-word pic
 - Staging health advisor returned no findings. Security advisor still reports only the existing 10 informational private-schema RLS/no-policy notices and one leaked-password-protection warning; no collection-capacity-specific finding.
 - Feature branch `feature/u2-9-0-collections-feedback` and PR #18 remain open. No production migration, main merge, production deployment, Premium payment or entitlement assignment occurred. A new controlled preview must be generated after latest source changes and checked to route only to isolated staging.
 - Legal/privacy: folder enforcement uses existing account identity and collection records, with no new personal-data category, processor, tracking or transaction. Preserve folders on downgrade. Premium remains unavailable to purchase; a real launch requires separate Malaysia/international privacy, consumer and payment review. This is planning, not legal clearance.
+
+
+### U2.9.0 follow-up QA and Phase 6 release separation — 2026-11-25
+
+- U2.9.0 English QA on commit `7a1aaea` passed: dictionary data and editorial audits, 214-question Quiz draft validator, Mock Quiz/Flashcards regression and 16 browser tests.
+- Preserved the prior owner-authorized 199-question Quiz release without implicitly approving the 15 new Phase 6 additions. The original 199 source records are explicitly marked `release_approved: true`; the new 15 are `false`. Draft export includes all 214 as `draft`; approved release export includes only the 199 previously authorized rows.
+- Updated `mock-testing.js` and its regression expectations to accept the 214-question draft bank while retaining the original release distribution. Updated `supabase/tests/quiz_draft_content_import_assertions.sql` to assert that all 15 Phase 6 questions are draft-only, lesson/objective mapped and have valid four-option answer records.
+- Disposable `quiz-db-foundation` job passed, including both the 214-row draft import and the separate 199-row owner-authorized release export assertions.
+- Cross-version regression on commit `7a1aaea` passed: Flashcards, Chinese dictionary/lessons, U2.7 lesson-start allowance, U2.3 allowance/dashboard, U2.6 ACL, PostgreSQL migration/allowance, Chromium browser smoke and Cloudflare build routing.
+- Cloudflare Pages deployed commit `7a1aaea` successfully (https://bf0603b6.swiftdictionary.pages.dev; branch preview https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev). Build-routing guard passed.
+- The separate Workers Builds check for `swiftdictionary-testing` failed again; Pages deployment and routing guard succeeded. Treat this as an independent Workers build/infrastructure issue.
+- Local Supabase Auth/RPC integration was still running authenticated Quiz browser tests, signed-out Flashcards/Preferences, permanent Lessons allowance notification and local security advisor checks. Do not close the consolidated regression matrix until this job finishes.
+- Staging Free 16/Premium 40 SQL regression passed and rolled back. No production database or entitlement was changed.
