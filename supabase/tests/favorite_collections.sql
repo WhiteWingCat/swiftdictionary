@@ -142,7 +142,7 @@ limit 2;
 grant select on _phase4_rls_test_accounts to authenticated;
 
 set local role authenticated;
-do $
+do $phase4$
 declare
   user_a uuid;
   user_b uuid;
@@ -206,6 +206,6 @@ begin
   if affected <> 1 then raise exception 'Account B cannot delete its own collection'; end if;
 
   raise notice 'PASS: authenticated two-account RLS isolation, own CRUD and foreign membership denial';
-end $;
+end $phase4$;
 
 rollback;
