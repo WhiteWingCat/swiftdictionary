@@ -128,7 +128,7 @@
     section.append(el("p", "fc-muted", "Customize and organize any saved words to your preferences."));
     section.append(el("div", "fc-list"));
     const anchor = heading.closest(".profile-card,section") || heading.parentElement;
-    if (anchor.classList?.contains("profile-card")) section.classList.add("profile-card");
+    if (anchor.className) section.className = anchor.className;
     after(section, anchor);
     panel = section;
     refresh();
