@@ -641,6 +641,13 @@ test("Collection and Favorite disclosure panels animate and respect reduced moti
   const favoriteDetails = page.locator("#profilePage details");
   const favoriteSummary = favoriteDetails.locator(":scope > summary");
   const favoriteContent = favoriteDetails.locator(":scope > .fc-disclosure-content");
+  await favoriteContent.evaluate(node => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "word-card";
+    card.innerHTML = '<span class="word-name">hello</span>';
+    node.append(card);
+  });
   await expect(favoriteContent).toHaveCSS("transition-duration", "0s");
   await favoriteSummary.click();
   await expect(favoriteSummary).toHaveAttribute("aria-expanded", "true");
