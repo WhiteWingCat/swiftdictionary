@@ -9,6 +9,7 @@ on:
       - feature/update-2-6-0-legal-privacy-security
       - feature/update-2-7-0-chinese-dictionary-lessons
       - feature/update-2-8-0-chinese-quiz-flashcards
+      - feature/u2-9-0-collections-feedback
   pull_request:
     branches:
       - main
