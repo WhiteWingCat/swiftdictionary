@@ -190,6 +190,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 ## 2026-11-25
 
+- [Update 2.9.0 — theme clarification, active collection capacity and Phase 6 start](2026-11-25-update-2-9-0-theme-capacity-phase-6.md) — records the dark/deep-blue UI correction, enforced Free 16/Premium 40 folder caps through a transactional Supabase RPC, preserved folders on downgrade, English collection card sizing, 15 new bilingual Quiz draft questions, staging SQL validation and remaining CI/preview gates.
+
 - [Update 2.9.0 — Phase 4 final feedback and Phase 5 Premium Plan](2026-11-25-update-2-9-0-phase-4-final-feedback-and-phase-5-premium-plan.md) — records the horizontal full-width folder rows, detail-panel-only membership removal, Favorite words surface matching, dedicated Free/Premium comparison page, verified allowance values, 15 passing browser tests, successful staging Pages deployment and remaining live Realtime/regression/legal gates.
 
 - [Update 2.9.0 — Phase 2 content audit and validator hardening](2026-11-25-update-2-9-0-phase-2-content-audit-and-validator-hardening.md) — records the seven-batch 506-entry expansion, baseline-wide structural audit, POS/example/definition corrections, baseline-aware Node validator, successful GitHub Actions and Playwright checks, outstanding semantic/translation QA, and the no-staging-before-Phase-4 boundary.
