@@ -34,8 +34,8 @@ const categoryMap=JSON.parse(categorySource.slice(categoryStart+marker.length,ca
 const batches=fs.readdirSync(data).filter(x=>/^english-expansion-batch-\d+\.json$/.test(x)).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));
 const expansion=batches.flatMap(file=>JSON.parse(fs.readFileSync(path.join(data,file),"utf8")).entries||[]);
 const summary={baselineEntries:baseline.length,baselineCategorised:0,baselineMissingZh:0,baselineSenseCount:0,baselineSenseMissingZh:0,expansionEntries:expansion.length,expansionMissingZh:0,expansionSenseCount:0,expansionSenseMissingZh:0,headwordTranslationsWithoutCjk:0,senseTranslationsWithoutCjk:0,placeholderTranslations:0,categoryCounts:{},errors};
-const containsCjk=value=>/[\u3400-\u9fff]/.test(String(value||""));
-const placeholderTranslation=/translation pending|待翻译|待补充|翻译待|\bTODO\b|\bN\/A\b|常见语境[:：]/i;
+const containsCjk=value=>/[㐀-鿿]/.test(String(value||""));
+const placeholderTranslation=new RegExp("translation pending|待翻译|待补充|翻译待|TODO|N/A|常见语境[:：]","i");
 function auditTranslation(value,label){
  if(!containsCjk(value)){summary[label]++;errors.push("Translation has no Simplified Chinese characters: "+label);}
  if(placeholderTranslation.test(String(value||""))){summary.placeholderTranslations++;errors.push("Placeholder/fallback translation found: "+String(value));}
