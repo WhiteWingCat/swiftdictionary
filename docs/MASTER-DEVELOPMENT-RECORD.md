@@ -3650,3 +3650,8 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 ### Phase 4 validation follow-up — 2026-11-25
 
 The U2.9.0 Favorite Collections SQL regression script was executed successfully against isolated staging and rolled back. It checks RLS enablement, seven owner-scoped policies and their auth.uid()/collection/saved-word predicates, cascading membership foreign keys, case-insensitive per-user name uniqueness, anonymous denial and authenticated grants. Existing saved-word data remains unchanged. Authenticated two-account API testing, actual browser/CI verification and UI placement/responsive validation remain outstanding; the first staging preview remains withheld until Phase 4 is fully implemented and internally validated.
+
+
+### Phase 4 browser QA follow-up — 2026-11-25
+
+GitHub Actions run 45547406099 succeeded on commit e4a605bc4ee880882b2b7ed998450e7f014eb27d: all 12 Playwright tests passed, including the new mocked Favorite Collections workflow. English expansion validation, Phase 3 category/translation audit and whole-catalogue editorial audit also passed, and the audit artifact uploaded. Earlier failures were corrected (hidden section CSS and test ordering assumption). This remains mocked Supabase coverage; live authenticated CRUD, two-account authorization, actual dashboard placement and full responsive/accessibility validation remain outstanding. No staging preview or production change has occurred.
