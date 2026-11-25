@@ -10,6 +10,7 @@ declare
   v_fk_count integer;
   v_unique_index boolean;
   v_bad_policy_count integer;
+  v_realtime_table_count integer;
 begin
   select c.relrowsecurity into v_rls_collections
   from pg_class c join pg_namespace n on n.oid=c.relnamespace
@@ -106,6 +107,14 @@ begin
   if not has_table_privilege('authenticated','public.favorite_collections','select')
      or not has_table_privilege('authenticated','public.favorite_collection_items','insert') then
     raise exception 'Authenticated grants are incomplete';
+  end if;
+
+  select count(*) into v_realtime_table_count
+  from pg_publication_tables
+  where pubname='supabase_realtime' and schemaname='public'
+    and tablename in ('favorite_collections','favorite_collection_items');
+  if v_realtime_table_count <> 2 then
+    raise exception 'Both collection tables must be in supabase_realtime publication; found %',v_realtime_table_count;
   end if;
 end $$;
 
