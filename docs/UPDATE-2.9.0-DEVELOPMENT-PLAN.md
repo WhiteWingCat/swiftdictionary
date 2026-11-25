@@ -356,3 +356,8 @@ No staging preview has been created. The first staging preview remains withheld 
 ### Phase 4 SQL regression follow-up — 2026-11-25
 
 The static collections SQL regression script was executed against isolated staging and passed with a rollback. It verifies RLS enablement, all seven owner-scoped policies, auth.uid()/owner predicates, membership checks against both collection and saved-word ownership, cascading foreign keys, case-insensitive name uniqueness, anonymous access denial and authenticated grants. This is schema/policy-structure validation, not an adversarial two-account API test. The new Playwright spec and workflow are committed, but successful CI execution remains unverified.
+
+
+### Phase 4 mocked browser QA follow-up — 2026-11-25
+
+GitHub Actions run 45547406099 passed on commit e4a605bc4ee880882b2b7ed998450e7f014eb27d. All 12 browser tests passed, including Favorite Collections mocked CRUD and mixed-language membership; all English dictionary validators and the whole-catalogue audit passed. Earlier test failures were fixed by replacing hidden section containers with divs and targeting the intended membership row rather than assuming sort order. This is mocked Supabase coverage, not live authenticated API verification. The module request through the account-deletion.js loader is visible in the browser logs. Real dashboard placement, live staging CRUD, cross-account RLS behaviour, responsive/accessibility checks and staging preview remain outstanding.
