@@ -156,9 +156,12 @@
             content.classList.add("is-open");
             content.style.maxHeight = content.scrollHeight + "px";
           });
-          content.addEventListener("transitionend", event => {
-            if (transitionId === disclosureSequence && event.target === content && event.propertyName === "max-height" && details.open) content.style.maxHeight = "none";
-          }, { once: true });
+          const finishOpen = event => {
+            if (event.target !== content || event.propertyName !== "max-height") return;
+            content.removeEventListener("transitionend", finishOpen);
+            if (transitionId === disclosureSequence && details.open) content.style.maxHeight = "none";
+          };
+          content.addEventListener("transitionend", finishOpen);
         } else if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
           content.classList.remove("is-open");
           content.style.maxHeight = "0px";
@@ -171,9 +174,12 @@
             content.classList.remove("is-open");
             content.style.maxHeight = "0px";
           });
-          content.addEventListener("transitionend", event => {
-            if (transitionId === disclosureSequence && event.target === content && event.propertyName === "max-height") details.open = false;
-          }, { once: true });
+          const finishClose = event => {
+            if (event.target !== content || event.propertyName !== "max-height") return;
+            content.removeEventListener("transitionend", finishClose);
+            if (transitionId === disclosureSequence) details.open = false;
+          };
+          content.addEventListener("transitionend", finishClose);
         }
       });
     });
