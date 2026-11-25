@@ -121,7 +121,7 @@ async function installCollectionsFixture(page) {
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("about:blank");
-  await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255)}</style></head><body><section class="profile-card"><h2>Favorite words</h2></section></body></html>`);
+  await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255)}.word-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.favorite-word-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}@media(max-width:650px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}}</style></head><body><section class="profile-card"><h2>Favorite words</h2><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></section></body></html>`);
   await page.evaluate(() => window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; }));
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
@@ -180,6 +180,10 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
   await expect(card.getByRole("button", { name: "Open saved word 你" })).toBeVisible();
   await expect(card.locator(".fc-expanded-grid.character-grid .fc-word-open")).toHaveCSS("aspect-ratio", "1 / 1");
+  const dictionaryGridColumns = await page.locator("#favoriteEnglishGrid").evaluate(node => getComputedStyle(node).gridTemplateColumns);
+  const collectionGridColumns = await card.locator(".fc-expanded-grid:not(.character-grid)").evaluate(node => getComputedStyle(node).gridTemplateColumns);
+  expect(collectionGridColumns).toBe(dictionaryGridColumns);
+  await expect(card.locator(".fc-expanded-grid:not(.character-grid) .fc-word-open")).toHaveCSS("min-height", "58px");
 
   await expect(card.locator(".fc-word-remove")).toHaveCount(0);
   await expect(card.getByRole("button", { name: "Open saved word hello" })).toBeVisible();
