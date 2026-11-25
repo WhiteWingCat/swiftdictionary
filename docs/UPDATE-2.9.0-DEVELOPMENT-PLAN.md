@@ -376,3 +376,8 @@ Run 45547652317 passed all 13 browser tests, including the real application-shel
 ### Phase 4 dashboard placement — verified
 
 Run 45548152492 passed all 13 Playwright tests. The app-shell DOM assertion confirms the Favorite words profile card and Your collections panel are adjacent in the intended order, with the collection panel immediately below Favorite words and before Learning progress. The module loader also passed. Visual review on signed-in desktop/mobile sessions, authenticated staging CRUD, two-account authorization and actual Realtime delivery remain open.
+
+
+### Phase 4 expanded regression and staging integrity — passed
+
+Run 45548503961 passed all 13 Playwright tests. Mocked collection coverage now includes empty and duplicate names, mixed English/Chinese membership, create/rename/delete, removal without deleting saved words, and account switching between two mock users. The test double was fixed to read the active account dynamically. Folder counts were optimized to a single membership query. The SQL schema regression passed after adding the Realtime publication assertion. A post-migration staging check confirms 14 saved words remain, zero collection/membership rows exist, and both tables are published to supabase_realtime. Supabase security advisor findings remain the same ten informational private-schema notices and one leaked-password-protection warning; no collection-specific finding appeared. Live authenticated API/RLS testing, actual Realtime delivery and signed-in visual/accessibility review remain outstanding.
