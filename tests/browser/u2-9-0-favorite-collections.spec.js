@@ -128,3 +128,13 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   const membershipCount = await page.evaluate(() => window.__collectionsTestDB.favorite_collection_items.length);
   expect(membershipCount).toBe(0);
 });
+
+
+test("Favorite Collections module loads after the core application through Supabase config", async ({ page }) => {
+  await page.route("https://*.supabase.co/**", route => route.abort());
+  await page.goto("/");
+  await expect.poll(
+    () => page.evaluate(() => window.SWIFT_FAVORITE_COLLECTIONS_READY === true),
+    { timeout: 10000 }
+  ).toBe(true);
+});
