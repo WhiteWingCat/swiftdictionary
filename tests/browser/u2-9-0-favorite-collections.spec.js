@@ -383,3 +383,37 @@ test("Dictionary detail panel shows Add to collection only for a saved word", as
   await expect(page.locator("#modalBackdrop")).toHaveClass(/open/);
   await expect(page.locator("#modalWord")).toHaveText(savedWord);
 });
+
+
+test("Premium plan opens a dedicated comparison page with all six complete feature areas", async ({ page }) => {
+  await page.route("https://*.supabase.co/**", route => route.abort());
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const trigger = page.locator("#premiumPlanOpen");
+  await expect(trigger).toBeVisible();
+  await trigger.click();
+  await page.waitForURL(/premium-plan\\.html(?:$|\\?)/);
+  await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
+  await expect(page.getByRole("table", { name: "Free and Premium plan comparison" })).toBeVisible();
+  const rows = page.locator(".premium-comparison-row");
+  await expect(rows).toHaveCount(6);
+  await expect(rows.nth(0)).toContainText("Unlimited");
+  await expect(rows.nth(0)).toContainText("Always free");
+  await expect(rows.nth(1)).toContainText("1 completion per category / day");
+  await expect(rows.nth(1)).toContainText("3 completions per category / day");
+  await expect(rows.nth(2)).toContainText("5 per local day");
+  await expect(rows.nth(2)).toContainText("15 per local day");
+  await expect(rows.nth(3)).toContainText("1 per local day");
+  await expect(rows.nth(3)).toContainText("3 per local day");
+  await expect(rows.nth(4)).toContainText("3 per local day");
+  await expect(rows.nth(4)).toContainText("10 per local day");
+  await expect(rows.nth(5)).toContainText("16 folders");
+  await expect(rows.nth(5)).toContainText("40 folders");
+  await expect(page.getByText("Proposed future benefit")).toBeVisible();
+  await expect(page.getByText("Premium is not currently available to purchase.")).toBeVisible();
+  await expect(page.locator("button,[role=dialog]")).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
+  await expect(rows).toHaveCount(6);
+});
