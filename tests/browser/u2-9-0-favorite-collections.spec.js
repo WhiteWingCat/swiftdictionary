@@ -106,7 +106,7 @@ async function installCollectionsFixture(page) {
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("about:blank");
-  await page.setContent("<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255)}</style></head><body><section class="profile-card"><h2>Favorite words</h2></section></body></html>");
+  await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255)}</style></head><body><section class="profile-card"><h2>Favorite words</h2></section></body></html>`);
   await page.evaluate(() => window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; }));
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
