@@ -339,7 +339,9 @@ test("Your Collections folders can be dragged to the top or bottom of the list",
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
     .toEqual(["Third", "First", "Second"]);
-  await first.locator(".fc-drag-handle").dragTo(panel.locator(".fc-folder-card").last(), { targetPosition: { x: 12, y: 90 } });
+  const lastCard = panel.locator(".fc-folder-card").last();
+  const lastCardBox = await lastCard.boundingBox();
+  await first.locator(".fc-drag-handle").dragTo(lastCard, { targetPosition: { x: 12, y: Math.max(1, lastCardBox.height - 4) } });
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
     .toEqual(["Third", "Second", "First"]);
