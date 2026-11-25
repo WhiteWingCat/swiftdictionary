@@ -371,3 +371,8 @@ Added and applied the isolated staging Realtime migration 20261125043448_swiftdi
 ### Realtime and loader CI result — passed
 
 Run 45547652317 passed all 13 browser tests, including the real application-shell test that verifies the Favorite Collections module loads through supabase-config.js after the core app. Run 45547784739 passed all 13 browser tests after the SQL regression gained a Realtime publication assertion, and run 45547828600 passed after workflow path filters were corrected. The strengthened SQL regression was separately executed against staging and passed. CRUD browser interactions use a mocked Supabase client; live authenticated CRUD, two-account authorization and actual Realtime delivery remain unverified.
+
+
+### Phase 4 dashboard placement — verified
+
+Run 45548152492 passed all 13 Playwright tests. The app-shell DOM assertion confirms the Favorite words profile card and Your collections panel are adjacent in the intended order, with the collection panel immediately below Favorite words and before Learning progress. The module loader also passed. Visual review on signed-in desktop/mobile sessions, authenticated staging CRUD, two-account authorization and actual Realtime delivery remain open.
