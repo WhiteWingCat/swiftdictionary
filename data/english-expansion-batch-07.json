@@ -1220,18 +1220,19 @@
       "senses": [
         {
           "part": "noun",
-          "definition": "A person someone works or does an activity with",
-          "definitionZh": "伙伴；搭档；伴侣",
+          "definition": "A person someone works or does an activity with, or someone in a marriage, romantic relationship, or business partnership.",
+          "definitionZh": "伙伴；搭档；伴侣；合伙人",
           "examples": [
-            "Please discuss the question with your partner."
+            "Please discuss the question with your partner.",
+            "Her business partner manages the accounts."
           ]
         },
         {
           "part": "verb",
-          "definition": "someone in a marriage or romantic relationship.",
-          "definitionZh": "合伙人",
+          "definition": "To work or take part in an activity with another person or organisation as a partner.",
+          "definitionZh": "合作；结成伙伴",
           "examples": [
-            "Her business partner manages the accounts."
+            "The two studios partnered on the project."
           ]
         }
       ]
@@ -3204,7 +3205,7 @@
           "definition": "The waves of the sea, especially when they break near the shore.",
           "definitionZh": "海浪；拍岸浪",
           "examples": [
-            "I surf the web to find design references."
+            "The sound of the surf kept us awake."
           ]
         }
       ]
@@ -3828,9 +3829,10 @@
         },
         {
           "part": "verb",
-          "definition": "to make a short, high-pitched sound like a small bird.",
-          "definitionZh": "鸟鸣",
+          "definition": "To post a short message on the social media platform X, or to make a short, high-pitched sound like a small bird.",
+          "definitionZh": "发推文；啾啾叫",
           "examples": [
+            "She tweeted about the concert after it ended.",
             "Small birds tweeted in the trees."
           ]
         }
@@ -4769,10 +4771,10 @@
         },
         {
           "part": "verb",
-          "definition": "to cut something short.",
-          "definitionZh": "裁剪",
+          "definition": "To cut part of an image, photograph, or plant away, or to shorten something by cutting.",
+          "definitionZh": "裁剪；剪短；修剪",
           "examples": [
-            "Farmers grow crops during the rainy season."
+            "She cropped the photograph to remove the empty space."
           ]
         }
       ]
@@ -5312,10 +5314,10 @@
         },
         {
           "part": "verb",
-          "definition": "to make something dirty.",
-          "definitionZh": "弄脏",
+          "definition": "To make something dirty, especially by marking or staining it.",
+          "definitionZh": "弄脏；玷污",
           "examples": [
-            "The rain soaked the soil in the garden."
+            "Wet shoes can soil the clean floor."
           ]
         }
       ]
@@ -5384,10 +5386,10 @@
         },
         {
           "part": "verb",
-          "definition": "to move somewhere suddenly and forcefully.",
-          "definitionZh": "冲进",
+          "definition": "To move somewhere suddenly and forcefully, often because of anger.",
+          "definitionZh": "猛冲；气势汹汹地闯入",
           "examples": [
-            "The children watched the storm from indoors."
+            "He stormed out of the room after the argument."
           ]
         }
       ]
