@@ -3588,3 +3588,10 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - Expanded visual-only Premium UI tests for proposed 16/40 folder capacities, unlimited free dictionary search, future-only disclosure, absence of checkout/payment/subscription actions, Escape close/focus restoration and narrow-mobile fit.
 - Latest full CI run **45542196426**, commit `70f3e27486a8609aa11c22c29fae6529cb94fe09`, passed baseline/expansion validation, strengthened Phase 3 translation/category audit, Playwright/Chromium setup and all ten browser tests.
 - Phase 3 core implementation is integrated. Broader semantic/editorial review remains open; Phase 3 is not marked complete. Phase 4 has not started.
+
+
+## 2026-11-25 — U2.9.0 Phase 3 expansion-content regression
+
+- Extended browser coverage to verify Phase 2 expansion entry `adjust` displays both explicit Simplified Chinese senses and updates immediately when switching translation language; also verified expansion-only `accretion` is returned by the Science & Technology topic filter.
+- Latest full CI run **45542376568**, commit `234c0b2edb4b61e8d6dac0ed03c52db8c4a15083`, passed both content validators and all ten browser tests.
+- Phase 3 remains in progress pending broader semantic/editorial review. Phase 4 has not started.
