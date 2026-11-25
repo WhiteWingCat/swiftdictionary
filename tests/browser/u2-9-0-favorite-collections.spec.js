@@ -154,6 +154,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   });
   await page.locator("#profilePage details > summary").click();
   await expect(favoriteGrid.locator(".word-card")).toBeVisible();
+  await expect.poll(() => favoriteGrid.evaluate(node => node.style.maxHeight)).toBe("none");
   const favoriteReference = await favoriteGrid.evaluate(grid => ({
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
     tracks: getComputedStyle(grid).gridTemplateColumns.split(" ").map(value => Number.parseFloat(value))
