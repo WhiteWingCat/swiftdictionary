@@ -70,6 +70,8 @@ jobs:
         run: node scripts/dictionary/validate-english-phase3.mjs
       - name: Run whole-catalogue editorial integrity audit
         run: node scripts/dictionary/audit-english-catalogue.mjs
+      - name: Validate aligned English Quiz draft content
+        run: node scripts/quiz/validate-question-bank.mjs
       - name: Install Playwright test runner
         run: |
           npm init -y
