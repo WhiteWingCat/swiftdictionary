@@ -16,7 +16,18 @@ declare
   v_broadcast_trigger_count integer;
   v_broadcast_secure boolean;
   v_realtime_rls boolean;
+  v_reorder_invoker boolean;
 begin
+  select not p.prosecdef into v_reorder_invoker
+  from pg_catalog.pg_proc p
+  join pg_catalog.pg_namespace n on n.oid=p.pronamespace
+  where n.nspname='public'
+    and p.proname='reorder_my_favorite_collection'
+    and pg_catalog.pg_get_function_identity_arguments(p.oid)='p_collection_id uuid, p_new_position integer';
+  if v_reorder_invoker is distinct from true then
+    raise exception 'Collection reorder RPC must execute with invoker privileges and rely on owner-scoped RLS';
+  end if;
+
   select c.relrowsecurity into v_rls_collections
   from pg_class c join pg_namespace n on n.oid=c.relnamespace
   where n.nspname='public' and c.relname='favorite_collections';
