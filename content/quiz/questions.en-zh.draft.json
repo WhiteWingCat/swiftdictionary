@@ -7538,8 +7538,8 @@
     {
       "question_id": "quiz-p6-beginner-009",
       "source_lesson_id": "b-question-forms-negatives",
-      "prompt_learning": "___ your parents live near the station?",
-      "prompt_translation": "你的父母住在车站附近吗？",
+      "prompt_learning": "Choose the present simple auxiliary: ___ your parents live near the station?",
+      "prompt_translation": "选择一般现在时所需的助动词：你的父母住在车站附近吗？",
       "options": [
         {
           "id": "a",
@@ -7670,8 +7670,8 @@
     {
       "question_id": "quiz-p6-advanced-009",
       "source_lesson_id": "a-reported-speech",
-      "prompt_learning": "“Are you joining us?” Lina asked whether I ___.",
-      "prompt_translation": "“你会和我们一起参加吗？”Lina 问我是否___。",
+      "prompt_learning": "The event was last week. “Are you joining us?” Lina asked whether I ___.",
+      "prompt_translation": "活动在上周举行。“你会和我们一起参加吗？”Lina 问我是否___。",
       "options": [
         {
           "id": "a",
@@ -7695,8 +7695,8 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "A present continuous yes/no question is reported with if or whether and statement word order. With a past reporting verb, are joining commonly backshifts to was joining.",
-      "explanation_translation": "转述现在进行时的一般疑问句时，使用 if 或 whether，并采用陈述句语序。转述动词为过去时，are joining 通常后移为 was joining。",
+      "explanation_learning": "The event is in the past, so use the backshifted past continuous in the reported yes/no question: was joining. Keep statement word order after whether.",
+      "explanation_translation": "活动已经在过去举行，因此间接一般疑问句使用后移后的过去进行时 was joining。whether 后面保持陈述句语序。",
       "learning_objective_id": "reported-speech-accuracy",
       "release_approved": false
     },
