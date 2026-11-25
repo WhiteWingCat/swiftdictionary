@@ -25,6 +25,9 @@ on:
       - "scripts/dictionary/**"
       - ".github/workflows/u2-9-0-dictionary-qa.yml"
       - "tests/browser/u2-9-0-english-expansion.spec.js"
+      - "content/quiz/questions.en-zh.draft.json"
+      - "content/quiz/curriculum-map.en.json"
+      - "scripts/quiz/validate-question-bank.mjs"
       - "playwright.config.js"
   pull_request:
     branches:
