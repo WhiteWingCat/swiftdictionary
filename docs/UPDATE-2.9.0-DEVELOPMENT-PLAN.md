@@ -250,3 +250,11 @@ The owner confirmed Phase 2 complete and instructed immediate Phase 3 work. Core
 - Added a 390px narrow-viewport Playwright test for filter wrapping, horizontal overflow and an actual Places-filter selection.
 - Latest full CI run **45540937597**, commit `82ba00e4d6913eede952a3d7f0aa998d93054784`, passed both data validators, Playwright/Chromium setup and all seven browser tests.
 - This improves automated and targeted category QA but does not replace a full human/native-speaker review of every category or Chinese translation. Phase 3 remains in progress; Phase 4 remains blocked.
+
+
+### Phase 3 translation-content audit strengthening — 2026-11-25
+
+- The Phase 3 validator now requires every headword/sense Chinese translation to contain CJK characters and rejects known placeholder/fallback phrases, in addition to checking field presence and category coverage.
+- Latest audit: 810/810 baseline headword translations, 657/657 baseline sense translations, 506/506 expansion headword translations and 766/766 expansion sense translations present; zero non-CJK translation fields and zero placeholder translations.
+- Targeted sense-alignment spot checks covered 20 high-frequency baseline entries and 8 expansion entries. The sampled multi-meaning Chinese senses remained distinct and context-appropriate; this does not certify every translation.
+- Latest CI run **45541339325**, commit `48ec2caabe3e8dae3fa223380efd9d51852ca6e8`, passed both data validators and all seven browser tests.
