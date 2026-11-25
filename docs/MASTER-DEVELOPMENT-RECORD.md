@@ -3670,3 +3670,8 @@ Run 45547652317 passed all 13 Playwright tests, including the real-app-shell loa
 ### Phase 4 Favorite words panel placement — 2026-11-25
 
 Run 45548152492 passed all 13 Playwright tests, including an application-shell DOM assertion that Your collections is the immediate sibling after the existing Favorite words profile card and before Learning progress. The versioned supabase-config.js loader passed as well. This confirms structural placement, not a visual signed-in device review. Live authenticated CRUD, adversarial two-account RLS/API testing and actual Realtime event receipt remain outstanding.
+
+
+### Phase 4 expanded regression and staging integrity — 2026-11-25
+
+Run 45548503961 passed all 13 Playwright tests, including mocked blank/duplicate name handling, mixed-language membership, CRUD, membership removal without Favorite-word deletion and two-account UI isolation. The test double was corrected to follow the active account dynamically. Collection counts now use one membership query. Post-Realtime staging checks confirm the existing saved_words count remains 14, collections/membership tables remain empty, and both tables are in supabase_realtime. The security advisor remains at ten informational private-schema RLS/no-policy notices and one leaked-password-protection warning; no collections-specific finding. Live authenticated API/RLS, actual Realtime delivery, and signed-in desktop/mobile/accessibility review remain outstanding.
