@@ -665,6 +665,11 @@ window.__SWIFT_TEST_INITIAL_USER = ${JSON.stringify(initialUser)};`
           async signOut() { state.setUser(null); return { error: null }; }
         },
         from(table) { return query(table); },
+        channel(name, options) {
+          const channel = { name, options, handlers: [], on(type, filter, callback) { this.handlers.push({ type, filter, callback }); return this; }, subscribe(callback) { callback?.("SUBSCRIBED"); return this; } };
+          return channel;
+        },
+        removeChannel(channel) { channel.removed = true; return Promise.resolve("ok"); },
         async rpc() { return { data: false, error: null }; }
       };
       window.__swiftTestAuth = state;
@@ -832,6 +837,11 @@ window.__SWIFT_TEST_INITIAL_USER = { id: ${JSON.stringify(userId)}, email: ${JSO
           async signOut() { state.setUser(null); return { error: null }; }
         },
         from(table) { return query(table); },
+        channel(name, options) {
+          const channel = { name, options, handlers: [], on(type, filter, callback) { this.handlers.push({ type, filter, callback }); return this; }, subscribe(callback) { callback?.("SUBSCRIBED"); return this; } };
+          return channel;
+        },
+        removeChannel(channel) { channel.removed = true; return Promise.resolve("ok"); },
         async rpc(name, args) {
           state.rpcCalls.push({ name, args: structuredClone(args) });
           if (name === "get_my_learning_allowance_usage") {
