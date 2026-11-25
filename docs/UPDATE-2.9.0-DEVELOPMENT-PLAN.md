@@ -1,6 +1,6 @@
 # SwiftDictionary Update 2.9.0 — English Dictionary Expansion & Dashboard Collections
 
-**Status:** Owner-approved plan (2026-11-24); Phases 1–3 are complete; Phase 4 implementation is complete and deployed to controlled Cloudflare Pages staging review; Phases 5–6 and final release QA remain open.  
+**Status:** Owner-approved plan (2026-11-24); Phases 1–3 are complete; Phase 4 Your Collections refinements are implemented and deployed to a controlled Cloudflare Pages staging preview for owner re-review; Phases 5–6 and final release QA remain open.  
 **Predecessor:** Update 2.8.0 — completed and owner-confirmed live on 2026-11-24.  
 **Next major milestone:** Update 3.0.0 — Introduction to Malay course.  
 **Scope authority:** This document records the owner's approved U2.9.0 scope and sequencing. Any material scope, quota, entitlement or data-model change requires owner review.
@@ -50,13 +50,16 @@ Add a new **Your collections** panel directly below **Favorite words**.
 
 **User experience**
 - A plus () or **New folder** control opens an in-site modal centred on the screen with the background blurred/dimmed. Never use browser-native prompt, alert or confirm dialogs.
-- The modal lets users enter a collection name and create it, with validation and clear inline error states.
-- Users can open a collection, add saved words, remove words from that collection, rename a collection and delete a collection.
-- A saved word may be included in multiple collections.
-- Collections accept saved words from both English and Chinese regardless of current learning-course or translation-language selection.
-- Removing a word from a collection must not remove it from the global Favorite words list.
+- The modal lets users enter a collection name and create it, with validation and clear inline error states. The New folder action should use a restrained, dimmed accent rather than a bright primary fill.
+- Each created folder appears as an inline expandable/collapsible section, following the Dashboard Favorite words interaction pattern. Expanding it reveals the saved-word cards; collapsing it hides them without opening a separate folder modal.
+- Selecting a word inside an expanded folder opens the existing shared dictionary detail panel, with the same definitions, examples, Chinese structure and stroke-order behaviour as Favorite words.
+- Each folder has a custom in-site **…** actions menu on the right, with **Add words**, **Rename** and **Remove**. Do not use native browser menus, select controls, prompt, alert or confirm dialogs.
+- **Add words** from a folder lets the user select saved English and Chinese words to include. A saved word may be included in multiple collections.
+- The shared word detail panel exposes an **Add to collection** action beside the Favorite save button. It appears only when the current word is saved and lets the user select one or more folders. This provides the reverse path from Favorite words into collections.
+- Removing a saved word from Favorite words must remove its membership from every collection automatically. Removing a word from a collection only removes that membership and must not unsave the word.
 - Deleting a collection must not delete the saved words it contained.
-- Handle empty collections, long names, duplicate names, loading/error states, keyboard use, touch targets and responsive desktop/mobile layouts.
+- The panel description is exactly: “Customize and organize any saved words to your preferences.”
+- Apply subtle drop shadows to relevant controls and custom menus. Handle empty collections, long names, duplicate names, loading/error states, keyboard use, touch targets and responsive desktop/mobile layouts.
 
 **Data and security**
 - Inspect the current Favorite/saved-word schema and synchronization implementation before designing changes; reuse existing stable word identity where safe.
@@ -431,3 +434,18 @@ Run 45548857974 passed all 13 browser tests. The saved-word picker uses the actu
 - The preview is routed through the existing build.sh environment guard to the isolated staging Supabase project (ivatvkfrtifgfheeaelj); production Supabase and the main branch have not been modified or deployed.
 - The PR explicitly prohibits merge/production rollout until all remaining phases, final release gates and owner approval are complete. Free unlimited dictionary search and existing learning allowances remain unchanged.
 - At PR creation, Cloudflare Pages preview was successful. The PR-triggered regression workflows were still running; a separate Cloudflare Workers Builds check for swiftdictionary-testing reported failure and is not the Pages deployment. Investigate/triage that check before final release sign-off.
+
+
+### Phase 4 owner feedback refinements — 2026-11-25
+
+- Owner reviewed the first Phase 4 staging preview and requested a dimmer New folder action, inline expandable folders, a folder actions menu, assignment from the shared word detail panel, automatic membership removal when a saved word is unsaved, relevant button shadows, and revised panel description.
+- Implemented the revised interaction on branch `feature/u2-9-0-collections-feedback`; current review PR is #18: https://github.com/WhiteWingCat/swiftdictionary/pull/18. Earlier PR #17 was closed without merging and superseded by PR #18.
+- Folder contents now expand inline into English and Simplified Chinese word-card groups. Selecting a word opens the shared dictionary detail drawer. Folder menu actions are custom in-site UI (Add words / Rename / Remove), not native browser dropdowns.
+- The detail drawer includes Add to collection beside the Favorite button, visible only when the word is saved. Users can assign the word to multiple folders or remove its memberships there.
+- Verified the existing `favorite_collection_items.saved_word_id` foreign key already uses `ON DELETE CASCADE`; no schema migration was necessary. Expanded the staging SQL regression to delete a saved word inside a rollback transaction and assert its memberships are removed.
+- Hardened private Realtime channel cleanup on sign-out/account changes and added per-folder request sequencing so stale asynchronous loads cannot overwrite a newer collapsed/reopened state.
+- GitHub Actions on commit `25f10b2dfc28837e6fc799cff44b1b0c8215c763`: Cloudflare Pages deployment succeeded; build-routing, English data validation, PostgreSQL migration/ACL/allowance regressions, Chinese static/browser checks, authenticated Supabase integration, Flashcards and Chromium regression jobs passed. The browser regression suite reported 79 passed and 22 skipped, including the three new Your Collections tests. A separate Cloudflare Workers Builds check for `swiftdictionary-testing` failed; it is distinct from the successful Cloudflare Pages deployment and remains a separate infrastructure item.
+- The rollback SQL regression passed on isolated staging. Afterward the staging row counts remained saved_words 14, favorite_collections 1, favorite_collection_items 3; these reflect the owner's staging test data and were preserved. Supabase health advisor returned no findings; security advisor showed only the pre-existing private-schema informational notices and leaked-password-protection warning, with no new collections-specific finding.
+- Current branch preview: https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev (deployment: https://c780307d.swiftdictionary.pages.dev). Preview is routed to isolated staging Supabase. No production database, main branch or live deployment changes were made.
+- Phase 4 remains subject to owner acceptance of this revised preview. Phases 5 (visual-only Premium navigation/interface preparation) and 6 (optional aligned English Lessons/Quiz/Flashcards content expansion) remain open, followed by final full QA and release preparation. No subscription, allowance, folder-cap or payment enforcement was activated; dictionary search remains free and unlimited.
+- Legal/privacy: this refinement reuses existing account-owned collection names and saved-word references; no new personal-data category or third-party processor was introduced. Malaysia PDPA and general international privacy review remain pre-publication requirements.
