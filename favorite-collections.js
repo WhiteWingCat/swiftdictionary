@@ -48,7 +48,7 @@
     const style = el("style");
     style.id = "swiftFavoriteCollectionsStyles";
     style.textContent = `
-      #swiftFavoriteCollections{margin:18px 0;padding:18px}
+      #swiftFavoriteCollections{margin:18px 0;padding:22px}
       #swiftFavoriteCollections .fc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
       #swiftFavoriteCollections h3{margin:0;font-size:1.08rem}
       #swiftFavoriteCollections .fc-muted{color:var(--muted,#687386);font-size:.9rem}
@@ -75,8 +75,7 @@
       #swiftFavoriteCollections .fc-menu button:hover{background:rgba(100,120,150,.08)}
       #swiftFavoriteCollections .fc-expanded{padding:0;max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease}
       #swiftFavoriteCollections .fc-expanded.is-open{max-height:10000px;opacity:1}
-      #swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin:12px 0 18px}
-      #swiftFavoriteCollections .fc-expanded-grid.character-grid{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px;margin:12px 0 18px}
+      #swiftFavoriteCollections .fc-expanded-grid{margin:12px 0 18px}
       #swiftFavoriteCollections .fc-expanded[hidden]{display:none}
       .fc-disclosure-content{max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease}
       .fc-disclosure-content.is-open{opacity:1}
@@ -115,7 +114,7 @@
       .fc-dialog .fc-inline-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
       .fc-dialog button:disabled{opacity:.55;cursor:wait}
       @media(max-width:520px){#swiftFavoriteCollections{padding:14px}.fc-dialog{padding:17px}.fc-overlay{padding:10px}}
-      @media(max-width:520px){#swiftFavoriteCollections .fc-expanded-grid:not(.character-grid){grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px}}
+
       @media(prefers-reduced-motion:reduce){#swiftFavoriteCollections *, .fc-dialog *, .fc-disclosure-content{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
     `;
     document.head.appendChild(style);
