@@ -3548,3 +3548,14 @@ The push and pull-request Quiz foundation workflows both completed successfully 
 - **Phase 3 remains in progress** pending broader semantic/editorial spot checks of category assignments and Chinese translations, plus responsive and interaction regression. Phase 4 remains not started and must retain its fresh Supabase schema/migration/RLS/RPC/account-isolation audit. Staging preview remains withheld until Phase 4 is fully implemented and internally validated.
 - Feature-branch progress record: `docs/U2.9.0-IMPLEMENTATION-PROGRESS.md`. Authoritative approved plan: `docs/UPDATE-2.9.0-DEVELOPMENT-PLAN.md`.
 - Detailed session archive: [2026-11-25 Update 2.9.0 Phase 3 category filters and translation QA](conversation-archive/2026-11-25-update-2-9-0-phase-3-category-filters-and-translation-qa.md).
+
+
+## 2026-11-25 — U2.9.0 Phase 3 editorial and mobile QA follow-up
+
+- An additional semantic scan of the 810-entry baseline category metadata identified clearly specialist scientific, environmental, historical/cultural and educational entries that had been placed too broadly. Added 89 targeted manual category overrides across two spot-check passes.
+- Latest combined category assignment counts: Actions 442; Everyday Terms 307; Activities 62; Places 85; People & Relationships 71; Science & Technology 147; History & Culture 46; Nature & Environment 73; Education 70; Emotions & Descriptions 233. Multi-category entries are counted in every category.
+- Added a narrow 390px viewport browser regression covering topic-row availability, wrapping/no horizontal overflow and an actual Places-filter selection.
+- Latest authoritative CI run **45540937597**, commit `82ba00e4d6913eede952a3d7f0aa998d93054784`, passed baseline/expansion validation, Phase 3 category/translation audit, Playwright/Chromium setup and all seven browser tests.
+- Translation field coverage remains: baseline 810 headword translations and 657 sense translations; expansion 506 headword translations and 766 sense translations; zero missing fields reported.
+- Phase 3 remains in progress pending broader editorial review of category assignments and Chinese translation semantics. Phase 4 has not started. No staging preview, Supabase change, production merge/deployment or Premium/payment enforcement occurred.
+- This phase's Malaysia/general legal check remains unchanged: no new personal-data processing or external processor; existing PDPA, global 16+ screening, privacy and content licensing obligations remain relevant.
