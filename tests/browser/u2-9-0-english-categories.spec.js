@@ -198,7 +198,7 @@ test("editorially corrected expansion senses display context-aligned Chinese tra
   ];
   for (const [word, expectedChinese] of cases) {
     await page.locator("#search").fill(word);
-    await page.locator(".word-card").first().click();
+    await page.locator(".word-name").filter({ hasText: new RegExp("^" + word + "$", "i") }).first().click();
     await expect(page.locator("#modalDefinition")).toContainText(expectedChinese);
     await page.locator("#closeButton").click();
   }
