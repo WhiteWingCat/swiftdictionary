@@ -64,6 +64,8 @@ test("English topic filters remain separate from Chinese character filters", asy
   await page.locator("#courseSelect").selectOption("en");
   await page.locator("#openDictionaryFilters").click();
   await expect(page.locator("#englishTopicCategoryRow")).toBeVisible();
+  await page.locator("#englishTopicCategoryRow").getByRole("button", { name: "Science & Technology", exact: true }).click();
+  await expect(page.locator("#englishTopicCategoryRow").getByRole("button", { name: "Science & Technology", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.locator("#courseSelect").selectOption("zh");
   await expect(page.locator("#englishTopicCategoryRow")).toBeHidden();
   await expect(page.locator("#chineseCategoryRow")).toBeVisible();
@@ -72,6 +74,7 @@ test("English topic filters remain separate from Chinese character filters", asy
   expect(words.every(word => [...word].length === 1)).toBeTruthy();
   await page.locator("#courseSelect").selectOption("en");
   await expect(page.locator("#englishTopicCategoryRow")).toBeVisible();
+  await expect(page.locator("#englishTopicCategoryRow").getByRole("button", { name: "All topics", exact: true })).toHaveAttribute("aria-pressed", "true");
 });
 
 test("English topic filters wrap and remain usable on a narrow mobile viewport", async ({ page }) => {
@@ -133,4 +136,26 @@ test("Premium information dialog fits a narrow mobile viewport", async ({ page }
   expect(dimensions.clientHeight).toBeLessThanOrEqual(824);
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
   await expect(dialog).toBeHidden();
+});
+
+test("every English topic category returns entries and keeps pagination scoped to the topic", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#courseSelect").selectOption("en");
+  await page.locator("#openDictionaryFilters").click();
+  const topics = page.locator("#englishTopicCategoryRow");
+  const labels = [
+    "Actions", "Everyday Terms", "Activities", "Places", "People & Relationships",
+    "Science & Technology", "History & Culture", "Nature & Environment",
+    "Education", "Emotions & Descriptions"
+  ];
+  for (const label of labels) {
+    await topics.getByRole("button", { name: label, exact: true }).click();
+    const count = Number((await page.locator("#count").textContent()).match(/^\d+/)[0]);
+    expect(count, label + " should return entries").toBeGreaterThan(0);
+  }
+  await topics.getByRole("button", { name: "Actions", exact: true }).click();
+  await expect(page.locator("#pageStatus")).toHaveText("Page 1 of 5");
+  await expect(page.locator("#nextPage")).toBeEnabled();
+  await page.locator("#nextPage").click();
+  await expect(page.locator("#pageStatus")).toHaveText("Page 2 of 5");
 });
