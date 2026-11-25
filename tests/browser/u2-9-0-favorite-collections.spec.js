@@ -84,6 +84,7 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
     window.supabaseClient = window.__collectionsTestClient;
   });
 
+  await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("about:blank");
   await page.setContent("<!doctype html><html><head></head><body></body></html>");
   await page.evaluate(() => {
@@ -100,6 +101,17 @@ test("Favorite Collections create, mixed-language membership, rename, remove and
   });
   const panel = page.locator("#swiftFavoriteCollections");
   await expect(panel).toBeVisible();
+  const panelBox = await panel.boundingBox();
+  expect(panelBox.width).toBeLessThanOrEqual(390);
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  const createDialog = page.getByRole("dialog");
+  await expect(createDialog).toHaveAttribute("aria-modal", "true");
+  await expect(page.locator("#fcCollectionName")).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(createDialog.getByRole("button", { name: "Close" })).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(createDialog).toBeHidden();
+  await expect(panel.getByRole("button", { name: "＋ New folder" })).toBeFocused();
   await panel.getByRole("button", { name: "＋ New folder" }).click();
   await page.locator("#fcCollectionName").fill("Travel");
   await page.getByRole("button", { name: "Create folder" }).click();
