@@ -120,7 +120,7 @@ test("Premium plan entry navigates to a dedicated future-only comparison page", 
   const trigger = page.getByRole("button", { name: "Premium plan", exact: true });
   await expect(trigger).toBeVisible();
   await trigger.click();
-  await page.waitForURL(/premium-plan\\.html(?:$|\\?)/);
+  await page.waitForURL(/premium-plan\.html(?:$|\?)/);
   await expect(page.getByRole("heading", { name: "Free vs Premium" })).toBeVisible();
   const rows = page.locator(".premium-comparison-row");
   await expect(rows).toHaveCount(6);
