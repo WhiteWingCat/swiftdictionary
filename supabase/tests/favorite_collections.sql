@@ -9,6 +9,7 @@ declare
   v_policy_count integer;
   v_fk_count integer;
   v_unique_index boolean;
+  v_bad_policy_count integer;
 begin
   select c.relrowsecurity into v_rls_collections
   from pg_class c join pg_namespace n on n.oid=c.relnamespace
@@ -45,6 +46,37 @@ begin
     );
   if v_policy_count <> 3 then
     raise exception 'Expected 3 owner-scoped membership policies, found %',v_policy_count;
+  end if;
+
+  select count(*) into v_bad_policy_count
+  from pg_policies
+  where schemaname='public' and tablename='favorite_collections'
+    and policyname in (
+      'favorite_collections_select_own','favorite_collections_insert_own',
+      'favorite_collections_update_own','favorite_collections_delete_own'
+    )
+    and (
+      coalesce(qual,with_check) not ilike '%auth.uid%'
+      or coalesce(qual,with_check) not ilike '%user_id%'
+    );
+  if v_bad_policy_count <> 0 then
+    raise exception 'A collection policy is missing its owner predicate';
+  end if;
+
+  select count(*) into v_bad_policy_count
+  from pg_policies
+  where schemaname='public' and tablename='favorite_collection_items'
+    and policyname in (
+      'favorite_collection_items_select_own','favorite_collection_items_insert_own',
+      'favorite_collection_items_delete_own'
+    )
+    and (
+      case when cmd='INSERT' then with_check else qual end not ilike '%auth.uid%'
+      or case when cmd='INSERT' then with_check else qual end not ilike '%favorite_collections%'
+      or case when cmd='INSERT' then with_check else qual end not ilike '%saved_words%'
+    );
+  if v_bad_policy_count <> 0 then
+    raise exception 'A membership policy is missing collection or saved-word ownership checks';
   end if;
 
   select count(*) into v_fk_count
