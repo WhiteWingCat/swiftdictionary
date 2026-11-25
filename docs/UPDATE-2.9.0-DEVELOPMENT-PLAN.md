@@ -199,3 +199,15 @@ Before merge/release:
 - The structural target has been reached, but full linguistic QA, review of the 810 existing entries, consolidated runtime integration and execution of the standalone Node validator remain open.
 - No staging preview has been created. Per owner instruction, do not prepare one until Phase 4 implementation and internal validation are complete.
 - No Supabase schema, data or policy changes, production changes, merge or deployment have been made. Continue with Phase 2 QA and integration, then follow the approved sequence.
+
+
+## 8. Implementation checkpoint — 2026-11-25
+
+- Phase 1 is complete.
+- Phase 2 has 506 new English entries across seven source batches, integrated into `data/english-expansion.js`; the projected dictionary contains 1,316 unique English headwords.
+- The 506 additions pass baseline-overlap, duplicate, required-field, example, sense-translation, category and POS-to-sense structural checks. The consolidated expansion contains 686 sense records.
+- The 810-entry baseline has been structurally audited. Five missing noun senses were added to miss, go, hold, leave and call; five short/common adverb definitions and IPA transcriptions were improved. All 176 multi-POS baseline entries now have sense records for each declared POS.
+- The baseline-aware Node validator and all three Playwright browser smoke tests pass in GitHub Actions run `45534072220` on commit `c88b637e8e9cb7042c7c7763ae41113cec2d1779`.
+- Phase 2 remains in progress until the full semantic/native-quality review and manual sense-level Simplified Chinese translation QA are complete. Automated structural checks are not treated as professional linguistic certification.
+- Phase 3 and Phase 4 have not started. The first staging preview remains withheld until Phase 4 implementation and internal validation are complete.
+- No Supabase schema/data/policy changes, production merge/deployment, payment integration or Premium entitlement enforcement have occurred.
