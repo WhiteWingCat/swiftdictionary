@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - feature/update-2-9-0-english-dictionary-collections
+      - feature/u2-9-0-collections-feedback
     paths:
       - "index.html"
       - "data/english-expansion*"
