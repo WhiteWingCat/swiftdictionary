@@ -1,4 +1,4 @@
-# SwiftDictionary Update 2.8.0 — Chinese Quiz & Flashcards Expansion
+# SwiftDictionary Update 2.9.1 — Dashboard Collections Loading Fix
 
 > **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 25 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application was merged to `main` on 2026-11-24 (merge commit `5e4c8c979770773047b2fad0ef845c9a944bfff2`). Cloudflare Pages reported successful deployments for both the merge commit and the follow-up README commit on `main`.
 
@@ -26,7 +26,7 @@
 
 > **Released:** Update 2.7.0 was merged into `main` on 2026-11-22 (merge commit `1d74e4925456c23b96223a94e64827b42c9cb869`). The GitHub Pages and Cloudflare Pages deployment checks both completed successfully for this commit. The three U2.7.0 Supabase migrations remain staging-only and have not been applied to production.
 
-SwiftDictionary is a vocabulary and language-learning web application for English and Simplified Chinese. It includes a searchable dictionary, structured lessons, daily learning activities, quizzes, flashcards, saved words, account-based synchronisation and learner progress.
+SwiftDictionary is a vocabulary and language-learning web application currently supporting English and Simplified Chinese. The platform is being prepared for a language-independent architecture ahead of the planned Malay expansion in Update 3.0. It includes a searchable dictionary, structured lessons, daily learning activities, quizzes, flashcards, saved words, account-based synchronisation, learner progress and Dashboard Collections.
 
 The dictionary remains free and unlimited. Daily learning allowances apply to learning activities, not dictionary searches.
 
@@ -95,13 +95,13 @@ No existing dictionary, Google sign-in, account switching, saved-word synchronis
 
 ## Current application features
 
-The application has five main pages: **Dictionary**, **Lessons**, **Quiz**, **Flashcards** and **Profile**.
+The application has five main pages: **Dictionary**, **Lessons**, **Quiz**, **Flashcards** and **Profile**. Dashboard includes Favorite Words and Your Collections.
 
-- **Dictionary:** English word search and Simplified Chinese character search, detailed definitions and examples, translation-language switching, saved words and Chinese stroke-order learning.
-- **Lessons:** English and Chinese permanent lesson libraries, Beginner/Intermediate/Advanced difficulty levels, interactive practice, course-specific progress and completed-lesson review.
+- **Dictionary:** English word search (1,316 headwords with ten topic filters) and Simplified Chinese character search, detailed definitions and examples, translation-language switching, saved words and Chinese stroke-order learning.
+- **Lessons:** English permanent lesson library (20 lessons) with Simplified Chinese support, Beginner/Intermediate/Advanced difficulty levels, interactive practice, course-specific progress and completed-lesson review.
 - **Daily Learning:** Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision, with account-synchronised preferences and daily allowances.
 - **Quiz:** English Quiz (199-question bank) and Chinese Quiz (145 approved staging questions), with course-aware sessions, progress, answer review and allowance integration.
-- **Flashcards:** English and Chinese Flashcards, including course-specific recall modes, review snapshots, progress and allowance integration.
+- **Flashcards:** English Flashcards with course-specific recall modes, review snapshots, progress and allowance integration; U2.9.0 adds 25 curated multiword expressions.
 - **Profile:** Learning progress, preferences, timezone, account information and account/data-management controls.
 
 Quiz and Flashcards are available features delivered in Updates 2.4.0 and 2.5.0. They are not Coming Soon placeholders.
@@ -180,6 +180,8 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ## Release history
 
+- **SwiftDictionary Update 2.9.1:** Restores Dashboard Your Collections on Cloudflare Pages by loading the versioned Collections module explicitly from index.html. Merged and deployed successfully on 2026-11-26; no database migration required.
+- **SwiftDictionary Update 2.9.0:** Expands the English dictionary to 1,316 headwords, adds ten topic filters, Dashboard Your Collections with persistent ordering and drag/keyboard reordering, expands English Lessons to 20, adds 25 English multiword Flashcards, and introduces a visual-only future Premium information page. Eight Live Supabase migrations applied and verified; merged to main on 2026-11-26. The 30 additional Quiz questions remain draft-only.
 - **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merged to `main`; Cloudflare Pages deployment succeeded on 2026-11-24.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
 - **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
 - **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
@@ -193,4 +195,4 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 ---
 
-*Release note: Update 2.8.0 is merged and deployed through Cloudflare Pages, with all 25 Production Supabase migrations applied and verified. Formal Malaysia PDPA/international legal review remains outstanding.*
+*Release note: Update 2.9.1 is merged and deployed through Cloudflare Pages. Update 2.9.0's eight Live Supabase migrations are applied and verified. Cloudflare Workers Builds is retired; Cloudflare Pages is the only active deployment platform. Formal Malaysia PDPA/international legal review remains outstanding.*
