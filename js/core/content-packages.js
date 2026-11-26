@@ -3,6 +3,44 @@
   "use strict";
   const packages = new Map();
   const registry = () => window.SWIFT_LANGUAGE_REGISTRY;
+  function stableLegacySlug(value, code) {
+    const text = String(value || "").trim();
+    if (code === "zh") return [...text].map(character => character.codePointAt(0).toString(16)).join("-");
+    return text.normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") || "entry";
+  }
+  function adaptLegacyDictionaryEntry(entry, code, contentVersion) {
+    const headword = String(entry?.word || "").trim();
+    if (!headword) return null;
+    const pos = String(entry.part || "entry").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") || "entry";
+    const id = "legacy." + code + ".dictionary." + stableLegacySlug(headword,code) + "." + pos;
+    const sourceSenses = Array.isArray(entry.senses) && entry.senses.length ? entry.senses : [{
+      definition:entry.definition || "", definitionZh:entry.definitionZh || "",
+      examples:Array.isArray(entry.examples) ? entry.examples : [], tip:entry.tip || ""
+    }];
+    const senses = sourceSenses.map((sense,index) => ({
+      ...sense,
+      id:sense.id || id + ".sense." + (index+1),
+      definition:String(sense.definition || sense.meaning || entry.definition || ""),
+      translations:{
+        ...(sense.translations || {}),
+        ...(sense.definitionZh || entry.definitionZh ? { zh:sense.definitionZh || entry.definitionZh } : {}),
+        ...(sense.definitionEn || entry.definitionEn ? { en:sense.definitionEn || entry.definitionEn } : {})
+      },
+      examples:Array.isArray(sense.examples) ? sense.examples : (Array.isArray(entry.examples) ? entry.examples : [])
+    }));
+    return {
+      id, schemaVersion:1, languageCode:code, contentVersion:String(contentVersion),
+      headword, partOfSpeech:entry.part || null,
+      pronunciation:{ system:code === "zh" ? "pinyin" : "ipa", value:entry.phonetic || "" },
+      senses, categories:Array.isArray(entry.categories) ? entry.categories : [],
+      legacySource:entry
+    };
+  }
+  function adaptLegacyRecords(records, code, contentVersion) {
+    return (Array.isArray(records) ? records : []).filter(item => item && typeof item === "object").map(item => ({
+      ...item, schemaVersion:1, languageCode:code, contentVersion:String(contentVersion), legacySource:item
+    }));
+  }
   function createPackage(input) {
     if (!input || typeof input !== "object") throw new TypeError("A language content package is required.");
     const code = registry()?.normaliseCode(input.languageCode);
@@ -13,9 +51,9 @@
     const packageRecord = Object.freeze({
       schemaVersion: 1, languageCode: code, contentVersion: String(input.contentVersion),
       status: input.status || language.status,
-      dictionary: Object.freeze({ entries: Array.isArray(content.dictionary?.entries) ? content.dictionary.entries : [] }),
-      lessons: Object.freeze({ permanent: Array.isArray(content.lessons?.permanent) ? content.lessons.permanent : [], translations: content.lessons?.translations || {} }),
-      dailyLearning: Object.freeze({ topics: content.dailyLearning?.topics || [], applications: content.dailyLearning?.applications || [], discovery: content.dailyLearning?.discovery || [], revision: content.dailyLearning?.revision || "adaptive" }),
+      dictionary: Object.freeze({ entries: (Array.isArray(content.dictionary?.entries) ? content.dictionary.entries : []).map(entry => adaptLegacyDictionaryEntry(entry,code,input.contentVersion)).filter(Boolean) }),
+      lessons: Object.freeze({ permanent: adaptLegacyRecords(content.lessons?.permanent,code,input.contentVersion), translations: content.lessons?.translations || {} }),
+      dailyLearning: Object.freeze({ topics: adaptLegacyRecords(content.dailyLearning?.topics,code,input.contentVersion), applications: adaptLegacyRecords(content.dailyLearning?.applications,code,input.contentVersion), discovery: adaptLegacyRecords(content.dailyLearning?.discovery,code,input.contentVersion), revision: content.dailyLearning?.revision || "adaptive" }),
       quiz: Object.freeze({ source: content.quiz?.source || null, questionBank: content.quiz?.questionBank || null }),
       flashcards: Object.freeze({ source: content.flashcards?.source || null, cards: Array.isArray(content.flashcards?.cards) ? content.flashcards.cards : [] }),
       metadata: Object.freeze({ adapter: language.adapter, locale: language.locale, capabilities: language.capabilities, ...(input.metadata || {}) })
