@@ -26,7 +26,7 @@
 ## Previous release baseline
 
 
-> **Released:** Update 2.7.0 was merged into `main` on 2026-11-22 (merge commit `1d74e4925456c23b96223a94e64827b42c9cb869`). The GitHub Pages and Cloudflare Pages deployment checks both completed successfully for this commit. The three U2.7.0 Supabase migrations remain staging-only and have not been applied to production.
+> **Released:** Update 2.7.0 was merged into `main` on 2026-11-22. Its features are part of the current production baseline. The historical migration note below is superseded by later production schema rollouts; use the current Live Supabase migration ledger, not this historical section, to determine database state.
 
 SwiftDictionary is a vocabulary and language-learning web application currently supporting English and Simplified Chinese. The platform is being prepared for a language-independent architecture ahead of the planned Malay expansion in Update 3.0. It includes a searchable dictionary, structured lessons, daily learning activities, quizzes, flashcards, saved words, account-based synchronisation, learner progress and Dashboard Collections.
 
@@ -125,15 +125,9 @@ The daily activity limits are shared across English and Chinese for the same act
 
 Premium entitlement infrastructure exists, but this project does not currently include a payment, checkout or subscription-purchase flow. Premium values in this table describe the configured entitlement limits, not an available purchase offer.
 
-## Supabase changes in Update 2.8.0\n\nU2.8.0 adds database support for Chinese Quiz sessions and question-bank composition, Chinese Flashcard language snapshots and full-game review, lesson/Quiz practice metrics, Dashboard history review and related security/allowance safeguards. The authoritative ordered SQL files are in `supabase/migrations/`; review the actual production migration ledger before rollout. Staging has been brought through the latest two content-safety/source-sync migrations. Production has not received U2.8.0 migrations.\n\n## Supabase changes in Update 2.7.0
+## Supabase migration history
 
-This update adds three migrations:
-
-1. `supabase/migrations/20261121140000_swiftdictionary_update_2_7_0_language_aware_lessons.sql` — separates permanent lesson progress and practice results by learning language and updates the server-side lesson content catalogue.
-2. `supabase/migrations/20261122123000_update_2_7_0_chinese_daily_learning_catalog.sql` — registers the Chinese Daily Learning content in the server-side catalogue while preserving shared category allowances.
-3. `supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql` — enforces the first-confirmed-start allowance for permanent lessons while keeping resume and completed review free.
-
-These migrations were validated against disposable PostgreSQL/Supabase test environments and applied to the U2.7.0 staging Supabase project for preview testing. **They have not been applied to production.** Review the live schema and migration history before any future application; do not re-run migrations blindly or apply them to production without explicit release approval.
+The authoritative migration files are under `supabase/migrations/`. The current production schema includes the U2.8.0 foundation and the eight U2.9.0 migrations applied and verified on 2026-11-26. U2.9.1 is frontend/build-only and required no migration. The historical U2.7.0/U2.8.0 notes elsewhere in this README describe their original development/testing stages and must not be treated as the current production migration ledger. Always inspect the actual Live Supabase migration history and schema before preparing or applying future migrations.
 
 ## Build, hosting and configuration
 
@@ -184,7 +178,7 @@ This README is a product and engineering summary, not a legal compliance certifi
 
 - **SwiftDictionary Update 2.9.1:** Restores Dashboard Your Collections on Cloudflare Pages by loading the versioned Collections module explicitly from index.html. Merged and deployed successfully on 2026-11-26; no database migration required.
 - **SwiftDictionary Update 2.9.0:** Expands the English dictionary to 1,316 headwords, adds ten topic filters, Dashboard Your Collections with persistent ordering and drag/keyboard reordering, expands English Lessons to 20, adds 25 English multiword Flashcards, and introduces a visual-only future Premium information page. Eight Live Supabase migrations applied and verified; merged to main on 2026-11-26. The 30 additional Quiz questions remain draft-only.
-- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merged to `main`; Cloudflare Pages deployment succeeded on 2026-11-24.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance, redesigned Lessons/Daily Learning UI and the fixes documented above. Merged into `main` and deployed through GitHub Pages and Cloudflare Pages on 2026-11-22. The U2.7.0 Supabase migrations remain staging-only.
+- **SwiftDictionary Update 2.8.0:** Chinese Quiz and Flashcards expansion, Quiz interface redesign, Dashboard/Daily History/Practice Insights improvements, full-game review snapshots and Pinyin answer-leak safeguards. Staging and Production migration sequences applied and verified; application merged to `main`; Cloudflare Pages deployment succeeded on 2026-11-24.\n- **SwiftDictionary Update 2.7.0:** Adds 519 Chinese dictionary characters, the Chinese permanent Lessons course, Chinese Daily Learning content, language-specific lesson progress, shared cross-course allowance guidance and redesigned Lessons/Daily Learning UI. Merged into `main` on 2026-11-22; subsequent production migrations supersede the original staging-era migration notes.
 - **SwiftDictionary Update 2.6.1:** Authentication and learning-data initialisation hotfix.
 - **SwiftDictionary Update 2.6.0:** Account deletion, learning-history management, authentication UI and account/data-management improvements.
 - **SwiftDictionary Update 2.5.0:** English Flashcards experience, review progress and allowance integration.
