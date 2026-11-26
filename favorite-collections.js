@@ -80,11 +80,12 @@
       .fc-disclosure-content{max-height:0;opacity:0;overflow:hidden;transition:max-height .28s ease,opacity .22s ease}
       .fc-disclosure-content.is-open{opacity:1}
       .fc-disclosure-content[hidden]{display:none}
-      #swiftFavoriteCollections .fc-folder-order{display:flex;align-items:center;gap:3px;flex:none}
-      #swiftFavoriteCollections .fc-drag-handle{cursor:grab;touch-action:pan-y;user-select:none;padding:7px 8px!important}
-      #swiftFavoriteCollections .fc-folder-card.is-dragging{opacity:.45}
+      #swiftFavoriteCollections .fc-folder-toggle{cursor:grab;touch-action:pan-y;user-select:none}
+      #swiftFavoriteCollections .fc-folder-toggle:active{cursor:grabbing}
+      #swiftFavoriteCollections .fc-folder-card.is-dragging{opacity:.55}
       #swiftFavoriteCollections .fc-folder-card.is-drop-before{box-shadow:inset 0 3px 0 var(--accent,#7fa9df)}
       #swiftFavoriteCollections .fc-folder-card.is-drop-after{box-shadow:inset 0 -3px 0 var(--accent,#7fa9df)}
+      #swiftFavoriteCollections .fc-folder-toggle:focus-visible{outline:2px solid var(--accent,#6d9bd0);outline-offset:2px}
       #swiftFavoriteCollections .fc-language-group{margin-top:12px}
       #swiftFavoriteCollections .fc-language-group h4{margin:0 0 8px;color:var(--muted,#687386);font-size:.82rem;font-weight:750}
       #swiftFavoriteCollections .fc-expanded-grid{width:calc(100% + 2px);min-width:0;box-sizing:border-box;margin-left:-1px;margin-right:-1px}
@@ -469,48 +470,62 @@
     content.inert = !expanded;
     if (expanded) content.classList.add("is-open");
     content.append(el("p", "fc-muted", "Loading saved words…"));
-    const orderControls = el("div", "fc-folder-order");
-    const dragHandle = el("span", "fc-button fc-drag-handle", "⠿");
-    dragHandle.setAttribute("role", "button");
-    dragHandle.tabIndex = 0;
-    dragHandle.draggable = true;
-    dragHandle.setAttribute("aria-label", "Drag " + collection.name + " to reorder");
-    dragHandle.title = "Drag to reorder folders";
-    const moveUp = button("↑", () => moveCollection(collection.id, -1), "fc-button");
-    moveUp.setAttribute("aria-label", "Move " + collection.name + " up");
-    moveUp.disabled = index === 0;
-    const moveDown = button("↓", () => moveCollection(collection.id, 1), "fc-button");
-    moveDown.setAttribute("aria-label", "Move " + collection.name + " down");
-    moveDown.disabled = index === total - 1;
-    orderControls.append(dragHandle, moveUp, moveDown);
-    head.insertBefore(orderControls, menuWrap);
     card.dataset.collectionId = collection.id;
-    dragHandle.addEventListener("dragstart", event => {
-      card.classList.add("is-dragging");
-      event.dataTransfer.effectAllowed = "move";
-      event.dataTransfer.setData("text/plain", collection.id);
+    toggle.setAttribute("aria-keyshortcuts", "Alt+ArrowUp Alt+ArrowDown");
+    toggle.title = "Hold and drag this folder to reorder. Use Alt + Up/Down to move it by keyboard.";
+    let pointerDrag = null;
+    let suppressNextToggleClick = false;
+    toggle.addEventListener("click", event => {
+      if (!suppressNextToggleClick) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      suppressNextToggleClick = false;
+    }, true);
+    toggle.addEventListener("keydown", async event => {
+      if (!event.altKey || !["ArrowUp","ArrowDown"].includes(event.key)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      await moveCollection(collection.id, event.key === "ArrowUp" ? -1 : 1);
+      panel.querySelector(`.fc-folder-card[data-collection-id="${CSS.escape(collection.id)}"] .fc-folder-toggle`)?.focus();
     });
-    dragHandle.addEventListener("dragend", () => {
+    toggle.addEventListener("pointerdown", event => {
+      if (event.button !== 0 || event.isPrimary === false) return;
+      pointerDrag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, started: false, targetId: null, after: false };
+    });
+    document.addEventListener("pointermove", event => {
+      if (!pointerDrag || pointerDrag.pointerId !== event.pointerId) return;
+      if (!pointerDrag.started && Math.hypot(event.clientX - pointerDrag.startX, event.clientY - pointerDrag.startY) < 7) return;
+      if (!pointerDrag.started) {
+        pointerDrag.started = true;
+        suppressNextToggleClick = true;
+        card.classList.add("is-dragging");
+      }
+      event.preventDefault();
+      const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("#swiftFavoriteCollections .fc-folder-card");
+      panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
+      if (!target || target === card) {
+        pointerDrag.targetId = null;
+        return;
+      }
+      const rect = target.getBoundingClientRect();
+      pointerDrag.targetId = target.dataset.collectionId;
+      pointerDrag.after = event.clientY > rect.top + rect.height / 2;
+      target.classList.add(pointerDrag.after ? "is-drop-after" : "is-drop-before");
+    }, { passive: false });
+    const finishPointerDrag = event => {
+      if (!pointerDrag || pointerDrag.pointerId !== event.pointerId) return;
+      const state = pointerDrag;
+      pointerDrag = null;
       card.classList.remove("is-dragging");
       panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
-    });
-    card.addEventListener("dragover", event => {
-      if (!Array.from(event.dataTransfer?.types || []).includes("text/plain")) return;
-      event.preventDefault();
-      const rect = card.getBoundingClientRect();
-      card.classList.toggle("is-drop-before", event.clientY <= rect.top + rect.height / 2);
-      card.classList.toggle("is-drop-after", event.clientY > rect.top + rect.height / 2);
-    });
-    card.addEventListener("dragleave", event => {
-      if (!card.contains(event.relatedTarget)) card.classList.remove("is-drop-before","is-drop-after");
-    });
-    card.addEventListener("drop", event => {
-      event.preventDefault();
-      const movingId = event.dataTransfer?.getData("text/plain");
-      const rect = card.getBoundingClientRect();
-      card.classList.remove("is-drop-before","is-drop-after");
-      if (movingId && movingId !== collection.id) moveCollectionTo(movingId, collection.id, event.clientY > rect.top + rect.height / 2);
-    });
+      if (state.started && state.targetId) moveCollectionTo(collection.id, state.targetId, state.after);
+      if (state.started) {
+        suppressNextToggleClick = true;
+        setTimeout(() => { suppressNextToggleClick = false; }, 0);
+      }
+    };
+    document.addEventListener("pointerup", finishPointerDrag);
+    document.addEventListener("pointercancel", finishPointerDrag);
     card.append(head, content);
     panel.querySelector(".fc-list").append(card);
     if (expanded) loadCollectionWords(collection, content);
