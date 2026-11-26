@@ -820,3 +820,27 @@ Earlier CI failures were corrected before the final green runs: stale Quiz valid
 ### Legal/privacy planning
 
 The `sort_order` value is minimal account-linked preference metadata and adds no new personal-data category or tracking purpose. Malaysia PDPA Act 709 and its 2024 amendments, current JPDP breach-notification/DPO/registration guidance, Section 129 cross-border transfer requirements, Singapore staging/Japan production regions, GDPR territorial scope and jurisdiction-specific child-consent rules were considered. Confirm operator/controller scope, provider processor terms, transfer safeguards and privacy notices before public release. New learning content is original and should retain provenance. This is planning, not legal advice, legal clearance or licensing certification.
+
+
+## 14. Owner feedback — whole-folder drag interaction — 2026-11-26
+
+### Requested interaction
+
+The owner tested the latest staging preview and asked to reorder a collection by holding the left mouse button on the folder itself and dragging it to another position. If this interaction is reliable, remove the separate drag-handle icon and the move-up/move-down arrow buttons.
+
+### Implementation on the feature branch
+
+- Replaced the small drag handle with a drag interaction on the folder heading itself. A deliberate pointer movement (with a small movement threshold to distinguish clicks from drags) starts reordering; dropping over the upper or lower half of another folder places the dragged folder before or after it.
+- Kept ordinary click-to-expand/collapse behaviour when the pointer is not dragged.
+- Removed the visible drag-handle icon and the up/down arrow controls.
+- Retained an accessible keyboard alternative: focus a folder heading and use **Alt + Arrow Up / Alt + Arrow Down** to move it one position. Existing persisted account-owned reorder RPC and RLS remain unchanged.
+- Reorder remains a client interaction over the existing account-owned sort order; no new database schema, personal-data category, tracking purpose, processor, entitlement or allowance change is introduced.
+- Browser tests now cover dragging the folder heading itself to the first and last positions, the absence of the old controls, and keyboard reordering. Full latest-head CI is pending; do not mark the interaction validated until the U2.9.0 browser workflow passes.
+
+### Remaining U2.9.0 work and release gate
+
+The approved implementation phases are otherwise complete. After this interaction passes latest-head browser and cross-version CI, update the Master Development Record and conversation archive, refresh the Cloudflare Pages staging preview, verify its routing to isolated staging, and hand the preview to the owner for review. This is the final implementation/verification pass before the polishing stage. PR #18 remains open; production merge, production Supabase migration/write and deployment remain blocked on explicit owner approval.
+
+### Legal/privacy check
+
+The change only alters how the existing folder order is manipulated in the UI and retains the same account-owned `sort_order` metadata and existing owner-scoped RPC/RLS. It does not introduce a new category of personal data or processing purpose. Existing Malaysia PDPA, cross-border transfer, international privacy/16+ safeguards, content provenance and future Premium consumer/payment reviews remain release-planning items; this check is not legal advice or legal clearance.
