@@ -100,33 +100,7 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#dashboardTabFavourites")).toBeVisible();
-  console.log("LESSON_RUNTIME_DIAGNOSTIC", JSON.stringify(await page.evaluate(() => {
-    const candidates = ["englishLessons","permanentLessons","lessonData","lessonCatalog","lessons","LESSONS","allLessons","lessonBank","englishLessonData","courseLessons"];
-    const symbols = candidates.map(name => {
-      try {
-        const value = eval(name);
-        return { name, type: typeof value, isArray: Array.isArray(value), keys: value && typeof value === "object" ? Object.keys(value).slice(0,8) : [] };
-      } catch { return { name, type: "unavailable" }; }
-    });
-    const data = eval("lessonData");
-    return { symbols, windowKeys: Object.keys(window).filter(key => /lesson/i.test(key)).slice(0,40),
-      lessonData: Object.fromEntries(Object.entries(data).map(([level,items]) => [level,{count:items.length,lessons:items.map(item=>({id:item.id,topic:item.topic,title:item.title,summary:item.summary}))}])),
-      lessonFieldFunction: String(window.lessonField).slice(0,1200),
-      lessonZh: (()=>{try{const value=eval("lessonZh");return {type:typeof value,keys:Object.keys(value).slice(0,20),sample:value["b-sentence"]}}catch{return {type:"unavailable"}}})(),
-      missingLessonContent: {
-        bCountable:data.beginner.find(x=>x.id==="b-countable-nouns"),
-        bGreetings:data.beginner.find(x=>x.id==="b-greetings-polite-expressions"),
-        iConditionals:data.intermediate.find(x=>x.id==="i-conditionals"),
-        aMixedConditionals:data.advanced.find(x=>x.id==="a-mixed-conditionals")
-      },
-      lessonPracticeFunction: String(window.lessonPractice).slice(0,1400),
-      lessonTopicKeyFunction: String(window.lessonTopicKey).slice(0,1000),
-      lessonTopicIdForFunction: String(window.lessonTopicIdFor).slice(0,1000),
-      lessonRenderTextFunction: String(window.lessonRenderText).slice(0,1000),
-      lessonsFunction: String(eval("lessons")).slice(0,1800),
-      renderLessonsFunction: String(window.renderLessons).slice(0,1800),
-      disclosures: [...document.querySelectorAll("#profilePage details,#profilePage [aria-expanded]")].map(node => ({tag:node.tagName,id:node.id,cls:String(node.className||"").slice(0,80),text:(node.innerText||node.textContent||"").trim().slice(0,60),expanded:node.getAttribute("aria-expanded")})).slice(0,40) };
-  })));
+
   const favoriteDisclosure = page.locator("#dashboardTabFavourites details").first();
   await expect(favoriteDisclosure).toBeVisible();
   const disclosureContent = favoriteDisclosure.locator(":scope > .fc-disclosure-content");
