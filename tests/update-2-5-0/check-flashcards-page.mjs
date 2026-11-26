@@ -3,6 +3,8 @@ import vm from "node:vm";
 
 const html=fs.readFileSync("index.html","utf8");
 const flashcards=fs.readFileSync("flashcards.js","utf8");
+const englishDictionary=fs.readFileSync("data/languages/english-dictionary.js","utf8");
+const englishLessons=fs.readFileSync("data/languages/english-lessons.js","utf8");
 if(!flashcards.includes("function blankAllOccurrences(")||!flashcards.includes("blankAllOccurrences(sentence,target.word,chinese)"))throw new Error("Sentence Recall must blank every occurrence of the target.");
 const mock=fs.readFileSync("mock-testing.js","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261118090000_swiftdictionary_update_2_5_0_flashcards_foundation.sql","utf8");
@@ -83,10 +85,10 @@ if(!durationMigration.includes("duration_seconds in (60,120)")||!durationMigrati
 if(!reviewIndexMigration.includes("flashcard_review_items_last_session_idx")||!reviewIndexMigration.includes("last_session_id"))throw new Error("Flashcards review-session foreign-key index is missing.");
 if(!flashcards.includes('data-action="phase-action"')||!flashcards.includes('uiText("Answer now","立即作答")')||!flashcards.includes('uiText("Next","下一题")'))throw new Error("Early-answer and next-round controls are missing.");
 if(!flashcards.includes("function questionKey(card)")||!flashcards.includes("usedQuestionKeys.has(questionKey(item))")||!flashcards.includes("seenCards.has(key)"))throw new Error("Flash Recall must deduplicate normalized question prompts across card types and modes.");
-for(const id of ["b-greetings-polite-expressions","b-places-getting-around"])if(!html.includes('id:"'+id+'"'))throw new Error("Missing permanent lesson for expanded Flash Recall vocabulary: "+id);
-for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care","station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!html.includes('"word": "'+word+'"'))throw new Error("Missing expanded lesson-linked Flash Recall vocabulary: "+word);
-for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-greetings-polite-expressions"').test(html))throw new Error("Missing greetings lesson link for "+word);
-for(const word of ["station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-places-getting-around"').test(html))throw new Error("Missing places lesson link for "+word);
+for(const id of ["b-greetings-polite-expressions","b-places-getting-around"])if(!englishLessons.includes('id:"'+id+'"'))throw new Error("Missing permanent lesson for expanded Flash Recall vocabulary: "+id);
+for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care","station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!englishDictionary.includes('"word": "'+word+'"'))throw new Error("Missing expanded lesson-linked Flash Recall vocabulary: "+word);
+for(const word of ["thanks","excuse me","good morning","good afternoon","good evening","take care"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-greetings-polite-expressions"').test(englishDictionary))throw new Error("Missing greetings lesson link for "+word);
+for(const word of ["station","market","library","hospital","restaurant","museum","entrance","exit","corner","bridge","ticket","platform"])if(!new RegExp('"word": "'+word+'",\\s*"lessonId": "b-places-getting-around"').test(englishDictionary))throw new Error("Missing places lesson link for "+word);
 if(!html.includes("60-second or 120-second challenge")||!html.includes("Mixed Recall combines word, definition and sentence prompts"))throw new Error("Flashcards introduction still contains outdated challenge or mode information.");
 if(!html.includes('translationLanguage==="zh"&&chineseIntroCopy[page]'))throw new Error("Simplified Chinese Quiz/Flashcards introductions are missing.");
 if(!flashcards.includes("dismiss_my_flashcard_review_item")||!flashcards.includes('data-action="dismiss-review-item"')||!mock.includes("seedFlashcardData"))throw new Error("Weak-memory items need account-scoped manual dismissal in the client and mock adapter.");
