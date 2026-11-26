@@ -127,14 +127,14 @@
   }
 
   function enhanceDashboardDisclosures() {
-    const detailsNodes = document.querySelectorAll("#profilePage details");
+    const detailsNodes = document.querySelectorAll("#profilePage details, #dashboardTabFavourites details");
     detailsNodes.forEach(details => {
       if (details.dataset.swiftAnimatedDisclosure === "true") return;
       const summary = details.querySelector(":scope > summary");
       if (!summary) return;
-      // Animate the existing direct children in place. Do not wrap them:
-      // other Dashboard code relies on the saved-word grid remaining a direct
-      // child of <details>.
+      // Animate Profile and Dashboard Favorite disclosures in place. Do not wrap
+      // their existing direct children: other Dashboard code relies on the
+      // saved-word grid remaining a direct child of <details>.
       const contentNodes = [...details.children].filter(child => child !== summary);
       if (!contentNodes.length) return;
       contentNodes.forEach(node => node.classList.add("fc-disclosure-content"));
