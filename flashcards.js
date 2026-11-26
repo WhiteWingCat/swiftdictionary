@@ -4,6 +4,8 @@
   const root = document.getElementById("flashcardsPage");
   if (!root) return;
   const $ = (selector, scope=root) => scope.querySelector(selector);
+  const adapterFor = code => window.SWIFT_LANGUAGE_ADAPTERS?.get(code) || null;
+  const isChineseLanguage = code => adapterFor(code)?.gridMode === "single-han";
   let overlayRoot=document.getElementById("flashOverlayRoot");
   if(!overlayRoot){overlayRoot=document.createElement("div");overlayRoot.id="flashOverlayRoot";}
   overlayRoot.classList.add("flash-overlay-root");
@@ -55,7 +57,19 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
-  function words(language=state.game?.learningLanguage||course){if(language==="zh"){const bank=window.SWIFT_CHINESE_FLASHCARDS||{};const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);}if(language!=="en")throw new Error("Flashcard content is not available for language: "+language);const dictionary=(window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);const existing=new Set(dictionary.map(w=>String(w.word).trim().toLowerCase()));return [...dictionary,...curatedEnglishPhrases.filter(w=>!existing.has(w.word.toLowerCase()))];}
+  function words(language=state.game?.learningLanguage||course){
+    const adapter=adapterFor(language);
+    if(!adapter)throw new Error("No language adapter is registered for Flashcards: "+language);
+    if(isChineseLanguage(language)){
+      const bank=window.SWIFT_CHINESE_FLASHCARDS||{};
+      const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));
+      return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);
+    }
+    if(language!=="en")throw new Error("Flashcard content is not available for language: "+language);
+    const dictionary=(window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);
+    const existing=new Set(dictionary.map(w=>String(w.word).trim().toLowerCase()));
+    return [...dictionary,...curatedEnglishPhrases.filter(w=>!existing.has(w.word.toLowerCase()))];
+  }
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
   function cardsForCollection(){
     const cards=state.data.cards||[];
@@ -264,7 +278,7 @@
   }
   function render(){
     const mount=shell();style();
-    if(!state.game){if(course==="zh"&&state.mode==="mixed")state.mode="translation";if(course==="en"&&state.mode==="translation")state.mode="mixed";if(course==="zh"&&!["all","characters","vocabulary","phrases"].includes(state.cardSet))state.cardSet="all";if(course==="en"&&["characters","vocabulary"].includes(state.cardSet))state.cardSet="all";}
+    if(!state.game){const adapter=adapterFor(course);const modes=adapter?.flashcardModes||[];if(!modes.includes(state.mode))state.mode=modes.includes("mixed")?"mixed":modes[0]||"word";if(!adapter?.flashcardCardSets?.includes(state.cardSet))state.cardSet="all";}
     if(!currentUser){mount.innerHTML=`<div class="flash-home"><section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Choose a recall mode and a 60- or 120-second challenge. Memory and answer windows adapt to your difficulty, and you can move on as soon as you are ready.","选择回忆模式和 60 秒或 120 秒挑战。记忆与答题时间会根据难度调整，准备好时即可提前进入下一步。")}</p></div></section><section class="flash-section learning-auth-card"><h2>${uiText("Sign in to use Flashcards","登录以使用闪卡")}</h2><p class="flash-muted">${uiText("Your learning progress is saved securely to your account.","你的学习进度会安全地保存到帐户中。")}</p><button class="flash-primary learning-auth-button" data-action="signin">${uiText("Sign in","登录")}</button></section></div>`;const signedOutBanner=mount.querySelector(".flash-banner");if(state.helpButton&&signedOutBanner&&!signedOutBanner.contains(state.helpButton))signedOutBanner.appendChild(state.helpButton);return;}
     if(state.loading){mount.innerHTML='<section class="flash-section">'+uiText("Loading your Flashcards…","正在加载闪卡…")+'</section>';return;}
     if(state.finishing){mount.innerHTML='<section class="flash-section"><h2>'+uiText("Saving your game","正在保存游戏")+'</h2><p class="flash-muted">'+uiText("Your results are being saved securely.","正在安全地保存你的游戏结果。")+'</p></section>';return;}
@@ -620,7 +634,7 @@
     if(course==="zh"&&mode==="mixed")mode="translation";
     if(course==="en"&&mode==="translation")mode="mixed";
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
-    const chinese=course==="zh";
+    const chinese=isChineseLanguage(course);
     const excludeVocabulary=chinese&&(
       mode==="definition"||mode==="sentence"||
       ((mode==="translation"||mode==="mixed")&&translationLanguage==="zh")
@@ -651,7 +665,7 @@
   }
   function renderReviewPrompt(){
     const overlay=overlayRoot;if(!overlay)return;
-    const labels=course==="zh"?{word:uiText("Word","汉字"),definition:uiText("Definition","释义"),translation:uiText("Translation","翻译"),sentence:uiText("Sentence","句子")}:{word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
+    const labels=(adapterFor(course)?.flashcardModes||[]).includes("translation")?{word:uiText("Word","汉字"),definition:uiText("Definition","释义"),translation:uiText("Translation","翻译"),sentence:uiText("Sentence","句子")}:{word:uiText("Word","单词"),definition:uiText("Definition","释义"),mixed:uiText("Mixed","混合"),sentence:uiText("Sentence","句子")};
     const previousListScroll=overlay.querySelector(".flash-review-list")?.scrollTop||0;
     const previousDetailScroll=overlay.querySelector("#flashReviewDetail")?.scrollTop||0;
     const items=(state.data.review_items||[]).filter(item=>item.mode===state.reviewMode);
