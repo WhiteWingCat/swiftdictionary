@@ -3,7 +3,22 @@ const { test, expect } = require("@playwright/test");
 async function openMockFlashcards(page) {
   await page.route("**/supabase-config.js", route => route.fulfill({
     status: 200, contentType: "application/javascript",
-    body: 'window.SWIFT_SUPABASE_CONFIG = { url: "https://swift-test.supabase.co", anonKey: "mock-publishable-key" };'
+    body: `
+      window.SWIFT_SUPABASE_CONFIG = { url: "https://swift-test.supabase.co", anonKey: "mock-publishable-key" };
+      const loadFavoriteCollections = () => {
+        if (document.getElementById("swiftFavoriteCollectionsScript")) return;
+        const script = document.createElement("script");
+        script.id = "swiftFavoriteCollectionsScript";
+        script.src = "favorite-collections.js?v=2.9.0-p4-r4";
+        script.defer = true;
+        document.head.appendChild(script);
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadFavoriteCollections, { once: true });
+      } else {
+        loadFavoriteCollections();
+      }
+    `
   }));
   await page.route("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2", route => route.fulfill({
     status: 200, contentType: "application/javascript",
