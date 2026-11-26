@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "planned",
-  "contentVersion": "3.0.0-planned",
+  "contentVersion": "u3-ms-dict-0.1.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -15,13 +15,21 @@
     "quiz": false,
     "flashcards": false,
     "gridMode": "word",
-    "pronunciation": "to-be-reviewed",
+    "pronunciation": "optional; only populate when reviewed",
     "morphology": "malay-affixation"
   },
   "packages": {
     "dictionary": {
-      "status": "planned",
-      "files": []
+      "status": "draft",
+      "files": [
+        "data/languages/malay-dictionary.js"
+      ],
+      "contentVersion": "u3-ms-dict-0.1.0",
+      "knownHeadwordCount": 24,
+      "knownSenseCount": 41,
+      "initialBatch": "01",
+      "editorialStatus": "draft",
+      "provenancePolicy": "item-level original-authored; rights review pending"
     },
     "lessons": {
       "status": "planned",
@@ -47,7 +55,8 @@
   "contentPolicy": [
     "Record authorship/source and licence for every imported or adapted content set.",
     "Do not use machine translation output as approved content without human linguistic review.",
-    "Do not activate this package until all U3.0 content and application QA gates pass."
+    "Do not activate this package until all U3.0 content and application QA gates pass.",
+    "Malay Dictionary batch 01 is independently authored; DBP/PRPM/Kamus Dewan text has not been copied. Human linguistic and rights review remains pending."
   ],
   "legalReview": {
     "malaysiaPDPA": "required before public launch",
