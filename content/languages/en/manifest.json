@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "languageCode": "en",
+  "name": "English",
+  "nativeName": "English",
+  "locale": "en",
+  "script": "Latn",
+  "status": "active",
+  "contentVersion": "legacy-u2.9.1",
+  "capabilities": {
+    "dictionary": true,
+    "lessons": true,
+    "dailyLearning": true,
+    "quiz": true,
+    "flashcards": true,
+    "gridMode": "word",
+    "pronunciation": "ipa",
+    "morphology": "english"
+  },
+  "packages": {
+    "dictionary": {
+      "files": [
+        "data/languages/english-dictionary.js",
+        "data/english-expansion.js",
+        "data/english-baseline-categories.js"
+      ],
+      "knownHeadwordCount": 1316,
+      "sourceComposition": "810 inline baseline records plus 506 expansion records; source count from Phase 0 audit"
+    },
+    "lessons": {
+      "files": [
+        "data/languages/english-lessons.js"
+      ],
+      "permanentLessonCount": 20,
+      "translationFile": "data/languages/english-lessons.js"
+    },
+    "dailyLearning": {
+      "files": [
+        "daily-learning.js"
+      ],
+      "catalogueCounts": {
+        "dailyTopic": 28,
+        "dailyApplication": 25,
+        "dailyDiscovery": 93,
+        "dailyRevision": "adaptive"
+      }
+    },
+    "quiz": {
+      "files": [
+        "content/quiz/questions.en-zh.draft.json",
+        "content/quiz/curriculum-map.en.json"
+      ],
+      "sourcePackStatus": "draft",
+      "sourceQuestionCount": 229,
+      "previouslyApprovedReleaseSubset": 199,
+      "draftOnlyAdditions": 30
+    },
+    "flashcards": {
+      "files": [
+        "flashcards.js"
+      ],
+      "sourceComposition": "Dictionary-derived English cards plus 25 curated multiword expressions"
+    }
+  },
+  "translationTargets": [
+    "zh"
+  ],
+  "notes": [
+    "Dictionary search remains free and unlimited.",
+    "Existing question approval and server-side answer-key protections must remain intact."
+  ]
+}
