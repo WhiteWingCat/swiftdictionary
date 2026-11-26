@@ -4619,3 +4619,28 @@ All 650 entries remain original-authored drafts; all 1,344 support translations 
 The ms package remains planned/inactive and not selectable. No Malay Lessons, Daily Learning, Quiz or Flashcards implementation began. No Supabase schema/data/Auth/RLS changes or migrations, staging preview, main-branch merge, production deployment or ZIP occurred. Phase 2 authoring has reached its headword target; remaining Phase 2 work is editorial, linguistic, translation, source/rights and release-gate validation.
 
 **Archive:** [Phase 2 Malay Dictionary batch 08](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-08.md).
+
+
+## 18. Update 3.0 Phase 2 — post-Batch 08 closeout validation (2026-11-26)
+
+The owner-requested Malay Dictionary content target has been reached: **650 unique Malaysian Standard Malay headwords, 672 contextual senses and 1,344 English/Simplified Chinese per-sense support translations**, package revision `u3-ms-dict-0.8.0`. This is the lower boundary of the 650–750 target band. Batch 08 added 204 unique headwords.
+
+The development plan was updated to clarify that reaching the headword target does not itself complete Phase 2. The remaining work is editorial, translation, source/rights and manual acceptance closeout. The next planned implementation phase remains Phase 3 (Malay Lessons, Beginner/Intermediate/Advanced, plus Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision), but Phase 3 must not be marked started until Phase 2 exit evidence is recorded.
+
+### Additional automated validation
+
+Application branch `feature/update-3.0-phase-0-audit` received two additional package-wide tests in `tests/u3-phase2-malay-dictionary.test.mjs`, commit `1d0ac17d5166e32ab59c9d29b0a35afeecdacf3c`:
+
+- Learner-facing coverage and provenance assertions for every entry and sense, including POS, categories, headword/sense examples, original-authorship declaration, explicit no-copy status, draft editorial state, pending rights state and absence of a fictitious reviewer.
+- Exact translation-registry mapping: each of 672 senses has exactly one `ms→en` and one `ms→zh` record, for 1,344 unique records, with revisions, machine-assisted draft status and provenance.
+
+The U3.0 architecture/adapter/translation/content-parity workflow passed ([run 45849090462](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45849090462)); English Dictionary QA passed on the same head ([run 45849090452](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45849090452)). The earlier Batch 08 final content validation is recorded at [run 45837848040](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45837848040).
+
+### Phase 2 remains open — required human review
+
+All 650 Malay entries and 672 senses remain editorial drafts. All 1,344 English/Chinese support translations remain machine-assisted drafts. Competent human Malaysian Standard Malay review, independent translation review, source verification and item-level rights clearance remain outstanding. Medical, technical, administrative and environmental terms require subject-matter review. Automated CI is not linguistic approval or legal clearance.
+
+No DBP/PRPM/Kamus Dewan protected text was copied or scraped. Malaysia PDPA and broader international privacy/legal review remain mandatory before public activation. The `ms` package remains planned/inactive and unselectable. No Malay learning content, Supabase schema/data/Auth/RLS change or migration, staging preview, main merge, production deployment or ZIP occurred.
+
+**Archive:** [Phase 2 closeout validation checkpoint](conversation-archive/2026-11-26-update-3-0-phase-2-closeout-validation.md).  
+**Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
