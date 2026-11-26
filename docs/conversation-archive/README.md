@@ -220,3 +220,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [Update 3.0 planning finalisation](2026-11-26-update-3-0-planning-finalisation.md) — records the owner-approved Malaysian Standard Malay standard, English/Chinese legacy modernisation, Phase 3 staging-preview gate, complete post-Phase-3 work and final U3.0 scope.
 
 - [Update 3.0 Phase 0 audit](2026-11-26-update-3-0-phase-0-audit.md) — records the read-only frontend/data, production/staging Supabase, migration-history, security, content provenance and Malaysia privacy/legal audit; Phase 0 complete, Phase 1 next.
+
+- [2026-11-26 — U3.0 Phase 1 foundation checkpoint](2026-11-26-update-3-0-phase-1-foundation.md): initial multilingual registry, content contracts, tests and remaining integration work.
