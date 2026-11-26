@@ -385,9 +385,18 @@
   const esc = value => escapeHTML(String(value ?? ""));
   const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING || {topics:[],applications:[],discovery:[]};
   const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";
-  const dailyTopicPool = () => isChineseLearningCourse() ? chineseDailyLearning.topics : dailyTopics;
-  const dailyApplicationPool = () => isChineseLearningCourse() ? chineseDailyLearning.applications : dailyApplications;
-  const dailyDiscoveryPool = () => isChineseLearningCourse() ? chineseDailyLearning.discovery : dailyDiscoveryVocabulary;
+  const dailyContentFor = language => {
+    if (language === "zh") return chineseDailyLearning;
+    if (language === "en") return { topics:dailyTopics, applications:dailyApplications, discovery:dailyDiscoveryVocabulary };
+    throw new Error("Daily Learning content is not available for language: " + language);
+  };
+  const dailyTopicPool = () => dailyContentFor(snapshot.learningLanguage).topics || [];
+  const dailyApplicationPool = () => dailyContentFor(snapshot.learningLanguage).applications || [];
+  const dailyDiscoveryPool = () => dailyContentFor(snapshot.learningLanguage).discovery || [];
+  window.SWIFT_DAILY_LEARNING_CONTENT = {
+    en:{topics:dailyTopics,applications:dailyApplications,discovery:dailyDiscoveryVocabulary},
+    zh:chineseDailyLearning
+  };
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
   function clearDailyResetTimer() {
@@ -1460,7 +1469,8 @@
       const activityType=String(row.activity_type||"");
       if (!activityMeta[activityType]) throw new Error("This daily activity type is not supported for review.");
       const previousCourse=course;
-      const languageCode=row.language_code==="zh"?"zh":"en";
+      const languageCode=window.SWIFT_LANGUAGE_REGISTRY?.get(row.language_code)?.status==="active"?row.language_code:null;
+      if(!languageCode)throw new Error("This activity belongs to a language that is not currently active.");
       course=languageCode;
       try {
         const session={
