@@ -43,7 +43,7 @@
     if (record.sourceLanguageCode === record.targetLanguageCode) errors.push(issue("translation.languages", "source and target languages must differ"));
     if (!Number.isInteger(record.sourceRevision) || record.sourceRevision < 1) errors.push(issue("translation.sourceRevision", "must be a positive source revision"));
     if (!Number.isInteger(record.translationRevision) || record.translationRevision < 1) errors.push(issue("translation.translationRevision", "must be a positive translation revision"));
-    if (!["not_started","draft","machine_assisted_draft","reviewed","approved","stale","not_applicable"].includes(record.status)) errors.push(issue("translation.status", "is not a supported workflow status"));
+    if (!["not_started","draft","machine_assisted_draft","legacy_unverified","reviewed","approved","stale","not_applicable"].includes(record.status)) errors.push(issue("translation.status", "is not a supported workflow status"));
     if (record.status === "approved" && !text(record.reviewerId)) errors.push(issue("translation.reviewerId", "approved translations require a reviewer reference"));
     return errors;
   }
