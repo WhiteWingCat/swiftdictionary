@@ -4433,3 +4433,24 @@ The shared architecture must distinguish learning language from support/translat
 **Session archive:** [Update 3.0 planning finalisation](conversation-archive/2026-11-26-update-3-0-planning-finalisation.md).
 
 No implementation branch, source changes, Supabase migrations, staging preview or production deployment were created during this planning session. Next step is Phase 0 on a focused feature branch from current `main`.
+
+
+## Update 3.0.0 — Phase 0 audit complete (2026-11-26)
+
+**Phase 0 is complete as a read-only audit. Phase 1 is next.** The audit was performed against `main` commit `2aa44d7768fd4187d83cdd115c423ba62d92e9ed`; feature branch `feature/update-3.0-phase-0-audit` was created from that commit.
+
+Key findings:
+- The frontend remains two-language-specific across Dictionary, Lessons, Daily Learning, Quiz, Flashcards, saved words, Collections, Dashboard and anonymous account-deletion saves. Unknown language values are often coerced to English.
+- English Dictionary: 1,316 headwords; Simplified Chinese Dictionary: 725 characters. English Lessons: 20; Chinese Lessons: 17/112 practice questions. Daily content catalogue: en 28 topics/25 applications/93 discovery; zh 6 topics/7 applications/93 discovery.
+- Production Quiz bank has 199 approved English-learning and 145 approved Chinese-learning questions. English authoring JSON is 229 while its README says 214; Chinese authoring pack says draft while production DB has 145 approved records. Chinese Flashcards generated pack has 1,447 cards marked draft, but the frontend currently maps the bank into runtime cards without checking draft status.
+- Production `public.languages` contains en/zh; `ms` fits the registry code format, but saved words, lesson progress/results, content catalogue, Quiz answer-language/snapshots, Flashcard cards/sessions and multiple PL/pgSQL functions still enforce en/zh.
+- Production/staging both have 27 app tables, but migration histories differ (71 vs 63 records) and five table definitions differ: `public.languages`, `public.learning_activity_log`, `public.lesson_progress`, `public.profiles` and `public.saved_words`. Production is Tokyo/PG17.11; staging is Singapore/PG17.12. Staging README's zero-user/zero-content state is stale.
+- Shared allowance values are unchanged and shared across courses; preserve them and free unlimited Dictionary search.
+- Security advisor notes ten private tables with no policies, but inspected private content tables are not directly selectable by anon/authenticated; preserve private RPC-only access. Leaked-password protection is disabled (Google OAuth is the current sign-in path); verify applicability. Production also has unused/duplicate index advisories.
+- Terms remain unpublished and no privacy notice page was found. Production/staging data regions require cross-border transfer review. Existing CC-CEDICT/Unicode/HSK/Hanzi Writer licences are documented, but the original 206 Chinese base entries and older English content need provenance review.
+
+**Audit report:** [U3.0 Phase 0 Audit](UPDATE-3.0-PHASE-0-AUDIT.md).  
+**Plan:** [U3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).  
+**Archive:** [U3.0 Phase 0 audit session](conversation-archive/2026-11-26-update-3-0-phase-0-audit.md).
+
+No source code, database schema/data, Auth settings, migrations, staging preview, merge or deployment was changed. No tests were executed; this was static source and read-only live-schema inspection. Next action: Phase 1 shared language architecture and English/Chinese modernisation on `feature/update-3.0-phase-0-audit`.
