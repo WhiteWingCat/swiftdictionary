@@ -4,7 +4,7 @@
  */
 window.SWIFT_MALAY_DICTIONARY = [
   {
-    id:"ms.dict.ada", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.ada", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"ada", part:"kata kerja", definition:"Wujud, tersedia atau dimiliki; digunakan untuk menyatakan kewujudan atau pemilikan.",
     definitionEn:"To exist, be present or be available; also used to express possession.",
     definitionZh:"存在；有；表示某物存在、在场或拥有某物。",
@@ -16,7 +16,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"air", part:"kata nama", definition:"Cecair jernih yang menjadi keperluan asas manusia, haiwan dan tumbuhan.",
     definitionEn:"Water, the clear liquid essential to people, animals and plants.",
     definitionZh:"水；人类、动物和植物生存所需的液体。",
@@ -28,7 +28,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"ajar", part:"kata kerja", definition:"Memberikan tunjuk ajar atau ilmu supaya seseorang mengetahui atau dapat melakukan sesuatu.",
     definitionEn:"To teach or instruct someone so that they learn how to do or understand something.",
     definitionZh:"教；指导；传授知识或技能。",
@@ -40,7 +40,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"anak", part:"kata nama", definition:"Manusia yang masih kecil; keturunan atau zuriat seseorang.",
     definitionEn:"A child; also a person's offspring or descendant.",
     definitionZh:"孩子；子女；后代。",
@@ -52,7 +52,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"baik", part:"kata adjektif", definition:"Mempunyai sifat yang elok, sesuai atau memuaskan; tidak buruk.",
     definitionEn:"Good, kind or satisfactory; not bad.",
     definitionZh:"好；良好；善良；令人满意。",
@@ -64,7 +64,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"baca", part:"kata kerja", definition:"Melihat dan memahami perkataan atau tulisan yang dibaca.",
     definitionEn:"To read and understand written words or text.",
     definitionZh:"阅读；看懂文字或文章。",
@@ -76,7 +76,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"bahasa", part:"kata nama", definition:"Sistem bunyi, perkataan dan tatabahasa yang digunakan oleh manusia untuk berkomunikasi.",
     definitionEn:"A system of sounds, words and grammar used by people to communicate.",
     definitionZh:"语言；人们用于交流的语音、词汇和语法系统。",
@@ -88,7 +88,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"bantu", part:"kata kerja", definition:"Memberikan pertolongan atau sokongan kepada seseorang.",
     definitionEn:"To help or assist someone.",
     definitionZh:"帮助；向某人提供协助或支持。",
@@ -100,7 +100,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"besar", part:"kata adjektif", definition:"Mempunyai saiz, keluasan atau jumlah yang lebih daripada biasa.",
     definitionEn:"Big or large in size, area or amount.",
     definitionZh:"大；尺寸、面积或数量较大。",
@@ -112,7 +112,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"boleh", part:"kata bantu", definition:"Menunjukkan keupayaan, kemungkinan atau kebenaran untuk melakukan sesuatu.",
     definitionEn:"Can, may or be allowed to do something.",
     definitionZh:"能；可以；表示能力、可能性或许可。",
@@ -124,7 +124,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"buku", part:"kata nama", definition:"Himpunan helaian bercetak atau bertulis yang disusun dan dijilid untuk dibaca atau dirujuk.",
     definitionEn:"A book: a set of printed or written pages bound together for reading or reference.",
     definitionZh:"书；装订成册、供阅读或查阅的纸页集合。",
@@ -136,7 +136,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"datang", part:"kata kerja", definition:"Bergerak atau tiba dari tempat lain ke tempat yang dimaksudkan.",
     definitionEn:"To come or arrive from another place.",
     definitionZh:"来；从别处移动或抵达指定地点。",
@@ -148,7 +148,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"dengan", part:"kata sendi nama", definition:"Menunjukkan kebersamaan, cara, alat atau hubungan antara perkara.",
     definitionEn:"With; by means of; or in a manner that expresses association or method.",
     definitionZh:"和；与；用；通过某种方式或工具。",
@@ -159,7 +159,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"kawan", part:"kata nama", definition:"Orang yang mempunyai hubungan persahabatan atau melakukan sesuatu bersama-sama.",
     definitionEn:"A friend or companion.",
     definitionZh:"朋友；伙伴；与某人有友谊或共同活动的人。",
@@ -170,7 +170,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"makan", part:"kata kerja", definition:"Memasukkan makanan ke dalam mulut, mengunyah dan menelannya.",
     definitionEn:"To eat food by putting it in the mouth, chewing and swallowing it.",
     definitionZh:"吃；把食物放入口中、咀嚼并吞下。",
@@ -182,7 +182,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"minum", part:"kata kerja", definition:"Menelan air atau minuman lain melalui mulut.",
     definitionEn:"To drink water or another beverage.",
     definitionZh:"喝；通过嘴摄入水或其他饮料。",
@@ -194,7 +194,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"pergi", part:"kata kerja", definition:"Bergerak atau bertolak dari satu tempat ke tempat yang lain.",
     definitionEn:"To go or travel from one place to another.",
     definitionZh:"去；从一个地方移动或前往另一个地方。",
@@ -205,7 +205,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"rumah", part:"kata nama", definition:"Bangunan atau tempat yang digunakan sebagai kediaman.",
     definitionEn:"A building or place used as a home or residence.",
     definitionZh:"房屋；用作居所的建筑物或地方。",
@@ -217,7 +217,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"sekolah", part:"kata nama", definition:"Institusi tempat murid menerima pendidikan dan mengikuti proses pembelajaran.",
     definitionEn:"A school or institution where pupils receive education.",
     definitionZh:"学校；学生接受教育和学习的机构。",
@@ -229,7 +229,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"saya", part:"kata ganti nama diri", definition:"Kata ganti nama diri pertama yang digunakan oleh penutur untuk merujuk kepada dirinya sendiri.",
     definitionEn:"The first-person pronoun used by a speaker to refer to themself.",
     definitionZh:"我；说话者用来指称自己的第一人称代词。",
@@ -240,7 +240,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"tidur", part:"kata kerja", definition:"Berada dalam keadaan rehat semula jadi apabila tubuh dan minda kurang sedar terhadap persekitaran.",
     definitionEn:"To sleep; to be in a natural resting state with reduced awareness of the surroundings.",
     definitionZh:"睡觉；身体和意识处于自然休息状态。",
@@ -252,7 +252,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"tolong", part:"kata kerja / kata seru", definition:"Memberikan bantuan; juga digunakan untuk meminta seseorang melakukan sesuatu dengan sopan.",
     definitionEn:"To help; also used to make a polite request.",
     definitionZh:"帮忙；也用于礼貌地请求别人做某事。",
@@ -264,7 +264,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"terima kasih", part:"ungkapan", definition:"Ungkapan yang digunakan untuk menyatakan penghargaan atau rasa syukur atas bantuan, pemberian atau layanan.",
     definitionEn:"An expression of thanks or gratitude for help, a gift or a service.",
     definitionZh:"谢谢；用于对帮助、馈赠或服务表达感谢。",
@@ -276,7 +276,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+    id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
     word:"untuk", part:"kata sendi nama", definition:"Menunjukkan tujuan, kegunaan, penerima atau sasaran sesuatu perkara.",
     definitionEn:"For; indicating purpose, use, recipient or intended target.",
     definitionZh:"为了；给；表示目的、用途、接受者或对象。",
@@ -298,7 +298,7 @@ window.SWIFT_MALAY_DICTIONARY = [
   const makeEntry = (slug, word, part, definition, definitionEn, definitionZh, examples, related, categories, searchForms, morphology, extraSenses = []) => {
     const id = "ms.dict." + slug;
     return {
-      id, schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.2.0",
+      id, schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.3.0",
       word, part, definition, definitionEn, definitionZh, examples, related, categories,
       searchForms, morphology,
       senses:[makeSense(id + ".s1",definition,definitionEn,definitionZh,examples), ...extraSenses.map((sense,index) => makeSense(id + ".s" + (index+2),sense[0],sense[1],sense[2],sense[3]))],
@@ -341,4 +341,85 @@ window.SWIFT_MALAY_DICTIONARY = [
     makeEntry("tinggal","tinggal","kata kerja","Menetap di sesuatu tempat; juga bermaksud masih ada atau meninggalkan sesuatu.","To live or reside somewhere; also to remain or leave something behind.","居住；留下；剩余。",["Saya tinggal di Petaling Jaya.","Hanya dua keping roti yang tinggal."],["menetap","kediaman","meninggalkan","tertinggal"],["tempat","kehidupan harian","tindakan"],["meninggalkan","ditinggalkan","tertinggal","tinggalan"],{type:"kata dasar",forms:["meninggalkan","ditinggalkan","tertinggal","tinggalan"],notes:"Tinggal mempunyai beberapa makna yang perlu dibezakan melalui konteks ayat."},[["Tidak menyertai atau tidak hadir dalam sesuatu perkara, dalam penggunaan tertentu.","To miss or be absent from something in certain uses.","在特定用法中表示错过或缺席。",["Dia tertinggal bas kerana bangun lewat."]]]),
     makeEntry("yang","yang","kata tugas / kata hubung relatif","Kata yang menghubungkan penerangan dengan kata nama atau frasa nama yang diterangkan.","A relative marker linking a description or clause to the noun it describes.","的；连接修饰语或关系从句与其所修饰名词的关系标记。",["Murid yang memakai baju merah itu ialah adik saya.","Buku yang saya pinjam sudah dipulangkan."],["bahawa","ini","itu"],["kata fungsi","tatabahasa"],[],{type:"kata fungsi",forms:[],notes:"Yang memperkenalkan penerangan atau klausa relatif; fungsinya bergantung pada struktur ayat."})
   );
+
+/* Authoring batch 03 — everyday life, family, places, objects, nature and core vocabulary. */
+(() => {
+  const makeSense = (id, definition, definitionEn, definitionZh, examples) => ({id,definition,definitionEn,definitionZh,translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples});
+  const makeEntry = (slug,word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology) => {
+    const id="ms.dict."+slug;
+    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.3.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft for the Malaysian Standard Malay learner dictionary; no external lexical text imported. Linguistic source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
+  };
+  window.SWIFT_MALAY_DICTIONARY.push(
+    makeEntry("abang","abang","kata nama","Panggilan atau gelaran bagi saudara lelaki yang lebih tua; juga digunakan sebagai sapaan hormat kepada lelaki.","An older brother; also a respectful form of address for a man.","哥哥；也可作为对男性的礼貌称呼。",["Abang saya bekerja di sebuah hospital.","Abang itu membantu warga emas melintas jalan."],["kakak","adik","saudara"],["keluarga","manusia"],[],{"type":"kata dasar","forms":[],"notes":"Sapaan abang juga digunakan secara sosial di luar hubungan kekeluargaan."}),
+    makeEntry("abjad","abjad","kata nama","Susunan huruf yang digunakan dalam sesuatu sistem tulisan.","The alphabet; an ordered set of letters used in a writing system.","字母表；书写系统中按顺序排列的字母。",["Murid itu sedang menghafal abjad.","Nama disusun mengikut urutan abjad."],["huruf","vokal","konsonan"],["bahasa","pendidikan"],[],{"type":"kata dasar","forms":[],"notes":"Dalam konteks bahasa Melayu, abjad Rumi mempunyai 26 huruf."}),
+    makeEntry("adat","adat","kata nama","Amalan atau kebiasaan yang diwarisi dan diterima dalam sesuatu masyarakat.","Custom or tradition inherited and accepted within a community.","习俗；一个社会群体世代相传并认可的惯例。",["Adat resam masyarakat itu masih diamalkan.","Mereka menghormati adat keluarga masing-masing."],["tradisi","budaya","resam"],["masyarakat","budaya"],[],{"type":"kata dasar","forms":[],"notes":"Adat merujuk amalan sosial yang lazimnya diwarisi; maknanya bergantung pada konteks masyarakat."}),
+    makeEntry("adik","adik","kata nama","Saudara lelaki atau perempuan yang lebih muda; juga panggilan kepada orang yang lebih muda.","A younger brother or sister; also a form of address for a younger person.","弟弟；妹妹；也可称呼较年轻的人。",["Adik saya masih belajar di sekolah rendah.","Adik itu menunggu ibunya di hadapan kedai."],["abang","kakak","saudara"],["keluarga","manusia"],["beradik"],{"type":"kata dasar","forms":["beradik"],"notes":"Beradik menerangkan hubungan sebagai saudara; bukan bentuk jamak automatik bagi adik."}),
+    makeEntry("alamat","alamat","kata nama","Maklumat yang menunjukkan lokasi rumah, bangunan atau tempat untuk tujuan perhubungan atau penghantaran.","An address identifying a home, building or place for communication or delivery.","地址；用于联系或投递的住址或地点信息。",["Sila tulis alamat rumah pada borang ini.","Alamat pejabat itu mudah dicari."],["lokasi","poskod","tempat"],["komunikasi","tempat"],[],{"type":"kata dasar","forms":[],"notes":"Alamat juga boleh bermaksud tanda atau petunjuk tentang sesuatu yang bakal berlaku dalam penggunaan tertentu."}),
+    makeEntry("alat","alat","kata nama","Benda atau perkakas yang digunakan untuk melakukan kerja atau tujuan tertentu.","A tool, instrument or device used to perform a task.","工具；用于完成特定工作的器具或设备。",["Dia menggunakan alat pemotong untuk membuka kotak.","Alat muzik itu disimpan di dalam bilik."],["perkakas","peralatan","mesin"],["objek","rumah"],["peralatan"],{"type":"kata dasar","suffixes":["-an"],"forms":["peralatan"],"notes":"Peralatan ialah kata nama kolektif yang merujuk sekumpulan alat."}),
+    makeEntry("aman","aman","kata adjektif","Berada dalam keadaan tenteram, selamat dan bebas daripada kekacauan atau ancaman.","Peaceful, safe and free from disorder or threat.","和平；安宁；安全且没有混乱或威胁。",["Penduduk mahu hidup dalam suasana aman.","Kawasan itu kembali aman selepas keadaan reda."],["damai","selamat","tenteram"],["sifat","masyarakat"],["keamanan"],{"type":"kata dasar","circumfixes":["ke-...-an"],"forms":["keamanan"],"notes":"Keamanan ialah kata nama abstrak yang merujuk keadaan aman."}),
+    makeEntry("ambil","ambil","kata kerja","Memegang, mengangkat atau mendapatkan sesuatu untuk dibawa atau digunakan.","To take, pick up or obtain something for use or transport.","拿；取；获取某物以便使用或带走。",["Sila ambil nombor giliran di kaunter.","Saya akan mengambil buku itu selepas kelas."],["membawa","memungut","mendapatkan"],["tindakan","kehidupan harian"],["mengambil","diambil","pengambilan"],{"type":"kata dasar","prefixes":["meN-","di-","peN-"],"suffixes":["-an"],"forms":["mengambil","diambil","pengambilan"],"notes":"Bentuk mengambil dan pengambilan mempunyai fungsi tatabahasa yang berbeza."}),
+    makeEntry("amalan","amalan","kata nama","Perbuatan atau cara yang dilakukan secara berulang sebagai kebiasaan atau pegangan.","A practice or action repeatedly followed as a habit or principle.","做法；惯例；反复进行的行为或遵循的原则。",["Amalan membaca perlu dipupuk sejak kecil.","Amalan menjaga kebersihan baik untuk kesihatan."],["kebiasaan","praktik","rutin"],["kehidupan harian","kesihatan"],["mengamalkan","diamalkan"],{"type":"kata terbitan","prefixes":["meN-","di-"],"forms":["mengamalkan","diamalkan"],"notes":"Amalan ialah kata nama; mengamalkan ialah kata kerja transitif."}),
+    makeEntry("angin","angin","kata nama","Udara yang bergerak secara semula jadi dari satu kawasan ke kawasan lain.","Wind; air moving naturally from one area to another.","风；从一个地区自然流向另一个地区的空气。",["Angin bertiup kencang petang tadi.","Kami duduk di luar untuk menikmati angin sepoi-sepoi."],["bayu","ribut","udara"],["alam","cuaca"],["berangin"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berangin"],"notes":"Berangin boleh menerangkan keadaan cuaca atau sesuatu yang mempunyai angin."}),
+    makeEntry("antara","antara","kata sendi nama","Menunjukkan kedudukan di tengah dua atau lebih perkara, atau hubungan dalam suatu kumpulan.","Between or among; indicating a position or relationship involving two or more things.","在……之间；表示两个或多个事物之间的位置或关系。",["Kedai itu terletak antara bank dengan klinik.","Antara semua pilihan, saya memilih yang ini."],["di tengah","dalam kalangan","sesama"],["kata fungsi","tempat"],[],{"type":"kata fungsi","forms":[],"notes":"Antara boleh digunakan untuk hubungan ruang dan pemilihan dalam sesuatu kumpulan."}),
+    makeEntry("api","api","kata nama","Haba dan cahaya yang terhasil daripada proses pembakaran.","Fire; heat and light produced by combustion.","火；燃烧过程产生的热和光。",["Jangan bermain dengan api.","Api unggun itu dipadamkan sebelum mereka pulang."],["nyalaan","asap","kebakaran"],["alam","keselamatan"],["berapi"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berapi"],"notes":"Berapi boleh merujuk sesuatu yang menyala atau digunakan secara kiasan."}),
+    makeEntry("apabila","apabila","kata hubung","Kata yang menghubungkan klausa dengan maksud waktu atau keadaan ketika sesuatu berlaku.","When; a conjunction linking clauses by time or circumstance.","当……时；连接表示时间或情境的分句。",["Hubungi saya apabila anda sudah sampai.","Apabila hujan turun, jalan menjadi licin."],["ketika","semasa","tatkala"],["kata fungsi","tatabahasa"],[],{"type":"kata fungsi","forms":[],"notes":"Apabila memperkenalkan klausa yang menyatakan masa atau keadaan."}),
+    makeEntry("arah","arah","kata nama","Hala atau tujuan sesuatu pergerakan, kedudukan atau pandangan.","Direction or course of movement, position or attention.","方向；移动、位置或注意力所指向的方位。",["Ikut arah papan tanda ke stesen.","Dia berjalan ke arah pintu utama."],["hala","tuju","panduan"],["tempat","pergerakan"],["mengarahkan","diarahkan","arahan"],{"type":"kata dasar","prefixes":["meN-","di-"],"suffixes":["-an"],"forms":["mengarahkan","diarahkan","arahan"],"notes":"Arahan ialah kata nama bagi arahan atau perintah; mengarahkan ialah kata kerja."}),
+    makeEntry("atas","atas","kata arah / kata sendi nama","Bahagian yang lebih tinggi atau kedudukan di permukaan sesuatu.","The upper part; on or above a surface.","上面；较高的部分；在某物表面上。",["Kunci itu berada di atas meja.","Bilik pejabat terletak di tingkat atas."],["bawah","puncak","permukaan"],["tempat","kata fungsi"],[],{"type":"kata fungsi","forms":[],"notes":"Atas digunakan dalam gabungan seperti di atas dan ke atas mengikut hubungan ruang."}),
+    makeEntry("awan","awan","kata nama","Kumpulan titisan air atau hablur ais halus yang kelihatan terapung di atmosfera.","Cloud; a visible mass of tiny water droplets or ice crystals in the atmosphere.","云；悬浮在大气中的微小水滴或冰晶集合体。",["Awan gelap berkumpul sebelum hujan.","Kanak-kanak itu melihat bentuk awan di langit."],["langit","mendung","hujan"],["alam","cuaca"],[],{"type":"kata dasar","forms":[],"notes":"Awan tebal atau gelap sering dikaitkan dengan kemungkinan hujan, tetapi bukan petunjuk yang pasti."}),
+    makeEntry("ayah","ayah","kata nama","Lelaki yang menjadi bapa kepada seseorang; panggilan kekeluargaan untuk bapa.","Father; a male parent or familial form of address.","父亲；男性家长，也可作为对父亲的称呼。",["Ayah menghantar saya ke sekolah.","Ayah sedang membaiki pagar rumah."],["bapa","ibu","anak"],["keluarga","manusia"],[],{"type":"kata dasar","forms":[],"notes":"Ayah dan bapa kedua-duanya baku; pilihan bentuk bergantung pada kebiasaan dan konteks."}),
+    makeEntry("ayam","ayam","kata nama","Haiwan ternakan bersayap yang dipelihara untuk mendapatkan daging dan telur.","Chicken; a domesticated bird raised for meat and eggs.","鸡；为获取肉和鸡蛋而饲养的家禽。",["Ibu membeli seekor ayam di pasar.","Ayam itu bertelur setiap pagi."],["itik","telur","unggas"],["haiwan","makanan"],["berayam"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berayam"],"notes":"Bentuk berayam digunakan dalam konteks tertentu dan bukan bentuk jamak ayam."}),
+    makeEntry("bandar","bandar","kata nama","Kawasan petempatan yang besar dengan penduduk, bangunan dan kemudahan awam yang banyak.","Town or city; a large settlement with residents, buildings and public facilities.","城镇；拥有居民、建筑物和公共设施的大型聚居地。",["Bandar itu mempunyai sistem pengangkutan awam.","Mereka berpindah dari kampung ke bandar."],["kota","pekan","bandar raya"],["tempat","masyarakat"],["perbandaran"],{"type":"kata dasar","suffixes":["-an"],"forms":["perbandaran"],"notes":"Perbandaran merujuk hal atau proses berkaitan pembangunan dan pentadbiran bandar."}),
+    makeEntry("bangun","bangun","kata kerja","Bergerak daripada keadaan duduk atau baring kepada keadaan tegak; juga bermaksud mula sedar daripada tidur.","To get up or rise; also to wake from sleep.","起身；站起来；也指从睡眠中醒来。",["Saya bangun pada pukul enam pagi.","Dia bangun dari kerusi untuk menyambut tetamu."],["berdiri","jaga","terjaga"],["tindakan","rutin harian"],["membangunkan","dibangunkan","terbangun"],{"type":"kata dasar","prefixes":["meN-","di-","ter-"],"forms":["membangunkan","dibangunkan","terbangun"],"notes":"Membangunkan boleh bermaksud mengejutkan seseorang atau membina sesuatu, bergantung pada objek."}),
+    makeEntry("baring","baring","kata kerja","Meletakkan atau merehatkan badan dalam keadaan mendatar.","To lie down or rest the body in a horizontal position.","躺下；使身体处于水平位置休息。",["Adik baring di atas katil kerana demam.","Dia berbaring sebentar selepas bekerja."],["berbaring","rebah","duduk"],["tindakan","kesihatan"],["berbaring"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berbaring"],"notes":"Bentuk berbaring lazim digunakan untuk menyatakan keadaan seseorang yang sedang baring."}),
+    makeEntry("bas","bas","kata nama","Kenderaan besar yang membawa ramai penumpang melalui laluan tertentu.","Bus; a large vehicle that carries many passengers along a route.","公共汽车；沿固定路线载送多名乘客的大型车辆。",["Saya menaiki bas ke pusat bandar.","Bas sekolah berhenti di hadapan pagar."],["bas sekolah","bas ekspres","pengangkutan"],["pengangkutan","tempat"],[],{"type":"kata pinjaman","forms":[],"notes":"Kata bas ialah ejaan baku bahasa Melayu bagi kenderaan ini."}),
+    makeEntry("basah","basah","kata adjektif","Mengandungi atau diliputi air atau cecair; tidak kering.","Wet; covered with or containing water or another liquid.","湿；含有或沾有水或其他液体；不干燥。",["Kasut saya basah selepas hujan.","Lap meja itu kerana permukaannya masih basah."],["lembap","kering","berair"],["sifat","keadaan"],["membasahkan","dibasahi"],{"type":"kata dasar","prefixes":["meN-","di-"],"forms":["membasahkan","dibasahi"],"notes":"Basah ialah kata adjektif; membasahkan ialah kata kerja kausatif."}),
+    makeEntry("bawah","bawah","kata arah / kata nama","Bahagian yang lebih rendah atau kedudukan di bawah sesuatu.","The lower part; below or underneath something.","下面；较低的部分；在某物下方。",["Kucing itu bersembunyi di bawah meja.","Sila tunggu di tingkat bawah."],["atas","dasar","permukaan"],["tempat","kata fungsi"],[],{"type":"kata fungsi","forms":[],"notes":"Bawah digunakan dalam gabungan seperti di bawah, ke bawah dan bahagian bawah."}),
+    makeEntry("bayar","bayar","kata kerja","Memberikan wang sebagai balasan untuk barang, perkhidmatan atau hutang.","To pay money in exchange for goods, services or repayment of a debt.","支付；为商品、服务或偿还债务而付钱。",["Saya mahu membayar bil elektrik hari ini.","Pelanggan itu membayar menggunakan kad."],["membayar","bayaran","pembayaran","harga"],["wang","urusan harian"],["membayar","dibayar","bayaran","pembayaran","pembayar"],{"type":"kata dasar","prefixes":["meN-","di-","peN-"],"suffixes":["-an"],"forms":["membayar","dibayar","bayaran","pembayaran","pembayar"],"notes":"Bayaran dan pembayaran ialah kata nama yang mempunyai penggunaan berbeza mengikut konteks."}),
+    makeEntry("belajar","belajar","kata kerja","Berusaha memperoleh pengetahuan atau kemahiran melalui pembacaan, latihan, pengajaran atau pengalaman.","To learn or study through reading, practice, teaching or experience.","学习；通过阅读、练习、教学或经验获取知识或技能。",["Saya belajar bahasa Melayu setiap petang.","Mereka belajar memasak daripada ibu."],["mempelajari","pelajaran","pembelajaran","mengajar"],["pendidikan","tindakan"],["mempelajari","dipelajari","pelajaran","pembelajaran","pembelajar"],{"type":"kata dasar terbitan","prefixes":["meN-","di-","peN-"],"suffixes":["-i","-an"],"forms":["mempelajari","dipelajari","pelajaran","pembelajaran","pembelajar"],"notes":"Belajar lazimnya tidak memerlukan objek langsung; mempelajari mengambil objek yang dipelajari."}),
+    makeEntry("beli","beli","kata kerja","Mendapatkan barang atau perkhidmatan dengan memberikan wang atau bayaran.","To buy or purchase goods or services by paying for them.","购买；通过付款获得商品或服务。",["Ibu membeli sayur di pasar.","Saya mahu beli tiket bas untuk esok."],["membeli","dibeli","pembeli","pembelian"],["wang","urusan harian"],["membeli","dibeli","pembeli","pembelian"],{"type":"kata dasar","prefixes":["meN-","di-","peN-"],"suffixes":["-an"],"forms":["membeli","dibeli","pembeli","pembelian"],"notes":"Pembeli ialah orang yang membeli; pembelian ialah perbuatan atau urusan membeli."}),
+    makeEntry("belum","belum","kata adverba / kata nafi","Menunjukkan bahawa sesuatu perbuatan atau keadaan masih belum berlaku atau selesai pada masa yang dirujuk.","Not yet; indicating that an action or state has not happened or finished by the time referred to.","还没有；表示截至所指时间某事尚未发生或完成。",["Saya belum makan sejak pagi.","Kerja itu belum selesai."],["sudah","telah","masih"],["kata fungsi","masa"],[],{"type":"kata fungsi","forms":[],"notes":"Belum lazimnya digunakan bersama kata kerja atau kata adjektif untuk menandakan keadaan yang belum tercapai."}),
+    makeEntry("benar","benar","kata adjektif / kata adverba","Tepat atau betul menurut fakta; juga digunakan untuk menguatkan persetujuan atau penegasan.","True or correct according to facts; also used to express strong agreement.","真实；正确；也可用于加强肯定或强调。",["Maklumat itu benar berdasarkan rekod.","Memang benar bahawa latihan memerlukan masa."],["betul","tepat","palsu"],["sifat","komunikasi"],["kebenaran","membenarkan","dibenarkan"],{"type":"kata dasar","prefixes":["meN-","di-"],"circumfixes":["ke-...-an"],"forms":["kebenaran","membenarkan","dibenarkan"],"notes":"Kebenaran boleh bermaksud keadaan benar atau izin, bergantung pada konteks."}),
+    makeEntry("benda","benda","kata nama","Sesuatu objek atau perkara yang boleh dilihat, disentuh atau dibincangkan.","A thing, object or matter that can be seen, touched or discussed.","东西；物件；可以看见、触摸或讨论的事物。",["Jangan letakkan benda berat di atas rak itu.","Ada satu benda yang saya mahu beritahu."],["objek","barang","perkara"],["objek","komunikasi"],[],{"type":"kata dasar","forms":[],"notes":"Benda sering digunakan secara umum apabila nama khusus sesuatu objek tidak diketahui atau tidak penting."}),
+    makeEntry("benci","benci","kata kerja / kata adjektif","Berasa sangat tidak suka atau tidak senang terhadap seseorang atau sesuatu.","To hate or strongly dislike someone or something.","憎恨；非常不喜欢某人或某事。",["Dia benci akan sikap tidak jujur.","Saya tidak suka membenci orang lain."],["membenci","kebencian","suka","sayang"],["emosi","komunikasi"],["membenci","dibenci","kebencian"],{"type":"kata dasar","prefixes":["meN-","di-"],"circumfixes":["ke-...-an"],"forms":["membenci","dibenci","kebencian"],"notes":"Benci boleh berfungsi sebagai kata kerja atau kata adjektif mengikut binaan ayat."}),
+    makeEntry("berani","berani","kata adjektif","Mempunyai keberanian untuk menghadapi bahaya, kesukaran atau sesuatu yang menakutkan.","Brave or courageous when facing danger, difficulty or something frightening.","勇敢；有勇气面对危险、困难或令人害怕的事物。",["Dia berani mencuba sesuatu yang baharu.","Kanak-kanak itu berani bercakap di hadapan kelas."],["tabah","yakin","takut"],["sifat","emosi"],["keberanian"],{"type":"kata dasar","circumfixes":["ke-...-an"],"forms":["keberanian"],"notes":"Keberanian ialah kata nama abstrak yang merujuk sifat berani."}),
+    makeEntry("berat","berat","kata adjektif","Mempunyai jisim atau beban yang besar; juga boleh merujuk perkara yang sukar atau serius.","Heavy in weight; also difficult or serious in a figurative sense.","重；也可比喻事情困难或严重。",["Beg itu terlalu berat untuk saya angkat.","Doktor menerangkan bahawa kecederaannya agak berat."],["ringan","jisim","beban"],["sifat","ukuran"],["memberatkan","keberatan"],{"type":"kata dasar","prefixes":["meN-"],"circumfixes":["ke-...-an"],"forms":["memberatkan","keberatan"],"notes":"Keberatan boleh merujuk rasa tidak bersetuju atau keadaan berat mengikut konteks."}),
+    makeEntry("bersih","bersih","kata adjektif","Tidak kotor, bebas daripada sampah, debu atau bahan yang mencemarkan.","Clean; free from dirt, rubbish, dust or contaminating substances.","干净；没有污垢、垃圾、灰尘或污染物。",["Pastikan tangan bersih sebelum menyediakan makanan.","Mereka membersihkan kawasan taman."],["suci","kemas","kotor"],["sifat","kebersihan"],["membersihkan","dibersihkan","kebersihan"],{"type":"kata dasar","prefixes":["meN-","di-"],"circumfixes":["ke-...-an"],"forms":["membersihkan","dibersihkan","kebersihan"],"notes":"Bersih ialah kata adjektif; membersihkan ialah kata kerja transitif."}),
+    makeEntry("besi","besi","kata nama","Logam yang kuat dan digunakan untuk membuat alat, struktur serta pelbagai barangan.","Iron; a strong metal used to make tools, structures and many objects.","铁；用于制造工具、结构和各种物品的坚固金属。",["Pagar itu diperbuat daripada besi.","Besi perlu dilindungi daripada karat."],["logam","keluli","karat"],["bahan","objek"],["berbesi"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berbesi"],"notes":"Besi ialah unsur logam; keluli pula ialah aloi berasaskan besi."}),
+    makeEntry("betul","betul","kata adjektif / kata adverba","Tepat, benar atau tidak salah; juga boleh bermaksud lurus atau berada pada kedudukan yang sesuai.","Correct, right or accurate; also straight or properly positioned.","正确；准确；也可表示笔直或位置恰当。",["Jawapan kamu betul.","Pastikan gambar itu dipasang betul-betul di tengah."],["benar","tepat","salah"],["sifat","komunikasi"],["membetulkan","dibetulkan","pembetulan"],{"type":"kata dasar","prefixes":["meN-","di-","peN-"],"suffixes":["-an"],"forms":["membetulkan","dibetulkan","pembetulan"],"notes":"Betul dan benar bertindih dalam sesetengah konteks tetapi tidak sentiasa boleh saling menggantikan."}),
+    makeEntry("bilik","bilik","kata nama","Ruang tertutup di dalam bangunan yang digunakan untuk tujuan tertentu.","A room; an enclosed space in a building used for a particular purpose.","房间；建筑物内用于特定用途的封闭空间。",["Bilik tidur itu mempunyai tingkap besar.","Mesyuarat akan diadakan di bilik latihan."],["ruang","bilik tidur","bilik mandi"],["rumah","tempat"],[],{"type":"kata dasar","forms":[],"notes":"Bilik lazimnya merujuk ruang khusus di dalam bangunan."}),
+    makeEntry("binatang","binatang","kata nama","Makhluk hidup selain tumbuhan, khususnya haiwan yang bergerak dan memerlukan makanan.","An animal; a living creature other than a plant, especially one that moves and needs food.","动物；区别于植物、能够活动并需要食物的生物。",["Kanak-kanak itu belajar mengenali binatang di zoo.","Binatang peliharaan perlu dijaga dengan baik."],["haiwan","mamalia","serangga"],["haiwan","alam"],[],{"type":"kata dasar","forms":[],"notes":"Haiwan sering digunakan dalam penulisan formal; binatang juga baku dan lazim dalam penggunaan umum."}),
+    makeEntry("bintang","bintang","kata nama","Jasad cakerawala yang menghasilkan atau memancarkan cahaya dan kelihatan seperti titik terang di langit malam.","A star; a celestial body that emits or gives off light and appears as a bright point in the night sky.","星星；会发光或发出光线、在夜空中呈亮点的天体。",["Bintang kelihatan jelas pada malam yang cerah.","Mereka memerhatikan bintang melalui teleskop."],["angkasa","planet","galaksi"],["alam","sains"],[],{"type":"kata dasar","forms":[],"notes":"Bintang berbeza daripada planet kerana bintang menghasilkan tenaga dan cahaya sendiri."}),
+    makeEntry("biru","biru","kata adjektif","Warna seperti warna langit cerah atau laut yang dalam.","Blue; a colour like a clear sky or deep sea.","蓝色；类似晴朗天空或深海的颜色。",["Dia memilih baju berwarna biru.","Laut itu kelihatan biru dari pantai."],["merah","hijau","warna"],["warna","sifat"],["kebiruan"],{"type":"kata dasar","circumfixes":["ke-...-an"],"forms":["kebiruan"],"notes":"Kebiruan menerangkan warna yang sedikit atau cenderung kepada biru."}),
+    makeEntry("buah","buah","kata nama / penjodoh bilangan","Hasil tumbuhan yang biasanya mengandungi biji; juga penjodoh bilangan umum bagi benda tertentu.","Fruit; also a general measure word for certain objects in Malay.","水果；也可作为某些物品的通用量词。",["Pokok itu menghasilkan buah yang manis.","Saya membeli dua buah kerusi baharu."],["biji","hasil","pokok"],["makanan","alam","tatabahasa"],["berbuah"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berbuah"],"notes":"Sebagai penjodoh bilangan, buah digunakan untuk bangunan, kenderaan, buku dan beberapa benda lain."}),
+    makeEntry("bulan","bulan","kata nama","Tempoh masa kira-kira dua belas bahagian dalam setahun; juga satelit semula jadi Bumi.","Month; also the natural satellite of Earth, the Moon.","月份；也指地球的天然卫星月球。",["Kursus itu berlangsung selama tiga bulan.","Bulan kelihatan terang malam ini."],["minggu","tahun","kalendar"],["masa","alam"],["bulanan"],{"type":"kata dasar","suffixes":["-an"],"forms":["bulanan"],"notes":"Bulanan bermaksud berlaku atau dibayar setiap bulan."}),
+    makeEntry("bulat","bulat","kata adjektif","Mempunyai bentuk seperti sfera atau lingkaran yang tidak bersudut.","Round or circular in shape, without corners.","圆形；呈球状或没有棱角的形状。",["Meja bulat itu diletakkan di ruang tamu.","Bola itu hampir bulat sempurna."],["bundar","lonjong","segi"],["bentuk","sifat"],["membulat","kebulatan"],{"type":"kata dasar","prefixes":["meN-"],"circumfixes":["ke-...-an"],"forms":["membulat","kebulatan"],"notes":"Bulat boleh merujuk bentuk dua dimensi atau tiga dimensi mengikut konteks."}),
+    makeEntry("bunga","bunga","kata nama","Bahagian tumbuhan yang biasanya berwarna-warni dan berfungsi dalam pembiakan.","Flower; the often colourful part of a plant involved in reproduction.","花；植物中通常色彩鲜艳、承担繁殖功能的部分。",["Bunga itu mekar pada waktu pagi.","Dia menghadiahkan sejambak bunga kepada ibunya."],["kelopak","pokok","tumbuhan"],["alam","tumbuhan"],["berbunga"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berbunga"],"notes":"Bunga juga mempunyai makna lain seperti faedah wang mengikut konteks."}),
+    makeEntry("buruk","buruk","kata adjektif","Tidak elok dari segi rupa, mutu, keadaan atau kesan.","Bad, poor or unpleasant in appearance, quality, condition or effect.","坏；差；外观、质量、状况或效果不佳。",["Cuaca buruk menyebabkan penerbangan ditangguhkan.","Jangan bercakap buruk tentang orang lain."],["jahat","rosak","baik"],["sifat","keadaan"],["memburukkan","keburukan"],{"type":"kata dasar","prefixes":["meN-"],"circumfixes":["ke-...-an"],"forms":["memburukkan","keburukan"],"notes":"Buruk boleh merujuk mutu, rupa atau kesan; jahat lebih khusus kepada sifat atau perbuatan yang tidak baik."}),
+    makeEntry("cermin","cermin","kata nama","Permukaan licin yang memantulkan imej seseorang atau sesuatu.","A mirror; a smooth surface that reflects an image.","镜子；能够反射人或物体影像的光滑表面。",["Dia melihat wajahnya di cermin.","Cermin tingkap itu perlu dibersihkan."],["pantulan","kaca","tingkap"],["rumah","objek"],["bercermin"],{"type":"kata dasar","prefixes":["ber-"],"forms":["bercermin"],"notes":"Bercermin bermaksud melihat atau menggunakan cermin."}),
+    makeEntry("cuaca","cuaca","kata nama","Keadaan atmosfera di sesuatu tempat pada masa tertentu, termasuk suhu, hujan dan angin.","Weather; the state of the atmosphere at a place and time, including temperature, rain and wind.","天气；某地某时的大气状况，包括温度、降雨和风。",["Cuaca hari ini panas dan lembap.","Semak ramalan cuaca sebelum mendaki."],["iklim","hujan","suhu"],["alam","masa"],[],{"type":"kata dasar","forms":[],"notes":"Cuaca merujuk keadaan jangka pendek; iklim menggambarkan corak jangka panjang."}),
+    makeEntry("daging","daging","kata nama","Bahagian lembut tubuh manusia atau haiwan; dalam penggunaan makanan, biasanya merujuk isi haiwan yang dimakan.","Flesh; in food contexts, the edible meat of an animal.","肉；指人或动物身体的软组织，在食物语境中通常指可食用的肉。",["Daging ayam dimasak bersama sayur.","Doktor memeriksa luka pada bahagian daging."],["isi","ayam","ikan"],["makanan","tubuh"],[],{"type":"kata dasar","forms":[],"notes":"Dalam konteks masakan, daging tanpa penjelasan lanjut sering merujuk daging merah; sebut jenis haiwan jika perlu."}),
+    makeEntry("dalam","dalam","kata adjektif / kata sendi nama","Mempunyai jarak yang jauh dari permukaan ke bahagian dasar; juga menunjukkan kedudukan di bahagian dalam.","Deep; also inside or within something.","深；也表示在某物内部。",["Kolam itu agak dalam.","Kunci disimpan di dalam laci."],["cetek","luar","bahagian"],["sifat","tempat"],["mendalami","kedalaman"],{"type":"kata dasar","prefixes":["meN-"],"circumfixes":["ke-...-an"],"forms":["mendalami","kedalaman"],"notes":"Dalam sebagai kata adjektif berbeza fungsi daripada di dalam sebagai frasa sendi nama."}),
+    makeEntry("dapur","dapur","kata nama","Ruang atau tempat di rumah yang digunakan untuk menyediakan dan memasak makanan.","Kitchen; a room or area used to prepare and cook food.","厨房；在家中准备和烹煮食物的空间。",["Ibu sedang memasak di dapur.","Dapur rumah itu mempunyai kabinet baharu."],["masakan","periuk","ketuhar"],["rumah","makanan"],[],{"type":"kata dasar","forms":[],"notes":"Dapur juga boleh merujuk alat memasak seperti dapur gas."}),
+    makeEntry("darah","darah","kata nama","Cecair dalam salur badan manusia dan haiwan yang membawa oksigen serta bahan lain.","Blood; the fluid in human and animal vessels that carries oxygen and other substances.","血液；在人和动物血管中流动、运输氧气及其他物质的液体。",["Jururawat mengambil sampel darah pesakit.","Darah membantu membawa oksigen ke seluruh badan."],["urat","jantung","oksigen"],["kesihatan","tubuh"],[],{"type":"kata dasar","forms":[],"notes":"Darah ialah istilah umum; komponen dan fungsinya memerlukan penerangan khusus dalam konteks sains."}),
+    makeEntry("daun","daun","kata nama","Bahagian tumbuhan yang biasanya nipis dan leper serta membantu proses fotosintesis.","Leaf; a usually thin, flat part of a plant that helps with photosynthesis.","叶子；通常薄而扁平、帮助植物进行光合作用的部分。",["Daun pokok itu bertukar menjadi kuning.","Dia meletakkan daun pandan ke dalam nasi."],["ranting","batang","tumbuhan"],["alam","tumbuhan"],["berdaun"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berdaun"],"notes":"Berdaun menerangkan tumbuhan atau benda yang mempunyai daun."}),
+    makeEntry("dekat","dekat","kata adjektif / kata sendi nama","Mempunyai jarak yang pendek atau tidak jauh daripada sesuatu tempat atau perkara.","Near or close; at a short distance from a place or thing.","近；距离某地点或事物不远。",["Rumah saya dekat dengan stesen bas.","Sila duduk lebih dekat supaya dapat melihat skrin."],["hampir","jauh","berhampiran"],["tempat","sifat"],["berdekatan","mendekat","kedekatan"],{"type":"kata dasar","prefixes":["ber-","meN-"],"circumfixes":["ke-...-an"],"forms":["berdekatan","mendekat","kedekatan"],"notes":"Dekat dengan dan berhampiran kedua-duanya menyatakan jarak yang tidak jauh, dengan struktur berbeza."}),
+    makeEntry("depan","depan","kata nama / kata arah","Bahagian yang menghadap ke hadapan atau terletak sebelum sesuatu dari segi kedudukan.","Front; the part facing forward or located before something.","前面；朝前或在位置上位于某物之前的部分。",["Kereta saya diletakkan di depan rumah.","Sila tunggu di bahagian depan bangunan."],["hadapan","belakang","muka"],["tempat","kata fungsi"],["berdepan"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berdepan"],"notes":"Berdepan boleh bermaksud berada bertentangan atau menghadapi sesuatu cabaran."}),
+    makeEntry("duduk","duduk","kata kerja","Meletakkan badan dalam keadaan bertumpu pada punggung dengan bahagian atas badan tegak.","To sit; to rest the body on the buttocks with the upper body upright.","坐；臀部承托身体、上身保持直立的姿势。",["Sila duduk sementara menunggu giliran.","Mereka duduk di bawah pokok."],["tempat duduk","bersila","berdiri"],["tindakan","kehidupan harian"],["duduk-duduk","mendudukkan","didudukkan"],{"type":"kata dasar","prefixes":["meN-","di-"],"reduplication":"full","forms":["mendudukkan","didudukkan","duduk-duduk"],"notes":"Mendudukkan bermaksud menyebabkan seseorang atau sesuatu berada dalam keadaan duduk."}),
+    makeEntry("dunia","dunia","kata nama","Bumi dan segala kehidupan di atasnya; juga merujuk lingkungan atau bidang kehidupan tertentu.","The world; Earth and all life on it, or a particular sphere of life.","世界；地球及其上的生命，也指某个生活或活动领域。",["Ramai orang di seluruh dunia menggunakan internet.","Dia terkenal dalam dunia sukan."],["bumi","alam","masyarakat"],["alam","masyarakat"],["sedunia"],{"type":"kata dasar","forms":["sedunia"],"notes":"Sedunia bermaksud meliputi seluruh dunia."}),
+    makeEntry("emas","emas","kata nama","Logam berwarna kuning berkilau yang bernilai tinggi dan digunakan dalam barang kemas serta pelaburan.","Gold; a valuable yellow metal used in jewellery and investment.","黄金；价值较高的黄色金属，用于珠宝和投资。",["Cincin itu diperbuat daripada emas.","Harga emas berubah mengikut pasaran."],["logam","perak","barang kemas"],["bahan","wang"],[],{"type":"kata dasar","forms":[],"notes":"Emas ialah unsur kimia; dalam konteks ekonomi, nilainya dipengaruhi pasaran."}),
+    makeEntry("empat","empat","kata bilangan","Bilangan yang terdiri daripada tiga ditambah satu.","Four; the number after three and before five.","四；三加一的数目。",["Mereka mempunyai empat orang anak.","Mesyuarat bermula pada pukul empat petang."],["tiga","lima","bilangan"],["nombor","kata fungsi"],["keempat","empat-empat"],{"type":"kata bilangan","reduplication":"full","forms":["keempat","empat-empat"],"notes":"Keempat boleh menandakan nombor turutan atau keseluruhan empat perkara mengikut konteks."}),
+    makeEntry("enam","enam","kata bilangan","Bilangan yang terdiri daripada lima ditambah satu.","Six; the number after five and before seven.","六；五加一的数目。",["Bas itu mempunyai enam buah pintu kecemasan.","Saya bangun pada pukul enam pagi."],["lima","tujuh","bilangan"],["nombor","kata fungsi"],["keenam","enam-enam"],{"type":"kata bilangan","reduplication":"full","forms":["keenam","enam-enam"],"notes":"Keenam ialah bentuk turutan bagi nombor enam."}),
+    makeEntry("esok","esok","kata nama / kata adverba","Hari selepas hari ini.","Tomorrow; the day after today.","明天；今天之后的一天。",["Saya akan menghantar dokumen itu esok.","Esok ialah hari cuti umum."],["semalam","hari ini","lusa"],["masa","kata fungsi"],[],{"type":"kata fungsi","forms":[],"notes":"Esok merujuk hari berikutnya berdasarkan hari semasa; maknanya berubah mengikut waktu ujaran."}),
+    makeEntry("gaji","gaji","kata nama","Bayaran tetap yang diterima oleh pekerja sebagai balasan untuk kerja yang dilakukan.","Salary or wages received by an employee in return for work.","工资；员工因工作而获得的固定报酬。",["Gaji bulan ini akan dibayar pada hujung minggu.","Dia menyimpan sebahagian daripada gajinya."],["pendapatan","upah","pekerjaan"],["kerja","wang"],["bergaji"],{"type":"kata dasar","prefixes":["ber-"],"forms":["bergaji"],"notes":"Gaji lazimnya merujuk bayaran pekerjaan; upah sering digunakan untuk bayaran berdasarkan kerja atau tugasan."}),
+    makeEntry("gambar","gambar","kata nama","Imej atau rakaman visual seseorang, objek, tempat atau kejadian.","Picture or image; a visual representation of a person, object, place or event.","图像；人物、物体、地点或事件的视觉呈现。",["Saya mengambil gambar pemandangan itu.","Gambar keluarga digantung di ruang tamu."],["foto","imej","potret"],["komunikasi","seni"],["bergambar","menggambarkan"],{"type":"kata dasar","prefixes":["ber-","meN-"],"forms":["bergambar","menggambarkan"],"notes":"Menggambarkan juga boleh bermaksud menerangkan sesuatu melalui kata-kata."}),
+    makeEntry("garam","garam","kata nama","Bahan berasa masin yang digunakan untuk perasa makanan dan mengandungi natrium klorida.","Salt; a salty substance used to season food, commonly containing sodium chloride.","盐；用于调味、通常含有氯化钠的咸味物质。",["Tambah sedikit garam ke dalam sup.","Jangan gunakan garam secara berlebihan."],["gula","perasa","natrium"],["makanan","kesihatan"],["menggaram"],{"type":"kata dasar","prefixes":["meN-"],"forms":["menggaram"],"notes":"Pengambilan garam perlu dikawal sebagai sebahagian daripada pemakanan seimbang."}),
+    makeEntry("gelap","gelap","kata adjektif","Kurang atau tiada cahaya sehingga sesuatu sukar dilihat.","Dark; having little or no light, making things difficult to see.","黑暗；光线很少或没有光线，导致事物难以看清。",["Bilik itu menjadi gelap apabila lampu terpadam.","Langit kelihatan gelap sebelum ribut."],["malap","cerah","kelam"],["sifat","alam"],["menggelapkan","kegelapan"],{"type":"kata dasar","prefixes":["meN-"],"circumfixes":["ke-...-an"],"forms":["menggelapkan","kegelapan"],"notes":"Gelap boleh merujuk keadaan cahaya atau warna yang pekat."}),
+    makeEntry("gigi","gigi","kata nama","Struktur keras di dalam mulut yang digunakan untuk menggigit dan mengunyah makanan.","Tooth; a hard structure in the mouth used for biting and chewing food.","牙齿；口腔中用于咬和咀嚼食物的坚硬结构。",["Berus gigi sekurang-kurangnya dua kali sehari.","Gigi susu kanak-kanak akan tanggal secara beransur-ansur."],["gusi","mulut","geraham"],["tubuh","kesihatan"],["bergigi"],{"type":"kata dasar","prefixes":["ber-"],"forms":["bergigi"],"notes":"Gigi ialah bentuk tunggal dan jamak dalam penggunaan umum; penggandaan tidak diperlukan untuk bilangan."}),
+    makeEntry("gunung","gunung","kata nama","Bentuk muka bumi yang menjulang tinggi berbanding kawasan sekeliling.","Mountain; a landform rising high above the surrounding area.","山；高出周围地形的地貌。",["Mereka mendaki gunung pada hujung minggu.","Puncak gunung itu dilitupi awan."],["bukit","puncak","lembah"],["alam","geografi"],["pergunungan"],{"type":"kata dasar","prefixes":["per-"],"forms":["pergunungan"],"notes":"Pergunungan merujuk kawasan yang mempunyai banyak gunung."}),
+    makeEntry("hantar","hantar","kata kerja","Menyampaikan atau membawa sesuatu kepada penerima atau destinasi tertentu.","To send or deliver something to a recipient or destination.","发送；把某物送到指定接收者或目的地。",["Saya akan menghantar e-mel kepada pensyarah.","Pemandu itu menghantar bungkusan ke rumah pelanggan."],["menghantar","dihantar","penghantaran","penghantar"],["komunikasi","tindakan"],["menghantar","dihantar","penghantaran","penghantar"],{"type":"kata dasar","prefixes":["meN-","di-","peN-"],"suffixes":["-an"],"forms":["menghantar","dihantar","penghantaran","penghantar"],"notes":"Penghantaran ialah proses menghantar; penghantar ialah orang atau pihak yang menghantar."}),
+    makeEntry("harga","harga","kata nama","Nilai wang yang perlu dibayar untuk mendapatkan sesuatu barang atau perkhidmatan.","Price; the amount of money paid to obtain a good or service.","价格；购买商品或服务所需支付的金额。",["Harga makanan itu berpatutan.","Semak harga sebelum membuat pembayaran."],["kos","nilai","bayaran"],["wang","urusan harian"],["berharga","menghargai"],{"type":"kata dasar","prefixes":["ber-","meN-"],"forms":["berharga","menghargai"],"notes":"Berharga bermaksud mempunyai nilai; menghargai bermaksud memberikan penghargaan atau menilai sesuatu."}),
+    makeEntry("hijau","hijau","kata adjektif","Warna yang terletak antara biru dengan kuning dalam spektrum cahaya.","Green; a colour between blue and yellow in the light spectrum.","绿色；光谱中位于蓝色与黄色之间的颜色。",["Daun pokok itu berwarna hijau.","Bandar tersebut menambah kawasan hijau untuk penduduk."],["biru","kuning","warna"],["warna","alam"],["kehijauan","menghijau"],{"type":"kata dasar","circumfixes":["ke-...-an"],"forms":["kehijauan","menghijau"],"notes":"Kehijauan boleh merujuk warna yang cenderung kepada hijau atau kawasan yang dipenuhi tumbuhan."})
+  );
+})();
+
 })();
