@@ -2,10 +2,6 @@
   "use strict";
   if (window.__swiftLearningConfirmationInstalled) return;
   window.__swiftLearningConfirmationInstalled = true;
-  const lessonExpansionScript = document.createElement("script");
-  lessonExpansionScript.src = "data/english-lessons-expansion.js?v=2.9.0-u2";
-  lessonExpansionScript.async = false;
-  document.head.appendChild(lessonExpansionScript);
   const copy = "Selecting this lesson will consume one daily lessons allowance, are you sure?";
   let approvedButton = null;
   let backdrop = null;
