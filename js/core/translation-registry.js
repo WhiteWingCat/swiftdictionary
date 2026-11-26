@@ -14,7 +14,7 @@
     return frozen;
   }
   function registerLegacyMap({translations,sourceLanguageCode,targetLanguageCode,contentVersion}){
-    return Object.entries(translations||{}).map(([contentId,content])=>register({
+    return Object.entries(translations||{}).map(([contentId,content])=>get(contentId,sourceLanguageCode,targetLanguageCode)||register({
       contentId,sourceLanguageCode,targetLanguageCode,sourceRevision:1,translationRevision:1,
       status:"legacy_unverified",provenance:"Legacy translation map; "+String(contentVersion||"unspecified"),
       reviewerId:null,content
