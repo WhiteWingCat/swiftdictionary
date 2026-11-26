@@ -4454,3 +4454,8 @@ Key findings:
 **Archive:** [U3.0 Phase 0 audit session](conversation-archive/2026-11-26-update-3-0-phase-0-audit.md).
 
 No source code, database schema/data, Auth settings, migrations, staging preview, merge or deployment was changed. No tests were executed; this was static source and read-only live-schema inspection. Next action: Phase 1 shared language architecture and English/Chinese modernisation on `feature/update-3.0-phase-0-audit`.
+
+
+## U3.0 Phase 1 — architecture foundation checkpoint (2026-11-26)
+
+Phase 1 has begun on `feature/update-3.0-phase-0-audit`. Added a shared language registry for en/zh and planned ms, a versioned content/translation contract validator, an initial Node test suite, and the architecture contract at `docs/U3.0-MULTILINGUAL-ARCHITECTURE.md`. This is a foundation checkpoint only: the modules are not yet wired into the application entry point, legacy English/Chinese runtime and persistence paths remain to be modernised, and tests have not yet been executed. No database, Auth, staging, production, main-branch or deployment changes were made. No staging preview was created. See `docs/conversation-archive/2026-11-26-update-3-0-phase-1-foundation.md` and the updated U3.0 plan for remaining Phase 1 work.
