@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "languageCode": "ms",
+  "name": "Malay",
+  "nativeName": "Bahasa Melayu",
+  "locale": "ms-MY",
+  "script": "Latn",
+  "status": "planned",
+  "contentVersion": "3.0.0-planned",
+  "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
+  "capabilities": {
+    "dictionary": true,
+    "lessons": false,
+    "dailyLearning": false,
+    "quiz": false,
+    "flashcards": false,
+    "gridMode": "word",
+    "pronunciation": "to-be-reviewed",
+    "morphology": "malay-affixation"
+  },
+  "packages": {
+    "dictionary": {
+      "status": "planned",
+      "files": []
+    },
+    "lessons": {
+      "status": "planned",
+      "files": []
+    },
+    "dailyLearning": {
+      "status": "planned",
+      "files": []
+    },
+    "quiz": {
+      "status": "planned",
+      "files": []
+    },
+    "flashcards": {
+      "status": "planned",
+      "files": []
+    }
+  },
+  "translationTargets": [
+    "en",
+    "zh"
+  ],
+  "contentPolicy": [
+    "Record authorship/source and licence for every imported or adapted content set.",
+    "Do not use machine translation output as approved content without human linguistic review.",
+    "Do not activate this package until all U3.0 content and application QA gates pass."
+  ],
+  "legalReview": {
+    "malaysiaPDPA": "required before public launch",
+    "internationalPrivacy": "required for global audience",
+    "crossBorderTransfers": "review production Tokyo and staging Singapore data flows"
+  }
+}
