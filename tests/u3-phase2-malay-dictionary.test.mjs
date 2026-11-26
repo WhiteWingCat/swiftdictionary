@@ -128,6 +128,9 @@ test("Malay can be packaged without being activated or selectable", () => {
   assert.equal(pkg.languageCode, "ms");
   assert.equal(pkg.status, "planned");
   assert.equal(pkg.dictionary.entries.length, entries.length);
+  assert.equal(pkg.dictionary.translations.length, 82);
+  assert.ok(pkg.dictionary.translations.every(record => record.status === "machine_assisted_draft"));
+  assert.ok(pkg.dictionary.translations.every(record => record.sourceLanguageCode === "ms" && ["en","zh"].includes(record.targetLanguageCode)));
   const baca = pkg.dictionary.entries.find(entry => entry.headword === "baca");
   assert.equal(baca.id, "ms.dict.baca");
   assert.equal(baca.provenance.editorialStatus, "draft");
