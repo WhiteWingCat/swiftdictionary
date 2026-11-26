@@ -4602,3 +4602,18 @@ All 446 entries remain original-authored drafts; all 936 support translations re
 The `ms` package remains planned/inactive and not selectable. No Malay Lessons, Daily Learning, Quiz or Flashcards implementation began. No Supabase schema/data/Auth/RLS changes or migrations, staging preview, main-branch merge, production deployment or ZIP occurred. Phase 2 remains in progress; continue batches of 100+ unique headwords toward the 650–750 target band while preserving quality gates.
 
 **Archive:** [Phase 2 Malay Dictionary batch 07](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-07.md).
+
+
+## 17. Update 3.0 Phase 2 — Malay Dictionary batch 08 (2026-11-26)
+
+Batch 08 adds **204 new unique Malaysian Standard Malay headwords**, bringing the catalogue to **650 unique headwords, 672 contextual senses and 1,344 English/Simplified Chinese per-sense support-translation records**. Package revision: u3-ms-dict-0.8.0. The catalogue has entered the approved 650–750 target band at its lower boundary. Coverage includes communication and digital life, administration and commerce, transport, sport, health and anatomy, food, household appliances, geography, weather, environmental care, community and function words.
+
+The batch exceeded the preferred 100–120 range because the prepared coverage set contained 203 valid unique headwords; one additional common workplace headword (pekerja) brought the catalogue to the lower boundary of its target band. This is an exception, not a revised batch-size target. Entries have original-authored Malay draft definitions and contextual examples, per-sense English and Simplified Chinese machine-assisted draft translations, stable IDs and item-level provenance. No automatic stemming or speculative search aliases were introduced.
+
+Application branch: feature/update-3.0-phase-0-audit. Latest application commit: 67b5691eda1d76dcd3746f90ccb96993dc2555cb. English Dictionary QA passed on the earlier batch-08 content head 11f5e78e4cf46a8bdd2fd94f3185471c2d08e731 (run [45832076858](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45832076858)); later commits updated package counts and added the final pekerja record. Latest-head architecture and English QA validation remain pending because rapid sequential pushes cancelled architecture attempts and latest English QA was still in progress at the last check. The earlier success is not final-head validation.
+
+All 650 entries remain original-authored drafts; all 1,344 support translations remain machine-assisted drafts. Human Malaysian Standard Malay editorial review, independent translation review, source verification and item-level rights clearance remain outstanding. Medical, technical, administrative and environmental terminology needs careful subject-matter review. No DBP/PRPM/Kamus Dewan protected text was copied or scraped. Malaysia PDPA and broader international privacy/legal reviews remain required before public launch.
+
+The ms package remains planned/inactive and not selectable. No Malay Lessons, Daily Learning, Quiz or Flashcards implementation began. No Supabase schema/data/Auth/RLS changes or migrations, staging preview, main-branch merge, production deployment or ZIP occurred. Phase 2 remains in progress; next work should prioritise editorial quality review and coverage balancing rather than blindly adding more words.
+
+**Archive:** [Phase 2 Malay Dictionary batch 08](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-08.md).
