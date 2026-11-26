@@ -4319,3 +4319,38 @@ Before each production release, verify and record:
 - New feature UI must remain consistent with Lessons, Quiz and Flashcards, using appropriate drop shadows, animation transitions and colour-coded panels/tabs where useful.
 - These rules supplement, and do not replace, the existing branch hygiene, production safeguards, Cloudflare Pages deployment, documentation separation, free dictionary search and legal/privacy planning rules.
 
+## Update 3.1 — Fill-in-the-Blank typing questions (owner-confirmed roadmap decision, 2026-11-26)
+
+**Status: CONFIRMED FOR PLANNING; implementation not started or authorised.**
+
+The owner confirmed that the Fill-in-the-Blank typing-answer feature belongs in **Update 3.1**, rather than Update 3.0. The feature must serve the existing English and Simplified Chinese courses as well as the planned Malay course; it is not a Malay-only addition. The owner explicitly confirmed:
+
+- Typing questions should appear in **both Lessons and Quiz**.
+- The initial question format should contain **one missing word per question**.
+- Multiple missing words in one question are deferred from the initial scope.
+- A shared reusable typing-question system is preferred, with language-specific validation rather than separate duplicated implementations.
+
+### Preliminary implementation direction
+
+1. Define the question format and interaction rules.
+2. Define structured question data for prompts, expected answers, reviewed accepted alternatives, normalisation rules, hints and explanations.
+3. Build a reusable, accessible typing interface.
+4. Implement deterministic answer validation with explicitly accepted alternatives and language-specific adapters.
+5. Integrate into Lessons and Quiz while preserving their distinct feedback, retry, assessment, progress and allowance behaviours.
+6. Prepare/review content and validate across English, Simplified Chinese and Malay, devices, scripts, persistence and regressions.
+
+The first release should favour deterministic validation and reviewed accepted-answer lists. Flexible semantic matching or AI-based grading is not approved as part of the initial scope. Quiz answer keys must not be exposed to the browser before submission; the secure checking architecture remains an open design question.
+
+### Open decisions
+
+The exact data schema, accepted-answer authoring workflow, language-specific normalisation (including Chinese input and Malay morphology), retry/hint/feedback rules, secure Quiz validation, scoring/progress/revision integration, content volume, database migration requirements and implementation estimate remain undecided. Inspect the then-current application and database before estimating or committing to technical design.
+
+### Release placement
+
+- **U3.0:** Malay language expansion; exclude the typing-question implementation.
+- **U3.1:** Fill-in-the-Blank typing questions in Lessons and Quiz.
+- **U4.0:** Japanese language expansion.
+- **U5.0:** Korean language expansion.
+
+This is a roadmap/scope decision only. It does not authorise U3.0 or U3.1 implementation. All standing legal/privacy, database approval and migration sequencing, staging verification, README, UI consistency and regression requirements continue to apply. See [the dated conversation archive](conversation-archive/2026-11-26-update-3-1-fill-in-the-blank-scope-confirmation.md) for the full decision record.
+
