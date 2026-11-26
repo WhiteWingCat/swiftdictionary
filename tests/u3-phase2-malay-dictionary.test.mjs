@@ -165,3 +165,39 @@ test("shared dictionary translation registration never creates same-language pai
   assert.ok(english.dictionary.translations.every(record => record.sourceLanguageCode === "en" && record.targetLanguageCode === "zh"));
   assert.ok(chinese.dictionary.translations.every(record => record.sourceLanguageCode === "zh" && record.targetLanguageCode === "en"));
 });
+
+test("Malay package provenance is explicit and every entry has learner-facing coverage", () => {
+  for (const entry of entries) {
+    assert.ok(entry.part.trim(), `Missing Malaysian part of speech: ${entry.word}`);
+    assert.ok(Array.isArray(entry.categories) && entry.categories.length > 0, `Missing category: ${entry.word}`);
+    assert.ok(Array.isArray(entry.examples) && entry.examples.length > 0, `Missing headword examples: ${entry.word}`);
+    assert.ok(entry.provenance.authoringMethod === "original-authored");
+    assert.equal(entry.provenance.sourceTextCopied, false);
+    assert.equal(entry.provenance.licenceStatus, "original-draft-rights-review-pending");
+    assert.equal(entry.provenance.editorialStatus, "draft");
+    assert.equal(entry.provenance.reviewerId, null);
+    for (const sense of entry.senses) {
+      assert.ok(sense.definition.trim(), `Missing Malay sense definition: ${sense.id}`);
+      assert.ok(sense.definitionEn.trim(), `Missing English support text: ${sense.id}`);
+      assert.ok(sense.definitionZh.trim(), `Missing Chinese support text: ${sense.id}`);
+      assert.ok(Array.isArray(sense.examples) && sense.examples.length > 0, `Missing contextual sense example: ${sense.id}`);
+    }
+  }
+});
+
+test("Malay translation registry maps every sense to exactly en and zh draft records", () => {
+  const pkg = context.window.SWIFT_CONTENT_PACKAGES.createPackage({
+    languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0", status:"planned",
+    content:{ dictionary:{ entries } },
+    metadata:{ manifestPath:"content/languages/ms/manifest.json", editorialStatus:"draft" }
+  });
+  const expected = new Set(entries.flatMap(entry => entry.senses.map(sense => sense.id + "|ms|en").concat(entry.senses.map(sense => sense.id + "|ms|zh"))));
+  const actual = pkg.dictionary.translations.map(record => record.contentId + "|" + record.sourceLanguageCode + "|" + record.targetLanguageCode);
+  assert.equal(pkg.dictionary.translations.length, 1344);
+  assert.equal(new Set(actual).size, actual.length);
+  assert.deepEqual(new Set(actual), expected);
+  assert.ok(pkg.dictionary.translations.every(record => record.sourceRevision === 1 && record.translationRevision === 1));
+  assert.ok(pkg.dictionary.translations.every(record => record.status === "machine_assisted_draft"));
+  assert.ok(pkg.dictionary.translations.every(record => record.provenance));
+});
+
