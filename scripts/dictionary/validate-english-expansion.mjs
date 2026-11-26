@@ -86,9 +86,9 @@ function locateBaseline() {
         )
       ];
   const markers = [
-    /window\\.SWIFT_ENGLISH_BASE_DICTIONARY\\s*=\\s*\\[/,
-    /(?:const|let|var)\\s+englishWords\\s*=\\s*\\[/,
-    /(?:const|let|var)\\s+englishDictionary\\s*=\\s*\\[/
+    /window\.SWIFT_ENGLISH_BASE_DICTIONARY\s*=\s*\[/,
+    /(?:const|let|var)\s+englishWords\s*=\s*\[/,
+    /(?:const|let|var)\s+englishDictionary\s*=\s*\[/
   ];
   for (const file of files) {
     if (!fs.existsSync(file)) continue;
@@ -275,7 +275,7 @@ if (!fs.existsSync(runtimePath)) {
 
 const appSource = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const runtimeScriptAt = appSource.indexOf("data/english-expansion.js");
-const inlineEnglishAt = appSource.indexOf("const englishWords = window.SWIFT_ENGLISH_BASE_DICTIONARY;");
+    /window\.SWIFT_ENGLISH_BASE_DICTIONARY\s*=\s*\[/,
 const appendAt = appSource.indexOf("englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));");
 const chineseArrayAt = appSource.indexOf("const chineseWords = window.SWIFT_CHINESE_BASE_DICTIONARY;");
 const dictionaryStateAt = appSource.indexOf("let words = course ===");
