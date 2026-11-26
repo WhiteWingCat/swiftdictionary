@@ -39,6 +39,31 @@
       legacySource:entry
     };
   }
+  function registerDictionaryTranslations(entries, sourceLanguageCode) {
+    const registry = window.SWIFT_TRANSLATION_REGISTRY;
+    if (!registry) return [];
+    const output = [];
+    for (const entry of entries) {
+      for (const sense of entry.senses || []) {
+        for (const targetLanguageCode of ["en","zh"]) {
+          const translatedText = sense.translations?.[targetLanguageCode];
+          if (!translatedText) continue;
+          const contentId = sense.id;
+          const existing = registry.get(contentId, sourceLanguageCode, targetLanguageCode);
+          if (existing) { output.push(existing); continue; }
+          output.push(registry.register({
+            contentId, sourceLanguageCode, targetLanguageCode,
+            sourceRevision:1, translationRevision:1,
+            status:sense.translationStatus?.[targetLanguageCode] || "draft",
+            provenance:entry.provenance?.authoringNote || "Dictionary translation source record",
+            reviewerId:null,
+            content:{ definition:translatedText }
+          }));
+        }
+      }
+    }
+    return output;
+  }
   function adaptLegacyRecords(records, code, contentVersion) {
     return (Array.isArray(records) ? records : []).filter(item => item && typeof item === "object").map(item => ({
       ...item, schemaVersion:1, languageCode:code, contentVersion:String(contentVersion), legacySource:item.legacySource || item
@@ -51,10 +76,12 @@
     if (!language) throw new RangeError("Unknown language package: " + input.languageCode);
     if (!input.contentVersion) throw new TypeError("Content package version is required.");
     const content = input.content || {};
+    const dictionaryEntries = (Array.isArray(content.dictionary?.entries) ? content.dictionary.entries : []).map(entry => adaptLegacyDictionaryEntry(entry,code,input.contentVersion)).filter(Boolean);
+    const dictionaryTranslations = registerDictionaryTranslations(dictionaryEntries, code);
     const packageRecord = Object.freeze({
       schemaVersion: 1, languageCode: code, contentVersion: String(input.contentVersion),
       status: input.status || language.status,
-      dictionary: Object.freeze({ entries: (Array.isArray(content.dictionary?.entries) ? content.dictionary.entries : []).map(entry => adaptLegacyDictionaryEntry(entry,code,input.contentVersion)).filter(Boolean) }),
+      dictionary: Object.freeze({ entries: dictionaryEntries, translations: dictionaryTranslations }),
       lessons: Object.freeze({ permanent: adaptLegacyRecords(content.lessons?.permanent,code,input.contentVersion), translations: window.SWIFT_TRANSLATION_REGISTRY ? window.SWIFT_TRANSLATION_REGISTRY.registerLegacyMap({ translations:content.lessons?.translations || {}, sourceLanguageCode:code, targetLanguageCode:input.translationLanguageCode || (code === "en" ? "zh" : "en"), contentVersion:input.contentVersion }) : [], legacyTranslations:content.lessons?.translations || {} }),
       dailyLearning: Object.freeze({ topics: adaptLegacyRecords(content.dailyLearning?.topics,code,input.contentVersion), applications: adaptLegacyRecords(content.dailyLearning?.applications,code,input.contentVersion), discovery: adaptLegacyRecords(content.dailyLearning?.discovery,code,input.contentVersion), revision: content.dailyLearning?.revision || "adaptive" }),
       quiz: Object.freeze({ source: content.quiz?.source || null, questionBank: content.quiz?.questionBank || null }),
