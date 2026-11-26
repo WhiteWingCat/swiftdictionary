@@ -38,7 +38,7 @@
   }
   function adaptLegacyRecords(records, code, contentVersion) {
     return (Array.isArray(records) ? records : []).filter(item => item && typeof item === "object").map(item => ({
-      ...item, schemaVersion:1, languageCode:code, contentVersion:String(contentVersion), legacySource:item
+      ...item, schemaVersion:1, languageCode:code, contentVersion:String(contentVersion), legacySource:item.legacySource || item
     }));
   }
   function createPackage(input) {
