@@ -4,7 +4,7 @@
  */
 window.SWIFT_MALAY_DICTIONARY = [
   {
-    id:"ms.dict.ada", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.ada", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"ada", part:"kata kerja", definition:"Wujud, tersedia atau dimiliki; digunakan untuk menyatakan kewujudan atau pemilikan.",
     definitionEn:"To exist, be present or be available; also used to express possession.",
     definitionZh:"存在；有；表示某物存在、在场或拥有某物。",
@@ -16,7 +16,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"air", part:"kata nama", definition:"Cecair jernih yang menjadi keperluan asas manusia, haiwan dan tumbuhan.",
     definitionEn:"Water, the clear liquid essential to people, animals and plants.",
     definitionZh:"水；人类、动物和植物生存所需的液体。",
@@ -28,7 +28,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"ajar", part:"kata kerja", definition:"Memberikan tunjuk ajar atau ilmu supaya seseorang mengetahui atau dapat melakukan sesuatu.",
     definitionEn:"To teach or instruct someone so that they learn how to do or understand something.",
     definitionZh:"教；指导；传授知识或技能。",
@@ -40,7 +40,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"anak", part:"kata nama", definition:"Manusia yang masih kecil; keturunan atau zuriat seseorang.",
     definitionEn:"A child; also a person's offspring or descendant.",
     definitionZh:"孩子；子女；后代。",
@@ -52,7 +52,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"baik", part:"kata adjektif", definition:"Mempunyai sifat yang elok, sesuai atau memuaskan; tidak buruk.",
     definitionEn:"Good, kind or satisfactory; not bad.",
     definitionZh:"好；良好；善良；令人满意。",
@@ -64,7 +64,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"baca", part:"kata kerja", definition:"Melihat dan memahami perkataan atau tulisan yang dibaca.",
     definitionEn:"To read and understand written words or text.",
     definitionZh:"阅读；看懂文字或文章。",
@@ -76,7 +76,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"bahasa", part:"kata nama", definition:"Sistem bunyi, perkataan dan tatabahasa yang digunakan oleh manusia untuk berkomunikasi.",
     definitionEn:"A system of sounds, words and grammar used by people to communicate.",
     definitionZh:"语言；人们用于交流的语音、词汇和语法系统。",
@@ -88,7 +88,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"bantu", part:"kata kerja", definition:"Memberikan pertolongan atau sokongan kepada seseorang.",
     definitionEn:"To help or assist someone.",
     definitionZh:"帮助；向某人提供协助或支持。",
@@ -100,7 +100,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"besar", part:"kata adjektif", definition:"Mempunyai saiz, keluasan atau jumlah yang lebih daripada biasa.",
     definitionEn:"Big or large in size, area or amount.",
     definitionZh:"大；尺寸、面积或数量较大。",
@@ -112,7 +112,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"boleh", part:"kata bantu", definition:"Menunjukkan keupayaan, kemungkinan atau kebenaran untuk melakukan sesuatu.",
     definitionEn:"Can, may or be allowed to do something.",
     definitionZh:"能；可以；表示能力、可能性或许可。",
@@ -124,7 +124,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"buku", part:"kata nama", definition:"Himpunan helaian bercetak atau bertulis yang disusun dan dijilid untuk dibaca atau dirujuk.",
     definitionEn:"A book: a set of printed or written pages bound together for reading or reference.",
     definitionZh:"书；装订成册、供阅读或查阅的纸页集合。",
@@ -136,7 +136,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"datang", part:"kata kerja", definition:"Bergerak atau tiba dari tempat lain ke tempat yang dimaksudkan.",
     definitionEn:"To come or arrive from another place.",
     definitionZh:"来；从别处移动或抵达指定地点。",
@@ -148,7 +148,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"dengan", part:"kata sendi nama", definition:"Menunjukkan kebersamaan, cara, alat atau hubungan antara perkara.",
     definitionEn:"With; by means of; or in a manner that expresses association or method.",
     definitionZh:"和；与；用；通过某种方式或工具。",
@@ -159,7 +159,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"kawan", part:"kata nama", definition:"Orang yang mempunyai hubungan persahabatan atau melakukan sesuatu bersama-sama.",
     definitionEn:"A friend or companion.",
     definitionZh:"朋友；伙伴；与某人有友谊或共同活动的人。",
@@ -170,7 +170,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"makan", part:"kata kerja", definition:"Memasukkan makanan ke dalam mulut, mengunyah dan menelannya.",
     definitionEn:"To eat food by putting it in the mouth, chewing and swallowing it.",
     definitionZh:"吃；把食物放入口中、咀嚼并吞下。",
@@ -182,7 +182,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"minum", part:"kata kerja", definition:"Menelan air atau minuman lain melalui mulut.",
     definitionEn:"To drink water or another beverage.",
     definitionZh:"喝；通过嘴摄入水或其他饮料。",
@@ -194,7 +194,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"pergi", part:"kata kerja", definition:"Bergerak atau bertolak dari satu tempat ke tempat yang lain.",
     definitionEn:"To go or travel from one place to another.",
     definitionZh:"去；从一个地方移动或前往另一个地方。",
@@ -205,7 +205,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"rumah", part:"kata nama", definition:"Bangunan atau tempat yang digunakan sebagai kediaman.",
     definitionEn:"A building or place used as a home or residence.",
     definitionZh:"房屋；用作居所的建筑物或地方。",
@@ -217,7 +217,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"sekolah", part:"kata nama", definition:"Institusi tempat murid menerima pendidikan dan mengikuti proses pembelajaran.",
     definitionEn:"A school or institution where pupils receive education.",
     definitionZh:"学校；学生接受教育和学习的机构。",
@@ -229,7 +229,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"saya", part:"kata ganti nama diri", definition:"Kata ganti nama diri pertama yang digunakan oleh penutur untuk merujuk kepada dirinya sendiri.",
     definitionEn:"The first-person pronoun used by a speaker to refer to themself.",
     definitionZh:"我；说话者用来指称自己的第一人称代词。",
@@ -240,7 +240,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"tidur", part:"kata kerja", definition:"Berada dalam keadaan rehat semula jadi apabila tubuh dan minda kurang sedar terhadap persekitaran.",
     definitionEn:"To sleep; to be in a natural resting state with reduced awareness of the surroundings.",
     definitionZh:"睡觉；身体和意识处于自然休息状态。",
@@ -252,7 +252,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"tolong", part:"kata kerja / kata seru", definition:"Memberikan bantuan; juga digunakan untuk meminta seseorang melakukan sesuatu dengan sopan.",
     definitionEn:"To help; also used to make a polite request.",
     definitionZh:"帮忙；也用于礼貌地请求别人做某事。",
@@ -264,7 +264,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"terima kasih", part:"ungkapan", definition:"Ungkapan yang digunakan untuk menyatakan penghargaan atau rasa syukur atas bantuan, pemberian atau layanan.",
     definitionEn:"An expression of thanks or gratitude for help, a gift or a service.",
     definitionZh:"谢谢；用于对帮助、馈赠或服务表达感谢。",
@@ -276,7 +276,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+    id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
     word:"untuk", part:"kata sendi nama", definition:"Menunjukkan tujuan, kegunaan, penerima atau sasaran sesuatu perkara.",
     definitionEn:"For; indicating purpose, use, recipient or intended target.",
     definitionZh:"为了；给；表示目的、用途、接受者或对象。",
@@ -291,7 +291,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pejabat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pejabat",
     "part": "kata nama",
     "definition": "Tempat seseorang menjalankan urusan pentadbiran atau kerja rasmi.",
@@ -344,7 +344,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pekerja",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pekerja",
     "part": "kata nama",
     "definition": "Orang yang melakukan pekerjaan untuk memperoleh upah atau gaji.",
@@ -397,7 +397,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.majikan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "majikan",
     "part": "kata nama",
     "definition": "Pihak atau orang yang menggaji seseorang untuk melakukan pekerjaan.",
@@ -449,7 +449,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pekerjaan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pekerjaan",
     "part": "kata nama",
     "definition": "Kerja atau kegiatan yang dilakukan untuk memperoleh pendapatan atau mencapai tujuan tertentu.",
@@ -502,7 +502,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.wang",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "wang",
     "part": "kata nama",
     "definition": "Alat pertukaran yang diterima untuk membeli barang atau membayar perkhidmatan.",
@@ -555,7 +555,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.murah",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "murah",
     "part": "kata adjektif",
     "definition": "Berharga rendah dan tidak memerlukan banyak wang untuk dibeli.",
@@ -608,7 +608,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.mahal",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "mahal",
     "part": "kata adjektif",
     "definition": "Berharga tinggi dan memerlukan banyak wang untuk dibeli.",
@@ -661,7 +661,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.bayaran",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "bayaran",
     "part": "kata nama",
     "definition": "Wang yang diberikan untuk mendapatkan barang, perkhidmatan atau menyelesaikan kewajipan.",
@@ -714,7 +714,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.jual",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "jual",
     "part": "kata kerja",
     "definition": "Memberikan atau menawarkan barang kepada orang lain dengan menerima bayaran.",
@@ -767,7 +767,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.kedai",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "kedai",
     "part": "kata nama",
     "definition": "Tempat perniagaan yang menjual barang atau menyediakan perkhidmatan kepada pelanggan.",
@@ -820,7 +820,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pasar",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pasar",
     "part": "kata nama",
     "definition": "Tempat orang ramai menjual dan membeli barangan, khususnya makanan dan hasil harian.",
@@ -873,7 +873,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pasar-raya",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pasar raya",
     "part": "kata nama",
     "definition": "Kedai besar yang menjual pelbagai jenis barangan makanan dan keperluan harian.",
@@ -926,7 +926,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.resit",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "resit",
     "part": "kata nama",
     "definition": "Dokumen yang membuktikan bahawa bayaran telah diterima.",
@@ -979,7 +979,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.bil",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "bil",
     "part": "kata nama",
     "definition": "Penyata jumlah wang yang perlu dibayar bagi sesuatu barang atau perkhidmatan.",
@@ -1032,7 +1032,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.bank",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "bank",
     "part": "kata nama",
     "definition": "Institusi kewangan yang menerima simpanan, mengurus akaun dan menyediakan perkhidmatan kewangan.",
@@ -1085,7 +1085,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.akaun",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "akaun",
     "part": "kata nama",
     "definition": "Rekod kewangan seseorang atau organisasi yang disimpan oleh institusi seperti bank.",
@@ -1138,7 +1138,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.tunai",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "tunai",
     "part": "kata adjektif",
     "definition": "Dalam bentuk wang fizikal dan bukan melalui kredit atau bayaran tertangguh.",
@@ -1191,7 +1191,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pelanggan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pelanggan",
     "part": "kata nama",
     "definition": "Orang yang membeli barang atau menggunakan perkhidmatan daripada sesuatu perniagaan.",
@@ -1244,7 +1244,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.perkhidmatan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "perkhidmatan",
     "part": "kata nama",
     "definition": "Kerja atau bantuan yang diberikan untuk memenuhi keperluan orang lain.",
@@ -1297,7 +1297,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.hospital",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "hospital",
     "part": "kata nama",
     "definition": "Institusi kesihatan yang menyediakan rawatan dan penjagaan perubatan kepada pesakit.",
@@ -1350,7 +1350,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.klinik",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "klinik",
     "part": "kata nama",
     "definition": "Tempat pesakit mendapatkan pemeriksaan, nasihat atau rawatan kesihatan.",
@@ -1403,7 +1403,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.ubat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "ubat",
     "part": "kata nama",
     "definition": "Bahan atau sediaan yang digunakan untuk mencegah, melegakan atau merawat penyakit.",
@@ -1455,7 +1455,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.doktor",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "doktor",
     "part": "kata nama",
     "definition": "Pengamal perubatan yang terlatih untuk memeriksa, mendiagnosis dan merawat pesakit.",
@@ -1508,7 +1508,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.jururawat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "jururawat",
     "part": "kata nama",
     "definition": "Petugas kesihatan yang menjaga pesakit dan membantu dalam pemberian rawatan.",
@@ -1561,7 +1561,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.polis",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "polis",
     "part": "kata nama",
     "definition": "Anggota pasukan keselamatan yang bertugas menjaga keamanan dan menguatkuasakan undang-undang.",
@@ -1614,7 +1614,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.balai-polis",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "balai polis",
     "part": "kata nama",
     "definition": "Bangunan atau pejabat tempat anggota polis bertugas dan orang ramai membuat laporan.",
@@ -1667,7 +1667,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.bomba",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "bomba",
     "part": "kata nama",
     "definition": "Pasukan atau anggota yang memadamkan kebakaran dan menjalankan operasi menyelamat.",
@@ -1720,7 +1720,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.pejabat-pos",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "pejabat pos",
     "part": "kata nama",
     "definition": "Tempat orang ramai menghantar surat dan bungkusan serta menggunakan perkhidmatan pos.",
@@ -1773,7 +1773,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.perpustakaan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "perpustakaan",
     "part": "kata nama",
     "definition": "Tempat yang menyimpan dan menyediakan buku serta bahan bacaan untuk dipinjam atau dirujuk.",
@@ -1826,7 +1826,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.universiti",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "universiti",
     "part": "kata nama",
     "definition": "Institusi pengajian tinggi yang menawarkan program akademik dan menjalankan penyelidikan.",
@@ -1879,7 +1879,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.kolej",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "kolej",
     "part": "kata nama",
     "definition": "Institusi pendidikan yang menawarkan pengajian selepas sekolah menengah atau latihan khusus.",
@@ -1932,7 +1932,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.peperiksaan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "peperiksaan",
     "part": "kata nama",
     "definition": "Ujian rasmi untuk menilai pengetahuan atau kebolehan seseorang dalam sesuatu bidang.",
@@ -1984,7 +1984,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.soalan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "soalan",
     "part": "kata nama",
     "definition": "Ayat atau perkara yang dikemukakan untuk mendapatkan jawapan atau penjelasan.",
@@ -2037,7 +2037,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.jawapan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "jawapan",
     "part": "kata nama",
     "definition": "Respons atau keterangan yang diberikan bagi menjawab sesuatu soalan atau masalah.",
@@ -2090,7 +2090,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.latihan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "latihan",
     "part": "kata nama",
     "definition": "Aktiviti berulang yang dilakukan untuk meningkatkan kemahiran atau persediaan bagi sesuatu tugas.",
@@ -2143,7 +2143,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.komputer",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "komputer",
     "part": "kata nama",
     "definition": "Peranti elektronik yang memproses, menyimpan dan memaparkan maklumat mengikut arahan.",
@@ -2196,7 +2196,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.telefon",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "telefon",
     "part": "kata nama",
     "definition": "Peranti yang digunakan untuk membuat panggilan suara atau berkomunikasi dengan orang lain.",
@@ -2249,7 +2249,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.internet",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "internet",
     "part": "kata nama",
     "definition": "Rangkaian global yang menghubungkan komputer dan peranti untuk bertukar maklumat.",
@@ -2302,7 +2302,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.surat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "surat",
     "part": "kata nama",
     "definition": "Mesej bertulis yang dihantar kepada seseorang atau organisasi, biasanya dalam bentuk dokumen.",
@@ -2354,7 +2354,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.e-mel",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "e-mel",
     "part": "kata nama",
     "definition": "Mesej yang dihantar dan diterima melalui sistem mel elektronik.",
@@ -2407,7 +2407,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.mesyuarat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "mesyuarat",
     "part": "kata nama",
     "definition": "Perhimpunan beberapa orang untuk berbincang dan membuat keputusan tentang sesuatu perkara.",
@@ -2460,7 +2460,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.cuti",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "cuti",
     "part": "kata nama",
     "definition": "Tempoh seseorang tidak perlu bekerja atau belajar seperti biasa.",
@@ -2513,7 +2513,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.ribut",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "ribut",
     "part": "kata nama",
     "definition": "Keadaan cuaca buruk yang disertai angin kencang dan mungkin hujan lebat atau petir.",
@@ -2566,7 +2566,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.banjir",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "banjir",
     "part": "kata nama",
     "definition": "Keadaan apabila air melimpah dan menenggelami kawasan yang biasanya kering.",
@@ -2619,7 +2619,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.kemalangan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "kemalangan",
     "part": "kata nama",
     "definition": "Peristiwa tidak disengajakan yang menyebabkan kecederaan, kerosakan atau kerugian.",
@@ -2672,7 +2672,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.kecemasan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "kecemasan",
     "part": "kata nama",
     "definition": "Keadaan mendesak yang memerlukan tindakan segera untuk mengelakkan bahaya atau kerugian.",
@@ -2725,7 +2725,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.selamat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "selamat",
     "part": "kata adjektif",
     "definition": "Bebas daripada bahaya, kecederaan atau risiko yang mengancam.",
@@ -2778,7 +2778,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.bahaya",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "bahaya",
     "part": "kata nama",
     "definition": "Keadaan atau perkara yang boleh menyebabkan kecederaan, kerosakan atau kemudaratan.",
@@ -2830,7 +2830,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.peluang",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "peluang",
     "part": "kata nama",
     "definition": "Keadaan atau masa yang sesuai untuk melakukan sesuatu atau mencapai sesuatu tujuan.",
@@ -2883,7 +2883,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.tujuan",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "tujuan",
     "part": "kata nama",
     "definition": "Hasil atau perkara yang ingin dicapai melalui sesuatu tindakan atau usaha.",
@@ -2936,7 +2936,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.sebab",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "sebab",
     "part": "kata nama",
     "definition": "Perkara yang menerangkan mengapa sesuatu berlaku atau dilakukan.",
@@ -2989,7 +2989,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.akibat",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "akibat",
     "part": "kata nama",
     "definition": "Kesan atau hasil yang timbul daripada sesuatu tindakan atau peristiwa.",
@@ -3041,7 +3041,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.berjaya",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "berjaya",
     "part": "kata adjektif",
     "definition": "Mencapai hasil atau matlamat yang diusahakan.",
@@ -3094,7 +3094,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     "id": "ms.dict.gagal",
     "schemaVersion": 1,
     "languageCode": "ms",
-    "contentVersion": "u3-ms-dict-0.4.0",
+    "contentVersion": "u3-ms-dict-0.5.0",
     "word": "gagal",
     "part": "kata kerja",
     "definition": "Tidak mencapai hasil atau matlamat yang dikehendaki.",
@@ -3143,6 +3143,2598 @@ window.SWIFT_MALAY_DICTIONARY = [
       "reviewerId": null
     }
   }
+,
+  {
+    "id": "ms.dict.kereta",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "kereta",
+    "part": "kata nama",
+    "definition": "Kenderaan bermotor beroda empat yang digunakan untuk membawa penumpang atau barang.",
+    "definitionEn": "A motor vehicle with four wheels used to carry passengers or goods; a car.",
+    "definitionZh": "汽车；用于运载乘客或货物的四轮机动车。",
+    "examples": [
+      "Ayah memandu kereta ke tempat kerja.",
+      "Kereta itu diletakkan di hadapan rumah."
+    ],
+    "related": [
+      "kenderaan",
+      "pemandu"
+    ],
+    "categories": [
+      "pengangkutan",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kereta.s1",
+        "definition": "Kenderaan bermotor beroda empat yang digunakan untuk membawa penumpang atau barang.",
+        "definitionEn": "A motor vehicle with four wheels used to carry passengers or goods; a car.",
+        "definitionZh": "汽车；用于运载乘客或货物的四轮机动车。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Ayah memandu kereta ke tempat kerja."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.motosikal",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "motosikal",
+    "part": "kata nama",
+    "definition": "Kenderaan bermotor beroda dua yang dikendalikan dengan hendal dan tempat duduk penunggang.",
+    "definitionEn": "A motorised two-wheeled vehicle steered by handlebars; a motorcycle.",
+    "definitionZh": "摩托车；由骑乘者以车把操控的两轮机动车。",
+    "examples": [
+      "Dia menunggang motosikal ke kampus.",
+      "Pakai topi keledar ketika menaiki motosikal."
+    ],
+    "related": [
+      "helmet",
+      "kenderaan"
+    ],
+    "categories": [
+      "pengangkutan",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.motosikal.s1",
+        "definition": "Kenderaan bermotor beroda dua yang dikendalikan dengan hendal dan tempat duduk penunggang.",
+        "definitionEn": "A motorised two-wheeled vehicle steered by handlebars; a motorcycle.",
+        "definitionZh": "摩托车；由骑乘者以车把操控的两轮机动车。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia menunggang motosikal ke kampus."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.basikal",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "basikal",
+    "part": "kata nama",
+    "definition": "Kenderaan beroda dua yang digerakkan dengan mengayuh pedal.",
+    "definitionEn": "A two-wheeled vehicle powered by pedalling; a bicycle.",
+    "definitionZh": "自行车；通过踩踏板驱动的两轮交通工具。",
+    "examples": [
+      "Kanak-kanak itu belajar menunggang basikal.",
+      "Saya menggunakan basikal untuk ke kedai berhampiran."
+    ],
+    "related": [
+      "mengayuh",
+      "roda"
+    ],
+    "categories": [
+      "pengangkutan",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.basikal.s1",
+        "definition": "Kenderaan beroda dua yang digerakkan dengan mengayuh pedal.",
+        "definitionEn": "A two-wheeled vehicle powered by pedalling; a bicycle.",
+        "definitionZh": "自行车；通过踩踏板驱动的两轮交通工具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kanak-kanak itu belajar menunggang basikal."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.teksi",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "teksi",
+    "part": "kata nama",
+    "definition": "Kenderaan yang membawa penumpang ke destinasi tertentu dengan bayaran tambang.",
+    "definitionEn": "A taxi that carries passengers to a destination for a fare.",
+    "definitionZh": "出租车；收取车费并载送乘客到指定地点的车辆。",
+    "examples": [
+      "Kami menaiki teksi dari lapangan terbang.",
+      "Pemandu teksi itu mengetahui jalan pintas."
+    ],
+    "related": [
+      "tambang",
+      "pemandu"
+    ],
+    "categories": [
+      "pengangkutan",
+      "perkhidmatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.teksi.s1",
+        "definition": "Kenderaan yang membawa penumpang ke destinasi tertentu dengan bayaran tambang.",
+        "definitionEn": "A taxi that carries passengers to a destination for a fare.",
+        "definitionZh": "出租车；收取车费并载送乘客到指定地点的车辆。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kami menaiki teksi dari lapangan terbang."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.tren",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "tren",
+    "part": "kata nama",
+    "definition": "Kenderaan pengangkutan yang terdiri daripada beberapa gerabak dan bergerak di atas landasan.",
+    "definitionEn": "A train made up of carriages that travels on railway tracks.",
+    "definitionZh": "火车；由多个车厢组成并在铁轨上行驶的交通工具。",
+    "examples": [
+      "Tren itu tiba tepat pada waktunya.",
+      "Saya menaiki tren untuk ke pusat bandar."
+    ],
+    "related": [
+      "landasan",
+      "stesen"
+    ],
+    "categories": [
+      "pengangkutan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.tren.s1",
+        "definition": "Kenderaan pengangkutan yang terdiri daripada beberapa gerabak dan bergerak di atas landasan.",
+        "definitionEn": "A train made up of carriages that travels on railway tracks.",
+        "definitionZh": "火车；由多个车厢组成并在铁轨上行驶的交通工具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Tren itu tiba tepat pada waktunya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.stesen",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "stesen",
+    "part": "kata nama",
+    "definition": "Tempat kenderaan atau perkhidmatan pengangkutan berhenti untuk mengambil dan menurunkan penumpang.",
+    "definitionEn": "A station where a transport service stops to pick up and drop off passengers.",
+    "definitionZh": "车站；交通工具停靠以接送乘客的地点。",
+    "examples": [
+      "Kami menunggu di stesen kereta api.",
+      "Stesen bas itu terletak berhampiran pasar."
+    ],
+    "related": [
+      "perhentian",
+      "terminal"
+    ],
+    "categories": [
+      "pengangkutan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.stesen.s1",
+        "definition": "Tempat kenderaan atau perkhidmatan pengangkutan berhenti untuk mengambil dan menurunkan penumpang.",
+        "definitionEn": "A station where a transport service stops to pick up and drop off passengers.",
+        "definitionZh": "车站；交通工具停靠以接送乘客的地点。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kami menunggu di stesen kereta api."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.lapangan-terbang",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "lapangan terbang",
+    "part": "kata nama",
+    "definition": "Kawasan yang mempunyai landasan dan kemudahan untuk pesawat berlepas serta mendarat.",
+    "definitionEn": "An airport with runways and facilities for aircraft to take off and land.",
+    "definitionZh": "机场；设有跑道和设施供飞机起降的区域。",
+    "examples": [
+      "Mereka tiba di lapangan terbang dua jam lebih awal.",
+      "Lapangan terbang itu sibuk pada musim cuti."
+    ],
+    "related": [
+      "pesawat",
+      "terminal"
+    ],
+    "categories": [
+      "pengangkutan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.lapangan-terbang.s1",
+        "definition": "Kawasan yang mempunyai landasan dan kemudahan untuk pesawat berlepas serta mendarat.",
+        "definitionEn": "An airport with runways and facilities for aircraft to take off and land.",
+        "definitionZh": "机场；设有跑道和设施供飞机起降的区域。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mereka tiba di lapangan terbang dua jam lebih awal."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pesawat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "pesawat",
+    "part": "kata nama",
+    "definition": "Kenderaan yang boleh terbang di udara, khususnya kapal terbang.",
+    "definitionEn": "An aircraft that travels through the air, especially an aeroplane.",
+    "definitionZh": "飞机；能够在空中飞行的交通工具。",
+    "examples": [
+      "Pesawat itu berlepas pada pukul sembilan pagi.",
+      "Cuaca buruk menyebabkan pesawat lewat tiba."
+    ],
+    "related": [
+      "kapal terbang",
+      "penerbangan"
+    ],
+    "categories": [
+      "pengangkutan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pesawat.s1",
+        "definition": "Kenderaan yang boleh terbang di udara, khususnya kapal terbang.",
+        "definitionEn": "An aircraft that travels through the air, especially an aeroplane.",
+        "definitionZh": "飞机；能够在空中飞行的交通工具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pesawat itu berlepas pada pukul sembilan pagi."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.tiket",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "tiket",
+    "part": "kata nama",
+    "definition": "Dokumen atau bukti yang memberikan hak untuk memasuki tempat atau menggunakan perkhidmatan.",
+    "definitionEn": "A ticket or proof that allows entry to a place or use of a service.",
+    "definitionZh": "票；允许进入某地或使用某项服务的凭证。",
+    "examples": [
+      "Saya membeli tiket bas secara dalam talian.",
+      "Sila tunjukkan tiket sebelum menaiki tren."
+    ],
+    "related": [
+      "pas masuk",
+      "tambang"
+    ],
+    "categories": [
+      "pengangkutan",
+      "perkhidmatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.tiket.s1",
+        "definition": "Dokumen atau bukti yang memberikan hak untuk memasuki tempat atau menggunakan perkhidmatan.",
+        "definitionEn": "A ticket or proof that allows entry to a place or use of a service.",
+        "definitionZh": "票；允许进入某地或使用某项服务的凭证。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya membeli tiket bas secara dalam talian."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.perjalanan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "perjalanan",
+    "part": "kata nama",
+    "definition": "Pergerakan atau proses pergi dari satu tempat ke tempat yang lain.",
+    "definitionEn": "A journey or the process of travelling from one place to another.",
+    "definitionZh": "旅程；从一个地方前往另一个地方的过程。",
+    "examples": [
+      "Perjalanan ke Pulau Pinang mengambil masa beberapa jam.",
+      "Kami berehat sebentar semasa perjalanan."
+    ],
+    "related": [
+      "pengembaraan",
+      "destinasi"
+    ],
+    "categories": [
+      "pengangkutan",
+      "masa"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.perjalanan.s1",
+        "definition": "Pergerakan atau proses pergi dari satu tempat ke tempat yang lain.",
+        "definitionEn": "A journey or the process of travelling from one place to another.",
+        "definitionZh": "旅程；从一个地方前往另一个地方的过程。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Perjalanan ke Pulau Pinang mengambil masa beberapa jam."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.peta",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "peta",
+    "part": "kata nama",
+    "definition": "Gambaran permukaan kawasan atau tempat yang menunjukkan kedudukan dan arah.",
+    "definitionEn": "A map showing the layout, location and direction of places.",
+    "definitionZh": "地图；显示地点位置和方向的区域图示。",
+    "examples": [
+      "Gunakan peta untuk mencari lokasi hotel.",
+      "Peta itu menunjukkan jalan ke hospital."
+    ],
+    "related": [
+      "arah",
+      "lokasi"
+    ],
+    "categories": [
+      "pengangkutan",
+      "pendidikan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.peta.s1",
+        "definition": "Gambaran permukaan kawasan atau tempat yang menunjukkan kedudukan dan arah.",
+        "definitionEn": "A map showing the layout, location and direction of places.",
+        "definitionZh": "地图；显示地点位置和方向的区域图示。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Gunakan peta untuk mencari lokasi hotel."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.hotel",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "hotel",
+    "part": "kata nama",
+    "definition": "Bangunan atau tempat penginapan yang menyediakan bilik dan kemudahan kepada tetamu dengan bayaran.",
+    "definitionEn": "A hotel that provides rooms and facilities for guests in return for payment.",
+    "definitionZh": "酒店；收费为旅客提供客房和设施的住宿场所。",
+    "examples": [
+      "Kami menginap di hotel berhampiran pantai.",
+      "Hotel itu menyediakan sarapan untuk tetamu."
+    ],
+    "related": [
+      "penginapan",
+      "tetamu"
+    ],
+    "categories": [
+      "pelancongan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.hotel.s1",
+        "definition": "Bangunan atau tempat penginapan yang menyediakan bilik dan kemudahan kepada tetamu dengan bayaran.",
+        "definitionEn": "A hotel that provides rooms and facilities for guests in return for payment.",
+        "definitionZh": "酒店；收费为旅客提供客房和设施的住宿场所。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kami menginap di hotel berhampiran pantai."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.jiran",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "jiran",
+    "part": "kata nama",
+    "definition": "Orang yang tinggal berhampiran rumah atau tempat kediaman seseorang.",
+    "definitionEn": "A neighbour who lives near another person's home.",
+    "definitionZh": "邻居；住在某人住宅附近的人。",
+    "examples": [
+      "Jiran kami membantu menjaga rumah ketika kami bercuti.",
+      "Saya bertegur sapa dengan jiran sebelah."
+    ],
+    "related": [
+      "penduduk",
+      "komuniti"
+    ],
+    "categories": [
+      "masyarakat",
+      "manusia"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.jiran.s1",
+        "definition": "Orang yang tinggal berhampiran rumah atau tempat kediaman seseorang.",
+        "definitionEn": "A neighbour who lives near another person's home.",
+        "definitionZh": "邻居；住在某人住宅附近的人。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Jiran kami membantu menjaga rumah ketika kami bercuti."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kampung",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "kampung",
+    "part": "kata nama",
+    "definition": "Kawasan petempatan yang biasanya lebih kecil dan kurang padat berbanding bandar.",
+    "definitionEn": "A village or rural settlement, usually smaller and less densely populated than a town.",
+    "definitionZh": "村庄；通常比城镇规模较小、人口密度较低的聚居地。",
+    "examples": [
+      "Datuk saya tinggal di sebuah kampung di Perak.",
+      "Suasana kampung itu tenang pada waktu malam."
+    ],
+    "related": [
+      "desa",
+      "penduduk"
+    ],
+    "categories": [
+      "tempat",
+      "masyarakat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kampung.s1",
+        "definition": "Kawasan petempatan yang biasanya lebih kecil dan kurang padat berbanding bandar.",
+        "definitionEn": "A village or rural settlement, usually smaller and less densely populated than a town.",
+        "definitionZh": "村庄；通常比城镇规模较小、人口密度较低的聚居地。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Datuk saya tinggal di sebuah kampung di Perak."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.taman",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "taman",
+    "part": "kata nama",
+    "definition": "Kawasan yang ditanam dengan pokok dan tumbuhan untuk rekreasi atau mencantikkan persekitaran.",
+    "definitionEn": "A park or garden planted with trees and greenery for recreation or landscaping.",
+    "definitionZh": "公园；种植树木和植物、供休闲或美化环境的区域。",
+    "examples": [
+      "Kanak-kanak bermain di taman pada waktu petang.",
+      "Kami berjalan-jalan di taman awam."
+    ],
+    "related": [
+      "kebun",
+      "rekreasi"
+    ],
+    "categories": [
+      "tempat",
+      "alam"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.taman.s1",
+        "definition": "Kawasan yang ditanam dengan pokok dan tumbuhan untuk rekreasi atau mencantikkan persekitaran.",
+        "definitionEn": "A park or garden planted with trees and greenery for recreation or landscaping.",
+        "definitionZh": "公园；种植树木和植物、供休闲或美化环境的区域。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kanak-kanak bermain di taman pada waktu petang."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.jambatan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "jambatan",
+    "part": "kata nama",
+    "definition": "Binaan yang membolehkan orang atau kenderaan melintasi sungai, jalan atau halangan lain.",
+    "definitionEn": "A bridge that allows people or vehicles to cross a river, road or other obstacle.",
+    "definitionZh": "桥；让行人或车辆跨越河流、道路或其他障碍的建筑物。",
+    "examples": [
+      "Jambatan itu menghubungkan dua buah kampung.",
+      "Kenderaan bergerak perlahan di atas jambatan."
+    ],
+    "related": [
+      "sungai",
+      "laluan"
+    ],
+    "categories": [
+      "pengangkutan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.jambatan.s1",
+        "definition": "Binaan yang membolehkan orang atau kenderaan melintasi sungai, jalan atau halangan lain.",
+        "definitionEn": "A bridge that allows people or vehicles to cross a river, road or other obstacle.",
+        "definitionZh": "桥；让行人或车辆跨越河流、道路或其他障碍的建筑物。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Jambatan itu menghubungkan dua buah kampung."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.sungai",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "sungai",
+    "part": "kata nama",
+    "definition": "Aliran air semula jadi yang mengalir melalui daratan menuju tasik, laut atau sungai lain.",
+    "definitionEn": "A natural flowing body of water that runs across land towards a lake, sea or another river.",
+    "definitionZh": "河流；在陆地上流动并通往湖泊、海洋或其他河流的自然水道。",
+    "examples": [
+      "Mereka memancing di tepi sungai.",
+      "Air sungai itu mengalir deras selepas hujan."
+    ],
+    "related": [
+      "anak sungai",
+      "muara"
+    ],
+    "categories": [
+      "alam",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.sungai.s1",
+        "definition": "Aliran air semula jadi yang mengalir melalui daratan menuju tasik, laut atau sungai lain.",
+        "definitionEn": "A natural flowing body of water that runs across land towards a lake, sea or another river.",
+        "definitionZh": "河流；在陆地上流动并通往湖泊、海洋或其他河流的自然水道。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mereka memancing di tepi sungai."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pantai",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "pantai",
+    "part": "kata nama",
+    "definition": "Kawasan daratan di sepanjang tepi laut atau tasik yang berpasir atau berbatu.",
+    "definitionEn": "A beach or shore along the sea or a lake, often sandy or rocky.",
+    "definitionZh": "海滩；沿海或湖边的沙地或石岸区域。",
+    "examples": [
+      "Kami berjalan di pantai pada waktu senja.",
+      "Pantai itu menjadi tumpuan pelancong."
+    ],
+    "related": [
+      "laut",
+      "pasir"
+    ],
+    "categories": [
+      "alam",
+      "pelancongan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pantai.s1",
+        "definition": "Kawasan daratan di sepanjang tepi laut atau tasik yang berpasir atau berbatu.",
+        "definitionEn": "A beach or shore along the sea or a lake, often sandy or rocky.",
+        "definitionZh": "海滩；沿海或湖边的沙地或石岸区域。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kami berjalan di pantai pada waktu senja."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.laut",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "laut",
+    "part": "kata nama",
+    "definition": "Kawasan air masin yang luas dan sebahagian daripada lautan.",
+    "definitionEn": "The sea, a large area of salt water forming part of the ocean.",
+    "definitionZh": "海；构成海洋一部分的广阔咸水区域。",
+    "examples": [
+      "Bot nelayan itu kembali dari laut.",
+      "Laut kelihatan tenang pada pagi itu."
+    ],
+    "related": [
+      "ombak",
+      "pantai"
+    ],
+    "categories": [
+      "alam"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.laut.s1",
+        "definition": "Kawasan air masin yang luas dan sebahagian daripada lautan.",
+        "definitionEn": "The sea, a large area of salt water forming part of the ocean.",
+        "definitionZh": "海；构成海洋一部分的广阔咸水区域。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Bot nelayan itu kembali dari laut."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pulau",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "pulau",
+    "part": "kata nama",
+    "definition": "Kawasan daratan yang dikelilingi air sepenuhnya.",
+    "definitionEn": "An island, an area of land completely surrounded by water.",
+    "definitionZh": "岛屿；完全被水域环绕的陆地区域。",
+    "examples": [
+      "Mereka bercuti di sebuah pulau tropika.",
+      "Pulau itu boleh dikunjungi dengan feri."
+    ],
+    "related": [
+      "kepulauan",
+      "pantai"
+    ],
+    "categories": [
+      "alam",
+      "pelancongan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pulau.s1",
+        "definition": "Kawasan daratan yang dikelilingi air sepenuhnya.",
+        "definitionEn": "An island, an area of land completely surrounded by water.",
+        "definitionZh": "岛屿；完全被水域环绕的陆地区域。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mereka bercuti di sebuah pulau tropika."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.hutan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "hutan",
+    "part": "kata nama",
+    "definition": "Kawasan luas yang dipenuhi pokok dan tumbuhan liar serta menjadi habitat pelbagai hidupan.",
+    "definitionEn": "A forest, a large area covered with trees and wild plants that provides habitats for wildlife.",
+    "definitionZh": "森林；长满树木和野生植物、为各种生物提供栖息地的广阔区域。",
+    "examples": [
+      "Hutan itu menjadi habitat gajah.",
+      "Mereka menjalankan kajian di hutan simpan."
+    ],
+    "related": [
+      "rimba",
+      "pokok"
+    ],
+    "categories": [
+      "alam",
+      "tumbuhan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.hutan.s1",
+        "definition": "Kawasan luas yang dipenuhi pokok dan tumbuhan liar serta menjadi habitat pelbagai hidupan.",
+        "definitionEn": "A forest, a large area covered with trees and wild plants that provides habitats for wildlife.",
+        "definitionZh": "森林；长满树木和野生植物、为各种生物提供栖息地的广阔区域。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Hutan itu menjadi habitat gajah."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pokok",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "pokok",
+    "part": "kata nama",
+    "definition": "Tumbuhan berkayu yang mempunyai batang utama dan biasanya tumbuh tinggi.",
+    "definitionEn": "A tree, a woody plant with a main trunk that usually grows upright.",
+    "definitionZh": "树；具有主干、通常向上生长的木本植物。",
+    "examples": [
+      "Pokok mangga itu berbuah lebat.",
+      "Mereka menanam pokok di halaman rumah."
+    ],
+    "related": [
+      "batang",
+      "dahan"
+    ],
+    "categories": [
+      "alam",
+      "tumbuhan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pokok.s1",
+        "definition": "Tumbuhan berkayu yang mempunyai batang utama dan biasanya tumbuh tinggi.",
+        "definitionEn": "A tree, a woody plant with a main trunk that usually grows upright.",
+        "definitionZh": "树；具有主干、通常向上生长的木本植物。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pokok mangga itu berbuah lebat."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.nasi",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "nasi",
+    "part": "kata nama",
+    "definition": "Beras yang telah dimasak dengan air sehingga menjadi makanan ruji.",
+    "definitionEn": "Cooked rice, a staple food prepared by boiling or steaming rice grains.",
+    "definitionZh": "米饭；以水煮或蒸熟、作为主食的稻米。",
+    "examples": [
+      "Saya makan nasi bersama ikan dan sayur.",
+      "Nasi itu masih panas."
+    ],
+    "related": [
+      "beras",
+      "makanan"
+    ],
+    "categories": [
+      "makanan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.nasi.s1",
+        "definition": "Beras yang telah dimasak dengan air sehingga menjadi makanan ruji.",
+        "definitionEn": "Cooked rice, a staple food prepared by boiling or steaming rice grains.",
+        "definitionZh": "米饭；以水煮或蒸熟、作为主食的稻米。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya makan nasi bersama ikan dan sayur."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.roti",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "roti",
+    "part": "kata nama",
+    "definition": "Makanan yang dibuat daripada doh tepung dan biasanya dibakar.",
+    "definitionEn": "Bread, a food made from flour dough and usually baked.",
+    "definitionZh": "面包；通常由面粉面团烘烤制成的食物。",
+    "examples": [
+      "Saya membeli roti untuk sarapan.",
+      "Roti itu disapu mentega."
+    ],
+    "related": [
+      "tepung",
+      "sandwic"
+    ],
+    "categories": [
+      "makanan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.roti.s1",
+        "definition": "Makanan yang dibuat daripada doh tepung dan biasanya dibakar.",
+        "definitionEn": "Bread, a food made from flour dough and usually baked.",
+        "definitionZh": "面包；通常由面粉面团烘烤制成的食物。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya membeli roti untuk sarapan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.ikan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "ikan",
+    "part": "kata nama",
+    "definition": "Haiwan vertebrata yang hidup di dalam air dan biasanya bernafas menggunakan insang.",
+    "definitionEn": "A fish, an aquatic vertebrate that usually breathes through gills.",
+    "definitionZh": "鱼；生活在水中、通常以鳃呼吸的脊椎动物。",
+    "examples": [
+      "Ibu membeli ikan segar di pasar.",
+      "Ikan itu berenang berhampiran batu."
+    ],
+    "related": [
+      "insang",
+      "nelayan"
+    ],
+    "categories": [
+      "haiwan",
+      "makanan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.ikan.s1",
+        "definition": "Haiwan vertebrata yang hidup di dalam air dan biasanya bernafas menggunakan insang.",
+        "definitionEn": "A fish, an aquatic vertebrate that usually breathes through gills.",
+        "definitionZh": "鱼；生活在水中、通常以鳃呼吸的脊椎动物。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Ibu membeli ikan segar di pasar."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.sayur",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "sayur",
+    "part": "kata nama",
+    "definition": "Tumbuhan atau bahagian tumbuhan yang dimakan sebagai makanan, khususnya dalam hidangan utama.",
+    "definitionEn": "Vegetables or edible parts of plants eaten as food, especially in main meals.",
+    "definitionZh": "蔬菜；作为食物食用的植物或植物部分，尤其用于正餐。",
+    "examples": [
+      "Makan sayur setiap hari untuk diet seimbang.",
+      "Sayur itu dimasak bersama sup."
+    ],
+    "related": [
+      "ulam",
+      "buah"
+    ],
+    "categories": [
+      "makanan",
+      "kesihatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.sayur.s1",
+        "definition": "Tumbuhan atau bahagian tumbuhan yang dimakan sebagai makanan, khususnya dalam hidangan utama.",
+        "definitionEn": "Vegetables or edible parts of plants eaten as food, especially in main meals.",
+        "definitionZh": "蔬菜；作为食物食用的植物或植物部分，尤其用于正餐。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Makan sayur setiap hari untuk diet seimbang."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.telur",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "telur",
+    "part": "kata nama",
+    "definition": "Struktur yang dihasilkan oleh haiwan tertentu, khususnya burung, dan digunakan sebagai makanan.",
+    "definitionEn": "An egg, especially one laid by a bird and commonly eaten as food.",
+    "definitionZh": "鸡蛋；尤其指鸟类产下、常作为食物的卵。",
+    "examples": [
+      "Saya memasak telur untuk sarapan.",
+      "Telur itu perlu disimpan di dalam peti sejuk."
+    ],
+    "related": [
+      "kuning telur",
+      "putih telur"
+    ],
+    "categories": [
+      "makanan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.telur.s1",
+        "definition": "Struktur yang dihasilkan oleh haiwan tertentu, khususnya burung, dan digunakan sebagai makanan.",
+        "definitionEn": "An egg, especially one laid by a bird and commonly eaten as food.",
+        "definitionZh": "鸡蛋；尤其指鸟类产下、常作为食物的卵。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya memasak telur untuk sarapan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.susu",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "susu",
+    "part": "kata nama",
+    "definition": "Cecair berkhasiat yang dihasilkan oleh kelenjar mamalia betina untuk menyusukan anak.",
+    "definitionEn": "Milk, a nutritious liquid produced by female mammals to feed their young.",
+    "definitionZh": "奶；由雌性哺乳动物乳腺分泌、用于哺育幼崽的营养液体。",
+    "examples": [
+      "Adik minum segelas susu setiap pagi.",
+      "Susu itu perlu disejukkan selepas dibuka."
+    ],
+    "related": [
+      "tenusu",
+      "keju"
+    ],
+    "categories": [
+      "makanan",
+      "kesihatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.susu.s1",
+        "definition": "Cecair berkhasiat yang dihasilkan oleh kelenjar mamalia betina untuk menyusukan anak.",
+        "definitionEn": "Milk, a nutritious liquid produced by female mammals to feed their young.",
+        "definitionZh": "奶；由雌性哺乳动物乳腺分泌、用于哺育幼崽的营养液体。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Adik minum segelas susu setiap pagi."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.gula",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "gula",
+    "part": "kata nama",
+    "definition": "Bahan berasa manis yang digunakan untuk memaniskan makanan dan minuman.",
+    "definitionEn": "Sugar, a sweet substance used to sweeten food and drinks.",
+    "definitionZh": "糖；用于增加食物和饮料甜味的物质。",
+    "examples": [
+      "Jangan tambah terlalu banyak gula ke dalam minuman.",
+      "Gula itu disimpan di dalam bekas."
+    ],
+    "related": [
+      "manis",
+      "garam"
+    ],
+    "categories": [
+      "makanan",
+      "kesihatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.gula.s1",
+        "definition": "Bahan berasa manis yang digunakan untuk memaniskan makanan dan minuman.",
+        "definitionEn": "Sugar, a sweet substance used to sweeten food and drinks.",
+        "definitionZh": "糖；用于增加食物和饮料甜味的物质。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Jangan tambah terlalu banyak gula ke dalam minuman."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pintu",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "pintu",
+    "part": "kata nama",
+    "definition": "Bahagian yang boleh dibuka dan ditutup untuk membolehkan orang masuk atau keluar dari ruang atau bangunan.",
+    "definitionEn": "A door, a movable barrier used to enter or leave a room or building.",
+    "definitionZh": "门；可开关、供人进出房间或建筑物的部分。",
+    "examples": [
+      "Sila tutup pintu selepas keluar.",
+      "Pintu utama rumah itu diperbuat daripada kayu."
+    ],
+    "related": [
+      "kunci",
+      "tingkap"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pintu.s1",
+        "definition": "Bahagian yang boleh dibuka dan ditutup untuk membolehkan orang masuk atau keluar dari ruang atau bangunan.",
+        "definitionEn": "A door, a movable barrier used to enter or leave a room or building.",
+        "definitionZh": "门；可开关、供人进出房间或建筑物的部分。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Sila tutup pintu selepas keluar."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.tingkap",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "tingkap",
+    "part": "kata nama",
+    "definition": "Bukaan pada dinding bangunan yang biasanya mempunyai kaca dan membolehkan cahaya serta udara masuk.",
+    "definitionEn": "A window, an opening in a building wall that lets in light and air.",
+    "definitionZh": "窗户；建筑墙上的开口，通常装有玻璃以引入光线和空气。",
+    "examples": [
+      "Buka tingkap supaya udara segar masuk.",
+      "Hujan mengetuk kaca tingkap."
+    ],
+    "related": [
+      "kaca",
+      "langsir"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.tingkap.s1",
+        "definition": "Bukaan pada dinding bangunan yang biasanya mempunyai kaca dan membolehkan cahaya serta udara masuk.",
+        "definitionEn": "A window, an opening in a building wall that lets in light and air.",
+        "definitionZh": "窗户；建筑墙上的开口，通常装有玻璃以引入光线和空气。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Buka tingkap supaya udara segar masuk."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.lantai",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "lantai",
+    "part": "kata nama",
+    "definition": "Permukaan bawah sesuatu ruang atau bangunan yang digunakan untuk dipijak.",
+    "definitionEn": "A floor, the lower surface of a room or building that people walk on.",
+    "definitionZh": "地板；房间或建筑物中供人行走的底部表面。",
+    "examples": [
+      "Lantai dapur itu baru dibersihkan.",
+      "Jangan letakkan beg di atas lantai yang basah."
+    ],
+    "related": [
+      "jubin",
+      "karpet"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.lantai.s1",
+        "definition": "Permukaan bawah sesuatu ruang atau bangunan yang digunakan untuk dipijak.",
+        "definitionEn": "A floor, the lower surface of a room or building that people walk on.",
+        "definitionZh": "地板；房间或建筑物中供人行走的底部表面。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Lantai dapur itu baru dibersihkan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.bumbung",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "bumbung",
+    "part": "kata nama",
+    "definition": "Bahagian paling atas bangunan yang melindungi ruang di bawahnya daripada hujan dan panas.",
+    "definitionEn": "A roof, the top covering of a building that protects the space below from weather.",
+    "definitionZh": "屋顶；建筑物顶部用于遮挡雨水和阳光的覆盖结构。",
+    "examples": [
+      "Bumbung rumah itu perlu dibaiki.",
+      "Bunyi hujan kedengaran dari atas bumbung."
+    ],
+    "related": [
+      "atap",
+      "siling"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.bumbung.s1",
+        "definition": "Bahagian paling atas bangunan yang melindungi ruang di bawahnya daripada hujan dan panas.",
+        "definitionEn": "A roof, the top covering of a building that protects the space below from weather.",
+        "definitionZh": "屋顶；建筑物顶部用于遮挡雨水和阳光的覆盖结构。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Bumbung rumah itu perlu dibaiki."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.dinding",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "dinding",
+    "part": "kata nama",
+    "definition": "Struktur tegak yang membahagikan atau mengelilingi ruang dalam bangunan.",
+    "definitionEn": "A wall, an upright structure that divides or encloses spaces in a building.",
+    "definitionZh": "墙；建筑物中用于分隔或围住空间的垂直结构。",
+    "examples": [
+      "Gambar keluarga digantung pada dinding.",
+      "Dinding bilik itu dicat warna biru."
+    ],
+    "related": [
+      "tembok",
+      "bata"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.dinding.s1",
+        "definition": "Struktur tegak yang membahagikan atau mengelilingi ruang dalam bangunan.",
+        "definitionEn": "A wall, an upright structure that divides or encloses spaces in a building.",
+        "definitionZh": "墙；建筑物中用于分隔或围住空间的垂直结构。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Gambar keluarga digantung pada dinding."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.katil",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "katil",
+    "part": "kata nama",
+    "definition": "Perabot yang digunakan untuk berbaring atau tidur.",
+    "definitionEn": "A bed, a piece of furniture used for lying down or sleeping.",
+    "definitionZh": "床；用于躺卧或睡觉的家具。",
+    "examples": [
+      "Katil itu diletakkan berhampiran tingkap.",
+      "Saya mengemas katil selepas bangun tidur."
+    ],
+    "related": [
+      "tilam",
+      "bantal"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.katil.s1",
+        "definition": "Perabot yang digunakan untuk berbaring atau tidur.",
+        "definitionEn": "A bed, a piece of furniture used for lying down or sleeping.",
+        "definitionZh": "床；用于躺卧或睡觉的家具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Katil itu diletakkan berhampiran tingkap."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.meja",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "meja",
+    "part": "kata nama",
+    "definition": "Perabot yang mempunyai permukaan rata dan digunakan untuk meletakkan barang atau melakukan kerja.",
+    "definitionEn": "A table or desk with a flat surface used for placing objects or working.",
+    "definitionZh": "桌子；具有平面、用于放置物品或工作的家具。",
+    "examples": [
+      "Buku itu berada di atas meja.",
+      "Mereka berbincang di meja makan."
+    ],
+    "related": [
+      "kerusi",
+      "permukaan"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.meja.s1",
+        "definition": "Perabot yang mempunyai permukaan rata dan digunakan untuk meletakkan barang atau melakukan kerja.",
+        "definitionEn": "A table or desk with a flat surface used for placing objects or working.",
+        "definitionZh": "桌子；具有平面、用于放置物品或工作的家具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Buku itu berada di atas meja."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kerusi",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "kerusi",
+    "part": "kata nama",
+    "definition": "Tempat duduk untuk seorang yang biasanya mempunyai kaki dan penyandar.",
+    "definitionEn": "A chair, a seat for one person, usually with legs and a backrest.",
+    "definitionZh": "椅子；通常有椅腿和靠背、供一人坐的家具。",
+    "examples": [
+      "Sila duduk di kerusi ini.",
+      "Kerusi kayu itu agak berat."
+    ],
+    "related": [
+      "tempat duduk",
+      "meja"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kerusi.s1",
+        "definition": "Tempat duduk untuk seorang yang biasanya mempunyai kaki dan penyandar.",
+        "definitionEn": "A chair, a seat for one person, usually with legs and a backrest.",
+        "definitionZh": "椅子；通常有椅腿和靠背、供一人坐的家具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Sila duduk di kerusi ini."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.lampu",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "lampu",
+    "part": "kata nama",
+    "definition": "Alat yang menghasilkan cahaya untuk menerangi ruang atau kawasan.",
+    "definitionEn": "A lamp or light used to illuminate a room or area.",
+    "definitionZh": "灯；用于照亮房间或区域的发光设备。",
+    "examples": [
+      "Tutup lampu sebelum tidur.",
+      "Lampu jalan itu tidak menyala."
+    ],
+    "related": [
+      "cahaya",
+      "suis"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.lampu.s1",
+        "definition": "Alat yang menghasilkan cahaya untuk menerangi ruang atau kawasan.",
+        "definitionEn": "A lamp or light used to illuminate a room or area.",
+        "definitionZh": "灯；用于照亮房间或区域的发光设备。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Tutup lampu sebelum tidur."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kipas",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "kipas",
+    "part": "kata nama",
+    "definition": "Alat yang menggerakkan udara untuk menghasilkan aliran angin dan menyejukkan ruang.",
+    "definitionEn": "A fan that moves air to create airflow and cool a space.",
+    "definitionZh": "风扇；通过推动空气形成气流并使空间凉爽的设备。",
+    "examples": [
+      "Kipas siling itu berpusing perlahan.",
+      "Pasang kipas kerana bilik ini panas."
+    ],
+    "related": [
+      "pengudaraan",
+      "motor"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kipas.s1",
+        "definition": "Alat yang menggerakkan udara untuk menghasilkan aliran angin dan menyejukkan ruang.",
+        "definitionEn": "A fan that moves air to create airflow and cool a space.",
+        "definitionZh": "风扇；通过推动空气形成气流并使空间凉爽的设备。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kipas siling itu berpusing perlahan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.peti-sejuk",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "peti sejuk",
+    "part": "kata nama",
+    "definition": "Peralatan elektrik yang mengekalkan suhu rendah untuk menyimpan makanan dan minuman.",
+    "definitionEn": "A refrigerator used to keep food and drinks cold.",
+    "definitionZh": "冰箱；通过低温保存食物和饮料的电器。",
+    "examples": [
+      "Simpan susu di dalam peti sejuk.",
+      "Peti sejuk itu perlu dibersihkan."
+    ],
+    "related": [
+      "penyejuk beku",
+      "dapur"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.peti-sejuk.s1",
+        "definition": "Peralatan elektrik yang mengekalkan suhu rendah untuk menyimpan makanan dan minuman.",
+        "definitionEn": "A refrigerator used to keep food and drinks cold.",
+        "definitionZh": "冰箱；通过低温保存食物和饮料的电器。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Simpan susu di dalam peti sejuk."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.mesin-basuh",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "mesin basuh",
+    "part": "kata nama",
+    "definition": "Peralatan elektrik yang digunakan untuk mencuci pakaian secara automatik.",
+    "definitionEn": "A washing machine used to wash clothes automatically.",
+    "definitionZh": "洗衣机；用于自动清洗衣物的电器。",
+    "examples": [
+      "Mesin basuh itu sedang beroperasi.",
+      "Saya memasukkan pakaian kotor ke dalam mesin basuh."
+    ],
+    "related": [
+      "dobi",
+      "pakaian"
+    ],
+    "categories": [
+      "rumah",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.mesin-basuh.s1",
+        "definition": "Peralatan elektrik yang digunakan untuk mencuci pakaian secara automatik.",
+        "definitionEn": "A washing machine used to wash clothes automatically.",
+        "definitionZh": "洗衣机；用于自动清洗衣物的电器。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mesin basuh itu sedang beroperasi."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pakaian",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "pakaian",
+    "part": "kata nama",
+    "definition": "Kain atau barang yang dipakai pada badan untuk menutup dan melindungi tubuh.",
+    "definitionEn": "Clothing or garments worn on the body for covering and protection.",
+    "definitionZh": "衣服；穿在身上用于遮盖和保护身体的布料或物品。",
+    "examples": [
+      "Pakaian sekolah perlu dipakai dengan kemas.",
+      "Basuh pakaian itu sebelum disimpan."
+    ],
+    "related": [
+      "baju",
+      "seluar"
+    ],
+    "categories": [
+      "kehidupan harian",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pakaian.s1",
+        "definition": "Kain atau barang yang dipakai pada badan untuk menutup dan melindungi tubuh.",
+        "definitionEn": "Clothing or garments worn on the body for covering and protection.",
+        "definitionZh": "衣服；穿在身上用于遮盖和保护身体的布料或物品。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pakaian sekolah perlu dipakai dengan kemas."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kasut",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "kasut",
+    "part": "kata nama",
+    "definition": "Alas kaki yang dipakai untuk melindungi tapak dan bahagian kaki.",
+    "definitionEn": "Shoes or footwear worn to protect the feet.",
+    "definitionZh": "鞋；穿在脚上以保护脚掌和脚部的鞋类。",
+    "examples": [
+      "Kasut sukan itu sesuai untuk berlari.",
+      "Sila tanggalkan kasut sebelum masuk."
+    ],
+    "related": [
+      "stoking",
+      "selipar"
+    ],
+    "categories": [
+      "kehidupan harian",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kasut.s1",
+        "definition": "Alas kaki yang dipakai untuk melindungi tapak dan bahagian kaki.",
+        "definitionEn": "Shoes or footwear worn to protect the feet.",
+        "definitionZh": "鞋；穿在脚上以保护脚掌和脚部的鞋类。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kasut sukan itu sesuai untuk berlari."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.payung",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "payung",
+    "part": "kata nama",
+    "definition": "Alat lipat yang digunakan untuk melindungi seseorang daripada hujan atau cahaya matahari.",
+    "definitionEn": "An umbrella used to protect someone from rain or sunlight.",
+    "definitionZh": "雨伞；用于遮挡雨水或阳光的可折叠用具。",
+    "examples": [
+      "Bawa payung kerana cuaca mungkin hujan.",
+      "Dia membuka payung ketika berjalan."
+    ],
+    "related": [
+      "hujan",
+      "teduh"
+    ],
+    "categories": [
+      "kehidupan harian",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.payung.s1",
+        "definition": "Alat lipat yang digunakan untuk melindungi seseorang daripada hujan atau cahaya matahari.",
+        "definitionEn": "An umbrella used to protect someone from rain or sunlight.",
+        "definitionZh": "雨伞；用于遮挡雨水或阳光的可折叠用具。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Bawa payung kerana cuaca mungkin hujan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.sabun",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "sabun",
+    "part": "kata nama",
+    "definition": "Bahan pencuci yang digunakan bersama air untuk menanggalkan kotoran dan minyak.",
+    "definitionEn": "Soap, a cleaning substance used with water to remove dirt and oil.",
+    "definitionZh": "肥皂；与水一起使用以去除污垢和油脂的清洁用品。",
+    "examples": [
+      "Basuh tangan dengan sabun.",
+      "Sabun itu berbau harum."
+    ],
+    "related": [
+      "pencuci",
+      "buih"
+    ],
+    "categories": [
+      "kesihatan",
+      "kehidupan harian"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.sabun.s1",
+        "definition": "Bahan pencuci yang digunakan bersama air untuk menanggalkan kotoran dan minyak.",
+        "definitionEn": "Soap, a cleaning substance used with water to remove dirt and oil.",
+        "definitionZh": "肥皂；与水一起使用以去除污垢和油脂的清洁用品。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Basuh tangan dengan sabun."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.tuala",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "tuala",
+    "part": "kata nama",
+    "definition": "Kain penyerap yang digunakan untuk mengeringkan badan atau permukaan selepas terkena air.",
+    "definitionEn": "A towel, an absorbent cloth used to dry the body or a surface.",
+    "definitionZh": "毛巾；用于擦干身体或潮湿表面的吸水布料。",
+    "examples": [
+      "Gantung tuala selepas digunakan.",
+      "Saya membawa tuala ke kolam renang."
+    ],
+    "related": [
+      "kain",
+      "mandi"
+    ],
+    "categories": [
+      "kehidupan harian",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.tuala.s1",
+        "definition": "Kain penyerap yang digunakan untuk mengeringkan badan atau permukaan selepas terkena air.",
+        "definitionEn": "A towel, an absorbent cloth used to dry the body or a surface.",
+        "definitionZh": "毛巾；用于擦干身体或潮湿表面的吸水布料。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Gantung tuala selepas digunakan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.mandi",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "mandi",
+    "part": "kata kerja",
+    "definition": "Membersihkan badan dengan menggunakan air, biasanya bersama sabun.",
+    "definitionEn": "To bathe or shower by washing the body with water, usually with soap.",
+    "definitionZh": "洗澡；用水清洁身体，通常会使用肥皂。",
+    "examples": [
+      "Adik mandi sebelum pergi ke sekolah.",
+      "Saya mandi selepas bersenam."
+    ],
+    "related": [
+      "membasuh",
+      "bersih"
+    ],
+    "categories": [
+      "kesihatan",
+      "tindakan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.mandi.s1",
+        "definition": "Membersihkan badan dengan menggunakan air, biasanya bersama sabun.",
+        "definitionEn": "To bathe or shower by washing the body with water, usually with soap.",
+        "definitionZh": "洗澡；用水清洁身体，通常会使用肥皂。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Adik mandi sebelum pergi ke sekolah."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.senyum",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "senyum",
+    "part": "kata kerja",
+    "definition": "Menunjukkan rasa gembira, mesra atau puas melalui perubahan pada wajah, khususnya pada bibir.",
+    "definitionEn": "To smile, showing happiness, friendliness or satisfaction through the face.",
+    "definitionZh": "微笑；通过面部表情，尤其是嘴唇，表达快乐、友善或满足。",
+    "examples": [
+      "Dia tersenyum apabila melihat rakannya.",
+      "Senyum kepada pelanggan dengan sopan."
+    ],
+    "related": [
+      "ketawa",
+      "wajah"
+    ],
+    "categories": [
+      "komunikasi",
+      "tindakan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.senyum.s1",
+        "definition": "Menunjukkan rasa gembira, mesra atau puas melalui perubahan pada wajah, khususnya pada bibir.",
+        "definitionEn": "To smile, showing happiness, friendliness or satisfaction through the face.",
+        "definitionZh": "微笑；通过面部表情，尤其是嘴唇，表达快乐、友善或满足。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia tersenyum apabila melihat rakannya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.ketawa",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.5.0",
+    "word": "ketawa",
+    "part": "kata kerja",
+    "definition": "Mengeluarkan bunyi dan gerak wajah yang menunjukkan rasa geli hati atau gembira.",
+    "definitionEn": "To laugh, making sounds and facial movements that show amusement or happiness.",
+    "definitionZh": "笑；发出声音并做出面部动作以表达愉悦或开心。",
+    "examples": [
+      "Mereka ketawa mendengar cerita lucu itu.",
+      "Jangan ketawa ketika orang lain sedang bercakap."
+    ],
+    "related": [
+      "senyum",
+      "jenaka"
+    ],
+    "categories": [
+      "komunikasi",
+      "tindakan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias carian tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.ketawa.s1",
+        "definition": "Mengeluarkan bunyi dan gerak wajah yang menunjukkan rasa geli hati atau gembira.",
+        "definitionEn": "To laugh, making sounds and facial movements that show amusement or happiness.",
+        "definitionZh": "笑；发出声音并做出面部动作以表达愉悦或开心。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mereka ketawa mendengar cerita lucu itu."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  }
 ];
 
 /* Authoring batch 02 — common Malaysian Standard Malay vocabulary. */
@@ -3155,7 +5747,7 @@ window.SWIFT_MALAY_DICTIONARY = [
   const makeEntry = (slug, word, part, definition, definitionEn, definitionZh, examples, related, categories, searchForms, morphology, extraSenses = []) => {
     const id = "ms.dict." + slug;
     return {
-      id, schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.4.0",
+      id, schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.5.0",
       word, part, definition, definitionEn, definitionZh, examples, related, categories,
       searchForms, morphology,
       senses:[makeSense(id + ".s1",definition,definitionEn,definitionZh,examples), ...extraSenses.map((sense,index) => makeSense(id + ".s" + (index+2),sense[0],sense[1],sense[2],sense[3]))],
@@ -3204,7 +5796,7 @@ window.SWIFT_MALAY_DICTIONARY = [
   const makeSense = (id, definition, definitionEn, definitionZh, examples) => ({id,definition,definitionEn,definitionZh,translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples});
   const makeEntry = (slug,word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology) => {
     const id="ms.dict."+slug;
-    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.4.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft for the Malaysian Standard Malay learner dictionary; no external lexical text imported. Linguistic source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
+    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.5.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft for the Malaysian Standard Malay learner dictionary; no external lexical text imported. Linguistic source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
   };
   window.SWIFT_MALAY_DICTIONARY.push(
     makeEntry("abang","abang","kata nama","Panggilan atau gelaran bagi saudara lelaki yang lebih tua; juga digunakan sebagai sapaan hormat kepada lelaki.","An older brother; also a respectful form of address for a man.","哥哥；也可作为对男性的礼貌称呼。",["Abang saya bekerja di sebuah hospital.","Abang itu membantu warga emas melintas jalan."],["kakak","adik","saudara"],["keluarga","manusia"],[],{"type":"kata dasar","forms":[],"notes":"Sapaan abang juga digunakan secara sosial di luar hubungan kekeluargaan."}),
