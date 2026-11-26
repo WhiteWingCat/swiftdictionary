@@ -835,7 +835,7 @@ The owner tested the latest staging preview and asked to reorder a collection by
 - Removed the visible drag-handle icon and the up/down arrow controls.
 - Retained an accessible keyboard alternative: focus a folder heading and use **Alt + Arrow Up / Alt + Arrow Down** to move it one position. Existing persisted account-owned reorder RPC and RLS remain unchanged.
 - Reorder remains a client interaction over the existing account-owned sort order; no new database schema, personal-data category, tracking purpose, processor, entitlement or allowance change is introduced.
-- Browser tests cover dragging the folder heading itself to the first and last positions, the absence of the old controls, and keyboard reordering. The U2.9.0 English dictionary QA workflow passed on feature commit `3bf1dbb248346330c629de9c983201438a161191` (run `45748313425`), including the complete Playwright browser suite with these new tests. Cross-version browser/Auth/Flashcards checks were still running at the time of this update.
+- Browser tests cover dragging the folder heading itself to the first and last positions, the absence of the old controls, and keyboard reordering. The U2.9.0 English dictionary QA workflow passed on feature commit `3bf1dbb248346330c629de9c983201438a161191` (run `45748313425`), including the complete Playwright browser suite with these new tests. Latest-head cross-version browser/Auth/Flashcards checks subsequently passed; see Section 15.
 
 ### Remaining U2.9.0 work and release gate
 
@@ -844,3 +844,38 @@ The approved implementation phases are otherwise complete. After this interactio
 ### Legal/privacy check
 
 The change only alters how the existing folder order is manipulated in the UI and retains the same account-owned `sort_order` metadata and existing owner-scoped RPC/RLS. It does not introduce a new category of personal data or processing purpose. Existing Malaysia PDPA, cross-border transfer, international privacy/16+ safeguards, content provenance and future Premium consumer/payment reviews remain release-planning items; this check is not legal advice or legal clearance.
+
+
+## 15. Final polishing and merge-readiness verification — 2026-11-26
+
+### Final polish changes
+
+- Whole-folder pointer dragging is the only visible mouse reordering affordance. The folder heading is the drag target; a movement threshold preserves expand/collapse clicks. Dropping on the upper/lower half of a folder inserts before/after it. The old drag-handle icon and up/down arrows are removed. Keyboard users retain Alt + Arrow Up / Alt + Arrow Down.
+- Dashboard Favorite disclosure animation now covers both Profile disclosures and `#dashboardTabFavourites` disclosures, including Dashboard panels inserted after the initial page mount. The observer re-scans only through the existing module lifecycle; each disclosure is initialized once, retains its direct-child structure, and continues to respect reduced-motion preferences.
+- Removed the duplicate unversioned Favorite Collections loader from `account-deletion.js`. The single loader in `supabase-config.js` uses the cache-busted URL `favorite-collections.js?v=2.9.0-p4-r4`.
+- Updated the Flashcards browser-test Supabase config stub to mirror the real versioned Collections loader, so the regression suite exercises the same app shell rather than depending on the removed duplicate loader.
+- Removed temporary lesson diagnostic logging from the Flashcards browser test.
+- Modernized the affected CI workflows to `actions/checkout@v6`, `actions/setup-node@v7` and `supabase/setup-cli@v3`, while pinning the tested Supabase CLI at `2.81.3`. This avoids the old checkout/setup-node Node 20 deprecation warnings without silently upgrading the Supabase CLI major version.
+
+### Latest application head and verification
+
+- Application head: `55a1ff5c43487985f2d20618385d1cb7a27edf9b`.
+- Latest U2.9.0 English dictionary QA: run `45750692619` passed. The complete U2.9.0 Playwright suite passed **20/20**, including direct folder-heading drag to the first/last positions, absence of old controls, keyboard movement, account isolation, sizing, disclosure animation and reduced-motion coverage.
+- Dashboard/Flashcards/allowance regression: run `45750692621` passed. The broad Chromium suite passed **87/87**; the Dashboard tab disclosure test now passes with the versioned Collections module loaded through the test harness.
+- Authenticated local Supabase Quiz integration: runs `45750692738` and `45750686934` both passed. Each completed the local Auth contract, all staged prerequisite and U2.9.0 migrations, explicit grants, account-scoped RLS and Collections ordering/security assertions, authenticated Quiz RPC/session/allowance tests, draft-content import and release-export checks, authenticated Quiz browser tests, signed-out Flashcards/Preferences browser regressions, permanent Lessons allowance notifications and the local Supabase security advisor. The security advisor reported **No issues found**.
+- Additional passing checks on the same head: Flashcards, Chinese dictionary/Lessons, PostgreSQL migration/allowance, U2.7 lesson-start allowance, U2.6 ACL drift and Cloudflare build-routing.
+- Latest check matrix: **15 successful checks, no pending checks, one failed separate Cloudflare Workers Builds check**. The failing check is for the distinct Worker service `swiftdictionary-testing`; it is not the Cloudflare Pages deployment. The Pages deployment succeeded for this head.
+- Latest Cloudflare Pages deployment: https://a71ff936.swiftdictionary.pages.dev
+- Branch preview: https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev
+
+### Merge boundary and remaining external check
+
+- The application, browser, database, Auth/RPC, content and Pages validations are complete. U2.9.0 implementation is ready for owner merge approval.
+- The separate Cloudflare Workers Builds check continues to fail on this repository's `swiftdictionary-testing` Worker service, independently of the successful Pages build. Its build log is available at https://dash.cloudflare.com/4095c6f30d6c1e0454918d2f9726ff6a/workers/services/view/swiftdictionary-testing/production/builds/731fc543-13e2-4584-bc81-629a8953a14d . The failure has also appeared on earlier commits and must not be described as a Pages failure. Confirm whether this independent check is configured as a required PR status before merging; repository branch-protection settings were not readable during this pass.
+- PR #18 remains open and unmerged. No production Supabase migration/write, production deployment, subscription activation, entitlement mutation or allowance change has been performed. The owner must explicitly approve the merge.
+- The 30 additional Quiz questions remain draft-only; the approved release export remains the previously owner-approved 199-question set.
+
+### Final legal/privacy planning check
+
+- The polish changes add no new personal-data category, processing purpose, third-party processor, tracking purpose or database field. Folder order remains the existing account-owned `sort_order` preference protected by owner-scoped RLS and the existing reorder RPC.
+- Malaysia PDPA Act 709 and its 2024 amendments, cross-border transfer safeguards, international privacy principles and jurisdiction-specific child-consent requirements for the 16+ global audience remain pre-publication review items. Premium consumer/payment compliance and publication of accurate Terms/Privacy notices remain future release gates. This planning check is not legal advice, legal clearance or licensing certification.
