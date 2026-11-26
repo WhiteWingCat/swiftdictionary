@@ -61,6 +61,12 @@ test("every Malay sense has independent en/zh draft translations and examples", 
     }
     assert.equal(entry.provenance?.authoringMethod, "original-authored");
     assert.equal(entry.provenance?.sourceTextCopied, false);
+    assert.equal(entry.provenance?.sourcesConsulted?.length, 0);
+    assert.ok(entry.provenance?.authoringNote);
+    for (const sense of entry.senses) {
+      assert.equal(sense.translationStatus?.en, "machine_assisted_draft");
+      assert.equal(sense.translationStatus?.zh, "machine_assisted_draft");
+    }
     assert.equal(entry.provenance?.editorialStatus, "draft");
     assert.equal(entry.provenance?.licenceStatus, "original-draft-rights-review-pending");
   }
@@ -89,6 +95,18 @@ test("Malay adapter searches headwords and explicit inflected forms only", () =>
   assert.equal(adapter.matchesSearch(makan, "memakani"), false);
   assert.equal(adapter.matchesSearch(makan, makan.definition), false);
   assert.equal(adapter.matchesSearch(makan, makan.examples[0]), false);
+});
+
+test("Malay search aliases do not collide between separate headwords", () => {
+  const owner = new Map();
+  for (const entry of entries) {
+    for (const form of [entry.word, ...adapter.getSearchForms(entry)]) {
+      const key = adapter.normaliseSearch(form);
+      const previous = owner.get(key);
+      assert.ok(!previous || previous === entry.id, `Search form "${form}" collides between ${previous} and ${entry.id}`);
+      owner.set(key, entry.id);
+    }
+  }
 });
 
 test("Malay adapter preserves Malaysian orthography and exposes explicit morphology", () => {
