@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normaliseComparableText, validateLanguagePair } from "../content/validation-core.mjs";
+import { normaliseComparableText, validateLanguagePair, validateQuestionEnvelope } from "../content/validation-core.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -40,6 +40,7 @@ if (!Array.isArray(questions) || questions.length === 0) fail.push("questions mu
 for (const [index, q] of questions.entries()) {
   const at = "questions[" + index + "]";
   requireText(q.question_id, at + ".question_id", 120);
+  fail.push(...validateQuestionEnvelope(q, { path: at }));
   if (seenIds.has(q.question_id)) fail.push(at + " duplicates question_id " + q.question_id);
   seenIds.add(q.question_id);
   const source = lessons[q.source_lesson_id];
