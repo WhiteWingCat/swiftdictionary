@@ -73,7 +73,8 @@ test("Malay entries satisfy the shared versioned Dictionary contract", () => {
       contentVersion:entry.contentVersion, headword:entry.word,
       senses:entry.senses.map(sense => ({ id:sense.id, definition:sense.definition, examples:sense.examples }))
     };
-    assert.deepEqual(context.window.SWIFT_CONTENT_CONTRACTS.validateDictionaryEntry(normalized), []);
+    const errors = context.window.SWIFT_CONTENT_CONTRACTS.validateDictionaryEntry(normalized);
+    assert.equal(errors.length, 0, JSON.stringify(errors));
   }
 });
 
