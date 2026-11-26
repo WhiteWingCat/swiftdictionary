@@ -6,7 +6,7 @@
   function stableLegacySlug(value, code) {
     const text = String(value || "").trim();
     if (code === "zh") return [...text].map(character => character.codePointAt(0).toString(16)).join("-");
-    return text.normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") || "entry";
+    return text.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") || "entry";
   }
   function adaptLegacyDictionaryEntry(entry, code, contentVersion) {
     const headword = String(entry?.word || "").trim();
