@@ -32,7 +32,7 @@ All 446 entries remain editorial drafts. All 936 support translations remain mac
 - Updated `content/languages/ms/manifest.json` to 446 headwords, 468 senses and batches 01–07.
 - Updated the Malay dictionary regression assertions to the new package counts.
 - The first content-only CI run on commit `c5eb7b0` failed on the expected stale test count assertions (the new package exposed 936 translation records while the test still expected 716). The assertions were updated; the corrected latest-head architecture workflow passed: [run 45817883224](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45817883224).
-- The companion English Dictionary QA and Quiz database foundation workflows were still running at the latest status check and will be recorded when their outcomes are confirmed.
+- The companion English Dictionary QA passed on the final application head (run [45817883250](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45817883250)). The Quiz database foundation workflow was still in progress at the latest status check and will be recorded when its outcome is confirmed.
 
 ## Editorial, legal and release boundaries
 
