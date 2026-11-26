@@ -851,6 +851,10 @@
     activeUser = getUser() || null;
     mount();
     const observer = new MutationObserver(() => {
+      // Dashboard panels can be rendered after the initial profile mount.
+      // Re-scan disclosures on DOM insertions so dynamically-created Favorite
+      // details receive the same animation and inert-state handling.
+      enhanceDashboardDisclosures();
       if (!panel) mount();
       else if (!panel.isConnected) { panel = null; mount(); }
     });
