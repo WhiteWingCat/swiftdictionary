@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved plan, 2026-11-26. Phase 0 audit completed read-only on 2026-11-26; Phase 1 implementation is next. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
+**Status:** Owner-approved plan, 2026-11-26. Phase 0 read-only audit completed. Phase 1 architecture and legacy-modernisation implementation is in place on the feature branch; internal unit/integration checks and source inventory checks have passed. Phase 1 exit remains pending full browser/device regression and database/account-history parity evidence. No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -232,3 +232,20 @@ Phase 1 has started on `feature/update-3.0-phase-0-audit`. The initial architect
 This is a foundation checkpoint, **not Phase 1 completion**. These new modules are not yet wired into the production application entry point; English/Chinese runtime data and legacy persistence/RPC paths still require migration. The test suite has been authored but has not yet been executed in this environment. No Supabase schema/data, Auth configuration, staging preview, production deployment, merge or main-branch change was made.
 
 **Next Phase 1 work:** integrate the registry and content adapters into the real app load path; map English and Chinese Dictionary/Lessons/Daily Learning/Quiz/Flashcards into shared package contracts while preserving their language-specific behaviour; generalise saved words, collections, preferences, progress and account-deletion paths; consolidate pair-specific content validators; design/test compatible database migrations and RPC updates without applying them to Live. Phase 1 remains in progress until regression and migration parity evidence is available.
+
+
+## Phase 1 implementation checkpoint — 2026-11-26
+
+The feature branch now contains the shared language registry, language adapters, content-package registry, versioned content contracts, translation registry, legacy bootstrap, English/Chinese package manifests and extracted Dictionary/Lessons source files. The main application loads these modules in dependency order. Dictionary and Lessons read through compatibility-wrapped packages; Daily Learning uses explicit per-language package resolution; Flashcards requires a registered language adapter and does not silently fall back to English for an unsupported course. Saved-word handling, Collections and anonymous account deletion use the language registry. Quiz validators share generic language-pair and question-envelope validation while retaining their pair-specific curriculum and answer rules.
+
+Validation evidence:
+- 22 core Node architecture/integration tests passed in the local run.
+- Application script dependency order and en/zh active + ms planned manifest states checked against the feature branch.
+- Dictionary source inventory checked: English 810 baseline + 506 expansion = 1,316 unique word/POS records; Chinese 206 baseline + 519 expansion = 725 unique character records.
+- Lesson inventory checked: English 17 base + 3 expansion = 20; Chinese 17 with 112 practice questions.
+- Chinese Daily Learning checked: 6 topics, 7 applications, 93 discovery items.
+- Chinese Flashcards checked: 519 character, 904 vocabulary and 24 expression cards; source remains draft.
+- Shared question-envelope rules checked against 229 English-learning and 145 Chinese-learning Quiz draft records; no envelope errors found.
+- Additional repository tests for bootstrap wiring and source parity have been added, but were not included in the 22-test local run.
+
+**Phase 1 is not signed off yet.** Full browser/device regression across Dictionary, Lessons, Daily Learning, Quiz, Flashcards, Dashboard/Profile, translation switching, saved-word/collection behaviour, account switching, progress/history and allowance boundaries remains outstanding. Account/progress/allowance data parity and environment-specific Supabase migration compatibility also remain outstanding. No Supabase schema/data, Auth settings, production main branch, deployment or staging preview was changed. Do not begin Phase 2 until these Phase 1 exit checks are complete.
