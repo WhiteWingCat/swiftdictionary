@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved plan, 2026-11-26. Phase 0 and Phase 1 validation are complete; Phase 2 Malay Dictionary content authoring is ready but not started. The final Phase 1 evidence and known database boundaries are recorded in [the completed validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md). No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
+**Status:** Owner-approved plan, 2026-11-26. Phase 0 and Phase 1 are complete. Phase 2 Malay Dictionary authoring is in progress; batches 01–02 contain 54 draft headwords and 76 senses. The latest implementation checkpoint is recorded in [the Phase 2 initial-batches archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md). The final Phase 1 evidence and known database boundaries are recorded in [the completed validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md). No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -318,4 +318,17 @@ This drift does not block content-only Phase 2. It **must** be reconciled before
 
 No SQL was applied to production or staging. No merge to `main`, production deployment or staging-preview handoff occurred. No staging preview URL is to be provided before Phase 3 is complete. Cloudflare Pages remains the only active deployment platform; Workers Builds remains retired.
 
-**Current handoff:** Phase 0 complete; Phase 1 complete; Phase 2 ready but not started. Continue on `feature/update-3.0-phase-0-audit` when the owner authorises Phase 2. Keep documentation on `docs/master-development-record`.
+**Historical handoff:** Phase 0 complete; Phase 1 complete; Phase 2 ready but not started. This was superseded when the owner authorised Phase 2 on 2026-11-26. Current Phase 2 implementation status is recorded in the dated checkpoint at the end of this plan.
+
+## Phase 2 implementation checkpoint — 2026-11-26
+
+**Phase 2 is in progress.** Two sequential Malay Dictionary authoring batches have been added on `feature/update-3.0-phase-0-audit`:
+- 54 unique headwords and 76 contextual senses.
+- 152 per-sense support translations (English and Simplified Chinese), all explicitly marked `machine_assisted_draft`.
+- Item-level provenance and editorial metadata; all entries remain draft with source verification, rights review and competent human linguistic review pending.
+- Malay search uses the canonical headword and explicit, curated inflected forms; no blind stemming, description search or example search.
+- Shared content-package adaptation preserves stable Malay IDs, morphology metadata and provenance and registers per-sense translation records. Same-language translation pairs are excluded.
+
+The final architecture/content workflow passed **39/39 Node tests** on application commit `e2aa84f0255559b01dedff1be69c01db785a8f5c`: [GitHub Actions run 45790151916](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790151916). This includes the existing 29 architecture tests and 10 new Malay Dictionary tests.
+
+This is an initial content and adapter checkpoint, not Phase 2 completion. The Malay package remains `planned`, is not loaded into the live course selector and is not activated. No Supabase schema/data/Auth/RLS changes or migrations, production merge/deployment, or staging-preview handoff occurred. Phase 1's production/staging schema drift remains a mandatory future database/activation gate. See [the Phase 2 initial-batches archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md).
