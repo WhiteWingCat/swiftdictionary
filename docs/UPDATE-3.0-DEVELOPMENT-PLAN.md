@@ -249,3 +249,30 @@ Validation evidence:
 - Additional repository tests for bootstrap wiring and source parity have been added, but were not included in the 22-test local run.
 
 **Phase 1 is not signed off yet.** Full browser/device regression across Dictionary, Lessons, Daily Learning, Quiz, Flashcards, Dashboard/Profile, translation switching, saved-word/collection behaviour, account switching, progress/history and allowance boundaries remains outstanding. Account/progress/allowance data parity and environment-specific Supabase migration compatibility also remain outstanding. No Supabase schema/data, Auth settings, production main branch, deployment or staging preview was changed. Do not begin Phase 2 until these Phase 1 exit checks are complete.
+
+
+## Phase 1 regression and migration-compatibility checkpoint — 2026-11-26
+
+**Status: BLOCKED — do not begin Phase 2.** The implementation branch has progressed beyond the earlier foundation checkpoint, but Phase 1 exit is not yet demonstrated.
+
+Read-only review confirmed:
+- 22 core tests passed in the earlier local run; seven current test files contain 25 cases, including later wiring/parity tests that were not included in that run. The current full suite was not executable in this review environment.
+- Production and staging each contain 27 inspected tables with RLS enabled, but their migration histories (71 vs 63) and schema definitions differ.
+- Five known table differences remain across `saved_words`, `languages`, `profiles`, `learning_activity_log` and `lesson_progress`.
+- Function, policy, index and trigger definitions also differ. In particular, allowance enforcement, lesson-progress guards, collection ordering/broadcasting, timestamp/timezone triggers, and saved-word uniqueness must be reconciled explicitly.
+- Production aggregate row counts and language distributions are recorded in [the Phase 1 regression and migration checkpoint archive](conversation-archive/2026-11-26-update-3-0-phase-1-regression-and-migration-compatibility.md). These are baselines, not migration-parity proof.
+- No SQL, schema, data, Auth setting, RLS policy, function, trigger or index was changed.
+
+### Remaining mandatory Phase 1 exit gates
+
+1. Run all 25 current architecture/wiring/translation/content-parity tests plus the relevant existing regression suites against the exact feature commit; fix and record failures.
+2. Complete browser/device regression for English and Chinese Dictionary, Lessons, Daily Learning, Quiz, Flashcards, Dashboard/Profile, translation switching, saved words, Collections, sign-in/out, account switching, cross-device sync, progress/history, allowances, responsive layouts, keyboard/accessibility and reduced motion.
+3. Reconcile production/staging migration differences across columns/defaults/checks/FKs, indexes, triggers, function bodies/signatures, grants and RLS policies. Do not replay migrations by name/count or blindly replace environment-specific objects.
+4. Rehearse expand/migrate/verify/contract on a disposable/local database, then staging, with old-client compatibility, stable IDs, restartability and aggregate/reference parity checks.
+5. Verify that saved words, collections/order, preferences, account ownership, lesson progress, practice history, Daily Learning history, Quiz/Flashcard snapshots and mastery/review history, and shared allowance ledgers remain unchanged through rehearsal.
+6. Classify remaining explicit en/zh branches as intentional language-specific behaviour or refactor them to capability-driven logic.
+7. Resolve or explicitly retain as non-approved the English/Chinese Quiz and Chinese Flashcard provenance/status discrepancies. Preserve legacy translation records as `legacy_unverified` until reviewed.
+
+A Cloudflare Pages branch build succeeded for commit `65d3888`, but build success is not browser or database validation. A Workers Builds check failed; Workers Builds is retired and is not an active deployment path. No preview URL is to be handed to the owner before Phase 3 completion.
+
+**Release gate unchanged:** no Phase 2, no staging-preview handoff before Phase 3, no Live migration, merge or production deployment without explicit owner approval. Phases 3–7 remain required after the Phase 3 preview gate.
