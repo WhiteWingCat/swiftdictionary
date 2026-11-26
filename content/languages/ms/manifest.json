@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "planned",
-  "contentVersion": "u3-ms-dict-0.7.0",
+  "contentVersion": "u3-ms-dict-0.8.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -24,10 +24,10 @@
       "files": [
         "data/languages/malay-dictionary.js"
       ],
-      "contentVersion": "u3-ms-dict-0.7.0",
-      "knownHeadwordCount": 446,
-      "knownSenseCount": 468,
-      "initialBatch": "01–07",
+      "contentVersion": "u3-ms-dict-0.8.0",
+      "knownHeadwordCount": 649,
+      "knownSenseCount": 671,
+      "initialBatch": "01–08",
       "editorialStatus": "draft",
       "provenancePolicy": "item-level original-authored; rights review pending"
     },
@@ -61,7 +61,8 @@
     "Malay Dictionary batch 04 adds 54 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
     "Malay Dictionary batch 05 adds 49 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
     "Malay Dictionary batch 06 adds 110 additional unique draft headwords across family, education, food, qualities, grammar, home, public services and everyday actions; all content remains subject to human review.",
-    "Malay Dictionary batch 07 adds 110 additional unique draft headwords across agriculture, household tools and materials, clothing, public facilities, transport infrastructure, environmental care, personal qualities, communication and learning vocabulary; all content remains subject to human linguistic, translation and rights review."
+    "Malay Dictionary batch 07 adds 110 additional unique draft headwords across agriculture, household tools and materials, clothing, public facilities, transport infrastructure, environmental care, personal qualities, communication and learning vocabulary; all content remains subject to human linguistic, translation and rights review.",
+    "Malay Dictionary batch 08 adds 203 additional unique draft headwords across communication, digital tools, administration, transport, health, food, household equipment, geography, weather and community vocabulary; examples are individually contextualised and all content remains subject to human linguistic, translation and rights review."
   ],
   "legalReview": {
     "malaysiaPDPA": "required before public launch",
