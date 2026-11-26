@@ -12,7 +12,7 @@
     const headword = String(entry?.word || "").trim();
     if (!headword) return null;
     const pos = String(entry.part || "entry").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") || "entry";
-    const id = "legacy." + code + ".dictionary." + stableLegacySlug(headword,code) + "." + pos;
+    const id = entry.id || ("legacy." + code + ".dictionary." + stableLegacySlug(headword,code) + "." + pos);
     const sourceSenses = Array.isArray(entry.senses) && entry.senses.length ? entry.senses : [{
       definition:entry.definition || "", definitionZh:entry.definitionZh || "",
       examples:Array.isArray(entry.examples) ? entry.examples : [], tip:entry.tip || ""
@@ -31,8 +31,11 @@
     return {
       id, schemaVersion:1, languageCode:code, contentVersion:String(contentVersion),
       headword, partOfSpeech:entry.part || null,
-      pronunciation:{ system:code === "zh" ? "pinyin" : "ipa", value:entry.phonetic || "" },
+      pronunciation:{ system:entry.pronunciationSystem || (code === "zh" ? "pinyin" : code === "en" ? "ipa" : "unspecified"), value:entry.pronunciation || entry.phonetic || "" },
       senses, categories:Array.isArray(entry.categories) ? entry.categories : [],
+      searchForms:Array.isArray(entry.searchForms) ? entry.searchForms.slice() : [],
+      morphology:entry.morphology || null, provenance:entry.provenance || null,
+      editorialStatus:entry.provenance?.editorialStatus || "legacy-unverified",
       legacySource:entry
     };
   }
