@@ -74,12 +74,21 @@ function findArrayEnd(source, start) {
 }
 
 function locateBaseline() {
+  const extractedBaseline = path.join(dataDir, "languages", "english-dictionary.js");
+  const validatorPath = path.join(root, "scripts", "dictionary", "validate-english-expansion.mjs");
   const files = explicitBaseline
     ? [path.resolve(root, explicitBaseline)]
-    : listSourceFiles(root);
+    : [
+        extractedBaseline,
+        ...listSourceFiles(root).filter(file =>
+          path.resolve(file) !== path.resolve(extractedBaseline) &&
+          path.resolve(file) !== path.resolve(validatorPath)
+        )
+      ];
   const markers = [
-    /(?:const|let|var)\s+englishWords\s*=\s*\[/,
-    /(?:const|let|var)\s+englishDictionary\s*=\s*\[/
+    /window\\.SWIFT_ENGLISH_BASE_DICTIONARY\\s*=\\s*\\[/,
+    /(?:const|let|var)\\s+englishWords\\s*=\\s*\\[/,
+    /(?:const|let|var)\\s+englishDictionary\\s*=\\s*\\[/
   ];
   for (const file of files) {
     if (!fs.existsSync(file)) continue;
@@ -98,7 +107,7 @@ function locateBaseline() {
       }
     }
   }
-  throw new Error("Could not locate a non-empty embedded englishWords/englishDictionary array. Supply --baseline with the application source file containing it.");
+  throw new Error("Could not locate a non-empty English Dictionary baseline array. Supply --baseline with data/languages/english-dictionary.js or a legacy application source file.");
 }
 
 if (!fs.existsSync(candidatePath)) throw new Error("Missing candidate inventory: " + path.relative(root, candidatePath));
@@ -264,17 +273,17 @@ if (!fs.existsSync(runtimePath)) {
   }
 }
 
-const appSource = fs.readFileSync(baselineDoc.file, "utf8");
+const appSource = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const runtimeScriptAt = appSource.indexOf("data/english-expansion.js");
-const inlineEnglishAt = appSource.indexOf("const englishWords = [");
+const inlineEnglishAt = appSource.indexOf("const englishWords = window.SWIFT_ENGLISH_BASE_DICTIONARY;");
 const appendAt = appSource.indexOf("englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));");
-const chineseArrayAt = appSource.indexOf("const chineseWords = [");
+const chineseArrayAt = appSource.indexOf("const chineseWords = window.SWIFT_CHINESE_BASE_DICTIONARY;");
 const dictionaryStateAt = appSource.indexOf("let words = course ===");
 if (runtimeScriptAt < 0 || inlineEnglishAt < 0 || runtimeScriptAt > inlineEnglishAt) {
-  errors.push("Runtime expansion script must load before the inline English dictionary declaration.");
+  errors.push("Runtime expansion script must load before the shared English Dictionary package is assigned.");
 }
 if (appendAt < 0 || chineseArrayAt < 0 || appendAt > chineseArrayAt || (dictionaryStateAt >= 0 && appendAt > dictionaryStateAt)) {
-  errors.push("Runtime expansion must be appended before Chinese dictionary and dictionary state initialisation.");
+  errors.push("Runtime expansion must be appended before Chinese Dictionary and dictionary state initialisation.");
 }
 
 const allSeen = new Set();
