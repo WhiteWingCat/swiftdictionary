@@ -879,3 +879,35 @@ The change only alters how the existing folder order is manipulated in the UI an
 
 - The polish changes add no new personal-data category, processing purpose, third-party processor, tracking purpose or database field. Folder order remains the existing account-owned `sort_order` preference protected by owner-scoped RLS and the existing reorder RPC.
 - Malaysia PDPA Act 709 and its 2024 amendments, cross-border transfer safeguards, international privacy principles and jurisdiction-specific child-consent requirements for the 16+ global audience remain pre-publication review items. Premium consumer/payment compliance and publication of accurate Terms/Privacy notices remain future release gates. This planning check is not legal advice, legal clearance or licensing certification.
+
+
+## 12. Final release closeout — 2026-11-26
+
+**Status: merged to `main`; Live Supabase U2.9.0 schema and content allowlist migrations applied and verified.**
+
+### GitHub
+- PR #18 was squash-merged with owner approval. Merge commit: `64dc4406f96cf4b5a7644d802f936ff5ffd97289`.
+- Validated application code commit: `55a1ff5c43487985f2d20618385d1cb7a27edf9b`; merged feature head: `96b856b1419aadb24c3d4e8872a54bd27a4e9294`.
+- All six U2.9.0 phases and final polish are complete. Prior evidence remains: 20/20 U2.9.0 Playwright tests, 87/87 Dashboard/Flashcards/allowance Chromium tests, successful local Supabase Auth/RPC integration, and the additional language/content/ACL/allowance regressions.
+
+### Cloudflare deployment classification
+- Cloudflare Pages is the only active build and deployment platform for SwiftDictionary. Feature branches and PRs use Pages previews; `main` is the production Pages deployment source.
+- Cloudflare Workers Builds for `swiftdictionary-testing` is **retired and no longer in operation**. Its repeated failed status is obsolete and must not be treated as a current failed deployment or merge gate. Do not re-enable it as part of this release.
+- PR preview deployment succeeded at https://1df70422.swiftdictionary.pages.dev . Verify the merge-triggered Pages production deployment separately before calling the live website deployment complete.
+
+### Live Supabase
+- Production project `SwiftDictionary` (`pzymiesazmpyvnfvsbsc`, `ap-northeast-1`) was healthy before rollout.
+- Applied all eight U2.9.0 migrations to Live Supabase: collection tables/RLS, initial Realtime publication, private per-account Broadcast policy and triggers, removal from Postgres Changes, transactional Free 16/Premium 40 folder caps, persisted ordering, five English lesson allowlist entries, and SECURITY INVOKER hardening of the reorder RPC.
+- Production migration history now includes all eight new migration versions `20261126041610` through `20261126041627`.
+- Verification: both collection tables exist; six owner-scoped RLS policies; three expected triggers; create/reorder public wrappers run as invoker; no collection tables in Postgres Changes publication; all five English lesson allowlist rows active. New collection and membership tables contain zero rows immediately after migration; existing saved words and entitlements were preserved.
+- Health advisor has no findings. Security advisor has no new U2.9.0 finding; pre-existing 10 informational private-schema RLS/no-policy notices and one leaked-password-protection warning remain. Performance advisor notes unused collection indexes on the currently empty tables and a pre-existing duplicate index on `public.learning_activity_log`; unrelated cleanup is deferred.
+
+### Preserved release boundaries and legal planning
+- Dictionary word-grid search remains free and unlimited. Folder caps remain Free 16 / Premium 40.
+- Premium remains presentation-only; no payment, checkout, subscription activation or entitlement mutation.
+- The 30 additional Quiz questions remain drafts; approved release content remains 199 questions.
+- No new personal-data category, processing purpose, processor, tracking purpose or schema field was introduced by final polish. Malaysia PDPA, cross-border transfer safeguards, international 16+ obligations, accurate Terms/Privacy publication and future Premium consumer/payment compliance remain pre-publication review items. This is planning, not legal advice or legal clearance.
+
+### Remaining verification
+- GitHub merge and Live Supabase migration are complete. Confirm the Pages production build triggered by the merge before claiming the public live website is updated.
+- See the dated conversation archive for exact rollout details.
