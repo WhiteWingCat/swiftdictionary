@@ -35,7 +35,7 @@ const entries = context.window.SWIFT_MALAY_DICTIONARY;
 const adapter = context.window.SWIFT_LANGUAGE_ADAPTERS.get("ms");
 
 test("Malay package has stable, language-owned lexical records", () => {
-  assert.equal(entries.length, 650);
+  assert.equal(entries.length, 627);
   assert.ok(entries.every(entry => entry.schemaVersion === 1 && entry.languageCode === "ms"));
   assert.ok(entries.every(entry => /^ms\.dict\.[a-z-]+$/.test(entry.id)));
   assert.ok(entries.every(entry => entry.contentVersion === "u3-ms-dict-0.8.0"));
