@@ -227,3 +227,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 | 2026-11-26 | [Update 3.0 Phase 1 regression and migration compatibility](2026-11-26-update-3-0-phase-1-regression-and-migration-compatibility.md) | Records read-only production/staging schema and migration drift, current test evidence versus unexecuted full regression, account/history/allowance parity gates, hosting-check interpretation, and the decision to block Phase 2 pending evidence. |
 | 2026-11-26 | [Update 3.0 Phase 1 validation complete](2026-11-26-update-3-0-phase-1-validation-complete.md) | Final evidence: 114 passing Node/Playwright tests, local Supabase migration/RPC/security rehearsal, read-only production/staging integrity results and drift inventory; Phase 1 complete and Phase 2 ready but not started. |
+
+- [2026-11-26 — U3.0 Phase 2 Malay Dictionary initial batches](2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md) — records the first 54 Malay headwords/76 senses, per-sense en/zh machine-assisted draft translations, explicit morphology/search adapter, 39 passing architecture/content tests, provenance and legal safeguards, and the inactive/no-database-change Phase 2 boundary.
+
+| 2026-11-26 | [Update 3.0 Phase 2 Malay Dictionary initial batches](2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md) | Initial Phase 2 implementation checkpoint: 54 headwords, 76 senses, 152 draft translations, adapter/package work and 39 passing Node tests; Malay remains inactive and Phase 2 continues. |
