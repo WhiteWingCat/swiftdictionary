@@ -6,7 +6,7 @@ require("../js/core/content-packages.js");
 const packages=window.SWIFT_CONTENT_PACKAGES;
 
 test("content packages preserve language-owned source arrays without mutating them",()=>{
- const entries=[{word:"hello",course:"en"}];
+ const entries=[{word:"hello",course:"en",definition:"A greeting."}];
  const p=packages.createPackage({languageCode:"en",contentVersion:"legacy-u2.9.1",content:{dictionary:{entries}}});
  assert.equal(p.dictionary.entries.length,1);
  assert.equal(p.dictionary.entries[0].headword,"hello");
