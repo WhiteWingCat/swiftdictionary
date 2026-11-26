@@ -46,6 +46,7 @@
     for (const entry of entries) {
       for (const sense of entry.senses || []) {
         for (const targetLanguageCode of ["en","zh"]) {
+          if (targetLanguageCode === sourceLanguageCode) continue;
           const translatedText = sense.translations?.[targetLanguageCode];
           if (!translatedText) continue;
           const contentId = sense.id;
