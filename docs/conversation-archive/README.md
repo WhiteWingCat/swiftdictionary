@@ -231,3 +231,7 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-26 — U3.0 Phase 2 Malay Dictionary initial batches](2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md) — records the first 54 Malay headwords/76 senses, per-sense en/zh machine-assisted draft translations, explicit morphology/search adapter, 39 passing architecture/content tests, provenance and legal safeguards, and the inactive/no-database-change Phase 2 boundary.
 
 | 2026-11-26 | [Update 3.0 Phase 2 Malay Dictionary initial batches](2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md) | Initial Phase 2 implementation checkpoint: 54 headwords, 76 senses, 152 draft translations, adapter/package work and 39 passing Node tests; Malay remains inactive and Phase 2 continues. |
+
+- [2026-11-26 — U3.0 Phase 2 Malay Dictionary batch 03](2026-11-26-update-3-0-phase-2-dictionary-batch-03.md) — records the owner-approved ~700-headword target (650–750), batch 03's 69 additions, 123 headwords/145 senses/290 draft translations, 39 passing architecture tests, legacy QA and the continuing inactive/no-database-change boundary.
+
+| 2026-11-26 | [Update 3.0 Phase 2 Malay Dictionary batch 03](2026-11-26-update-3-0-phase-2-dictionary-batch-03.md) | Expands the Malay Dictionary goal to around 700 headwords; batch 03 brings the catalogue to 123 headwords, 145 senses and 290 support translation records, with 39 Node tests and legacy QA passing. |
