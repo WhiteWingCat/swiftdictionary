@@ -25,11 +25,11 @@ function arrayEnd(source,start){
  }
  throw new Error("Unclosed English dictionary array");
 }
-const app=fs.readFileSync(path.join(root,"index.html"),"utf8");
-const marker=/(?:const|let|var)\s+englishWords\s*=\s*\[/;
-const match=marker.exec(app);
-if(!match)throw new Error("Cannot locate embedded englishWords baseline");
-const start=app.indexOf("[",match.index),baseline=JSON.parse(app.slice(start,arrayEnd(app,start)));
+const baselineSource=fs.readFileSync(path.join(data,"languages","english-dictionary.js"),"utf8");
+const marker="window.SWIFT_ENGLISH_BASE_DICTIONARY = ";
+const markerAt=baselineSource.indexOf(marker);
+if(markerAt<0)throw new Error("Cannot locate extracted English Dictionary baseline");
+const start=baselineSource.indexOf("[",markerAt),baseline=JSON.parse(baselineSource.slice(start,arrayEnd(baselineSource,start)));
 const expansionFile=path.join(data,"english-expansion.js");
 const expansionSource=fs.readFileSync(expansionFile,"utf8");
 const expMarker="window.SWIFT_ENGLISH_EXPANSION = ";
