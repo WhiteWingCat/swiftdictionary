@@ -52,7 +52,7 @@
       schemaVersion: 1, languageCode: code, contentVersion: String(input.contentVersion),
       status: input.status || language.status,
       dictionary: Object.freeze({ entries: (Array.isArray(content.dictionary?.entries) ? content.dictionary.entries : []).map(entry => adaptLegacyDictionaryEntry(entry,code,input.contentVersion)).filter(Boolean) }),
-      lessons: Object.freeze({ permanent: adaptLegacyRecords(content.lessons?.permanent,code,input.contentVersion), translations: content.lessons?.translations || {} }),
+      lessons: Object.freeze({ permanent: adaptLegacyRecords(content.lessons?.permanent,code,input.contentVersion), translations: window.SWIFT_TRANSLATION_REGISTRY ? window.SWIFT_TRANSLATION_REGISTRY.registerLegacyMap({ translations:content.lessons?.translations || {}, sourceLanguageCode:code, targetLanguageCode:input.translationLanguageCode || (code === "en" ? "zh" : "en"), contentVersion:input.contentVersion }) : [], legacyTranslations:content.lessons?.translations || {} }),
       dailyLearning: Object.freeze({ topics: adaptLegacyRecords(content.dailyLearning?.topics,code,input.contentVersion), applications: adaptLegacyRecords(content.dailyLearning?.applications,code,input.contentVersion), discovery: adaptLegacyRecords(content.dailyLearning?.discovery,code,input.contentVersion), revision: content.dailyLearning?.revision || "adaptive" }),
       quiz: Object.freeze({ source: content.quiz?.source || null, questionBank: content.quiz?.questionBank || null }),
       flashcards: Object.freeze({ source: content.flashcards?.source || null, cards: Array.isArray(content.flashcards?.cards) ? content.flashcards.cards : [] }),
