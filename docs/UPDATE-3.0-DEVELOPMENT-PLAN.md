@@ -248,12 +248,12 @@ Validation evidence:
 - Shared question-envelope rules checked against 229 English-learning and 145 Chinese-learning Quiz draft records; no envelope errors found.
 - Additional repository tests for bootstrap wiring and source parity have been added, but were not included in the 22-test local run.
 
-**Phase 1 is not signed off yet.** Full browser/device regression across Dictionary, Lessons, Daily Learning, Quiz, Flashcards, Dashboard/Profile, translation switching, saved-word/collection behaviour, account switching, progress/history and allowance boundaries remains outstanding. Account/progress/allowance data parity and environment-specific Supabase migration compatibility also remain outstanding. No Supabase schema/data, Auth settings, production main branch, deployment or staging preview was changed. Do not begin Phase 2 until these Phase 1 exit checks are complete.
+**Historical status at this checkpoint:** Phase 1 was not signed off at the time of this integration checkpoint. This status was superseded by the final validation record dated 2026-11-26; see [Phase 1 validation completed](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md).
 
 
 ## Phase 1 regression and migration-compatibility checkpoint — 2026-11-26
 
-**Status: BLOCKED — do not begin Phase 2.** The implementation branch has progressed beyond the earlier foundation checkpoint, but Phase 1 exit is not yet demonstrated.
+**Historical status at this checkpoint:** Phase 1 was still blocked while the remaining regression and compatibility checks were being executed. This was superseded by the final validation record dated 2026-11-26.
 
 Read-only review confirmed:
 - 22 core tests passed in the earlier local run; seven current test files contain 25 cases, including later wiring/parity tests that were not included in that run. The current full suite was not executable in this review environment.
@@ -276,3 +276,30 @@ Read-only review confirmed:
 A Cloudflare Pages branch build succeeded for commit `65d3888`, but build success is not browser or database validation. A Workers Builds check failed; Workers Builds is retired and is not an active deployment path. No preview URL is to be handed to the owner before Phase 3 completion.
 
 **Release gate unchanged:** no Phase 2, no staging-preview handoff before Phase 3, no Live migration, merge or production deployment without explicit owner approval. Phases 3–7 remain required after the Phase 3 preview gate.
+
+## Phase 1 final validation — 2026-11-26
+
+<badge>Phase 1 complete — ready for Phase 2</badge>
+
+The final validation checkpoint is recorded in [the completed Phase 1 validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md).
+
+Successful GitHub Actions evidence:
+- U3.0 architecture regression: 29/29 Node tests passed.
+- U2.9.0 English Dictionary QA: legacy content validators passed; 29/29 Mock Quiz/Flashcards tests passed; 20/20 Chromium browser tests passed.
+- Quiz database foundation and local Supabase integration: both jobs passed. Existing 2.3.x–2.9.0 migrations replayed in a disposable local environment; authenticated Quiz RPC/session tests, Flashcards/Preferences, Daily Learning, Chinese Dictionary and Supabase security-advisor checks passed.
+- Additional browser results: 22 Quiz + 7 Flashcards/Preferences + 2 Daily Learning + 5 Chinese Dictionary tests passed.
+- Total: 114 Node/Playwright test cases passed, plus SQL migration/integration assertions.
+
+Production and staging read-only checks found zero duplicate identity keys and zero unknown language references across the audited saved-word, collection, progress, allowance, Quiz and Flashcard records in both environments. RLS was enabled on all 27 inspected tables in each environment; direct SELECT to private Quiz, Flashcard and allowance tables was denied to anon/authenticated, and protected RPCs were authenticated-only.
+
+### Phase 2 readiness and database boundary
+
+**Phase 2 may begin.** It is Malay Dictionary content authoring and requires no U3.0 Supabase schema migration or Malay activation. `ms` remains planned/inactive.
+
+Production/staging drift remains recorded: 71 vs 63 migration records, five table-definition differences, two production-only helper functions, three production-only triggers, four production-only indexes and one meaningful `learning_plan_limits` RLS-policy difference. Seven common function raw hashes differed only because of comments/whitespace; normalised bodies matched. See the final archive for the exact inventory.
+
+This drift does not block content-only Phase 2. It **must** be reconciled before any U3.0 database migration, Malay database registration/activation or release depending on new schema/RPC behaviour. Do not replay migrations by count/name or force production/staging parity by manual mutation.
+
+No SQL was applied to production or staging. No merge to `main`, production deployment or staging-preview handoff occurred. No staging preview URL is to be provided before Phase 3 is complete. Cloudflare Pages remains the only active deployment platform; Workers Builds remains retired.
+
+**Current handoff:** Phase 0 complete; Phase 1 complete; Phase 2 ready but not started. Continue on `feature/update-3.0-phase-0-audit` when the owner authorises Phase 2. Keep documentation on `docs/master-development-record`.
