@@ -209,3 +209,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 
 - [2026-11-26 — Update 2.9.0 merge, Live Supabase migration and Cloudflare Workers Builds retirement](2026-11-26-update-2-9-0-merge-live-supabase-and-retire-workers-builds.md) — records owner-approved PR #18 squash merge, all eight U2.9.0 migrations applied and verified on Live Supabase, preserved production user data, Cloudflare Pages as the sole active build/deployment path, retired Workers Builds classification, advisor findings and final production Pages verification boundary.
+
+- [2026-11-26 — Update 2.9.1 Dashboard Collections Pages-loader fix](2026-11-26-update-2-9-1-dashboard-collections-pages-loader-fix.md) — Records the missing Dashboard "Your Collections" incident, Cloudflare build-time overwrite root cause, explicit script-tag fix, regression guard, PR #19 merge, successful Pages preview and production deployment, and confirmation that no Live Supabase migration was required.
