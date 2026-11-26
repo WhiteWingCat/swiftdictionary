@@ -998,6 +998,10 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script src="supabase-config.js"></script>
+  <script src="js/core/language-registry.js?v=3.0.0"></script>
+  <script src="js/core/content-contracts.js?v=3.0.0"></script>
+  <script src="js/languages/adapters.js?v=3.0.0"></script>
+  <script src="js/core/content-packages.js?v=3.0.0"></script>
   <script src="mock-testing.js?v=2.8.0-r2"></script>
   <script src="data/chinese-characters.js"></script>
   <script src="data/chinese-daily-learning.js"></script>
@@ -22584,8 +22588,10 @@
     const preferenceStorageKey = "swiftdictionary-course-preferences";
     let storedCoursePreferences = {};
     try { storedCoursePreferences = JSON.parse(localStorage.getItem(preferenceStorageKey) || "{}"); } catch {}
-    let course = storedCoursePreferences.learning_language === "zh" ? "zh" : "en";
-    let translationLanguage = storedCoursePreferences.translation_language === "zh" ? "zh" : "en";
+    const activeLanguage = code => window.SWIFT_LANGUAGE_REGISTRY?.get(code)?.status === "active";
+    const languageAdapter = code => window.SWIFT_LANGUAGE_ADAPTERS?.get(code) || null;
+    let course = activeLanguage(storedCoursePreferences.learning_language) ? storedCoursePreferences.learning_language : "en";
+    let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
     let words = course === "zh" ? chineseWords : englishWords;
     let preferenceWriteQueue = Promise.resolve();
     let coursePreferenceSelectionVersion = 0;
@@ -22615,7 +22621,7 @@
       // Legacy local saves were plain strings and belonged to the course active
       // when they were stored. New entries retain their course explicitly.
       if (typeof entry === "string") return savedKey(course,entry);
-      if (entry && (entry.course === "en" || entry.course === "zh") && typeof entry.word === "string") {
+      if (entry && activeLanguage(entry.course) && typeof entry.word === "string") {
         return savedKey(entry.course,entry.word);
       }
       return null;
@@ -24118,7 +24124,7 @@ async function completeLesson(x){
       const sourceRows = Array.isArray(rows) ? rows : [];
       const corrected = [];
       for (const row of sourceRows) {
-        if (!row || typeof row.word !== "string" || (row.course !== "en" && row.course !== "zh")) continue;
+        if (!row || typeof row.word !== "string" || !activeLanguage(row.course)) continue;
         const targetCourse = inferSavedWordCourse(row.word,row.course);
         if (targetCourse === row.course) {
           corrected.push(row);
@@ -24149,26 +24155,28 @@ async function completeLesson(x){
     }
 
     function renderFavoriteWords(rows) {
-      const grouped = { en:[], zh:[] };
+      const activeCodes = window.SWIFT_LANGUAGE_REGISTRY.list().map(language => language.code);
+      const grouped = Object.fromEntries(activeCodes.map(code => [code,[]]));
       (rows || []).forEach(row => {
-        if (row && (row.course === "en" || row.course === "zh") && typeof row.word === "string") grouped[row.course].push(row.word);
+        if (row && grouped[row.course] && typeof row.word === "string") grouped[row.course].push(row.word);
       });
       const renderGroup = (code,containerId) => {
         const host = document.getElementById(containerId);
         if (!host) return;
-        host.classList.toggle("character-grid",code === "zh");
-        const catalog = code === "zh" ? chineseWords : englishWords;
-        const list = [...new Set(grouped[code])].sort((a,b)=>a.localeCompare(b,code === "zh" ? "zh-CN" : "en"));
+        const adapter = languageAdapter(code);
+        const catalogue = code === "zh" ? chineseWords : code === "en" ? englishWords : [];
+        host.classList.toggle("character-grid",adapter?.gridMode === "single-han");
+        const list = [...new Set(grouped[code] || [])].sort((a,b)=>adapter ? adapter.sort({word:a},{word:b}) : a.localeCompare(b));
         host.innerHTML = "";
         if (!list.length) {
           const empty = document.createElement("div");
           empty.className = "empty";
-          empty.textContent = code === "zh" ? "No saved Chinese words yet." : "No saved English words yet.";
+          empty.textContent = "No saved " + (window.SWIFT_LANGUAGE_REGISTRY.get(code)?.name || code) + " words yet.";
           host.appendChild(empty);
           return;
         }
         list.forEach(word => {
-          const item = catalog.find(entry => entry.word === word);
+          const item = catalogue.find(entry => entry.word === word);
           const button = document.createElement("button");
           button.type = "button";
           button.className = "word-card";
@@ -25333,6 +25341,22 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
     // redirect signed-out visitors away from public pages such as Quiz.
     showHashPage();
     // Keep the profile route inaccessible to signed-out visitors.
+    window.SWIFT_LEGACY_CONTENT_DATA = {
+      en: {
+        dictionary: englishWords,
+        lessons: Object.values(lessonData).flat(),
+        lessonTranslations: lessonZh,
+        quizSource: { learningLanguage:"en", translationLanguage:"zh", sourceFiles:["content/quiz/questions.en-zh.draft.json","content/quiz/curriculum-map.en.json"] },
+        flashcardSource: { type:"dictionary-derived", curatedExpressions:true }
+      },
+      zh: {
+        dictionary: chineseWords,
+        lessons: Object.values(chineseLessonData).flat(),
+        quizSource: { learningLanguage:"zh", translationLanguage:"en", sourceFiles:["content/quiz/questions.zh-en.draft.json","content/quiz/curriculum-map.zh.json"] },
+        flashcardSource: { type:"curated-bank", source:"data/chinese-flashcards.js" }
+      }
+    };
+
     initAccount().then(() => showHashPage()).catch(error => {
       document.getElementById("accountStatus").textContent = `Account initialization failed: ${error.message}`;
       const loading = document.getElementById("swiftAuthLoading");
