@@ -116,6 +116,10 @@ test("Malay adapter preserves Malaysian orthography and exposes explicit morphol
   const baca = entries.find(entry => entry.word === "baca");
   assert.ok(adapter.getSearchForms(baca).includes("membaca"));
   assert.equal(adapter.describeMorphology(baca).type, "kata dasar");
+  assert.ok(entries.some(entry => entry.morphology?.prefixes?.includes("meN-")));
+  assert.ok(entries.some(entry => entry.morphology?.suffixes?.includes("-an")));
+  assert.ok(entries.some(entry => entry.morphology?.circumfixes?.includes("ke-...-an")));
+  assert.ok(entries.some(entry => entry.morphology?.reduplication === "full"));
   assert.equal(adapter.matchesGridEntry({ word:"terima kasih" }), true);
 });
 
