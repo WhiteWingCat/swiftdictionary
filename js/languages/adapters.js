@@ -10,7 +10,7 @@
   }
   const normalise = value => String(value ?? "").normalize("NFKC").trim();
   const english = {
-    locale:"en", script:"Latn", gridMode:"word", pronunciationLabel:"IPA", morphology:"english",
+    locale:"en", script:"Latn", gridMode:"word", pronunciationLabel:"IPA", morphology:"english", flashcardModes:["word","definition","mixed","sentence"],
     normaliseSearch(value) { return normalise(value).toLocaleLowerCase("en").replace(/\s+/g," "); },
     matchesSearch(entry, query) { return !query || this.normaliseSearch(entry?.word).includes(this.normaliseSearch(query)); },
     matchesGridEntry(entry) { return Boolean(entry && typeof entry.word === "string" && entry.word.trim()); },
@@ -19,7 +19,7 @@
     getLabel() { return "English"; }
   };
   const chinese = {
-    locale:"zh-CN", script:"Hans", gridMode:"single-han", pronunciationLabel:"Pinyin", morphology:"chinese",
+    locale:"zh-CN", script:"Hans", gridMode:"single-han", pronunciationLabel:"Pinyin", morphology:"chinese", flashcardModes:["word","definition","translation","sentence"],
     normaliseSearch(value) { return normalise(value).normalize("NFD").replace(/\p{M}/gu,"").toLocaleLowerCase("zh-CN").replace(/[\s\p{P}\p{S}]+/gu,""); },
     matchesSearch(entry, query) {
       if (!query) return true;
@@ -32,7 +32,7 @@
     getLabel() { return "简体中文"; }
   };
   const malay = {
-    locale:"ms-MY", script:"Latn", gridMode:"word", pronunciationLabel:"Pronunciation", morphology:"malay-affixation",
+    locale:"ms-MY", script:"Latn", gridMode:"word", pronunciationLabel:"Pronunciation", morphology:"malay-affixation", flashcardModes:[],
     normaliseSearch(value) { return normalise(value).toLocaleLowerCase("ms-MY").replace(/\s+/g," "); },
     matchesSearch(entry, query) {
       if (!query) return true;
