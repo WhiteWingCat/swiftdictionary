@@ -1,32 +1,34 @@
-# U3.0 Phase 2 — Malay Dictionary batch 08 (corrected)
+# U3.0 Phase 2 — Malay Dictionary batch 08 (final content)
 
 Date: 2026-11-26
 
 ## Outcome
 
-Batch 08 is corrected to **181 new unique Malaysian Standard Malay headwords**. The complete package now contains **627 unique headwords, 649 contextual senses and 1,298 per-sense English/Simplified Chinese support-translation records**. Package revision: `u3-ms-dict-0.8.0`.
+Batch 08 adds **204 new unique Malaysian Standard Malay headwords**. The complete package now contains **650 unique headwords, 672 contextual senses and 1,344 per-sense English/Simplified Chinese support-translation records**. Package revision: `u3-ms-dict-0.8.0`.
 
-The earlier draft count of 650 entries was inaccurate: it included 23 repeated headwords (22 terms already present in earlier batches and one repeated `pekerja` record). Those duplicate records were removed. Two search-alias collisions were also resolved: `arahan` is retained as its own headword rather than an alias of `arah`, and `penghantaran` is retained as its own headword rather than an alias of `hantar`. The catalogue has 627 unique headwords, below the lower 650 target boundary; do not add marginal words merely to meet the count.
+The initial batch-08 draft contained 23 repeated headwords (22 terms already present in earlier batches and one repeated `pekerja` record). Those duplicates were removed. To meet the owner's 100+ new unique headword batch requirement and enter the lower edge of the 650–750 target band without padding, 23 distinct and useful terms were added. Two alias collisions were also resolved: `arahan` remains its own headword rather than an alias of `arah`, and `penghantaran` remains its own headword rather than an alias of `hantar`. The subsequent architecture regression verifies unique headwords and search-alias ownership.
 
-Coverage includes communication and digital life, administration and commerce, transport, sport, health and anatomy, food, household appliances, geography, weather, environmental care, community and function words. Entries use original-authored Malay draft definitions and contextual examples, per-sense English and Simplified Chinese machine-assisted draft translations, stable IDs and item-level provenance.
+New coverage includes communication and digital life, administration and commerce, transport, sport, health and anatomy, food, household appliances, geography, weather, environmental care, community, household items, shopping and public navigation. Entries use original-authored Malay draft definitions and contextual examples, per-sense English and Simplified Chinese machine-assisted draft translations, stable IDs and item-level provenance.
 
 ## Repository changes
 
 Application branch: `feature/update-3.0-phase-0-audit`
 
-- `data/languages/malay-dictionary.js` — removed repeated records, corrected all entry content versions to `u3-ms-dict-0.8.0`, and removed colliding aliases.
-- `content/languages/ms/manifest.json` — corrected to 627 unique headwords and 649 senses.
-- `tests/u3-phase2-malay-dictionary.test.mjs` — corrected unique headword and 1,298 translation assertions.
+- `data/languages/malay-dictionary.js` — final 204-headword batch, package revision `u3-ms-dict-0.8.0`, duplicate cleanup, version consistency and alias-collision fixes.
+- `content/languages/ms/manifest.json` — 650 unique headwords and 672 senses.
+- `tests/u3-phase2-malay-dictionary.test.mjs` — 650 headword and 1,344 translation assertions.
 
-Current content/test/manifest head: `e8096149fed9bbe4c6aea8e4948ea8dce41a1a06`.
+Latest application content/test/manifest commit: `c02cf9f2841f872bd1a68fe10fb24a5732fff522`.
 
 ## Validation state
 
-An earlier architecture run identified three issues: stale/inaccurate count assertions, duplicate headwords, and alias collisions. The duplicate entries and conflicting aliases have been corrected. Final-head U3.0 architecture regression and English Dictionary QA are running; this archive must be updated with their final conclusions before batch 08 is signed off. Do not treat earlier workflow runs as final-head validation.
+The preceding corrected 627-headword checkpoint passed the U3.0 architecture regression **39/39** on commit `95ec6ac2797913ab96b4a59a01af10b99aba3bc4`, workflow [45837310858](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45837310858). The final 650-headword content version has new architecture and English Dictionary QA workflows queued at the latest check. Their conclusions must be recorded before final sign-off. The separate Quiz workflow is unrelated to Malay content validation and is not a release gate for this batch.
+
+A whole-batch source scan found no generic repeated example templates in the new batch. Competent human review is still required for lexical accuracy, naturalness, translations and specialist vocabulary.
 
 ## Editorial, legal and activation status
 
-All 627 records remain original-authored drafts. All 1,298 support translations remain machine-assisted drafts. Competent human Malaysian Standard Malay review, independent translation review, source verification and item-level rights clearance remain outstanding. Medical, technical, administrative and environmental vocabulary needs subject-matter review. Automated checks do not replace professional editorial validation.
+All 650 records remain original-authored drafts. All 1,344 support translations remain machine-assisted drafts. Competent human Malaysian Standard Malay review, independent translation review, source verification and item-level rights clearance remain outstanding. Medical, technical, administrative and environmental vocabulary needs subject-matter review. Automated checks do not replace professional editorial validation.
 
 No DBP/PRPM/Kamus Dewan protected text was copied or scraped. Malaysia PDPA and broader international privacy/legal review remain required before public launch.
 
@@ -35,7 +37,7 @@ The `ms` package remains planned/inactive and unselectable. No Malay Lessons, Da
 ## Next actions
 
 1. Confirm final-head architecture regression and English Dictionary QA.
-2. Inspect any remaining failures and correct structural, count, alias, translation or runtime regressions.
-3. Run whole-catalogue example-quality and lexical review, especially technical and medical terms.
-4. Expand further only with useful, distinct Malaysian Standard Malay headwords; do not pad to 650.
+2. Review Malaysian Standard Malay definitions and examples with a competent human editor.
+3. Independently review English and Simplified Chinese translations.
+4. Verify sources and rights for every content record.
 5. Keep Malay inactive until all U3.0 activation gates are satisfied.
