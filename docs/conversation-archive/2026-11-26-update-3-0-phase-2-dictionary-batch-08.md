@@ -24,7 +24,7 @@ Latest application commit: 67b5691eda1d76dcd3746f90ccb96993dc2555cb.
 
 English Dictionary QA passed on the intermediate batch-08 content head 11f5e78e4cf46a8bdd2fd94f3185471c2d08e731, workflow [45832076858](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45832076858). Later commits updated the package counts and added the final pekerja record. Therefore that success is not final-head validation.
 
-Architecture workflow attempts on subsequent rapid pushes were cancelled. The latest English QA was still in progress at the latest check. Final-head architecture and English QA must be checked before marking this batch validated. The 204-entry batch is structurally prepared but has not yet earned a final validation sign-off.
+Architecture workflow attempts on subsequent rapid pushes were cancelled. English Dictionary QA subsequently passed on the final content head (run 45832237968). The final-head architecture workflow remains pending (run 45832237817); the separate Quiz integration workflow is not yet complete. The 204-entry batch is structurally prepared but has not yet earned a final validation sign-off.
 
 ## Editorial, legal and activation status
 
