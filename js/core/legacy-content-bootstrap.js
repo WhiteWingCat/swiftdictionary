@@ -5,12 +5,15 @@
   const packages = window.SWIFT_CONTENT_PACKAGES;
   // The English lesson expansion runs after the main inline application script.
   // Rebuild the package lesson snapshots here so they include those additions.
+  const collectLessons = catalogue => Object.entries(catalogue || {}).flatMap(([difficulty,items]) =>
+    (Array.isArray(items) ? items : []).map(lesson => ({ ...lesson, difficulty, legacySource:lesson }))
+  );
   if (source.en && typeof lessonData !== "undefined") {
-    source.en.lessons = Object.values(lessonData).flat();
+    source.en.lessons = collectLessons(lessonData);
     if (typeof lessonZh !== "undefined") source.en.lessonTranslations = lessonZh;
   }
   if (source.zh && typeof chineseLessonData !== "undefined") {
-    source.zh.lessons = Object.values(chineseLessonData).flat();
+    source.zh.lessons = collectLessons(chineseLessonData);
   }
   if (!packages) return;
   for (const code of ["en","zh"]) {
