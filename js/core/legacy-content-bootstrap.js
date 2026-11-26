@@ -3,6 +3,15 @@
   "use strict";
   const source = window.SWIFT_LEGACY_CONTENT_DATA || {};
   const packages = window.SWIFT_CONTENT_PACKAGES;
+  // The English lesson expansion runs after the main inline application script.
+  // Rebuild the package lesson snapshots here so they include those additions.
+  if (source.en && typeof lessonData !== "undefined") {
+    source.en.lessons = Object.values(lessonData).flat();
+    if (typeof lessonZh !== "undefined") source.en.lessonTranslations = lessonZh;
+  }
+  if (source.zh && typeof chineseLessonData !== "undefined") {
+    source.zh.lessons = Object.values(chineseLessonData).flat();
+  }
   if (!packages) return;
   for (const code of ["en","zh"]) {
     const data = source[code];
