@@ -204,13 +204,16 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("button", { name: "Create folder" }).click();
   await expect(panel.getByText("Work")).toBeVisible();
 
-  // Folder order can be changed with accessible controls and persists in the account data.
+  // Keyboard alternative: focus the folder heading and use Alt + Arrow keys.
   const workOrderCard = panel.locator(".fc-folder-card").filter({ hasText: "Work" });
-  await workOrderCard.getByRole("button", { name: "Move Work up" }).click();
+  await expect(workOrderCard.locator(".fc-drag-handle")).toHaveCount(0);
+  await expect(workOrderCard.getByRole("button", { name: /Move Work (up|down)/ })).toHaveCount(0);
+  await workOrderCard.locator(".fc-folder-toggle").focus();
+  await page.keyboard.press("Alt+ArrowUp");
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
     .toEqual(["Work", "Travel"]);
-  await workOrderCard.getByRole("button", { name: "Move Work down" }).click();
+  await page.keyboard.press("Alt+ArrowDown");
   await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
     .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
     .toEqual(["Travel", "Work"]);
@@ -339,7 +342,7 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await expect(panel.locator("select")).toHaveCount(0);
 });
 
-test("Your Collections folders can be dragged to the top or bottom of the list", async ({ page }) => {
+test("folders reorder by dragging the folder header itself to any position", async ({ page }) => {
   await installCollectionsFixture(page);
   const panel = page.locator("#swiftFavoriteCollections");
   for (const name of ["First", "Second", "Third"]) {
@@ -348,22 +351,24 @@ test("Your Collections folders can be dragged to the top or bottom of the list",
     await page.getByRole("button", { name: "Create folder" }).click();
     await expect(panel.getByText(name, { exact: true })).toBeVisible();
   }
-  const third = panel.locator(".fc-folder-card").filter({ hasText: "Third" });
-  const first = panel.locator(".fc-folder-card").filter({ hasText: "First" });
-  await third.locator(".fc-drag-handle").dragTo(first, { targetPosition: { x: 12, y: 8 } });
-  await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
-    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
-    .toEqual(["Third", "First", "Second"]);
-  const lastCard = panel.locator(".fc-folder-card").last();
-  const lastCardBox = await lastCard.boundingBox();
-  await first.locator(".fc-drag-handle").dragTo(lastCard, { targetPosition: { x: 12, y: Math.max(1, lastCardBox.height - 4) } });
-  await expect.poll(() => page.evaluate(() => window.__collectionsTestDB.favorite_collections
-    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name)))
-    .toEqual(["Third", "Second", "First"]);
-  await expect(panel.locator(".fc-folder-card").first()).toContainText("Third");
-  await expect(panel.locator(".fc-folder-card").last()).toContainText("First");
+  const order = () => page.evaluate(() => window.__collectionsTestDB.favorite_collections
+    .filter(row => row.user_id === "test-user-a").sort((a,b) => a.sort_order-b.sort_order).map(row => row.name));
+  const dragHeader = async (name, targetName, edge) => {
+    const source = panel.locator(".fc-folder-card").filter({ hasText: name }).locator(".fc-folder-toggle");
+    const target = panel.locator(".fc-folder-card").filter({ hasText: targetName });
+    const a = await source.boundingBox(), b = await target.boundingBox();
+    await page.mouse.move(a.x + a.width / 2, a.y + a.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(a.x + a.width / 2 + 3, a.y + a.height / 2 + 3, { steps: 2 });
+    await page.mouse.move(b.x + b.width / 2, edge === "top" ? b.y + 3 : b.y + b.height - 3, { steps: 8 });
+    await page.mouse.up();
+  };
+  await dragHeader("Third", "First", "top");
+  await expect.poll(order).toEqual(["Third", "First", "Second"]);
+  await dragHeader("Third", "Second", "bottom");
+  await expect.poll(order).toEqual(["First", "Second", "Third"]);
+  await expect(panel.locator(".fc-folder-card").first()).toContainText("First");
 });
-
 test("Your Collections remain account-isolated and replace private Realtime channels when accounts switch", async ({ page }) => {
   await installCollectionsFixture(page);
   const panel = page.locator("#swiftFavoriteCollections");
