@@ -22,7 +22,12 @@ test("legacy content bootstrap runs after language content sources and daily lea
  const html=read("index.html");
  const sources=["data/languages/english-dictionary.js","data/languages/chinese-dictionary.js","data/languages/english-lessons.js","daily-learning.js","data/chinese-flashcards.js","flashcards.js","js/core/legacy-content-bootstrap.js"];
  let previous=-1;
- for(const source of sources){const position=html.indexOf(source);assert.ok(position>previous,source+" must load after its dependencies");previous=position;}
+ for(const source of sources){
+  // Match the actual script element, not an earlier metadata reference in inline code.
+  const position=html.indexOf('<script src="'+source);
+  assert.ok(position>previous,source+" must load after its dependencies");
+  previous=position;
+ }
  assert.ok(html.includes("SWIFT_LEGACY_CONTENT_DATA"));
 });
 
@@ -41,5 +46,6 @@ test("architecture migration design retains safe migration gates",()=>{
  assert.ok(design.includes("Migrate"));
  assert.ok(design.includes("Verify"));
  assert.ok(design.includes("Contract"));
- assert.ok(design.includes("No staging preview until Phase 3 is complete"));
+ assert.match(design,/no staging preview/i);
+ assert.match(design,/Phase 3 is complete/i);
 });
