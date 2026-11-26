@@ -219,3 +219,16 @@ This is a planning checklist, not legal advice, legal clearance or a compliance 
 ## Phase 0 audit status
 
 Phase 0 read-only audit is complete. The findings, production/staging schema differences, en/zh restrictions, content inventory and provenance/legal risks are recorded in [the Phase 0 Audit Report](UPDATE-3.0-PHASE-0-AUDIT.md). The next step is Phase 1 on `feature/update-3.0-phase-0-audit`. No code or database changes were made during the audit.
+
+
+## Phase 1 implementation status — 2026-11-26
+
+Phase 1 has started on `feature/update-3.0-phase-0-audit`. The initial architecture foundation is committed:
+- `js/core/language-registry.js`: registered language metadata, active/planned state, capability declarations, and language lookup.
+- `js/core/content-contracts.js`: versioned stable-identity, dictionary-entry, translation workflow, and language-package structural validators.
+- `tests/multilingual-architecture.test.cjs`: initial Node test coverage for activation boundaries, capability separation, stable IDs, translation review requirements, and package consistency.
+- `docs/U3.0-MULTILINGUAL-ARCHITECTURE.md`: architecture and migration contract.
+
+This is a foundation checkpoint, **not Phase 1 completion**. These new modules are not yet wired into the production application entry point; English/Chinese runtime data and legacy persistence/RPC paths still require migration. The test suite has been authored but has not yet been executed in this environment. No Supabase schema/data, Auth configuration, staging preview, production deployment, merge or main-branch change was made.
+
+**Next Phase 1 work:** integrate the registry and content adapters into the real app load path; map English and Chinese Dictionary/Lessons/Daily Learning/Quiz/Flashcards into shared package contracts while preserving their language-specific behaviour; generalise saved words, collections, preferences, progress and account-deletion paths; consolidate pair-specific content validators; design/test compatible database migrations and RPC updates without applying them to Live. Phase 1 remains in progress until regression and migration parity evidence is available.
