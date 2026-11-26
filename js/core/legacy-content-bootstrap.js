@@ -7,12 +7,13 @@
   for (const code of ["en","zh"]) {
     const data = source[code];
     if (!data) continue;
+    const dailyLearning = window.SWIFT_DAILY_LEARNING_CONTENT?.[code] || data.dailyLearning || {};
     packages.createPackage({
       languageCode:code, contentVersion:"legacy-u2.9.1",
       content:{
         dictionary:{entries:data.dictionary || []},
         lessons:{permanent:data.lessons || [], translations:data.lessonTranslations || {}},
-        dailyLearning:data.dailyLearning || {},
+        dailyLearning,
         quiz:{source:data.quizSource || null},
         flashcards:{source:data.flashcardSource || null}
       },
