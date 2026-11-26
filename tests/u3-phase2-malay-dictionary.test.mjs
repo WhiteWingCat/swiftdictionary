@@ -147,3 +147,17 @@ test("English and Chinese adapter behaviour remains distinct", () => {
   assert.equal(chinese.matchesGridEntry({word:"你好"}), false);
   assert.equal(adapter.matchesGridEntry({word:"terima kasih"}), true);
 });
+
+
+test("shared dictionary translation registration never creates same-language pairs", () => {
+  const english = context.window.SWIFT_CONTENT_PACKAGES.createPackage({
+    languageCode:"en", contentVersion:"test-en",
+    content:{dictionary:{entries:[{word:"hello",part:"noun",definition:"A greeting",definitionZh:"问候",definitionEn:"A greeting"}]}}
+  });
+  const chinese = context.window.SWIFT_CONTENT_PACKAGES.createPackage({
+    languageCode:"zh", contentVersion:"test-zh",
+    content:{dictionary:{entries:[{word:"你",part:"汉语词汇",definition:"you",definitionZh:"你",definitionEn:"you"}]}}
+  });
+  assert.ok(english.dictionary.translations.every(record => record.sourceLanguageCode === "en" && record.targetLanguageCode === "zh"));
+  assert.ok(chinese.dictionary.translations.every(record => record.sourceLanguageCode === "zh" && record.targetLanguageCode === "en"));
+});
