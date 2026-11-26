@@ -328,7 +328,7 @@
   function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.definition_zh||c.translation_text||c.back_text,definitionCueZh:c.definition_zh||c.translation_text||"",translationEn:c.back_text,translationZh:c.translation_zh||"",pinyin:c.pinyin||"",examples:c.example_text?[c.example_text]:[],course:c.language_code||"en",_custom:c};}
   function gameDeck(){
     let all=words();
-    if(course==="zh"){
+    if(isChineseLanguage(course)){
       if(state.cardSet==="characters")all=all.filter(w=>w.cardKind==="characters");
       else if(state.cardSet==="vocabulary")all=all.filter(w=>w.cardKind==="vocabulary");
       else if(state.cardSet==="phrases")all=all.filter(w=>w.cardKind==="phrases");
