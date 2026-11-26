@@ -386,6 +386,11 @@
   const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING || {topics:[],applications:[],discovery:[]};
   const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";
   const dailyContentFor = language => {
+    const packageContent=window.SWIFT_CONTENT_PACKAGES?.get(language)?.dailyLearning;
+    if(packageContent){
+      const unwrap=items=>(items||[]).map(item=>item.legacySource||item);
+      return {topics:unwrap(packageContent.topics),applications:unwrap(packageContent.applications),discovery:unwrap(packageContent.discovery),revision:packageContent.revision};
+    }
     if (language === "zh") return chineseDailyLearning;
     if (language === "en") return { topics:dailyTopics, applications:dailyApplications, discovery:dailyDiscoveryVocabulary };
     throw new Error("Daily Learning content is not available for language: " + language);
