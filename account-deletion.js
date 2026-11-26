@@ -6,7 +6,10 @@
 
   const ANONYMOUS_SAVED_KEY = "swiftdictionary-anonymous-saved";
   const LEGACY_SAVED_KEY = "swiftdictionary-saved";
-  const isActiveLanguage = code => window.SWIFT_LANGUAGE_REGISTRY?.get(code)?.status === "active";
+  const isKnownCourse = code => {
+    const registry = window.SWIFT_LANGUAGE_REGISTRY;
+    return registry ? registry.has(code) : code === "en" || code === "zh";
+  };
 
   function readAnonymousEntries() {
     try {
@@ -15,7 +18,7 @@
       if (!Array.isArray(parsed)) return [];
       return parsed.map((entry) => {
         if (typeof entry === "string") return { course: "en", word: entry };
-        if (entry && isActiveLanguage(entry.course) && typeof entry.word === "string") return entry;
+        if (entry && isKnownCourse(entry.course) && typeof entry.word === "string") return entry;
         return null;
       }).filter(Boolean);
     } catch {
@@ -26,7 +29,7 @@
   function writeAnonymousEntries(entries) {
     const unique = new Map();
     for (const entry of entries) {
-      if (!entry || !isActiveLanguage(entry.course) || typeof entry.word !== "string") continue;
+      if (!entry || !isKnownCourse(entry.course) || typeof entry.word !== "string") continue;
       unique.set(entry.course + "\u0000" + entry.word, { course: entry.course, word: entry.word });
     }
     localStorage.setItem(ANONYMOUS_SAVED_KEY, JSON.stringify([...unique.values()]));
