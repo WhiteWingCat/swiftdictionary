@@ -287,3076 +287,2862 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   }
 ,
-  [
-    {
-      "id": "ms.dict.pejabat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pejabat",
-      "part": "kata nama",
-      "definition": "Tempat seseorang menjalankan urusan pentadbiran atau kerja rasmi.",
-      "definitionEn": "An office where administrative or other official work is carried out.",
-      "definitionZh": "办公室；处理行政或公务的工作场所。",
-      "examples": [
-        "Ibu saya bekerja di pejabat kerajaan.",
-        "Pejabat itu dibuka pada pukul lapan pagi."
-      ],
-      "related": [
-        "tempat kerja",
-        "agensi"
-      ],
-      "categories": [
-        "pekerjaan",
-        "perkhidmatan awam"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pejabat.s1",
-          "definition": "Tempat seseorang menjalankan urusan pentadbiran atau kerja rasmi.",
-          "definitionEn": "An office where administrative or other official work is carried out.",
-          "definitionZh": "办公室；处理行政或公务的工作场所。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Ibu saya bekerja di pejabat kerajaan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
+  {
+    "id": "ms.dict.pejabat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pejabat",
+    "part": "kata nama",
+    "definition": "Tempat seseorang menjalankan urusan pentadbiran atau kerja rasmi.",
+    "definitionEn": "An office where administrative or other official work is carried out.",
+    "definitionZh": "办公室；处理行政或公务的工作场所。",
+    "examples": [
+      "Ibu saya bekerja di pejabat kerajaan.",
+      "Pejabat itu dibuka pada pukul lapan pagi."
+    ],
+    "related": [
+      "tempat kerja",
+      "agensi"
+    ],
+    "categories": [
+      "pekerjaan",
+      "perkhidmatan awam"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
     },
-    {
-      "id": "ms.dict.pekerja",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pekerja",
-      "part": "kata nama",
-      "definition": "Orang yang melakukan pekerjaan untuk memperoleh upah atau gaji.",
-      "definitionEn": "A person who works, usually in return for wages or a salary.",
-      "definitionZh": "工人；雇员；以工作换取工资的人。",
-      "examples": [
-        "Pekerja itu memakai pakaian keselamatan.",
-        "Syarikat tersebut memerlukan lebih ramai pekerja."
-      ],
-      "related": [
-        "majikan",
-        "kakitangan"
-      ],
-      "categories": [
-        "pekerjaan",
-        "manusia"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pekerja.s1",
-          "definition": "Orang yang melakukan pekerjaan untuk memperoleh upah atau gaji.",
-          "definitionEn": "A person who works, usually in return for wages or a salary.",
-          "definitionZh": "工人；雇员；以工作换取工资的人。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pekerja itu memakai pakaian keselamatan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
+    "senses": [
+      {
+        "id": "ms.dict.pejabat.s1",
+        "definition": "Tempat seseorang menjalankan urusan pentadbiran atau kerja rasmi.",
+        "definitionEn": "An office where administrative or other official work is carried out.",
+        "definitionZh": "办公室；处理行政或公务的工作场所。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Ibu saya bekerja di pejabat kerajaan."
+        ]
       }
-    },
-    {
-      "id": "ms.dict.majikan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "majikan",
-      "part": "kata nama",
-      "definition": "Pihak atau orang yang menggaji seseorang untuk melakukan pekerjaan.",
-      "definitionEn": "An employer who hires someone to perform work.",
-      "definitionZh": "雇主；聘用他人工作的一方。",
-      "examples": [
-        "Majikan menyediakan latihan kepada pekerja baharu.",
-        "Pekerja itu berbincang dengan majikannya."
-      ],
-      "related": [
-        "pekerja",
-        "syarikat"
-      ],
-      "categories": [
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.majikan.s1",
-          "definition": "Pihak atau orang yang menggaji seseorang untuk melakukan pekerjaan.",
-          "definitionEn": "An employer who hires someone to perform work.",
-          "definitionZh": "雇主；聘用他人工作的一方。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Majikan menyediakan latihan kepada pekerja baharu."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.pekerjaan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pekerjaan",
-      "part": "kata nama",
-      "definition": "Kerja atau kegiatan yang dilakukan untuk memperoleh pendapatan atau mencapai tujuan tertentu.",
-      "definitionEn": "Work or an occupation undertaken to earn an income or achieve a purpose.",
-      "definitionZh": "工作；职业；为取得收入或达成目的而进行的活动。",
-      "examples": [
-        "Dia sedang mencari pekerjaan selepas tamat belajar.",
-        "Pekerjaan itu memerlukan kemahiran komunikasi."
-      ],
-      "related": [
-        "kerjaya",
-        "jawatan"
-      ],
-      "categories": [
-        "pekerjaan",
-        "pendidikan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pekerjaan.s1",
-          "definition": "Kerja atau kegiatan yang dilakukan untuk memperoleh pendapatan atau mencapai tujuan tertentu.",
-          "definitionEn": "Work or an occupation undertaken to earn an income or achieve a purpose.",
-          "definitionZh": "工作；职业；为取得收入或达成目的而进行的活动。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Dia sedang mencari pekerjaan selepas tamat belajar."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.gaji",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "gaji",
-      "part": "kata nama",
-      "definition": "Bayaran tetap yang diterima oleh seseorang sebagai balasan untuk pekerjaan.",
-      "definitionEn": "A regular payment received by a person for their work; a salary.",
-      "definitionZh": "薪水；工资；因工作而定期获得的报酬。",
-      "examples": [
-        "Gaji biasanya dibayar pada hujung bulan.",
-        "Dia menyimpan sebahagian daripada gajinya."
-      ],
-      "related": [
-        "upah",
-        "pendapatan"
-      ],
-      "categories": [
-        "pekerjaan",
-        "wang"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.gaji.s1",
-          "definition": "Bayaran tetap yang diterima oleh seseorang sebagai balasan untuk pekerjaan.",
-          "definitionEn": "A regular payment received by a person for their work; a salary.",
-          "definitionZh": "薪水；工资；因工作而定期获得的报酬。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Gaji biasanya dibayar pada hujung bulan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.wang",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "wang",
-      "part": "kata nama",
-      "definition": "Alat pertukaran yang diterima untuk membeli barang atau membayar perkhidmatan.",
-      "definitionEn": "Money used as a medium of exchange to buy goods or pay for services.",
-      "definitionZh": "钱；货币；用于购买商品或支付服务的交换媒介。",
-      "examples": [
-        "Simpan wang itu di tempat yang selamat.",
-        "Saya membawa wang yang cukup untuk tambang."
-      ],
-      "related": [
-        "duit",
-        "mata wang"
-      ],
-      "categories": [
-        "wang",
-        "kehidupan harian"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.wang.s1",
-          "definition": "Alat pertukaran yang diterima untuk membeli barang atau membayar perkhidmatan.",
-          "definitionEn": "Money used as a medium of exchange to buy goods or pay for services.",
-          "definitionZh": "钱；货币；用于购买商品或支付服务的交换媒介。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Simpan wang itu di tempat yang selamat."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.harga",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "harga",
-      "part": "kata nama",
-      "definition": "Nilai wang yang perlu dibayar untuk mendapatkan sesuatu barang atau perkhidmatan.",
-      "definitionEn": "The amount of money required to buy a product or service; a price.",
-      "definitionZh": "价格；购买商品或服务所需支付的金额。",
-      "examples": [
-        "Harga buku itu berpatutan.",
-        "Sila semak harga sebelum membuat pembayaran."
-      ],
-      "related": [
-        "kos",
-        "nilai"
-      ],
-      "categories": [
-        "wang",
-        "perniagaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.harga.s1",
-          "definition": "Nilai wang yang perlu dibayar untuk mendapatkan sesuatu barang atau perkhidmatan.",
-          "definitionEn": "The amount of money required to buy a product or service; a price.",
-          "definitionZh": "价格；购买商品或服务所需支付的金额。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Harga buku itu berpatutan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.murah",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "murah",
-      "part": "kata adjektif",
-      "definition": "Berharga rendah dan tidak memerlukan banyak wang untuk dibeli.",
-      "definitionEn": "Low in price and costing relatively little.",
-      "definitionZh": "便宜；价格较低。",
-      "examples": [
-        "Kedai itu menjual sayur-sayuran yang murah.",
-        "Tiket bas lebih murah jika dibeli lebih awal."
-      ],
-      "related": [
-        "mahal",
-        "berpatutan"
-      ],
-      "categories": [
-        "wang",
-        "sifat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.murah.s1",
-          "definition": "Berharga rendah dan tidak memerlukan banyak wang untuk dibeli.",
-          "definitionEn": "Low in price and costing relatively little.",
-          "definitionZh": "便宜；价格较低。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kedai itu menjual sayur-sayuran yang murah."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.mahal",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "mahal",
-      "part": "kata adjektif",
-      "definition": "Berharga tinggi dan memerlukan banyak wang untuk dibeli.",
-      "definitionEn": "High in price and costing a large amount of money.",
-      "definitionZh": "昂贵；价格较高。",
-      "examples": [
-        "Telefon itu terlalu mahal bagi saya.",
-        "Harga makanan di kawasan itu agak mahal."
-      ],
-      "related": [
-        "murah",
-        "tinggi"
-      ],
-      "categories": [
-        "wang",
-        "sifat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.mahal.s1",
-          "definition": "Berharga tinggi dan memerlukan banyak wang untuk dibeli.",
-          "definitionEn": "High in price and costing a large amount of money.",
-          "definitionZh": "昂贵；价格较高。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Telefon itu terlalu mahal bagi saya."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.bayar",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "bayar",
-      "part": "kata kerja",
-      "definition": "Memberikan wang sebagai penyelesaian bagi barang, perkhidmatan atau hutang.",
-      "definitionEn": "To pay money for goods, services or a debt.",
-      "definitionZh": "支付；付款；偿还款项。",
-      "examples": [
-        "Saya akan bayar bil itu petang ini.",
-        "Dia membayar tambang dengan wang tunai."
-      ],
-      "related": [
-        "membayar",
-        "pembayaran"
-      ],
-      "categories": [
-        "wang",
-        "tindakan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.bayar.s1",
-          "definition": "Memberikan wang sebagai penyelesaian bagi barang, perkhidmatan atau hutang.",
-          "definitionEn": "To pay money for goods, services or a debt.",
-          "definitionZh": "支付；付款；偿还款项。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Saya akan bayar bil itu petang ini."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.bayaran",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "bayaran",
-      "part": "kata nama",
-      "definition": "Wang yang diberikan untuk mendapatkan barang, perkhidmatan atau menyelesaikan kewajipan.",
-      "definitionEn": "A payment made for goods, services or an obligation.",
-      "definitionZh": "付款；支付的款项。",
-      "examples": [
-        "Bayaran boleh dibuat melalui pindahan bank.",
-        "Sila simpan bukti bayaran."
-      ],
-      "related": [
-        "pembayaran",
-        "yuran"
-      ],
-      "categories": [
-        "wang",
-        "perniagaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.bayaran.s1",
-          "definition": "Wang yang diberikan untuk mendapatkan barang, perkhidmatan atau menyelesaikan kewajipan.",
-          "definitionEn": "A payment made for goods, services or an obligation.",
-          "definitionZh": "付款；支付的款项。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Bayaran boleh dibuat melalui pindahan bank."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.beli",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "beli",
-      "part": "kata kerja",
-      "definition": "Mendapatkan sesuatu barang dengan memberikan wang sebagai balasan.",
-      "definitionEn": "To buy or purchase something by paying for it.",
-      "definitionZh": "买；购买；付款取得商品。",
-      "examples": [
-        "Ayah membeli buah-buahan di pasar.",
-        "Saya hendak beli buku nota baharu."
-      ],
-      "related": [
-        "membeli",
-        "pembeli"
-      ],
-      "categories": [
-        "perniagaan",
-        "tindakan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.beli.s1",
-          "definition": "Mendapatkan sesuatu barang dengan memberikan wang sebagai balasan.",
-          "definitionEn": "To buy or purchase something by paying for it.",
-          "definitionZh": "买；购买；付款取得商品。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Ayah membeli buah-buahan di pasar."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.jual",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "jual",
-      "part": "kata kerja",
-      "definition": "Memberikan atau menawarkan barang kepada orang lain dengan menerima bayaran.",
-      "definitionEn": "To sell or offer goods to another person in exchange for payment.",
-      "definitionZh": "卖；出售；以收取款项为条件提供商品。",
-      "examples": [
-        "Mereka menjual kuih di hadapan rumah.",
-        "Kedai itu menjual peralatan sekolah."
-      ],
-      "related": [
-        "menjual",
-        "jualan"
-      ],
-      "categories": [
-        "perniagaan",
-        "tindakan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.jual.s1",
-          "definition": "Memberikan atau menawarkan barang kepada orang lain dengan menerima bayaran.",
-          "definitionEn": "To sell or offer goods to another person in exchange for payment.",
-          "definitionZh": "卖；出售；以收取款项为条件提供商品。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Mereka menjual kuih di hadapan rumah."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.kedai",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "kedai",
-      "part": "kata nama",
-      "definition": "Tempat perniagaan yang menjual barang atau menyediakan perkhidmatan kepada pelanggan.",
-      "definitionEn": "A shop or store that sells goods or provides services to customers.",
-      "definitionZh": "商店；店铺；向顾客售卖商品或提供服务的地方。",
-      "examples": [
-        "Kedai runcit itu terletak di hujung jalan.",
-        "Saya singgah di kedai untuk membeli roti."
-      ],
-      "related": [
-        "peniaga",
-        "pasar"
-      ],
-      "categories": [
-        "perniagaan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.kedai.s1",
-          "definition": "Tempat perniagaan yang menjual barang atau menyediakan perkhidmatan kepada pelanggan.",
-          "definitionEn": "A shop or store that sells goods or provides services to customers.",
-          "definitionZh": "商店；店铺；向顾客售卖商品或提供服务的地方。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kedai runcit itu terletak di hujung jalan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.pasar",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pasar",
-      "part": "kata nama",
-      "definition": "Tempat orang ramai menjual dan membeli barangan, khususnya makanan dan hasil harian.",
-      "definitionEn": "A market where people buy and sell goods, especially food and daily produce.",
-      "definitionZh": "市场；人们买卖商品，尤其是食品和日用品的地方。",
-      "examples": [
-        "Ibu pergi ke pasar pada awal pagi.",
-        "Pasar itu menjual ikan segar."
-      ],
-      "related": [
-        "peniaga",
-        "gerai"
-      ],
-      "categories": [
-        "perniagaan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pasar.s1",
-          "definition": "Tempat orang ramai menjual dan membeli barangan, khususnya makanan dan hasil harian.",
-          "definitionEn": "A market where people buy and sell goods, especially food and daily produce.",
-          "definitionZh": "市场；人们买卖商品，尤其是食品和日用品的地方。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Ibu pergi ke pasar pada awal pagi."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.pasar-raya",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pasar raya",
-      "part": "kata nama",
-      "definition": "Kedai besar yang menjual pelbagai jenis barangan makanan dan keperluan harian.",
-      "definitionEn": "A large self-service shop selling food and a wide range of everyday goods; a supermarket.",
-      "definitionZh": "超市；售卖食品和各种日用品的大型自选商店。",
-      "examples": [
-        "Kami membeli barang dapur di pasar raya.",
-        "Pasar raya itu menyediakan tempat letak kereta."
-      ],
-      "related": [
-        "kedai",
-        "barangan"
-      ],
-      "categories": [
-        "perniagaan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pasar-raya.s1",
-          "definition": "Kedai besar yang menjual pelbagai jenis barangan makanan dan keperluan harian.",
-          "definitionEn": "A large self-service shop selling food and a wide range of everyday goods; a supermarket.",
-          "definitionZh": "超市；售卖食品和各种日用品的大型自选商店。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kami membeli barang dapur di pasar raya."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.resit",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "resit",
-      "part": "kata nama",
-      "definition": "Dokumen yang membuktikan bahawa bayaran telah diterima.",
-      "definitionEn": "A document showing that payment has been received; a receipt.",
-      "definitionZh": "收据；证明已收到款项的文件。",
-      "examples": [
-        "Simpan resit itu untuk rujukan.",
-        "Juruwang memberikan resit selepas pembayaran."
-      ],
-      "related": [
-        "invois",
-        "bayaran"
-      ],
-      "categories": [
-        "wang",
-        "perniagaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.resit.s1",
-          "definition": "Dokumen yang membuktikan bahawa bayaran telah diterima.",
-          "definitionEn": "A document showing that payment has been received; a receipt.",
-          "definitionZh": "收据；证明已收到款项的文件。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Simpan resit itu untuk rujukan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.bil",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "bil",
-      "part": "kata nama",
-      "definition": "Penyata jumlah wang yang perlu dibayar bagi sesuatu barang atau perkhidmatan.",
-      "definitionEn": "A statement showing the amount due for goods or services; a bill.",
-      "definitionZh": "账单；列明商品或服务应付金额的单据。",
-      "examples": [
-        "Bil elektrik perlu dibayar sebelum tarikh akhir.",
-        "Restoran itu menghantar bil ke meja kami."
-      ],
-      "related": [
-        "invois",
-        "bayaran"
-      ],
-      "categories": [
-        "wang",
-        "kehidupan harian"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.bil.s1",
-          "definition": "Penyata jumlah wang yang perlu dibayar bagi sesuatu barang atau perkhidmatan.",
-          "definitionEn": "A statement showing the amount due for goods or services; a bill.",
-          "definitionZh": "账单；列明商品或服务应付金额的单据。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Bil elektrik perlu dibayar sebelum tarikh akhir."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.bank",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "bank",
-      "part": "kata nama",
-      "definition": "Institusi kewangan yang menerima simpanan, mengurus akaun dan menyediakan perkhidmatan kewangan.",
-      "definitionEn": "A financial institution that accepts deposits, manages accounts and provides financial services.",
-      "definitionZh": "银行；接收存款、管理账户并提供金融服务的机构。",
-      "examples": [
-        "Saya pergi ke bank untuk membuka akaun.",
-        "Bank itu mempunyai cawangan di bandar tersebut."
-      ],
-      "related": [
-        "akaun",
-        "simpanan"
-      ],
-      "categories": [
-        "wang",
-        "perkhidmatan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.bank.s1",
-          "definition": "Institusi kewangan yang menerima simpanan, mengurus akaun dan menyediakan perkhidmatan kewangan.",
-          "definitionEn": "A financial institution that accepts deposits, manages accounts and provides financial services.",
-          "definitionZh": "银行；接收存款、管理账户并提供金融服务的机构。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Saya pergi ke bank untuk membuka akaun."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.akaun",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "akaun",
-      "part": "kata nama",
-      "definition": "Rekod kewangan seseorang atau organisasi yang disimpan oleh institusi seperti bank.",
-      "definitionEn": "A financial record held for a person or organisation, such as a bank account.",
-      "definitionZh": "账户；由银行等机构为个人或组织保存的财务记录。",
-      "examples": [
-        "Dia menyemak baki akaun banknya.",
-        "Saya membuka akaun simpanan."
-      ],
-      "related": [
-        "bank",
-        "simpanan"
-      ],
-      "categories": [
-        "wang",
-        "perkhidmatan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.akaun.s1",
-          "definition": "Rekod kewangan seseorang atau organisasi yang disimpan oleh institusi seperti bank.",
-          "definitionEn": "A financial record held for a person or organisation, such as a bank account.",
-          "definitionZh": "账户；由银行等机构为个人或组织保存的财务记录。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Dia menyemak baki akaun banknya."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.tunai",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "tunai",
-      "part": "kata adjektif",
-      "definition": "Dalam bentuk wang fizikal dan bukan melalui kredit atau bayaran tertangguh.",
-      "definitionEn": "In physical money rather than credit or deferred payment; cash.",
-      "definitionZh": "现金的；以实体货币而非赊账或延期方式支付的。",
-      "examples": [
-        "Pelanggan itu membayar secara tunai.",
-        "Kedai tersebut menerima wang tunai."
-      ],
-      "related": [
-        "wang",
-        "kredit"
-      ],
-      "categories": [
-        "wang",
-        "perniagaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.tunai.s1",
-          "definition": "Dalam bentuk wang fizikal dan bukan melalui kredit atau bayaran tertangguh.",
-          "definitionEn": "In physical money rather than credit or deferred payment; cash.",
-          "definitionZh": "现金的；以实体货币而非赊账或延期方式支付的。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pelanggan itu membayar secara tunai."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.pelanggan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pelanggan",
-      "part": "kata nama",
-      "definition": "Orang yang membeli barang atau menggunakan perkhidmatan daripada sesuatu perniagaan.",
-      "definitionEn": "A customer or client who buys goods or uses a business's services.",
-      "definitionZh": "顾客；客户；购买商品或使用企业服务的人。",
-      "examples": [
-        "Pelanggan boleh membuat aduan melalui kaunter khidmat.",
-        "Kedai itu melayan setiap pelanggan dengan sopan."
-      ],
-      "related": [
-        "pembeli",
-        "pengguna"
-      ],
-      "categories": [
-        "perniagaan",
-        "manusia"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pelanggan.s1",
-          "definition": "Orang yang membeli barang atau menggunakan perkhidmatan daripada sesuatu perniagaan.",
-          "definitionEn": "A customer or client who buys goods or uses a business's services.",
-          "definitionZh": "顾客；客户；购买商品或使用企业服务的人。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pelanggan boleh membuat aduan melalui kaunter khidmat."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.perkhidmatan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "perkhidmatan",
-      "part": "kata nama",
-      "definition": "Kerja atau bantuan yang diberikan untuk memenuhi keperluan orang lain.",
-      "definitionEn": "A service or assistance provided to meet another person's needs.",
-      "definitionZh": "服务；为满足他人需求而提供的工作或帮助。",
-      "examples": [
-        "Perkhidmatan bas di kawasan itu bermula awal pagi.",
-        "Kaunter ini menyediakan perkhidmatan kepada orang awam."
-      ],
-      "related": [
-        "khidmat",
-        "kemudahan"
-      ],
-      "categories": [
-        "perkhidmatan awam",
-        "kehidupan harian"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.perkhidmatan.s1",
-          "definition": "Kerja atau bantuan yang diberikan untuk memenuhi keperluan orang lain.",
-          "definitionEn": "A service or assistance provided to meet another person's needs.",
-          "definitionZh": "服务；为满足他人需求而提供的工作或帮助。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Perkhidmatan bas di kawasan itu bermula awal pagi."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.hospital",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "hospital",
-      "part": "kata nama",
-      "definition": "Institusi kesihatan yang menyediakan rawatan dan penjagaan perubatan kepada pesakit.",
-      "definitionEn": "A hospital that provides medical treatment and care to patients.",
-      "definitionZh": "医院；为病人提供医疗和护理的机构。",
-      "examples": [
-        "Pesakit itu dibawa ke hospital dengan ambulans.",
-        "Hospital kerajaan menyediakan pelbagai perkhidmatan kesihatan."
-      ],
-      "related": [
-        "klinik",
-        "doktor"
-      ],
-      "categories": [
-        "kesihatan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.hospital.s1",
-          "definition": "Institusi kesihatan yang menyediakan rawatan dan penjagaan perubatan kepada pesakit.",
-          "definitionEn": "A hospital that provides medical treatment and care to patients.",
-          "definitionZh": "医院；为病人提供医疗和护理的机构。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pesakit itu dibawa ke hospital dengan ambulans."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.klinik",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "klinik",
-      "part": "kata nama",
-      "definition": "Tempat pesakit mendapatkan pemeriksaan, nasihat atau rawatan kesihatan.",
-      "definitionEn": "A clinic where people receive medical examinations, advice or treatment.",
-      "definitionZh": "诊所；人们接受健康检查、咨询或治疗的地方。",
-      "examples": [
-        "Saya pergi ke klinik kerana demam.",
-        "Klinik itu dibuka pada waktu pejabat."
-      ],
-      "related": [
-        "hospital",
-        "doktor"
-      ],
-      "categories": [
-        "kesihatan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.klinik.s1",
-          "definition": "Tempat pesakit mendapatkan pemeriksaan, nasihat atau rawatan kesihatan.",
-          "definitionEn": "A clinic where people receive medical examinations, advice or treatment.",
-          "definitionZh": "诊所；人们接受健康检查、咨询或治疗的地方。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Saya pergi ke klinik kerana demam."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.ubat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "ubat",
-      "part": "kata nama",
-      "definition": "Bahan atau sediaan yang digunakan untuk mencegah, melegakan atau merawat penyakit.",
-      "definitionEn": "Medicine used to prevent, relieve or treat an illness.",
-      "definitionZh": "药物；用于预防、缓解或治疗疾病的物质或制剂。",
-      "examples": [
-        "Ambil ubat mengikut arahan doktor.",
-        "Ubat itu perlu disimpan di tempat yang sesuai."
-      ],
-      "related": [
-        "rawatan",
-        "farmasi"
-      ],
-      "categories": [
-        "kesihatan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.ubat.s1",
-          "definition": "Bahan atau sediaan yang digunakan untuk mencegah, melegakan atau merawat penyakit.",
-          "definitionEn": "Medicine used to prevent, relieve or treat an illness.",
-          "definitionZh": "药物；用于预防、缓解或治疗疾病的物质或制剂。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Ambil ubat mengikut arahan doktor."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.doktor",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "doktor",
-      "part": "kata nama",
-      "definition": "Pengamal perubatan yang terlatih untuk memeriksa, mendiagnosis dan merawat pesakit.",
-      "definitionEn": "A medical doctor trained to examine, diagnose and treat patients.",
-      "definitionZh": "医生；受过训练以检查、诊断和治疗病人的医疗专业人员。",
-      "examples": [
-        "Doktor memeriksa keadaan pesakit itu.",
-        "Saya membuat janji temu dengan doktor."
-      ],
-      "related": [
-        "pesakit",
-        "jururawat"
-      ],
-      "categories": [
-        "kesihatan",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.doktor.s1",
-          "definition": "Pengamal perubatan yang terlatih untuk memeriksa, mendiagnosis dan merawat pesakit.",
-          "definitionEn": "A medical doctor trained to examine, diagnose and treat patients.",
-          "definitionZh": "医生；受过训练以检查、诊断和治疗病人的医疗专业人员。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Doktor memeriksa keadaan pesakit itu."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.jururawat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "jururawat",
-      "part": "kata nama",
-      "definition": "Petugas kesihatan yang menjaga pesakit dan membantu dalam pemberian rawatan.",
-      "definitionEn": "A nurse who cares for patients and assists with medical treatment.",
-      "definitionZh": "护士；照顾病人并协助医疗护理的卫生人员。",
-      "examples": [
-        "Jururawat membantu pesakit berjalan.",
-        "Jururawat itu memeriksa suhu badan kanak-kanak tersebut."
-      ],
-      "related": [
-        "doktor",
-        "pesakit"
-      ],
-      "categories": [
-        "kesihatan",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.jururawat.s1",
-          "definition": "Petugas kesihatan yang menjaga pesakit dan membantu dalam pemberian rawatan.",
-          "definitionEn": "A nurse who cares for patients and assists with medical treatment.",
-          "definitionZh": "护士；照顾病人并协助医疗护理的卫生人员。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Jururawat membantu pesakit berjalan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.polis",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "polis",
-      "part": "kata nama",
-      "definition": "Anggota pasukan keselamatan yang bertugas menjaga keamanan dan menguatkuasakan undang-undang.",
-      "definitionEn": "A police officer who maintains public order and enforces the law.",
-      "definitionZh": "警察；负责维护公共秩序和执行法律的人员。",
-      "examples": [
-        "Polis mengawal lalu lintas di persimpangan itu.",
-        "Dia membuat laporan kepada polis."
-      ],
-      "related": [
-        "pengawal",
-        "keselamatan"
-      ],
-      "categories": [
-        "perkhidmatan awam",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.polis.s1",
-          "definition": "Anggota pasukan keselamatan yang bertugas menjaga keamanan dan menguatkuasakan undang-undang.",
-          "definitionEn": "A police officer who maintains public order and enforces the law.",
-          "definitionZh": "警察；负责维护公共秩序和执行法律的人员。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Polis mengawal lalu lintas di persimpangan itu."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.balai-polis",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "balai polis",
-      "part": "kata nama",
-      "definition": "Bangunan atau pejabat tempat anggota polis bertugas dan orang ramai membuat laporan.",
-      "definitionEn": "A police station where officers work and members of the public make reports.",
-      "definitionZh": "警察局；警员办公及公众报案的场所。",
-      "examples": [
-        "Mereka pergi ke balai polis untuk membuat laporan.",
-        "Balai polis itu terletak berhampiran balai bomba."
-      ],
-      "related": [
-        "polis",
-        "laporan"
-      ],
-      "categories": [
-        "perkhidmatan awam",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.balai-polis.s1",
-          "definition": "Bangunan atau pejabat tempat anggota polis bertugas dan orang ramai membuat laporan.",
-          "definitionEn": "A police station where officers work and members of the public make reports.",
-          "definitionZh": "警察局；警员办公及公众报案的场所。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Mereka pergi ke balai polis untuk membuat laporan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.bomba",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "bomba",
-      "part": "kata nama",
-      "definition": "Pasukan atau anggota yang memadamkan kebakaran dan menjalankan operasi menyelamat.",
-      "definitionEn": "The fire and rescue service or a firefighter who puts out fires and carries out rescues.",
-      "definitionZh": "消防队；消防员；负责灭火和救援的队伍或人员。",
-      "examples": [
-        "Pasukan bomba tiba beberapa minit kemudian.",
-        "Anggota bomba menyelamatkan mangsa daripada bangunan itu."
-      ],
-      "related": [
-        "kebakaran",
-        "penyelamat"
-      ],
-      "categories": [
-        "perkhidmatan awam",
-        "keselamatan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.bomba.s1",
-          "definition": "Pasukan atau anggota yang memadamkan kebakaran dan menjalankan operasi menyelamat.",
-          "definitionEn": "The fire and rescue service or a firefighter who puts out fires and carries out rescues.",
-          "definitionZh": "消防队；消防员；负责灭火和救援的队伍或人员。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pasukan bomba tiba beberapa minit kemudian."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.pejabat-pos",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "pejabat pos",
-      "part": "kata nama",
-      "definition": "Tempat orang ramai menghantar surat dan bungkusan serta menggunakan perkhidmatan pos.",
-      "definitionEn": "A post office where people send letters and parcels and use postal services.",
-      "definitionZh": "邮局；公众寄送信件和包裹及使用邮政服务的地方。",
-      "examples": [
-        "Saya menghantar bungkusan di pejabat pos.",
-        "Pejabat pos itu menjual setem."
-      ],
-      "related": [
-        "surat",
-        "bungkusan"
-      ],
-      "categories": [
-        "perkhidmatan awam",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.pejabat-pos.s1",
-          "definition": "Tempat orang ramai menghantar surat dan bungkusan serta menggunakan perkhidmatan pos.",
-          "definitionEn": "A post office where people send letters and parcels and use postal services.",
-          "definitionZh": "邮局；公众寄送信件和包裹及使用邮政服务的地方。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Saya menghantar bungkusan di pejabat pos."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.perpustakaan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "perpustakaan",
-      "part": "kata nama",
-      "definition": "Tempat yang menyimpan dan menyediakan buku serta bahan bacaan untuk dipinjam atau dirujuk.",
-      "definitionEn": "A library that keeps books and reading materials for borrowing or reference.",
-      "definitionZh": "图书馆；收藏并提供书籍和阅读资料供借阅或查阅的地方。",
-      "examples": [
-        "Murid-murid membaca di perpustakaan sekolah.",
-        "Perpustakaan awam itu mempunyai ruang belajar."
-      ],
-      "related": [
-        "buku",
-        "pembaca"
-      ],
-      "categories": [
-        "pendidikan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.perpustakaan.s1",
-          "definition": "Tempat yang menyimpan dan menyediakan buku serta bahan bacaan untuk dipinjam atau dirujuk.",
-          "definitionEn": "A library that keeps books and reading materials for borrowing or reference.",
-          "definitionZh": "图书馆；收藏并提供书籍和阅读资料供借阅或查阅的地方。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Murid-murid membaca di perpustakaan sekolah."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.universiti",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "universiti",
-      "part": "kata nama",
-      "definition": "Institusi pengajian tinggi yang menawarkan program akademik dan menjalankan penyelidikan.",
-      "definitionEn": "A university that offers academic programmes and conducts research.",
-      "definitionZh": "大学；提供学术课程并开展研究的高等教育机构。",
-      "examples": [
-        "Kakak saya belajar di universiti awam.",
-        "Universiti itu menawarkan program kejuruteraan."
-      ],
-      "related": [
-        "kolej",
-        "kampus"
-      ],
-      "categories": [
-        "pendidikan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.universiti.s1",
-          "definition": "Institusi pengajian tinggi yang menawarkan program akademik dan menjalankan penyelidikan.",
-          "definitionEn": "A university that offers academic programmes and conducts research.",
-          "definitionZh": "大学；提供学术课程并开展研究的高等教育机构。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kakak saya belajar di universiti awam."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.kolej",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "kolej",
-      "part": "kata nama",
-      "definition": "Institusi pendidikan yang menawarkan pengajian selepas sekolah menengah atau latihan khusus.",
-      "definitionEn": "A college that provides post-secondary education or specialised training.",
-      "definitionZh": "学院；提供中学后教育或专门培训的教育机构。",
-      "examples": [
-        "Dia menyambung pelajaran di sebuah kolej.",
-        "Kolej itu menawarkan kursus reka bentuk."
-      ],
-      "related": [
-        "universiti",
-        "institusi"
-      ],
-      "categories": [
-        "pendidikan",
-        "tempat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.kolej.s1",
-          "definition": "Institusi pendidikan yang menawarkan pengajian selepas sekolah menengah atau latihan khusus.",
-          "definitionEn": "A college that provides post-secondary education or specialised training.",
-          "definitionZh": "学院；提供中学后教育或专门培训的教育机构。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Dia menyambung pelajaran di sebuah kolej."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.peperiksaan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "peperiksaan",
-      "part": "kata nama",
-      "definition": "Ujian rasmi untuk menilai pengetahuan atau kebolehan seseorang dalam sesuatu bidang.",
-      "definitionEn": "An examination used to assess a person's knowledge or ability in a subject.",
-      "definitionZh": "考试；用于评估某人在某个领域知识或能力的正式测验。",
-      "examples": [
-        "Peperiksaan akhir bermula minggu hadapan.",
-        "Murid itu membuat persediaan untuk peperiksaan."
-      ],
-      "related": [
-        "ujian",
-        "penilaian"
-      ],
-      "categories": [
-        "pendidikan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.peperiksaan.s1",
-          "definition": "Ujian rasmi untuk menilai pengetahuan atau kebolehan seseorang dalam sesuatu bidang.",
-          "definitionEn": "An examination used to assess a person's knowledge or ability in a subject.",
-          "definitionZh": "考试；用于评估某人在某个领域知识或能力的正式测验。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Peperiksaan akhir bermula minggu hadapan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.soalan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "soalan",
-      "part": "kata nama",
-      "definition": "Ayat atau perkara yang dikemukakan untuk mendapatkan jawapan atau penjelasan.",
-      "definitionEn": "A question asked to obtain an answer or explanation.",
-      "definitionZh": "问题；为获得答案或解释而提出的内容。",
-      "examples": [
-        "Sila jawab semua soalan dalam bahagian ini.",
-        "Soalan itu agak sukar difahami."
-      ],
-      "related": [
-        "pertanyaan",
-        "jawapan"
-      ],
-      "categories": [
-        "pendidikan",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.soalan.s1",
-          "definition": "Ayat atau perkara yang dikemukakan untuk mendapatkan jawapan atau penjelasan.",
-          "definitionEn": "A question asked to obtain an answer or explanation.",
-          "definitionZh": "问题；为获得答案或解释而提出的内容。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Sila jawab semua soalan dalam bahagian ini."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.jawapan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "jawapan",
-      "part": "kata nama",
-      "definition": "Respons atau keterangan yang diberikan bagi menjawab sesuatu soalan atau masalah.",
-      "definitionEn": "An answer or response given to a question or problem.",
-      "definitionZh": "答案；对问题或难题作出的回应或说明。",
-      "examples": [
-        "Jawapan kamu hampir tepat.",
-        "Guru itu menerangkan jawapan yang betul."
-      ],
-      "related": [
-        "soalan",
-        "respons"
-      ],
-      "categories": [
-        "pendidikan",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.jawapan.s1",
-          "definition": "Respons atau keterangan yang diberikan bagi menjawab sesuatu soalan atau masalah.",
-          "definitionEn": "An answer or response given to a question or problem.",
-          "definitionZh": "答案；对问题或难题作出的回应或说明。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Jawapan kamu hampir tepat."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.latihan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "latihan",
-      "part": "kata nama",
-      "definition": "Aktiviti berulang yang dilakukan untuk meningkatkan kemahiran atau persediaan bagi sesuatu tugas.",
-      "definitionEn": "Practice or training carried out to improve a skill or prepare for a task.",
-      "definitionZh": "练习；训练；为提高技能或准备任务而进行的反复活动。",
-      "examples": [
-        "Latihan itu membantu murid memahami tatabahasa.",
-        "Pasukan tersebut menjalani latihan setiap petang."
-      ],
-      "related": [
-        "amalan",
-        "kursus"
-      ],
-      "categories": [
-        "pendidikan",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.latihan.s1",
-          "definition": "Aktiviti berulang yang dilakukan untuk meningkatkan kemahiran atau persediaan bagi sesuatu tugas.",
-          "definitionEn": "Practice or training carried out to improve a skill or prepare for a task.",
-          "definitionZh": "练习；训练；为提高技能或准备任务而进行的反复活动。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Latihan itu membantu murid memahami tatabahasa."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.komputer",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "komputer",
-      "part": "kata nama",
-      "definition": "Peranti elektronik yang memproses, menyimpan dan memaparkan maklumat mengikut arahan.",
-      "definitionEn": "An electronic device that processes, stores and displays information according to instructions.",
-      "definitionZh": "电脑；按照指令处理、储存和显示信息的电子设备。",
-      "examples": [
-        "Komputer riba itu digunakan untuk menyiapkan tugasan.",
-        "Sila matikan komputer selepas digunakan."
-      ],
-      "related": [
-        "komputer riba",
-        "perisian"
-      ],
-      "categories": [
-        "teknologi",
-        "objek"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.komputer.s1",
-          "definition": "Peranti elektronik yang memproses, menyimpan dan memaparkan maklumat mengikut arahan.",
-          "definitionEn": "An electronic device that processes, stores and displays information according to instructions.",
-          "definitionZh": "电脑；按照指令处理、储存和显示信息的电子设备。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Komputer riba itu digunakan untuk menyiapkan tugasan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.telefon",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "telefon",
-      "part": "kata nama",
-      "definition": "Peranti yang digunakan untuk membuat panggilan suara atau berkomunikasi dengan orang lain.",
-      "definitionEn": "A telephone or phone used to make voice calls or communicate with others.",
-      "definitionZh": "电话；用于语音通话或与他人联系的设备。",
-      "examples": [
-        "Telefon saya kehabisan bateri.",
-        "Dia menghubungi saya melalui telefon."
-      ],
-      "related": [
-        "telefon bimbit",
-        "panggilan"
-      ],
-      "categories": [
-        "teknologi",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.telefon.s1",
-          "definition": "Peranti yang digunakan untuk membuat panggilan suara atau berkomunikasi dengan orang lain.",
-          "definitionEn": "A telephone or phone used to make voice calls or communicate with others.",
-          "definitionZh": "电话；用于语音通话或与他人联系的设备。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Telefon saya kehabisan bateri."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.internet",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "internet",
-      "part": "kata nama",
-      "definition": "Rangkaian global yang menghubungkan komputer dan peranti untuk bertukar maklumat.",
-      "definitionEn": "The internet, a global network connecting computers and devices to exchange information.",
-      "definitionZh": "互联网；连接电脑和设备以交换信息的全球网络。",
-      "examples": [
-        "Maklumat itu boleh dicari melalui internet.",
-        "Sambungan internet di rumah agak perlahan."
-      ],
-      "related": [
-        "laman web",
-        "rangkaian"
-      ],
-      "categories": [
-        "teknologi",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.internet.s1",
-          "definition": "Rangkaian global yang menghubungkan komputer dan peranti untuk bertukar maklumat.",
-          "definitionEn": "The internet, a global network connecting computers and devices to exchange information.",
-          "definitionZh": "互联网；连接电脑和设备以交换信息的全球网络。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Maklumat itu boleh dicari melalui internet."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.surat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "surat",
-      "part": "kata nama",
-      "definition": "Mesej bertulis yang dihantar kepada seseorang atau organisasi, biasanya dalam bentuk dokumen.",
-      "definitionEn": "A written message sent to a person or organisation, usually as a document; a letter.",
-      "definitionZh": "信件；通常以文件形式寄给个人或组织的书面信息。",
-      "examples": [
-        "Saya menerima surat daripada pihak sekolah.",
-        "Dia menulis surat kepada pejabat daerah."
-      ],
-      "related": [
-        "sampul",
-        "pos"
-      ],
-      "categories": [
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.surat.s1",
-          "definition": "Mesej bertulis yang dihantar kepada seseorang atau organisasi, biasanya dalam bentuk dokumen.",
-          "definitionEn": "A written message sent to a person or organisation, usually as a document; a letter.",
-          "definitionZh": "信件；通常以文件形式寄给个人或组织的书面信息。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Saya menerima surat daripada pihak sekolah."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.e-mel",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "e-mel",
-      "part": "kata nama",
-      "definition": "Mesej yang dihantar dan diterima melalui sistem mel elektronik.",
-      "definitionEn": "A message sent and received through an electronic mail system; an email.",
-      "definitionZh": "电子邮件；通过电子邮件系统发送和接收的信息。",
-      "examples": [
-        "Sila hantar borang itu melalui e-mel.",
-        "Saya belum membaca e-mel daripada pensyarah."
-      ],
-      "related": [
-        "mesej",
-        "peti masuk"
-      ],
-      "categories": [
-        "teknologi",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.e-mel.s1",
-          "definition": "Mesej yang dihantar dan diterima melalui sistem mel elektronik.",
-          "definitionEn": "A message sent and received through an electronic mail system; an email.",
-          "definitionZh": "电子邮件；通过电子邮件系统发送和接收的信息。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Sila hantar borang itu melalui e-mel."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.mesyuarat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "mesyuarat",
-      "part": "kata nama",
-      "definition": "Perhimpunan beberapa orang untuk berbincang dan membuat keputusan tentang sesuatu perkara.",
-      "definitionEn": "A meeting where people discuss matters and make decisions.",
-      "definitionZh": "会议；多人聚集讨论事项并作出决定的活动。",
-      "examples": [
-        "Mesyuarat itu dijadualkan pada pagi Isnin.",
-        "Semua ahli diminta hadir ke mesyuarat."
-      ],
-      "related": [
-        "perbincangan",
-        "agenda"
-      ],
-      "categories": [
-        "pekerjaan",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.mesyuarat.s1",
-          "definition": "Perhimpunan beberapa orang untuk berbincang dan membuat keputusan tentang sesuatu perkara.",
-          "definitionEn": "A meeting where people discuss matters and make decisions.",
-          "definitionZh": "会议；多人聚集讨论事项并作出决定的活动。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Mesyuarat itu dijadualkan pada pagi Isnin."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.cuti",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "cuti",
-      "part": "kata nama",
-      "definition": "Tempoh seseorang tidak perlu bekerja atau belajar seperti biasa.",
-      "definitionEn": "A period when someone is not required to work or study; leave or a holiday.",
-      "definitionZh": "假期；休假；无需照常工作或学习的一段时间。",
-      "examples": [
-        "Kami bercuti selama tiga hari.",
-        "Dia mengambil cuti kerana urusan keluarga."
-      ],
-      "related": [
-        "percutian",
-        "rehat"
-      ],
-      "categories": [
-        "masa",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.cuti.s1",
-          "definition": "Tempoh seseorang tidak perlu bekerja atau belajar seperti biasa.",
-          "definitionEn": "A period when someone is not required to work or study; leave or a holiday.",
-          "definitionZh": "假期；休假；无需照常工作或学习的一段时间。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kami bercuti selama tiga hari."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.ribut",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "ribut",
-      "part": "kata nama",
-      "definition": "Keadaan cuaca buruk yang disertai angin kencang dan mungkin hujan lebat atau petir.",
-      "definitionEn": "A storm with strong winds, sometimes accompanied by heavy rain or thunder.",
-      "definitionZh": "风暴；伴有强风，可能伴随大雨或雷电的恶劣天气。",
-      "examples": [
-        "Ribut kuat melanda kawasan pantai malam tadi.",
-        "Penerbangan itu ditangguhkan kerana ribut."
-      ],
-      "related": [
-        "taufan",
-        "angin"
-      ],
-      "categories": [
-        "cuaca",
-        "alam"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.ribut.s1",
-          "definition": "Keadaan cuaca buruk yang disertai angin kencang dan mungkin hujan lebat atau petir.",
-          "definitionEn": "A storm with strong winds, sometimes accompanied by heavy rain or thunder.",
-          "definitionZh": "风暴；伴有强风，可能伴随大雨或雷电的恶劣天气。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Ribut kuat melanda kawasan pantai malam tadi."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.banjir",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "banjir",
-      "part": "kata nama",
-      "definition": "Keadaan apabila air melimpah dan menenggelami kawasan yang biasanya kering.",
-      "definitionEn": "A flood that occurs when water overflows and covers normally dry land.",
-      "definitionZh": "洪水；水溢出并淹没通常干燥地区的情况。",
-      "examples": [
-        "Hujan berterusan menyebabkan banjir di beberapa kampung.",
-        "Penduduk dipindahkan ke pusat pemindahan banjir."
-      ],
-      "related": [
-        "air",
-        "hujan"
-      ],
-      "categories": [
-        "alam",
-        "bencana"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.banjir.s1",
-          "definition": "Keadaan apabila air melimpah dan menenggelami kawasan yang biasanya kering.",
-          "definitionEn": "A flood that occurs when water overflows and covers normally dry land.",
-          "definitionZh": "洪水；水溢出并淹没通常干燥地区的情况。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Hujan berterusan menyebabkan banjir di beberapa kampung."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.kemalangan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "kemalangan",
-      "part": "kata nama",
-      "definition": "Peristiwa tidak disengajakan yang menyebabkan kecederaan, kerosakan atau kerugian.",
-      "definitionEn": "An accident or unintended event that causes injury, damage or loss.",
-      "definitionZh": "事故；意外发生并造成伤害、损坏或损失的事件。",
-      "examples": [
-        "Kemalangan jalan raya itu menyebabkan kesesakan.",
-        "Pemandu tersebut cedera dalam kemalangan."
-      ],
-      "related": [
-        "kecederaan",
-        "insiden"
-      ],
-      "categories": [
-        "keselamatan",
-        "kehidupan harian"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.kemalangan.s1",
-          "definition": "Peristiwa tidak disengajakan yang menyebabkan kecederaan, kerosakan atau kerugian.",
-          "definitionEn": "An accident or unintended event that causes injury, damage or loss.",
-          "definitionZh": "事故；意外发生并造成伤害、损坏或损失的事件。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kemalangan jalan raya itu menyebabkan kesesakan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.kecemasan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "kecemasan",
-      "part": "kata nama",
-      "definition": "Keadaan mendesak yang memerlukan tindakan segera untuk mengelakkan bahaya atau kerugian.",
-      "definitionEn": "An emergency requiring immediate action to prevent danger or loss.",
-      "definitionZh": "紧急情况；需要立即采取行动以避免危险或损失的状况。",
-      "examples": [
-        "Hubungi nombor kecemasan jika berlaku kebakaran.",
-        "Pasukan perubatan tiba untuk membantu mangsa kecemasan."
-      ],
-      "related": [
-        "bahaya",
-        "segera"
-      ],
-      "categories": [
-        "keselamatan",
-        "kesihatan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.kecemasan.s1",
-          "definition": "Keadaan mendesak yang memerlukan tindakan segera untuk mengelakkan bahaya atau kerugian.",
-          "definitionEn": "An emergency requiring immediate action to prevent danger or loss.",
-          "definitionZh": "紧急情况；需要立即采取行动以避免危险或损失的状况。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Hubungi nombor kecemasan jika berlaku kebakaran."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.selamat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "selamat",
-      "part": "kata adjektif",
-      "definition": "Bebas daripada bahaya, kecederaan atau risiko yang mengancam.",
-      "definitionEn": "Safe and free from danger, injury or threatening risk.",
-      "definitionZh": "安全的；没有危险、伤害或威胁性风险的。",
-      "examples": [
-        "Pastikan semua penumpang sampai dengan selamat.",
-        "Simpan bahan itu di tempat yang selamat."
-      ],
-      "related": [
-        "aman",
-        "bahaya"
-      ],
-      "categories": [
-        "keselamatan",
-        "sifat"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.selamat.s1",
-          "definition": "Bebas daripada bahaya, kecederaan atau risiko yang mengancam.",
-          "definitionEn": "Safe and free from danger, injury or threatening risk.",
-          "definitionZh": "安全的；没有危险、伤害或威胁性风险的。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pastikan semua penumpang sampai dengan selamat."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.bahaya",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "bahaya",
-      "part": "kata nama",
-      "definition": "Keadaan atau perkara yang boleh menyebabkan kecederaan, kerosakan atau kemudaratan.",
-      "definitionEn": "Danger or a condition that may cause injury, damage or harm.",
-      "definitionZh": "危险；可能造成伤害、损坏或危害的情况或事物。",
-      "examples": [
-        "Jangan berdiri terlalu dekat kerana kawasan itu berbahaya.",
-        "Papan tanda itu memberi amaran tentang bahaya."
-      ],
-      "related": [
-        "risiko",
-        "ancaman"
-      ],
-      "categories": [
-        "keselamatan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.bahaya.s1",
-          "definition": "Keadaan atau perkara yang boleh menyebabkan kecederaan, kerosakan atau kemudaratan.",
-          "definitionEn": "Danger or a condition that may cause injury, damage or harm.",
-          "definitionZh": "危险；可能造成伤害、损坏或危害的情况或事物。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Jangan berdiri terlalu dekat kerana kawasan itu berbahaya."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.peluang",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "peluang",
-      "part": "kata nama",
-      "definition": "Keadaan atau masa yang sesuai untuk melakukan sesuatu atau mencapai sesuatu tujuan.",
-      "definitionEn": "An opportunity or suitable chance to do something or achieve a goal.",
-      "definitionZh": "机会；适合采取行动或实现目标的时机。",
-      "examples": [
-        "Dia mendapat peluang untuk belajar di luar negara.",
-        "Gunakan peluang ini untuk meningkatkan kemahiran."
-      ],
-      "related": [
-        "kesempatan",
-        "ruang"
-      ],
-      "categories": [
-        "kehidupan harian",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.peluang.s1",
-          "definition": "Keadaan atau masa yang sesuai untuk melakukan sesuatu atau mencapai sesuatu tujuan.",
-          "definitionEn": "An opportunity or suitable chance to do something or achieve a goal.",
-          "definitionZh": "机会；适合采取行动或实现目标的时机。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Dia mendapat peluang untuk belajar di luar negara."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.tujuan",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "tujuan",
-      "part": "kata nama",
-      "definition": "Hasil atau perkara yang ingin dicapai melalui sesuatu tindakan atau usaha.",
-      "definitionEn": "A purpose or objective that someone intends to achieve through an action or effort.",
-      "definitionZh": "目的；通过行动或努力希望达到的结果。",
-      "examples": [
-        "Apakah tujuan lawatan kamu ke pejabat itu?",
-        "Kami berkumpul dengan satu tujuan yang sama."
-      ],
-      "related": [
-        "matlamat",
-        "niat"
-      ],
-      "categories": [
-        "pemikiran",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.tujuan.s1",
-          "definition": "Hasil atau perkara yang ingin dicapai melalui sesuatu tindakan atau usaha.",
-          "definitionEn": "A purpose or objective that someone intends to achieve through an action or effort.",
-          "definitionZh": "目的；通过行动或努力希望达到的结果。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Apakah tujuan lawatan kamu ke pejabat itu?"
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.sebab",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "sebab",
-      "part": "kata nama",
-      "definition": "Perkara yang menerangkan mengapa sesuatu berlaku atau dilakukan.",
-      "definitionEn": "A reason or cause explaining why something happens or is done.",
-      "definitionZh": "原因；解释某事为何发生或被执行的因素。",
-      "examples": [
-        "Dia tidak hadir atas sebab kesihatan.",
-        "Apakah sebab utama keputusan itu dibuat?"
-      ],
-      "related": [
-        "punca",
-        "akibat"
-      ],
-      "categories": [
-        "pemikiran",
-        "komunikasi"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.sebab.s1",
-          "definition": "Perkara yang menerangkan mengapa sesuatu berlaku atau dilakukan.",
-          "definitionEn": "A reason or cause explaining why something happens or is done.",
-          "definitionZh": "原因；解释某事为何发生或被执行的因素。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Dia tidak hadir atas sebab kesihatan."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.akibat",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "akibat",
-      "part": "kata nama",
-      "definition": "Kesan atau hasil yang timbul daripada sesuatu tindakan atau peristiwa.",
-      "definitionEn": "A consequence or result arising from an action or event.",
-      "definitionZh": "后果；由某个行动或事件引起的结果。",
-      "examples": [
-        "Kita perlu memikirkan akibat tindakan tersebut.",
-        "Banjir itu menyebabkan akibat yang serius kepada penduduk."
-      ],
-      "related": [
-        "kesan",
-        "punca"
-      ],
-      "categories": [
-        "pemikiran"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.akibat.s1",
-          "definition": "Kesan atau hasil yang timbul daripada sesuatu tindakan atau peristiwa.",
-          "definitionEn": "A consequence or result arising from an action or event.",
-          "definitionZh": "后果；由某个行动或事件引起的结果。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Kita perlu memikirkan akibat tindakan tersebut."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.berjaya",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "berjaya",
-      "part": "kata adjektif",
-      "definition": "Mencapai hasil atau matlamat yang diusahakan.",
-      "definitionEn": "Successful in achieving an intended result or goal.",
-      "definitionZh": "成功的；达到所努力追求的结果或目标。",
-      "examples": [
-        "Pasukan itu berjaya menamatkan projek tepat pada masanya.",
-        "Dia berjaya dalam peperiksaan akhir."
-      ],
-      "related": [
-        "kejayaan",
-        "gagal"
-      ],
-      "categories": [
-        "sifat",
-        "pekerjaan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.berjaya.s1",
-          "definition": "Mencapai hasil atau matlamat yang diusahakan.",
-          "definitionEn": "Successful in achieving an intended result or goal.",
-          "definitionZh": "成功的；达到所努力追求的结果或目标。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Pasukan itu berjaya menamatkan projek tepat pada masanya."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
-    },
-    {
-      "id": "ms.dict.gagal",
-      "schemaVersion": 1,
-      "languageCode": "ms",
-      "contentVersion": "u3-ms-dict-0.4.0",
-      "word": "gagal",
-      "part": "kata kerja",
-      "definition": "Tidak mencapai hasil atau matlamat yang dikehendaki.",
-      "definitionEn": "To fail to achieve an intended result or goal.",
-      "definitionZh": "失败；未能达到预期结果或目标。",
-      "examples": [
-        "Percubaan pertama itu gagal.",
-        "Dia tidak mahu gagal dalam peperiksaan."
-      ],
-      "related": [
-        "kegagalan",
-        "berjaya"
-      ],
-      "categories": [
-        "tindakan",
-        "pendidikan"
-      ],
-      "searchForms": [],
-      "morphology": {
-        "type": "kata dasar",
-        "forms": [],
-        "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
-      },
-      "senses": [
-        {
-          "id": "ms.dict.gagal.s1",
-          "definition": "Tidak mencapai hasil atau matlamat yang dikehendaki.",
-          "definitionEn": "To fail to achieve an intended result or goal.",
-          "definitionZh": "失败；未能达到预期结果或目标。",
-          "translationStatus": {
-            "en": "machine_assisted_draft",
-            "zh": "machine_assisted_draft"
-          },
-          "examples": [
-            "Percubaan pertama itu gagal."
-          ]
-        }
-      ],
-      "provenance": {
-        "authoringMethod": "original-authored",
-        "sourcesConsulted": [],
-        "sourceTextCopied": false,
-        "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
-        "licenceStatus": "original-draft-rights-review-pending",
-        "editorialStatus": "draft",
-        "reviewerId": null
-      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
     }
-  ]
+  },
+  {
+    "id": "ms.dict.pekerja",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pekerja",
+    "part": "kata nama",
+    "definition": "Orang yang melakukan pekerjaan untuk memperoleh upah atau gaji.",
+    "definitionEn": "A person who works, usually in return for wages or a salary.",
+    "definitionZh": "工人；雇员；以工作换取工资的人。",
+    "examples": [
+      "Pekerja itu memakai pakaian keselamatan.",
+      "Syarikat tersebut memerlukan lebih ramai pekerja."
+    ],
+    "related": [
+      "majikan",
+      "kakitangan"
+    ],
+    "categories": [
+      "pekerjaan",
+      "manusia"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pekerja.s1",
+        "definition": "Orang yang melakukan pekerjaan untuk memperoleh upah atau gaji.",
+        "definitionEn": "A person who works, usually in return for wages or a salary.",
+        "definitionZh": "工人；雇员；以工作换取工资的人。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pekerja itu memakai pakaian keselamatan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.majikan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "majikan",
+    "part": "kata nama",
+    "definition": "Pihak atau orang yang menggaji seseorang untuk melakukan pekerjaan.",
+    "definitionEn": "An employer who hires someone to perform work.",
+    "definitionZh": "雇主；聘用他人工作的一方。",
+    "examples": [
+      "Majikan menyediakan latihan kepada pekerja baharu.",
+      "Pekerja itu berbincang dengan majikannya."
+    ],
+    "related": [
+      "pekerja",
+      "syarikat"
+    ],
+    "categories": [
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.majikan.s1",
+        "definition": "Pihak atau orang yang menggaji seseorang untuk melakukan pekerjaan.",
+        "definitionEn": "An employer who hires someone to perform work.",
+        "definitionZh": "雇主；聘用他人工作的一方。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Majikan menyediakan latihan kepada pekerja baharu."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pekerjaan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pekerjaan",
+    "part": "kata nama",
+    "definition": "Kerja atau kegiatan yang dilakukan untuk memperoleh pendapatan atau mencapai tujuan tertentu.",
+    "definitionEn": "Work or an occupation undertaken to earn an income or achieve a purpose.",
+    "definitionZh": "工作；职业；为取得收入或达成目的而进行的活动。",
+    "examples": [
+      "Dia sedang mencari pekerjaan selepas tamat belajar.",
+      "Pekerjaan itu memerlukan kemahiran komunikasi."
+    ],
+    "related": [
+      "kerjaya",
+      "jawatan"
+    ],
+    "categories": [
+      "pekerjaan",
+      "pendidikan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pekerjaan.s1",
+        "definition": "Kerja atau kegiatan yang dilakukan untuk memperoleh pendapatan atau mencapai tujuan tertentu.",
+        "definitionEn": "Work or an occupation undertaken to earn an income or achieve a purpose.",
+        "definitionZh": "工作；职业；为取得收入或达成目的而进行的活动。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia sedang mencari pekerjaan selepas tamat belajar."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.wang",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "wang",
+    "part": "kata nama",
+    "definition": "Alat pertukaran yang diterima untuk membeli barang atau membayar perkhidmatan.",
+    "definitionEn": "Money used as a medium of exchange to buy goods or pay for services.",
+    "definitionZh": "钱；货币；用于购买商品或支付服务的交换媒介。",
+    "examples": [
+      "Simpan wang itu di tempat yang selamat.",
+      "Saya membawa wang yang cukup untuk tambang."
+    ],
+    "related": [
+      "duit",
+      "mata wang"
+    ],
+    "categories": [
+      "wang",
+      "kehidupan harian"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.wang.s1",
+        "definition": "Alat pertukaran yang diterima untuk membeli barang atau membayar perkhidmatan.",
+        "definitionEn": "Money used as a medium of exchange to buy goods or pay for services.",
+        "definitionZh": "钱；货币；用于购买商品或支付服务的交换媒介。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Simpan wang itu di tempat yang selamat."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.murah",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "murah",
+    "part": "kata adjektif",
+    "definition": "Berharga rendah dan tidak memerlukan banyak wang untuk dibeli.",
+    "definitionEn": "Low in price and costing relatively little.",
+    "definitionZh": "便宜；价格较低。",
+    "examples": [
+      "Kedai itu menjual sayur-sayuran yang murah.",
+      "Tiket bas lebih murah jika dibeli lebih awal."
+    ],
+    "related": [
+      "mahal",
+      "berpatutan"
+    ],
+    "categories": [
+      "wang",
+      "sifat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.murah.s1",
+        "definition": "Berharga rendah dan tidak memerlukan banyak wang untuk dibeli.",
+        "definitionEn": "Low in price and costing relatively little.",
+        "definitionZh": "便宜；价格较低。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kedai itu menjual sayur-sayuran yang murah."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.mahal",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "mahal",
+    "part": "kata adjektif",
+    "definition": "Berharga tinggi dan memerlukan banyak wang untuk dibeli.",
+    "definitionEn": "High in price and costing a large amount of money.",
+    "definitionZh": "昂贵；价格较高。",
+    "examples": [
+      "Telefon itu terlalu mahal bagi saya.",
+      "Harga makanan di kawasan itu agak mahal."
+    ],
+    "related": [
+      "murah",
+      "tinggi"
+    ],
+    "categories": [
+      "wang",
+      "sifat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.mahal.s1",
+        "definition": "Berharga tinggi dan memerlukan banyak wang untuk dibeli.",
+        "definitionEn": "High in price and costing a large amount of money.",
+        "definitionZh": "昂贵；价格较高。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Telefon itu terlalu mahal bagi saya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.bayaran",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "bayaran",
+    "part": "kata nama",
+    "definition": "Wang yang diberikan untuk mendapatkan barang, perkhidmatan atau menyelesaikan kewajipan.",
+    "definitionEn": "A payment made for goods, services or an obligation.",
+    "definitionZh": "付款；支付的款项。",
+    "examples": [
+      "Bayaran boleh dibuat melalui pindahan bank.",
+      "Sila simpan bukti bayaran."
+    ],
+    "related": [
+      "pembayaran",
+      "yuran"
+    ],
+    "categories": [
+      "wang",
+      "perniagaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.bayaran.s1",
+        "definition": "Wang yang diberikan untuk mendapatkan barang, perkhidmatan atau menyelesaikan kewajipan.",
+        "definitionEn": "A payment made for goods, services or an obligation.",
+        "definitionZh": "付款；支付的款项。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Bayaran boleh dibuat melalui pindahan bank."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.jual",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "jual",
+    "part": "kata kerja",
+    "definition": "Memberikan atau menawarkan barang kepada orang lain dengan menerima bayaran.",
+    "definitionEn": "To sell or offer goods to another person in exchange for payment.",
+    "definitionZh": "卖；出售；以收取款项为条件提供商品。",
+    "examples": [
+      "Mereka menjual kuih di hadapan rumah.",
+      "Kedai itu menjual peralatan sekolah."
+    ],
+    "related": [
+      "menjual",
+      "jualan"
+    ],
+    "categories": [
+      "perniagaan",
+      "tindakan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.jual.s1",
+        "definition": "Memberikan atau menawarkan barang kepada orang lain dengan menerima bayaran.",
+        "definitionEn": "To sell or offer goods to another person in exchange for payment.",
+        "definitionZh": "卖；出售；以收取款项为条件提供商品。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mereka menjual kuih di hadapan rumah."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kedai",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "kedai",
+    "part": "kata nama",
+    "definition": "Tempat perniagaan yang menjual barang atau menyediakan perkhidmatan kepada pelanggan.",
+    "definitionEn": "A shop or store that sells goods or provides services to customers.",
+    "definitionZh": "商店；店铺；向顾客售卖商品或提供服务的地方。",
+    "examples": [
+      "Kedai runcit itu terletak di hujung jalan.",
+      "Saya singgah di kedai untuk membeli roti."
+    ],
+    "related": [
+      "peniaga",
+      "pasar"
+    ],
+    "categories": [
+      "perniagaan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kedai.s1",
+        "definition": "Tempat perniagaan yang menjual barang atau menyediakan perkhidmatan kepada pelanggan.",
+        "definitionEn": "A shop or store that sells goods or provides services to customers.",
+        "definitionZh": "商店；店铺；向顾客售卖商品或提供服务的地方。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kedai runcit itu terletak di hujung jalan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pasar",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pasar",
+    "part": "kata nama",
+    "definition": "Tempat orang ramai menjual dan membeli barangan, khususnya makanan dan hasil harian.",
+    "definitionEn": "A market where people buy and sell goods, especially food and daily produce.",
+    "definitionZh": "市场；人们买卖商品，尤其是食品和日用品的地方。",
+    "examples": [
+      "Ibu pergi ke pasar pada awal pagi.",
+      "Pasar itu menjual ikan segar."
+    ],
+    "related": [
+      "peniaga",
+      "gerai"
+    ],
+    "categories": [
+      "perniagaan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pasar.s1",
+        "definition": "Tempat orang ramai menjual dan membeli barangan, khususnya makanan dan hasil harian.",
+        "definitionEn": "A market where people buy and sell goods, especially food and daily produce.",
+        "definitionZh": "市场；人们买卖商品，尤其是食品和日用品的地方。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Ibu pergi ke pasar pada awal pagi."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pasar-raya",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pasar raya",
+    "part": "kata nama",
+    "definition": "Kedai besar yang menjual pelbagai jenis barangan makanan dan keperluan harian.",
+    "definitionEn": "A large self-service shop selling food and a wide range of everyday goods; a supermarket.",
+    "definitionZh": "超市；售卖食品和各种日用品的大型自选商店。",
+    "examples": [
+      "Kami membeli barang dapur di pasar raya.",
+      "Pasar raya itu menyediakan tempat letak kereta."
+    ],
+    "related": [
+      "kedai",
+      "barangan"
+    ],
+    "categories": [
+      "perniagaan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pasar-raya.s1",
+        "definition": "Kedai besar yang menjual pelbagai jenis barangan makanan dan keperluan harian.",
+        "definitionEn": "A large self-service shop selling food and a wide range of everyday goods; a supermarket.",
+        "definitionZh": "超市；售卖食品和各种日用品的大型自选商店。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kami membeli barang dapur di pasar raya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.resit",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "resit",
+    "part": "kata nama",
+    "definition": "Dokumen yang membuktikan bahawa bayaran telah diterima.",
+    "definitionEn": "A document showing that payment has been received; a receipt.",
+    "definitionZh": "收据；证明已收到款项的文件。",
+    "examples": [
+      "Simpan resit itu untuk rujukan.",
+      "Juruwang memberikan resit selepas pembayaran."
+    ],
+    "related": [
+      "invois",
+      "bayaran"
+    ],
+    "categories": [
+      "wang",
+      "perniagaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.resit.s1",
+        "definition": "Dokumen yang membuktikan bahawa bayaran telah diterima.",
+        "definitionEn": "A document showing that payment has been received; a receipt.",
+        "definitionZh": "收据；证明已收到款项的文件。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Simpan resit itu untuk rujukan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.bil",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "bil",
+    "part": "kata nama",
+    "definition": "Penyata jumlah wang yang perlu dibayar bagi sesuatu barang atau perkhidmatan.",
+    "definitionEn": "A statement showing the amount due for goods or services; a bill.",
+    "definitionZh": "账单；列明商品或服务应付金额的单据。",
+    "examples": [
+      "Bil elektrik perlu dibayar sebelum tarikh akhir.",
+      "Restoran itu menghantar bil ke meja kami."
+    ],
+    "related": [
+      "invois",
+      "bayaran"
+    ],
+    "categories": [
+      "wang",
+      "kehidupan harian"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.bil.s1",
+        "definition": "Penyata jumlah wang yang perlu dibayar bagi sesuatu barang atau perkhidmatan.",
+        "definitionEn": "A statement showing the amount due for goods or services; a bill.",
+        "definitionZh": "账单；列明商品或服务应付金额的单据。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Bil elektrik perlu dibayar sebelum tarikh akhir."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.bank",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "bank",
+    "part": "kata nama",
+    "definition": "Institusi kewangan yang menerima simpanan, mengurus akaun dan menyediakan perkhidmatan kewangan.",
+    "definitionEn": "A financial institution that accepts deposits, manages accounts and provides financial services.",
+    "definitionZh": "银行；接收存款、管理账户并提供金融服务的机构。",
+    "examples": [
+      "Saya pergi ke bank untuk membuka akaun.",
+      "Bank itu mempunyai cawangan di bandar tersebut."
+    ],
+    "related": [
+      "akaun",
+      "simpanan"
+    ],
+    "categories": [
+      "wang",
+      "perkhidmatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.bank.s1",
+        "definition": "Institusi kewangan yang menerima simpanan, mengurus akaun dan menyediakan perkhidmatan kewangan.",
+        "definitionEn": "A financial institution that accepts deposits, manages accounts and provides financial services.",
+        "definitionZh": "银行；接收存款、管理账户并提供金融服务的机构。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya pergi ke bank untuk membuka akaun."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.akaun",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "akaun",
+    "part": "kata nama",
+    "definition": "Rekod kewangan seseorang atau organisasi yang disimpan oleh institusi seperti bank.",
+    "definitionEn": "A financial record held for a person or organisation, such as a bank account.",
+    "definitionZh": "账户；由银行等机构为个人或组织保存的财务记录。",
+    "examples": [
+      "Dia menyemak baki akaun banknya.",
+      "Saya membuka akaun simpanan."
+    ],
+    "related": [
+      "bank",
+      "simpanan"
+    ],
+    "categories": [
+      "wang",
+      "perkhidmatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.akaun.s1",
+        "definition": "Rekod kewangan seseorang atau organisasi yang disimpan oleh institusi seperti bank.",
+        "definitionEn": "A financial record held for a person or organisation, such as a bank account.",
+        "definitionZh": "账户；由银行等机构为个人或组织保存的财务记录。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia menyemak baki akaun banknya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.tunai",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "tunai",
+    "part": "kata adjektif",
+    "definition": "Dalam bentuk wang fizikal dan bukan melalui kredit atau bayaran tertangguh.",
+    "definitionEn": "In physical money rather than credit or deferred payment; cash.",
+    "definitionZh": "现金的；以实体货币而非赊账或延期方式支付的。",
+    "examples": [
+      "Pelanggan itu membayar secara tunai.",
+      "Kedai tersebut menerima wang tunai."
+    ],
+    "related": [
+      "wang",
+      "kredit"
+    ],
+    "categories": [
+      "wang",
+      "perniagaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.tunai.s1",
+        "definition": "Dalam bentuk wang fizikal dan bukan melalui kredit atau bayaran tertangguh.",
+        "definitionEn": "In physical money rather than credit or deferred payment; cash.",
+        "definitionZh": "现金的；以实体货币而非赊账或延期方式支付的。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pelanggan itu membayar secara tunai."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pelanggan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pelanggan",
+    "part": "kata nama",
+    "definition": "Orang yang membeli barang atau menggunakan perkhidmatan daripada sesuatu perniagaan.",
+    "definitionEn": "A customer or client who buys goods or uses a business's services.",
+    "definitionZh": "顾客；客户；购买商品或使用企业服务的人。",
+    "examples": [
+      "Pelanggan boleh membuat aduan melalui kaunter khidmat.",
+      "Kedai itu melayan setiap pelanggan dengan sopan."
+    ],
+    "related": [
+      "pembeli",
+      "pengguna"
+    ],
+    "categories": [
+      "perniagaan",
+      "manusia"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pelanggan.s1",
+        "definition": "Orang yang membeli barang atau menggunakan perkhidmatan daripada sesuatu perniagaan.",
+        "definitionEn": "A customer or client who buys goods or uses a business's services.",
+        "definitionZh": "顾客；客户；购买商品或使用企业服务的人。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pelanggan boleh membuat aduan melalui kaunter khidmat."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.perkhidmatan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "perkhidmatan",
+    "part": "kata nama",
+    "definition": "Kerja atau bantuan yang diberikan untuk memenuhi keperluan orang lain.",
+    "definitionEn": "A service or assistance provided to meet another person's needs.",
+    "definitionZh": "服务；为满足他人需求而提供的工作或帮助。",
+    "examples": [
+      "Perkhidmatan bas di kawasan itu bermula awal pagi.",
+      "Kaunter ini menyediakan perkhidmatan kepada orang awam."
+    ],
+    "related": [
+      "khidmat",
+      "kemudahan"
+    ],
+    "categories": [
+      "perkhidmatan awam",
+      "kehidupan harian"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.perkhidmatan.s1",
+        "definition": "Kerja atau bantuan yang diberikan untuk memenuhi keperluan orang lain.",
+        "definitionEn": "A service or assistance provided to meet another person's needs.",
+        "definitionZh": "服务；为满足他人需求而提供的工作或帮助。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Perkhidmatan bas di kawasan itu bermula awal pagi."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.hospital",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "hospital",
+    "part": "kata nama",
+    "definition": "Institusi kesihatan yang menyediakan rawatan dan penjagaan perubatan kepada pesakit.",
+    "definitionEn": "A hospital that provides medical treatment and care to patients.",
+    "definitionZh": "医院；为病人提供医疗和护理的机构。",
+    "examples": [
+      "Pesakit itu dibawa ke hospital dengan ambulans.",
+      "Hospital kerajaan menyediakan pelbagai perkhidmatan kesihatan."
+    ],
+    "related": [
+      "klinik",
+      "doktor"
+    ],
+    "categories": [
+      "kesihatan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.hospital.s1",
+        "definition": "Institusi kesihatan yang menyediakan rawatan dan penjagaan perubatan kepada pesakit.",
+        "definitionEn": "A hospital that provides medical treatment and care to patients.",
+        "definitionZh": "医院；为病人提供医疗和护理的机构。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pesakit itu dibawa ke hospital dengan ambulans."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.klinik",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "klinik",
+    "part": "kata nama",
+    "definition": "Tempat pesakit mendapatkan pemeriksaan, nasihat atau rawatan kesihatan.",
+    "definitionEn": "A clinic where people receive medical examinations, advice or treatment.",
+    "definitionZh": "诊所；人们接受健康检查、咨询或治疗的地方。",
+    "examples": [
+      "Saya pergi ke klinik kerana demam.",
+      "Klinik itu dibuka pada waktu pejabat."
+    ],
+    "related": [
+      "hospital",
+      "doktor"
+    ],
+    "categories": [
+      "kesihatan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.klinik.s1",
+        "definition": "Tempat pesakit mendapatkan pemeriksaan, nasihat atau rawatan kesihatan.",
+        "definitionEn": "A clinic where people receive medical examinations, advice or treatment.",
+        "definitionZh": "诊所；人们接受健康检查、咨询或治疗的地方。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya pergi ke klinik kerana demam."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.ubat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "ubat",
+    "part": "kata nama",
+    "definition": "Bahan atau sediaan yang digunakan untuk mencegah, melegakan atau merawat penyakit.",
+    "definitionEn": "Medicine used to prevent, relieve or treat an illness.",
+    "definitionZh": "药物；用于预防、缓解或治疗疾病的物质或制剂。",
+    "examples": [
+      "Ambil ubat mengikut arahan doktor.",
+      "Ubat itu perlu disimpan di tempat yang sesuai."
+    ],
+    "related": [
+      "rawatan",
+      "farmasi"
+    ],
+    "categories": [
+      "kesihatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.ubat.s1",
+        "definition": "Bahan atau sediaan yang digunakan untuk mencegah, melegakan atau merawat penyakit.",
+        "definitionEn": "Medicine used to prevent, relieve or treat an illness.",
+        "definitionZh": "药物；用于预防、缓解或治疗疾病的物质或制剂。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Ambil ubat mengikut arahan doktor."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.doktor",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "doktor",
+    "part": "kata nama",
+    "definition": "Pengamal perubatan yang terlatih untuk memeriksa, mendiagnosis dan merawat pesakit.",
+    "definitionEn": "A medical doctor trained to examine, diagnose and treat patients.",
+    "definitionZh": "医生；受过训练以检查、诊断和治疗病人的医疗专业人员。",
+    "examples": [
+      "Doktor memeriksa keadaan pesakit itu.",
+      "Saya membuat janji temu dengan doktor."
+    ],
+    "related": [
+      "pesakit",
+      "jururawat"
+    ],
+    "categories": [
+      "kesihatan",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.doktor.s1",
+        "definition": "Pengamal perubatan yang terlatih untuk memeriksa, mendiagnosis dan merawat pesakit.",
+        "definitionEn": "A medical doctor trained to examine, diagnose and treat patients.",
+        "definitionZh": "医生；受过训练以检查、诊断和治疗病人的医疗专业人员。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Doktor memeriksa keadaan pesakit itu."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.jururawat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "jururawat",
+    "part": "kata nama",
+    "definition": "Petugas kesihatan yang menjaga pesakit dan membantu dalam pemberian rawatan.",
+    "definitionEn": "A nurse who cares for patients and assists with medical treatment.",
+    "definitionZh": "护士；照顾病人并协助医疗护理的卫生人员。",
+    "examples": [
+      "Jururawat membantu pesakit berjalan.",
+      "Jururawat itu memeriksa suhu badan kanak-kanak tersebut."
+    ],
+    "related": [
+      "doktor",
+      "pesakit"
+    ],
+    "categories": [
+      "kesihatan",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.jururawat.s1",
+        "definition": "Petugas kesihatan yang menjaga pesakit dan membantu dalam pemberian rawatan.",
+        "definitionEn": "A nurse who cares for patients and assists with medical treatment.",
+        "definitionZh": "护士；照顾病人并协助医疗护理的卫生人员。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Jururawat membantu pesakit berjalan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.polis",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "polis",
+    "part": "kata nama",
+    "definition": "Anggota pasukan keselamatan yang bertugas menjaga keamanan dan menguatkuasakan undang-undang.",
+    "definitionEn": "A police officer who maintains public order and enforces the law.",
+    "definitionZh": "警察；负责维护公共秩序和执行法律的人员。",
+    "examples": [
+      "Polis mengawal lalu lintas di persimpangan itu.",
+      "Dia membuat laporan kepada polis."
+    ],
+    "related": [
+      "pengawal",
+      "keselamatan"
+    ],
+    "categories": [
+      "perkhidmatan awam",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.polis.s1",
+        "definition": "Anggota pasukan keselamatan yang bertugas menjaga keamanan dan menguatkuasakan undang-undang.",
+        "definitionEn": "A police officer who maintains public order and enforces the law.",
+        "definitionZh": "警察；负责维护公共秩序和执行法律的人员。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Polis mengawal lalu lintas di persimpangan itu."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.balai-polis",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "balai polis",
+    "part": "kata nama",
+    "definition": "Bangunan atau pejabat tempat anggota polis bertugas dan orang ramai membuat laporan.",
+    "definitionEn": "A police station where officers work and members of the public make reports.",
+    "definitionZh": "警察局；警员办公及公众报案的场所。",
+    "examples": [
+      "Mereka pergi ke balai polis untuk membuat laporan.",
+      "Balai polis itu terletak berhampiran balai bomba."
+    ],
+    "related": [
+      "polis",
+      "laporan"
+    ],
+    "categories": [
+      "perkhidmatan awam",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.balai-polis.s1",
+        "definition": "Bangunan atau pejabat tempat anggota polis bertugas dan orang ramai membuat laporan.",
+        "definitionEn": "A police station where officers work and members of the public make reports.",
+        "definitionZh": "警察局；警员办公及公众报案的场所。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mereka pergi ke balai polis untuk membuat laporan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.bomba",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "bomba",
+    "part": "kata nama",
+    "definition": "Pasukan atau anggota yang memadamkan kebakaran dan menjalankan operasi menyelamat.",
+    "definitionEn": "The fire and rescue service or a firefighter who puts out fires and carries out rescues.",
+    "definitionZh": "消防队；消防员；负责灭火和救援的队伍或人员。",
+    "examples": [
+      "Pasukan bomba tiba beberapa minit kemudian.",
+      "Anggota bomba menyelamatkan mangsa daripada bangunan itu."
+    ],
+    "related": [
+      "kebakaran",
+      "penyelamat"
+    ],
+    "categories": [
+      "perkhidmatan awam",
+      "keselamatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.bomba.s1",
+        "definition": "Pasukan atau anggota yang memadamkan kebakaran dan menjalankan operasi menyelamat.",
+        "definitionEn": "The fire and rescue service or a firefighter who puts out fires and carries out rescues.",
+        "definitionZh": "消防队；消防员；负责灭火和救援的队伍或人员。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pasukan bomba tiba beberapa minit kemudian."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.pejabat-pos",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "pejabat pos",
+    "part": "kata nama",
+    "definition": "Tempat orang ramai menghantar surat dan bungkusan serta menggunakan perkhidmatan pos.",
+    "definitionEn": "A post office where people send letters and parcels and use postal services.",
+    "definitionZh": "邮局；公众寄送信件和包裹及使用邮政服务的地方。",
+    "examples": [
+      "Saya menghantar bungkusan di pejabat pos.",
+      "Pejabat pos itu menjual setem."
+    ],
+    "related": [
+      "surat",
+      "bungkusan"
+    ],
+    "categories": [
+      "perkhidmatan awam",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.pejabat-pos.s1",
+        "definition": "Tempat orang ramai menghantar surat dan bungkusan serta menggunakan perkhidmatan pos.",
+        "definitionEn": "A post office where people send letters and parcels and use postal services.",
+        "definitionZh": "邮局；公众寄送信件和包裹及使用邮政服务的地方。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya menghantar bungkusan di pejabat pos."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.perpustakaan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "perpustakaan",
+    "part": "kata nama",
+    "definition": "Tempat yang menyimpan dan menyediakan buku serta bahan bacaan untuk dipinjam atau dirujuk.",
+    "definitionEn": "A library that keeps books and reading materials for borrowing or reference.",
+    "definitionZh": "图书馆；收藏并提供书籍和阅读资料供借阅或查阅的地方。",
+    "examples": [
+      "Murid-murid membaca di perpustakaan sekolah.",
+      "Perpustakaan awam itu mempunyai ruang belajar."
+    ],
+    "related": [
+      "buku",
+      "pembaca"
+    ],
+    "categories": [
+      "pendidikan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.perpustakaan.s1",
+        "definition": "Tempat yang menyimpan dan menyediakan buku serta bahan bacaan untuk dipinjam atau dirujuk.",
+        "definitionEn": "A library that keeps books and reading materials for borrowing or reference.",
+        "definitionZh": "图书馆；收藏并提供书籍和阅读资料供借阅或查阅的地方。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Murid-murid membaca di perpustakaan sekolah."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.universiti",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "universiti",
+    "part": "kata nama",
+    "definition": "Institusi pengajian tinggi yang menawarkan program akademik dan menjalankan penyelidikan.",
+    "definitionEn": "A university that offers academic programmes and conducts research.",
+    "definitionZh": "大学；提供学术课程并开展研究的高等教育机构。",
+    "examples": [
+      "Kakak saya belajar di universiti awam.",
+      "Universiti itu menawarkan program kejuruteraan."
+    ],
+    "related": [
+      "kolej",
+      "kampus"
+    ],
+    "categories": [
+      "pendidikan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.universiti.s1",
+        "definition": "Institusi pengajian tinggi yang menawarkan program akademik dan menjalankan penyelidikan.",
+        "definitionEn": "A university that offers academic programmes and conducts research.",
+        "definitionZh": "大学；提供学术课程并开展研究的高等教育机构。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kakak saya belajar di universiti awam."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kolej",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "kolej",
+    "part": "kata nama",
+    "definition": "Institusi pendidikan yang menawarkan pengajian selepas sekolah menengah atau latihan khusus.",
+    "definitionEn": "A college that provides post-secondary education or specialised training.",
+    "definitionZh": "学院；提供中学后教育或专门培训的教育机构。",
+    "examples": [
+      "Dia menyambung pelajaran di sebuah kolej.",
+      "Kolej itu menawarkan kursus reka bentuk."
+    ],
+    "related": [
+      "universiti",
+      "institusi"
+    ],
+    "categories": [
+      "pendidikan",
+      "tempat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kolej.s1",
+        "definition": "Institusi pendidikan yang menawarkan pengajian selepas sekolah menengah atau latihan khusus.",
+        "definitionEn": "A college that provides post-secondary education or specialised training.",
+        "definitionZh": "学院；提供中学后教育或专门培训的教育机构。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia menyambung pelajaran di sebuah kolej."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.peperiksaan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "peperiksaan",
+    "part": "kata nama",
+    "definition": "Ujian rasmi untuk menilai pengetahuan atau kebolehan seseorang dalam sesuatu bidang.",
+    "definitionEn": "An examination used to assess a person's knowledge or ability in a subject.",
+    "definitionZh": "考试；用于评估某人在某个领域知识或能力的正式测验。",
+    "examples": [
+      "Peperiksaan akhir bermula minggu hadapan.",
+      "Murid itu membuat persediaan untuk peperiksaan."
+    ],
+    "related": [
+      "ujian",
+      "penilaian"
+    ],
+    "categories": [
+      "pendidikan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.peperiksaan.s1",
+        "definition": "Ujian rasmi untuk menilai pengetahuan atau kebolehan seseorang dalam sesuatu bidang.",
+        "definitionEn": "An examination used to assess a person's knowledge or ability in a subject.",
+        "definitionZh": "考试；用于评估某人在某个领域知识或能力的正式测验。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Peperiksaan akhir bermula minggu hadapan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.soalan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "soalan",
+    "part": "kata nama",
+    "definition": "Ayat atau perkara yang dikemukakan untuk mendapatkan jawapan atau penjelasan.",
+    "definitionEn": "A question asked to obtain an answer or explanation.",
+    "definitionZh": "问题；为获得答案或解释而提出的内容。",
+    "examples": [
+      "Sila jawab semua soalan dalam bahagian ini.",
+      "Soalan itu agak sukar difahami."
+    ],
+    "related": [
+      "pertanyaan",
+      "jawapan"
+    ],
+    "categories": [
+      "pendidikan",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.soalan.s1",
+        "definition": "Ayat atau perkara yang dikemukakan untuk mendapatkan jawapan atau penjelasan.",
+        "definitionEn": "A question asked to obtain an answer or explanation.",
+        "definitionZh": "问题；为获得答案或解释而提出的内容。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Sila jawab semua soalan dalam bahagian ini."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.jawapan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "jawapan",
+    "part": "kata nama",
+    "definition": "Respons atau keterangan yang diberikan bagi menjawab sesuatu soalan atau masalah.",
+    "definitionEn": "An answer or response given to a question or problem.",
+    "definitionZh": "答案；对问题或难题作出的回应或说明。",
+    "examples": [
+      "Jawapan kamu hampir tepat.",
+      "Guru itu menerangkan jawapan yang betul."
+    ],
+    "related": [
+      "soalan",
+      "respons"
+    ],
+    "categories": [
+      "pendidikan",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.jawapan.s1",
+        "definition": "Respons atau keterangan yang diberikan bagi menjawab sesuatu soalan atau masalah.",
+        "definitionEn": "An answer or response given to a question or problem.",
+        "definitionZh": "答案；对问题或难题作出的回应或说明。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Jawapan kamu hampir tepat."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.latihan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "latihan",
+    "part": "kata nama",
+    "definition": "Aktiviti berulang yang dilakukan untuk meningkatkan kemahiran atau persediaan bagi sesuatu tugas.",
+    "definitionEn": "Practice or training carried out to improve a skill or prepare for a task.",
+    "definitionZh": "练习；训练；为提高技能或准备任务而进行的反复活动。",
+    "examples": [
+      "Latihan itu membantu murid memahami tatabahasa.",
+      "Pasukan tersebut menjalani latihan setiap petang."
+    ],
+    "related": [
+      "amalan",
+      "kursus"
+    ],
+    "categories": [
+      "pendidikan",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.latihan.s1",
+        "definition": "Aktiviti berulang yang dilakukan untuk meningkatkan kemahiran atau persediaan bagi sesuatu tugas.",
+        "definitionEn": "Practice or training carried out to improve a skill or prepare for a task.",
+        "definitionZh": "练习；训练；为提高技能或准备任务而进行的反复活动。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Latihan itu membantu murid memahami tatabahasa."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.komputer",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "komputer",
+    "part": "kata nama",
+    "definition": "Peranti elektronik yang memproses, menyimpan dan memaparkan maklumat mengikut arahan.",
+    "definitionEn": "An electronic device that processes, stores and displays information according to instructions.",
+    "definitionZh": "电脑；按照指令处理、储存和显示信息的电子设备。",
+    "examples": [
+      "Komputer riba itu digunakan untuk menyiapkan tugasan.",
+      "Sila matikan komputer selepas digunakan."
+    ],
+    "related": [
+      "komputer riba",
+      "perisian"
+    ],
+    "categories": [
+      "teknologi",
+      "objek"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.komputer.s1",
+        "definition": "Peranti elektronik yang memproses, menyimpan dan memaparkan maklumat mengikut arahan.",
+        "definitionEn": "An electronic device that processes, stores and displays information according to instructions.",
+        "definitionZh": "电脑；按照指令处理、储存和显示信息的电子设备。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Komputer riba itu digunakan untuk menyiapkan tugasan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.telefon",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "telefon",
+    "part": "kata nama",
+    "definition": "Peranti yang digunakan untuk membuat panggilan suara atau berkomunikasi dengan orang lain.",
+    "definitionEn": "A telephone or phone used to make voice calls or communicate with others.",
+    "definitionZh": "电话；用于语音通话或与他人联系的设备。",
+    "examples": [
+      "Telefon saya kehabisan bateri.",
+      "Dia menghubungi saya melalui telefon."
+    ],
+    "related": [
+      "telefon bimbit",
+      "panggilan"
+    ],
+    "categories": [
+      "teknologi",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.telefon.s1",
+        "definition": "Peranti yang digunakan untuk membuat panggilan suara atau berkomunikasi dengan orang lain.",
+        "definitionEn": "A telephone or phone used to make voice calls or communicate with others.",
+        "definitionZh": "电话；用于语音通话或与他人联系的设备。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Telefon saya kehabisan bateri."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.internet",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "internet",
+    "part": "kata nama",
+    "definition": "Rangkaian global yang menghubungkan komputer dan peranti untuk bertukar maklumat.",
+    "definitionEn": "The internet, a global network connecting computers and devices to exchange information.",
+    "definitionZh": "互联网；连接电脑和设备以交换信息的全球网络。",
+    "examples": [
+      "Maklumat itu boleh dicari melalui internet.",
+      "Sambungan internet di rumah agak perlahan."
+    ],
+    "related": [
+      "laman web",
+      "rangkaian"
+    ],
+    "categories": [
+      "teknologi",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.internet.s1",
+        "definition": "Rangkaian global yang menghubungkan komputer dan peranti untuk bertukar maklumat.",
+        "definitionEn": "The internet, a global network connecting computers and devices to exchange information.",
+        "definitionZh": "互联网；连接电脑和设备以交换信息的全球网络。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Maklumat itu boleh dicari melalui internet."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.surat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "surat",
+    "part": "kata nama",
+    "definition": "Mesej bertulis yang dihantar kepada seseorang atau organisasi, biasanya dalam bentuk dokumen.",
+    "definitionEn": "A written message sent to a person or organisation, usually as a document; a letter.",
+    "definitionZh": "信件；通常以文件形式寄给个人或组织的书面信息。",
+    "examples": [
+      "Saya menerima surat daripada pihak sekolah.",
+      "Dia menulis surat kepada pejabat daerah."
+    ],
+    "related": [
+      "sampul",
+      "pos"
+    ],
+    "categories": [
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.surat.s1",
+        "definition": "Mesej bertulis yang dihantar kepada seseorang atau organisasi, biasanya dalam bentuk dokumen.",
+        "definitionEn": "A written message sent to a person or organisation, usually as a document; a letter.",
+        "definitionZh": "信件；通常以文件形式寄给个人或组织的书面信息。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Saya menerima surat daripada pihak sekolah."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.e-mel",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "e-mel",
+    "part": "kata nama",
+    "definition": "Mesej yang dihantar dan diterima melalui sistem mel elektronik.",
+    "definitionEn": "A message sent and received through an electronic mail system; an email.",
+    "definitionZh": "电子邮件；通过电子邮件系统发送和接收的信息。",
+    "examples": [
+      "Sila hantar borang itu melalui e-mel.",
+      "Saya belum membaca e-mel daripada pensyarah."
+    ],
+    "related": [
+      "mesej",
+      "peti masuk"
+    ],
+    "categories": [
+      "teknologi",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.e-mel.s1",
+        "definition": "Mesej yang dihantar dan diterima melalui sistem mel elektronik.",
+        "definitionEn": "A message sent and received through an electronic mail system; an email.",
+        "definitionZh": "电子邮件；通过电子邮件系统发送和接收的信息。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Sila hantar borang itu melalui e-mel."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.mesyuarat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "mesyuarat",
+    "part": "kata nama",
+    "definition": "Perhimpunan beberapa orang untuk berbincang dan membuat keputusan tentang sesuatu perkara.",
+    "definitionEn": "A meeting where people discuss matters and make decisions.",
+    "definitionZh": "会议；多人聚集讨论事项并作出决定的活动。",
+    "examples": [
+      "Mesyuarat itu dijadualkan pada pagi Isnin.",
+      "Semua ahli diminta hadir ke mesyuarat."
+    ],
+    "related": [
+      "perbincangan",
+      "agenda"
+    ],
+    "categories": [
+      "pekerjaan",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.mesyuarat.s1",
+        "definition": "Perhimpunan beberapa orang untuk berbincang dan membuat keputusan tentang sesuatu perkara.",
+        "definitionEn": "A meeting where people discuss matters and make decisions.",
+        "definitionZh": "会议；多人聚集讨论事项并作出决定的活动。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Mesyuarat itu dijadualkan pada pagi Isnin."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.cuti",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "cuti",
+    "part": "kata nama",
+    "definition": "Tempoh seseorang tidak perlu bekerja atau belajar seperti biasa.",
+    "definitionEn": "A period when someone is not required to work or study; leave or a holiday.",
+    "definitionZh": "假期；休假；无需照常工作或学习的一段时间。",
+    "examples": [
+      "Kami bercuti selama tiga hari.",
+      "Dia mengambil cuti kerana urusan keluarga."
+    ],
+    "related": [
+      "percutian",
+      "rehat"
+    ],
+    "categories": [
+      "masa",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.cuti.s1",
+        "definition": "Tempoh seseorang tidak perlu bekerja atau belajar seperti biasa.",
+        "definitionEn": "A period when someone is not required to work or study; leave or a holiday.",
+        "definitionZh": "假期；休假；无需照常工作或学习的一段时间。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kami bercuti selama tiga hari."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.ribut",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "ribut",
+    "part": "kata nama",
+    "definition": "Keadaan cuaca buruk yang disertai angin kencang dan mungkin hujan lebat atau petir.",
+    "definitionEn": "A storm with strong winds, sometimes accompanied by heavy rain or thunder.",
+    "definitionZh": "风暴；伴有强风，可能伴随大雨或雷电的恶劣天气。",
+    "examples": [
+      "Ribut kuat melanda kawasan pantai malam tadi.",
+      "Penerbangan itu ditangguhkan kerana ribut."
+    ],
+    "related": [
+      "taufan",
+      "angin"
+    ],
+    "categories": [
+      "cuaca",
+      "alam"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.ribut.s1",
+        "definition": "Keadaan cuaca buruk yang disertai angin kencang dan mungkin hujan lebat atau petir.",
+        "definitionEn": "A storm with strong winds, sometimes accompanied by heavy rain or thunder.",
+        "definitionZh": "风暴；伴有强风，可能伴随大雨或雷电的恶劣天气。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Ribut kuat melanda kawasan pantai malam tadi."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.banjir",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "banjir",
+    "part": "kata nama",
+    "definition": "Keadaan apabila air melimpah dan menenggelami kawasan yang biasanya kering.",
+    "definitionEn": "A flood that occurs when water overflows and covers normally dry land.",
+    "definitionZh": "洪水；水溢出并淹没通常干燥地区的情况。",
+    "examples": [
+      "Hujan berterusan menyebabkan banjir di beberapa kampung.",
+      "Penduduk dipindahkan ke pusat pemindahan banjir."
+    ],
+    "related": [
+      "air",
+      "hujan"
+    ],
+    "categories": [
+      "alam",
+      "bencana"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.banjir.s1",
+        "definition": "Keadaan apabila air melimpah dan menenggelami kawasan yang biasanya kering.",
+        "definitionEn": "A flood that occurs when water overflows and covers normally dry land.",
+        "definitionZh": "洪水；水溢出并淹没通常干燥地区的情况。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Hujan berterusan menyebabkan banjir di beberapa kampung."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kemalangan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "kemalangan",
+    "part": "kata nama",
+    "definition": "Peristiwa tidak disengajakan yang menyebabkan kecederaan, kerosakan atau kerugian.",
+    "definitionEn": "An accident or unintended event that causes injury, damage or loss.",
+    "definitionZh": "事故；意外发生并造成伤害、损坏或损失的事件。",
+    "examples": [
+      "Kemalangan jalan raya itu menyebabkan kesesakan.",
+      "Pemandu tersebut cedera dalam kemalangan."
+    ],
+    "related": [
+      "kecederaan",
+      "insiden"
+    ],
+    "categories": [
+      "keselamatan",
+      "kehidupan harian"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kemalangan.s1",
+        "definition": "Peristiwa tidak disengajakan yang menyebabkan kecederaan, kerosakan atau kerugian.",
+        "definitionEn": "An accident or unintended event that causes injury, damage or loss.",
+        "definitionZh": "事故；意外发生并造成伤害、损坏或损失的事件。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kemalangan jalan raya itu menyebabkan kesesakan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.kecemasan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "kecemasan",
+    "part": "kata nama",
+    "definition": "Keadaan mendesak yang memerlukan tindakan segera untuk mengelakkan bahaya atau kerugian.",
+    "definitionEn": "An emergency requiring immediate action to prevent danger or loss.",
+    "definitionZh": "紧急情况；需要立即采取行动以避免危险或损失的状况。",
+    "examples": [
+      "Hubungi nombor kecemasan jika berlaku kebakaran.",
+      "Pasukan perubatan tiba untuk membantu mangsa kecemasan."
+    ],
+    "related": [
+      "bahaya",
+      "segera"
+    ],
+    "categories": [
+      "keselamatan",
+      "kesihatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.kecemasan.s1",
+        "definition": "Keadaan mendesak yang memerlukan tindakan segera untuk mengelakkan bahaya atau kerugian.",
+        "definitionEn": "An emergency requiring immediate action to prevent danger or loss.",
+        "definitionZh": "紧急情况；需要立即采取行动以避免危险或损失的状况。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Hubungi nombor kecemasan jika berlaku kebakaran."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.selamat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "selamat",
+    "part": "kata adjektif",
+    "definition": "Bebas daripada bahaya, kecederaan atau risiko yang mengancam.",
+    "definitionEn": "Safe and free from danger, injury or threatening risk.",
+    "definitionZh": "安全的；没有危险、伤害或威胁性风险的。",
+    "examples": [
+      "Pastikan semua penumpang sampai dengan selamat.",
+      "Simpan bahan itu di tempat yang selamat."
+    ],
+    "related": [
+      "aman",
+      "bahaya"
+    ],
+    "categories": [
+      "keselamatan",
+      "sifat"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.selamat.s1",
+        "definition": "Bebas daripada bahaya, kecederaan atau risiko yang mengancam.",
+        "definitionEn": "Safe and free from danger, injury or threatening risk.",
+        "definitionZh": "安全的；没有危险、伤害或威胁性风险的。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pastikan semua penumpang sampai dengan selamat."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.bahaya",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "bahaya",
+    "part": "kata nama",
+    "definition": "Keadaan atau perkara yang boleh menyebabkan kecederaan, kerosakan atau kemudaratan.",
+    "definitionEn": "Danger or a condition that may cause injury, damage or harm.",
+    "definitionZh": "危险；可能造成伤害、损坏或危害的情况或事物。",
+    "examples": [
+      "Jangan berdiri terlalu dekat kerana kawasan itu berbahaya.",
+      "Papan tanda itu memberi amaran tentang bahaya."
+    ],
+    "related": [
+      "risiko",
+      "ancaman"
+    ],
+    "categories": [
+      "keselamatan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.bahaya.s1",
+        "definition": "Keadaan atau perkara yang boleh menyebabkan kecederaan, kerosakan atau kemudaratan.",
+        "definitionEn": "Danger or a condition that may cause injury, damage or harm.",
+        "definitionZh": "危险；可能造成伤害、损坏或危害的情况或事物。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Jangan berdiri terlalu dekat kerana kawasan itu berbahaya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.peluang",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "peluang",
+    "part": "kata nama",
+    "definition": "Keadaan atau masa yang sesuai untuk melakukan sesuatu atau mencapai sesuatu tujuan.",
+    "definitionEn": "An opportunity or suitable chance to do something or achieve a goal.",
+    "definitionZh": "机会；适合采取行动或实现目标的时机。",
+    "examples": [
+      "Dia mendapat peluang untuk belajar di luar negara.",
+      "Gunakan peluang ini untuk meningkatkan kemahiran."
+    ],
+    "related": [
+      "kesempatan",
+      "ruang"
+    ],
+    "categories": [
+      "kehidupan harian",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.peluang.s1",
+        "definition": "Keadaan atau masa yang sesuai untuk melakukan sesuatu atau mencapai sesuatu tujuan.",
+        "definitionEn": "An opportunity or suitable chance to do something or achieve a goal.",
+        "definitionZh": "机会；适合采取行动或实现目标的时机。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia mendapat peluang untuk belajar di luar negara."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.tujuan",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "tujuan",
+    "part": "kata nama",
+    "definition": "Hasil atau perkara yang ingin dicapai melalui sesuatu tindakan atau usaha.",
+    "definitionEn": "A purpose or objective that someone intends to achieve through an action or effort.",
+    "definitionZh": "目的；通过行动或努力希望达到的结果。",
+    "examples": [
+      "Apakah tujuan lawatan kamu ke pejabat itu?",
+      "Kami berkumpul dengan satu tujuan yang sama."
+    ],
+    "related": [
+      "matlamat",
+      "niat"
+    ],
+    "categories": [
+      "pemikiran",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.tujuan.s1",
+        "definition": "Hasil atau perkara yang ingin dicapai melalui sesuatu tindakan atau usaha.",
+        "definitionEn": "A purpose or objective that someone intends to achieve through an action or effort.",
+        "definitionZh": "目的；通过行动或努力希望达到的结果。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Apakah tujuan lawatan kamu ke pejabat itu?"
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.sebab",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "sebab",
+    "part": "kata nama",
+    "definition": "Perkara yang menerangkan mengapa sesuatu berlaku atau dilakukan.",
+    "definitionEn": "A reason or cause explaining why something happens or is done.",
+    "definitionZh": "原因；解释某事为何发生或被执行的因素。",
+    "examples": [
+      "Dia tidak hadir atas sebab kesihatan.",
+      "Apakah sebab utama keputusan itu dibuat?"
+    ],
+    "related": [
+      "punca",
+      "akibat"
+    ],
+    "categories": [
+      "pemikiran",
+      "komunikasi"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.sebab.s1",
+        "definition": "Perkara yang menerangkan mengapa sesuatu berlaku atau dilakukan.",
+        "definitionEn": "A reason or cause explaining why something happens or is done.",
+        "definitionZh": "原因；解释某事为何发生或被执行的因素。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Dia tidak hadir atas sebab kesihatan."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.akibat",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "akibat",
+    "part": "kata nama",
+    "definition": "Kesan atau hasil yang timbul daripada sesuatu tindakan atau peristiwa.",
+    "definitionEn": "A consequence or result arising from an action or event.",
+    "definitionZh": "后果；由某个行动或事件引起的结果。",
+    "examples": [
+      "Kita perlu memikirkan akibat tindakan tersebut.",
+      "Banjir itu menyebabkan akibat yang serius kepada penduduk."
+    ],
+    "related": [
+      "kesan",
+      "punca"
+    ],
+    "categories": [
+      "pemikiran"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.akibat.s1",
+        "definition": "Kesan atau hasil yang timbul daripada sesuatu tindakan atau peristiwa.",
+        "definitionEn": "A consequence or result arising from an action or event.",
+        "definitionZh": "后果；由某个行动或事件引起的结果。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Kita perlu memikirkan akibat tindakan tersebut."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.berjaya",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "berjaya",
+    "part": "kata adjektif",
+    "definition": "Mencapai hasil atau matlamat yang diusahakan.",
+    "definitionEn": "Successful in achieving an intended result or goal.",
+    "definitionZh": "成功的；达到所努力追求的结果或目标。",
+    "examples": [
+      "Pasukan itu berjaya menamatkan projek tepat pada masanya.",
+      "Dia berjaya dalam peperiksaan akhir."
+    ],
+    "related": [
+      "kejayaan",
+      "gagal"
+    ],
+    "categories": [
+      "sifat",
+      "pekerjaan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.berjaya.s1",
+        "definition": "Mencapai hasil atau matlamat yang diusahakan.",
+        "definitionEn": "Successful in achieving an intended result or goal.",
+        "definitionZh": "成功的；达到所努力追求的结果或目标。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Pasukan itu berjaya menamatkan projek tepat pada masanya."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  },
+  {
+    "id": "ms.dict.gagal",
+    "schemaVersion": 1,
+    "languageCode": "ms",
+    "contentVersion": "u3-ms-dict-0.4.0",
+    "word": "gagal",
+    "part": "kata kerja",
+    "definition": "Tidak mencapai hasil atau matlamat yang dikehendaki.",
+    "definitionEn": "To fail to achieve an intended result or goal.",
+    "definitionZh": "失败；未能达到预期结果或目标。",
+    "examples": [
+      "Percubaan pertama itu gagal.",
+      "Dia tidak mahu gagal dalam peperiksaan."
+    ],
+    "related": [
+      "kegagalan",
+      "berjaya"
+    ],
+    "categories": [
+      "tindakan",
+      "pendidikan"
+    ],
+    "searchForms": [],
+    "morphology": {
+      "type": "kata dasar",
+      "forms": [],
+      "notes": "Tiada bentuk terbitan ditambah sebagai alias tanpa semakan leksikal khusus."
+    },
+    "senses": [
+      {
+        "id": "ms.dict.gagal.s1",
+        "definition": "Tidak mencapai hasil atau matlamat yang dikehendaki.",
+        "definitionEn": "To fail to achieve an intended result or goal.",
+        "definitionZh": "失败；未能达到预期结果或目标。",
+        "translationStatus": {
+          "en": "machine_assisted_draft",
+          "zh": "machine_assisted_draft"
+        },
+        "examples": [
+          "Percubaan pertama itu gagal."
+        ]
+      }
+    ],
+    "provenance": {
+      "authoringMethod": "original-authored",
+      "sourcesConsulted": [],
+      "sourceTextCopied": false,
+      "authoringNote": "Original draft authored for SwiftDictionary; no external dictionary text imported; source verification and human review pending.",
+      "licenceStatus": "original-draft-rights-review-pending",
+      "editorialStatus": "draft",
+      "reviewerId": null
+    }
+  }
 ];
 
 /* Authoring batch 02 — common Malaysian Standard Malay vocabulary. */
