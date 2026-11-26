@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "planned",
-  "contentVersion": "u3-ms-dict-0.5.0",
+  "contentVersion": "u3-ms-dict-0.6.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -24,10 +24,10 @@
       "files": [
         "data/languages/malay-dictionary.js"
       ],
-      "contentVersion": "u3-ms-dict-0.5.0",
-      "knownHeadwordCount": 226,
-      "knownSenseCount": 248,
-      "initialBatch": "01–05",
+      "contentVersion": "u3-ms-dict-0.6.0",
+      "knownHeadwordCount": 336,
+      "knownSenseCount": 358,
+      "initialBatch": "01–06",
       "editorialStatus": "draft",
       "provenancePolicy": "item-level original-authored; rights review pending"
     },
@@ -59,7 +59,8 @@
     "Malay Dictionary batch 01 is independently authored; DBP/PRPM/Kamus Dewan text has not been copied. Human linguistic and rights review remains pending.",
     "Malay Dictionary batches 01–03 contain original-authored draft entries; all definitions, examples and support translations require human linguistic review before approval.",
     "Malay Dictionary batch 04 adds 54 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
-    "Malay Dictionary batch 05 adds 49 additional unique draft headwords; definitions, examples and support translations remain subject to human review."
+    "Malay Dictionary batch 05 adds 49 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
+    "Malay Dictionary batch 06 adds 110 additional unique draft headwords across family, education, food, qualities, grammar, home, public services and everyday actions; all content remains subject to human review."
   ],
   "legalReview": {
     "malaysiaPDPA": "required before public launch",
