@@ -13,7 +13,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["berada","mengadakan","diadakan"],
     morphology:{type:"kata dasar",forms:["berada","mengadakan","diadakan"],notes:"Bentuk terbitan disenaraikan secara eksplisit; jangan anggap semua bentuk boleh saling menggantikan."},
     senses:[{id:"ms.dict.ada.s1",definition:"Wujud atau terdapat di sesuatu tempat.",definitionEn:"To exist or be present in a place.",definitionZh:"存在于某处；在场。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Masih ada tempat duduk di hadapan."]},{id:"ms.dict.ada.s2",definition:"Dimiliki atau dipunyai oleh seseorang.",definitionEn:"To have or possess something.",definitionZh:"拥有；具有。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Dia ada sebuah basikal baharu."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -25,7 +25,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["berair","mengairi","pengairan"],
     morphology:{type:"kata dasar",forms:["berair","mengairi","pengairan"],notes:"Kata terbitan mempunyai makna khusus; carian alias tidak menggantikan entri berasingan jika maknanya sudah leksikal."},
     senses:[{id:"ms.dict.air.s1",definition:"Cecair yang diminum dan digunakan dalam kehidupan harian.",definitionEn:"Water used for drinking and everyday needs.",definitionZh:"日常饮用和使用的水。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Tolong isikan air ke dalam botol ini."]},{id:"ms.dict.air.s2",definition:"Cecair yang terkandung atau mengalir dalam sesuatu bahan atau tempat.",definitionEn:"Liquid contained in or flowing through something.",definitionZh:"某物或某处所含或流动的液体。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Air sungai itu kelihatan keruh selepas hujan."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -37,7 +37,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["mengajar","diajar","pengajar","pengajaran"],
     morphology:{type:"kata dasar berimbuhan",prefixes:["meN-","di-","peN-"],forms:["mengajar","diajar","pengajar","pengajaran"],notes:"Perubahan bentuk meN- kepada meng- pada kata dasar ini perlu dikekalkan."},
     senses:[{id:"ms.dict.ajar.s1",definition:"Menyampaikan pengetahuan atau kemahiran kepada orang lain.",definitionEn:"To teach knowledge or a skill to another person.",definitionZh:"向他人传授知识或技能。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Beliau mengajar bahasa Melayu di sekolah menengah."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -49,7 +49,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["beranak","anak-anak","keanak-anakan"],
     morphology:{type:"kata dasar dan penggandaan",forms:["beranak","anak-anak","keanak-anakan"],notes:"Penggandaan membawa fungsi makna mengikut konteks; bentuk ini dikekalkan sebagai alias carian."},
     senses:[{id:"ms.dict.anak.s1",definition:"Manusia yang masih kecil atau belum dewasa.",definitionEn:"A young person who has not yet reached adulthood.",definitionZh:"尚未成年的孩子。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Anak jiran saya baru masuk sekolah."]},{id:"ms.dict.anak.s2",definition:"Keturunan langsung seseorang, tanpa mengira usia.",definitionEn:"A person's son or daughter, regardless of age.",definitionZh:"某人的子女，不限年龄。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Anak sulung mereka bekerja di Kuala Lumpur."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -58,10 +58,10 @@ window.SWIFT_MALAY_DICTIONARY = [
     definitionZh:"好；良好；善良；令人满意。",
     examples:["Cuaca hari ini baik untuk berjalan-jalan.","Dia seorang kawan yang baik."],
     related:["bagus","elok","buruk","kebaikan"], categories:["sifat","komunikasi"],
-    searchForms:["sebaik","terbaik","kebaikan","membaiki","dibaiki"],
-    morphology:{type:"kata dasar",prefixes:["ter-","ke-","memper-"],forms:["terbaik","kebaikan","membaiki","dibaiki"],notes:"Bentuk terbitan mempunyai kelas kata atau makna yang berbeza; dipadankan secara eksplisit."},
+    searchForms:["sebaik","terbaik","kebaikan"],
+    morphology:{type:"kata dasar",prefixes:["ter-","ke-","memper-"],forms:["terbaik","kebaikan"],notes:"Bentuk terbitan mempunyai kelas kata atau makna yang berbeza; dipadankan secara eksplisit."},
     senses:[{id:"ms.dict.baik.s1",definition:"Berkualiti elok atau berada dalam keadaan memuaskan.",definitionEn:"Of good quality or in a satisfactory condition.",definitionZh:"质量好；状况良好。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Keadaan jalan itu sudah semakin baik."]},{id:"ms.dict.baik.s2",definition:"Bersikap mesra, bertimbang rasa dan suka menolong.",definitionEn:"Kind, considerate and helpful.",definitionZh:"友善；体贴；乐于助人。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Jiran kami sangat baik hati."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -73,7 +73,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["membaca","dibaca","bacaan","pembaca","pembacaan"],
     morphology:{type:"kata dasar",prefixes:["meN-","di-","peN-"],suffixes:["-an"],forms:["membaca","dibaca","bacaan","pembaca","pembacaan"],notes:"Bentuk meN- dan peN- yang mengalami pengguguran atau penyesuaian huruf dikekalkan seperti ejaan standard."},
     senses:[{id:"ms.dict.baca.s1",definition:"Melihat tulisan dan memahami maknanya.",definitionEn:"To look at written text and understand its meaning.",definitionZh:"阅读并理解文字的意思。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Adik sedang membaca cerita bergambar."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -83,9 +83,9 @@ window.SWIFT_MALAY_DICTIONARY = [
     examples:["Bahasa Melayu ialah bahasa kebangsaan Malaysia.","Mereka menggunakan bahasa yang mudah difahami."],
     related:["pertuturan","perkataan","tatabahasa","bahasa Melayu"], categories:["bahasa","pendidikan"],
     searchForms:["berbahasa","kebahasaan"],
-    morphology:{type:"kata dasar",forms:["berbahasa","kebahasaan","perbahasaan"],notes:"Bentuk terbitan digunakan mengikut konteks dan tidak semestinya saling boleh ganti."},
+    morphology:{type:"kata dasar",forms:["berbahasa","kebahasaan"],notes:"Bentuk terbitan digunakan mengikut konteks dan tidak semestinya saling boleh ganti."},
     senses:[{id:"ms.dict.bahasa.s1",definition:"Sistem komunikasi yang mempunyai kosa kata dan aturan tatabahasa.",definitionEn:"A communication system with vocabulary and grammatical rules.",definitionZh:"具有词汇和语法规则的交流系统。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Kanak-kanak mempelajari bahasa melalui interaksi."]},{id:"ms.dict.bahasa.s2",definition:"Gaya atau cara seseorang menggunakan kata-kata.",definitionEn:"A person's style or manner of using words.",definitionZh:"某人使用词语的方式或表达风格。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Gunakan bahasa yang sopan ketika menulis e-mel rasmi."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -97,7 +97,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["membantu","dibantu","bantuan","pembantu"],
     morphology:{type:"kata dasar",prefixes:["meN-","di-","peN-"],suffixes:["-an"],forms:["membantu","dibantu","bantuan","pembantu"],notes:"Bentuk berimbuhan direkodkan sebagai varian carian yang nyata."},
     senses:[{id:"ms.dict.bantu.s1",definition:"Memberikan pertolongan supaya sesuatu urusan menjadi lebih mudah.",definitionEn:"To provide help that makes a task or situation easier.",definitionZh:"提供帮助，使事情更容易完成。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Rakan sekelas membantu saya menyiapkan tugasan."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -109,7 +109,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["membesar","dibesarkan","pembesaran","terbesar"],
     morphology:{type:"kata dasar",forms:["membesar","dibesarkan","pembesaran","terbesar"],notes:"Bentuk terbitan membawa makna proses atau perbandingan."},
     senses:[{id:"ms.dict.besar.s1",definition:"Mempunyai ukuran fizikal yang luas atau tinggi.",definitionEn:"Large in physical dimensions.",definitionZh:"体积或尺寸大。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Bangunan besar itu mudah dilihat dari jauh."]},{id:"ms.dict.besar.s2",definition:"Penting, utama atau mempunyai pengaruh yang kuat.",definitionEn:"Important, major or influential.",definitionZh:"重要；主要；具有较大影响力。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Keputusan itu membawa perubahan besar kepada pasukan."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -121,7 +121,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["membolehkan","dibolehkan","kebolehan"],
     morphology:{type:"kata dasar",forms:["membolehkan","dibolehkan","kebolehan"],notes:"Bentuk terbitan mempunyai struktur dan fungsi tatabahasa tersendiri."},
     senses:[{id:"ms.dict.boleh.s1",definition:"Mempunyai keupayaan untuk melakukan sesuatu.",definitionEn:"To have the ability to do something.",definitionZh:"有能力做某事。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Dia boleh berenang dengan baik."]},{id:"ms.dict.boleh.s2",definition:"Mendapat kebenaran untuk melakukan sesuatu.",definitionEn:"To be permitted to do something.",definitionZh:"获准做某事。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Pelawat boleh masuk selepas mendaftar."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -131,9 +131,9 @@ window.SWIFT_MALAY_DICTIONARY = [
     examples:["Saya meminjam sebuah buku dari perpustakaan.","Buku nota itu terletak di atas meja."],
     related:["membaca","penulis","perpustakaan","buku teks"], categories:["objek","pendidikan"],
     searchForms:["buku-buku"],
-    morphology:{type:"kata dasar",forms:["berbuku","pembukuan","membukukan"],notes:"Bentuk terbitan tidak semestinya merujuk kepada objek buku."},
+    morphology:{type:"kata dasar",forms:["buku-buku"],notes:"Bentuk terbitan tidak semestinya merujuk kepada objek buku."},
     senses:[{id:"ms.dict.buku.s1",definition:"Bahan bacaan atau rujukan yang terdiri daripada helaian yang dijilid.",definitionEn:"A bound publication used for reading or reference.",definitionZh:"供阅读或参考的装订出版物。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Buku itu mengandungi banyak gambar."]},{id:"ms.dict.buku.s2",definition:"Rekod atau daftar yang digunakan untuk mencatat maklumat.",definitionEn:"A record or register used to write down information.",definitionZh:"用于记录信息的簿册。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Sila catat nama anda dalam buku pelawat."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -145,7 +145,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["mendatang","kedatangan","pendatang","didatangi"],
     morphology:{type:"kata dasar",prefixes:["meN-","ke-","peN-"],forms:["mendatang","kedatangan","pendatang","didatangi"],notes:"Bentuk mendatang boleh membawa makna masa hadapan atau datang kemudian; semak konteks."},
     senses:[{id:"ms.dict.datang.s1",definition:"Tiba di sesuatu tempat.",definitionEn:"To arrive at a place.",definitionZh:"抵达某个地方。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Bas itu datang tepat pada waktunya."]},{id:"ms.dict.datang.s2",definition:"Muncul atau berlaku, khususnya tentang masa atau peluang.",definitionEn:"To occur or arise, especially of a time or opportunity.",definitionZh:"出现或发生，尤指时机或机会。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Peluang seperti ini jarang datang dua kali."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -156,7 +156,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     related:["bersama","melalui","menggunakan"], categories:["kata fungsi","tatabahasa"],
     searchForms:[], morphology:{type:"kata fungsi",forms:[],notes:"Kata sendi nama ini tidak menerima pengimbuhan produktif dalam penggunaan biasa."},
     senses:[{id:"ms.dict.dengan.s1",definition:"Menunjukkan seseorang atau sesuatu hadir bersama yang lain.",definitionEn:"Indicating that someone or something is together with another.",definitionZh:"表示与某人或某物一起。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Mereka makan tengah hari dengan rakan sekerja."]},{id:"ms.dict.dengan.s2",definition:"Menunjukkan alat atau cara sesuatu dilakukan.",definitionEn:"Indicating the tool or method used to do something.",definitionZh:"表示所使用的工具或方法。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Buka bungkusan itu dengan gunting."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -165,9 +165,9 @@ window.SWIFT_MALAY_DICTIONARY = [
     definitionZh:"朋友；伙伴；与某人有友谊或共同活动的人。",
     examples:["Kawan baik saya tinggal di Shah Alam.","Saya belajar bersama kawan sekelas."],
     related:["rakan","sahabat","teman","persahabatan"], categories:["manusia","hubungan"],
-    searchForms:["berkawan","mengawan"], morphology:{type:"kata dasar",forms:["berkawan"],notes:"Berkawan ialah bentuk berimbuhan yang lazim; bentuk lain perlu dinilai mengikut konteks."},
+    searchForms:["berkawan"], morphology:{type:"kata dasar",forms:["berkawan"],notes:"Berkawan ialah bentuk berimbuhan yang lazim; bentuk lain perlu dinilai mengikut konteks."},
     senses:[{id:"ms.dict.kawan.s1",definition:"Orang yang mempunyai hubungan mesra dengan seseorang.",definitionEn:"A person with whom someone has a friendly relationship.",definitionZh:"与某人关系友好的朋友。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Dia kawan saya sejak sekolah rendah."]},{id:"ms.dict.kawan.s2",definition:"Orang yang menyertai atau menemani seseorang dalam sesuatu kegiatan.",definitionEn:"A person who joins or accompanies someone in an activity.",definitionZh:"参与或陪伴某人进行活动的人。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Kami mencari kawan untuk bermain badminton."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -179,7 +179,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["memakan","dimakan","makanan","pemakanan","termakan"],
     morphology:{type:"kata dasar",prefixes:["meN-","di-","ter-","peN-"],suffixes:["-an"],forms:["memakan","dimakan","makanan","pemakanan","termakan"],notes:"Bezakan kata kerja makan daripada kata nama makanan dan pemakanan."},
     senses:[{id:"ms.dict.makan.s1",definition:"Mengambil makanan sebagai sebahagian daripada keperluan hidup.",definitionEn:"To consume food as part of daily life.",definitionZh:"进食；摄取食物以维持生活。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Jangan lupa makan sebelum keluar bekerja."]},{id:"ms.dict.makan.s2",definition:"Menggunakan atau menghakis sesuatu secara beransur-ansur dalam konteks tertentu.",definitionEn:"To consume, use up or corrode something gradually in certain contexts.",definitionZh:"在特定语境中表示逐渐消耗或侵蚀。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Karat boleh makan permukaan besi jika dibiarkan."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -191,7 +191,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["meminum","diminum","minuman","peminum"],
     morphology:{type:"kata dasar",prefixes:["meN-","di-","peN-"],suffixes:["-an"],forms:["meminum","diminum","minuman","peminum"],notes:"Kata nama minuman dibezakan daripada kata kerja minum."},
     senses:[{id:"ms.dict.minum.s1",definition:"Mengambil cecair melalui mulut.",definitionEn:"To take liquid into the body through the mouth.",definitionZh:"通过嘴摄入液体。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Dia minum segelas susu setiap pagi."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -200,9 +200,9 @@ window.SWIFT_MALAY_DICTIONARY = [
     definitionZh:"去；从一个地方移动或前往另一个地方。",
     examples:["Saya pergi ke sekolah dengan bas.","Mereka pergi bercuti pada hujung minggu."],
     related:["datang","berjalan","bertolak","perjalanan"], categories:["tindakan","pergerakan"],
-    searchForms:["pemergian"], morphology:{type:"kata dasar",forms:["pemergian","berpergian"],notes:"Bentuk terbitan tidak digunakan sebagai pengganti kata dasar dalam semua konteks."},
+    searchForms:["pemergian"], morphology:{type:"kata dasar",forms:["pemergian"],notes:"Bentuk terbitan tidak digunakan sebagai pengganti kata dasar dalam semua konteks."},
     senses:[{id:"ms.dict.pergi.s1",definition:"Bergerak menuju ke tempat yang lain.",definitionEn:"To move towards another place.",definitionZh:"前往另一个地方。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Kami pergi ke kedai selepas makan malam."]},{id:"ms.dict.pergi.s2",definition:"Meninggalkan tempat atau keadaan yang sedang diduduki.",definitionEn:"To leave a place or situation.",definitionZh:"离开当前所在的地方或处境。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Dia sudah pergi sebelum majlis bermula."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -214,7 +214,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["berumah","perumahan","serumah","rumah-rumah"],
     morphology:{type:"kata dasar dan penggandaan",forms:["berumah","perumahan","serumah","rumah-rumah"],notes:"Bentuk berumah dan perumahan mempunyai fungsi yang berbeza."},
     senses:[{id:"ms.dict.rumah.s1",definition:"Bangunan tempat seseorang atau keluarga tinggal.",definitionEn:"A building where a person or family lives.",definitionZh:"个人或家庭居住的建筑物。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Rumah itu mempunyai tiga bilik tidur."]},{id:"ms.dict.rumah.s2",definition:"Tempat atau institusi yang menjadi pusat sesuatu kegiatan.",definitionEn:"A place or institution serving as a centre for an activity.",definitionZh:"作为某项活动中心的场所或机构。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Perpustakaan ialah rumah ilmu bagi masyarakat."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -226,7 +226,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["bersekolah","persekolahan","menyekolahkan"],
     morphology:{type:"kata dasar",forms:["bersekolah","persekolahan","menyekolahkan"],notes:"Bentuk bersekolah merujuk kepada perbuatan mengikuti persekolahan."},
     senses:[{id:"ms.dict.sekolah.s1",definition:"Tempat murid belajar dengan bimbingan guru.",definitionEn:"A place where pupils learn with guidance from teachers.",definitionZh:"学生在教师指导下学习的地方。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Murid-murid berkumpul di dewan sekolah."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -237,7 +237,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     related:["aku","kami","kita","anda"], categories:["kata fungsi","komunikasi"],
     searchForms:[], morphology:{type:"kata ganti nama",forms:[],notes:"Kata ganti nama ini tidak menerima pengimbuhan seperti kata kerja."},
     senses:[{id:"ms.dict.saya.s1",definition:"Kata ganti nama diri pertama yang lazim digunakan dalam situasi sopan atau neutral.",definitionEn:"A first-person pronoun commonly used in polite or neutral situations.",definitionZh:"常用于礼貌或中性语境的第一人称代词。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Saya ingin bertanya tentang jadual bas."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -245,11 +245,11 @@ window.SWIFT_MALAY_DICTIONARY = [
     definitionEn:"To sleep; to be in a natural resting state with reduced awareness of the surroundings.",
     definitionZh:"睡觉；身体和意识处于自然休息状态。",
     examples:["Saya tidur awal kerana perlu bangun pagi.","Bayi itu sedang tidur."],
-    related:["berehat","mengantuk","terjaga","tiduran"], categories:["tindakan","kehidupan harian"],
+    related:["berehat","mengantuk","terjaga"], categories:["tindakan","kehidupan harian"],
     searchForms:["tertidur","menidurkan","ditidurkan"],
-    morphology:{type:"kata dasar",forms:["tertidur","menidurkan","ditidurkan","tidur-tiduran"],notes:"Ter- dalam tertidur lazimnya membawa makna tidak sengaja atau berlaku tanpa dirancang."},
+    morphology:{type:"kata dasar",forms:["tertidur","menidurkan","ditidurkan"],notes:"Ter- dalam tertidur lazimnya membawa makna tidak sengaja atau berlaku tanpa dirancang."},
     senses:[{id:"ms.dict.tidur.s1",definition:"Berehat dalam keadaan tidur.",definitionEn:"To rest while asleep.",definitionZh:"处于睡眠状态以休息。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Dia tidur selama lapan jam setiap malam."]},{id:"ms.dict.tidur.s2",definition:"Tidak digunakan atau tidak aktif buat sementara dalam ungkapan tertentu.",definitionEn:"To remain unused or inactive temporarily in certain expressions.",definitionZh:"在某些表达中表示暂时未使用或未运作。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Komputer itu dibiarkan tidur ketika rehat tengah hari."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -261,7 +261,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["menolong","ditolong","pertolongan","penolong"],
     morphology:{type:"kata dasar",prefixes:["meN-","di-","peN-"],suffixes:["-an"],forms:["menolong","ditolong","pertolongan","penolong"],notes:"Sebagai kata seru dalam permintaan, tolong tidak semestinya membawa maksud bantuan fizikal."},
     senses:[{id:"ms.dict.tolong.s1",definition:"Memberikan bantuan kepada seseorang yang memerlukan.",definitionEn:"To provide assistance to someone in need.",definitionZh:"向有需要的人提供帮助。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Jiran-jiran menolong keluarga itu selepas banjir."]},{id:"ms.dict.tolong.s2",definition:"Kata yang digunakan untuk melembutkan atau menyampaikan permintaan.",definitionEn:"A word used to soften or express a request.",definitionZh:"用于缓和语气或表达请求的词。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Tolong tunggu sebentar."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -273,7 +273,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     searchForms:["berterima kasih","mengucapkan terima kasih"],
     morphology:{type:"ungkapan tetap",forms:["berterima kasih","mengucapkan terima kasih"],notes:"Frasa ini disimpan sebagai satu headword berbilang perkataan."},
     senses:[{id:"ms.dict.terima-kasih.s1",definition:"Ungkapan sopan untuk menghargai sesuatu yang dilakukan atau diberikan oleh orang lain.",definitionEn:"A polite expression showing appreciation for something another person has done or given.",definitionZh:"礼貌地表达对他人所做之事或所给予之物的感谢。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Terima kasih atas jemputan itu."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
     id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.1.0",
@@ -284,6 +284,6 @@ window.SWIFT_MALAY_DICTIONARY = [
     related:["bagi","demi","tujuan","kegunaan"], categories:["kata fungsi","tatabahasa"],
     searchForms:[], morphology:{type:"kata fungsi",forms:[],notes:"Kata sendi nama; tidak menerima pengimbuhan produktif dalam penggunaan biasa."},
     senses:[{id:"ms.dict.untuk.s1",definition:"Menunjukkan orang atau perkara yang menerima sesuatu.",definitionEn:"Indicating the person or thing intended to receive something.",definitionZh:"表示某物的接受者或受益对象。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Surat itu untuk pengurus baharu."]},{id:"ms.dict.untuk.s2",definition:"Menunjukkan tujuan sesuatu tindakan.",definitionEn:"Indicating the purpose of an action.",definitionZh:"表示某个行动的目的。",translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples:["Mereka berkumpul untuk berbincang."]}],
-    provenance:{authoringMethod:"original-authored",sourcesConsulted:["General Malaysian Malay usage; editorial reference only"],sourceTextCopied:false,licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   }
 ];
