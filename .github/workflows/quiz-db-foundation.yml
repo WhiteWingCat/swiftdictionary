@@ -10,6 +10,7 @@ on:
       - feature/update-2-7-0-chinese-dictionary-lessons
       - feature/update-2-8-0-chinese-quiz-flashcards
       - feature/u2-9-0-collections-feedback
+      - feature/update-3.0-phase-0-audit
   pull_request:
     branches:
       - main
