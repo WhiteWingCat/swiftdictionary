@@ -291,7 +291,7 @@
         <section class="flash-section">
           <div class="flash-recall-heading"><div><h2>${uiText("Choose your Flash Recall","选择闪卡回忆模式")}</h2><p class="flash-muted">${uiText("Four ways to strengthen your memory.","通过四种方式强化记忆。")}</p></div><div class="flash-duration-controls" role="group" aria-label="${uiText("Challenge duration","挑战时长")}"><span class="flash-duration-label">${uiText("Duration","时长")}</span><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="60" aria-pressed="${state.duration===60}">60s</button><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="120" aria-pressed="${state.duration===120}">120s</button></div></div>
           <div class="flash-mode-grid">
-            ${(course==="zh"?[
+            ${(isChineseLanguage(course)?[
               ["word","🔤",uiText("Recall the pronunciation","根据汉字回忆拼音")],
               ["definition","📘",uiText("Identify the word from a Chinese description","根据中文描述找出对应词语")],
               ["translation","🌐",uiText("Recall the direct equivalent in your selected language","根据所选语言的直接对应表达回忆中文词语")],
@@ -631,8 +631,8 @@
   }
   function openSetupPrompt(mode){
     if(currentUser&&Number(state.data?.allowance?.remaining)<=0){notifyFlashcardAllowanceExhausted();return;}
-    if(course==="zh"&&mode==="mixed")mode="translation";
-    if(course==="en"&&mode==="translation")mode="mixed";
+    const supportedModes=adapterFor(course)?.flashcardModes||[];
+    if(!supportedModes.includes(mode))mode=supportedModes.includes("mixed")?"mixed":supportedModes[0]||"word";
     state.mode=mode;const overlay=overlayRoot;if(!overlay)return;
     const chinese=isChineseLanguage(course);
     const excludeVocabulary=chinese&&(
@@ -864,12 +864,9 @@
     // Keep an active challenge bound to the language pair frozen at start.
     if(state.game)return;
     // Keep the third mode slot course-exclusive: Mixed (English) or Translation (Chinese), never both.
-    const supportedModes=course==="zh"
-      ?["word","definition","translation","sentence"]
-      :["word","definition","mixed","sentence"];
+    const supportedModes=adapterFor(course)?.flashcardModes||[];
     if(!supportedModes.includes(state.mode)){
-      state.mode=course==="zh"&&state.mode==="mixed"?"translation"
-        :course==="en"&&state.mode==="translation"?"mixed":"word";
+      state.mode=supportedModes.includes("mixed")?"mixed":supportedModes[0]||"word";
     }
     if(currentUser&&!state.ready&&!state.loading){loadData();return;}
     if(overlayRoot.querySelector("#flashReviewTitle"))renderReviewPrompt();
