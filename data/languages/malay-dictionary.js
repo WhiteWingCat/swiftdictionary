@@ -6336,3 +6336,23 @@ window.SWIFT_MALAY_DICTIONARY = [
     makeEntry("sebaliknya","sebaliknya","kata adverba","Digunakan untuk menyatakan keadaan yang berlawanan atau pilihan bertentangan.","Instead or on the contrary; expresses an opposite situation or alternative.","相反；反而；表示相反情况或替代选择。",["Jangan buang botol itu; sebaliknya, masukkannya ke dalam tong kitar semula."],["kata fungsi"])
   );
 })();
+
+
+/* Batch 08 supplement — one common workplace headword to enter the agreed target band. */
+(() => {
+  const id="ms.dict.pekerja";
+  const definition="Orang yang melakukan pekerjaan, sama ada secara tetap, sementara atau mengikut perjanjian tertentu.";
+  const definitionEn="Worker or employee; a person who performs work, whether permanently, temporarily or under an arrangement.";
+  const definitionZh="员工；劳动者；以固定、临时或其他约定方式从事工作的人。";
+  const examples=["Pekerja kilang itu memulakan syif pada pukul tujuh pagi.","Majikan menyediakan latihan keselamatan untuk semua pekerja."];
+  window.SWIFT_MALAY_DICTIONARY.push({
+    id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.8.0",
+    word:"pekerja",part:"kata nama",definition,definitionEn,definitionZh,examples,related:[],
+    categories:["pekerjaan","masyarakat"],searchForms:[],
+    morphology:{type:"kata dasar atau frasa leksikal",forms:[],notes:"Tiada bentuk terbitan ditambah sebagai alias carian dalam batch ini; bentuk carian memerlukan semakan leksikal khusus."},
+    senses:[{id:id+".s1",definition,definitionEn,definitionZh,translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples}],
+    provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,
+      authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",
+      licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
+  });
+})();
