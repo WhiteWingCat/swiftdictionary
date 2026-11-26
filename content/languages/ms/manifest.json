@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "planned",
-  "contentVersion": "u3-ms-dict-0.1.0",
+  "contentVersion": "u3-ms-dict-0.2.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -25,9 +25,9 @@
         "data/languages/malay-dictionary.js"
       ],
       "contentVersion": "u3-ms-dict-0.1.0",
-      "knownHeadwordCount": 24,
-      "knownSenseCount": 41,
-      "initialBatch": "01",
+      "knownHeadwordCount": 54,
+      "knownSenseCount": 76,
+      "initialBatch": "01–02",
       "editorialStatus": "draft",
       "provenancePolicy": "item-level original-authored; rights review pending"
     },
