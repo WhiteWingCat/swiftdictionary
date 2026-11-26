@@ -1035,7 +1035,11 @@
     const languageAdapter = code => window.SWIFT_LANGUAGE_ADAPTERS?.get(code) || null;
     const isChineseCourse = (code=course) => languageAdapter(code)?.gridMode === "single-han";
     const isEnglishCourse = (code=course) => languageAdapter(code)?.morphology === "english";
-    const dictionaryEntriesFor = code => isChineseCourse(code) ? chineseWords : isEnglishCourse(code) ? englishWords : [];
+    const dictionaryEntriesFor = code => {
+      const contentPackage=window.SWIFT_CONTENT_PACKAGES?.get(code);
+      if(contentPackage?.dictionary?.entries) return contentPackage.dictionary.entries.map(entry=>entry.legacySource||entry);
+      return isChineseCourse(code) ? chineseWords : isEnglishCourse(code) ? englishWords : [];
+    };
     let course = activeLanguage(storedCoursePreferences.learning_language) ? storedCoursePreferences.learning_language : "en";
     let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
     let words = dictionaryEntriesFor(course);
@@ -2043,6 +2047,12 @@ function lessonPractice(x){
     const el=id=>document.getElementById(id);
     const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
     const lessons=()=>{
+      const contentPackage=window.SWIFT_CONTENT_PACKAGES?.get(course);
+      if(contentPackage?.lessons?.permanent){
+        return contentPackage.lessons.permanent
+          .filter(item=>item.difficulty===ls.difficulty)
+          .map(item=>item.legacySource||item);
+      }
       if(isChineseCourse())return chineseLessonData[ls.difficulty]||[];
       if(isEnglishCourse())return lessonData[ls.difficulty]||[];
       throw new Error("Lessons are not available for language: "+course);
@@ -3773,6 +3783,12 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
     // redirect signed-out visitors away from public pages such as Quiz.
     showHashPage();
     // Keep the profile route inaccessible to signed-out visitors.
+    window.addEventListener("swiftdictionary:content-packages-ready", () => {
+      words = dictionaryEntriesFor(course);
+      render();
+      if (typeof renderLessons === "function") renderLessons();
+    });
+
     window.SWIFT_LEGACY_CONTENT_DATA = {
       en: {
         dictionary: englishWords,
