@@ -4515,3 +4515,20 @@ Production and staging are not identical: migration records are 71 vs 63; five t
 No SQL was applied to production or staging. No Auth/RLS/schema/data changes, merge to production `main`, production deployment or staging-preview handoff occurred. No preview URL is to be provided before Phase 3 is complete. Cloudflare Pages remains the sole active deployment platform; Workers Builds remains retired.
 
 **Handoff:** Phase 0 complete; Phase 1 complete; Phase 2 ready but not started. Continue on `feature/update-3.0-phase-0-audit` only when the owner authorises Phase 2. Keep documentation on `docs/master-development-record`.
+
+
+## 12. Update 3.0 Phase 2 — Malay Dictionary authorised and started (2026-11-26)
+
+Phase 2 has been authorised. Work is restricted to the Malaysian Standard Malay Dictionary package, lexical content, language-specific search/morphology adapter, support-translation records and validation. Malay remains registered as `planned`; it is not selectable or activated. No Supabase schema/data/Auth/RLS changes, database migrations, staging-preview handoff, production merge or deployment are permitted in this phase.
+
+The Phase 2 execution contract is documented in [U3.0 Phase 2 Malay Dictionary Plan](U3.0-PHASE-2-MALAY-DICTIONARY-PLAN.md), and the main [U3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md) now contains the detailed execution sequence and safeguards.
+
+### Content and licensing safeguards
+
+Malay content is to be independently authored in Malaysian Standard Malay. DBP/PRPM and Kamus Dewan may be consulted for linguistic verification, but their dictionary text, definitions, examples and bulk data must not be copied or scraped into SwiftDictionary without written permission or an applicable reuse licence. DBP's copyright notice expressly requires prior written permission for reproduction of site content: https://dbp.gov.my/hak-cipta/. Each entry must retain its own provenance/licence and editorial status.
+
+This phase introduces static lexical data and local search only; it does not add learner tracking or personal-data collection. Before public activation, revisit the amended Malaysian PDPA and current Commissioner guidance, including the phased commencement of Act A1727, cross-border hosting facts, notices, retention/deletion and any obligations applicable to the project's actual operating model. This is planning, not legal advice or compliance clearance.
+
+### Current implementation state
+
+Phase 2A planning and the authoring contract are recorded. Implementation has not yet been completed; Malay remains inactive. Phase 2B onward is pending code/content work and validation.
