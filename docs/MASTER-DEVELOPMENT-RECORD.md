@@ -3902,3 +3902,54 @@ Detailed archive: `docs/conversation-archive/2026-11-26-update-2-9-0-whole-folde
 - Legal/privacy check: no new personal-data category, purpose, processor, tracking, schema field or entitlement change was introduced by the polish. Existing Malaysia PDPA, cross-border transfer, global 16+ safeguards, Terms/Privacy publication and future Premium consumer/payment compliance remain pre-publication planning items; this is not legal advice or legal clearance.
 - Release boundary: PR #18 remains open; no production merge/deployment, production Supabase write/migration, Premium activation, entitlement mutation or allowance change. The 30 new Quiz questions remain draft-only; the approved Quiz release subset remains 199 questions.
 - Detailed record: `docs/conversation-archive/2026-11-26-update-2-9-0-whole-folder-drag-feedback.md` and updated `docs/UPDATE-2.9.0-DEVELOPMENT-PLAN.md`.
+
+
+## U2.9.0 release completion and production synchronisation — 2026-11-26
+
+**Status: MERGED TO `main`; Live Supabase U2.9.0 migrations applied and verified.** This section supersedes the earlier U2.9.0 pre-merge / pre-production notes above.
+
+### GitHub release
+
+- Owner explicitly approved merge and Live Supabase migration in the 2026-11-26 conversation.
+- PR #18 (https://github.com/WhiteWingCat/swiftdictionary/pull/18) was squash-merged successfully.
+- Merge commit on `main`: `64dc4406f96cf4b5a7644d802f936ff5ffd97289`.
+- Merged feature head: `96b856b1419aadb24c3d4e8872a54bd27a4e9294`; validated application code commit remains `55a1ff5c43487985f2d20618385d1cb7a27edf9b`.
+- Cloudflare Pages is the sole active website build/deployment system. The Cloudflare Workers Builds integration/check for service `swiftdictionary-testing` is retired and no longer in operation; its repeated failed status is obsolete and must not be treated as a release blocker or as a Pages failure. Do not restore or rely on that Worker build workflow.
+- The Pages preview for the merged feature head succeeded at https://1df70422.swiftdictionary.pages.dev . The merge-triggered production Pages deployment should be independently checked before stating the live website deployment is complete.
+
+### Live Supabase migration and verification
+
+- Production project: SwiftDictionary, ref `pzymiesazmpyvnfvsbsc`, region `ap-northeast-1`; project status was `ACTIVE_HEALTHY`.
+- Before rollout, production migration history ended at U2.8.0 and staging already contained all eight U2.9.0 migrations. Production schema was inspected: `public.saved_words`, `public.user_entitlements` and `private.learning_content_catalog` were present; the saved_words contract supports the collection FK and the entitlement/catalog fields matched the migration assumptions.
+- Successfully applied all eight U2.9.0 migrations to Live Supabase, in dependency order:
+  1. `20261126041610` — `swiftdictionary_update_2_9_0_favorite_collections`
+  2. `20261126041612` — `swiftdictionary_update_2_9_0_favorite_collections_realtime`
+  3. `20261126041615` — `swiftdictionary_update_2_9_0_favorite_collections_private_broadcast`
+  4. `20261126041617` — `swiftdictionary_update_2_9_0_favorite_collections_remove_postgres_changes`
+  5. `20261126041620` — `swiftdictionary_update_2_9_0_favorite_collection_capacity_limits`
+  6. `20261126041622` — `swiftdictionary_update_2_9_0_favorite_collection_ordering`
+  7. `20261126041625` — `swiftdictionary_update_2_9_0_english_lesson_expansion`
+  8. `20261126041627` — `swiftdictionary_update_2_9_0_reorder_rpc_invoker_security`
+- Post-migration verification confirms all eight migration-history entries are present; both collection tables exist with RLS enabled and six owner-scoped policies; three expected collection triggers exist; reorder and create wrapper functions are SECURITY INVOKER; the collection tables are not in the Postgres Changes publication; and all five new English lesson allowlist rows are active.
+- Live collection/membership row counts are both zero immediately after rollout. Existing saved_words and user_entitlements rows were not modified by these migrations; no user data was backfilled or deleted.
+- Health advisor: no findings. Security advisor: no new U2.9.0 findings; existing notices remain (10 informational private-schema RLS/no-policy findings and one warning that leaked-password protection is disabled). Performance advisor: existing unused-index notices include the two new collection indexes while the collection tables are empty, plus one pre-existing duplicate-index warning on `public.learning_activity_log`. These are recorded for later review; no unrelated schema/index cleanup was bundled into this release.
+
+### Retired Cloudflare Workers Builds classification
+
+- Mark `Workers Builds: swiftdictionary-testing` as **Retired — not in operation** in project records and future CI interpretation.
+- Active deployment path: GitHub `main` → Cloudflare Pages production build/deployment.
+- Active preview path: feature branches / pull requests → Cloudflare Pages preview deployments.
+- The obsolete Worker status is not a failed active deployment and is not a required release gate. Keep the Pages build and routing checks as the deployment evidence.
+
+### Product, release and legal boundaries retained
+
+- Dictionary word-grid search remains free and unlimited; Free 16 / Premium 40 folder caps remain unchanged.
+- Premium remains presentation-only. No billing, checkout, payment processing, subscription activation or entitlement mutation was introduced.
+- The 30 additional Quiz questions remain draft-only; the approved release set remains 199.
+- No new personal-data category, purpose, processor, tracking purpose or schema field was introduced by the final polish. Malaysia PDPA, international/cross-border privacy safeguards, global 16+ requirements, Terms/Privacy publication and future Premium consumer/payment review remain pre-publication planning items. This is not legal advice or legal clearance.
+
+### Final closeout boundary
+
+- GitHub `main` merge and Live Supabase U2.9.0 migration are confirmed complete.
+- Confirm the merge-triggered Cloudflare Pages production deployment before claiming the live website is updated. Do not report Pages production success based solely on the PR preview.
+- Detailed session record: `docs/conversation-archive/2026-11-26-update-2-9-0-merge-live-supabase-and-retire-workers-builds.md`.
