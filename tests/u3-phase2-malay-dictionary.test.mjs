@@ -35,10 +35,10 @@ const entries = context.window.SWIFT_MALAY_DICTIONARY;
 const adapter = context.window.SWIFT_LANGUAGE_ADAPTERS.get("ms");
 
 test("Malay package has stable, language-owned lexical records", () => {
-  assert.equal(entries.length, 123);
+  assert.equal(entries.length, 177);
   assert.ok(entries.every(entry => entry.schemaVersion === 1 && entry.languageCode === "ms"));
   assert.ok(entries.every(entry => /^ms\.dict\.[a-z-]+$/.test(entry.id)));
-  assert.ok(entries.every(entry => entry.contentVersion === "u3-ms-dict-0.3.0"));
+  assert.ok(entries.every(entry => entry.contentVersion === "u3-ms-dict-0.4.0"));
   assert.ok(entries.every(entry => entry.word.trim() && entry.part && entry.definition && entry.examples?.length));
   assert.ok(entries.every(entry => entry.senses?.length));
 });
@@ -132,7 +132,7 @@ test("Malay can be packaged without being activated or selectable", () => {
   assert.equal(pkg.languageCode, "ms");
   assert.equal(pkg.status, "planned");
   assert.equal(pkg.dictionary.entries.length, entries.length);
-  assert.equal(pkg.dictionary.translations.length, 290);
+  assert.equal(pkg.dictionary.translations.length, 398);
   assert.ok(pkg.dictionary.translations.every(record => record.status === "machine_assisted_draft"));
   assert.ok(pkg.dictionary.translations.every(record => record.sourceLanguageCode === "ms" && ["en","zh"].includes(record.targetLanguageCode)));
   const baca = pkg.dictionary.entries.find(entry => entry.headword === "baca");
