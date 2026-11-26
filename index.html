@@ -24455,6 +24455,7 @@ async function completeLesson(x){
         const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
         const safeLearningLanguage=activeLanguage(prefs.learning_language)?prefs.learning_language:course;
         const safeTranslationLanguage=activeLanguage(prefs.translation_language)?prefs.translation_language:translationLanguage;
+        const activeLearningLanguage=preferenceSelectionChanged?course:safeLearningLanguage;
         const effectivePrefs={...prefs,learning_language:safeLearningLanguage,translation_language:safeTranslationLanguage};
         profilePreferences = preferenceSelectionChanged
           ? {...effectivePrefs,learning_language:course,translation_language:translationLanguage}
@@ -24476,8 +24477,8 @@ async function completeLesson(x){
         if (!stillSameAccount()) return;
         renderFavoriteWords(correctlyClassifiedSavedWords);
         document.getElementById("displayNameInput").value = profileQ.data?.display_name || "";
-        document.getElementById("preferenceLearning").value = preferenceSelectionChanged ? course : prefs.learning_language;
-        document.getElementById("preferenceTranslation").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
+        document.getElementById("preferenceLearning").value = preferenceSelectionChanged ? course : effectivePrefs.learning_language;
+        document.getElementById("preferenceTranslation").value = preferenceSelectionChanged ? translationLanguage : effectivePrefs.translation_language;
         document.getElementById("preferenceTimezone").value = prefs.timezone;
         document.getElementById("courseSelect").value = preferenceSelectionChanged ? course : prefs.learning_language;
         document.getElementById("translationSelect").value = preferenceSelectionChanged ? translationLanguage : prefs.translation_language;
