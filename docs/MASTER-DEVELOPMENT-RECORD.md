@@ -4468,3 +4468,19 @@ The U3.0 feature branch now includes the shared runtime language registry and ad
 Validation: 22 core Node architecture/integration tests passed locally. Application script load order and active/planned language manifest states were checked. Source inventories confirmed English Dictionary 1,316 unique word/POS records; Chinese Dictionary 725 unique character records; English Lessons 20; Chinese Lessons 17/112 practice questions; Chinese Daily Learning 6/7/93; Chinese Flashcards 1,447 cards with draft status preserved. Generic Quiz question-envelope rules were checked against 229 English and 145 Chinese draft questions with zero envelope errors. Additional wiring/content-parity test files were added but not included in the 22-test run.
 
 **Phase 1 exit remains open** pending full browser/device regression, account/progress/allowance history parity, and environment-specific Supabase migration compatibility review. No staging preview, database/Auth change, production merge or deployment was performed. Do not begin Phase 2 until Phase 1 exit evidence is complete. See `docs/U3.0-MULTILINGUAL-ARCHITECTURE.md`, `docs/U3.0-PHASE-1-DATABASE-MIGRATION-DESIGN.md` and the Phase 1 integration archive.
+
+
+## 10. Update 3.0 Phase 1 regression and migration-compatibility checkpoint — 2026-11-26
+
+U3.0 Phase 1 architecture integration is present on `feature/update-3.0-phase-0-audit`, but formal exit remains **blocked**. The current review read the latest plan and Phase 0/Phase 1 conversation archives and performed read-only inspections of both Supabase environments.
+
+- Production: Tokyo, PostgreSQL 17.11.0.003, 71 migration records.
+- Staging: Singapore, PostgreSQL 17.12.0.000, 63 migration records.
+- Both environments have 27 inspected public/private tables with RLS enabled, but five confirmed table-definition differences and additional function, policy, index and trigger drift.
+- Existing database constraints and RPCs still contain en/zh-only assumptions; no U3.0 migration has been applied.
+- 22 earlier core tests passed, but the full current 25-case architecture/wiring/parity suite and browser/device regression have not been executed in this review.
+- Production aggregate row-count and language distributions are recorded in the dated archive. These are read-only baselines, not before/after migration parity evidence.
+- The Cloudflare Pages feature-branch build succeeded; it does not prove browser or database compatibility. Workers Builds is retired.
+- No database, Auth, RLS, schema, production main branch, merge or production deployment was changed. A Pages branch build may automatically create an internal preview, but no preview link is to be handed to the owner before Phase 3.
+
+**Decision:** Do not start Phase 2. Complete the full test suite, browser/device regression, production/staging compatibility matrix, disposable/local and staging migration rehearsal, and account/progress/history/allowance parity evidence first. Preserve English/Chinese behaviour and data, keep Malay planned until its content phases, and retain all Phase 3–7 release gates. See [the detailed Phase 1 checkpoint](conversation-archive/2026-11-26-update-3-0-phase-1-regression-and-migration-compatibility.md) and [the updated U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
