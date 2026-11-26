@@ -66,7 +66,7 @@ Every item has an authored language. A learner's support/translation language is
 
 ### 2.3 Translation registry and coverage
 
-Introduce a central, versioned translation registry keyed by stable content identity and explicit source/target language. Track content type/ID, source revision, translation revision, status (not started, draft, machine-assisted draft, reviewed, approved, stale, not applicable), provenance/reviewer and validation metadata.
+Introduce a central, versioned translation registry keyed by stable content identity and explicit source/target language. Track content type/ID, source revision, translation revision, status (not started, draft, machine-assisted draft, legacy-unverified, reviewed, approved, stale, not applicable). Legacy-unverified is a migration-only status and never implies review or approval, provenance/reviewer and validation metadata.
 
 U3.0 launch coverage must support English, Simplified Chinese and Malay in the active product surfaces. The detailed matrix must be generated from the real content inventory and record availability per item/type/pair; never imply full coverage merely because a selector exists. Missing translations must produce an explicit, intentional fallback/unavailable state, never silently show text in the wrong language. Reviewed translations are not silently overwritten when source content changes.
 
