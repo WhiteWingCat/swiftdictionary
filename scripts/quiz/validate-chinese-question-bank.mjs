@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normaliseComparableText, validateLanguagePair } from "../content/validation-core.mjs";
+import { normaliseComparableText, validateLanguagePair, validateQuestionEnvelope } from "../content/validation-core.mjs";
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
 const pack=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.zh-en.draft.json"),"utf8"));
@@ -24,6 +24,7 @@ if(!Array.isArray(pack.questions))errors.push("questions must be an array.");
 for(const [i,q] of (pack.questions||[]).entries()){
  const at="questions["+i+"]";
  if(!q.question_id||ids.has(q.question_id))errors.push(at+" has a missing or duplicate question_id");ids.add(q.question_id);
+ errors.push(...validateQuestionEnvelope(q,{path:at}));
  const lesson=map.lessons?.[q.source_lesson_id];
  if(lesson)sourceLessonIds.add(q.source_lesson_id);
  if(!lesson)errors.push(at+" has no approved Chinese lesson mapping");
