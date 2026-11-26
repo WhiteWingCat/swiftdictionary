@@ -20,7 +20,7 @@
   };
   const chinese = {
     locale:"zh-CN", script:"Hans", gridMode:"single-han", pronunciationLabel:"Pinyin", morphology:"chinese",
-    normaliseSearch(value) { return normalise(value).toLocaleLowerCase("zh-CN").replace(/[\s\p{P}\p{S}]+/gu,""); },
+    normaliseSearch(value) { return normalise(value).normalize("NFD").replace(/\p{M}/gu,"").toLocaleLowerCase("zh-CN").replace(/[\s\p{P}\p{S}]+/gu,""); },
     matchesSearch(entry, query) {
       if (!query) return true;
       const q=this.normaliseSearch(query), word=this.normaliseSearch(entry?.word), pinyin=this.normaliseSearch(entry?.phonetic);
