@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "planned",
-  "contentVersion": "u3-ms-dict-0.3.0",
+  "contentVersion": "u3-ms-dict-0.4.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -24,10 +24,10 @@
       "files": [
         "data/languages/malay-dictionary.js"
       ],
-      "contentVersion": "u3-ms-dict-0.3.0",
-      "knownHeadwordCount": 123,
-      "knownSenseCount": 145,
-      "initialBatch": "01–03",
+      "contentVersion": "u3-ms-dict-0.4.0",
+      "knownHeadwordCount": 177,
+      "knownSenseCount": 199,
+      "initialBatch": "01–04",
       "editorialStatus": "draft",
       "provenancePolicy": "item-level original-authored; rights review pending"
     },
@@ -57,7 +57,8 @@
     "Do not use machine translation output as approved content without human linguistic review.",
     "Do not activate this package until all U3.0 content and application QA gates pass.",
     "Malay Dictionary batch 01 is independently authored; DBP/PRPM/Kamus Dewan text has not been copied. Human linguistic and rights review remains pending.",
-    "Malay Dictionary batches 01–03 contain original-authored draft entries; all definitions, examples and support translations require human linguistic review before approval."
+    "Malay Dictionary batches 01–03 contain original-authored draft entries; all definitions, examples and support translations require human linguistic review before approval.",
+    "Malay Dictionary batch 04 adds 54 additional unique draft headwords; definitions, examples and support translations remain subject to human review."
   ],
   "legalReview": {
     "malaysiaPDPA": "required before public launch",
