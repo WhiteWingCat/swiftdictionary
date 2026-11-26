@@ -4529,6 +4529,12 @@ Malay content is to be independently authored in Malaysian Standard Malay. DBP/P
 
 This phase introduces static lexical data and local search only; it does not add learner tracking or personal-data collection. Before public activation, revisit the amended Malaysian PDPA and current Commissioner guidance, including the phased commencement of Act A1727, cross-border hosting facts, notices, retention/deletion and any obligations applicable to the project's actual operating model. This is planning, not legal advice or compliance clearance.
 
-### Current implementation state
+### Current implementation state — 2026-11-26
 
-Phase 2A planning and the authoring contract are recorded. Implementation has not yet been completed; Malay remains inactive. Phase 2B onward is pending code/content work and validation.
+Phase 2A is complete. Phase 2B has two authored batches on `feature/update-3.0-phase-0-audit`: 54 unique Malay headwords and 76 senses. Each sense has English and Simplified Chinese support text, with 152 shared translation-registry records marked `machine_assisted_draft`. All lexical entries are draft, original-authored records with source verification, rights review and human linguistic review pending.
+
+The Malay adapter now searches headwords and explicitly recorded valid inflected forms only. It does not search definitions/examples or perform blind stemming. The shared package adapter preserves Malay stable IDs, provenance and morphology, and avoids same-language translation pairs.
+
+The U3.0 architecture/content CI passed 39/39 Node tests on commit `e2aa84f0255559b01dedff1be69c01db785a8f5c`: [workflow run 45790151916](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790151916). Phase 2 is not complete. `ms` remains planned/inactive and not selectable. No database, Auth/RLS, staging preview, production merge or deployment changes were made. The Phase 1 database drift remains a future activation/migration gate.
+
+See [the Phase 2 initial-batches archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md) and [the detailed Phase 2 execution plan](U3.0-PHASE-2-MALAY-DICTIONARY-PLAN.md).
