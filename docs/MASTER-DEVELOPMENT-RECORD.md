@@ -5,7 +5,7 @@
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
 > **Last consolidated:** 2026-11-26 (U2.9.0 merged and Live Supabase migrated; U2.9.1 emergency patch merged and deployed successfully to Cloudflare Pages production; Workers Builds retired.)
 **Current baseline:** Update 2.9.1 — Dashboard "Your Collections" Cloudflare Pages loading fix — merged to `main` at `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`. Cloudflare Pages production deployment succeeded. Live Supabase remains on the verified U2.9.0 schema; U2.9.1 requires no database migration.  
-**Current work:** U2.9.1 remains deployed. U3.0 Phase 0 and Phase 1 validation are complete. Phase 2 Malay Dictionary authoring is in progress toward approximately 700 headwords (target band 650–750); current count is 177 unique headwords and 199 senses after batches 01–04; 398 English/Simplified Chinese support translation records remain machine-assisted drafts. Application work remains on `feature/update-3.0-phase-0-audit`; documentation remains on `docs/master-development-record`. The Collections module is explicitly loaded from `index.html` after the main application scripts, rather than relying on generated `supabase-config.js` that Cloudflare Pages overwrites at build time. Cloudflare Pages is the only active build/deployment platform; Workers Builds is retired.  
+**Current work:** U2.9.1 remains deployed. U3.0 Phase 0 and Phase 1 validation are complete. Phase 2 Malay Dictionary authoring is in progress toward approximately 700 headwords (target band 650–750); current count is 226 unique headwords and 248 senses after batches 01–05; 496 English/Simplified Chinese support translation records remain machine-assisted drafts. Application work remains on `feature/update-3.0-phase-0-audit`; documentation remains on `docs/master-development-record`. The Collections module is explicitly loaded from `index.html` after the main application scripts, rather than relying on generated `supabase-config.js` that Cloudflare Pages overwrites at build time. Cloudflare Pages is the only active build/deployment platform; Workers Builds is retired.  
 **Record status:** U2.9.0 and U2.9.1 implementation, merge and production Pages deployment are complete. U3.0 Phase 1 validation is complete and Phase 2 Malay Dictionary authoring is in progress. Dictionary word-grid search remains free and unlimited; Premium remains presentation-only. The 30 additional Quiz questions remain draft-only, with 199 approved questions.
 
 ## 1. Project identity and goals
@@ -4558,4 +4558,18 @@ The English Dictionary QA and Quiz database foundation workflows were triggered 
 All Malay entries remain draft and all 398 support translations remain machine-assisted drafts. Competent Malaysian Malay linguistic review, independent translation review, source verification and rights review remain pending. No DBP/PRPM/Kamus Dewan protected text was copied or scraped. `ms` remains planned/inactive and not selectable. Phase 2 is still in progress; continue sequential content batches toward 650–750 unique headwords.
 
 **Archive:** [Phase 2 Dictionary batch 04](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-04.md).  
+**Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md) and [Phase 2 Malay Dictionary Plan](U3.0-PHASE-2-MALAY-DICTIONARY-PLAN.md).
+
+
+## 14. Update 3.0 Phase 2 — Malay Dictionary batch 05 (2026-11-26)
+
+Batch 05 added 49 unique Malaysian Standard Malay headwords, bringing the package to **226 unique headwords, 248 senses and 496 English/Simplified Chinese support-translation records**. The manifest and content revision are updated to `u3-ms-dict-0.5.0`. New vocabulary covers transport/travel, places, nature/geography, food, housing/household items, clothing/hygiene and everyday actions.
+
+The final U3.0 architecture regression run passed **39/39 Node tests** on application commit `f419789937478c8d32e48c2da9bf739e0f9f81e2` ([run 45801371395](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45801371395)). The first batch 05 attempt found a collision between the canonical headword `perjalanan` and an existing `jalan` search alias. The alias was removed from the `jalan` search forms while the related-word relationship was retained. The final 39/39 run passed.
+
+The English Dictionary QA and Quiz database foundation workflows were triggered on the latest branch commit; their final outcomes are to be checked independently. No U3.0 database migration was created or applied. No production/staging schema, data, Auth/RLS, main branch, staging preview or deployment was changed.
+
+All 226 Malay entries remain draft; all 496 support translations remain machine-assisted drafts. Human Malaysian Malay linguistic review, independent translation review, source verification and rights review remain pending. `ms` remains planned/inactive and not selectable. Phase 2 is still in progress; continue sequential content batches toward 650–750 unique headwords.
+
+**Archive:** [Phase 2 Dictionary batch 05](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-05.md).  
 **Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md) and [Phase 2 Malay Dictionary Plan](U3.0-PHASE-2-MALAY-DICTIONARY-PLAN.md).
