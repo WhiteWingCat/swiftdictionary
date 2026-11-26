@@ -18,6 +18,9 @@
   const expandedCollectionIds = new Set();
   const collectionLoadSequence = new Map();
   let dialogReturnFocus = null;
+  let activePointerDrag = null;
+  let suppressFolderClick = false;
+  let folderDragListenersBound = false;
 
   const getClient = () => {
     if (window.supabaseClient) return window.supabaseClient;
@@ -473,14 +476,16 @@
     card.dataset.collectionId = collection.id;
     toggle.setAttribute("aria-keyshortcuts", "Alt+ArrowUp Alt+ArrowDown");
     toggle.title = "Hold and drag this folder to reorder. Use Alt + Up/Down to move it by keyboard.";
-    let pointerDrag = null;
-    let suppressNextToggleClick = false;
     toggle.addEventListener("click", event => {
-      if (!suppressNextToggleClick) return;
+      if (!suppressFolderClick) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      suppressNextToggleClick = false;
+      suppressFolderClick = false;
     }, true);
+    toggle.addEventListener("pointerdown", event => {
+      if (event.button !== 0 || event.isPrimary === false || event.target.closest("button:not(.fc-folder-toggle),a,input,select,textarea,[role=menu]")) return;
+      activePointerDrag = { pointerId: event.pointerId, collectionId: collection.id, card, toggle, startX: event.clientX, startY: event.clientY, started: false, targetId: null, after: false };
+    });
     toggle.addEventListener("keydown", async event => {
       if (!event.altKey || !["ArrowUp","ArrowDown"].includes(event.key)) return;
       event.preventDefault();
@@ -488,44 +493,6 @@
       await moveCollection(collection.id, event.key === "ArrowUp" ? -1 : 1);
       panel.querySelector(`.fc-folder-card[data-collection-id="${CSS.escape(collection.id)}"] .fc-folder-toggle`)?.focus();
     });
-    toggle.addEventListener("pointerdown", event => {
-      if (event.button !== 0 || event.isPrimary === false) return;
-      pointerDrag = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, started: false, targetId: null, after: false };
-    });
-    document.addEventListener("pointermove", event => {
-      if (!pointerDrag || pointerDrag.pointerId !== event.pointerId) return;
-      if (!pointerDrag.started && Math.hypot(event.clientX - pointerDrag.startX, event.clientY - pointerDrag.startY) < 7) return;
-      if (!pointerDrag.started) {
-        pointerDrag.started = true;
-        suppressNextToggleClick = true;
-        card.classList.add("is-dragging");
-      }
-      event.preventDefault();
-      const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("#swiftFavoriteCollections .fc-folder-card");
-      panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
-      if (!target || target === card) {
-        pointerDrag.targetId = null;
-        return;
-      }
-      const rect = target.getBoundingClientRect();
-      pointerDrag.targetId = target.dataset.collectionId;
-      pointerDrag.after = event.clientY > rect.top + rect.height / 2;
-      target.classList.add(pointerDrag.after ? "is-drop-after" : "is-drop-before");
-    }, { passive: false });
-    const finishPointerDrag = event => {
-      if (!pointerDrag || pointerDrag.pointerId !== event.pointerId) return;
-      const state = pointerDrag;
-      pointerDrag = null;
-      card.classList.remove("is-dragging");
-      panel.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
-      if (state.started && state.targetId) moveCollectionTo(collection.id, state.targetId, state.after);
-      if (state.started) {
-        suppressNextToggleClick = true;
-        setTimeout(() => { suppressNextToggleClick = false; }, 0);
-      }
-    };
-    document.addEventListener("pointerup", finishPointerDrag);
-    document.addEventListener("pointercancel", finishPointerDrag);
     card.append(head, content);
     panel.querySelector(".fc-list").append(card);
     if (expanded) loadCollectionWords(collection, content);
@@ -841,7 +808,45 @@
     } else if (panel) refresh();
   }
 
+  function bindFolderDragListeners() {
+    if (folderDragListenersBound) return;
+    folderDragListenersBound = true;
+    document.addEventListener("pointermove", event => {
+      const drag = activePointerDrag;
+      if (!drag || drag.pointerId !== event.pointerId) return;
+      if (!drag.started && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < 7) return;
+      if (!drag.started) {
+        drag.started = true;
+        suppressFolderClick = true;
+        drag.card.classList.add("is-dragging");
+      }
+      event.preventDefault();
+      const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("#swiftFavoriteCollections .fc-folder-card");
+      panel?.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
+      if (!target || target === drag.card) { drag.targetId = null; return; }
+      const rect = target.getBoundingClientRect();
+      drag.targetId = target.dataset.collectionId;
+      drag.after = event.clientY > rect.top + rect.height / 2;
+      target.classList.add(drag.after ? "is-drop-after" : "is-drop-before");
+    }, { passive: false });
+    const finish = event => {
+      const drag = activePointerDrag;
+      if (!drag || drag.pointerId !== event.pointerId) return;
+      activePointerDrag = null;
+      drag.card.classList.remove("is-dragging");
+      panel?.querySelectorAll(".fc-folder-card").forEach(node => node.classList.remove("is-drop-before","is-drop-after"));
+      if (drag.started && drag.targetId) moveCollectionTo(drag.collectionId, drag.targetId, drag.after);
+      if (drag.started) {
+        suppressFolderClick = true;
+        setTimeout(() => { suppressFolderClick = false; }, 0);
+      }
+    };
+    document.addEventListener("pointerup", finish);
+    document.addEventListener("pointercancel", finish);
+  }
+
   function boot() {
+    bindFolderDragListeners();
     client = getClient();
     activeUser = getUser() || null;
     mount();
