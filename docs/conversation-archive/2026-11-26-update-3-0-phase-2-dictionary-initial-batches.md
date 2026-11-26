@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-26  
 **Application branch:** `feature/update-3.0-phase-0-audit`  
-**Validated application commit:** `e2aa84f0255559b01dedff1be69c01db785a8f5c`  
+**Validated application commit:** `0bba05d70dd8646a0d31f7bbe21bb143bb05a8f7`  
 **Documentation branch:** `docs/master-development-record`  
 **Status:** Phase 2 in progress; initial batches and adapter foundation implemented. Not a Phase 2 completion or release approval.
 
@@ -32,11 +32,11 @@ The Malay package is intentionally not loaded by the live application bootstrap,
 
 ## 3. Validation
 
-The successful [U3.0 architecture/content regression run 45790151916](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790151916) passed **39/39 Node tests**:
+The successful [U3.0 architecture/content regression run 45790689541](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790689541) passed **39/39 Node tests**:
 - 29 existing U3.0 architecture/integration tests;
-- 10 Malay Dictionary tests covering stable identity, duplicate headwords/senses, per-sense translation workflow metadata, shared content schema validation, explicit morphology/search behaviour, alias collisions, Unicode normalisation, package adaptation, inactive-language gating, English/Chinese adapter behaviour and same-language translation exclusion.
+- 10 Malay Dictionary tests covering stable identity, duplicate headwords/senses, per-sense translation workflow metadata, shared content schema validation, explicit prefix/suffix/circumfix/reduplication metadata, morphology/search behaviour, alias collisions, Unicode normalisation, package adaptation, inactive-language gating, English/Chinese adapter behaviour and same-language translation exclusion.
 
-An earlier batch-02 push briefly ran the test suite with the batch-01 count expectation still in place; the manifest and assertions were then updated to the 54-headword/76-sense package, and the final run above passed. No unresolved test failure is being treated as a pass.
+The legacy [U2.9.0 English Dictionary QA run 45790689624](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790689624) also passed all English/Chinese content validators, Mock Quiz/Flashcards regression tests and Chromium browser smoke tests on the same application commit. The test suite was updated to the actual 54-headword/76-sense package before the final successful run; no unresolved test failure is being treated as a pass.
 
 Automated checks do not constitute professional linguistic review, source verification, copyright clearance or educational approval.
 
