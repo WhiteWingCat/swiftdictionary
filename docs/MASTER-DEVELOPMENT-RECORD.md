@@ -4389,3 +4389,47 @@ Before implementation, perform the standing Malaysia-specific and international 
 Question complexity standards by difficulty; Q/T/L/B distribution; unique-question pool exhaustion behaviour; interrupted-session/resume classification; Profile/Dashboard statistics; Games landing-page layout and route compatibility; historical Flashcards allowance-ledger migration; future game-specific exceptions; and detailed technical design, migration, content, estimates and acceptance criteria remain open. See [the dated conversation archive](conversation-archive/2026-11-26-update-3-2-games-and-wordmine-concept.md) for the complete decision record.
 
 **Release placement:** U3.0 Malay; U3.1 Fill-in-the-Blank typing questions in Lessons and Quiz; U3.2 Games page and Wordmine. This is a planning decision only and does not authorise implementation, staging handoff, database changes, merge or production deployment. U2.9.1 remains the production baseline. Cloudflare Pages is the sole active deployment platform; Workers Builds is retired.
+
+
+## Update 3.0.0 — final development plan (2026-11-26)
+
+**Status: PLAN FINALISED; implementation not started.** Current production baseline remains U2.9.1.
+
+Owner-confirmed decisions:
+- Follow **Malaysian Standard Malay (Bahasa Melayu Malaysia)**.
+- Bring older application code and data structures up to the U3.0 architecture, including existing English and Simplified Chinese. U3.0 is not a Malay-only parallel implementation.
+- Do not provide a staging preview before Phase 3 is complete.
+- Keep and complete all phases after Phase 3; the Phase 3 preview gate is not a U3.0 completion or release gate.
+- Preserve the established U3.1 Fill-in-the-Blank and U3.2 Games/Wordmine roadmap boundaries.
+
+### Final scope and architecture
+
+U3.0 delivers a shared multilingual platform for English, Simplified Chinese and Malay, plus a complete Malaysian Standard Malay learning package: Dictionary, Lessons, Daily Learning, Quiz and Flashcards. Each language owns independently authored content; English is not the permanent master curriculum. Shared schemas, stable IDs, a language registry/capability contract, language adapters, versioned translation records and common engines reduce repeated work without flattening language-specific grammar, scripts or pedagogy.
+
+The shared architecture must distinguish learning language from support/translation language; support optional cross-language relationships; track translation source revisions and review status; and never silently show the wrong language. Machine-assisted translations remain drafts until reviewed. Japanese/Korean may receive a small background translation queue, but remain inactive as learning courses.
+
+### Final phases
+
+0. **Legacy architecture and production audit:** inventory English/Chinese code/data, language assumptions, IDs, content loaders, Supabase schema/RPC/RLS/migration history and compatibility risks; production inspection is read-only.
+1. **Shared architecture and legacy modernisation:** implement versioned shared schemas, language registry/adapters, stable IDs, translation registry and validation/import tools; refactor English and Simplified Chinese to the new model; preserve existing data/progress/history/preferences/allowances.
+2. **Malay Dictionary:** Malaysian Standard Malay vocabulary, senses, POS, examples, pronunciation, related terms, morphology-aware processing/search and support translations.
+3. **Malay learning foundation and staging gate:** independently authored Beginner/Intermediate/Advanced Lessons, reader/practice/progress, and all four Daily Learning categories (Daily Topic, Daily Application, Daily Discovery, adaptive Daily Revision). Complete internal verification before any preview handoff. After Phase 3, a staging preview may be provided with unfinished phases clearly disclosed.
+4. **Malay Quiz:** authored question bank, language-appropriate distractors/explanations, secure server-side answer checking, progress/review/allowance integration.
+5. **Malay Flashcards:** Malay-authored cards and appropriate recall modes, session snapshots, weak review/mastery/progress and allowance integration.
+6. **Translation integration/coverage closeout:** measured English/Simplified Chinese/Malay coverage by content type and direction, missing/stale translation resolution, fallback/refresh tests, optional inactive future-language background queue.
+7. **Full QA and rollout:** automated and human linguistic review, migration/security/accessibility/responsive/cross-version regression, legal/privacy/licensing checks, approved Live migration and verification before dependent main merge, README update and independently verified Cloudflare Pages deployment.
+
+### Compatibility and release rules
+
+- Preserve current allowance amounts, configured local-midnight reset, completion-only Daily Learning charging, resume/review rules and shared cross-course allowance buckets; do not create per-language quotas.
+- Preserve English/Chinese content, stable IDs, progress, Quiz/Flashcard history, preferences, saved words, Collections, account isolation and deletion semantics.
+- Keep dictionary search free and unlimited; no Premium payment/subscription activation in U3.0.
+- Apply the standing Malaysia PDPA/general international privacy, cross-border processing, intended 16+ and jurisdiction-specific younger-user, content licensing, translation provider, data minimisation and accessibility review. This is planning, not legal advice or legal clearance.
+- Keep application changes on a focused feature branch; keep internal docs on `docs/master-development-record`. Cloudflare Pages is the only active deployment path; Workers Builds is retired.
+- No production migration, data mutation, merge or deployment without explicit approval. Where a migration is required, approved Live migration and verification precede dependent merge/deployment.
+- Use website-created prompts/dropdowns and established responsive/reduced-motion UI conventions. Do not claim unexecuted tests. Analyse large content sets in small sequential batches and provide one consolidated deliverable only after a phase is complete and validated.
+
+**Plan document:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).  
+**Session archive:** [Update 3.0 planning finalisation](conversation-archive/2026-11-26-update-3-0-planning-finalisation.md).
+
+No implementation branch, source changes, Supabase migrations, staging preview or production deployment were created during this planning session. Next step is Phase 0 on a focused feature branch from current `main`.
