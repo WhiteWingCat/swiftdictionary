@@ -26,7 +26,7 @@
       ],
       "contentVersion": "u3-ms-dict-0.8.0",
       "knownHeadwordCount": 627,
-      "knownSenseCount": 672,
+      "knownSenseCount": 649,
       "initialBatch": "01–08",
       "editorialStatus": "draft",
       "provenancePolicy": "item-level original-authored; rights review pending"
@@ -62,7 +62,7 @@
     "Malay Dictionary batch 05 adds 49 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
     "Malay Dictionary batch 06 adds 110 additional unique draft headwords across family, education, food, qualities, grammar, home, public services and everyday actions; all content remains subject to human review.",
     "Malay Dictionary batch 07 adds 110 additional unique draft headwords across agriculture, household tools and materials, clothing, public facilities, transport infrastructure, environmental care, personal qualities, communication and learning vocabulary; all content remains subject to human linguistic, translation and rights review.",
-    "Malay Dictionary batch 08 adds 181 additional unique draft headwords and 204 contextual senses, bringing the catalogue to 627 headwords and 672 senses; all definitions, examples and support translations remain subject to human review."
+    "Malay Dictionary batch 08 adds 181 new unique draft headwords and 181 contextual senses, bringing the catalogue to 627 unique headwords and 649 senses; duplicate headwords from the draft batch were removed before validation. All definitions, examples and support translations remain subject to human review."
   ],
   "legalReview": {
     "malaysiaPDPA": "required before public launch",
