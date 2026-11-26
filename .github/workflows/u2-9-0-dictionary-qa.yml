@@ -5,6 +5,7 @@ on:
     branches:
       - feature/update-2-9-0-english-dictionary-collections
       - feature/u2-9-0-collections-feedback
+      - feature/update-3.0-phase-0-audit
     paths:
       - "index.html"
       - "data/english-expansion*"
