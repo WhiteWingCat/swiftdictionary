@@ -3,12 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-25 (U2.8.0 completed, merged and owner-confirmed live; U2.9.0 Phases 1–5 implemented, Phase 6 optional English content additions implemented, latest-head CI/regression matrix passed, Cloudflare Pages staging preview ready for owner review.)
-**Current baseline:** Update 2.8.0 (Chinese Course Quiz & Flashcards) is completed and deployed to the live website, as confirmed by the owner on 2026-11-24.  
-**Current work:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — has completed implementation of Phases 1–5 and the optional Phase 6 content additions. The latest feature head is `6409b7981656d27a6385400862df3557a757828d` on `feature/u2-9-0-collections-feedback` (PR #18 remains open). All latest-head U2.9.0, Flashcards, Quiz DB/Auth, U2.3 allowance/dashboard, U2.6 ACL, U2.7 Chinese and Cloudflare build-routing workflows passed. The controlled Cloudflare Pages preview is routed to isolated staging Supabase: https://adc32f85.swiftdictionary.pages.dev (branch preview https://feature-u2-9-0-collections-f.swiftdictionary.pages.dev). The owner must review the latest preview; no merge or production release is authorised. Production Supabase, production data, `main`, payment and Premium entitlement enforcement remain untouched.
-**Record status:** Updates 2.4.0 through 2.8.0 are completed according to release history and owner confirmation. Update 2.9.0 implementation and latest automated validation are complete; owner staging acceptance and final release approval remain open. The 30 new Phase 6 Quiz questions remain draft-only. Visual-only Premium preparation is implemented; subscription/payment activation and entitlement enforcement remain excluded.
-
----
+> **Last consolidated:** 2026-11-26 (U2.9.0 merged to `main`; all eight U2.9.0 migrations applied and verified on Live Supabase; Cloudflare Pages is the sole active build/deployment system; Workers Builds retired.)
+**Current baseline:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — merged to `main` at `64dc4406f96cf4b5a7644d802f936ff5ffd97289`. Live Supabase project `pzymiesazmpyvnfvsbsc` has all eight U2.9.0 migrations applied and verified.  
+**Current work:** U2.9.0 production rollout is complete at the GitHub and database layers. Cloudflare Pages is the only active build/deployment path; the separate Workers Builds integration for `swiftdictionary-testing` is retired and no longer in operation. The PR preview deployed successfully; verify the merge-triggered Pages production deployment independently before claiming the public live website rollout is complete.  
+**Record status:** U2.9.0 implementation, owner-approved merge and Live Supabase migration are complete. The 30 additional Quiz questions remain draft-only; the approved release subset remains 199. Premium remains presentation-only, and dictionary word-grid search remains free and unlimited.
 
 ## 1. Project identity and goals
 
