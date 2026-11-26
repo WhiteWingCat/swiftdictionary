@@ -22680,7 +22680,7 @@
         const button = document.createElement("button");
         button.type = "button"; button.className = "letter"; button.textContent = letter;
         button.dataset.letter = letter;
-        button.disabled = !words.some(item => course === "zh"
+        button.disabled = !words.some(item => isChineseCourse()
           ? chinesePinyinInitials(item).includes(letter)
           : item.word.toUpperCase().startsWith(letter));
         button.setAttribute("aria-pressed", "false");
@@ -22719,17 +22719,17 @@
     }
     function render() {
       const list = filteredWords();
-      pageSize = course === "zh" ? 144 : 100;
-      grid.classList.toggle("character-grid", course === "zh");
-      categoryRow.hidden = course === "zh";
+      pageSize = isChineseCourse() ? 144 : 100;
+      grid.classList.toggle("character-grid", isChineseCourse());
+      categoryRow.hidden = isChineseCourse();
       const hasChineseCategories = words.some(item => Array.isArray(item.categories) && item.categories.length > 0);
-      chineseCategoryRow.hidden = course !== "zh" || !hasChineseCategories;
-      chinesePinyinFilterLabel.hidden = course !== "zh";
+      chineseCategoryRow.hidden = !isChineseCourse() || !hasChineseCategories;
+      chinesePinyinFilterLabel.hidden = !isChineseCourse();
       const pageCount = Math.max(1, Math.ceil(list.length / pageSize));
       currentPage = Math.min(currentPage, pageCount);
       const start = (currentPage - 1) * pageSize;
       const pageWords = list.slice(start, start + pageSize);
-      count.textContent = `${list.length} ${course === "zh" ? "词条" : (list.length === 1 ? "word" : "words")}`;
+      count.textContent = `${list.length} ${isChineseCourse() ? "词条" : (list.length === 1 ? "word" : "words")}`;
       pageStatus.textContent = `Page ${currentPage} of ${pageCount}`;
       previousPage.disabled = currentPage <= 1;
       nextPage.disabled = currentPage >= pageCount;
@@ -23008,7 +23008,7 @@
       document.getElementById("modalWord").textContent = item.word;
       document.getElementById("modalWord").style.lineHeight = "1.35";
       document.getElementById("modalPart").textContent = item.part;
-      document.getElementById("modalPhonetic").textContent = course === "zh" ? `Pinyin: ${item.phonetic}` : item.phonetic;
+      document.getElementById("modalPhonetic").textContent = isChineseCourse() ? `Pinyin: ${item.phonetic}` : item.phonetic;
       document.getElementById("modalPhonetic").style.display = item.phonetic ? "block" : "none";
       const definitionEl = document.getElementById("modalDefinition");
       definitionEl.replaceChildren();
@@ -23046,12 +23046,12 @@
       examples.innerHTML = "";
       item.examples.forEach(sentence => {
         const li = document.createElement("li");
-        if (course === "zh") { li.appendChild(renderChineseLine(sentence)); } else { li.textContent = sentence; }
+        if (isChineseCourse()) { li.appendChild(renderChineseLine(sentence)); } else { li.textContent = sentence; }
         examples.appendChild(li);
       });
       const structureSection = document.getElementById("structureSection"), relatedSection = document.getElementById("relatedSection"), tenseSection = document.getElementById("tenseSection");
       const relatedEl = document.getElementById("modalRelated"); relatedEl.innerHTML = "";
-      if (course === "zh") {
+      if (isChineseCourse()) {
         structureSection.hidden = false; relatedSection.hidden = false; tenseSection.hidden = true;
         renderStructureVisual(item);
         renderStrokeOrder(item.word);
@@ -23158,13 +23158,13 @@
       updateGlobalCourseControlLabels();
       rememberCoursePreferences();
       categoryRow.hidden=isChineseCourse();
-      grid.classList.toggle("character-grid",course==="zh");
+      grid.classList.toggle("character-grid",isChineseCourse());
       words=dictionaryEntriesFor(course);
       activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;
       savedFilter.setAttribute("aria-pressed","false");
       savedFilter.textContent="☆ Saved words";
       search.value="";
-      search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+      search.placeholder=isChineseCourse()?"搜索汉字或拼音（可不标声调）…":"Search a word...";
       currentPage=1;makeAlphabet();updateLetterButtons();
       categoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
       chineseCategoryButtons.forEach((b,i)=>{const active=i===0;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});
@@ -23183,7 +23183,7 @@
       translationLanguage=nextLanguage || selector.value || "en";
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
-      const chineseCourse=course==="zh";
+      const chineseCourse=isChineseCourse();
       document.getElementById("lessonBack").textContent=!chineseCourse&&translationLanguage==="zh"?"← 返回课程列表":"← Back to lessons";
       const lessonsPage=document.getElementById("lessonsPage");
       if(lessonsPage){
@@ -23206,7 +23206,7 @@
           const reader=document.getElementById("lessonReader");
           const wasOpen=reader&&!reader.hidden;
           renderLesson(activeLesson,true);
-          if(course==="zh"&&translationLanguage==="zh"){
+          if(isChineseCourse()&&translationLanguage==="zh"){
             reader?.querySelectorAll("#lessonReaderContent .lesson-english-line,#lessonReaderContent .lesson-selected-translation").forEach(node=>node.remove());
           }
           if(reader&&wasOpen)reader.hidden=false;
@@ -23316,8 +23316,8 @@
     });
 
     makeAlphabet();
-    grid.classList.toggle("character-grid", course === "zh");
-    categoryRow.hidden = course === "zh";
+    grid.classList.toggle("character-grid", isChineseCourse());
+    categoryRow.hidden = isChineseCourse();
     render();
 
     // Supabase authentication and saved-word cloud sync.
@@ -23604,7 +23604,7 @@
     };
 function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
 function lessonField(x,key){
-  if(course==="zh")return x[key];
+  if(isChineseCourse())return x[key];
   const z=translationLanguage==="zh"?lessonZh[x.id]:null;
   return z&&z[key]!==undefined?z[key]:x[key];
 }
@@ -23624,14 +23624,14 @@ function lessonPractice(x){
     const el=id=>document.getElementById(id);
 const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
     const lessons=()=>{
-      if(course==="zh")return chineseLessonData[ls.difficulty]||[];
-      if(course==="en")return lessonData[ls.difficulty]||[];
+      if(isChineseCourse())return chineseLessonData[ls.difficulty]||[];
+      if(isEnglishCourse())return lessonData[ls.difficulty]||[];
       throw new Error("Lessons are not available for language: "+course);
     };
 const progressFor=id=>ls.progress.find(p=>p.learning_language===course&&p.lesson_id===id&&p.difficulty===ls.difficulty);
 function lessonRenderText(value){
       if(Array.isArray(value))return value.map(lessonRenderText).join("");
-      if(course==="zh"&&value&&typeof value==="object"&&typeof value.zh==="string"){
+      if(isChineseCourse()&&value&&typeof value==="object"&&typeof value.zh==="string"){
         const selected=translationLanguage==="en"
           ?'<span class="lesson-english-line">'+escapeHTML(value.en||"")+'</span>'
           :translationLanguage!=="zh"&&value.translations?.[translationLanguage]
@@ -23649,7 +23649,7 @@ async function loadLessonProgress(){
       ls.progress=data||[];
     }
 function lessonTopicKey(x){
-      return course==="zh" ? (x.topic_id || "") : lessonField(x,"topic");
+      return isChineseCourse() ? (x.topic_id || "") : lessonField(x,"topic");
     }
     function renderLessons(){
       const topic=el("lessonTopicFilter");
@@ -23657,7 +23657,7 @@ function lessonTopicKey(x){
       const topics=[...new Set(currentLessons.map(lessonTopicKey).filter(Boolean))];
       topic.innerHTML='<option value="all">All topics</option>'+topics.map(value=>{
         const item=currentLessons.find(x=>lessonTopicKey(x)===value);
-        const label=course==="zh"?(item?.topicDisplay?.en||item?.topicDisplay?.zh||value):value;
+        const label=isChineseCourse()?(item?.topicDisplay?.en||item?.topicDisplay?.zh||value):value;
         return '<option value="'+escapeHTML(value)+'">'+escapeHTML(label)+'</option>';
       }).join("");
       if(ls.topic!=="all"&&!topics.includes(ls.topic))ls.topic="all";
@@ -23671,9 +23671,9 @@ function lessonTopicKey(x){
         const status=p?.status==="completed"?"Completed":p?"In progress":"Not started";
         const cls=p?.status==="completed"?"completed":p?"in-progress":"not-started";
         const blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;
-        const topicMarkup=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
-        const titleMarkup=course==="zh"?lessonRenderText(x.title):escapeHTML(lessonField(x,"title"));
-        const summaryMarkup=course==="zh"?lessonRenderText(x.summary):escapeHTML(lessonField(x,"summary"));
+        const topicMarkup=isChineseCourse()?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
+        const titleMarkup=isChineseCourse()?lessonRenderText(x.title):escapeHTML(lessonField(x,"title"));
+        const summaryMarkup=isChineseCourse()?lessonRenderText(x.summary):escapeHTML(lessonField(x,"summary"));
         const b=document.createElement("button");
         b.className="lesson-card";
         b.dataset.lessonId=x.id;
@@ -23711,7 +23711,7 @@ function lessonTopicKey(x){
           +'<div class="lesson-breakdown">'+(breakdown.parts||[]).map(p=>'<span><strong>'+lessonRenderText(p.text)+'</strong><small>'+lessonRenderText(p.label)+'</small></span>').join("")+'</div>'
         :"";
       const done=progressFor(x.id)?.status==="completed";
-      const topicHtml=course==="zh"?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
+      const topicHtml=isChineseCourse()?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
       const keyPoints=lessonExpandableGroup(lessonField(x,"points"),(p,extra)=>'<li class="lesson-key-point lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'><span class="lesson-key-point-label">'+(zh?"重点":"KEY IDEA")+'</span><div class="lesson-key-point-copy">'+lessonRenderText(p)+'</div></li>',zh,"ul");
       const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3>'+keyPoints+'<h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+lessonRenderText(m)+'</li>').join("")+'</ul></div>';
       const practiceBox='<div class="lesson-practice-box"><h3>'+(zh?"练习":"Practice")+'</h3><p class="lesson-practice-intro">'+(zh?"完成所有题目并答对，才能结束本课。":"Answer each question correctly. You can retry a question at any time.")+'</p><div class="lesson-practice-progress"><span>'+(zh?"练习进度":"Practice progress")+'</span><strong id="lessonPracticeProgress">0 / '+qs.length+' correct</strong></div>'+qs.map((q,i)=>{const compactAnswers=q.options.every(o=>String(o&&typeof o==="object"?(o.zh||o.en||""):o).length<=24);return '<div class="lesson-question" role="group" aria-labelledby="lessonQuestionTitle'+i+'"><h4 class="lesson-question-title" id="lessonQuestionTitle'+i+'">'+(i+1)+'. '+lessonRenderText(q.q)+'</h4><div class="lesson-answer-options'+(compactAnswers?' compact':'')+'">'+q.options.map((o,j)=>'<label><input type="radio" name="lessonAnswer'+i+'" value="'+j+'"> '+lessonRenderText(o)+'</label>').join("")+'</div><button class="secondary-button check-lesson-answer" type="button" data-question="'+i+'">'+(zh?"检查答案":"Check answer")+'</button><p class="lesson-question-feedback" id="lessonAnswerFeedback'+i+'" role="status"></p></div>';}).join("")+'</div>';
@@ -23763,7 +23763,7 @@ function lessonTopicKey(x){
       }
     }
 async function openLesson(id){
-      const zh=course==="en"&&translationLanguage==="zh";
+      const zh=isEnglishCourse()&&translationLanguage==="zh";
       if(ls.busy)return;
       if(!currentUser||!supabaseClient){
         showPage("lessons");
@@ -23819,7 +23819,7 @@ async function openLesson(id){
     }
 async function saveCompletedLessonPractice(x){
       if(ls.completing)return;
-      const zh=course==="en"&&translationLanguage==="zh";
+      const zh=isEnglishCourse()&&translationLanguage==="zh";
       ls.completing=true;
       document.querySelectorAll(".lesson-question input,.check-lesson-answer").forEach(control=>control.disabled=true);
       try{
@@ -23849,7 +23849,7 @@ async function saveCompletedLessonPractice(x){
     }
 async function completeLesson(x){
       if(ls.completing)return;
-      const zh=course==="en"&&translationLanguage==="zh";
+      const zh=isEnglishCourse()&&translationLanguage==="zh";
       const p=progressFor(x.id);
       if(!p||p.status==="completed"){el("lessonStatus").textContent=zh?"课程已完成，复习无需额度。":"Already completed. Revisiting is free.";return;}
       ls.completing=true;
@@ -24210,10 +24210,10 @@ async function completeLesson(x){
         course = targetCourse;
         words = dictionaryEntriesFor(course);
         document.getElementById("courseSelect").value = course;
-        document.getElementById("categoryRow").hidden = course === "zh";
-        grid.classList.toggle("character-grid",course === "zh");
+        document.getElementById("categoryRow").hidden = isChineseCourse();
+        grid.classList.toggle("character-grid",isChineseCourse());
         search.value = "";
-        search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
+        search.placeholder = isChineseCourse() ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
         activeLetter = ""; activeCategory = "all"; activeChineseCategory = "all"; onlySaved = false; currentPage = 1;
         savedFilter.setAttribute("aria-pressed","false");
         savedFilter.textContent = "☆ Saved words";
@@ -24465,10 +24465,10 @@ async function completeLesson(x){
           course = safeLearningLanguage;
           translationLanguage = safeTranslationLanguage;
           try { localStorage.setItem(preferenceStorageKey, JSON.stringify({learning_language:course,translation_language:translationLanguage})); } catch {}
-          words = course === "zh" ? chineseWords : englishWords;
-          document.getElementById("categoryRow").hidden = course === "zh";
-          grid.classList.toggle("character-grid", course === "zh");
-          search.placeholder = course === "zh" ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
+          words = isChineseCourse() ? chineseWords : englishWords;
+          document.getElementById("categoryRow").hidden = isChineseCourse();
+          grid.classList.toggle("character-grid", isChineseCourse());
+          search.placeholder = isChineseCourse() ? "搜索汉字或拼音（可不标声调）…" : "Search a word...";
           if (courseChanged) { activeLetter=""; activeCategory="all"; activeChineseCategory="all"; onlySaved=false; savedFilter.setAttribute("aria-pressed","false"); savedFilter.textContent="☆ Saved words"; currentPage=1; makeAlphabet(); updateLetterButtons(); render(); }
         }
         selectedAvatar = profileQ.data?.avatar_icon || selectedAvatar || "🐦";
@@ -24725,13 +24725,13 @@ async function completeLesson(x){
         ]);
         if (profileSave.error) throw profileSave.error;
         if (prefSave.error) throw prefSave.error;
-        course=learning; translationLanguage=translation; words=course==="zh"?chineseWords:englishWords;
+        course=learning; translationLanguage=translation; words=isChineseCourse()?chineseWords:englishWords;
         document.getElementById("courseSelect").value=learning;
         document.getElementById("translationSelect").value=translation;
         updateGlobalCourseControlLabels();
-        document.getElementById("categoryRow").hidden=course==="zh";
-        grid.classList.toggle("character-grid",course==="zh");
-        search.value=""; search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+        document.getElementById("categoryRow").hidden=isChineseCourse();
+        grid.classList.toggle("character-grid",isChineseCourse());
+        search.value=""; search.placeholder=isChineseCourse()?"搜索汉字或拼音（可不标声调）…":"Search a word...";
         activeLetter=""; activeCategory="all"; activeChineseCategory="all"; currentPage=1; makeAlphabet(); updateLetterButtons(); render();
         refreshTranslationViews();
         profilePreferences={learning_language:learning,translation_language:translation,timezone};
@@ -25117,10 +25117,10 @@ async function completeLesson(x){
       quizEl("translationSelect").value=translationLanguage;
       quizEl("preferenceLearning").value=course;
       quizEl("preferenceTranslation").value=translationLanguage;
-      words=course==="zh"?chineseWords:englishWords;
-      categoryRow.hidden=course==="zh";
-      grid.classList.toggle("character-grid",course==="zh");
-      search.placeholder=course==="zh"?"搜索汉字或拼音（可不标声调）…":"Search a word...";
+      words=isChineseCourse()?chineseWords:englishWords;
+      categoryRow.hidden=isChineseCourse();
+      grid.classList.toggle("character-grid",isChineseCourse());
+      search.placeholder=isChineseCourse()?"搜索汉字或拼音（可不标声调）…":"Search a word...";
       if(courseChanged){
         activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;currentPage=1;
         savedFilter.setAttribute("aria-pressed","false");savedFilter.textContent="☆ Saved words";
@@ -25266,7 +25266,7 @@ async function completeLesson(x){
     quizEl("learningIntroBackdrop").addEventListener("click",event=>{if(event.target===quizEl("learningIntroBackdrop"))learningIntroClose();});
     document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!quizEl("learningIntroBackdrop").hidden)learningIntroClose();});
     function applyLearningCourseAvailability(){
-      const chinese=course==="zh";
+      const chinese=isChineseCourse();
       const lessonsSignedIn=!!currentUser;
       const lessonsPage=quizEl("lessonsPage");
       const lessonBanner=lessonsPage?.querySelector(".learning-banner");
@@ -25347,7 +25347,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
       applyLearningCourseAvailability();
       try{await initialiseLessons();}catch(error){el("lessonStatus").textContent=error.message||"Could not refresh lesson progress.";}
-      if(course==="en"&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
+      if(isEnglishCourse()&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
     });
 
     // Resolve the requested route immediately; account initialisation must not
