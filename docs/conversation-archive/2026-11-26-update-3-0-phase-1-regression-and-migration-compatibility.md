@@ -117,3 +117,16 @@ A Pages build success proves deployment/build completion only; it does not prove
 
 No migration, staging handoff, Phase 2 implementation, production merge or deployment is authorised by this checkpoint. Keep all application work on `feature/update-3.0-phase-0-audit` and documentation on `docs/master-development-record`.
 
+
+## Final validation correction and superseding decision — 2026-11-26
+
+The earlier "blocked" decision in this checkpoint was correct at the time, but has been superseded by [the final Phase 1 validation record](2026-11-26-update-3-0-phase-1-validation-complete.md). Phase 1 is now complete and Phase 2 is ready, not started.
+
+Corrections from the deeper metadata comparison:
+- The complete architecture Node suite contains **29** tests (the earlier 25-case count omitted four cases from `tests/validation-core.test.mjs`).
+- Of the seven common function definitions with different raw hashes, the hashes match after stripping comments and whitespace. The only production-only functions are `public.set_updated_at()` and `public.validate_user_preferences_timezone()`; there are no staging-only functions.
+- The meaningful `learning_plan_limits` policy difference is exact: production allows anon/authenticated SELECT where `is_enabled = true`; staging allows authenticated SELECT with `true`. Other saved-word/lesson-progress policy differences are naming-only with matching predicates.
+- Production-only triggers are `profiles_set_updated_at`, `preferences_set_updated_at` and `preferences_validate_timezone`. Two trigger names differ between environments while calling the same allowance/progress guard functions.
+- Final CI completed successfully: 29 architecture tests, 29 Mock Quiz/Flashcards tests, and 56 Chromium browser tests (20 English/Collections, 22 Quiz, 7 Flashcards/Preferences, 2 Daily Learning, 5 Chinese Dictionary), for 114 passing Node/Playwright cases. Local Supabase migration/RPC/security tests also passed.
+
+No production/staging database changes were made. The environment differences remain a gate before any later U3.0 SQL migration or Malay database activation, but do not block Phase 2 content authoring, which requires no schema change.
