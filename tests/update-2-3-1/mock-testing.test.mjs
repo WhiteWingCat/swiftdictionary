@@ -23,9 +23,9 @@
 test("Flashcards supports Chinese-course banks and resets collection selection after deletion",()=>{
   assert.match(flashcardsSource,/function words\(language=state\.game\?\.learningLanguage\|\|course\)/,
     "Flashcards must select its dictionary bank from the active learning language");
-  assert.match(flashcardsSource,/if\(isChineseLanguage\(language\)\)/,
+  assert.ok(flashcardsSource.includes("if(isChineseLanguage(language))"),
     "Chinese Flashcards must be selected through the registered language adapter");
-  assert.match(flashcardsSource,/const bank=window\.SWIFT_CHINESE_FLASHCARDS\|\|\{\}/,
+  assert.ok(flashcardsSource.includes("const bank=window.SWIFT_CHINESE_FLASHCARDS||{};"),
     "Chinese-course users must resolve the Chinese Flashcards bank");
   for(const cardType of ["characters","vocabulary","phrases"]){
     assert.ok(flashcardsSource.includes('map(bank.'+cardType+', "'+cardType+'")'),
