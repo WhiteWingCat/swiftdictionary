@@ -2023,12 +2023,12 @@
     };
 function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
 function lessonField(x,key){
-  if(course==="zh")return x[key];
+  if(isChineseCourse())return x[key];
   const z=translationLanguage==="zh"?lessonZh[x.id]:null;
   return z&&z[key]!==undefined?z[key]:x[key];
 }
 function lessonPractice(x){
-  const z=course==="en"&&translationLanguage==="zh"?lessonZh[x.id]:null;
+  const z=isEnglishCourse()&&translationLanguage==="zh"?lessonZh[x.id]:null;
   const src=x.practices||[x.practice];
   const translated=z?.practices||(z?.practice?[z.practice]:null);
   const orders=ls.practiceOptionOrders?.[x.id];
