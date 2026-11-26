@@ -5,8 +5,8 @@
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
 > **Last consolidated:** 2026-11-26 (U2.9.0 merged and Live Supabase migrated; U2.9.1 emergency patch merged and deployed successfully to Cloudflare Pages production; Workers Builds retired.)
 **Current baseline:** Update 2.9.1 — Dashboard "Your Collections" Cloudflare Pages loading fix — merged to `main` at `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`. Cloudflare Pages production deployment succeeded. Live Supabase remains on the verified U2.9.0 schema; U2.9.1 requires no database migration.  
-**Current work:** U2.9.1 is deployed. The Collections module is now explicitly loaded from `index.html` after the main application scripts, rather than relying on the generated `supabase-config.js` that Cloudflare Pages overwrites at build time. Cloudflare Pages is the only active build/deployment platform; Workers Builds is retired and no longer in operation.  
-**Record status:** U2.9.0 and U2.9.1 implementation, merge and production Pages deployment are complete. Dictionary word-grid search remains free and unlimited; Premium remains presentation-only. The 30 additional Quiz questions remain draft-only, with 199 approved questions.
+**Current work:** U2.9.1 remains deployed. U3.0 Phase 0 and Phase 1 validation are complete; Phase 2 (Malay Dictionary content authoring) is ready but has not started. Application work remains on `feature/update-3.0-phase-0-audit`; documentation remains on `docs/master-development-record`. The Collections module is explicitly loaded from `index.html` after the main application scripts, rather than relying on generated `supabase-config.js` that Cloudflare Pages overwrites at build time. Cloudflare Pages is the only active build/deployment platform; Workers Builds is retired.  
+**Record status:** U2.9.0 and U2.9.1 implementation, merge and production Pages deployment are complete. U3.0 Phase 1 validation is complete and Phase 2 is ready but not started. Dictionary word-grid search remains free and unlimited; Premium remains presentation-only. The 30 additional Quiz questions remain draft-only, with 199 approved questions.
 
 ## 1. Project identity and goals
 
@@ -4472,7 +4472,7 @@ Validation: 22 core Node architecture/integration tests passed locally. Applicat
 
 ## 10. Update 3.0 Phase 1 regression and migration-compatibility checkpoint — 2026-11-26
 
-U3.0 Phase 1 architecture integration is present on `feature/update-3.0-phase-0-audit`, but formal exit remains **blocked**. The current review read the latest plan and Phase 0/Phase 1 conversation archives and performed read-only inspections of both Supabase environments.
+**Historical checkpoint:** U3.0 Phase 1 architecture integration was present, but formal exit was **blocked** while validation was in progress. This was superseded by the final validation record dated 2026-11-26.
 
 - Production: Tokyo, PostgreSQL 17.11.0.003, 71 migration records.
 - Staging: Singapore, PostgreSQL 17.12.0.000, 63 migration records.
@@ -4484,3 +4484,34 @@ U3.0 Phase 1 architecture integration is present on `feature/update-3.0-phase-0-
 - No database, Auth, RLS, schema, production main branch, merge or production deployment was changed. A Pages branch build may automatically create an internal preview, but no preview link is to be handed to the owner before Phase 3.
 
 **Decision:** Do not start Phase 2. Complete the full test suite, browser/device regression, production/staging compatibility matrix, disposable/local and staging migration rehearsal, and account/progress/history/allowance parity evidence first. Preserve English/Chinese behaviour and data, keep Malay planned until its content phases, and retain all Phase 3–7 release gates. See [the detailed Phase 1 checkpoint](conversation-archive/2026-11-26-update-3-0-phase-1-regression-and-migration-compatibility.md) and [the updated U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
+
+## 11. Update 3.0 Phase 1 validation complete — 2026-11-26
+
+**Decision: Phase 1 is complete. Phase 2 is ready to begin, but has not started.** See [the final Phase 1 validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md) and [the updated U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
+
+### Final automated evidence
+
+All final relevant GitHub Actions runs succeeded on application commit `c2dfc3bd1887c4ee1d4b821520f305726303922c`:
+- U3.0 architecture regression: 29/29 Node tests passed.
+- U2.9.0 English Dictionary QA: all content validators passed, 29/29 Mock Quiz/Flashcards tests passed, and 20/20 Chromium browser tests passed.
+- Quiz database foundation and local Supabase integration: both jobs passed. Existing 2.3.x–2.9.0 migrations replayed in a disposable local environment; Auth/RPC, authenticated Quiz session, Flashcards/Preferences, Daily Learning, Chinese Dictionary and security-advisor checks passed.
+- Additional browser suites passed: 22 Quiz, 7 Flashcards/Preferences, 2 Daily Learning and 5 Chinese Dictionary tests.
+- Total: 114 Node/Playwright test cases passed, plus SQL migration/integration assertions.
+
+The broader runs found stale validators that expected English content inside `index.html` and test fixtures that did not load the new language adapters. Those validators/fixtures were updated to read the extracted language packages and load the actual application dependencies. The final runs passed.
+
+### Read-only production/staging integrity evidence
+
+Both Supabase environments were inspected without writes. Each has 27 inspected tables with RLS enabled. Duplicate-key checks for saved words, collections, lesson progress, allowance usage, Quiz revisions, Flashcard mastery and session positions returned zero in both environments. Unknown language references across saved words, progress, practice, activity, Daily Learning, content catalogue, Quiz and Flashcards also returned zero in both. Direct SELECT to private Quiz, Flashcard and allowance tables is denied to anon/authenticated. Inspected protected RPCs are authenticated-only.
+
+### Migration compatibility and known drift
+
+The disposable local migration rehearsal passed using the clean staging-style baseline and existing migration chain. This validates the current U2.9.1-compatible application/database baseline; it is not a U3.0 schema migration rehearsal. No U3.0 SQL migration exists or is required for Phase 2 content authoring.
+
+Production and staging are not identical: migration records are 71 vs 63; five table-definition differences remain; production has two helper functions and three triggers absent from staging; four indexes are production-only; and the `learning_plan_limits` RLS policy differs semantically. The other seven common function raw-hash differences disappear after comments/whitespace normalisation, and most other policy/trigger differences are naming-only. Full detail is in the final archive.
+
+**Phase 2 impact:** These known differences do not block Malay Dictionary content authoring because Phase 2 does not require a database migration or Malay activation. They remain mandatory reconciliation gates before any U3.0 database migration, Malay database registration/activation or release depending on new schema/RPC behaviour. Never replay migrations by count/name or manually force production/staging parity.
+
+No SQL was applied to production or staging. No Auth/RLS/schema/data changes, merge to production `main`, production deployment or staging-preview handoff occurred. No preview URL is to be provided before Phase 3 is complete. Cloudflare Pages remains the sole active deployment platform; Workers Builds remains retired.
+
+**Handoff:** Phase 0 complete; Phase 1 complete; Phase 2 ready but not started. Continue on `feature/update-3.0-phase-0-audit` only when the owner authorises Phase 2. Keep documentation on `docs/master-development-record`.
