@@ -3989,3 +3989,221 @@ Detailed archive: `docs/conversation-archive/2026-11-26-update-2-9-0-whole-folde
 - GitHub `main`: updated at `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`.
 - Cloudflare Pages production deployment: confirmed successful.
 - Live Supabase: already at U2.9.0; U2.9.1 is frontend/build-only and does not require a database migration.
+
+## Multilingual platform and language-expansion development structure — owner-approved direction (2026-11-26)
+
+**Status: architectural/product direction approved for future planning; detailed technical design and implementation are not yet authorised.** This section captures the owner's workflow concern and decisions ahead of Update 3.0. It is a durable planning foundation, not an assertion that the architecture or tooling has already been implemented.
+
+### 1. Core problem and objective
+
+Update 3.0 is expected to introduce Malay as a new learning language. This is broader than adding a dictionary: Malay is expected to have its own dictionary, Lessons, Quiz and Flashcards, while the existing English and Simplified Chinese courses also need Malay translation and integration. As more languages are added, repeating cross-cutting application changes and manually reworking every course will make each expansion progressively slower and more error-prone.
+
+The long-term objective is to **keep the marginal engineering and maintenance effort of each additional language as small as reasonably possible without compromising linguistic, educational or functional accuracy**. Reduce repeated application changes and repetitive manual checks; do not reduce the depth of language review or silently accept lower quality.
+
+### 2. Owner-approved content-authoring principle
+
+**Every language must be allowed to have its own independently authored educational content. English is not the permanent master curriculum and must not be treated as the linguistic or pedagogical authority for every other language.**
+
+- A language's dictionary entries, meanings, examples, parts of speech, grammar explanations, lessons, quiz questions, answer explanations and flashcards may be authored directly for that language.
+- Translation is a support layer, not a requirement that every language's curriculum be a literal translation or derivative of English.
+- Use stable content identifiers and shared structural schemas to connect related items and translations where appropriate, while allowing language-specific content, examples, pedagogy, grammar and question design.
+- A language may have content with no one-to-one equivalent in another language. The data model must support language-specific items and optional relationships rather than forcing artificial parity.
+- Shared content structure means common fields and interoperable formats, not identical linguistic rules or identical curriculum.
+- Translation must preserve intended meaning and learning objective, not word-for-word form. Adapt examples and explanations where literal translation would be unnatural, misleading or pedagogically unsuitable.
+
+### 3. Two-layer architecture: shared platform and language packages
+
+Design toward a language-independent learning platform plus independently maintainable language packages.
+
+**Shared platform responsibilities (build once, improve for all supported languages):**
+- Dictionary, lesson, quiz and flashcard presentation/interaction engines.
+- Navigation, course and support-language selection, preferences and refresh behaviour.
+- Progress tracking, activity history, allowances, account synchronisation and shared user workflows.
+- Content loading, stable-ID resolution, search orchestration, translation lookup and fallback/status handling.
+- Common validation interfaces, import/export tooling, test harnesses and regression suites.
+- Shared UI localisation infrastructure and accessibility behaviour.
+
+**Language package responsibilities (specific to each language):**
+- Language metadata: stable language code, display names, script/writing system, text direction, locale/formatting metadata and supported capabilities.
+- Dictionary vocabulary, senses, parts of speech, pronunciation/transliteration, examples, related terms and language-specific search/index data.
+- Independently authored Lessons, Quiz questions, explanations, answer rationales and Flashcards.
+- Language-specific linguistic rules and processing adapters: tokenisation, morphology/affixes, segmentation, input/search normalisation, pronunciation and script-specific behaviour as relevant.
+- Language-specific editorial guidance, content provenance and review status.
+
+Do not scatter language-specific conditionals throughout shared application code. Where a language needs special processing, expose a clearly bounded language adapter/capability contract. Do not force all languages into English-like or alphabetic assumptions. Chinese character handling, Malay morphology/affixes and English spelling are examples of materially different requirements.
+
+### 4. Standard language package and content schemas
+
+Define versioned, documented schemas shared by all language packages, with optional and extensible language-specific fields. At minimum, establish consistent structures for:
+
+- Language metadata and capability declarations.
+- Dictionary entries and stable entry/sense identifiers.
+- Lessons, learning objectives, lesson sections, examples and practice items.
+- Quiz question types, options, correct-answer references, explanations and curriculum/topic links.
+- Flashcards, prompt/answer content, card identity and review/mastery references.
+- Translation records and their source/target locale, content identity, context, status and revision relationship.
+- Editorial provenance, reviewer/approval state, schema version and content version.
+
+The schema must distinguish a content item's **authored language** from the **support/translation language** selected by the learner. Preserve stable identifiers across revisions where the underlying learning item remains the same; create new identities when the learning objective or item is materially different. Avoid copying the same content into disconnected records just to support another translation.
+
+### 5. Separate learning language from support language
+
+Maintain two explicit concepts throughout the product:
+
+- **Learning language:** the language being studied; it determines the dictionary/course content and the language-specific processing rules.
+- **Support language:** the language used to explain, translate or guide the learner through that content.
+
+A language may have support-language translations available before it is enabled as a selectable learning course. Conversely, enabling a language as a learning course requires its own authored/curated course content and validated language-specific behaviour, not merely the existence of translations.
+
+The translation system must identify supported pairs and coverage at content level. Language selectors must not imply that all learning/support combinations are complete. Missing translations should be explicitly represented and handled through an intentional fallback or unavailable state, never silently shown in the wrong language.
+
+Course/support-language changes must refresh all dependent content immediately, without unrelated navigation or stale labels, explanations, feedback, cached content or answer text. Continue applying the standing course/translation switching QA rule across Dictionary, Lessons, Quiz, Flashcards and future learning surfaces.
+
+### 6. Translation registry and translation-coverage strategy
+
+Use a central translation registry/catalogue keyed by stable content identity and explicit source/target language. Track at least: authored/source language, target language, content type and ID, translation version, source revision, status (not started / draft / machine-assisted draft / reviewed / approved / stale / not applicable), reviewer/provenance where available, and last validation/review metadata.
+
+Translations are independent, versioned content records. When an authored item changes, identify translations based on the changed source revision and mark potentially affected records for review. Do not silently overwrite a reviewed translation or assume that a translation remains accurate after its source changes. Where content is independently authored in the target language, do not label it a translation merely to fill a matrix cell.
+
+### 7. Owner's proposal: prepare translations for future languages ahead of course launch
+
+The owner proposed a forward-looking strategy: while developing Malay, consider also preparing translations of existing courses and Malay content into future support languages (for example Japanese and Korean), even if those languages are not yet planned as selectable learning courses. The intent is to spread translation work over time so a future language launch has less concentrated translation workload.
+
+**Recommended disposition: adopt this as a staged, demand-aware translation-readiness strategy, not as a blanket requirement to translate every item into every conceivable language immediately.** The idea is valuable, but must be controlled to avoid a rapidly growing, unreviewed translation backlog and unnecessary maintenance.
+
+Principles:
+- Separate translation availability from learning-course availability. Japanese or Korean support translations may exist in the background without enabling Japanese/Korean dictionary or learning-course functionality.
+- Maintain a future-language/support-language roadmap and translation coverage matrix. Record which languages are active learning languages, which are currently supported support languages, which are planned, and which are only exploratory.
+- When new content is authored for English, Chinese or Malay, make it translation-ready from the start: stable IDs, clear context, unambiguous meaning, content type, learning objective, terminology notes and source revision. This preparation is low-regret even when no target translation is commissioned yet.
+- Prioritise background translations for high-value, stable and reusable material: shared UI strings, navigation/help text, core dictionary meanings, common lesson explanations and recurring instructions. Treat frequently revised, culturally specific or language-dependent examples as higher-maintenance items.
+- Do not assume a direct translation from one language is authoritative for another. Use an appropriate source/context for each target language, allow translation from the language in which the content was authored, and allow target-language adaptation. A pivot language may be used as a workflow aid only when useful; it must not become the master curriculum or introduce chained-translation errors.
+- Do not create every possible language pair by default. With N languages, pairwise translation demand can grow approximately with N squared. Commission translations according to likely learner value, available review capacity and launch plans.
+- For each translation, retain status and review evidence. Machine-assisted drafts are not approved content. No unreviewed translation should be presented as verified educational material.
+- Translation coverage does not itself certify that a language is ready to launch as a learning course. Launch gates must separately cover dictionary quality, language-specific search/input behaviour, authored curriculum, Quiz answer validity, Flashcard quality, UI localisation and end-to-end QA.
+- Review whether background translation work is actually reducing future launch effort. Avoid spending resources translating low-priority content that may never be used.
+
+**Practical rollout model:**
+1. At content creation time, make all new material translation-ready and register it, even if no target translation is requested yet.
+2. During U3.0, cover the required English ↔ Malay and Chinese ↔ Malay support needs agreed for launch, alongside the existing English/Chinese support paths. Confirm the exact directional matrix and content scope in the U3.0 plan; do not infer that every course component must be translated in every direction without owner approval.
+3. Where capacity permits, build a small, explicitly prioritised background queue for future support languages such as Japanese and Korean. Start with stable shared UI and high-value foundational content rather than attempting full-catalogue translation.
+4. Keep these future-language translations inactive/unselectable until their review and product requirements are satisfied.
+5. When a future language is selected for launch, complete the remaining coverage, language-specific authored curriculum and processing capabilities, then pass the same quality and regression gates.
+
+### 8. Content production and import pipeline
+
+Treat content expansion as a managed data/editorial workflow rather than repeatedly as bespoke application coding:
+
+1. **Author / prepare:** Create independently authored language content or translation drafts using the approved schema. Include context, learning objective, terminology and provenance.
+2. **Structural validation:** Check schema/version, required fields, IDs, references, types, locale tags and encoding.
+3. **Consistency validation:** Detect duplicates, missing content, broken links, invalid references, conflicting identifiers, stale translations and incomplete coverage.
+4. **Linguistic and educational review:** Check meaning, grammar, naturalness, register, spelling, examples, cultural suitability, learning objective, question clarity and answer correctness. Use competent human review for approval; automated or machine-assisted output is a draft only.
+5. **Import/integration:** Load validated packages through a repeatable, versioned process without rewriting shared learning engines for routine content additions.
+6. **Runtime verification:** Check rendering, search, selection switching, content interactions and persistence in the actual application.
+7. **Regression and release:** Run language-specific and cross-language regression suites, document evidence and obtain owner approval before merge/release or production data changes.
+
+Content should be processed in small, sequential batches when the dataset is large. Validate each batch and then validate the consolidated package. Do not issue intermediate downloadable ZIPs for every batch; provide one consolidated deliverable only when the relevant phase is complete and validated.
+
+### 9. Automated validation and three-level quality assurance
+
+Build reusable validation tooling and a repeatable test matrix. Automation should reduce repetitive work, not replace linguistic judgement.
+
+**Level 1 — Automated structural and consistency checks (run for every package/change):**
+- Schema and encoding validation; required-field and locale checks.
+- Duplicate vocabulary, sense, question and flashcard detection.
+- Stable-ID uniqueness and reference integrity.
+- Translation completeness/status/source-revision checks.
+- Valid question options, correct-answer references, answer-key integrity and ambiguity safeguards.
+- Lesson-to-topic/question relationships and flashcard references.
+- Language-specific checks where deterministic rules exist (for example pinyin field structure, script/character validity, tokenisation expectations, spelling/normalisation and morphology constraints).
+- Import/export round-trip and content-count/change reports.
+
+**Level 2 — Linguistic and educational review:**
+- Correct meanings and parts of speech in context.
+- Natural grammar, spelling, pronunciation/transliteration and register.
+- Appropriate examples and cultural/contextual suitability.
+- Accurate, understandable explanations and translations.
+- Clear learning objectives, unambiguous quiz prompts/options and correct answer explanations.
+- Flashcards that test the intended knowledge without misleading simplification.
+- Independent review of authored content; do not assume that matching an English source proves correctness.
+
+**Level 3 — Application/runtime and regression testing:**
+- Dictionary search, filtering, detail content and language-specific input/normalisation.
+- Lesson rendering, practice, answer checking, completion and progress.
+- Quiz selection, question rendering, answer correctness, scoring and allowances.
+- Flashcard rendering, review/mastery and progress.
+- Learning-language and support-language changes from all relevant pages, including switching back and forth and preserving valid in-progress state.
+- Account isolation, saved data, synchronisation and existing auth behaviours where affected.
+- Existing English and Chinese functionality must remain intact when Malay or future translation content is added.
+- Accessibility, responsive layouts, performance and fallback states.
+
+Report automated pass/fail separately from human linguistic approval and owner browser acceptance. Never describe automated structural success as proof of language accuracy.
+
+### 10. Regression, release and operational safeguards
+
+- Every language addition must include both new-language tests and regression tests for every existing learning language affected by shared code or translation data.
+- Prefer test fixtures and reusable contracts that run against all language packages, supplemented by language-specific suites.
+- Compare translation and content coverage before/after changes; surface missing/stale translations explicitly.
+- Keep application logic, content data, migrations and editorial assets separated where practical, with clear ownership and versioning.
+- Use focused temporary implementation branches from current main, maintain the established rolling three-branch policy, preserve unique unmerged work, and require explicit owner approval before merge.
+- Keep MDR and conversation archives on docs/master-development-record; never merge internal documentation into production main.
+- Cloudflare Pages is the only active deployment path. Cloudflare Workers Builds is retired and no longer in operation.
+- Inspect the current production/staging schema and migration history before proposing or applying data changes. No production deployment, destructive database action or production migration without explicit owner approval.
+- Keep dictionary word-grid search free and unlimited. Do not introduce a subscription gate as a side effect of multilingual architecture.
+- Respect free-plan/service constraints; prefer no-cost or low-cost validation and avoid assuming paid infrastructure is available.
+
+### 11. Success measures for the architecture
+
+Evaluate whether the approach is working by tracking:
+1. The number and scope of shared application-code changes required to add a language.
+2. The amount of repeated/manual integration work eliminated by package schemas and import tooling.
+3. Structural validation coverage and the proportion of content defects caught before runtime.
+4. Linguistic/educational approval coverage, separately from automated checks.
+5. Translation completeness, staleness and review status by language pair and content type.
+6. Regression outcomes for all existing languages after each addition.
+7. Whether advance translation work measurably reduces the remaining workload when a future language is selected.
+8. Ongoing maintenance cost: each additional language should not multiply shared-engine complexity or create unbounded pairwise translation obligations.
+
+### 12. Update 3.0 planning implications (not yet a committed implementation plan)
+
+Use Malay as the first real proving case for the multilingual architecture. Do not build a completely abstract framework in isolation and then separately bolt Malay onto it. Design and validate the shared package/registry/pipeline against real English, Simplified Chinese and Malay content.
+
+The future U3.0 plan should first audit the current code/data model to identify language-specific assumptions and existing translation storage/flows; then propose incremental architecture changes and migration/compatibility strategy. It should define the Malay launch content and support-language coverage, future-language background translation scope, data schemas, language adapters, automated validators, editorial review process, test matrix, staging/release gates and Malaysia/international legal/privacy/licensing review.
+
+**No U3.0 feature scope, translation matrix, target languages beyond Malay, implementation sequence, schema, migration or production action is approved by this record yet.** These require a separate planning discussion and explicit owner approval.
+
+### 13. Legal, privacy and content provenance review
+
+Every new language, content pipeline or translation expansion remains subject to the standing Malaysia-specific and general legal-risk planning check. Consider as applicable:
+- Malaysia PDPA and amendments, operator/controller responsibilities, notices, data minimisation, processor terms and cross-border transfer safeguards.
+- International privacy rules and territorial scope for users in supported regions.
+- Age-related safeguards for the intended 16+ audience, including jurisdiction-specific treatment of minors.
+- Rights, licences and provenance for dictionaries, corpora, example sentences, pronunciation/audio, scripts/fonts, transliteration and third-party linguistic datasets.
+- Terms/Privacy disclosures if content providers, translation providers, analytics or new processors are introduced.
+- Consumer/payment rules only if future Premium or monetisation functionality changes.
+- AI/machine translation provider data handling and retention before sending any non-public or user-linked information to such services.
+
+This is a planning checklist, not legal advice, legal clearance, licensing approval or a compliance certification. Prefer original content and record provenance; do not assume that publicly accessible language data is free to reuse.
+
+### 14. Owner decisions and open questions captured
+
+**Confirmed:**
+- The concern is long-term development and maintenance growth as more learning languages are added, while maintaining top accuracy.
+- The target direction is a shared language-independent platform with language-specific packages.
+- Every language may have independently authored educational content; English is not the permanent master language.
+- Learning language and support/translation language are distinct concepts.
+- Standard schemas, stable content IDs, translation registry/coverage tracking, reusable content pipelines and automated validation are desired architectural tools.
+- Human linguistic/educational review remains mandatory; automation is not a substitute.
+- Malay is the first proving case for the architecture in U3.0.
+- Advance preparation of translations for future support languages (examples: Japanese and Korean) is an idea to pursue in a staged, prioritised and reviewed manner, not an instruction to translate every item into every language immediately.
+
+**Still to decide in U3.0 planning:**
+- Exact language-pair translation coverage for English, Simplified Chinese and Malay, including direction and content types.
+- Whether and how Japanese, Korean or other future languages enter the background translation queue, and which content is prioritised.
+- Language-package file/database boundaries and versioning details.
+- Stable-ID strategy for related but independently authored curricula.
+- Language-specific adapter interfaces and exact capabilities.
+- Translation provider/tooling, human-review capacity and approval workflow.
+- Which UI strings, dictionary fields, lessons, quizzes and flashcards require support-language translations at launch.
+- Migration/backward-compatibility approach for current English/Chinese data.
+- U3.0 phase boundaries, estimates, tests, staging and release criteria.
+
