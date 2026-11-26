@@ -54,6 +54,7 @@ jobs:
           node --check js/core/legacy-content-bootstrap.js
           node --check js/core/translation-registry.js
           node --check js/languages/adapters.js
+          node --check data/languages/malay-dictionary.js
           node --check scripts/content/validation-core.mjs
       - name: Run all architecture and content regression tests
         run: node --test tests/*.test.cjs tests/*.test.mjs
