@@ -835,7 +835,7 @@ The owner tested the latest staging preview and asked to reorder a collection by
 - Removed the visible drag-handle icon and the up/down arrow controls.
 - Retained an accessible keyboard alternative: focus a folder heading and use **Alt + Arrow Up / Alt + Arrow Down** to move it one position. Existing persisted account-owned reorder RPC and RLS remain unchanged.
 - Reorder remains a client interaction over the existing account-owned sort order; no new database schema, personal-data category, tracking purpose, processor, entitlement or allowance change is introduced.
-- Browser tests now cover dragging the folder heading itself to the first and last positions, the absence of the old controls, and keyboard reordering. Full latest-head CI is pending; do not mark the interaction validated until the U2.9.0 browser workflow passes.
+- Browser tests cover dragging the folder heading itself to the first and last positions, the absence of the old controls, and keyboard reordering. The U2.9.0 English dictionary QA workflow passed on feature commit `3bf1dbb248346330c629de9c983201438a161191` (run `45748313425`), including the complete Playwright browser suite with these new tests. Cross-version browser/Auth/Flashcards checks were still running at the time of this update.
 
 ### Remaining U2.9.0 work and release gate
 
