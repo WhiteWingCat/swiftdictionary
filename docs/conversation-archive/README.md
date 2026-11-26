@@ -216,3 +216,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-26 — Update 3.1 Fill-in-the-Blank scope confirmation](2026-11-26-update-3-1-fill-in-the-blank-scope-confirmation.md) — records the owner's confirmation that typing questions belong in U3.1, appear in both Lessons and Quiz, begin with one missing word per question, and must support English, Simplified Chinese and planned Malay through shared UI with language-specific validation. Records open design questions and confirms that implementation has not started.
 
 - [2026-11-26 — Update 3.2 Games page and Wordmine concept](2026-11-26-update-3-2-games-and-wordmine-concept.md) — records the Games navigation rename, retained Flashcards activity, Wordmine rules/difficulties/no-repeat question requirement, shared Games allowance and planning-only legal/technical safeguards.
+
+- [Update 3.0 planning finalisation](2026-11-26-update-3-0-planning-finalisation.md) — records the owner-approved Malaysian Standard Malay standard, English/Chinese legacy modernisation, Phase 3 staging-preview gate, complete post-Phase-3 work and final U3.0 scope.
