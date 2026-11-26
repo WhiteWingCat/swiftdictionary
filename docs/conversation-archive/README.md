@@ -241,3 +241,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-26 — U3.0 Phase 2 Malay Dictionary batch 03](2026-11-26-update-3-0-phase-2-dictionary-batch-03.md) — records the owner-approved ~700-headword target (650–750), batch 03's 69 additions, 123 headwords/145 senses/290 draft translations, 39 passing architecture tests, legacy QA and the continuing inactive/no-database-change boundary.
 
 | 2026-11-26 | [Update 3.0 Phase 2 Malay Dictionary batch 03](2026-11-26-update-3-0-phase-2-dictionary-batch-03.md) | Expands the Malay Dictionary goal to around 700 headwords; batch 03 brings the catalogue to 123 headwords, 145 senses and 290 support translation records, with 39 Node tests and legacy QA passing. |
+
+
+## 2026-11-26 — Update 3.0 Phase 2 closeout
+
+- [Malay Dictionary closeout validation checkpoint](2026-11-26-update-3-0-phase-2-closeout-validation.md) — 650-headword package, additional provenance/translation-registry tests, CI results and outstanding human editorial/rights review gates.
