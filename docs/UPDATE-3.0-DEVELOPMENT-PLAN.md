@@ -106,8 +106,22 @@ Phases are sequential. Each phase has its own implementation and validation chec
 - Integrate support-language display and translations using the registry.
 - Keep dictionary grid/search free and unlimited.
 
-**Exit:** structural, duplicate, morphology/search, sense/example, translation-coverage and responsive UI checks pass; linguistic review is recorded separately from automated validation.
+**Execution sequence:**
+1. Freeze the Malay Dictionary authoring contract and content-provenance policy before adding records.
+2. Build the Malay-owned data package and manifest in small, auditable batches. Use stable IDs independent of translations; keep lemmas/headwords separate from inflected search forms; model contextual senses independently; record Malaysian usage/register and part of speech.
+3. Implement and test Malay-specific orthographic normalisation and conservative affix-aware search. Preserve the exact authored headword as the displayed/search identity; derived forms are search aliases only and must not become duplicate grid cards. Do not guess stems or strip affixes in ways that create false positives.
+4. Add English and Simplified Chinese support-language fields only where the translation is authored and checked; register each translation against the Malay source revision with explicit workflow status. Do not mark machine-assisted or unreviewed text approved.
+5. Run structural, duplicate, reference, morphology/search, sense/example, translation coverage, responsive and English/Chinese non-regression checks. Record automated checks separately from competent human linguistic review.
+6. Keep `ms` registered as planned/inactive and do not add it to selectable courses or production database language rows during Phase 2.
 
+**Authoring and legal safeguards:**
+- Use independently written definitions, examples and usage notes. DBP/PRPM and Kamus Dewan may be consulted as linguistic references, but their dictionary entries, definitions, example sentences, or other protected content must not be copied or scraped into the project without written permission/licensing. The DBP website states that reproduction of its content requires prior written permission: https://dbp.gov.my/hak-cipta/.
+- Record item-level authorship/provenance, source consulted, access date, licence/permission where applicable, editorial status and reviewer. A reference consulted for verification is not a licence to reproduce its text.
+- Follow Malaysian Standard Malay spelling, vocabulary, grammar and register; avoid Indonesian-only forms unless explicitly labelled as regional/contrastive.
+- This phase adds lexical content and search logic only. It must not add learner telemetry, personal-data fields or external dictionary API calls.
+- Continue the Malaysia PDPA / international privacy review before public activation. The Personal Data Protection (Amendment) Act 2024 has phased commencement dates in 2025; re-check current Commissioner guidance and the actual controller/processor, purpose and cross-border facts at launch. This planning note is not legal advice or compliance clearance.
+
+**Exit:** structural, duplicate, morphology/search, sense/example, translation-coverage and responsive UI checks pass; linguistic review and provenance are recorded separately from automated validation. Malay remains inactive until Phase 3 and the later U3.0 release gates are satisfied.
 ### Phase 3 — Malay learning foundation and staging-preview gate
 
 - Build the independently authored Malay Lessons curriculum across Beginner, Intermediate and Advanced, with lesson reader, practice, answer feedback, objectives and independent progress.
