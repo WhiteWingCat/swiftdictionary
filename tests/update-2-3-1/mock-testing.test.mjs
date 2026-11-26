@@ -28,7 +28,7 @@ test("Flashcards supports Chinese-course banks and resets collection selection a
   assert.ok(flashcardsSource.includes("const bank=window.SWIFT_CHINESE_FLASHCARDS||{};"),
     "Chinese-course users must resolve the Chinese Flashcards bank");
   for(const cardType of ["characters","vocabulary","phrases"]){
-    assert.ok(flashcardsSource.includes('map(bank.'+cardType+', "'+cardType+'")'),
+    assert.ok(flashcardsSource.includes('map(bank.'+cardType+',"'+cardType+'")'),
       "Chinese-course users must receive "+cardType+" cards");
   }
   const handler=flashcardsSource.slice(flashcardsSource.indexOf('if(action==="delete-collection")'),flashcardsSource.indexOf('if(action==="remove-card")'));
