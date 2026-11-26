@@ -341,3 +341,12 @@ The owner has expanded the Malay Dictionary scope to approximately **700 unique 
 At the end of authoring batch 03, the package contains **123 unique headwords, 145 senses and 290 per-sense support-translation records** (English and Simplified Chinese). Approximately 527–627 further headwords are needed to enter the target band. The next content batches should be organised by balanced everyday and general-purpose domains, avoid duplicate lemmas and avoid treating predictable inflections as separate headwords. Every batch must pass structural, duplicate, alias-collision, package-adaptation and regression validation before the next batch is frozen.
 
 Latest checkpoint: [Phase 2 batch 03 archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-03.md).
+
+
+## Phase 2 implementation checkpoint — batch 08 (2026-11-26)
+
+Batch 08 adds **204 unique headwords**, taking the Malay Dictionary to **650 headwords, 672 senses and 1,344 en/zh per-sense draft translation records**. Package revision: u3-ms-dict-0.8.0. Coverage includes communication and digital tools, administration and commerce, transport, sport, health and anatomy, food, household appliances, geography, weather, environmental care, community and function words. The batch exceeded the preferred 100–120 additions because the prepared set contained 203 valid unique entries; one additional common workplace term (pekerja) brought the catalogue to the lower edge of the approved 650–750 band. This does not change the preferred size of future batches.
+
+All content remains draft and Malay remains inactive. English Dictionary QA passed on the intermediate content head 11f5e78e4cf46a8bdd2fd94f3185471c2d08e731 (run [45832076858](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45832076858)); subsequent commits changed count assertions and added pekerja. Latest-head architecture and English QA results are pending; earlier architecture attempts were cancelled by rapid sequential pushes. No staging preview, merge, deployment or database change occurred.
+
+**Archive:** [Batch 08](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-08.md).
