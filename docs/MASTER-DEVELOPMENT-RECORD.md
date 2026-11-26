@@ -4207,3 +4207,115 @@ This is a planning checklist, not legal advice, legal clearance, licensing appro
 - Migration/backward-compatibility approach for current English/Chinese data.
 - U3.0 phase boundaries, estimates, tests, staging and release criteria.
 
+## Long-term language roadmap and mandatory development workflow rules — owner-approved (2026-11-26)
+
+**Status:** The major-language sequence and standing workflow rules below are owner-approved planning direction. They do not authorise implementation, database changes, merges or production deployment by themselves.
+
+### 1. Planned major language-expansion roadmap
+
+The current intended sequence for major language expansions is:
+
+| Major update | Planned language expansion |
+|---|---|
+| **Update 3.0** | Malay |
+| **Update 4.0** | Japanese |
+| **Update 5.0** | Korean |
+
+This is the current long-term roadmap direction. Each major language expansion is expected to be accompanied by moderate updates between major releases. Moderate updates may deliver incremental features, refinements, bug fixes, technical preparation, content improvements and infrastructure work; they do not need to wait for the next major language release.
+
+The sequence is a planning baseline and can be revisited with the owner if priorities or feasibility change. Japanese and Korean are planned future learning-language expansions, not languages already approved for immediate implementation.
+
+The advance-translation strategy recorded in the preceding multilingual architecture section remains applicable: prepare selected future support-language translations progressively where useful, without enabling a language as a learning course before its own dictionary, independently authored curriculum, language processing and launch QA are ready.
+
+### 2. Standing development and release rules — mandatory
+
+These rules apply to all future SwiftDictionary development unless the owner explicitly changes them.
+
+#### Rule 1 — Keep the repository README current
+
+Whenever development is pushed/merged into the production `main` branch and the change affects the released application or project status, update the repository's root `README.md` as part of the same release/change workflow.
+
+- The README's displayed current version and release/status information must agree with the actual production release.
+- Do not leave stale version references (the owner identified that the README still showed 2.8.0 while 2.9.0 was already released).
+- Check the README before completing a release and update it to the correct release version (currently U2.9.1 as of this record) when appropriate.
+- Include the README change in the same approved main-branch release where practical; do not update it prematurely to claim a release that has not shipped.
+- Verify the committed README content after the push/merge.
+
+#### Rule 2 — Live Supabase migration must precede the production main-branch update
+
+For releases that require database schema or data migrations, the required Live Supabase migration must be applied and verified **before** the corresponding application changes are merged/pushed to production `main` and deployed live.
+
+- First inspect the current Live Supabase schema, migration history and relevant data; identify the exact migration requirements and compatibility implications.
+- Prepare and test migrations in the appropriate non-production environment first.
+- Obtain explicit owner approval before applying any Live Supabase migration or production database/data change.
+- Apply the approved Live migration, then verify its result and record evidence.
+- Only after successful Live migration verification should the corresponding application release be merged/pushed to `main` and allowed to go live.
+- If the migration fails, is incomplete, or cannot be verified, stop: do not merge/deploy the dependent application change. Report the actual state and resolve it first.
+- Plan compatibility and recovery/rollback carefully. Where an application change does not require a database migration, record that no migration is needed rather than inventing one.
+- This sequencing is a release gate, not permission to run production SQL without approval.
+
+#### Rule 3 — Do not hand over staging previews until implementation and internal verification are complete
+
+A staging preview is a user-testing handoff, not a place to discover whether the feature was implemented at all.
+
+Before presenting a preview:
+- Complete the agreed feature implementation, including its required UI, data flow, persistence, error handling, responsive behaviour and integration with existing features.
+- Run appropriate static/code checks, automated tests, integration tests and browser/runtime checks available for the task.
+- Verify the actual feature paths and relevant edge cases, not merely that the page loads or the build succeeds.
+- Check affected existing features for regressions.
+- Inspect logs and errors where available; investigate failures instead of dismissing or concealing them.
+- Confirm that required migrations, seed data, configuration and feature flags are present in the staging environment.
+- Provide a concise, truthful handoff stating what was tested, what passed, what remains unverified and any known limitations.
+
+Never pretend a feature works, claim a test passed without executing it, or present an unverified implementation as complete. If a required check cannot be performed because of tool, environment, access or free-plan limitations, disclose that limitation explicitly and do not imply verification. Do not transfer unfinished implementation work to the owner under the label of a ready staging preview.
+
+#### Rule 4 — Use website-created UI for prompts and dropdowns; avoid browser-native UI
+
+For application prompts and dropdown interactions, implement and use the website's own interface rather than browser-native prompt/dialog/dropdown behaviour.
+
+- Avoid browser-native `alert()`, `confirm()` and `prompt()` for product workflows.
+- Avoid relying on browser-native dropdown presentation where the product requires a designed dropdown/select interaction.
+- Build these interactions as website UI components, consistent with the site's layout, theme, accessibility and interaction patterns.
+- Existing browser-native prompts/dropdowns should be identified and replaced as part of relevant maintenance or UI-polishing work; do not claim the entire application has been audited or converted until it has actually been checked.
+- Preserve keyboard accessibility, focus management, screen-reader semantics, validation and mobile usability in custom website components.
+- Native HTML form controls may still be appropriate when they are intentionally styled/used as part of the website interface and meet the design requirements; the intent is to avoid browser-controlled UI that breaks the site's visual and interaction consistency.
+
+#### Rule 5 — Maintain consistent UI design and interaction quality across features
+
+Every new feature must follow the established visual and interaction language demonstrated by Lessons, Quiz and Flashcards.
+
+- Reuse the established design patterns, spacing, typography, panel/card treatments, controls, navigation, responsive behaviour and interaction conventions rather than inventing an unrelated style for each feature.
+- Use drop shadows where appropriate to establish panel/card elevation and hierarchy.
+- Include smooth, purposeful animation transitions for state changes, expansion/collapse, navigation and feedback where appropriate. Animations must not impair accessibility or usability; respect reduced-motion preferences.
+- Use colour-coded panels, tabs, status indicators or sections where they materially improve recognition, grouping or feedback. Colours should be consistent and meaningful, not decorative overload.
+- Maintain consistent hover, focus, active, disabled, loading, success, warning and error states.
+- Ensure the overall page theme and component surfaces remain coherent with the existing SwiftDictionary design, including dark-background/dark-blue-panel decisions already established.
+- Do not force shadows, animations or colour-coded panels into every element. Apply them when appropriate to the component's purpose while preserving a coherent system.
+- Verify the feature on desktop and mobile and check that the new UI fits alongside Lessons, Quiz and Flashcards rather than looking like a separate product.
+
+### 3. Required release checklist
+
+Before each production release, verify and record:
+
+1. Feature implementation complete and internally tested before staging handoff.
+2. Staging preview accurately reflects the tested code and configuration.
+3. Relevant automated, integration, browser and regression checks executed; results and limitations truthfully reported.
+4. No browser-native prompt/dropdown remains in the new or changed workflow where a website-created component is required.
+5. UI consistency checked against Lessons, Quiz and Flashcards, including appropriate shadows, transitions and colour-coded grouping.
+6. Live Supabase migration requirement assessed; if required, approved migration applied and verified before main-branch merge/deployment.
+7. Root README version/status updated to match the actual release.
+8. MDR and conversation archive updated on the documentation branch, without merging internal documentation into production main.
+9. Legal/privacy/licensing risk review completed for new features, languages, content sources or processing changes, following the standing Malaysia and international planning rule.
+10. Explicit owner approval obtained at the established merge and production-release gates.
+
+### 4. Owner decisions captured
+
+- Planned major language sequence: U3.0 Malay, U4.0 Japanese, U5.0 Korean.
+- Moderate updates are expected between major updates.
+- Root README must be kept current whenever release changes are pushed/merged to production main; it must not lag behind the shipped version.
+- For database-dependent releases, Live Supabase migration and verification must happen before the corresponding production main-branch update/deployment, with explicit approval.
+- Staging previews must only be handed over after implementation is complete and internally verified. Never claim functionality or test results that have not been demonstrated.
+- Prompts and dropdowns should be website-created UI, not browser-native prompts or browser-controlled dropdown presentation.
+- New feature UI must remain consistent with Lessons, Quiz and Flashcards, using appropriate drop shadows, animation transitions and colour-coded panels/tabs where useful.
+- These rules supplement, and do not replace, the existing branch hygiene, production safeguards, Cloudflare Pages deployment, documentation separation, free dictionary search and legal/privacy planning rules.
+
