@@ -8,6 +8,9 @@
   const COLLECTIONS = "favorite_collections";
   const ITEMS = "favorite_collection_items";
   const WORDS = "saved_words";
+  const languageRecord = code => window.SWIFT_LANGUAGE_REGISTRY?.get(code) || null;
+  const isActiveLanguage = code => languageRecord(code)?.status === "active";
+  const languageAdapter = code => window.SWIFT_LANGUAGE_ADAPTERS?.get(code) || null;
   let client = null;
   let activeUser = null;
   let panel = null;
@@ -547,13 +550,15 @@
       content.append(el("p", "fc-muted", "This folder is empty. Use … to add saved words."));
       return;
     }
-    const groups = { en: [], zh: [] };
-    words.forEach(row => groups[row.word.course === "zh" ? "zh" : "en"].push(row));
-    for (const code of ["en", "zh"]) {
+    const activeCodes = window.SWIFT_LANGUAGE_REGISTRY?.list().map(language => language.code) || ["en","zh"];
+    const groups = Object.fromEntries(activeCodes.map(code => [code, []]));
+    words.forEach(row => { if (row.word && groups[row.word.course]) groups[row.word.course].push(row); });
+    for (const code of activeCodes) {
       if (!groups[code].length) continue;
       const languageGroup = el("section", "fc-language-group");
-      languageGroup.append(el("h4", "", code === "zh" ? "简体中文" : "English"));
-      const grid = el("div", code === "zh" ? "word-grid favorite-word-grid fc-expanded-grid character-grid" : "word-grid favorite-word-grid fc-expanded-grid");
+      const language = languageRecord(code);
+      languageGroup.append(el("h4", "", language?.nativeName || language?.name || code));
+      const grid = el("div", "word-grid favorite-word-grid fc-expanded-grid" + (languageAdapter(code)?.gridMode === "single-han" ? " character-grid" : ""));
       for (const row of groups[code]) {
         const line = el("div", "fc-word-card");
         const open = button("", () => window.dispatchEvent(new CustomEvent("swift-collections-open-word", {
@@ -624,7 +629,7 @@
       checkbox.value = String(word.id);
       checkbox.checked = existingIds.has(Number(word.id));
       const text = el("span", "", word.word);
-      const lang = el("small", "", word.course === "zh" ? "Chinese" : "English");
+      const lang = el("small", "", languageRecord(word.course)?.name || word.course);
       label.append(checkbox, text, lang);
       row.append(label);
       list.append(row);
@@ -759,7 +764,7 @@
   });
   window.addEventListener("swift-collections-open-word-picker", event => {
     const detail = event.detail || {};
-    if (detail.word && (detail.course === "en" || detail.course === "zh")) openWordCollectionsDialog(detail.word, detail.course, detail.trigger || null);
+    if (detail.word && isActiveLanguage(detail.course)) openWordCollectionsDialog(detail.word, detail.course, detail.trigger || null);
   });
   window.addEventListener("swift-favorite-words-updated", () => refresh());
   window.addEventListener("swift-favorite-word-toggled", event => {
