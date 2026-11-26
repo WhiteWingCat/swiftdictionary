@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add second contextual examples to another set of academic and technical English baseline entries.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "54a48306ce4cfdcc275f14d9505f035f3754ae9b",
+  "entries": [
+    {
+      "word": "hermeneutics",
+      "addExamples": [
+        "The seminar explored hermeneutics through the interpretation of historical texts."
+      ]
+    },
+    {
+      "word": "heteroskedasticity",
+      "addExamples": [
+        "The analyst used robust standard errors to account for heteroskedasticity."
+      ]
+    },
+    {
+      "word": "heuristic",
+      "addExamples": [
+        "The team used a simple heuristic to narrow the list of possible causes."
+      ]
+    },
+    {
+      "word": "historiography",
+      "addExamples": [
+        "The course compares different approaches to historiography."
+      ]
+    },
+    {
+      "word": "homology",
+      "addExamples": [
+        "The similar bone structures are evidence of homology between the species."
+      ]
+    },
+    {
+      "word": "hydrology",
+      "addExamples": [
+        "Hydrology helps engineers estimate flood risk in the region."
+      ]
+    },
+    {
+      "word": "hydrolysis",
+      "addExamples": [
+        "Hydrolysis breaks a larger molecule into smaller parts by adding water."
+      ]
+    },
+    {
+      "word": "isostasy",
+      "addExamples": [
+        "Changes in ice cover can affect the isostasy of the Earth's crust."
+      ]
+    },
+    {
+      "word": "isotope",
+      "addExamples": [
+        "Carbon-14 is a radioactive isotope of carbon."
+      ]
+    },
+    {
+      "word": "isotropy",
+      "addExamples": [
+        "The model assumes isotropy so that its properties are the same in every direction."
+      ]
+    },
+    {
+      "word": "jargon",
+      "addExamples": [
+        "The report avoids technical jargon so that more readers can understand it."
+      ]
+    },
+    {
+      "word": "jettison",
+      "addExamples": [
+        "The crew had to jettison extra equipment to reduce the aircraft's weight."
+      ]
+    },
+    {
+      "word": "joule",
+      "addExamples": [
+        "A joule is the unit used to measure energy in the International System of Units."
+      ]
+    },
+    {
+      "word": "jovian",
+      "addExamples": [
+        "Jupiter and Saturn are examples of Jovian planets."
+      ]
+    },
+    {
+      "word": "juncture",
+      "addExamples": [
+        "At this juncture, the team needs to decide whether to revise the plan."
+      ]
+    },
+    {
+      "word": "jurisdiction",
+      "addExamples": [
+        "The court has jurisdiction over cases involving federal law."
+      ]
+    },
+    {
+      "word": "jurisprudence",
+      "addExamples": [
+        "The article examines the development of constitutional jurisprudence."
+      ]
+    },
+    {
+      "word": "juxtapose",
+      "addExamples": [
+        "The artist chose to juxtapose bright colours with dark shapes."
+      ]
+    },
+    {
+      "word": "juxtaposition",
+      "addExamples": [
+        "The juxtaposition of old and new buildings defines the district."
+      ]
+    },
+    {
+      "word": "karyogamy",
+      "addExamples": [
+        "Karyogamy occurs when two cell nuclei fuse during reproduction."
+      ]
+    },
+    {
+      "word": "karyotype",
+      "addExamples": [
+        "The laboratory prepared a karyotype to examine the chromosome number."
+      ]
+    },
+    {
+      "word": "keratinization",
+      "addExamples": [
+        "Keratinization helps form a protective layer on the surface of the skin."
+      ]
+    },
+    {
+      "word": "keystone",
+      "addExamples": [
+        "The sea otter is considered a keystone species in the kelp forest."
+      ]
+    },
+    {
+      "word": "kinematics",
+      "addExamples": [
+        "Kinematics describes motion without considering the forces that cause it."
+      ]
+    },
+    {
+      "word": "kinetic",
+      "addExamples": [
+        "The moving object has kinetic energy because it is in motion."
+      ]
+    },
+    {
+      "word": "kinetics",
+      "addExamples": [
+        "Chemical kinetics measures how quickly reactions occur."
+      ]
+    },
+    {
+      "word": "lacunary",
+      "addExamples": [
+        "The archive contains a lacunary record of events from that period."
+      ]
+    },
+    {
+      "word": "lacustrine",
+      "addExamples": [
+        "The survey identified lacustrine sediments near the ancient shoreline."
+      ]
+    },
+    {
+      "word": "latency",
+      "addExamples": [
+        "High network latency can make an online game feel unresponsive."
+      ]
+    },
+    {
+      "word": "latent",
+      "addExamples": [
+        "The test is designed to detect latent infection before symptoms appear."
+      ]
+    }
+  ],
+  "appliedCommit": "8579c9fc8d49b0fb3b5afcc582e9b882990ca359"
+}

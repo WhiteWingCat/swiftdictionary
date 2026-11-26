@@ -1,0 +1,889 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 3,
+  "theme": "Everyday activities and recreation",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "bake",
+      "part": "verb",
+      "phonetic": "/beɪk/",
+      "definition": "To cook food using dry heat in an oven.",
+      "definitionZh": "烘焙；烤制",
+      "examples": [
+        "We baked a cake for her birthday.",
+        "Bake the bread until the crust turns golden."
+      ],
+      "tip": "Commonly used for bread, cakes, biscuits, and other foods cooked in an oven.",
+      "course": "en",
+      "breakdown": "Baking usually uses an oven; it is different from frying food in a pan.",
+      "related": "oven; roast; cake; pastry",
+      "categories": [
+        "Activities",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To cook food in an oven using dry heat.",
+          "definitionZh": "利用烤箱中的干热烹调食物。",
+          "examples": [
+            "She likes to bake cookies on weekends.",
+            "Bake the potatoes for forty minutes."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "camp",
+      "part": "noun / verb",
+      "phonetic": "/kæmp/",
+      "definition": "A place where people stay in temporary shelters; or to live outdoors in a tent or other temporary shelter.",
+      "definitionZh": "营地；露营；扎营",
+      "examples": [
+        "We set up camp beside the lake.",
+        "The children are going to camp in the forest."
+      ],
+      "tip": "“Go camping” is the common expression for taking a trip to stay outdoors in a tent.",
+      "course": "en",
+      "breakdown": "Can refer to the temporary place itself or the activity of staying there.",
+      "related": "tent; campsite; outdoors; camping",
+      "categories": [
+        "Activities",
+        "Places",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where people stay in tents or temporary buildings, often outdoors.",
+          "definitionZh": "人们在户外搭帐篷或临时建筑居住的地方；营地。",
+          "examples": [
+            "The campsite has clean showers.",
+            "Their camp was near the river."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To stay outdoors in a tent or temporary shelter for a period of time.",
+          "definitionZh": "在户外帐篷或临时住所中停留一段时间；露营。",
+          "examples": [
+            "We camped in the mountains for two nights.",
+            "They camp beside the beach every summer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "chat",
+      "part": "noun / verb",
+      "phonetic": "/tʃæt/",
+      "definition": "An informal conversation; or to talk with someone in a friendly and relaxed way.",
+      "definitionZh": "闲聊；聊天；谈话",
+      "examples": [
+        "We had a quick chat after class.",
+        "I like to chat with my neighbours."
+      ],
+      "tip": "“Chat” is informal. The past tense and past participle are “chatted”.",
+      "course": "en",
+      "breakdown": "Usually describes relaxed conversation rather than a formal discussion.",
+      "related": "talk; conversation; message; discuss",
+      "categories": [
+        "Activities",
+        "People & Relationships",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An informal conversation between people.",
+          "definitionZh": "人们之间轻松、非正式的交谈。",
+          "examples": [
+            "Let's have a chat over coffee.",
+            "I had a friendly chat with my new colleague."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To talk to someone in a relaxed and informal way.",
+          "definitionZh": "以轻松、非正式的方式与某人交谈。",
+          "examples": [
+            "They chatted for an hour.",
+            "We often chat online after work."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "climb",
+      "part": "verb / noun",
+      "phonetic": "/klaɪm/",
+      "definition": "To move upward using the hands and feet, or to go up something such as a hill or ladder; an act of climbing.",
+      "definitionZh": "攀爬；爬上；上升；攀登",
+      "examples": [
+        "The children climbed the tree carefully.",
+        "We climbed to the top of the hill."
+      ],
+      "tip": "Use climb a ladder or climb up a hill. The noun can refer to the activity or a difficult upward route.",
+      "course": "en",
+      "breakdown": "Usually describes upward movement, whether by using the body or travelling along a rising route.",
+      "related": "crawl; scale; hike; ascent",
+      "categories": [
+        "Activities",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "verb — move upward",
+          "definition": "To move up or over something using the hands, feet, or body.",
+          "definitionZh": "利用手、脚或身体向上移动或越过某物。",
+          "examples": [
+            "The cat climbed onto the roof.",
+            "He climbed over the wall."
+          ]
+        },
+        {
+          "part": "verb — rise",
+          "definition": "To increase or move to a higher level or position.",
+          "definitionZh": "增加或移动到更高的水平或位置。",
+          "examples": [
+            "Temperatures climbed during the afternoon.",
+            "The price of fuel continues to climb."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act or journey involving movement upward, especially one that is difficult.",
+          "definitionZh": "向上移动或攀登的过程，尤指较为困难的攀爬。",
+          "examples": [
+            "The final climb was steep and tiring.",
+            "It is a long climb to the mountain shelter."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "draw",
+      "part": "verb / noun",
+      "phonetic": "/drɔː/",
+      "definition": "To make a picture or mark with a pen or pencil; to pull something toward you; or to cause people or things to come toward a place.",
+      "definitionZh": "画；绘制；拉；吸引；抽取",
+      "examples": [
+        "She likes to draw animals.",
+        "Draw the curtains before you go to bed."
+      ],
+      "tip": "The past tense and past participle are “drew” and “drawn”. The word also has specialised meanings in sport and games.",
+      "course": "en",
+      "breakdown": "A common verb with several meanings. Context distinguishes making an image, pulling, attracting, and selecting.",
+      "related": "sketch; paint; pull; attract",
+      "categories": [
+        "Activities",
+        "Education",
+        "Actions"
+      ],
+      "senses": [
+        {
+          "part": "verb — make a picture",
+          "definition": "To create a picture or design using a pen, pencil, or another tool.",
+          "definitionZh": "使用钢笔、铅笔或其他工具创作图画或设计。",
+          "examples": [
+            "The student drew a map of the town.",
+            "Can you draw a simple flower?"
+          ]
+        },
+        {
+          "part": "verb — pull",
+          "definition": "To move something toward yourself or in a particular direction by pulling it.",
+          "definitionZh": "通过拉动使某物朝自己或某个方向移动。",
+          "examples": [
+            "Draw your chair closer to the table.",
+            "He drew the door open."
+          ]
+        },
+        {
+          "part": "verb — attract",
+          "definition": "To attract attention, interest, or people toward something.",
+          "definitionZh": "吸引注意力、兴趣或人们前往某处。",
+          "examples": [
+            "The festival draws visitors from many countries.",
+            "Her talk drew a large audience."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A result in a game or competition in which neither side wins; a tie.",
+          "definitionZh": "比赛中双方均未获胜的结果；平局。",
+          "examples": [
+            "The match ended in a draw.",
+            "Neither team was satisfied with the draw."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "exercise",
+      "part": "noun / verb",
+      "phonetic": "/ˈeksərsaɪz/",
+      "definition": "Physical activity done to improve health or strength; a task done to develop a skill; or to use a right, power, or ability.",
+      "definitionZh": "运动；锻炼；练习；行使（权利或权力）",
+      "examples": [
+        "Regular exercise is good for your health.",
+        "Complete the exercise on page ten."
+      ],
+      "tip": "“Exercise” is usually uncountable when referring to physical activity, but a specific task can be “an exercise”.",
+      "course": "en",
+      "breakdown": "Can mean physical training, a learning task, or the use of a right or skill.",
+      "related": "workout; practise; training; activity",
+      "categories": [
+        "Activities",
+        "Education",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — physical activity",
+          "definition": "Physical activity done to keep the body healthy or make it stronger.",
+          "definitionZh": "为了保持身体健康或增强体能而进行的身体活动。",
+          "examples": [
+            "Walking is a simple form of exercise.",
+            "She does exercise three times a week."
+          ]
+        },
+        {
+          "part": "noun — practice task",
+          "definition": "A task designed to help someone practise or develop a skill.",
+          "definitionZh": "帮助某人练习或培养技能的任务。",
+          "examples": [
+            "The teacher gave us a grammar exercise.",
+            "Try the listening exercise again."
+          ]
+        },
+        {
+          "part": "verb — use a right or ability",
+          "definition": "To use a right, power, or ability that you have.",
+          "definitionZh": "使用自己拥有的权利、权力或能力。",
+          "examples": [
+            "Citizens can exercise their right to vote.",
+            "The manager must exercise good judgement."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fish",
+      "part": "noun / verb",
+      "phonetic": "/fɪʃ/",
+      "definition": "An animal that lives in water and breathes through gills; or to try to catch fish.",
+      "definitionZh": "鱼；鱼类；钓鱼；捕鱼",
+      "examples": [
+        "We saw colourful fish in the aquarium.",
+        "They fish in the lake every weekend."
+      ],
+      "tip": "The usual plural is “fish”; “fishes” is sometimes used when referring to different species.",
+      "course": "en",
+      "breakdown": "Can refer to the animal or the activity of catching fish.",
+      "related": "seafood; fishing; aquarium; catch",
+      "categories": [
+        "Activities",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An animal that lives in water, has gills, and usually has fins.",
+          "definitionZh": "生活在水中、用鳃呼吸且通常有鳍的动物；鱼。",
+          "examples": [
+            "A goldfish can live in a home aquarium.",
+            "Many fish live near coral reefs."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To try to catch fish, usually with a rod, line, net, or trap.",
+          "definitionZh": "通常使用鱼竿、鱼线、渔网或陷阱尝试捕捉鱼类。",
+          "examples": [
+            "My grandfather likes to fish by the river.",
+            "They went fishing early in the morning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "garden",
+      "part": "noun / verb",
+      "phonetic": "/ˈɡɑːrdən/",
+      "definition": "An area of land where flowers, plants, or vegetables are grown; or to work in such an area.",
+      "definitionZh": "花园；菜园；园艺；种植",
+      "examples": [
+        "She grows herbs in the garden.",
+        "My parents garden together every Sunday."
+      ],
+      "tip": "In British English, “garden” often means the outdoor area next to a home; American English often uses “yard” for this space.",
+      "course": "en",
+      "breakdown": "Can refer to the planted area or the activity of caring for it.",
+      "related": "yard; flowerbed; plant; gardening",
+      "categories": [
+        "Places",
+        "Activities",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An area near a house or in a public place where flowers, plants, or vegetables are grown.",
+          "definitionZh": "在住宅附近或公共场所种植花卉、植物或蔬菜的区域；花园或菜园。",
+          "examples": [
+            "The children played in the garden.",
+            "There is a small vegetable garden behind the house."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To grow and care for plants as an activity.",
+          "definitionZh": "通过种植和照料植物进行园艺活动。",
+          "examples": [
+            "She gardens to relax after work.",
+            "They garden together at the weekend."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "hike",
+      "part": "noun / verb",
+      "phonetic": "/haɪk/",
+      "definition": "A long walk in the countryside or mountains, usually for enjoyment or exercise; or to go on such a walk.",
+      "definitionZh": "远足；徒步旅行；徒步行走",
+      "examples": [
+        "We went on a hike through the forest.",
+        "They plan to hike up the mountain tomorrow."
+      ],
+      "tip": "A hike is usually longer or more challenging than an ordinary walk.",
+      "course": "en",
+      "breakdown": "Usually refers to walking outdoors over a longer distance, often on natural trails.",
+      "related": "walk; trek; trail; hiking",
+      "categories": [
+        "Activities",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A long walk, especially in the countryside or mountains, taken for enjoyment or exercise.",
+          "definitionZh": "尤指在乡村或山区进行的长距离步行，通常为了休闲或锻炼；远足。",
+          "examples": [
+            "The hike took us three hours.",
+            "We packed water and snacks for the hike."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To take a long walk in the countryside or mountains.",
+          "definitionZh": "在乡村或山区进行长距离步行；徒步远足。",
+          "examples": [
+            "They hiked along the coastal trail.",
+            "We hiked to a waterfall during the holiday."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "jog",
+      "part": "verb / noun",
+      "phonetic": "/dʒɑːɡ/",
+      "definition": "To run slowly and steadily, usually for exercise; or a period of this activity.",
+      "definitionZh": "慢跑；轻推；慢跑一段时间",
+      "examples": [
+        "I jog around the park every morning.",
+        "A short jog helps me wake up."
+      ],
+      "tip": "The forms are jog, jogs, jogged, and jogging; the final consonant is doubled before -ed and -ing.",
+      "course": "en",
+      "breakdown": "A jog is slower and less intense than a fast run.",
+      "related": "run; exercise; jogging; sprint",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb — run slowly",
+          "definition": "To run at a slow, steady speed, especially as a form of exercise.",
+          "definitionZh": "以缓慢、稳定的速度跑步，尤指作为一种锻炼方式；慢跑。",
+          "examples": [
+            "She jogs for twenty minutes after work.",
+            "We jogged along the beach at sunrise."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A period of slow, steady running for exercise.",
+          "definitionZh": "为了锻炼而进行的一段缓慢、稳定的跑步；慢跑。",
+          "examples": [
+            "Let's go for a short jog.",
+            "He went for a jog before breakfast."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "knit",
+      "part": "verb / noun",
+      "phonetic": "/nɪt/",
+      "definition": "To make clothing or other items by joining loops of yarn with knitting needles; or a piece of knitted fabric.",
+      "definitionZh": "编织；针织；织物",
+      "examples": [
+        "My aunt taught me to knit a scarf.",
+        "She knitted a warm hat for the baby."
+      ],
+      "tip": "The past tense is “knitted” or “knit”; “knitted” is common in everyday use.",
+      "course": "en",
+      "breakdown": "Usually refers to making fabric by forming connected loops of yarn.",
+      "related": "sew; crochet; wool; knitting",
+      "categories": [
+        "Activities",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make clothing or fabric by using needles to form connected loops of yarn.",
+          "definitionZh": "使用织针将纱线编成相互连接的线圈，以制作衣物或织物。",
+          "examples": [
+            "He learned to knit from his grandmother.",
+            "She knits socks during the winter."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A knitted piece of clothing or fabric.",
+          "definitionZh": "针织制品或针织面料。",
+          "examples": [
+            "The shop sells soft cotton knits.",
+            "This knit is warm but lightweight."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "paint",
+      "part": "noun / verb",
+      "phonetic": "/peɪnt/",
+      "definition": "A coloured liquid or substance used to cover or decorate a surface; or to create a picture by applying it.",
+      "definitionZh": "油漆；颜料；绘画；涂漆",
+      "examples": [
+        "We need more paint for the bedroom wall.",
+        "He likes to paint landscapes."
+      ],
+      "tip": "“Paint” can mean the material or the activity. A person who paints pictures is a painter.",
+      "course": "en",
+      "breakdown": "Can describe decorating a surface or creating an image with coloured material.",
+      "related": "colour; draw; brush; painting",
+      "categories": [
+        "Activities",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A coloured liquid or substance spread over a surface to protect or decorate it.",
+          "definitionZh": "涂在表面上以保护或装饰物体的有色液体或物质；油漆或颜料。",
+          "examples": [
+            "The paint on the door is still wet.",
+            "We bought blue paint for the kitchen."
+          ]
+        },
+        {
+          "part": "verb — apply colour",
+          "definition": "To cover a surface with paint.",
+          "definitionZh": "在表面涂上颜料或油漆。",
+          "examples": [
+            "They painted the fence white.",
+            "I painted my bedroom last weekend."
+          ]
+        },
+        {
+          "part": "verb — create an image",
+          "definition": "To create a picture by putting paint onto paper, canvas, or another surface.",
+          "definitionZh": "通过将颜料涂在纸张、画布或其他表面上创作图画。",
+          "examples": [
+            "She paints portraits of her friends.",
+            "The artist painted a view of the harbour."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "photograph",
+      "part": "noun / verb",
+      "phonetic": "/ˈfoʊtəɡræf/",
+      "definition": "A picture made using a camera; or to take a picture of someone or something with a camera.",
+      "definitionZh": "照片；摄影；拍摄",
+      "examples": [
+        "I found an old photograph of my grandparents.",
+        "The reporter photographed the event."
+      ],
+      "tip": "The noun is stressed on the first syllable. Related forms include photographer and photography.",
+      "course": "en",
+      "breakdown": "The noun is the image; the verb is the action of recording an image with a camera.",
+      "related": "photo; picture; camera; photography",
+      "categories": [
+        "Activities",
+        "Everyday Terms",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A picture made by using a camera to record an image.",
+          "definitionZh": "使用相机记录图像而形成的图片；照片。",
+          "examples": [
+            "This photograph was taken in 1998.",
+            "She keeps a photograph of her family on her desk."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To take a picture of a person, place, or thing using a camera.",
+          "definitionZh": "使用相机拍摄人物、地点或事物。",
+          "examples": [
+            "The journalist photographed the crowd.",
+            "Visitors are allowed to photograph the building."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "practise",
+      "part": "verb",
+      "phonetic": "/ˈpræktɪs/",
+      "definition": "To do an activity repeatedly in order to improve a skill; or to carry out a profession or method regularly.",
+      "definitionZh": "练习；训练；从事；实践",
+      "examples": [
+        "You should practise speaking English every day.",
+        "She practises law in Kuala Lumpur."
+      ],
+      "tip": "British English uses “practise” as the verb and “practice” as the noun. American English uses “practice” for both.",
+      "course": "en",
+      "breakdown": "Repeated action helps improve ability; the verb can also mean to work in a profession.",
+      "related": "practice; train; rehearse; improve",
+      "categories": [
+        "Activities",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "verb — improve a skill",
+          "definition": "To repeat an activity regularly so that you become better at it.",
+          "definitionZh": "定期重复某项活动，以提高自己的能力。",
+          "examples": [
+            "He practises the piano every evening.",
+            "We need to practise for the presentation."
+          ]
+        },
+        {
+          "part": "verb — work in a profession",
+          "definition": "To work in a profession or regularly use a particular method or belief.",
+          "definitionZh": "从事某种职业，或定期采用某种方法或信念。",
+          "examples": [
+            "She practises medicine in a local clinic.",
+            "They practise meditation each morning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "read",
+      "part": "verb / noun",
+      "phonetic": "/riːd/ (present), /red/ (past)",
+      "definition": "To look at and understand written words; or to interpret information from signs, data, or other sources.",
+      "definitionZh": "阅读；读懂；朗读；解读",
+      "examples": [
+        "I read a chapter before bed.",
+        "Can you read the sign from here?"
+      ],
+      "tip": "The spelling stays the same, but the past tense “read” is pronounced /red/, like “red”.",
+      "course": "en",
+      "breakdown": "Usually means understanding written language, but can also mean interpreting signals, expressions, or data.",
+      "related": "study; look through; interpret; reader",
+      "categories": [
+        "Activities",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "verb — understand written words",
+          "definition": "To look at written or printed words and understand their meaning.",
+          "definitionZh": "查看书写或印刷的文字并理解其含义。",
+          "examples": [
+            "She reads a book every week.",
+            "I read the instructions before using the machine."
+          ]
+        },
+        {
+          "part": "verb — interpret information",
+          "definition": "To understand or interpret information shown by signs, numbers, expressions, or other clues.",
+          "definitionZh": "理解或解读标志、数字、表情或其他线索所传达的信息。",
+          "examples": [
+            "The device can read a barcode.",
+            "He could read the worry on her face."
+          ]
+        },
+        {
+          "part": "noun — informal",
+          "definition": "A piece of writing or a book that someone reads, especially when describing how enjoyable or interesting it is.",
+          "definitionZh": "供人阅读的文章或书籍，尤指用来评价其趣味性或可读性。",
+          "examples": [
+            "The article is an easy read.",
+            "That novel is a fascinating read."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "shop",
+      "part": "noun / verb",
+      "phonetic": "/ʃɑːp/",
+      "definition": "A place where goods are sold; or to visit stores to look at or buy things.",
+      "definitionZh": "商店；店铺；购物；逛商店",
+      "examples": [
+        "There is a small shop near the station.",
+        "We usually shop for groceries on Saturday."
+      ],
+      "tip": "“Shop” is common in British English; “store” is more common in American English for many types of retail business.",
+      "course": "en",
+      "breakdown": "The noun is a place that sells goods; the verb describes visiting places to buy or browse.",
+      "related": "store; market; buy; shopping",
+      "categories": [
+        "Everyday Terms",
+        "Places",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A place where goods are sold to customers.",
+          "definitionZh": "向顾客出售商品的地方；商店。",
+          "examples": [
+            "The bookshop closes at six.",
+            "I bought some fruit at the local shop."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To visit shops or websites to look for or buy goods.",
+          "definitionZh": "前往商店或网站寻找、挑选或购买商品；购物。",
+          "examples": [
+            "We shop online when we are busy.",
+            "She shops for clothes twice a year."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "skate",
+      "part": "verb / noun",
+      "phonetic": "/skeɪt/",
+      "definition": "To move over a surface on skates with wheels or blades; or a boot or shoe fitted with them.",
+      "definitionZh": "滑冰；滑旱冰；冰鞋；轮滑鞋",
+      "examples": [
+        "The children skate at the rink after school.",
+        "He learned to skate on the frozen lake."
+      ],
+      "tip": "“Ice-skate” specifies skating on ice; “roller-skate” uses wheeled skates.",
+      "course": "en",
+      "breakdown": "Usually refers to moving while wearing footwear designed to glide over ice or a smooth surface.",
+      "related": "ice-skate; roller-skate; rink; skating",
+      "categories": [
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move across ice or another smooth surface while wearing skates.",
+          "definitionZh": "穿着冰鞋或轮滑鞋在冰面或其他平滑表面上滑行。",
+          "examples": [
+            "She skates confidently on the ice.",
+            "We went to the park to roller-skate."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A boot or shoe fitted with a blade or wheels for skating.",
+          "definitionZh": "装有冰刀或轮子的滑行靴或鞋；冰鞋或轮滑鞋。",
+          "examples": [
+            "He bought a new pair of skates.",
+            "Make sure your skates fit properly."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ski",
+      "part": "noun / verb",
+      "phonetic": "/skiː/",
+      "definition": "A long, narrow piece of equipment attached to a boot for travelling over snow; or to move over snow using skis.",
+      "definitionZh": "滑雪板；滑雪；进行滑雪运动",
+      "examples": [
+        "She learned to ski when she was young.",
+        "He bought a new pair of skis."
+      ],
+      "tip": "The plural is “skis”; the activity is often called skiing.",
+      "course": "en",
+      "breakdown": "Can refer to the equipment or the activity of travelling over snow on it.",
+      "related": "skiing; snow; slope; snowboard",
+      "categories": [
+        "Activities",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "One of a pair of long, narrow pieces of equipment used to move over snow.",
+          "definitionZh": "用于在雪地上移动的一对细长装备之一；滑雪板。",
+          "examples": [
+            "One ski was damaged during the trip.",
+            "She rented skis at the resort."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To travel over snow while standing on skis.",
+          "definitionZh": "站在滑雪板上在雪地上滑行；滑雪。",
+          "examples": [
+            "They ski every winter.",
+            "We skied down a gentle slope."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sleep",
+      "part": "noun / verb",
+      "phonetic": "/sliːp/",
+      "definition": "The natural state of rest in which the body and mind are less active; or to be in that state.",
+      "definitionZh": "睡眠；睡觉；入睡",
+      "examples": [
+        "I need more sleep during the week.",
+        "The baby is sleeping upstairs."
+      ],
+      "tip": "The past tense and past participle are “slept”. Common phrases include go to sleep and fall asleep.",
+      "course": "en",
+      "breakdown": "Refers to the resting state or the act of being in that state; it is different from “rest”, which does not always involve sleeping.",
+      "related": "rest; nap; asleep; bedtime",
+      "categories": [
+        "Activities",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The natural condition of resting in which a person or animal is usually unconscious and less aware of the surroundings.",
+          "definitionZh": "人或动物自然休息的状态，通常处于无意识且对周围环境感知较弱的状态；睡眠。",
+          "examples": [
+            "A good night's sleep helps me concentrate.",
+            "The noise interrupted my sleep."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To be in the natural resting state in which the body and mind are less active.",
+          "definitionZh": "处于身体和精神活动减弱的自然休息状态；睡觉。",
+          "examples": [
+            "The children sleep for ten hours.",
+            "I slept badly because of the heat."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "train",
+      "part": "noun / verb",
+      "phonetic": "/treɪn/",
+      "definition": "A series of connected railway vehicles that carry passengers or goods; or to teach and practise skills for a particular job or activity.",
+      "definitionZh": "火车；列车；训练；培训",
+      "examples": [
+        "We took the train to the city.",
+        "The company trains new employees."
+      ],
+      "tip": "As a verb, train can mean practise to improve performance or teach someone how to do a job.",
+      "course": "en",
+      "breakdown": "The noun usually refers to railway transport; the verb refers to developing skills through instruction and practice.",
+      "related": "railway; practise; coach; training",
+      "categories": [
+        "Everyday Terms",
+        "Places",
+        "Activities",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A series of connected railway vehicles pulled by an engine along tracks.",
+          "definitionZh": "由机车牵引、沿铁轨行驶的一组连接车辆；火车或列车。",
+          "examples": [
+            "The train arrives at platform three.",
+            "We travelled by train across the country."
+          ]
+        },
+        {
+          "part": "verb — develop a skill",
+          "definition": "To practise regularly in order to improve physical ability or performance.",
+          "definitionZh": "通过定期练习提高体能或表现。",
+          "examples": [
+            "She trains for a marathon every morning.",
+            "The team trains twice a week."
+          ]
+        },
+        {
+          "part": "verb — teach someone",
+          "definition": "To teach someone the knowledge or skills needed for a job or activity.",
+          "definitionZh": "教授某人从事工作或活动所需的知识与技能。",
+          "examples": [
+            "The hotel trains its staff in customer service.",
+            "He was trained to operate the equipment."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "write",
+      "part": "verb",
+      "phonetic": "/raɪt/",
+      "definition": "To form letters, words, or other symbols on a surface or digital device; or to create a text such as a message, letter, or story.",
+      "definitionZh": "写；书写；撰写；创作",
+      "examples": [
+        "Please write your name at the top of the page.",
+        "She writes stories for children."
+      ],
+      "tip": "The past tense and past participle are “wrote” and “written”. “Write down” means record information in writing.",
+      "course": "en",
+      "breakdown": "Can refer to forming written symbols or creating a longer piece of text.",
+      "related": "read; spell; compose; author",
+      "categories": [
+        "Activities",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "verb — form written symbols",
+          "definition": "To make letters, words, or symbols using a pen, pencil, keyboard, or another tool.",
+          "definitionZh": "使用笔、铅笔、键盘或其他工具写出字母、单词或符号。",
+          "examples": [
+            "Write the answer in the space provided.",
+            "He writes with his left hand."
+          ]
+        },
+        {
+          "part": "verb — create a text",
+          "definition": "To create a piece of writing, such as a letter, report, article, or story.",
+          "definitionZh": "创作信件、报告、文章或故事等文字作品。",
+          "examples": [
+            "I wrote an email to the manager.",
+            "She is writing a book about her travels."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,718 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Sense-level corrections for a third group of existing English baseline entries with multiple parts of speech.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "c320135a30877680bafc6bba2eddf58cbd21baf9",
+  "patches": [
+    {
+      "word": "alternative",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A choice or possibility that can be used instead of another one.",
+          "definitionZh": "替代方案；可供选择的事物",
+          "examples": [
+            "We need an alternative to this expensive tool.",
+            "Is there a cheaper alternative?"
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Different from the usual or existing option and available to be used instead.",
+          "definitionZh": "替代的；可供选择的",
+          "examples": [
+            "Is there an alternative route?",
+            "The school offers alternative ways to complete the project."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "either",
+      "senses": [
+        {
+          "part": "determiner",
+          "definition": "One or the other of two people or things.",
+          "definitionZh": "（两者中的）任何一个；或者一个",
+          "examples": [
+            "You can choose either colour.",
+            "Either answer is acceptable."
+          ]
+        },
+        {
+          "part": "pronoun",
+          "definition": "One of two people or things, when the choice is understood from the context.",
+          "definitionZh": "两者之一；任意一个",
+          "examples": [
+            "Either of them would be suitable.",
+            "I do not like these shoes; do you have either in a larger size?"
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "Used after a negative statement to mean “also not”.",
+          "definitionZh": "也不；而且不",
+          "examples": [
+            "I do not know the answer either.",
+            "She did not call, and he did not write either."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "enough",
+      "senses": [
+        {
+          "part": "determiner",
+          "definition": "As much or as many as is needed or wanted.",
+          "definitionZh": "足够的；充分的",
+          "examples": [
+            "We have enough chairs for everyone.",
+            "There is not enough time to finish the test."
+          ]
+        },
+        {
+          "part": "pronoun",
+          "definition": "The amount or number that is needed or wanted.",
+          "definitionZh": "足够；充分",
+          "examples": [
+            "I have had enough, thank you.",
+            "Enough has been said about the problem."
+          ]
+        },
+        {
+          "part": "adverb",
+          "definition": "To the degree or amount that is needed.",
+          "definitionZh": "足够地；充分地",
+          "examples": [
+            "The room is warm enough now.",
+            "She did not speak loudly enough for everyone to hear."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "otherwise",
+      "senses": [
+        {
+          "part": "adverb",
+          "definition": "In a different way or in other circumstances.",
+          "definitionZh": "以其他方式；在其他方面",
+          "examples": [
+            "The instructions were clear, but the screen looked otherwise.",
+            "You should leave now; otherwise, you may miss the train."
+          ]
+        },
+        {
+          "part": "conjunction",
+          "definition": "Used to introduce what will happen if something is not done or is not true.",
+          "definitionZh": "否则；不然",
+          "examples": [
+            "Wear a coat, otherwise you will feel cold.",
+            "We must hurry; otherwise, the shop will close."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "patient",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Able to wait or deal with difficulties without becoming annoyed or upset.",
+          "definitionZh": "有耐心的；能忍耐的",
+          "examples": [
+            "Please be patient while the file uploads.",
+            "She is patient when teaching beginners."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A person who receives medical care or treatment.",
+          "definitionZh": "病人；患者",
+          "examples": [
+            "The doctor spoke with each patient.",
+            "The hospital has a separate waiting area for young patients."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "professional",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Relating to a job or career that requires specialised knowledge or training; or showing the standards expected at work.",
+          "definitionZh": "职业的；专业的；符合职业标准的",
+          "examples": [
+            "She wants to build a professional career in design.",
+            "Please use a professional tone in the report."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A person who has specialised training or earns a living from a particular activity.",
+          "definitionZh": "专业人士；职业人员",
+          "examples": [
+            "A professional checked the electrical wiring.",
+            "He is a professional photographer."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "routine",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A regular way of doing things, especially as part of everyday life or work.",
+          "definitionZh": "日常惯例；例行程序",
+          "examples": [
+            "A short morning routine helps me focus.",
+            "The team follows a routine before every performance."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Done regularly as part of a normal process, rather than because something unusual has happened.",
+          "definitionZh": "常规的；例行的",
+          "examples": [
+            "The doctor arranged a routine check-up.",
+            "The update is part of routine maintenance."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "support",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Help, encouragement or practical assistance given to someone or something.",
+          "definitionZh": "支持；帮助；援助",
+          "examples": [
+            "Thank you for your support during the project.",
+            "The students receive extra support with reading."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To help, encourage or provide what someone or something needs; or to hold something up.",
+          "definitionZh": "支持；帮助；支撑",
+          "examples": [
+            "The evidence supports the main conclusion.",
+            "Strong pillars support the roof."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "update",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The latest information about a situation, or a newer version of a product or system.",
+          "definitionZh": "最新消息；更新；升级版本",
+          "examples": [
+            "The manager gave us an update on the project.",
+            "The latest software update fixes several problems."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make information or a system more current by adding new details or improvements.",
+          "definitionZh": "更新；使现代化",
+          "examples": [
+            "Please update your contact details.",
+            "The team updated the website this morning."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "upset",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Unhappy, worried or emotionally disturbed because something unpleasant has happened.",
+          "definitionZh": "难过的；心烦的；不安的",
+          "examples": [
+            "She was upset about the cancellation.",
+            "He looked upset after the meeting."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make someone unhappy or worried, or to disturb a plan or situation.",
+          "definitionZh": "使难过；使心烦；打乱",
+          "examples": [
+            "I did not mean to upset you.",
+            "The sudden rain upset our plans for the picnic."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "usual",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Normal or happening most of the time; expected in a particular situation.",
+          "definitionZh": "通常的；平常的；惯常的",
+          "examples": [
+            "She arrived at her usual time.",
+            "The shop was quieter than usual today."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The thing or way that is normally chosen or expected.",
+          "definitionZh": "平常的事物；惯常的选择",
+          "examples": [
+            "I'll have my usual, please.",
+            "The café was serving the usual for breakfast."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "value",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The importance, usefulness or quality of something; or the amount of money something is worth.",
+          "definitionZh": "价值；重要性；价格",
+          "examples": [
+            "The course offers good value for money.",
+            "The value of the painting increased over time."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To consider something important or useful, or to estimate how much it is worth.",
+          "definitionZh": "重视；珍视；估价",
+          "examples": [
+            "We value clear communication in our team.",
+            "The expert valued the old watch before it was sold."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "wave",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A raised movement of water; a moving pattern or sudden increase; or a hand movement used as a greeting.",
+          "definitionZh": "波浪；浪潮；挥手",
+          "examples": [
+            "A large wave hit the side of the boat.",
+            "She gave us a friendly wave from the doorway."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To move your hand or an object from side to side, often to greet someone or attract attention.",
+          "definitionZh": "挥手；挥动",
+          "examples": [
+            "He waved goodbye as the train left.",
+            "The guide waved a flag to signal the group."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "whisper",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak very quietly, using the breath rather than a normal voice.",
+          "definitionZh": "低声说；耳语",
+          "examples": [
+            "Please do not whisper during the presentation.",
+            "She whispered the answer to her friend."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A very quiet way of speaking or a quiet sound.",
+          "definitionZh": "耳语；低语；轻声",
+          "examples": [
+            "I heard a whisper from the next room.",
+            "The room fell to a whisper as the speaker entered."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "wonder",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To think about something with curiosity or uncertainty, wanting to know the answer.",
+          "definitionZh": "想知道；琢磨；感到好奇",
+          "examples": [
+            "I wonder why the train is late.",
+            "She wondered whether she had chosen the right course."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A feeling of surprise and admiration caused by something beautiful or extraordinary; or something remarkable.",
+          "definitionZh": "惊奇；惊叹；奇迹",
+          "examples": [
+            "The children stared at the fireworks in wonder.",
+            "The ancient bridge is an engineering wonder."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "worth",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Having a particular value or being deserving of the time, effort or attention needed.",
+          "definitionZh": "值得的；有……价值的",
+          "examples": [
+            "The museum is worth visiting.",
+            "This old camera is worth a lot of money."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The value or importance of someone or something.",
+          "definitionZh": "价值；重要性；身价",
+          "examples": [
+            "The company estimated the total worth of its equipment.",
+            "She knows her own worth and stands by her decisions."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "yet",
+      "senses": [
+        {
+          "part": "adverb",
+          "definition": "Until now or until a particular time, often used in questions and negative statements.",
+          "definitionZh": "还；尚；迄今",
+          "examples": [
+            "Have you finished the report yet?",
+            "The new timetable has not been announced yet."
+          ]
+        },
+        {
+          "part": "conjunction",
+          "definition": "But or nevertheless; used to introduce a contrast.",
+          "definitionZh": "然而；但是",
+          "examples": [
+            "The task was difficult, yet everyone completed it.",
+            "He was tired, yet he continued working."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "yield",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To produce or provide a result, amount or supply; or to give way or stop resisting.",
+          "definitionZh": "产生；提供；让步；屈服",
+          "examples": [
+            "The new method yielded better results.",
+            "Drivers must yield to pedestrians at the crossing."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The amount of something produced, especially by a plant, farm, investment or process.",
+          "definitionZh": "产量；收益；产出",
+          "examples": [
+            "The farm expects a larger rice yield this year.",
+            "The investment offers a steady annual yield."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "retort",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To reply quickly and sharply, often in an angry, witty or challenging way.",
+          "definitionZh": "反驳；回嘴；反唇相讥",
+          "examples": [
+            "“That is not what I said,” she retorted.",
+            "He retorted that the figures were incorrect."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A quick, sharp or witty reply.",
+          "definitionZh": "反驳；机敏的回嘴",
+          "examples": [
+            "Her clever retort made the audience laugh.",
+            "He had no retort ready when the question was asked."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "retreat",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move back or away from a difficult, threatening or uncomfortable situation.",
+          "definitionZh": "撤退；退避；后退",
+          "examples": [
+            "The soldiers retreated to a safer position.",
+            "He retreated from the argument before it became worse."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "An act of moving away from danger or difficulty; or a quiet place or period used for rest and reflection.",
+          "definitionZh": "撤退；静修处；休养期",
+          "examples": [
+            "The army began its retreat before dawn.",
+            "She spent the weekend at a quiet writing retreat."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "recoil",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move back suddenly because of fear, shock, pain or disgust.",
+          "definitionZh": "退缩；畏缩；弹回",
+          "examples": [
+            "He recoiled when he touched the hot surface.",
+            "She recoiled from the unpleasant smell."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sudden backward movement, especially caused by a force or strong reaction.",
+          "definitionZh": "后坐；退缩；反冲",
+          "examples": [
+            "The recoil of the tool surprised the new user.",
+            "He showed no recoil from the difficult question."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "quarantine",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A period or measure of isolation used to prevent the spread of disease or to contain a security threat.",
+          "definitionZh": "隔离；检疫期",
+          "examples": [
+            "The animal was kept in quarantine before joining the group.",
+            "The health authority shortened the quarantine period."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To isolate a person, animal, object or computer system to prevent a risk from spreading.",
+          "definitionZh": "隔离；检疫；隔离处理",
+          "examples": [
+            "The clinic quarantined the animal for observation.",
+            "The security software quarantined the suspicious file."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "scoff",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak about or react to something with contempt or disbelief.",
+          "definitionZh": "嘲笑；讥笑；嗤之以鼻",
+          "examples": [
+            "Some people scoffed at the idea before it was tested.",
+            "He scoffed when he heard the unlikely story."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "Food, especially in informal British and Australian usage.",
+          "definitionZh": "食物；吃的东西（非正式用法）",
+          "examples": [
+            "The hikers packed enough scoff for the journey.",
+            "After the match, the team sat down for some hot scoff."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "shriek",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To make a very high, loud sound because of fear, excitement or pain.",
+          "definitionZh": "尖叫；发出尖锐叫声",
+          "examples": [
+            "The children shrieked with excitement on the ride.",
+            "She shrieked when the spider appeared."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A very high and loud cry or sound.",
+          "definitionZh": "尖叫声；刺耳声",
+          "examples": [
+            "A sudden shriek came from the garden.",
+            "The machine ended with a loud metallic shriek."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "shrug",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To raise and lower your shoulders to show uncertainty, indifference or that you do not know.",
+          "definitionZh": "耸肩；不以为然",
+          "examples": [
+            "He shrugged when I asked who had moved the chair.",
+            "She shrugged her shoulders and continued working."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A movement in which the shoulders are raised and lowered to show uncertainty or indifference.",
+          "definitionZh": "耸肩；无所谓的表示",
+          "examples": [
+            "His shrug suggested that he did not know the answer.",
+            "She gave a small shrug and smiled."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "shudder",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To shake suddenly, often because of fear, disgust or cold.",
+          "definitionZh": "发抖；战栗；震动",
+          "examples": [
+            "She shuddered at the thought of entering the dark room.",
+            "The old windows shuddered in the strong wind."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A sudden shaking movement caused by fear, disgust or cold.",
+          "definitionZh": "颤抖；战栗；震动",
+          "examples": [
+            "A shudder ran through him as the door creaked.",
+            "The building gave a slight shudder during the storm."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sigh",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To breathe out audibly, often because of relief, sadness, tiredness or frustration.",
+          "definitionZh": "叹气；叹息",
+          "examples": [
+            "She sighed with relief when the test was over.",
+            "He sighed and closed the unfinished report."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A long, audible breath that expresses relief, sadness, tiredness or frustration.",
+          "definitionZh": "叹息；叹气声",
+          "examples": [
+            "A sigh of relief came from the whole room.",
+            "He let out a deep sigh before answering."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "sink",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To move down below a surface or to lower gradually; or to become weaker or less successful.",
+          "definitionZh": "下沉；沉没；下降",
+          "examples": [
+            "The stone sank to the bottom of the lake.",
+            "The sun sank behind the mountains."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A fixed basin with a water supply and drain, used for washing dishes or hands.",
+          "definitionZh": "洗涤槽；水槽",
+          "examples": [
+            "Please leave the dirty cups in the kitchen sink.",
+            "The bathroom sink needs a new tap."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "smile",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To form a pleasant expression by turning up the corners of your mouth.",
+          "definitionZh": "微笑；笑",
+          "examples": [
+            "She smiled when she saw her friends.",
+            "He smiled politely at the visitors."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A pleasant expression made by turning up the corners of the mouth.",
+          "definitionZh": "微笑；笑容",
+          "examples": [
+            "Her smile made the room feel warmer.",
+            "He greeted the child with a friendly smile."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "stammer",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To speak with repeated sounds or pauses, often because of nervousness or a speech difficulty.",
+          "definitionZh": "口吃；结结巴巴地说",
+          "examples": [
+            "He began to stammer when the interviewer asked a difficult question.",
+            "She stammered an apology and looked down."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A way of speaking in which sounds or words are repeated or interrupted.",
+          "definitionZh": "口吃；结巴",
+          "examples": [
+            "His stammer became less noticeable when he felt relaxed.",
+            "The speech therapist helped him manage his stammer."
+          ]
+        }
+      ]
+    }
+  ],
+  "appliedCommit": "704a9f4649188bc9f826604c7bd222862594cdde"
+}

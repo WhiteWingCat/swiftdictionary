@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add second examples to the final set of specialist baseline entries.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "858ff9623cf375b983b684bb2ed65a396b280e38",
+  "entries": [
+    {
+      "word": "rheology",
+      "addExamples": [
+        "Rheology helps scientists measure how a gel flows under pressure."
+      ]
+    },
+    {
+      "word": "salience",
+      "addExamples": [
+        "The bright colour increases the salience of the warning sign."
+      ]
+    },
+    {
+      "word": "sedimentology",
+      "addExamples": [
+        "Sedimentology helps reconstruct the history of the river basin."
+      ]
+    },
+    {
+      "word": "semiotics",
+      "addExamples": [
+        "The course uses semiotics to examine how images communicate meaning."
+      ]
+    },
+    {
+      "word": "serendipity",
+      "addExamples": [
+        "By serendipity, she found the missing reference while reading another paper."
+      ]
+    },
+    {
+      "word": "stammer",
+      "addExamples": [
+        "The actor practised the line until he could say it without a stammer."
+      ]
+    },
+    {
+      "word": "stoichiometry",
+      "addExamples": [
+        "Stoichiometry determines the proportions of reactants needed for a chemical reaction."
+      ]
+    },
+    {
+      "word": "stratigraphy",
+      "addExamples": [
+        "The archaeologists used stratigraphy to date the layers of the site."
+      ]
+    },
+    {
+      "word": "syncretism",
+      "addExamples": [
+        "The festival reflects syncretism between several religious traditions."
+      ]
+    },
+    {
+      "word": "synecdoche",
+      "addExamples": [
+        "Calling a car “a set of wheels” is an example of synecdoche."
+      ]
+    },
+    {
+      "word": "taphonomy",
+      "addExamples": [
+        "Taphonomy helps scientists understand how remains become fossils."
+      ]
+    },
+    {
+      "word": "taxonomy",
+      "addExamples": [
+        "The new species was added to the existing taxonomy."
+      ]
+    },
+    {
+      "word": "telemetry",
+      "addExamples": [
+        "Telemetry sends engine data to the control centre during the flight."
+      ]
+    },
+    {
+      "word": "teleology",
+      "addExamples": [
+        "The essay questions whether evolution should be explained in teleological terms."
+      ]
+    },
+    {
+      "word": "tessellation",
+      "addExamples": [
+        "The artist created a tessellation from repeating geometric shapes."
+      ]
+    },
+    {
+      "word": "thanatology",
+      "addExamples": [
+        "Thanatology examines death, dying and related social practices."
+      ]
+    },
+    {
+      "word": "thermodynamics",
+      "addExamples": [
+        "The second law of thermodynamics concerns the direction of energy transfer."
+      ]
+    },
+    {
+      "word": "toponymy",
+      "addExamples": [
+        "Local toponymy preserves clues about the area's history and language."
+      ]
+    },
+    {
+      "word": "transdisciplinary",
+      "addExamples": [
+        "The research team took a transdisciplinary approach to urban planning."
+      ]
+    },
+    {
+      "word": "transduction",
+      "addExamples": [
+        "Signal transduction allows a cell to respond to chemical messages."
+      ]
+    },
+    {
+      "word": "triangulation",
+      "addExamples": [
+        "The researchers used triangulation to compare survey results with interviews."
+      ]
+    },
+    {
+      "word": "trophic",
+      "addExamples": [
+        "The loss of a predator can affect the entire trophic structure of an ecosystem."
+      ]
+    },
+    {
+      "word": "turbidity",
+      "addExamples": [
+        "Heavy rainfall increased the river's turbidity."
+      ]
+    },
+    {
+      "word": "ubiquitination",
+      "addExamples": [
+        "Ubiquitination marks some proteins for breakdown inside the cell."
+      ]
+    },
+    {
+      "word": "usufruct",
+      "addExamples": [
+        "The agreement granted the family usufruct over the farmland."
+      ]
+    },
+    {
+      "word": "variography",
+      "addExamples": [
+        "Variography helped the geologists estimate how mineral grades varied across the site."
+      ]
+    },
+    {
+      "word": "vectorization",
+      "addExamples": [
+        "Vectorization allowed the software to process many data points at once."
+      ]
+    },
+    {
+      "word": "verisimilitude",
+      "addExamples": [
+        "The novel's realistic dialogue gives the story a sense of verisimilitude."
+      ]
+    },
+    {
+      "word": "volumetric",
+      "addExamples": [
+        "The scanner produces a volumetric model of the object."
+      ]
+    },
+    {
+      "word": "x-axis",
+      "addExamples": [
+        "Time is plotted along the x-axis of the graph."
+      ]
+    }
+  ],
+  "appliedCommit": "648a602bb7490d9213acdb0852dfd9140b33b66e"
+}

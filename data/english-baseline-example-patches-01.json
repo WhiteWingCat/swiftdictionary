@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add a second context-appropriate example to existing English baseline entries that currently have one example.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "71332fdf57a38dbf00c49ca49aaf517e51958002",
+  "entries": [
+    {
+      "word": "aberration",
+      "addExamples": [
+        "A single unusually warm winter was an aberration in the long-term climate record."
+      ]
+    },
+    {
+      "word": "abiotic",
+      "addExamples": [
+        "Temperature and soil pH are abiotic conditions that influence an ecosystem."
+      ]
+    },
+    {
+      "word": "ablation",
+      "addExamples": [
+        "Ice loss through ablation increased during the unusually hot summer."
+      ]
+    },
+    {
+      "word": "abrogate",
+      "addExamples": [
+        "The court cannot abrogate a contract simply because one party dislikes it."
+      ]
+    },
+    {
+      "word": "abscission",
+      "addExamples": [
+        "Hormone levels changed just before leaf abscission began."
+      ]
+    },
+    {
+      "word": "accretion",
+      "addExamples": [
+        "The slow accretion of sediment gradually formed a new sandbank."
+      ]
+    },
+    {
+      "word": "acoustics",
+      "addExamples": [
+        "We tested the room's acoustics before choosing the recording equipment."
+      ]
+    },
+    {
+      "word": "allometry",
+      "addExamples": [
+        "Allometry can help explain why larger animals often need thicker supporting bones."
+      ]
+    },
+    {
+      "word": "allosteric",
+      "addExamples": [
+        "An allosteric inhibitor binds to an enzyme away from its active site."
+      ]
+    },
+    {
+      "word": "anachronism",
+      "addExamples": [
+        "Using a modern mobile phone in a historical drama would be an anachronism."
+      ]
+    },
+    {
+      "word": "anastomosis",
+      "addExamples": [
+        "The patient recovered after the surgical anastomosis healed."
+      ]
+    },
+    {
+      "word": "anomie",
+      "addExamples": [
+        "The author linked rising anomie to the loss of shared social expectations."
+      ]
+    },
+    {
+      "word": "anthropogenic",
+      "addExamples": [
+        "Researchers compared anthropogenic warming with natural climate variation."
+      ]
+    },
+    {
+      "word": "apocryphal",
+      "addExamples": [
+        "The story about the inventor is entertaining but probably apocryphal."
+      ]
+    },
+    {
+      "word": "apodictic",
+      "addExamples": [
+        "The speaker presented the claim as apodictic, leaving no room for doubt."
+      ]
+    },
+    {
+      "word": "apoptosis",
+      "addExamples": [
+        "Apoptosis helps remove damaged cells during normal development."
+      ]
+    },
+    {
+      "word": "arbitrage",
+      "addExamples": [
+        "Currency traders watched for arbitrage opportunities across different exchanges."
+      ]
+    },
+    {
+      "word": "archival",
+      "addExamples": [
+        "The documentary includes archival footage from the early 1960s."
+      ]
+    },
+    {
+      "word": "ascertain",
+      "addExamples": [
+        "We need to inspect the original records to ascertain who approved the change."
+      ]
+    },
+    {
+      "word": "asymptotic",
+      "addExamples": [
+        "The graph shows the function's asymptotic behaviour as the input grows."
+      ]
+    },
+    {
+      "word": "atavism",
+      "addExamples": [
+        "The unusual pattern was once described as atavism, although other explanations are possible."
+      ]
+    },
+    {
+      "word": "autochthonous",
+      "addExamples": [
+        "The reserve protects autochthonous species that evolved in the region."
+      ]
+    },
+    {
+      "word": "autopoiesis",
+      "addExamples": [
+        "The researchers used autopoiesis to describe how the system maintains its own organisation."
+      ]
+    },
+    {
+      "word": "baroclinic",
+      "addExamples": [
+        "Meteorologists studied baroclinic development in the mid-latitude cyclone."
+      ]
+    },
+    {
+      "word": "baroque",
+      "addExamples": [
+        "The church's Baroque interior is decorated with gold and detailed sculpture."
+      ]
+    },
+    {
+      "word": "benthic",
+      "addExamples": [
+        "Benthic habitats support organisms adapted to life on the seabed."
+      ]
+    },
+    {
+      "word": "bifurcation",
+      "addExamples": [
+        "The trail reaches a bifurcation where hikers must choose between two routes."
+      ]
+    },
+    {
+      "word": "bioaccumulation",
+      "addExamples": [
+        "Bioaccumulation can cause higher concentrations of pollutants in older fish."
+      ]
+    },
+    {
+      "word": "bioavailability",
+      "addExamples": [
+        "The study compared the bioavailability of iron in different foods."
+      ]
+    },
+    {
+      "word": "biogeography",
+      "addExamples": [
+        "Island biogeography examines how distance and island size affect species diversity."
+      ]
+    }
+  ],
+  "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
+}

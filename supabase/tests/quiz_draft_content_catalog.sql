@@ -18,7 +18,12 @@ insert into private.learning_content_catalog(
  ('permanent_lesson','a-inversion','advanced-grammar','advanced','en',true),
  ('permanent_lesson','a-mixed-conditionals','advanced-grammar','advanced','en',true),
  ('permanent_lesson','a-idioms','idioms-fixed-expressions','advanced','en',true),
- ('permanent_lesson','a-near-synonyms','precise-vocabulary','advanced','en',true)
+ ('permanent_lesson','a-near-synonyms','precise-vocabulary','advanced','en',true),
+ ('permanent_lesson','b-greetings-polite-expressions','everyday-vocabulary','beginner','en',true),
+ ('permanent_lesson','b-places-getting-around','everyday-vocabulary','beginner','en',true),
+ ('permanent_lesson','b-question-forms-negatives','sentence-basics','beginner','en',true),
+ ('permanent_lesson','i-passive-voice','verb-tenses','intermediate','en',true),
+ ('permanent_lesson','a-reported-speech','advanced-grammar','advanced','en',true)
 on conflict (activity_type,content_id,language_code)
 do update set topic_id=excluded.topic_id,difficulty=excluded.difficulty,is_active=excluded.is_active;
 
@@ -29,9 +34,11 @@ begin
         and content_id in (
           'b-verb-combinations','b-articles','b-countable-nouns','b-sentence','b-present',
           'i-collocations','i-conditionals','i-phrasal','i-perfect','i-word-families',
-          'a-hedging','a-inversion','a-mixed-conditionals','a-idioms','a-near-synonyms'
+          'a-hedging','a-inversion','a-mixed-conditionals','a-idioms','a-near-synonyms',
+          'b-greetings-polite-expressions','b-places-getting-around','b-question-forms-negatives',
+          'i-passive-voice','a-reported-speech'
         )
-        and is_active) <> 15 then
+        and is_active) <> 20 then
     raise exception 'Quiz content source lesson fixtures are incomplete';
   end if;
 end;

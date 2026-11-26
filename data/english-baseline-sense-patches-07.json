@@ -1,0 +1,506 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Separate common and technical polysemous baseline meanings into sense-level records with Simplified Chinese translations and examples.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "be585fc72253acacfc896111360ff8f8929119a9",
+  "patches": [
+    {
+      "word": "application",
+      "part": "noun",
+      "definition": "A formal request or a program designed for a purpose.",
+      "definitionZh": "申请；应用程序",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A formal request for something, such as a job, place, or service.",
+          "definitionZh": "正式申请；请求获得工作、名额或服务。",
+          "examples": [
+            "I submitted an application for the design course.",
+            "The company received hundreds of job applications."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A computer or mobile program designed to perform a particular task.",
+          "definitionZh": "为执行特定任务而设计的电脑或手机程序；应用程序。",
+          "examples": [
+            "This application helps users organise their notes.",
+            "You can download the application from the official store."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "argue",
+      "part": "verb",
+      "definition": "To disagree with someone, often by giving reasons.",
+      "definitionZh": "争论；辩论；主张",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To disagree with someone, often in an angry or emotional way.",
+          "definitionZh": "与某人意见不合并发生争执；争吵。",
+          "examples": [
+            "The two friends argued about money.",
+            "They often argue, but they still care about each other."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To give reasons for or against an idea or position.",
+          "definitionZh": "提出理由支持或反对某个观点；论证；主张。",
+          "examples": [
+            "The report argues that public transport needs more funding.",
+            "She argued for a simpler design."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "assume",
+      "part": "verb",
+      "definition": "To accept something as true without proof.",
+      "definitionZh": "假设；认为；承担",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To accept something as true without having proof.",
+          "definitionZh": "在没有证据的情况下认为某事属实；假设。",
+          "examples": [
+            "Do not assume that everyone knows the rules.",
+            "I assumed the shop would be open."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To take on a role, responsibility, or particular quality.",
+          "definitionZh": "承担某种角色或责任；呈现某种特征。",
+          "examples": [
+            "She assumed responsibility for the project.",
+            "The road assumes a different shape near the river."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bold",
+      "part": "adjective",
+      "definition": "Confident and willing to take risks; striking or noticeable.",
+      "definitionZh": "大胆的；醒目的",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Confident and willing to take risks or do something difficult.",
+          "definitionZh": "大胆的；勇于冒险或面对困难的。",
+          "examples": [
+            "It was a bold decision to start the business.",
+            "She made a bold move and changed careers."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Strong, clear, or noticeable in appearance or style.",
+          "definitionZh": "醒目的；突出的；风格鲜明的。",
+          "examples": [
+            "The poster uses bold colours.",
+            "Choose a bold typeface for the main heading."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "certain",
+      "part": "adjective",
+      "definition": "Sure that something is true; particular but not named.",
+      "definitionZh": "确定的；某个",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Sure that something is true or will happen.",
+          "definitionZh": "确信的；确定的。",
+          "examples": [
+            "I am certain that I locked the door.",
+            "We are not certain when the parcel will arrive."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Used to refer to a particular person or thing without naming it.",
+          "definitionZh": "某个；某些；不具体指明的。",
+          "examples": [
+            "A certain student left a notebook here.",
+            "Under certain conditions, the material changes colour."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "choice",
+      "part": "noun",
+      "definition": "An act of choosing or something that can be chosen.",
+      "definitionZh": "选择；选择权",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The act of choosing between two or more possibilities.",
+          "definitionZh": "在两个或多个可能选项之间作出选择的行为。",
+          "examples": [
+            "You have a choice between tea and coffee.",
+            "It was a difficult choice to make."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A person or thing that has been selected or is available to be selected.",
+          "definitionZh": "被选中的人或事物；可供选择的选项。",
+          "examples": [
+            "This model is a popular choice for beginners.",
+            "There are several healthy choices on the menu."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "concentrate",
+      "part": "verb",
+      "definition": "To give your full attention to something.",
+      "definitionZh": "集中注意力；浓缩",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To give all your attention to one activity or subject.",
+          "definitionZh": "集中全部注意力于某项活动或主题；专心。",
+          "examples": [
+            "I find it hard to concentrate when the room is noisy.",
+            "She concentrated on finishing the report."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To increase the strength of a substance by removing water or other material.",
+          "definitionZh": "通过去除水分或其他物质来提高某种物质的浓度。",
+          "examples": [
+            "The factory concentrates the fruit juice before packaging it.",
+            "The solution is heated to concentrate the liquid."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "conjugation",
+      "part": "noun",
+      "definition": "The joining or transfer of genetic material between cells; in grammar, the inflection of a verb.",
+      "definitionZh": "接合；动词变位",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The changes made to a verb to show tense, person, number, or mood.",
+          "definitionZh": "动词为表示时态、人称、数或语气而发生的词形变化；动词变位。",
+          "examples": [
+            "Students practised the conjugation of common Spanish verbs.",
+            "The verb has an irregular conjugation in the past tense."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The joining or transfer of genetic material between cells or organisms.",
+          "definitionZh": "细胞或生物体之间遗传物质的结合或转移；接合。",
+          "examples": [
+            "The researchers observed conjugation between the bacterial cells.",
+            "Conjugation can help bacteria share genetic material."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "consider",
+      "part": "verb",
+      "definition": "To think carefully about something before deciding.",
+      "definitionZh": "考虑；认为",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To think carefully about something before making a decision.",
+          "definitionZh": "在作出决定前仔细思考某事；考虑。",
+          "examples": [
+            "Please consider all the options before replying.",
+            "We are considering a move to a smaller office."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To regard someone or something as having a particular quality or status.",
+          "definitionZh": "认为或看待某人或某事具有某种特质或身份。",
+          "examples": [
+            "Many people consider her an expert in the field.",
+            "The team considers safety its top priority."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "console",
+      "part": "verb / noun",
+      "definition": "To comfort someone who is sad or disappointed; or a control panel or device used to operate a system.",
+      "definitionZh": "安慰；控制台；操作设备。",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To comfort someone who is sad, disappointed, or upset.",
+          "definitionZh": "安慰悲伤、失望或难过的人。",
+          "examples": [
+            "Her friends tried to console her after the loss.",
+            "He consoled the child with a kind word."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A control panel or electronic device used to operate a system, machine, or game.",
+          "definitionZh": "用于操作系统、机器或游戏的控制面板或电子设备；控制台。",
+          "examples": [
+            "The technician adjusted the settings on the console.",
+            "They connected the game console to the television."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "dissonance",
+      "part": "noun",
+      "definition": "A lack of harmony or agreement; in psychology, conflict between beliefs and actions.",
+      "definitionZh": "不协调；认知失调",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A lack of harmony or agreement between sounds, ideas, or elements.",
+          "definitionZh": "声音、观点或元素之间缺乏和谐或一致；不协调。",
+          "examples": [
+            "The dissonance between the instruments created tension in the music.",
+            "There was a clear dissonance between the speech and the policy."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "In psychology, a mental conflict caused by inconsistent beliefs, values, or actions.",
+          "definitionZh": "心理学中，因信念、价值观或行为不一致而产生的心理冲突；认知失调。",
+          "examples": [
+            "He felt dissonance between his values and his daily choices.",
+            "The study examined cognitive dissonance in consumer decisions."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "express",
+      "part": "verb / adjective",
+      "definition": "To communicate a thought, feeling, or idea; or to describe a service or form of transport that is fast and direct.",
+      "definitionZh": "表达；特快的；快速直达的。",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To communicate a thought, feeling, or idea.",
+          "definitionZh": "表达想法、感受或观点。",
+          "examples": [
+            "She found it difficult to express her feelings.",
+            "The report expresses concern about rising costs."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Fast and direct, with few or no stops; often used for transport or delivery services.",
+          "definitionZh": "快速直达的；特快的，常用于交通或递送服务。",
+          "examples": [
+            "We took the express train to the airport.",
+            "The shop offers express delivery for urgent orders."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "expression",
+      "part": "noun",
+      "definition": "A look on someone’s face, or a way of communicating an idea.",
+      "definitionZh": "表达；表情；表达方式",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The look on someone's face that shows an emotion or reaction.",
+          "definitionZh": "显示情绪或反应的面部表情。",
+          "examples": [
+            "Her expression changed when she heard the news.",
+            "He had a surprised expression on his face."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A word, phrase, or way of communicating an idea or feeling.",
+          "definitionZh": "表达想法或感受的词语、短语或方式；表达方式。",
+          "examples": [
+            "“Break the ice” is a common English expression.",
+            "Music is a powerful form of expression."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A combination of numbers, symbols, or variables that represents a mathematical value.",
+          "definitionZh": "由数字、符号或变量组成、表示数学数值的式子；表达式。",
+          "examples": [
+            "Simplify the expression before solving the equation.",
+            "The expression contains two variables."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "goal",
+      "part": "noun",
+      "definition": "Something you want to achieve.",
+      "definitionZh": "目标；进球",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Something that a person or group hopes to achieve.",
+          "definitionZh": "个人或群体希望实现的目标。",
+          "examples": [
+            "My main goal is to improve my English.",
+            "The team set a goal for the end of the year."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A point scored in a sport such as football or hockey.",
+          "definitionZh": "足球、曲棍球等运动中得分的一球；进球。",
+          "examples": [
+            "The striker scored a goal in the final minute.",
+            "Their first goal changed the pace of the match."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "interpret",
+      "part": "verb",
+      "definition": "To explain the meaning of something or understand it in a particular way.",
+      "definitionZh": "解释；诠释；口译",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To explain the meaning of something.",
+          "definitionZh": "解释某事物的含义；阐释。",
+          "examples": [
+            "The guide interpreted the symbols on the wall.",
+            "How do you interpret this sentence?"
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To understand or present something in a particular way.",
+          "definitionZh": "以某种方式理解或呈现某事；诠释。",
+          "examples": [
+            "The same remark can be interpreted in different ways.",
+            "The actor interpreted the character as thoughtful and reserved."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To translate spoken words from one language into another.",
+          "definitionZh": "将一种语言的口头内容翻译成另一种语言；口译。",
+          "examples": [
+            "A trained professional interpreted during the meeting.",
+            "She interpreted the questions for the visiting speaker."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "journey",
+      "part": "noun",
+      "definition": "The act of travelling from one place to another; also, a long process of change or learning.",
+      "definitionZh": "旅程；行程",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The act of travelling from one place to another, especially over a long distance.",
+          "definitionZh": "从一个地方前往另一个地方的行程，尤指较长距离的旅行。",
+          "examples": [
+            "The journey from Kuala Lumpur to Penang took four hours.",
+            "We packed snacks for the long journey."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A long process of personal change, learning, or development.",
+          "definitionZh": "个人成长、学习或发展的漫长过程；历程。",
+          "examples": [
+            "Learning animation has been a rewarding journey.",
+            "Her journey to recovery took several months."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "juncture",
+      "part": "noun",
+      "definition": "A particular point in time or a place where things meet.",
+      "definitionZh": "关头；连接点",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A particular point in time, especially one at which an important decision is needed.",
+          "definitionZh": "某个特定时刻，尤指需要作出重要决定的关头。",
+          "examples": [
+            "At this juncture, we need to review the plan.",
+            "The company faced a difficult juncture in its history."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A place or point where two things meet or join.",
+          "definitionZh": "两个事物相遇或连接的位置；交接点。",
+          "examples": [
+            "The pipe was damaged at the juncture with the main line.",
+            "A small crack appeared at the juncture of the two panels."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "jurisdiction",
+      "part": "noun",
+      "definition": "The official authority to make legal decisions or the area where that authority applies.",
+      "definitionZh": "管辖权；司法权",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The official power or authority to make legal decisions or enforce laws.",
+          "definitionZh": "作出法律裁决或执行法律的正式权力；管辖权。",
+          "examples": [
+            "The court has jurisdiction over the case.",
+            "The agency's jurisdiction includes consumer protection."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The geographical area or matters over which an authority has control.",
+          "definitionZh": "某个机构或权力机关所管辖的地区或事务范围；管辖区域。",
+          "examples": [
+            "The incident occurred outside the city's jurisdiction.",
+            "Each department has its own area of jurisdiction."
+          ]
+        }
+      ]
+    }
+  ],
+  "translationCorrections": [
+    {
+      "word": "brief",
+      "definitionZh": "简短的；简洁的"
+    },
+    {
+      "word": "compassionate",
+      "definitionZh": "有同情心的；体恤他人的"
+    }
+  ],
+  "appliedCommit": "4009e519d87b6fc954a5c5c3feb692f823c7fad0"
+}

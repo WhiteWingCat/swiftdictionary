@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add second contextual examples to further existing technical and academic English entries.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "455680e0318d34c96e272538b674132a1ff1c84f",
+  "entries": [
+    {
+      "word": "diapause",
+      "addExamples": [
+        "Some insects enter diapause when environmental conditions become unfavourable."
+      ]
+    },
+    {
+      "word": "diaspora",
+      "addExamples": [
+        "The festival brings together members of the local Filipino diaspora."
+      ]
+    },
+    {
+      "word": "dichotomy",
+      "addExamples": [
+        "The article challenges the dichotomy between creativity and technical skill."
+      ]
+    },
+    {
+      "word": "differentiation",
+      "addExamples": [
+        "Cell differentiation allows developing tissues to take on specialised functions."
+      ]
+    },
+    {
+      "word": "dihedral",
+      "addExamples": [
+        "The aircraft's dihedral angle was adjusted to improve lateral stability."
+      ]
+    },
+    {
+      "word": "dilution",
+      "addExamples": [
+        "The laboratory measured the sample after a tenfold dilution."
+      ]
+    },
+    {
+      "word": "disambiguation",
+      "addExamples": [
+        "The search tool uses context for the disambiguation of words with several meanings."
+      ]
+    },
+    {
+      "word": "dissonance",
+      "addExamples": [
+        "The film uses musical dissonance to create a feeling of unease."
+      ]
+    },
+    {
+      "word": "ecotone",
+      "addExamples": [
+        "The ecotone between forest and grassland supports species from both habitats."
+      ]
+    },
+    {
+      "word": "efficacy",
+      "addExamples": [
+        "The trial was designed to measure the efficacy of the new treatment."
+      ]
+    },
+    {
+      "word": "endemic",
+      "addExamples": [
+        "The island is home to several endemic species found nowhere else."
+      ]
+    },
+    {
+      "word": "endogeneity",
+      "addExamples": [
+        "The researchers tested for endogeneity before interpreting the statistical model."
+      ]
+    },
+    {
+      "word": "epistasis",
+      "addExamples": [
+        "The study examined epistasis between genes involved in pigment production."
+      ]
+    },
+    {
+      "word": "epistemic",
+      "addExamples": [
+        "The paper discusses epistemic uncertainty in scientific measurements."
+      ]
+    },
+    {
+      "word": "epistemology",
+      "addExamples": [
+        "The course introduces epistemology through questions about knowledge and evidence."
+      ]
+    },
+    {
+      "word": "equifinality",
+      "addExamples": [
+        "The model allows for equifinality, where different processes can produce similar outcomes."
+      ]
+    },
+    {
+      "word": "eschatology",
+      "addExamples": [
+        "The lecture compared eschatology in several religious traditions."
+      ]
+    },
+    {
+      "word": "ethnography",
+      "addExamples": [
+        "Her ethnography describes everyday life in a coastal fishing community."
+      ]
+    },
+    {
+      "word": "eutrophication",
+      "addExamples": [
+        "Excess fertiliser runoff can accelerate eutrophication in lakes."
+      ]
+    },
+    {
+      "word": "exaptation",
+      "addExamples": [
+        "The researchers described the feathers' role in insulation as an example of exaptation."
+      ]
+    },
+    {
+      "word": "exogenous",
+      "addExamples": [
+        "The model includes an exogenous variable that is determined outside the system."
+      ]
+    },
+    {
+      "word": "falsifiability",
+      "addExamples": [
+        "Falsifiability is an important criterion in some accounts of scientific theories."
+      ]
+    },
+    {
+      "word": "fermentation",
+      "addExamples": [
+        "Fermentation helps turn milk into yoghurt and cabbage into sauerkraut."
+      ]
+    },
+    {
+      "word": "fiduciary",
+      "addExamples": [
+        "The fiduciary kept detailed records of every decision made on behalf of the client."
+      ]
+    },
+    {
+      "word": "fluorescence",
+      "addExamples": [
+        "The sample showed bright fluorescence under ultraviolet light."
+      ]
+    },
+    {
+      "word": "fluvial",
+      "addExamples": [
+        "The valley contains fluvial deposits left by an ancient river."
+      ]
+    },
+    {
+      "word": "forensic",
+      "addExamples": [
+        "The investigators sent the digital files to a forensic specialist."
+      ]
+    },
+    {
+      "word": "genealogy",
+      "addExamples": [
+        "She researched her family's genealogy using old letters and public records."
+      ]
+    },
+    {
+      "word": "geochronology",
+      "addExamples": [
+        "Geochronology helped the team estimate when the rock formation developed."
+      ]
+    },
+    {
+      "word": "geomorphology",
+      "addExamples": [
+        "The course examines how rivers, glaciers and wind shape landforms."
+      ]
+    }
+  ],
+  "appliedCommit": "4b15e9bc092dba6ce88ce00cb3ea82db2d04116c"
+}

@@ -3,7 +3,22 @@ const { test, expect } = require("@playwright/test");
 async function openMockFlashcards(page) {
   await page.route("**/supabase-config.js", route => route.fulfill({
     status: 200, contentType: "application/javascript",
-    body: 'window.SWIFT_SUPABASE_CONFIG = { url: "https://swift-test.supabase.co", anonKey: "mock-publishable-key" };'
+    body: `
+      window.SWIFT_SUPABASE_CONFIG = { url: "https://swift-test.supabase.co", anonKey: "mock-publishable-key" };
+      const loadFavoriteCollections = () => {
+        if (document.getElementById("swiftFavoriteCollectionsScript")) return;
+        const script = document.createElement("script");
+        script.id = "swiftFavoriteCollectionsScript";
+        script.src = "favorite-collections.js?v=2.9.0-p4-r4";
+        script.defer = true;
+        document.head.appendChild(script);
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadFavoriteCollections, { once: true });
+      } else {
+        loadFavoriteCollections();
+      }
+    `
   }));
   await page.route("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2", route => route.fulfill({
     status: 200, contentType: "application/javascript",
@@ -100,6 +115,18 @@ test("Dashboard tabs switch their visible panels",async({page})=>{
   await page.locator("#menuProfile").click();
   await expect(page.locator("#profilePage")).toBeVisible();
   await expect(page.locator("#dashboardTabFavourites")).toBeVisible();
+
+  const favoriteDisclosure = page.locator("#dashboardTabFavourites details").first();
+  await expect(favoriteDisclosure).toBeVisible();
+  const disclosureContent = favoriteDisclosure.locator(":scope > .fc-disclosure-content");
+  await expect(disclosureContent).toHaveCount(1);
+  await expect(disclosureContent).toHaveCSS("transition-property", /max-height/);
+  const initiallyOpen = await favoriteDisclosure.evaluate(node => node.open);
+  await favoriteDisclosure.locator(":scope > summary").click();
+  await expect.poll(() => favoriteDisclosure.evaluate(node => node.open)).toBe(!initiallyOpen);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await favoriteDisclosure.locator(":scope > summary").click();
+  await expect.poll(() => favoriteDisclosure.evaluate(node => node.open)).toBe(initiallyOpen);
   for(const name of ["progress","history","analytics","favourites"]){
     await page.locator('[data-dashboard-tab="'+name+'"]').click();
     const panel="#dashboardTab"+name[0].toUpperCase()+name.slice(1);
@@ -157,6 +184,12 @@ test("Chinese permanent lesson Daily History review uses the Chinese lesson cata
   await expect(page.locator("#dashboardReviewContent")).toContainText("拼音基础与四声");
   await expect(page.locator("#dashboardReviewContent")).toContainText("拼音与发音");
   expect(new URL(page.url()).hash).toBe("#profile");
+});
+
+test("English Flashcards include the curated multiword expression bank",async({page})=>{
+  await openMockFlashcards(page);
+  const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  expect(stats.englishCuratedPhraseCount).toBe(25);
 });
 
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
@@ -279,6 +312,7 @@ test("60-second completion shows results and requires closing the prompt to retu
 
 test("120-second challenge is available and remains active after the first 60 seconds",async({page})=>{
   await page.clock.install();
+  await page.clock.pauseAt(new Date());
   await openMockFlashcards(page);
   await beginRecall(page,"word","beginner","all",120);
   await expect(page.locator("#flashGameClock")).toHaveText("120s");

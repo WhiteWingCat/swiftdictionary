@@ -93,11 +93,33 @@ for (const [index, q] of questions.entries()) {
   if (normalized && seenPrompts.has(normalized)) fail.push(at + " duplicates another normalized English prompt");
   seenPrompts.add(normalized);
 }
-if (questions.length !== 199) fail.push("The current draft pack must contain exactly 199 questions");
-if (counts.beginner !== 56 || counts.intermediate !== 62 || counts.advanced !== 81) fail.push("Difficulty totals must be 56 Beginner / 62 Intermediate / 81 Advanced");
-if (knowledgeCounts.beginner !== 30 || knowledgeCounts.intermediate !== 36 || knowledgeCounts.advanced !== 48) fail.push("Original knowledge-question supply must remain 30 Beginner / 36 Intermediate / 48 Advanced");
+if (questions.length !== 229) fail.push("The current draft pack must contain exactly 229 questions");
+if (counts.beginner !== 66 || counts.intermediate !== 72 || counts.advanced !== 91) fail.push("Difficulty totals must be 66 Beginner / 72 Intermediate / 91 Advanced");
+if (knowledgeCounts.beginner !== 40 || knowledgeCounts.intermediate !== 46 || knowledgeCounts.advanced !== 58) fail.push("Knowledge-question supply must be 40 Beginner / 46 Intermediate / 58 Advanced after the Phase 6 additions");
 if (definitionCounts.beginner !== 5 || definitionCounts.intermediate !== 5 || definitionCounts.advanced !== 5) fail.push("Word-definition questions must total five at each difficulty");
 if (translationCounts.beginner !== 21 || translationCounts.intermediate !== 21 || translationCounts.advanced !== 28) fail.push("Chinese translation question totals must be 21 Beginner / 21 Intermediate / 28 Advanced");
+
+const releaseQuestions = questions.filter(question => question.release_approved === true);
+const releaseCounts = { beginner: 0, intermediate: 0, advanced: 0 };
+const releaseKnowledge = { beginner: 0, intermediate: 0, advanced: 0 };
+const releaseDefinitions = { beginner: 0, intermediate: 0, advanced: 0 };
+const releaseTranslations = { beginner: 0, intermediate: 0, advanced: 0 };
+for (const question of releaseQuestions) {
+  const source = lessons[question.source_lesson_id];
+  if (!source) continue;
+  const difficulty = source.difficulty;
+  releaseCounts[difficulty] += 1;
+  const type = question.question_type ?? "knowledge";
+  if (type === "chinese_translation") releaseTranslations[difficulty] += 1;
+  else if (type === "word_definition") releaseDefinitions[difficulty] += 1;
+  else releaseKnowledge[difficulty] += 1;
+}
+if (releaseQuestions.length !== 199) fail.push("The previously owner-approved release subset must remain exactly 199 questions");
+if (releaseCounts.beginner !== 56 || releaseCounts.intermediate !== 62 || releaseCounts.advanced !== 81) fail.push("The previously approved release subset must retain 56/62/81 difficulty totals");
+if (releaseKnowledge.beginner !== 30 || releaseKnowledge.intermediate !== 36 || releaseKnowledge.advanced !== 48) fail.push("The previously approved release subset must retain 30/36/48 knowledge-question totals");
+if (releaseDefinitions.beginner !== 5 || releaseDefinitions.intermediate !== 5 || releaseDefinitions.advanced !== 5) fail.push("The previously approved release subset must retain five word-definition questions per difficulty");
+if (releaseTranslations.beginner !== 21 || releaseTranslations.intermediate !== 21 || releaseTranslations.advanced !== 28) fail.push("The previously approved release subset must retain 21/21/28 Chinese-translation questions");
+if (questions.some(question => question.release_approved !== true && question.release_approved !== false)) fail.push("Every question must explicitly state whether it belongs to the previously owner-approved release subset");
 if (fail.length) {
   console.error("Quiz content validation failed:");
   for (const issue of fail) console.error(" - " + issue);
@@ -108,7 +130,7 @@ if (!emitSql) console.log("Draft items: " + questions.length);
 for (const difficulty of ["beginner", "intermediate", "advanced"]) {
   if (!emitSql) console.log(difficulty + ": " + counts[difficulty] + " total (" + knowledgeCounts[difficulty] + " knowledge, " + definitionCounts[difficulty] + " word definition, " + translationCounts[difficulty] + " Chinese translation) across " + topics[difficulty].size + " topics");
 }
-if (!emitSql) console.log("All 199 items are draft-only; authenticated question-type support is being added but content still requires human approval.");
+if (!emitSql) console.log("229 source items: 199 previously owner-approved release questions plus 30 Phase 6 draft-only additions. The source pack remains draft.");
 if (!emitSql) console.log("No difficulty becomes available until sufficient approved, lesson-aligned questions of each required type exist.");
 if (!emitSql) console.log("Beginner minimum 20 / target 30: " + counts.beginner + "/20 minimum, " + counts.beginner + "/30 target");
 if (!emitSql) console.log("Intermediate minimum 24 intermediate + 16 beginner; target 36 + 24.");
@@ -118,7 +140,7 @@ if (!emitSql) console.log("All source content remains draft and must receive hum
 if (emitSql) {
   const lit = value => "'" + String(value).replace(/'/g, "''") + "'";
   const json = value => lit(JSON.stringify(value)) + "::jsonb";
-  const exportQuestions = questions;
+  const exportQuestions = approveForRelease ? releaseQuestions : questions;
   if (approveForRelease) {
     console.error("OWNER-AUTHORIZED RELEASE MODE: generated rows will be approved and selectable by Quiz.");
   }

@@ -1,0 +1,4064 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Editorial candidate inventory for the English dictionary expansion. This is an internal work file, not runtime dictionary content.",
+  "baseline": {
+    "existingEnglishEntries": 810,
+    "sourceCommit": "c53d12a06045700a884a244d3b9fe69e6e6e8f95",
+    "duplicateComparison": "case-insensitive exact headword comparison"
+  },
+  "rules": [
+    "Candidates are not approved dictionary entries until definition, part of speech, pronunciation, Simplified Chinese sense translation, and examples have been authored and reviewed.",
+    "Do not add a candidate if it is an inflectional variant better represented under an existing lemma.",
+    "A candidate may receive multiple reviewed categories during content authoring.",
+    "Prefer common and useful vocabulary; reject weak or low-value candidates rather than padding the target."
+  ],
+  "summary": {
+    "candidateCount": 660,
+    "existingDuplicatesRejected": 185,
+    "categoryCandidateCounts": {
+      "Actions": 71,
+      "Activities": 49,
+      "Nature & Environment": 66,
+      "Everyday Terms": 142,
+      "Education": 46,
+      "Places": 71,
+      "People & Relationships": 69,
+      "History & Culture": 38,
+      "Science & Technology": 41,
+      "Emotions & Descriptions": 90
+    },
+    "authoredCount": 506,
+    "remainingCandidateCount": 154,
+    "lastUpdated": "2026-11-24"
+  },
+  "candidates": [
+    {
+      "word": "adjust",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "advise",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "agree",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "announce",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "apply",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "attach",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "breathe",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "calculate",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "cancel",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "celebrate",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "charge",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "chase",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "connect",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "continue",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "control",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "convince",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "copy",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "correct",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "damage",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "deliver",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-01"
+    },
+    {
+      "word": "divide",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "doubt",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "earn",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "enjoy",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "enter",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "escape",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "examine",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "exchange",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "exist",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "explore",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "fail",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "fix",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "guess",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "happen",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "hide",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "influence",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "inform",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "introduce",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "invite",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "join",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "judge",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "kick",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "knock",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "lend",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "lift",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "measure",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "offer",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "promise",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "protect",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "prove",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "publish",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "pull",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "push",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "receive",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "reply",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "report",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "rescue",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "return",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "review",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "save",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "search",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "select",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "share",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "solve",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "survive",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "throw",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "volunteer",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Actions",
+        "Activities"
+      ]
+    },
+    {
+      "word": "vote",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "warn",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "waste",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Actions",
+        "Nature & Environment"
+      ]
+    },
+    {
+      "word": "worry",
+      "category": "Actions",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "address",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "age",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "amount",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "area",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "article",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "attention",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "average",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "background",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "beginning",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "bill",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "bit",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "bottom",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "budget",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "business",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "cause",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "chance",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "claim",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "class",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "condition",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "connection",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "contact",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-02"
+    },
+    {
+      "word": "cost",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "country",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "course",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ]
+    },
+    {
+      "word": "culture",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "customer",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "direction",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "effect",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "end",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "event",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "example",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "fact",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "family",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "feature",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "field",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Places"
+      ]
+    },
+    {
+      "word": "figure",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "food",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "form",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "front",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "future",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "grade",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "ground",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "group",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "growth",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "half",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "history",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "idea",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "information",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "item",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "level",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "life",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "line",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "list",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "location",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "loss",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "luck",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "main",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "material",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "matter",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "meal",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "memory",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "middle",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "mind",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "moment",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "money",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "name",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "news",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "noise",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "note",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "number",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "object",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "office",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Places"
+      ]
+    },
+    {
+      "word": "order",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "owner",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "page",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "pair",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "paper",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "part",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "party",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "period",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "person",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "People & Relationships"
+      ]
+    },
+    {
+      "word": "place",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "position",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "power",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "price",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "problem",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "product",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "quality",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "question",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ]
+    },
+    {
+      "word": "reason",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "record",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "role",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "room",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "rule",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "safety",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "sample",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "school",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "science",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "service",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "shape",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "side",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "sign",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "skill",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "situation",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "size",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "society",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "sort",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sound",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "space",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "sport",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "staff",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "stage",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "state",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "story",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "subject",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Education"
+      ]
+    },
+    {
+      "word": "success",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "suggestion",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "system",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "task",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "team",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "term",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "test",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thing",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thought",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "time",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tool",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "topic",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "total",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "touch",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tradition",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "traffic",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "trouble",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "type",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Everyday Terms",
+        "Activities"
+      ]
+    },
+    {
+      "word": "view",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "voice",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "way",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weather",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "week",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weight",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "whole",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "word",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "world",
+      "category": "Everyday Terms",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "act",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "bake",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "camp",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "chat",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "climb",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "draw",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "exercise",
+      "priority": "core",
+      "status": "authored-batch-03",
+      "categories": [
+        "Activities",
+        "Education"
+      ]
+    },
+    {
+      "word": "fish",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "garden",
+      "priority": "core",
+      "status": "authored-batch-03",
+      "categories": [
+        "Activities",
+        "Places"
+      ]
+    },
+    {
+      "word": "hike",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "jog",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "knit",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "paint",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "photograph",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "practise",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "read",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "shop",
+      "priority": "core",
+      "status": "authored-batch-03",
+      "categories": [
+        "Activities",
+        "Places"
+      ]
+    },
+    {
+      "word": "skate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "ski",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "sleep",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "train",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "write",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-03"
+    },
+    {
+      "word": "yoga",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "cycle",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "meditate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sew",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sail",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "surf",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "snorkel",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "picnic",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "barbecue",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "bowl",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "box",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "canoe",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "craft",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Activities",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "debate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "decorate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "design",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "dine",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "golf",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "hunt",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "ice skate",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "kayak",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "march",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "model",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "motor",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "tweet",
+      "category": "Activities",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "airport",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "apartment",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "avenue",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "bakery",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "bank",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "beach",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "bedroom",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "building",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "bus stop",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "cafe",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "cafeteria",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "campus",
+      "priority": "core",
+      "status": "authored-batch-04",
+      "categories": [
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "capital",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "castle",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "cave",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "church",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "cinema",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "clinic",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-04"
+    },
+    {
+      "word": "coast",
+      "priority": "core",
+      "status": "authored-batch-04",
+      "categories": [
+        "Places",
+        "Nature & Environment"
+      ]
+    },
+    {
+      "word": "college",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "countryside",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "court",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "crossing",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "department store",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "desert",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "destination",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "dining room",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "downtown",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "driveway",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "factory",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "farm",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "forest",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "garage",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "gate",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "gym",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "harbour",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "hotel",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "house",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "island",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "kitchen",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "lake",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "neighbourhood",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "park",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "path",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "pharmacy",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "playground",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "police station",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "post office",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "prison",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "river",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "road",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "rooftop",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sidewalk",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "store",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "street",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "studio",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "supermarket",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "temple",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "theatre",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "Places",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "town",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "university",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "Places",
+        "Education"
+      ]
+    },
+    {
+      "word": "village",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "warehouse",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "waterfall",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "workplace",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "zoo",
+      "category": "Places",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "adult",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "ancestor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "aunt",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "baby",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "bachelor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "boyfriend",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "bride",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "brother",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "buddy",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "child",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "citizen",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "classmate",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "cousin",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "couple",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "daughter",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "neighbour",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "enemy",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "father",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "female",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "friend",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "gentleman",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "girl",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "grandfather",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "grandmother",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "guest",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-05"
+    },
+    {
+      "word": "guy",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "husband",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "infant",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "kid",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "lady",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "leader",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "male",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "manager",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "member",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "mentor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "mother",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "nephew",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "niece",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "partner",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "passenger",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "peer",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "parent",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "pedestrian",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "people",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "player",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "police",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "officer",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "politician",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "population",
+      "priority": "core",
+      "status": "candidate",
+      "categories": [
+        "People & Relationships",
+        "History & Culture"
+      ]
+    },
+    {
+      "word": "professor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "relative",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "roommate",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sailor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "scientist",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sibling",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sister",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "son",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stranger",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "student",
+      "priority": "core",
+      "status": "authored-batch-06",
+      "categories": [
+        "People & Relationships",
+        "Education"
+      ]
+    },
+    {
+      "word": "teenager",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "tourist",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "uncle",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "visitor",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "waiter",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wife",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "woman",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "worker",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "youth",
+      "category": "People & Relationships",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "algorithm",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "app",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "battery",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "browser",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "cable",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "camera",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "channel",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "chip",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "click",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "computer",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "data",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "device",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "digital",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "download",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "email",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "engine",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "file",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "hardware",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "internet",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "keyboard",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "laptop",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "machine",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "network",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "online",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "password",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "printer",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "program",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "robot",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "screen",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "software",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "smartphone",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "social media",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "speaker",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "technology",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "telephone",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "television",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "text message",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "upload",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "video",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "website",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "wireless",
+      "category": "Science & Technology",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "ancient",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "art",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "artist",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "ceremony",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "character",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "civilization",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "community",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "concert",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "costume",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "custom",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "democracy",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "festival",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fiction",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "folklore",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "generation",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "heritage",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "holiday",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "identity",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "language",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "legend",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "literature",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "monument",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "myth",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "nation",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "novel",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "painting",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "poem",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "poet",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "religion",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ritual",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sculpture",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "symbol",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tribe",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "war",
+      "category": "History & Culture",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "animal",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "atmosphere",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "autumn",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "branch",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "breeze",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "climate",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "cloud",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "coral",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "creature",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "crop",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "daylight",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "earth",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "earthquake",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "ecosystem",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "energy",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "feather",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "fire",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "flower",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fog",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "grass",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "habitat",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "harvest",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hill",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "insect",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "leaf",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "lightning",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "meadow",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "metal",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mineral",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "moon",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mountain",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "ocean",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "organic",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "planet",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "plant",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pollution",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "pond",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rain",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rainbow",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "recycle",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "rock",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "root",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "season",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "seed",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sky",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "soil",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "solar",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "spring",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "star",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "stone",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "storm",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "stream",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "summer",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sunrise",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sunset",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thunder",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tree",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "valley",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "vegetation",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "volcano",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "water",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wind",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "winter",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wood",
+      "category": "Nature & Environment",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "academy",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "alphabet",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "assignment",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "blackboard",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "chapter",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "classroom",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "coach",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "curriculum",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "dictionary",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "education",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "essay",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "exam",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "experiment",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "grammar",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "homework",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "instructor",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "knowledge",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "lecture",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "lesson",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "mark",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "mathematics",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "meaning",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "notebook",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "paragraph",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "pen",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pencil",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "presentation",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "principal",
+      "category": "Education",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pupil",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "research",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "semester",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "sentence",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "spelling",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "study",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "teacher",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "textbook",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "vocabulary",
+      "category": "Education",
+      "priority": "core",
+      "status": "authored-batch-06"
+    },
+    {
+      "word": "able",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "absent",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "afraid",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "alive",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "amazing",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "angry",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "attractive",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "awful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "bad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "beautiful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "bright",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "careful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "cheerful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "clever",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "comfortable",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "confused",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "cool",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "dangerous",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "dark",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "delighted",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "different",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "difficult",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "dirty",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "easy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "empty",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "excited",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "famous",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fantastic",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fast",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "favourite",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fine",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fit",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "flat",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "fresh",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "friendly",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "funny",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "gentle",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "glad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "good",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "great",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "happy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hard",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "healthy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "helpful",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "hot",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "hungry",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "important",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "impossible",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "lazy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "loud",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "lucky",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "mad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "nice",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "authored-batch-07"
+    },
+    {
+      "word": "noisy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "normal",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "odd",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "perfect",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "pleasant",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "poor",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "popular",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "quiet",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ready",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "real",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rich",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "rude",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sad",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "safe",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "scared",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "shy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "smart",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "soft",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "special",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "strange",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "strong",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "stupid",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "sweet",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tall",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "terrible",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "thirsty",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tired",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "tough",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "ugly",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "unhappy",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "unique",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "warm",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weak",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "weird",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "wise",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "worried",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    },
+    {
+      "word": "young",
+      "category": "Emotions & Descriptions",
+      "priority": "core",
+      "status": "candidate"
+    }
+  ]
+}

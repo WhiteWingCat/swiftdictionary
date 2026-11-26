@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add second examples to further academic and technical baseline entries.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "88037a61659d997bfb2e521d1f355c8e2149ed09",
+  "entries": [
+    {
+      "word": "lexicography",
+      "addExamples": [
+        "Modern lexicography uses large text collections to study how words are used."
+      ]
+    },
+    {
+      "word": "lexicon",
+      "addExamples": [
+        "The software includes a specialised lexicon for medical terms."
+      ]
+    },
+    {
+      "word": "liminality",
+      "addExamples": [
+        "The festival explores liminality as a period between childhood and adulthood."
+      ]
+    },
+    {
+      "word": "lineage",
+      "addExamples": [
+        "The team traced the lineage of the language through historical documents."
+      ]
+    },
+    {
+      "word": "lithification",
+      "addExamples": [
+        "Compaction and cementation contribute to the lithification of sediment."
+      ]
+    },
+    {
+      "word": "lithography",
+      "addExamples": [
+        "The artist used lithography to produce a series of prints."
+      ]
+    },
+    {
+      "word": "lithosphere",
+      "addExamples": [
+        "The lithosphere includes Earth's crust and the rigid upper mantle."
+      ]
+    },
+    {
+      "word": "littoral",
+      "addExamples": [
+        "The researchers mapped littoral vegetation along the lake shore."
+      ]
+    },
+    {
+      "word": "plebiscite",
+      "addExamples": [
+        "The government held a plebiscite to ask voters about the proposed change."
+      ]
+    },
+    {
+      "word": "pleiotropy",
+      "addExamples": [
+        "The study found evidence of pleiotropy, with one gene influencing several traits."
+      ]
+    },
+    {
+      "word": "polymorphism",
+      "addExamples": [
+        "Genetic polymorphism can help explain why individuals respond differently to the same environment."
+      ]
+    },
+    {
+      "word": "propaedeutic",
+      "addExamples": [
+        "A short propaedeutic introduced students to the terminology used in the advanced course."
+      ]
+    },
+    {
+      "word": "provenance",
+      "addExamples": [
+        "The museum checked the provenance of the painting before acquiring it."
+      ]
+    },
+    {
+      "word": "pseudoscience",
+      "addExamples": [
+        "The article explains how pseudoscience can imitate the language of scientific research."
+      ]
+    },
+    {
+      "word": "psychometrics",
+      "addExamples": [
+        "Psychometrics provides methods for evaluating the reliability of a test."
+      ]
+    },
+    {
+      "word": "quanta",
+      "addExamples": [
+        "The theory describes how energy is exchanged in discrete quanta."
+      ]
+    },
+    {
+      "word": "quantitative",
+      "addExamples": [
+        "The study combines quantitative data with interviews."
+      ]
+    },
+    {
+      "word": "quantization",
+      "addExamples": [
+        "Quantization converts a continuous range of values into discrete levels."
+      ]
+    },
+    {
+      "word": "quantum",
+      "addExamples": [
+        "Quantum theory describes the behaviour of matter and energy at very small scales."
+      ]
+    },
+    {
+      "word": "quarantine",
+      "addExamples": [
+        "The device was placed in quarantine after the security software detected suspicious activity."
+      ]
+    },
+    {
+      "word": "quiescent",
+      "addExamples": [
+        "The volcano has remained quiescent for several centuries."
+      ]
+    },
+    {
+      "word": "quintessence",
+      "addExamples": [
+        "For many readers, the short story is the quintessence of the author's style."
+      ]
+    },
+    {
+      "word": "quintile",
+      "addExamples": [
+        "The researchers divided participants into quintiles based on household income."
+      ]
+    },
+    {
+      "word": "quorum",
+      "addExamples": [
+        "The committee could not vote because it did not have a quorum."
+      ]
+    },
+    {
+      "word": "quorum-sensing",
+      "addExamples": [
+        "Some bacteria use quorum-sensing to coordinate activity when their population grows."
+      ]
+    },
+    {
+      "word": "quotient",
+      "addExamples": [
+        "The quotient of 24 divided by 6 is 4."
+      ]
+    },
+    {
+      "word": "radiometry",
+      "addExamples": [
+        "Radiometry measures the energy carried by electromagnetic radiation."
+      ]
+    },
+    {
+      "word": "reciprocity",
+      "addExamples": [
+        "The agreement is based on reciprocity between the two research institutions."
+      ]
+    },
+    {
+      "word": "reification",
+      "addExamples": [
+        "The author warned against the reification of a statistical category."
+      ]
+    },
+    {
+      "word": "replication",
+      "addExamples": [
+        "The team attempted a replication of the original experiment."
+      ]
+    }
+  ],
+  "appliedCommit": "4fec3a8649dc1d86bc1cc7f26c211c021e26105c"
+}

@@ -1,0 +1,726 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 5,
+  "theme": "People and family relationships",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "adult",
+      "part": "noun / adjective",
+      "phonetic": "/əˈdʌlt/ or /ˈædʌlt/",
+      "definition": "A person who has reached the age when they are legally or fully grown; or relating to grown people rather than children.",
+      "definitionZh": "成年人；成年的；成人的",
+      "examples": [
+        "An adult must accompany the children.",
+        "The event is intended for an adult audience."
+      ],
+      "tip": "The legal age of adulthood differs between countries and for different legal purposes.",
+      "course": "en",
+      "breakdown": "Can refer to a grown person or describe something intended for grown people.",
+      "related": "grown-up; child; mature; adulthood",
+      "categories": [
+        "People & Relationships",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who is fully grown, especially one who has reached the legally recognised age of adulthood.",
+          "definitionZh": "已经完全长大的人，尤指达到法律认可成年年龄的人；成年人。",
+          "examples": [
+            "Each child must be with an adult.",
+            "The museum offers separate tickets for adults and children."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Fully grown, or intended for people who are fully grown.",
+          "definitionZh": "已经成年的；或专为成年人设计或提供的。",
+          "examples": [
+            "She is an adult learner returning to school.",
+            "The film is suitable for an adult audience."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "ancestor",
+      "part": "noun",
+      "phonetic": "/ˈænsestər/",
+      "definition": "A person in your family who lived a long time before you, such as a great-grandparent.",
+      "definitionZh": "祖先；祖辈；先人",
+      "examples": [
+        "One of her ancestors came from Italy.",
+        "The family keeps records of its ancestors."
+      ],
+      "tip": "An ancestor is someone from an earlier generation; a descendant is someone from a later generation.",
+      "course": "en",
+      "breakdown": "Refers to a person from an earlier generation in a family line.",
+      "related": "forefather; relative; descendant; generation",
+      "categories": [
+        "People & Relationships",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person in your family who lived in an earlier generation, often many years ago.",
+          "definitionZh": "家族中生活在更早一代的人，通常指许多年前的祖辈；祖先。",
+          "examples": [
+            "Her ancestors lived in the countryside.",
+            "He researched his ancestors using old letters."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "aunt",
+      "part": "noun",
+      "phonetic": "/ænt/ or /ɑːnt/",
+      "definition": "The sister of your mother or father, or the wife of your uncle.",
+      "definitionZh": "姑母；姨母；伯母；婶婶；舅母；阿姨",
+      "examples": [
+        "My aunt lives near the beach.",
+        "We visited our aunt during the school holidays."
+      ],
+      "tip": "The exact Chinese family term depends on whether the aunt is related through the mother or father and on family age relationships.",
+      "course": "en",
+      "breakdown": "A family relationship term for a parent's sister or an uncle's wife.",
+      "related": "uncle; niece; nephew; relative",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The sister of someone's mother or father, or the wife of someone's uncle.",
+          "definitionZh": "某人的母亲或父亲的姐妹，或叔叔、舅舅等的妻子；姑母、姨母或阿姨等。",
+          "examples": [
+            "My aunt taught me how to bake.",
+            "Her aunt and uncle came to the wedding."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "baby",
+      "part": "noun",
+      "phonetic": "/ˈbeɪbi/",
+      "definition": "A very young child who has not yet learned to walk or talk; or the youngest or smallest member of a group.",
+      "definitionZh": "婴儿；宝宝；家庭或群体中最年幼的成员。",
+      "examples": [
+        "The baby is sleeping in the cot.",
+        "He is the baby of the family."
+      ],
+      "tip": "The plural is “babies”. “Baby” can be used informally as a term of affection, depending on context.",
+      "course": "en",
+      "breakdown": "Usually means an infant, but can also describe the youngest member of a family or group.",
+      "related": "infant; toddler; child; newborn",
+      "categories": [
+        "People & Relationships",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — infant",
+          "definition": "A very young child, especially one who is not yet able to walk or speak.",
+          "definitionZh": "非常年幼的孩子，尤指尚未学会走路或说话的婴儿。",
+          "examples": [
+            "The baby began to cry.",
+            "They bought a car seat for their new baby."
+          ]
+        },
+        {
+          "part": "noun — youngest member",
+          "definition": "The youngest or smallest member of a family or group.",
+          "definitionZh": "家庭或群体中年龄最小或体型最小的成员。",
+          "examples": [
+            "He is the baby of the family.",
+            "The new player is the baby of the team."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "boyfriend",
+      "part": "noun",
+      "phonetic": "/ˈbɔɪfrend/",
+      "definition": "A male partner in a romantic relationship; or, in some contexts, a male friend.",
+      "definitionZh": "男朋友；男性伴侣；男性朋友（较少见）",
+      "examples": [
+        "She introduced her boyfriend to her parents.",
+        "My boyfriend and I enjoy hiking."
+      ],
+      "tip": "In everyday modern use, “boyfriend” usually means a romantic partner, not simply a male friend.",
+      "course": "en",
+      "breakdown": "Usually describes a person's male romantic partner.",
+      "related": "girlfriend; partner; couple; relationship",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — romantic partner",
+          "definition": "A man or boy who is in a romantic relationship with someone.",
+          "definitionZh": "与某人处于恋爱关系的男性；男朋友。",
+          "examples": [
+            "Her boyfriend gave her flowers.",
+            "They have been boyfriend and girlfriend for two years."
+          ]
+        },
+        {
+          "part": "noun — male friend",
+          "definition": "A male friend, especially in older or less common usage where the romantic meaning is not intended.",
+          "definitionZh": "男性朋友，尤指较旧或较少见的用法中不表示恋爱关系时。",
+          "examples": [
+            "She invited a boyfriend from school to the event.",
+            "He was one of her closest boyfriends."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "bride",
+      "part": "noun",
+      "phonetic": "/braɪd/",
+      "definition": "A woman who is getting married or has recently married.",
+      "definitionZh": "新娘",
+      "examples": [
+        "The bride arrived at the ceremony with her father.",
+        "The bride and groom thanked their guests."
+      ],
+      "tip": "The male partner getting married is the “groom”.",
+      "course": "en",
+      "breakdown": "Refers to the woman at the centre of a wedding ceremony or newly married woman.",
+      "related": "groom; wedding; marriage; spouse",
+      "categories": [
+        "People & Relationships",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A woman on her wedding day or a woman who has recently married.",
+          "definitionZh": "在婚礼当天结婚的女性，或刚刚结婚的女性；新娘。",
+          "examples": [
+            "The bride wore a simple white dress.",
+            "Guests waited for the bride to enter."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "brother",
+      "part": "noun",
+      "phonetic": "/ˈbrʌðər/",
+      "definition": "A boy or man who has the same parent or parents as another person; or a man who shares a close group, belief, or community with others.",
+      "definitionZh": "兄弟；哥哥；弟弟；同胞；兄弟会成员",
+      "examples": [
+        "My brother works in another city.",
+        "She has two older brothers."
+      ],
+      "tip": "English “brother” does not show whether the person is older or younger; Chinese uses different words for older and younger brothers.",
+      "course": "en",
+      "breakdown": "A family relationship term; context can also extend it to people sharing a community or organisation.",
+      "related": "sister; sibling; family; relative",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — family member",
+          "definition": "A male person who has one or both parents in common with another person.",
+          "definitionZh": "与另一个人有一个或两个共同父母的男性；兄弟、哥哥或弟弟。",
+          "examples": [
+            "My younger brother is still at school.",
+            "Her brother helped her move house."
+          ]
+        },
+        {
+          "part": "noun — member of a group",
+          "definition": "A man who belongs to the same religious, social, or professional group as others, or who is treated as a close companion.",
+          "definitionZh": "属于同一宗教、社会或职业团体的男性成员，或被视为亲密伙伴的男性。",
+          "examples": [
+            "The monks called one another brother.",
+            "He regarded his teammates as brothers."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "buddy",
+      "part": "noun",
+      "phonetic": "/ˈbʌdi/",
+      "definition": "A friend or companion, especially one you do an activity with; an informal way to address someone.",
+      "definitionZh": "伙伴；朋友；搭档；老兄（非正式称呼）",
+      "examples": [
+        "He went fishing with his old buddy.",
+        "Thanks for your help, buddy."
+      ],
+      "tip": "“Buddy” is informal and common in North American English; use more neutral terms in formal situations.",
+      "course": "en",
+      "breakdown": "A friendly, informal word for someone you know or spend time with.",
+      "related": "friend; pal; partner; companion",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — friend",
+          "definition": "A friend or companion, often someone you spend time or do activities with.",
+          "definitionZh": "朋友或伙伴，通常指一起相处或参加活动的人。",
+          "examples": [
+            "I am meeting a buddy after work.",
+            "He has been my fishing buddy for years."
+          ]
+        },
+        {
+          "part": "noun — form of address",
+          "definition": "An informal way of speaking directly to someone, especially in a friendly or familiar tone.",
+          "definitionZh": "直接称呼某人的非正式说法，尤指友好或熟悉的语气。",
+          "examples": [
+            "Hey, buddy, how are you?",
+            "Listen, buddy, I need your help."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "citizen",
+      "part": "noun",
+      "phonetic": "/ˈsɪtɪzən/",
+      "definition": "A person who legally belongs to a particular country and has the rights and responsibilities of that country.",
+      "definitionZh": "公民；国民；市民",
+      "examples": [
+        "Every citizen has responsibilities as well as rights.",
+        "The programme helps young citizens understand local government."
+      ],
+      "tip": "A citizen is a legal member of a country; a resident may live there without being a citizen.",
+      "course": "en",
+      "breakdown": "Usually refers to legal membership of a country, although it can also mean a person living in a particular city.",
+      "related": "national; resident; nationality; citizenship",
+      "categories": [
+        "People & Relationships",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "noun — member of a country",
+          "definition": "A person who has legal membership of a country and is entitled to its rights and subject to its laws.",
+          "definitionZh": "依法属于某个国家、享有该国权利并承担相应法律义务的人；公民或国民。",
+          "examples": [
+            "The law protects every citizen.",
+            "She became a citizen after completing the required process."
+          ]
+        },
+        {
+          "part": "noun — member of a city",
+          "definition": "A person who lives in a particular town or city, especially when discussing public life and responsibilities.",
+          "definitionZh": "居住在某个城镇或城市的人，尤指讨论公共生活和责任时；市民。",
+          "examples": [
+            "The mayor met with local citizens.",
+            "Citizens can attend the public meeting."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "classmate",
+      "part": "noun",
+      "phonetic": "/ˈklæsmeɪt/",
+      "definition": "A person who is in the same class or study group as you at school or another educational institution.",
+      "definitionZh": "同班同学；同学",
+      "examples": [
+        "I worked with a classmate on the science project.",
+        "She has known her classmates since primary school."
+      ],
+      "tip": "A classmate is in the same class; a schoolmate may attend the same school but be in a different class.",
+      "course": "en",
+      "breakdown": "A school or study relationship based on being in the same class.",
+      "related": "schoolmate; student; peer; class",
+      "categories": [
+        "People & Relationships",
+        "Education"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who studies in the same class or teaching group as another person.",
+          "definitionZh": "与另一个人在同一个班级或教学小组学习的人；同班同学。",
+          "examples": [
+            "My classmate lent me a pencil.",
+            "The teacher asked each classmate to introduce themselves."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cousin",
+      "part": "noun",
+      "phonetic": "/ˈkʌzən/",
+      "definition": "A child of your aunt or uncle; a relative who shares a more distant family connection.",
+      "definitionZh": "堂兄弟姐妹；表兄弟姐妹；堂亲；表亲",
+      "examples": [
+        "My cousin is visiting us this weekend.",
+        "She has several cousins on her mother's side."
+      ],
+      "tip": "English “cousin” does not specify gender or whether the relative is older or younger; Chinese kinship terms are more specific.",
+      "course": "en",
+      "breakdown": "A family term for the child of an aunt or uncle, regardless of gender.",
+      "related": "aunt; uncle; relative; family",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A child of someone's aunt or uncle, whether male or female.",
+          "definitionZh": "某人的姑母、姨母、叔伯或舅舅等的子女，不区分性别；堂亲或表亲。",
+          "examples": [
+            "My cousin lives in Penang.",
+            "He invited all his cousins to the family gathering."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "couple",
+      "part": "noun / verb",
+      "phonetic": "/ˈkʌpəl/",
+      "definition": "Two people or things considered together, especially two people in a romantic relationship; or to join two things together.",
+      "definitionZh": "一对；夫妻；情侣；几个；连接；结合",
+      "examples": [
+        "The couple moved into a new apartment.",
+        "A couple of friends are coming over."
+      ],
+      "tip": "“A couple of” often means two, but informally it can mean a small number.",
+      "course": "en",
+      "breakdown": "Can refer to two people or items, a romantic pair, or the act of joining things.",
+      "related": "pair; partner; two; join",
+      "categories": [
+        "People & Relationships",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — two people together",
+          "definition": "Two people who are married or in a romantic relationship.",
+          "definitionZh": "已婚或处于恋爱关系的两个人；夫妻或情侣。",
+          "examples": [
+            "The couple celebrated their anniversary.",
+            "A young couple sat near the window."
+          ]
+        },
+        {
+          "part": "noun — two items",
+          "definition": "Two people or things considered together; in informal use, a small number.",
+          "definitionZh": "被视为一组的两个人或两个事物；非正式用法中也可表示少量。",
+          "examples": [
+            "I need a couple of minutes.",
+            "She bought a couple of notebooks."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To connect or join two things together.",
+          "definitionZh": "将两个事物连接或结合在一起。",
+          "examples": [
+            "The railway lines are coupled together.",
+            "The two events are closely coupled."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "daughter",
+      "part": "noun",
+      "phonetic": "/ˈdɔːtər/",
+      "definition": "A female child in relation to her parents.",
+      "definitionZh": "女儿",
+      "examples": [
+        "Their daughter starts school next year.",
+        "My daughter enjoys drawing and reading."
+      ],
+      "tip": "The male equivalent is “son”.",
+      "course": "en",
+      "breakdown": "A direct family relationship term for a female child.",
+      "related": "son; parent; child; family",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A female child in relation to one or both of her parents.",
+          "definitionZh": "相对于父母而言的女性子女；女儿。",
+          "examples": [
+            "Their youngest daughter lives nearby.",
+            "He is proud of his daughter's work."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "neighbour",
+      "part": "noun / verb",
+      "phonetic": "/ˈneɪbər/",
+      "definition": "A person who lives near you; or to be next to or close to something.",
+      "definitionZh": "邻居；邻近的人；与……相邻",
+      "examples": [
+        "Our neighbours are very friendly.",
+        "The two villages neighbour each other."
+      ],
+      "tip": "British English spells the word “neighbour”; American English uses “neighbor”.",
+      "course": "en",
+      "breakdown": "Usually a person living nearby; the verb is less common and means to be next to something.",
+      "related": "neighbor; resident; nearby; neighbourhood",
+      "categories": [
+        "People & Relationships",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person who lives near another person or household.",
+          "definitionZh": "住在某人或某户人家附近的人；邻居。",
+          "examples": [
+            "We invited our neighbours to dinner.",
+            "A neighbour helped us carry the boxes."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To be located next to or close to another place or area.",
+          "definitionZh": "位于另一个地点或区域旁边或附近；与……相邻。",
+          "examples": [
+            "The park neighbours the school.",
+            "Their property neighbours a large field."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "enemy",
+      "part": "noun",
+      "phonetic": "/ˈenəmi/",
+      "definition": "A person, group, or country that opposes or wants to harm another; or something harmful that must be overcome.",
+      "definitionZh": "敌人；仇敌；有害因素；大敌",
+      "examples": [
+        "The two countries were once enemies.",
+        "Lack of sleep is the enemy of concentration."
+      ],
+      "tip": "An enemy is someone or something opposed to you; an opponent may simply be someone competing against you.",
+      "course": "en",
+      "breakdown": "Can refer to a hostile person or group, or figuratively to a harmful force or condition.",
+      "related": "opponent; rival; foe; threat",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun — hostile person or group",
+          "definition": "A person, group, or country that is actively opposed to another or may try to harm them.",
+          "definitionZh": "积极反对他人或可能试图伤害他人的个人、群体或国家；敌人。",
+          "examples": [
+            "The soldiers faced the enemy across the river.",
+            "They became enemies after the argument."
+          ]
+        },
+        {
+          "part": "noun — harmful force",
+          "definition": "Something that causes damage or makes success more difficult.",
+          "definitionZh": "造成损害或使成功变得更加困难的事物；大敌。",
+          "examples": [
+            "Stress can be an enemy of good health.",
+            "Carelessness is the enemy of accuracy."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "female",
+      "part": "noun / adjective",
+      "phonetic": "/ˈfiːmeɪl/",
+      "definition": "A person or animal that belongs to the sex that can produce eggs or give birth; or relating to that sex.",
+      "definitionZh": "女性；雌性；女性的；雌性的",
+      "examples": [
+        "The study included both male and female participants.",
+        "The female bird builds the nest."
+      ],
+      "tip": "“Female” is often used in scientific, official, or statistical contexts; “woman” is usually more natural when referring to an adult person.",
+      "course": "en",
+      "breakdown": "A biological or demographic term that can function as a noun or adjective.",
+      "related": "male; woman; girl; sex",
+      "categories": [
+        "People & Relationships",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A person or animal of the sex that produces eggs or, in many species, gives birth.",
+          "definitionZh": "属于能够产生卵子或在许多物种中能够生育这一性别的人或动物；雌性或女性。",
+          "examples": [
+            "The survey included fifty females and fifty males.",
+            "The female of this species is larger."
+          ]
+        },
+        {
+          "part": "adjective",
+          "definition": "Relating to the sex that produces eggs or gives birth.",
+          "definitionZh": "与能够产生卵子或生育的性别有关的；女性的或雌性的。",
+          "examples": [
+            "The female athletes trained together.",
+            "A female elephant was caring for the calf."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "gentleman",
+      "part": "noun",
+      "phonetic": "/ˈdʒentəlmən/",
+      "definition": "A man who is polite, considerate, and well-mannered; or a formal and polite way to refer to a man.",
+      "definitionZh": "绅士；有礼貌的男士；先生",
+      "examples": [
+        "He behaved like a true gentleman.",
+        "Ladies and gentlemen, welcome to the event."
+      ],
+      "tip": "The plural is “gentlemen”. It can sound formal or old-fashioned in some everyday situations.",
+      "course": "en",
+      "breakdown": "Often describes a man's polite behaviour or serves as a formal form of address.",
+      "related": "man; gentlemanly; polite; lady",
+      "categories": [
+        "People & Relationships",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — well-mannered man",
+          "definition": "A man who behaves politely, respectfully, and considerately toward others.",
+          "definitionZh": "举止礼貌、尊重他人并体贴周到的男性；绅士。",
+          "examples": [
+            "He offered his seat to the older passenger like a gentleman.",
+            "A gentleman always treats others with respect."
+          ]
+        },
+        {
+          "part": "noun — formal address",
+          "definition": "A polite or formal way of referring to a man, especially in public speech.",
+          "definitionZh": "尤指在公开讲话中礼貌或正式地称呼男性的方式；先生。",
+          "examples": [
+            "The gentleman at the front has a question.",
+            "Ladies and gentlemen, please take your seats."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "guest",
+      "part": "noun",
+      "phonetic": "/ɡest/",
+      "definition": "A person who is invited to visit someone's home or attend an event; or a person staying at a hotel or similar place.",
+      "definitionZh": "客人；宾客；住客；嘉宾",
+      "examples": [
+        "We have a guest staying with us tonight.",
+        "The hotel offers free breakfast to its guests."
+      ],
+      "tip": "A guest is invited or received by a host; the host is the person who welcomes the guest.",
+      "course": "en",
+      "breakdown": "Can refer to a visitor at a home or event, a hotel customer, or an invited participant.",
+      "related": "visitor; host; visitor; customer",
+      "categories": [
+        "People & Relationships",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "noun — invited visitor",
+          "definition": "A person invited to someone's home or to take part in an event.",
+          "definitionZh": "受邀到某人家中或参加某项活动的人；客人或宾客。",
+          "examples": [
+            "Each guest received a name badge.",
+            "We invited twenty guests to the wedding."
+          ]
+        },
+        {
+          "part": "noun — hotel customer",
+          "definition": "A person who pays to stay at a hotel or other accommodation.",
+          "definitionZh": "付费入住酒店或其他住宿场所的人；住客。",
+          "examples": [
+            "Hotel guests can use the swimming pool.",
+            "The guest checked out early."
+          ]
+        },
+        {
+          "part": "noun — invited participant",
+          "definition": "A person invited to appear on a programme, speak at an event, or take part in an activity.",
+          "definitionZh": "受邀在节目中露面、在活动中发言或参与某项活动的人；嘉宾。",
+          "examples": [
+            "The show has a special guest tonight.",
+            "She was a guest speaker at the conference."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grandfather",
+      "part": "noun",
+      "phonetic": "/ˈɡrændˌfɑːðər/",
+      "definition": "The father of someone's mother or father.",
+      "definitionZh": "祖父；外祖父；爷爷；外公",
+      "examples": [
+        "My grandfather taught me how to fish.",
+        "Her grandfather lives in a small village."
+      ],
+      "tip": "English “grandfather” does not distinguish the father's side from the mother's side; Chinese uses different terms.",
+      "course": "en",
+      "breakdown": "A family relationship term for a parent's father.",
+      "related": "grandmother; grandparent; grandson; granddaughter",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The father of someone's mother or father.",
+          "definitionZh": "某人的父亲或母亲的父亲；祖父或外祖父。",
+          "examples": [
+            "My grandfather is eighty years old.",
+            "We visit our grandfather every weekend."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "grandmother",
+      "part": "noun",
+      "phonetic": "/ˈɡrændˌmʌðər/",
+      "definition": "The mother of someone's mother or father.",
+      "definitionZh": "祖母；外祖母；奶奶；外婆",
+      "examples": [
+        "My grandmother makes excellent soup.",
+        "Their grandmother lives with the family."
+      ],
+      "tip": "English “grandmother” does not distinguish the father's side from the mother's side; Chinese uses different terms.",
+      "course": "en",
+      "breakdown": "A family relationship term for a parent's mother.",
+      "related": "grandfather; grandparent; granddaughter; grandson",
+      "categories": [
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The mother of someone's mother or father.",
+          "definitionZh": "某人的父亲或母亲的母亲；祖母或外祖母。",
+          "examples": [
+            "Her grandmother taught her to sew.",
+            "We called our grandmother on her birthday."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+name: SwiftDictionary U2.9.0 English dictionary QA
+
+on:
+  push:
+    branches:
+      - feature/update-2-9-0-english-dictionary-collections
+      - feature/u2-9-0-collections-feedback
+    paths:
+      - "index.html"
+      - "data/english-expansion*"
+      - "data/english-baseline-categories.js"
+      - "english-category-filters.js"
+      - "premium-plan.css"
+      - "premium-plan.js"
+      - "premium-plan.html"
+      - "scripts/dictionary/validate-english-phase3.mjs"
+      - "scripts/dictionary/audit-english-catalogue.mjs"
+      - "tests/browser/u2-9-0-english-categories.spec.js"
+      - "favorite-collections.js"
+      - "mock-testing.js"
+      - "tests/update-2-3-1/mock-testing.test.mjs"
+      - "account-deletion.js"
+      - "supabase-config.js"
+      - "tests/browser/u2-9-0-favorite-collections.spec.js"
+      - "supabase/migrations/*favorite_collections*"
+      - "supabase/migrations/*reorder_rpc_invoker_security.sql"
+      - "supabase/migrations/*favorite_collection_capacity_limits.sql"
+      - "supabase/migrations/*favorite_collection_ordering.sql"
+      - "supabase/migrations/*english_lesson_expansion.sql"
+      - "data/english-lessons-expansion.js"
+      - "permanent-lesson-confirmation.js"
+      - "supabase/tests/update_2_9_0_english_lesson_catalog.sql"
+      - "supabase/tests/quiz_draft_content_catalog.sql"
+      - "supabase/tests/quiz_draft_content_import_assertions.sql"
+      - "content/quiz/questions.en-zh.draft.json"
+      - "content/quiz/curriculum-map.en.json"
+      - "supabase/tests/favorite_collections.sql"
+      - "scripts/dictionary/**"
+      - ".github/workflows/u2-9-0-dictionary-qa.yml"
+      - "tests/browser/u2-9-0-english-expansion.spec.js"
+      - "scripts/quiz/validate-question-bank.mjs"
+      - "playwright.config.js"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "favorite-collections.js"
+      - "account-deletion.js"
+      - "supabase-config.js"
+      - "tests/browser/u2-9-0-favorite-collections.spec.js"
+      - "supabase/migrations/*favorite_collections*"
+      - "supabase/migrations/*reorder_rpc_invoker_security.sql"
+      - "supabase/migrations/*favorite_collection_capacity_limits.sql"
+      - "supabase/migrations/*favorite_collection_ordering.sql"
+      - "supabase/migrations/*english_lesson_expansion.sql"
+      - "data/english-lessons-expansion.js"
+      - "permanent-lesson-confirmation.js"
+      - "supabase/tests/update_2_9_0_english_lesson_catalog.sql"
+      - "supabase/tests/quiz_draft_content_catalog.sql"
+      - "supabase/tests/quiz_draft_content_import_assertions.sql"
+      - "supabase/tests/favorite_collections.sql"
+      - "index.html"
+      - "data/english-expansion*"
+      - "data/english-baseline-categories.js"
+      - "english-category-filters.js"
+      - "premium-plan.css"
+      - "premium-plan.js"
+      - "premium-plan.html"
+      - "scripts/dictionary/validate-english-phase3.mjs"
+      - "tests/browser/u2-9-0-english-categories.spec.js"
+      - "scripts/dictionary/**"
+      - ".github/workflows/u2-9-0-dictionary-qa.yml"
+      - "tests/browser/u2-9-0-english-expansion.spec.js"
+      - "playwright.config.js"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-english-dictionary:
+    name: Validate English dictionary data and runtime integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Validate baseline, expansion batches, senses and runtime dataset
+        run: node scripts/dictionary/validate-english-expansion.mjs
+      - name: Audit English topic categories and Chinese translations
+        run: node scripts/dictionary/validate-english-phase3.mjs
+      - name: Run whole-catalogue editorial integrity audit
+        run: node scripts/dictionary/audit-english-catalogue.mjs
+      - name: Validate aligned English Quiz draft content
+        run: node scripts/quiz/validate-question-bank.mjs
+      - name: Run Mock Quiz and Flashcards regression tests against expanded draft bank
+        run: node --test tests/update-2-3-1/mock-testing.test.mjs
+      - name: Install Playwright test runner
+        run: |
+          npm init -y
+          npm install --no-save @playwright/test
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run English expansion browser smoke tests
+        run: npx playwright test tests/browser/u2-9-0-english-expansion.spec.js tests/browser/u2-9-0-english-categories.spec.js tests/browser/u2-9-0-favorite-collections.spec.js
+      - name: Preserve whole-catalogue audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: u2-9-0-english-catalogue-editorial-audit
+          path: data/english-catalogue-editorial-audit.json
+          if-no-files-found: error
+          retention-days: 30

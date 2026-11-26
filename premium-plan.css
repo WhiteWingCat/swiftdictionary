@@ -1,0 +1,43 @@
+/* SwiftDictionary U2.9.0 — dark shell and deep-blue dashboard panel theme. */
+:root{color-scheme:dark;--sd-bg:#111318;--sd-panel:#1c2431;--sd-panel-deep:#171d28;--sd-panel-inner:#202a3a;--sd-border:#2d323d;--sd-text:#f3f4f6;--sd-muted:#a1a7b4;--sd-accent:#a9b9ff;--sd-shadow:0 18px 55px rgba(0,0,0,.32)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sd-bg);color:var(--sd-text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.premium-page{min-height:100vh;background:radial-gradient(ellipse at 50% -15%,rgba(67,91,143,.18),transparent 48%),var(--sd-bg);color:var(--sd-text);padding:clamp(20px,4vw,48px) 16px 56px}
+.premium-shell{width:min(1040px,100%);margin:0 auto}
+.premium-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+.premium-brand{display:flex;align-items:center;gap:10px;color:var(--sd-text);text-decoration:none;font-weight:800;letter-spacing:-.02em}
+.premium-brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#252e4a;color:var(--sd-accent);font-size:1.15rem;box-shadow:0 5px 16px rgba(0,0,0,.24)}
+.premium-back{display:inline-flex;align-items:center;gap:8px;border:1px solid #3a4558;border-radius:999px;background:linear-gradient(145deg,var(--sd-panel),var(--sd-panel-deep));color:var(--sd-text);padding:10px 15px;font:inherit;font-weight:650;text-decoration:none;box-shadow:0 5px 16px rgba(0,0,0,.25);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.premium-back:hover{transform:translateY(-1px);border-color:#52658a;box-shadow:0 9px 22px rgba(0,0,0,.34)}
+.premium-back:focus-visible{outline:2px solid var(--sd-accent);outline-offset:3px}
+.premium-hero{position:relative;overflow:hidden;padding:clamp(24px,5vw,48px);border:1px solid #3d5278;border-radius:24px;background:radial-gradient(circle at 88% 10%,rgba(135,166,226,.18),transparent 30%),linear-gradient(135deg,#1c2431 0%,#171d28 100%);box-shadow:0 16px 42px rgba(0,0,0,.34);animation:premium-enter .45s ease both}
+.premium-eyebrow{display:inline-flex;align-items:center;gap:7px;margin:0 0 13px;color:#a9bee9;font-size:.78rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.premium-hero h1{margin:0;color:#f3f4f6;font-size:clamp(2rem,5vw,3.15rem);line-height:1.08;letter-spacing:-.045em}
+.premium-lead{max-width:68ch;margin:16px 0 0;color:#c0c8d6;font-size:1.05rem;line-height:1.7}
+.premium-status{display:flex;align-items:flex-start;gap:10px;margin-top:22px;padding:13px 15px;border:1px solid #40516e;border-radius:13px;background:#202a3a;color:#c0cbe0;line-height:1.55;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.premium-status strong{color:#e4ebfb}
+.premium-section{margin-top:30px}
+.premium-section-heading{margin:0 0 7px;color:#eef2fa;font-size:1.35rem;letter-spacing:-.02em}
+.premium-section-copy{margin:0 0 16px;color:var(--sd-muted);line-height:1.6}
+.premium-comparison{overflow:hidden;border:1px solid #3a4558;border-radius:18px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);box-shadow:0 14px 36px rgba(0,0,0,.3)}
+.premium-comparison-head,.premium-comparison-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.premium-comparison-head{background:#202a3a;border-bottom:1px solid #3a4558}
+.premium-comparison-head>div{padding:17px 20px;color:#dbe3f2;font-weight:800}
+.premium-comparison-head>div:nth-child(2){color:#c4d1e9}
+.premium-comparison-head>div:nth-child(3){color:#b8c8ff}
+.premium-comparison-row+.premium-comparison-row{border-top:1px solid rgba(164,181,212,.13)}
+.premium-comparison-row>div{padding:18px 20px;min-width:0;line-height:1.55}
+.premium-feature{font-weight:750;color:#eef2fa}
+.premium-feature small{display:block;margin-top:4px;color:#a1a7b4;font-weight:450;font-size:.84rem}
+.premium-value{color:#b9c3d3}
+.premium-value strong{display:block;color:#edf2fc;font-size:1.02rem}
+.premium-value.premium-tier{background:rgba(70,94,145,.13)}
+.premium-unlimited{display:inline-flex;align-items:center;gap:7px;color:#9bd7b3!important}
+.premium-capacity{display:inline-flex;align-items:center;margin-top:7px;padding:3px 9px;border:1px solid #455775;border-radius:999px;background:#253653;color:#cbd9f6;font-size:.72rem;font-weight:800;letter-spacing:.03em}.premium-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.premium-note{padding:17px 18px;border:1px solid #34435a;border-radius:15px;background:linear-gradient(145deg,#1c2431 0%,#171d28 100%);color:#b9c3d3;line-height:1.6;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.premium-note strong{display:block;margin-bottom:5px;color:#edf2fc}
+.premium-footer{margin:24px 0 0;color:#8994a6;text-align:center;font-size:.82rem;line-height:1.6}
+@keyframes premium-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.premium-comparison-head,.premium-comparison-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.premium-comparison-head>div:first-child{display:none}.premium-comparison-row{grid-template-areas:"feature feature" "free premium"}.premium-comparison-row>div:first-child{grid-area:feature;padding-bottom:5px}.premium-comparison-row>div:nth-child(2){grid-area:free;padding-top:8px}.premium-comparison-row>div:nth-child(3){grid-area:premium;padding-top:8px}.premium-comparison-head>div:nth-child(2),.premium-comparison-head>div:nth-child(3){padding:13px 15px}.premium-comparison-row>div{padding:14px 15px}.premium-notes{grid-template-columns:1fr}}
+@media(max-width:480px){.premium-topbar{align-items:flex-start}.premium-brand{font-size:.9rem}.premium-brand-mark{width:34px;height:34px}.premium-back{padding:9px 12px;font-size:.88rem}.premium-hero{border-radius:18px}.premium-comparison-row>div:nth-child(2),.premium-comparison-row>div:nth-child(3){font-size:.9rem}.premium-value strong{font-size:.96rem}}
+@media(prefers-reduced-motion:reduce){.premium-hero{animation:none}.premium-back{transition:none}}

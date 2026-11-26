@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Correct a duplicate baseline example discovered during the final two-example coverage audit.",
+  "status": "integrated into feature-branch index.html",
+  "corrections": [
+    {
+      "word": "paradigm",
+      "replaceExampleIndex": 1,
+      "previousExample": "The discovery challenged the prevailing paradigm in the field.",
+      "replacementExample": "The company adopted a new paradigm for remote teamwork."
+    }
+  ],
+  "appliedCommit": "1a91abc3cb3d13df9cdc650f80d944f566189ba2"
+}

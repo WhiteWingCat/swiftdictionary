@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add a second contextual example to common place and travel headwords in the existing English baseline.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "71332fdf57a38dbf00c49ca49aaf517e51958002",
+  "entries": [
+    {
+      "word": "station",
+      "addExamples": [
+        "The station was crowded with commuters during the morning rush."
+      ]
+    },
+    {
+      "word": "market",
+      "addExamples": [
+        "The weekend market sells handmade crafts as well as fresh food."
+      ]
+    },
+    {
+      "word": "library",
+      "addExamples": [
+        "Students often use the library when they need a quiet place to work."
+      ]
+    },
+    {
+      "word": "hospital",
+      "addExamples": [
+        "The new hospital has a separate entrance for emergency patients."
+      ]
+    },
+    {
+      "word": "restaurant",
+      "addExamples": [
+        "The restaurant is fully booked for Saturday evening."
+      ]
+    },
+    {
+      "word": "museum",
+      "addExamples": [
+        "Our class visited the museum to see an exhibition of ancient tools."
+      ]
+    },
+    {
+      "word": "entrance",
+      "addExamples": [
+        "A security guard checked our passes at the entrance."
+      ]
+    },
+    {
+      "word": "exit",
+      "addExamples": [
+        "Follow the green signs to find the emergency exit."
+      ]
+    },
+    {
+      "word": "corner",
+      "addExamples": [
+        "There is a small bakery on the corner opposite the bank."
+      ]
+    },
+    {
+      "word": "bridge",
+      "addExamples": [
+        "The old bridge was closed while workers inspected its structure."
+      ]
+    },
+    {
+      "word": "ticket",
+      "addExamples": [
+        "You can show the digital ticket on your phone when you enter."
+      ]
+    },
+    {
+      "word": "platform",
+      "addExamples": [
+        "Passengers waited on the platform until the train arrived."
+      ]
+    }
+  ],
+  "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
+}

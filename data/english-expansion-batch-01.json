@@ -1,0 +1,829 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "batch": 1,
+  "theme": "Core everyday actions",
+  "status": "editorially-authored; awaiting automated and integrated QA",
+  "entries": [
+    {
+      "word": "adjust",
+      "part": "verb",
+      "phonetic": "/əˈdʒʌst/",
+      "definition": "To change something slightly so that it works better, fits better, or suits a new situation.",
+      "definitionZh": "调整；调节；适应",
+      "examples": [
+        "You can adjust the seat to make it more comfortable.",
+        "She adjusted her plans after the meeting was moved."
+      ],
+      "tip": "Often used with “to”: adjust something to a new situation; adjust to a change.",
+      "course": "en",
+      "breakdown": "Usually describes a small or practical change rather than replacing something completely.",
+      "related": "adapt; modify; change",
+      "categories": [
+        "Actions",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb — change something",
+          "definition": "To make a small change to something, such as a setting, position, or amount.",
+          "definitionZh": "对某物作小幅改变，例如调整设置、位置或数量。",
+          "examples": [
+            "Please adjust the mirror before driving.",
+            "He adjusted the volume on the television."
+          ]
+        },
+        {
+          "part": "verb — become accustomed",
+          "definition": "To become familiar with a new situation or way of living.",
+          "definitionZh": "逐渐适应新的情况或生活方式。",
+          "examples": [
+            "It took me a week to adjust to the new schedule.",
+            "Children often adjust quickly to a new school."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "advise",
+      "part": "verb",
+      "phonetic": "/ədˈvaɪz/",
+      "definition": "To give someone a suggestion or information about what they should do.",
+      "definitionZh": "建议；劝告；向……提供意见",
+      "examples": [
+        "The doctor advised him to get more rest.",
+        "I would advise checking the details before you sign."
+      ],
+      "tip": "Use “advise someone to do something”. The noun is “advice”, which is uncountable.",
+      "course": "en",
+      "breakdown": "A verb used when giving guidance; do not confuse it with the noun “advice”.",
+      "related": "recommend; suggest; guidance",
+      "categories": [
+        "Actions",
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To recommend what someone should do or give them guidance about a decision.",
+          "definitionZh": "就某项决定提出建议，或指导某人应该怎么做。",
+          "examples": [
+            "Her teacher advised her to practise every day.",
+            "We advise customers to keep their receipts."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "agree",
+      "part": "verb",
+      "phonetic": "/əˈɡriː/",
+      "definition": "To have the same opinion as someone, accept a suggestion, or make a shared decision.",
+      "definitionZh": "同意；赞成；达成一致",
+      "examples": [
+        "I agree with your idea.",
+        "They agreed to meet after work."
+      ],
+      "tip": "Common patterns include agree with a person or opinion, agree to a plan, and agree on a topic.",
+      "course": "en",
+      "breakdown": "The verb often appears with a preposition: agree with, agree to, or agree on.",
+      "related": "accept; approve; disagree",
+      "categories": [
+        "Actions",
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "verb — share an opinion",
+          "definition": "To have the same opinion or think that something is true.",
+          "definitionZh": "持有相同意见，或认为某事属实。",
+          "examples": [
+            "I agree with you about the importance of practice.",
+            "Most people agreed that the road needed repairs."
+          ]
+        },
+        {
+          "part": "verb — accept a proposal",
+          "definition": "To say yes to a suggestion, request, or arrangement.",
+          "definitionZh": "接受某项建议、请求或安排。",
+          "examples": [
+            "She agreed to help us move.",
+            "We agreed on a date for the event."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "announce",
+      "part": "verb",
+      "phonetic": "/əˈnaʊns/",
+      "definition": "To make information known publicly or officially.",
+      "definitionZh": "宣布；公布；通知",
+      "examples": [
+        "The school announced the exam dates.",
+        "They announced that the shop would close early."
+      ],
+      "tip": "Often used for news, decisions, events, and official information.",
+      "course": "en",
+      "breakdown": "An announcement is information that is made known to a group or the public.",
+      "related": "declare; inform; announcement",
+      "categories": [
+        "Actions",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To tell people information publicly or officially.",
+          "definitionZh": "公开或正式地向人们告知信息。",
+          "examples": [
+            "The company announced a new service.",
+            "The winner will be announced tomorrow."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "apply",
+      "part": "verb",
+      "phonetic": "/əˈplaɪ/",
+      "definition": "To make a formal request for something; to use or put something onto a surface; or to be relevant to a situation.",
+      "definitionZh": "申请；应用；涂抹；适用",
+      "examples": [
+        "She plans to apply for the job.",
+        "Apply the cream to clean skin.",
+        "This rule applies to every student."
+      ],
+      "tip": "Common patterns: apply for a job, apply to a school, apply a rule, and apply something to a surface.",
+      "course": "en",
+      "breakdown": "The meaning depends on its pattern and object. The noun “application” can mean a request or the use of something.",
+      "related": "request; use; put on; application",
+      "categories": [
+        "Actions",
+        "Education",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb — make a request",
+          "definition": "To formally ask to be considered for a job, course, permit, or other opportunity.",
+          "definitionZh": "正式提出申请，以获得工作、课程、许可证或其他机会。",
+          "examples": [
+            "He applied for a position at the museum.",
+            "You must apply to the university before June."
+          ]
+        },
+        {
+          "part": "verb — put something on",
+          "definition": "To spread or place a substance onto a surface.",
+          "definitionZh": "将某种物质涂抹或放置在表面上。",
+          "examples": [
+            "Apply sunscreen before going outside.",
+            "She applied a little paint to the wall."
+          ]
+        },
+        {
+          "part": "verb — be relevant",
+          "definition": "To be true, suitable, or relevant in a particular situation.",
+          "definitionZh": "在特定情况下适用、成立或相关。",
+          "examples": [
+            "The same rule applies to visitors.",
+            "This discount does not apply to sale items."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "attach",
+      "part": "verb",
+      "phonetic": "/əˈtætʃ/",
+      "definition": "To fasten or join one thing to another; to include a file with a message; or to connect importance or meaning to something.",
+      "definitionZh": "附上；连接；固定；赋予……重要性",
+      "examples": [
+        "Please attach the receipt to the form.",
+        "I forgot to attach the photo to my email."
+      ],
+      "tip": "In digital communication, “attach a file” means include it with an email or message.",
+      "course": "en",
+      "breakdown": "The object is usually joined, connected, or included with something else.",
+      "related": "connect; fasten; include; attachment",
+      "categories": [
+        "Actions",
+        "Everyday Terms",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb — fasten or join",
+          "definition": "To connect or fasten one object to another.",
+          "definitionZh": "将一个物体连接或固定在另一个物体上。",
+          "examples": [
+            "Attach the label to the front of the box.",
+            "The handle is attached to the door."
+          ]
+        },
+        {
+          "part": "verb — include a file",
+          "definition": "To add a document, image, or other file to an email or digital message.",
+          "definitionZh": "在电子邮件或数字消息中添加文件、图片或其他附件。",
+          "examples": [
+            "I attached the report to my email.",
+            "You can attach up to three files."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "breathe",
+      "part": "verb",
+      "phonetic": "/briːð/",
+      "definition": "To take air into the lungs and let it out again.",
+      "definitionZh": "呼吸；吸气；呼气",
+      "examples": [
+        "Take a moment to breathe slowly.",
+        "It was difficult to breathe in the smoky room."
+      ],
+      "tip": "The verb is “breathe” /briːð/; the noun is “breath” /breθ/.",
+      "course": "en",
+      "breakdown": "A basic life process. Remember the different final sounds and spellings of “breathe” and “breath”.",
+      "related": "breath; inhale; exhale",
+      "categories": [
+        "Actions",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To draw air into the lungs and release it.",
+          "definitionZh": "将空气吸入肺部，再将空气呼出。",
+          "examples": [
+            "Try to breathe deeply and calmly.",
+            "Fish breathe through their gills."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "calculate",
+      "part": "verb",
+      "phonetic": "/ˈkælkjuleɪt/",
+      "definition": "To find an answer or amount by using mathematics or careful reasoning.",
+      "definitionZh": "计算；核算；估算",
+      "examples": [
+        "Can you calculate the total cost?",
+        "The app calculates the distance between two places."
+      ],
+      "tip": "The noun is “calculation”; a person who calculates is a “calculator” only when referring to a device or, less commonly, a person.",
+      "course": "en",
+      "breakdown": "Can refer to exact mathematical work or a reasoned estimate.",
+      "related": "count; work out; estimate; calculation",
+      "categories": [
+        "Actions",
+        "Education",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb — work out a number",
+          "definition": "To use mathematics to find a number or answer.",
+          "definitionZh": "通过数学运算得出数字或答案。",
+          "examples": [
+            "We calculated the average score.",
+            "She calculated how much change she should receive."
+          ]
+        },
+        {
+          "part": "verb — estimate",
+          "definition": "To judge or estimate an amount, time, or result using available information.",
+          "definitionZh": "根据现有信息估算数量、时间或结果。",
+          "examples": [
+            "They calculated that the journey would take two hours.",
+            "The team calculated the likely cost of the repair."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "cancel",
+      "part": "verb",
+      "phonetic": "/ˈkænsəl/",
+      "definition": "To decide that an event, arrangement, order, or service will not happen or continue.",
+      "definitionZh": "取消；撤销；作废",
+      "examples": [
+        "They cancelled the match because of heavy rain.",
+        "I need to cancel my appointment."
+      ],
+      "tip": "In American English, “canceled” and “canceling” use one l; British English commonly uses “cancelled” and “cancelling”.",
+      "course": "en",
+      "breakdown": "Used for plans, bookings, events, orders, and services that are stopped before completion.",
+      "related": "call off; withdraw; cancellation",
+      "categories": [
+        "Actions",
+        "Everyday Terms",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To stop a planned event, appointment, or arrangement from taking place.",
+          "definitionZh": "使原定的活动、预约或安排不再举行。",
+          "examples": [
+            "The outdoor concert was cancelled due to rain.",
+            "Please cancel my dentist appointment."
+          ]
+        },
+        {
+          "part": "verb — end an order or service",
+          "definition": "To end or withdraw an order, subscription, or service.",
+          "definitionZh": "终止或撤销订单、订阅或服务。",
+          "examples": [
+            "She cancelled her online order.",
+            "You can cancel the membership at any time."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "celebrate",
+      "part": "verb",
+      "phonetic": "/ˈseləbreɪt/",
+      "definition": "To do something enjoyable or special to show that an important event or achievement matters.",
+      "definitionZh": "庆祝；纪念；赞扬",
+      "examples": [
+        "We celebrated her birthday at home.",
+        "The team celebrated its first victory."
+      ],
+      "tip": "Commonly used with birthdays, festivals, achievements, and special occasions.",
+      "course": "en",
+      "breakdown": "Celebrating can involve a party or simply recognising an important event.",
+      "related": "celebration; festival; mark; honour",
+      "categories": [
+        "Actions",
+        "Activities",
+        "History & Culture"
+      ],
+      "senses": [
+        {
+          "part": "verb — mark an occasion",
+          "definition": "To do something enjoyable or special because of an event or occasion.",
+          "definitionZh": "为了某个事件或节日而举行活动或做特别的事情。",
+          "examples": [
+            "They celebrate the New Year with their family.",
+            "We celebrated our anniversary with dinner."
+          ]
+        },
+        {
+          "part": "verb — recognise an achievement",
+          "definition": "To publicly show appreciation for a success, person, or achievement.",
+          "definitionZh": "公开表达对某项成就、某个人或成功的赞赏。",
+          "examples": [
+            "The school celebrated the students' achievements.",
+            "The town celebrated its local artists."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "charge",
+      "part": "verb / noun",
+      "phonetic": "/tʃɑːrdʒ/",
+      "definition": "To ask someone to pay money; to put electrical energy into a battery; to accuse someone officially; or the amount of money or responsibility involved.",
+      "definitionZh": "收费；充电；指控；费用；负责",
+      "examples": [
+        "The hotel charges extra for breakfast.",
+        "I need to charge my phone.",
+        "The shop made no delivery charge."
+      ],
+      "tip": "“Charge” has several common meanings. The surrounding words show whether it refers to payment, electricity, an accusation, or responsibility.",
+      "course": "en",
+      "breakdown": "A highly flexible word used in money, technology, law, and responsibility contexts.",
+      "related": "fee; cost; bill; accuse; battery",
+      "categories": [
+        "Actions",
+        "Everyday Terms",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb — ask for payment",
+          "definition": "To ask someone to pay a particular amount for a product or service.",
+          "definitionZh": "要求某人为产品或服务支付一定金额。",
+          "examples": [
+            "The café charges five dollars for this drink.",
+            "They do not charge for delivery."
+          ]
+        },
+        {
+          "part": "verb — supply electricity",
+          "definition": "To fill a battery with electrical energy so that a device can be used.",
+          "definitionZh": "向电池补充电能，使设备能够使用。",
+          "examples": [
+            "I charge my phone every night.",
+            "The battery takes two hours to charge."
+          ]
+        },
+        {
+          "part": "noun — price or fee",
+          "definition": "An amount of money that someone must pay for a service or activity.",
+          "definitionZh": "某项服务或活动所需支付的金额；费用。",
+          "examples": [
+            "There is a small service charge.",
+            "What is the delivery charge?"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "chase",
+      "part": "verb / noun",
+      "phonetic": "/tʃeɪs/",
+      "definition": "The act of following someone or something in order to catch or reach them.",
+      "definitionZh": "追赶或追逐某人或某物的行为；追逐。",
+      "examples": [
+        "The dog chased the ball across the garden.",
+        "The police chased the stolen car."
+      ],
+      "tip": "Can be literal, as in chasing a person, or figurative, as in chasing a dream or goal.",
+      "course": "en",
+      "breakdown": "Often implies movement toward something that is trying to get away, though it also appears in figurative expressions.",
+      "related": "pursue; follow; pursuit",
+      "categories": [
+        "Actions",
+        "Activities"
+      ],
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To run or move after someone or something to catch them.",
+          "definitionZh": "为了抓住某人或某物而跑动或追赶。",
+          "examples": [
+            "The children chased each other around the playground.",
+            "A cat chased a bird out of the garden."
+          ]
+        },
+        {
+          "part": "verb — pursue a goal",
+          "definition": "To try hard to achieve or obtain something.",
+          "definitionZh": "努力追求或争取某个目标。",
+          "examples": [
+            "She is chasing her dream of becoming a writer.",
+            "He spent years chasing success."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of following someone or something in order to catch or reach them.",
+          "definitionZh": "追赶或追逐某人或某物的行为；追逐。",
+          "examples": [
+            "The chase continued through the narrow streets.",
+            "After a long chase, the dog caught the ball."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "connect",
+      "part": "verb",
+      "phonetic": "/kəˈnekt/",
+      "definition": "To join or link things together; to establish a relationship or communication; or to form a meaningful association.",
+      "definitionZh": "连接；联系；接通；建立关联",
+      "examples": [
+        "Connect the printer to your computer.",
+        "The train connects the city with the airport."
+      ],
+      "tip": "Common patterns include connect A to B, connect with someone, and connect two ideas.",
+      "course": "en",
+      "breakdown": "Can describe physical links, digital connections, transport links, or relationships.",
+      "related": "join; link; associate; connection",
+      "categories": [
+        "Actions",
+        "People & Relationships",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb — join things",
+          "definition": "To attach or link two or more things so that they work together or form one unit.",
+          "definitionZh": "将两个或多个事物连接起来，使其共同运作或形成整体。",
+          "examples": [
+            "Connect the cable to the back of the screen.",
+            "A bridge connects the two sides of the river."
+          ]
+        },
+        {
+          "part": "verb — communicate or relate",
+          "definition": "To communicate with someone or feel that you understand or share something with them.",
+          "definitionZh": "与某人交流，或感到彼此理解、有共同之处。",
+          "examples": [
+            "I connected with several people at the workshop.",
+            "The teacher connected the topic to everyday life."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "continue",
+      "part": "verb",
+      "phonetic": "/kənˈtɪnjuː/",
+      "definition": "To keep doing something or to happen for a longer time without stopping.",
+      "definitionZh": "继续；持续；接着进行",
+      "examples": [
+        "Please continue reading the next page.",
+        "The rain continued throughout the night."
+      ],
+      "tip": "Use continue doing something or continue to do something; both are common.",
+      "course": "en",
+      "breakdown": "Indicates that an action or situation carries on rather than ending.",
+      "related": "carry on; keep; proceed; continuation",
+      "categories": [
+        "Actions",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb — keep doing",
+          "definition": "To keep performing an activity without stopping or giving up.",
+          "definitionZh": "不停下来或不放弃，继续进行某项活动。",
+          "examples": [
+            "She continued working after lunch.",
+            "You can continue to practise tomorrow."
+          ]
+        },
+        {
+          "part": "verb — keep happening",
+          "definition": "To remain in progress or keep happening over a period of time.",
+          "definitionZh": "在一段时间内仍在进行或持续发生。",
+          "examples": [
+            "The road continues beyond the village.",
+            "The discussion continued for another hour."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "control",
+      "part": "verb / noun",
+      "phonetic": "/kənˈtroʊl/",
+      "definition": "To direct or manage how something happens; to limit or regulate something; or the power to direct a person, process, or situation.",
+      "definitionZh": "控制；管理；支配；控制权",
+      "examples": [
+        "She controls the lights with a switch.",
+        "It is difficult to control traffic during the festival."
+      ],
+      "tip": "The noun is usually uncountable when referring to power or management: have control of/over something.",
+      "course": "en",
+      "breakdown": "Can refer to managing a process, limiting behaviour, or having authority over something.",
+      "related": "manage; direct; regulate; authority",
+      "categories": [
+        "Actions",
+        "Everyday Terms",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb — manage or direct",
+          "definition": "To decide how an activity, system, or organisation operates.",
+          "definitionZh": "决定某项活动、系统或组织如何运作。",
+          "examples": [
+            "He controls the company's budget.",
+            "The pilot controls the aircraft."
+          ]
+        },
+        {
+          "part": "verb — limit or regulate",
+          "definition": "To keep something within limits or prevent it from becoming too strong or harmful.",
+          "definitionZh": "将某事物限制在一定范围内，或防止其变得过强或有害。",
+          "examples": [
+            "The medicine helps control the pain.",
+            "They are trying to control the spread of the fire."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The power or ability to direct, manage, or limit something.",
+          "definitionZh": "指挥、管理或限制某事物的权力或能力。",
+          "examples": [
+            "She has control over the final decision.",
+            "The device gives you control of the room's temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "convince",
+      "part": "verb",
+      "phonetic": "/kənˈvɪns/",
+      "definition": "To make someone believe that something is true or persuade them to do something.",
+      "definitionZh": "使相信；说服；使信服",
+      "examples": [
+        "He convinced me that the plan was safe.",
+        "She convinced her parents to let her travel."
+      ],
+      "tip": "Use convince someone that something is true, or convince someone to do something.",
+      "course": "en",
+      "breakdown": "Focuses on changing someone's belief or opinion; “persuade” often emphasises getting them to take action.",
+      "related": "persuade; assure; belief",
+      "categories": [
+        "Actions",
+        "People & Relationships"
+      ],
+      "senses": [
+        {
+          "part": "verb — make someone believe",
+          "definition": "To cause someone to believe that an idea or statement is true.",
+          "definitionZh": "使某人相信某个想法或陈述是真实的。",
+          "examples": [
+            "The evidence convinced the jury.",
+            "I am not convinced that this is the best choice."
+          ]
+        },
+        {
+          "part": "verb — persuade someone",
+          "definition": "To succeed in getting someone to do something through reasoning or argument.",
+          "definitionZh": "通过讲道理或论证成功说服某人做某事。",
+          "examples": [
+            "We convinced him to join the team.",
+            "She convinced her friend to apply for the course."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "copy",
+      "part": "verb / noun",
+      "phonetic": "/ˈkɑːpi/",
+      "definition": "To make something that is the same as an original; to reproduce information; or a thing made to look or read like another.",
+      "definitionZh": "复制；抄写；副本；一份",
+      "examples": [
+        "Please copy the address into your notebook.",
+        "I made a copy of the document."
+      ],
+      "tip": "In computing, copy usually means duplicate text, files, or other digital content without removing the original.",
+      "course": "en",
+      "breakdown": "As a verb, it describes making a duplicate; as a noun, it can mean the duplicate itself.",
+      "related": "duplicate; reproduce; imitate; photocopy",
+      "categories": [
+        "Actions",
+        "Education",
+        "Science & Technology"
+      ],
+      "senses": [
+        {
+          "part": "verb — make a duplicate",
+          "definition": "To make another version of a document, file, image, or object.",
+          "definitionZh": "制作文件、资料、图像或物品的另一个版本。",
+          "examples": [
+            "Copy the file to the new folder.",
+            "Can you copy this page for me?"
+          ]
+        },
+        {
+          "part": "verb — imitate or reproduce",
+          "definition": "To do or make something in the same way as another person or example.",
+          "definitionZh": "以与他人或范例相同的方式做事或制作某物；模仿。",
+          "examples": [
+            "The child copied her older sister's movements.",
+            "Do not copy another student's answers."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A thing made to be the same as an original, or one example of a book, document, or file.",
+          "definitionZh": "与原件相同的复制品；书籍、文件或档案的一份。",
+          "examples": [
+            "I need a copy of your passport photo page.",
+            "The library has three copies of the book."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "correct",
+      "part": "adjective / verb",
+      "phonetic": "/kəˈrekt/",
+      "definition": "Right or free from mistakes; or to find and fix an error.",
+      "definitionZh": "正确的；准确的；纠正；改正",
+      "examples": [
+        "Your answer is correct.",
+        "Please correct the spelling mistake."
+      ],
+      "tip": "The adjective is often pronounced with stress on the second syllable; the verb also means to fix an error.",
+      "course": "en",
+      "breakdown": "As an adjective it describes something accurate; as a verb it means make something accurate.",
+      "related": "right; accurate; fix; correction",
+      "categories": [
+        "Actions",
+        "Education",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "True, accurate, or free from mistakes.",
+          "definitionZh": "真实、准确或没有错误的。",
+          "examples": [
+            "Make sure you write the correct date.",
+            "That is the correct answer."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To change something that is wrong so that it becomes right or accurate.",
+          "definitionZh": "修改错误之处，使其变得正确或准确。",
+          "examples": [
+            "The teacher corrected my grammar.",
+            "Please correct the information on this form."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "damage",
+      "part": "noun / verb",
+      "phonetic": "/ˈdæmɪdʒ/",
+      "definition": "Physical harm that makes something less useful or valuable; or to cause such harm.",
+      "definitionZh": "损坏；损害；破坏",
+      "examples": [
+        "The storm caused damage to several houses.",
+        "Be careful not to damage the screen."
+      ],
+      "tip": "“Damage” is usually uncountable when referring to harm: some damage, serious damage. The verb is damage something.",
+      "course": "en",
+      "breakdown": "Can refer to physical harm, harm to reputation, or a negative effect on health or the environment.",
+      "related": "harm; destroy; break; damage",
+      "categories": [
+        "Actions",
+        "Everyday Terms",
+        "Nature & Environment"
+      ],
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Harm that makes something broken, weaker, or less valuable.",
+          "definitionZh": "使某物损坏、变弱或价值降低的伤害。",
+          "examples": [
+            "The car has minor damage to its door.",
+            "Water damage can be expensive to repair."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To cause physical harm or a negative effect to something or someone.",
+          "definitionZh": "对某物或某人造成物理损坏或负面影响。",
+          "examples": [
+            "Too much sunlight can damage your skin.",
+            "The careless move damaged the old table."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "deliver",
+      "part": "verb",
+      "phonetic": "/dɪˈlɪvər/",
+      "definition": "To take something to a person or place; to give a speech or message; or to produce the result that was promised.",
+      "definitionZh": "递送；运送；发表；实现；接生",
+      "examples": [
+        "The shop delivers groceries to our home.",
+        "She delivered a short speech at the event."
+      ],
+      "tip": "Common patterns include deliver a package, deliver a speech, and deliver results.",
+      "course": "en",
+      "breakdown": "The meaning changes with the object: goods are brought, speeches are given, and results are produced.",
+      "related": "bring; transport; present; delivery",
+      "categories": [
+        "Actions",
+        "Everyday Terms"
+      ],
+      "senses": [
+        {
+          "part": "verb — bring something",
+          "definition": "To take goods, letters, or other items to the person or place they are intended for.",
+          "definitionZh": "将商品、信件或其他物品送到指定的人或地点。",
+          "examples": [
+            "The courier delivered the parcel this morning.",
+            "They deliver food within five kilometres."
+          ]
+        },
+        {
+          "part": "verb — give a speech or message",
+          "definition": "To present a speech, statement, or message to an audience.",
+          "definitionZh": "向听众发表演讲、声明或传达信息。",
+          "examples": [
+            "The principal delivered a welcome speech.",
+            "He delivered the news calmly."
+          ]
+        },
+        {
+          "part": "verb — produce a result",
+          "definition": "To do what was promised or expected, especially by achieving a result.",
+          "definitionZh": "履行承诺或达到预期，尤指取得成果。",
+          "examples": [
+            "The new system delivered better results.",
+            "The team must deliver the project on time."
+          ]
+        }
+      ]
+    }
+  ]
+}

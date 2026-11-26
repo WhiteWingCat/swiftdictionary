@@ -4,7 +4,7 @@
   "learning_language_code": "en",
   "translation_language_code": "zh",
   "status": "draft",
-  "notes": "199 original SwiftDictionary questions: 114 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review is deferred until live testing and friend feedback; structural validation does not certify educational accuracy.",
+  "notes": "229 original SwiftDictionary questions: 144 knowledge, 15 word-definition and 70 Chinese-translation questions. The source pack intentionally remains draft. It contains 199 existing release-approved questions plus 30 Phase 6 draft-only questions; the latter remain unapproved and are not part of the release subset. The SQL exporter imports drafts by default; --approve-for-release generates selectable approved rows only under explicit owner authorization. Human bilingual accuracy review remains required; structural validation does not certify educational accuracy.",
   "questions": [
     {
       "question_id": "quiz-beginner-001",
@@ -36,7 +36,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The standard collocation is “make a mistake.”",
       "explanation_translation": "标准搭配是“make a mistake”（犯错误）。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-002",
@@ -68,7 +69,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Take a break” is the standard expression for resting briefly.",
       "explanation_translation": "“Take a break”是表示短暂休息的标准表达。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-003",
@@ -100,7 +102,8 @@
       "correct_option_id": "b",
       "explanation_learning": "We commonly say “have breakfast” when talking about eating the morning meal.",
       "explanation_translation": "谈到吃早饭时，英语通常使用“have breakfast”。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-004",
@@ -132,7 +135,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Do homework” is the usual verb-noun combination.",
       "explanation_translation": "“Do homework”是常见的动词与名词搭配。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-005",
@@ -164,7 +168,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Umbrella” begins with a vowel sound, so the singular countable noun takes “an.”",
       "explanation_translation": "“Umbrella”以元音音素开头，因此单数可数名词前用“an”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-006",
@@ -196,7 +201,8 @@
       "correct_option_id": "c",
       "explanation_learning": "We use “the” for the unique sun in this context.",
       "explanation_translation": "在这个语境中，太阳是独一无二的，因此使用“the”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-007",
@@ -228,7 +234,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“University” begins with the consonant sound /juː/, so “a” is correct.",
       "explanation_translation": "“University”以辅音音素 /j/ 开头，因此使用“a”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-008",
@@ -260,7 +267,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The “h” in “honest” is silent, so the word begins with a vowel sound.",
       "explanation_translation": "“Honest”中的字母 h 不发音，因此该词以元音音素开头。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-009",
@@ -292,7 +300,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Child” has the irregular plural form “children.”",
       "explanation_translation": "“Child”的不规则复数形式是“children”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-010",
@@ -324,7 +333,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Advice” is uncountable in standard English; use “a piece of advice” for one item of advice.",
       "explanation_translation": "在标准英语中，“advice”是不可数名词；表示一条建议时可说“a piece of advice”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-011",
@@ -356,7 +366,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Apples” is a plural countable noun, so the question uses “many.”",
       "explanation_translation": "“Apples”是可数名词复数，因此疑问句使用“many”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-012",
@@ -388,7 +399,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Water” is uncountable here, so “much” is used in this negative sentence.",
       "explanation_translation": "这里的“water”是不可数名词，因此否定句中使用“much”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-013",
@@ -420,7 +432,8 @@
       "correct_option_id": "d",
       "explanation_learning": "“Mia” is the subject, “reads” is the verb, and “a book” is the object.",
       "explanation_translation": "“Mia”是主语，“reads”是动词，“a book”是宾语。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-014",
@@ -452,7 +465,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The usual statement order is subject + verb + place phrase.",
       "explanation_translation": "常见陈述句语序是主语 + 动词 + 地点短语。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-015",
@@ -484,7 +498,8 @@
       "correct_option_id": "c",
       "explanation_learning": "With “does,” the main verb stays in its base form: “work.”",
       "explanation_translation": "使用“does”时，主要动词保持原形“work”。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-016",
@@ -516,7 +531,8 @@
       "correct_option_id": "c",
       "explanation_learning": "In this noun phrase, the adjective “red” comes before the noun “bag.”",
       "explanation_translation": "在这个名词短语中，形容词“red”放在名词“bag”之前。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-017",
@@ -548,7 +564,8 @@
       "correct_option_id": "b",
       "explanation_learning": "With a third-person singular subject such as “my brother,” the present simple verb takes -s or -es.",
       "explanation_translation": "主语是“my brother”这样的第三人称单数时，一般现在时动词通常加 -s 或 -es。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-018",
@@ -580,7 +597,8 @@
       "correct_option_id": "d",
       "explanation_learning": "With “they,” use “do not/don't” followed by the base form “like.”",
       "explanation_translation": "主语是“they”时，使用“do not/don't”加动词原形“like”。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-019",
@@ -612,7 +630,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Every day” describes a regular habit, and “she” takes the verb form “walks.”",
       "explanation_translation": "“Every day”表示规律习惯；主语“she”对应动词形式“walks”。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-020",
@@ -644,7 +663,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“We” takes the base present simple form “have.”",
       "explanation_translation": "主语“We”使用一般现在时动词原形“have”。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-021",
@@ -676,7 +696,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The standard expression is “pay attention.”",
       "explanation_translation": "标准表达是“pay attention”（注意）。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-022",
@@ -708,7 +729,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Keep a promise” means to do what you said you would do.",
       "explanation_translation": "“Keep a promise”表示履行自己作出的承诺。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-023",
@@ -740,7 +762,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The “h” in “hour” is silent, so the word begins with a vowel sound and takes “an.”",
       "explanation_translation": "“Hour”中的 h 不发音，因此该词以元音音素开头，使用“an”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-024",
@@ -772,7 +795,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Useful” begins with the consonant sound /j/, so the correct article is “a.”",
       "explanation_translation": "“Useful”以辅音音素 /j/ 开头，因此使用“a”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-025",
@@ -804,7 +828,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Two” requires a plural countable unit; “two slices of bread” is correct.",
       "explanation_translation": "“Two”后需要可数名词复数；“two slices of bread”是正确表达。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-026",
@@ -836,7 +861,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Sugar” is uncountable in this context, so it fits the question with “much.”",
       "explanation_translation": "在此语境中，“sugar”是不可数名词，因此可与“much”搭配。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-027",
@@ -868,7 +894,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Three chairs” is plural, so the correct structure is “There are.”",
       "explanation_translation": "“Three chairs”是复数，因此正确结构是“There are”。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-028",
@@ -900,7 +927,8 @@
       "correct_option_id": "b",
       "explanation_learning": "For a present simple question with the subject “you,” use the auxiliary “do.”",
       "explanation_translation": "一般现在时中，主语是“you”的疑问句使用助动词“do”。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-029",
@@ -932,7 +960,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“The shop” is third-person singular, so the present simple verb takes -s.",
       "explanation_translation": "“The shop”是第三人称单数，因此一般现在时动词加 -s。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-030",
@@ -964,7 +993,8 @@
       "correct_option_id": "c",
       "explanation_learning": "Adverbs of frequency such as usually normally appear before the main verb: She usually drinks tea in the evening.",
       "explanation_translation": "Usually 等频率副词通常放在主要动词之前：She usually drinks tea in the evening。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-001",
@@ -996,7 +1026,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The standard collocation is “make progress.”",
       "explanation_translation": "标准搭配是“make progress”（取得进步）。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-002",
@@ -1028,7 +1059,8 @@
       "correct_option_id": "a",
       "explanation_learning": "English commonly uses “heavy rain” for rain falling in large amounts.",
       "explanation_translation": "英语通常用“heavy rain”表示雨量很大。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-003",
@@ -1060,7 +1092,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Meet the deadline” means to finish the work by the required date.",
       "explanation_translation": "“Meet the deadline”表示在规定日期前完成工作。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-004",
@@ -1092,7 +1125,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Raise an issue” means to bring a problem or subject to people's attention.",
       "explanation_translation": "“Raise an issue”表示提出问题或让大家注意某个议题。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-005",
@@ -1124,7 +1158,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Highly unlikely” is the natural collocation meaning very improbable.",
       "explanation_translation": "“Highly unlikely”是自然搭配，表示极不可能。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-006",
@@ -1156,7 +1191,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The standard expression is “take responsibility for” something.",
       "explanation_translation": "标准表达是“take responsibility for”（对某事承担责任）。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-007",
@@ -1188,7 +1224,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Pose a problem” means to create or present a problem.",
       "explanation_translation": "“Pose a problem”表示造成或带来问题。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-008",
@@ -1220,7 +1257,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Deeply concerned” is a common collocation expressing serious worry.",
       "explanation_translation": "“Deeply concerned”是常见搭配，表示非常担忧。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-009",
@@ -1252,7 +1290,8 @@
       "correct_option_id": "b",
       "explanation_learning": "A first conditional uses a present-tense if-clause and “will” for a likely future result.",
       "explanation_translation": "第一条件句通常在 if 从句中使用现在时，并在可能发生的未来结果中使用“will”。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-010",
@@ -1284,7 +1323,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The second conditional uses the past simple in the if-clause for an unreal or unlikely present situation.",
       "explanation_translation": "第二条件句用一般过去时表达不真实或不太可能发生的现在情况。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-011",
@@ -1316,7 +1356,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Unless” means “if not,” so it expresses the condition that you do not leave now.",
       "explanation_translation": "“Unless”表示“如果不”，这里指如果你现在不出发。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-012",
@@ -1348,7 +1389,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The zero conditional uses present simple in both clauses for general facts.",
       "explanation_translation": "零条件句通常在两个分句中都使用一般现在时来表达普遍事实。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-013",
@@ -1380,7 +1422,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The third conditional uses “would have” plus a past participle for an unreal past result.",
       "explanation_translation": "第三条件句用“would have”加过去分词表示与过去事实相反的结果。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-014",
@@ -1412,7 +1455,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Provided that” introduces a condition that must be met.",
       "explanation_translation": "“Provided that”引出必须满足的条件，意思是“只要”。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-015",
@@ -1444,7 +1488,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The past perfect describes the unreal past condition; “would be living” describes its present result.",
       "explanation_translation": "过去完成时描述与过去事实相反的条件；“would be living”描述它在现在产生的结果。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-016",
@@ -1476,7 +1521,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Look after” means to take care of a person or animal.",
       "explanation_translation": "“Look after”表示照顾某人或动物。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-017",
@@ -1508,7 +1554,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Put off” means to postpone an event or activity.",
       "explanation_translation": "“Put off”表示推迟活动或事件。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-018",
@@ -1540,7 +1587,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Run out of” means to have no more of something available.",
       "explanation_translation": "“Run out of”表示某物已经用完。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-019",
@@ -1572,7 +1620,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Carry on” means to continue doing something.",
       "explanation_translation": "“Carry on”表示继续做某事。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-020",
@@ -1604,7 +1653,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Bring up” means to mention a topic for discussion.",
       "explanation_translation": "“Bring up”表示提出一个话题供讨论。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-021",
@@ -1636,7 +1686,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Turn down” means to reject an offer or request.",
       "explanation_translation": "“Turn down”表示拒绝提议或请求。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-022",
@@ -1668,7 +1719,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Get along with” describes having a friendly or successful relationship with someone.",
       "explanation_translation": "“Get along with”表示与某人关系融洽。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-023",
@@ -1700,7 +1752,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The present perfect connects a situation that began in the past with the present; the sentence says it continues now.",
       "explanation_translation": "现在完成时把过去开始并延续到现在的情况联系起来；句子说明目前仍住在这里。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-024",
@@ -1732,7 +1785,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Yesterday” is a finished past time, so the past simple “saw” is used.",
       "explanation_translation": "“Yesterday”表示已经结束的过去时间，因此使用一般过去时“saw”。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-025",
@@ -1764,7 +1818,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The film started before the later past event of our arrival, so the past perfect is used.",
       "explanation_translation": "电影开始发生在我们到达之前，因此使用过去完成时。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-026",
@@ -1796,7 +1851,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The present perfect continuous emphasizes an activity that began earlier and is still continuing.",
       "explanation_translation": "现在完成进行时强调一项较早开始并持续到现在的活动。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-027",
@@ -1828,7 +1884,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Since” introduces the starting point of a period that continues to the present.",
       "explanation_translation": "“Since”引出持续到现在的一段时间的起点。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-028",
@@ -1860,7 +1917,8 @@
       "correct_option_id": "a",
       "explanation_learning": "In a negative present perfect statement, “yet” commonly appears at the end after the past participle.",
       "explanation_translation": "在现在完成时否定句中，“yet”通常放在过去分词之后的句末。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-029",
@@ -1892,7 +1950,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The plural subject “guests” takes “have,” followed by the past participle “left.”",
       "explanation_translation": "复数主语“guests”使用“have”，后接过去分词“left”。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-030",
@@ -1924,7 +1983,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Decision” is the noun form of “decide.”",
       "explanation_translation": "“Decision”是动词“decide”的名词形式。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-031",
@@ -1956,7 +2016,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Reliable” is the adjective describing something or someone that can be relied on.",
       "explanation_translation": "“Reliable”是形容词，形容某事物或某人值得信赖。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-032",
@@ -1988,7 +2049,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Successful” is the adjective form used to describe the project.",
       "explanation_translation": "“Successful”是用于描述项目的形容词形式。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-033",
@@ -2020,7 +2082,8 @@
       "correct_option_id": "d",
       "explanation_learning": "“Creativity” is the noun for the ability to produce original ideas.",
       "explanation_translation": "“Creativity”是名词，表示产生原创想法的能力。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-034",
@@ -2052,7 +2115,8 @@
       "correct_option_id": "c",
       "explanation_learning": "After “tried to,” the base verb “persuade” is required.",
       "explanation_translation": "“Tried to”后面需要接动词原形“persuade”。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-035",
@@ -2084,7 +2148,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Dangerous” is the adjective describing the road.",
       "explanation_translation": "“Dangerous”是用于描述道路的形容词。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-036",
@@ -2116,7 +2181,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Accuracy” is the noun form of the adjective “accurate.”",
       "explanation_translation": "“Accuracy”是形容词“accurate”的名词形式。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-001",
@@ -2148,7 +2214,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Suggest” presents a possible interpretation without claiming definitive proof.",
       "explanation_translation": "“Suggest”表达一种可能的解释，而不是声称已经得到确凿证明。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-002",
@@ -2180,7 +2247,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Partly attributable to” signals a possible contributing factor without claiming it is the only cause.",
       "explanation_translation": "“Partly attributable to”表示某因素可能是部分原因，但不声称它是唯一原因。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-003",
@@ -2212,7 +2280,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Cautiously” appropriately signals that limited evidence should not support overconfident conclusions.",
       "explanation_translation": "“Cautiously”恰当地表示证据有限，不应据此作出过度肯定的结论。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-004",
@@ -2244,7 +2313,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Consistent with” means the pattern agrees with earlier findings without claiming the studies are identical.",
       "explanation_translation": "“Consistent with”表示该模式与先前研究结果相符，但不表示两项研究完全相同。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-005",
@@ -2276,7 +2346,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Stem from” means to originate from or be caused by something.",
       "explanation_translation": "“Stem from”表示源自某事或由某事引起。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-006",
@@ -2308,7 +2379,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Premature” indicates that the available evidence is not yet sufficient for the conclusion.",
       "explanation_translation": "“Premature”表示现有证据尚不足以支持这一结论，现在下结论为时过早。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-007",
@@ -2340,7 +2412,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Tentative” describes a conclusion that is provisional and may change with further evidence.",
       "explanation_translation": "“Tentative”表示暂时性的结论，可能会随着更多证据而改变。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-008",
@@ -2372,7 +2445,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Modest effect” signals a limited degree of impact rather than a sweeping or certain outcome.",
       "explanation_translation": "“Modest effect”表示影响程度有限，而不是全面或必然的结果。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-009",
@@ -2404,7 +2478,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Tentatively” communicates that the evidence suggests a link but does not establish it conclusively.",
       "explanation_translation": "“Tentatively”表示证据初步显示存在联系，但尚未作出决定性证明。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-010",
@@ -2436,7 +2511,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Raise the possibility” introduces a plausible explanation for consideration without confirming it.",
       "explanation_translation": "“Raise the possibility”表示提出一种值得考虑的可能性，而不是确认其为事实。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-011",
@@ -2468,7 +2544,8 @@
       "correct_option_id": "b",
       "explanation_learning": "A negative fronted phrase such as “Not until” triggers subject–auxiliary inversion in the main clause: “did the public understand.”",
       "explanation_translation": "“Not until”等否定意义短语置于句首时，主句需要主谓倒装，使用“did the public understand”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-012",
@@ -2500,7 +2577,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Rarely” at the beginning of a clause requires subject–auxiliary inversion: “have we seen.”",
       "explanation_translation": "“Rarely”置于句首时需要主谓倒装，因此使用“have we seen”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-013",
@@ -2532,7 +2610,8 @@
       "correct_option_id": "c",
       "explanation_learning": "When “Only after” introduces the fronted condition, the main clause uses inversion: “did the team release.”",
       "explanation_translation": "“Only after”引导的条件短语置于句首时，主句使用倒装：“did the team release”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-014",
@@ -2564,7 +2643,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Under no circumstances” is a negative fronted phrase and requires inversion: “should staff share.”",
       "explanation_translation": "“Under no circumstances”是否定意义的句首短语，需要倒装，使用“should staff share”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-015",
@@ -2596,7 +2676,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“Had I known” replaces “If I had known”; the unreal past result takes “would have” plus a past participle.",
       "explanation_translation": "“Had I known”相当于“If I had known”；与过去事实相反的结果使用“would have”加过去分词。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-016",
@@ -2628,7 +2709,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The structure “No sooner had + subject + past participle + than” describes one event immediately followed by another.",
       "explanation_translation": "结构“No sooner had + 主语 + 过去分词 + than”表示一件事刚发生，另一件事就紧接着发生。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-017",
@@ -2660,7 +2742,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Little” meaning “not at all” at the beginning of a clause triggers inversion: “did they know.”",
       "explanation_translation": "“Little”表示“完全没有”并置于句首时会触发倒装，使用“did they know”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-018",
@@ -2692,7 +2775,8 @@
       "correct_option_id": "b",
       "explanation_learning": "When “Not only” begins the clause, the auxiliary precedes the subject: “did the plan cut.”",
       "explanation_translation": "“Not only”置于分句开头时，助动词要放在主语之前，使用“did the plan cut”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-019",
@@ -2724,7 +2808,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The negative phrase “At no point” triggers inversion; the passive form is “was the client informed.”",
       "explanation_translation": "否定短语“At no point”触发倒装；此处被动语态应为“was the client informed”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-020",
@@ -2756,7 +2841,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The “So + adjective” structure at the beginning triggers inversion: “So unexpected was the result that...”",
       "explanation_translation": "“So + 形容词”结构置于句首时需要倒装：“So unexpected was the result that...”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-021",
@@ -2788,7 +2874,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The past perfect describes the unreal past choice; “would be studying” expresses its present result.",
       "explanation_translation": "过去完成时描述与过去事实相反的选择；“would be studying”表达该选择在现在产生的结果。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-022",
@@ -2820,7 +2907,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The present unreal condition uses “were”; the unreal past result uses “would not have missed.”",
       "explanation_translation": "现在的非真实条件使用“were”；与过去事实相反的结果使用“would not have missed”。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-023",
@@ -2852,7 +2940,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The past perfect condition refers to an unreal past event, while “would still be living” gives the imagined present result.",
       "explanation_translation": "过去完成时条件指与过去事实相反的事件；“would still be living”描述假设中的现在结果。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-024",
@@ -2884,7 +2973,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The unreal past condition leads to a present result, so the main clause uses “would feel.”",
       "explanation_translation": "与过去事实相反的条件导致现在的结果，因此主句使用“would feel”。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-025",
@@ -2916,7 +3006,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The present unreal condition “were not afraid” explains a different possible past result: “would have joined.”",
       "explanation_translation": "现在的非真实条件“were not afraid”解释了一个不同的过去结果，因此使用“would have joined”。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-026",
@@ -2948,7 +3039,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The past perfect describes the unreal earlier investment; “would have” describes the present state.",
       "explanation_translation": "过去完成时描述未发生的早期投资；“would have”描述假设中的现在状态。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-027",
@@ -2980,7 +3072,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The unreal past condition affects the present state, so “would not be lost now” is the correct mixed result.",
       "explanation_translation": "与过去事实相反的条件影响现在的状态，因此正确的混合结果是“would not be lost now”。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-028",
@@ -3012,7 +3105,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The present unreal ability condition leads to an unreal past result, expressed with “would have accepted.”",
       "explanation_translation": "现在的非真实能力条件导致一个未发生的过去结果，使用“would have accepted”表达。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-029",
@@ -3044,7 +3138,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The present unreal condition “were more reliable” is linked to an unreal past result: “would not have failed.”",
       "explanation_translation": "现在的非真实条件“were more reliable”与一个未发生的过去结果相连，使用“would not have failed”。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-030",
@@ -3076,7 +3171,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The past perfect describes an unreal past saving habit; “could afford” expresses the present result.",
       "explanation_translation": "过去完成时描述与过去事实相反的储蓄情况；“could afford”表达现在的结果。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-031",
@@ -3108,7 +3204,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Get the ball rolling” means to start an activity, process or project.",
       "explanation_translation": "“Get the ball rolling”表示启动一项活动、流程或项目。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-032",
@@ -3140,7 +3237,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“The tip of the iceberg” refers to a small visible part of a much larger hidden situation.",
       "explanation_translation": "“The tip of the iceberg”表示目前可见的只是更大隐藏情况的一小部分。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-033",
@@ -3172,7 +3270,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Cut corners” means to take shortcuts, often by sacrificing quality or proper procedure.",
       "explanation_translation": "“Cut corners”表示走捷径，通常意味着牺牲质量或适当程序。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-034",
@@ -3204,7 +3303,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“On the same page” means sharing a common understanding; it does not necessarily mean agreeing on everything.",
       "explanation_translation": "“On the same page”表示拥有共同理解，但不一定意味着对所有细节都意见一致。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-035",
@@ -3236,7 +3336,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Back to square one” means having to start again from the beginning.",
       "explanation_translation": "“Back to square one”表示不得不从头开始。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-036",
@@ -3268,7 +3369,8 @@
       "correct_option_id": "c",
       "explanation_learning": "“On the fence” means undecided between alternatives.",
       "explanation_translation": "“On the fence”表示在不同选择之间犹豫不决。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-037",
@@ -3300,7 +3402,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“A blessing in disguise” is something that seems bad at first but later produces a good result.",
       "explanation_translation": "“A blessing in disguise”指起初看似坏事，后来却带来好结果。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-038",
@@ -3332,7 +3435,8 @@
       "correct_option_id": "a",
       "explanation_learning": "“Under the weather” is an informal expression meaning slightly ill or unwell.",
       "explanation_translation": "“Under the weather”是非正式表达，表示身体有些不舒服。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-039",
@@ -3364,7 +3468,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“In the long run” refers to the eventual result over a long period of time.",
       "explanation_translation": "“In the long run”表示经过较长时间后最终产生的结果。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-040",
@@ -3396,7 +3501,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Economical” means using resources, money or materials efficiently; “economic” usually relates to the economy.",
       "explanation_translation": "“Economical”表示有效节省资源、金钱或材料；“economic”通常与经济体系有关。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-041",
@@ -3428,7 +3534,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Historic” describes an event that is important or significant in history; “historical” means related to the past or the study of history.",
       "explanation_translation": "“Historic”形容具有重大历史意义的事件；“historical”表示与过去或历史研究有关。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-042",
@@ -3460,7 +3567,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Affect” is the verb meaning to influence; “effect” is most commonly used as a noun meaning a result.",
       "explanation_translation": "“Affect”是表示影响的动词；“effect”最常用作名词，表示结果。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-043",
@@ -3492,7 +3600,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Ensure” means to make certain that something happens or is true; “assure” usually means to tell someone confidently.",
       "explanation_translation": "“Ensure”表示确保某事发生或属实；“assure”通常表示向某人作出保证。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-044",
@@ -3524,7 +3633,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Eminent” means distinguished or highly respected; “imminent” means about to happen.",
       "explanation_translation": "“Eminent”表示杰出或受人尊敬；“imminent”表示即将发生。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-045",
@@ -3556,7 +3666,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Adopt” means to take up or begin using a plan or programme; “adapt” means to modify it.",
       "explanation_translation": "“Adopt”表示采用或开始使用计划；“adapt”表示对其进行调整。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-046",
@@ -3588,7 +3699,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Complement” means to complete or enhance something; “compliment” means an expression of praise.",
       "explanation_translation": "“Complement”表示补充或衬托；“compliment”表示赞美。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-047",
@@ -3620,7 +3732,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Discreet” means careful and tactful, especially to avoid revealing private information; “discrete” means separate or distinct.",
       "explanation_translation": "“Discreet”表示谨慎且得体，尤其指避免泄露私人信息；“discrete”表示分离或彼此独立。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-048",
@@ -3652,7 +3765,8 @@
       "correct_option_id": "b",
       "explanation_learning": "“Credible” means believable or worthy of trust; “credulous” describes someone too ready to believe things.",
       "explanation_translation": "“Credible”表示可信或值得信赖；“credulous”形容一个人过于轻信。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-001",
@@ -3686,7 +3800,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "everyday-collocations"
+      "learning_objective_id": "everyday-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-002",
@@ -3720,7 +3835,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-003",
@@ -3754,7 +3870,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-001",
@@ -3788,7 +3905,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-002",
@@ -3822,7 +3940,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-003",
@@ -3856,7 +3975,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-004",
@@ -3890,7 +4010,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-005",
@@ -3924,7 +4045,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-006",
@@ -3958,7 +4080,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-007",
@@ -3992,7 +4115,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-008",
@@ -4026,7 +4150,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-009",
@@ -4060,7 +4185,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-010",
@@ -4094,7 +4220,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-011",
@@ -4128,7 +4255,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-012",
@@ -4162,7 +4290,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-001",
@@ -4196,7 +4325,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-002",
@@ -4230,7 +4360,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-003",
@@ -4264,7 +4395,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-004",
@@ -4298,7 +4430,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-005",
@@ -4332,7 +4465,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-006",
@@ -4366,7 +4500,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-007",
@@ -4400,7 +4535,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-008",
@@ -4434,7 +4570,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-009",
@@ -4468,7 +4605,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-010",
@@ -4502,7 +4640,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-011",
@@ -4536,7 +4675,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-012",
@@ -4570,7 +4710,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-013",
@@ -4604,7 +4745,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "mixed-conditional-meaning"
+      "learning_objective_id": "mixed-conditional-meaning",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-014",
@@ -4638,7 +4780,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-015",
@@ -4672,7 +4815,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-016",
@@ -4706,7 +4850,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-017",
@@ -4740,7 +4885,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-018",
@@ -4774,7 +4920,8 @@
       "correct_option_id": "b",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-019",
@@ -4808,7 +4955,8 @@
       "correct_option_id": "c",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-020",
@@ -4842,7 +4990,8 @@
       "correct_option_id": "d",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-021",
@@ -4876,7 +5025,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct option preserves the meaning and context of the English sentence.",
       "explanation_translation": "正确选项保留了英文句子的主要含义和语境；其他选项改变了关键信息。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-def-001",
@@ -4910,7 +5060,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Exciting describes something that creates strong interest, enthusiasm or anticipation.",
       "explanation_translation": "Exciting形容能引起强烈兴趣、热情或期待的事物。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-def-002",
@@ -4944,7 +5095,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Beautiful describes a person, place or thing that is very pleasing to look at.",
       "explanation_translation": "Beautiful形容人、地方或事物非常好看、令人赏心悦目。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-def-003",
@@ -4978,7 +5130,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Crowded describes a place where many people are close together and space is limited.",
       "explanation_translation": "Crowded形容许多人聚集在一起、空间有限的地方。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-def-004",
@@ -5012,7 +5165,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Comfortable describes something that makes you feel relaxed or physically at ease.",
       "explanation_translation": "Comfortable形容让人感到放松或身体舒适的事物。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-def-005",
@@ -5046,7 +5200,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Delicious describes food or drink that tastes very good.",
       "explanation_translation": "Delicious形容食物或饮料味道非常好。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-def-001",
@@ -5080,7 +5235,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Give up means to stop trying or to stop doing something.",
       "explanation_translation": "Give up表示停止尝试或停止做某事。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-def-002",
@@ -5114,7 +5270,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Put off means to postpone or delay an event or activity.",
       "explanation_translation": "Put off表示推迟某个事件或活动。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-def-003",
@@ -5148,7 +5305,8 @@
       "correct_option_id": "a",
       "explanation_learning": "A collocation is a natural or common combination of words, such as “make a decision”.",
       "explanation_translation": "Collocation指自然或常见的词语搭配，例如“make a decision”。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-def-004",
@@ -5182,7 +5340,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Clarification is extra information or an explanation that makes a point clearer.",
       "explanation_translation": "Clarification指让某个观点更清楚的补充信息或解释。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-def-005",
@@ -5216,7 +5375,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Hypothetical describes an imagined or assumed situation used for discussion or reasoning.",
       "explanation_translation": "Hypothetical形容用于讨论或推理的想象或假设情境。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-def-001",
@@ -5250,7 +5410,8 @@
       "correct_option_id": "a",
       "explanation_learning": "To imply is to communicate an idea indirectly rather than state it explicitly.",
       "explanation_translation": "Imply表示间接传达某个意思，而不是明确说出来。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-def-002",
@@ -5284,7 +5445,8 @@
       "correct_option_id": "a",
       "explanation_learning": "To infer is to work out a conclusion from evidence, clues or reasoning.",
       "explanation_translation": "Infer表示根据证据、线索或推理得出结论。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-def-003",
@@ -5318,7 +5480,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Hedging uses cautious language, such as “may” or “suggests”, to express appropriate uncertainty.",
       "explanation_translation": "Hedging指使用“may”或“suggests”等谨慎措辞，恰当地表达不确定性。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-def-004",
@@ -5352,7 +5515,8 @@
       "correct_option_id": "a",
       "explanation_learning": "Inversion changes the usual word order; formal English may place an auxiliary verb before the subject.",
       "explanation_translation": "Inversion指改变通常的语序；正式英语中可能把助动词放在主语之前。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-def-005",
@@ -5386,7 +5550,8 @@
       "correct_option_id": "a",
       "explanation_learning": "On the same page means sharing the same understanding or agreement.",
       "explanation_translation": "On the same page表示彼此理解一致或达成共识。",
-      "learning_objective_id": "figurative-idioms"
+      "learning_objective_id": "figurative-idioms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-001",
@@ -5420,7 +5585,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “exciting” in this vocabulary context is “令人兴奋的”.",
       "explanation_translation": "在本词汇语境中，“exciting”的正确翻译是“令人兴奋的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-002",
@@ -5454,7 +5620,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “beautiful” in this vocabulary context is “美丽的”.",
       "explanation_translation": "在本词汇语境中，“beautiful”的正确翻译是“美丽的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-003",
@@ -5488,7 +5655,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “crowded” in this vocabulary context is “拥挤的”.",
       "explanation_translation": "在本词汇语境中，“crowded”的正确翻译是“拥挤的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-004",
@@ -5522,7 +5690,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “comfortable” in this vocabulary context is “舒适的”.",
       "explanation_translation": "在本词汇语境中，“comfortable”的正确翻译是“舒适的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-005",
@@ -5556,7 +5725,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “delicious” in this vocabulary context is “美味的”.",
       "explanation_translation": "在本词汇语境中，“delicious”的正确翻译是“美味的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-006",
@@ -5590,7 +5760,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “friendly” in this vocabulary context is “友好的”.",
       "explanation_translation": "在本词汇语境中，“friendly”的正确翻译是“友好的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-007",
@@ -5624,7 +5795,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “quiet” in this vocabulary context is “安静的”.",
       "explanation_translation": "在本词汇语境中，“quiet”的正确翻译是“安静的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-008",
@@ -5658,7 +5830,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “useful” in this vocabulary context is “有用的”.",
       "explanation_translation": "在本词汇语境中，“useful”的正确翻译是“有用的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-009",
@@ -5692,7 +5865,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “expensive” in this vocabulary context is “昂贵的”.",
       "explanation_translation": "在本词汇语境中，“expensive”的正确翻译是“昂贵的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-010",
@@ -5726,7 +5900,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “boring” in this vocabulary context is “无聊的”.",
       "explanation_translation": "在本词汇语境中，“boring”的正确翻译是“无聊的”。",
-      "learning_objective_id": "descriptive-adjectives"
+      "learning_objective_id": "descriptive-adjectives",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-011",
@@ -5760,7 +5935,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “advice” in this vocabulary context is “建议”.",
       "explanation_translation": "在本词汇语境中，“advice”的正确翻译是“建议”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-012",
@@ -5794,7 +5970,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “information” in this vocabulary context is “信息”.",
       "explanation_translation": "在本词汇语境中，“information”的正确翻译是“信息”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-013",
@@ -5828,7 +6005,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “equipment” in this vocabulary context is “设备”.",
       "explanation_translation": "在本词汇语境中，“equipment”的正确翻译是“设备”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-014",
@@ -5862,7 +6040,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “furniture” in this vocabulary context is “家具”.",
       "explanation_translation": "在本词汇语境中，“furniture”的正确翻译是“家具”。",
-      "learning_objective_id": "countable-and-uncountable"
+      "learning_objective_id": "countable-and-uncountable",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-015",
@@ -5896,7 +6075,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “hour” in this vocabulary context is “小时”.",
       "explanation_translation": "在本词汇语境中，“hour”的正确翻译是“小时”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-016",
@@ -5930,7 +6110,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “umbrella” in this vocabulary context is “雨伞”.",
       "explanation_translation": "在本词汇语境中，“umbrella”的正确翻译是“雨伞”。",
-      "learning_objective_id": "article-use-and-sound"
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-017",
@@ -5964,7 +6145,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “routine” in this vocabulary context is “日常惯例”.",
       "explanation_translation": "在本词汇语境中，“routine”的正确翻译是“日常惯例”。",
-      "learning_objective_id": "present-simple-routines"
+      "learning_objective_id": "present-simple-routines",
+      "release_approved": true
     },
     {
       "question_id": "quiz-beginner-zh-word-018",
@@ -5998,7 +6180,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “subject” in this vocabulary context is “主语”.",
       "explanation_translation": "在本词汇语境中，“subject”的正确翻译是“主语”。",
-      "learning_objective_id": "basic-sentence-structure"
+      "learning_objective_id": "basic-sentence-structure",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-001",
@@ -6032,7 +6215,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “postpone” in this lesson context is “推迟”.",
       "explanation_translation": "在本课语境中，“postpone”的正确翻译是“推迟”。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-002",
@@ -6066,7 +6250,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “give up” in this lesson context is “放弃”.",
       "explanation_translation": "在本课语境中，“give up”的正确翻译是“放弃”。",
-      "learning_objective_id": "phrasal-verbs-in-context"
+      "learning_objective_id": "phrasal-verbs-in-context",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-003",
@@ -6100,7 +6285,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “clarification” in this lesson context is “澄清”.",
       "explanation_translation": "在本课语境中，“clarification”的正确翻译是“澄清”。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-004",
@@ -6134,7 +6320,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “unclear” in this lesson context is “不清楚的”.",
       "explanation_translation": "在本课语境中，“unclear”的正确翻译是“不清楚的”。",
-      "learning_objective_id": "word-formation-and-confusable-forms"
+      "learning_objective_id": "word-formation-and-confusable-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-005",
@@ -6168,7 +6355,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “collocation” in this lesson context is “词语搭配”.",
       "explanation_translation": "在本课语境中，“collocation”的正确翻译是“词语搭配”。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-006",
@@ -6202,7 +6390,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “decision” in this lesson context is “决定”.",
       "explanation_translation": "在本课语境中，“decision”的正确翻译是“决定”。",
-      "learning_objective_id": "natural-collocations"
+      "learning_objective_id": "natural-collocations",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-007",
@@ -6236,7 +6425,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “experience” in this lesson context is “经历”.",
       "explanation_translation": "在本课语境中，“experience”的正确翻译是“经历”。",
-      "learning_objective_id": "perfect-aspect"
+      "learning_objective_id": "perfect-aspect",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-008",
@@ -6270,7 +6460,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “hypothetical” in this lesson context is “假设的”.",
       "explanation_translation": "在本课语境中，“hypothetical”的正确翻译是“假设的”。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-intermediate-zh-word-009",
@@ -6304,7 +6495,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “realistic” in this lesson context is “现实的”.",
       "explanation_translation": "在本课语境中，“realistic”的正确翻译是“现实的”。",
-      "learning_objective_id": "conditional-meaning-and-forms"
+      "learning_objective_id": "conditional-meaning-and-forms",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-001",
@@ -6338,7 +6530,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “imply” in this context is “暗示”.",
       "explanation_translation": "在本语境中，“imply”的正确翻译是“暗示”。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-002",
@@ -6372,7 +6565,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “infer” in this context is “推断”.",
       "explanation_translation": "在本语境中，“infer”的正确翻译是“推断”。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-003",
@@ -6406,7 +6600,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “tentative” in this context is “暂定的”.",
       "explanation_translation": "在本语境中，“tentative”的正确翻译是“暂定的”。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-004",
@@ -6440,7 +6635,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “rarely” in this context is “很少”.",
       "explanation_translation": "在本语境中，“rarely”的正确翻译是“很少”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-005",
@@ -6474,7 +6670,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “inversion” in this context is “倒装”.",
       "explanation_translation": "在本语境中，“inversion”的正确翻译是“倒装”。",
-      "learning_objective_id": "formal-inversion"
+      "learning_objective_id": "formal-inversion",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-006",
@@ -6508,7 +6705,8 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “precise” in this context is “精确的”.",
       "explanation_translation": "在本语境中，“precise”的正确翻译是“精确的”。",
-      "learning_objective_id": "precise-word-choice"
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": true
     },
     {
       "question_id": "quiz-advanced-zh-word-007",
@@ -6542,7 +6740,998 @@
       "correct_option_id": "a",
       "explanation_learning": "The correct translation of “cautious” in this context is “谨慎的”.",
       "explanation_translation": "在本语境中，“cautious”的正确翻译是“谨慎的”。",
-      "learning_objective_id": "qualified-academic-claims"
+      "learning_objective_id": "qualified-academic-claims",
+      "release_approved": true
+    },
+    {
+      "question_id": "quiz-p6-beginner-001",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Which article completes the sentence? “She waited for ___ bus we had booked.”",
+      "prompt_translation": "哪个冠词可以完成句子？“She waited for ___ bus we had booked.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "一个"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "一个（用于元音音素前）"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "特指的那个"
+        },
+        {
+          "id": "d",
+          "learning_text": "no article",
+          "translation_text": "不需要冠词"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "Use the when the listener can identify the particular bus from the context.",
+      "explanation_translation": "当听者可以根据语境确定是哪一辆公交车时，使用 the。",
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-002",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the natural phrase for a first mention of an object.",
+      "prompt_translation": "选择首次提到某个物品时的自然表达。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a umbrella",
+          "translation_text": "错误用法：a umbrella"
+        },
+        {
+          "id": "b",
+          "learning_text": "an umbrella",
+          "translation_text": "正确用法：an umbrella"
+        },
+        {
+          "id": "c",
+          "learning_text": "the umbrella in every context",
+          "translation_text": "所有语境都使用 the umbrella"
+        },
+        {
+          "id": "d",
+          "learning_text": "umbrella",
+          "translation_text": "省略冠词：umbrella"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Umbrella begins with a vowel sound, so use an for a first mention.",
+      "explanation_translation": "umbrella 以元音音素开头，因此首次提到时使用 an。",
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-003",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Why do we say “an honest answer”?",
+      "prompt_translation": "为什么我们说“an honest answer”？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The letter h is always silent in English.",
+          "translation_text": "因为英语中的 h 总是不发音。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The first sound in honest is a vowel sound.",
+          "translation_text": "因为 honest 的第一个音是元音音素。"
+        },
+        {
+          "id": "c",
+          "learning_text": "All adjectives take an.",
+          "translation_text": "所有形容词前都用 an。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Honest is an uncountable noun.",
+          "translation_text": "因为 honest 是不可数名词。"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Article choice follows the first sound, and the h in honest is silent.",
+      "explanation_translation": "冠词选择取决于第一个音素；honest 中的 h 不发音。",
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-004",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Choose the correct sentence.",
+      "prompt_translation": "选择正确的句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "I saw a owl near the tree.",
+          "translation_text": "错误：a owl"
+        },
+        {
+          "id": "b",
+          "learning_text": "I saw an owl near the tree.",
+          "translation_text": "正确：an owl"
+        },
+        {
+          "id": "c",
+          "learning_text": "I saw the owl near a tree in every context.",
+          "translation_text": "特定语境中的 the owl"
+        },
+        {
+          "id": "d",
+          "learning_text": "I saw an the owl.",
+          "translation_text": "错误：an the owl"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Owl begins with a vowel sound, so an owl is correct for a new noun.",
+      "explanation_translation": "owl 以元音音素开头；首次提到时应使用 an owl。",
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-005",
+      "source_lesson_id": "b-articles",
+      "prompt_learning": "Which article points to a specific, identifiable noun?",
+      "prompt_translation": "哪个冠词用于指代特定且可以确定的名词？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "a",
+          "translation_text": "不定冠词 a"
+        },
+        {
+          "id": "b",
+          "learning_text": "an",
+          "translation_text": "不定冠词 an"
+        },
+        {
+          "id": "c",
+          "learning_text": "the",
+          "translation_text": "定冠词 the"
+        },
+        {
+          "id": "d",
+          "learning_text": "some",
+          "translation_text": "一些／若干 some"
+        }
+      ],
+      "correct_option_id": "c",
+      "explanation_learning": "The identifies a particular noun that the listener can identify.",
+      "explanation_translation": "the 用于指代听者能够确定的特定名词。",
+      "learning_objective_id": "article-use-and-sound",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-001",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Choose the natural collocation.",
+      "prompt_translation": "选择自然的词语搭配。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "make responsibility",
+          "translation_text": "制造责任"
+        },
+        {
+          "id": "b",
+          "learning_text": "take responsibility",
+          "translation_text": "承担责任"
+        },
+        {
+          "id": "c",
+          "learning_text": "do responsibility",
+          "translation_text": "做责任"
+        },
+        {
+          "id": "d",
+          "learning_text": "build responsibility",
+          "translation_text": "建立责任"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "The standard collocation is take responsibility for something.",
+      "explanation_translation": "标准搭配是 take responsibility for something（对某事负责）。",
+      "learning_objective_id": "natural-collocations",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-002",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Complete the phrase: “The team must ___ the deadline.”",
+      "prompt_translation": "完成短语：“The team must ___ the deadline.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "meet",
+          "translation_text": "达到／按时完成"
+        },
+        {
+          "id": "b",
+          "learning_text": "raise",
+          "translation_text": "提高"
+        },
+        {
+          "id": "c",
+          "learning_text": "pose",
+          "translation_text": "造成"
+        },
+        {
+          "id": "d",
+          "learning_text": "make",
+          "translation_text": "制作"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Meet a deadline means finish the work by the required time.",
+      "explanation_translation": "meet a deadline 表示在规定时间之前完成工作。",
+      "learning_objective_id": "natural-collocations",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-003",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Which phrase means to make progress or improve?",
+      "prompt_translation": "哪个短语表示取得进展或有所改善？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "take progress",
+          "translation_text": "错误搭配：take progress"
+        },
+        {
+          "id": "b",
+          "learning_text": "make progress",
+          "translation_text": "正确搭配：make progress"
+        },
+        {
+          "id": "c",
+          "learning_text": "raise progress",
+          "translation_text": "错误搭配：raise progress"
+        },
+        {
+          "id": "d",
+          "learning_text": "do progress",
+          "translation_text": "错误搭配：do progress"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Make progress is the natural collocation for moving forward or improving.",
+      "explanation_translation": "make progress 是表示取得进展或改善的自然搭配。",
+      "learning_objective_id": "natural-collocations",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-004",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Choose the natural collocation for bringing a point up for discussion.",
+      "prompt_translation": "选择表示提出某个问题供讨论的自然搭配。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "lift an issue",
+          "translation_text": "抬起一个问题"
+        },
+        {
+          "id": "b",
+          "learning_text": "raise an issue",
+          "translation_text": "提出一个问题"
+        },
+        {
+          "id": "c",
+          "learning_text": "make an issue",
+          "translation_text": "制作一个问题"
+        },
+        {
+          "id": "d",
+          "learning_text": "meet an issue",
+          "translation_text": "遇到一个问题"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Raise an issue means bring a point to someone's attention for discussion.",
+      "explanation_translation": "raise an issue 表示提出某个问题供他人讨论。",
+      "learning_objective_id": "natural-collocations",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-005",
+      "source_lesson_id": "i-collocations",
+      "prompt_learning": "Choose the natural phrase.",
+      "prompt_translation": "选择自然的短语。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "highly unlikely",
+          "translation_text": "极不可能"
+        },
+        {
+          "id": "b",
+          "learning_text": "deeply rain",
+          "translation_text": "深深地下雨"
+        },
+        {
+          "id": "c",
+          "learning_text": "strongly concerned",
+          "translation_text": "强烈地担心"
+        },
+        {
+          "id": "d",
+          "learning_text": "tall deadline",
+          "translation_text": "很高的截止日期"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Highly unlikely is a common collocation meaning very improbable.",
+      "explanation_translation": "highly unlikely 是常见搭配，表示极不可能。",
+      "learning_objective_id": "natural-collocations",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-001",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "A writer suggests an idea indirectly. Which verb describes the writer's action?",
+      "prompt_translation": "作者间接地表达了一个想法。哪个动词描述作者的行为？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "infer",
+          "translation_text": "推断"
+        },
+        {
+          "id": "b",
+          "learning_text": "imply",
+          "translation_text": "暗示"
+        },
+        {
+          "id": "c",
+          "learning_text": "conclude",
+          "translation_text": "得出结论"
+        },
+        {
+          "id": "d",
+          "learning_text": "assume",
+          "translation_text": "假设"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "A writer or speaker implies; a reader or listener infers.",
+      "explanation_translation": "作者或说话者使用 imply（暗示）；读者或听者使用 infer（推断）。",
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-002",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "A reader reaches a conclusion from evidence. Which verb is correct?",
+      "prompt_translation": "读者根据证据得出结论。应该使用哪个动词？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "imply",
+          "translation_text": "暗示"
+        },
+        {
+          "id": "b",
+          "learning_text": "infer",
+          "translation_text": "推断"
+        },
+        {
+          "id": "c",
+          "learning_text": "disclose",
+          "translation_text": "披露"
+        },
+        {
+          "id": "d",
+          "learning_text": "assure",
+          "translation_text": "保证"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Infer means reach a conclusion from evidence or clues.",
+      "explanation_translation": "infer 表示根据证据或线索得出结论。",
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-003",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the word for a design that uses money and resources carefully.",
+      "prompt_translation": "选择表示设计节省金钱和资源的词语。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "economic",
+          "translation_text": "与经济有关的"
+        },
+        {
+          "id": "b",
+          "learning_text": "economical",
+          "translation_text": "节省资源的／经济实惠的"
+        },
+        {
+          "id": "c",
+          "learning_text": "economy",
+          "translation_text": "经济体"
+        },
+        {
+          "id": "d",
+          "learning_text": "economics",
+          "translation_text": "经济学"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Economical describes something that avoids waste or uses resources efficiently.",
+      "explanation_translation": "economical 描述避免浪费或有效利用资源的事物。",
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-004",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Choose the correct word: “The organisation will ___ the new safety procedure.”",
+      "prompt_translation": "选择正确的词：“The organisation will ___ the new safety procedure.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "adapt",
+          "translation_text": "调整以适应"
+        },
+        {
+          "id": "b",
+          "learning_text": "adopt",
+          "translation_text": "采用"
+        },
+        {
+          "id": "c",
+          "learning_text": "adept",
+          "translation_text": "熟练的"
+        },
+        {
+          "id": "d",
+          "learning_text": "adapted",
+          "translation_text": "已经调整"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Adopt means take up or start using a plan or procedure; adapt means modify it.",
+      "explanation_translation": "adopt 表示采用计划或程序；adapt 表示修改以适应。",
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-005",
+      "source_lesson_id": "a-near-synonyms",
+      "prompt_learning": "Which word means “about to happen”?",
+      "prompt_translation": "哪个词表示“即将发生”？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "eminent",
+          "translation_text": "杰出的"
+        },
+        {
+          "id": "b",
+          "learning_text": "imminent",
+          "translation_text": "即将发生的"
+        },
+        {
+          "id": "c",
+          "learning_text": "historic",
+          "translation_text": "具有历史意义的"
+        },
+        {
+          "id": "d",
+          "learning_text": "historical",
+          "translation_text": "与历史有关的"
+        }
+      ],
+      "correct_option_id": "b",
+      "explanation_learning": "Imminent means likely to happen very soon; eminent means distinguished.",
+      "explanation_translation": "imminent 表示即将发生；eminent 表示杰出的。",
+      "learning_objective_id": "precise-word-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-006",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Choose the correct question: ___ your sister speak French?",
+      "prompt_translation": "选择正确的疑问句：___ 你的姐姐会说法语？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Does",
+          "translation_text": "助动词 Does"
+        },
+        {
+          "id": "b",
+          "learning_text": "Do",
+          "translation_text": "助动词 Do"
+        },
+        {
+          "id": "c",
+          "learning_text": "Is",
+          "translation_text": "be 动词 Is"
+        },
+        {
+          "id": "d",
+          "learning_text": "Did",
+          "translation_text": "助动词 Did"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use does with a third-person singular subject in the present simple. The main verb stays in its base form.",
+      "explanation_translation": "一般现在时中，第三人称单数主语搭配 does；主要动词保持原形。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-007",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Which sentence is the correct past simple negative?",
+      "prompt_translation": "哪一个句子是正确的一般过去时否定句？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "They didn't visit us.",
+          "translation_text": "他们昨天没有来看我们。"
+        },
+        {
+          "id": "b",
+          "learning_text": "They don't visited us.",
+          "translation_text": "他们不来看我们。（动词形式不正确）"
+        },
+        {
+          "id": "c",
+          "learning_text": "They didn't visited us.",
+          "translation_text": "他们昨天没有来看我们。（缺少动词原形）"
+        },
+        {
+          "id": "d",
+          "learning_text": "They weren't visit us.",
+          "translation_text": "他们并没有来拜访我们。（be 动词结构错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use didn't + the base form of the main verb: didn't visit.",
+      "explanation_translation": "使用 didn't + 主要动词原形：didn't visit。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-008",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Choose the correct WH-question asking about a person's workplace.",
+      "prompt_translation": "选择正确的、询问某人工作地点的特殊疑问句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Where does he work?",
+          "translation_text": "他在哪里工作？"
+        },
+        {
+          "id": "b",
+          "learning_text": "Where he does work?",
+          "translation_text": "他在哪里工作？（错误语序）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Where do he works?",
+          "translation_text": "他在哪里工作？（助动词和动词形式错误）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Where is he work?",
+          "translation_text": "他在哪里工作？（错误结构）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use where + does + subject + base verb for a present simple WH-question.",
+      "explanation_translation": "一般现在时特殊疑问句使用 where + does + 主语 + 动词原形。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-006",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "The documents ___ yesterday.",
+      "prompt_translation": "这些文件昨天___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "were signed",
+          "translation_text": "被签署了"
+        },
+        {
+          "id": "b",
+          "learning_text": "signed",
+          "translation_text": "签署"
+        },
+        {
+          "id": "c",
+          "learning_text": "are signing",
+          "translation_text": "正在签署"
+        },
+        {
+          "id": "d",
+          "learning_text": "was signed",
+          "translation_text": "被签署了（主谓不一致）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The subject documents is plural, and yesterday calls for the past simple passive: were + past participle.",
+      "explanation_translation": "主语 documents 是复数，yesterday 表示过去时间，因此使用一般过去时被动语态 were + 过去分词。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-007",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "Choose the correct present perfect passive sentence.",
+      "prompt_translation": "选择正确的现在完成时被动语态句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The invitations have been sent.",
+          "translation_text": "邀请函已经寄出。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The invitations have sent.",
+          "translation_text": "邀请函已经寄出。（缺少 been）"
+        },
+        {
+          "id": "c",
+          "learning_text": "The invitations has been sent.",
+          "translation_text": "邀请函已经寄出。（主谓不一致）"
+        },
+        {
+          "id": "d",
+          "learning_text": "The invitations were send.",
+          "translation_text": "邀请函已经寄出。（过去分词错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The present perfect passive is have/has been + past participle. Invitations is plural, so use have been sent.",
+      "explanation_translation": "现在完成时被动语态结构为 have/has been + 过去分词。Invitations 是复数，因此使用 have been sent。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-008",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "When is it useful to include a by-phrase in a passive sentence?",
+      "prompt_translation": "被动语态句子中，什么时候适合使用 by 短语？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "When the person or group responsible is important.",
+          "translation_text": "当动作执行者很重要时。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Whenever a passive sentence is used.",
+          "translation_text": "每次使用被动语态时。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Only when the agent is unknown.",
+          "translation_text": "只有动作执行者未知时。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Never; passive sentences cannot name an agent.",
+          "translation_text": "从不；被动语态不能说明动作执行者。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use by + agent when identifying who performed the action adds useful information.",
+      "explanation_translation": "当说明谁执行了动作能提供重要信息时，使用 by + 动作执行者。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-006",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“I have finished the report,” Nina said. Choose the correct report.",
+      "prompt_translation": "“我已经完成报告了。”Nina 说道。选择正确的转述句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Nina said she had finished the report.",
+          "translation_text": "Nina 说她已经完成了报告。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Nina said she has finish the report.",
+          "translation_text": "Nina 说她完成报告。（错误结构）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Nina told she had finished the report.",
+          "translation_text": "Nina 告诉她完成报告。（缺少宾语）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Nina said she finished the report tomorrow.",
+          "translation_text": "Nina 说她明天完成了报告。（时间逻辑错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "With a past reporting verb, present perfect commonly backshifts to past perfect: have finished → had finished.",
+      "explanation_translation": "转述动词使用过去时，原句现在完成时通常后移为过去完成时：have finished → had finished。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-007",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“Where did you put the keys?” He asked me ___.",
+      "prompt_translation": "“你把钥匙放在哪里了？”他问我___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "where I had put the keys",
+          "translation_text": "我把钥匙放在哪里了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "where did I put the keys",
+          "translation_text": "我把钥匙放在哪里了？（保留直接疑问句语序）"
+        },
+        {
+          "id": "c",
+          "learning_text": "where I put did the keys",
+          "translation_text": "我把钥匙放在哪里了？（助动词位置错误）"
+        },
+        {
+          "id": "d",
+          "learning_text": "where had I put the keys",
+          "translation_text": "我把钥匙放在哪里了？（主语与动词倒装）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "A reported WH-question uses statement word order. With a past reporting verb, did put commonly becomes had put.",
+      "explanation_translation": "间接特殊疑问句使用陈述句语序。转述动词为过去时，did put 通常变为 had put。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-008",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“Please don't share the password,” she said to us. Choose the correct report.",
+      "prompt_translation": "“请不要分享密码。”她对我们说道。选择正确的转述句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "She asked us not to share the password.",
+          "translation_text": "她要求我们不要分享密码。"
+        },
+        {
+          "id": "b",
+          "learning_text": "She asked us don't share the password.",
+          "translation_text": "她要求我们不要分享密码。（结构错误）"
+        },
+        {
+          "id": "c",
+          "learning_text": "She told not to share the password.",
+          "translation_text": "她告诉不要分享密码。（缺少宾语）"
+        },
+        {
+          "id": "d",
+          "learning_text": "She asked us to not shared the password.",
+          "translation_text": "她要求我们不要分享密码。（动词形式错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Report a negative request with asked/told + object + not to + base verb.",
+      "explanation_translation": "转述否定请求时，使用 asked/told + 宾语 + not to + 动词原形。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-009",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Choose the present simple auxiliary: ___ your parents live near the station?",
+      "prompt_translation": "选择一般现在时所需的助动词：你的父母住在车站附近吗？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Do",
+          "translation_text": "Do（一般现在时助动词）"
+        },
+        {
+          "id": "b",
+          "learning_text": "Does",
+          "translation_text": "Does（用于第三人称单数）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Are",
+          "translation_text": "Are（be 动词）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Did",
+          "translation_text": "Did（一般过去时助动词）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Use do with the plural subject your parents in a present simple yes/no question. Keep the main verb live in its base form.",
+      "explanation_translation": "主语 your parents 是复数，一般现在时疑问句使用 do；主要动词 live 保持原形。",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-beginner-010",
+      "source_lesson_id": "b-question-forms-negatives",
+      "prompt_learning": "Which question asks who performed the action, with who as the subject?",
+      "prompt_translation": "哪一个疑问句中的 who 是主语，用来询问谁执行了动作？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Who opened the window?",
+          "translation_text": "谁打开了窗户？"
+        },
+        {
+          "id": "b",
+          "learning_text": "Who did the manager call?",
+          "translation_text": "经理给谁打了电话？（who 是宾语，不是主语）"
+        },
+        {
+          "id": "c",
+          "learning_text": "Who does opened the window?",
+          "translation_text": "谁打开了窗户？（动词形式错误）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Who did opened the window?",
+          "translation_text": "谁打开了窗户？（助动词后动词形式错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "When who is the subject, it takes the place of the subject and no do-support is needed: Who opened the window?",
+      "explanation_translation": "当 who 本身是主语时，它直接代替主语，不需要 do-support：Who opened the window?",
+      "learning_objective_id": "question-forms-and-negatives",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-009",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "The laboratory equipment ___ yesterday.",
+      "prompt_translation": "实验室设备昨天___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "was inspected",
+          "translation_text": "被检查了"
+        },
+        {
+          "id": "b",
+          "learning_text": "were inspected",
+          "translation_text": "被检查了（主谓不一致）"
+        },
+        {
+          "id": "c",
+          "learning_text": "inspected",
+          "translation_text": "检查（缺少被动结构）"
+        },
+        {
+          "id": "d",
+          "learning_text": "was inspecting",
+          "translation_text": "当时正在检查（主动进行结构）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Equipment is an uncountable singular noun. The past simple passive uses was + past participle: was inspected.",
+      "explanation_translation": "Equipment 是不可数名词，按单数处理。一般过去时被动语态使用 was + 过去分词：was inspected。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-intermediate-010",
+      "source_lesson_id": "i-passive-voice",
+      "prompt_learning": "The cause of the delay is still unknown. Which sentence keeps the focus on the event without inventing an agent?",
+      "prompt_translation": "延误的原因仍然未知。哪一个句子把重点放在事件上，而没有虚构动作执行者？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "The delivery was delayed.",
+          "translation_text": "配送延误了。"
+        },
+        {
+          "id": "b",
+          "learning_text": "The delivery was delayed by the unknown driver.",
+          "translation_text": "配送被那位身份不明的司机延误了。"
+        },
+        {
+          "id": "c",
+          "learning_text": "The delivery delayed by someone.",
+          "translation_text": "配送被某人延误。（缺少 be 动词）"
+        },
+        {
+          "id": "d",
+          "learning_text": "Someone was delayed the delivery.",
+          "translation_text": "某人被延误了配送。（语态结构错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "When the agent is unknown or unimportant, the passive sentence can omit the by-phrase and keep attention on what happened.",
+      "explanation_translation": "当动作执行者未知或不重要时，被动句可以省略 by 短语，把重点放在发生的事情上。",
+      "learning_objective_id": "passive-voice-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-009",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "The event was last week. “Are you joining us?” Lina asked whether I ___.",
+      "prompt_translation": "活动在上周举行。“你会和我们一起参加吗？”Lina 问我是否___。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "was joining them",
+          "translation_text": "会和他们一起参加"
+        },
+        {
+          "id": "b",
+          "learning_text": "am joining them",
+          "translation_text": "正在和他们一起参加（未进行时态后移）"
+        },
+        {
+          "id": "c",
+          "learning_text": "did join them",
+          "translation_text": "确实参加了他们（结构与原句不符）"
+        },
+        {
+          "id": "d",
+          "learning_text": "have joining them",
+          "translation_text": "已经参加他们（动词结构错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "The event is in the past, so use the backshifted past continuous in the reported yes/no question: was joining. Keep statement word order after whether.",
+      "explanation_translation": "活动已经在过去举行，因此间接一般疑问句使用后移后的过去进行时 was joining。whether 后面保持陈述句语序。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-p6-advanced-010",
+      "source_lesson_id": "a-reported-speech",
+      "prompt_learning": "“Please close the window,” he said to me. Choose the correct report.",
+      "prompt_translation": "“请把窗户关上。”他对我说。选择正确的转述句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "He asked me to close the window.",
+          "translation_text": "他请我把窗户关上。"
+        },
+        {
+          "id": "b",
+          "learning_text": "He asked me close the window.",
+          "translation_text": "他请我关上窗户。（缺少 to）"
+        },
+        {
+          "id": "c",
+          "learning_text": "He said me to close the window.",
+          "translation_text": "他说我关上窗户。（said 的搭配错误）"
+        },
+        {
+          "id": "d",
+          "learning_text": "He asked that I to close the window.",
+          "translation_text": "他请我把窗户关上。（结构错误）"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Report a positive request with asked + object + to-infinitive: asked me to close.",
+      "explanation_translation": "转述肯定请求时，使用 asked + 宾语 + to 不定式：asked me to close。",
+      "learning_objective_id": "reported-speech-accuracy",
+      "release_approved": false
     }
   ]
 }

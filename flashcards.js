@@ -19,6 +19,35 @@
     mixed:{beginner:{memory:8,answer:12,memoryFloor:6,answerFloor:9},intermediate:{memory:7,answer:10,memoryFloor:5,answerFloor:7},advanced:{memory:6,answer:8,memoryFloor:4,answerFloor:5}}
   };
   const timingFor=(mode,difficulty)=>timing[mode]?.[difficulty]||timing.word[difficulty];
+  // Original English multiword expressions extend the phrase-recall pool
+  // without duplicating dictionary headwords or changing dictionary search.
+  const curatedEnglishPhrases = [
+    {word:"make a decision",definition:"to choose what you will do after thinking about the options",definitionZh:"经过考虑后作出选择；作出决定。",examples:["We need to make a decision before Friday."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"take responsibility",definition:"to accept that you are accountable for an action or its result",definitionZh:"承担责任；对行为或结果负责。",examples:["Everyone should take responsibility for their own work."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"pay attention",definition:"to listen, watch or think carefully about something",definitionZh:"认真听、看或思考；集中注意力。",examples:["Please pay attention to the final instruction."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"keep in touch",definition:"to continue communicating with someone",definitionZh:"继续与某人保持联系。",examples:["We still keep in touch after graduation."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"run out of",definition:"to have none of something left",definitionZh:"某物用完；不再剩有某物。",examples:["We have run out of printer paper."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"look forward to",definition:"to feel pleased and excited about something that is going to happen",definitionZh:"期待某事；盼望某事发生。",examples:["I look forward to meeting the new team."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"put off",definition:"to delay doing something until a later time",definitionZh:"推迟；延后进行某事。",examples:["They decided to put off the meeting until Monday."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"carry out",definition:"to do and complete a task, plan or instruction",definitionZh:"执行并完成任务、计划或指示。",examples:["The researchers will carry out another test."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"deal with",definition:"to take action to handle a problem, task or situation",definitionZh:"处理问题、任务或情况。",examples:["She knows how to deal with difficult questions."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"come up with",definition:"to think of or suggest an idea, plan or answer",definitionZh:"想出或提出一个想法、计划或答案。",examples:["Can you come up with a better title?"],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"break the ice",definition:"to make people feel more relaxed when they first meet",definitionZh:"打破初次见面时的拘谨；缓和气氛。",examples:["A quick introduction helped break the ice."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"on the same page",definition:"having the same understanding or agreement about something",definitionZh:"对某事有相同的理解或共识。",examples:["Let's check that we are on the same page before we begin."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"once in a while",definition:"sometimes, but not very often",definitionZh:"偶尔；有时，但并不频繁。",examples:["We eat out once in a while."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"by the way",definition:"used to introduce an additional or less connected point",definitionZh:"顺便说；用于引出补充或关联较弱的话题。",examples:["By the way, have you seen my notebook?"],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"as a result",definition:"used to show that something happens because of what came before",definitionZh:"因此；结果是；用于说明前因后果。",examples:["The road was closed; as a result, we arrived late."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"set a goal",definition:"to decide on something specific that you want to achieve",definitionZh:"设定目标；确定想要实现的具体成果。",examples:["She set a goal to read one English article each day."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"make an effort",definition:"to try hard to do something or achieve a result",definitionZh:"努力；尽力做某事或取得成果。",examples:["If you make an effort to practise, your confidence will grow."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"take into account",definition:"to consider a fact or situation when making a decision",definitionZh:"把某个事实或情况考虑在内。",examples:["We must take the travel time into account when planning the visit."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"in the long run",definition:"over a long period of time, especially when considering the final result",definitionZh:"从长远来看；经过较长时间后。",examples:["Learning a little every day helps in the long run."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"in charge of",definition:"responsible for controlling or organising something",definitionZh:"负责管理或组织某事。",examples:["Mina is in charge of the new project."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"come to an agreement",definition:"to reach a decision or arrangement that everyone involved accepts",definitionZh:"达成协议；取得各方都接受的共识。",examples:["After a long discussion, the two teams came to an agreement."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"raise awareness",definition:"to help more people understand an issue or become concerned about it",definitionZh:"提高公众对某个问题的认识或关注。",examples:["The campaign aims to raise awareness of ocean pollution."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"reach a conclusion",definition:"to decide what is likely to be true after considering information",definitionZh:"经过考虑信息后得出结论。",examples:["The researchers reached a conclusion after reviewing the results."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"take place",definition:"to happen, especially as part of a planned event",definitionZh:"发生；举行，尤指有计划的活动。",examples:["The final presentation will take place on Friday."],course:"en",part:"phrase",cardKind:"phrases"},
+    {word:"keep track of",definition:"to continue checking or recording the progress or position of something",definitionZh:"持续记录或掌握某事物的进展或情况。",examples:["Keep track of the new words you learn each week."],course:"en",part:"phrase",cardKind:"phrases"}
+  ];
   const state = {
     ready:false,loading:false,starting:false,finishing:false,ending:false,duration:60,roundRecorded:false,usedQuestionKeys:new Set(),reviewSession:null,data:{collections:[],cards:[],mastery:[],history:[]},
     collectionId:"all",cardSet:"all",mode:"word",difficulty:"beginner",game:null,gameTimer:null,phaseTimer:null,reviewMode:"word",reviewSelected:null,lastResult:null,historyPage:0,
@@ -26,7 +55,7 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
-  function words(language=state.game?.learningLanguage||course){if(language==="zh"){const bank=window.SWIFT_CHINESE_FLASHCARDS||{};const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);}return (window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);}
+  function words(language=state.game?.learningLanguage||course){if(language==="zh"){const bank=window.SWIFT_CHINESE_FLASHCARDS||{};const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);}const dictionary=(window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);const existing=new Set(dictionary.map(w=>String(w.word).trim().toLowerCase()));return [...dictionary,...curatedEnglishPhrases.filter(w=>!existing.has(w.word.toLowerCase()))];}
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
   function cardsForCollection(){
     const cards=state.data.cards||[];
@@ -836,6 +865,7 @@
   });
   const timerApi={
     config:timing,
+    contentStats:{englishCuratedPhraseCount:curatedEnglishPhrases.length},
     reductionStep:REDUCTION_STEP,
     next(memory,answer,difficulty,mode="word"){
       const t=timingFor(mode,difficulty);

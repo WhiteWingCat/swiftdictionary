@@ -1,0 +1,700 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Sense-level corrections for existing English baseline entries; apply by exact normalized headword during consolidated integration.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "71332fdf57a38dbf00c49ca49aaf517e51958002",
+  "patches": [
+    {
+      "word": "access",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The ability, right or opportunity to enter, use or obtain something.",
+          "definitionZh": "使用权；访问权；进入机会",
+          "examples": [
+            "Students have access to the library after class.",
+            "The new ramp gives wheelchair users easier access to the building."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To enter, open or retrieve information or a place, especially by using a computer or account.",
+          "definitionZh": "访问；进入；获取",
+          "examples": [
+            "I cannot access my account because I forgot the password.",
+            "You can access the lesson materials from your profile."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "approach",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A way or method of dealing with a task, problem or situation.",
+          "definitionZh": "方法；方式；处理途径",
+          "examples": [
+            "We need a different approach to this problem.",
+            "The team discussed a more practical approach to the project."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To move closer to someone or something, or to speak to someone in order to ask or offer something.",
+          "definitionZh": "接近；靠近；接洽",
+          "examples": [
+            "A stranger approached me to ask for directions.",
+            "She approached the manager about changing her schedule."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "attempt",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An effort to do something, especially something difficult or uncertain.",
+          "definitionZh": "尝试；努力",
+          "examples": [
+            "I made another attempt to solve the puzzle.",
+            "Her first attempt was unsuccessful, but she tried again."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To try to do or achieve something, especially when it may be difficult.",
+          "definitionZh": "尝试；试图",
+          "examples": [
+            "She attempted to explain the issue calmly.",
+            "Do not attempt to repair the device while it is connected to power."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "balance",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A condition in which different parts are equal or in the correct proportions; also the amount of money remaining in an account.",
+          "definitionZh": "平衡；均衡；余额",
+          "examples": [
+            "It can be difficult to maintain a balance between work and rest.",
+            "Please check the balance in your account before making a payment."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To keep something steady or to arrange different activities or needs in suitable proportions.",
+          "definitionZh": "使平衡；兼顾",
+          "examples": [
+            "She balanced the box carefully on the shelf.",
+            "He tries to balance his studies with a part-time job."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "benefit",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An advantage, helpful result or positive effect.",
+          "definitionZh": "好处；益处；优势",
+          "examples": [
+            "One benefit of walking is better fitness.",
+            "The main benefit of the update is faster search."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To be helped or improved by something.",
+          "definitionZh": "受益；得益",
+          "examples": [
+            "You'll benefit from getting enough sleep.",
+            "Small businesses can benefit from the new support programme."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "challenge",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A difficult task or situation that tests someone's ability, skill or determination.",
+          "definitionZh": "挑战；艰巨任务",
+          "examples": [
+            "Learning pronunciation is a challenge for me.",
+            "Finding enough time to study can be a challenge."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To question whether something is correct or to test someone's ability or confidence.",
+          "definitionZh": "质疑；挑战；考验",
+          "examples": [
+            "The project challenged us to think creatively.",
+            "The lawyer challenged the accuracy of the report."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "complete",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Having all the necessary parts, details or elements; whole and finished.",
+          "definitionZh": "完整的；齐全的；全部的",
+          "examples": [
+            "The project is complete, so we can relax.",
+            "Please send the complete list of participants."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To finish doing or making something.",
+          "definitionZh": "完成；结束",
+          "examples": [
+            "Please complete the form before Friday.",
+            "She completed the course in three months."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "delay",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A period of waiting or a situation in which something happens later than expected.",
+          "definitionZh": "延误；延迟；耽搁",
+          "examples": [
+            "There was a delay because of heavy rain.",
+            "The flight arrived with a two-hour delay."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make something happen later than planned or to wait before doing something.",
+          "definitionZh": "推迟；延后；耽搁",
+          "examples": [
+            "The technician delayed the appointment until Monday.",
+            "We decided to delay the launch until the tests were complete."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "detail",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A small piece of information or a particular feature of something.",
+          "definitionZh": "细节；详情",
+          "examples": [
+            "Please check every detail before submitting.",
+            "The report includes details about the new schedule."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To describe or explain something fully and carefully.",
+          "definitionZh": "详细说明；详述",
+          "examples": [
+            "He detailed the steps in his report.",
+            "The guide details how to set up the account."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "discipline",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Training, self-control or rules that help people behave properly or work towards a goal; also an area of study.",
+          "definitionZh": "纪律；自律；学科",
+          "examples": [
+            "Daily practice takes discipline.",
+            "Biology is one of the subjects in her academic discipline."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To train or correct someone, especially by using rules or consequences.",
+          "definitionZh": "管教；训练；惩戒",
+          "examples": [
+            "The school disciplined the student for repeatedly breaking the rules.",
+            "She disciplined herself to stop checking her phone while studying."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "draft",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An early version of a piece of writing, plan or design that may be changed later.",
+          "definitionZh": "草稿；初稿",
+          "examples": [
+            "I finished the first draft of my cover letter.",
+            "The designer showed the client a draft of the new poster."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To prepare an early version of a document, plan or message.",
+          "definitionZh": "起草；草拟",
+          "examples": [
+            "Can you draft a short introduction?",
+            "The committee drafted a proposal for the new course."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "experience",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Knowledge or skill gained by doing something; or an event that happens to someone.",
+          "definitionZh": "经验；经历；体验",
+          "examples": [
+            "Work experience can help you find a job.",
+            "The trip was a memorable experience for the whole family."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To go through or feel an event, change or condition.",
+          "definitionZh": "经历；体验；感受",
+          "examples": [
+            "I experienced a lot of growth this year.",
+            "Many people experience stress before an important interview."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "fair",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Reasonable, just and treating people equally; also moderately good or acceptable.",
+          "definitionZh": "公平的；公正的；尚可的",
+          "examples": [
+            "I think that is a fair price.",
+            "The teacher gave everyone a fair chance."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A public event where people meet for entertainment or where goods, services or information are displayed and sold.",
+          "definitionZh": "集市；展销会；博览会",
+          "examples": [
+            "We visited the book fair at the convention centre.",
+            "The town holds a food fair every autumn."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "focus",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The main centre of attention, interest or activity.",
+          "definitionZh": "焦点；重点；关注中心",
+          "examples": [
+            "My main focus is improving my English.",
+            "Safety should remain the focus of the discussion."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To give attention to one particular person, subject or activity.",
+          "definitionZh": "集中注意力；聚焦",
+          "examples": [
+            "Let us focus on the most important task.",
+            "The camera focused on the subject in the foreground."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "impact",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A strong effect or influence that one thing has on another; also the force of one object hitting another.",
+          "definitionZh": "影响；作用；冲击",
+          "examples": [
+            "The change had a positive impact on the team.",
+            "The impact of the collision damaged the front of the car."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To have a strong effect on someone or something.",
+          "definitionZh": "影响；对……产生作用",
+          "examples": [
+            "Small habits can impact your progress.",
+            "The new rules may impact local businesses."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "increase",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To become greater in amount, size, number or degree, or to make something greater.",
+          "definitionZh": "增加；增长；提高",
+          "examples": [
+            "The price may increase next month.",
+            "The company plans to increase production this year."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A rise in amount, size, number or degree.",
+          "definitionZh": "增加；增长；增幅",
+          "examples": [
+            "We saw an increase in visitors.",
+            "There has been a small increase in the cost of materials."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "interest",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A feeling of wanting to know or learn about something; also an advantage or right connected with something.",
+          "definitionZh": "兴趣；关注；利益",
+          "examples": [
+            "I have a strong interest in animation.",
+            "The agreement protects the interests of both groups."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To make someone curious or want to know more about something.",
+          "definitionZh": "使感兴趣；引起关注",
+          "examples": [
+            "This topic interests me.",
+            "The museum's new exhibition may interest younger visitors."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "issue",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "An important subject for discussion, or a problem that needs attention.",
+          "definitionZh": "议题；问题；争议",
+          "examples": [
+            "We need to solve this issue quickly.",
+            "The meeting focused on the issue of public safety."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To officially give, publish or send something, such as a document, statement or instruction.",
+          "definitionZh": "发布；颁发；发出",
+          "examples": [
+            "The office issued a new access card.",
+            "The school issued a notice about the holiday schedule."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "notice",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To see, hear or become aware of someone or something.",
+          "definitionZh": "注意到；察觉",
+          "examples": [
+            "Did you notice the sign near the door?",
+            "I noticed that she looked tired."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "A written or spoken announcement that gives information or a warning.",
+          "definitionZh": "通知；告示；预告",
+          "examples": [
+            "A notice was posted beside the entrance.",
+            "The landlord gave us one month's notice before the repair work."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "point",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A particular idea, fact or detail; or a score in a game or competition.",
+          "definitionZh": "要点；观点；分数；点",
+          "examples": [
+            "The main point is to keep the message clear.",
+            "Our team scored the winning point in the final minute."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To direct a finger, hand or object towards someone or something.",
+          "definitionZh": "指向；指着",
+          "examples": [
+            "He pointed toward the exit when the alarm sounded.",
+            "She pointed at the detail she wanted me to notice."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "practice",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Repeated activity used to improve a skill; or the usual way of doing something.",
+          "definitionZh": "练习；实践；惯例",
+          "examples": [
+            "Daily practice helps build confidence.",
+            "It is common practice to back up important files."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To do an activity repeatedly in order to improve at it or become familiar with it.",
+          "definitionZh": "练习；训练；实践",
+          "examples": [
+            "I practice speaking English with a friend.",
+            "The team practised the presentation before the event."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "praise",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Words or actions that express approval, admiration or respect.",
+          "definitionZh": "赞扬；称赞；表扬",
+          "examples": [
+            "He received praise for helping the new staff.",
+            "The teacher's praise encouraged the student to keep trying."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To express approval or admiration for someone or something.",
+          "definitionZh": "赞扬；称赞；表扬",
+          "examples": [
+            "The manager praised her careful work.",
+            "Critics praised the film for its strong performances."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "process",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A series of actions or steps taken to achieve a particular result.",
+          "definitionZh": "过程；流程；步骤",
+          "examples": [
+            "Learning is a gradual process.",
+            "The application process takes about two weeks."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To deal with information, materials or a request by carrying out a series of operations.",
+          "definitionZh": "处理；加工；审核",
+          "examples": [
+            "Give me a moment to process the information.",
+            "The office processes applications in the order they arrive."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "progress",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Movement or development towards a goal or a better condition.",
+          "definitionZh": "进步；进展；进程",
+          "examples": [
+            "You have made good progress this month.",
+            "The project is making steady progress."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To develop, improve or move forward over time.",
+          "definitionZh": "进展；推进；取得进步",
+          "examples": [
+            "The work is progressing more quickly now.",
+            "Students progress at different speeds."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "release",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To let someone or something go free, or to allow something to leave a container or space.",
+          "definitionZh": "释放；放出；松开",
+          "examples": [
+            "She released his hand and stepped away.",
+            "The valve releases pressure from the system."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of making something available, or the act of freeing someone or something.",
+          "definitionZh": "发布；发行；释放",
+          "examples": [
+            "The software release is scheduled for next week.",
+            "The release of the rescued animals was shown on television."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "repair",
+      "senses": [
+        {
+          "part": "verb",
+          "definition": "To fix something that is broken, damaged or not working properly.",
+          "definitionZh": "修理；修复；维修",
+          "examples": [
+            "The technician repaired the laptop.",
+            "They repaired the fence after the storm."
+          ]
+        },
+        {
+          "part": "noun",
+          "definition": "The act of fixing something, or the condition of being fixed.",
+          "definitionZh": "修理；修复；维修",
+          "examples": [
+            "The repair took longer than expected.",
+            "The phone is in need of repair."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "result",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "Something that happens or exists because of an action, event or situation.",
+          "definitionZh": "结果；成果；后果",
+          "examples": [
+            "The result was better than we expected.",
+            "The test results will be available tomorrow."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To happen because of something; usually used with “in” or “from”.",
+          "definitionZh": "导致；由……产生",
+          "examples": [
+            "Small daily habits can result in steady progress.",
+            "The delay resulted from a technical problem."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "risk",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "The possibility that something harmful, unpleasant or unwanted may happen.",
+          "definitionZh": "风险；危险；可能性",
+          "examples": [
+            "There is a risk of losing unsaved work.",
+            "The report explains the risks of driving in heavy rain."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To do something that may expose someone or something to danger, loss or an unwanted result.",
+          "definitionZh": "冒险；使……面临风险",
+          "examples": [
+            "Do not risk your safety for a shortcut.",
+            "She risked missing the train by leaving too late."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "schedule",
+      "senses": [
+        {
+          "part": "noun",
+          "definition": "A plan that lists the times when events, activities or tasks are expected to happen.",
+          "definitionZh": "日程表；时间安排；计划",
+          "examples": [
+            "My schedule is full this week.",
+            "The train schedule is available online."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To arrange for an event or task to happen at a particular time.",
+          "definitionZh": "安排时间；排定",
+          "examples": [
+            "We scheduled the interview for Monday.",
+            "The repair has been scheduled for next week."
+          ]
+        }
+      ]
+    },
+    {
+      "word": "secure",
+      "senses": [
+        {
+          "part": "adjective",
+          "definition": "Protected from danger, loss or unauthorised access; or firmly fixed in place.",
+          "definitionZh": "安全的；稳固的；可靠的",
+          "examples": [
+            "Use a secure password for your account.",
+            "Make sure the ladder is secure before climbing."
+          ]
+        },
+        {
+          "part": "verb",
+          "definition": "To obtain or achieve something, often after effort; or to fasten something firmly.",
+          "definitionZh": "获得；争取；固定",
+          "examples": [
+            "We secured permission to use the room.",
+            "Please secure the box with strong tape."
+          ]
+        }
+      ]
+    }
+  ],
+  "appliedCommit": "9c09415afe879e1960dd254e6243e07c2dbb8615"
+}

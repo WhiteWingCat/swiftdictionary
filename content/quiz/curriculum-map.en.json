@@ -152,5 +152,55 @@
         "outcome": "Distinguish near-synonyms and precise vocabulary for tone, evidence, judgement and disclosure."
       }
     ]
+  },
+  "b-greetings-polite-expressions": {
+    "topic_id": "everyday-vocabulary",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "greetings-and-politeness",
+        "outcome": "Choose appropriate greetings, thanks, apologies and polite expressions for common everyday interactions."
+      }
+    ]
+  },
+  "b-places-getting-around": {
+    "topic_id": "everyday-vocabulary",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "places-and-directions",
+        "outcome": "Recognise common public places and use basic vocabulary for finding and describing locations."
+      }
+    ]
+  },
+  "b-question-forms-negatives": {
+    "topic_id": "sentence-basics",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "question-forms-and-negatives",
+        "outcome": "Form yes/no questions, WH-questions and negative statements using be, do, does and did."
+      }
+    ]
+  },
+  "i-passive-voice": {
+    "topic_id": "verb-tenses",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "passive-voice-forms",
+        "outcome": "Form present, past and present-perfect passive structures and decide when the agent should be included."
+      }
+    ]
+  },
+  "a-reported-speech": {
+    "topic_id": "advanced-grammar",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "reported-speech-accuracy",
+        "outcome": "Report statements, questions and requests with appropriate word order, tense and reference changes."
+      }
+    ]
   }
 }

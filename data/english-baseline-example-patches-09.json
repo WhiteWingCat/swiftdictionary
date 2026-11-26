@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "update": "2.9.0",
+  "purpose": "Add a second contextual example to the remaining baseline entries that previously had only one.",
+  "status": "integrated into feature-branch index.html",
+  "sourceBaselineBlob": "858ff9623cf375b983b684bb2ed65a396b280e38",
+  "entries": [
+    {
+      "word": "xenobiology",
+      "addExamples": [
+        "A seminar on xenobiology considered whether life could use chemistry very different from Earth's."
+      ]
+    },
+    {
+      "word": "xenobiotic",
+      "addExamples": [
+        "The study examined how the body processes a xenobiotic found in the environment."
+      ]
+    },
+    {
+      "word": "xenogenesis",
+      "addExamples": [
+        "The author used the term xenogenesis for a theory in which an organism produces an offspring unlike itself."
+      ]
+    },
+    {
+      "word": "xenograft",
+      "addExamples": [
+        "The patient was monitored closely after receiving the experimental xenograft."
+      ]
+    },
+    {
+      "word": "xenolith",
+      "addExamples": [
+        "A dark xenolith was visible inside the lighter volcanic rock."
+      ]
+    },
+    {
+      "word": "xenotransplantation",
+      "addExamples": [
+        "Scientists are studying xenotransplantation as one possible way to address the shortage of donor organs."
+      ]
+    },
+    {
+      "word": "xerophyte",
+      "addExamples": [
+        "Aloe vera is a xerophyte that stores water in its thick leaves."
+      ]
+    },
+    {
+      "word": "xerophytic",
+      "addExamples": [
+        "Many xerophytic plants have small leaves that reduce water loss."
+      ]
+    },
+    {
+      "word": "xylem",
+      "addExamples": [
+        "Damage to the xylem can prevent water from reaching the upper parts of a plant."
+      ]
+    },
+    {
+      "word": "y-axis",
+      "addExamples": [
+        "The y-axis shows the number of visitors recorded each month."
+      ]
+    },
+    {
+      "word": "yardstick",
+      "addExamples": [
+        "The school uses student progress, rather than test scores alone, as a yardstick for success."
+      ]
+    },
+    {
+      "word": "yeoman",
+      "addExamples": [
+        "The novel describes a yeoman who owned and worked a small farm."
+      ]
+    },
+    {
+      "word": "yielding",
+      "addExamples": [
+        "The new treatment is yielding encouraging results in early trials."
+      ]
+    },
+    {
+      "word": "yottabyte",
+      "addExamples": [
+        "A yottabyte is so large that it is mainly used when discussing enormous data-storage scales."
+      ]
+    },
+    {
+      "word": "yottameter",
+      "addExamples": [
+        "A yottameter is an impractically large unit for ordinary measurements."
+      ]
+    },
+    {
+      "word": "zeitgeist",
+      "addExamples": [
+        "The film's soundtrack and fashion choices reflect the zeitgeist of the 1990s."
+      ]
+    },
+    {
+      "word": "zeugma",
+      "addExamples": [
+        "The writer used zeugma by saying that she “lost her keys and her patience” in the same sentence."
+      ]
+    },
+    {
+      "word": "zeugmatic",
+      "addExamples": [
+        "The lecturer gave a zeugmatic example in which one verb connected a person to both a physical object and an emotion."
+      ]
+    },
+    {
+      "word": "zoogeography",
+      "addExamples": [
+        "The distribution of marsupials is a classic topic in zoogeography."
+      ]
+    },
+    {
+      "word": "zoological",
+      "addExamples": [
+        "The research station keeps detailed zoological records of the animals it studies."
+      ]
+    },
+    {
+      "word": "zoonosis",
+      "addExamples": [
+        "Rabies is a zoonosis that can spread from infected mammals to people."
+      ]
+    },
+    {
+      "word": "zoonotic",
+      "addExamples": [
+        "The report identified several factors that may increase zoonotic risk."
+      ]
+    },
+    {
+      "word": "zoonotic spillover",
+      "addExamples": [
+        "The researchers studied how land-use changes might increase the chance of zoonotic spillover."
+      ]
+    },
+    {
+      "word": "zooplankton",
+      "addExamples": [
+        "Young fish often feed on zooplankton in coastal waters."
+      ]
+    },
+    {
+      "word": "zygomorphic",
+      "addExamples": [
+        "A pea flower is zygomorphic because it has bilateral rather than radial symmetry."
+      ]
+    },
+    {
+      "word": "zygosity",
+      "addExamples": [
+        "The researchers compared zygosity to determine whether the twins were identical or fraternal."
+      ]
+    },
+    {
+      "word": "zygotic",
+      "addExamples": [
+        "The zygotic stage begins after the egg and sperm cells fuse."
+      ]
+    },
+    {
+      "word": "zymogen",
+      "addExamples": [
+        "The inactive zymogen is activated only after it reaches the appropriate environment."
+      ]
+    },
+    {
+      "word": "zymology",
+      "addExamples": [
+        "Students in the food-science programme studied zymology through bread and beverage fermentation."
+      ]
+    },
+    {
+      "word": "zymurgy",
+      "addExamples": [
+        "The brewery applied principles of zymurgy to keep fermentation consistent."
+      ]
+    },
+    {
+      "word": "thanks",
+      "addExamples": [
+        "Thanks again for taking the time to explain the process."
+      ]
+    },
+    {
+      "word": "excuse me",
+      "addExamples": [
+        "Excuse me, I didn't mean to interrupt your conversation."
+      ]
+    },
+    {
+      "word": "good morning",
+      "addExamples": [
+        "Good morning! I hope you had a restful night."
+      ]
+    },
+    {
+      "word": "good afternoon",
+      "addExamples": [
+        "Good afternoon. Thank you for joining us today."
+      ]
+    },
+    {
+      "word": "good evening",
+      "addExamples": [
+        "Good evening, everyone. Please take your seats."
+      ]
+    },
+    {
+      "word": "take care",
+      "addExamples": [
+        "Take care of yourself while you're travelling."
+      ]
+    }
+  ],
+  "appliedCommit": "a7170f63f1a085a5fc81da50e877b67dd31e1947"
+}

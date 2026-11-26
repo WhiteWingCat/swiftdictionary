@@ -242,6 +242,20 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await page.locator("#lessonCards button").first().click();
   const lessonPrompt=page.locator(".lesson-start-confirm-backdrop");
   await expect(lessonPrompt).toBeVisible();
+  // Force a lesson-card refresh while the confirmation is open. The
+  // allowance refresh can replace the original button node before confirm.
+  const lessonTopicFilter = page.locator("#lessonTopicFilter");
+  const selectedTopic = (await page.locator("#lessonCards .lesson-card").first().locator(".lesson-chip").textContent()).trim();
+  const topicOption = lessonTopicFilter.locator("option").filter({ hasText: selectedTopic }).first();
+  const topicValue = await topicOption.getAttribute("value");
+  await page.evaluate(value => {
+    const filter = document.querySelector("#lessonTopicFilter");
+    filter.value = value;
+    filter.dispatchEvent(new Event("change", { bubbles: true }));
+    filter.value = "all";
+    filter.dispatchEvent(new Event("change", { bubbles: true }));
+  }, topicValue);
+  await expect(lessonPrompt).toBeVisible();
   await lessonPrompt.locator('[data-confirm="yes"]').click();
   await page.waitForFunction(() => {
     const detail = document.querySelector("#lessonDetailPage");

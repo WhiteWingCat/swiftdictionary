@@ -10,6 +10,8 @@ declare
   v_translations integer;
   v_knowledge integer;
   v_bad_objectives integer;
+  v_phase6 integer;
+  v_bad_phase6 integer;
 begin
   select count(*) filter (where question_id like 'quiz-beginner-%')::integer,
          count(*) filter (where question_id like 'quiz-intermediate-%')::integer,
@@ -83,6 +85,32 @@ begin
     raise exception 'Draft content has % invalid four-option records',v_bad_options;
   end if;
 
+  select count(*)::integer into v_phase6
+  from private.quiz_question_bank
+  where question_id like 'quiz-p6-%'
+    and learning_language_code='en'
+    and translation_language_code='zh'
+    and status='draft';
+
+  select count(*)::integer into v_bad_phase6
+  from private.quiz_question_bank q
+  left join private.learning_content_catalog c
+    on c.activity_type='permanent_lesson'
+   and c.content_id=q.source_lesson_id
+   and c.language_code=q.learning_language_code
+   and c.topic_id=q.topic_id
+   and c.difficulty=q.difficulty
+   and c.is_active
+  where q.question_id like 'quiz-p6-%'
+    and (c.content_id is null or q.learning_objective_id is null
+      or q.status<>'draft' or jsonb_typeof(q.options)<>'array'
+      or jsonb_array_length(q.options)<>4
+      or not exists(select 1 from jsonb_array_elements(q.options) o where o->>'id'=q.correct_option_id));
+
+  if v_phase6<>30 or v_bad_phase6<>0 then
+    raise exception 'Phase 6 draft import expected 30 lesson-linked draft questions with four options; found %, invalid %',v_phase6,v_bad_phase6;
+  end if;
+
   if (select count(distinct topic_id) from private.quiz_question_bank
       where question_id like 'quiz-beginner-%')<>5 then
     raise exception 'Beginner batch should cover five source topics';
@@ -116,6 +144,6 @@ begin
   ) then
     raise exception 'Advanced batch topic distribution is unexpected';
   end if;
-  raise notice 'Quiz draft content import passed: 199 rows (56 Beginner, 62 Intermediate, 81 Advanced; all drafts), 14 source-topic groups, 0 approved';
+  raise notice 'Quiz draft content import passed: 199 baseline questions plus 30 Phase 6 draft additions (all draft), 14 source-topic groups, 0 approved';
 end;
 $draft_import$;
