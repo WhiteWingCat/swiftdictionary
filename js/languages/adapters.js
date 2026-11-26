@@ -34,10 +34,16 @@
   const malay = {
     locale:"ms-MY", script:"Latn", gridMode:"word", pronunciationLabel:"Pronunciation", morphology:"malay-affixation", flashcardModes:[], flashcardCardSets:[],
     normaliseSearch(value) { return normalise(value).toLocaleLowerCase("ms-MY").replace(/\s+/g," "); },
+    getSearchForms(entry) {
+      const explicit = Array.isArray(entry?.searchForms) ? entry.searchForms : [];
+      const morphology = Array.isArray(entry?.morphology?.forms) ? entry.morphology.forms : [];
+      return [...new Set([...explicit, ...morphology].filter(value => typeof value === "string" && value.trim()))];
+    },
+    describeMorphology(entry) { return entry?.morphology || null; },
     matchesSearch(entry, query) {
       if (!query) return true;
       const q=this.normaliseSearch(query);
-      return [entry?.word, ...(Array.isArray(entry?.searchForms)?entry.searchForms:[])].some(value => this.normaliseSearch(value).includes(q));
+      return [entry?.word, ...this.getSearchForms(entry)].some(value => this.normaliseSearch(value).includes(q));
     },
     matchesGridEntry(entry) { return Boolean(entry && typeof entry.word === "string" && entry.word.trim()); },
     sort(a,b) { return String(a?.word||"").localeCompare(String(b?.word||""),"ms-MY"); },
