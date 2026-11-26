@@ -30,7 +30,7 @@ The tests cover package identity and counts, stable/unique headwords and sense I
 
 An intermediate workflow on the content-only commit failed two count assertions because the test file still expected the prior 226 entries and 496 translations. The manifest and test expectations were then updated to 336 entries, 358 senses and 716 translation records; the subsequent final run passed. The intermediate failure is recorded as a failed attempt, not counted as validation success.
 
-The separate English Dictionary QA and Quiz database foundation workflows were still running when this archive was authored and must be inspected separately. No U3.0 database migration was created or applied.
+The separate English Dictionary QA passed on the same commit ([run 45813318397](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45813318397)). The Quiz database foundation and preceding local Supabase schema/Auth/RPC/content steps passed; its final authenticated Chromium runtime test was still in progress at the latest check ([run 45813318148](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45813318148)). This local integration workflow does not apply changes to production or staging. No U3.0 database migration was created or applied.
 
 ## 4. Review, provenance and legal status
 
