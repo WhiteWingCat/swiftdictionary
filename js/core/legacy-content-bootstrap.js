@@ -26,7 +26,7 @@
         quiz:{source:data.quizSource || null},
         flashcards:{source:data.flashcardSource || null}
       },
-      metadata:{legacySource:"U2.9.1", migrationState:"wrapped-not-rewritten"}
+      metadata:{legacySource:"U2.9.1", manifestPath:"content/languages/"+code+"/manifest.json", migrationState:"wrapped-not-rewritten"}
     });
   }
   window.dispatchEvent(new CustomEvent("swiftdictionary:content-packages-ready", { detail:{ languages:packages.list().map(item=>item.languageCode) } }));
