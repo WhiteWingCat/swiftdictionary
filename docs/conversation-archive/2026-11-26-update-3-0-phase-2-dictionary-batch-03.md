@@ -43,7 +43,7 @@ The successful [U3.0 architecture/content regression run 45798641246](https://gi
 - package adaptation, inactive-language gating and English/Chinese regression behaviour;
 - exclusion of same-language translation pairs.
 
-The [legacy U2.9.0 English Dictionary QA run 45798641233](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45798641233) also passed its English/Chinese content validators, Mock Quiz/Flashcards regressions and Chromium browser smoke tests on the same application commit.
+The [legacy U2.9.0 English Dictionary QA run 45798641233](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45798641233) also passed its English/Chinese content validators, Mock Quiz/Flashcards regressions and Chromium browser smoke tests on the same application commit. The [Quiz database foundation and local Supabase integration run 45798641222](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45798641222) completed successfully as well, replaying the existing U2.3.x–U2.9.0 migration chain in a disposable local environment and passing its authenticated Quiz, Flashcards/Preferences, Lessons allowance, Chinese Dictionary and security-advisor checks. This is baseline regression evidence only; no U3.0 schema migration was created or applied.
 
 ## 4. Provenance, translation and review status
 
