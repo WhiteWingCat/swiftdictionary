@@ -22697,22 +22697,22 @@
       });
     }
     function filteredWords() {
-      const query = search.value.trim().toLowerCase();
+      const adapter = languageAdapter(course);
+      if (!adapter) return [];
+      const query = search.value.trim();
       return words.filter(item => {
-        if (course === "zh" && [...item.word].length !== 1) return false;
-        const normalizedQuery = query.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        const normalizedPinyin = (item.phonetic || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        const matchesQuery = !query || item.word.toLowerCase().includes(query) || (course === "zh" && normalizedPinyin.includes(normalizedQuery));
-        const matchesLetter = !activeLetter || (course === "zh"
+        if (!adapter.matchesGridEntry(item)) return false;
+        const matchesQuery = adapter.matchesSearch(item,query);
+        const matchesLetter = !activeLetter || (adapter.gridMode === "single-han"
           ? chinesePinyinInitials(item).includes(activeLetter)
           : item.word.toUpperCase().startsWith(activeLetter));
-        const parts = item.part.toLowerCase().split(/\s*\/\s*/).map(part => part.trim());
-        const matchesCategory = course === "zh"
+        const parts = String(item.part || "").toLowerCase().split(/\s*\/\s*/).map(part => part.trim());
+        const matchesCategory = adapter.gridMode === "single-han"
           ? activeChineseCategory === "all" || (Array.isArray(item.categories) && item.categories.includes(activeChineseCategory))
           : activeCategory === "all" || (activeCategory === "other" ? parts.length > 1 || !["noun","verb","adjective","adverb"].includes(parts[0]) : parts.includes(activeCategory));
         const matchesSaved = !onlySaved || saved.has(savedKey(course,item.word));
         return matchesQuery && matchesLetter && matchesSaved && matchesCategory;
-      }).sort((a,b) => a.word.localeCompare(b.word, course === "zh" ? "zh-CN" : "en"));
+      }).sort((a,b) => adapter.sort(a,b));
     }
     function render() {
       const list = filteredWords();
@@ -23620,7 +23620,11 @@ function lessonPractice(x){
     const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],practiceAttemptCounts:[],practiceLastChecked:[],practiceIncorrectAttemptCount:0,practiceRetryCount:0,allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
     const el=id=>document.getElementById(id);
 const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
-    const lessons=()=>course==="zh"?(chineseLessonData[ls.difficulty]||[]):(lessonData[ls.difficulty]||[]);
+    const lessons=()=>{
+      if(course==="zh")return chineseLessonData[ls.difficulty]||[];
+      if(course==="en")return lessonData[ls.difficulty]||[];
+      throw new Error("Lessons are not available for language: "+course);
+    };
 const progressFor=id=>ls.progress.find(p=>p.learning_language===course&&p.lesson_id===id&&p.difficulty===ls.difficulty);
 function lessonRenderText(value){
       if(Array.isArray(value))return value.map(lessonRenderText).join("");
@@ -24218,8 +24222,9 @@ async function completeLesson(x){
     }
     window.addEventListener("swift-collections-open-word", event => {
       const detail = event.detail || {};
-      const targetCourse = detail.course === "zh" ? "zh" : "en";
-      const catalog = targetCourse === "zh" ? chineseWords : englishWords;
+      const targetCourse = activeLanguage(detail.course) ? detail.course : null;
+      if(!targetCourse){accountStatus.textContent="This saved word belongs to a language that is not currently active.";return;}
+      const catalog = targetCourse === "zh" ? chineseWords : targetCourse === "en" ? englishWords : [];
       const item = catalog.find(entry => entry.word === detail.word);
       const liveTrigger = detail.trigger?.isConnected ? detail.trigger
         : [...document.querySelectorAll("[data-fc-open-word]")].find(node => node.dataset.fcWord === detail.word && node.dataset.fcCourse === targetCourse);
@@ -24309,7 +24314,8 @@ async function completeLesson(x){
       if(event.key==="Escape"&&!document.getElementById("dashboardReviewOverlay").hidden)closeDashboardReview();
     });
     function openDashboardLessonReview(lessonId,difficulty,languageCode){
-      const targetCourse=languageCode==="zh"?"zh":"en";
+      const targetCourse=activeLanguage(languageCode)?languageCode:null;
+      if(!targetCourse){openDashboardReview("Lesson review",'<p class="muted-note">This lesson belongs to a language that is not currently active.</p>');return;}
       const lesson=((targetCourse==="zh"?chineseLessonData:lessonData)[difficulty]||[]).find(item=>item.id===lessonId);
       if(!lesson){openDashboardReview("Lesson review",'<p class="muted-note">The original lesson content is not available in this version.</p>');return;}
       const previousCourse=course,previousTranslation=translationLanguage;
@@ -24444,14 +24450,16 @@ async function completeLesson(x){
         const personalTestAccess = personalTestQ.error ? false : personalTestQ.data === true;
         const prefs = prefsQ.data || {learning_language:course,translation_language:translationLanguage,timezone:browserTimezone()};
         const preferenceSelectionChanged = preferenceSelectionVersionAtStart !== coursePreferenceSelectionVersion;
-        const activeLearningLanguage=preferenceSelectionChanged?course:prefs.learning_language;
+        const safeLearningLanguage=activeLanguage(prefs.learning_language)?prefs.learning_language:course;
+        const safeTranslationLanguage=activeLanguage(prefs.translation_language)?prefs.translation_language:translationLanguage;
+        const effectivePrefs={...prefs,learning_language:safeLearningLanguage,translation_language:safeTranslationLanguage};
         profilePreferences = preferenceSelectionChanged
-          ? {...prefs,learning_language:course,translation_language:translationLanguage}
-          : prefs;
+          ? {...effectivePrefs,learning_language:course,translation_language:translationLanguage}
+          : effectivePrefs;
         if (!preferenceSelectionChanged) {
-          const courseChanged = course !== prefs.learning_language;
-          course = prefs.learning_language;
-          translationLanguage = prefs.translation_language;
+          const courseChanged = course !== safeLearningLanguage;
+          course = safeLearningLanguage;
+          translationLanguage = safeTranslationLanguage;
           try { localStorage.setItem(preferenceStorageKey, JSON.stringify({learning_language:course,translation_language:translationLanguage})); } catch {}
           words = course === "zh" ? chineseWords : englishWords;
           document.getElementById("categoryRow").hidden = course === "zh";
@@ -24704,6 +24712,7 @@ async function completeLesson(x){
       const translation = document.getElementById("preferenceTranslation").value;
       const timezone = document.getElementById("preferenceTimezone").value.trim();
       try {
+        if(!activeLanguage(learning)||!activeLanguage(translation))throw new Error("Choose an active learning and translation language.");
         new Intl.DateTimeFormat("en-US",{timeZone:timezone});
         status.textContent = "Saving…";
         const [profileSave,prefSave] = await Promise.all([
@@ -25095,8 +25104,8 @@ async function completeLesson(x){
         .select("learning_language,translation_language").eq("user_id",currentUser.id).maybeSingle();
       if(error)throw error;
       if(!data||selectionVersionAtStart!==coursePreferenceSelectionVersion)return;
-      const nextCourse=data.learning_language==="zh"?"zh":"en";
-      const nextTranslation=data.translation_language==="zh"?"zh":"en";
+      const nextCourse=activeLanguage(data.learning_language)?data.learning_language:course;
+      const nextTranslation=activeLanguage(data.translation_language)?data.translation_language:translationLanguage;
       const courseChanged=course!==nextCourse;
       course=nextCourse;translationLanguage=nextTranslation;
       try{localStorage.setItem(preferenceStorageKey,JSON.stringify({learning_language:course,translation_language:translationLanguage}));}catch{}
