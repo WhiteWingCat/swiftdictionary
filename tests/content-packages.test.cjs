@@ -24,3 +24,12 @@ test("planned Malay can be registered as a package without becoming active",()=>
 test("unknown language package is rejected",()=>{
  assert.throws(()=>packages.createPackage({languageCode:"xx",contentVersion:"1"}),/Unknown language/);
 });
+
+test("lesson and Daily Learning records retain source identity and difficulty metadata",()=>{
+ const lesson={id:"en.lesson.basics",difficulty:"beginner",title:"Basics"};
+ const daily={id:"en.daily.topic.1",title:"Daily topic"};
+ const p=packages.createPackage({languageCode:"en",contentVersion:"1.0.0",content:{lessons:{permanent:[{...lesson,legacySource:lesson}]},dailyLearning:{topics:[daily]}}});
+ assert.equal(p.lessons.permanent[0].difficulty,"beginner");
+ assert.equal(p.lessons.permanent[0].legacySource,lesson);
+ assert.equal(p.dailyLearning.topics[0].legacySource,daily);
+});
