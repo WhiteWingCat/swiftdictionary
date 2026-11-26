@@ -279,7 +279,7 @@ A Cloudflare Pages branch build succeeded for commit `65d3888`, but build succes
 
 ## Phase 1 final validation — 2026-11-26
 
-<badge>Phase 1 complete — ready for Phase 2</badge>
+**Phase 1 complete — ready for Phase 2.**
 
 The final validation checkpoint is recorded in [the completed Phase 1 validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md).
 
