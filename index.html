@@ -22590,9 +22590,12 @@
     try { storedCoursePreferences = JSON.parse(localStorage.getItem(preferenceStorageKey) || "{}"); } catch {}
     const activeLanguage = code => window.SWIFT_LANGUAGE_REGISTRY?.get(code)?.status === "active";
     const languageAdapter = code => window.SWIFT_LANGUAGE_ADAPTERS?.get(code) || null;
+    const isChineseCourse = (code=course) => languageAdapter(code)?.gridMode === "single-han";
+    const isEnglishCourse = (code=course) => languageAdapter(code)?.morphology === "english";
+    const dictionaryEntriesFor = code => isChineseCourse(code) ? chineseWords : isEnglishCourse(code) ? englishWords : [];
     let course = activeLanguage(storedCoursePreferences.learning_language) ? storedCoursePreferences.learning_language : "en";
     let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
-    let words = course === "zh" ? chineseWords : englishWords;
+    let words = dictionaryEntriesFor(course);
     let preferenceWriteQueue = Promise.resolve();
     let coursePreferenceSelectionVersion = 0;
     let selectedAvatar = "🐦";
@@ -22664,8 +22667,8 @@
     }
     function makeAlphabet() {
       alphabet.style.display = "flex";
-      alphabet.setAttribute("aria-label", course === "zh" ? "Filter Chinese characters by pinyin initial" : "Filter words by first letter");
-      chinesePinyinFilterLabel.hidden = course !== "zh";
+      alphabet.setAttribute("aria-label", isChineseCourse() ? "Filter Chinese characters by pinyin initial" : "Filter words by first letter");
+      chinesePinyinFilterLabel.hidden = !isChineseCourse();
       const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
       alphabet.innerHTML = "";
       const all = document.createElement("button");
@@ -23154,9 +23157,9 @@
       course=e.target.value;
       updateGlobalCourseControlLabels();
       rememberCoursePreferences();
-      categoryRow.hidden=course==="zh";
+      categoryRow.hidden=isChineseCourse();
       grid.classList.toggle("character-grid",course==="zh");
-      words=course==="zh"?chineseWords:englishWords;
+      words=dictionaryEntriesFor(course);
       activeLetter="";activeCategory="all";activeChineseCategory="all";onlySaved=false;
       savedFilter.setAttribute("aria-pressed","false");
       savedFilter.textContent="☆ Saved words";
@@ -23606,7 +23609,7 @@ function lessonField(x,key){
   return z&&z[key]!==undefined?z[key]:x[key];
 }
 function lessonPractice(x){
-  const z=course==="en"&&translationLanguage==="zh"?lessonZh[x.id]:null;
+  const z=isEnglishCourse()&&translationLanguage==="zh"?lessonZh[x.id]:null;
   const src=x.practices||[x.practice];
   const translated=z?.practices||(z?.practice?[z.practice]:null);
   const orders=ls.practiceOptionOrders?.[x.id];
@@ -24205,7 +24208,7 @@ async function completeLesson(x){
       dashboardFavoriteModal = true;
       if (course !== targetCourse) {
         course = targetCourse;
-        words = course === "zh" ? chineseWords : englishWords;
+        words = dictionaryEntriesFor(course);
         document.getElementById("courseSelect").value = course;
         document.getElementById("categoryRow").hidden = course === "zh";
         grid.classList.toggle("character-grid",course === "zh");
