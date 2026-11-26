@@ -1,0 +1,59 @@
+name: SwiftDictionary U3.0 Phase 1 architecture regression
+
+on:
+  push:
+    branches:
+      - feature/update-3.0-phase-0-audit
+    paths:
+      - "index.html"
+      - "js/**"
+      - "data/**"
+      - "content/**"
+      - "scripts/content/**"
+      - "tests/*.test.cjs"
+      - "tests/*.test.mjs"
+      - ".github/workflows/u3-phase1-validation.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "js/**"
+      - "data/**"
+      - "content/**"
+      - "scripts/content/**"
+      - "tests/*.test.cjs"
+      - "tests/*.test.mjs"
+      - ".github/workflows/u3-phase1-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: u3-phase1-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  architecture-and-content-regression:
+    name: Architecture, adapter, translation and content parity tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Check U3.0 runtime module syntax
+        run: |
+          node --check js/core/language-registry.js
+          node --check js/core/content-contracts.js
+          node --check js/core/content-packages.js
+          node --check js/core/legacy-content-bootstrap.js
+          node --check js/core/translation-registry.js
+          node --check js/languages/adapters.js
+          node --check scripts/content/validation-core.mjs
+      - name: Run all architecture and content regression tests
+        run: node --test tests/*.test.cjs tests/*.test.mjs
