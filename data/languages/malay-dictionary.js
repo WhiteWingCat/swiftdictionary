@@ -4,7 +4,7 @@
  */
 window.SWIFT_MALAY_DICTIONARY = [
   {
-    id:"ms.dict.ada", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.ada", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"ada", part:"kata kerja", definition:"Wujud, tersedia atau dimiliki; digunakan untuk menyatakan kewujudan atau pemilikan.",
     definitionEn:"To exist, be present or be available; also used to express possession.",
     definitionZh:"存在；有；表示某物存在、在场或拥有某物。",
@@ -16,7 +16,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.air", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"air", part:"kata nama", definition:"Cecair jernih yang menjadi keperluan asas manusia, haiwan dan tumbuhan.",
     definitionEn:"Water, the clear liquid essential to people, animals and plants.",
     definitionZh:"水；人类、动物和植物生存所需的液体。",
@@ -28,7 +28,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.ajar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"ajar", part:"kata kerja", definition:"Memberikan tunjuk ajar atau ilmu supaya seseorang mengetahui atau dapat melakukan sesuatu.",
     definitionEn:"To teach or instruct someone so that they learn how to do or understand something.",
     definitionZh:"教；指导；传授知识或技能。",
@@ -40,7 +40,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.anak", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"anak", part:"kata nama", definition:"Manusia yang masih kecil; keturunan atau zuriat seseorang.",
     definitionEn:"A child; also a person's offspring or descendant.",
     definitionZh:"孩子；子女；后代。",
@@ -52,7 +52,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.baik", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"baik", part:"kata adjektif", definition:"Mempunyai sifat yang elok, sesuai atau memuaskan; tidak buruk.",
     definitionEn:"Good, kind or satisfactory; not bad.",
     definitionZh:"好；良好；善良；令人满意。",
@@ -64,7 +64,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.baca", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"baca", part:"kata kerja", definition:"Melihat dan memahami perkataan atau tulisan yang dibaca.",
     definitionEn:"To read and understand written words or text.",
     definitionZh:"阅读；看懂文字或文章。",
@@ -76,7 +76,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.bahasa", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"bahasa", part:"kata nama", definition:"Sistem bunyi, perkataan dan tatabahasa yang digunakan oleh manusia untuk berkomunikasi.",
     definitionEn:"A system of sounds, words and grammar used by people to communicate.",
     definitionZh:"语言；人们用于交流的语音、词汇和语法系统。",
@@ -88,7 +88,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.bantu", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"bantu", part:"kata kerja", definition:"Memberikan pertolongan atau sokongan kepada seseorang.",
     definitionEn:"To help or assist someone.",
     definitionZh:"帮助；向某人提供协助或支持。",
@@ -100,7 +100,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.besar", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"besar", part:"kata adjektif", definition:"Mempunyai saiz, keluasan atau jumlah yang lebih daripada biasa.",
     definitionEn:"Big or large in size, area or amount.",
     definitionZh:"大；尺寸、面积或数量较大。",
@@ -112,7 +112,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.boleh", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"boleh", part:"kata bantu", definition:"Menunjukkan keupayaan, kemungkinan atau kebenaran untuk melakukan sesuatu.",
     definitionEn:"Can, may or be allowed to do something.",
     definitionZh:"能；可以；表示能力、可能性或许可。",
@@ -124,7 +124,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.buku", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"buku", part:"kata nama", definition:"Himpunan helaian bercetak atau bertulis yang disusun dan dijilid untuk dibaca atau dirujuk.",
     definitionEn:"A book: a set of printed or written pages bound together for reading or reference.",
     definitionZh:"书；装订成册、供阅读或查阅的纸页集合。",
@@ -136,7 +136,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.datang", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"datang", part:"kata kerja", definition:"Bergerak atau tiba dari tempat lain ke tempat yang dimaksudkan.",
     definitionEn:"To come or arrive from another place.",
     definitionZh:"来；从别处移动或抵达指定地点。",
@@ -148,7 +148,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.dengan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"dengan", part:"kata sendi nama", definition:"Menunjukkan kebersamaan, cara, alat atau hubungan antara perkara.",
     definitionEn:"With; by means of; or in a manner that expresses association or method.",
     definitionZh:"和；与；用；通过某种方式或工具。",
@@ -159,7 +159,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.kawan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"kawan", part:"kata nama", definition:"Orang yang mempunyai hubungan persahabatan atau melakukan sesuatu bersama-sama.",
     definitionEn:"A friend or companion.",
     definitionZh:"朋友；伙伴；与某人有友谊或共同活动的人。",
@@ -170,7 +170,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.makan", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"makan", part:"kata kerja", definition:"Memasukkan makanan ke dalam mulut, mengunyah dan menelannya.",
     definitionEn:"To eat food by putting it in the mouth, chewing and swallowing it.",
     definitionZh:"吃；把食物放入口中、咀嚼并吞下。",
@@ -182,7 +182,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.minum", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"minum", part:"kata kerja", definition:"Menelan air atau minuman lain melalui mulut.",
     definitionEn:"To drink water or another beverage.",
     definitionZh:"喝；通过嘴摄入水或其他饮料。",
@@ -194,7 +194,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.pergi", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"pergi", part:"kata kerja", definition:"Bergerak atau bertolak dari satu tempat ke tempat yang lain.",
     definitionEn:"To go or travel from one place to another.",
     definitionZh:"去；从一个地方移动或前往另一个地方。",
@@ -205,7 +205,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.rumah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"rumah", part:"kata nama", definition:"Bangunan atau tempat yang digunakan sebagai kediaman.",
     definitionEn:"A building or place used as a home or residence.",
     definitionZh:"房屋；用作居所的建筑物或地方。",
@@ -217,7 +217,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.sekolah", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"sekolah", part:"kata nama", definition:"Institusi tempat murid menerima pendidikan dan mengikuti proses pembelajaran.",
     definitionEn:"A school or institution where pupils receive education.",
     definitionZh:"学校；学生接受教育和学习的机构。",
@@ -229,7 +229,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.saya", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"saya", part:"kata ganti nama diri", definition:"Kata ganti nama diri pertama yang digunakan oleh penutur untuk merujuk kepada dirinya sendiri.",
     definitionEn:"The first-person pronoun used by a speaker to refer to themself.",
     definitionZh:"我；说话者用来指称自己的第一人称代词。",
@@ -240,7 +240,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.tidur", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"tidur", part:"kata kerja", definition:"Berada dalam keadaan rehat semula jadi apabila tubuh dan minda kurang sedar terhadap persekitaran.",
     definitionEn:"To sleep; to be in a natural resting state with reduced awareness of the surroundings.",
     definitionZh:"睡觉；身体和意识处于自然休息状态。",
@@ -252,7 +252,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.tolong", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"tolong", part:"kata kerja / kata seru", definition:"Memberikan bantuan; juga digunakan untuk meminta seseorang melakukan sesuatu dengan sopan.",
     definitionEn:"To help; also used to make a polite request.",
     definitionZh:"帮忙；也用于礼貌地请求别人做某事。",
@@ -264,7 +264,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.terima-kasih", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"terima kasih", part:"ungkapan", definition:"Ungkapan yang digunakan untuk menyatakan penghargaan atau rasa syukur atas bantuan, pemberian atau layanan.",
     definitionEn:"An expression of thanks or gratitude for help, a gift or a service.",
     definitionZh:"谢谢；用于对帮助、馈赠或服务表达感谢。",
@@ -276,7 +276,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}
   },
   {
-    id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+    id:"ms.dict.untuk", schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
     word:"untuk", part:"kata sendi nama", definition:"Menunjukkan tujuan, kegunaan, penerima atau sasaran sesuatu perkara.",
     definitionEn:"For; indicating purpose, use, recipient or intended target.",
     definitionZh:"为了；给；表示目的、用途、接受者或对象。",
@@ -5747,7 +5747,7 @@ window.SWIFT_MALAY_DICTIONARY = [
   const makeEntry = (slug, word, part, definition, definitionEn, definitionZh, examples, related, categories, searchForms, morphology, extraSenses = []) => {
     const id = "ms.dict." + slug;
     return {
-      id, schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.7.0",
+      id, schemaVersion:1, languageCode:"ms", contentVersion:"u3-ms-dict-0.8.0",
       word, part, definition, definitionEn, definitionZh, examples, related, categories,
       searchForms, morphology,
       senses:[makeSense(id + ".s1",definition,definitionEn,definitionZh,examples), ...extraSenses.map((sense,index) => makeSense(id + ".s" + (index+2),sense[0],sense[1],sense[2],sense[3]))],
@@ -5796,7 +5796,7 @@ window.SWIFT_MALAY_DICTIONARY = [
   const makeSense = (id, definition, definitionEn, definitionZh, examples) => ({id,definition,definitionEn,definitionZh,translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples});
   const makeEntry = (slug,word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology) => {
     const id="ms.dict."+slug;
-    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.7.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft for the Malaysian Standard Malay learner dictionary; no external lexical text imported. Linguistic source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
+    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.8.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft for the Malaysian Standard Malay learner dictionary; no external lexical text imported. Linguistic source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
   };
   window.SWIFT_MALAY_DICTIONARY.push(
     makeEntry("abang","abang","kata nama","Panggilan atau gelaran bagi saudara lelaki yang lebih tua; juga digunakan sebagai sapaan hormat kepada lelaki.","An older brother; also a respectful form of address for a man.","哥哥；也可作为对男性的礼貌称呼。",["Abang saya bekerja di sebuah hospital.","Abang itu membantu warga emas melintas jalan."],["kakak","adik","saudara"],["keluarga","manusia"],[],{"type":"kata dasar","forms":[],"notes":"Sapaan abang juga digunakan secara sosial di luar hubungan kekeluargaan."}),
@@ -5812,7 +5812,7 @@ window.SWIFT_MALAY_DICTIONARY = [
     makeEntry("antara","antara","kata sendi nama","Menunjukkan kedudukan di tengah dua atau lebih perkara, atau hubungan dalam suatu kumpulan.","Between or among; indicating a position or relationship involving two or more things.","在……之间；表示两个或多个事物之间的位置或关系。",["Kedai itu terletak antara bank dengan klinik.","Antara semua pilihan, saya memilih yang ini."],["di tengah","dalam kalangan","sesama"],["kata fungsi","tempat"],[],{"type":"kata fungsi","forms":[],"notes":"Antara boleh digunakan untuk hubungan ruang dan pemilihan dalam sesuatu kumpulan."}),
     makeEntry("api","api","kata nama","Haba dan cahaya yang terhasil daripada proses pembakaran.","Fire; heat and light produced by combustion.","火；燃烧过程产生的热和光。",["Jangan bermain dengan api.","Api unggun itu dipadamkan sebelum mereka pulang."],["nyalaan","asap","kebakaran"],["alam","keselamatan"],["berapi"],{"type":"kata dasar","prefixes":["ber-"],"forms":["berapi"],"notes":"Berapi boleh merujuk sesuatu yang menyala atau digunakan secara kiasan."}),
     makeEntry("apabila","apabila","kata hubung","Kata yang menghubungkan klausa dengan maksud waktu atau keadaan ketika sesuatu berlaku.","When; a conjunction linking clauses by time or circumstance.","当……时；连接表示时间或情境的分句。",["Hubungi saya apabila anda sudah sampai.","Apabila hujan turun, jalan menjadi licin."],["ketika","semasa","tatkala"],["kata fungsi","tatabahasa"],[],{"type":"kata fungsi","forms":[],"notes":"Apabila memperkenalkan klausa yang menyatakan masa atau keadaan."}),
-    makeEntry("arah","arah","kata nama","Hala atau tujuan sesuatu pergerakan, kedudukan atau pandangan.","Direction or course of movement, position or attention.","方向；移动、位置或注意力所指向的方位。",["Ikut arah papan tanda ke stesen.","Dia berjalan ke arah pintu utama."],["hala","tuju","panduan"],["tempat","pergerakan"],["mengarahkan","diarahkan","arahan"],{"type":"kata dasar","prefixes":["meN-","di-"],"suffixes":["-an"],"forms":["mengarahkan","diarahkan","arahan"],"notes":"Arahan ialah kata nama bagi arahan atau perintah; mengarahkan ialah kata kerja."}),
+    makeEntry("arah","arah","kata nama","Hala atau tujuan sesuatu pergerakan, kedudukan atau pandangan.","Direction or course of movement, position or attention.","方向；移动、位置或注意力所指向的方位。",["Ikut arah papan tanda ke stesen.","Dia berjalan ke arah pintu utama."],["hala","tuju","panduan"],["tempat","pergerakan"],["mengarahkan","diarahkan"],{"type":"kata dasar","prefixes":["meN-","di-"],"suffixes":["-an"],"forms":["mengarahkan","diarahkan"],"notes":"Kata nama arahan mempunyai entri tersendiri; alias itu digugurkan untuk mengelakkan pertindihan carian."}),
     makeEntry("atas","atas","kata arah / kata sendi nama","Bahagian yang lebih tinggi atau kedudukan di permukaan sesuatu.","The upper part; on or above a surface.","上面；较高的部分；在某物表面上。",["Kunci itu berada di atas meja.","Bilik pejabat terletak di tingkat atas."],["bawah","puncak","permukaan"],["tempat","kata fungsi"],[],{"type":"kata fungsi","forms":[],"notes":"Atas digunakan dalam gabungan seperti di atas dan ke atas mengikut hubungan ruang."}),
     makeEntry("awan","awan","kata nama","Kumpulan titisan air atau hablur ais halus yang kelihatan terapung di atmosfera.","Cloud; a visible mass of tiny water droplets or ice crystals in the atmosphere.","云；悬浮在大气中的微小水滴或冰晶集合体。",["Awan gelap berkumpul sebelum hujan.","Kanak-kanak itu melihat bentuk awan di langit."],["langit","mendung","hujan"],["alam","cuaca"],[],{"type":"kata dasar","forms":[],"notes":"Awan tebal atau gelap sering dikaitkan dengan kemungkinan hujan, tetapi bukan petunjuk yang pasti."}),
     makeEntry("ayah","ayah","kata nama","Lelaki yang menjadi bapa kepada seseorang; panggilan kekeluargaan untuk bapa.","Father; a male parent or familial form of address.","父亲；男性家长，也可作为对父亲的称呼。",["Ayah menghantar saya ke sekolah.","Ayah sedang membaiki pagar rumah."],["bapa","ibu","anak"],["keluarga","manusia"],[],{"type":"kata dasar","forms":[],"notes":"Ayah dan bapa kedua-duanya baku; pilihan bentuk bergantung pada kebiasaan dan konteks."}),
@@ -5991,7 +5991,7 @@ window.SWIFT_MALAY_DICTIONARY = [
   const makeSense = (id, definition, definitionEn, definitionZh, examples) => ({id,definition,definitionEn,definitionZh,translationStatus:{en:"machine_assisted_draft",zh:"machine_assisted_draft"},examples});
   const makeEntry = (slug,word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology) => {
     const id="ms.dict."+slug;
-    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.7.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
+    return {id,schemaVersion:1,languageCode:"ms",contentVersion:"u3-ms-dict-0.8.0",word,part,definition,definitionEn,definitionZh,examples,related,categories,searchForms,morphology,senses:[makeSense(id+".s1",definition,definitionEn,definitionZh,examples)],provenance:{authoringMethod:"original-authored",sourcesConsulted:[],sourceTextCopied:false,authoringNote:"Original draft; no external lexical text imported; source verification and human review pending.",licenceStatus:"original-draft-rights-review-pending",editorialStatus:"draft",reviewerId:null}};
   };
   window.SWIFT_MALAY_DICTIONARY.push(
     makeEntry("cangkul","cangkul","kata nama","Alat pertanian bertangkai dengan mata logam untuk menggembur atau menggali tanah.","Hoe; a long-handled tool for loosening or digging soil.","锄头；用于松土或挖土的长柄农具。",["Maklumat tentang cangkul diberikan dalam penerangan itu.","Kami membincangkan cangkul dalam aktiviti pembelajaran."],[],["pertanian"],[],{type:"kata dasar atau frasa leksikal",forms:[],notes:"Tiada bentuk terbitan ditambah sebagai alias carian dalam batch ini; bentuk carian memerlukan semakan leksikal khusus."}),
