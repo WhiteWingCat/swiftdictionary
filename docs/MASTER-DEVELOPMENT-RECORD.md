@@ -4354,3 +4354,38 @@ The exact data schema, accepted-answer authoring workflow, language-specific nor
 
 This is a roadmap/scope decision only. It does not authorise U3.0 or U3.1 implementation. All standing legal/privacy, database approval and migration sequencing, staging verification, README, UI consistency and regression requirements continue to apply. See [the dated conversation archive](conversation-archive/2026-11-26-update-3-1-fill-in-the-blank-scope-confirmation.md) for the full decision record.
 
+
+## Update 3.2 — Games page and Wordmine (owner-confirmed planning direction, 2026-11-26)
+
+**Status: CONFIRMED FOR PLANNING; implementation not started or authorised.**
+
+Update 3.2 is planned to rename the existing Flashcards navigation/page destination to **Games**, retain Flashcards as an activity, and add **Wordmine** as a separate game. The existing Flashcards allowance category is to become a shared Games allowance covering Flashcards, Wordmine and future games in Games. This does not approve a numeric quota change; preserve the currently configured quota values pending a production schema/limits audit.
+
+### Wordmine gameplay
+
+- Start with nine square tiles labelled Q, T, L or B. Q presents a four-option multiple-choice question; T presents a True/False question; L asks for a missing letter in a word and may show its definition as a hint; B asks the player to complete a sentence with a missing word.
+- A correct answer turns the selected tile green and immediately replaces it with a newly random-labelled tile. Each correct answer counts as one successful round.
+- An incorrect answer turns the tile red and permanently locks it for the session. The player must select another non-red tile. The fifth red tile immediately ends the game in defeat.
+- There is no time limit. No question may repeat within a game session: once presented, it is used for that session regardless of whether it was answered correctly or incorrectly. This must apply across question types and tile replacements. Track presented question IDs; do not silently repeat if the eligible pool is exhausted.
+- Difficulty affects both question complexity and successful-round target: Beginner 10; Intermediate 15; Advanced 20. All three use the same five-red-tile loss condition.
+- Endless is exclusive to Wordmine. It has no ordinary round target and can continue up to 100 successful rounds. Reaching 100 is a win; five red tiles is a loss, regardless of the current score.
+- After either victory or defeat, return directly to the Games main page. No mandatory retry/result screen.
+
+### Shared Games allowance
+
+- Flashcards, Wordmine and future games within Games share one daily Games allowance bucket; do not create per-game daily quotas by default.
+- Wordmine victory consumes one allowance use; Wordmine defeat consumes one; abandoning before a terminal outcome consumes none. Do not charge at game start. Completion settlement must be idempotent.
+- Preserve the existing daily reset behaviour based on the user's effective timezone. No new numeric Free/Premium quota values or quota increase/decrease are approved. Audit the current Live Supabase limits and migration history during implementation and preserve existing Flashcards quota values unless separately approved.
+- Preserve existing Flashcards progress/history and design a compatible migration for allowance category/ledger/Profile display only after inspecting the actual production schema.
+
+### Implementation planning and safeguards
+
+Audit the current Flashcards navigation, page, data/progress and allowance paths; design the Games landing page and reusable language-aware Q/T/L/B question pipeline; implement session-level no-repeat tracking and safe pool-exhaustion handling; define Wordmine state/terminal settlement; and review Profile/Dashboard statistics without adding unapproved reward systems or unnecessary raw-answer collection. Test all available course languages, accessibility, responsive behaviour, account isolation, allowance enforcement and regressions. Inspect Live Supabase before drafting migrations and follow the mandatory approved Live-migration-before-production-merge sequence.
+
+Before implementation, perform the standing Malaysia-specific and international legal/privacy review, including PDPA/data minimisation, intended 16+ audience safeguards, content provenance/licensing, and a Wordmine name/trademark clearance check. Keep branding, art, code and visual expression original; Minesweeper is a gameplay inspiration, not permission to copy protected assets or branding. This is a planning checklist, not legal advice or legal clearance.
+
+### Open decisions
+
+Question complexity standards by difficulty; Q/T/L/B distribution; unique-question pool exhaustion behaviour; interrupted-session/resume classification; Profile/Dashboard statistics; Games landing-page layout and route compatibility; historical Flashcards allowance-ledger migration; future game-specific exceptions; and detailed technical design, migration, content, estimates and acceptance criteria remain open. See [the dated conversation archive](conversation-archive/2026-11-26-update-3-2-games-and-wordmine-concept.md) for the complete decision record.
+
+**Release placement:** U3.0 Malay; U3.1 Fill-in-the-Blank typing questions in Lessons and Quiz; U3.2 Games page and Wordmine. This is a planning decision only and does not authorise implementation, staging handoff, database changes, merge or production deployment. U2.9.1 remains the production baseline. Cloudflare Pages is the sole active deployment platform; Workers Builds is retired.
