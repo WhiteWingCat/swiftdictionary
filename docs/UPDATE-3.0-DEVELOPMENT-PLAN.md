@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved plan, 2026-11-26. Phase 0 read-only audit completed. Phase 1 architecture and legacy-modernisation implementation is in place on the feature branch; internal unit/integration checks and source inventory checks have passed. Phase 1 exit remains pending full browser/device regression and database/account-history parity evidence. No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
+**Status:** Owner-approved plan, 2026-11-26. Phase 0 and Phase 1 validation are complete; Phase 2 Malay Dictionary content authoring is ready but not started. The final Phase 1 evidence and known database boundaries are recorded in [the completed validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md). No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -229,9 +229,9 @@ Phase 1 has started on `feature/update-3.0-phase-0-audit`. The initial architect
 - `tests/multilingual-architecture.test.cjs`: initial Node test coverage for activation boundaries, capability separation, stable IDs, translation review requirements, and package consistency.
 - `docs/U3.0-MULTILINGUAL-ARCHITECTURE.md`: architecture and migration contract.
 
-This is a foundation checkpoint, **not Phase 1 completion**. These new modules are not yet wired into the production application entry point; English/Chinese runtime data and legacy persistence/RPC paths still require migration. The test suite has been authored but has not yet been executed in this environment. No Supabase schema/data, Auth configuration, staging preview, production deployment, merge or main-branch change was made.
+**Historical foundation checkpoint:** at this point the modules were not yet wired into the application and the test suite had not been executed. This status was superseded by the later Phase 1 integration and final validation checkpoints below. No Supabase schema/data, Auth configuration, production deployment, merge or main-branch change was made at that earlier checkpoint.
 
-**Next Phase 1 work:** integrate the registry and content adapters into the real app load path; map English and Chinese Dictionary/Lessons/Daily Learning/Quiz/Flashcards into shared package contracts while preserving their language-specific behaviour; generalise saved words, collections, preferences, progress and account-deletion paths; consolidate pair-specific content validators; design/test compatible database migrations and RPC updates without applying them to Live. Phase 1 remains in progress until regression and migration parity evidence is available.
+**Historical next-step list:** the items above were completed or validated in the later Phase 1 integration work. See the final validation checkpoint below for the completed evidence and the remaining database migration boundary.
 
 
 ## Phase 1 implementation checkpoint — 2026-11-26
@@ -263,7 +263,9 @@ Read-only review confirmed:
 - Production aggregate row counts and language distributions are recorded in [the Phase 1 regression and migration checkpoint archive](conversation-archive/2026-11-26-update-3-0-phase-1-regression-and-migration-compatibility.md). These are baselines, not migration-parity proof.
 - No SQL, schema, data, Auth setting, RLS policy, function, trigger or index was changed.
 
-### Remaining mandatory Phase 1 exit gates
+### Historical Phase 1 exit-gate checklist
+
+This checklist was active at the time of the earlier checkpoint. Its regression and compatibility requirements were subsequently satisfied or explicitly re-scoped in the final validation section below.
 
 1. Run all 25 current architecture/wiring/translation/content-parity tests plus the relevant existing regression suites against the exact feature commit; fix and record failures.
 2. Complete browser/device regression for English and Chinese Dictionary, Lessons, Daily Learning, Quiz, Flashcards, Dashboard/Profile, translation switching, saved words, Collections, sign-in/out, account switching, cross-device sync, progress/history, allowances, responsive layouts, keyboard/accessibility and reduced motion.
@@ -275,7 +277,7 @@ Read-only review confirmed:
 
 A Cloudflare Pages branch build succeeded for commit `65d3888`, but build success is not browser or database validation. A Workers Builds check failed; Workers Builds is retired and is not an active deployment path. No preview URL is to be handed to the owner before Phase 3 completion.
 
-**Release gate unchanged:** no Phase 2, no staging-preview handoff before Phase 3, no Live migration, merge or production deployment without explicit owner approval. Phases 3–7 remain required after the Phase 3 preview gate.
+**Historical release gate at this checkpoint:** Phase 2 was blocked pending regression evidence. This was superseded by the final validation record below. The staging-preview, Live migration, merge and production-deployment safeguards remain unchanged. Phases 3–7 remain required after the Phase 3 preview gate.
 
 ## Phase 1 final validation — 2026-11-26
 
