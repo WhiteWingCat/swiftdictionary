@@ -1,25 +1,27 @@
 # SwiftDictionary Update 2.9.1 — Dashboard Collections Loading Fix
 
-> **Release status (2026-11-24):** U2.8.0 staging QA has been owner-approved. All 25 U2.8.0 migrations are applied and verified in both Staging and Production Supabase, including the final Chinese Quiz Pinyin safety sweep and reviewed source synchronisation. The application was merged to `main` on 2026-11-24 (merge commit `5e4c8c979770773047b2fad0ef845c9a944bfff2`). Cloudflare Pages reported successful deployments for both the merge commit and the follow-up README commit on `main`.
+> **Current production release (2026-11-26):** Update 2.9.1 is merged to `main` and deployed successfully through Cloudflare Pages. Update 2.9.0 is also merged, with all eight Live Supabase migrations applied and verified. Cloudflare Workers Builds is retired and no longer in operation; Cloudflare Pages is the sole active build/deployment platform.
 
-## Update 2.8.0 scope
+## Update 2.9.1 — Dashboard “Your Collections” loading fix
 
-- Adds Chinese-course Quiz questions across Beginner, Intermediate and Advanced. The reviewed staging bank contains 145 approved questions mapped to the 17 Chinese permanent lessons.
-- Keeps the established Quiz structure: 10/15/20 questions by difficulty, four options, no timer, editable answers until submission, review after submission, same-day question reservation and existing Free/Premium allowances. A new Quiz session consumes its allowance after successful session creation; cancelling the confirmation does not.
-- Adds Chinese Flashcard content for single characters, multi-character vocabulary and useful expressions, with course-specific Word Recall, Definition Recall, Translation Recall and Sentence Recall. English retains Mixed Recall; Chinese does not expose Mixed Recall.
-- Captures course and translation-language preferences at session start. Chinese-course activities with Chinese translation preference remain Chinese-focused and do not leak English prompts or explanations into active play.
-- Preserves full completed Flashcard game snapshots for read-only review, including correctly answered cards.
-- Redesigns Quiz landing, active-test and answer-review interfaces; improves Dashboard tabs, allowance overview, Daily History review and Practice Insights.
-- Adds topic-linked lesson/Quiz practice signals while retaining privacy-minimised aggregate performance data and account ownership controls.
-- Preserves existing allowance amounts, timezone resets, account isolation, custom Flashcard collections and unlimited dictionary search.
+- Fixes the missing Dashboard **Your Collections** feature after the U2.9.0 production release.
+- Loads `favorite-collections.js` explicitly from `index.html` after the main application scripts, so Cloudflare Pages build-time replacement of `supabase-config.js` cannot discard the Collections loader.
+- Removes the dynamic Collections loader from `supabase-config.js` and adds build-routing regression checks to ensure the script survives both preview and production build transformations.
+- No database migration was required. The U2.9.0 Live Supabase schema, RLS, Realtime, RPCs, saved words, entitlements and Premium limits remain unchanged.
+- PR #19 was merged as commit `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`; the merge-triggered Cloudflare Pages production deployment succeeded.
 
-> The Chinese Flashcard source bank contains 1,447 cards (519 characters, 904 vocabulary items and 24 authored phrases). Content validation checks mode-specific fields, distinct distractors, translation cue uniqueness and Sentence Recall prompt uniqueness. See `docs/UPDATE-2.8.0-CHINESE-CONTENT-QA-REPORT.md`.
+## Update 2.9.0 — English dictionary and Collections expansion
 
-## U2.8.0 Supabase rollout
-
-- The isolated staging project and Production Supabase project now both have the complete U2.8.0 migration sequence applied in order. Production rollout completed on 2026-11-24 after comparing its live U2.7.0 migration ledger and schema with the release migration sequence. Production verification confirms the new review/practice tables and Flashcard snapshot tables exist; the latest Chinese Quiz bank has 145 approved questions, 128 knowledge and 17 translation questions, four unique choices, valid answer keys, complete lesson/objective mappings and zero detected correct-answer text/Pinyin leaks. Previous question revisions remain preserved as retired history where applicable.
-- The production migration ledger records all 25 U2.8.0 migration steps. The exact source SQL is under `supabase/migrations/`.
-- Keep the migration-history and schema preflight step for any future environment; do not assume staging and production ledgers are identical.
+- Expands the English dictionary from 810 to **1,316 unique headwords**, including 506 new entries, richer multi-sense definitions, POS-specific senses, contextual examples and Simplified Chinese translations.
+- Adds ten English topic filters that compose with headword search, part-of-speech filters, alphabet selection, saved-word filtering and pagination. Existing Chinese character and pinyin filtering remains separate and intact.
+- Adds **Your Collections** to Dashboard: account-owned folders for saved words, persistent ordering, drag-to-reorder, keyboard reordering, and animated expand/collapse behaviour.
+- Aligns collection card geometry with Favorite Words, including responsive desktop/mobile layouts and Chinese square-card geometry.
+- Expands the English permanent Lessons catalogue to **20 lessons** (8 Beginner, 6 Intermediate, 6 Advanced), with Simplified Chinese reader and practice translations.
+- Adds 25 original English multiword Flashcard expressions with Simplified Chinese meanings and contextual examples.
+- Adds a visual-only Premium information page/dialog. Premium remains a future proposal: no checkout, payment, subscription activation or entitlement mutation is available. Dictionary search remains free and unlimited.
+- Preserves the previously approved Quiz release set of 199 questions. The 30 additional Quiz questions remain draft-only and are not part of the approved release bank.
+- Applies and verifies all eight U2.9.0 migrations in Live Supabase. Free/Premium collection capacities remain 16/40; existing allowance values are unchanged.
+- PR #18 was squash-merged as commit `64dc4406f96cf4b5a7644d802f936ff5ffd97289`. Cloudflare Pages is the active production deployment path.
 
 ## Previous release baseline
 
@@ -95,7 +97,7 @@ No existing dictionary, Google sign-in, account switching, saved-word synchronis
 
 ## Current application features
 
-The application has five main pages: **Dictionary**, **Lessons**, **Quiz**, **Flashcards** and **Profile**. Dashboard includes Favorite Words and Your Collections.
+The application has five main pages: **Dictionary**, **Lessons**, **Quiz**, **Flashcards** and **Profile**. Dashboard includes Favorite Words and Your Collections. Dashboard includes Favorite Words and Your Collections.
 
 - **Dictionary:** English word search (1,316 headwords with ten topic filters) and Simplified Chinese character search, detailed definitions and examples, translation-language switching, saved words and Chinese stroke-order learning.
 - **Lessons:** English permanent lesson library (20 lessons) with Simplified Chinese support, Beginner/Intermediate/Advanced difficulty levels, interactive practice, course-specific progress and completed-lesson review.
