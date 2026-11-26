@@ -2005,6 +2005,42 @@
     // Update 2.2.0 Lessons Foundation
     const lessonData=window.SWIFT_ENGLISH_LESSONS;
     const lessonZh=window.SWIFT_ENGLISH_LESSON_TRANSLATIONS;
+
+    const lessonTopicIds={
+      "Sentence basics":"sentence-basics",
+      "Verb tenses":"verb-tenses",
+      "Nouns and articles":"nouns-and-articles",
+      "Everyday vocabulary":"everyday-vocabulary",
+      "Nouns and quantity":"nouns-and-quantity",
+      "Phrasal verbs":"phrasal-verbs",
+      "Collocations":"collocations",
+      "Word formation":"word-formation",
+      "Conditional sentences":"conditional-sentences",
+      "Advanced grammar":"advanced-grammar",
+      "Idioms and fixed expressions":"idioms-fixed-expressions",
+      "Academic and professional English":"academic-professional-english",
+      "Precise vocabulary":"precise-vocabulary"
+    };
+function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
+function lessonField(x,key){
+  if(course==="zh")return x[key];
+  const z=translationLanguage==="zh"?lessonZh[x.id]:null;
+  return z&&z[key]!==undefined?z[key]:x[key];
+}
+function lessonPractice(x){
+  const z=course==="en"&&translationLanguage==="zh"?lessonZh[x.id]:null;
+  const src=x.practices||[x.practice];
+  const translated=z?.practices||(z?.practice?[z.practice]:null);
+  const orders=ls.practiceOptionOrders?.[x.id];
+  return src.map((q,i)=>{
+    const options=translated?.[i]?.options||q.options;
+    const order=orders?.[i]||options.map((_,j)=>j);
+    return {q:translated?.[i]?.q||q.q,options:order.map(j=>options[j]),answer:order.indexOf(q.answer)};
+  });
+}
+    function shuffleLessonOptionOrders(x){const src=x.practices||[x.practice],previous=ls.lastPracticeOptionOrders?.[x.id]||[];const orders=src.map((q,i)=>{const base=q.options.map((_,j)=>j);let order=base.slice();for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.length>1&&previous[i]&&order.every((v,j)=>v===previous[i][j])){for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.every((v,j)=>v===previous[i][j]))order.push(order.shift());}return order;});ls.lastPracticeOptionOrders={...(ls.lastPracticeOptionOrders||{}),[x.id]:orders.map(a=>a.slice())};ls.practiceOptionOrders={...(ls.practiceOptionOrders||{}),[x.id]:orders};}
+    const ls={difficulty:"beginner",topic:"all",progress:[],active:null,busy:false,completing:false,practiceOptionOrders:{},lastPracticeOptionOrders:{},practiceFirstTry:[],practiceAttemptCounts:[],practiceLastChecked:[],practiceIncorrectAttemptCount:0,practiceRetryCount:0,allowanceKnown:false,allowanceUnlimited:false,allowanceRemaining:null,allowanceLimit:null};
+    const el=id=>document.getElementById(id);
     const chineseLessonData=window.SWIFT_CHINESE_LESSONS||{beginner:[],intermediate:[],advanced:[]};
     const lessons=()=>{
       if(isChineseCourse())return chineseLessonData[ls.difficulty]||[];
