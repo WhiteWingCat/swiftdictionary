@@ -3,10 +3,10 @@
 > Durable project handover and source-of-truth summary for future development conversations.
 >
 > **Repository:** https://github.com/WhiteWingCat/swiftdictionary  
-> **Last consolidated:** 2026-11-26 (U2.9.0 merged to `main`; all eight U2.9.0 migrations applied and verified on Live Supabase; Cloudflare Pages is the sole active build/deployment system; Workers Builds retired.)
-**Current baseline:** Update 2.9.0 — English Dictionary Expansion & Dashboard Collections — merged to `main` at `64dc4406f96cf4b5a7644d802f936ff5ffd97289`. Live Supabase project `pzymiesazmpyvnfvsbsc` has all eight U2.9.0 migrations applied and verified.  
-**Current work:** U2.9.0 production rollout is complete at the GitHub and database layers. Cloudflare Pages is the only active build/deployment path; the separate Workers Builds integration for `swiftdictionary-testing` is retired and no longer in operation. The PR preview deployed successfully; verify the merge-triggered Pages production deployment independently before claiming the public live website rollout is complete.  
-**Record status:** U2.9.0 implementation, owner-approved merge and Live Supabase migration are complete. The 30 additional Quiz questions remain draft-only; the approved release subset remains 199. Premium remains presentation-only, and dictionary word-grid search remains free and unlimited.
+> **Last consolidated:** 2026-11-26 (U2.9.0 merged and Live Supabase migrated; U2.9.1 emergency patch merged and deployed successfully to Cloudflare Pages production; Workers Builds retired.)
+**Current baseline:** Update 2.9.1 — Dashboard "Your Collections" Cloudflare Pages loading fix — merged to `main` at `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`. Cloudflare Pages production deployment succeeded. Live Supabase remains on the verified U2.9.0 schema; U2.9.1 requires no database migration.  
+**Current work:** U2.9.1 is deployed. The Collections module is now explicitly loaded from `index.html` after the main application scripts, rather than relying on the generated `supabase-config.js` that Cloudflare Pages overwrites at build time. Cloudflare Pages is the only active build/deployment platform; Workers Builds is retired and no longer in operation.  
+**Record status:** U2.9.0 and U2.9.1 implementation, merge and production Pages deployment are complete. Dictionary word-grid search remains free and unlimited; Premium remains presentation-only. The 30 additional Quiz questions remain draft-only, with 199 approved questions.
 
 ## 1. Project identity and goals
 
@@ -3951,3 +3951,41 @@ Detailed archive: `docs/conversation-archive/2026-11-26-update-2-9-0-whole-folde
 - GitHub `main` merge and Live Supabase U2.9.0 migration are confirmed complete.
 - Confirm the merge-triggered Cloudflare Pages production deployment before claiming the live website is updated. Do not report Pages production success based solely on the PR preview.
 - Detailed session record: `docs/conversation-archive/2026-11-26-update-2-9-0-merge-live-supabase-and-retire-workers-builds.md`.
+
+
+## U2.9.1 emergency patch — restore Dashboard Your Collections on Cloudflare Pages (2026-11-26)
+
+**Status: merged to `main` and production Pages deployment successful.**
+
+### Incident and root cause
+- After U2.9.0 production rollout, the owner observed that all other updated features were live but "Your Collections" was missing from the Dashboard.
+- Live Supabase was already migrated correctly; the Favorite Collections tables, RLS, private Broadcast and RPCs were not the cause.
+- The root cause was a frontend build integration mismatch: U2.9.0 had placed the dynamic Collections module loader in the checked-in `supabase-config.js`, but Cloudflare Pages' `build.sh` replaces that file with environment-specific Supabase configuration during deployment. The generated production config therefore discarded the loader. The `favorite-collections.js` asset itself was present, but never requested by the deployed page.
+
+### Fix
+- Added an explicit, versioned `<script src="favorite-collections.js?v=2.9.1"></script>` to `index.html`, after the main application and account-deletion scripts.
+- Removed the dynamic loader from `supabase-config.js`. Loading the Dashboard Collections feature no longer depends on generated Supabase config content.
+- Extended `tests/cloudflare-build-routing.sh` to assert that the Collections asset exists, the script tag is included after the application scripts, and the tag survives both preview and production build transformations. The generated config is explicitly checked not to be the loader source.
+- No change to the Collections implementation, database schema, RLS, Realtime, auth, saved words, user entitlements or Premium limits.
+
+### Release and validation
+- PR #19: https://github.com/WhiteWingCat/swiftdictionary/pull/19 — squash-merged with owner approval.
+- Merge commit: `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`.
+- Feature commit validated: `f684cbea0f110d99db40d4931d9792870f169e96`.
+- Cloudflare Pages preview succeeded: https://d6bd7a26.swiftdictionary.pages.dev .
+- Cloudflare build-routing regression passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45755214948 .
+- U2.9.0 English dictionary and Collections browser QA passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45755214893 .
+- PostgreSQL migration/allowance, Chromium browser regression, Supabase CLI compatibility, Chinese dictionary, ACL and U2.7 allowance checks passed. Local authenticated Supabase Auth/RPC and Mock Flashcards browser jobs were still running at the time of this record update; check their final result before using this archive as the complete CI matrix.
+- Merge-triggered Cloudflare Pages production check succeeded for deployment `0959fe7d-e5da-4f81-b7ff-d0ba5f3d7835`: https://dash.cloudflare.com/?to=/4095c6f30d6c1e0454918d2f9726ff6a/pages/view/swiftdictionary/0959fe7d-e5da-4f81-b7ff-d0ba5f3d7835 .
+- The separate Cloudflare Workers Builds check may still report failure; it is retired and is not an active deployment path or release blocker. Cloudflare Pages is the sole active platform.
+
+### Production data and legal/privacy impact
+- No Live Supabase migration was required or applied for U2.9.1.
+- No production database writes, user-data changes, personal-data categories, processing purposes, processors, tracking, entitlements, payments or billing changes were introduced.
+- Existing U2.9.0 Live Supabase schema and user data remain unchanged. Dictionary search remains free and unlimited; folder caps remain Free 16 / Premium 40.
+- No new legal/privacy risk category was introduced. Existing Malaysia PDPA, cross-border safeguards, international 16+ obligations and Terms/Privacy publication review items remain as previously documented.
+
+### Release closeout
+- GitHub `main`: updated at `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`.
+- Cloudflare Pages production deployment: confirmed successful.
+- Live Supabase: already at U2.9.0; U2.9.1 is frontend/build-only and does not require a database migration.
