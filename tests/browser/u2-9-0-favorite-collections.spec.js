@@ -137,6 +137,9 @@ async function installCollectionsFixture(page) {
   await page.goto("about:blank");
   await page.setContent(`<!doctype html><html><head><style>.profile-card{background:rgb(255,255,255);padding:22px;border:1px solid transparent}.word-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.word-card{min-height:58px}.favorite-word-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}@media(max-width:650px){.word-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}}</style></head><body><main id="profilePage"><section class="profile-card"><details><summary><h2>Favorite words</h2></summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details></section></main></body></html>`);
   await page.evaluate(() => window.addEventListener("swift-collections-open-word", event => { window.__openedCollectionWord = event.detail; }));
+  // The isolated fixture must load the same language registry/adapters as the real app.
+  await page.addScriptTag({ path: require("path").resolve(__dirname, "../../js/core/language-registry.js") });
+  await page.addScriptTag({ path: require("path").resolve(__dirname, "../../js/languages/adapters.js") });
   await page.addScriptTag({ path: require("path").resolve(__dirname, "../../favorite-collections.js") });
   await expect(page.locator("#swiftFavoriteCollections")).toBeVisible();
 }
@@ -198,7 +201,6 @@ test("Your Collections folders expand inline, use a custom actions menu, and ope
   await page.getByRole("button", { name: "Create folder" }).click();
   await expect(page.getByRole("alert")).toHaveText("You already have a collection with that name.");
   await page.getByRole("button", { name: "Cancel" }).click();
-
   await panel.getByRole("button", { name: "＋ New folder" }).click();
   await page.locator("#fcCollectionName").fill("Work");
   await page.getByRole("button", { name: "Create folder" }).click();
@@ -397,8 +399,7 @@ test("Your Collections remain account-isolated and replace private Realtime chan
   const channels = await page.evaluate(() => window.__collectionsTestChannels.map(channel => ({ name: channel.name, removed: channel.removed })));
   expect(channels).toEqual([
     { name: "favorite-collections:test-user-a", removed: true },
-    { name: "favorite-collections:test-user-b", removed: false }
-  ]);
+    { name: "favorite-collections:test-user-b", removed: false }  ]);
 
   await page.evaluate(() => {
     window.currentUser = null;
@@ -597,8 +598,7 @@ test("Collection word cards preserve Favorite grid width and long headwords", as
     columns: getComputedStyle(grid).gridTemplateColumns,
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
     gridWidth: grid.getBoundingClientRect().width
-  }));
-  await page.setViewportSize({ width: 390, height: 844 });
+  }));  await page.setViewportSize({ width: 390, height: 844 });
   const before = await favoriteGrid.evaluate(grid => ({
     columns: getComputedStyle(grid).gridTemplateColumns,
     cardWidth: grid.firstElementChild.getBoundingClientRect().width,
