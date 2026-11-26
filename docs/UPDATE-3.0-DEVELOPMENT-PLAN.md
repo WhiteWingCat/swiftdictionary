@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved plan, 2026-11-26. Phase 0 and Phase 1 are complete. Phase 2 Malay Dictionary authoring is in progress; batches 01–02 contain 54 draft headwords and 76 senses. The latest implementation checkpoint is recorded in [the Phase 2 initial-batches archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md). The final Phase 1 evidence and known database boundaries are recorded in [the completed validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md). No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
+**Status:** Owner-approved plan, 2026-11-26. Phase 0 and Phase 1 are complete. Phase 2 Malay Dictionary authoring is in progress toward an owner-requested target range of approximately 650–750 unique headwords (around 700). Batches 01–03 currently contain 123 draft headwords and 145 senses. See [the latest Phase 2 batch checkpoint](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-03.md). The final Phase 1 evidence and known database boundaries are recorded in [the completed validation archive](conversation-archive/2026-11-26-update-3-0-phase-1-validation-complete.md). No staging preview before Phase 3. Database changes, staging handoff, merge and production deployment remain subject to the normal release gates.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -332,3 +332,12 @@ No SQL was applied to production or staging. No merge to `main`, production depl
 The final U3.0 architecture/content workflow passed **39/39 Node tests** on application commit `0bba05d70dd8646a0d31f7bbe21bb143bb05a8f7`: [workflow run 45790689541](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790689541). The legacy U2.9.0 English Dictionary QA workflow also passed on the same commit: all content validators, Mock Quiz/Flashcards regression tests and Chromium browser smoke tests succeeded ([workflow run 45790689624](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45790689624)). This includes the existing 29 architecture tests and 10 new Malay Dictionary tests.
 
 This is an initial content and adapter checkpoint, not Phase 2 completion. The Malay package remains `planned`, is not loaded into the live course selector and is not activated. No Supabase schema/data/Auth/RLS changes or migrations, production merge/deployment, or staging-preview handoff occurred. Phase 1's production/staging schema drift remains a mandatory future database/activation gate. See [the Phase 2 initial-batches archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-initial-batches.md).
+
+
+## Phase 2 vocabulary target update — 2026-11-26
+
+The owner has expanded the Malay Dictionary scope to approximately **700 unique headwords**, with a practical target band of **650–750**. This is a coverage goal, not a requirement to fill the catalogue with low-value entries. Quality, distinct lexical identity, natural Malaysian Standard Malay usage, sense accuracy, examples, morphology and source/rights traceability take priority over count.
+
+At the end of authoring batch 03, the package contains **123 unique headwords, 145 senses and 290 per-sense support-translation records** (English and Simplified Chinese). Approximately 527–627 further headwords are needed to enter the target band. The next content batches should be organised by balanced everyday and general-purpose domains, avoid duplicate lemmas and avoid treating predictable inflections as separate headwords. Every batch must pass structural, duplicate, alias-collision, package-adaptation and regression validation before the next batch is frozen.
+
+Latest checkpoint: [Phase 2 batch 03 archive](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-03.md).
