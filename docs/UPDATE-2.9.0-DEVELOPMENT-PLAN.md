@@ -911,3 +911,22 @@ The change only alters how the existing folder order is manipulated in the UI an
 ### Remaining verification
 - GitHub merge and Live Supabase migration are complete. Confirm the Pages production build triggered by the merge before claiming the public live website is updated.
 - See the dated conversation archive for exact rollout details.
+
+
+## 13. Update 2.9.1 — Dashboard Collections Pages-loader emergency patch (2026-11-26)
+
+**Status: merged and deployed to Cloudflare Pages production.**
+
+- Incident: "Your Collections" did not appear in the production Dashboard even though the U2.9.0 database schema and module asset were present.
+- Root cause: Cloudflare Pages `build.sh` replaces `supabase-config.js` at build time. The U2.9.0 dynamic module loader had been placed in that file, so the generated production configuration silently removed the loader.
+- Fix: add the versioned `favorite-collections.js?v=2.9.1` script explicitly to `index.html`, after the main application scripts; remove the config-dependent loader from `supabase-config.js`.
+- Regression coverage: `tests/cloudflare-build-routing.sh` now validates script inclusion, order, asset existence, and retention in both preview and production build output.
+- PR #19 merged to `main`: https://github.com/WhiteWingCat/swiftdictionary/pull/19 .
+- Merge commit: `4ab30af1c9c1ef7eb2fe35cdf015755a5e87e16d`.
+- Cloudflare Pages preview succeeded at https://d6bd7a26.swiftdictionary.pages.dev .
+- Cloudflare build-routing and U2.9.0 English dictionary QA passed. PostgreSQL migration/allowance, browser regression, Supabase CLI, Chinese dictionary, ACL and U2.7 allowance checks passed. Auth/RPC and Mock Flashcards browser jobs were still in progress when this plan entry was written; update the CI matrix with their final results.
+- Cloudflare Pages production deployment succeeded: deployment `0959fe7d-e5da-4f81-b7ff-d0ba5f3d7835`.
+- No Supabase migration was needed. No user data, auth, RLS, entitlement or billing behavior changed. Live Supabase remains at the verified U2.9.0 schema.
+- Cloudflare Workers Builds remains retired/not in operation; Pages is the only active deployment system.
+- Legal/privacy impact: frontend build-loading fix only; no new data category, purpose, processor, tracking, payment or entitlement processing. Previously documented Malaysia PDPA, cross-border, global 16+ and publication review items remain.
+
