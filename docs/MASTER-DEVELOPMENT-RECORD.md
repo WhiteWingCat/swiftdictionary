@@ -3873,3 +3873,16 @@ The Quiz DB/Auth workflow passed the U2.9.0 Collections migrations/RLS/order/sec
 ### Legal/privacy planning
 
 The `sort_order` field is minimal account-linked preference metadata and adds no new personal-data category or tracking purpose. Malaysia PDPA Act 709 and its 2024 amendments, JPDP breach-notification/DPO/registration guidance, Section 129 cross-border transfer requirements, Singapore staging/Japan production regions, GDPR territorial scope and jurisdiction-specific child-consent rules were considered. Confirm operator/controller scope, processor terms, transfer safeguards and privacy notices before public release. New learning content is original and should retain provenance. This is planning, not legal advice, legal clearance or licensing certification.
+
+
+## U2.9.0 owner feedback — whole-folder drag interaction — 2026-11-26
+
+- Owner requested dragging a folder by holding the left mouse button on the folder itself, and removing the separate drag icon and up/down arrows if the interaction works.
+- Replaced the dedicated drag handle with pointer-based reordering from the folder heading. A movement threshold preserves ordinary expand/collapse clicks. Dropping on the upper/lower half of another folder places the dragged folder before/after it.
+- Removed the visible drag handle and arrow buttons. Keyboard users can focus a folder heading and use Alt + Arrow Up / Alt + Arrow Down. Pointer listeners are delegated once to avoid per-render global listener accumulation.
+- Updated browser tests cover dragging the heading to the first and last positions, the absence of the old controls, and keyboard movement.
+- U2.9.0 English dictionary QA passed on commit `3bf1dbb248346330c629de9c983201438a161191` (run `45748313425`), including the Playwright collection tests. Cloudflare Pages and build-routing checks passed. Cross-version browser/Auth/Flashcards checks were still in progress at this checkpoint; the separate Workers Builds failure is an infrastructure item and not a Pages deployment failure.
+- No database schema/RLS, migration, entitlement, allowance, production data, or legal/privacy processing changes. Existing Malaysia/international privacy, 16+ safeguards, content provenance and future Premium consumer/payment review remain release-planning requirements.
+- PR #18 remains open; no production merge or deployment. The owner must review the refreshed staging preview before approval.
+
+Detailed archive: `docs/conversation-archive/2026-11-26-update-2-9-0-whole-folder-drag-feedback.md`.
