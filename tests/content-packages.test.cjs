@@ -8,7 +8,11 @@ const packages=window.SWIFT_CONTENT_PACKAGES;
 test("content packages preserve language-owned source arrays without mutating them",()=>{
  const entries=[{word:"hello",course:"en"}];
  const p=packages.createPackage({languageCode:"en",contentVersion:"legacy-u2.9.1",content:{dictionary:{entries}}});
- assert.equal(p.dictionary.entries,entries);
+ assert.equal(p.dictionary.entries.length,1);
+ assert.equal(p.dictionary.entries[0].headword,"hello");
+ assert.equal(p.dictionary.entries[0].languageCode,"en");
+ assert.equal(p.dictionary.entries[0].senses[0].definition,"A greeting.");
+ assert.equal(p.dictionary.entries[0].legacySource,entries[0]);
  assert.equal(p.languageCode,"en");
  assert.equal(entries[0].word,"hello");
 });
