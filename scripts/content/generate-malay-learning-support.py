@@ -57,9 +57,9 @@ def main():
       "engine":"Argos Translate offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9",
       "provenance":"Machine-assisted drafts generated from original SwiftDictionary lesson and Quiz text. Human Malaysian Standard Malay review is pending.",
       "lessons":{"en":{},"zh":{}},
-      "quiz":{"en":{},"zh":{}}
+      "quiz":{"en":{},"zh":{}},\n      "flashcards":{"en":{},"zh":{}}
     }
-    counts={"lesson_practices":0,"lesson_strings":0,"quiz_questions":0,"quiz_strings":0}
+    counts={"lesson_practices":0,"lesson_strings":0,"quiz_questions":0,"quiz_strings":0,"flashcards":0,"flashcard_strings":0}
     for code,items in data["lessons"].items():
         for lesson in items:
             rows=[]
@@ -92,6 +92,15 @@ def main():
             output["quiz"][code][q["id"]]=translated
             counts["quiz_questions"]+=1
             counts["quiz_strings"]+=4+2*len(q["options"])
+    for code,items in data.get("flashcards",{}).items():
+        for item in items:
+            definition=translate(item["definition"],code)
+            example=translate(item.get("example",""),code) if item.get("example") else ""
+            if not definition:
+                raise RuntimeError("Missing Flashcard definition translation: "+code+"/"+item["word"])
+            output["flashcards"][code][item["word"]]={"definitionMs":definition,"exampleMs":example}
+            counts["flashcards"]+=1
+            counts["flashcard_strings"]+=1+(1 if example else 0)
     js="/* Generated Malay learning-support translations. Machine-assisted drafts; human review pending. */\\n"
     js+="window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = "+json.dumps(output,ensure_ascii=False,indent=2)+";\\n"
     OUTPUT.write_text(js,encoding="utf-8")
