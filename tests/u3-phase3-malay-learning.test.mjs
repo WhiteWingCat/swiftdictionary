@@ -24,7 +24,7 @@ vm.runInContext(read("data/malay-lessons-expansion-06.js"),context);
 vm.runInContext(read("data/malay-lessons-expansion-07.js"),context);
 vm.runInContext(read("data/malay-lessons-expansion-08.js"),context);
 vm.runInContext(read("data/malay-daily-learning.js"),context);
-vm.runInContext(read("data/malay-daily-learning.js").slice(read("data/malay-daily-learning.js").indexOf("/* Fill the scheduled mixed Discovery")),context);
+// Daily Learning is evaluated once; its discovery pool is derived in the same script.
 
 const lessons=context.window.SWIFT_MALAY_LESSONS;
 const daily=context.window.SWIFT_MALAY_DAILY_LEARNING;
