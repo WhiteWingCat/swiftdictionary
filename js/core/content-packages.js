@@ -57,7 +57,7 @@
         output.push(registry.register({
           contentId:entry.id, sourceLanguageCode, targetLanguageCode,
           sourceRevision:1, translationRevision:1,
-          status:entry.headwordTranslationStatus || "draft",
+          status:entry.headwordTranslationStatus || (targetLanguageCode==="ms" ? "machine_assisted_draft" : "draft"),
           provenance:entry.translationProvenance || entry.provenance?.authoringNote || "Dictionary headword translation source record",
           reviewerId:null,
           content:{headword:translatedHeadword}
@@ -74,7 +74,7 @@
           output.push(registry.register({
             contentId, sourceLanguageCode, targetLanguageCode,
             sourceRevision:1, translationRevision:1,
-            status:sense.translationStatus?.[targetLanguageCode] || entry.translationStatus?.[targetLanguageCode] || "draft",
+            status:sense.translationStatus?.[targetLanguageCode] || entry.translationStatus?.[targetLanguageCode] || (targetLanguageCode==="ms" ? "machine_assisted_draft" : "draft"),
             provenance:entry.translationProvenance || entry.provenance?.authoringNote || "Dictionary translation source record",
             reviewerId:null,
             content:{ definition:translatedText }
