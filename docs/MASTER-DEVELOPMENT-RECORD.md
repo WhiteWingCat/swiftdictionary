@@ -4644,3 +4644,19 @@ No DBP/PRPM/Kamus Dewan protected text was copied or scraped. Malaysia PDPA and 
 
 **Archive:** [Phase 2 closeout validation checkpoint](conversation-archive/2026-11-26-update-3-0-phase-2-closeout-validation.md).  
 **Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
+
+
+## 19. Update 3.0 Phase 2 — editorial review preparation (2026-11-27)
+
+Following the Batch 08 closeout checkpoint, the next permitted work is human-review preparation. Phase 2 remains open; Phase 3 implementation remains gated until the editorial, translation, source/provenance and rights exit evidence is complete.
+
+A 650-row headword review worksheet has been generated from the application branch package `data/languages/malay-dictionary.js` on `feature/update-3.0-phase-0-audit`. The generation inventory verified **650 unique stable entry IDs and 650 unique normalised headwords** before writing the CSV. The worksheet tracks Malaysian Standard Malay spelling, POS, all senses and examples, search/morphology, English and Simplified Chinese translation review, source verification, rights clearance, specialist review, reviewer identity/date, decision and notes.
+
+- **Worksheet:** [Malay Dictionary editorial review CSV](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/review/malay-dictionary-editorial-review-worksheet.csv).
+- **Instructions:** [Malay Dictionary editorial review guide](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/review/README.md).
+
+The total inventory remains 650 headwords, 672 senses and 1,344 machine-assisted English/Simplified Chinese translation records. The worksheet has one row per headword; the reviewer must inspect every sense and both translation records under that entry before marking it reviewed. All reviewer IDs, dates, sources, rights decisions and approval states must be supplied only by actual human reviewers. Empty `sourcesConsulted` metadata and pending rights status require explicit resolution or quarantine. Consulting a reference does not grant a licence to reproduce its text.
+
+This is preparation only. No entry or translation has been human-approved by this action. No Malay activation, Supabase schema/data/Auth/RLS change or migration, Phase 3 implementation, staging preview, production merge or deployment occurred. Malaysia PDPA and international privacy/legal review remain required before public launch.
+
+**Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
