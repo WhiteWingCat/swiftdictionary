@@ -281,4 +281,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [2026-11-27 — U3.0 continuation and latest CI recovery point](2026-11-27-u3-continuation-latest-ci-recovery.md) — records the outdated U2.7 test assertion diagnosis and test-only correction, latest workflow evidence/reruns, remaining Malay translation gaps, staging/production boundaries and exact next actions.
 
+- [2026-11-27 — U3.0 Flashcard review regression repair](2026-11-27-u3-flashcard-review-regression-repair.md) — records the missing snapshot/weak-memory persistence root cause, additive staging migration, cautious backfill, recent-game course labels, regression coverage and remaining U3.0 gates.
 - [2026-11-27 — U3.0 staging preview handoff](2026-11-27-u3-staging-preview-handoff.md) — records the stable staging preview, completed Dictionary translation inventory, Dashboard/Collections/Daily History fixes, Flashcards corpus fallback, staging database/catalogue verification, latest CI reruns and remaining English/Chinese→Malay Lesson/Quiz gaps.
