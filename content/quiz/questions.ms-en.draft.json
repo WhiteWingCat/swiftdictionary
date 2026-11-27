@@ -1037,22 +1037,22 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "Children",
+          "learning_text": "Kanak-kanak",
           "translation_text": "Children"
         },
         {
           "id": "b",
-          "learning_text": "A single adult",
-          "translation_text": "A single adult"
+          "learning_text": "Orang dewasa",
+          "translation_text": "An adult"
         },
         {
           "id": "c",
-          "learning_text": "A classroom",
+          "learning_text": "Bilik darjah",
           "translation_text": "A classroom"
         },
         {
           "id": "d",
-          "learning_text": "A family house",
+          "learning_text": "Rumah keluarga",
           "translation_text": "A family house"
         }
       ],
@@ -3729,22 +3729,22 @@
         {
           "id": "a",
           "learning_text": "batang",
-          "translation_text": "batang"
+          "translation_text": "long-object classifier"
         },
         {
           "id": "b",
           "learning_text": "helai",
-          "translation_text": "helai"
+          "translation_text": "flat-object classifier"
         },
         {
           "id": "c",
           "learning_text": "ekor",
-          "translation_text": "ekor"
+          "translation_text": "animal classifier"
         },
         {
           "id": "d",
           "learning_text": "biji",
-          "translation_text": "biji"
+          "translation_text": "small-object/general classifier"
         }
       ],
       "correct_option_id": "a",
