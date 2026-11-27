@@ -87,3 +87,21 @@ Before inviting friends:
 ## CI and safety
 
 The Quiz CI workflow applies this bootstrap to a disposable local Supabase stack, then loads synthetic legacy-state fixtures in a separate CI-only SQL file before running the existing migrations and tests. The fixtures must never be run against hosted staging or production.
+
+
+## U3.0 Phase 3 Malay staging status (2026-11-27)
+
+The Phase 3 Malay-only staging migration and catalogue seed were applied successfully to project `ivatvkfrtifgfheeaelj` after explicit owner approval. Production remains untouched.
+
+- Added active `ms` language registry entry.
+- Extended lesson progress, practice result, practice attempt, content catalogue and saved-word language constraints to include `ms`.
+- Updated the lesson start guard, permanent lesson completion RPC and replay-practice implementation to validate against the active language registry while preserving owner checks, approved-catalogue checks, advisory locking, row locking, replay semantics and aggregate bounds.
+- Seeded 72 permanent lessons, 60 Daily Topics, 60 Daily Applications and 93 Daily Discovery entries (285 total).
+- Daily Topic and Daily Application each have 20 records per difficulty; Discovery rotation is exactly 1–93.
+- Verified no unmatched Daily Application topic references.
+- Existing English/Chinese content and learner data were preserved. Pre/post row counts remained unchanged for lesson progress (15), saved words (21), lesson practice summaries (6), daily sessions (12) and activity log (25).
+- No Quiz or Flashcard language constraints/content were changed.
+
+The U3.0 feature branch is available for a draft preview handoff in [PR #20](https://github.com/WhiteWingCat/swiftdictionary/pull/20). **Do not merge this PR.** The U3.0 architecture/content regression and Cloudflare build-routing guard passed. The exact Cloudflare Pages preview URL, Google OAuth, browser/device acceptance and the full database integration workflow remain outstanding. The previous 2026-11-17 statement that no Malay records exist is historical and has been superseded by this section.
+
+Supabase advisors were checked after the migration. Existing notices include private-schema RLS tables without client policies (informational in this private-schema design), disabled leaked-password protection, and unused-index notices. These settings were not changed by Phase 3.
