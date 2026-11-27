@@ -185,17 +185,17 @@
         {
           "id": "b",
           "learning_text": "metulis",
-          "translation_text": "to write"
+          "translation_text": "non-standard form"
         },
         {
           "id": "c",
           "learning_text": "memtulis",
-          "translation_text": "to write"
+          "translation_text": "incorrect prefix form"
         },
         {
           "id": "d",
           "learning_text": "mengtulis",
-          "translation_text": "to write"
+          "translation_text": "incorrect consonant pattern"
         }
       ],
       "correct_option_id": "a",
