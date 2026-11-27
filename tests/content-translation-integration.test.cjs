@@ -41,6 +41,10 @@ test("dictionary package registers Malay support translations when present",()=>
  const p=packages.createPackage({languageCode:"en",contentVersion:"u3-en-ms-test",content:{dictionary:{entries:[{word:"hello",definition:"A greeting.",definitionMs:"Ucapan sapaan.",senses:[{part:"noun",definition:"A greeting.",definitionMs:"Ucapan sapaan."}]}]}}});
  const entry=p.dictionary.entries[0];
  assert.equal(entry.senses[0].translations.ms,"Ucapan sapaan.");
+ assert.equal(entry.headwordTranslations.ms,"helo");
+ const headwordRecord=translations.get(entry.id,"en","ms");
+ assert.equal(headwordRecord.content.headword,"helo");
+ assert.equal(headwordRecord.status,"machine_assisted_draft");
  const record=translations.get(entry.senses[0].id,"en","ms");
  assert.equal(record.content.definition,"Ucapan sapaan.");
 });
