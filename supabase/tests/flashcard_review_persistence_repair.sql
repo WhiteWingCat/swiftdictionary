@@ -24,6 +24,9 @@ declare v_game jsonb;
 begin
   v_game:=public.start_my_flashcard_game('word','beginner',60);
   if v_game->>'session_id' is null then raise exception 'Flashcard test session did not start'; end if;
+  if v_game->>'learning_language_code'<>'en' or v_game->>'translation_language_code'<>'ms' then
+    raise exception 'Malay Flashcard support language was not retained in the game session: %',v_game;
+  end if;
   insert into pg_temp.flashcard_repair_test_session values((v_game->>'session_id')::uuid);
 end
 $start$;
