@@ -1088,3 +1088,8 @@ An intermediate attempt failed only because two legacy tests still expected the 
 ### Staging and release controls
 
 Staging Google OAuth redirect for the preview hostname has not been independently verified. The staging security advisor reports leaked-password protection disabled; private-schema RLS-without-policy informational findings are intentional for server-only tables whose access is mediated by authenticated RPCs. Review the staging Auth setting before public launch. Machine-assisted translations remain staging drafts; before production, complete competent human Malaysian Standard Malay review, confirm the exact zh→en Argos model artefact licence, preserve attribution and perform Malaysia Copyright Act 1987 / PDPA 2010 as amended in 2024 and cross-border processing review with qualified counsel.
+
+
+### Latest-head regression follow-up
+
+After updating the Flashcards cache version to ms13 and aligning the two legacy assertions, the latest reruns passed Flashcards static + Chromium (45985581267), U3.0 architecture/content/adapter parity (45985581304), U2.9 English Dictionary QA (45985581089), U2.7 Chinese static/Chromium + PostgreSQL (45985581114), and Cloudflare build routing (45985581075). U2.3 PostgreSQL passed while its Auth and Chromium jobs continue (45985581111); U2.6 ACL PostgreSQL remains in progress (45985581145); Quiz DB foundation passed while local Auth/RPC/Chromium integration continues (45985581079).
