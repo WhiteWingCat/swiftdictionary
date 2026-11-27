@@ -98,7 +98,7 @@
       options:{a:{learning:"rancangan itu mengurangkan"},b:{learning:"rancangan itu mengurangkan (dengan penyongsangan did)"},c:{learning:"rancangan itu telah mengurangkan (bentuk kata kerja tidak betul)"},d:{learning:"rancangan itu memang mengurangkan (bentuk kata kerja tidak betul)"}}
     },
     "quiz-advanced-019": {
-      promptLearning:"Pilih bentuk penyongsangan pasif yang melengkapkan ayat ini dengan betul: “Pada bila-bila masa pun, ___ tentang perubahan pada kontrak itu.”",
+      promptLearning:"Pilih bentuk penyongsangan pasif yang melengkapkan ayat ini dengan betul: “Tidak pernah sekali pun ___ tentang perubahan pada kontrak itu.”",
       explanationLearning:"Frasa negatif “At no point” mencetuskan penyongsangan. Bentuk pasif yang betul ialah “was the client informed”.",
       options:{a:{learning:"pelanggan menerima notis"},b:{learning:"pelanggan memaklumkan"},c:{learning:"pelanggan telah dimaklumkan"},d:{learning:"pelanggan memang memaklumkan"}}
     },
