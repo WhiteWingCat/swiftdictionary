@@ -44,7 +44,7 @@
 
   register({ code:"en", name:"English", nativeName:"English", locale:"en", script:"Latn", adapter:"english", capabilities:{ dictionary:true, lessons:true, dailyLearning:true, quiz:true, flashcards:true, morphology:"english", pronunciation:"ipa", tokenisation:"whitespace" } });
   register({ code:"zh", name:"Simplified Chinese", nativeName:"简体中文", locale:"zh-Hans", script:"Hans", adapter:"chinese", capabilities:{ dictionary:true, lessons:true, dailyLearning:true, quiz:true, flashcards:true, morphology:"chinese", pronunciation:"pinyin", tokenisation:"character-aware", strokeOrder:true, singleCharacterGrid:true } });
-  register({ code:"ms", name:"Malay", nativeName:"Bahasa Melayu", locale:"ms-MY", script:"Latn", adapter:"malay", status:"planned", capabilities:{ dictionary:true, lessons:false, dailyLearning:false, quiz:false, flashcards:false, morphology:"malay-affixation", pronunciation:"optional", tokenisation:"whitespace" } });
+  register({ code:"ms", name:"Malay", nativeName:"Bahasa Melayu", locale:"ms-MY", script:"Latn", adapter:"malay", status:"active", capabilities:{ dictionary:true, lessons:true, dailyLearning:true, quiz:false, flashcards:false, morphology:"malay-affixation", pronunciation:"optional", tokenisation:"whitespace" } });
 
   const api = Object.freeze({ register, get, has, list, supports, assertSupported, normaliseCode:normalise });
   if (typeof window !== "undefined") window.SWIFT_LANGUAGE_REGISTRY = api;
