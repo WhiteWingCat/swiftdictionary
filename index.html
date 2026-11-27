@@ -2706,7 +2706,12 @@ async function completeLesson(x){
       if (course !== targetCourse) {
         course = targetCourse;
         words = dictionaryEntriesFor(course);
+        syncMalayTargetOptionAvailability();
         document.getElementById("courseSelect").value = course;
+        document.getElementById("preferenceLearning").value = course;
+        document.getElementById("translationSelect").value = translationLanguage;
+        document.getElementById("preferenceTranslation").value = translationLanguage;
+        rememberCoursePreferences();
         document.getElementById("categoryRow").hidden = isChineseCourse();
         grid.classList.toggle("character-grid",isChineseCourse());
         search.value = "";
