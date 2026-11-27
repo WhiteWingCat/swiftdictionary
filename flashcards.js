@@ -57,18 +57,41 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
+  let malayGlossLookupCache=null;
+  function malayGlossLookup(){
+    if(malayGlossLookupCache)return malayGlossLookupCache;
+    const map=new Map();
+    for(const entry of window.SWIFT_MALAY_DICTIONARY||[]){
+      if(!entry?.word)continue;
+      const glosses=[entry.definitionEn,...(entry.senses||[]).map(s=>s.definitionEn)].filter(Boolean);
+      for(const gloss of glosses){
+        const parts=String(gloss).toLowerCase().split(/[;,/]|\\s+or\\s+|\\s+and\\s+/);
+        for(const part of parts){
+          const phrase=part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,"");
+          if(phrase.length>=2&&phrase.length<=48&&!map.has(phrase))map.set(phrase,entry.word);
+        }
+      }
+    }
+    malayGlossLookupCache=map;
+    return map;
+  }
   function dictionaryDerivedMalaySupport(word,language){
     const manual=window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES?.en||{};
-    if(language==="en"){
-      const direct=manual[String(word.word||"").trim().toLowerCase()];
-      return Array.isArray(direct)?direct[0]||"":typeof direct==="string"?direct:"";
-    }
-    const gloss=String(word.translationEn||word.definition||"").toLowerCase();
-    const candidates=gloss.split(/[,;\\/]|\\s+or\\s+|\\s+and\\s+/).map(part=>part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,""));
+    const direct=manual[String(word.word||"").trim().toLowerCase()];
+    if(language==="en"&&(Array.isArray(direct)&&direct[0]||typeof direct==="string"))return Array.isArray(direct)?direct[0]:direct;
+    const gloss=String(language==="en"?word.word:(word.translationEn||word.definition||"")).toLowerCase();
+    const candidates=[gloss,...gloss.split(/[;,/]|\\s+or\\s+|\\s+and\\s+/).map(part=>part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,""))];
+    const lookup=malayGlossLookup();
     for(const candidate of candidates){
-      const direct=manual[candidate];
-      if(Array.isArray(direct)&&direct[0])return direct[0];
-      if(typeof direct==="string"&&direct)return direct;
+      const match=lookup.get(candidate);
+      if(match)return match;
+    }
+    if(Array.isArray(direct)&&direct[0])return direct[0];
+    if(typeof direct==="string"&&direct)return direct;
+    for(const candidate of candidates){
+      const fallback=manual[candidate];
+      if(Array.isArray(fallback)&&fallback[0])return fallback[0];
+      if(typeof fallback==="string"&&fallback)return fallback;
     }
     return "";
   }
