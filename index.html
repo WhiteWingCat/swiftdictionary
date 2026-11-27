@@ -1692,7 +1692,7 @@
         : null;
       const selector=document.getElementById("translationSelect");
       const requestedLanguage=nextLanguage || selector.value || "en";
-      translationLanguage=requestedLanguage==="ms" && (!malayDictionaryTargetReady || course==="ms") ? "en" : requestedLanguage;
+      translationLanguage=requestedLanguage==="ms" && !malayDictionaryTargetReady ? "en" : requestedLanguage;
       syncMalayTargetOptionAvailability();
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
@@ -3248,7 +3248,7 @@ async function completeLesson(x){
       const timezone = document.getElementById("preferenceTimezone").value.trim();
       try {
         if(!activeLanguage(learning)||!activeLanguage(translation))throw new Error("Choose an active learning and translation language.");
-        if(translation==="ms" && (learning==="ms" || !malayDictionaryTargetReady))throw new Error("Malay is available as a support language only for English or Simplified Chinese after its Dictionary translations are complete.");
+        if(translation==="ms" && !malayDictionaryTargetReady)throw new Error("Malay Dictionary translations are not yet complete.");
         new Intl.DateTimeFormat("en-US",{timeZone:timezone});
         status.textContent = "Saving…";
         const [profileSave,prefSave] = await Promise.all([
