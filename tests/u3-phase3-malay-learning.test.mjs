@@ -17,6 +17,7 @@ vm.runInContext(read("js/core/content-packages.js"),context);
 vm.runInContext(read("data/languages/malay-dictionary.js"),context);
 vm.runInContext(read("data/malay-lessons.js"),context);
 vm.runInContext(read("data/malay-lessons-expansion-02.js"),context);
+vm.runInContext(read("data/malay-lessons-expansion-03.js"),context);
 vm.runInContext(read("data/malay-daily-learning.js"),context);
 vm.runInContext(read("data/malay-daily-learning.js").slice(read("data/malay-daily-learning.js").indexOf("/* Fill the scheduled mixed Discovery")),context);
 
@@ -35,7 +36,7 @@ test("Malay is enabled only for the Phase 3 feature scope",()=>{
 
 test("Malay Lessons has independently authored draft content at all three levels",()=>{
   for(const level of ["beginner","intermediate","advanced"]){
-    assert.equal(lessons[level].length,6);
+    assert.equal(lessons[level].length,9);
     for(const lesson of lessons[level]){
       assert.match(lesson.id,/^ms-[bia]-/);
       assert.ok(lesson.topic_id);
@@ -57,10 +58,10 @@ test("Malay Lessons has independently authored draft content at all three levels
   }
   assert.equal(lessons.editorialStatus,"draft");
   assert.equal(lessons.translationStatus,"machine_assisted_draft");
-  assert.equal(lessons.contentVersion,"u3-ms-lessons-0.2.0");
-  assert.equal(lessons.expansionBatches[0].added,9);
+  assert.equal(lessons.contentVersion,"u3-ms-lessons-0.3.0");
+  assert.equal(lessons.expansionBatches.reduce((sum,batch)=>sum+batch.added,0),18);
   const ids=["beginner","intermediate","advanced"].flatMap(level=>lessons[level].map(x=>x.id));
-  assert.equal(ids.length,18);
+  assert.equal(ids.length,27);
   assert.equal(new Set(ids).size,18);
 });
 
@@ -83,7 +84,7 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   });
   assert.equal(pkg.status,"active");
   assert.equal(pkg.dictionary.entries.length,650);
-  assert.equal(pkg.lessons.permanent.length,18);
+  assert.equal(pkg.lessons.permanent.length,27);
   assert.equal(pkg.dailyLearning.topics.length,3);
   assert.equal(pkg.dailyLearning.applications.length,3);
   assert.equal(pkg.dailyLearning.discovery.length,93);
