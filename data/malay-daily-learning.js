@@ -92,3 +92,9 @@ window.SWIFT_MALAY_DAILY_LEARNING = {
   if(links[key]) a.topicId="ms-topic-"+links[key];
  }
 })();
+
+/* Difficulty calibration: distinguishing clock time from duration is intermediate. */
+(() => {
+ const item=window.SWIFT_MALAY_DAILY_LEARNING.topics.find(x=>x.id==="ms-topic-time-duration-02");
+ if(item) item.difficulty="intermediate";
+})();
