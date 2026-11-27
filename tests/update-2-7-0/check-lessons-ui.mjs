@@ -4,6 +4,10 @@ import vm from "node:vm";
 const html=fs.readFileSync("index.html","utf8");
 const css=fs.readFileSync("lessons-ui.css","utf8");
 const daily=fs.readFileSync("daily-learning.js","utf8");
+const englishLessonsSource=fs.readFileSync("data/languages/english-lessons.js","utf8");
+const englishLessonsContext={window:{}};
+vm.runInNewContext(englishLessonsSource,englishLessonsContext,{filename:"data/languages/english-lessons.js"});
+const englishLessons=englishLessonsContext.window.SWIFT_ENGLISH_LESSONS;
 const workflow=fs.readFileSync(".github/workflows/update-2-7-0-chinese-dictionary.yml","utf8");
 const build=fs.readFileSync("build.sh","utf8");
 const startAllowanceMigration=fs.readFileSync("supabase/migrations/20261122143000_update_2_7_0_lesson_start_allowance.sql","utf8");
@@ -84,7 +88,10 @@ assert(css.includes("font-weight:800 !important"));
 assert(!css.includes(".lesson-focus-subject {") && !css.includes(".lesson-focus-verb {") && !css.includes(".lesson-focus-object {"));
 
 assert(html.includes('swiftdictionary:course-changed'));
-for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging'])assert(html.includes('id:"'+id+'"') && html.includes('"breakdown":{'),"Expected contextual English sentence breakdown: "+id);
+for(const id of ['b-present','b-countable-nouns','i-conditionals','a-hedging']) {
+  const lesson=Object.values(englishLessons||{}).flat().find(item=>item.id===id);
+  assert(lesson && lesson.breakdown && Array.isArray(lesson.breakdown.sentence) && lesson.breakdown.sentence.length>=2,"Expected contextual English sentence breakdown: "+id);
+}
 
 assert(html.includes("pinyinForSenseExample(example,item.word,sense.part)"),"Polyphonic sense examples must use their selected reading for pinyin.");
 const chineseLessonsWithBreakdown=Object.values(chineseLessons).flat().filter(lesson=>lesson.breakdown);
