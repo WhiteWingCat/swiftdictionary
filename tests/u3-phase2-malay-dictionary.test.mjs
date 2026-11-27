@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = file => fs.readFileSync(path.join(root, file), "utf8");
+const appHtml = read("index.html");
 const context = { window: {} };
 vm.createContext(context);
 const registry = {
@@ -201,3 +202,11 @@ test("Malay translation registry maps every sense to exactly en and zh draft rec
   assert.ok(pkg.dictionary.translations.every(record => record.provenance));
 });
 
+
+
+test("Malay Dictionary detail view renders the selected English or Simplified Chinese support translation", () => {
+  assert.match(appHtml, /isMalayCourse\(\)[\s\S]{0,260}sense\.definitionEn/);
+  assert.match(appHtml, /isMalayCourse\(\)[\s\S]{0,260}sense\.definitionZh/);
+  assert.match(appHtml, /isMalayCourse\(\)[\s\S]{0,260}item\.definitionEn/);
+  assert.match(appHtml, /isMalayCourse\(\)[\s\S]{0,260}item\.definitionZh/);
+});
