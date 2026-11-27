@@ -2092,7 +2092,7 @@ function lessonTopicKey(x){
       const topics=[...new Set(currentLessons.map(lessonTopicKey).filter(Boolean))];
       topic.innerHTML='<option value="all">All topics</option>'+topics.map(value=>{
         const item=currentLessons.find(x=>lessonTopicKey(x)===value);
-        const label=isChineseCourse()?(item?.topicDisplay?.en||item?.topicDisplay?.zh||value):value;
+        const label=isChineseCourse()?(item?.topicDisplay?.en||item?.topicDisplay?.zh||value):isMalayCourse()?(item?.topic?.ms||value):value;
         return '<option value="'+escapeHTML(value)+'">'+escapeHTML(label)+'</option>';
       }).join("");
       if(ls.topic!=="all"&&!topics.includes(ls.topic))ls.topic="all";
@@ -2146,7 +2146,7 @@ function lessonTopicKey(x){
           +'<div class="lesson-breakdown">'+(breakdown.parts||[]).map(p=>'<span><strong>'+lessonRenderText(p.text)+'</strong><small>'+lessonRenderText(p.label)+'</small></span>').join("")+'</div>'
         :"";
       const done=progressFor(x.id)?.status==="completed";
-      const topicHtml=isChineseCourse()?lessonRenderText(x.topicDisplay):escapeHTML(lessonField(x,"topic"));
+      const topicHtml=isChineseCourse()?lessonRenderText(x.topicDisplay):isMalayCourse()?lessonRenderText(x.topic):escapeHTML(lessonField(x,"topic"));
       const keyPoints=lessonExpandableGroup(lessonField(x,"points"),(p,extra)=>'<li class="lesson-key-point lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'><span class="lesson-key-point-label">'+(zh?"重点":"KEY IDEA")+'</span><div class="lesson-key-point-copy">'+lessonRenderText(p)+'</div></li>',zh,"ul");
       const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3>'+keyPoints+'<h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+lessonRenderText(m)+'</li>').join("")+'</ul></div>';
       const practiceBox='<div class="lesson-practice-box"><h3>'+(zh?"练习":"Practice")+'</h3><p class="lesson-practice-intro">'+(zh?"完成所有题目并答对，才能结束本课。":"Answer each question correctly. You can retry a question at any time.")+'</p><div class="lesson-practice-progress"><span>'+(zh?"练习进度":"Practice progress")+'</span><strong id="lessonPracticeProgress">0 / '+qs.length+' correct</strong></div>'+qs.map((q,i)=>{const compactAnswers=q.options.every(o=>String(o&&typeof o==="object"?(o.zh||o.en||""):o).length<=24);return '<div class="lesson-question" role="group" aria-labelledby="lessonQuestionTitle'+i+'"><h4 class="lesson-question-title" id="lessonQuestionTitle'+i+'">'+(i+1)+'. '+lessonRenderText(q.q)+'</h4><div class="lesson-answer-options'+(compactAnswers?' compact':'')+'">'+q.options.map((o,j)=>'<label><input type="radio" name="lessonAnswer'+i+'" value="'+j+'"> '+lessonRenderText(o)+'</label>').join("")+'</div><button class="secondary-button check-lesson-answer" type="button" data-question="'+i+'">'+(zh?"检查答案":"Check answer")+'</button><p class="lesson-question-feedback" id="lessonAnswerFeedback'+i+'" role="status"></p></div>';}).join("")+'</div>';
