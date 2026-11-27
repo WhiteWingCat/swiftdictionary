@@ -2163,7 +2163,8 @@ function lessonRenderText(value){
         const support=translationLanguage==="ms"?(lessonMsTextLookup.get(value.zh)||value.translations?.ms||"")
           :translationLanguage==="en"?(value.en||"")
           :value.translations?.[translationLanguage]||"";
-        const selected=support?'<span class="lesson-selected-translation">'+escapeHTML(support)+'</span>':"";
+        const selectedClass=translationLanguage==="en"?"lesson-english-line":"lesson-selected-translation";
+         const selected=support?'<span class="'+selectedClass+'">'+escapeHTML(support)+'</span>':"";
         return '<span class="lesson-bilingual-block"><span class="lesson-chinese-line">'+escapeHTML(value.zh)+'</span><span class="lesson-pinyin-line">'+escapeHTML(value.pinyin||"")+'</span>'+selected+'</span>';
       }
       if(typeof value==="string"&&translationLanguage==="ms"&&(isEnglishCourse()||isChineseCourse())){
