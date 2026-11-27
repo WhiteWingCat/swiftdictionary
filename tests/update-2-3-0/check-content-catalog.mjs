@@ -2,6 +2,7 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 
 const dailySource = fs.readFileSync("daily-learning.js", "utf8");
+const englishLessonsSource = fs.readFileSync("data/languages/english-lessons.js", "utf8");
 const html = fs.readFileSync("index.html", "utf8");
 const migration = fs.readFileSync("docs/UPDATE-2.3.0-CONTENT-CATALOG-MIGRATION-DRAFT.sql", "utf8");
 
@@ -50,22 +51,15 @@ const topicMap = {
   "Academic and professional English":"academic-professional-english",
   "Precise vocabulary":"precise-vocabulary"
 };
-const lessonStart = html.indexOf("const lessonData={");
-assert.notEqual(lessonStart, -1, "Missing lessonData object");
-const lessonEnd = html.indexOf("\n    };", lessonStart);
-assert.notEqual(lessonEnd, -1, "Unclosed lessonData object");
-const lessonBlock = html.slice(lessonStart, lessonEnd);
-let difficulty = null;
-for (const line of lessonBlock.split("\n")) {
-  if (line.includes("beginner:[")) difficulty = "beginner";
-  if (line.includes("intermediate:[")) difficulty = "intermediate";
-  if (line.includes("advanced:[")) difficulty = "advanced";
-  const id = line.match(/id\s*:\s*"([^"]+)"/)?.[1];
-  const topicName = line.match(/topic\s*:\s*"([^"]+)"/)?.[1];
-  if (id && topicName) {
-    assert.ok(difficulty, `Missing difficulty for lesson ${id}`);
-    assert.ok(topicMap[topicName], `Unknown lesson topic ${topicName}`);
-    frontendRows.push(["permanent_lesson", id, null, topicMap[topicName], difficulty, "en"].join("|"));
+const lessonContext = { window: {} };
+vm.runInNewContext(englishLessonsSource, lessonContext, { filename: "data/languages/english-lessons.js" });
+const lessonData = lessonContext.window.SWIFT_ENGLISH_LESSONS;
+assert.ok(lessonData && typeof lessonData === "object", "Missing U3.0 language-owned English Lessons package");
+for (const level of ["beginner", "intermediate", "advanced"]) {
+  for (const lesson of lessonData[level] || []) {
+    assert.ok(lesson.id && lesson.topic, "English lesson is missing catalogue identity or topic");
+    assert.ok(topicMap[lesson.topic], "Unknown lesson topic " + lesson.topic);
+    frontendRows.push(["permanent_lesson", lesson.id, null, topicMap[lesson.topic], level, "en"].join("|"));
   }
 }
 
