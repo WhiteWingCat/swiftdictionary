@@ -52,8 +52,7 @@ test("Malay Quiz runtime migration keeps answers private and reuses authenticate
  assert.match(sql,/auth\.uid\(\)/);
  assert.match(sql,/pg_advisory_xact_lock/);
  assert.match(sql,/quiz_daily_question_reservations/);
- assert.ok(sql.includes('insert into public.learning_activity_log'));
- assert.ok(sql.includes("values(v_user,'quiz','ms','started')"));
+ assert.equal(sql.includes('insert into public.learning_activity_log'),false);
  assert.match(sql,/private\.quiz_session_payload\(v_session,false\)/);
  assert.match(sql,/quiz_question_bank_answer_language_code_check[\s\S]*?ms/);
  assert.match(sql,/quiz_session_questions_learning_language_code_snapshot_check[\s\S]*?ms/);
