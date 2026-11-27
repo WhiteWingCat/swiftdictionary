@@ -647,3 +647,49 @@ Implementation requirements:
 The Malay Dictionary filter addition reuses its existing category and part metadata. The UI groups the current topic vocabulary into readable Malay topic filters and provides separate word-class filters. Unknown existing categories remain reachable through “Lain-lain”; filtering must not remove any dictionary records or alter search semantics. Dictionary word-grid search remains free and unlimited.
 
 Work stays on feature/update-3.0-phase-0-audit; documentation stays on docs/master-development-record. No main-branch merge, production deployment, production database change or staging database migration is authorised by this scope.
+
+
+## 2026-11-27 — Malay translation selector, Dashboard, Collections and Daily History follow-up
+
+**Owner's latest direction:** Malay must be selectable as the support/translation language when the learner is studying English or Simplified Chinese. When Malay is the learning language, Malay remains the native course language and English/Simplified Chinese remain available as support languages. This supersedes the earlier selector-hidden-until-complete presentation decision; incomplete individual meanings must show an explicit unavailable state rather than silently displaying the source-language text.
+
+### Feature-branch implementation
+
+Application branch: `feature/update-3.0-phase-0-audit`
+
+- `1d17c2d4f24c8efe4d0cf9bec2058f7faa4c983a` — add Malay to the Dashboard Favorite Words view; resolve Dashboard and Collections saved-word opens through the registered language package; add Malay to the translation and Profile preference selectors; split Daily History into Lessons and Daily Learning groups with explicit activity labels and Malay title resolution; extend dictionary translation package mapping to include Malay target records; add a translation-registry integration test.
+- `0c27d5daab9cc069b00de7c08c940c35696f0ff8` — clarify Malay in the Your Collections add-word picker.
+- `8372a3c2e200df4e4a5a4451ef0a3b21524c2909` — include Malay target-language dictionary sense fields in the shared package/translation adapter.
+- `ca6b084079ac05d8d7abe2068e2593e51c057dbc` — package integration test and the main frontend fix set present on the branch.
+- `b70f617b48c46021d2e3f44c27b6bde75151f51d` — replace source-language fallbacks with explicit missing-translation messages for dictionary meanings when the requested support language is unavailable.
+
+### Reported issues and implementation state
+
+1. **Dashboard Favorite Words:** added a Bahasa Melayu group. Favourite entries now resolve using the registered language content package rather than an English/Chinese-only catalogue switch.
+2. **Your Collections:** Malay saved-word cards now use the same package-backed dictionary lookup when clicked. The add-word picker explicitly includes Malay.
+3. **Daily History:** Lessons and Daily Learning are shown as separate activity groups. Daily activity types are labelled as Daily Topic, Daily Application, Daily Discovery or Daily Revision rather than mechanically title-casing database identifiers. Malay lesson and daily content titles and course labels are resolved from the Malay content packages.
+
+### Translation coverage remains an open gate
+
+The selector and routing are present, but this does **not** mean the 2,756 Dictionary meaning-level translations are complete. The inventory remains 1,931 English senses plus 825 Simplified Chinese senses. The English and Chinese dictionary packages do not yet contain the complete Malay target corpus, and the Malay Dictionary's English/Chinese support fields cover only part of its records. The package adapter registers Malay translations when the underlying content record actually contains them. The UI now shows an explicit unavailable message for missing meanings; it must not be treated as translation coverage.
+
+No translation may be marked reviewed/approved without a competent review record. The 650 Malay headwords and existing Malay English/Chinese draft translations remain subject to the staging review process. No dictionary source text from DBP/PRPM or other protected dictionaries may be copied into the project.
+
+### Verification checkpoint
+
+On commit `ca6b084079ac05d8d7abe2068e2593e51c057dbc`:
+- U3.0 architecture/content regression passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45947048355
+- Cloudflare build-routing guard passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45947048363
+- English dictionary QA passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45947048387
+- Chinese dictionary filter checks passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45947048426
+- U2.6 ACL regression passed its static and disposable PostgreSQL 17 checks; the run was still completing its final status when recorded.
+- U2.3 allowance/dashboard browser regression was still running, including its isolated signed-out Chromium checks.
+- Some unrelated Flashcards/Quiz browser jobs were cancelled by workflow concurrency; their database/logic jobs completed successfully. These are not represented as full browser acceptance.
+
+The last text-only missing-translation fallback change is commit `b70f617b48c46021d2e3f44c27b6bde75151f51d` and did not yet have a separate workflow run at this checkpoint.
+
+### Preview and release gate
+
+The existing branch preview alias is https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev and draft PR #20 remains open and unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/20. The alias was deployed earlier in Phase 3, but publication of the latest follow-up commit was not independently confirmed. Do not describe the current preview as verified against commit `b70f617` until the latest Cloudflare Pages deployment is confirmed.
+
+Staging Google OAuth and desktop/mobile owner acceptance remain outstanding. The staging project remains `ivatvkfrtifgfheeaelj`; production remains untouched. The user requested a final staging handoff only after the remaining translation work and bug fixes are complete. Therefore this checkpoint is **implementation progress, not Phase 3 exit or final preview handoff**. No merge or production deployment is authorised.
