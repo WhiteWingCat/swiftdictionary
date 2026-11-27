@@ -439,45 +439,6 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-zh-b013",
-      "learning_language_code": "ms",
-      "translation_language_code": "zh",
-      "source_lesson_id": "ms-a-ayat-pasif",
-      "topic_id": "ms-passive-voice",
-      "difficulty": "advanced",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Pilih ayat pasif yang betul berdasarkan ayat aktif “Siti membaca buku itu.”",
-      "prompt_translation": "根据主动句“Siti membaca buku itu.”，选择正确的被动句。",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Buku itu dibaca oleh Siti.",
-          "translation_text": "这本书由Siti阅读。"
-        },
-        {
-          "id": "b",
-          "learning_text": "Siti membaca buku itu.",
-          "translation_text": "Siti读这本书。"
-        },
-        {
-          "id": "c",
-          "learning_text": "Siti sedang membaca.",
-          "translation_text": "Siti正在阅读。"
-        },
-        {
-          "id": "d",
-          "learning_text": "Buku itu sangat tebal.",
-          "translation_text": "这本书很厚。"
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "“Buku itu dibaca oleh Siti” meletakkan penerima perbuatan sebagai fokus ayat pasif.",
-      "explanation_translation": "“Buku itu dibaca oleh Siti”将动作的承受者作为被动句的重点。",
-      "learning_objective_id": "passive-voice-function",
-      "release_approved": false
-    },
-    {
       "question_id": "quiz-ms-zh-b001",
       "learning_language_code": "ms",
       "translation_language_code": "zh",
@@ -943,45 +904,6 @@
       "explanation_learning": "“Berapakah harga…” is a standard way to ask for a price.",
       "explanation_translation": "“Berapakah harga……”是询问价格的常用句式。",
       "learning_objective_id": "asking-price",
-      "release_approved": false
-    },
-    {
-      "question_id": "quiz-ms-zh-b013",
-      "learning_language_code": "ms",
-      "translation_language_code": "zh",
-      "source_lesson_id": "ms-b-time-and-days",
-      "topic_id": "ms-time-and-days",
-      "difficulty": "beginner",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Which phrase correctly refers to eight o’clock?",
-      "prompt_translation": "哪个短语正确表示八点钟？",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Pukul lapan",
-          "translation_text": "八点钟"
-        },
-        {
-          "id": "b",
-          "learning_text": "Hari lapan",
-          "translation_text": "第八天"
-        },
-        {
-          "id": "c",
-          "learning_text": "Lapan kali",
-          "translation_text": "八次"
-        },
-        {
-          "id": "d",
-          "learning_text": "Lapan orang",
-          "translation_text": "八个人"
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "Use “pukul” before a clock time.",
-      "explanation_translation": "表示钟点时，在时间前使用“pukul”。",
-      "learning_objective_id": "time-expression",
       "release_approved": false
     },
     {
@@ -1651,7 +1573,7 @@
       "question_id": "quiz-ms-zh-b031",
       "learning_language_code": "ms",
       "translation_language_code": "zh",
-      "source_lesson_id": "ms-a-hujah-beras",
+      "source_lesson_id": "ms-a-hujah-berasas",
       "topic_id": "ms-reasoned-argument",
       "difficulty": "advanced",
       "question_type": "knowledge",
@@ -1918,45 +1840,6 @@
       "explanation_learning": "An official agency source is usually the primary reference for its own policy.",
       "explanation_translation": "相关政府机构的官方网站通常是查询其政策的一手资料。",
       "learning_objective_id": "source-credibility",
-      "release_approved": false
-    },
-    {
-      "question_id": "quiz-ms-zh-b038",
-      "learning_language_code": "ms",
-      "translation_language_code": "zh",
-      "source_lesson_id": "ms-a-ambiguity-and-precision",
-      "topic_id": "ms-topic-ambiguity-and-precision",
-      "difficulty": "advanced",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Which sentence gives the clearest instruction without an unclear reference?",
-      "prompt_translation": "哪一句指示最清晰，不含模糊指代？",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Sila serahkan borang kepada penyelaras sebelum pukul lima.",
-          "translation_text": "请在五点前把表格交给协调员。"
-        },
-        {
-          "id": "b",
-          "learning_text": "Serahkan kepadanya sebelum itu.",
-          "translation_text": "在那之前交给他／她。"
-        },
-        {
-          "id": "c",
-          "learning_text": "Benda itu perlu dibuat nanti.",
-          "translation_text": "那件事稍后要做。"
-        },
-        {
-          "id": "d",
-          "learning_text": "Mereka boleh letak di sana.",
-          "translation_text": "他们可以把它放在那里。"
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "Naming the item, recipient and deadline removes ambiguity.",
-      "explanation_translation": "明确说明文件、接收者和截止时间可以消除歧义。",
-      "learning_objective_id": "precision-and-ambiguity",
       "release_approved": false
     }
   ]
