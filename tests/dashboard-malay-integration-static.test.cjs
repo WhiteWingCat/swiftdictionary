@@ -17,7 +17,7 @@ test("Daily History names Malay learning activities and resolves Malay titles", 
   assert.match(html, /daily_discovery:"Daily Discovery"/);
   assert.match(html, /daily_revision:"Daily Revision"/);
   assert.match(html, /language==="ms"\s*\?\s*window\.SWIFT_MALAY_DAILY_LEARNING/);
-  assert.match(html, /ms:"Bahasa Melayu"/);
+  assert.match(html, /ms:"Malay"/);
   assert.match(html, /groups\.dailyLearning\.push/);
   assert.match(html, /renderGroup\("dailyLearning","Daily Learning"/);
 });
