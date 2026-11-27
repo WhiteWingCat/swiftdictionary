@@ -59,6 +59,8 @@ jobs:
           bash tests/cloudflare-build-routing.sh
           node --check js/languages/adapters.js
           node --check data/languages/malay-dictionary.js
+          node --check data/languages/malay-learning-support-translations.js
+          node --check data/languages/malay-learning-support-overrides.js
           node --check data/malay-lessons.js
           node --check data/malay-lessons-expansion-02.js
           node --check data/malay-lessons-expansion-03.js
