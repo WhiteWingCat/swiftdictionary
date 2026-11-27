@@ -8,6 +8,7 @@ on:
       - "data/languages/english-dictionary.js"
       - "data/english-expansion.js"
       - "data/languages/chinese-dictionary.js"
+      - "data/languages/malay-dictionary-manual-overrides.js"
       - "data/chinese-characters.js"
       - "scripts/content/export-malay-translation-input.cjs"
       - "scripts/content/generate-malay-dictionary-translations.py"
