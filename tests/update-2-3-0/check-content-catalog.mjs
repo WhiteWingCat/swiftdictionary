@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import vm from "node:vm";
 import assert from "node:assert/strict";
 
 const dailySource = fs.readFileSync("daily-learning.js", "utf8");
