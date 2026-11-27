@@ -7,7 +7,7 @@
   "batch": 4,
   "editorial_status": "draft",
   "translation_status": "machine_assisted_draft",
-  "notes": "Batches 01–04: 120 original Malay knowledge questions total. Batch 04 adds 36 questions (10 Beginner, 10 Intermediate, 16 Advanced). All records remain draft pending Malaysian Standard Malay and independent support-language review.",
+  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting 36 prompt/explanation field reversals and four answer-option language mismatches. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
   "questions": [
     {
       "question_id": "quiz-ms-zh-b001",
@@ -46,7 +46,7 @@
       "explanation_learning": "“Selamat pagi” digunakan pada waktu pagi.",
       "explanation_translation": "“Selamat pagi”用于早上。",
       "learning_objective_id": "greetings-in-context",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b002",
@@ -85,7 +85,7 @@
       "explanation_learning": "“Sama-sama” ialah balasan lazim untuk ucapan terima kasih.",
       "explanation_translation": "“Sama-sama”是回应感谢的常见说法。",
       "learning_objective_id": "polite-responses",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b003",
@@ -124,7 +124,7 @@
       "explanation_learning": "“Saya tinggal di …” menyatakan tempat seseorang menetap sekarang.",
       "explanation_translation": "“Saya tinggal di …”表示某人目前居住的地方。",
       "learning_objective_id": "introducing-personal-details",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b004",
@@ -163,7 +163,7 @@
       "explanation_learning": "“Murid itu” ialah perkara yang diperkatakan, maka frasa itu subjek.",
       "explanation_translation": "“Murid itu”是句子谈论的对象，因此是主语。",
       "learning_objective_id": "subject-predicate-structure",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b006",
@@ -202,7 +202,7 @@
       "explanation_learning": "Bentuk standard ialah “menulis”.",
       "explanation_translation": "标准形式是“menulis”。",
       "learning_objective_id": "meN-prefix-forms",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b007",
@@ -241,7 +241,7 @@
       "explanation_learning": "“Ekor” digunakan sebagai penjodoh bilangan bagi haiwan seperti kucing.",
       "explanation_translation": "“Ekor”用于动物，例如猫。",
       "learning_objective_id": "classifiers-for-animals",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b008",
@@ -280,7 +280,7 @@
       "explanation_learning": "Penggandaan penuh “buku-buku” lazimnya menandakan bilangan jamak.",
       "explanation_translation": "完全重叠“buku-buku”通常表示复数。",
       "learning_objective_id": "reduplication-meaning",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b009",
@@ -319,7 +319,7 @@
       "explanation_learning": "Dalam ayat aktif ini, “menulis” ialah kata kerja yang sesuai.",
       "explanation_translation": "在这个主动句中，“menulis”是合适的动词。",
       "learning_objective_id": "meN-prefix-context",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b010",
@@ -358,7 +358,7 @@
       "explanation_learning": "Ungkapan “Saya ingin memohon…” mengekalkan nada formal dan sopan.",
       "explanation_translation": "“Saya ingin memohon…”保持正式且礼貌的语气。",
       "learning_objective_id": "formal-register-choice",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b011",
@@ -397,7 +397,7 @@
       "explanation_learning": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau bertentangan.",
       "explanation_translation": "“Walau bagaimanapun”用于引出不同或相反的信息。",
       "learning_objective_id": "discourse-connector-contrast",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b012",
@@ -436,7 +436,7 @@
       "explanation_learning": "Ayat pertama mempunyai susunan subjek, predikat dan keterangan yang jelas.",
       "explanation_translation": "第一句的主语、谓语和时间状语结构清晰。",
       "learning_objective_id": "editing-agreement-and-clarity",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b005",
@@ -475,7 +475,7 @@
       "explanation_learning": "Angka perlu dibandingkan berdasarkan kaedah dan sumber asal yang boleh disemak.",
       "explanation_translation": "应根据可核实的方法和原始来源比较数据。",
       "learning_objective_id": "verify-claim-with-source",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b013",
@@ -486,8 +486,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Choose a suitable polite reply to “Terima kasih”.",
-      "prompt_translation": "选择对“Terima kasih”（谢谢）的恰当礼貌回应。",
+      "prompt_learning": "选择对“Terima kasih”（谢谢）的恰当礼貌回应。",
+      "prompt_translation": "Choose a suitable polite reply to “Terima kasih”.",
       "options": [
         {
           "id": "a",
@@ -511,10 +511,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Sama-sama” is the conventional reply to thanks.",
-      "explanation_translation": "“Sama-sama”是回应感谢的常见表达。",
+      "explanation_learning": "“Sama-sama”是回应感谢的常见表达。",
+      "explanation_translation": "“Sama-sama” is the conventional reply to thanks.",
       "learning_objective_id": "greeting-choice",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b014",
@@ -525,8 +525,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which sentence correctly tells someone where you live?",
-      "prompt_translation": "哪一句正确表达你的居住地？",
+      "prompt_learning": "哪一句正确表达你的居住地？",
+      "prompt_translation": "Which sentence correctly tells someone where you live?",
       "options": [
         {
           "id": "a",
@@ -550,10 +550,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Saya tinggal di…” states where a person lives.",
-      "explanation_translation": "“我住在……”用于说明居住地点。",
+      "explanation_learning": "“我住在……”用于说明居住地点。",
+      "explanation_translation": "“Saya tinggal di…” states where a person lives.",
       "learning_objective_id": "residence-statement",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b015",
@@ -564,8 +564,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Choose the sentence with a clear subject–verb–object order.",
-      "prompt_translation": "选择主语—动词—宾语顺序清晰的句子。",
+      "prompt_learning": "选择主语—动词—宾语顺序清晰的句子。",
+      "prompt_translation": "Choose the sentence with a clear subject–verb–object order.",
       "options": [
         {
           "id": "a",
@@ -589,10 +589,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "The subject “Aina” comes before the verb “membaca” and object “buku”.",
-      "explanation_translation": "主语“Aina”位于动词“membaca”和宾语“buku”之前。",
+      "explanation_learning": "主语“Aina”位于动词“membaca”和宾语“buku”之前。",
+      "explanation_translation": "The subject “Aina” comes before the verb “membaca” and object “buku”.",
       "learning_objective_id": "simple-word-order",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b016",
@@ -603,8 +603,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which expression is a polite way to ask for help?",
-      "prompt_translation": "哪一种表达礼貌地请求帮助？",
+      "prompt_learning": "哪一种表达礼貌地请求帮助？",
+      "prompt_translation": "Which expression is a polite way to ask for help?",
       "options": [
         {
           "id": "a",
@@ -628,10 +628,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Boleh saya…” softens a request and makes it polite.",
-      "explanation_translation": "“Boleh saya……”能使请求语气更委婉、礼貌。",
+      "explanation_learning": "“Boleh saya……”能使请求语气更委婉、礼貌。",
+      "explanation_translation": "“Boleh saya…” softens a request and makes it polite.",
       "learning_objective_id": "polite-help-request",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b017",
@@ -642,8 +642,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Where would you usually borrow a book?",
-      "prompt_translation": "你通常在哪里借书？",
+      "prompt_learning": "你通常在哪里借书？",
+      "prompt_translation": "Where would you usually borrow a book?",
       "options": [
         {
           "id": "a",
@@ -667,10 +667,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "A library is a place where people can borrow books.",
-      "explanation_translation": "图书馆是人们借阅书籍的地方。",
+      "explanation_learning": "图书馆是人们借阅书籍的地方。",
+      "explanation_translation": "A library is a place where people can borrow books.",
       "learning_objective_id": "community-place-vocabulary",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b018",
@@ -681,8 +681,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Choose the verb that completes: “Saya ___ sebelum pergi ke sekolah.”",
-      "prompt_translation": "选择能完成句子的动词：“Saya ___ sebelum pergi ke sekolah.”",
+      "prompt_learning": "选择能完成句子的动词：“Saya ___ sebelum pergi ke sekolah.”",
+      "prompt_translation": "Choose the verb that completes: “Saya ___ sebelum pergi ke sekolah.”",
       "options": [
         {
           "id": "a",
@@ -706,10 +706,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Bersarapan” means to have breakfast, an activity before school.",
-      "explanation_translation": "“Bersarapan”意为吃早餐，是上学前的一项活动。",
+      "explanation_learning": "“Bersarapan”意为吃早餐，是上学前的一项活动。",
+      "explanation_translation": "“Bersarapan” means to have breakfast, an activity before school.",
       "learning_objective_id": "daily-activity-verb",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b019",
@@ -720,35 +720,35 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "What does “abang” usually mean?",
-      "prompt_translation": "“abang”在家庭关系中通常是什么意思？",
+      "prompt_learning": "“abang”在家庭关系中通常是什么意思？",
+      "prompt_translation": "What does “abang” usually mean?",
       "options": [
         {
           "id": "a",
-          "learning_text": "Older brother",
+          "learning_text": "Saudara lelaki yang lebih tua",
           "translation_text": "哥哥／年长的兄弟"
         },
         {
           "id": "b",
-          "learning_text": "Younger sister",
+          "learning_text": "Saudara perempuan yang lebih muda",
           "translation_text": "妹妹／年幼的姐妹"
         },
         {
           "id": "c",
-          "learning_text": "Grandmother",
+          "learning_text": "Nenek",
           "translation_text": "祖母"
         },
         {
           "id": "d",
-          "learning_text": "Uncle",
+          "learning_text": "Bapa saudara",
           "translation_text": "叔叔"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Abang” refers to an older brother.",
-      "explanation_translation": "“Abang”指年长的兄弟。",
+      "explanation_learning": "“Abang” merujuk kepada saudara lelaki yang lebih tua.",
+      "explanation_translation": "“Abang” refers to an older brother.",
       "learning_objective_id": "family-relationship",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b020",
@@ -759,8 +759,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which phrase correctly means “a glass of water”?",
-      "prompt_translation": "哪一个短语正确表示“一杯水”？",
+      "prompt_learning": "哪一个短语正确表示“一杯水”？",
+      "prompt_translation": "Which phrase correctly means “a glass of water”?",
       "options": [
         {
           "id": "a",
@@ -784,10 +784,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Segelas” is the classifier phrase used for a glassful.",
-      "explanation_translation": "“Segelas”是表示一杯液体的量词表达。",
+      "explanation_learning": "“Segelas”是表示一杯液体的量词表达。",
+      "explanation_translation": "“Segelas” is the classifier phrase used for a glassful.",
       "learning_objective_id": "food-order-classifier",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b021",
@@ -798,8 +798,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which sentence describes playing badminton as a hobby?",
-      "prompt_translation": "哪一句表达把打羽毛球作为爱好？",
+      "prompt_learning": "哪一句表达把打羽毛球作为爱好？",
+      "prompt_translation": "Which sentence describes playing badminton as a hobby?",
       "options": [
         {
           "id": "a",
@@ -823,10 +823,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Hobi saya…” introduces an activity someone enjoys.",
-      "explanation_translation": "“Hobi saya……”用于介绍个人爱好。",
+      "explanation_learning": "“Hobi saya……”用于介绍个人爱好。",
+      "explanation_translation": "“Hobi saya…” introduces an activity someone enjoys.",
       "learning_objective_id": "hobby-expression",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b022",
@@ -837,8 +837,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which room is normally used for cooking?",
-      "prompt_translation": "通常在哪个房间做饭？",
+      "prompt_learning": "通常在哪个房间做饭？",
+      "prompt_translation": "Which room is normally used for cooking?",
       "options": [
         {
           "id": "a",
@@ -862,10 +862,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Dapur” is the kitchen.",
-      "explanation_translation": "“Dapur”是准备和烹饪食物的厨房。",
+      "explanation_learning": "“Dapur”是准备和烹饪食物的厨房。",
+      "explanation_translation": "“Dapur” is the kitchen.",
       "learning_objective_id": "room-vocabulary",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b023",
@@ -876,35 +876,35 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "What does “belok kiri” tell someone to do?",
-      "prompt_translation": "“belok kiri”指示对方怎么走？",
+      "prompt_learning": "“belok kiri”指示对方怎么走？",
+      "prompt_translation": "What does “belok kiri” tell someone to do?",
       "options": [
         {
           "id": "a",
-          "learning_text": "Turn left",
+          "learning_text": "Belok ke kiri",
           "translation_text": "向左转"
         },
         {
           "id": "b",
-          "learning_text": "Turn right",
+          "learning_text": "Belok ke kanan",
           "translation_text": "向右转"
         },
         {
           "id": "c",
-          "learning_text": "Go straight",
+          "learning_text": "Jalan terus",
           "translation_text": "直走"
         },
         {
           "id": "d",
-          "learning_text": "Stop here",
+          "learning_text": "Berhenti di sini",
           "translation_text": "在这里停下"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kiri” means left, so “belok kiri” means turn left.",
-      "explanation_translation": "“Kiri”表示左边，因此“belok kiri”意为向左转。",
+      "explanation_learning": "“Kiri” bermaksud sebelah kiri; “belok kiri” ialah arahan membelok ke kiri.",
+      "explanation_translation": "“Kiri” means left, so “belok kiri” means turn left.",
       "learning_objective_id": "direction-instruction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b024",
@@ -915,8 +915,8 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which question asks how much an item costs?",
-      "prompt_translation": "哪一句是在询问商品价格？",
+      "prompt_learning": "哪一句是在询问商品价格？",
+      "prompt_translation": "Which question asks how much an item costs?",
       "options": [
         {
           "id": "a",
@@ -940,10 +940,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Berapakah harga…” is a standard way to ask for a price.",
-      "explanation_translation": "“Berapakah harga……”是询问价格的常用句式。",
+      "explanation_learning": "“Berapakah harga……”是询问价格的常用句式。",
+      "explanation_translation": "“Berapakah harga…” is a standard way to ask for a price.",
       "learning_objective_id": "asking-price",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b025",
@@ -954,8 +954,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which word correctly uses the meN- prefix with “baca”?",
-      "prompt_translation": "哪个词正确使用 meN- 前缀构成“baca”的动词？",
+      "prompt_learning": "哪个词正确使用 meN- 前缀构成“baca”的动词？",
+      "prompt_translation": "Which word correctly uses the meN- prefix with “baca”?",
       "options": [
         {
           "id": "a",
@@ -979,10 +979,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "The root “baca” becomes “membaca” with the meN- prefix.",
-      "explanation_translation": "词根“baca”加上 meN- 前缀后构成“membaca”。",
+      "explanation_learning": "词根“baca”加上 meN- 前缀后构成“membaca”。",
+      "explanation_translation": "The root “baca” becomes “membaca” with the meN- prefix.",
       "learning_objective_id": "men-prefix-verb",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b026",
@@ -993,8 +993,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which classifier is appropriate for three cats?",
-      "prompt_translation": "表示三只猫时，哪个量词合适？",
+      "prompt_learning": "表示三只猫时，哪个量词合适？",
+      "prompt_translation": "Which classifier is appropriate for three cats?",
       "options": [
         {
           "id": "a",
@@ -1018,10 +1018,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Use “ekor” for animals.",
-      "explanation_translation": "动物通常使用量词“ekor”。",
+      "explanation_learning": "动物通常使用量词“ekor”。",
+      "explanation_translation": "Use “ekor” for animals.",
       "learning_objective_id": "animal-classifier",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b027",
@@ -1032,8 +1032,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "What does “kanak-kanak” refer to?",
-      "prompt_translation": "“kanak-kanak”指什么？",
+      "prompt_learning": "“kanak-kanak”指什么？",
+      "prompt_translation": "What does “kanak-kanak” refer to?",
       "options": [
         {
           "id": "a",
@@ -1057,10 +1057,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kanak-kanak” is a reduplicated form referring to children.",
-      "explanation_translation": "“Kanak-kanak”是表示儿童的重叠词。",
+      "explanation_learning": "“Kanak-kanak”是表示儿童的重叠词。",
+      "explanation_translation": "“Kanak-kanak” is a reduplicated form referring to children.",
       "learning_objective_id": "reduplication-meaning",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b028",
@@ -1071,8 +1071,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which word indicates an action is happening now?",
-      "prompt_translation": "哪个词表示动作正在进行？",
+      "prompt_learning": "哪个词表示动作正在进行？",
+      "prompt_translation": "Which word indicates an action is happening now?",
       "options": [
         {
           "id": "a",
@@ -1096,10 +1096,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Sedang” marks an action in progress.",
-      "explanation_translation": "“Sedang”表示动作正在进行。",
+      "explanation_learning": "“Sedang”表示动作正在进行。",
+      "explanation_translation": "“Sedang” marks an action in progress.",
       "learning_objective_id": "ongoing-aspect",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b029",
@@ -1110,8 +1110,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Choose the correct preposition: “Buku itu ___ atas meja.”",
-      "prompt_translation": "选择正确的介词：“Buku itu ___ atas meja.”",
+      "prompt_learning": "选择正确的介词：“Buku itu ___ atas meja.”",
+      "prompt_translation": "Choose the correct preposition: “Buku itu ___ atas meja.”",
       "options": [
         {
           "id": "a",
@@ -1135,10 +1135,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Di” marks a location; “di atas meja” means on the table.",
-      "explanation_translation": "“Di”表示地点；“di atas meja”意为在桌子上。",
+      "explanation_learning": "“Di”表示地点；“di atas meja”意为在桌子上。",
+      "explanation_translation": "“Di” marks a location; “di atas meja” means on the table.",
       "learning_objective_id": "location-preposition",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b030",
@@ -1149,8 +1149,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which conjunction best completes: “___ hujan, mereka meneruskan perjalanan.”",
-      "prompt_translation": "哪个连词最适合填入：“___ hujan, mereka meneruskan perjalanan.”",
+      "prompt_learning": "哪个连词最适合填入：“___ hujan, mereka meneruskan perjalanan.”",
+      "prompt_translation": "Which conjunction best completes: “___ hujan, mereka meneruskan perjalanan.”",
       "options": [
         {
           "id": "a",
@@ -1174,10 +1174,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Walaupun” introduces a concession or contrast.",
-      "explanation_translation": "“Walaupun”用于引出让步或转折关系。",
+      "explanation_learning": "“Walaupun”用于引出让步或转折关系。",
+      "explanation_translation": "“Walaupun” introduces a concession or contrast.",
       "learning_objective_id": "contrast-conjunction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b031",
@@ -1188,8 +1188,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Choose the correct comparison: “Menara A lebih tinggi ___ Menara B.”",
-      "prompt_translation": "选择正确的比较结构：“Menara A lebih tinggi ___ Menara B.”",
+      "prompt_learning": "选择正确的比较结构：“Menara A lebih tinggi ___ Menara B.”",
+      "prompt_translation": "Choose the correct comparison: “Menara A lebih tinggi ___ Menara B.”",
       "options": [
         {
           "id": "a",
@@ -1213,10 +1213,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Use “lebih … daripada” to compare two things.",
-      "explanation_translation": "使用“lebih……daripada”比较两个事物。",
+      "explanation_learning": "使用“lebih……daripada”比较两个事物。",
+      "explanation_translation": "Use “lebih … daripada” to compare two things.",
       "learning_objective_id": "comparative-structure",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b032",
@@ -1227,8 +1227,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which word intensifies the adjective in “Cuaca hari ini ___ panas”?",
-      "prompt_translation": "哪个词能加强句子“Cuaca hari ini ___ panas”中的形容词语气？",
+      "prompt_learning": "哪个词能加强句子“Cuaca hari ini ___ panas”中的形容词语气？",
+      "prompt_translation": "Which word intensifies the adjective in “Cuaca hari ini ___ panas”?",
       "options": [
         {
           "id": "a",
@@ -1252,10 +1252,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Sangat” strengthens the adjective “panas”.",
-      "explanation_translation": "“Sangat”加强形容词“panas”的程度。",
+      "explanation_learning": "“Sangat”加强形容词“panas”的程度。",
+      "explanation_translation": "“Sangat” strengthens the adjective “panas”.",
       "learning_objective_id": "intensifier-choice",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b033",
@@ -1266,8 +1266,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which conjunction correctly joins the ideas “Saya belajar” and “adik bermain”?",
-      "prompt_translation": "哪个连词能正确连接“我学习”和“弟弟玩耍”这两个意思？",
+      "prompt_learning": "哪个连词能正确连接“我学习”和“弟弟玩耍”这两个意思？",
+      "prompt_translation": "Which conjunction correctly joins the ideas “Saya belajar” and “adik bermain”?",
       "options": [
         {
           "id": "a",
@@ -1291,10 +1291,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Manakala” can connect two contrasting or parallel clauses.",
-      "explanation_translation": "“Manakala”可连接两个对照或并列的分句。",
+      "explanation_learning": "“Manakala”可连接两个对照或并列的分句。",
+      "explanation_translation": "“Manakala” can connect two contrasting or parallel clauses.",
       "learning_objective_id": "compound-clause",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b034",
@@ -1305,8 +1305,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which connector clearly introduces a result?",
-      "prompt_translation": "哪个连接词明确引出结果？",
+      "prompt_learning": "哪个连接词明确引出结果？",
+      "prompt_translation": "Which connector clearly introduces a result?",
       "options": [
         {
           "id": "a",
@@ -1330,10 +1330,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Oleh itu” introduces a consequence or result.",
-      "explanation_translation": "“Oleh itu”用于引出后果或结果。",
+      "explanation_learning": "“Oleh itu”用于引出后果或结果。",
+      "explanation_translation": "“Oleh itu” introduces a consequence or result.",
       "learning_objective_id": "cause-effect-linker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b035",
@@ -1344,8 +1344,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which word introduces a condition?",
-      "prompt_translation": "哪个词用于引出条件？",
+      "prompt_learning": "哪个词用于引出条件？",
+      "prompt_translation": "Which word introduces a condition?",
       "options": [
         {
           "id": "a",
@@ -1369,10 +1369,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Sekiranya” introduces a conditional situation.",
-      "explanation_translation": "“Sekiranya”用于引出条件情境。",
+      "explanation_learning": "“Sekiranya”用于引出条件情境。",
+      "explanation_translation": "“Sekiranya” introduces a conditional situation.",
       "learning_objective_id": "conditional-clause",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b036",
@@ -1383,8 +1383,8 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which word links a noun to a clause describing it?",
-      "prompt_translation": "哪个词把名词与描述它的从句连接起来？",
+      "prompt_learning": "哪个词把名词与描述它的从句连接起来？",
+      "prompt_translation": "Which word links a noun to a clause describing it?",
       "options": [
         {
           "id": "a",
@@ -1408,10 +1408,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Yang” introduces a relative clause that describes a noun.",
-      "explanation_translation": "“Yang”引导描述名词的关系从句。",
+      "explanation_learning": "“Yang”引导描述名词的关系从句。",
+      "explanation_translation": "“Yang” introduces a relative clause that describes a noun.",
       "learning_objective_id": "relative-clause-marker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b037",
@@ -1422,8 +1422,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which opening is most suitable for a formal letter to an organisation?",
-      "prompt_translation": "给机构写正式信函时，哪种称呼最合适？",
+      "prompt_learning": "给机构写正式信函时，哪种称呼最合适？",
+      "prompt_translation": "Which opening is most suitable for a formal letter to an organisation?",
       "options": [
         {
           "id": "a",
@@ -1447,10 +1447,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Tuan/Puan” is a conventional formal salutation.",
-      "explanation_translation": "“Tuan/Puan”是正式信函中常见的尊称。",
+      "explanation_learning": "“Tuan/Puan”是正式信函中常见的尊称。",
+      "explanation_translation": "“Tuan/Puan” is a conventional formal salutation.",
       "learning_objective_id": "formal-register",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b038",
@@ -1461,8 +1461,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which discourse marker best signals a contrast with the previous point?",
-      "prompt_translation": "哪个篇章连接词最适合表示与前文观点相反？",
+      "prompt_learning": "哪个篇章连接词最适合表示与前文观点相反？",
+      "prompt_translation": "Which discourse marker best signals a contrast with the previous point?",
       "options": [
         {
           "id": "a",
@@ -1486,10 +1486,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Walau bagaimanapun” signals a contrast or qualification.",
-      "explanation_translation": "“Walau bagaimanapun”表示转折或补充限制。",
+      "explanation_learning": "“Walau bagaimanapun”表示转折或补充限制。",
+      "explanation_translation": "“Walau bagaimanapun” signals a contrast or qualification.",
       "learning_objective_id": "discourse-contrast",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b039",
@@ -1500,8 +1500,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which revision removes unnecessary repetition while preserving the meaning?",
-      "prompt_translation": "哪项修改在保留原意的同时消除了不必要的重复？",
+      "prompt_learning": "哪项修改在保留原意的同时消除了不必要的重复？",
+      "prompt_translation": "Which revision removes unnecessary repetition while preserving the meaning?",
       "options": [
         {
           "id": "a",
@@ -1525,10 +1525,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Para peserta” already expresses a plural group; adding “semua” is redundant.",
-      "explanation_translation": "“Para peserta”已经表示复数群体，再加“semua”会造成重复。",
+      "explanation_learning": "“Para peserta”已经表示复数群体，再加“semua”会造成重复。",
+      "explanation_translation": "“Para peserta” already expresses a plural group; adding “semua” is redundant.",
       "learning_objective_id": "editing-clarity",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b040",
@@ -1539,8 +1539,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Choose the correct passive form of “Siti membaca buku itu.”",
-      "prompt_translation": "选择句子“Siti membaca buku itu.”的正确被动形式。",
+      "prompt_learning": "选择句子“Siti membaca buku itu.”的正确被动形式。",
+      "prompt_translation": "Choose the correct passive form of “Siti membaca buku itu.”",
       "options": [
         {
           "id": "a",
@@ -1564,10 +1564,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "The object becomes the focus and takes the di- passive form “dibaca”.",
-      "explanation_translation": "宾语成为句子焦点，并使用带有 di- 前缀的被动形式“dibaca”。",
+      "explanation_learning": "宾语成为句子焦点，并使用带有 di- 前缀的被动形式“dibaca”。",
+      "explanation_translation": "The object becomes the focus and takes the di- passive form “dibaca”.",
       "learning_objective_id": "passive-voice-focus",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b041",
@@ -1578,8 +1578,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which choice best avoids repeating the same noun in adjacent sentences?",
-      "prompt_translation": "哪种选择最能避免在相邻句子中重复同一个名词？",
+      "prompt_learning": "哪种选择最能避免在相邻句子中重复同一个名词？",
+      "prompt_translation": "Which choice best avoids repeating the same noun in adjacent sentences?",
       "options": [
         {
           "id": "a",
@@ -1603,10 +1603,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Clear pronoun reference links sentences without confusing the reader.",
-      "explanation_translation": "明确的代词指代能连接句子，同时避免读者混淆。",
+      "explanation_learning": "明确的代词指代能连接句子，同时避免读者混淆。",
+      "explanation_translation": "Clear pronoun reference links sentences without confusing the reader.",
       "learning_objective_id": "cohesive-reference",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b042",
@@ -1617,8 +1617,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which element provides support for an argument?",
-      "prompt_translation": "哪项内容能为论点提供支持？",
+      "prompt_learning": "哪项内容能为论点提供支持？",
+      "prompt_translation": "Which element provides support for an argument?",
       "options": [
         {
           "id": "a",
@@ -1642,10 +1642,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Relevant evidence supports a claim and makes an argument more convincing.",
-      "explanation_translation": "相关证据能支持论点，使论证更有说服力。",
+      "explanation_learning": "相关证据能支持论点，使论证更有说服力。",
+      "explanation_translation": "Relevant evidence supports a claim and makes an argument more convincing.",
       "learning_objective_id": "argument-evidence",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b043",
@@ -1656,8 +1656,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which sentence uses an opening location phrase to vary its structure naturally?",
-      "prompt_translation": "哪一句自然地把地点短语放在句首，以变化句子结构？",
+      "prompt_learning": "哪一句自然地把地点短语放在句首，以变化句子结构？",
+      "prompt_translation": "Which sentence uses an opening location phrase to vary its structure naturally?",
       "options": [
         {
           "id": "a",
@@ -1681,10 +1681,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "The fronted location phrase establishes the setting before the main clause.",
-      "explanation_translation": "前置地点短语先交代场景，再引出主句。",
+      "explanation_learning": "前置地点短语先交代场景，再引出主句。",
+      "explanation_translation": "The fronted location phrase establishes the setting before the main clause.",
       "learning_objective_id": "sentence-variation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b044",
@@ -1695,8 +1695,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which paraphrase preserves the meaning of “Penggunaan air perlu dikurangkan”?",
-      "prompt_translation": "哪项改写保留了“Penggunaan air perlu dikurangkan”（用水量需要减少）的意思？",
+      "prompt_learning": "哪项改写保留了“Penggunaan air perlu dikurangkan”（用水量需要减少）的意思？",
+      "prompt_translation": "Which paraphrase preserves the meaning of “Penggunaan air perlu dikurangkan”?",
       "options": [
         {
           "id": "a",
@@ -1720,10 +1720,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "A sound paraphrase changes wording but retains the original meaning.",
-      "explanation_translation": "恰当的改写会改变措辞，但保留原意。",
+      "explanation_learning": "恰当的改写会改变措辞，但保留原意。",
+      "explanation_translation": "A sound paraphrase changes wording but retains the original meaning.",
       "learning_objective_id": "paraphrase-preserve-meaning",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b045",
@@ -1734,8 +1734,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which detail is most useful when checking whether an online report is credible?",
-      "prompt_translation": "评估网络报道可信度时，哪项信息最有用？",
+      "prompt_learning": "评估网络报道可信度时，哪项信息最有用？",
+      "prompt_translation": "Which detail is most useful when checking whether an online report is credible?",
       "options": [
         {
           "id": "a",
@@ -1759,10 +1759,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Authorship, publication date and traceable evidence help assess reliability.",
-      "explanation_translation": "作者、发布日期和可追溯证据有助于判断可靠性。",
+      "explanation_learning": "作者、发布日期和可追溯证据有助于判断可靠性。",
+      "explanation_translation": "Authorship, publication date and traceable evidence help assess reliability.",
       "learning_objective_id": "source-evaluation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b046",
@@ -1773,8 +1773,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "What is the most logical order for a short evidence-based argument?",
-      "prompt_translation": "简短的证据型论证最合理的顺序是什么？",
+      "prompt_learning": "简短的证据型论证最合理的顺序是什么？",
+      "prompt_translation": "What is the most logical order for a short evidence-based argument?",
       "options": [
         {
           "id": "a",
@@ -1798,10 +1798,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "A clear argument states a claim, supports it with evidence and explains the link.",
-      "explanation_translation": "清晰的论证先提出论点，再提供证据并解释两者的联系。",
+      "explanation_learning": "清晰的论证先提出论点，再提供证据并解释两者的联系。",
+      "explanation_translation": "A clear argument states a claim, supports it with evidence and explains the link.",
       "learning_objective_id": "argument-structure",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b047",
@@ -1812,8 +1812,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "What should a rebuttal do after presenting a counterargument?",
-      "prompt_translation": "提出反方论点后，反驳应当做什么？",
+      "prompt_learning": "提出反方论点后，反驳应当做什么？",
+      "prompt_translation": "What should a rebuttal do after presenting a counterargument?",
       "options": [
         {
           "id": "a",
@@ -1837,10 +1837,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "A rebuttal responds to the opposing point with relevant reasoning or evidence.",
-      "explanation_translation": "反驳应使用相关理由或证据回应对方观点。",
+      "explanation_learning": "反驳应使用相关理由或证据回应对方观点。",
+      "explanation_translation": "A rebuttal responds to the opposing point with relevant reasoning or evidence.",
       "learning_objective_id": "counterargument-response",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b048",
@@ -1851,8 +1851,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Which source is generally strongest for checking a current government policy?",
-      "prompt_translation": "查询现行政府政策时，哪种来源通常最可靠？",
+      "prompt_learning": "查询现行政府政策时，哪种来源通常最可靠？",
+      "prompt_translation": "Which source is generally strongest for checking a current government policy?",
       "options": [
         {
           "id": "a",
@@ -1876,10 +1876,10 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "An official agency source is usually the primary reference for its own policy.",
-      "explanation_translation": "相关政府机构的官方网站通常是查询其政策的一手资料。",
+      "explanation_learning": "相关政府机构的官方网站通常是查询其政策的一手资料。",
+      "explanation_translation": "An official agency source is usually the primary reference for its own policy.",
       "learning_objective_id": "source-credibility",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b049",
@@ -1918,7 +1918,7 @@
       "explanation_learning": "Ungkapan “Boleh …?” membentuk permintaan yang lebih sopan.",
       "explanation_translation": "“Boleh …?”可以构成较礼貌的请求。",
       "learning_objective_id": "polite-help-request",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b050",
@@ -1957,7 +1957,7 @@
       "explanation_learning": "Perpustakaan menyediakan perkhidmatan pinjaman bahan bacaan.",
       "explanation_translation": "图书馆提供书籍借阅服务。",
       "learning_objective_id": "community-place-vocabulary",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b051",
@@ -1996,7 +1996,7 @@
       "explanation_learning": "“Mandi” ialah kata kerja yang sesuai untuk kegiatan harian.",
       "explanation_translation": "“Mandi”是适合描述日常活动的动词。",
       "learning_objective_id": "daily-activity-verb",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b052",
@@ -2035,7 +2035,7 @@
       "explanation_learning": "“Kakak” merujuk saudara perempuan yang lebih tua; “saya” menunjukkan pemilikan atau hubungan dengan penutur.",
       "explanation_translation": "“Kakak”指年长的姐妹，“saya”说明她与说话者的关系。",
       "learning_objective_id": "older-sister-term",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b053",
@@ -2074,7 +2074,7 @@
       "explanation_learning": "“Segelas” ialah penjodoh bilangan untuk kandungan sebanyak satu gelas.",
       "explanation_translation": "“Segelas”是表示一杯容量的量词短语。",
       "learning_objective_id": "food-order-classifier",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b054",
@@ -2113,7 +2113,7 @@
       "explanation_learning": "Frasa “Hobi saya ialah …” digunakan untuk memperkenalkan aktiviti kegemaran.",
       "explanation_translation": "“Hobi saya ialah …”用于介绍喜爱的活动。",
       "learning_objective_id": "hobby-expression",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b055",
@@ -2152,7 +2152,7 @@
       "explanation_learning": "“Bilik tidur” ialah ruang yang digunakan untuk tidur.",
       "explanation_translation": "“Bilik tidur”是用于睡觉的房间。",
       "learning_objective_id": "room-vocabulary",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b056",
@@ -2191,7 +2191,7 @@
       "explanation_learning": "“Di sebelah kiri” menerangkan lokasi, bukan pergerakan.",
       "explanation_translation": "“Di sebelah kiri”描述位置，而不是移动方向。",
       "learning_objective_id": "direction-instruction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b057",
@@ -2230,7 +2230,7 @@
       "explanation_learning": "“Berapakah harga …?” ialah bentuk soalan untuk bertanya harga.",
       "explanation_translation": "“Berapakah harga …?”是询问价格的常见句式。",
       "learning_objective_id": "asking-price",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b058",
@@ -2269,7 +2269,7 @@
       "explanation_learning": "“Berasal dari” menyatakan asal seseorang; “tinggal di” menyatakan tempat menetap.",
       "explanation_translation": "“Berasal dari”表示来自哪里；“tinggal di”表示居住地点。",
       "learning_objective_id": "residence-statement",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b059",
@@ -2308,7 +2308,7 @@
       "explanation_learning": "Huruf awal “s” dalam kata dasar gugur dan digantikan dengan bentuk “meny-”: menyapu.",
       "explanation_translation": "词根开头的“s”脱落，并采用“meny-”形式：menyapu。",
       "learning_objective_id": "meN-prefix-context",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b060",
@@ -2347,7 +2347,7 @@
       "explanation_learning": "“Helai” digunakan untuk benda nipis dan leper seperti kertas.",
       "explanation_translation": "“Helai”用于纸张等薄而扁平的物品。",
       "learning_objective_id": "classifier-for-flat-items",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b061",
@@ -2386,7 +2386,7 @@
       "explanation_learning": "“Kanak-kanak” ialah bentuk kata ganda yang merujuk golongan anak atau budak.",
       "explanation_translation": "“Kanak-kanak”是重叠形式，指儿童。",
       "learning_objective_id": "reduplication-meaning",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b062",
@@ -2425,7 +2425,7 @@
       "explanation_learning": "“Sedang” menandakan perbuatan yang berlaku pada waktu rujukan.",
       "explanation_translation": "“Sedang”表示动作在所指时间正在进行。",
       "learning_objective_id": "ongoing-aspect",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b063",
@@ -2464,7 +2464,7 @@
       "explanation_learning": "“Ke” menunjukkan arah atau destinasi pergerakan.",
       "explanation_translation": "“Ke”表示移动的方向或目的地。",
       "learning_objective_id": "destination-preposition",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b064",
@@ -2503,7 +2503,7 @@
       "explanation_learning": "“Walaupun” memperkenalkan keadaan yang berlawanan dengan hasil yang dinyatakan.",
       "explanation_translation": "“Walaupun”引出与后续结果形成让步关系的情况。",
       "learning_objective_id": "contrast-conjunction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b065",
@@ -2542,7 +2542,7 @@
       "explanation_learning": "Struktur “lebih + kata adjektif + daripada” membentuk perbandingan.",
       "explanation_translation": "“lebih + 形容词 + daripada”用于构成比较句。",
       "learning_objective_id": "comparative-structure",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b066",
@@ -2581,7 +2581,7 @@
       "explanation_learning": "“Sangat” ialah kata penguat yang hadir sebelum kata adjektif dalam frasa ini.",
       "explanation_translation": "在这个短语中，“sangat”是置于形容词前的程度副词。",
       "learning_objective_id": "intensifier-choice",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b067",
@@ -2620,7 +2620,7 @@
       "explanation_learning": "“Dan” menghubungkan dua klausa yang setara dalam ayat majmuk gabungan.",
       "explanation_translation": "“Dan”在并列复合句中连接两个地位相同的分句。",
       "learning_objective_id": "compound-clause",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b068",
@@ -2659,7 +2659,7 @@
       "explanation_learning": "“Oleh itu” memperkenalkan kesan atau tindakan yang terhasil daripada sebab sebelumnya.",
       "explanation_translation": "“Oleh itu”引出前述原因所产生的结果或行动。",
       "learning_objective_id": "cause-effect-linker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b069",
@@ -2698,7 +2698,7 @@
       "explanation_learning": "“Tuan/Puan” ialah sapaan formal yang sesuai apabila nama penerima tidak diketahui.",
       "explanation_translation": "当不知道收件人姓名时，“Tuan/Puan”是合适的正式称呼。",
       "learning_objective_id": "formal-register-choice",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b070",
@@ -2737,7 +2737,7 @@
       "explanation_learning": "“Saya ingin memohon…” ialah bentuk permohonan yang sopan dan formal.",
       "explanation_translation": "“Saya ingin memohon…”是礼貌且正式的申请表达。",
       "learning_objective_id": "formal-application-request",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b071",
@@ -2776,7 +2776,7 @@
       "explanation_learning": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau mengehadkan kenyataan sebelumnya.",
       "explanation_translation": "“Walau bagaimanapun”引出不同信息，或对前述陈述作出限定。",
       "learning_objective_id": "discourse-connector-contrast",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b072",
@@ -2815,7 +2815,7 @@
       "explanation_learning": "“Selain itu” menambah maklumat yang berkaitan dengan perkara sebelumnya.",
       "explanation_translation": "“Selain itu”用于补充与前文相关的信息。",
       "learning_objective_id": "additive-discourse-marker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b073",
@@ -2854,7 +2854,7 @@
       "explanation_learning": "“Para” sudah menandakan kumpulan jamak, maka “semua” tidak diperlukan dalam binaan ini.",
       "explanation_translation": "“Para”已经表示复数群体，因此这个结构中不需要再加“semua”。",
       "learning_objective_id": "avoid-redundant-plural-marking",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b074",
@@ -2893,7 +2893,7 @@
       "explanation_learning": "Mengulangi nama penerima apabila perlu dapat mengelakkan rujukan kata ganti nama yang kabur.",
       "explanation_translation": "必要时重复收件人的姓名，可以避免代词指代不清。",
       "learning_objective_id": "editing-pronoun-reference",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b075",
@@ -2932,7 +2932,7 @@
       "explanation_learning": "Dalam ayat pasif, perkara yang menerima perbuatan menjadi fokus dan pelaku boleh diperkenalkan dengan “oleh”.",
       "explanation_translation": "被动句以动作承受者为重点，并可用“oleh”引出动作执行者。",
       "learning_objective_id": "passive-voice-focus",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b076",
@@ -2971,7 +2971,7 @@
       "explanation_learning": "Kata ganti nama perlu mempunyai rujukan yang jelas dalam wacana.",
       "explanation_translation": "代词在篇章中必须有明确的先行指代对象。",
       "learning_objective_id": "cohesive-reference",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b077",
@@ -3010,7 +3010,7 @@
       "explanation_learning": "“Hal ini” boleh merujuk kepada idea atau keadaan yang telah dinyatakan sebelumnya.",
       "explanation_translation": "“Hal ini”可以回指前文已经提到的观点或情况。",
       "learning_objective_id": "cohesive-reference",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b078",
@@ -3049,7 +3049,7 @@
       "explanation_learning": "Frasa pendahuluan boleh mempelbagaikan permulaan ayat sambil mengekalkan makna.",
       "explanation_translation": "前置短语可以丰富句子开头，同时保留原意。",
       "learning_objective_id": "sentence-variation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b079",
@@ -3088,7 +3088,7 @@
       "explanation_learning": "Variasi panjang dan struktur ayat membantu mengawal aliran serta penekanan.",
       "explanation_translation": "句子长度和结构的变化有助于控制行文节奏和重点。",
       "learning_objective_id": "sentence-variation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b080",
@@ -3127,7 +3127,7 @@
       "explanation_learning": "Parafrasa yang baik menukar bentuk ungkapan tanpa mengubah hubungan makna utama.",
       "explanation_translation": "好的改写会改变表达方式，但不改变主要含义。",
       "learning_objective_id": "paraphrase-preserve-meaning",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b081",
@@ -3166,7 +3166,7 @@
       "explanation_learning": "“Akibat” mengekalkan hubungan bahawa hujan lebat menjadi sebab penangguhan.",
       "explanation_translation": "“Akibat”保留了大雨是延期原因这一关系。",
       "learning_objective_id": "paraphrase-preserve-meaning",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b082",
@@ -3205,7 +3205,7 @@
       "explanation_learning": "Dakwaan perlu disemak melalui sumber yang boleh dikenal pasti dan berwibawa.",
       "explanation_translation": "应通过可识别且权威的来源核实相关说法。",
       "learning_objective_id": "source-evaluation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b083",
@@ -3244,7 +3244,7 @@
       "explanation_learning": "Kaedah dan rujukan yang telus membolehkan pembaca menilai asas sesuatu dapatan.",
       "explanation_translation": "透明的方法和参考资料能让读者评估研究结论的依据。",
       "learning_objective_id": "source-evaluation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b084",
@@ -3283,7 +3283,7 @@
       "explanation_learning": "Bukti yang relevan memberikan asas untuk menilai sama ada dakwaan itu munasabah.",
       "explanation_translation": "相关证据为评估主张是否合理提供依据。",
       "learning_objective_id": "argument-structure",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b085",
@@ -3322,7 +3322,7 @@
       "explanation_learning": "“Khabar baik, terima kasih” ialah jawapan lazim untuk pertanyaan khabar.",
       "explanation_translation": "“Khabar baik, terima kasih”是回应近况询问的常见说法。",
       "learning_objective_id": "greeting-response-to-wellbeing",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b086",
@@ -3361,7 +3361,7 @@
       "explanation_learning": "“Nama saya …” ialah susunan biasa untuk memperkenalkan nama.",
       "explanation_translation": "“Nama saya …”是介绍姓名的常见语序。",
       "learning_objective_id": "name-introduction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b087",
@@ -3400,7 +3400,7 @@
       "explanation_learning": "Ayat penyata mudah lazimnya mengikut susunan subjek, predikat dan objek apabila objek hadir.",
       "explanation_translation": "简单陈述句在有宾语时通常采用主语、谓语／动词、宾语的顺序。",
       "learning_objective_id": "simple-word-order",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b088",
@@ -3439,7 +3439,7 @@
       "explanation_learning": "“Boleh … bantu saya?” ialah permintaan bantuan yang sopan.",
       "explanation_translation": "“Boleh … bantu saya?”是礼貌的求助表达。",
       "learning_objective_id": "polite-help-request",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b089",
@@ -3478,7 +3478,7 @@
       "explanation_learning": "Klinik menyediakan perkhidmatan pemeriksaan dan rawatan kesihatan asas.",
       "explanation_translation": "诊所提供基本的健康检查和治疗服务。",
       "learning_objective_id": "community-service-place",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b090",
@@ -3517,7 +3517,7 @@
       "explanation_learning": "“Kemudian” menunjukkan kegiatan yang berlaku selepas kegiatan sebelumnya.",
       "explanation_translation": "“Kemudian”表示在前一项活动之后发生的活动。",
       "learning_objective_id": "daily-sequence-marker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b091",
@@ -3556,7 +3556,7 @@
       "explanation_learning": "Kata ganti nama pemilik hadir selepas kata nama dalam frasa seperti “adik mereka”.",
       "explanation_translation": "在“adik mereka”这样的短语中，所属代词放在名词之后。",
       "learning_objective_id": "possessive-pronoun-order",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b092",
@@ -3595,7 +3595,7 @@
       "explanation_learning": "“Masam” menerangkan rasa seperti limau atau cuka.",
       "explanation_translation": "“Masam”描述酸橙或醋一类的酸味。",
       "learning_objective_id": "taste-adjective",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b093",
@@ -3634,7 +3634,7 @@
       "explanation_learning": "“Saya gemar …” digunakan untuk menyatakan minat atau kesukaan.",
       "explanation_translation": "“Saya gemar …”用于表达兴趣或喜好。",
       "learning_objective_id": "hobby-preference-expression",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b094",
@@ -3645,35 +3645,35 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Apakah maksud “Ada sebuah meja di ruang tamu”?",
+      "prompt_learning": "Pilih parafrasa yang mengekalkan maksud ayat “Ada sebuah meja di ruang tamu”.",
       "prompt_translation": "“Ada sebuah meja di ruang tamu”是什么意思？",
       "options": [
         {
           "id": "a",
-          "learning_text": "There is a table in the living room.",
+          "learning_text": "Terdapat sebuah meja di ruang tamu.",
           "translation_text": "客厅里有一张桌子。"
         },
         {
           "id": "b",
-          "learning_text": "The table is outside the house.",
+          "learning_text": "Meja itu berada di luar rumah.",
           "translation_text": "桌子在屋外。"
         },
         {
           "id": "c",
-          "learning_text": "Someone is moving the table.",
+          "learning_text": "Seseorang sedang mengalihkan meja itu.",
           "translation_text": "有人正在搬桌子。"
         },
         {
           "id": "d",
-          "learning_text": "The living room is a table.",
+          "learning_text": "Ruang tamu itu ialah sebuah meja.",
           "translation_text": "客厅是一张桌子。"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Ada” menyatakan kewujudan sesuatu di sesuatu tempat.",
-      "explanation_translation": "“Ada”表示某物在某处存在。",
+      "explanation_learning": "Ayat ini menyatakan kewujudan sebuah meja di ruang tamu.",
+      "explanation_translation": "这句话表示客厅里有一张桌子。",
       "learning_objective_id": "existence-with-ada",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b095",
@@ -3712,7 +3712,7 @@
       "explanation_learning": "Huruf “p” pada awal kata dasar gugur apabila menerima awalan meN- lalu terbentuk “memukul”.",
       "explanation_translation": "词根开头的“p”在加 meN- 前缀时脱落，形成“memukul”。",
       "learning_objective_id": "meN-prefix-p-to-m",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b096",
@@ -3751,7 +3751,7 @@
       "explanation_learning": "“Batang” digunakan untuk benda panjang dan berbentuk silinder seperti pensel.",
       "explanation_translation": "“Batang”用于铅笔等细长、近似圆柱形的物品。",
       "learning_objective_id": "classifier-for-long-items",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b097",
@@ -3790,7 +3790,7 @@
       "explanation_learning": "Penggandaan kata nama boleh menandakan bilangan jamak mengikut konteks.",
       "explanation_translation": "名词重叠可根据语境表示复数。",
       "learning_objective_id": "reduplication-plurality",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b098",
@@ -3829,7 +3829,7 @@
       "explanation_learning": "“Sudah” menandakan perbuatan telah berlaku atau selesai.",
       "explanation_translation": "“Sudah”表示动作已经发生或完成。",
       "learning_objective_id": "completed-aspect-marker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b099",
@@ -3868,7 +3868,7 @@
       "explanation_learning": "“Di” menandakan lokasi sesuatu kegiatan berlaku.",
       "explanation_translation": "“Di”表示活动发生的地点。",
       "learning_objective_id": "location-preposition",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b100",
@@ -3907,7 +3907,7 @@
       "explanation_learning": "“Kerana” memperkenalkan sebab bagi sesuatu keadaan atau tindakan.",
       "explanation_translation": "“Kerana”引出某种情况或行动的原因。",
       "learning_objective_id": "cause-conjunction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b101",
@@ -3946,7 +3946,7 @@
       "explanation_learning": "“Paling” digunakan untuk menyatakan darjah tertinggi dalam kumpulan perbandingan.",
       "explanation_translation": "“Paling”用于表示比较范围内的最高程度。",
       "learning_objective_id": "superlative-structure",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b102",
@@ -3962,30 +3962,30 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "somewhat",
-          "translation_text": "有点／相当"
+          "learning_text": "Pada tahap sederhana",
+          "translation_text": "达到中等程度"
         },
         {
           "id": "b",
-          "learning_text": "extremely",
-          "translation_text": "极其"
+          "learning_text": "Pada tahap yang amat tinggi",
+          "translation_text": "达到极高程度"
         },
         {
           "id": "c",
-          "learning_text": "not at all",
-          "translation_text": "一点也不"
+          "learning_text": "Langsung tidak",
+          "translation_text": "完全不"
         },
         {
           "id": "d",
-          "learning_text": "the most",
-          "translation_text": "最"
+          "learning_text": "Pada tahap paling tinggi",
+          "translation_text": "达到最高程度"
         }
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Agak” menunjukkan darjah sederhana, bukan tahap yang paling tinggi.",
       "explanation_translation": "“Agak”表示中等程度，而不是最高强度。",
       "learning_objective_id": "moderate-intensifier",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b103",
@@ -4024,7 +4024,7 @@
       "explanation_learning": "“Tetapi” menghubungkan klausa yang menunjukkan pertentangan.",
       "explanation_translation": "“Tetapi”连接表达转折关系的分句。",
       "learning_objective_id": "contrastive-compound-clause",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b104",
@@ -4063,7 +4063,7 @@
       "explanation_learning": "“Oleh itu” menghubungkan sebab yang dinyatakan dengan kesannya.",
       "explanation_translation": "“Oleh itu”把前述原因与其结果连接起来。",
       "learning_objective_id": "effect-linker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b105",
@@ -4102,7 +4102,7 @@
       "explanation_learning": "“Dengan hormatnya” ialah ungkapan pembuka yang sesuai dalam surat rasmi.",
       "explanation_translation": "“Dengan hormatnya”适合用作正式信件的开头表达。",
       "learning_objective_id": "formal-letter-opening",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b106",
@@ -4141,7 +4141,7 @@
       "explanation_learning": "“Kesimpulannya” menandakan rumusan atau penutup hujah.",
       "explanation_translation": "“Kesimpulannya”表示总结或论述结尾。",
       "learning_objective_id": "concluding-discourse-marker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b107",
@@ -4180,7 +4180,7 @@
       "explanation_learning": "Pilih kata kerja yang tepat dan elakkan pengulangan makna seperti “berbincang bersama-sama”.",
       "explanation_translation": "选择准确的动词，并避免“berbincang bersama-sama”等语义重复的表达。",
       "learning_objective_id": "editing-conciseness",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b108",
@@ -4219,7 +4219,7 @@
       "explanation_learning": "Frasa “oleh pengerusi” memperkenalkan pelaku dalam ayat pasif.",
       "explanation_translation": "“Oleh pengerusi”在被动句中引出动作执行者。",
       "learning_objective_id": "passive-agent-phrase",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b109",
@@ -4258,7 +4258,7 @@
       "explanation_learning": "Pengulangan kata nama yang terkawal boleh memperjelas rujukan dalam wacana.",
       "explanation_translation": "适当地重复名词可以使篇章中的指代更加清楚。",
       "learning_objective_id": "cohesive-repetition-reference",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b110",
@@ -4297,7 +4297,7 @@
       "explanation_learning": "Frasa keterangan di hadapan ayat boleh mempelbagaikan struktur sambil mengekalkan fakta.",
       "explanation_translation": "句首的状语短语可以丰富句式，同时保留事实。",
       "learning_objective_id": "fronted-phrase-variation",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b111",
@@ -4336,7 +4336,7 @@
       "explanation_learning": "Pertukaran ayat aktif kepada ayat pasif boleh mengekalkan makna jika peranan pelaku dan penerima tindakan kekal tepat.",
       "explanation_translation": "只要动作执行者和承受者的关系保持准确，主动句改为被动句仍可保留原意。",
       "learning_objective_id": "active-passive-paraphrase",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b112",
@@ -4375,7 +4375,7 @@
       "explanation_learning": "Perbezaan data perlu dinilai melalui konteks, kaedah dan sumber asal.",
       "explanation_translation": "应结合背景、方法和原始来源评估数据差异。",
       "learning_objective_id": "cross-source-verification",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b113",
@@ -4414,7 +4414,7 @@
       "explanation_learning": "Bukti yang relevan mengukur perkara yang berkait secara langsung dengan dakwaan.",
       "explanation_translation": "相关证据应直接衡量与论点有关的事项。",
       "learning_objective_id": "evidence-relevance",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b114",
@@ -4453,7 +4453,7 @@
       "explanation_learning": "Jawapan yang adil menangani isi hujah, bukan menyerang individu.",
       "explanation_translation": "公平的反驳应针对论点内容，而不是攻击个人。",
       "learning_objective_id": "acknowledge-counterargument",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b115",
@@ -4492,7 +4492,7 @@
       "explanation_learning": "Sumber primer rasmi lebih sesuai untuk mengesahkan kandungan dan tarikh pengumuman asal.",
       "explanation_translation": "官方一手来源更适合核实原始公告的内容和日期。",
       "learning_objective_id": "primary-source-identification",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b116",
@@ -4531,7 +4531,7 @@
       "explanation_learning": "“Seterusnya” menandakan langkah atau perkara yang menyusul.",
       "explanation_translation": "“Seterusnya”表示接下来的步骤或事项。",
       "learning_objective_id": "sequence-cohesion-marker",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b117",
@@ -4570,7 +4570,7 @@
       "explanation_learning": "Klausa sebab boleh diletakkan di hadapan untuk menghasilkan aliran ayat yang jelas.",
       "explanation_translation": "原因分句可以置于句首，使句子衔接更清楚。",
       "learning_objective_id": "clause-combination-for-flow",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b118",
@@ -4609,7 +4609,7 @@
       "explanation_learning": "“Memberikan bantuan” boleh diparafrasa sebagai “membantu” tanpa mengubah maksud utama.",
       "explanation_translation": "“Memberikan bantuan”可以改写为“membantu”，而不改变主要意思。",
       "learning_objective_id": "lexical-paraphrase",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b119",
@@ -4648,7 +4648,7 @@
       "explanation_learning": "Penilaian seperti “paling menarik” bergantung pada pandangan, manakala tiga pernyataan lain boleh disemak melalui rekod atau pemerhatian.",
       "explanation_translation": "“最有趣”这类评价取决于个人观点，而其他陈述可以通过记录或观察核实。",
       "learning_objective_id": "fact-opinion-distinction",
-      "release_approved": false
+      "release_approved": true
     },
     {
       "question_id": "quiz-ms-zh-b120",
@@ -4687,7 +4687,13 @@
       "explanation_learning": "Hujah yang jelas menghubungkan dakwaan dengan alasan serta bukti yang menyokongnya.",
       "explanation_translation": "清晰的论证会将主张与理由及支持证据联系起来。",
       "learning_objective_id": "claim-reason-evidence",
-      "release_approved": false
+      "release_approved": true
     }
-  ]
+  ],
+  "staging_release": {
+    "status": "owner_authorized_staging_only",
+    "human_linguistic_review": "deferred",
+    "production_release": false,
+    "reviewed_at": "2026-11-27"
+  }
 }
