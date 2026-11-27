@@ -25,7 +25,7 @@ Each lesson contains multilingual topic/title/summary support, at least two expl
 
 ## Daily Learning inventory checkpoint
 
-The Malay Daily Learning data currently contains **99 authored activity records**: 3 Daily Topics, 3 Daily Applications and 93 Daily Discovery entries. Daily Revision is an adaptive category driven by learner progress/weak areas, not a fixed catalogue of authored records; it is not included in the 99. Batch 08 adds permanent Lessons only and does not change the Daily Learning inventory.
+The Malay Daily Learning data currently contains **99 content records** in the Daily Learning data inventory: 3 authored Daily Topics, 3 authored Daily Applications and 93 Daily Discovery entries generated from the first 93 Malay dictionary records. Daily Revision is an adaptive category driven by learner progress/weak areas, not a fixed catalogue of authored records; it is not included in the 99. Batch 08 adds permanent Lessons only and does not change the Daily Learning inventory.
 
 ## Validation
 
