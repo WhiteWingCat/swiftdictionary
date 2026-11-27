@@ -46,6 +46,9 @@ test("Malay Quiz runtime migration keeps answers private and reuses authenticate
  assert.match(sql,/pg_advisory_xact_lock/);
  assert.match(sql,/quiz_daily_question_reservations/);
  assert.match(sql,/private\.quiz_session_payload\(v_session,false\)/);
+ assert.match(sql,/quiz_question_bank_answer_language_code_check[\s\S]*?ms/);
+ assert.match(sql,/quiz_session_questions_learning_language_code_snapshot_check[\s\S]*?ms/);
+ assert.match(sql,/quiz_session_questions_answer_language_code_snapshot_check[\s\S]*?ms/);
  assert.match(sql,/public\.get_my_quiz_availability/);
  assert.match(sql,/public\.start_my_quiz/);
  assert.match(sql,/revoke all on function private\.start_my_malay_quiz_impl/);
