@@ -4646,17 +4646,31 @@ No DBP/PRPM/Kamus Dewan protected text was copied or scraped. Malaysia PDPA and 
 **Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
 
 
-## 19. Update 3.0 Phase 2 — editorial review preparation (2026-11-27)
+## 19. Update 3.0 Phase 2 — editorial review preparation and revised review timing (2026-11-27)
 
-Following the Batch 08 closeout checkpoint, the next permitted work is human-review preparation. Phase 2 remains open; Phase 3 implementation remains gated until the editorial, translation, source/provenance and rights exit evidence is complete.
-
-A 650-row headword review worksheet has been generated from the application branch package `data/languages/malay-dictionary.js` on `feature/update-3.0-phase-0-audit`. The generation inventory verified **650 unique stable entry IDs and 650 unique normalised headwords** before writing the CSV. The worksheet tracks Malaysian Standard Malay spelling, POS, all senses and examples, search/morphology, English and Simplified Chinese translation review, source verification, rights clearance, specialist review, reviewer identity/date, decision and notes.
+A 650-row headword review worksheet was generated from `data/languages/malay-dictionary.js` on `feature/update-3.0-phase-0-audit`. The generation inventory verified **650 unique stable entry IDs and 650 unique normalised headwords**. The worksheet tracks Malaysian Standard Malay spelling, POS, every sense and example, search/morphology, English and Simplified Chinese translation review, source verification, rights clearance, specialist review, reviewer identity/date, decision and notes.
 
 - **Worksheet:** [Malay Dictionary editorial review CSV](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/review/malay-dictionary-editorial-review-worksheet.csv).
 - **Instructions:** [Malay Dictionary editorial review guide](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/review/README.md).
 
-The total inventory remains 650 headwords, 672 senses and 1,344 machine-assisted English/Simplified Chinese translation records. The worksheet has one row per headword; the reviewer must inspect every sense and both translation records under that entry before marking it reviewed. All reviewer IDs, dates, sources, rights decisions and approval states must be supplied only by actual human reviewers. Empty `sourcesConsulted` metadata and pending rights status require explicit resolution or quarantine. Consulting a reference does not grant a licence to reproduce its text.
+The total inventory remains 650 headwords, 672 senses and 1,344 machine-assisted English/Simplified Chinese translation records. The worksheet has one row per headword; every sense and both translation records under that entry must be inspected. No reviewer IDs, dates, sources, rights decisions or approval states may be fabricated.
 
-This is preparation only. No entry or translation has been human-approved by this action. No Malay activation, Supabase schema/data/Auth/RLS change or migration, Phase 3 implementation, staging preview, production merge or deployment occurred. Malaysia PDPA and international privacy/legal review remain required before public launch.
+**Owner correction — review timing:** Human Malaysian Standard Malay linguistic review and independent English/Simplified Chinese translation review will be conducted during the staging review, after Phase 3 is implemented and internally validated. They are no longer a prerequisite to beginning Phase 3. The worksheet remains pending and all content/translation records remain draft until actual review is completed. Source/provenance and rights clearance remain mandatory before public activation; unresolved or unlicensed material must be corrected or excluded.
+
+No Malay production activation, Supabase schema/data/Auth/RLS change or migration, staging handoff, production merge or deployment occurred in this preparation step. Malaysia PDPA and international privacy/legal review remain required before public launch.
 
 **Plan:** [Update 3.0 Development Plan](UPDATE-3.0-DEVELOPMENT-PLAN.md).
+
+## 20. Update 3.0 Phase 3 — Malay learning foundation authorised (2026-11-27)
+
+The owner explicitly authorised Phase 3 to proceed before human linguistic review. The development sequence is now: implement Malay Lessons and Daily Learning; complete internal validation; provide the isolated staging preview; then conduct the owner's human review of Malay Dictionary entries, English/Simplified Chinese translations and learning content using the worksheet. No draft may be labelled reviewed or approved before that review.
+
+Phase 3 scope:
+- Independently authored Malay Lessons across Beginner, Intermediate and Advanced, with lesson reader, practice, feedback, stable IDs, independent course/difficulty progress and selected support-language behaviour.
+- All four Daily Learning categories: Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision.
+- Reuse the existing shared daily allowance categories, local-midnight reset and completion-only charging. Do not create Malay-specific allowance buckets.
+- Preserve English and Simplified Chinese functionality, progress, history, account isolation and existing allowance ledgers.
+- Fill-in-the-Blank remains Update 3.1; Quiz and Flashcards remain later U3.0 phases.
+
+The feature branch remains `feature/update-3.0-phase-0-audit`; documentation remains on `docs/master-development-record`. Phase 3 staging is not authorised until internal implementation and regression checks are complete. No production database, Auth/RLS, main merge or deployment change is authorised.
+
