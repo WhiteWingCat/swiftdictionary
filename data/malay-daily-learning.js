@@ -32,9 +32,7 @@ window.SWIFT_MALAY_DAILY_LEARNING = {
 (() => {
   const daily = window.SWIFT_MALAY_DAILY_LEARNING;
   const dictionary = window.SWIFT_MALAY_DICTIONARY || [];
-  const existing = daily.discovery || [];
-  const needed = Math.max(0, 93 - existing.length);
-  const derived = dictionary.slice(0, needed).map((entry, index) => ({
+  const derived = dictionary.slice(0, 93).map((entry, index) => ({
     id: "ms-discovery-dict-" + entry.id.replace(/^ms\.dict\./, ""),
     topicId: entry.categories?.[0] || "ms-vocabulary",
     difficulty: ["beginner","intermediate","advanced"][index % 3],
@@ -49,5 +47,5 @@ window.SWIFT_MALAY_DAILY_LEARNING = {
     zh: entry.definitionZh,
     examples: (entry.examples || []).slice(0, 2)
   }));
-  daily.discovery = existing.concat(derived);
+  daily.discovery = derived;
 })();
