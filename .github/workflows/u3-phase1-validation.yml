@@ -57,6 +57,7 @@ jobs:
           node --check data/languages/malay-dictionary.js
           node --check data/malay-lessons.js
           node --check data/malay-lessons-expansion-02.js
+          node --check data/malay-lessons-expansion-03.js
           node --check data/malay-daily-learning.js
           node --check daily-learning.js
           node --check scripts/content/validation-core.mjs
