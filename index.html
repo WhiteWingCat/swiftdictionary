@@ -1017,6 +1017,7 @@
   <script src="js/core/dictionary-translation-overlay.js?v=3.0.0"></script>
   <script src="data/languages/english-lessons.js?v=3.0.0"></script>
   <script src="data/languages/malay-lesson-translations.js?v=3.0.0-ms1"></script>
+  <script src="data/languages/malay-learning-support-translations.js?v=3.0.0-ms1"></script>
   <script>
     // Starter vocabulary. Add more entries by following this same object structure.
     const englishWords = window.SWIFT_ENGLISH_BASE_DICTIONARY;
@@ -2078,6 +2079,7 @@
     const lessonData=window.SWIFT_ENGLISH_LESSONS;
     const lessonZh=window.SWIFT_ENGLISH_LESSON_TRANSLATIONS;
     const lessonMs=window.SWIFT_LESSON_TRANSLATIONS_MS||{en:{},zh:{}};
+    const lessonMsPractice=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.lessons||{};
     const lessonMsRecord=x=>lessonMs[isChineseCourse()?"zh":"en"]?.[x.id]||null;
     const lessonMsTextLookup=new Map();
     function indexLessonSupportText(source,support){
@@ -2138,7 +2140,7 @@ function lessonPractice(x){
   const support=translationLanguage==="zh"&&!isChineseCourse()&&!isMalayCourse()
     ?lessonZh[x.id]?.practices
     :translationLanguage==="ms"&&!isMalayCourse()
-      ?lessonMsRecord(x)?.practices
+      ?lessonMsPractice[isChineseCourse()?"zh":"en"]?.[x.id]
       :null;
   const orders=ls.practiceOptionOrders?.[x.id];
   return src.map((q,i)=>{
@@ -3340,14 +3342,19 @@ async function completeLesson(x){
     let quizPageState = { loaded:false, loading:false, userId:null, availability:null, session:null, sessionView:false, result:null, history:[], historyPage:0, saving:false, selectedReviewId:null, returnPage:"quiz" };
     const quizEl = id => document.getElementById(id);
     const quizDifficultyLabels = {beginner:"Beginner",intermediate:"Intermediate",advanced:"Advanced"};
+    const quizMalaySupport=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.quiz||{};
+    function quizMalayQuestion(q,learningCode){return quizMalaySupport[learningCode||"en"]?.[q?.question_id]||null;}
+    function quizMalayOption(q,option,learningCode){const row=quizMalayQuestion(q,learningCode)?.options?.[option?.id];return q?.question_type==="chinese_translation"?(row?.translation||""):(row?.learning||"");}
     function quizEscape(value){return escapeHTML(value == null ? "" : String(value));}
-    function quizTranslationVisible(code){return code === "zh" || code === "en";}
+    function quizTranslationVisible(code){return code === "zh" || code === "en" || code === "ms";}
     function quizEffectiveTranslationCode(snapshot){
       const learningCode=snapshot?.learning_language_code||"en";
       const savedTranslation=snapshot?.translation_language_code||"en";
-      // The learning-language text is always present. A different translation
-      // is available only when it matches the frozen session snapshot.
       if(translationLanguage===learningCode)return learningCode;
+      if(translationLanguage==="ms"){
+        const questions=Array.isArray(snapshot?.questions)?snapshot.questions:[];
+        if(questions.length&&questions.every(q=>quizMalayQuestion(q,learningCode)))return "ms";
+      }
       if(translationLanguage===savedTranslation)return translationLanguage;
       return savedTranslation;
     }
