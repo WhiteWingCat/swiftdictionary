@@ -192,6 +192,17 @@ test("English Flashcards include the curated multiword expression bank",async({p
   expect(stats.englishCuratedPhraseCount).toBe(25);
 });
 
+test("Malay Flashcard course and support-language content are loaded",async({page})=>{
+  await openMockFlashcards(page);
+  const stats=await page.evaluate(()=>window.SwiftDictionaryFlashcards.contentStats);
+  expect(stats.malayDictionaryEntryCount).toBe(650);
+  expect(stats.malaySupportEnglishCount).toBe(73);
+  expect(stats.malaySupportChineseCount).toBe(124);
+  await page.locator("#courseSelect").selectOption("ms");
+  await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
+  await expect(page.locator("#translationSelect")).toHaveValue("en");
+  await expect(page.locator("#translationSelect option[value='ms']")).toBeDisabled();
+});
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
   const modes=await page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode));
