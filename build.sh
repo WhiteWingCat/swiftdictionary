@@ -36,8 +36,25 @@ if [[ -f index.html ]]; then
   fi
 fi
 
-: "${SWIFT_SUPABASE_URL:?Set SWIFT_SUPABASE_URL in the matching Cloudflare Pages environment}"
-: "${SWIFT_SUPABASE_PUBLISHABLE_KEY:?Set SWIFT_SUPABASE_PUBLISHABLE_KEY in the matching Cloudflare Pages environment}"
+if [[ "$branch" == "main" ]]; then
+  : "${SWIFT_SUPABASE_URL:?Set SWIFT_SUPABASE_URL in the production Cloudflare Pages environment}"
+  : "${SWIFT_SUPABASE_PUBLISHABLE_KEY:?Set SWIFT_SUPABASE_PUBLISHABLE_KEY in the production Cloudflare Pages environment}"
+else
+  # Preview builds use the checked-in staging publishable key when optional
+  # Cloudflare environment variables are absent. This is a public client key,
+  # never a service-role secret. Production remains fail-closed.
+  checked_in_preview_key="$(sed -n 's/.*anonKey: "\(sb_publishable_[^"]*\)".*/\1/p' supabase-config.js | head -n1)"
+  if [[ -z "$checked_in_preview_key" ]]; then
+    echo "ERROR: No staging publishable key is available in the checked-in Supabase config." >&2
+    exit 1
+  fi
+  SWIFT_SUPABASE_URL="${SWIFT_SUPABASE_URL:-$expected_url}"
+  if [[ -n "${SWIFT_SUPABASE_PUBLISHABLE_KEY:-}" && "$SWIFT_SUPABASE_PUBLISHABLE_KEY" != "$checked_in_preview_key" ]]; then
+    echo "ERROR: Preview key does not match the checked-in staging publishable key." >&2
+    exit 1
+  fi
+  SWIFT_SUPABASE_PUBLISHABLE_KEY="$checked_in_preview_key"
+fi
 
 if [[ "$SWIFT_SUPABASE_URL" != "$expected_url" ]]; then
   echo "ERROR: $environment_name deployment expected $expected_url but received a different Supabase URL." >&2
