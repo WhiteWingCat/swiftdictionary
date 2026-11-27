@@ -2291,17 +2291,17 @@
         {
           "id": "b",
           "learning_text": "mensapu",
-          "translation_text": "错误形式"
+          "translation_text": "错误形式：保留词根开头的 s"
         },
         {
           "id": "c",
           "learning_text": "memsapu",
-          "translation_text": "错误形式"
+          "translation_text": "错误形式：多加 m"
         },
         {
           "id": "d",
           "learning_text": "mengsapu",
-          "translation_text": "错误形式"
+          "translation_text": "错误形式：多加 ng"
         }
       ],
       "correct_option_id": "a",
