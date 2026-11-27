@@ -108,3 +108,8 @@ The content is suitable for owner staging feedback only. Before production relea
 - Obtain separate explicit production migration/deployment approval.
 
 PR #20 remains draft/unmerged. No production migration, production database mutation, merge or deployment is authorised.
+
+
+### Latest-head regression follow-up
+
+After updating the Flashcards cache version to ms13 and aligning the two legacy assertions, the latest reruns passed Flashcards static + Chromium (45985581267), U3.0 architecture/content/adapter parity (45985581304), U2.9 English Dictionary QA (45985581089), U2.7 Chinese static/Chromium + PostgreSQL (45985581114), and Cloudflare build routing (45985581075). U2.3 PostgreSQL passed while its Auth and Chromium jobs continue (45985581111); U2.6 ACL PostgreSQL remains in progress (45985581145); Quiz DB foundation passed while local Auth/RPC/Chromium integration continues (45985581079).
