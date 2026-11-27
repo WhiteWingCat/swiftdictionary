@@ -24,6 +24,7 @@
       translations:{
         ...(sense.translations || {}),
         ...(sense.definitionZh || entry.definitionZh ? { zh:sense.definitionZh || entry.definitionZh } : {}),
+        ...(sense.definitionMs || entry.definitionMs ? { ms:sense.definitionMs || entry.definitionMs } : {}),
         ...(sense.definitionEn || entry.definitionEn ? { en:sense.definitionEn || entry.definitionEn } : {})
       },
       examples:Array.isArray(sense.examples) ? sense.examples : (Array.isArray(entry.examples) ? entry.examples : [])
@@ -45,7 +46,7 @@
     const output = [];
     for (const entry of entries) {
       for (const sense of entry.senses || []) {
-        for (const targetLanguageCode of ["en","zh"]) {
+        for (const targetLanguageCode of ["en","zh","ms"]) {
           if (targetLanguageCode === sourceLanguageCode) continue;
           const translatedText = sense.translations?.[targetLanguageCode];
           if (!translatedText) continue;
