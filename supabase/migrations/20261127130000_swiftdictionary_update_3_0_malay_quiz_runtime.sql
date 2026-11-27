@@ -546,12 +546,6 @@ begin
     'beginner',v_selected_b,'intermediate',v_selected_i,'advanced',v_selected_a
   );
 
-  -- Preserve the existing Quiz allowance contract: Quiz attempts consume
-  -- allowance when a session starts, not when it is submitted. The trigger
-  -- uses the server-owned plan and timezone and rolls back with this transaction.
-  insert into public.learning_activity_log(user_id,activity_type,language_code,event_type)
-  values(v_user,'quiz','ms','started');
-
   insert into private.quiz_sessions(
     user_id,difficulty,learning_language_code,translation_language_code,
     question_count,source_composition,local_date,timezone
