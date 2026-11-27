@@ -923,3 +923,8 @@ The local Supabase workflow passed the Malay runtime migration, authenticated Ma
 ### Malay Quiz bank target and next authoring batches
 
 The current bank contains 16 questions per difficulty in each support-language pair. The existing runtime minimums are 30 Beginner, 24 Intermediate plus 16 Beginner, and 32 Advanced plus 8 Intermediate and 8 Beginner. The current 16/16/16 bank therefore remains below every difficulty's minimum, so `capabilities.quiz` correctly remains false. To reach the preferred target counts (36 Beginner, 36 Intermediate, 48 Advanced) while keeping the owner's 36-question batch size, the next two batches should each contain 10 Beginner, 10 Intermediate and 16 Advanced questions per support-language pair. That would bring the bank to 36/36/48 per pair. All content remains draft until the owner's staging review and linguistic approval.
+
+
+### Latest cross-version CI checkpoint — 2026-11-27
+
+On feature head `2e494543821a1489d5d63f5adb20a5489c2bc35c`, U3.0 Phase 1 architecture regression and Cloudflare build-routing guard passed. Cross-version U2.3 allowance/dashboard, U2.5 Flashcards, U2.6 ACL drift, U2.7 Chinese Dictionary and U2.9 English Dictionary workflows also passed. The Quiz DB local Supabase job has passed its migration, Malay authenticated runtime, draft import and release-export steps; the corrected Chromium browser test is still running. Run: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45962234350.
