@@ -375,8 +375,8 @@ This is an automated validation checkpoint only. It does **not** constitute comp
 
 The owner directed work to proceed after the Batch 08 checkpoint. Phase 2 remains open because human Malaysian Standard Malay editorial review, independent English/Simplified Chinese translation review, source verification and item-level rights clearance cannot be claimed by automated checks. To make that review actionable, a 650-row headword worksheet was generated from the current `data/languages/malay-dictionary.js` package, using stable entry IDs and the canonical headwords. The inventory was checked for 650 unique entry IDs and 650 unique normalized headwords before export. The worksheet tracks Malay spelling/POS/definitions/examples/search morphology, both support-language reviews, source verification, rights clearance, specialist review, reviewer identity, date, decision and notes.
 
-**Worksheet:** [Malay Dictionary editorial review CSV](../feature/update-3.0-phase-0-audit/docs/review/malay-dictionary-editorial-review-worksheet.csv).  
-**Instructions:** [Malay Dictionary editorial review guide](../feature/update-3.0-phase-0-audit/docs/review/README.md).
+**Worksheet:** [Malay Dictionary editorial review CSV](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/review/malay-dictionary-editorial-review-worksheet.csv).  
+**Instructions:** [Malay Dictionary editorial review guide](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/review/README.md).
 
 The worksheet is a human-review tracker, not a quality certificate. Each of the 672 senses and its 1,344 translation records must be inspected under its parent entry before that entry can be marked reviewed. Empty `sourcesConsulted` metadata and pending rights status must be resolved or explicitly quarantined; a source consulted for verification does not grant reuse rights. Reviewer IDs/dates/approval states must only be filled by actual reviewers.
 
