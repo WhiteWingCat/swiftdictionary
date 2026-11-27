@@ -13,10 +13,10 @@ for(const relative of files){
  const target=relative.includes("-en.")?"en":"zh";
  if(pack.schema_version!==1||pack.status!=="draft"||pack.editorial_status!=="draft")errors.push(relative+": pack must remain draft");
  if(pack.learning_language_code!=="ms"||pack.translation_language_code!==target)errors.push(relative+": invalid language pair");
- if(pack.questions?.length!==84)errors.push(relative+": expected 84 cumulative questions");
+ if(pack.questions?.length!==120)errors.push(relative+": expected 120 cumulative questions");
  const seen=new Set(),prompts=new Set();
  const counts={beginner:0,intermediate:0,advanced:0};
- const batchOne={beginner:0,intermediate:0,advanced:0};\n const batchTwo={beginner:0,intermediate:0,advanced:0};\n const batchThree={beginner:0,intermediate:0,advanced:0};
+ const batchOne={beginner:0,intermediate:0,advanced:0};\n const batchTwo={beginner:0,intermediate:0,advanced:0};\n const batchThree={beginner:0,intermediate:0,advanced:0};\n const batchFour={beginner:0,intermediate:0,advanced:0};
  for(const [i,q] of (pack.questions||[]).entries()){
   const at=relative+" questions["+i+"]";
   for(const key of ["question_id","source_lesson_id","topic_id","difficulty","prompt_learning","prompt_translation","explanation_learning","explanation_translation","learning_objective_id"])if(typeof q[key]!=="string"||!q[key].trim())errors.push(at+": missing "+key);
@@ -53,7 +53,7 @@ for(const relative of files){
  packs.push(pack);
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-const summary="Malay Quiz draft validated: 84 questions per support language; batch 03 adds 36 (10 Beginner, 10 Intermediate, 16 Advanced); all remain draft.";
+const summary="Malay Quiz draft validated: 120 questions per support language; batches 03 and 04 each add 36 (10 Beginner, 10 Intermediate, 16 Advanced); all remain draft.";
 if(emitSql)console.error(summary);else console.log(summary);
 
 if(emitSql){
