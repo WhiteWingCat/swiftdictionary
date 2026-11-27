@@ -66,3 +66,10 @@ The Malay manifest deliberately retains `capabilities.quiz:false`; the course is
 - **Scope:** The project is intended as a free personal learning service, but applicability and obligations should be checked against actual operations, hosting, processing and any future commercial activity. This is planning guidance, not a legal opinion.
 
 No production deployment, migration, release approval or merge was performed.
+
+
+### Updated content-import and CI checkpoint — 2026-11-27
+
+The draft-import assertion was updated from 96 to 240 records (120 per support-language pair), with exact per-difficulty targets of 36 Beginner, 36 Intermediate and 48 Advanced. On application head `06778339a692d0a1f9818b8d62aebdfd0b623f39`, the PostgreSQL Quiz foundation job passed: application syntax/Quiz frontend validation, Malay validator, 240-record draft import assertions, and existing Quiz RPC/session/allowance tests all succeeded. The full disposable local Supabase Auth/RPC/browser/security job is still running; U3.0 architecture, Cloudflare routing and cross-version jobs remain pending/in progress. Do not claim complete latest-head acceptance until those workflows finish.
+
+The connected staging database was queried directly: no migration record exists for the Malay Quiz runtime migration. No connected staging or production migration was applied. PR #20 remains draft and unmerged.
