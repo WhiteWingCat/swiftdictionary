@@ -41,7 +41,7 @@ begin
     or v_availability->>'translation_language_code'<>'en' then
    raise exception 'Actual Malay→English availability routing failed: %',v_availability;
  end if;
- if exists(select 1 from jsonb_array_elements(v_availability->'difficulties') d where not coalesce((d->>'available')::boolean,false)) then
+ if exists(select 1 from jsonb_array_elements(v_availability->'difficulties') as x(value) where not coalesce((value->>'available')::boolean,false)) then
    raise exception 'Actual Malay→English bank should meet availability for all three difficulties: %',v_availability;
  end if;
  v_session:=public.start_my_quiz('beginner','ms','en');
@@ -60,7 +60,7 @@ begin
       or v_question->>'prompt_translation' ~ '[一-龥]' then
      raise exception 'Actual Malay→English prompt language or question source is invalid: %',v_question;
    end if;
-   if exists(select 1 from jsonb_array_elements(v_question->'options') o where o->>'learning_text'=o->>'translation_text') then
+   if exists(select 1 from jsonb_array_elements(v_question->'options') as x(value) where value->>'learning_text'=value->>'translation_text') then
      raise exception 'Actual Malay→English question has identical learning and support option text: %',v_question;
    end if;
  end loop;
