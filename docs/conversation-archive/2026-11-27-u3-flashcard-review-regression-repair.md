@@ -52,3 +52,12 @@ The Flashcard review regression is repaired at code/database level, but full lat
 - Staging Google OAuth preview redirect and the staging leaked-password protection setting remain to be checked before public launch.
 
 Do not mark U3.0 complete or production-ready based on this repair. Continue with the remaining translation coverage and the full cross-version regression matrix. Keep machine-assisted Malay content as editorial drafts pending competent Malaysian Standard Malay review. Preserve source provenance and exact model licences; complete Malaysia Copyright Act 1987 and PDPA 2010/2024-amendment/cross-border processing review with qualified counsel before public release.
+
+
+## Deployment verification update
+
+Cloudflare Pages subsequently reported the latest application commit `cfa7c51cdb3cd0fc1e612364e993e7ccf7c7d0a6` as **successfully deployed**:
+- Commit-specific preview: https://23d873a0.swiftdictionary.pages.dev
+- Stable branch preview: https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev
+
+The Pages build/deployment is verified. Authenticated end-to-end browser regression of the new review flow is still pending; the successful Pages build is not evidence that the user-facing review path has passed.
