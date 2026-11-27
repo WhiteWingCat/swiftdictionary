@@ -409,3 +409,18 @@ Automated evidence: U3.0 architecture/adapter/content regression passed **45/45 
 **Database blocker:** existing U2.7/U2.8 SQL contains `en`/`zh`-only lesson progress/result constraints, lesson insert/completion guards and an approved-content catalogue. The nine Malay lesson identities are not seeded in that catalogue. Daily session language registry compatibility also requires environment-specific verification. The detailed assessment is [U3.0 Phase 3 Database Impact](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/U3.0-PHASE-3-DATABASE-IMPACT.md). No migration was added to the active migration directory or applied to staging/production. A separate owner approval is required before any staging database migration.
 
 **Phase 3 remains in progress.** Remaining work includes expanding the lesson and daily content bank, completing integration and browser/device tests, designing and reviewing a safe staging-only content release/migration path, and validating existing-language progress/allowance regressions. No staging preview, production activation, main merge or deployment has occurred.
+
+
+## Phase 3 Malay Lessons expansion — Batch 02 (2026-11-27)
+
+Added 9 further original draft lessons in `data/malay-lessons-expansion-02.js`, bringing the permanent Malay curriculum to **18 lessons (6 Beginner, 6 Intermediate, 6 Advanced)**.
+
+New Beginner topics: daily routines; telling time and days; polite food ordering.  
+New Intermediate topics: ongoing/completed/future aspect markers; prepositions for location, direction and recipients; conjunctions and logical relationships.  
+New Advanced topics: active/passive constructions (including first/second-person passive patterns); discourse cohesion and reference; reasoned arguments, evidence, and fact/opinion distinctions.
+
+The expansion is loaded after the base Malay lesson file and before the shared content bootstrap. The manifest and automated content tests now reflect 18 lessons. All lesson content and English/Simplified Chinese support strings remain draft; owner review is planned during staging review.
+
+Automated U3.0 architecture/adapter/content regression passed **45/45 tests** on commit `9ee2d59b77e1ac9ded2e4ffa205ee9bbfdb79ac3` ([workflow 45932215643](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932215643)). This is structural/content-contract validation, not human language review or browser/device acceptance.
+
+Phase 3 remains in progress. No staging preview, database migration, production activation, main merge or deployment has occurred.
