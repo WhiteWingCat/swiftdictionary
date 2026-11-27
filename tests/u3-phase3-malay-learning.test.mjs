@@ -38,7 +38,7 @@ test("Malay is enabled only for the Phase 3 feature scope",()=>{
 
 test("Malay Lessons has independently authored draft content at all three levels",()=>{
   for(const level of ["beginner","intermediate","advanced"]){
-    assert.equal(lessons[level].length,15);
+    assert.equal(lessons[level].length,18);
     for(const lesson of lessons[level]){
       assert.match(lesson.id,/^ms-[bia]-/);
       assert.ok(lesson.topic_id);
@@ -60,11 +60,11 @@ test("Malay Lessons has independently authored draft content at all three levels
   }
   assert.equal(lessons.editorialStatus,"draft");
   assert.equal(lessons.translationStatus,"machine_assisted_draft");
-  assert.equal(lessons.contentVersion,"u3-ms-lessons-0.5.0");
-  assert.equal(lessons.expansionBatches.reduce((sum,batch)=>sum+batch.added,0),36);
+  assert.equal(lessons.contentVersion,"u3-ms-lessons-0.6.0");
+  assert.equal(lessons.expansionBatches.reduce((sum,batch)=>sum+batch.added,0),45);
   const ids=["beginner","intermediate","advanced"].flatMap(level=>lessons[level].map(x=>x.id));
-  assert.equal(ids.length,45);
-  assert.equal(new Set(ids).size,45);
+  assert.equal(ids.length,54);
+  assert.equal(new Set(ids).size,54);
 });
 
 test("Malay Daily Learning includes all four shared activity categories",()=>{
