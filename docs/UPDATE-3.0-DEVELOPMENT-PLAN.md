@@ -768,3 +768,53 @@ The feature branch uses the staging Supabase configuration for `.pages.dev` prev
 Staging Google OAuth has not been independently verified for this preview host. If sign-in is rejected, the staging Supabase Google provider's redirect allowlist must include the preview host before account-backed Dashboard and Collections acceptance can be completed.
 
 **Release state:** dictionary translation coverage is complete as machine-assisted drafts; the three Malay UI bugs are implemented; final CI approval, latest preview publication confirmation, staging OAuth verification and owner desktop/mobile linguistic review remain open. Do not merge PR #20 or deploy production without separate approval.
+
+
+## 2026-11-27 — Staging review corrections and Malay Quiz workstream
+
+### Owner staging feedback
+
+The owner tested the current Phase 3 staging preview and reported the following defects. These are now tracked as required U3.0 staging corrections:
+
+1. **Malay Dictionary support-language selector:** when Malay is the learning course, Malay itself must not be offered as its own support language, but the Malay option must remain enabled when studying English or Simplified Chinese once the corresponding full Dictionary translation corpus is available. Malay-course support choices remain English and Simplified Chinese. Keep this course/target distinction explicit and test it independently from the Dictionary course selector.
+2. **Daily Application answer option rendering:** some activities visibly render the literal placeholder `[option option]` instead of the actual answer choices. Audit every Malay Daily Application record against the shared Daily Learning renderer's option contract; normalise legacy string options and structured multilingual option objects through one safe adapter. Never expose a placeholder or stringify an object as learner-facing text. Add regression fixtures for both supported source shapes.
+3. **Malay permanent Lesson history:** completions made in the Malay course must be discoverable in Daily History under the permanent Lessons group. Trace completion event creation, activity type/category filtering, language-code matching and lesson-title resolution. Preserve historical English/Chinese records and do not duplicate completions.
+4. **Learning progress language label:** resolve registered language code `ms` to the display name “Malay” (and native name where appropriate), rather than exposing the raw code in Profile/progress summaries. Use the language registry for all registered language labels.
+5. **Quiz navigation placeholder:** changing navigation while Malay is selected can show the stale “Chinese Quiz is coming soon” message even though Chinese Quiz is implemented. The Quiz unavailable state must be derived from the current course's registered capability and reset on every course/navigation render. It must never reuse a stale course-specific heading or hide an implemented language's Quiz.
+
+### Malay Quiz — begin implementation within U3.0
+
+Malay Quiz is now an active U3.0 workstream, reusing the existing shared Quiz engine, session lifecycle, secure server-side evaluation, history and allowance ledger. It is not a separate Quiz product or a Malay-only frontend.
+
+**Product behaviour inherited from the approved Quiz specification:**
+- Beginner / Intermediate / Advanced sessions contain 10 / 15 / 20 questions.
+- Beginner draws only from Beginner content; Intermediate uses the approved Beginner/Intermediate mix; Advanced uses the approved Advanced/Intermediate/optional Beginner mix.
+- Multiple choice only; no timer, countdown, pass/fail threshold or time pressure.
+- Choices and question order are randomised once at session creation and remain stable on resume.
+- Learners can navigate and change answers before submission; correct answers and explanations remain hidden until submission.
+- Unfinished sessions persist; explicit abandonment consumes no allowance; only successful submission consumes a Quiz completion allowance.
+- Results include score, percentage, per-question review and topic-level insights. Completed sessions are immutable and reviewable.
+- Existing Free/Premium allowance policy, timezone reset, account isolation, and deletion semantics remain unchanged. Do not create Malay-specific allowance buckets or change entitlement limits as part of this work.
+
+**Malay-specific content and translation behaviour:**
+- Malay is the learning/answer language; English and Simplified Chinese are support/translation languages selected using the existing preference.
+- Author an independent Malay Quiz question bank mapped to the 72 Malay permanent lessons and their objectives. Do not copy Lesson practice questions one-to-one.
+- Each question and each answer choice must have complete Malay source text plus English and Simplified Chinese support text where the selector offers those languages. Keep content and translations explicitly draft until owner review.
+- Validate four unique, meaningful options, exactly one correct option, lesson/objective/topic references, difficulty coverage and duplicate prompts/distractors. No placeholder option values are permitted.
+- Keep correct-option identity and answer keys private/server-only. Do not put the answer key in a browser-readable question-bank file or expose it through a client API.
+- Start with a small independently validated authoring batch, then expand in sequential batches; do not issue intermediate ZIPs.
+
+**Required technical sequence:**
+1. Fix and test the five staging defects against the existing shared architecture.
+2. Audit current Quiz UI, question-bank schemas, private catalogue, language constraints, authenticated RPCs, allowance trigger, history deletion and existing en/zh browser/database tests.
+3. Add `ms` to Quiz capability only when the complete Malay Quiz runtime and secure backend path are ready. Do not simply toggle the capability flag before the database accepts and validates Malay sessions.
+4. Prepare additive staging-only database changes to permit `ms` in Quiz question/session snapshots and catalogue records, and update server-side RPC validation to require an active registered language and an approved Malay question bank. Preserve en/zh behavior, private answer-key isolation, ownership checks, least privilege and immutable snapshots.
+5. Add the Malay curriculum map and draft question bank, validators, SQL import assertions and Playwright coverage for all three difficulties, both support languages, resume, answer randomisation, submission, review, abandonment and allowance accounting.
+6. Apply any database migration only after a separate staging schema diff, SQL review and explicit owner approval. Production remains untouched.
+7. Run U3.0 and cross-version regressions, verify Cloudflare preview commit and staging OAuth, then provide an updated staging preview for owner review. Keep PR #20 staging-only, draft and unmerged; no production merge/deployment is authorised.
+
+### Legal, privacy and content review
+
+The new Quiz content must be original SwiftDictionary-authored material. Do not copy DBP/PRPM/Kamus Dewan or third-party question banks, exercises, answer explanations or translations. Record authorship/provenance and translation status per item. Existing Quiz infrastructure stores account-bound answers, sessions, results and activity history; reuse these structures without adding unnecessary personal-data fields, telemetry or external processors. Extend the existing learning-history deletion path for Malay Quiz only if the schema introduces new Quiz records; never reset the allowance ledger through history deletion. Re-check Malaysia PDPA and international privacy/legal requirements before public activation. This is planning guidance, not legal advice.
+
+**Current gate:** the Phase 3 staging corrections and Malay Quiz implementation are in progress. Staging data already contains the approved Phase 3 Malay lesson/daily catalogue only; no Malay Quiz database content or schema change is authorised/applied by this plan update. PR #20 remains draft and unmerged; production remains untouched.
