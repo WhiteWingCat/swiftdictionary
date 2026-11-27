@@ -65,7 +65,7 @@ if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="c
 if(!flashcards.includes('learningLanguage:data.learning_language_code||course')||!flashcards.includes('translation_language_code'))throw new Error("Flashcard sessions do not preserve their language pair.");
 if(!flashcards.includes('if(language==="ms")')||!flashcards.includes("window.SWIFT_MALAY_DICTIONARY"))throw new Error("Malay dictionary-derived Flashcard content is missing.");
 if(!flashcards.includes('if(learning==="ms")')||!flashcards.includes("definitionMs"))throw new Error("Flashcard support-language routing is missing Malay.");
-if(!html.includes('data/languages/malay-flashcard-translations.js?v=3.0.0-ms2'))throw new Error("Malay Flashcard translation pack is not loaded before the runtime.");
+if(!html.includes('data/languages/malay-flashcard-translations.js?v=3.0.0-ms3'))throw new Error("Malay Flashcard translation pack is not loaded before the runtime.");
 if(!flashcards.includes("SWIFT_FLASHCARD_MALAY_SUPPORT")||!flashcards.includes("addMalayFlashcardSupport"))throw new Error("Explicit Malay Flashcard support glosses are not applied.");
 if(!flashcards.includes('all=all.filter(word=>Boolean(translationFor(word)))'))throw new Error("Flashcard deck must exclude entries without Malay support text.");
 if(!flashcards.includes("Malay support translations are available for"))throw new Error("Flashcard home page must show Malay support coverage.");
