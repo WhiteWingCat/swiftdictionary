@@ -61,6 +61,12 @@ jobs:
           else
             git commit -m "Generate Malay lesson, Quiz and Flashcard support drafts"
             git fetch origin feature/update-3.0-phase-0-audit
-            git rebase origin/feature/update-3.0-phase-0-audit
+            if ! git rebase origin/feature/update-3.0-phase-0-audit; then
+              # If the dictionary workflow commits the same support asset first,
+              # retain this workflow's complete Flashcard/example inventory output.
+              git checkout --theirs data/languages/malay-learning-support-translations.js
+              git add data/languages/malay-learning-support-translations.js
+              GIT_EDITOR=true git rebase --continue
+            fi
             git push origin HEAD:feature/update-3.0-phase-0-audit
           fi
