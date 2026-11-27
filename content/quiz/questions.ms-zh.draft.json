@@ -7,7 +7,7 @@
   "batch": 4,
   "editorial_status": "draft",
   "translation_status": "machine_assisted_draft",
-  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting language-field reversals, support-language answer-option mismatches and several wording/answer-clarity issues. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
+  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting language-field reversals, support-language answer-option mismatches, and targeted prompt/answer clarity issues. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
   "questions": [
     {
       "question_id": "quiz-ms-zh-b001",
@@ -993,33 +993,33 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Penjodoh bilangan manakah yang sesuai untuk tiga ekor kucing?",
-      "prompt_translation": "表示三只猫时，哪个量词合适？",
+      "prompt_learning": "Penjodoh bilangan manakah digunakan untuk mengira kucing?",
+      "prompt_translation": "数猫时使用哪个量词？",
       "options": [
         {
           "id": "a",
-          "learning_text": "Tiga ekor kucing",
-          "translation_text": "三只猫"
+          "learning_text": "ekor",
+          "translation_text": "只（动物量词）"
         },
         {
           "id": "b",
-          "learning_text": "Tiga batang kucing",
-          "translation_text": "三根猫"
+          "learning_text": "batang",
+          "translation_text": "根／支（长形物品量词）"
         },
         {
           "id": "c",
-          "learning_text": "Tiga helai kucing",
-          "translation_text": "三张猫"
+          "learning_text": "helai",
+          "translation_text": "张／片（薄片物品量词）"
         },
         {
           "id": "d",
-          "learning_text": "Tiga biji kucing",
-          "translation_text": "三粒猫"
+          "learning_text": "biji",
+          "translation_text": "颗／个（小物品量词）"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Gunakan “ekor” untuk haiwan.",
-      "explanation_translation": "动物通常使用量词“ekor”。",
+      "explanation_learning": "“Ekor” digunakan sebagai penjodoh bilangan untuk haiwan seperti kucing.",
+      "explanation_translation": "“Ekor”是用于猫等动物的量词。",
       "learning_objective_id": "animal-classifier",
       "release_approved": true
     },
@@ -1032,33 +1032,33 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Apakah yang dirujuk oleh perkataan “kanak-kanak”?",
-      "prompt_translation": "“kanak-kanak”指什么？",
+      "prompt_learning": "Apakah fungsi tanda sempang dalam ejaan kata ganda penuh “kanak-kanak”?",
+      "prompt_translation": "完整重叠词“kanak-kanak”中的连字符有什么作用？",
       "options": [
         {
           "id": "a",
-          "learning_text": "Kanak-kanak",
-          "translation_text": "儿童"
+          "learning_text": "Memisahkan dua unsur kata ganda penuh",
+          "translation_text": "分隔完整重叠词的两个部分"
         },
         {
           "id": "b",
-          "learning_text": "Orang dewasa",
-          "translation_text": "成年人"
+          "learning_text": "Menandakan kata nama khas",
+          "translation_text": "标记专有名词"
         },
         {
           "id": "c",
-          "learning_text": "Bilik darjah",
-          "translation_text": "教室"
+          "learning_text": "Menunjukkan kata pinjaman",
+          "translation_text": "表示外来词"
         },
         {
           "id": "d",
-          "learning_text": "Rumah keluarga",
-          "translation_text": "家庭住宅"
+          "learning_text": "Menggantikan tanda baca pada akhir ayat",
+          "translation_text": "代替句末标点"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kanak-kanak” ialah kata ganda yang merujuk kepada golongan kanak-kanak.",
-      "explanation_translation": "“Kanak-kanak”是表示儿童的重叠词。",
+      "explanation_learning": "Kata ganda penuh seperti “kanak-kanak” dieja dengan tanda sempang antara unsur yang diulang.",
+      "explanation_translation": "像“kanak-kanak”这样的完整重叠词，在重复的两个部分之间使用连字符。",
       "learning_objective_id": "reduplication-meaning",
       "release_approved": true
     },
@@ -1700,8 +1700,8 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "Kita perlu menggunakan air dengan lebih sedikit.",
-          "translation_text": "我们需要减少用水。"
+          "learning_text": "Kita perlu mengurangkan penggunaan air.",
+          "translation_text": "我们需要减少用水量。"
         },
         {
           "id": "b",
@@ -2168,13 +2168,13 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "di sebelah kiri saya",
-          "translation_text": "在我的左边"
+          "learning_text": "di sebelah kiri anda",
+          "translation_text": "在你的左边"
         },
         {
           "id": "b",
-          "learning_text": "ke sebelah kiri saya",
-          "translation_text": "朝我的左边"
+          "learning_text": "ke arah kiri anda",
+          "translation_text": "朝你的左侧方向"
         },
         {
           "id": "c",
@@ -2188,8 +2188,8 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Di sebelah kiri” menerangkan lokasi, bukan pergerakan.",
-      "explanation_translation": "“Di sebelah kiri”描述位置，而不是移动方向。",
+      "explanation_learning": "“Di sebelah kiri” menerangkan kedudukan, manakala “ke arah kiri” dan “belok ke kiri” menunjukkan arah pergerakan.",
+      "explanation_translation": "“Di sebelah kiri”表示位置，而“ke arah kiri”和“belok ke kiri”表示方向或移动。",
       "learning_objective_id": "direction-instruction",
       "release_approved": true
     },
@@ -4269,33 +4269,33 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Ayat kedua terlalu kerap bermula dengan subjek yang sama. Pilih suntingan yang mempelbagaikan struktur tanpa mengubah fakta.",
-      "prompt_translation": "第二句反复以相同主语开头。选择一种不改变事实但能丰富句式的修改。",
+      "prompt_learning": "Ayat asal: “Organisasi itu menjalankan program membaca di tiga daerah. Organisasi itu turut mengadakan bengkel penulisan.” Pilih suntingan ayat kedua yang mengelakkan pengulangan subjek tanpa mengubah fakta.",
+      "prompt_translation": "原句：“该组织在三个地区开展了阅读活动。该组织也举办了写作工作坊。”选择一种修改第二句的方式，避免重复主语且不改变事实。",
       "options": [
         {
           "id": "a",
-          "learning_text": "Pada minggu berikutnya, program itu diteruskan di daerah lain.",
-          "translation_text": "接下来的一周，该计划在另一个县继续开展。"
+          "learning_text": "Di samping itu, bengkel penulisan turut dianjurkan.",
+          "translation_text": "此外，也举办了写作工作坊。"
         },
         {
           "id": "b",
-          "learning_text": "Program itu fakta lain dan minggu.",
-          "translation_text": "该计划那个事实其他和星期。"
+          "learning_text": "Bengkel penulisan itu dibatalkan.",
+          "translation_text": "写作工作坊被取消了。"
         },
         {
           "id": "c",
-          "learning_text": "Buang maklumat tempat daripada kedua-dua ayat.",
-          "translation_text": "从两个句子中删除地点信息。"
+          "learning_text": "Organisasi lain mengadakan bengkel penulisan.",
+          "translation_text": "另一个组织举办了写作工作坊。"
         },
         {
           "id": "d",
-          "learning_text": "Ulang ayat pertama tanpa perubahan.",
-          "translation_text": "原样重复第一句。"
+          "learning_text": "Program membaca itu dihentikan.",
+          "translation_text": "阅读活动被停止了。"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Frasa keterangan di hadapan ayat boleh mempelbagaikan struktur sambil mengekalkan fakta.",
-      "explanation_translation": "句首的状语短语可以丰富句式，同时保留事实。",
+      "explanation_learning": "Bentuk pasif membolehkan ayat kedua menumpukan bengkel penulisan tanpa mengulangi subjek organisasi; fakta tentang penganjuran dikekalkan.",
+      "explanation_translation": "被动句式使第二句聚焦于写作工作坊，避免重复组织这一主语，同时保留工作坊已举办这一事实。",
       "learning_objective_id": "fronted-phrase-variation",
       "release_approved": true
     },
