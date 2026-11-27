@@ -447,6 +447,8 @@ test("Dashboard exposes Malay favourites and Malay translation preference option
   await expect(page.locator("#favoriteMalayGrid")).toHaveCount(1);
   await expect(page.locator('#translationSelect option[value="ms"]')).toHaveCount(1);
   await expect(page.locator('#preferenceTranslation option[value="ms"]')).toHaveCount(1);
+  await expect(page.locator('#translationSelect option[value="ms"]')).toBeEnabled();
+  await expect(page.locator('#preferenceTranslation option[value="ms"]')).toBeEnabled();
 });
 
 test("Dictionary detail panel shows Add to collection only for a saved word", async ({ page }) => {

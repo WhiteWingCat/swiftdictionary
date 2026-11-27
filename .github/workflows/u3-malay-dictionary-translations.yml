@@ -10,7 +10,6 @@ on:
       - "data/languages/chinese-dictionary.js"
       - "data/languages/malay-dictionary-manual-overrides.js"
       - "data/chinese-characters.js"
-      - ".github/workflows/u3-malay-dictionary-translations.yml"
   workflow_dispatch:
 
 permissions:
@@ -57,5 +56,7 @@ jobs:
             echo "No translation output changes."
           else
             git commit -m "Generate complete Malay Dictionary translation drafts"
+            git fetch origin feature/update-3.0-phase-0-audit
+            git rebase origin/feature/update-3.0-phase-0-audit
             git push origin HEAD:feature/update-3.0-phase-0-audit
           fi
