@@ -439,3 +439,14 @@ The new batch is loaded before the shared content bootstrap. Manifest and automa
 U3.0 architecture/adapter/content regression passed **45/45 tests** on commit `8fc2695e2147fd99e58cfcdd9fef5fde49c03fea` ([workflow 45932623195](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932623195)). This validates syntax, package wiring and structural contracts only, not human language quality or browser/device acceptance.
 
 Phase 3 remains in progress. No staging preview, database migration, production activation, main merge or deployment has occurred.
+
+
+## Phase 3 Malay Lessons expansion — Batch 04 (2026-11-27)
+
+Added 9 original draft lessons in `data/malay-lessons-expansion-04.js`, bringing the permanent Malay Lessons catalogue to **36 lessons: 12 Beginner, 12 Intermediate and 12 Advanced**.
+
+New Beginner topics: weather and clothing; transport and travel; health-related language and appointments. New Intermediate topics: direct and reported speech; modal expressions for ability, permission, intention and obligation; relative clauses using “yang”. New Advanced topics: register and audience; systematic editing and error correction; proposal and persuasive writing.
+
+The batch is loaded after expansion batch 03 and before the shared content bootstrap. The manifest now records `u3-ms-lessons-0.4.0`; structural tests assert 36 unique lessons and 12 at each difficulty, and the workflow syntax-checks the new file. All content and EN/ZH support remain draft for staging review. Automated validation is pending for this commit.
+
+No staging preview, database migration, production activation, main merge or deployment has occurred. Phase 3 remains in progress.
