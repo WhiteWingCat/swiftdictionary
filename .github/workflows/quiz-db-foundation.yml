@@ -231,9 +231,11 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
           node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs"
-          node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs" --emit-sql > "$RUNNER_TEMP/quiz-malay-drafts.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-malay-drafts.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_draft_import_assertions.sql"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs" --emit-sql --approve-for-release > "$RUNNER_TEMP/quiz-malay-staging-release.sql"
+          grep -q "STAGING-ONLY release" "$RUNNER_TEMP/quiz-malay-staging-release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-malay-staging-release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_release_import_assertions.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_release_runtime_u3_0.sql"
 
       - name: Validate owner-authorized 199-question release export and migration
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
