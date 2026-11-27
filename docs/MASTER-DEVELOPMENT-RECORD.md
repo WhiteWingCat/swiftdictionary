@@ -4975,3 +4975,14 @@ See the [2026-11-27 U3.0 staging preview handoff](conversation-archive/2026-11-2
 ### Latest-head regression follow-up
 
 After updating the Flashcards cache version to ms13 and aligning the two legacy assertions, the latest reruns passed Flashcards static + Chromium (45985581267), U3.0 architecture/content/adapter parity (45985581304), U2.9 English Dictionary QA (45985581089), U2.7 Chinese static/Chromium + PostgreSQL (45985581114), and Cloudflare build routing (45985581075). U2.3 PostgreSQL passed while its Auth and Chromium jobs continue (45985581111); U2.6 ACL PostgreSQL remains in progress (45985581145); Quiz DB foundation passed while local Auth/RPC/Chromium integration continues (45985581079).
+
+
+## 2026-11-27 — U3.0 Flashcard review regression repair
+
+The owner reported missing incorrect answers in Flashcards Review weak memory, a misleading per-card review legacy message, and no learning-course label in Recent games. Root cause was confirmed in the staging database function: later U3.0 language-support migrations had replaced the Update 2.5 completion implementation and omitted both weak-memory and per-card snapshot inserts while retaining aggregate mastery/session scores.
+
+Applied staging-only migration `20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair`. It restores validated per-card snapshots, incorrect/unanswered weak-memory writes, mastery updates, completion idempotency, account ownership and authenticated-only execution. It also restores the correct learning-course code in server-side allowance events. A cautious backfill associates recent incorrect mastery records with a completed session only when the timestamps are within ten minutes; historical card/answer details are not invented.
+
+The Flashcards UI now labels Recent games with the saved learning course and no longer claims that a missing snapshot necessarily means the game predates per-card review. The bundle cache is `ms14`. Static and Playwright regression coverage was added. Staging migration application succeeded; a read-only check showed 34 weak-memory items for one account after the backfill. Full authenticated browser acceptance and latest-head CI are still required. Cloudflare Pages reported the `cfa7c51` branch build as in progress at the last check.
+
+The other U3.0 Malay support gaps remain open: English/Chinese Lesson practice prompts/options/feedback, English/Chinese Quiz Malay support packs, and full Flashcard Malay coverage for non-dictionary/custom/phrase cards. PR #20 remains draft/unmerged; production database and hosting remain untouched. See [the detailed Flashcard review repair archive](conversation-archive/2026-11-27-u3-flashcard-review-regression-repair.md).
