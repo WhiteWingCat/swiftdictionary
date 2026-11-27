@@ -110,6 +110,11 @@ begin
  if v_session->>'status'<>'in_progress' or jsonb_array_length(v_session->'questions')<>10 then
    raise exception 'Malay Beginner session did not contain ten questions: %',v_session;
  end if;
+ v_availability:=public.get_my_quiz_availability();
+ if v_availability->'allowance'->>'used_count'<>'1'
+    or v_availability->'allowance'->>'remaining_count'<>'2' then
+   raise exception 'Starting a Malay Quiz must consume exactly one start allowance: %',v_availability;
+ end if;
  if (v_session->'questions'->0) ? 'correct_option_id'
     or (v_session->'questions'->0) ? 'explanation_learning' then
    raise exception 'Active Malay Quiz leaked answer key or explanation';
@@ -259,9 +264,9 @@ begin
  v_result:=public.abandon_my_quiz((v_session->>'session_id')::uuid);
  if v_result->>'status'<>'abandoned' then raise exception 'Malay Quiz abandon failed: %',v_result; end if;
  v_availability:=public.get_my_quiz_availability();
- if v_availability->'allowance'->>'used_count'<>'0'
-    or v_availability->'allowance'->>'remaining_count'<>'3' then
-   raise exception 'Abandoning a Malay Quiz consumed completion allowance: %',v_availability;
+ if v_availability->'allowance'->>'used_count'<>'1'
+    or v_availability->'allowance'->>'remaining_count'<>'2' then
+   raise exception 'Abandoning a Malay Quiz must not refund the existing start allowance: %',v_availability;
  end if;
 end;
 $abandon$;
