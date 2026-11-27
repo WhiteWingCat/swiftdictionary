@@ -75,6 +75,9 @@ begin
     if v_mode not in ('word','definition','translation','mixed','sentence') then
       raise exception 'A Flashcard result has an invalid recall mode' using errcode='22023';
     end if;
+    if v_mode <> v_session.mode then
+      raise exception 'A Flashcard result mode does not match its session' using errcode='22023';
+    end if;
     if v_key is null or char_length(v_key)>180
        or (v_key not like 'dict:%' and v_key not like 'custom:%') then
       raise exception 'A Flashcard result is missing a valid card key' using errcode='22023';
@@ -109,6 +112,7 @@ begin
       v_selected_index := nullif(v_snapshot->>'selected_option_index','')::integer;
       v_correct_index := nullif(v_snapshot->>'correct_option_index','')::integer;
       if v_snapshot_mode not in ('word','definition','translation','mixed','sentence')
+         or (v_session.mode<>'mixed' and v_snapshot_mode<>v_session.mode)
          or coalesce(jsonb_typeof(v_snapshot->'card'),'') <> 'object'
          or coalesce(jsonb_typeof(v_snapshot->'options'),'') <> 'array'
          or jsonb_array_length(v_snapshot->'options') <> 4
