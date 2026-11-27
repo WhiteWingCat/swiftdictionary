@@ -4708,3 +4708,19 @@ Content added:
 The Malay manifest now records version `u3-ms-lessons-0.2.0` and lesson counts of 6/6/6. Regression coverage was updated to assert 18 unique lesson IDs and the three difficulty totals. The U3.0 architecture/adapter/content workflow passed **45/45 tests** (run [45932215643](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932215643), commit `9ee2d59b77e1ac9ded2e4ffa205ee9bbfdb79ac3`).
 
 All Malay content and machine-assisted translations remain draft for the owner's staging review. The test pass confirms syntax, structure, package integration and automated contracts only; it does not validate Malaysian Standard Malay editorial quality or translation accuracy. No staging preview, DB migration, production activation, main merge or deployment occurred. Phase 3 remains in progress.
+
+
+## 23. Phase 3 Malay Lessons expansion — Batch 03 (2026-11-27)
+
+Added 9 more original draft lessons in `data/malay-lessons-expansion-03.js`. The Malay permanent Lessons catalogue now totals **27 lessons: 9 Beginner, 9 Intermediate and 9 Advanced**.
+
+Topics added:
+- Beginner: family relationships and possessive phrases; locations and giving directions; shopping, prices and quantities.
+- Intermediate: adjective comparison; intensifiers; compound and complex sentence construction.
+- Advanced: sentence-structure variation; paraphrasing and summarising while preserving meaning; critical reading, evidence and source reliability.
+
+The file is loaded after expansion batch 02 and before the shared content-package bootstrap. The Malay manifest version is `u3-ms-lessons-0.3.0`, with lesson counts 9/9/9. Automated tests now assert all 27 IDs are unique and the package contains 27 permanent lessons.
+
+U3.0 architecture/adapter/content regression passed **45/45 tests** (run [45932623195](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932623195), commit `8fc2695e2147fd99e58cfcdd9fef5fde49c03fea`). This is automated structural and integration validation only. Human Malaysian Standard Malay review and independent EN/ZH translation review remain scheduled for staging review.
+
+No staging preview, DB migration, production activation, main merge or deployment occurred. Phase 3 remains in progress.
