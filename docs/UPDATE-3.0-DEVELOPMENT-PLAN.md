@@ -844,3 +844,13 @@ The stable Cloudflare Pages alias remains `https://feature-update-3-0-phase-0-a.
 ### Cross-version browser regression follow-up — 2026-11-27
 
 The U2.7 browser suite exposed one compatibility issue introduced by the registry-based language-label change: it displayed the English label “Simplified Chinese” where the existing UI contract expects the native “简体中文”. This was corrected by using the registered native name for `zh` while using the registered display name for English and Malay. The Daily History language label now says “Malay”. The U2.7 PostgreSQL lesson-start/allowance job passed; its browser job failure was isolated to this display label. A fresh U3.0 and cross-version rerun was triggered on application commit `12524ca92de2c71804d4ba72d6f2977b071aa6ec`; results are pending. Earlier U3.0 and U2.9 passes remain valid for commit `6abd022e08a1d7a4079884e8de8dc0136f0e1530`, but they do not validate the subsequent label-only correction. Preview publication is still unconfirmed.
+
+
+### Latest feature-head verification — 2026-11-27
+
+Application branch head: `12524ca92de2c71804d4ba72d6f2977b071aa6ec`.
+- U3.0 Phase 1 architecture/content regression passed, including the Malay Quiz draft validator and all 62 tests: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45957631376
+- Cloudflare build-routing guard passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45957631477
+- U2.3, U2.5, U2.6, U2.7, U2.9 and Quiz database foundation workflows were still pending/in progress when recorded. U2.7's previous browser run failed only because the registered Simplified Chinese display label was rendered in English; the native-label fix is included in this head and the rerun is pending.
+- The stable Pages alias is the existing staging endpoint, but latest branch-head publication was not independently verified from Cloudflare. No final staging preview handoff or owner browser/device acceptance is claimed.
+- PR #20 remains draft and unmerged. No staging Quiz schema/data changes or production changes were applied.
