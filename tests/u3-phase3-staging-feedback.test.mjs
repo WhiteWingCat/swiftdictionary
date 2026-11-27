@@ -61,11 +61,25 @@ test("English and Chinese Lessons retain their learning-language text and show M
  assert.match(html,/lessonMsTextLookup\.get\(value\)/);
  assert.match(html,/lessonMsTextLookup\.get\(value\.zh\)/);
  assert.match(html,/lessonZh\[x\.id\]\?\.practices/);
- assert.match(html,/lessonMsRecord\(x\)\?\.practices/);
+ assert.match(html,/lessonMsPractice\[isChineseCourse\(\)\?"zh":"en"\]\?\.\[x\.id\]/);
  assert.match(html,/q:practiceValue\(q\.q,translated\?\.q\)/);
   assert.match(html,/lessonMsPractice\[isChineseCourse\(\)\?"zh":"en"\]\?\.\[x\.id\]/);
   assert.match(html,/translations:\{\.\.\.\(source\.translations\|\|\{\}\),ms:translated\}/);
- assert.match(html,/options:order\.map\(j=>translated\?\.options\?\.\[j\]\?\?q\.options\[j\]\)/);
+ assert.match(html,/options:order\.map\(j=>practiceValue\(q\.options\[j\],translated\?\.options\?\.\[j\]\)\)/);
+});
+test("Malay lesson practice and English/Chinese Quiz support packs are wired into the reader and answer review",()=>{
+ const html=read("index.html");
+ assert.match(html,/<script src="data\/languages\/malay-learning-support-translations\.js\?v=3\.0\.0-ms1"><\/script>/);
+ assert.match(html,/quizTranslationVisible\(code\)\{return code === "zh" \|\| code === "en" \|\| code === "ms";\}/);
+ assert.match(html,/quizMalayQuestion\(q,learningCode\)/);
+ assert.match(html,/quizMalayOption\(q,option,learningCode\)/);
+ assert.match(html,/quizMalayOption\(q,o,data\.learning_language_code\)/);
+ assert.match(html,/explanationSupport=effectiveTranslation==="ms"\?\(supportRow\?\.explanationLearning/);
+ assert.match(html,/serverTranslation=requestedTranslation==="ms"\?"en":requestedTranslation/);
+ const generator=read("scripts/content/generate-malay-learning-support.py");
+ assert.match(generator,/"lessons":\{"en":\{\},"zh":\{\}\}/);
+ assert.match(generator,/"quiz":\{"en":\{\},"zh":\{\}\}/);
+ assert.match(generator,/"flashcards":\{"en":\{\},"zh":\{\}\}/);
 });
 test("Flashcards derive Malay support from authored dictionary translations and avoid blank translated cards",()=>{
  const html=read("index.html");
@@ -78,4 +92,5 @@ test("Flashcards derive Malay support from authored dictionary translations and 
  assert.match(js,/all=all\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
  assert.match(js,/malaySupportEnglishCount/);
  assert.match(js,/malaySupportChineseCount/);
+ assert.match(js,/SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS\?\.flashcards\?\.\[language\]/);
 });
