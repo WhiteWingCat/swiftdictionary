@@ -31,13 +31,13 @@ test("legacy content bootstrap runs after language content sources and daily lea
  assert.ok(html.includes("SWIFT_LEGACY_CONTENT_DATA"));
 });
 
-test("English and Chinese manifests are active and Malay remains planned",()=>{
+test("English, Chinese and Phase 3 Malay manifests expose only implemented capabilities",()=>{
  const en=JSON.parse(read("content/languages/en/manifest.json"));
  const zh=JSON.parse(read("content/languages/zh/manifest.json"));
  const ms=JSON.parse(read("content/languages/ms/manifest.json"));
- assert.equal(en.status,"active");assert.equal(zh.status,"active");assert.equal(ms.status,"planned");
+ assert.equal(en.status,"active");assert.equal(zh.status,"active");assert.equal(ms.status,"active");
  assert.equal(ms.standard,"Malaysian Standard Malay (Bahasa Melayu Malaysia)");
- assert.equal(ms.capabilities.lessons,false);assert.equal(ms.capabilities.quiz,false);
+ assert.equal(ms.capabilities.lessons,true);assert.equal(ms.capabilities.dailyLearning,true);assert.equal(ms.capabilities.quiz,false);assert.equal(ms.capabilities.flashcards,false);
 });
 
 test("architecture migration design retains safe migration gates",()=>{
