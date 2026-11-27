@@ -59,7 +59,7 @@ test("Malay Lessons has independently authored draft content at all three levels
   assert.equal(lessons.translationStatus,"machine_assisted_draft");
   assert.equal(lessons.contentVersion,"u3-ms-lessons-0.2.0");
   assert.equal(lessons.expansionBatches[0].added,9);
-  const ids=Object.values(lessons).filter(Array.isArray).flat().map(x=>x.id);
+  const ids=["beginner","intermediate","advanced"].flatMap(level=>lessons[level].map(x=>x.id));
   assert.equal(ids.length,18);
   assert.equal(new Set(ids).size,18);
 });
