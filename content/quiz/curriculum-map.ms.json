@@ -344,8 +344,8 @@
     "difficulty": "advanced",
     "objectives": [
       {
-        "id": "source-credibility",
-        "outcome": "An official agency source is usually the primary reference for its own policy."
+        "id": "verify-claim-with-source",
+        "outcome": "Angka perlu dibandingkan berdasarkan kaedah dan sumber asal yang boleh disemak."
       }
     ]
   },
