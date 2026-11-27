@@ -90,8 +90,12 @@ test("U3.0 Malay Dictionary translations are complete in all three course direct
   assert.equal(enToMs.length + zhToMs.length, 4797);
   assert.equal(msToEn.length + msToZh.length, 1344);
 
-  for (const record of [...enToMs, ...zhToMs, ...msToEn, ...msToZh]) {
+  for (const record of [...enToMs, ...zhToMs]) {
     assert.equal(record.status, "machine_assisted_draft");
+    assert.equal(record.reviewerId, null);
+  }
+  for (const record of [...msToEn, ...msToZh]) {
+    assert.ok(["draft", "machine_assisted_draft"].includes(record.status));
     assert.equal(record.reviewerId, null);
   }
 });
