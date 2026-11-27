@@ -32,7 +32,18 @@
         "data/chinese-lessons.js"
       ],
       "permanentLessonCount": 17,
-      "practiceQuestionCount": 112
+      "practiceQuestionCount": 112,
+      "malaySupportTranslations": {
+        "file": "data/languages/malay-lesson-translations.js",
+        "lessonCount": 17,
+        "fields": [
+          "topic",
+          "title",
+          "summary",
+          "explanation"
+        ],
+        "practicePrompts": "source-language-pending"
+      }
     },
     "dailyLearning": {
       "files": [
@@ -53,7 +64,11 @@
       "sourcePackStatus": "draft",
       "sourceQuestionCount": 145,
       "productionApprovedCount": 145,
-      "provenanceReconciliationRequired": true
+      "provenanceReconciliationRequired": true,
+      "malaySupportTranslations": {
+        "status": "not-yet-available",
+        "note": "Chinese-to-Malay question pack is pending; Quiz UI blocks unsupported combinations."
+      }
     },
     "flashcards": {
       "files": [
@@ -67,7 +82,13 @@
         "total": 1447
       },
       "sourceApprovalState": "draft",
-      "runtimeGovernanceIssue": "Source records are marked draft while the legacy runtime currently maps them into the Flashcards deck; reconcile before changing approval state."
+      "runtimeGovernanceIssue": "Source records are marked draft while the legacy runtime currently maps them into the Flashcards deck; reconcile before changing approval state.",
+      "malaySupportTranslations": {
+        "file": "data/languages/malay-flashcard-translations.js",
+        "translatedHeadwords": 48,
+        "status": "machine-assisted-draft",
+        "untranslatedCardsExcluded": true
+      }
     }
   },
   "translationTargets": [
