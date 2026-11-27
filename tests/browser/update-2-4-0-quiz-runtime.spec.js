@@ -336,8 +336,11 @@ test("Free user can switch translation in an open permanent lesson and complete 
   // The learner can change an answer before submission.
   await page.locator('[data-quiz-option="b"]').click();
   await expect(page.locator('[data-quiz-option="b"]')).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.saving)).toBe(false);
+  await expect.poll(()=>page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.selected_option_id)).toBe("b");
   await page.locator('[data-quiz-option="a"]').click();
   await expect(page.locator('[data-quiz-option="a"]')).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.saving)).toBe(false);
   await expect.poll(()=>page.evaluate(()=>quizPageState.session.questions.find(q=>q.position===quizPageState.session.current_position)?.selected_option_id)).toBe("a");
   await page.locator("#quizNext").click();
   const nextPosition=targetPosition+1;
@@ -1150,7 +1153,7 @@ test("Dashboard allowance progress is presented as actionable tasks and Daily Hi
   await expect(tasks.nth(6)).toContainText("Play 3 Flashcard games today.");
   await expect(tasks.nth(6)).toContainText("0/3");
   await page.locator('[data-dashboard-tab="history"]').click();
-  await expect(page.locator("#dashboardDailyHistory .dashboard-history-group")).toHaveCount(3);
+  await expect(page.locator("#dashboardDailyHistory .dashboard-history-group")).toHaveCount(4);
   const historyColumns=await page.locator("#dashboardDailyHistory").evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(" ").filter(Boolean).length);
   expect(historyColumns).toBe(1);
 });
