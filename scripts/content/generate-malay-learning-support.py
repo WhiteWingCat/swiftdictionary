@@ -57,7 +57,8 @@ def main():
       "engine":"Argos Translate offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9",
       "provenance":"Machine-assisted drafts generated from original SwiftDictionary lesson and Quiz text. Human Malaysian Standard Malay review is pending.",
       "lessons":{"en":{},"zh":{}},
-      "quiz":{"en":{},"zh":{}},\n      "flashcards":{"en":{},"zh":{}}
+      "quiz":{"en":{},"zh":{}},
+      "flashcards":{"en":{},"zh":{}}
     }
     counts={"lesson_practices":0,"lesson_strings":0,"quiz_questions":0,"quiz_strings":0,"flashcards":0,"flashcard_strings":0}
     for code,items in data["lessons"].items():
