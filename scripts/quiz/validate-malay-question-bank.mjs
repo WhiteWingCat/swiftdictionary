@@ -26,7 +26,11 @@ for(const relative of files){
   if(new Set(labels).size!==4)errors.push(at+": Malay options must be unique");
   for(const option of q.options)if(!option.learning_text?.trim()||!option.translation_text?.trim())errors.push(at+": incomplete bilingual option");
  }
- if(pack.questions?.length!==12||Object.values(counts).some(n=>n!==4))errors.push(relative+": expected 12 questions, four per difficulty");
+ if(pack.questions?.length!==48||Object.values(counts).some(n=>n!==16))errors.push(relative+": expected 48 cumulative questions, 16 per difficulty");
+ const batchTwo=pack.questions.filter(q=>Number(q.question_id.slice(-3))>=13&&Number(q.question_id.slice(-3))<=48);
+ const batchTwoCounts={beginner:0,intermediate:0,advanced:0};
+ for(const q of batchTwo)if(batchTwoCounts[q.difficulty]!==undefined)batchTwoCounts[q.difficulty]++;
+ if(batchTwo.length!==36||Object.values(batchTwoCounts).some(n=>n!==12))errors.push(relative+": batch 02 must contain 36 questions, 12 per difficulty");
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Malay Quiz draft batch 01 validated: 12 questions per support language, 4 per difficulty; all remain draft.");
+console.log("Malay Quiz draft batch 01 validated: 48 cumulative questions per support language; batch 02 adds 36, 12 per difficulty; all remain draft.");
