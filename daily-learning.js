@@ -1210,7 +1210,7 @@
       }
       passed[i] = correct;
       const question = content.questions[i];
-      const explanation = isChineseLearningCourse() ? (translationLanguage === "en" ? (question.explanationEn || question.explanation || "") : (question.explanation || "")) : (translationLanguage === "zh" && question.zh ? question.zh : question.explanation || "");
+      const explanation = dailyQuestionExplanation(question);
       const translatedExplanation = !isChineseLearningCourse() && translationLanguage === "zh" && question.zh ? " 中文说明：" + question.zh : "";
       if (correct) feedback.textContent = dailyUi("Correct. ","正确。") + explanation + translatedExplanation;
       else {
