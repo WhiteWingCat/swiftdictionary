@@ -253,3 +253,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-27 — U3.0 Phase 3 initial Malay learning implementation](2026-11-27-update-3-0-phase-3-initial-implementation.md) — records Phase 3 authorisation before human review, initial Malay Lessons/Daily Learning content, 45 passing regression tests and outstanding database/staging gates.
 
 | 2026-11-27 | [Update 3.0 Phase 3 initial Malay learning implementation](2026-11-27-update-3-0-phase-3-initial-implementation.md) | Initial 9-lesson Malay curriculum, 3 Daily Topic, 3 Daily Application and 93-item Daily Discovery rotation; 45/45 U3.0 tests pass; DB/staging migration remains unapproved. |
+
+
+- [2026-11-27 — U3.0 Phase 3 Malay Lessons expansion, Batch 02](2026-11-27-update-3-0-phase-3-malay-lessons-batch-02.md) — expands the draft curriculum to 18 lessons (6 per difficulty) and records 45/45 passing U3.0 structural/content tests.
+
+| 2026-11-27 | [U3.0 Phase 3 Malay Lessons expansion, Batch 02](2026-11-27-update-3-0-phase-3-malay-lessons-batch-02.md) | Adds 9 topics across Beginner, Intermediate and Advanced; total 18 lessons; 45/45 U3.0 tests pass; human review remains scheduled for staging. |
