@@ -65,6 +65,9 @@ if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="c
 if(!flashcards.includes('learningLanguage:data.learning_language_code||course')||!flashcards.includes('translation_language_code'))throw new Error("Flashcard sessions do not preserve their language pair.");
 if(!flashcards.includes('if(language==="ms")')||!flashcards.includes("window.SWIFT_MALAY_DICTIONARY"))throw new Error("Malay dictionary-derived Flashcard content is missing.");
 if(!flashcards.includes('if(learning==="ms")')||!flashcards.includes("definitionMs"))throw new Error("Flashcard support-language routing is missing Malay.");
+if(!html.includes('data/languages/malay-flashcard-translations.js?v=3.0.0-ms1'))throw new Error("Malay Flashcard translation pack is not loaded before the runtime.");
+if(!flashcards.includes("SWIFT_FLASHCARD_MALAY_SUPPORT")||!flashcards.includes("addMalayFlashcardSupport"))throw new Error("Explicit Malay Flashcard support glosses are not applied.");
+if(!flashcards.includes('all=all.filter(word=>Boolean(translationFor(word)))'))throw new Error("Flashcard deck must exclude entries without Malay support text.");
 if(!flashcards.includes("Malay translations are not available for this Flashcard set yet."))throw new Error("Flashcard must not start with an unavailable Malay support translation.");
 if(!flashcards.includes("translation_ms:card.definitionMs||card.translationMs||\"\""))throw new Error("Malay Flashcard review snapshots are missing the selected-language translation.");
 const malayRuntime=fs.readFileSync("supabase/migrations/20261127160000_swiftdictionary_update_3_0_malay_flashcards_runtime.sql","utf8");
@@ -72,7 +75,7 @@ if(!malayRuntime.includes("flashcard_sessions_learning_language_code_check")||!m
 if(!malayRuntime.includes("v_learning not in ('en','zh','ms')")||!malayRuntime.includes("v_translation not in ('en','zh','ms')"))throw new Error("Malay Flashcard server-side session language validation is missing.");
 if(!malayRuntime.includes("values(v_user,p_mode,p_difficulty,p_duration_seconds,v_learning,v_translation)"))throw new Error("Malay Flashcard sessions do not snapshot the authenticated language pair.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
-if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms5'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
+if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms6'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
 if(!html.includes('id="dashboardTabFavourites"')||!html.includes('id="dashboardTabProgress"')||!html.includes('id="dashboardTabHistory"')||!html.includes('id="dashboardTabAnalytics"'))throw new Error("The four Dashboard tabs are incomplete.");
 if(!html.includes('get_my_lesson_practice_attempts')||!html.includes('practiceRetries')||!html.includes('data-dashboard-flashcard-review-game'))throw new Error("Practice Insights or Daily History review integration is missing.");
 for(const [needle,label] of [
