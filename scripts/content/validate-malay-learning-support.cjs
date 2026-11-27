@@ -7,6 +7,7 @@ require(path.resolve("data/chinese-flashcards.js"));
 require(path.resolve("data/languages/malay-learning-support-translations.js"));
 const output=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 if(!output||output.status!=="machine_assisted_draft"||output.targetLanguage!=="ms")throw new Error("Malay learning-support output metadata is invalid");
+if(output.humanReviewStatus!=="pending"||output.modelLicensingStatus!=="pending_verification")throw new Error("Malay support translations must retain explicit human-review and model-license release gates.");
 let lessonQuestions=0,quizQuestions=0,flashcardEntries=0;
 for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.SWIFT_CHINESE_LESSONS]]){
   for(const difficulty of ["beginner","intermediate","advanced"]){
