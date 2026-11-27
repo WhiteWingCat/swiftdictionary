@@ -390,3 +390,22 @@ The worksheet is a human-review tracker, not a quality certificate. Each of the 
 The owner explicitly directed that human Malaysian Standard Malay linguistic review and independent English/Simplified Chinese translation review are to take place during staging review, not as a prerequisite to Phase 3 implementation. Phase 3 is therefore authorised and in progress. The 650-row worksheet and review guide remain pending trackers; no human approval is implied. Keep all Malay content visibly draft in the development/staging environment, and do not activate it in production or represent it as approved.
 
 Phase 3 implementation scope remains the independently authored Malay Lessons curriculum (Beginner, Intermediate and Advanced) and all four Daily Learning categories (Daily Topic, Daily Application, Daily Discovery and adaptive Daily Revision). Reuse the existing shared allowance categories, local-timezone reset and completion semantics. No per-language quota buckets, payment/entitlement changes or Fill-in-the-Blank questions are included. The staging preview may be handed to the owner only after all Phase 3 internal implementation and regression checks pass. The preview must explicitly invite review of the Malay Dictionary, its translations and new learning content. No production database, Auth/RLS, main merge or deployment changes are authorised by this checkpoint.
+
+
+## Phase 3 initial implementation checkpoint — 2026-11-27
+
+Phase 3 implementation has started on `feature/update-3.0-phase-0-audit`.
+
+Initial content and integration batch:
+- 9 Malay permanent lessons: 3 Beginner, 3 Intermediate and 3 Advanced, each with stable IDs, explanations, points, examples, common mistakes and three four-option practice questions. Malay is the primary text; English and Simplified Chinese support strings are included. Content and support translations remain draft.
+- 3 Daily Topic activities and 3 Daily Application activities.
+- 93-item Daily Discovery rotation derived from the existing Malay Dictionary draft inventory and connected to the shared deterministic scheduler.
+- Daily Revision uses the existing adaptive topic-priority logic with Malay application topics.
+- Malay is active only in the feature-branch registry/manifest for Dictionary, Lessons and Daily Learning. Quiz and Flashcards remain unavailable and are explicitly guarded in the UI.
+- Lesson and Daily Learning support text refreshes when the selected translation language changes. The shared allowance categories and timezone reset are reused; no Malay-only quota was added.
+
+Automated evidence: U3.0 architecture/adapter/content regression passed **45/45 tests** on commit `ac5d8d0e2b694004686b5f4c18d9a72447dc47ee` ([workflow 45931107403](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45931107403)). U2.9.0 English dictionary QA passed after the application wiring was added ([workflow 45931053784](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45931053784)). These checks do not constitute browser/device acceptance or human review.
+
+**Database blocker:** existing U2.7/U2.8 SQL contains `en`/`zh`-only lesson progress/result constraints, lesson insert/completion guards and an approved-content catalogue. The nine Malay lesson identities are not seeded in that catalogue. Daily session language registry compatibility also requires environment-specific verification. The detailed assessment is [U3.0 Phase 3 Database Impact](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/U3.0-PHASE-3-DATABASE-IMPACT.md). No migration was added to the active migration directory or applied to staging/production. A separate owner approval is required before any staging database migration.
+
+**Phase 3 remains in progress.** Remaining work includes expanding the lesson and daily content bank, completing integration and browser/device tests, designing and reviewing a safe staging-only content release/migration path, and validating existing-language progress/allowance regressions. No staging preview, production activation, main merge or deployment has occurred.
