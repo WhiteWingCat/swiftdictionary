@@ -605,10 +605,13 @@ test("Completed Flashcard games save per-card snapshots and missed answers for r
   await page.locator('[data-action="phase-action"]').click();
   let outcome="";
   for(let attempt=0;attempt<12;attempt++){
+    if(attempt>0){
+      await page.locator('[data-action="phase-action"]').click(); // feedback -> next memory card
+      await page.locator('[data-action="phase-action"]').click(); // memory -> answer phase
+    }
     await page.locator("#flashOptions .flash-option").first().click();
     outcome=await page.locator("#flashPhaseLabel").innerText();
     if(/Not quite|再试一次|Time expired|答题时间已结束/.test(outcome))break;
-    await page.locator('[data-action="phase-action"]').click();
   }
   expect(outcome).toMatch(/Not quite|再试一次|Time expired|答题时间已结束/);
 
