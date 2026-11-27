@@ -2291,17 +2291,17 @@
         {
           "id": "b",
           "learning_text": "mensapu",
-          "translation_text": "incorrect form"
+          "translation_text": "nonstandard form: initial s retained"
         },
         {
           "id": "c",
           "learning_text": "memsapu",
-          "translation_text": "incorrect form"
+          "translation_text": "nonstandard form: extra m added"
         },
         {
           "id": "d",
           "learning_text": "mengsapu",
-          "translation_text": "incorrect form"
+          "translation_text": "nonstandard form: extra ng added"
         }
       ],
       "correct_option_id": "a",
