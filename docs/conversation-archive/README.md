@@ -271,3 +271,6 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-27 — U3.0 Phase 3 Malay Lessons expansion, Batch 05](2026-11-27-update-3-0-phase-3-malay-lessons-batch-05.md) — expands the draft curriculum to 45 lessons (15 per difficulty); automated validation is pending.
 
 | 2026-11-27 | [U3.0 Phase 3 Malay Lessons expansion, Batch 05](2026-11-27-update-3-0-phase-3-malay-lessons-batch-05.md) | Adds home, school, feelings, conditional sentences, classifiers, cause and effect, data reporting, formal correspondence and inclusive-language topics; 45 lessons total; automated validation pending. |
+
+
+- [2026-11-27 — U3.0 Malay Quiz full regression and staging migration preparation](2026-11-27-u3-malay-quiz-full-regression-and-staging-migration-preparation.md) — records the 240-question draft bank, secure server-side runtime migration review, full green cross-version regression matrix, read-only hosted staging preflight and the explicit no-apply/no-production boundary.
