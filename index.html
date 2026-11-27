@@ -1011,6 +1011,8 @@
   <script src="data/english-baseline-categories.js?v=2.9.0-p3"></script>
   <script src="data/languages/english-dictionary.js?v=3.0.0"></script>
   <script src="data/languages/chinese-dictionary.js?v=3.0.0"></script>
+  <script src="data/languages/malay-dictionary-translations.js?v=3.0.0"></script>
+  <script src="js/core/dictionary-translation-overlay.js?v=3.0.0"></script>
   <script src="data/languages/english-lessons.js?v=3.0.0"></script>
   <script>
     // Starter vocabulary. Add more entries by following this same object structure.
@@ -1019,6 +1021,12 @@
     // Append the separately maintained U2.9.0 English expansion before dictionary state is initialised.
     englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));
     const chineseWords = window.SWIFT_CHINESE_BASE_DICTIONARY;
+    // The separately maintained Chinese character catalogue is part of the 725-entry course dictionary.
+    chineseWords.push(...(window.SWIFT_CHINESE_WORDS || []));
+    const englishMalayDictionaryCoverage = window.SWIFT_DICTIONARY_TRANSLATION_OVERLAY?.apply(englishWords,"en") || {complete:false};
+    const chineseMalayDictionaryCoverage = window.SWIFT_DICTIONARY_TRANSLATION_OVERLAY?.apply(chineseWords,"zh") || {complete:false};
+    const malayDictionaryTargetReady = !!(englishMalayDictionaryCoverage.complete && chineseMalayDictionaryCoverage.complete);
+    window.SWIFT_DICTIONARY_MALAY_TARGET_COVERAGE = Object.freeze({en:englishMalayDictionaryCoverage,zh:chineseMalayDictionaryCoverage,complete:malayDictionaryTargetReady});
 
     // Apply learner categories and verified additional readings to the original Chinese entries.
     // Grid cards remain character-only; this metadata is used for filtering and pinyin search.
@@ -1044,6 +1052,11 @@
     };
     let course = activeLanguage(storedCoursePreferences.learning_language) ? storedCoursePreferences.learning_language : "en";
     let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
+    for (const selectorId of ["translationSelect","preferenceTranslation"]) {
+      const option = document.querySelector("#"+selectorId+" option[value=\\"ms\\"]");
+      if (option) { option.disabled = !malayDictionaryTargetReady; option.title = malayDictionaryTargetReady ? "" : "Malay Dictionary translations are still being prepared."; }
+    }
+    if (!malayDictionaryTargetReady && translationLanguage === "ms") translationLanguage = "en";
     let words = dictionaryEntriesFor(course);
     let preferenceWriteQueue = Promise.resolve();
     let coursePreferenceSelectionVersion = 0;
