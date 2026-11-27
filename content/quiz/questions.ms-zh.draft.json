@@ -2012,29 +2012,29 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "Older sister of the speaker",
-          "translation_text": "说话者的姐姐"
+          "learning_text": "kakak saya",
+          "translation_text": "我的姐姐"
         },
         {
           "id": "b",
-          "learning_text": "Younger brother of the speaker",
-          "translation_text": "说话者的弟弟"
+          "learning_text": "adik lelaki saya",
+          "translation_text": "我的弟弟"
         },
         {
           "id": "c",
-          "learning_text": "Speaker's grandmother",
-          "translation_text": "说话者的祖母"
+          "learning_text": "nenek saya",
+          "translation_text": "我的祖母"
         },
         {
           "id": "d",
-          "learning_text": "Speaker's uncle",
-          "translation_text": "说话者的叔叔"
+          "learning_text": "bapa saudara saya",
+          "translation_text": "我的叔叔／舅舅"
         }
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Kakak” merujuk saudara perempuan yang lebih tua; “saya” menunjukkan pemilikan atau hubungan dengan penutur.",
       "explanation_translation": "“Kakak”指年长的姐妹，“saya”说明她与说话者的关系。",
-      "learning_objective_id": "family-relationship",
+      "learning_objective_id": "older-sister-term",
       "release_approved": false
     },
     {
@@ -2046,7 +2046,7 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Pilih frasa yang betul untuk memesan satu glass air dalam bahasa Melayu.",
+      "prompt_learning": "Pilih frasa yang betul untuk memesan satu gelas air dalam bahasa Melayu.",
       "prompt_translation": "选择正确的马来语短语，表示一杯水。",
       "options": [
         {
@@ -2346,7 +2346,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Helai” digunakan untuk benda nipis dan leper seperti kertas.",
       "explanation_translation": "“Helai”用于纸张等薄而扁平的物品。",
-      "learning_objective_id": "classifiers-for-animals",
+      "learning_objective_id": "classifier-for-flat-items",
       "release_approved": false
     },
     {
@@ -2363,23 +2363,23 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "children",
+          "learning_text": "kanak-kanak",
           "translation_text": "儿童"
         },
         {
           "id": "b",
-          "learning_text": "one adult",
-          "translation_text": "一位成年人"
+          "learning_text": "orang dewasa",
+          "translation_text": "成年人"
         },
         {
           "id": "c",
-          "learning_text": "a classroom",
-          "translation_text": "一间教室"
+          "learning_text": "bilik darjah",
+          "translation_text": "教室"
         },
         {
           "id": "d",
-          "learning_text": "a teacher",
-          "translation_text": "一位教师"
+          "learning_text": "guru",
+          "translation_text": "教师"
         }
       ],
       "correct_option_id": "a",
@@ -2463,7 +2463,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Ke” menunjukkan arah atau destinasi pergerakan.",
       "explanation_translation": "“Ke”表示移动的方向或目的地。",
-      "learning_objective_id": "location-preposition",
+      "learning_objective_id": "destination-preposition",
       "release_approved": false
     },
     {
@@ -2736,7 +2736,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Saya ingin memohon…” ialah bentuk permohonan yang sopan dan formal.",
       "explanation_translation": "“Saya ingin memohon…”是礼貌且正式的申请表达。",
-      "learning_objective_id": "formal-register",
+      "learning_objective_id": "formal-application-request",
       "release_approved": false
     },
     {
@@ -2814,7 +2814,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Selain itu” menambah maklumat yang berkaitan dengan perkara sebelumnya.",
       "explanation_translation": "“Selain itu”用于补充与前文相关的信息。",
-      "learning_objective_id": "discourse-contrast",
+      "learning_objective_id": "additive-discourse-marker",
       "release_approved": false
     },
     {
@@ -2853,7 +2853,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Para” sudah menandakan kumpulan jamak, maka “semua” tidak diperlukan dalam binaan ini.",
       "explanation_translation": "“Para”已经表示复数群体，因此这个结构中不需要再加“semua”。",
-      "learning_objective_id": "editing-agreement-and-clarity",
+      "learning_objective_id": "avoid-redundant-plural-marking",
       "release_approved": false
     },
     {
@@ -2892,7 +2892,7 @@
       "correct_option_id": "a",
       "explanation_learning": "Mengulangi nama penerima apabila perlu dapat mengelakkan rujukan kata ganti nama yang kabur.",
       "explanation_translation": "必要时重复收件人的姓名，可以避免代词指代不清。",
-      "learning_objective_id": "editing-clarity",
+      "learning_objective_id": "editing-pronoun-reference",
       "release_approved": false
     },
     {
