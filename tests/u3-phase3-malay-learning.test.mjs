@@ -109,6 +109,8 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   assert.equal(pkg.dailyLearning.applications.length,daily.applications.length);
   assert.equal(pkg.dailyLearning.discovery.length,93);
   assert.equal(pkg.flashcards.source.type,"dictionary-derived");
+  const bootstrap=fs.readFileSync("js/core/legacy-content-bootstrap.js","utf8");
+  assert.match(bootstrap,/flashcards:\{source:data\.flashcards\?\.source/);
   assert.equal(pkg.dictionary.translations.length,1344);
   assert.ok(pkg.dictionary.translations.every(x=>x.status==="machine_assisted_draft"));
 });
