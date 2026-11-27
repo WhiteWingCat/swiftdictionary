@@ -140,7 +140,7 @@
     return text.replace(/\(\s*\)/g,"").replace(/\[\s*\]/g,"").replace(/\s{2,}/g," ").replace(/\s+([,;:.])/g,"$1").replace(/[,;:.]\s*$/,"").trim();
   }
     function translationFor(word){
-    const language=state.game?.translationLanguage||translationLanguage;
+    const language=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
     const learning=word.course||state.game?.learningLanguage||course;
     if(learning==="ms"){
       if(language==="en")return word.definitionEn||word.translationEn||"";
@@ -465,7 +465,7 @@
         return !!cue&&!normalize(cue).includes(normalize(w.word));
       }
       if(mode==="translation"){
-        const language=state.game?.translationLanguage||translationLanguage;
+        const language=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
         if(language!=="ms"&&(!Array.isArray(w.translationLanguages)||!w.translationLanguages.includes(language)))return false;
         const cue=translationFor(w);
         if(!cue)return false;
@@ -479,7 +479,7 @@
     };
     const seenCards=new Set(),available=deck.filter(w=>{
       if(!w.word)return false;
-      const language=state.game?.translationLanguage||translationLanguage;
+      const language=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
       if(language==="ms"){
         const hasSupport=w.card_type==="custom"?!!(w.translation_text||w.back_text):!!translationFor(w);
         if(!hasSupport)return false;
@@ -513,7 +513,7 @@
     }else if(chinese&&mode==="definition"){
       memory=target.definitionCueZh||target.definitionZh;prompt=uiText("Which Chinese word matches this description?","哪个中文词语符合这个描述？");correct=target.word;
     }else if(chinese&&mode==="translation"){
-      memory=translationFor(target);prompt=(state.game?.translationLanguage||translationLanguage)==="zh"?uiText("Choose the Chinese word or expression with the closest equivalent meaning","请选择意思相近的中文词语或表达"):uiText("Choose the Chinese expression with this direct English equivalent","请选择与这段英文释义最接近的中文表达");correct=target.word;
+      memory=translationFor(target);prompt=(state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en"))==="zh"?uiText("Choose the Chinese word or expression with the closest equivalent meaning","请选择意思相近的中文词语或表达"):uiText("Choose the Chinese expression with this direct English equivalent","请选择与这段英文释义最接近的中文表达");correct=target.word;
     }else if(chinese&&mode==="sentence"){
       const sentence=(target.examples||[])[0];
       memory=blankAllOccurrences(sentence,target.word,chinese);
