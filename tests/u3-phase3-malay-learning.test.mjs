@@ -114,3 +114,30 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   assert.equal(pkg.dictionary.translations.length,1344);
   assert.ok(pkg.dictionary.translations.every(x=>x.status==="machine_assisted_draft"));
 });
+
+
+test("Curated Malay Quiz support corrections load after generated drafts without changing answer IDs",()=>{
+  vm.runInContext(read("data/languages/malay-learning-support-translations.js"),context);
+  vm.runInContext(read("data/languages/malay-learning-support-overrides.js"),context);
+  const support=context.window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
+  const corrected=context.window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS;
+  assert.equal(corrected.status,"model_assisted_malay_draft_pending_editorial_review");
+  assert.equal(corrected.quiz.en.length,23);
+  for(const id of corrected.quiz.en){
+    const row=support.quiz.en[id];
+    assert.ok(row,id+" missing from English Quiz Malay support");
+    assert.ok(row.promptLearning?.length>12,id+" prompt is missing");
+    assert.ok(row.explanationLearning?.length>12,id+" explanation is missing");
+    assert.deepEqual(Object.keys(row.options).sort(),["a","b","c","d"]);
+    const values=Object.values(row.options).map(option=>option.learning);
+    assert.ok(values.every(value=>typeof value==="string"&&value.trim()),id+" has an empty option translation");
+    assert.equal(new Set(values.map(value=>value.toLocaleLowerCase("ms"))).size,4,id+" has duplicate Malay option translations");
+  }
+  assert.match(support.quiz.en["quiz-advanced-001"].promptLearning,/dapatan awal/);
+  assert.match(support.quiz.en["quiz-advanced-036"].promptLearning,/kenaikan pangkat/);
+});
+
+test("Malay support overrides are loaded after the generated translation inventory",()=>{
+  const html=read("index.html");
+  assert.ok(html.indexOf("malay-learning-support-translations.js")<html.indexOf("malay-learning-support-overrides.js"));
+});
