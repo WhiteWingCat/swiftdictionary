@@ -3776,7 +3776,12 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
         if(pageElement)introPageObserver.observe(pageElement,{attributes:true,attributeFilter:["hidden"]});
       });
     }
-    document.getElementById("translationSelect").addEventListener("change",()=>applyLearningCourseAvailability());
+    document.getElementById("translationSelect").addEventListener("change",()=>{
+      applyLearningCourseAvailability();
+      if(!quizEl("lessonDetailPage").hidden&&ls.active)renderLesson(ls.active,true);
+      else renderLessons();
+      if(typeof initialiseDailyLearning==="function"&&currentUser)initialiseDailyLearning();
+    });
     document.getElementById("courseSelect").addEventListener("change",async()=>{
       const lessonDetailWasOpen=!quizEl("lessonDetailPage").hidden;
       ls.topic="all";
