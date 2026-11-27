@@ -221,7 +221,7 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_chinese_runtime_u2_8_0.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_runtime_u3_0.sql"
 
-      - name: Validate and import draft Quiz content in local Supabase
+      - name: Validate and import Quiz content, including the owner-authorized Malay staging release
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
           eval "$(supabase status --output env)"
@@ -231,9 +231,8 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
           node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs"
-          node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs" --emit-sql --approve-for-release > "$RUNNER_TEMP/quiz-malay-staging-release.sql"
-          grep -q "STAGING-ONLY release" "$RUNNER_TEMP/quiz-malay-staging-release.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-malay-staging-release.sql"
+          grep -q "STAGING-ONLY" "$GITHUB_WORKSPACE/supabase/migrations/20261127140000_swiftdictionary_update_3_0_malay_quiz_content_release.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127140000_swiftdictionary_update_3_0_malay_quiz_content_release.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_release_import_assertions.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_release_runtime_u3_0.sql"
 
