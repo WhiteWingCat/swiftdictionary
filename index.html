@@ -3377,7 +3377,7 @@ async function completeLesson(x){
       }else if(translationLanguage===savedTranslation){
         notice.textContent=quizT("This Quiz is using your selected translation, which is included in this session.","本次测验正在使用你选择的翻译语言，该内容已包含在当前测验中。");
       }else{
-        notice.textContent=quizT("Your requested translation ("+(translationLanguage==="zh"?"Simplified Chinese":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.","你选择的翻译语言（"+(translationLanguage==="zh"?"简体中文":"英语")+"）不包含在本次测验快照中。本次测验会保留原有语言设置；新偏好将在下一次测验生效。当前答案和进度不会改变。");
+        notice.textContent=quizT("Your requested translation ("+(translationLanguage==="zh"?"Simplified Chinese":translationLanguage==="ms"?"Malay":"English")+") is not included in this Quiz snapshot. This session keeps its original translation; your new preference will apply to the next Quiz. Your current answers and progress are unchanged.","你选择的翻译语言（"+(translationLanguage==="zh"?"简体中文":translationLanguage==="ms"?"马来语":"英语")+"）不包含在本次测验快照中。本次测验会保留原有语言设置；新偏好将在下一次测验生效。当前答案和进度不会改变。");
       }
       notice.hidden=false;
     }
