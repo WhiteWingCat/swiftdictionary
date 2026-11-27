@@ -20,6 +20,7 @@ vm.runInContext(read("data/malay-lessons-expansion-02.js"),context);
 vm.runInContext(read("data/malay-lessons-expansion-03.js"),context);
 vm.runInContext(read("data/malay-lessons-expansion-04.js"),context);
 vm.runInContext(read("data/malay-lessons-expansion-05.js"),context);
+vm.runInContext(read("data/malay-lessons-expansion-06.js"),context);
 vm.runInContext(read("data/malay-daily-learning.js"),context);
 vm.runInContext(read("data/malay-daily-learning.js").slice(read("data/malay-daily-learning.js").indexOf("/* Fill the scheduled mixed Discovery")),context);
 
