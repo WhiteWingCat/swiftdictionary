@@ -1116,3 +1116,29 @@ The remaining Malay coverage gaps are still open: Malay practice prompts/options
 
 
 Deployment follow-up: Cloudflare Pages successfully deployed application commit `cfa7c51cdb3cd0fc1e612364e993e7ccf7c7d0a6`. Commit preview: https://23d873a0.swiftdictionary.pages.dev. Stable branch preview: https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev. The Pages deployment is confirmed; authenticated browser acceptance of the review flow remains pending.
+
+
+## 2026-11-27 — Malay learning-support translation quality remediation (in progress)
+
+A full content-quality audit found that the existing generated support-language pack had coverage records but unacceptable output quality in a significant portion of the content. The issue is broader than missing fields: the Argos-generated English/Chinese-to-Malay drafts include Indonesian vocabulary, malformed phrases, untranslated fragments and repeated answer choices. Coverage alone must not be treated as a successful translation.
+
+Audit snapshot:
+- English permanent Lessons: 17 support records, 112 practice-question translations.
+- Simplified Chinese permanent Lessons: 17 support records, 112 practice-question translations.
+- English Quiz support pack: 229 entries; staging database currently has 199 approved English-course questions.
+- Chinese Quiz support pack: 145 entries; staging database currently has 145 approved Chinese-course questions.
+- Heuristic QA flagged 72/447 English Lesson support strings, 73/560 Chinese Lesson support strings, 627/2,748 English Quiz support strings and 366/1,740 Chinese Quiz support strings for likely Indonesian contamination or malformed output. It also found duplicate translated option sets in 50 English and 14 Chinese Quiz entries. These are screening signals, not a claim that every flagged string is wrong.
+- English Flashcard support draft contains many empty standalone definitions; dictionary-backed Flashcard translation must be evaluated separately from custom/phrase-card coverage.
+
+Added `data/languages/malay-learning-support-overrides.js`, loaded after the generated support pack. It currently contains a curated model-assisted correction batch for the first 36 English advanced Quiz questions and the first 12 Chinese advanced Quiz questions. Source IDs, option IDs and answer keys are preserved. These remain editorial drafts pending Malaysian Standard Malay review. No placeholder translations were kept for source questions that had not yet been checked.
+
+Added regression assertions in `tests/u3-phase3-malay-learning.test.mjs` and syntax checks in `.github/workflows/u3-phase1-validation.yml`. A direct in-runtime check confirmed that all 48 overrides load, required prompt/explanation/options are populated, the expected support field is used for Chinese translation-type questions, and script ordering is correct. Full GitHub Actions and authenticated browser acceptance are still pending.
+
+Next required work:
+1. Continue curated translation batches until all 199 approved English and 145 approved Chinese Quiz questions have reviewed Malay support strings; retire stale generated IDs and detect duplicate/ambiguous option translations.
+2. Correct Lesson practice prompts/options/explanations for all 17 English and 17 Chinese lessons (112 questions per course), not merely the title and lesson-body translation fields.
+3. Audit and complete Flashcard Malay coverage for dictionary-derived, phrase, sentence and custom cards; never substitute an incorrect or untranslated value silently.
+4. Run the full U3.0, U2.3, U2.5, U2.6, U2.7 and U2.9 regression matrix, then authenticated staging browser acceptance and verify the latest Cloudflare Pages deployment.
+5. Verify staging Google OAuth redirect and leaked-password protection; complete the Malaysian Standard Malay editorial, model licensing, Copyright Act and PDPA checks before public release.
+
+Do not mark U3.0 complete while these quality and release gates remain open. PR #20 stays draft/unmerged and production remains untouched.
