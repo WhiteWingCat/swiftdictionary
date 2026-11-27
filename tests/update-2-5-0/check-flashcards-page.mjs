@@ -13,6 +13,7 @@ const deletionMigration=fs.readFileSync("supabase/migrations/20261118100736_flas
 const durationMigration=fs.readFileSync("supabase/migrations/20261119094011_swiftdictionary_update_2_5_0_flashcards_60_120_second_challenges.sql","utf8");
 const reviewIndexMigration=fs.readFileSync("supabase/migrations/20261119095730_swiftdictionary_update_2_5_0_flashcard_review_session_index.sql","utf8");
 const dismissalMigration=fs.readFileSync("supabase/migrations/20261124120000_swiftdictionary_update_2_8_0_flashcard_review_item_dismissal.sql","utf8");
+const reviewRepairMigration=fs.readFileSync("supabase/migrations/20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair.sql","utf8");
 
 let inlineCount=0;
 for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
@@ -76,7 +77,7 @@ if(!malayRuntime.includes("flashcard_sessions_learning_language_code_check")||!m
 if(!malayRuntime.includes("v_learning not in ('en','zh','ms')")||!malayRuntime.includes("v_translation not in ('en','zh','ms')"))throw new Error("Malay Flashcard server-side session language validation is missing.");
 if(!malayRuntime.includes("values(v_user,p_mode,p_difficulty,p_duration_seconds,v_learning,v_translation)"))throw new Error("Malay Flashcard sessions do not snapshot the authenticated language pair.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
-if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms13'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
+if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms14'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
 if(!html.includes('id="dashboardTabFavourites"')||!html.includes('id="dashboardTabProgress"')||!html.includes('id="dashboardTabHistory"')||!html.includes('id="dashboardTabAnalytics"'))throw new Error("The four Dashboard tabs are incomplete.");
 if(!html.includes('get_my_lesson_practice_attempts')||!html.includes('practiceRetries')||!html.includes('data-dashboard-flashcard-review-game'))throw new Error("Practice Insights or Daily History review integration is missing.");
 for(const [needle,label] of [
@@ -105,5 +106,8 @@ if(!html.includes("60-second or 120-second challenge")||!html.includes("Mixed Re
 if(!html.includes('translationLanguage==="zh"&&chineseIntroCopy[page]'))throw new Error("Simplified Chinese Quiz/Flashcards introductions are missing.");
 if(!flashcards.includes("dismiss_my_flashcard_review_item")||!flashcards.includes('data-action="dismiss-review-item"')||!mock.includes("seedFlashcardData"))throw new Error("Weak-memory items need account-scoped manual dismissal in the client and mock adapter.");
 if(!dismissalMigration.includes("private.dismiss_my_flashcard_review_item_impl")||!dismissalMigration.includes("security definer")||!dismissalMigration.includes("security invoker")||!dismissalMigration.includes("grant execute on function public.dismiss_my_flashcard_review_item"))throw new Error("Weak-memory dismissal RPC must use least-privilege authenticated grants.");
+if(!reviewRepairMigration.includes("insert into private.flashcard_session_items")||!reviewRepairMigration.includes("insert into private.flashcard_review_items")||!reviewRepairMigration.includes("v_snapshot := v_item->'snapshot'")||!reviewRepairMigration.includes("grant execute on function private.complete_my_flashcard_game_impl(uuid,jsonb) to authenticated"))throw new Error("Flashcard completion must persist per-card review snapshots and weak-memory misses using authenticated server-side logic.");
+if(!flashcards.includes("function learningCourseLabel(code)")||!flashcards.includes("learningCourseLabel(g.learning_language_code||\"en\")"))throw new Error("Recent Flashcard games must identify the learning course.");
+if(flashcards.includes("completed before per-card review snapshots were introduced"))throw new Error("Do not incorrectly label a game as pre-review when its snapshot is simply missing.");
 if(!flashcards.includes(".flash-home > .flash-section:not(.learning-auth-card)")||!flashcards.includes("flash-review-tab[data-value=translation]{background:#bd762e"))throw new Error("Flashcards panels or Translation Recall review styling are missing.");
 console.log("Flashcards page checks passed; syntax-checked "+inlineCount+" inline application script(s).");
