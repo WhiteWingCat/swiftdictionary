@@ -4970,3 +4970,8 @@ Latest status follow-up: U2.3 Chromium browser regression passed on run `4598378
 
 
 See the [2026-11-27 U3.0 staging preview handoff](conversation-archive/2026-11-27-u3-staging-preview-handoff.md) for the complete translation inventory, staging migration and catalogue checks, latest CI state, remaining limitations and release boundary.
+
+
+### Latest-head regression follow-up
+
+After updating the Flashcards cache version to ms13 and aligning the two legacy assertions, the latest reruns passed Flashcards static + Chromium (45985581267), U3.0 architecture/content/adapter parity (45985581304), U2.9 English Dictionary QA (45985581089), U2.7 Chinese static/Chromium + PostgreSQL (45985581114), and Cloudflare build routing (45985581075). U2.3 PostgreSQL passed while its Auth and Chromium jobs continue (45985581111); U2.6 ACL PostgreSQL remains in progress (45985581145); Quiz DB foundation passed while local Auth/RPC/Chromium integration continues (45985581079).
