@@ -16,7 +16,10 @@ for(const relative of files){
  if(pack.questions?.length!==120)errors.push(relative+": expected 120 cumulative questions");
  const seen=new Set(),prompts=new Set();
  const counts={beginner:0,intermediate:0,advanced:0};
- const batchOne={beginner:0,intermediate:0,advanced:0};\n const batchTwo={beginner:0,intermediate:0,advanced:0};\n const batchThree={beginner:0,intermediate:0,advanced:0};\n const batchFour={beginner:0,intermediate:0,advanced:0};
+ const batchOne={beginner:0,intermediate:0,advanced:0};
+ const batchTwo={beginner:0,intermediate:0,advanced:0};
+ const batchThree={beginner:0,intermediate:0,advanced:0};
+ const batchFour={beginner:0,intermediate:0,advanced:0};
  for(const [i,q] of (pack.questions||[]).entries()){
   const at=relative+" questions["+i+"]";
   for(const key of ["question_id","source_lesson_id","topic_id","difficulty","prompt_learning","prompt_translation","explanation_learning","explanation_translation","learning_objective_id"])if(typeof q[key]!=="string"||!q[key].trim())errors.push(at+": missing "+key);
@@ -52,7 +55,8 @@ for(const relative of files){
  if(Object.values(batchTwo).some(n=>n!==12))errors.push(relative+": batch 02 must contain 36 questions, 12 per difficulty");
  packs.push(pack);
 }
-if(errors.length){console.error(errors.join("\n"));process.exit(1);}
+if(errors.length){console.error(errors.join("
+"));process.exit(1);}
 const summary="Malay Quiz draft validated: 120 questions per support language; batches 03 and 04 each add 36 (10 Beginner, 10 Intermediate, 16 Advanced); all remain draft.";
 if(emitSql)console.error(summary);else console.log(summary);
 
@@ -67,7 +71,18 @@ if(emitSql){
     .map((v,i)=>i===9?quote(v)+"::jsonb":quote(v)).join(",")+
    ")");
  }
- console.log("\n-- Draft-only Malay Quiz content. Never marks records approved.\n"+
- `insert into private.quiz_question_bank(\n question_id,revision,learning_language_code,translation_language_code,\n source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,options,\n correct_option_id,explanation_learning,explanation_translation,status,question_type,\n answer_language_code,learning_objective_id\n) values\n`+
- rows.join(",\n")+ "\non conflict(question_id,revision) do nothing;\n");
+ console.log("
+-- Draft-only Malay Quiz content. Never marks records approved.
+"+
+ `insert into private.quiz_question_bank(
+ question_id,revision,learning_language_code,translation_language_code,
+ source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,options,
+ correct_option_id,explanation_learning,explanation_translation,status,question_type,
+ answer_language_code,learning_objective_id
+) values
+`+
+ rows.join(",
+")+ "
+on conflict(question_id,revision) do nothing;
+");
 }
