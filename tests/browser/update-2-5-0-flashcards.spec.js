@@ -580,6 +580,7 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
   const recentGames=page.locator("#flashcardsPage .flash-home > .flash-section").last();
   await expect(recentGames).toContainText("Recent games");
   await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
+  await expect(recentGames.locator(".flash-card-row").first()).toContainText("Simplified Chinese course");
   await page.locator('[data-action="open-review"]').click();
   const translationTab=page.locator('.flash-review-tab[data-value="translation"]');
   await expect(translationTab).toHaveCSS("background-color","rgb(189, 118, 46)");
@@ -593,6 +594,48 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
   await expect(recentGames.locator(".flash-card-row")).toHaveCount(1);
 });
 
+
+test("Completed Flashcard games save per-card snapshots and missed answers for review",async({page})=>{
+  await page.clock.install();
+  await openMockFlashcards(page);
+  await beginRecall(page,"word","beginner","all",60);
+
+  // Answer until at least one miss is recorded; the first option is intentionally
+  // arbitrary, so the test checks the feedback rather than assuming an answer key.
+  await page.locator('[data-action="phase-action"]').click();
+  let outcome="";
+  for(let attempt=0;attempt<12;attempt++){
+    await page.locator("#flashOptions .flash-option").first().click();
+    outcome=await page.locator("#flashPhaseLabel").innerText();
+    if(/Not quite|再试一次|Time expired|答题时间已结束/.test(outcome))break;
+    await page.locator('[data-action="phase-action"]').click();
+  }
+  expect(outcome).toMatch(/Not quite|再试一次|Time expired|答题时间已结束/);
+
+  await page.evaluate(()=>{
+    window.__swiftOriginalDateNow=Date.now;
+    Date.now=()=>window.__swiftOriginalDateNow()+60000;
+  });
+  await page.clock.runFor(100);
+  await expect(page.locator(".flash-times-up-backdrop")).toBeVisible();
+  await page.clock.runFor(2000);
+  await expect(page.locator("#flashResultTitle")).toBeVisible();
+  await page.locator('[data-action="close-result"]').click();
+
+  await expect(page.locator('[data-action="open-review"]')).not.toContainText("(0)");
+  await page.locator('[data-action="open-review"]').click();
+  await expect(page.locator(".flash-review-item").first()).toBeVisible();
+  await page.locator('[data-action="close-overlay"]').last().click();
+
+  await page.locator('[data-action="review-game"]').first().click();
+  await expect(page.locator(".flash-game-review-modal .flash-review-card").first()).toBeVisible();
+  await expect(page.locator(".flash-game-review-modal")).toContainText("Incorrect");
+  await page.evaluate(()=>{
+    Date.now=window.__swiftOriginalDateNow;
+    delete window.__swiftOriginalDateNow;
+  });
+});
+
 test("Recent games paginate ten at a time and game review has a top close control",async({page})=>{
   await openMockFlashcards(page);
   await page.evaluate(()=>{
@@ -601,12 +644,17 @@ test("Recent games paginate ten at a time and game review has a top close contro
       started_at:new Date(Date.now()-index*60000).toISOString(),
       completed_at:new Date(Date.now()-index*60000).toISOString(),
       words_seen:10,correct_count:7,incorrect_count:3,unanswered_count:0,
+      learning_language_code:["en","zh","ms"][index%3],translation_language_code:"en",
       review_available:true,review_items:[]
     }));
     window.__swiftDictionaryMock.seedFlashcardData({history});
   });
   await page.evaluate(()=>window.dispatchEvent(new Event("swift-auth-updated")));
   await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
+  const firstPageGames=await page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row").allTextContents();
+  expect(firstPageGames.some(text=>text.includes("English course"))).toBe(true);
+  expect(firstPageGames.some(text=>text.includes("Simplified Chinese course"))).toBe(true);
+  expect(firstPageGames.some(text=>text.includes("Malay course"))).toBe(true);
   await expect(page.locator('[data-action="history-next"]')).toBeVisible();
   await page.locator('[data-action="history-next"]').click();
   await expect(page.locator("#flashcardsPage .flash-section").filter({hasText:"Recent games"}).locator(".flash-card-row")).toHaveCount(10);
