@@ -119,6 +119,15 @@ begin
     or (v_session->'questions'->0) ? 'explanation_learning' then
    raise exception 'Active Malay Quiz leaked answer key or explanation';
  end if;
+ v_saved:=public.start_my_quiz('beginner','ms','en');
+ if v_saved->>'status'<>'active_session_exists'
+    or v_saved->'session'->>'session_id'<>v_sid::text then
+   raise exception 'Resuming a Malay Quiz should return the existing session without starting a second one: %',v_saved;
+ end if;
+ v_availability:=public.get_my_quiz_availability();
+ if v_availability->'allowance'->>'used_count'<>'1' then
+   raise exception 'Resuming an active Malay Quiz charged a second allowance';
+ end if;
  insert into pg_temp.quiz_malay_test_refs values(v_sid);
  for v_q in select value from jsonb_array_elements(v_session->'questions') loop
    v_saved:=public.save_my_quiz_answer(v_sid,v_q->>'question_id','a',(v_q->>'position')::integer);
