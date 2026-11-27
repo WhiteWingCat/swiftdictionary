@@ -72,8 +72,12 @@ test("Malay Lessons has independently authored draft content at all three levels
 
 test("Malay Daily Learning includes all four shared activity categories",()=>{
   console.log("Malay daily inventory:", {topics:daily.topics.length, applications:daily.applications.length, discovery:daily.discovery.length});
-  assert.ok(daily.topics.length>=12);
-  assert.ok(daily.applications.length>=12);
+  assert.equal(daily.topics.length,30);
+  assert.equal(daily.applications.length,30);
+  for(const level of ["beginner","intermediate","advanced"]){
+    assert.equal(daily.topics.filter(x=>x.difficulty===level).length,10,"topic balance: "+level);
+    assert.equal(daily.applications.filter(x=>x.difficulty===level).length,10,"application balance: "+level);
+  }
   assert.equal(daily.discovery.length,93);
   assert.ok(daily.topics.every(x=>x.id&&x.topicId&&x.title&&x.body));
   assert.ok(daily.applications.every(x=>x.id&&x.topicId&&x.questions?.length));
@@ -81,8 +85,10 @@ test("Malay Daily Learning includes all four shared activity categories",()=>{
   assert.equal(new Set(daily.applications.map(x=>x.id)).size,daily.applications.length);
   assert.ok(daily.topics.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh));
   assert.ok(daily.applications.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh&&x.questions.every(q=>q.q&&q.options.length===4&&Number.isInteger(q.answer))));
-  assert.ok(daily.applications.filter(x=>x.id.endsWith("-02")).every(x=>x.questions.every(q=>q.q.en&&q.q.zh&&q.options.every(o=>o.ms&&o.en&&o.zh))));
-  assert.equal(daily.contentVersion,"u3-ms-daily-0.2.0");
+  assert.ok(daily.applications.filter(x=>x.id.endsWith("-02") || x.id.endsWith("-03")).every(x=>x.questions.every(q=>q.q.ms&&q.q.en&&q.q.zh&&q.options.every(o=>o.ms&&o.en&&o.zh))));
+  assert.ok(daily.topics.filter(x=>x.id.endsWith("-03")).every(x=>x.titleEn&&x.titleZh&&x.en&&x.zh&&x.exampleEn&&x.exampleZh));
+  assert.ok(daily.applications.filter(x=>x.id.endsWith("-03")).every(x=>x.questions.every(q=>q.options.every(o=>typeof o==="object"&&o.ms&&o.en&&o.zh))));
+  assert.equal(daily.contentVersion,"u3-ms-daily-0.3.0");
   assert.ok(daily.discovery.every(x=>x.id&&x.word&&x.definition&&x.en&&x.zh));
   assert.equal(new Set(daily.discovery.map(x=>x.id)).size,93);
 });
