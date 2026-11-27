@@ -44,7 +44,7 @@ for(const relative of files){
   if(new Set(labels).size!==4)errors.push(at+": Malay options must be unique");
   if(new Set(translations).size!==4)errors.push(at+": translated options must be unique");
   for(const option of q.options)if(!option.learning_text?.trim()||!option.translation_text?.trim())errors.push(at+": incomplete bilingual option");
-  const normalized=q.prompt_learning.toLocaleLowerCase("ms").replace(/[^\\p{L}\\p{N}]+/gu," ").trim();
+  const normalized=q.prompt_learning.toLocaleLowerCase("ms").replace(/[^\p{L}\p{N}]+/gu," ").trim();
   if(prompts.has(normalized))errors.push(at+": duplicate Malay prompt");
   prompts.add(normalized);
  }
@@ -66,7 +66,7 @@ if(emitSql){
     .map((v,i)=>i===9?quote(v)+"::jsonb":quote(v)).join(",")+
    ")");
  }
- console.log("\\n-- Draft-only Malay Quiz content. Never marks records approved.\n"+
+ console.log("\n-- Draft-only Malay Quiz content. Never marks records approved.\n"+
  `insert into private.quiz_question_bank(\n question_id,revision,learning_language_code,translation_language_code,\n source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,options,\n correct_option_id,explanation_learning,explanation_translation,status,question_type,\n answer_language_code,learning_objective_id\n) values\n`+
- rows.join(",\n")+ "\\non conflict(question_id,revision) do nothing;\n");
+ rows.join(",\n")+ "\non conflict(question_id,revision) do nothing;\n");
 }
