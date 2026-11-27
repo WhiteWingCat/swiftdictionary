@@ -60,7 +60,10 @@ test("English and Chinese Lessons retain their learning-language text and show M
  assert.match(html,/function indexLessonSupportText\(source,support\)/);
  assert.match(html,/lessonMsTextLookup\.get\(value\)/);
  assert.match(html,/lessonMsTextLookup\.get\(value\.zh\)/);
- assert.match(html,/return \{q:q\.q,options:order\.map\(j=>q\.options\[j\]\)/);
+ assert.match(html,/lessonZh\[x\.id\]\?\.practices/);
+ assert.match(html,/lessonMsRecord\(x\)\?\.practices/);
+ assert.match(html,/q:translated\?\.q\?\?q\.q/);
+ assert.match(html,/options:order\.map\(j=>translated\?\.options\?\.\[j\]\?\?q\.options\[j\]\)/);
 });
 test("Flashcards derive Malay support from authored dictionary translations and avoid blank translated cards",()=>{
  const html=read("index.html");
