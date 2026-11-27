@@ -185,17 +185,17 @@
         {
           "id": "b",
           "learning_text": "metulis",
-          "translation_text": "书写"
+          "translation_text": "非标准形式"
         },
         {
           "id": "c",
           "learning_text": "memtulis",
-          "translation_text": "书写"
+          "translation_text": "前缀形式错误"
         },
         {
           "id": "d",
           "learning_text": "mengtulis",
-          "translation_text": "书写"
+          "translation_text": "辅音变化错误"
         }
       ],
       "correct_option_id": "a",
