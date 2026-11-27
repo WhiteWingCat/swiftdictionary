@@ -32,7 +32,18 @@
         "data/languages/english-lessons.js"
       ],
       "permanentLessonCount": 20,
-      "translationFile": "data/languages/english-lessons.js"
+      "translationFile": "data/languages/english-lessons.js",
+      "malaySupportTranslations": {
+        "file": "data/languages/malay-lesson-translations.js",
+        "lessonCount": 17,
+        "fields": [
+          "topic",
+          "title",
+          "summary",
+          "explanation"
+        ],
+        "practicePrompts": "source-language-pending"
+      }
     },
     "dailyLearning": {
       "files": [
@@ -53,13 +64,23 @@
       "sourcePackStatus": "draft",
       "sourceQuestionCount": 229,
       "previouslyApprovedReleaseSubset": 199,
-      "draftOnlyAdditions": 30
+      "draftOnlyAdditions": 30,
+      "malaySupportTranslations": {
+        "status": "not-yet-available",
+        "note": "English-to-Malay question pack is pending; Quiz UI blocks unsupported combinations."
+      }
     },
     "flashcards": {
       "files": [
         "flashcards.js"
       ],
-      "sourceComposition": "Dictionary-derived English cards plus 25 curated multiword expressions"
+      "sourceComposition": "Dictionary-derived English cards plus 25 curated multiword expressions",
+      "malaySupportTranslations": {
+        "file": "data/languages/malay-flashcard-translations.js",
+        "translatedHeadwords": 62,
+        "status": "machine-assisted-draft",
+        "untranslatedCardsExcluded": true
+      }
     }
   },
   "translationTargets": [
