@@ -67,11 +67,6 @@
       explanationLearning:"Apabila “Rarely” diletakkan pada awal klausa, subjek dan kata bantu perlu diterbalikkan: “have we seen”.",
       options:{a:{learning:"kami pernah melihat"},b:{learning:"pernahkah kami melihat"},c:{learning:"kami telah melihat"},d:{learning:"kami melihat"}}
     },
-    "quiz-advanced-013": {
-      promptLearning:"Lengkapkan ayat ini: Hanya selepas data diperiksa, ___ menerbitkan laporan itu.",
-      explanationLearning:"Frasa “Only after” pada awal ayat memerlukan penyongsangan subjek-kata bantu dalam klausa utama.",
-      options:{a:{learning:"pasukan itu telah"},b:{learning:"pasukan itu akan"},c:{learning:"barulah pasukan itu dapat"},d:{learning:"pasukan itu"}}
-    },
     "quiz-advanced-026": {
       promptLearning:"Jika syarikat itu telah melabur lebih awal, syarikat itu ___ bahagian pasaran yang lebih besar pada hari ini.",
       explanationLearning:"Past perfect menerangkan pelaburan terdahulu yang tidak berlaku, manakala “would have” menerangkan keadaan pada masa kini.",
