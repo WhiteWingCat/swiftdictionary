@@ -4768,3 +4768,10 @@ The Malay Dictionary already has topic categories and part-of-speech metadata. A
 Legal/content review: translations are to be independently authored from SwiftDictionary's existing source definitions. No DBP/PRPM/Kamus Dewan protected text or external dictionary dataset is to be copied. New translations remain machine-assisted drafts pending the owner's staging review. This static content change introduces no new personal-data field or processor; existing Malaysia PDPA and international privacy checks remain release gates.
 
 No Supabase schema/data/Auth/RLS change, staging migration, production database write, merge to main or production deployment was made for the filter implementation. Draft PR #20 remains unmerged. Continue the translation content in analysed batches and expose Malay as a Dictionary target only after complete coverage and regression validation.
+
+
+## 2026-11-27 — U3.0 staging feedback and Malay Quiz batch 01
+
+The owner's five staging observations and their feature-branch corrections are recorded in [the staging feedback and Malay Quiz batch 01 archive](conversation-archive/2026-11-27-u3-staging-feedback-and-malay-quiz-batch-01.md). The corrections cover Malay Dictionary target selection, multilingual Daily Application options, Malay permanent Lesson review from Daily History, registry-based language labels and capability-derived Quiz unavailable state. Static regression tests have been added; final CI and preview refresh remain pending.
+
+Malay Quiz authoring has started: 12 draft questions per support-language pair (Malay→English and Malay→Simplified Chinese), four per difficulty, plus a curriculum map and validator. The manifest keeps Malay Quiz capability disabled. This draft batch is below the existing availability minimums, and no Malay Quiz secure backend path or staging database migration has been applied. Expand and validate the bank, then implement the private server-side session/answer path and staging-only migration under the existing Quiz security/allowance model. All content remains draft pending owner review. No production changes, merge or deployment.
