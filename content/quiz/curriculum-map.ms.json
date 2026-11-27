@@ -189,16 +189,6 @@
       }
     ]
   },
-  "ms-b-time-and-days": {
-    "topic_id": "ms-time-and-days",
-    "difficulty": "beginner",
-    "objectives": [
-      {
-        "id": "time-expression",
-        "outcome": "Use “pukul” before a clock time."
-      }
-    ]
-  },
   "ms-i-aspek-perbuatan": {
     "topic_id": "ms-aspect",
     "difficulty": "intermediate",
@@ -299,16 +289,6 @@
       }
     ]
   },
-  "ms-a-hujah-beras": {
-    "topic_id": "ms-reasoned-argument",
-    "difficulty": "advanced",
-    "objectives": [
-      {
-        "id": "argument-evidence",
-        "outcome": "Relevant evidence supports a claim and makes an argument more convincing."
-      }
-    ]
-  },
   "ms-a-variasi-struktur": {
     "topic_id": "ms-sentence-variation",
     "difficulty": "advanced",
@@ -369,13 +349,13 @@
       }
     ]
   },
-  "ms-a-ambiguity-and-precision": {
-    "topic_id": "ms-topic-ambiguity-and-precision",
+  "ms-a-hujah-berasas": {
+    "topic_id": "ms-reasoned-argument",
     "difficulty": "advanced",
     "objectives": [
       {
-        "id": "precision-and-ambiguity",
-        "outcome": "Naming the item, recipient and deadline removes ambiguity."
+        "id": "argument-evidence",
+        "outcome": "Relevant evidence supports a claim and makes an argument more convincing."
       }
     ]
   }
