@@ -62,7 +62,7 @@ test("Malay Lessons has independently authored draft content at all three levels
   assert.equal(lessons.expansionBatches.reduce((sum,batch)=>sum+batch.added,0),18);
   const ids=["beginner","intermediate","advanced"].flatMap(level=>lessons[level].map(x=>x.id));
   assert.equal(ids.length,27);
-  assert.equal(new Set(ids).size,18);
+  assert.equal(new Set(ids).size,27);
 });
 
 test("Malay Daily Learning includes all four shared activity categories",()=>{
