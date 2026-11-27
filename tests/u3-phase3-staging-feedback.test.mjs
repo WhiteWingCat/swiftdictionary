@@ -28,3 +28,24 @@ test("Quiz unavailable copy is generic and capability-driven",()=>{
  assert.match(html,/SWIFT_LANGUAGE_REGISTRY\?\.get\(course\)/);
  assert.doesNotMatch(html,/Chinese Quiz is coming soon/);
 });
+
+test("Daily activity rendering never stringifies structured content objects",()=>{
+ const js=read("daily-learning.js");
+ assert.match(js,/const safeFallback=typeof fallback===\"string\"\|\|typeof fallback===\"number\"\?String\(fallback\):\"\"/);
+ assert.match(js,/function dailyDisplaySupport\(value, primary\)/);
+ assert.match(js,/dailyLocalizedText\(content\.body,snapshot\.learningLanguage/);
+ assert.match(js,/dailyLocalizedText\(example,snapshot\.learningLanguage/);
+ assert.doesNotMatch(js,/esc\(content\.body\)/);
+ assert.doesNotMatch(js,/\" 中文说明：\" \+ question\.zh/);
+});
+test("Malay Daily Topic and Application catalogue metadata mirrors all 120 live content records",()=>{
+ const source=read("data/malay-daily-learning.js");
+ const migration=read("supabase/migrations/20261127190000_swiftdictionary_update_3_0_malay_daily_catalogue_metadata_alignment.sql");
+ const ids=[...source.matchAll(/["']?id["']?\\s*:\\s*["']([^"']+)["']/g)].map(m=>m[1]).filter(id=>id.startsWith("ms-topic-")||id.startsWith("ms-application-"));
+ const topics=ids.filter(id=>id.startsWith("ms-topic-"));
+ const applications=ids.filter(id=>id.startsWith("ms-application-"));
+ assert.equal(topics.length,60);
+ assert.equal(applications.length,60);
+ for(const id of ids)assert.ok(migration.includes("'" + id + "'"),"catalogue alignment is missing "+id);
+ assert.match(migration,/v_updated <> 120/);
+});
