@@ -1061,11 +1061,23 @@
     let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
     let words = dictionaryEntriesFor(course);
     function syncMalayTargetOptionAvailability() {
-      // Translation targets are independent of Dictionary coverage. A course may
-      // have its own translation pack even while Dictionary translations are incomplete.
+      // Malay is a valid support language for English and Chinese courses.
+      // In the Malay course itself, English or Chinese is the support language.
+      const profileLearningCode=document.getElementById("preferenceLearning")?.value||course;
+      const available=profileLearningCode!=="ms";
       for (const selectorId of ["translationSelect","preferenceTranslation"]) {
         const option=document.querySelector("#"+selectorId+' option[value="ms"]');
-        if(option){option.disabled=false;option.title="";}
+        if(option){
+          option.disabled=!available;
+          option.title=available?"":"Choose English or Simplified Chinese as the support language for the Malay course.";
+        }
+      }
+      if(!available&&translationLanguage==="ms"){
+        translationLanguage="en";
+        const main=document.getElementById("translationSelect");
+        const preference=document.getElementById("preferenceTranslation");
+        if(main)main.value="en";
+        if(preference)preference.value="en";
       }
     }
     syncMalayTargetOptionAvailability();
@@ -1680,7 +1692,7 @@
         : null;
       const selector=document.getElementById("translationSelect");
       const requestedLanguage=nextLanguage || selector.value || "en";
-      translationLanguage=requestedLanguage;
+      translationLanguage=requestedLanguage==="ms" && course==="ms" ? "en" : requestedLanguage;
       syncMalayTargetOptionAvailability();
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
@@ -3792,6 +3804,7 @@ async function completeLesson(x){
     quizEl("learningIntroBackdrop").addEventListener("click",event=>{if(event.target===quizEl("learningIntroBackdrop"))learningIntroClose();});
     document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!quizEl("learningIntroBackdrop").hidden)learningIntroClose();});
     function applyLearningCourseAvailability(){
+      syncMalayTargetOptionAvailability();
       const chinese=isChineseCourse();
       const lessonsSignedIn=!!currentUser;
       const lessonsPage=quizEl("lessonsPage");
