@@ -3360,6 +3360,643 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
             "definitionMs": "Kelajuan atau rentak pergerakan atau aktiviti; juga satu langkah ketika berjalan."
           }
         ]
+      },
+      "paleoclimatology": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang iklim Bumi pada masa lampau yang jauh berdasarkan rekod semula jadi dan bukti lain."
+          }
+        ]
+      },
+      "paleoecology": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang ekosistem purba menggunakan fosil dan bukti lain."
+          }
+        ]
+      },
+      "paleography": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang tulisan tangan lama dan sistem tulisan sejarah."
+          }
+        ]
+      },
+      "palimpsest": {
+        "senses": [
+          {
+            "definitionMs": "Manuskrip yang digunakan semula selepas tulisan terdahulu dipadam; secara kiasan, sesuatu yang masih menyimpan kesan lapisan terdahulu."
+          }
+        ]
+      },
+      "paradigm": {
+        "senses": [
+          {
+            "definitionMs": "Model, kerangka atau set andaian yang membentuk cara sesuatu bidang difahami."
+          }
+        ]
+      },
+      "parsimony": {
+        "senses": [
+          {
+            "definitionMs": "Prinsip memilih penjelasan atau model paling ringkas yang masih mencukupi."
+          }
+        ]
+      },
+      "participate": {
+        "senses": [
+          {
+            "definitionMs": "Mengambil bahagian dalam sesuatu aktiviti atau acara."
+          }
+        ]
+      },
+      "pat": {
+        "senses": [
+          {
+            "definitionMs": "Menyentuh seseorang atau sesuatu dengan tangan secara ringan dan berulang."
+          },
+          {
+            "definitionMs": "Sentuhan ringan dan lembut yang dibuat menggunakan tangan."
+          }
+        ]
+      },
+      "path dependence": {
+        "senses": [
+          {
+            "definitionMs": "Keadaan apabila pilihan atau peristiwa lampau mengehadkan pilihan yang tersedia pada masa hadapan."
+          }
+        ]
+      },
+      "patient": {
+        "senses": [
+          {
+            "definitionMs": "Mampu menunggu atau menghadapi kesukaran tanpa berasa marah atau terganggu."
+          },
+          {
+            "definitionMs": "Individu yang menerima rawatan atau penjagaan perubatan."
+          }
+        ]
+      },
+      "patiently": {
+        "senses": [
+          {
+            "definitionMs": "Dengan cara yang menunjukkan kesanggupan menunggu dengan tenang."
+          }
+        ]
+      },
+      "pattern": {
+        "senses": [
+          {
+            "definitionMs": "Susunan, bentuk atau cara sesuatu perkara berlaku secara berulang."
+          }
+        ]
+      },
+      "perform": {
+        "senses": [
+          {
+            "definitionMs": "Melakukan tugasan atau aktiviti; juga menghiburkan penonton melalui persembahan."
+          }
+        ]
+      },
+      "perhaps": {
+        "senses": [
+          {
+            "definitionMs": "Mungkin; digunakan apabila sesuatu perkara belum pasti."
+          }
+        ]
+      },
+      "permission": {
+        "senses": [
+          {
+            "definitionMs": "Kebenaran atau kelulusan untuk melakukan sesuatu."
+          }
+        ]
+      },
+      "personally": {
+        "senses": [
+          {
+            "definitionMs": "Menurut pandangan sendiri atau dengan penglibatan diri secara langsung."
+          }
+        ]
+      },
+      "perspective": {
+        "senses": [
+          {
+            "definitionMs": "Cara berfikir tentang atau memahami sesuatu perkara."
+          }
+        ]
+      },
+      "persuade": {
+        "senses": [
+          {
+            "definitionMs": "Meyakinkan seseorang supaya melakukan atau mempercayai sesuatu."
+          }
+        ]
+      },
+      "pharmacokinetics": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang cara ubat diserap, diedarkan, dimetabolismekan dan disingkirkan oleh badan."
+          }
+        ]
+      },
+      "phenomenology": {
+        "senses": [
+          {
+            "definitionMs": "Pendekatan falsafah yang menumpukan cara pengalaman muncul dan difahami oleh makhluk yang mempunyai kesedaran."
+          }
+        ]
+      },
+      "phenotype": {
+        "senses": [
+          {
+            "definitionMs": "Ciri-ciri organisma yang dapat diperhatikan hasil interaksi gen dengan persekitaran."
+          }
+        ]
+      },
+      "phylogeny": {
+        "senses": [
+          {
+            "definitionMs": "Sejarah evolusi dan hubungan keturunan sesuatu spesies atau kumpulan organisma."
+          }
+        ]
+      },
+      "phytoremediation": {
+        "senses": [
+          {
+            "definitionMs": "Penggunaan tumbuhan untuk menyingkirkan, memerangkap atau menguraikan bahan pencemar dalam tanah atau air."
+          }
+        ]
+      },
+      "plebiscite": {
+        "senses": [
+          {
+            "definitionMs": "Undian langsung oleh pengundi tentang sesuatu persoalan politik yang penting."
+          }
+        ]
+      },
+      "pleiotropy": {
+        "senses": [
+          {
+            "definitionMs": "Keadaan apabila satu gen mempengaruhi beberapa ciri yang berbeza."
+          }
+        ]
+      },
+      "point": {
+        "senses": [
+          {
+            "definitionMs": "Idea, fakta atau butiran tertentu; juga mata yang diperoleh dalam permainan atau pertandingan."
+          },
+          {
+            "definitionMs": "Menghalakan jari, tangan atau objek ke arah seseorang atau sesuatu."
+          }
+        ]
+      },
+      "polish": {
+        "senses": [
+          {
+            "definitionMs": "Menggosok permukaan supaya licin dan berkilat; atau menambah baik hasil kerja melalui perubahan kecil."
+          },
+          {
+            "definitionMs": "Bahan untuk membersihkan, melindungi atau mengilatkan permukaan; juga mutu persembahan atau hasil kerja yang kemas."
+          }
+        ]
+      },
+      "polite": {
+        "senses": [
+          {
+            "definitionMs": "Menunjukkan rasa hormat dan bertimbang rasa terhadap orang lain."
+          }
+        ]
+      },
+      "politely": {
+        "senses": [
+          {
+            "definitionMs": "Dengan cara yang sopan, menghormati orang lain dan menjaga adab."
+          }
+        ]
+      },
+      "polymorphism": {
+        "senses": [
+          {
+            "definitionMs": "Kewujudan beberapa bentuk bagi sesuatu perkara; dalam genetik, kewujudan varian yang berbeza dalam sesuatu populasi."
+          }
+        ]
+      },
+      "ponder": {
+        "senses": [
+          {
+            "definitionMs": "Memikirkan sesuatu dengan teliti untuk suatu tempoh."
+          }
+        ]
+      },
+      "portfolio": {
+        "senses": [
+          {
+            "definitionMs": "Kumpulan hasil kerja yang menunjukkan kemahiran atau pengalaman seseorang."
+          }
+        ]
+      },
+      "possibility": {
+        "senses": [
+          {
+            "definitionMs": "Sesuatu perkara yang mungkin berlaku atau benar."
+          }
+        ]
+      },
+      "posture": {
+        "senses": [
+          {
+            "definitionMs": "Cara seseorang memegang atau meletakkan badan ketika berdiri atau duduk."
+          }
+        ]
+      },
+      "pout": {
+        "senses": [
+          {
+            "definitionMs": "Memuncungkan bibir untuk menunjukkan rasa tidak puas hati, kecewa atau merajuk."
+          },
+          {
+            "definitionMs": "Raut wajah yang terbentuk apabila bibir dimuncungkan."
+          }
+        ]
+      },
+      "practical": {
+        "senses": [
+          {
+            "definitionMs": "Berguna dan sesuai untuk keadaan sebenar, bukan sekadar teori."
+          }
+        ]
+      },
+      "practice": {
+        "senses": [
+          {
+            "definitionMs": "Aktiviti berulang untuk meningkatkan kemahiran; juga cara biasa sesuatu perkara dilakukan."
+          },
+          {
+            "definitionMs": "Melakukan sesuatu aktiviti berulang kali untuk meningkatkan kemahiran atau membiasakan diri."
+          }
+        ]
+      },
+      "praise": {
+        "senses": [
+          {
+            "definitionMs": "Kata-kata atau tindakan yang menunjukkan persetujuan, kekaguman atau penghargaan."
+          },
+          {
+            "definitionMs": "Menyatakan persetujuan atau kekaguman terhadap seseorang atau sesuatu."
+          }
+        ]
+      },
+      "precise": {
+        "senses": [
+          {
+            "definitionMs": "Tepat dan dinyatakan dengan jelas."
+          }
+        ]
+      },
+      "prefer": {
+        "senses": [
+          {
+            "definitionMs": "Lebih menyukai satu pilihan berbanding pilihan yang lain."
+          }
+        ]
+      },
+      "prepare": {
+        "senses": [
+          {
+            "definitionMs": "Membuat persediaan untuk sesuatu perkara."
+          }
+        ]
+      },
+      "prevent": {
+        "senses": [
+          {
+            "definitionMs": "Menghalang sesuatu daripada berlaku."
+          }
+        ]
+      },
+      "preventive": {
+        "senses": [
+          {
+            "definitionMs": "Bertujuan menghalang masalah daripada berlaku."
+          }
+        ]
+      },
+      "priority": {
+        "senses": [
+          {
+            "definitionMs": "Sesuatu yang dianggap lebih penting daripada perkara lain."
+          }
+        ]
+      },
+      "privacy": {
+        "senses": [
+          {
+            "definitionMs": "Keadaan bebas daripada perhatian yang tidak diingini atau akses kepada maklumat peribadi."
+          }
+        ]
+      },
+      "probably": {
+        "senses": [
+          {
+            "definitionMs": "Hampir pasti; berkemungkinan besar berlaku atau benar."
+          }
+        ]
+      },
+      "process": {
+        "senses": [
+          {
+            "definitionMs": "Rangkaian tindakan atau langkah untuk mencapai hasil tertentu."
+          },
+          {
+            "definitionMs": "Mengendalikan maklumat, bahan atau permintaan melalui beberapa operasi."
+          }
+        ]
+      },
+      "professional": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan pekerjaan atau kerjaya yang memerlukan pengetahuan atau latihan khusus; juga menunjukkan standard kerja yang baik."
+          },
+          {
+            "definitionMs": "Individu yang mempunyai latihan khusus atau memperoleh pendapatan melalui sesuatu bidang kegiatan."
+          }
+        ]
+      },
+      "progress": {
+        "senses": [
+          {
+            "definitionMs": "Pergerakan atau perkembangan ke arah matlamat atau keadaan yang lebih baik."
+          },
+          {
+            "definitionMs": "Berkembang, bertambah baik atau bergerak ke hadapan dari semasa ke semasa."
+          }
+        ]
+      },
+      "propaedeutic": {
+        "senses": [
+          {
+            "definitionMs": "Berfungsi sebagai pengenalan atau pengajaran persediaan sebelum mempelajari bidang yang lebih maju."
+          },
+          {
+            "definitionMs": "Kursus persediaan atau pengenalan kepada bidang pengajian yang lebih maju."
+          }
+        ]
+      },
+      "proud": {
+        "senses": [
+          {
+            "definitionMs": "Berasa gembira dan berpuas hati terhadap pencapaian sendiri atau seseorang yang dihargai."
+          }
+        ]
+      },
+      "provenance": {
+        "senses": [
+          {
+            "definitionMs": "Asal usul, sejarah pemilikan atau sumber yang didokumenkan bagi sesuatu objek, rekod atau data."
+          }
+        ]
+      },
+      "provide": {
+        "senses": [
+          {
+            "definitionMs": "Memberikan sesuatu atau menjadikannya tersedia."
+          }
+        ]
+      },
+      "pseudoscience": {
+        "senses": [
+          {
+            "definitionMs": "Dakwaan atau amalan yang dipersembahkan sebagai saintifik tetapi tidak mempunyai sokongan atau kaedah saintifik yang mencukupi."
+          }
+        ]
+      },
+      "psychometrics": {
+        "senses": [
+          {
+            "definitionMs": "Sains pengukuran ciri psikologi dan kebolehan manusia."
+          }
+        ]
+      },
+      "purpose": {
+        "senses": [
+          {
+            "definitionMs": "Sebab sesuatu perkara dilakukan atau diwujudkan."
+          }
+        ]
+      },
+      "qualification": {
+        "senses": [
+          {
+            "definitionMs": "Kemahiran, sijil atau syarat yang menjadikan seseorang sesuai untuk sesuatu peranan."
+          }
+        ]
+      },
+      "quanta": {
+        "senses": [
+          {
+            "definitionMs": "Paket atau jumlah diskret bagi sesuatu kuantiti fizik; bentuk jamak bagi quantum."
+          }
+        ]
+      },
+      "quantitative": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan kuantiti atau ukuran yang dinyatakan dalam bentuk angka."
+          }
+        ]
+      },
+      "quantization": {
+        "senses": [
+          {
+            "definitionMs": "Proses mengehadkan sesuatu kuantiti kepada nilai diskret atau mewakilkan julat berterusan melalui aras diskret."
+          }
+        ]
+      },
+      "quantum": {
+        "senses": [
+          {
+            "definitionMs": "Jumlah atau unit diskret bagi sesuatu kuantiti fizik, khususnya dalam fizik kuantum."
+          },
+          {
+            "definitionMs": "Berkaitan teori kuantum atau tingkah laku zarah dan tenaga yang sangat kecil."
+          }
+        ]
+      },
+      "quarantine": {
+        "senses": [
+          {
+            "definitionMs": "Tempoh atau langkah pengasingan untuk mencegah penyebaran penyakit atau membendung ancaman keselamatan."
+          },
+          {
+            "definitionMs": "Mengasingkan seseorang, haiwan, objek atau sistem komputer untuk menghalang risiko daripada merebak."
+          }
+        ]
+      },
+      "quiescent": {
+        "senses": [
+          {
+            "definitionMs": "Tidak aktif buat sementara waktu, senyap atau menunjukkan sedikit kegiatan."
+          }
+        ]
+      },
+      "quietly": {
+        "senses": [
+          {
+            "definitionMs": "Dengan sedikit atau tanpa bunyi; tanpa menarik perhatian."
+          }
+        ]
+      },
+      "quintessence": {
+        "senses": [
+          {
+            "definitionMs": "Contoh yang paling tulen atau paling menggambarkan sesuatu perkara."
+          }
+        ]
+      },
+      "quintile": {
+        "senses": [
+          {
+            "definitionMs": "Satu daripada lima kumpulan yang mempunyai bahagian sama dalam set data yang disusun mengikut kedudukan."
+          }
+        ]
+      },
+      "quorum": {
+        "senses": [
+          {
+            "definitionMs": "Bilangan minimum ahli yang mesti hadir supaya mesyuarat atau badan pembuat keputusan boleh menjalankan urusan secara sah."
+          }
+        ]
+      },
+      "quorum-sensing": {
+        "senses": [
+          {
+            "definitionMs": "Proses bakteria menyelaraskan tingkah laku berdasarkan isyarat yang berkaitan dengan kepadatan populasinya."
+          }
+        ]
+      },
+      "quotient": {
+        "senses": [
+          {
+            "definitionMs": "Hasil pembahagian satu nombor dengan nombor yang lain; secara lebih umum, ukuran atau skor."
+          }
+        ]
+      },
+      "radiometry": {
+        "senses": [
+          {
+            "definitionMs": "Pengukuran sinaran elektromagnet, termasuk tenaga dan keamatannya."
+          }
+        ]
+      },
+      "rarely": {
+        "senses": [
+          {
+            "definitionMs": "Tidak kerap; hanya berlaku pada sebilangan kecil kesempatan."
+          }
+        ]
+      },
+      "reaction": {
+        "senses": [
+          {
+            "definitionMs": "Tindak balas terhadap sesuatu peristiwa, kenyataan atau keadaan."
+          }
+        ]
+      },
+      "realise": {
+        "senses": [
+          {
+            "definitionMs": "Mula menyedari sesuatu atau memahaminya dengan jelas."
+          }
+        ]
+      },
+      "realize": {
+        "senses": [
+          {
+            "definitionMs": "Memahami atau mula menyedari sesuatu perkara."
+          }
+        ]
+      },
+      "reasonable": {
+        "senses": [
+          {
+            "definitionMs": "Adil, munasabah atau tidak keterlaluan."
+          }
+        ]
+      },
+      "reassure": {
+        "senses": [
+          {
+            "definitionMs": "Menenangkan seseorang yang bimbang dengan mengatakan atau menunjukkan bahawa keadaan terkawal."
+          }
+        ]
+      },
+      "recently": {
+        "senses": [
+          {
+            "definitionMs": "Baru-baru ini atau dalam tempoh yang singkat sebelum sekarang."
+          }
+        ]
+      },
+      "reciprocity": {
+        "senses": [
+          {
+            "definitionMs": "Pertukaran tindakan, manfaat atau kewajipan secara timbal balik."
+          }
+        ]
+      },
+      "recognise": {
+        "senses": [
+          {
+            "definitionMs": "Mengenal pasti seseorang atau sesuatu berdasarkan pengetahuan terdahulu."
+          }
+        ]
+      },
+      "recognize": {
+        "senses": [
+          {
+            "definitionMs": "Mengenali seseorang atau sesuatu kerana pernah melihat atau mempelajarinya sebelum ini."
+          }
+        ]
+      },
+      "recoil": {
+        "senses": [
+          {
+            "definitionMs": "Berundur atau tersentak ke belakang secara tiba-tiba kerana takut, terkejut, sakit atau jijik."
+          },
+          {
+            "definitionMs": "Gerakan ke belakang secara tiba-tiba, khususnya akibat daya atau tindak balas yang kuat."
+          }
+        ]
+      },
+      "recommend": {
+        "senses": [
+          {
+            "definitionMs": "Mencadangkan bahawa seseorang atau sesuatu adalah baik atau sesuai."
+          }
+        ]
+      },
+      "reconsider": {
+        "senses": [
+          {
+            "definitionMs": "Memikirkan semula sesuatu keputusan atau pendapat."
+          }
+        ]
+      },
+      "reduce": {
+        "senses": [
+          {
+            "definitionMs": "Menjadikan sesuatu lebih kecil atau mengurangkan jumlah, saiz atau tahapnya."
+          }
+        ]
+      },
+      "reflect": {
+        "senses": [
+          {
+            "definitionMs": "Memikirkan sesuatu dengan teliti; juga memantulkan imej atau cahaya."
+          }
+        ]
       }
     },
     "zh": {
