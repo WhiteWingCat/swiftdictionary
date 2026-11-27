@@ -3376,12 +3376,15 @@ async function completeLesson(x){
       if(active)quizEl("quizActiveDescription").textContent=quizT("You have an unfinished Quiz. Your saved answers are waiting.","你有一份尚未完成的测验，已保存的答案可继续作答。");
       const list=data.difficulties||[];
       const chineseCourse=data.learning_language_code==="zh";
+      const malayCourse=data.learning_language_code==="ms";
       quizEl("quizDifficultyGrid").innerHTML=list.map(item=>{
         const label=quizDifficultyLabels[item.difficulty]||item.difficulty;
         const count=item.difficulty==="beginner"?10:item.difficulty==="intermediate"?15:20;
         const description=chineseCourse
           ?(item.difficulty==="beginner"?quizT("Build a foundation in Chinese characters, Pinyin, pronunciation and everyday expressions.","建立汉字、拼音、发音和日常表达的基础。"):item.difficulty==="intermediate"?quizT("Apply Chinese grammar, sentence patterns and common vocabulary in context.","在语境中运用中文语法、句型和常用词汇。"):quizT("Strengthen nuanced vocabulary, complex grammar and natural Chinese expression.","加强对细微词义、复杂语法和自然中文表达的掌握。"))
-          :(item.difficulty==="beginner"?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。"):item.difficulty==="intermediate"?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。"):quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。"));
+          :malayCourse
+            ?(item.difficulty==="beginner"?quizT("Build confidence with everyday Malay vocabulary, greetings and simple sentences.","通过日常马来语词汇、问候语和简单句建立基础。"):item.difficulty==="intermediate"?quizT("Apply Malay affixes, sentence patterns and connected ideas in context.","在语境中运用马来语词缀、句型和衔接表达。"):quizT("Strengthen formal Malay, cohesive writing and evidence-based reasoning.","加强正式马来语、篇章衔接和基于证据的论证。"))
+            :(item.difficulty==="beginner"?quizT("Build confidence with essential vocabulary and the foundations of everyday English.","通过基础词汇和日常英语基础建立信心。"):item.difficulty==="intermediate"?quizT("Apply your knowledge across varied situations, sentence patterns and common expressions.","在不同情境、句型和常见表达中运用所学知识。"):quizT("Stretch your command of English with nuanced vocabulary, complex grammar and demanding contexts.","通过细致词义、复杂语法和高阶语境挑战英语能力。"));
         const translatedLabel=quizT(label,({beginner:"初级",intermediate:"中级",advanced:"高级"})[item.difficulty]||label);
         return '<article class="quiz-difficulty-option" data-difficulty="'+quizEscape(item.difficulty)+'" aria-disabled="'+(!item.available)+'"><h3>'+quizEscape(translatedLabel)+'</h3><strong class="quiz-difficulty-count">'+count+quizEscape(quizT(" questions"," 道题"))+'</strong><p>'+quizEscape(description)+'</p><button type="button" class="primary-button" data-quiz-start="'+quizEscape(item.difficulty)+'" '+(!item.available?'disabled':'')+'>'+quizEscape(quizT("Start ","开始")+translatedLabel)+'</button></article>';
       }).join("");
