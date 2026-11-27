@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved plan, 2026-11-26; workflow revised by owner on 2026-11-27. Phase 0 and Phase 1 are complete. Phase 2 lexical authoring reached the target band: 650 draft headwords, 672 senses and 1,344 English/Simplified Chinese machine-assisted draft translation records. Automated structural, registry, adapter and regression checks are recorded as passing. Human Malaysian Standard Malay editorial review, independent translation review, source verification and item-level rights clearance remain pending by owner decision and will be conducted during the Phase 3 staging review rather than blocking Phase 3 implementation. These records remain drafts and must not be represented as human-approved. Phase 3 is authorised and in progress. Staging preview remains prohibited until Phase 3 implementation and internal verification are complete. See [the latest Phase 2 batch checkpoint](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-08.md), [the Phase 2 execution plan](U3.0-PHASE-2-MALAY-DICTIONARY-PLAN.md) and the [editorial review preparation archive](conversation-archive/2026-11-27-update-3-0-phase-2-editorial-review-preparation.md). Database changes, staging handoff, merge and production deployment remain subject to their separate approval gates.
+**Status:** Owner-approved plan, 2026-11-26; workflow revised by owner on 2026-11-27. Phase 0 and Phase 1 are complete. Phase 2 lexical authoring reached the target band: 650 draft headwords, 672 senses and 1,344 English/Simplified Chinese machine-assisted draft translation records. Phase 3 is authorised and in progress. The Malay permanent Lessons catalogue has reached 45 draft lessons (15 Beginner, 15 Intermediate, 15 Advanced) through expansion Batch 05; Batch 05's automated validation is still pending at this checkpoint. Malay Daily Learning has its initial integration and remains under expansion and verification. Human Malaysian Standard Malay editorial review, independent translation review, source verification and item-level rights clearance remain pending by owner decision and will be conducted during the Phase 3 staging review rather than blocking implementation. These records remain drafts and must not be represented as human-approved. Staging preview remains prohibited until Phase 3 implementation and internal verification are complete. See the [Phase 2 batch checkpoint](conversation-archive/2026-11-26-update-3-0-phase-2-dictionary-batch-08.md), [Phase 2 execution plan](U3.0-PHASE-2-MALAY-DICTIONARY-PLAN.md), [Phase 3 Batch 04 archive](conversation-archive/2026-11-27-update-3-0-phase-3-malay-lessons-batch-04.md) and [Phase 3 Batch 05 archive](conversation-archive/2026-11-27-update-3-0-phase-3-malay-lessons-batch-05.md). Database changes, staging handoff, merge and production deployment remain subject to their separate approval gates.
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -461,3 +461,50 @@ New Beginner topics: home and household items; school and learning; feelings and
 The batch is loaded after expansion batch 04 and before the shared content bootstrap. The manifest now records `u3-ms-lessons-0.5.0`; structural tests assert 45 unique lessons and 15 at each difficulty, and the workflow syntax-checks the new file. Automated validation is pending for this batch. All content and EN/ZH support remain draft for staging review.
 
 No staging preview, database migration, production activation, main merge or deployment has occurred. Phase 3 remains in progress.
+
+
+## Phase 3 current status update — 2026-11-27 (after Lessons Batch 05)
+
+The application branch `feature/update-3.0-phase-0-audit` is currently at `a60ff7a24d630c38a1af38ff6fb844535cef3f47` (commit: “Integrate Malay Lessons expansion batch 05”). The documentation branch is `docs/master-development-record`; the application and documentation branches remain separate.
+
+### Permanent Malay Lessons inventory
+
+The current permanent Malay Lessons catalogue contains **45 lessons**, evenly distributed:
+
+| Difficulty | Lessons |
+|---|---:|
+| Beginner | 15 |
+| Intermediate | 15 |
+| Advanced | 15 |
+| **Total** | **45** |
+
+The latest completed authoring batches are:
+- Batch 01: initial 9-lesson foundation (3 per level).
+- Batch 02: 9 lessons; 18 total.
+- Batch 03: 9 lessons; 27 total.
+- Batch 04: 9 lessons; 36 total.
+- Batch 05: 9 lessons; 45 total.
+
+Batch 05 topics cover home and household items, school and learning, feelings and simple opinions (Beginner); conditional sentences, classifiers and quantifiers, cause-and-effect relationships (Intermediate); data and statistical language, policy and formal correspondence, and ethical and inclusive language (Advanced). Each lesson follows the established content contract: multilingual topic/title/summary support, explanations, learning points, an example, a common-mistake note and three four-option practice questions.
+
+### Validation status and next authoring work
+
+Batch 05 is integrated in `data/malay-lessons-expansion-05.js`, with manifest revision `u3-ms-lessons-0.5.0`. Its archive explicitly records automated validation as pending. Do not carry forward the earlier 45/45 test result as evidence for Batch 05; rerun the current workflow against the current application head and record the actual result.
+
+Continue the permanent lesson catalogue in balanced batches of nine (three per difficulty), preserving stable IDs and the existing schema. Avoid near-duplicate objectives, examples and question stems across lessons. Strengthen or add automated checks for unique lesson IDs, per-level counts, required multilingual fields, three questions per lesson, four options per question, valid answer indexes, repeated question stems and answer-position distribution. Automated checks are structural safeguards, not linguistic approval.
+
+The next work sequence is:
+1. Validate the current Batch 05 integration on the latest application branch head.
+2. Continue authoring Batch 06 with three distinct Beginner, three Intermediate and three Advanced lessons.
+3. Integrate the batch, update the manifest/content version and run the full U3.0 and relevant legacy regression workflows.
+4. Update the MDR and dated archive with the exact commit, test run, lesson counts and any limitations.
+5. Continue Daily Learning content and complete browser/device, progress, allowance, translation-switching and existing-language regression before Phase 3 exit.
+
+### Unchanged boundaries
+
+- All 45 lessons and their English/Simplified Chinese support strings remain draft pending staging review.
+- The 650-entry Malay Dictionary and its 672 senses/1,344 support translations remain draft; human review, source verification and item-level rights clearance are not complete.
+- Malay remains inactive in production. Do not register/activate it in production or apply database migrations without a separately reviewed migration plan and explicit owner approval.
+- No staging preview until Phase 3 implementation and internal verification are complete.
+- No merge to `main`, production deployment, payment/entitlement changes or public activation is authorised by this content checkpoint.
+- Continue the Malaysia and general international legal/privacy/licensing review for the new learning content and any later public activation. This plan is not legal advice or legal clearance.
