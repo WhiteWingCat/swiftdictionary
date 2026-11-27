@@ -6,6 +6,14 @@
       {
         "id": "greeting-choice",
         "outcome": "“Sama-sama” is the conventional reply to thanks."
+      },
+      {
+        "id": "greetings-in-context",
+        "outcome": "“Selamat pagi” digunakan pada waktu pagi."
+      },
+      {
+        "id": "polite-responses",
+        "outcome": "“Sama-sama” ialah balasan lazim untuk ucapan terima kasih."
       }
     ]
   },
@@ -16,6 +24,10 @@
       {
         "id": "residence-statement",
         "outcome": "“Saya tinggal di…” states where a person lives."
+      },
+      {
+        "id": "introducing-personal-details",
+        "outcome": "“Saya tinggal di …” menyatakan tempat seseorang menetap sekarang."
       }
     ]
   },
@@ -26,6 +38,10 @@
       {
         "id": "simple-word-order",
         "outcome": "The subject “Aina” comes before the verb “membaca” and object “buku”."
+      },
+      {
+        "id": "subject-predicate-structure",
+        "outcome": "“Murid itu” ialah perkara yang diperkatakan, maka frasa itu subjek."
       }
     ]
   },
@@ -36,6 +52,14 @@
       {
         "id": "men-prefix-verb",
         "outcome": "The root “baca” becomes “membaca” with the meN- prefix."
+      },
+      {
+        "id": "meN-prefix-forms",
+        "outcome": "Bentuk standard ialah “menulis”."
+      },
+      {
+        "id": "meN-prefix-context",
+        "outcome": "Dalam ayat aktif ini, “menulis” ialah kata kerja yang sesuai."
       }
     ]
   },
@@ -46,6 +70,10 @@
       {
         "id": "animal-classifier",
         "outcome": "Use “ekor” for animals."
+      },
+      {
+        "id": "classifiers-for-animals",
+        "outcome": "“Ekor” digunakan sebagai penjodoh bilangan bagi haiwan seperti kucing."
       }
     ]
   },
@@ -66,6 +94,10 @@
       {
         "id": "formal-register",
         "outcome": "“Tuan/Puan” is a conventional formal salutation."
+      },
+      {
+        "id": "formal-register-choice",
+        "outcome": "Ungkapan “Saya ingin memohon…” mengekalkan nada formal dan sopan."
       }
     ]
   },
@@ -76,6 +108,10 @@
       {
         "id": "discourse-contrast",
         "outcome": "“Walau bagaimanapun” signals a contrast or qualification."
+      },
+      {
+        "id": "discourse-connector-contrast",
+        "outcome": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau bertentangan."
       }
     ]
   },
@@ -86,6 +122,10 @@
       {
         "id": "editing-clarity",
         "outcome": "“Para peserta” already expresses a plural group; adding “semua” is redundant."
+      },
+      {
+        "id": "editing-agreement-and-clarity",
+        "outcome": "Ayat pertama mempunyai susunan subjek, predikat dan keterangan yang jelas."
       }
     ]
   },
@@ -346,6 +386,10 @@
       {
         "id": "verify-claim-with-source",
         "outcome": "Angka perlu dibandingkan berdasarkan kaedah dan sumber asal yang boleh disemak."
+      },
+      {
+        "id": "source-credibility",
+        "outcome": "An official agency source is usually the primary reference for its own policy."
       }
     ]
   },
