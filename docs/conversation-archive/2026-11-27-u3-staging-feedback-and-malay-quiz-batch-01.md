@@ -100,3 +100,12 @@ Added a Malay draft SQL exporter and import assertions, an authenticated Postgre
 **Staging boundary:** the migration has been committed to the feature branch but has NOT been applied to the connected staging Supabase project. This follows the standing requirement for a separate explicit owner approval after schema diff and SQL review. Production remains untouched. Keep PR #20 draft/unmerged. Do not turn on the Malay Quiz manifest capability until the approved content bank meets the availability thresholds and owner linguistic review is complete.
 
 **Legal/content provenance:** questions and distractors are independently authored for SwiftDictionary; no DBP/PRPM/Kamus Dewan text or third-party question bank was imported. English/Chinese support translations are draft derivative translations; retain the existing Malaysia Copyright Act 1987 and model-artifact licence/attribution review before public production release.
+
+
+### Runtime schema and allowance corrections — 2026-11-27
+
+A direct review of the connected Quiz schema found three language checks that still restricted answer/snapshot language codes to `en` and `zh`. The Malay runtime migration now extends those exact checks to include `ms` (question-type equality checks remain intact), validates the constraints, and keeps the existing private-schema boundaries. The local integration test seeds the U3.0 Malay language/catalogue baseline before applying this migration.
+
+**Allowance policy correction:** the existing Quiz trigger charges the Quiz allowance when a session starts (`learning_activity_log.event_type='started'`), not when it is submitted. The Malay start function now writes the same server-owned start event inside the session transaction. Resuming an existing active session does not charge a second start; abandoning a session does not refund the already-consumed start allowance. The generic server-side submit/evaluation function remains shared and computes the score from private answer-key snapshots. Earlier draft notes in this archive described completion-only charging; those statements are superseded by this correction.
+
+One intermediate U3.0 static test run failed because a newly added test assertion had incorrect regex escaping; the runtime migration itself was not executed in that run. The assertion was replaced with literal SQL-fragment checks, and the latest feature-head U3.0 and Quiz database workflows are pending. No staging migration has been applied.
