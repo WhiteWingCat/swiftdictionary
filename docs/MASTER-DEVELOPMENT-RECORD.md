@@ -4738,3 +4738,17 @@ Topics added:
 Each lesson includes multilingual topic/title/summary support, explanations, learning points, an example, a common-mistake note and three four-option practice questions. The file is integrated before the shared content bootstrap. The manifest is `u3-ms-lessons-0.4.0`, with 12 lessons at each level. Regression tests now load batch 04 and assert 36 unique IDs and 36 package lessons; the validation workflow syntax-checks the new file.
 
 All Malay content and machine-assisted EN/ZH support remain draft for staging review. Automated validation is pending for the latest application commit; previous 45/45 results apply only to batch 03. No staging preview, database migration, production activation, main merge or deployment occurred. Phase 3 remains in progress.
+
+
+## 25. Phase 3 Malay Lessons expansion — Batch 05 (2026-11-27)
+
+Added 9 original draft lessons in `data/malay-lessons-expansion-05.js`. The permanent Malay Lessons catalogue now contains **45 lessons: 15 Beginner, 15 Intermediate and 15 Advanced**.
+
+Topics added:
+- Beginner: home and household items; school and learning; feelings and simple opinions.
+- Intermediate: conditional sentences; classifiers and quantifiers; cause-and-effect relationships.
+- Advanced: data and statistical language; policy language and formal correspondence; ethical and inclusive language.
+
+Each lesson includes multilingual topic/title/summary support, explanations, learning points, an example, a common-mistake note and three four-option practice questions. The file is integrated before the shared content bootstrap. The manifest is `u3-ms-lessons-0.5.0`, with 15 lessons at each level. Regression tests now load batch 05 and assert 45 unique IDs and 45 package lessons; the validation workflow syntax-checks the new file.
+
+All Malay content and machine-assisted EN/ZH support remain draft for staging review. Automated validation is pending for this batch. No staging preview, database migration, production activation, main merge or deployment occurred. Phase 3 remains in progress.
