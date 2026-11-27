@@ -3543,6 +3543,9 @@ async function completeLesson(x){
       quizPageState.userId=requestedUserId||quizPageState.userId;courseSelector.disabled=true;translationSelector.disabled=true;
       try{
         quizStatus(quizT("Preparing your Quiz…","正在准备测验…"));
+        // Course preference writes are queued when the global selector changes.
+        // Wait for the saved course before the server validates Malay Quiz access.
+        if(preferenceWriteQueue)await preferenceWriteQueue;
         const {data,error}=await quizCall("start_my_quiz",{p_difficulty:difficulty,p_learning_language:requestedCourse,p_translation_language:requestedTranslation});if(error)throw error;
         if(currentUser?.id!==requestedUserId){quizStatus(quizT("Your account changed while the Quiz was loading. Please try again.","账户在测验加载期间发生变化，请重试。"),true);return;}
         const session=data&&data.session?data.session:data;if(!session||!session.questions)throw new Error("The server did not return a Quiz session.");
