@@ -1056,14 +1056,24 @@
     let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
     let words = dictionaryEntriesFor(course);
     function syncMalayTargetOptionAvailability() {
-      const available = malayDictionaryTargetReady && course !== "ms";
-      for (const selectorId of ["translationSelect","preferenceTranslation"]) {
+      const profileLearningCode = document.getElementById("preferenceLearning")?.value || course;
+      const selectorAvailability = {
+        translationSelect: malayDictionaryTargetReady && course !== "ms",
+        preferenceTranslation: malayDictionaryTargetReady && profileLearningCode !== "ms"
+      };
+      for (const [selectorId, available] of Object.entries(selectorAvailability)) {
         const option = document.querySelector("#"+selectorId+' option[value="ms"]');
-        if (option) { option.disabled = !available; option.title = available ? "" : course === "ms" ? "Choose English or Simplified Chinese as the support language for the Malay course." : "Malay Dictionary translations are still being prepared."; }
+        if (option) {
+          option.disabled = !available;
+          option.title = available ? "" : !malayDictionaryTargetReady
+            ? "Malay Dictionary translations are still being prepared."
+            : "Choose English or Simplified Chinese as the support language for the Malay course.";
+        }
       }
-      if (!available && translationLanguage === "ms") translationLanguage = "en";
+      if (!selectorAvailability.translationSelect && translationLanguage === "ms") translationLanguage = "en";
     }
     syncMalayTargetOptionAvailability();
+    document.getElementById("preferenceLearning")?.addEventListener("change",syncMalayTargetOptionAvailability);
     let preferenceWriteQueue = Promise.resolve();
     let coursePreferenceSelectionVersion = 0;
     let selectedAvatar = "🐦";
