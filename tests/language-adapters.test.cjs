@@ -24,6 +24,8 @@ test("Malay adapter has independent Malay locale and affix-aware search forms",(
  const a=adapters.get("ms");
  assert.equal(a.locale,"ms-MY");
  assert.equal(a.morphology,"malay-affixation");
+ assert.deepEqual(a.flashcardModes,["word","definition","mixed","sentence"]);
+ assert.ok(a.flashcardCardSets.includes("common"));
  assert.equal(a.matchesSearch({word:"berjalan",searchForms:["jalan","berjalan"]},"jalan"),true);
  assert.equal(a.matchesGridEntry({word:"berjalan"}),true);
 });
