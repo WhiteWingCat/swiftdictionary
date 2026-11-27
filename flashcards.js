@@ -385,7 +385,9 @@
       else if(state.cardSet==="terms")all=all.filter(w=>/technical vocabulary|scientific|academic|subject-specific/i.test(String(w.breakdown||"")+" "+String(w.tip||"")));
     }
     if(course!=="ms"&&translationLanguage==="ms")all=all.filter(word=>Boolean(translationFor(word)));
-    const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom"&&(c.language_code||"en")===course).map(mapCustomCard)];
+    let customCards=state.data.cards.filter(c=>c.card_type==="custom"&&(c.language_code||"en")===course).map(mapCustomCard);
+    if(course!=="ms"&&translationLanguage==="ms")customCards=customCards.filter(word=>Boolean(translationFor(word)));
+    const allCards=[...all,...customCards];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId&&(c.language_code||"en")===course);
     const targets=selected.map(c=>{if(c.card_type==="custom")return mapCustomCard(c);const source=words().find(w=>w.word.toLowerCase()===c.dictionary_word.toLowerCase());return source?{...source,word:c.front_text,definition:c.back_text,definitionZh:c.translation_text||source.definitionZh,examples:c.example_text?[c.example_text]:source.examples,dictionary_word:c.dictionary_word,_flashCard:c}:null;}).filter(Boolean);
