@@ -276,3 +276,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-27 — U3.0 Malay Quiz full regression and staging migration preparation](2026-11-27-u3-malay-quiz-full-regression-and-staging-migration-preparation.md) — records the 240-question draft bank, secure server-side runtime migration review, full green cross-version regression matrix, read-only hosted staging preflight and the explicit no-apply/no-production boundary.
 
 - [2026-11-27 — U3.0 Malay Quiz staging release and preview](2026-11-27-u3-malay-quiz-staging-release-and-preview.md) — records owner-authorized staging-only release of 240 approved questions, both applied Supabase migrations, authenticated transaction-rolled-back smoke tests, preview deployment, current CI status and production isolation.
+
+- [2026-11-27 — U3.0 Malay feedback fixes and Flashcards staging](2026-11-27-u3-malay-feedback-and-flashcards-staging.md) — records the structured-question renderer fix, Malay Daily Discovery catalogue reconciliation, 650-entry Malay Flashcards foundation, lesson translation coverage and remaining Quiz/Flashcard target-language gaps.
