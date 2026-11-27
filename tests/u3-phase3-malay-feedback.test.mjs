@@ -4,7 +4,7 @@ import fs from "node:fs";
 
 const daily=fs.readFileSync("daily-learning.js","utf8");
 const index=fs.readFileSync("index.html","utf8");
-const migration=fs.readFileSync("supabase/migrations/20261127093503_swiftdictionary_update_3_0_malay_daily_discovery_catalogue_sync.sql","utf8");
+const migration=fs.readFileSync("supabase/migrations/20261127150000_swiftdictionary_update_3_0_malay_daily_discovery_catalogue_sync.sql","utf8");
 
 test("Daily Learning resolves multilingual object prompts, options and explanations to strings",()=>{
  assert.match(daily,/function dailyLocalizedText\(value, language=snapshot\.learningLanguage/);
