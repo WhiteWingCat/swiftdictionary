@@ -9,6 +9,7 @@ async function installCollectionsFixture(page) {
         { id: 101, user_id: "test-user-a", word: "hello", course: "en" },
         { id: 102, user_id: "test-user-a", word: "你", course: "zh" },
         { id: 103, user_id: "test-user-a", word: "bioavailability", course: "en" },
+        { id: 104, user_id: "test-user-a", word: "ada", course: "ms" },
         { id: 201, user_id: "test-user-b", word: "secret", course: "en" }
       ]
     };
@@ -413,6 +414,40 @@ test("Your Collections remain account-isolated and replace private Realtime chan
   ]);
 });
 
+
+
+test("Your Collections can add and open Malay saved words", async ({ page }) => {
+  await installCollectionsFixture(page);
+  const panel = page.locator("#swiftFavoriteCollections");
+  await panel.getByRole("button", { name: "＋ New folder" }).click();
+  await page.locator("#fcCollectionName").fill("Malay practice");
+  await page.getByRole("button", { name: "Create folder" }).click();
+
+  const folder = panel.locator(".fc-folder-card").filter({ hasText: "Malay practice" });
+  await folder.getByRole("button", { name: "More options for Malay practice" }).click();
+  await panel.getByRole("menuitem", { name: "Add words" }).click();
+  const dialog = page.getByRole("dialog", { name: "Add words to Malay practice" });
+  await expect(dialog).toContainText("Malay");
+  await dialog.getByLabel(/ada/).check();
+  await dialog.getByRole("button", { name: "Add selected" }).click();
+
+  const openMalayWord = folder.getByRole("button", { name: "Open saved word ada" });
+  await expect(openMalayWord).toBeVisible();
+  await openMalayWord.click();
+  const opened = await page.evaluate(() => ({
+    word: window.__openedCollectionWord?.word,
+    course: window.__openedCollectionWord?.course
+  }));
+  expect(opened).toEqual({ word: "ada", course: "ms" });
+});
+
+test("Dashboard exposes Malay favourites and Malay translation preference options", async ({ page }) => {
+  await page.route("https://*.supabase.co/**", route => route.abort());
+  await page.goto("/");
+  await expect(page.locator("#favoriteMalayGrid")).toHaveCount(1);
+  await expect(page.locator('#translationSelect option[value="ms"]')).toHaveCount(1);
+  await expect(page.locator('#preferenceTranslation option[value="ms"]')).toHaveCount(1);
+});
 
 test("Dictionary detail panel shows Add to collection only for a saved word", async ({ page }) => {
   await page.route("https://*.supabase.co/**", route => route.abort());
