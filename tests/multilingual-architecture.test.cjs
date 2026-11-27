@@ -3,10 +3,10 @@ const assert = require("node:assert/strict");
 const languages = require("../js/core/language-registry.js");
 const contracts = require("../js/core/content-contracts.js");
 
-test("English and Simplified Chinese are active; Malay is registered but not prematurely active", () => {
+test("English, Simplified Chinese and Phase 3 Malay are registered as active learning languages", () => {
   assert.equal(languages.get("en").status, "active");
   assert.equal(languages.get("zh").status, "active");
-  assert.equal(languages.get("ms").status, "planned");
+  assert.equal(languages.get("ms").status, "active");
   assert.deepEqual(languages.list().map(x => x.code).sort(), ["en", "zh"]);
 });
 
