@@ -976,3 +976,26 @@ Malay Flashcards are enabled in the staging package using all 650 Malay dictiona
 A Malay support-language draft now covers topic, title, summary and main explanation for all 17 English and 17 Chinese permanent lessons. Practice prompts/options remain in the source language and are disclosed in the reader. The English/Chinese Quiz banks still lack Malay support-language packs; the UI blocks those combinations instead of showing incorrect text. English/Chinese Flashcard target-Malay coverage is also incomplete; the runtime supports per-card Malay translations and fails clearly when a selected set has no support text. Malay-course Flashcards are available with English/Chinese support. Do not mark full Malay support-language coverage complete.
 
 Latest checkpoint application head: `d323ed32114465ac7e5c58c1d815b2f780d1eb0a` at the time of this archive. Cloudflare routing passed on the preceding head; U3.0 architecture static test was rerun after correcting an outdated assertion; Flashcards static checks passed and Chromium checks were still running. The remaining full regression matrix must complete before this phase is marked passed. PR #20 remains draft/unmerged; production Supabase and production hosting remain untouched. See [the detailed feedback and Flashcards archive](conversation-archive/2026-11-27-u3-malay-feedback-and-flashcards-staging.md).
+
+## Evening continuation checkpoint — 2026-11-27
+
+The owner requested continuation through the remaining U3.0 work after testing the latest staging preview. The latest feature-branch head independently resolved from GitHub is `7845647319222422c806bbaa4b48f42af34b5de1` on `feature/update-3.0-phase-0-audit`; this supersedes the earlier `10b31302` checkpoint above. The current feature branch is 4 commits ahead and 572 commits behind `main`; do not merge it or assume its base is current without a deliberate reconciliation review.
+
+Latest-head workflow state:
+- U3.0 Phase 1 architecture regression: passed (run 45982549101).
+- Cloudflare build-routing guard: passed (run 45982548791).
+- Quiz database foundation: pending (run 45982548937).
+- U2.5 Flashcards, U2.3 allowance/Dashboard, U2.6 ACL, U2.7 Chinese Dictionary and U2.9 English Dictionary regressions: still in progress at checkpoint (runs 45982548915, 45982549041, 45982548979, 45982549061 and 45982548960 respectively).
+- Full latest-head cross-version acceptance is therefore not yet established.
+
+The latest staging-feedback archive confirms that the [object Object] Daily Learning rendering path and 93-entry Malay Daily Discovery catalogue mismatch have been addressed in the branch/staging database. Malay Flashcards are enabled in staging with 650 Malay dictionary-derived cards and English/Chinese support definitions. The latest known English/Chinese-to-Malay Flashcard overlay is still partial (73 English and 124 Chinese entries), and English/Chinese Quiz Malay support packs are still absent. Malay translations for English/Chinese lesson reader topic/title/summary/main explanation exist, but lesson practice prompts/options remain in their authored source language. These are explicit Phase 6 gaps, not completed coverage.
+
+Approved continuation scope:
+1. Keep Malay course Flashcards functional in all supported modes and complete the remaining Flashcard language-switching, review, progress, allowance and account-isolation regression.
+2. Extend target-Malay support for English and Simplified Chinese Flashcards using stable card identities and explicit coverage; never show a guessed or wrong-language gloss. Preserve the current safe exclusion of cards without a target translation until their records are populated and validated.
+3. Complete the agreed target-Malay coverage for English and Chinese lesson practice prompts/options/feedback and for both Quiz banks, including UI/runtime selection and language snapshot behaviour. Any generated translations remain machine-assisted drafts until reviewed; preserve source learning text and answer semantics.
+4. Keep the multilingual Daily Learning resolver and approved catalogue IDs aligned with actual seeded content; test Topic, Application, Discovery and Revision using current-day schedule data.
+5. Run the full latest-head automated matrix and staging smoke tests, then verify the Cloudflare Pages preview and staging OAuth. Record owner desktop/mobile linguistic acceptance separately.
+6. Do not mark U3.0 complete, merge PR #20, apply production migrations, or deploy production until all gates and separate owner approval are satisfied.
+
+Content/rights and privacy gate: keep Malaysian Standard Malay as the target standard; preserve original authorship/provenance and model attribution; do not copy DBP/PRPM/Kamus Dewan text. Machine-assisted translations remain drafts. Before public activation, re-check Argos model artifact licences (including the zh→en intermediary model), Malaysia Copyright Act 1987 derivative-work implications, Malaysia PDPA 2010 and 2024 amendments, international privacy/age obligations, processor terms, retention and cross-border processing. No legal clearance is implied by staging availability.
