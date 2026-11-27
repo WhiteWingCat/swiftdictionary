@@ -7,7 +7,7 @@ test("English, Simplified Chinese and Phase 3 Malay are registered as active lea
   assert.equal(languages.get("en").status, "active");
   assert.equal(languages.get("zh").status, "active");
   assert.equal(languages.get("ms").status, "active");
-  assert.deepEqual(languages.list().map(x => x.code).sort(), ["en", "zh"]);
+  assert.deepEqual(languages.list().map(x => x.code).sort(), ["en", "ms", "zh"]);
 });
 
 test("language-specific capabilities do not impose Chinese behaviour on English", () => {
