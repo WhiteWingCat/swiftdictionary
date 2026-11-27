@@ -37,6 +37,13 @@ test("Malay Quiz draft banks cover both support languages and the 36-question se
  }
 });
 
+test("Malay Quiz waits for the saved course preference before starting a session",()=>{
+ const html=fs.readFileSync(path.join(root,"index.html"),"utf8");
+ const waitAt=html.indexOf("if(preferenceWriteQueue)await preferenceWriteQueue;");
+ const rpcAt=html.indexOf('quizCall("start_my_quiz"',waitAt);
+ assert.ok(waitAt>=0&&rpcAt>waitAt);
+});
+
 test("Malay Quiz runtime migration keeps answers private and reuses authenticated session RPCs",()=>{
  const sql=fs.readFileSync(path.join(root,"supabase/migrations/20261127130000_swiftdictionary_update_3_0_malay_quiz_runtime.sql"),"utf8");
  assert.match(sql,/private\.get_my_malay_quiz_availability_impl/);
