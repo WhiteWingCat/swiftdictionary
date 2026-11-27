@@ -63,6 +63,13 @@ for(const [needle,label] of [
 ])if(!flashcards.includes(needle))throw new Error("Missing "+label+".");
 if(!mock.includes('name==="start_my_flashcard_game"')||!mock.includes('name==="complete_my_flashcard_game"'))throw new Error("Mock User Flashcard game RPC support is missing.");
 if(!flashcards.includes('learningLanguage:data.learning_language_code||course')||!flashcards.includes('translation_language_code'))throw new Error("Flashcard sessions do not preserve their language pair.");
+if(!flashcards.includes('if(language==="ms")')||!flashcards.includes("window.SWIFT_MALAY_DICTIONARY"))throw new Error("Malay dictionary-derived Flashcard content is missing.");
+if(!flashcards.includes('if(learning==="ms")')||!flashcards.includes("definitionMs"))throw new Error("Flashcard support-language routing is missing Malay.");
+if(!flashcards.includes("translation_ms:card.definitionMs||card.translationMs||\"\""))throw new Error("Malay Flashcard review snapshots are missing the selected-language translation.");
+const malayRuntime=fs.readFileSync("supabase/migrations/20261127160000_swiftdictionary_update_3_0_malay_flashcards_runtime.sql","utf8");
+if(!malayRuntime.includes("flashcard_sessions_learning_language_code_check")||!malayRuntime.includes("flashcard_sessions_translation_language_code_check")||!malayRuntime.includes("flashcard_cards_language_code_check"))throw new Error("Malay Flashcard server-side language constraints are missing.");
+if(!malayRuntime.includes("v_learning not in ('en','zh','ms')")||!malayRuntime.includes("v_translation not in ('en','zh','ms')"))throw new Error("Malay Flashcard server-side session language validation is missing.");
+if(!malayRuntime.includes("values(v_user,p_mode,p_difficulty,p_duration_seconds,v_learning,v_translation)"))throw new Error("Malay Flashcard sessions do not snapshot the authenticated language pair.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
 if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=2.8.0-r4'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
 if(!html.includes('id="dashboardTabFavourites"')||!html.includes('id="dashboardTabProgress"')||!html.includes('id="dashboardTabHistory"')||!html.includes('id="dashboardTabAnalytics"'))throw new Error("The four Dashboard tabs are incomplete.");
