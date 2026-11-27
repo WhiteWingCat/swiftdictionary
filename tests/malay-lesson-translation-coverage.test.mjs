@@ -30,7 +30,7 @@ test("Every English and Simplified Chinese permanent lesson has a Malay title, s
 test("Lesson renderer selects Malay translations for English and Chinese learning courses",()=>{
  const html=fs.readFileSync("index.html","utf8");
  assert.match(html,/const lessonMs=window\.SWIFT_LESSON_TRANSLATIONS_MS/);
- assert.match(html,/translationLanguage==="ms"\?lessonMsRecord\(x\):null/);
+ assert.match(html,/if\(isChineseCourse\(\)&&ms&&ms\[key\]!==undefined\)return ms\[key\]/);
  assert.match(html,/function lessonTopicText\(x\)/);
- assert.match(html,/lessonMsRecord\(x\)/);
+ assert.match(html,/lessonMsTextLookup\.get\(value\.zh\)/);
 });
