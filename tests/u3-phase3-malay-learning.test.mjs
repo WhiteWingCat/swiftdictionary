@@ -87,7 +87,7 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   });
   assert.equal(pkg.status,"active");
   assert.equal(pkg.dictionary.entries.length,650);
-  assert.equal(pkg.lessons.permanent.length,45);
+  assert.equal(pkg.lessons.permanent.length,54);
   assert.equal(pkg.dailyLearning.topics.length,3);
   assert.equal(pkg.dailyLearning.applications.length,3);
   assert.equal(pkg.dailyLearning.discovery.length,93);
