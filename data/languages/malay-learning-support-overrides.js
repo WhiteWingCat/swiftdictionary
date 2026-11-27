@@ -197,8 +197,33 @@
       });
     }
   });
+  const zh = pack.quiz?.zh;
+  const zhRows = {
+    "zh-en-a-complex-sentences-01":{promptLearning:"Ayat yang manakah menggunakan struktur “把” untuk menerangkan cara sesuatu objek dikenakan tindakan?",explanationLearning:"Struktur “把” meletakkan objek yang menerima kesan tindakan sebelum kata kerja. “关上” menunjukkan bahawa tindakan menutup pintu telah selesai.",options:{o1:{learning:"Sila tutup pintu."},o2:{learning:"Pintu berada di sini."},o3:{learning:"Saya nampak pintu."},o4:{learning:"Pintu itu besar."}}},
+    "zh-en-a-complex-sentences-02":{promptLearning:"Apakah fungsi utama “被” dalam ayat pasif?",explanationLearning:"“被” memperkenalkan pelaku atau sumber sesuatu tindakan dan menunjukkan bahawa subjek menerima tindakan tersebut. Oleh itu, unsur ini membentuk ayat pasif.",options:{o1:{learning:"Menandakan ayat pasif."},o2:{learning:"Menandakan pemilikan."},o3:{learning:"Membentuk soalan ya atau tidak."},o4:{learning:"Menandakan perbandingan."}}},
+    "zh-en-a-complex-sentences-03":{promptLearning:"Pola ayat yang manakah menunjukkan hubungan antara syarat yang wajib dipenuhi dengan hasil selepasnya?",explanationLearning:"“只有” memperkenalkan syarat yang wajib dipenuhi, manakala “才” memperkenalkan hasil yang hanya akan berlaku apabila syarat itu dipenuhi.",options:{o1:{learning:"只有……才…… (hanya jika... barulah...)"},o2:{learning:"无论……都…… (walau apa pun... tetap...)"},o3:{learning:"既然……就…… (memandangkan... maka...)"},o4:{learning:"虽然……但是…… (walaupun... namun...)"} }},
+    "zh-en-a-complex-sentences-04":{promptLearning:"Pola ayat yang manakah bermaksud “hasilnya tetap sama tanpa mengira keadaannya”?",explanationLearning:"“无论” menunjukkan bahawa syarat tidak dihadkan, manakala “都” menegaskan bahawa hasilnya tetap sama dalam semua keadaan.",options:{o1:{learning:"无论……都…… (walau apa pun... tetap...)"},o2:{learning:"只有……才…… (hanya jika... barulah...)"},o3:{learning:"因为……所以…… (kerana... oleh itu...)"},o4:{learning:"不但……而且…… (bukan sahaja... malah...)"} }},
+    "zh-en-a-complex-sentences-05":{promptLearning:"Ayat yang manakah menggunakan bentuk pasif untuk menyatakan bahawa telefon bimbit penutur telah diambil oleh adik lelakinya?",explanationLearning:"Ini ialah ayat pasif. Telefon bimbit ialah objek yang menerima tindakan, “被弟弟” menyatakan pelakunya, manakala “拿走了” menunjukkan hasil tindakan itu.",options:{o1:{learning:"Telefon bimbit saya telah diambil oleh adik lelaki saya."},o2:{learning:"Saya membawa adik lelaki saya pergi."},o3:{learning:"Adik lelaki saya ternampak telefon bimbit itu."},o4:{learning:"Telefon bimbit itu berada di sebelah adik lelaki saya."}}},
+    "zh-en-a-complex-sentences-06":{promptLearning:"Pola ayat yang manakah menggunakan fakta yang telah diketahui sebagai alasan untuk membuat kesimpulan?",explanationLearning:"“既然” memperkenalkan fakta yang telah dipastikan, manakala “就” menghubungkan fakta itu dengan kesimpulan atau tindakan seterusnya.",options:{o1:{learning:"既然……就…… (memandangkan... maka...)"},o2:{learning:"一边……一边…… (sambil... pada masa yang sama...)"},o3:{learning:"先……然后…… (mula-mula... kemudian...)"},o4:{learning:"越……越…… (semakin... semakin...)"} }},
+    "zh-en-a-complex-sentences-07":{promptLearning:"Ayat yang manakah menggunakan struktur “把” dengan betul dan menyatakan bahawa kerja sekolah telah disiapkan sepenuhnya?",explanationLearning:"Dalam “我把作业写完了”, “把” meletakkan objek “作业” sebelum kata kerja, manakala “写完” menunjukkan bahawa tindakan itu telah selesai.",options:{o1:{learning:"Saya telah menyiapkan kerja sekolah."},o2:{learning:"Saya menulis kerja sekolah itu dengan pantas."},o3:{learning:"Saya menulis kerja sekolah itu di dalam buku nota."},o4:{learning:"Saya menyiapkan separuh daripada kerja sekolah itu."}}},
+    "zh-en-a-complex-sentences-translation-01":{promptLearning:"Ayat yang manakah bermaksud “Tolong letakkan buku itu di atas meja”?",explanationLearning:"“把” meletakkan objek yang dikenakan tindakan di hadapan kata kerja, manakala “放在桌子上” menyatakan tempat buku itu diletakkan.",options:{o1:{translation:"Tolong letakkan buku itu di atas meja."},o2:{translation:"Tolong letakkan meja itu di atas buku."},o3:{translation:"Tolong letakkan buku itu di bawah meja."},o4:{translation:"Buku itu berada di atas meja, sila."}}},
+    "zh-en-a-connectors-01":{promptLearning:"Kata hubung yang manakah digunakan untuk memperkenalkan hasil atau kesimpulan?",explanationLearning:"“因此” menghubungkan sebab atau fakta yang disebut sebelumnya dengan hasil atau kesimpulan yang terbit daripadanya.",options:{o1:{learning:"Oleh itu."},o2:{learning:"Namun begitu."},o3:{learning:"Selain itu."},o4:{learning:"Sebaliknya."}}},
+    "zh-en-a-connectors-02":{promptLearning:"Kata hubung yang manakah memperkenalkan maklumat yang berbeza atau berlawanan dengan perkara sebelumnya?",explanationLearning:"“然而” menghubungkan dua klausa yang menunjukkan pertentangan atau perbezaan. Gaya penggunaannya biasanya lebih formal berbanding “但是”.",options:{o1:{learning:"Namun begitu."},o2:{learning:"Oleh itu."},o3:{learning:"Ringkasnya."},o4:{learning:"Lalu."}}},
+    "zh-en-a-connectors-03":{promptLearning:"Kata hubung yang manakah boleh digunakan untuk menambahkan maklumat selepas perkara yang telah disebut?",explanationLearning:"“此外” digunakan untuk menambahkan maklumat yang belum disebut sebelumnya. Maksudnya hampir sama dengan “selain itu”.",options:{o1:{learning:"Selain itu."},o2:{learning:"Sebaliknya."},o3:{learning:"Oleh itu."},o4:{learning:"Walaupun."}}},
+    "zh-en-a-connectors-04":{promptLearning:"Perkataan yang manakah lazim digunakan untuk merumuskan isi utama yang telah dibincangkan?",explanationLearning:"“总之” digunakan untuk merumuskan perbincangan atau isi penting sebelumnya dan memperkenalkan kesimpulan ringkas.",options:{o1:{learning:"Kesimpulannya."},o2:{learning:"Lalu."},o3:{learning:"Namun begitu."},o4:{learning:"Terutamanya."}}}
+  };
+  Object.entries(zhRows).forEach(([id,row])=>{
+    if(zh?.[id]){
+      zh[id].promptLearning=row.promptLearning;
+      zh[id].explanationLearning=row.explanationLearning;
+      Object.entries(row.options).forEach(([optionId,value])=>{
+        if(zh[id].options?.[optionId]) zh[id].options[optionId][zh[id].options[optionId].translation!==undefined&&zh[id].options[optionId].learning===undefined?"translation":"learning"]=value.learning??value.translation;
+        if(value.translation&&zh[id].options?.[optionId]) zh[id].options[optionId].translation=value.translation;
+      });
+    }
+  });
   window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS = {
-    quiz: { en: Object.keys(rows) },
+    quiz: { en: Object.keys(rows), zh: Object.keys(zhRows) },
     status: "model_assisted_malay_draft_pending_editorial_review"
   };
 })();
