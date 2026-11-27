@@ -988,7 +988,7 @@
   });
   const timerApi={
     config:timing,
-    contentStats:{englishCuratedPhraseCount:curatedEnglishPhrases.length,malayDictionaryEntryCount:(window.SWIFT_MALAY_DICTIONARY||[]).length,malaySupportEnglishCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.en||{}).length,malaySupportChineseCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.zh||{}).length},
+    contentStats:{englishCuratedPhraseCount:curatedEnglishPhrases.length,malayDictionaryEntryCount:(window.SWIFT_MALAY_DICTIONARY||[]).length,malaySupportEnglishCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.en||{}).length,malaySupportChineseCount:Object.keys(window.SWIFT_FLASHCARD_MALAY_SUPPORT?.zh||{}).length,malayGeneratedEnglishFlashcardCount:Object.keys(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.en||{}).length,malayGeneratedChineseFlashcardCount:Object.keys(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.zh||{}).length,malayGeneratedEnglishExampleCount:Object.values(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.en||{}).filter(row=>row.exampleMs).length,malayGeneratedChineseExampleCount:Object.values(window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.zh||{}).filter(row=>row.exampleMs).length},
     reductionStep:REDUCTION_STEP,
     next(memory,answer,difficulty,mode="word"){
       const t=timingFor(mode,difficulty);
