@@ -76,7 +76,7 @@ if(!malayRuntime.includes("flashcard_sessions_learning_language_code_check")||!m
 if(!malayRuntime.includes("v_learning not in ('en','zh','ms')")||!malayRuntime.includes("v_translation not in ('en','zh','ms')"))throw new Error("Malay Flashcard server-side session language validation is missing.");
 if(!malayRuntime.includes("values(v_user,p_mode,p_difficulty,p_duration_seconds,v_learning,v_translation)"))throw new Error("Malay Flashcard sessions do not snapshot the authenticated language pair.");
 if(!html.includes('flashcard:"Flashcards"')||!html.includes('rpc("get_my_flashcard_allowance")')||!html.includes('rpc("get_my_quiz_availability")'))throw new Error("Profile progress/allowance integration is missing.");
-if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms10'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
+if(!html.includes('data/chinese-flashcards.js?v=2.8.0-draft3')||!html.includes('flashcards.js?v=3.0.0-ms11'))throw new Error("U2.8.0 Chinese Flashcard content/runtime assets are not loaded.");
 if(!html.includes('id="dashboardTabFavourites"')||!html.includes('id="dashboardTabProgress"')||!html.includes('id="dashboardTabHistory"')||!html.includes('id="dashboardTabAnalytics"'))throw new Error("The four Dashboard tabs are incomplete.");
 if(!html.includes('get_my_lesson_practice_attempts')||!html.includes('practiceRetries')||!html.includes('data-dashboard-flashcard-review-game'))throw new Error("Practice Insights or Daily History review integration is missing.");
 for(const [needle,label] of [
