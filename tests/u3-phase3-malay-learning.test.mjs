@@ -29,13 +29,13 @@ vm.runInContext(read("data/malay-daily-learning.js"),context);
 const lessons=context.window.SWIFT_MALAY_LESSONS;
 const daily=context.window.SWIFT_MALAY_DAILY_LEARNING;
 
-test("Malay is enabled only for the Phase 3 feature scope",()=>{
+test("Malay Quiz is enabled for the staging release while Flashcards remains disabled",()=>{
   const language=context.window.SWIFT_LANGUAGE_REGISTRY.get("ms");
   assert.equal(language.status,"active");
   assert.equal(language.capabilities.dictionary,true);
   assert.equal(language.capabilities.lessons,true);
   assert.equal(language.capabilities.dailyLearning,true);
-  assert.equal(language.capabilities.quiz,false);
+  assert.equal(language.capabilities.quiz,true);
   assert.equal(language.capabilities.flashcards,false);
 });
 
