@@ -463,8 +463,17 @@
     return '<span class="daily-chinese-line">' + esc(question.q || "") + '</span>' + (question.qPinyin ? '<span class="daily-pinyin-line">' + esc(question.qPinyin) + '</span>' : "") + (translationLanguage === "en" && question.qEn ? '<span class="daily-translation-line">' + esc(question.qEn) + '</span>' : "");
   }
   function dailyQuestionOption(option) {
-    if (!isChineseLearningCourse() || !option || typeof option !== "object") return esc(option);
-    return '<span class="daily-chinese-line">' + esc(option.zh || "") + '</span>' + (option.pinyin ? '<span class="daily-pinyin-line">' + esc(option.pinyin) + '</span>' : "") + (translationLanguage === "en" && option.en ? '<span class="daily-translation-line">' + esc(option.en) + '</span>' : "");
+    if (!option || typeof option !== "object") return esc(option);
+    if (isChineseLearningCourse()) {
+      const primary=option.zh || option.text || "";
+      return '<span class="daily-chinese-line">' + esc(primary) + '</span>' + (option.pinyin ? '<span class="daily-pinyin-line">' + esc(option.pinyin) + '</span>' : "") + (translationLanguage === "en" && option.en ? '<span class="daily-translation-line">' + esc(option.en) + '</span>' : "");
+    }
+    if (isMalayLearningCourse()) {
+      const primary=option.ms || option.text || "";
+      const support=translationLanguage==="zh" ? option.zh : translationLanguage==="en" ? option.en : "";
+      return esc(primary) + (support ? '<span class="daily-translation-line">' + esc(support) + '</span>' : "");
+    }
+    return esc(option.en || option.text || "");
   }
   function renderDailyStaticLabels() {
     const zh = translationLanguage === "zh";
