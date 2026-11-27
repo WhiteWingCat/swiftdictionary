@@ -74,6 +74,10 @@
       {
         "id": "classifiers-for-animals",
         "outcome": "“Ekor” digunakan sebagai penjodoh bilangan bagi haiwan seperti kucing."
+      },
+      {
+        "id": "classifier-for-flat-items",
+        "outcome": "Use “helai” for thin, flat items such as paper."
       }
     ]
   },
@@ -98,6 +102,10 @@
       {
         "id": "formal-register-choice",
         "outcome": "Ungkapan “Saya ingin memohon…” mengekalkan nada formal dan sopan."
+      },
+      {
+        "id": "formal-application-request",
+        "outcome": "Use “Saya ingin memohon…” as a polite formal request."
       }
     ]
   },
@@ -112,6 +120,10 @@
       {
         "id": "discourse-connector-contrast",
         "outcome": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau bertentangan."
+      },
+      {
+        "id": "additive-discourse-marker",
+        "outcome": "Use “selain itu” to introduce additional supporting information."
       }
     ]
   },
@@ -126,6 +138,14 @@
       {
         "id": "editing-agreement-and-clarity",
         "outcome": "Ayat pertama mempunyai susunan subjek, predikat dan keterangan yang jelas."
+      },
+      {
+        "id": "avoid-redundant-plural-marking",
+        "outcome": "Avoid adding “semua” after “para” when it redundantly marks the same plural group."
+      },
+      {
+        "id": "editing-pronoun-reference",
+        "outcome": "Repeat a noun where necessary to remove ambiguous pronoun reference."
       }
     ]
   },
@@ -176,6 +196,10 @@
       {
         "id": "family-relationship",
         "outcome": "“Abang” refers to an older brother."
+      },
+      {
+        "id": "older-sister-term",
+        "outcome": "“Kakak” refers to an older sister."
       }
     ]
   },
@@ -246,6 +270,10 @@
       {
         "id": "location-preposition",
         "outcome": "“Di” marks a location; “di atas meja” means on the table."
+      },
+      {
+        "id": "destination-preposition",
+        "outcome": "Use “ke” to indicate a destination or direction of movement."
       }
     ]
   },
