@@ -3723,17 +3723,30 @@ quizEl("lessonsChineseUnavailable").hidden=true;
       quizEl("dailyLearningPage").hidden=!lessonsSignedIn;
 quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=!lessonsSignedIn;
 quizEl("lessonLibrary").hidden=!lessonsSignedIn;
-      quizEl("quizChineseUnavailable").hidden=true;
+      const quizSupported=!!window.SWIFT_LANGUAGE_REGISTRY?.supports(course,"quiz");
+      const quizUnavailable=quizEl("quizChineseUnavailable");
+      quizUnavailable.hidden=quizSupported;
+      if(!quizSupported){
+        quizUnavailable.querySelector("h2").textContent=course==="ms"?"Malay Quiz is planned for a later phase":"Quiz is unavailable for this language";
+        quizUnavailable.querySelector("p").textContent=course==="ms"?"Malay Quiz will be added in a later U3.0 phase. You can use the Malay Dictionary, Lessons and Daily Learning in this staging build.":"This learning language does not yet have Quiz content.";
+      }
       const quizSignedIn=!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
       const showQuizSession=quizSignedIn&&!showQuizResults&&!!quizPageState.session&&!!quizPageState.sessionView;
       const showQuizHome=quizSignedIn&&!showQuizResults&&!showQuizSession;
-      quizEl("quizHome").hidden=!showQuizHome;
-      quizEl("quizSession").hidden=!showQuizSession;
-      quizEl("quizResults").hidden=!showQuizResults;
-      quizEl("quizSignedOut").hidden=!!currentUser;
+      quizEl("quizHome").hidden=!showQuizHome||!quizSupported;
+      quizEl("quizSession").hidden=!showQuizSession||!quizSupported;
+      quizEl("quizResults").hidden=!showQuizResults||!quizSupported;
+      quizEl("quizSignedOut").hidden=!!currentUser||!quizSupported;
       quizUpdateTranslationNotice(quizPageState.session||quizPageState.result);
-      quizEl("flashcardsChineseUnavailable").hidden=true;
+      const flashcardsSupported=!!window.SWIFT_LANGUAGE_REGISTRY?.supports(course,"flashcards");
+      const flashUnavailable=quizEl("flashcardsChineseUnavailable");
+      flashUnavailable.hidden=flashcardsSupported;
+      if(!flashcardsSupported){
+        flashUnavailable.querySelector("h2").textContent=course==="ms"?"Malay Flashcards are planned for a later phase":"Flashcards are unavailable for this language";
+        flashUnavailable.querySelector("p").textContent=course==="ms"?"Malay Flashcards will be added in a later U3.0 phase. This staging build currently includes the Malay Dictionary, Lessons and Daily Learning.":"This learning language does not yet have Flashcards content.";
+      }
+      quizEl("flashcardsApp").hidden=!flashcardsSupported;
       const flashComing=quizEl("flashcardsPage").querySelector(".coming-card");
       if(flashComing)flashComing.hidden=true;
     }
