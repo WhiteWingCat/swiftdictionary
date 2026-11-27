@@ -67,5 +67,7 @@ jobs:
           node --check data/malay-daily-learning.js
           node --check daily-learning.js
           node --check scripts/content/validation-core.mjs
+      - name: Validate Malay Quiz draft banks
+        run: node scripts/quiz/validate-malay-question-bank.mjs
       - name: Run all architecture and content regression tests
         run: node --test --test-concurrency=1 tests/*.test.cjs tests/*.test.mjs
