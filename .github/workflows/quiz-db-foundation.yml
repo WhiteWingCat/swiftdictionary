@@ -193,6 +193,12 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261125105244_swiftdictionary_update_2_9_0_english_lesson_expansion.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/update_2_9_0_english_lesson_catalog.sql"
 
+      - name: Apply U3.0 secure Malay Quiz runtime migration
+        working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
+        run: |
+          eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127130000_swiftdictionary_update_3_0_malay_quiz_runtime.sql"
+
       - name: Verify explicit grants for all staged public tables
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
@@ -206,6 +212,7 @@ jobs:
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_rpc_test_observers.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_authenticated_rpcs.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_chinese_runtime_u2_8_0.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_runtime_u3_0.sql"
 
       - name: Validate and import draft Quiz content in local Supabase
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
@@ -216,6 +223,10 @@ jobs:
           node "$GITHUB_WORKSPACE/scripts/quiz/validate-question-bank.mjs" --emit-sql > "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-drafts.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_draft_content_import_assertions.sql"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs"
+          node "$GITHUB_WORKSPACE/scripts/quiz/validate-malay-question-bank.mjs" --emit-sql > "$RUNNER_TEMP/quiz-malay-drafts.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$RUNNER_TEMP/quiz-malay-drafts.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_draft_import_assertions.sql"
 
       - name: Validate owner-authorized 199-question release export and migration
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
