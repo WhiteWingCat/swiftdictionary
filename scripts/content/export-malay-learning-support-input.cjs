@@ -3,6 +3,8 @@ const path=require("node:path");
 const vm=require("node:vm");
 global.window={};
 require(path.resolve("data/languages/english-lessons.js"));
+require(path.resolve("data/languages/english-dictionary.js"));
+require(path.resolve("data/english-expansion.js"));
 require(path.resolve("data/chinese-lessons.js"));
 require(path.resolve("data/chinese-flashcards.js"));
 const flashcardsSource=fs.readFileSync(path.resolve("flashcards.js"),"utf8");
@@ -23,7 +25,15 @@ for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS||{}],["zh",win
   }
 }
 const quiz={};
-const flashcards={en:englishPhrases.map(item=>({word:item.word,definition:item.definition,example:(item.examples||[])[0]||""})),zh:[]};
+const englishDictionaryExamples=[...(window.SWIFT_ENGLISH_BASE_DICTIONARY||[]),...(window.SWIFT_ENGLISH_EXPANSION||[])]
+  .filter(item=>item&&item.word&&Array.isArray(item.examples)&&item.examples[0])
+  .map(item=>({word:item.word,definition:"",example:item.examples[0]}));
+const englishFlashcards=new Map();
+for(const item of [...englishDictionaryExamples,...englishPhrases.map(item=>({word:item.word,definition:item.definition,example:(item.examples||[])[0]||""}))]){
+  const previous=englishFlashcards.get(item.word);
+  englishFlashcards.set(item.word,{word:item.word,definition:item.definition||previous?.definition||"",example:item.example||previous?.example||""});
+}
+const flashcards={en:[...englishFlashcards.values()],zh:[]};
 for(const kind of ["characters","vocabulary","phrases"]){
   for(const item of window.SWIFT_CHINESE_FLASHCARDS?.[kind]||[]){
     const definition=item.definitionCueZh||item.definitionZh||"";
