@@ -1469,7 +1469,15 @@
           block.appendChild(heading);
           const text = document.createElement("p");
           text.className = "definition-sense-text";
-          const senseText = translationLanguage === "zh" ? (sense.definitionZh || item.definitionZh || "") : sense.definition;
+          const senseText = isMalayCourse()
+            ? translationLanguage === "zh"
+              ? (sense.definitionZh || item.definitionZh || sense.definition || item.definition || "")
+              : translationLanguage === "en"
+                ? (sense.definitionEn || item.definitionEn || sense.definition || item.definition || "")
+                : sense.definition
+            : translationLanguage === "zh"
+              ? (sense.definitionZh || item.definitionZh || "")
+              : sense.definition;
           text.textContent = senseText || item.definition;
           block.appendChild(text);
           if (Array.isArray(sense.examples) && sense.examples.length) {
@@ -1485,7 +1493,15 @@
           definitionEl.appendChild(block);
         });
       } else {
-        const definitionText = translationLanguage === "zh" ? (commonZhTranslations[item.word.toLowerCase()] || item.definitionZh || `常见语境：${item.definition}`) : item.definition;
+        const definitionText = isMalayCourse()
+          ? translationLanguage === "zh"
+            ? (item.definitionZh || item.definition || "")
+            : translationLanguage === "en"
+              ? (item.definitionEn || item.definition || "")
+              : item.definition
+          : translationLanguage === "zh"
+            ? (commonZhTranslations[item.word.toLowerCase()] || item.definitionZh || `常见语境：${item.definition}`)
+            : item.definition;
         definitionEl.textContent = definitionText;
         if (/[\u3400-\u9fff]/.test(definitionText)) {
           const py = document.createElement("div"); py.className = "pinyin-line"; py.textContent = pinyinForText(definitionText) || "Pinyin not yet verified."; definitionEl.appendChild(py);
