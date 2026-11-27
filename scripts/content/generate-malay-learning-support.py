@@ -60,9 +60,12 @@ def main():
       "targetLanguage":"ms",
       "status":"machine_assisted_draft",
       "reviewerId":None,
+      "humanReviewStatus":"pending",
+      "modelLicensingStatus":"pending_verification",
+      "modelLicensingNote":"Verify the exact Argos model-package and upstream corpus licences and preserve required attribution before public redistribution.",
       "generatedAt":datetime.now(timezone.utc).isoformat(),
       "engine":"Argos Translate offline models: en-ms 1.9; zh-en 1.9 followed by en-ms 1.9",
-      "provenance":"Machine-assisted drafts generated from original SwiftDictionary lesson and Quiz text. Human Malaysian Standard Malay review is pending.",
+      "provenance":"Machine-assisted drafts generated from original SwiftDictionary lesson, Quiz and Flashcard text. Human Malaysian Standard Malay review is pending.",
       "lessons":{"en":{},"zh":{}},
       "quiz":{"en":{},"zh":{}},
       "flashcards":{"en":{},"zh":{}}
