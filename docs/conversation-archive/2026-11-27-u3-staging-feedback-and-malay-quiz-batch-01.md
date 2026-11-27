@@ -124,3 +124,8 @@ The public three-argument Quiz start wrapper now preserves the existing English/
 ### Quiz integration CI fixture correction — 2026-11-27
 
 The first full local Supabase integration attempt reached the U3.0 baseline and found that the full Phase 3 Malay catalogue seed also inserts Daily Discovery rotation orders, colliding with the global unique discovery-order index in the isolated Quiz test database. This is unrelated to Malay Quiz question content or runtime. The Quiz workflow now runs the Malay enablement baseline and a Quiz-only fixture containing just the 72 permanent-lesson catalogue rows needed by the Quiz source checks; it deliberately omits Daily Discovery rotation data. The failed run stopped before applying the Malay Quiz runtime migration or executing the new RPC tests. A fresh local Supabase integration run is pending on the corrected workflow. No connected staging data was changed.
+
+
+### First local Supabase migration execution — 2026-11-27
+
+The corrected Quiz-only Malay catalogue fixture allowed the new runtime migration to apply successfully in disposable local Supabase, and the public-function grant verification passed. The first authenticated Malay runtime test then failed at its initial allowance assertion because its test user UUID (`eeee…`) was already used by the legacy Quiz integration suite, so its pre-existing daily Quiz usage made the expected count nonzero. The test now uses six isolated `f0a00000-…` identities that do not overlap the legacy fixtures. This is a test-fixture isolation correction, not a runtime migration failure. The latest Quiz DB workflow rerun is pending. No connected staging or production database was changed.
