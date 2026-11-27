@@ -95,14 +95,13 @@ env -u SWIFT_SUPABASE_URL -u SWIFT_SUPABASE_PUBLISHABLE_KEY \
 grep -q 'ivatvkfrtifgfheeaelj.supabase.co' supabase-config.js
 grep -q 'sb_publishable_preview_test' supabase-config.js
 
-# A preview must not accept a key that differs from the checked-in staging key.
+# Preview ignores production-scoped Cloudflare variables and remains pinned to staging.
 write_sample_config
-if env CF_PAGES=1 CF_PAGES_BRANCH=feature/test \
-  SWIFT_SUPABASE_URL=https://ivatvkfrtifgfheeaelj.supabase.co \
-  SWIFT_SUPABASE_PUBLISHABLE_KEY=sb_publishable_production_test bash build.sh >/dev/null 2>&1; then
-  echo "ERROR: preview accepted the production publishable key" >&2
-  exit 1
-fi
+env CF_PAGES=1 CF_PAGES_BRANCH=feature/test \
+  SWIFT_SUPABASE_URL=https://pzymiesazmpyvnfvsbsc.supabase.co \
+  SWIFT_SUPABASE_PUBLISHABLE_KEY=sb_publishable_production_test bash build.sh >/dev/null
+grep -q 'ivatvkfrtifgfheeaelj.supabase.co' supabase-config.js
+grep -q 'sb_publishable_preview_test' supabase-config.js
 
 # Missing staging key and missing production variables both fail closed.
 printf '%s\n' 'no-staging-key' > supabase-config.js
