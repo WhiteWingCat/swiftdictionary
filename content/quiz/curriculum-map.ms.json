@@ -14,6 +14,10 @@
       {
         "id": "polite-responses",
         "outcome": "“Sama-sama” ialah balasan lazim untuk ucapan terima kasih."
+      },
+      {
+        "id": "greeting-response-to-wellbeing",
+        "outcome": "“Khabar baik, terima kasih” is a conventional reply to a question about wellbeing."
       }
     ]
   },
@@ -28,6 +32,10 @@
       {
         "id": "introducing-personal-details",
         "outcome": "“Saya tinggal di …” menyatakan tempat seseorang menetap sekarang."
+      },
+      {
+        "id": "name-introduction",
+        "outcome": "Use “Nama saya …” to introduce a person's name."
       }
     ]
   },
@@ -60,6 +68,10 @@
       {
         "id": "meN-prefix-context",
         "outcome": "Dalam ayat aktif ini, “menulis” ialah kata kerja yang sesuai."
+      },
+      {
+        "id": "meN-prefix-p-to-m",
+        "outcome": "The initial “p” is dropped with the meN- prefix, producing “memukul”."
       }
     ]
   },
@@ -78,6 +90,10 @@
       {
         "id": "classifier-for-flat-items",
         "outcome": "Use “helai” for thin, flat items such as paper."
+      },
+      {
+        "id": "classifier-for-long-items",
+        "outcome": "Use “batang” for long, cylindrical objects such as pencils."
       }
     ]
   },
@@ -88,6 +104,10 @@
       {
         "id": "reduplication-meaning",
         "outcome": "“Kanak-kanak” is a reduplicated form referring to children."
+      },
+      {
+        "id": "reduplication-plurality",
+        "outcome": "Noun reduplication can indicate plurality depending on context."
       }
     ]
   },
@@ -106,6 +126,10 @@
       {
         "id": "formal-application-request",
         "outcome": "Use “Saya ingin memohon…” as a polite formal request."
+      },
+      {
+        "id": "formal-letter-opening",
+        "outcome": "Use “Dengan hormatnya” as a suitable opening in a formal letter."
       }
     ]
   },
@@ -124,6 +148,10 @@
       {
         "id": "additive-discourse-marker",
         "outcome": "Use “selain itu” to introduce additional supporting information."
+      },
+      {
+        "id": "concluding-discourse-marker",
+        "outcome": "Use “Kesimpulannya” to signal a summary or conclusion."
       }
     ]
   },
@@ -146,6 +174,10 @@
       {
         "id": "editing-pronoun-reference",
         "outcome": "Repeat a noun where necessary to remove ambiguous pronoun reference."
+      },
+      {
+        "id": "editing-conciseness",
+        "outcome": "Avoid redundant wording when a precise verb already conveys the intended meaning."
       }
     ]
   },
@@ -156,6 +188,10 @@
       {
         "id": "passive-voice-focus",
         "outcome": "The object becomes the focus and takes the di- passive form “dibaca”."
+      },
+      {
+        "id": "passive-agent-phrase",
+        "outcome": "Use “oleh” to introduce the agent in a passive sentence."
       }
     ]
   },
@@ -166,6 +202,10 @@
       {
         "id": "polite-help-request",
         "outcome": "“Boleh saya…” softens a request and makes it polite."
+      },
+      {
+        "id": "polite-help-request-2",
+        "outcome": "Use “Boleh kamu bantu saya?” as a polite request for help."
       }
     ]
   },
@@ -176,6 +216,10 @@
       {
         "id": "community-place-vocabulary",
         "outcome": "A library is a place where people can borrow books."
+      },
+      {
+        "id": "community-service-place",
+        "outcome": "A clinic provides basic health examinations and treatment."
       }
     ]
   },
@@ -186,6 +230,10 @@
       {
         "id": "daily-activity-verb",
         "outcome": "“Bersarapan” means to have breakfast, an activity before school."
+      },
+      {
+        "id": "daily-sequence-marker",
+        "outcome": "Use “kemudian” to indicate the next activity in a sequence."
       }
     ]
   },
@@ -200,6 +248,10 @@
       {
         "id": "older-sister-term",
         "outcome": "“Kakak” refers to an older sister."
+      },
+      {
+        "id": "possessive-pronoun-order",
+        "outcome": "The possessive pronoun follows the noun in phrases such as “adik mereka”."
       }
     ]
   },
@@ -210,6 +262,10 @@
       {
         "id": "food-order-classifier",
         "outcome": "“Segelas” is the classifier phrase used for a glassful."
+      },
+      {
+        "id": "taste-adjective",
+        "outcome": "Use “masam” to describe a sour taste."
       }
     ]
   },
@@ -220,6 +276,10 @@
       {
         "id": "hobby-expression",
         "outcome": "“Hobi saya…” introduces an activity someone enjoys."
+      },
+      {
+        "id": "hobby-preference-expression",
+        "outcome": "Use “Saya gemar …” to express interest in a leisure activity."
       }
     ]
   },
@@ -230,6 +290,10 @@
       {
         "id": "room-vocabulary",
         "outcome": "“Dapur” is the kitchen."
+      },
+      {
+        "id": "existence-with-ada",
+        "outcome": "Use “ada” to express the existence of something in a place."
       }
     ]
   },
@@ -260,6 +324,10 @@
       {
         "id": "ongoing-aspect",
         "outcome": "“Sedang” marks an action in progress."
+      },
+      {
+        "id": "completed-aspect-marker",
+        "outcome": "Use “sudah” to indicate an action has occurred or been completed."
       }
     ]
   },
@@ -284,6 +352,10 @@
       {
         "id": "contrast-conjunction",
         "outcome": "“Walaupun” introduces a concession or contrast."
+      },
+      {
+        "id": "cause-conjunction",
+        "outcome": "Use “kerana” to introduce the reason for an action or condition."
       }
     ]
   },
@@ -294,6 +366,10 @@
       {
         "id": "comparative-structure",
         "outcome": "Use “lebih … daripada” to compare two things."
+      },
+      {
+        "id": "superlative-structure",
+        "outcome": "Use “paling” to express the highest degree in a comparison group."
       }
     ]
   },
@@ -304,6 +380,10 @@
       {
         "id": "intensifier-choice",
         "outcome": "“Sangat” strengthens the adjective “panas”."
+      },
+      {
+        "id": "moderate-intensifier",
+        "outcome": "Use “agak” to express a moderate degree."
       }
     ]
   },
@@ -314,6 +394,10 @@
       {
         "id": "compound-clause",
         "outcome": "“Manakala” can connect two contrasting or parallel clauses."
+      },
+      {
+        "id": "contrastive-compound-clause",
+        "outcome": "Use “tetapi” to join clauses that express contrast."
       }
     ]
   },
@@ -324,6 +408,10 @@
       {
         "id": "cause-effect-linker",
         "outcome": "“Oleh itu” introduces a consequence or result."
+      },
+      {
+        "id": "effect-linker",
+        "outcome": "Use “oleh itu” to connect a stated cause to its result."
       }
     ]
   },
@@ -354,6 +442,14 @@
       {
         "id": "cohesive-reference",
         "outcome": "Clear pronoun reference links sentences without confusing the reader."
+      },
+      {
+        "id": "cohesive-repetition-reference",
+        "outcome": "Repeat a noun when necessary to make a discourse reference clear."
+      },
+      {
+        "id": "sequence-cohesion-marker",
+        "outcome": "Use “seterusnya” to mark the next step or point."
       }
     ]
   },
@@ -364,6 +460,14 @@
       {
         "id": "sentence-variation",
         "outcome": "The fronted location phrase establishes the setting before the main clause."
+      },
+      {
+        "id": "fronted-phrase-variation",
+        "outcome": "An introductory adverbial phrase can vary sentence openings without changing facts."
+      },
+      {
+        "id": "clause-combination-for-flow",
+        "outcome": "A causal clause can be placed first to create a clear sentence flow."
       }
     ]
   },
@@ -374,6 +478,14 @@
       {
         "id": "paraphrase-preserve-meaning",
         "outcome": "A sound paraphrase changes wording but retains the original meaning."
+      },
+      {
+        "id": "active-passive-paraphrase",
+        "outcome": "An accurate active-to-passive transformation can preserve the original meaning."
+      },
+      {
+        "id": "lexical-paraphrase",
+        "outcome": "“Memberikan bantuan” can be paraphrased as “membantu” without changing the main meaning."
       }
     ]
   },
@@ -384,6 +496,14 @@
       {
         "id": "source-evaluation",
         "outcome": "Authorship, publication date and traceable evidence help assess reliability."
+      },
+      {
+        "id": "cross-source-verification",
+        "outcome": "Compare dates, methods and original sources when reports give conflicting data."
+      },
+      {
+        "id": "fact-opinion-distinction",
+        "outcome": "Evaluative statements such as “paling menarik” are opinions rather than directly verifiable facts."
       }
     ]
   },
@@ -394,6 +514,14 @@
       {
         "id": "argument-structure",
         "outcome": "A clear argument states a claim, supports it with evidence and explains the link."
+      },
+      {
+        "id": "evidence-relevance",
+        "outcome": "Relevant evidence should measure something directly connected to the claim."
+      },
+      {
+        "id": "claim-reason-evidence",
+        "outcome": "A clear argument connects a claim with reasons and supporting evidence."
       }
     ]
   },
@@ -404,6 +532,10 @@
       {
         "id": "counterargument-response",
         "outcome": "A rebuttal responds to the opposing point with relevant reasoning or evidence."
+      },
+      {
+        "id": "acknowledge-counterargument",
+        "outcome": "A fair rebuttal acknowledges reasonable points and responds to the argument with evidence."
       }
     ]
   },
@@ -418,6 +550,10 @@
       {
         "id": "source-credibility",
         "outcome": "An official agency source is usually the primary reference for its own policy."
+      },
+      {
+        "id": "primary-source-identification",
+        "outcome": "Use the relevant official primary source to verify the content and date of an original announcement."
       }
     ]
   },
