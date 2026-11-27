@@ -18,10 +18,13 @@ test("legacy English lesson translations are wrapped as unverified records",()=>
  assert.equal(record.reviewerId,null);
 });
 
-test("planned language packages cannot start active learning features",()=>{
- packages.createPackage({languageCode:"ms",contentVersion:"3.0.0-planned"});
- assert.throws(()=>packages.requireFeature("ms","lessons"),/not active/);
- assert.throws(()=>packages.requireFeature("ms","quiz"),/not active/);
+test("Phase 3 Malay supports Dictionary, Lessons and Daily Learning but not later phases",()=>{
+ packages.createPackage({languageCode:"ms",contentVersion:"u3-ms-phase3-0.1.0"});
+ assert.doesNotThrow(()=>packages.requireFeature("ms","dictionary"));
+ assert.doesNotThrow(()=>packages.requireFeature("ms","lessons"));
+ assert.doesNotThrow(()=>packages.requireFeature("ms","dailyLearning"));
+ assert.throws(()=>packages.requireFeature("ms","quiz"),/does not support quiz/);
+ assert.throws(()=>packages.requireFeature("ms","flashcards"),/does not support flashcards/);
 });
 
 test("English and Chinese package lookup remains language isolated",()=>{
