@@ -20,7 +20,7 @@ test("application loads registry, contracts, translation registry and adapters b
 
 test("legacy content bootstrap runs after language content sources and daily learning",()=>{
  const html=read("index.html");
- const sources=["data/languages/english-dictionary.js","data/languages/chinese-dictionary.js","data/languages/english-lessons.js","daily-learning.js","data/chinese-flashcards.js","flashcards.js","js/core/legacy-content-bootstrap.js"];
+ const sources=["data/languages/english-dictionary.js","data/languages/chinese-dictionary.js","data/languages/english-lessons.js","data/languages/malay-lesson-translations.js","daily-learning.js","data/chinese-flashcards.js","flashcards.js","js/core/legacy-content-bootstrap.js"];
  let previous=-1;
  for(const source of sources){
   // Match the actual script element, not an earlier metadata reference in inline code.
