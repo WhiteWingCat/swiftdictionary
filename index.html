@@ -1065,7 +1065,8 @@
       // Malay is a valid support language for English and Chinese courses.
       // In the Malay course itself, English or Chinese is the support language.
       const profileLearningCode=document.getElementById("preferenceLearning")?.value||course;
-      const available=profileLearningCode!=="ms";
+      const activeLearningCode=course==="ms"?"ms":profileLearningCode;
+      const available=activeLearningCode!=="ms";
       for (const selectorId of ["translationSelect","preferenceTranslation"]) {
         const option=document.querySelector("#"+selectorId+' option[value="ms"]');
         if(option){
