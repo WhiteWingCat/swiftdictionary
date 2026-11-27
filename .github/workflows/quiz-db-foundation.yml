@@ -210,6 +210,10 @@ jobs:
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
         run: |
           eval "$(supabase status --output env)"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127160000_swiftdictionary_update_3_0_malay_flashcards_runtime.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127170000_swiftdictionary_update_3_0_flashcard_support_language_snapshot.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127180000_swiftdictionary_update_3_0_flashcard_support_language_payload.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127190000_swiftdictionary_update_3_0_malay_daily_catalogue_metadata_alignment.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/migrations/20261127210000_swiftdictionary_update_3_0_flashcard_snapshot_evaluation_hardening.sql"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/flashcard_review_persistence_repair.sql"
