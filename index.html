@@ -2824,7 +2824,12 @@ async function completeLesson(x){
     function openDashboardLessonReview(lessonId,difficulty,languageCode){
       const targetCourse=activeLanguage(languageCode)?languageCode:null;
       if(!targetCourse){openDashboardReview("Lesson review",'<p class="muted-note">This lesson belongs to a language that is not currently active.</p>');return;}
-      const lesson=((targetCourse==="zh"?chineseLessonData:lessonData)[difficulty]||[]).find(item=>item.id===lessonId);
+      const lessonCatalogue=targetCourse==="zh"
+        ? (chineseLessonData[difficulty]||[])
+        : targetCourse==="ms"
+          ? (["beginner","intermediate","advanced"].flatMap(level=>window.SWIFT_MALAY_LESSONS?.[level]||[]).filter(item=>item.difficulty===difficulty))
+          : (lessonData[difficulty]||[]);
+      const lesson=lessonCatalogue.find(item=>item.id===lessonId);
       if(!lesson){openDashboardReview("Lesson review",'<p class="muted-note">The original lesson content is not available in this version.</p>');return;}
       const previousCourse=course,previousTranslation=translationLanguage;
       course=targetCourse;
@@ -2938,7 +2943,7 @@ async function completeLesson(x){
           supabaseClient.from("learning_plan_limits").select("plan_code,activity_type,daily_limit,is_enabled"),
           supabaseClient.from("lesson_practice_results").select("topic_id,learning_language,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
           supabaseClient.rpc("get_my_lesson_practice_attempts",{p_limit:100}),
-          supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at,updated_at,created_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
+          supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at,updated_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
           supabaseClient.from("daily_activity_sessions").select("id,activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
