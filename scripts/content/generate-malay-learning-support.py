@@ -101,8 +101,8 @@ def main():
             output["flashcards"][code][item["word"]]={"definitionMs":definition,"exampleMs":example}
             counts["flashcards"]+=1
             counts["flashcard_strings"]+=1+(1 if example else 0)
-    js="/* Generated Malay learning-support translations. Machine-assisted drafts; human review pending. */\\n"
-    js+="window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = "+json.dumps(output,ensure_ascii=False,indent=2)+";\\n"
+    js="/* Generated Malay learning-support translations. Machine-assisted drafts; human review pending. */\n"
+    js+="window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = "+json.dumps(output,ensure_ascii=False,indent=2)+";\n"
     OUTPUT.write_text(js,encoding="utf-8")
     print(json.dumps({"counts":counts,"output_bytes":OUTPUT.stat().st_size,"status":output["status"]},ensure_ascii=False))
 
