@@ -75,7 +75,7 @@ values
 ('permanent_lesson','ms-i-formal-correspondence',null,'ms-topic-formal-correspondence','intermediate','ms','true'),
 ('permanent_lesson','ms-a-source-credibility',null,'ms-topic-source-credibility','advanced','ms','true'),
 ('permanent_lesson','ms-a-register-and-genre',null,'ms-topic-register-and-genre','advanced','ms','true'),
-('permanent_lesson','ms-a-argument-structure',null,'ms-topic-argument-structure','advanced','ms','true'),
+('permanent_lesson','ms-a-argument-structure',null,'ms-topic-argument-structure','advanced','ms','true')
 on conflict(activity_type,content_id,language_code) do update set
  topic_id=excluded.topic_id,
  difficulty=excluded.difficulty,
