@@ -53,7 +53,8 @@ for(const relative of files){
  packs.push(pack);
 }
 if(errors.length){console.error(errors.join("\n"));process.exit(1);}
-console.log("Malay Quiz draft validated: 48 questions per support language; batch 02 adds 36 (12 per difficulty); all remain draft.");
+const summary="Malay Quiz draft validated: 48 questions per support language; batch 02 adds 36 (12 per difficulty); all remain draft.";
+if(emitSql)console.error(summary);else console.log(summary);
 
 if(emitSql){
  const quote=value=>"'"+String(value).replace(/'/g,"''")+"'";
