@@ -7,7 +7,10 @@
     const records = translationData().languages?.[code] || {};
     let translatedEntries = 0, translatedSenses = 0, totalSenses = 0;
     for (const entry of Array.isArray(entries) ? entries : []) {
-      const record = records[entry.word];
+      const sourceWordKey = code === "en"
+        ? String(entry.word || "").trim().toLowerCase()
+        : String(entry.word || "").trim();
+      const record = records[sourceWordKey];
       const sourceSenses = Array.isArray(entry.senses) && entry.senses.length ? entry.senses : [entry];
       totalSenses += sourceSenses.length;
       if (!record) continue;
