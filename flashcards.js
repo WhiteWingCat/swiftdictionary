@@ -138,6 +138,7 @@
   function uiText(en,zh){return (state.game?.translationLanguage||state.reviewSession?.translation_language_code||translationLanguage)==="zh"?zh:en;}
   function modeLabel(mode){return ({word:uiText("Word Recall","单词回忆"),definition:uiText("Definition Recall","释义回忆"),translation:uiText("Translation Recall","翻译回忆"),mixed:uiText("Mixed Recall","混合回忆"),sentence:uiText("Sentence Recall","句子回忆")})[mode]||mode;}
   function difficultyLabel(level){return ({beginner:uiText("Beginner","初级"),intermediate:uiText("Intermediate","中级"),advanced:uiText("Advanced","高级")})[level]||level;}
+  function learningCourseLabel(code){return ({en:uiText("English course","英语课程"),zh:uiText("Simplified Chinese course","简体中文课程"),ms:uiText("Malay course","马来语课程")})[code]||uiText("Unknown course","未知课程");}
   function cleanEnglishGloss(value){
     let text=String(value||"");
     text=text.replace(/;?\s*CL\s*:[^;]*/gi,"");
@@ -377,7 +378,7 @@
         </section>
         <section class="flash-section"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div><h2>${uiText("Review weak memory","复习薄弱记忆")}</h2><p class="flash-muted">${uiText("Revisit answers you missed in previous games.","重新复习之前答错的内容。")}</p></div><button class="flash-primary" data-action="open-review">${uiText("Review weak memory","复习薄弱记忆")} (${weakItems.length})</button></div></section>
         <section class="flash-section"><h2>${uiText("Recent games","最近的游戏")}</h2>
-          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(state.historyPage*10,state.historyPage*10+10).map(g=>`<div class="flash-card-row"><div><strong>${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))}</strong><small>${g.correct_count}/${g.words_seen} ${uiText("correct","答对")} · ${escapeHtml(g.completed_at||"")}</small></div><button class="flash-secondary" data-action="review-game" data-value="${g.id}">${uiText("Review game","复习游戏")}</button></div>`).join("")+'</div>'+(state.data.history.length>10?'<div class="flash-history-pagination">'+(state.historyPage>0?'<button class="flash-secondary" data-action="history-prev">'+uiText("Previous page","上一页")+'</button>':'')+(state.historyPage*10+10<state.data.history.length?'<button class="flash-secondary" data-action="history-next">'+uiText("Next page","下一页")+'</button>':'')+'</div>':''):'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
+          ${state.data.history?.length?'<div class="flash-card-list">'+state.data.history.slice(state.historyPage*10,state.historyPage*10+10).map(g=>`<div class="flash-card-row"><div><strong>${escapeHtml(modeLabel(g.mode))} · ${escapeHtml(difficultyLabel(g.difficulty))}</strong><small>${escapeHtml(learningCourseLabel(g.learning_language_code||"en"))} · ${g.correct_count}/${g.words_seen} ${uiText("correct","答对")} · ${escapeHtml(g.completed_at||"")}</small></div><button class="flash-secondary" data-action="review-game" data-value="${g.id}">${uiText("Review game","复习游戏")}</button></div>`).join("")+'</div>'+(state.data.history.length>10?'<div class="flash-history-pagination">'+(state.historyPage>0?'<button class="flash-secondary" data-action="history-prev">'+uiText("Previous page","上一页")+'</button>':'')+(state.historyPage*10+10<state.data.history.length?'<button class="flash-secondary" data-action="history-next">'+uiText("Next page","下一页")+'</button>':'')+'</div>':''):'<p class="flash-muted">'+uiText("Your completed games and scores will appear here.","已完成的游戏和分数会显示在这里。")+'</p>'}
         </section>
         <p id="flashNotice" class="flash-muted" role="status" aria-live="polite">${escapeHtml(state.notice)}</p>
       </div>`;
@@ -792,7 +793,7 @@
     const title=uiText("Flashcard game review","闪卡游戏复习");
     const legacy=!data.review_available||!items.length;
     const content=legacy
-      ?'<p class="flash-muted">'+uiText("This game was completed before per-card review snapshots were introduced. Its summary is preserved, but the original cards and answers cannot be reconstructed.","这场游戏完成于逐卡复习记录启用之前。成绩摘要仍然保留，但无法还原当时的卡片和答案。")+'</p>'
+      ?'<p class="flash-muted">'+uiText("Per-card answer details were not saved for this game, so its summary is available but the original cards and answers cannot be reconstructed. New games will include full per-card review details.","这场游戏没有保存逐卡作答详情，因此只能查看成绩摘要，无法还原当时的卡片和答案。新游戏会保存完整的逐卡复习记录。")+'</p>'
       :items.map(item=>{
         const card=item.card||{},status=item.unanswered?uiText("Unanswered","未作答"):item.is_correct?uiText("Correct","正确"):uiText("Incorrect","错误");
         const options=(item.options||[]).map((option,i)=>{
