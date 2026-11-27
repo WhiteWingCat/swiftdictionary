@@ -79,6 +79,13 @@
     const manual=window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES?.en||{};
     const direct=manual[String(word.word||"").trim().toLowerCase()];
     if(language==="en"&&(Array.isArray(direct)&&direct[0]||typeof direct==="string"))return Array.isArray(direct)?direct[0]:direct;
+    // Prefer the complete validated Dictionary corpus over the smaller curated
+    // Flashcard gloss set. It covers every English and Chinese dictionary entry.
+    const generatedPack=window.SWIFT_DICTIONARY_MS_TRANSLATIONS?.languages?.[language]||{};
+    const generatedEntry=generatedPack[String(word.word||"").trim()]||generatedPack[String(word.word||"").trim().toLowerCase()];
+    const generatedSense=generatedEntry?.senses?.find(sense=>sense.definitionMs)?.definitionMs;
+    if(generatedSense)return generatedSense;
+    if(generatedEntry?.headwordMs)return generatedEntry.headwordMs;
     const gloss=String(language==="en"?word.word:(word.translationEn||word.definition||"")).toLowerCase();
     const candidates=[gloss,...gloss.split(/[;,/]|\\s+or\\s+|\\s+and\\s+/).map(part=>part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,""))];
     const lookup=malayGlossLookup();
