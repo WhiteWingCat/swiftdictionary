@@ -471,7 +471,7 @@
       dailyLearningEyebrow: zh ? "每日练习" : "DAILY PRACTICE",
       dailyLearningHeading: zh ? "每日学习" : "Daily Learning",
       dailyLearningIntro: zh ? "通过个性化活动和全球共享的每日词汇，建立持续学习的习惯。" : "Build consistency with personalised activities and a shared daily dictionary word for everyone.",
-      dailyLearningAllowanceNote: zh ? "每种活动在英语和简体中文课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared across English, Simplified Chinese and Malay. Completing an activity in any course uses that activity’s shared allowance. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
+      dailyLearningAllowanceNote: zh ? "每种活动在英语、简体中文和马来语课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared across English, Simplified Chinese and Malay. Completing an activity in any course uses that activity’s shared allowance. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
       dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities",
       dailyPreferencesHeading: zh ? "我的每日活动" : "My daily activities"
     };
