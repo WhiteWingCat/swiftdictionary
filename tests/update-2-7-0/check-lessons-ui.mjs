@@ -63,7 +63,7 @@ assert(css.includes("transform:translate3d(-100%,0,0) !important") && css.includ
 assert(!css.includes(".permanent-lessons-mark") && !css.includes(".daily-learning-heading-mark"));
 assert(!html.includes("permanent-lessons-mark") && !html.includes("daily-learning-heading-mark"));
 assert(css.includes("#dailyActivityReader.daily-activity-backdrop.open{opacity:1}"));
-assert(html.includes('translationLanguage==="en"') && html.includes('class="lesson-english-line"'));
+assert(html.includes('translationLanguage==="en"') && html.includes("lesson-english-line") && css.includes(".lesson-english-line"));
 console.log("U2.7.0 feedback regression checks passed: Chinese Daily Learning, translation visibility, decorative marks and drawer transitions.");
 
 
