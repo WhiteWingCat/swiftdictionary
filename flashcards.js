@@ -597,6 +597,7 @@
     if(startButton)startButton.disabled=true;
     try{
       const deck=gameDeck();
+      if(course!=="ms"&&translationLanguage==="ms"&&!deck.some(word=>translationFor(word)))throw new Error("Malay translations are not available for this Flashcard set yet.");
       if(deck.length<4)throw new Error("Add at least four dictionary words or cards before starting a four-choice game.");
       // Validate the selected mode, translation and every eligible target before
       // creating a server session. Duplicate-heavy answer sets must not leave
