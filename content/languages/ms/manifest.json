@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "active",
-  "contentVersion": "u3-ms-phase3-0.1.0",
+  "contentVersion": "u3-ms-phase3-0.2.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -36,13 +36,15 @@
       "files": [
         "data/malay-lessons.js"
       ],
-      "contentVersion": "u3-ms-lessons-0.1.0",
+      "contentVersion": "u3-ms-lessons-0.2.0",
       "lessonCounts": {
-        "beginner": 3,
-        "intermediate": 3,
-        "advanced": 3
+        "beginner": 6,
+        "intermediate": 6,
+        "advanced": 6
       },
-      "editorialStatus": "draft"
+      "editorialStatus": "draft",
+      "totalLessons": 18,
+      "expansionBatches": 2
     },
     "dailyLearning": {
       "status": "draft",
