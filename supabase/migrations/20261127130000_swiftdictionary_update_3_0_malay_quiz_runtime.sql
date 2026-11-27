@@ -666,16 +666,22 @@ begin
   from public.user_preferences p
   where p.user_id=auth.uid();
 
-  if p_learning_language is not null and p_learning_language is distinct from v_learning then
-    raise exception 'Requested Quiz course does not match the saved learning course'
-      using errcode='42501',detail='learning_course_preference_mismatch';
-  end if;
   v_translation:=coalesce(p_translation_language,v_translation);
 
+  -- Malay is only started from the saved Malay course. Preserve the existing
+  -- English/Chinese override behavior for older clients and current UI flows.
+  if v_learning='ms' or p_learning_language='ms' then
+    if v_learning is distinct from 'ms'
+       or (p_learning_language is not null and p_learning_language<>'ms') then
+      raise exception 'Malay Quiz requires the saved Malay learning course'
+        using errcode='42501',detail='learning_course_preference_mismatch';
+    end if;
+    return private.start_my_malay_quiz_impl(p_difficulty,'ms',v_translation);
+  end if;
+
+  v_learning:=coalesce(p_learning_language,v_learning);
   if v_learning='zh' then
     return private.start_my_chinese_quiz_impl(p_difficulty,'zh',v_translation);
-  elsif v_learning='ms' then
-    return private.start_my_malay_quiz_impl(p_difficulty,'ms',v_translation);
   end if;
   return private.start_my_quiz_impl(p_difficulty,v_learning,v_translation);
 end;
