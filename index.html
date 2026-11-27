@@ -2827,7 +2827,7 @@ async function completeLesson(x){
       const lessonCatalogue=targetCourse==="zh"
         ? (chineseLessonData[difficulty]||[])
         : targetCourse==="ms"
-          ? (["beginner","intermediate","advanced"].flatMap(level=>window.SWIFT_MALAY_LESSONS?.[level]||[]).filter(item=>item.difficulty===difficulty))
+          ? (window.SWIFT_MALAY_LESSONS?.[difficulty]||[])
           : (lessonData[difficulty]||[]);
       const lesson=lessonCatalogue.find(item=>item.id===lessonId);
       if(!lesson){openDashboardReview("Lesson review",'<p class="muted-note">The original lesson content is not available in this version.</p>');return;}
