@@ -447,33 +447,65 @@
     "application-modals-02":"用情态动词表达确定性","application-inversion-02":"识别主语与助动词倒装","application-idioms-02":"理解常见表达","application-academic-02":"使用谨慎的学术表达","application-precise-02":"选择准确的表达动词"
   };
   const dailyUi = (english, chinese) => translationLanguage === "zh" ? chinese : english;
+  function dailyLocalizedText(value, language=snapshot.learningLanguage, fallback="") {
+    if (value === null || value === undefined) return fallback;
+    if (typeof value === "string" || typeof value === "number") return String(value);
+    if (Array.isArray(value)) return value.map(item=>dailyLocalizedText(item,language,"")).filter(Boolean).join(" ");
+    if (typeof value === "object") {
+      const order=language==="ms"?["ms","en","zh"]:language==="zh"?["zh","en","ms"]:["en","ms","zh"];
+      for (const code of order) if (typeof value[code]==="string" && value[code].trim()) return value[code];
+      if (typeof value.text==="string") return value.text;
+    }
+    return fallback;
+  }
+  function dailySupportText(value, language=translationLanguage) {
+    if (value && typeof value==="object") return dailyLocalizedText(value,language,"");
+    return "";
+  }
   function dailyTitle(item) {
+    if (translationLanguage==="ms" && item.titleMs) return item.titleMs;
     if (isMalayLearningCourse()) return item.title;
     if (translationLanguage === "zh") return item.titleZh || dailyChineseTitles[item.id] || item.title;
     return isChineseLearningCourse() && translationLanguage === "en" && item.titleEn ? item.titleEn : item.title;
   }
   function selectedTranslation(item) {
-    if (isChineseLearningCourse()) return translationLanguage === "en" && item.en ? '<p class="daily-translation"><strong>English support:</strong> ' + esc(item.en) + '</p>' : "";
-    if (isMalayLearningCourse() && translationLanguage === "en" && item.en) return '<p class="daily-translation"><strong>English support:</strong> ' + esc(item.en) + '</p>';
-    if (translationLanguage === "zh" && item.zh) return '<p class="daily-translation"><strong>中文说明：</strong>' + esc(item.zh) + '</p>';
-    return "";
+    const support=translationLanguage==="ms"?(item.bodyMs||item.ms)
+      :translationLanguage==="zh"?(item.zh||item.bodyZh)
+      :(item.en||item.bodyEn);
+    const primary=dailyLocalizedText(item.body,snapshot.learningLanguage,item.body||"");
+    if (!support || support===primary || (isMalayLearningCourse()&&translationLanguage==="ms")) return "";
+    const label=translationLanguage==="ms"?"Bahasa Melayu":translationLanguage==="zh"?"中文说明：":"English support:";
+    return '<p class="daily-translation"><strong>'+esc(label)+'</strong> '+esc(support)+'</p>';
   }
   function dailyQuestionPrompt(question) {
-    if (!isChineseLearningCourse()) return esc(question.q || "");
-    return '<span class="daily-chinese-line">' + esc(question.q || "") + '</span>' + (question.qPinyin ? '<span class="daily-pinyin-line">' + esc(question.qPinyin) + '</span>' : "") + (translationLanguage === "en" && question.qEn ? '<span class="daily-translation-line">' + esc(question.qEn) + '</span>' : "");
+    const primary=dailyLocalizedText(question.q,snapshot.learningLanguage,question.qMs||question.qEn||question.qZh||"");
+    const support=translationLanguage==="ms"?(question.qMs||dailySupportText(question.q,"ms"))
+      :translationLanguage==="zh"?(question.qZh||dailySupportText(question.q,"zh"))
+      :(question.qEn||dailySupportText(question.q,"en"));
+    const pinyin=isChineseLearningCourse()&&question.qPinyin?'<span class="daily-pinyin-line">'+esc(question.qPinyin)+'</span>':"";
+    const translated=support&&support!==primary&&translationLanguage!==snapshot.learningLanguage
+      ?'<span class="daily-translation-line">'+esc(support)+'</span>':"";
+    return (isChineseLearningCourse()?'<span class="daily-chinese-line">'+esc(primary)+'</span>':esc(primary))+pinyin+translated;
   }
   function dailyQuestionOption(option) {
-    if (!option || typeof option !== "object") return esc(option);
-    if (isChineseLearningCourse()) {
-      const primary=option.zh || option.text || "";
-      return '<span class="daily-chinese-line">' + esc(primary) + '</span>' + (option.pinyin ? '<span class="daily-pinyin-line">' + esc(option.pinyin) + '</span>' : "") + (translationLanguage === "en" && option.en ? '<span class="daily-translation-line">' + esc(option.en) + '</span>' : "");
-    }
-    if (isMalayLearningCourse()) {
-      const primary=option.ms || option.text || "";
-      const support=translationLanguage==="zh" ? option.zh : translationLanguage==="en" ? option.en : "";
-      return esc(primary) + (support ? '<span class="daily-translation-line">' + esc(support) + '</span>' : "");
-    }
-    return esc(option.en || option.text || "");
+    const primary=dailyLocalizedText(option,snapshot.learningLanguage,option?.text||"");
+    const support=translationLanguage==="ms"?(option?.ms||dailySupportText(option,"ms"))
+      :translationLanguage==="zh"?(option?.zh||dailySupportText(option,"zh"))
+      :(option?.en||dailySupportText(option,"en"));
+    const pinyin=isChineseLearningCourse()&&option&&typeof option==="object"&&option.pinyin
+      ?'<span class="daily-pinyin-line">'+esc(option.pinyin)+'</span>':"";
+    const translated=support&&support!==primary&&translationLanguage!==snapshot.learningLanguage
+      ?'<span class="daily-translation-line">'+esc(support)+'</span>':"";
+    return (isChineseLearningCourse()?'<span class="daily-chinese-line">'+esc(primary)+'</span>':esc(primary))+pinyin+translated;
+  }
+  function dailyQuestionExplanation(question) {
+    const source=question.explanation??question.explanationLearning??question.explanation_learning??"";
+    const primary=dailyLocalizedText(source,snapshot.learningLanguage,source);
+    const support=translationLanguage==="ms"?(question.explanationMs||question.explanation_ms||dailySupportText(source,"ms"))
+      :translationLanguage==="zh"?(question.zh||question.explanationZh||dailySupportText(source,"zh"))
+      :(question.explanationEn||question.explanation_en||dailySupportText(source,"en"));
+    return support&&support!==primary&&translationLanguage!==snapshot.learningLanguage
+      ?primary+" "+support:primary;
   }
   function renderDailyStaticLabels() {
     const zh = translationLanguage === "zh";
@@ -1099,7 +1131,7 @@
           const feedback=byId("daily-feedback-"+index);
           if(feedback) {
             const question=existingState.content.questions[index];
-            const explanation=question.explanation || "";
+            const explanation=dailyQuestionExplanation(question);
             const zhExplanation=translationLanguage === "zh" && question.zh ? " 中文说明：" + question.zh : "";
             feedback.textContent=dailyUi(passed?"Correct. ":"Not quite. Try again. ",passed?"正确。":"还不正确，请再试一次。")+explanation+zhExplanation;
           }
