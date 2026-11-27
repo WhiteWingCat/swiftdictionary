@@ -166,45 +166,6 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b005",
-      "learning_language_code": "ms",
-      "translation_language_code": "en",
-      "source_lesson_id": "ms-b-basic-sentence-order",
-      "topic_id": "ms-basic-sentence-order",
-      "difficulty": "beginner",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Pilih ayat penyata yang lengkap dan tersusun dengan betul.",
-      "prompt_translation": "Choose the complete statement with correct word order.",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Adik sedang tidur.",
-          "translation_text": "The younger sibling is sleeping."
-        },
-        {
-          "id": "b",
-          "learning_text": "Sedang adik tidur.",
-          "translation_text": "Sleeping younger sibling."
-        },
-        {
-          "id": "c",
-          "learning_text": "Tidur sedang adik.",
-          "translation_text": "Sleep is younger sibling."
-        },
-        {
-          "id": "d",
-          "learning_text": "Adik tidur sedang.",
-          "translation_text": "Younger sibling sleep is."
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "Ayat “Adik sedang tidur” mempunyai subjek dan predikat dalam susunan yang lazim.",
-      "explanation_translation": "“Adik sedang tidur” has a subject and predicate in a natural order.",
-      "learning_objective_id": "complete-simple-statements",
-      "release_approved": false
-    },
-    {
       "question_id": "quiz-ms-en-b006",
       "learning_language_code": "ms",
       "translation_language_code": "en",
@@ -475,6 +436,45 @@
       "explanation_learning": "Ayat pertama mempunyai susunan subjek, predikat dan keterangan yang jelas.",
       "explanation_translation": "The first sentence has a clear subject, predicate and time expression.",
       "learning_objective_id": "editing-agreement-and-clarity",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-en-b013",
+      "learning_language_code": "ms",
+      "translation_language_code": "en",
+      "source_lesson_id": "ms-a-ayat-pasif",
+      "topic_id": "ms-passive-voice",
+      "difficulty": "advanced",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih ayat pasif yang betul berdasarkan ayat aktif “Siti membaca buku itu.”",
+      "prompt_translation": "Choose the correct passive sentence based on the active sentence “Siti membaca buku itu.”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Buku itu dibaca oleh Siti.",
+          "translation_text": "The book is read by Siti."
+        },
+        {
+          "id": "b",
+          "learning_text": "Siti membaca buku itu.",
+          "translation_text": "Siti reads the book."
+        },
+        {
+          "id": "c",
+          "learning_text": "Siti sedang membaca.",
+          "translation_text": "Siti is reading."
+        },
+        {
+          "id": "d",
+          "learning_text": "Buku itu sangat tebal.",
+          "translation_text": "The book is very thick."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Buku itu dibaca oleh Siti” meletakkan penerima perbuatan sebagai fokus ayat pasif.",
+      "explanation_translation": "“Buku itu dibaca oleh Siti” places the receiver of the action in focus.",
+      "learning_objective_id": "passive-voice-function",
       "release_approved": false
     }
   ]
