@@ -16,7 +16,7 @@ test("Daily Learning resolves multilingual object prompts, options and explanati
 });
 
 test("Malay target selection is no longer coupled to Dictionary translation coverage",()=>{
- assert.match(index,/const available=profileLearningCode!=="ms"/);
+ assert.match(index,/const available=activeLearningCode!=="ms"/);
  assert.doesNotMatch(index,/translationLanguage=requestedLanguage==="ms" && !malayDictionaryTargetReady/);
  assert.doesNotMatch(index,/if\(translation==="ms" && !malayDictionaryTargetReady\)/);
  assert.match(index,/Malay support translations for English and Chinese Quiz questions are not available yet/);
