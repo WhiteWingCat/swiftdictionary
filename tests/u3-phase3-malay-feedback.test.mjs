@@ -19,6 +19,7 @@ test("Malay target selection is no longer coupled to Dictionary translation cove
  assert.match(index,/const available=profileLearningCode!=="ms"/);
  assert.doesNotMatch(index,/translationLanguage=requestedLanguage==="ms" && !malayDictionaryTargetReady/);
  assert.doesNotMatch(index,/if\(translation==="ms" && !malayDictionaryTargetReady\)/);
+ assert.match(index,/Malay support translations for English and Chinese Quiz questions are not available yet/);
 });
 
 test("Malay Discovery catalogue sync preserves the 93 active scheduled entries",()=>{
