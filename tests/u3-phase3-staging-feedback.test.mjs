@@ -41,11 +41,31 @@ test("Daily activity rendering never stringifies structured content objects",()=
 test("Malay Daily Topic and Application catalogue metadata mirrors all 120 live content records",()=>{
  const source=read("data/malay-daily-learning.js");
  const migration=read("supabase/migrations/20261127190000_swiftdictionary_update_3_0_malay_daily_catalogue_metadata_alignment.sql");
- const ids=[...source.matchAll(/["']?id["']?\\s*:\\s*["']([^"']+)["']/g)].map(m=>m[1]).filter(id=>id.startsWith("ms-topic-")||id.startsWith("ms-application-"));
+ const ids=[...source.matchAll(/["']?id["']?\\s*:\s*["']([^"']+)["']/g)].map(m=>m[1]).filter(id=>id.startsWith("ms-topic-")||id.startsWith("ms-application-"));
  const topics=ids.filter(id=>id.startsWith("ms-topic-"));
  const applications=ids.filter(id=>id.startsWith("ms-application-"));
  assert.equal(topics.length,60);
  assert.equal(applications.length,60);
  for(const id of ids)assert.ok(migration.includes("'" + id + "'"),"catalogue alignment is missing "+id);
  assert.match(migration,/v_updated <> 120/);
+});
+
+test("English and Chinese Lessons retain their learning-language text and show Malay support alongside it",()=>{
+ const html=read("index.html");
+ assert.match(html,/const lessonMsTextLookup=new Map\(\)/);
+ assert.match(html,/function indexLessonSupportText\(source,support\)/);
+ assert.match(html,/lessonMsTextLookup\.get\(value\)/);
+ assert.match(html,/lessonMsTextLookup\.get\(value\.zh\)/);
+ assert.match(html,/return \{q:q\.q,options:order\.map\(j=>q\.options\[j\]\)/);
+});
+test("Flashcards derive Malay support from authored dictionary translations and avoid blank translated cards",()=>{
+ const html=read("index.html");
+ const manual=html.indexOf('<script src="data/languages/malay-dictionary-manual-overrides.js');
+ const flash=html.indexOf('<script src="flashcards.js');
+ assert.ok(manual>=0&&flash>manual,"Malay dictionary overrides must load before Flashcards");
+ const js=read("flashcards.js");
+ assert.match(js,/function dictionaryDerivedMalaySupport\(word,language\)/);
+ assert.match(js,/SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES\?\.en/);
+ assert.match(js,/if\(language!=="ms"&&\(!Array\.isArray\(w\.translationLanguages\)/);
+ assert.match(js,/if\(language==="ms"\)[\s\S]{0,260}if\(!hasSupport\)return false/);
 });
