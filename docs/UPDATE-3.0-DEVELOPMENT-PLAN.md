@@ -1093,3 +1093,23 @@ Staging Google OAuth redirect for the preview hostname has not been independentl
 ### Latest-head regression follow-up
 
 After updating the Flashcards cache version to ms13 and aligning the two legacy assertions, the latest reruns passed Flashcards static + Chromium (45985581267), U3.0 architecture/content/adapter parity (45985581304), U2.9 English Dictionary QA (45985581089), U2.7 Chinese static/Chromium + PostgreSQL (45985581114), and Cloudflare build routing (45985581075). U2.3 PostgreSQL passed while its Auth and Chromium jobs continue (45985581111); U2.6 ACL PostgreSQL remains in progress (45985581145); Quiz DB foundation passed while local Auth/RPC/Chromium integration continues (45985581079).
+
+
+## 2026-11-27 — Flashcard review regression repair
+
+Owner staging feedback found that wrong Flashcard answers were missing from Review weak memory, game review claimed the game predated per-card review, and Recent games did not label the learning course.
+
+Root cause: U3.0 language-support migrations replaced the Update 2.5 completion function with a reduced implementation that retained aggregate mastery/session scores but omitted inserts into both `private.flashcard_review_items` and `private.flashcard_session_items`. This was a regression, not a pre-feature session format. The history payload already carried course language codes, but the UI did not render them.
+
+Applied staging-only migration `20261127200000_swiftdictionary_update_3_0_flashcard_review_persistence_repair`:
+- Restores authenticated per-card snapshot persistence (prompt, card, options, selected/correct answer, recall mode and correctness).
+- Restores incorrect/unanswered weak-memory queue writes and mastery updates.
+- Preserves account ownership, completion idempotency, server-side allowance logging and authenticated-only private-function execution.
+- Validates snapshot object/array shape, exactly four options and valid answer indices. Older clients without snapshots remain completable but are not falsely marked reviewable.
+- Attempts a conservative recovery of recent incorrect mastery rows only when a completed session is within ten minutes; it does not fabricate missing card snapshots.
+
+The UI now labels each recent game with its saved learning course (English, Simplified Chinese or Malay) and replaces the misleading pre-feature message with a per-session missing-snapshot explanation. Runtime cache is `flashcards.js?v=3.0.0-ms14`. Static assertions and a Playwright regression were added for weak-memory insertion, game review and mixed-course history labels.
+
+Staging migration application succeeded. Post-application read-only verification found 34 weak-memory items for one account after backfill and confirmed the session mode/snapshot constraints. This does not substitute for authenticated browser acceptance. Cloudflare Pages reported the latest application commit `cfa7c51cdb3cd0fc1e612364e993e7ccf7c7d0a6` build in progress; verify the deployed branch preview after completion before owner retest.
+
+The remaining Malay coverage gaps are still open: Malay practice prompts/options/feedback for English and Chinese Lessons, Malay support-language packs for English and Chinese Quiz banks, and complete non-dictionary/custom/phrase Flashcard Malay support. Full cross-version regression and staging OAuth checks remain required. PR #20 stays draft/unmerged; production remains untouched. See [the Flashcard review regression archive](conversation-archive/2026-11-27-u3-flashcard-review-regression-repair.md).
