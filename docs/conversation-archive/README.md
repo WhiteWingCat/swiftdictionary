@@ -277,4 +277,4 @@ This directory contains structured handover archives for meaningful SwiftDiction
 
 - [2026-11-27 — U3.0 Malay Quiz staging release and preview](2026-11-27-u3-malay-quiz-staging-release-and-preview.md) — records owner-authorized staging-only release of 240 approved questions, both applied Supabase migrations, authenticated transaction-rolled-back smoke tests, preview deployment, current CI status and production isolation.
 
-- [2026-11-27 — U3.0 Malay feedback fixes and Flashcards staging](2026-11-27-u3-malay-feedback-and-flashcards-staging.md) — records the structured-question renderer fix, Malay Daily Discovery catalogue reconciliation, 650-entry Malay Flashcards foundation, lesson translation coverage and remaining Quiz/Flashcard target-language gaps.
+- [2026-11-27 — U3.0 Malay feedback fixes and Flashcards staging](2026-11-27-u3-malay-feedback-and-flashcards-staging.md) — records the structured-question renderer fix, Malay Daily Discovery catalogue reconciliation, 650-entry Malay Flashcards foundation, 73 English and 124 Chinese Malay support glosses, lesson translation coverage and remaining Quiz target-language gaps.
