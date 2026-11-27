@@ -23,7 +23,9 @@ test("Daily History names Malay learning activities and resolves Malay titles", 
 });
 
 test("Malay support-language selection stays separate from the Malay learning course", () => {
-  assert.match(html, /translationSelect: malayDictionaryTargetReady/);
-  assert.match(html, /preferenceTranslation: malayDictionaryTargetReady/);
-  assert.match(html, /translation==="ms" && !malayDictionaryTargetReady/);
+  assert.match(html, /const available=profileLearningCode!=="ms"/);
+  assert.doesNotMatch(html, /translationSelect: malayDictionaryTargetReady/);
+  assert.doesNotMatch(html, /preferenceTranslation: malayDictionaryTargetReady/);
+  assert.doesNotMatch(html, /translation==="ms" && !malayDictionaryTargetReady/);
+  assert.match(html, /translationLanguage=requestedLanguage==="ms" && course==="ms" \? "en" : requestedLanguage/);
 });
