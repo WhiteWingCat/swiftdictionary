@@ -1,0 +1,92 @@
+{
+  "ms-b-greetings": {
+    "topic_id": "ms-greetings",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "polite-responses",
+        "outcome": "Assess the Malay learning objective: polite responses."
+      }
+    ]
+  },
+  "ms-b-personal-information": {
+    "topic_id": "ms-personal-information",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "introducing-personal-details",
+        "outcome": "Assess the Malay learning objective: introducing personal details."
+      }
+    ]
+  },
+  "ms-b-basic-sentence-order": {
+    "topic_id": "ms-basic-sentence-order",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "complete-simple-statements",
+        "outcome": "Assess the Malay learning objective: complete simple statements."
+      }
+    ]
+  },
+  "ms-i-imbuhan-meN": {
+    "topic_id": "ms-affixes-meN",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "meN-prefix-context",
+        "outcome": "Assess the Malay learning objective: meN prefix context."
+      }
+    ]
+  },
+  "ms-i-penjodoh-bilangan": {
+    "topic_id": "ms-classifiers",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "classifiers-for-animals",
+        "outcome": "Assess the Malay learning objective: classifiers for animals."
+      }
+    ]
+  },
+  "ms-i-kata-ganda": {
+    "topic_id": "ms-reduplication",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "reduplication-meaning",
+        "outcome": "Assess the Malay learning objective: reduplication meaning."
+      }
+    ]
+  },
+  "ms-a-ragam-bahasa": {
+    "topic_id": "ms-register",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "formal-register-choice",
+        "outcome": "Assess the Malay learning objective: formal register choice."
+      }
+    ]
+  },
+  "ms-a-wacana-penanda": {
+    "topic_id": "ms-discourse-markers",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "discourse-connector-contrast",
+        "outcome": "Assess the Malay learning objective: discourse connector contrast."
+      }
+    ]
+  },
+  "ms-a-penyuntingan": {
+    "topic_id": "ms-editing",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "editing-agreement-and-clarity",
+        "outcome": "Assess the Malay learning objective: editing agreement and clarity."
+      }
+    ]
+  }
+}
