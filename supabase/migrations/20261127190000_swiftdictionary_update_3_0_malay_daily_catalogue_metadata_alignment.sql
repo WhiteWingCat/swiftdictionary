@@ -1,9 +1,11 @@
 -- Align the approved Malay Daily Topic/Application catalogue with the live source content.
 -- The RPC's strict topic/difficulty check remains enabled; only stale metadata is corrected.
 begin;
-
-with source_content(activity_type,content_id,topic_id,difficulty) as (
- values
+do $migration$
+declare v_updated integer;
+begin
+  with source_content(activity_type,content_id,topic_id,difficulty) as (
+    values
   ('daily_topic','ms-topic-greetings-01','ms-greetings','beginner'),
   ('daily_topic','ms-topic-imbuhan-01','ms-affixes-meN','intermediate'),
   ('daily_topic','ms-topic-wacana-01','ms-discourse-markers','advanced'),
@@ -124,27 +126,23 @@ with source_content(activity_type,content_id,topic_id,difficulty) as (
   ('daily_application','ms-application-ms-penulisan-rumusan-04','ms-topic-ms-penulisan-rumusan','advanced'),
   ('daily_application','ms-application-ms-analisis-data-04','ms-topic-ms-analisis-data','advanced'),
   ('daily_application','ms-application-ms-penilaian-dasar-04','ms-topic-ms-penilaian-dasar','advanced')
-),
-updated as (
- update private.learning_content_catalog c
- set topic_id=s.topic_id,
-     difficulty=s.difficulty,
-     updated_at=pg_catalog.now()
- from source_content s
- where c.activity_type=s.activity_type
-   and c.content_id=s.content_id
-   and c.language_code='ms'
-   and c.is_active
- returning c.activity_type,c.content_id
-)
-do $$
-declare v_updated integer;
-begin
- select count(*) into v_updated from updated;
- if v_updated <> 120 then
-   raise exception 'Expected to align 120 active Malay Daily Topic/Application records; updated %',v_updated;
- end if;
+  ),
+  updated as (
+    update private.learning_content_catalog c
+    set topic_id=s.topic_id,
+        difficulty=s.difficulty,
+        updated_at=pg_catalog.now()
+    from source_content s
+    where c.activity_type=s.activity_type
+      and c.content_id=s.content_id
+      and c.language_code='ms'
+      and c.is_active
+    returning c.activity_type,c.content_id
+  )
+  select count(*) into v_updated from updated;
+  if v_updated <> 120 then
+    raise exception 'Expected to align 120 active Malay Daily Topic/Application records; updated %',v_updated;
+  end if;
 end;
-$$;
-
+$migration$;
 commit;
