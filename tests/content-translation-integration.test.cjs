@@ -35,3 +35,12 @@ test("English and Chinese package lookup remains language isolated",()=>{
  assert.equal(packages.get("en").dictionary.entries[0].languageCode,"en");
  assert.equal(packages.get("zh").dictionary.entries[0].languageCode,"zh");
 });
+
+
+test("dictionary package registers Malay support translations when present",()=>{
+ const p=packages.createPackage({languageCode:"en",contentVersion:"u3-en-ms-test",content:{dictionary:{entries:[{word:"hello",definition:"A greeting.",definitionMs:"Ucapan sapaan.",senses:[{part:"noun",definition:"A greeting.",definitionMs:"Ucapan sapaan."}]}]}}});
+ const entry=p.dictionary.entries[0];
+ assert.equal(entry.senses[0].translations.ms,"Ucapan sapaan.");
+ const record=translations.get(entry.senses[0].id,"en","ms");
+ assert.equal(record.content.definition,"Ucapan sapaan.");
+});
