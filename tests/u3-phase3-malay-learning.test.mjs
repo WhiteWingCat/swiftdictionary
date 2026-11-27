@@ -29,14 +29,14 @@ vm.runInContext(read("data/malay-daily-learning.js"),context);
 const lessons=context.window.SWIFT_MALAY_LESSONS;
 const daily=context.window.SWIFT_MALAY_DAILY_LEARNING;
 
-test("Malay Quiz is enabled for the staging release while Flashcards remains disabled",()=>{
+test("Malay Quiz and Flashcards are enabled for the staging release",()=>{
   const language=context.window.SWIFT_LANGUAGE_REGISTRY.get("ms");
   assert.equal(language.status,"active");
   assert.equal(language.capabilities.dictionary,true);
   assert.equal(language.capabilities.lessons,true);
   assert.equal(language.capabilities.dailyLearning,true);
   assert.equal(language.capabilities.quiz,true);
-  assert.equal(language.capabilities.flashcards,false);
+  assert.equal(language.capabilities.flashcards,true);
 });
 
 test("Malay Lessons has independently authored draft content at all three levels",()=>{
@@ -108,6 +108,7 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   assert.equal(pkg.dailyLearning.topics.length,daily.topics.length);
   assert.equal(pkg.dailyLearning.applications.length,daily.applications.length);
   assert.equal(pkg.dailyLearning.discovery.length,93);
+  assert.equal(pkg.flashcards.source.type,"dictionary-derived");
   assert.equal(pkg.dictionary.translations.length,1344);
   assert.ok(pkg.dictionary.translations.every(x=>x.status==="machine_assisted_draft"));
 });
