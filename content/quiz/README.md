@@ -63,3 +63,16 @@ The minimum and target checks are per selected difficulty. Because question IDs 
 3. Run `node scripts/quiz/validate-chinese-question-bank.mjs --emit-sql` only to produce a draft-only import. The exporter writes `status='draft'` and never approves content.
 4. Complete independent Simplified Chinese/English linguistic review, answer-key verification, distractor review, Pinyin review, and mode-overlap review before owner release approval.
 5. Do not apply the Chinese Quiz import or mark any question approved in staging or production until the separate release gate is satisfied.
+
+
+## Malay-learning Quiz — Update 3.0 draft batches
+
+- Learning course: Malaysian Standard Malay (`ms`).
+- Support-language packs: Malay→English and Malay→Simplified Chinese.
+- Current inventory after batch 02: 48 questions per support-language pack (96 records total), with 16 per difficulty in each pack.
+- Batch 02 adds 36 questions per support-language pack: 12 Beginner, 12 Intermediate and 12 Advanced. Questions are mapped to active Malay permanent lessons and their curriculum objectives.
+- All 96 records remain draft-only and `release_approved: false`; structural validation does not certify Malaysian Standard Malay or translation quality. Owner and independent linguistic review are required before release.
+- `node scripts/quiz/validate-malay-question-bank.mjs` validates the two packs and curriculum map. Add `--emit-sql` to export draft-only inserts; the exporter never approves records.
+- The new Malay runtime reuses the private Quiz session/question snapshots, answer redaction, server-side scoring, completion-only allowance trigger, active-session guard and local-day no-repeat ledger. It supports English and Simplified Chinese support snapshots. Selecting Malay as its own translation displays Malay-only text while the runtime uses an English support snapshot internally.
+- Availability thresholds follow the existing Quiz engine: Beginner 30 approved questions; Intermediate 24 Intermediate + 16 Beginner; Advanced 32 Advanced + 8 Intermediate + 8 Beginner, with at least three topics per required level and sufficient unseen questions for a complete session. Preferred targets are 36 / 36+24 / 48+12+12.
+- The manifest keeps `capabilities.quiz: false` and package status `draft` until the bank is approved and imported. No playable Malay Quiz is exposed yet.
