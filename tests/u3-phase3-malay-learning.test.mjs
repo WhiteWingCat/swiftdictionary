@@ -100,7 +100,7 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   const permanent=Object.entries(lessons).filter(([key,value])=>["beginner","intermediate","advanced"].includes(key)).flatMap(([difficulty,items])=>items.map(item=>({...item,difficulty})));
   const pkg=context.window.SWIFT_CONTENT_PACKAGES.createPackage({
     languageCode:"ms",contentVersion:"u3-ms-phase3-0.1.0",
-    content:{dictionary:{entries:dictionary},lessons:{permanent},dailyLearning:daily}
+    content:{dictionary:{entries:dictionary},lessons:{permanent},dailyLearning:daily,flashcards:{source:{type:"dictionary-derived",source:"data/languages/malay-dictionary.js",entryCount:650,supportLanguages:["en","zh"]}}}
   });
   assert.equal(pkg.status,"active");
   assert.equal(pkg.dictionary.entries.length,650);
