@@ -280,3 +280,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-27 — U3.0 Malay feedback fixes and Flashcards staging](2026-11-27-u3-malay-feedback-and-flashcards-staging.md) — records the structured-question renderer fix, Malay Daily Discovery catalogue reconciliation, 650-entry Malay Flashcards foundation, 73 English and 124 Chinese Malay support glosses, lesson translation coverage and remaining Quiz target-language gaps.
 
 - [2026-11-27 — U3.0 continuation and latest CI recovery point](2026-11-27-u3-continuation-latest-ci-recovery.md) — records the outdated U2.7 test assertion diagnosis and test-only correction, latest workflow evidence/reruns, remaining Malay translation gaps, staging/production boundaries and exact next actions.
+
+- [2026-11-27 — U3.0 staging preview handoff](2026-11-27-u3-staging-preview-handoff.md) — records the stable staging preview, completed Dictionary translation inventory, Dashboard/Collections/Daily History fixes, Flashcards corpus fallback, staging database/catalogue verification, latest CI reruns and remaining English/Chinese→Malay Lesson/Quiz gaps.
