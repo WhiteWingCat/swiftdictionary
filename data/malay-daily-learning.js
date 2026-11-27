@@ -167,3 +167,16 @@ window.SWIFT_MALAY_DAILY_LEARNING = {
   const d = window.SWIFT_MALAY_DAILY_LEARNING;
   for (const item of d.discovery) item.id = item.id.replace(/\./g, "-");
 })();
+
+/* Align the three foundation applications with the closest existing daily
+   topic identities; their lesson topic coverage remains unchanged. */
+(() => {
+  const links = {
+    "ms-application-introduce-01": "ms-greetings",
+    "ms-application-classifier-01": "ms-affixes-meN",
+    "ms-application-register-01": "ms-discourse-markers"
+  };
+  for (const app of window.SWIFT_MALAY_DAILY_LEARNING.applications) {
+    if (links[app.id]) app.topicId = links[app.id];
+  }
+})();
