@@ -1,4 +1,5 @@
 /* U3.0 language-owned English base Dictionary package. Source records preserved from U2.9.1. */
+/* Translation generation source inventory: 1,316 headwords / 1,931 senses. */
 window.SWIFT_ENGLISH_BASE_DICTIONARY = [
   {
     "word": "aberration",
