@@ -25,3 +25,29 @@ window.SWIFT_MALAY_DAILY_LEARNING = {
     {id:"ms-discovery-08",topicId:"ms-editing",difficulty:"advanced",category:"Penulisan",title:"Semak rujukan kata ganti",titleEn:"Check pronoun references",titleZh:"检查代词指代",body:"Pastikan pembaca dapat mengenal pasti kata nama yang dirujuk oleh kata ganti nama supaya ayat tidak kabur.",en:"Make sure readers can identify the noun referred to by a pronoun so the sentence is not ambiguous.",zh:"确保读者能识别代词所指的名词，避免句子产生歧义。",example:"Aina menyerahkan laporan kepada penyelia selepas dia menyemaknya. (Pastikan “dia” jelas merujuk siapa.)",exampleEn:"Aina handed the report to the supervisor after she reviewed it. (Make the reference clear.)",exampleZh:"Aina审阅报告后将其交给主管。（确保“她”的指代清楚。）"}
   ]
 };
+
+/* Fill the scheduled mixed Discovery rotation from the original Malay Dictionary draft.
+   The shared scheduler requires a stable pool of 93 entries. These remain draft content
+   and are intentionally exposed for owner review only in the U3.0 staging build. */
+(() => {
+  const daily = window.SWIFT_MALAY_DAILY_LEARNING;
+  const dictionary = window.SWIFT_MALAY_DICTIONARY || [];
+  const existing = daily.discovery || [];
+  const needed = Math.max(0, 93 - existing.length);
+  const derived = dictionary.slice(0, needed).map((entry, index) => ({
+    id: "ms-discovery-dict-" + entry.id.replace(/^ms\.dict\./, ""),
+    topicId: entry.categories?.[0] || "ms-vocabulary",
+    difficulty: ["beginner","intermediate","advanced"][index % 3],
+    category: "Kosa kata",
+    word: entry.word,
+    part: entry.part,
+    definition: entry.definition,
+    definitionEn: entry.definitionEn,
+    definitionZh: entry.definitionZh,
+    body: entry.definition,
+    en: entry.definitionEn,
+    zh: entry.definitionZh,
+    examples: (entry.examples || []).slice(0, 2)
+  }));
+  daily.discovery = existing.concat(derived);
+})();
