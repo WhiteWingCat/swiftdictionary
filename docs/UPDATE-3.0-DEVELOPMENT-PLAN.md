@@ -598,3 +598,19 @@ The owner approved applying the Malay-only migration and seed to the dedicated S
 - The preview hostname and staging Google OAuth are not yet verified. Browser/device acceptance and owner linguistic/translation review remain outstanding.
 
 Detailed operational record: [Phase 3 staging preview preparation](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/U3.0-PHASE-3-STAGING-PREVIEW-PREPARATION.md).
+
+
+## 2026-11-27 — Phase 3 preview deployed
+
+Cloudflare Pages confirmed a successful staging preview deployment for application commit `253ee8052a290676f6313e66f880ac543d924457`.
+
+- **Stable branch preview:** https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev
+- **Commit-specific preview:** https://fc13805c.swiftdictionary.pages.dev
+- Draft handoff PR: [#20 — U3.0 Phase 3 staging preview only](https://github.com/WhiteWingCat/swiftdictionary/pull/20). Keep draft; do not merge.
+- U3.0 architecture/content regression passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45943073178
+- Cloudflare build-routing guard passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45943073157
+- The broader U2.3, U2.5, U2.6, U2.7, U2.9 and Quiz database foundation regression workflows are still running. Several older U2.x static checks needed updates to read the U3.0 language-owned package structure; their final outcomes are not yet known.
+- Staging Google OAuth has not been verified/configured. Account sign-in and user-owned progress testing may not be available until the separate staging OAuth client and redirect allowlist are set up.
+- Owner desktop/mobile browser acceptance and the planned Malaysian Standard Malay + English/Simplified Chinese translation review remain outstanding.
+
+The staging database and 285 Malay catalogue records were applied and verified on the dedicated staging project only. Production remains untouched.
