@@ -7,18 +7,18 @@ const index=fs.readFileSync("index.html","utf8");
 const migration=fs.readFileSync("supabase/migrations/20261127150000_swiftdictionary_update_3_0_malay_daily_discovery_catalogue_sync.sql","utf8");
 
 test("Daily Learning resolves multilingual object prompts, options and explanations to strings",()=>{
- assert.match(daily,/function dailyLocalizedText\\(value, language=snapshot\\.learningLanguage/);
- assert.match(daily,/dailyLocalizedText\\(question\\.q,snapshot\\.learningLanguage/);
- assert.match(daily,/dailyLocalizedText\\(option,snapshot\\.learningLanguage/);
- assert.match(daily,/function dailyQuestionExplanation\\(question\\)/);
- assert.match(daily,/const explanation = dailyQuestionExplanation\\(question\\)/);
- assert.doesNotMatch(daily,/esc\\(question\\.q \\|\\| ""\\)/);
+ assert.match(daily,/function dailyLocalizedText\(value, language=snapshot\.learningLanguage/);
+ assert.match(daily,/dailyLocalizedText\(question\.q,snapshot\.learningLanguage/);
+ assert.match(daily,/dailyLocalizedText\(option,snapshot\.learningLanguage/);
+ assert.match(daily,/function dailyQuestionExplanation\(question\)/);
+ assert.match(daily,/const explanation = dailyQuestionExplanation\(question\)/);
+ assert.doesNotMatch(daily,/esc\(question\.q \|\| ""\)/);
 });
 
 test("Malay target selection is no longer coupled to Dictionary translation coverage",()=>{
  assert.match(index,/const available=profileLearningCode!=="ms"/);
  assert.doesNotMatch(index,/translationLanguage=requestedLanguage==="ms" && !malayDictionaryTargetReady/);
- assert.doesNotMatch(index,/if\\(translation==="ms" && !malayDictionaryTargetReady\\)/);
+ assert.doesNotMatch(index,/if\(translation==="ms" && !malayDictionaryTargetReady\)/);
 });
 
 test("Malay Discovery catalogue sync preserves the 93 active scheduled entries",()=>{
