@@ -1,4 +1,4 @@
-name: Generate U3.0 Malay Dictionary translation drafts
+name: Generate U3.0 Malay learning-support translation drafts
 
 on:
   push:
@@ -18,6 +18,7 @@ on:
       - "scripts/content/export-malay-learning-support-input.cjs"
       - "scripts/content/generate-malay-learning-support.py"
       - "scripts/content/validate-malay-learning-support.cjs"
+      - ".github/workflows/u3-malay-dictionary-translations.yml"
       - "data/chinese-characters.js"
   workflow_dispatch:
 
@@ -25,12 +26,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: u3-malay-dictionary-translations
+  group: u3-malay-learning-support-translations
   cancel-in-progress: false
 
 jobs:
   generate:
-    name: Generate and validate all English/Chinese to Malay Dictionary translations
+    name: Generate and validate all English/Chinese to Malay learning translations
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
