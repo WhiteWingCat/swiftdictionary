@@ -97,6 +97,25 @@
     text=text.split(/\s*;\s*/).filter(part=>part.trim()&&!/\p{Script=Han}/u.test(part)).join("; ");
     return text.replace(/\(\s*\)/g,"").replace(/\[\s*\]/g,"").replace(/\s{2,}/g," ").replace(/\s+([,;:.])/g,"$1").replace(/[,;:.]\s*$/,"").trim();
   }
+  function inferredMalayDictionaryGloss(word,learning){
+    const source=String(word?.word||"").trim();
+    if(!source)return "";
+    const entries=window.SWIFT_MALAY_DICTIONARY||[];
+    if(learning==="en"){
+      const key=source.toLocaleLowerCase("en");
+      const matches=entries.filter(entry=>{
+        const firstClause=String(entry.definitionEn||"").split(/[;,]/)[0].toLocaleLowerCase("en");
+        const tokens=firstClause.replace(/^(to|a|an|the)\\s+/,"").split(/[^a-z]+/).filter(Boolean);
+        return tokens.slice(0,4).includes(key);
+      });
+      return matches.length===1?matches[0].word:"";
+    }
+    if(learning==="zh"){
+      const matches=entries.filter(entry=>String(entry.definitionZh||"").split(/[；，。]/)[0].includes(source));
+      return matches.length===1?matches[0].word:"";
+    }
+    return "";
+  }
   function translationFor(word){
     const language=state.game?.translationLanguage||translationLanguage;
     const learning=word.course||state.game?.learningLanguage||course;
@@ -106,11 +125,11 @@
       return "";
     }
     if(learning==="zh"){
-      if(language==="ms")return word.definitionMs||word.translationMs||word._flashCard?.translation_text||"";
+      if(language==="ms")return word.definitionMs||word.translationMs||word._flashCard?.translation_text||inferredMalayDictionaryGloss(word,"zh");
       if(language==="zh")return "";
       return cleanEnglishGloss(word.translationEn||word.definition||"");
     }
-    if(language==="ms")return word.definitionMs||word.translationMs||word.headwordMs||word._flashCard?.translation_text||"";
+    if(language==="ms")return word.definitionMs||word.translationMs||word.headwordMs||word._flashCard?.translation_text||inferredMalayDictionaryGloss(word,"en");
     if(language==="zh")return word._flashCard?.translation_text||word.definitionZh||"";
     return "";
   }
