@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 
 const html = fs.readFileSync("index.html", "utf8");
 const dataFile = fs.readFileSync("data/chinese-characters.js", "utf8");
+const baseFile = fs.readFileSync("data/languages/chinese-dictionary.js", "utf8");
 
 let inlineScripts = 0;
 for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
@@ -16,14 +17,15 @@ for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
 new vm.Script(dataFile, { filename: "data/chinese-characters.js" });
 assert.ok(inlineScripts > 0, "Expected at least one inline application script.");
 assert.ok(html.includes('<script src="data/chinese-characters.js"></script>'), "Chinese character data file is not loaded before the app.");
+assert.ok(html.includes('data/languages/chinese-dictionary.js?v=3.0.0'), "U3.0 Chinese language-owned dictionary package is not loaded.");
 
-const marker = "const chineseWords = [";
-const markerAt = html.indexOf(marker);
-assert.notEqual(markerAt, -1, "Chinese dictionary declaration is missing.");
-const arrayStart = html.indexOf("[", markerAt);
-const spreadAt = html.indexOf("...(window.SWIFT_CHINESE_WORDS || [])", arrayStart);
-assert.ok(spreadAt > arrayStart, "External Chinese character data is not merged into the dictionary.");
-const baseLiteral = html.slice(arrayStart, spreadAt).replace(/,\s*$/, "") + "]";
+const marker = "window.SWIFT_CHINESE_BASE_DICTIONARY = [";
+const markerAt = baseFile.indexOf(marker);
+assert.notEqual(markerAt, -1, "U3.0 Chinese base dictionary package declaration is missing.");
+const arrayStart = baseFile.indexOf("[", markerAt);
+const spreadAt = baseFile.indexOf("...(window.SWIFT_CHINESE_WORDS || [])", arrayStart);
+assert.ok(spreadAt > arrayStart, "External Chinese character data is not merged into the language-owned dictionary package.");
+const baseLiteral = baseFile.slice(arrayStart, spreadAt).replace(/,\s*$/, "") + "]";
 const baseWords = vm.runInNewContext("(" + baseLiteral + ")");
 const dataMatch = dataFile.match(/window\.SWIFT_CHINESE_WORDS\s*=\s*(\[[\s\S]*?\]);/);
 assert.ok(dataMatch, "External Chinese character array is missing.");
