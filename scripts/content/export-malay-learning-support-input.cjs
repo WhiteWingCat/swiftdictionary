@@ -16,7 +16,7 @@ const lessons={en:[],zh:[]};
 for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS||{}],["zh",window.SWIFT_CHINESE_LESSONS||{}]]){
   for(const difficulty of ["beginner","intermediate","advanced"]){
     for(const lesson of catalogue[difficulty]||[]){
-      const practices=(lesson.practices||[]).map((item,index)=>{
+      const practices=(lesson.practices||(lesson.practice?[lesson.practice]:[])).map((item,index)=>{
         const pick=value=>typeof value==="string"?value:(value&&typeof value==="object"?(value[code]||value.en||value.zh||""):"");
         return {index,question:pick(item.q),options:(item.options||[]).map(pick)};
       });
