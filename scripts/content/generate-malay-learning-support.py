@@ -95,10 +95,10 @@ def main():
             counts["quiz_strings"]+=4+2*len(q["options"])
     for code,items in data.get("flashcards",{}).items():
         for item in items:
-            definition=translate(item["definition"],code)
+            definition=translate(item.get("definition",""),code) if item.get("definition") else ""
             example=translate(item.get("example",""),code) if item.get("example") else ""
-            if not definition:
-                raise RuntimeError("Missing Flashcard definition translation: "+code+"/"+item["word"])
+            if not definition and not example:
+                raise RuntimeError("Flashcard inventory row has no translated content: "+code+"/"+item["word"])
             output["flashcards"][code][item["word"]]={"definitionMs":definition,"exampleMs":example}
             counts["flashcards"]+=1
             counts["flashcard_strings"]+=1+(1 if example else 0)
