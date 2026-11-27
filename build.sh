@@ -48,11 +48,12 @@ else
     echo "ERROR: No staging publishable key is available in the checked-in Supabase config." >&2
     exit 1
   fi
-  SWIFT_SUPABASE_URL="${SWIFT_SUPABASE_URL:-$expected_url}"
-  if [[ -n "${SWIFT_SUPABASE_PUBLISHABLE_KEY:-}" && "$SWIFT_SUPABASE_PUBLISHABLE_KEY" != "$checked_in_preview_key" ]]; then
-    echo "ERROR: Preview key does not match the checked-in staging publishable key." >&2
-    exit 1
+  if [[ "${SWIFT_SUPABASE_URL:-$expected_url}" != "$expected_url" || "${SWIFT_SUPABASE_PUBLISHABLE_KEY:-$checked_in_preview_key}" != "$checked_in_preview_key" ]]; then
+    echo "WARNING: Ignoring Cloudflare preview Supabase overrides; this branch is pinned to the checked-in staging project." >&2
   fi
+  # Non-main branches are always pinned to staging, even if the Cloudflare
+  # project has production-scoped variables configured.
+  SWIFT_SUPABASE_URL="$expected_url"
   SWIFT_SUPABASE_PUBLISHABLE_KEY="$checked_in_preview_key"
 fi
 
