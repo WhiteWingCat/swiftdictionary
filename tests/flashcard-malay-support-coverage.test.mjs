@@ -18,6 +18,9 @@ test("Flashcard decks exclude untranslated words when Malay is the selected supp
  const flashcards=fs.readFileSync("flashcards.js","utf8");
  assert.match(flashcards,/function addMalayFlashcardSupport\(items,language\)/);
  assert.match(flashcards,/SWIFT_FLASHCARD_MALAY_SUPPORT/);
+ assert.match(flashcards,/SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS\?\.flashcards/);
+ assert.match(flashcards,/row\.definitionMs\|\|dictionaryDerivedMalaySupport/);
+ assert.match(flashcards,/const customSupport=word\._flashCard\?\.translation_language_code===language/);
  assert.match(flashcards,/SWIFT_DICTIONARY_MS_TRANSLATIONS\?\.languages\?\.\[language\]/);
  assert.match(flashcards,/generatedEntry\?\.senses\?\.find\(sense=>sense\.definitionMs\)/);
  assert.match(flashcards,/all=all\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
