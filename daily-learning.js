@@ -448,8 +448,9 @@
   };
   const dailyUi = (english, chinese) => translationLanguage === "zh" ? chinese : english;
   function dailyTitle(item) {
+    if (isMalayLearningCourse()) return item.title;
     if (translationLanguage === "zh") return item.titleZh || dailyChineseTitles[item.id] || item.title;
-    return (isChineseLearningCourse() || isMalayLearningCourse()) && translationLanguage === "en" && item.titleEn ? item.titleEn : item.title;
+    return isChineseLearningCourse() && translationLanguage === "en" && item.titleEn ? item.titleEn : item.title;
   }
   function selectedTranslation(item) {
     if (isChineseLearningCourse()) return translationLanguage === "en" && item.en ? '<p class="daily-translation"><strong>English support:</strong> ' + esc(item.en) + '</p>' : "";
