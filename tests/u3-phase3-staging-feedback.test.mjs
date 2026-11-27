@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import vm from "node:vm";
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const read=p=>fs.readFileSync(path.join(root,p),"utf8");
 test("Malay target option is available for English and Chinese courses, not as a self-translation",()=>{
@@ -41,9 +42,12 @@ test("Daily activity rendering never stringifies structured content objects",()=
 test("Malay Daily Topic and Application catalogue metadata mirrors all 120 live content records",()=>{
  const source=read("data/malay-daily-learning.js");
  const migration=read("supabase/migrations/20261127190000_swiftdictionary_update_3_0_malay_daily_catalogue_metadata_alignment.sql");
- const ids=[...source.matchAll(/id\s*:\s*["'](ms-(?:topic|application)-[^"']+)["']/g)].map(m=>m[1]);
- const topics=ids.filter(id=>id.startsWith("ms-topic-"));
- const applications=ids.filter(id=>id.startsWith("ms-application-"));
+ const context={window:{}};
+ vm.runInNewContext(source,context);
+ const daily=context.window.SWIFT_MALAY_DAILY_LEARNING;
+ const topics=daily.topics||[];
+ const applications=daily.applications||[];
+ const ids=[...topics,...applications].map(item=>item.id);
  assert.equal(topics.length,60);
  assert.equal(applications.length,60);
  for(const id of ids)assert.ok(migration.includes("'" + id + "'"),"catalogue alignment is missing "+id);
