@@ -30,13 +30,13 @@
     if (!data) continue;
     const dailyLearning = window.SWIFT_DAILY_LEARNING_CONTENT?.[code] || data.dailyLearning || {};
     packages.createPackage({
-      languageCode:code, contentVersion:"legacy-u2.9.1",
+      languageCode:code, contentVersion:code==="ms"?"u3-ms-flashcards-0.1.0":"legacy-u2.9.1",
       content:{
         dictionary:{entries:data.dictionary || []},
         lessons:{permanent:data.lessons || [], translations:data.lessonTranslations || {}},
         dailyLearning,
         quiz:{source:data.quizSource || null},
-        flashcards:{source:data.flashcardSource || null}
+        flashcards:{source:data.flashcards?.source || data.flashcardSource || null,cards:data.flashcards?.cards || []}
       },
       metadata:{legacySource:"U2.9.1", manifestPath:"content/languages/"+code+"/manifest.json", migrationState:"wrapped-not-rewritten"}
     });
