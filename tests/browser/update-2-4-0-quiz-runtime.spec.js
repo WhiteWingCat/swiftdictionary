@@ -280,6 +280,12 @@ test("Free user can switch translation in an open permanent lesson and complete 
   await selectTranslationAndWaitForSave(page,"zh");
   await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
   await expect(page.locator('input[name="lessonAnswer0"][value="1"]')).toBeChecked();
+  await selectTranslationAndWaitForSave(page,"ms");
+  const expectedMalayPractice=await page.evaluate(()=>window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS.lessons.en[ls.active.id][0].q);
+  expect(expectedMalayPractice).toBeTruthy();
+  await expect(page.locator(".lesson-question-title").first()).toContainText(expectedMalayPractice);
+  await selectTranslationAndWaitForSave(page,"zh");
+  await expect(page.locator("#lessonReaderContent h2")).toHaveText("构建清晰的基本句子");
 
   // Ensure the authenticated preference has settled in the disposable DB before
   // the Quiz page snapshots its language pair. The selector change above is
