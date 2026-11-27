@@ -1022,9 +1022,14 @@
 
     // Append the separately maintained U2.9.0 English expansion before dictionary state is initialised.
     englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));
-    const chineseWords = window.SWIFT_CHINESE_BASE_DICTIONARY;
-    // The separately maintained Chinese character catalogue is part of the 725-entry course dictionary.
-    chineseWords.push(...(window.SWIFT_CHINESE_WORDS || []));
+    // Merge the base and supplemental character catalogues by character so the one-character grid never renders duplicates.
+    const chineseWordSource = [
+      ...(window.SWIFT_CHINESE_BASE_DICTIONARY || []),
+      ...(window.SWIFT_CHINESE_WORDS || [])
+    ];
+    const chineseWords = [...new Map(
+      chineseWordSource.filter(item => item && item.word).map(item => [String(item.word), item])
+    ).values()];
     const englishMalayDictionaryCoverage = window.SWIFT_DICTIONARY_TRANSLATION_OVERLAY?.apply(englishWords,"en") || {complete:false};
     const chineseMalayDictionaryCoverage = window.SWIFT_DICTIONARY_TRANSLATION_OVERLAY?.apply(chineseWords,"zh") || {complete:false};
     const malayDictionaryTargetReady = !!(englishMalayDictionaryCoverage.complete && chineseMalayDictionaryCoverage.complete);

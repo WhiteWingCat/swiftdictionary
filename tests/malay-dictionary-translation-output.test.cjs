@@ -24,11 +24,14 @@ test("U3.0 Malay Dictionary translations are complete in all three course direct
     ...(window.SWIFT_ENGLISH_BASE_DICTIONARY || []),
     ...(window.SWIFT_ENGLISH_EXPANSION || [])
   ];
-  const chineseEntries = [
+  const chineseEntries = [...new Map([
     ...(window.SWIFT_CHINESE_BASE_DICTIONARY || []),
     ...(window.SWIFT_CHINESE_WORDS || [])
-  ];
+  ].filter(entry => entry && entry.word).map(entry => [String(entry.word), entry])).values()];
   const malayEntries = window.SWIFT_MALAY_DICTIONARY || [];
+  assert.equal(chineseEntries.length, 725);
+  assert.equal(new Set(chineseEntries.map(entry => entry.word)).size, 725);
+  assert.ok(chineseEntries.every(entry => [...String(entry.word)].length === 1));
 
   const englishCoverage = overlay.apply(englishEntries, "en");
   const chineseCoverage = overlay.apply(chineseEntries, "zh");
