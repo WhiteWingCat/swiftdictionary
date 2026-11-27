@@ -118,7 +118,7 @@
     ],
     advanced:[
       make("ms-a-register-and-audience",
-        ["Lar as dan khalayak","Register and audience","语体与受众"],
+        ["Laras dan khalayak","Register and audience","语体与受众"],
         ["Memilih laras bahasa mengikut khalayak","Choosing register for an audience","根据受众选择语体"],
         ["Sesuaikan pilihan kata, struktur dan nada dengan tujuan komunikasi serta hubungan penulis dengan pembaca.","Adapt vocabulary, structure and tone to the communication purpose and the writer's relationship with the reader.","根据沟通目的及作者与读者的关系调整词汇、结构和语气。"],
         [
