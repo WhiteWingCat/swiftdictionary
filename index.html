@@ -2171,7 +2171,11 @@ function lessonRenderText(value){
       return escapeHTML(value??"");
     }
 function lessonTopicText(x){
-  if(isChineseCourse())return lessonRenderText(x.topicDisplay||x.topic);
+  if(isChineseCourse()){
+    const topic=x.topicDisplay||x.topic;
+    const ms=translationLanguage==="ms"?lessonMsRecord(x)?.topic:"";
+    return lessonRenderText(ms?{...topic,translations:{...(topic?.translations||{}),ms}}:topic);
+  }
   if(isMalayCourse())return lessonRenderText(x.topic);
   return lessonRenderText(lessonField(x,"topic"));
 }
