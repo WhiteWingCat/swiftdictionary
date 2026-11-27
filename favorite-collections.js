@@ -581,7 +581,7 @@
     const userId = getUser()?.id;
     if (!userId) return;
     const dialog = showDialog("Add words to " + collection.name, returnFocus);
-    dialog.append(el("p", "", "Select saved English or Chinese words to include in this folder."));
+    dialog.append(el("p", "", "Select saved English, Chinese or Malay words to include in this folder."));
     const list = el("div", "fc-word-list");
     list.append(el("p", "fc-muted", "Loading your saved words…"));
     dialog.append(list);
