@@ -19,7 +19,8 @@
     source.ms = {
       dictionary: window.SWIFT_MALAY_DICTIONARY,
       lessons: collectLessons(window.SWIFT_MALAY_LESSONS),
-      dailyLearning: window.SWIFT_MALAY_DAILY_LEARNING || {}
+      dailyLearning: window.SWIFT_MALAY_DAILY_LEARNING || {},
+      quizSource: { learningLanguage:"ms", translationLanguage:"selected", sourceFiles:["content/quiz/questions.ms-en.draft.json","content/quiz/questions.ms-zh.draft.json","content/quiz/curriculum-map.ms.json"] }
     };
   }
   if (!packages) return;
