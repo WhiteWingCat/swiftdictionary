@@ -11,7 +11,7 @@ let lessonQuestions=0,quizQuestions=0,flashcardEntries=0;
 for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.SWIFT_CHINESE_LESSONS]]){
   for(const difficulty of ["beginner","intermediate","advanced"]){
     for(const lesson of catalogue[difficulty]||[]){
-      const source=lesson.practices||[];
+      const source=lesson.practices||(lesson.practice?[lesson.practice]:[]);
       const translated=output.lessons?.[code]?.[lesson.id];
       if(!Array.isArray(translated)||translated.length!==source.length)throw new Error("Missing practice translation rows: "+code+"/"+lesson.id);
       translated.forEach((row,index)=>{
