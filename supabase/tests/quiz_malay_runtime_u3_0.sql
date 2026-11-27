@@ -3,22 +3,22 @@
 begin;
 
 insert into auth.users(id) values
- ('eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee'),
- ('11111111-1111-4111-8111-111111111111'),
- ('22222222-2222-4222-8222-222222222222'),
- ('33333333-3333-4333-8333-333333333333'),
- ('44444444-4444-4444-8444-444444444444'),
- ('55555555-5555-4555-8555-555555555555')
+ ('f0a00000-0000-4000-8000-000000000001'),
+ ('f0a00000-0000-4000-8000-000000000002'),
+ ('f0a00000-0000-4000-8000-000000000003'),
+ ('f0a00000-0000-4000-8000-000000000004'),
+ ('f0a00000-0000-4000-8000-000000000005'),
+ ('f0a00000-0000-4000-8000-000000000006')
 on conflict(id) do nothing;
 
 insert into public.user_preferences(user_id,learning_language,translation_language,timezone)
 values
- ('eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee','ms','en','Asia/Kuala_Lumpur'),
- ('11111111-1111-4111-8111-111111111111','ms','en','Asia/Kuala_Lumpur'),
- ('22222222-2222-4222-8222-222222222222','ms','en','Asia/Kuala_Lumpur'),
- ('33333333-3333-4333-8333-333333333333','ms','zh','Asia/Kuala_Lumpur'),
- ('44444444-4444-4444-8444-444444444444','ms','ms','Asia/Kuala_Lumpur'),
- ('55555555-5555-4555-8555-555555555555','ms','en','Asia/Kuala_Lumpur')
+ ('f0a00000-0000-4000-8000-000000000001','ms','en','Asia/Kuala_Lumpur'),
+ ('f0a00000-0000-4000-8000-000000000002','ms','en','Asia/Kuala_Lumpur'),
+ ('f0a00000-0000-4000-8000-000000000003','ms','en','Asia/Kuala_Lumpur'),
+ ('f0a00000-0000-4000-8000-000000000004','ms','zh','Asia/Kuala_Lumpur'),
+ ('f0a00000-0000-4000-8000-000000000005','ms','ms','Asia/Kuala_Lumpur'),
+ ('f0a00000-0000-4000-8000-000000000006','ms','en','Asia/Kuala_Lumpur')
 on conflict(user_id) do update set
  learning_language=excluded.learning_language,
  translation_language=excluded.translation_language,
@@ -27,12 +27,12 @@ on conflict(user_id) do update set
 insert into public.user_entitlements(user_id,plan_code,status)
 select id,'premium','active' from auth.users
 where id in (
- 'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
- '11111111-1111-4111-8111-111111111111',
- '22222222-2222-4222-8222-222222222222',
- '33333333-3333-4333-8333-333333333333',
- '44444444-4444-4444-8444-444444444444',
- '55555555-5555-4555-8555-555555555555'
+ 'f0a00000-0000-4000-8000-000000000001',
+ 'f0a00000-0000-4000-8000-000000000002',
+ 'f0a00000-0000-4000-8000-000000000003',
+ 'f0a00000-0000-4000-8000-000000000004',
+ 'f0a00000-0000-4000-8000-000000000005',
+ 'f0a00000-0000-4000-8000-000000000006'
 )
 on conflict(user_id) do update set
  plan_code='premium',status='active',valid_from=null,valid_until=null;
@@ -93,8 +93,8 @@ grant select,insert on quiz_malay_test_refs to authenticated;
 set local role authenticated;
 
 -- Beginner, Malay→English: no answer keys before submission; server scores completion.
-select set_config('request.jwt.claim.sub','eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',true);
-select set_config('request.jwt.claims','{"sub":"eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000001',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000001"}',true);
 do $beginner$
 declare
  v_availability jsonb;v_session jsonb;v_saved jsonb;v_result jsonb;v_q jsonb;v_sid uuid;
@@ -150,8 +150,8 @@ end;
 $beginner$;
 
 -- Intermediate, Malay→English: 12 intermediate + 3 beginner questions.
-select set_config('request.jwt.claim.sub','11111111-1111-4111-8111-111111111111',true);
-select set_config('request.jwt.claims','{"sub":"11111111-1111-4111-8111-111111111111"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000002',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000002"}',true);
 do $intermediate$
 declare v_session jsonb;v_saved jsonb;v_result jsonb;v_q jsonb;v_sid uuid;
 begin
@@ -173,8 +173,8 @@ end;
 $intermediate$;
 
 -- A user cannot inspect another user's completed answer review.
-select set_config('request.jwt.claim.sub','11111111-1111-4111-8111-111111111111',true);
-select set_config('request.jwt.claims','{"sub":"11111111-1111-4111-8111-111111111111"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000002',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000002"}',true);
 do $ownership$
 declare v_other uuid;v_blocked boolean:=false;
 begin
@@ -189,8 +189,8 @@ end;
 $ownership$;
 
 -- Advanced, Malay→English: 12 advanced + 6 intermediate + 2 beginner questions.
-select set_config('request.jwt.claim.sub','22222222-2222-4222-8222-222222222222',true);
-select set_config('request.jwt.claims','{"sub":"22222222-2222-4222-8222-222222222222"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000003',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000003"}',true);
 do $advanced$
 declare v_session jsonb;v_saved jsonb;v_result jsonb;v_q jsonb;v_sid uuid;
 begin
@@ -211,8 +211,8 @@ end;
 $advanced$;
 
 -- Malay→Chinese support text is routed independently from the Malay course.
-select set_config('request.jwt.claim.sub','33333333-3333-4333-8333-333333333333',true);
-select set_config('request.jwt.claims','{"sub":"33333333-3333-4333-8333-333333333333"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000004',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000004"}',true);
 do $chinese$
 declare v_availability jsonb;v_session jsonb;v_saved jsonb;v_result jsonb;v_q jsonb;v_sid uuid;
 begin
@@ -239,8 +239,8 @@ $chinese$;
 
 -- Selecting Malay as its own translation keeps the Malay display while using
 -- an English support snapshot internally. The account preference remains ms.
-select set_config('request.jwt.claim.sub','44444444-4444-4444-8444-444444444444',true);
-select set_config('request.jwt.claims','{"sub":"44444444-4444-4444-8444-444444444444"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000005',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000005"}',true);
 do $same_language$
 declare v_availability jsonb;v_session jsonb;v_failed boolean:=false;
 begin
@@ -264,8 +264,8 @@ end;
 $same_language$;
 
 -- Abandoning a session must not consume completion allowance.
-select set_config('request.jwt.claim.sub','55555555-5555-4555-8555-555555555555',true);
-select set_config('request.jwt.claims','{"sub":"55555555-5555-4555-8555-555555555555"}',true);
+select set_config('request.jwt.claim.sub','f0a00000-0000-4000-8000-000000000006',true);
+select set_config('request.jwt.claims','{"sub":"f0a00000-0000-4000-8000-000000000006"}',true);
 do $abandon$
 declare v_session jsonb;v_result jsonb;v_availability jsonb;
 begin
