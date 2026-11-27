@@ -71,16 +71,20 @@
         "content/quiz/questions.ms-zh.draft.json",
         "content/quiz/curriculum-map.ms.json"
       ],
-      "contentVersion": "u3-ms-quiz-0.1.0",
+      "contentVersion": "u3-ms-quiz-0.2.0",
       "questionCounts": {
-        "beginner": 4,
-        "intermediate": 4,
-        "advanced": 4
+        "beginner": 16,
+        "intermediate": 16,
+        "advanced": 16
       },
-      "totalQuestionsPerSupportLanguage": 12,
+      "totalQuestionsPerSupportLanguage": 48,
       "editorialStatus": "draft",
       "translationStatus": "machine_assisted_draft",
-      "releaseGate": "Do not activate until the complete approved question bank, server-side language-aware RPCs, private answer-key handling, staging migration and owner review are complete."
+      "releaseGate": "Do not activate until the full approved question bank, language-aware server-side RPCs, private answer-key handling, staging migration, security tests and owner linguistic review are complete.",
+      "batch02": {
+        "questionsPerSupportLanguage": 36,
+        "questionsPerDifficulty": 12
+      }
     },
     "flashcards": {
       "status": "planned",
