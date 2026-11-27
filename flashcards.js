@@ -103,16 +103,16 @@
     if(learning==="ms"){
       if(language==="en")return word.definitionEn||word.translationEn||"";
       if(language==="zh")return word.definitionZh||word.translationZh||"";
-      return "";
+      return word.definition||"";
     }
     if(learning==="zh"){
       if(language==="ms")return word.definitionMs||word.translationMs||word._flashCard?.translation_text||"";
-      if(language==="zh")return "";
+      if(language==="zh")return word.translationZh||word.definition||"";
       return cleanEnglishGloss(word.translationEn||word.definition||"");
     }
     if(language==="ms")return word.definitionMs||word.translationMs||word.headwordMs||word._flashCard?.translation_text||"";
     if(language==="zh")return word._flashCard?.translation_text||word.definitionZh||"";
-    return "";
+    return word.definition||"";
   }
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
