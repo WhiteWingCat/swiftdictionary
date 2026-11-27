@@ -308,9 +308,11 @@
     if(state.game){renderGame(mount);return;}
     const allowance=state.data.allowance||{daily_limit:3,used_count:0,remaining:3};
     const weakItems=(state.data.review_items||[]).filter(item=>item.incorrect_count>0);
+    const malaySupportCount=translationLanguage==="ms"&&course!=="ms"?words(course).filter(word=>Boolean(word.definitionMs)).length:0;
     mount.innerHTML=`
       <div class="flash-home">
         <section class="flash-banner"><div class="flash-banner-copy"><h2>${uiText("Flashcards","闪卡")}</h2><p>${uiText("Choose a recall mode and a 60- or 120-second challenge. Memory and answer windows adapt to your difficulty, and you can move on as soon as you are ready.","选择回忆模式和 60 秒或 120 秒挑战。记忆与答题时间会根据难度调整，准备好时即可提前进入下一步。")}</p></div></section>
+        ${malaySupportCount?`<p class="flash-muted">Malay support translations are available for ${malaySupportCount} cards in this course. Only translated cards are included in Malay recall games.</p>`:""}
         <section class="flash-section">
           <div class="flash-recall-heading"><div><h2>${uiText("Choose your Flash Recall","选择闪卡回忆模式")}</h2><p class="flash-muted">${uiText("Four ways to strengthen your memory.","通过四种方式强化记忆。")}</p></div><div class="flash-duration-controls" role="group" aria-label="${uiText("Challenge duration","挑战时长")}"><span class="flash-duration-label">${uiText("Duration","时长")}</span><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="60" aria-pressed="${state.duration===60}">60s</button><button type="button" class="flash-duration-pill" data-action="set-duration" data-value="120" aria-pressed="${state.duration===120}">120s</button></div></div>
           <div class="flash-mode-grid">
