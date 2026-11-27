@@ -32,7 +32,7 @@
     getLabel() { return "简体中文"; }
   };
   const malay = {
-    locale:"ms-MY", script:"Latn", gridMode:"word", pronunciationLabel:"Pronunciation", morphology:"malay-affixation", flashcardModes:[], flashcardCardSets:[],
+    locale:"ms-MY", script:"Latn", gridMode:"word", pronunciationLabel:"Sebutan", morphology:"malay-affixation", flashcardModes:["word","definition","mixed","sentence"], flashcardCardSets:["all","common","nouns","verbs","adjectives","phrases"],
     normaliseSearch(value) { return normalise(value).toLocaleLowerCase("ms-MY").replace(/\s+/g," "); },
     getSearchForms(entry) {
       const explicit = Array.isArray(entry?.searchForms) ? entry.searchForms : [];
