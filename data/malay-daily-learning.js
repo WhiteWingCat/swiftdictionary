@@ -160,3 +160,10 @@ window.SWIFT_MALAY_DAILY_LEARNING = {
     if (links[app.id]) app.topicId = links[app.id];
   }
 })();
+
+/* Keep generated Discovery catalogue identities within the shared scheduler's
+   safe identifier alphabet; preserve uniqueness while replacing sense dots. */
+(() => {
+  const d = window.SWIFT_MALAY_DAILY_LEARNING;
+  for (const item of d.discovery) item.id = item.id.replace(/\./g, "-");
+})();
