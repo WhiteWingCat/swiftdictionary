@@ -65,8 +65,22 @@
       "editorialStatus": "draft"
     },
     "quiz": {
-      "status": "planned",
-      "files": []
+      "status": "draft",
+      "files": [
+        "content/quiz/questions.ms-en.draft.json",
+        "content/quiz/questions.ms-zh.draft.json",
+        "content/quiz/curriculum-map.ms.json"
+      ],
+      "contentVersion": "u3-ms-quiz-0.1.0",
+      "questionCounts": {
+        "beginner": 4,
+        "intermediate": 4,
+        "advanced": 4
+      },
+      "totalQuestionsPerSupportLanguage": 12,
+      "editorialStatus": "draft",
+      "translationStatus": "machine_assisted_draft",
+      "releaseGate": "Do not activate until the complete approved question bank, server-side language-aware RPCs, private answer-key handling, staging migration and owner review are complete."
     },
     "flashcards": {
       "status": "planned",
@@ -98,6 +112,7 @@
   "notes": [
     "Malay is selectable only in the isolated U3.0 feature/staging build; do not enable it in production before owner review and release gates.",
     "Phase 3 initial content pack contains 9 draft lessons and draft Daily Learning content; owner linguistic/translation review is scheduled during staging review.",
-    "Malay Lessons expansion batch 04 adds nine original-authored draft lessons (three per difficulty); all Malay content and EN/ZH support translations remain subject to staging review."
+    "Malay Lessons expansion batch 04 adds nine original-authored draft lessons (three per difficulty); all Malay content and EN/ZH support translations remain subject to staging review.",
+    "Malay Quiz draft batch 01 adds 12 independently authored questions per support-language pair (4 per difficulty); content remains draft and the Quiz capability stays disabled until the secure backend and approved inventory are complete."
   ]
 }
