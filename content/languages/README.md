@@ -17,6 +17,6 @@ SwiftDictionary separates shared application infrastructure from independently a
 
 - `en`: English; active; legacy U2.9.1 content is being wrapped in the U3.0 contract.
 - `zh`: Simplified Chinese; active; retains single-Han-character grid, Pinyin and stroke-order behaviour.
-- `ms`: Malaysian Standard Malay; planned; not selectable until content, QA, legal/provenance and feature gates pass.
+- `ms`: Malaysian Standard Malay; active only on the isolated U3.0 Phase 3 development/staging branch for Dictionary, Lessons and Daily Learning review. Quiz and Flashcards remain unavailable until their later phases. Do not activate Malay in production until owner staging review, rights/provenance, legal and release gates pass.
 
 See each language's `manifest.json` for source inventory and status.
