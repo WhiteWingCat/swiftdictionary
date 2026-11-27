@@ -37,7 +37,7 @@ test("English, Chinese and Phase 3 Malay manifests expose only implemented capab
  const ms=JSON.parse(read("content/languages/ms/manifest.json"));
  assert.equal(en.status,"active");assert.equal(zh.status,"active");assert.equal(ms.status,"active");
  assert.equal(ms.standard,"Malaysian Standard Malay (Bahasa Melayu Malaysia)");
- assert.equal(ms.capabilities.lessons,true);assert.equal(ms.capabilities.dailyLearning,true);assert.equal(ms.capabilities.quiz,false);assert.equal(ms.capabilities.flashcards,false);
+ assert.equal(ms.capabilities.lessons,true);assert.equal(ms.capabilities.dailyLearning,true);assert.equal(ms.capabilities.quiz,true);assert.equal(ms.capabilities.flashcards,false);
 });
 
 test("architecture migration design retains safe migration gates",()=>{
