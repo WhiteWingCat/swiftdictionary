@@ -681,7 +681,7 @@
       <div class="brand"><div class="brand-icon">S</div><span>SwiftDictionary</span></div>
       <div class="top-actions"><div class="course-controls" id="globalCourseControls" aria-label="Learning language settings">
           <label class="course-selector-wrap course-selector-pill" for="courseSelect"><span class="course-control-icon" aria-hidden="true">📘</span><select id="courseSelect" aria-label="Learning course"><option value="en">English</option><option value="zh">简体中文</option><option value="ms">Bahasa Melayu</option></select></label>
-          <label class="course-selector-wrap course-selector-pill" for="translationSelect"><span class="course-control-icon" aria-hidden="true">🌐</span><select id="translationSelect" aria-label="Translation language"><option value="en">English</option><option value="zh">简体中文</option></select></label>
+          <label class="course-selector-wrap course-selector-pill" for="translationSelect"><span class="course-control-icon" aria-hidden="true">🌐</span><select id="translationSelect" aria-label="Translation language"><option value="en">English</option><option value="zh">简体中文</option><option value="ms">Bahasa Melayu</option></select></label>
         </div>
         <button id="premiumPlanOpen" class="secondary-button premium-plan-trigger" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="premiumPlanDialog">Premium plan</button>
         <div class="account-menu-wrap"><button id="accountButton" class="account-menu-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu"><span id="accountAvatar" class="account-avatar" aria-hidden="true">🐦</span><span id="accountButtonLabel">Account</span><span aria-hidden="true">⌄</span></button>
@@ -834,7 +834,7 @@
           <button type="button" class="dashboard-tab" role="tab" aria-selected="false" aria-controls="dashboardTabAnalytics" data-dashboard-tab="analytics"><span class="dashboard-tab-icon" aria-hidden="true">▥</span><span>Analytics</span></button>
         </nav>
         <section id="dashboardTabFavourites" class="dashboard-tab-panel" role="tabpanel">
-          <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details></section>
+          <section class="profile-card"><h3>Favorite words</h3><p class="muted-note">Words you have saved from the Dictionary, organised by learning course.</p><details><summary>English</summary><div id="favoriteEnglishGrid" class="word-grid favorite-word-grid"></div></details><details><summary>简体中文</summary><div id="favoriteChineseGrid" class="word-grid character-grid favorite-word-grid"></div></details><details><summary>Bahasa Melayu</summary><div id="favoriteMalayGrid" class="word-grid favorite-word-grid"></div></details></section>
         </section>
         <section id="dashboardTabProgress" class="dashboard-tab-panel" role="tabpanel" hidden>
           <div class="profile-grid">
@@ -883,8 +883,8 @@
       <div id="preferencesSignedIn">        <section class="profile-card"><h3>Account preferences</h3>
           <form id="preferencesForm" class="preference-form">
             <label>Display name <input id="displayNameInput" type="text" maxlength="80" autocomplete="name" placeholder="Optional display name"></label>
-            <label>Learning language <select id="preferenceLearning"><option value="en">English</option><option value="zh">简体中文</option></select></label>
-            <label>Translation language <select id="preferenceTranslation"><option value="en">English</option><option value="zh">简体中文</option></select></label>
+            <label>Learning language <select id="preferenceLearning"><option value="en">English</option><option value="zh">简体中文</option><option value="ms">Bahasa Melayu</option></select></label>
+            <label>Translation language <select id="preferenceTranslation"><option value="en">English</option><option value="zh">简体中文</option><option value="ms">Bahasa Melayu</option></select></label>
             <label>Timezone (IANA) <input id="preferenceTimezone" type="text" maxlength="64" placeholder="e.g. Asia/Kuala_Lumpur" required></label>
           </form>
           <div class="profile-actions"><button type="button" id="savePreferences" class="primary-button">Save preferences</button><span id="preferenceStatus" class="muted-note" aria-live="polite"></span></div>
@@ -1475,9 +1475,11 @@
               : translationLanguage === "en"
                 ? (sense.definitionEn || item.definitionEn || sense.definition || item.definition || "")
                 : sense.definition
-            : translationLanguage === "zh"
-              ? (sense.definitionZh || item.definitionZh || "")
-              : sense.definition;
+            : translationLanguage === "ms"
+              ? (sense.definitionMs || item.definitionMs || "Malay translation is not yet available for this entry.")
+              : translationLanguage === "zh"
+                ? (sense.definitionZh || item.definitionZh || "")
+                : sense.definition;
           text.textContent = senseText || item.definition;
           block.appendChild(text);
           if (Array.isArray(sense.examples) && sense.examples.length) {
@@ -1499,9 +1501,11 @@
             : translationLanguage === "en"
               ? (item.definitionEn || item.definition || "")
               : item.definition
-          : translationLanguage === "zh"
-            ? (commonZhTranslations[item.word.toLowerCase()] || item.definitionZh || `常见语境：${item.definition}`)
-            : item.definition;
+          : translationLanguage === "ms"
+            ? (item.definitionMs || "Malay translation is not yet available for this entry.")
+            : translationLanguage === "zh"
+              ? (commonZhTranslations[item.word.toLowerCase()] || item.definitionZh || `常见语境：${item.definition}`)
+              : item.definition;
         definitionEl.textContent = definitionText;
         if (/[\u3400-\u9fff]/.test(definitionText)) {
           const py = document.createElement("div"); py.className = "pinyin-line"; py.textContent = pinyinForText(definitionText) || "Pinyin not yet verified."; definitionEl.appendChild(py);
@@ -2622,7 +2626,7 @@ async function completeLesson(x){
         const host = document.getElementById(containerId);
         if (!host) return;
         const adapter = languageAdapter(code);
-        const catalogue = code === "zh" ? chineseWords : code === "en" ? englishWords : [];
+        const catalogue = dictionaryEntriesFor(code);
         host.classList.toggle("character-grid",adapter?.gridMode === "single-han");
         const list = [...new Set(grouped[code] || [])].sort((a,b)=>adapter ? adapter.sort({word:a},{word:b}) : a.localeCompare(b));
         host.innerHTML = "";
@@ -2649,6 +2653,7 @@ async function completeLesson(x){
       };
       renderGroup("en","favoriteEnglishGrid");
       renderGroup("zh","favoriteChineseGrid");
+      renderGroup("ms","favoriteMalayGrid");
       window.dispatchEvent(new CustomEvent("swift-favorite-words-updated", {
         detail: { words: (rows || []).map(row => ({ word: row.word, course: row.course })) }
       }));
@@ -2678,7 +2683,7 @@ async function completeLesson(x){
       const detail = event.detail || {};
       const targetCourse = activeLanguage(detail.course) ? detail.course : null;
       if(!targetCourse){accountStatus.textContent="This saved word belongs to a language that is not currently active.";return;}
-      const catalog = targetCourse === "zh" ? chineseWords : targetCourse === "en" ? englishWords : [];
+      const catalog = dictionaryEntriesFor(targetCourse);
       const item = catalog.find(entry => entry.word === detail.word);
       const liveTrigger = detail.trigger?.isConnected ? detail.trigger
         : [...document.querySelectorAll("[data-fc-open-word]")].find(node => node.dataset.fcWord === detail.word && node.dataset.fcCourse === targetCourse);
@@ -2794,29 +2799,43 @@ async function completeLesson(x){
 
     function dashboardDailyContentTitle(row) {
       const language=row.language_code||row.learning_language||"en",rawId=String(row.content_id||""),contentId=rawId.startsWith("revision:")?rawId.split(":")[2]:(rawId.split(":")[0]||rawId);
-      const catalog=window.SWIFT_CHINESE_DAILY_LEARNING||{};
+      const catalog=window.SWIFT_DAILY_LEARNING_CONTENT?.[language] || (language==="ms" ? window.SWIFT_MALAY_DAILY_LEARNING : language==="zh" ? window.SWIFT_CHINESE_DAILY_LEARNING : null) || {};
       const entries=[...(catalog.topics||[]),...(catalog.applications||[]),...(catalog.discovery||[])];
-      if(language==="zh"){
-        const match=entries.find(item=>item.id===contentId||item.id===row.topic_id||item.topicId===row.topic_id);
-        if(match)return match.titleZh||match.title||match.word||match.titleEn||formatTopicName(row.topic_id||contentId);
+      const match=entries.find(item=>item.id===contentId||item.id===row.topic_id||item.topicId===row.topic_id);
+      if(match){
+        const title=language==="ms" ? (match.title||match.word) : language==="zh" ? (match.titleZh||match.title||match.word) : (match.titleEn||match.title||match.word);
+        if(title)return title;
       }
       return formatTopicName(contentId||row.topic_id||row.activity_type||"Daily activity");
     }
     function dashboardLessonTopicTitle(row) {
-      if((row.learning_language||"en")==="zh"){
+      const language=row.learning_language||"en";
+      if(language==="zh"){
         const lessons=window.SWIFT_CHINESE_LESSONS||{};
         const match=Object.values(lessons).flat().find(item=>item.id===row.lesson_id);
         if(match)return match.topicDisplay?.zh||match.topic||match.title?.zh||formatTopicName(row.lesson_id);
       }
+      if(language==="ms"){
+        const lessons=window.SWIFT_MALAY_LESSONS||{};
+        const match=["beginner","intermediate","advanced"].flatMap(level=>lessons[level]||[]).find(item=>item.id===row.lesson_id);
+        if(match)return match.topic?.ms||match.title?.ms||formatTopicName(row.lesson_id);
+      }
       return formatTopicName(row.lesson_id);
+    }
+    function dashboardLanguageLabel(code) {
+      return ({en:"English",zh:"简体中文",ms:"Bahasa Melayu"})[code] || code || "English";
+    }
+    function dashboardDailyActivityLabel(type) {
+      return ({daily_topic:"Daily Topic",topic:"Daily Topic",daily_application:"Daily Application",application:"Daily Application",daily_discovery:"Daily Discovery",discovery:"Daily Discovery",daily_revision:"Daily Revision",revision:"Daily Revision"})[type] || formatTopicName(type||"Daily activity");
     }
     function renderDashboardDailyHistory({today,timezone,lessonRows,dailyRows,quizRows,flashcardRows}) {
       const host=document.getElementById("dashboardDailyHistory");if(!host)return;
       const localDate=timestamp=>timestamp?new Intl.DateTimeFormat("en-CA",{timeZone:timezone,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date(timestamp)):"";
-      const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(translationLanguage==="zh"?"zh-CN":"en-US",{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
-      const groups={lessons:[],quiz:[],flashcards:[]};
-      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:dashboardLessonTopicTitle(row),detail:(row.difficulty||"")+" · "+(row.learning_language==="zh"?"简体中文":"English"),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
-      for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:formatTopicName(row.activity_type||"Daily activity"),title:dashboardDailyContentTitle(row),detail:(row.difficulty||"")+" · "+(row.language_code==="zh"?"简体中文":"English"),at:row.completed_at,activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id});
+      const timeLocale=translationLanguage==="zh"?"zh-CN":translationLanguage==="ms"?"ms-MY":"en-US";
+      const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(timeLocale,{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
+      const groups={lessons:[],dailyLearning:[],quiz:[],flashcards:[]};
+      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:dashboardLessonTopicTitle(row),detail:(row.difficulty||"")+" · "+dashboardLanguageLabel(row.learning_language),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
+      for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.dailyLearning.push({type:dashboardDailyActivityLabel(row.activity_type),title:dashboardDailyContentTitle(row),detail:(row.difficulty||"")+" · "+dashboardLanguageLabel(row.language_code),at:row.completed_at,activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id});
       for(const row of quizRows||[])if(localDate(row.completed_at)===today)groups.quiz.push({type:"Quiz",title:(quizDifficultyLabels[row.difficulty]||row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id});
       for(const row of flashcardRows||[])if(localDate(row.completed_at)===today)groups.flashcards.push({type:"Flashcards",title:modeLabelForDashboard(row.mode)+" · "+(row.difficulty||""),detail:(row.correct_count??0)+"/"+(row.words_seen??0)+" correct",at:row.completed_at,sessionId:row.id});
       const renderGroup=(key,title,icon,empty)=>{
@@ -2831,7 +2850,7 @@ async function completeLesson(x){
         }).join(""):'<p class="muted-note dashboard-history-empty">'+empty+'</p>';
         return '<section class="dashboard-history-group dashboard-history-'+key+'"><header><span class="dashboard-history-group-icon" aria-hidden="true">'+icon+'</span><div><h4>'+title+'</h4><p>'+items.length+' '+(items.length===1?"activity":"activities")+'</p></div></header><div class="dashboard-history-group-items">'+content+'</div></section>';
       };
-      host.innerHTML=renderGroup("lessons","Lessons","▤","No completed lessons or daily learning activities yet today.")+renderGroup("quiz","Quiz","✎","No completed Quizzes yet today.")+renderGroup("flashcards","Flashcards","▣","No completed Flashcard games yet today.")+'<p class="muted-note dashboard-history-timezone">Today is calculated using '+escapeHTML(timezone)+'. Older records are retained.</p>';
+      host.innerHTML=renderGroup("lessons","Lessons","▤","No completed lessons yet today.")+renderGroup("dailyLearning","Daily Learning","◷","No completed Daily Learning activities yet today.")+renderGroup("quiz","Quiz","✎","No completed Quizzes yet today.")+renderGroup("flashcards","Flashcards","▣","No completed Flashcard games yet today.")+'<p class="muted-note dashboard-history-timezone">Today is calculated using '+escapeHTML(timezone)+'. Older records are retained.</p>';
     }
     function modeLabelForDashboard(mode) {
       return ({word:"Word Recall",definition:"Definition Recall",translation:"Translation Recall",mixed:"Mixed Recall",sentence:"Sentence Recall"})[mode]||"Flashcard game";
