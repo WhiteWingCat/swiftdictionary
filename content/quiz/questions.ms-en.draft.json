@@ -7,7 +7,7 @@
   "batch": 4,
   "editorial_status": "draft",
   "translation_status": "machine_assisted_draft",
-  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting language-field reversals, support-language answer-option mismatches and several wording/answer-clarity issues. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
+  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting language-field reversals, support-language answer-option mismatches, and targeted prompt/answer clarity issues. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
   "questions": [
     {
       "question_id": "quiz-ms-en-b001",
@@ -993,33 +993,33 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Penjodoh bilangan manakah yang sesuai untuk tiga ekor kucing?",
-      "prompt_translation": "Which classifier is appropriate for three cats?",
+      "prompt_learning": "Penjodoh bilangan manakah digunakan untuk mengira kucing?",
+      "prompt_translation": "Which classifier is used when counting cats?",
       "options": [
         {
           "id": "a",
-          "learning_text": "Tiga ekor kucing",
-          "translation_text": "Three cats"
+          "learning_text": "ekor",
+          "translation_text": "animal classifier"
         },
         {
           "id": "b",
-          "learning_text": "Tiga batang kucing",
-          "translation_text": "Three sticks of cats"
+          "learning_text": "batang",
+          "translation_text": "long-object classifier"
         },
         {
           "id": "c",
-          "learning_text": "Tiga helai kucing",
-          "translation_text": "Three sheets of cats"
+          "learning_text": "helai",
+          "translation_text": "flat-object classifier"
         },
         {
           "id": "d",
-          "learning_text": "Tiga biji kucing",
-          "translation_text": "Three seeds of cats"
+          "learning_text": "biji",
+          "translation_text": "small-object/general classifier"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Gunakan “ekor” untuk haiwan.",
-      "explanation_translation": "Use “ekor” for animals.",
+      "explanation_learning": "“Ekor” digunakan sebagai penjodoh bilangan untuk haiwan seperti kucing.",
+      "explanation_translation": "“Ekor” is the classifier used for animals such as cats.",
       "learning_objective_id": "animal-classifier",
       "release_approved": true
     },
@@ -1032,33 +1032,33 @@
       "difficulty": "intermediate",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Apakah yang dirujuk oleh perkataan “kanak-kanak”?",
-      "prompt_translation": "What does “kanak-kanak” refer to?",
+      "prompt_learning": "Apakah fungsi tanda sempang dalam ejaan kata ganda penuh “kanak-kanak”?",
+      "prompt_translation": "What is the function of the hyphen in the full reduplication “kanak-kanak”?",
       "options": [
         {
           "id": "a",
-          "learning_text": "Kanak-kanak",
-          "translation_text": "Children"
+          "learning_text": "Memisahkan dua unsur kata ganda penuh",
+          "translation_text": "Separates the two elements of a full reduplicated word"
         },
         {
           "id": "b",
-          "learning_text": "Orang dewasa",
-          "translation_text": "An adult"
+          "learning_text": "Menandakan kata nama khas",
+          "translation_text": "Marks a proper noun"
         },
         {
           "id": "c",
-          "learning_text": "Bilik darjah",
-          "translation_text": "A classroom"
+          "learning_text": "Menunjukkan kata pinjaman",
+          "translation_text": "Indicates a loanword"
         },
         {
           "id": "d",
-          "learning_text": "Rumah keluarga",
-          "translation_text": "A family house"
+          "learning_text": "Menggantikan tanda baca pada akhir ayat",
+          "translation_text": "Replaces end-of-sentence punctuation"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kanak-kanak” ialah kata ganda yang merujuk kepada golongan kanak-kanak.",
-      "explanation_translation": "“Kanak-kanak” is a reduplicated form referring to children.",
+      "explanation_learning": "Kata ganda penuh seperti “kanak-kanak” dieja dengan tanda sempang antara unsur yang diulang.",
+      "explanation_translation": "A full reduplicated word such as “kanak-kanak” uses a hyphen between the repeated elements.",
       "learning_objective_id": "reduplication-meaning",
       "release_approved": true
     },
@@ -1700,8 +1700,8 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "Kita perlu menggunakan air dengan lebih sedikit.",
-          "translation_text": "We need to use less water."
+          "learning_text": "Kita perlu mengurangkan penggunaan air.",
+          "translation_text": "We need to reduce water use."
         },
         {
           "id": "b",
@@ -2168,13 +2168,13 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "di sebelah kiri saya",
-          "translation_text": "on my left"
+          "learning_text": "di sebelah kiri anda",
+          "translation_text": "to your left"
         },
         {
           "id": "b",
-          "learning_text": "ke sebelah kiri saya",
-          "translation_text": "towards my left"
+          "learning_text": "ke arah kiri anda",
+          "translation_text": "towards your left"
         },
         {
           "id": "c",
@@ -2188,8 +2188,8 @@
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Di sebelah kiri” menerangkan lokasi, bukan pergerakan.",
-      "explanation_translation": "“Di sebelah kiri” describes a location, not movement.",
+      "explanation_learning": "“Di sebelah kiri” menerangkan kedudukan, manakala “ke arah kiri” dan “belok ke kiri” menunjukkan arah pergerakan.",
+      "explanation_translation": "“Di sebelah kiri” describes a position, while “ke arah kiri” and “belok ke kiri” describe direction or movement.",
       "learning_objective_id": "direction-instruction",
       "release_approved": true
     },
@@ -4269,33 +4269,33 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Ayat kedua terlalu kerap bermula dengan subjek yang sama. Pilih suntingan yang mempelbagaikan struktur tanpa mengubah fakta.",
-      "prompt_translation": "The second sentence repeatedly begins with the same subject. Choose an edit that varies the structure without changing the facts.",
+      "prompt_learning": "Ayat asal: “Organisasi itu menjalankan program membaca di tiga daerah. Organisasi itu turut mengadakan bengkel penulisan.” Pilih suntingan ayat kedua yang mengelakkan pengulangan subjek tanpa mengubah fakta.",
+      "prompt_translation": "Original: “The organisation ran a reading programme in three districts. The organisation also held a writing workshop.” Choose an edit of the second sentence that avoids repeating the subject without changing the facts.",
       "options": [
         {
           "id": "a",
-          "learning_text": "Pada minggu berikutnya, program itu diteruskan di daerah lain.",
-          "translation_text": "In the following week, the programme continued in another district."
+          "learning_text": "Di samping itu, bengkel penulisan turut dianjurkan.",
+          "translation_text": "In addition, a writing workshop was also organised."
         },
         {
           "id": "b",
-          "learning_text": "Program itu fakta lain dan minggu.",
-          "translation_text": "The programme that fact other and week."
+          "learning_text": "Bengkel penulisan itu dibatalkan.",
+          "translation_text": "The writing workshop was cancelled."
         },
         {
           "id": "c",
-          "learning_text": "Buang maklumat tempat daripada kedua-dua ayat.",
-          "translation_text": "Remove the location information from both sentences."
+          "learning_text": "Organisasi lain mengadakan bengkel penulisan.",
+          "translation_text": "Another organisation held a writing workshop."
         },
         {
           "id": "d",
-          "learning_text": "Ulang ayat pertama tanpa perubahan.",
-          "translation_text": "Repeat the first sentence unchanged."
+          "learning_text": "Program membaca itu dihentikan.",
+          "translation_text": "The reading programme was stopped."
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Frasa keterangan di hadapan ayat boleh mempelbagaikan struktur sambil mengekalkan fakta.",
-      "explanation_translation": "An introductory adverbial phrase can vary sentence structure while preserving the facts.",
+      "explanation_learning": "Bentuk pasif membolehkan ayat kedua menumpukan bengkel penulisan tanpa mengulangi subjek organisasi; fakta tentang penganjuran dikekalkan.",
+      "explanation_translation": "The passive form focuses the second sentence on the writing workshop without repeating the organisation as the subject; the fact that it was held is preserved.",
       "learning_objective_id": "fronted-phrase-variation",
       "release_approved": true
     },
