@@ -57,9 +57,24 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
+  function dictionaryDerivedMalaySupport(word,language){
+    const manual=window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES?.en||{};
+    if(language==="en"){
+      const direct=manual[String(word.word||"").trim().toLowerCase()];
+      return Array.isArray(direct)?direct[0]||"":typeof direct==="string"?direct:"";
+    }
+    const gloss=String(word.translationEn||word.definition||"").toLowerCase();
+    const candidates=gloss.split(/[,;\\/]|\\s+or\\s+|\\s+and\\s+/).map(part=>part.trim().replace(/^(to|be|the|a|an)\\s+/,"").replace(/[.!?]+$/,""));
+    for(const candidate of candidates){
+      const direct=manual[candidate];
+      if(Array.isArray(direct)&&direct[0])return direct[0];
+      if(typeof direct==="string"&&direct)return direct;
+    }
+    return "";
+  }
   function addMalayFlashcardSupport(items,language){
     const support=window.SWIFT_FLASHCARD_MALAY_SUPPORT?.[language]||{};
-    return items.map(word=>({...word,definitionMs:word.definitionMs||support[word.word]||""}));
+    return items.map(word=>({...word,definitionMs:word.definitionMs||support[word.word]||dictionaryDerivedMalaySupport(word,language)}));
   }
   function words(language=state.game?.learningLanguage||course){
     const adapter=adapterFor(language);
@@ -428,7 +443,7 @@
       }
       if(mode==="translation"){
         const language=state.game?.translationLanguage||translationLanguage;
-        if(!Array.isArray(w.translationLanguages)||!w.translationLanguages.includes(language))return false;
+        if(language!=="ms"&&(!Array.isArray(w.translationLanguages)||!w.translationLanguages.includes(language)))return false;
         const cue=translationFor(w);
         if(!cue)return false;
         if(language==="zh"){
@@ -441,6 +456,11 @@
     };
     const seenCards=new Set(),available=deck.filter(w=>{
       if(!w.word)return false;
+      const language=state.game?.translationLanguage||translationLanguage;
+      if(language==="ms"){
+        const hasSupport=w.card_type==="custom"?!!(w.translation_text||w.back_text):!!translationFor(w);
+        if(!hasSupport)return false;
+      }
       const key=questionKey(w);if(!key||seenCards.has(key))return false;seenCards.add(key);return true;
     });
     const targets=state.weakOnly?available.filter(w=>!w._flashDistractor&&state.weakKeys.has(cardKey(w))):available.filter(w=>!w._flashDistractor);
