@@ -79,6 +79,8 @@
     const manual=window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES?.en||{};
     const direct=manual[String(word.word||"").trim().toLowerCase()];
     if(language==="en"&&(Array.isArray(direct)&&direct[0]||typeof direct==="string"))return Array.isArray(direct)?direct[0]:direct;
+    const flashcardSupport=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.[language]?.[String(word.word||"").trim()];
+    if(flashcardSupport?.definitionMs)return flashcardSupport.definitionMs;
     // Prefer the complete validated Dictionary corpus over the smaller curated
     // Flashcard gloss set. It covers every English and Chinese dictionary entry.
     const generatedPack=window.SWIFT_DICTIONARY_MS_TRANSLATIONS?.languages?.[language]||{};
