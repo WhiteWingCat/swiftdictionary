@@ -72,66 +72,6 @@
       explanationLearning:"Frasa “Only after” pada awal ayat memerlukan penyongsangan subjek-kata bantu dalam klausa utama.",
       options:{a:{learning:"pasukan itu telah"},b:{learning:"pasukan itu akan"},c:{learning:"barulah pasukan itu dapat"},d:{learning:"pasukan itu"}}
     },
-    "quiz-advanced-014": {
-      promptLearning:"Pilih bentuk kata kerja yang betul selepas frasa negatif yang diletakkan pada awal ayat.",
-      explanationLearning:"Penyongsangan selepas ungkapan negatif memerlukan kata bantu sebelum subjek.",
-      options:{a:{learning:"subjek diikuti kata kerja"},b:{learning:"kata bantu diikuti subjek"},c:{learning:"objek diikuti kata kerja"},d:{learning:"kata sifat diikuti subjek"}}
-    },
-    "quiz-advanced-015": {
-      promptLearning:"Pilih ayat yang menggunakan penyongsangan dengan betul selepas “Not only”.",
-      explanationLearning:"Apabila “Not only” memulakan klausa, kata bantu hadir sebelum subjek.",
-      options:{a:{learning:"Not only the team completed the task."},b:{learning:"Not only did the team complete the task."},c:{learning:"Not only the team did completed the task."},d:{learning:"Not only completed the team the task."}}
-    },
-    "quiz-advanced-016": {
-      promptLearning:"Pilih struktur yang betul selepas “Under no circumstances”.",
-      explanationLearning:"Ungkapan negatif “Under no circumstances” memerlukan penyongsangan kata bantu dan subjek.",
-      options:{a:{learning:"Under no circumstances you should leave."},b:{learning:"Under no circumstances should you leave."},c:{learning:"Under no circumstances you leave should."},d:{learning:"Under no circumstances leave you should."}}
-    },
-    "quiz-advanced-017": {
-      promptLearning:"Lengkapkan ayat dengan bentuk kata kerja yang paling sesuai.",
-      explanationLearning:"Pilih bentuk kata kerja yang sepadan dengan masa dan struktur ayat.",
-      options:{a:{learning:"bentuk masa kini"},b:{learning:"bentuk lampau"},c:{learning:"bentuk masa hadapan"},d:{learning:"kata kerja dasar"}}
-    },
-    "quiz-advanced-018": {
-      promptLearning:"Pilih pilihan yang melengkapkan ayat dengan tepat dari segi tatabahasa.",
-      explanationLearning:"Pilihan yang betul mengekalkan hubungan tatabahasa dan maksud ayat asal.",
-      options:{a:{learning:"pilihan pertama"},b:{learning:"pilihan kedua"},c:{learning:"pilihan ketiga"},d:{learning:"pilihan keempat"}}
-    },
-    "quiz-advanced-019": {
-      promptLearning:"Pilih ungkapan yang paling tepat untuk melengkapkan ayat tersebut.",
-      explanationLearning:"Ungkapan yang sesuai perlu mengekalkan maksud dan penggunaan bahasa yang semula jadi.",
-      options:{a:{learning:"ungkapan pertama"},b:{learning:"ungkapan kedua"},c:{learning:"ungkapan ketiga"},d:{learning:"ungkapan keempat"}}
-    },
-    "quiz-advanced-020": {
-      promptLearning:"Pilih jawapan yang paling sesuai berdasarkan konteks ayat.",
-      explanationLearning:"Gunakan petunjuk konteks untuk memilih jawapan yang paling tepat.",
-      options:{a:{learning:"jawapan pertama"},b:{learning:"jawapan kedua"},c:{learning:"jawapan ketiga"},d:{learning:"jawapan keempat"}}
-    },
-    "quiz-advanced-021": {
-      promptLearning:"Pilih bentuk yang paling tepat untuk melengkapkan ayat.",
-      explanationLearning:"Bentuk yang betul mesti sepadan dengan struktur dan maksud ayat.",
-      options:{a:{learning:"bentuk pertama"},b:{learning:"bentuk kedua"},c:{learning:"bentuk ketiga"},d:{learning:"bentuk keempat"}}
-    },
-    "quiz-advanced-022": {
-      promptLearning:"Pilih pilihan yang paling tepat untuk melengkapkan pernyataan tersebut.",
-      explanationLearning:"Pernyataan itu memerlukan pilihan yang tepat dari segi makna dan tatabahasa.",
-      options:{a:{learning:"pilihan pertama"},b:{learning:"pilihan kedua"},c:{learning:"pilihan ketiga"},d:{learning:"pilihan keempat"}}
-    },
-    "quiz-advanced-023": {
-      promptLearning:"Pilih jawapan yang paling sesuai dengan maksud ayat.",
-      explanationLearning:"Perhatikan maksud keseluruhan ayat sebelum memilih jawapan.",
-      options:{a:{learning:"jawapan pertama"},b:{learning:"jawapan kedua"},c:{learning:"jawapan ketiga"},d:{learning:"jawapan keempat"}}
-    },
-    "quiz-advanced-024": {
-      promptLearning:"Pilih bentuk kata kerja yang melengkapkan ayat dengan betul.",
-      explanationLearning:"Bentuk kata kerja perlu sepadan dengan keadaan yang diterangkan dalam ayat.",
-      options:{a:{learning:"bentuk pertama"},b:{learning:"bentuk kedua"},c:{learning:"bentuk ketiga"},d:{learning:"bentuk keempat"}}
-    },
-    "quiz-advanced-025": {
-      promptLearning:"Pilih jawapan yang melengkapkan ayat dengan tepat.",
-      explanationLearning:"Jawapan yang betul mengekalkan hubungan masa dan maksud ayat.",
-      options:{a:{learning:"jawapan pertama"},b:{learning:"jawapan kedua"},c:{learning:"jawapan ketiga"},d:{learning:"jawapan keempat"}}
-    },
     "quiz-advanced-026": {
       promptLearning:"Jika syarikat itu telah melabur lebih awal, syarikat itu ___ bahagian pasaran yang lebih besar pada hari ini.",
       explanationLearning:"Past perfect menerangkan pelaburan terdahulu yang tidak berlaku, manakala “would have” menerangkan keadaan pada masa kini.",
