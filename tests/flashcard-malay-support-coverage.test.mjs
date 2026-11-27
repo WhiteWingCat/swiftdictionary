@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
 
-test("Malay support glosses cover the first curated English and Chinese Flashcard vocabulary set",()=>{
+test("Curated Malay Flashcard glosses provide a non-empty fallback vocabulary set",()=>{
  const context={window:{}};
  vm.runInNewContext(fs.readFileSync("data/languages/malay-flashcard-translations.js","utf8"),context);
  const pack=context.window.SWIFT_FLASHCARD_MALAY_SUPPORT;
@@ -18,6 +18,8 @@ test("Flashcard decks exclude untranslated words when Malay is the selected supp
  const flashcards=fs.readFileSync("flashcards.js","utf8");
  assert.match(flashcards,/function addMalayFlashcardSupport\(items,language\)/);
  assert.match(flashcards,/SWIFT_FLASHCARD_MALAY_SUPPORT/);
+ assert.match(flashcards,/SWIFT_DICTIONARY_MS_TRANSLATIONS\?\.languages\?\.\[language\]/);
+ assert.match(flashcards,/generatedEntry\?\.senses\?\.find\(sense=>sense\.definitionMs\)/);
  assert.match(flashcards,/all=all\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
  assert.match(flashcards,/customCards=customCards\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
  assert.match(flashcards,/malaySupportEnglishCount/);
