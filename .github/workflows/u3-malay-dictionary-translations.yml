@@ -9,16 +9,6 @@ on:
       - "data/english-expansion.js"
       - "data/languages/chinese-dictionary.js"
       - "data/languages/malay-dictionary-manual-overrides.js"
-      - "data/languages/english-lessons.js"
-      - "data/chinese-lessons.js"
-      - "data/chinese-flashcards.js"
-      - "flashcards.js"
-      - "content/quiz/questions.en-zh.draft.json"
-      - "content/quiz/questions.zh-en.draft.json"
-      - "scripts/content/export-malay-learning-support-input.cjs"
-      - "scripts/content/generate-malay-learning-support.py"
-      - "scripts/content/validate-malay-learning-support.cjs"
-      - ".github/workflows/u3-malay-dictionary-translations.yml"
       - "data/chinese-characters.js"
   workflow_dispatch:
 
