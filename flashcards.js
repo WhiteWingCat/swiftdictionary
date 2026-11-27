@@ -866,7 +866,9 @@
     // Keep the third mode slot course-exclusive: Mixed (English) or Translation (Chinese), never both.
     const supportedModes=adapterFor(course)?.flashcardModes||[];
     if(!supportedModes.includes(state.mode)){
-      state.mode=supportedModes.includes("mixed")?"mixed":supportedModes[0]||"word";
+      if(state.mode==="mixed"&&supportedModes.includes("translation"))state.mode="translation";
+      else if(state.mode==="translation"&&supportedModes.includes("mixed"))state.mode="mixed";
+      else state.mode=supportedModes.includes("mixed")?"mixed":supportedModes[0]||"word";
     }
     if(currentUser&&!state.ready&&!state.loading){loadData();return;}
     if(overlayRoot.querySelector("#flashReviewTitle"))renderReviewPrompt();
