@@ -25,6 +25,29 @@ async function expectChineseCharacterInFilteredGrid(page, character) {
   await expect(words.filter({ hasText: character })).toHaveCount(1);
 }
 
+test("Chinese grid contains 725 unique single-character cards across all pages", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#openDictionaryFilters").click();
+  await page.locator("#courseSelect").selectOption("zh");
+
+  const next = page.locator("#nextPage");
+  const words = page.locator("#wordGrid .word-card .word-name");
+  const seen = new Set();
+  for (let pageIndex = 0; pageIndex < 10; pageIndex++) {
+    const current = await words.allTextContents();
+    expect(current.length).toBeGreaterThan(0);
+    for (const raw of current) {
+      const character = raw.trim();
+      expect([...character].length).toBe(1);
+      expect(seen.has(character)).toBe(false);
+      seen.add(character);
+    }
+    if (!(await next.isEnabled())) break;
+    await next.click();
+  }
+  expect(seen.size).toBe(725);
+});
+
 
 test("Chinese dictionary filters by pinyin initial and keeps cards character-only", async ({ page }) => {
   await page.goto("/");
