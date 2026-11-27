@@ -100,9 +100,10 @@ if (!html.includes('id="preferenceRefreshToast"') || !appScript.includes("showPr
     !appScript.includes("showPreferenceRefreshToast(\"translation\")")) {
   throw new Error("Course and translation selectors must show a transient page-refresh confirmation.");
 }
-if (!appScript.includes("p_learning_language:requestedCourse") || !appScript.includes("p_translation_language:requestedTranslation") ||
+if (!appScript.includes("p_learning_language:requestedCourse") || !appScript.includes("p_translation_language:serverTranslation") ||
+    !appScript.includes('const serverTranslation=requestedTranslation==="ms"?"en":requestedTranslation;') ||
     !appScript.includes("setTimeout(()=>resolve(false),1500)")) {
-  throw new Error("Quiz start must use the current selector values and must not block indefinitely on preference synchronization.");
+  throw new Error("Quiz start must use the current selector values, map local Malay support to the server's supported question-bank pair, and must not block indefinitely on preference synchronization.");
 }
 if (!appScript.includes("function quizApplyPageTranslation") || !appScript.includes("知识测验") ||
     !appScript.includes("通过不同主题的问题检验你的理解") || !appScript.includes("quizPageState.sessionView&&quizPageState.session?.session_id") || !appScript.includes("if(quizPageState.result)")) {
@@ -155,9 +156,10 @@ if (!mockTesting.includes("questions.zh-en.draft.json") || !mockTesting.includes
 if (appScript.includes('if(course==="zh"){quizStatus("The Chinese learning course is not available in Quiz yet.")')) {
   throw new Error("Chinese Quiz must be accessible when Chinese is the selected learning course.");
 }
-if (!appScript.includes('function quizTranslationVisible(code){return code === "zh" || code === "en";}') ||
-    !appScript.includes('showTranslation&&!chineseTranslationQuestion')) {
-  throw new Error("Quiz must display the selected translation in either learning-language direction without duplicating translation prompts.");
+if (!appScript.includes('function quizTranslationVisible(code){return code === "zh" || code === "en" || code === "ms";}') ||
+    !appScript.includes('showTranslation&&(effectiveTranslation==="ms"||!chineseTranslationQuestion)') ||
+    !appScript.includes('quizMalayOption(q,option,s.learning_language_code)')) {
+  throw new Error("Quiz must display the selected English, Chinese or Malay support translation without duplicating translation prompts.");
 }
 if (!mockTesting.includes("correct_option_id:question.correct_option_id") || !mockTesting.includes("delete item.correct_option_id")) {
   throw new Error("Mock answer shuffling must preserve correct option identity and hide answer keys before submission.");
