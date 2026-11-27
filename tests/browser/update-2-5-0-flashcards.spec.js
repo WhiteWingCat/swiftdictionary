@@ -198,10 +198,25 @@ test("Malay Flashcard course and support-language content are loaded",async({pag
   expect(stats.malayDictionaryEntryCount).toBe(650);
   expect(stats.malaySupportEnglishCount).toBe(73);
   expect(stats.malaySupportChineseCount).toBe(124);
+  expect(stats.malayGeneratedEnglishFlashcardCount).toBeGreaterThan(0);
+  expect(stats.malayGeneratedChineseFlashcardCount).toBeGreaterThan(0);
+  expect(stats.malayGeneratedEnglishExampleCount).toBeGreaterThan(0);
+  expect(stats.malayGeneratedChineseExampleCount).toBeGreaterThan(0);
   await page.locator("#courseSelect").selectOption("ms");
   await expect.poll(()=>page.locator(".flash-mode").evaluateAll(nodes=>nodes.map(n=>n.dataset.mode))).toEqual(["word","definition","mixed","sentence"]);
   await expect(page.locator("#translationSelect")).toHaveValue("en");
   await expect(page.locator("#translationSelect option[value='ms']")).toBeDisabled();
+});
+test("English Sentence Recall shows its Malay example translation",async({page})=>{
+  await openMockFlashcards(page);
+  await page.locator("#courseSelect").selectOption("en");
+  await page.locator("#translationSelect").selectOption("ms");
+  await beginRecall(page,"sentence","beginner","all");
+  await expect(page.locator(".flash-translation-hint")).toBeVisible();
+  await expect(page.locator(".flash-translation-hint")).toContainText("Terjemahan Bahasa Melayu:");
+  await expect(page.locator(".flash-translation-hint")).not.toContainText("[object Object]");
+  const translation=await page.locator(".flash-translation-hint").innerText();
+  expect(translation.replace("Terjemahan Bahasa Melayu:","").trim()).not.toBe("");
 });
 test("Flashcards home is simplified, colour-coded and opens a compact setup prompt",async({page})=>{
   await openMockFlashcards(page);
