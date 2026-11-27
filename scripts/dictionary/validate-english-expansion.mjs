@@ -277,7 +277,7 @@ const appSource = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const runtimeScriptAt = appSource.indexOf("data/english-expansion.js");
 const inlineEnglishAt = appSource.indexOf("const englishWords = window.SWIFT_ENGLISH_BASE_DICTIONARY;");
 const appendAt = appSource.indexOf("englishWords.push(...(window.SWIFT_ENGLISH_EXPANSION || []));");
-const chineseArrayAt = appSource.indexOf("const chineseWords = window.SWIFT_CHINESE_BASE_DICTIONARY;");
+const chineseArrayAt = appSource.indexOf("const chineseWordSource = [");
 const dictionaryStateAt = appSource.indexOf("let words = course ===");
 if (runtimeScriptAt < 0 || inlineEnglishAt < 0 || runtimeScriptAt > inlineEnglishAt) {
   errors.push("Runtime expansion script must load before the shared English Dictionary package is assigned.");
