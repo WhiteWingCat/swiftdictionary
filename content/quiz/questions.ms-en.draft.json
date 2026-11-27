@@ -7,7 +7,7 @@
   "batch": 4,
   "editorial_status": "draft",
   "translation_status": "machine_assisted_draft",
-  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting 36 prompt/explanation field reversals and four answer-option language mismatches. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
+  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting language-field reversals, support-language answer-option mismatches and several wording/answer-clarity issues. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
   "questions": [
     {
       "question_id": "quiz-ms-en-b001",
@@ -2012,28 +2012,28 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "kakak saya",
-          "translation_text": "my older sister"
+          "learning_text": "Saudara perempuan saya yang lebih tua",
+          "translation_text": "My older sister"
         },
         {
           "id": "b",
-          "learning_text": "adik lelaki saya",
-          "translation_text": "my younger brother"
+          "learning_text": "Saudara lelaki saya yang lebih muda",
+          "translation_text": "My younger brother"
         },
         {
           "id": "c",
-          "learning_text": "nenek saya",
-          "translation_text": "my grandmother"
+          "learning_text": "Nenek saya",
+          "translation_text": "My grandmother"
         },
         {
           "id": "d",
-          "learning_text": "bapa saudara saya",
-          "translation_text": "my uncle"
+          "learning_text": "Bapa saudara saya",
+          "translation_text": "My uncle"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kakak” merujuk saudara perempuan yang lebih tua; “saya” menunjukkan pemilikan atau hubungan dengan penutur.",
-      "explanation_translation": "“Kakak” means an older sister; “saya” links the relationship to the speaker.",
+      "explanation_learning": "“Kakak” merujuk kepada saudara perempuan yang lebih tua; “saya” menunjukkan hubungan dengan penutur.",
+      "explanation_translation": "“Kakak” means an older sister, while “saya” means my.",
       "learning_objective_id": "older-sister-term",
       "release_approved": true
     },
@@ -2363,28 +2363,28 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "kanak-kanak",
-          "translation_text": "children"
+          "learning_text": "Golongan anak atau budak",
+          "translation_text": "Children"
         },
         {
           "id": "b",
-          "learning_text": "orang dewasa",
-          "translation_text": "an adult"
+          "learning_text": "Orang dewasa",
+          "translation_text": "Adults"
         },
         {
           "id": "c",
-          "learning_text": "bilik darjah",
-          "translation_text": "a classroom"
+          "learning_text": "Bilik darjah",
+          "translation_text": "Classroom"
         },
         {
           "id": "d",
-          "learning_text": "guru",
-          "translation_text": "a teacher"
+          "learning_text": "Guru",
+          "translation_text": "Teacher"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kanak-kanak” ialah bentuk kata ganda yang merujuk golongan anak atau budak.",
-      "explanation_translation": "“Kanak-kanak” is a reduplicated form referring to children.",
+      "explanation_learning": "“Kanak-kanak” merujuk kepada golongan anak atau budak.",
+      "explanation_translation": "“Kanak-kanak” refers to children.",
       "learning_objective_id": "reduplication-meaning",
       "release_approved": true
     },
@@ -2748,13 +2748,13 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Pilih penanda wacana yang paling sesuai untuk memperkenalkan pengecualian terhadap hujah sebelumnya.",
-      "prompt_translation": "Choose the discourse marker that best introduces a qualification to the previous argument.",
+      "prompt_learning": "Pilih penanda wacana yang paling sesuai untuk memperkenalkan pertentangan atau batasan terhadap hujah sebelumnya.",
+      "prompt_translation": "Choose the discourse marker that best introduces a contrast or qualification to the previous argument.",
       "options": [
         {
           "id": "a",
           "learning_text": "Walau bagaimanapun",
-          "translation_text": "Nevertheless"
+          "translation_text": "However / Nevertheless"
         },
         {
           "id": "b",
@@ -2774,7 +2774,7 @@
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau mengehadkan kenyataan sebelumnya.",
-      "explanation_translation": "“Walau bagaimanapun” introduces contrasting information or qualifies a previous statement.",
+      "explanation_translation": "“Walau bagaimanapun” introduces a contrast or qualification to the preceding point.",
       "learning_objective_id": "discourse-connector-contrast",
       "release_approved": true
     },
@@ -3021,33 +3021,33 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Dua ayat berturut-turut bermula dengan “Pihak sekolah”. Apakah suntingan terbaik untuk mempelbagaikan struktur tanpa mengubah maksud?",
-      "prompt_translation": "Two consecutive sentences begin with “Pihak sekolah”. What is the best edit to vary the structure without changing the meaning?",
+      "prompt_learning": "Ayat asal: “Pihak sekolah mengadakan program membaca. Pihak sekolah turut membuka perpustakaan pada hujung minggu.” Pilih suntingan ayat kedua yang mengelakkan pengulangan subjek tanpa mengubah maksud.",
+      "prompt_translation": "Original: “The school organised a reading programme. The school also opened the library at weekends.” Choose an edit of the second sentence that avoids repeating the subject without changing the meaning.",
       "options": [
         {
           "id": "a",
-          "learning_text": "Gunakan “Di sekolah” sebagai frasa pendahuluan pada ayat kedua.",
-          "translation_text": "Use “Di sekolah” as an introductory phrase in the second sentence."
+          "learning_text": "Pada hujung minggu, perpustakaan itu turut dibuka oleh pihak sekolah.",
+          "translation_text": "At weekends, the library was also opened by the school."
         },
         {
           "id": "b",
-          "learning_text": "Buang semua kata kerja daripada ayat kedua.",
-          "translation_text": "Remove all verbs from the second sentence."
+          "learning_text": "Perpustakaan itu ditutup oleh pihak sekolah pada hujung minggu.",
+          "translation_text": "The library was closed by the school at weekends."
         },
         {
           "id": "c",
-          "learning_text": "Tukar fakta dalam ayat pertama.",
-          "translation_text": "Change the facts in the first sentence."
+          "learning_text": "Pihak sekolah menghentikan program membaca pada hujung minggu.",
+          "translation_text": "The school stopped the reading programme at weekends."
         },
         {
           "id": "d",
-          "learning_text": "Ulang kedua-dua ayat dengan susunan yang sama.",
-          "translation_text": "Repeat both sentences with the same structure."
+          "learning_text": "Pihak sekolah mengadakan program membaca.",
+          "translation_text": "The school organised a reading programme."
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Frasa pendahuluan boleh mempelbagaikan permulaan ayat sambil mengekalkan makna.",
-      "explanation_translation": "An introductory phrase can vary a sentence opening while preserving meaning.",
+      "explanation_learning": "Ayat pasif dengan frasa keterangan di hadapan mengelakkan pengulangan subjek dan mengekalkan makna asal.",
+      "explanation_translation": "A passive sentence with a fronted time phrase avoids repeating the subject while preserving the original meaning.",
       "learning_objective_id": "sentence-variation",
       "release_approved": true
     },
