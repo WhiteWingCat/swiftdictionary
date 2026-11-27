@@ -108,7 +108,9 @@
     const support=window.SWIFT_FLASHCARD_MALAY_SUPPORT?.[language]||{};
     const generated=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.[language]||{};
     return items.map(word=>{
-      const row=generated[String(word.word||"").trim()]||{};
+      const wordKey=String(word.word||"").trim();
+      const row=generated[wordKey]||generated[wordKey.toLocaleLowerCase("en")]||
+        Object.entries(generated).find(([key])=>key.toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))?.[1]||{};
       return {...word,
         definitionMs:word.definitionMs||support[word.word]||dictionaryDerivedMalaySupport(word,language),
         exampleMs:word.exampleMs||row.exampleMs||""
