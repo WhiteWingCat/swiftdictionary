@@ -53,6 +53,7 @@ function build(code, records, manual) {
 }
 
 // Retain the hand-authored starter batch as higher-quality overrides over offline MT drafts.
+// Keep the source inventory deterministic so the generator can be safely re-run.
 const manual = window.SWIFT_DICTIONARY_MS_TRANSLATIONS || {};
 const en = [
   ...(window.SWIFT_ENGLISH_BASE_DICTIONARY || []),
