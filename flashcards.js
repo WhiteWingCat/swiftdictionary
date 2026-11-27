@@ -57,13 +57,17 @@
     selectedWord:null,notice:"",saving:false,weakOnly:false,weakKeys:new Set(),allowanceToastDay:null,
     helpButton:root.querySelector('[data-learning-help="flashcards"]')
   };
+  function addMalayFlashcardSupport(items,language){
+    const support=window.SWIFT_FLASHCARD_MALAY_SUPPORT?.[language]||{};
+    return items.map(word=>({...word,definitionMs:word.definitionMs||support[word.word]||""}));
+  }
   function words(language=state.game?.learningLanguage||course){
     const adapter=adapterFor(language);
     if(!adapter)throw new Error("No language adapter is registered for Flashcards: "+language);
     if(isChineseLanguage(language)){
       const bank=window.SWIFT_CHINESE_FLASHCARDS||{};
       const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));
-      return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);
+      return addMalayFlashcardSupport([...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word),"zh");
     }
     if(language==="ms"){
       return (window.SWIFT_MALAY_DICTIONARY||[])
@@ -75,7 +79,7 @@
     if(language!=="en")throw new Error("Flashcard content is not available for language: "+language);
     const dictionary=(window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);
     const existing=new Set(dictionary.map(w=>String(w.word).trim().toLowerCase()));
-    return [...dictionary,...curatedEnglishPhrases.filter(w=>!existing.has(w.word.toLowerCase()))];
+    return addMalayFlashcardSupport([...dictionary,...curatedEnglishPhrases.filter(w=>!existing.has(w.word.toLowerCase()))],"en");
   }
   function selectedCollection(){return state.data.collections.find(c=>c.id===state.collectionId);}
   function cardsForCollection(){
@@ -378,6 +382,7 @@
       }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
       else if(state.cardSet==="terms")all=all.filter(w=>/technical vocabulary|scientific|academic|subject-specific/i.test(String(w.breakdown||"")+" "+String(w.tip||"")));
     }
+    if(course!=="ms"&&translationLanguage==="ms")all=all.filter(word=>Boolean(translationFor(word)));
     const allCards=[...all,...state.data.cards.filter(c=>c.card_type==="custom"&&(c.language_code||"en")===course).map(mapCustomCard)];
     if(state.collectionId==="all")return allCards;
     const selected=state.data.cards.filter(c=>c.collection_id===state.collectionId&&(c.language_code||"en")===course);
