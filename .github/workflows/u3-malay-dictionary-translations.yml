@@ -9,6 +9,13 @@ on:
       - "data/english-expansion.js"
       - "data/languages/chinese-dictionary.js"
       - "data/languages/malay-dictionary-manual-overrides.js"
+      - "data/languages/english-lessons.js"
+      - "data/chinese-lessons.js"
+      - "content/quiz/questions.en-zh.draft.json"
+      - "content/quiz/questions.zh-en.draft.json"
+      - "scripts/content/export-malay-learning-support-input.cjs"
+      - "scripts/content/generate-malay-learning-support.py"
+      - "scripts/content/validate-malay-learning-support.cjs"
       - "data/chinese-characters.js"
   workflow_dispatch:
 
@@ -43,15 +50,21 @@ jobs:
         run: python -m pip install --upgrade argostranslate
       - name: Generate Malay translations locally
         run: python scripts/content/generate-malay-dictionary-translations.py
+      - name: Export lesson practice and Quiz support translation inventory
+        run: node scripts/content/export-malay-learning-support-input.cjs
+      - name: Generate Malay lesson and Quiz support translations
+        run: python scripts/content/generate-malay-learning-support.py
       - name: Validate complete translation coverage
         run: |
           node --check data/languages/malay-dictionary-translations.js
           node scripts/content/validate-malay-dictionary-translations.cjs
+          node --check data/languages/malay-learning-support-translations.js
+          node scripts/content/validate-malay-learning-support.cjs
       - name: Commit generated draft translations
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/languages/malay-dictionary-translations.js
+          git add data/languages/malay-dictionary-translations.js data/languages/malay-learning-support-translations.js
           if git diff --cached --quiet; then
             echo "No translation output changes."
           else
