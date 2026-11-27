@@ -424,3 +424,18 @@ The expansion is loaded after the base Malay lesson file and before the shared c
 Automated U3.0 architecture/adapter/content regression passed **45/45 tests** on commit `9ee2d59b77e1ac9ded2e4ffa205ee9bbfdb79ac3` ([workflow 45932215643](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932215643)). This is structural/content-contract validation, not human language review or browser/device acceptance.
 
 Phase 3 remains in progress. No staging preview, database migration, production activation, main merge or deployment has occurred.
+
+
+## Phase 3 Malay Lessons expansion — Batch 03 (2026-11-27)
+
+Added a further 9 original draft lessons in `data/malay-lessons-expansion-03.js`. The permanent Malay Lessons catalogue now contains **27 lessons**, balanced as 9 Beginner, 9 Intermediate and 9 Advanced.
+
+New Beginner topics: family relationships and possessive phrases; places and giving directions; shopping, prices and quantities.  
+New Intermediate topics: adjective comparisons; intensifiers; compound and complex sentences.  
+New Advanced topics: sentence-structure variation; paraphrasing and summarising without changing meaning; critical reading and source reliability.
+
+The new batch is loaded before the shared content bootstrap. Manifest and automated assertions now record 27 unique lesson IDs and 9 lessons at each level. Content and English/Simplified Chinese support remain draft for staging review.
+
+U3.0 architecture/adapter/content regression passed **45/45 tests** on commit `8fc2695e2147fd99e58cfcdd9fef5fde49c03fea` ([workflow 45932623195](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932623195)). This validates syntax, package wiring and structural contracts only, not human language quality or browser/device acceptance.
+
+Phase 3 remains in progress. No staging preview, database migration, production activation, main merge or deployment has occurred.
