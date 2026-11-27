@@ -12,6 +12,7 @@ test("Malay Quiz draft banks cover both support languages and the 36-question fo
   assert.equal(pack.learning_language_code,"ms");
   assert.equal(pack.translation_language_code,target);
   assert.equal(pack.status,"draft");
+  assert.equal(pack.staging_release.status,"owner_authorized_staging_only");
   assert.equal(pack.questions.length,120);
   const ids=new Set();
   for(const level of ["beginner","intermediate","advanced"]){
@@ -21,7 +22,7 @@ test("Malay Quiz draft banks cover both support languages and the 36-question fo
   }
   for(const q of pack.questions){
    assert.equal(ids.has(q.question_id),false);ids.add(q.question_id);
-   assert.equal(q.release_approved,false);
+   assert.equal(q.release_approved,true);
    assert.equal(q.answer_language_code,"ms");
    assert.equal(q.question_type,"knowledge");
    assert.equal(q.options.length,4);
@@ -64,3 +65,19 @@ test("Malay Quiz runtime migration keeps answers private and reuses authenticate
  assert.match(sql,/grant execute on function private\.start_my_malay_quiz_impl[\s\S]*?to authenticated/);
 });
 
+
+
+test("Malay Quiz staging release uses Malay prompts and Malay answer choices",()=>{
+ for(const target of ["en","zh"]){
+  const pack=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.ms-"+target+".draft.json"),"utf8"));
+  const byId=new Map(pack.questions.map(q=>[q.question_id,q]));
+  for(let n=13;n<=48;n++){
+   const q=byId.get("quiz-ms-"+target+"-b"+String(n).padStart(3,"0"));
+   assert.ok(q.prompt_learning&&!/^(choose|which|what|where|how|why|select|complete|in the phrase|in the sentence|you arrive|someone says|you are|the claim|two websites|original:)/i.test(q.prompt_learning),q.question_id+" prompt must be Malay");
+  }
+  for(const n of [19,23,94,102]){
+   const q=byId.get("quiz-ms-"+target+"-b"+String(n).padStart(3,"0"));
+   assert.ok(q.options.every(o=>o.learning_text!==o.translation_text),q.question_id+" must not use support-language text as the Malay answer");
+  }
+ }
+});
