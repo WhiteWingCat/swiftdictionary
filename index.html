@@ -2143,12 +2143,18 @@ function lessonPractice(x){
       ?lessonMsPractice[isChineseCourse()?"zh":"en"]?.[x.id]
       :null;
   const orders=ls.practiceOptionOrders?.[x.id];
+  const practiceValue=(source,translated)=>{
+    if(translationLanguage==="ms"&&isChineseCourse()&&source&&typeof source==="object"&&typeof source.zh==="string"&&typeof translated==="string"){
+      return {...source,translations:{...(source.translations||{}),ms:translated}};
+    }
+    return translated??source;
+  };
   return src.map((q,i)=>{
     const translated=support?.[i];
     const order=orders?.[i]||q.options.map((_,j)=>j);
     return {
-      q:translated?.q??q.q,
-      options:order.map(j=>translated?.options?.[j]??q.options[j]),
+      q:practiceValue(q.q,translated?.q),
+      options:order.map(j=>practiceValue(q.options[j],translated?.options?.[j])),
       answer:order.indexOf(q.answer)
     };
   });
