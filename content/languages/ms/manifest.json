@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "active",
-  "contentVersion": "u3-ms-phase3-0.3.0",
+  "contentVersion": "u3-ms-phase3-0.4.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -34,17 +34,20 @@
     "lessons": {
       "status": "draft",
       "files": [
-        "data/malay-lessons.js"
+        "data/malay-lessons.js",
+        "data/malay-lessons-expansion-02.js",
+        "data/malay-lessons-expansion-03.js",
+        "data/malay-lessons-expansion-04.js"
       ],
-      "contentVersion": "u3-ms-lessons-0.3.0",
+      "contentVersion": "u3-ms-lessons-0.4.0",
       "lessonCounts": {
-        "beginner": 9,
-        "intermediate": 9,
-        "advanced": 9
+        "beginner": 12,
+        "intermediate": 12,
+        "advanced": 12
       },
       "editorialStatus": "draft",
-      "totalLessons": 27,
-      "expansionBatches": 3
+      "totalLessons": 36,
+      "expansionBatches": 4
     },
     "dailyLearning": {
       "status": "draft",
@@ -92,6 +95,7 @@
   },
   "notes": [
     "Malay is selectable only in the isolated U3.0 feature/staging build; do not enable it in production before owner review and release gates.",
-    "Phase 3 initial content pack contains 9 draft lessons and draft Daily Learning content; owner linguistic/translation review is scheduled during staging review."
+    "Phase 3 initial content pack contains 9 draft lessons and draft Daily Learning content; owner linguistic/translation review is scheduled during staging review.",
+    "Malay Lessons expansion batch 04 adds nine original-authored draft lessons (three per difficulty); all Malay content and EN/ZH support translations remain subject to staging review."
   ]
 }
