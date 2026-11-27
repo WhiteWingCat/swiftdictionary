@@ -4674,3 +4674,23 @@ Phase 3 scope:
 
 The feature branch remains `feature/update-3.0-phase-0-audit`; documentation remains on `docs/master-development-record`. Phase 3 staging is not authorised until internal implementation and regression checks are complete. No production database, Auth/RLS, main merge or deployment change is authorised.
 
+
+
+## 21. Update 3.0 Phase 3 — initial Malay learning implementation (2026-11-27)
+
+The owner moved human Malaysian Standard Malay linguistic review and independent English/Simplified Chinese translation review to the staging-review checkpoint. Phase 3 implementation is authorised to proceed; all existing Malay Dictionary records, translations and new lesson/activity content remain draft and unapproved until actual human review.
+
+Initial implementation on `feature/update-3.0-phase-0-audit`:
+- Added `data/malay-lessons.js` with 9 lessons (3 per difficulty), stable IDs, Malay primary text, English/Simplified Chinese support text, explanations, key points, examples, common mistakes and three multiple-choice practices per lesson.
+- Added `data/malay-daily-learning.js` with 3 Daily Topic, 3 Daily Application and 93 Daily Discovery records. Discovery uses a stable 93-entry rotation derived from the Malay Dictionary draft inventory.
+- Connected the Malay Dictionary, Lessons and Daily Learning data through the shared content-package bootstrap and registered Malay as active only in this feature/staging branch. Quiz and Flashcards remain unsupported and are blocked in the UI.
+- Added immediate refresh of Malay lesson/daily support text when the translation-language selection changes.
+- Added architecture/content tests for all three difficulty levels, bilingual fields, question structure, 93 unique Discovery records, shared package wrapping and capability gating.
+
+The U3.0 architecture/adapter/content regression workflow passed **45/45 tests** (run [45931107403](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45931107403), commit `ac5d8d0e2b694004686b5f4c18d9a72447dc47ee`). English dictionary QA also passed on the application-wiring checkpoint (run [45931053784](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45931053784)). These results do not prove browser/device acceptance, DB compatibility or linguistic correctness.
+
+A database-impact report was added at [U3.0 Phase 3 Database Impact](https://github.com/WhiteWingCat/swiftdictionary/blob/feature/update-3.0-phase-0-audit/docs/U3.0-PHASE-3-DATABASE-IMPACT.md). It records the en/zh-only lesson constraints and RPC guards, the missing Malay approved-content catalogue rows, the need to verify language registry/FK compatibility for Daily Learning, and the need for an environment-specific additive staging migration. No SQL migration was added to the active migration directory or applied to either Supabase environment. Staging migration requires separate explicit owner approval after schema diff and SQL review.
+
+Legal/privacy planning: Phase 3 reuses existing account-bound progress, practice-result, daily-session and allowance mechanisms and introduces no intended new personal-data field or third-party processor. Before public launch, re-check Malaysia PDPA Amendment Act 2024 obligations and current Commissioner guidance for controller registration, DPO, breach notification and cross-border transfers; assess whether the existing privacy notice adequately describes adaptive topic-level review. All dictionary and lesson content rights/provenance remain open until review.
+
+**Phase status:** Phase 3 is in progress. No staging preview, production activation, main merge or deployment has occurred.
