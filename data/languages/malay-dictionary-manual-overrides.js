@@ -3034,3 +3034,5 @@ window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES = {
     ]
   }
 };
+
+/* U3.0 translation regeneration trigger: preserve all manual overrides; generated Argos output remains draft. */
