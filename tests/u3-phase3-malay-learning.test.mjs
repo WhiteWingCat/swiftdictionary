@@ -122,7 +122,7 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   const support=context.window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
   const corrected=context.window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS;
   assert.equal(corrected.status,"model_assisted_malay_draft_pending_editorial_review");
-  assert.equal(corrected.quiz.en.length,23);
+  assert.equal(corrected.quiz.en.length,36);
   for(const id of corrected.quiz.en){
     const row=support.quiz.en[id];
     assert.ok(row,id+" missing from English Quiz Malay support");
