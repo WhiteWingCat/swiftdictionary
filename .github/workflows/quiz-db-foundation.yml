@@ -198,7 +198,7 @@ jobs:
         run: |
           eval "$(supabase status --output env)"
           psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/phase3_malay_enablement.sql"
-          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/staging/phase3_malay_catalog_seed.sql"
+          psql "$DB_URL" -X -v ON_ERROR_STOP=1 -f "$GITHUB_WORKSPACE/supabase/tests/quiz_malay_catalog_fixture.sql"
 
       - name: Apply U3.0 secure Malay Quiz runtime migration
         working-directory: ${{ runner.temp }}/swiftdictionary-quiz-supabase
