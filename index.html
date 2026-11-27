@@ -1062,9 +1062,12 @@
     let words = dictionaryEntriesFor(course);
     function syncMalayTargetOptionAvailability() {
       const profileLearningCode = document.getElementById("preferenceLearning")?.value || course;
+      // Malay is a valid translation selection in every active course.
+      // For the Malay course it resolves to the native Malay wording; English
+      // and Simplified Chinese remain available as support languages.
       const selectorAvailability = {
-        translationSelect: malayDictionaryTargetReady && course !== "ms",
-        preferenceTranslation: malayDictionaryTargetReady && profileLearningCode !== "ms"
+        translationSelect: malayDictionaryTargetReady,
+        preferenceTranslation: malayDictionaryTargetReady
       };
       for (const [selectorId, available] of Object.entries(selectorAvailability)) {
         const option = document.querySelector("#"+selectorId+' option[value="ms"]');
@@ -2880,7 +2883,13 @@ async function completeLesson(x){
       const timeLocale=translationLanguage==="zh"?"zh-CN":translationLanguage==="ms"?"ms-MY":"en-US";
       const timeLabel=timestamp=>timestamp?new Date(timestamp).toLocaleTimeString(timeLocale,{timeZone:timezone,hour:"numeric",minute:"2-digit"}):"";
       const groups={lessons:[],dailyLearning:[],quiz:[],flashcards:[]};
-      for(const row of lessonRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.lessons.push({type:"Lesson",title:dashboardLessonTopicTitle(row),detail:(row.difficulty||"")+" · "+dashboardLanguageLabel(row.learning_language),at:row.completed_at,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode:row.learning_language});
+      for(const row of lessonRows||[]){
+        const completedAt=row.completed_at||row.updated_at||row.created_at||null;
+        const languageCode=row.learning_language||row.language_code||"en";
+        if(row.status==="completed"&&completedAt&&localDate(completedAt)===today){
+          groups.lessons.push({type:"Lesson",title:dashboardLessonTopicTitle({...row,learning_language:languageCode}),detail:(row.difficulty||"")+" · "+dashboardLanguageLabel(languageCode),at:completedAt,lessonId:row.lesson_id,difficulty:row.difficulty,languageCode});
+        }
+      }
       for(const row of dailyRows||[])if(row.status==="completed"&&localDate(row.completed_at)===today)groups.dailyLearning.push({type:dashboardDailyActivityLabel(row.activity_type),title:dashboardDailyContentTitle(row),detail:(row.difficulty||"")+" · "+dashboardLanguageLabel(row.language_code),at:row.completed_at,activityType:row.activity_type,contentId:row.content_id,topicId:row.topic_id,difficulty:row.difficulty,languageCode:row.language_code,sessionId:row.id});
       for(const row of quizRows||[])if(localDate(row.completed_at)===today)groups.quiz.push({type:"Quiz",title:(quizDifficultyLabels[row.difficulty]||row.difficulty||"")+" Quiz",detail:(row.correct_count??0)+"/"+(row.question_count??0)+" correct · "+(row.percentage??0)+"%",at:row.completed_at,sessionId:row.session_id});
       for(const row of flashcardRows||[])if(localDate(row.completed_at)===today)groups.flashcards.push({type:"Flashcards",title:modeLabelForDashboard(row.mode)+" · "+(row.difficulty||""),detail:(row.correct_count??0)+"/"+(row.words_seen??0)+" correct",at:row.completed_at,sessionId:row.id});
@@ -2929,7 +2938,7 @@ async function completeLesson(x){
           supabaseClient.from("learning_plan_limits").select("plan_code,activity_type,daily_limit,is_enabled"),
           supabaseClient.from("lesson_practice_results").select("topic_id,learning_language,correct_count,question_count,attempted_at").eq("user_id",accountIdAtStart).order("attempted_at",{ascending:false}).limit(60),
           supabaseClient.rpc("get_my_lesson_practice_attempts",{p_limit:100}),
-          supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
+          supabaseClient.from("lesson_progress").select("learning_language,difficulty,lesson_id,status,completed_at,updated_at,created_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(100),
           supabaseClient.from("daily_activity_sessions").select("id,activity_type,language_code,content_id,topic_id,difficulty,status,correct_count,question_count,first_try_correct_count,incorrect_attempt_count,retry_count,completed_at").eq("user_id",accountIdAtStart).eq("status","completed").order("completed_at",{ascending:false}).limit(60),
           supabaseClient.from("saved_words").select("course,word").eq("user_id",accountIdAtStart),
           supabaseClient.rpc("get_my_learning_allowance_usage"),
@@ -3039,7 +3048,8 @@ async function completeLesson(x){
           const months=Math.floor(days/30); return "Last active "+months+" month"+(months===1?"":"s")+" ago";
         };
         document.getElementById("activeLanguagesList").innerHTML = activeLanguageRows.length ? activeLanguageRows.map(([code,stamp]) => {
-          const label=code==="zh"?"简体中文":code==="en"?"English":escapeHTML(code);
+          const registeredLanguage=window.SWIFT_LANGUAGE_REGISTRY?.get(code);
+          const label=registeredLanguage?.name ? escapeHTML(registeredLanguage.name) : escapeHTML(code||"English");
           return '<div class="active-language-row"><strong>'+label+'</strong><span>'+escapeHTML(relativeLastActive(stamp))+'</span></div>';
         }).join("") : "No completed learning activity recorded yet.";
         const counts=Object.fromEntries(types.map(type=>[type,completedActivity.filter(row=>row.activity_type===type).length]));
@@ -3805,12 +3815,16 @@ quizEl("lessonsChineseUnavailable").hidden=true;
       quizEl("dailyLearningPage").hidden=!lessonsSignedIn;
 quizEl("lessonsPage").querySelector(".difficulty-tabs").hidden=!lessonsSignedIn;
 quizEl("lessonLibrary").hidden=!lessonsSignedIn;
-      const quizSupported=!!window.SWIFT_LANGUAGE_REGISTRY?.supports(course,"quiz");
+      const quizLanguage=window.SWIFT_LANGUAGE_REGISTRY?.get(course);
+      const quizSupported=!!quizLanguage?.capabilities?.quiz && quizLanguage.status==="active";
       const quizUnavailable=quizEl("quizChineseUnavailable");
+      // Recompute the unavailable panel from the current course on every page
+      // render; never leave a previous course's "coming soon" copy visible.
       quizUnavailable.hidden=quizSupported;
       if(!quizSupported){
-        quizUnavailable.querySelector("h2").textContent=course==="ms"?"Malay Quiz is planned for a later phase":"Quiz is unavailable for this language";
-        quizUnavailable.querySelector("p").textContent=course==="ms"?"Malay Quiz will be added in a later U3.0 phase. You can use the Malay Dictionary, Lessons and Daily Learning in this staging build.":"This learning language does not yet have Quiz content.";
+        const languageName=quizLanguage?.name || course || "This language";
+        quizUnavailable.querySelector("h2").textContent=languageName+" Quiz is unavailable";
+        quizUnavailable.querySelector("p").textContent="Quiz content for "+languageName+" is not available in this build. Your current learning and translation preferences are preserved.";
       }
       const quizSignedIn=!!currentUser;
       const showQuizResults=quizSignedIn&&!!quizPageState.result;
