@@ -2124,7 +2124,604 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
       "focus": {
         "senses": [
           {
-            "definitionMs": "Pusat utama perhatian, minat atau kegiatan."
+            "definitionMs": "Memberikan perhatian kepada seseorang, perkara atau aktiviti tertentu."
+          }
+        ]
+      },
+      "forensic": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan kaedah saintifik yang digunakan untuk menyiasat bukti, khususnya bagi prosiding undang-undang."
+          }
+        ]
+      },
+      "forgive": {
+        "senses": [
+          {
+            "definitionMs": "Berhenti berasa marah atau berdendam terhadap seseorang atas sesuatu perbuatannya."
+          }
+        ]
+      },
+      "fortunately": {
+        "senses": [
+          {
+            "definitionMs": "Digunakan untuk memperkenalkan hasil yang baik atau bernasib baik."
+          }
+        ]
+      },
+      "frequent": {
+        "senses": [
+          {
+            "definitionMs": "Berlaku dengan kerap atau berulang kali dalam sesuatu tempoh."
+          }
+        ]
+      },
+      "frequently": {
+        "senses": [
+          {
+            "definitionMs": "Dengan kerap atau pada banyak kesempatan."
+          }
+        ]
+      },
+      "frown": {
+        "senses": [
+          {
+            "definitionMs": "Mengerutkan kening, biasanya kerana bimbang, keliru atau tidak senang hati."
+          },
+          {
+            "definitionMs": "Raut wajah apabila kening dikerutkan, lazimnya menunjukkan kebimbangan atau rasa tidak senang."
+          }
+        ]
+      },
+      "frustrated": {
+        "senses": [
+          {
+            "definitionMs": "Berasa kecewa atau marah kerana sesuatu perkara sukar dilakukan atau tidak berfungsi."
+          }
+        ]
+      },
+      "gasp": {
+        "senses": [
+          {
+            "definitionMs": "Menarik nafas secara tiba-tiba kerana terkejut, sakit, kagum atau sukar bernafas."
+          },
+          {
+            "definitionMs": "Tarikan nafas yang tiba-tiba dan kuat akibat terkejut, kagum atau kesukaran bernafas."
+          }
+        ]
+      },
+      "gather": {
+        "senses": [
+          {
+            "definitionMs": "Mengumpulkan beberapa benda atau berhimpun dalam satu kumpulan."
+          }
+        ]
+      },
+      "gawk": {
+        "senses": [
+          {
+            "definitionMs": "Merenung seseorang atau sesuatu dengan cara yang kurang sopan kerana terlalu kagum atau terkejut."
+          }
+        ]
+      },
+      "gaze": {
+        "senses": [
+          {
+            "definitionMs": "Memandang seseorang atau sesuatu secara berterusan, sering kali dengan rasa kagum atau sambil berfikir."
+          },
+          {
+            "definitionMs": "Pandangan yang tetap, lazimnya disertai renungan atau kekaguman."
+          }
+        ]
+      },
+      "genealogy": {
+        "senses": [
+          {
+            "definitionMs": "Kajian atau rekod keturunan dan hubungan kekeluargaan; secara lebih umum, sejarah perkembangan sesuatu perkara."
+          }
+        ]
+      },
+      "generally": {
+        "senses": [
+          {
+            "definitionMs": "Biasanya atau dalam kebanyakan keadaan."
+          }
+        ]
+      },
+      "gently": {
+        "senses": [
+          {
+            "definitionMs": "Dengan cara yang lembut, berhati-hati atau penuh kebaikan."
+          }
+        ]
+      },
+      "geochronology": {
+        "senses": [
+          {
+            "definitionMs": "Bidang sains yang menentukan usia batuan, fosil dan peristiwa geologi."
+          }
+        ]
+      },
+      "geomorphology": {
+        "senses": [
+          {
+            "definitionMs": "Kajian saintifik tentang bentuk muka bumi dan proses yang membentuk permukaan Bumi."
+          }
+        ]
+      },
+      "gesture": {
+        "senses": [
+          {
+            "definitionMs": "Membuat gerakan tangan, kepala atau badan untuk menyampaikan sesuatu maksud."
+          },
+          {
+            "definitionMs": "Gerakan atau tindakan yang menyampaikan idea atau perasaan; juga tindakan yang menunjukkan kebaikan atau sokongan."
+          }
+        ]
+      },
+      "giggle": {
+        "senses": [
+          {
+            "definitionMs": "Ketawa kecil dengan nada tinggi, biasanya kerana geli hati atau gementar."
+          },
+          {
+            "definitionMs": "Ketawa kecil yang ringan dan bernada tinggi."
+          }
+        ]
+      },
+      "glance": {
+        "senses": [
+          {
+            "definitionMs": "Memandang seseorang atau sesuatu dengan pantas."
+          },
+          {
+            "definitionMs": "Pandangan sepintas lalu terhadap seseorang atau sesuatu."
+          }
+        ]
+      },
+      "glare": {
+        "senses": [
+          {
+            "definitionMs": "Memandang seseorang dengan marah atau garang."
+          },
+          {
+            "definitionMs": "Pandangan yang marah atau garang; juga cahaya yang terlalu terang dan tidak menyenangkan."
+          }
+        ]
+      },
+      "glower": {
+        "senses": [
+          {
+            "definitionMs": "Memandang seseorang dengan marah, biasanya tanpa berkata-kata."
+          },
+          {
+            "definitionMs": "Pandangan yang marah dan tidak mesra."
+          }
+        ]
+      },
+      "goal": {
+        "senses": [
+          {
+            "definitionMs": "Sesuatu yang ingin dicapai oleh seseorang atau kumpulan."
+          },
+          {
+            "definitionMs": "Mata yang dijaringkan dalam sukan seperti bola sepak atau hoki."
+          }
+        ]
+      },
+      "gradually": {
+        "senses": [
+          {
+            "definitionMs": "Secara perlahan-lahan melalui beberapa peringkat dalam suatu tempoh."
+          }
+        ]
+      },
+      "grateful": {
+        "senses": [
+          {
+            "definitionMs": "Berasa atau menunjukkan rasa terima kasih atas sesuatu."
+          }
+        ]
+      },
+      "grieve": {
+        "senses": [
+          {
+            "definitionMs": "Mengalami kesedihan yang mendalam, khususnya selepas kematian seseorang atau kehilangan sesuatu yang penting."
+          }
+        ]
+      },
+      "grimace": {
+        "senses": [
+          {
+            "definitionMs": "Mengubah bentuk muka sehingga menunjukkan kesakitan, rasa jijik atau ketidakselesaan."
+          },
+          {
+            "definitionMs": "Raut wajah yang menunjukkan kesakitan, rasa jijik atau ketidakselesaan."
+          }
+        ]
+      },
+      "grip": {
+        "senses": [
+          {
+            "definitionMs": "Memegang sesuatu dengan kukuh atau kuat."
+          },
+          {
+            "definitionMs": "Pegangan yang kukuh atau keupayaan memegang sesuatu dengan selamat; juga bahagian objek yang direka untuk dipegang."
+          }
+        ]
+      },
+      "grumble": {
+        "senses": [
+          {
+            "definitionMs": "Merungut atau mengadu dengan suara perlahan dan tidak puas hati."
+          },
+          {
+            "definitionMs": "Rungutan atau bunyi perlahan yang menunjukkan rasa tidak puas hati."
+          }
+        ]
+      },
+      "habit": {
+        "senses": [
+          {
+            "definitionMs": "Sesuatu yang dilakukan secara tetap, selalunya tanpa perlu memikirkannya."
+          }
+        ]
+      },
+      "handle": {
+        "senses": [
+          {
+            "definitionMs": "Mengurus atau menangani keadaan, masalah atau seseorang; juga mengawal atau menggunakan sesuatu."
+          },
+          {
+            "definitionMs": "Bahagian sesuatu objek yang dipegang untuk membuka, membawa atau mengawalnya."
+          }
+        ]
+      },
+      "hermeneutics": {
+        "senses": [
+          {
+            "definitionMs": "Teori dan amalan mentafsir teks, khususnya teks sastera, undang-undang atau keagamaan."
+          }
+        ]
+      },
+      "hesitate": {
+        "senses": [
+          {
+            "definitionMs": "Berhenti seketika sebelum melakukan atau mengatakan sesuatu kerana tidak pasti atau berasa gementar."
+          }
+        ]
+      },
+      "hesitation": {
+        "senses": [
+          {
+            "definitionMs": "Jeda atau kelewatan singkat yang disebabkan oleh ketidakpastian atau keraguan."
+          }
+        ]
+      },
+      "heteroskedasticity": {
+        "senses": [
+          {
+            "definitionMs": "Keadaan apabila varians ralat dalam model statistik tidak kekal atau berbeza-beza."
+          }
+        ]
+      },
+      "heuristic": {
+        "senses": [
+          {
+            "definitionMs": "Peraturan atau strategi praktikal yang membantu menyelesaikan masalah dengan cepat walaupun tidak semestinya menghasilkan jawapan terbaik."
+          },
+          {
+            "definitionMs": "Membantu seseorang menemui atau menyelesaikan sesuatu melalui penerokaan praktikal dan bukannya prosedur tetap."
+          }
+        ]
+      },
+      "historiography": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang cara sejarah ditulis, ditafsirkan dan diperdebatkan oleh ahli sejarah."
+          }
+        ]
+      },
+      "homology": {
+        "senses": [
+          {
+            "definitionMs": "Persamaan yang wujud kerana asal usul atau struktur sepadan yang dikongsi, khususnya dalam biologi."
+          }
+        ]
+      },
+      "honest": {
+        "senses": [
+          {
+            "definitionMs": "Bercakap benar dan tidak berniat mengelirukan orang lain."
+          }
+        ]
+      },
+      "honestly": {
+        "senses": [
+          {
+            "definitionMs": "Dengan jujur atau terus terang."
+          }
+        ]
+      },
+      "however": {
+        "senses": [
+          {
+            "definitionMs": "Digunakan untuk memperkenalkan perbezaan atau pengecualian."
+          }
+        ]
+      },
+      "hunch": {
+        "senses": [
+          {
+            "definitionMs": "Membongkokkan badan ke hadapan dan mengangkat bahu, selalunya kerana sejuk, takut atau sedang menumpukan perhatian."
+          },
+          {
+            "definitionMs": "Perasaan atau kepercayaan tentang sesuatu tanpa bukti yang jelas; tekaan berdasarkan gerak hati."
+          }
+        ]
+      },
+      "hydrology": {
+        "senses": [
+          {
+            "definitionMs": "Kajian saintifik tentang air, termasuk pergerakan, taburan dan sifatnya di Bumi."
+          }
+        ]
+      },
+      "hydrolysis": {
+        "senses": [
+          {
+            "definitionMs": "Tindak balas kimia apabila sesuatu sebatian diuraikan melalui tindak balas dengan air."
+          }
+        ]
+      },
+      "ignore": {
+        "senses": [
+          {
+            "definitionMs": "Tidak memberikan perhatian kepada seseorang atau sesuatu."
+          }
+        ]
+      },
+      "imagine": {
+        "senses": [
+          {
+            "definitionMs": "Membentuk gambaran atau idea dalam fikiran."
+          }
+        ]
+      },
+      "imitate": {
+        "senses": [
+          {
+            "definitionMs": "Meniru tindakan, gaya atau penampilan seseorang atau sesuatu."
+          }
+        ]
+      },
+      "immediately": {
+        "senses": [
+          {
+            "definitionMs": "Dengan serta-merta dan tanpa berlengah."
+          }
+        ]
+      },
+      "impact": {
+        "senses": [
+          {
+            "definitionMs": "Kesan atau pengaruh kuat sesuatu perkara terhadap perkara lain; juga daya hentaman antara dua objek."
+          },
+          {
+            "definitionMs": "Memberikan kesan yang kuat terhadap seseorang atau sesuatu."
+          }
+        ]
+      },
+      "impatient": {
+        "senses": [
+          {
+            "definitionMs": "Berasa jengkel kerana terpaksa menunggu atau menghadapi kelewatan."
+          }
+        ]
+      },
+      "improve": {
+        "senses": [
+          {
+            "definitionMs": "Menjadi lebih baik atau menjadikan sesuatu lebih baik."
+          }
+        ]
+      },
+      "improvement": {
+        "senses": [
+          {
+            "definitionMs": "Perubahan yang menjadikan sesuatu lebih baik."
+          }
+        ]
+      },
+      "impulsive": {
+        "senses": [
+          {
+            "definitionMs": "Bertindak secara tiba-tiba tanpa mempertimbangkan akibatnya dengan teliti."
+          }
+        ]
+      },
+      "include": {
+        "senses": [
+          {
+            "definitionMs": "Menjadikan seseorang atau sesuatu sebahagian daripada kumpulan atau keseluruhan."
+          }
+        ]
+      },
+      "increase": {
+        "senses": [
+          {
+            "definitionMs": "Menjadi lebih besar dari segi jumlah, saiz, bilangan atau tahap; atau menjadikan sesuatu lebih besar."
+          },
+          {
+            "definitionMs": "Pertambahan dari segi jumlah, saiz, bilangan atau tahap."
+          }
+        ]
+      },
+      "independent": {
+        "senses": [
+          {
+            "definitionMs": "Mampu bertindak atau membuat keputusan tanpa bergantung pada orang lain."
+          }
+        ]
+      },
+      "individual": {
+        "senses": [
+          {
+            "definitionMs": "Seseorang atau sesuatu yang dianggap secara berasingan daripada kumpulan."
+          },
+          {
+            "definitionMs": "Berkaitan seorang atau satu benda sahaja dan bukannya kumpulan; berasingan atau khusus."
+          }
+        ]
+      },
+      "insecure": {
+        "senses": [
+          {
+            "definitionMs": "Tidak yakin terhadap diri sendiri atau tidak berasa selamat dan stabil."
+          }
+        ]
+      },
+      "instead": {
+        "senses": [
+          {
+            "definitionMs": "Sebagai pilihan atau pengganti kepada sesuatu yang lain."
+          }
+        ]
+      },
+      "intentional": {
+        "senses": [
+          {
+            "definitionMs": "Dilakukan dengan sengaja dan bukannya secara tidak sengaja."
+          }
+        ]
+      },
+      "interest": {
+        "senses": [
+          {
+            "definitionMs": "Perasaan ingin mengetahui atau mempelajari sesuatu; juga kepentingan atau hak yang berkaitan dengan sesuatu."
+          },
+          {
+            "definitionMs": "Menjadikan seseorang ingin tahu atau mengetahui lebih lanjut tentang sesuatu."
+          }
+        ]
+      },
+      "interpret": {
+        "senses": [
+          {
+            "definitionMs": "Menerangkan maksud sesuatu perkara."
+          },
+          {
+            "definitionMs": "Memahami atau menyampaikan sesuatu perkara mengikut tafsiran tertentu."
+          },
+          {
+            "definitionMs": "Menterjemahkan pertuturan daripada satu bahasa kepada bahasa yang lain."
+          }
+        ]
+      },
+      "interrupt": {
+        "senses": [
+          {
+            "definitionMs": "Menghentikan seseorang ketika sedang bercakap atau melakukan sesuatu."
+          }
+        ]
+      },
+      "interview": {
+        "senses": [
+          {
+            "definitionMs": "Pertemuan rasmi apabila seseorang mengemukakan soalan kepada orang lain, lazimnya untuk menilai kesesuaian kerja atau mendapatkan maklumat."
+          },
+          {
+            "definitionMs": "Menyoal seseorang dalam pertemuan rasmi atau untuk laporan, kajian atau siaran."
+          }
+        ]
+      },
+      "involve": {
+        "senses": [
+          {
+            "definitionMs": "Melibatkan seseorang atau sesuatu sebagai bahagian yang diperlukan."
+          }
+        ]
+      },
+      "isostasy": {
+        "senses": [
+          {
+            "definitionMs": "Keseimbangan graviti antara kerak Bumi dengan mantel yang lebih tumpat di bawahnya."
+          }
+        ]
+      },
+      "isotope": {
+        "senses": [
+          {
+            "definitionMs": "Salah satu daripada dua atau lebih bentuk unsur yang mempunyai bilangan proton sama tetapi bilangan neutron berbeza."
+          }
+        ]
+      },
+      "isotropy": {
+        "senses": [
+          {
+            "definitionMs": "Sifat mempunyai ciri yang sama dalam setiap arah."
+          }
+        ]
+      },
+      "issue": {
+        "senses": [
+          {
+            "definitionMs": "Perkara penting untuk dibincangkan atau masalah yang memerlukan perhatian."
+          },
+          {
+            "definitionMs": "Mengeluarkan, menerbitkan atau menghantar sesuatu secara rasmi, seperti dokumen, kenyataan atau arahan."
+          }
+        ]
+      },
+      "jargon": {
+        "senses": [
+          {
+            "definitionMs": "Istilah khusus yang digunakan oleh profesion atau kumpulan tertentu."
+          }
+        ]
+      },
+      "jealous": {
+        "senses": [
+          {
+            "definitionMs": "Berasa tidak senang atau berdendam kerana orang lain memiliki sesuatu yang diingini."
+          }
+        ]
+      },
+      "jettison": {
+        "senses": [
+          {
+            "definitionMs": "Membuang sesuatu yang tidak lagi berguna atau meninggalkannya untuk mengurangkan beban."
+          }
+        ]
+      },
+      "joule": {
+        "senses": [
+          {
+            "definitionMs": "Unit Sistem Antarabangsa untuk mengukur tenaga, kerja atau haba."
+          }
+        ]
+      },
+      "journey": {
+        "senses": [
+          {
+            "definitionMs": "Perjalanan dari satu tempat ke tempat lain, khususnya bagi jarak yang jauh."
+          },
+          {
+            "definitionMs": "Proses panjang perubahan, pembelajaran atau perkembangan peribadi."
+          }
+        ]
+      },
+      "jovian": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan planet Musytari atau secara lebih umum planet gergasi yang menyerupainya."
+          }
+        ]
+      },
+      "juncture": {
+        "senses": [
+          {
+            "definitionMs": "Titik tertentu dalam masa, khususnya ketika keputusan penting perlu dibuat."
           }
         ]
       }
@@ -3447,6 +4044,638 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "definitionMs": "Kaki; juga bahagian bawah atau tapak sesuatu benda."
+          }
+        ]
+      },
+      "头": {
+        "senses": [
+          {
+            "definitionMs": "Kepala atau bahagian paling atas; juga bermaksud permulaan dan digunakan sebagai penjodoh bilangan bagi haiwan ternakan."
+          }
+        ]
+      },
+      "眼": {
+        "senses": [
+          {
+            "definitionMs": "Mata; juga merujuk kepada bukaan atau lubang."
+          }
+        ]
+      },
+      "鼻": {
+        "senses": [
+          {
+            "definitionMs": "Hidung; organ untuk menghidu bau dan membantu pernafasan."
+          }
+        ]
+      },
+      "身": {
+        "senses": [
+          {
+            "definitionMs": "Badan atau diri seseorang."
+          }
+        ]
+      },
+      "耳": {
+        "senses": [
+          {
+            "definitionMs": "Telinga; juga sesuatu yang berbentuk seperti telinga."
+          }
+        ]
+      },
+      "牙": {
+        "senses": [
+          {
+            "definitionMs": "Gigi atau taring."
+          }
+        ]
+      },
+      "皮": {
+        "senses": [
+          {
+            "definitionMs": "Kulit atau lapisan luar; juga kulit haiwan yang diproses menjadi kulit samak."
+          }
+        ]
+      },
+      "毛": {
+        "senses": [
+          {
+            "definitionMs": "Rambut, bulu, rerambut atau wol."
+          }
+        ]
+      },
+      "血": {
+        "senses": [
+          {
+            "definitionMs": "Darah; juga keturunan atau hubungan kekeluargaan melalui darah."
+          }
+        ]
+      },
+      "骨": {
+        "senses": [
+          {
+            "definitionMs": "Tulang; juga rangka atau struktur asas sesuatu perkara."
+          }
+        ]
+      },
+      "胃": {
+        "senses": [
+          {
+            "definitionMs": "Perut; organ yang mencerna makanan."
+          }
+        ]
+      },
+      "合": {
+        "senses": [
+          {
+            "definitionMs": "Bersama atau bergabung; sesuai atau sepadan."
+          }
+        ]
+      },
+      "卖": {
+        "senses": [
+          {
+            "definitionMs": "Menjual barang atau perkhidmatan."
+          }
+        ]
+      },
+      "果": {
+        "senses": [
+          {
+            "definitionMs": "Buah; juga hasil atau akibat sesuatu perkara."
+          }
+        ]
+      },
+      "甜": {
+        "senses": [
+          {
+            "definitionMs": "Manis dari segi rasa."
+          }
+        ]
+      },
+      "盐": {
+        "senses": [
+          {
+            "definitionMs": "Garam; bahan berasa masin yang digunakan dalam makanan."
+          }
+        ]
+      },
+      "糖": {
+        "senses": [
+          {
+            "definitionMs": "Gula; juga gula-gula."
+          }
+        ]
+      },
+      "苹": {
+        "senses": [
+          {
+            "definitionMs": "Epal; digunakan terutamanya dalam gabungan perkataan seperti 苹果."
+          }
+        ]
+      },
+      "香": {
+        "senses": [
+          {
+            "definitionMs": "Harum atau mempunyai bau yang menyenangkan."
+          }
+        ]
+      },
+      "苦": {
+        "senses": [
+          {
+            "definitionMs": "Pahit; juga bermaksud sukar, menyakitkan atau penuh kesusahan."
+          }
+        ]
+      },
+      "酸": {
+        "senses": [
+          {
+            "definitionMs": "Masam; juga rasa sakit atau lenguh pada badan."
+          }
+        ]
+      },
+      "辣": {
+        "senses": [
+          {
+            "definitionMs": "Pedas atau mempunyai rasa yang kuat seperti cili."
+          }
+        ]
+      },
+      "肥": {
+        "senses": [
+          {
+            "definitionMs": "Gemuk atau berlemak; juga bermaksud subur bagi tanah."
+          }
+        ]
+      },
+      "瘦": {
+        "senses": [
+          {
+            "definitionMs": "Kurus atau tidak mempunyai banyak lemak badan."
+          }
+        ]
+      },
+      "肚": {
+        "senses": [
+          {
+            "definitionMs": "Perut atau bahagian abdomen."
+          }
+        ]
+      },
+      "背": {
+        "senses": [
+          {
+            "definitionMs": "Bahagian belakang badan; juga menghafal atau membaca sesuatu tanpa melihat teks."
+          },
+          {
+            "definitionMs": "Mengangkat atau membawa sesuatu di atas belakang atau bahu."
+          }
+        ]
+      },
+      "八": {
+        "senses": [
+          {
+            "definitionMs": "Angka lapan."
+          }
+        ]
+      },
+      "帮": {
+        "senses": [
+          {
+            "definitionMs": "Membantu, menolong atau memberikan sokongan."
+          }
+        ]
+      },
+      "包": {
+        "senses": [
+          {
+            "definitionMs": "Beg atau bungkusan; membungkus atau merangkumi sesuatu."
+          }
+        ]
+      },
+      "备": {
+        "senses": [
+          {
+            "definitionMs": "Menyediakan atau melengkapkan; juga membawa maksud lengkap dalam kata majmuk tertentu."
+          }
+        ]
+      },
+      "比": {
+        "senses": [
+          {
+            "definitionMs": "Membandingkan; daripada dalam perbandingan; juga nisbah."
+          }
+        ]
+      },
+      "边": {
+        "senses": [
+          {
+            "definitionMs": "Sisi, tepi, sempadan atau pinggir."
+          }
+        ]
+      },
+      "常": {
+        "senses": [
+          {
+            "definitionMs": "Kerap, lazim, biasa atau berterusan."
+          }
+        ]
+      },
+      "场": {
+        "senses": [
+          {
+            "definitionMs": "Tempat atau gelanggang; juga medan atau acara."
+          },
+          {
+            "definitionMs": "Penjodoh bilangan bagi sesetengah peristiwa atau kejadian."
+          }
+        ]
+      },
+      "唱": {
+        "senses": [
+          {
+            "definitionMs": "Menyanyi, melagukan atau melaungkan sesuatu."
+          }
+        ]
+      },
+      "次": {
+        "senses": [
+          {
+            "definitionMs": "Kali atau kejadian; juga menunjukkan turutan atau kedudukan seterusnya."
+          }
+        ]
+      },
+      "打": {
+        "senses": [
+          {
+            "definitionMs": "Memukul atau mengetuk; juga bermain permainan tertentu atau membuat panggilan telefon."
+          },
+          {
+            "definitionMs": "Satu dozen, iaitu kumpulan yang terdiri daripada dua belas."
+          }
+        ]
+      },
+      "大": {
+        "senses": [
+          {
+            "definitionMs": "Besar, hebat atau lebih tua."
+          },
+          {
+            "definitionMs": "Gelaran tradisional bagi doktor dalam perkataan 大夫."
+          }
+        ]
+      },
+      "地": {
+        "senses": [
+          {
+            "definitionMs": "Bumi, tanah atau tempat."
+          },
+          {
+            "definitionMs": "Partikel struktur yang membentuk keterangan cara sebelum kata kerja."
+          }
+        ]
+      },
+      "弟": {
+        "senses": [
+          {
+            "definitionMs": "Adik lelaki; juga digunakan bagi lelaki yang lebih muda dalam hubungan tertentu."
+          }
+        ]
+      },
+      "第": {
+        "senses": [
+          {
+            "definitionMs": "Awalan yang digunakan untuk membentuk nombor tertib seperti pertama atau kedua."
+          }
+        ]
+      },
+      "点": {
+        "senses": [
+          {
+            "definitionMs": "Titik atau tempat; pukul dalam penentuan masa; sedikit; juga memilih sesuatu."
+          }
+        ]
+      },
+      "动": {
+        "senses": [
+          {
+            "definitionMs": "Bergerak, menggerakkan atau bertindak; juga menunjukkan perubahan."
+          }
+        ]
+      },
+      "都": {
+        "senses": [
+          {
+            "definitionMs": "Semua, kedua-duanya atau keseluruhannya."
+          },
+          {
+            "definitionMs": "Ibu kota atau bandar utama."
+          }
+        ]
+      },
+      "饿": {
+        "senses": [
+          {
+            "definitionMs": "Lapar atau mengalami kelaparan."
+          }
+        ]
+      },
+      "儿": {
+        "senses": [
+          {
+            "definitionMs": "Anak atau anak lelaki."
+          },
+          {
+            "definitionMs": "Akhiran kecil yang digunakan dalam sesetengah perkataan atau sebutan."
+          }
+        ]
+      },
+      "放": {
+        "senses": [
+          {
+            "definitionMs": "Meletakkan, melepaskan atau membebaskan sesuatu."
+          }
+        ]
+      },
+      "飞": {
+        "senses": [
+          {
+            "definitionMs": "Terbang atau bergerak di udara."
+          }
+        ]
+      },
+      "非": {
+        "senses": [
+          {
+            "definitionMs": "Bukan atau tidak; salah; juga awalan yang membawa maksud bukan sesuatu."
+          }
+        ]
+      },
+      "分": {
+        "senses": [
+          {
+            "definitionMs": "Membahagikan atau mengagihkan; juga minit sebagai unit masa."
+          },
+          {
+            "definitionMs": "Bahagian, perkongsian atau kuota seseorang."
+          }
+        ]
+      },
+      "干": {
+        "senses": [
+          {
+            "definitionMs": "Kering atau tidak basah."
+          },
+          {
+            "definitionMs": "Melakukan sesuatu atau bekerja."
+          }
+        ]
+      },
+      "高": {
+        "senses": [
+          {
+            "definitionMs": "Tinggi atau besar dari segi ukuran; melebihi purata; juga kuat dari segi bunyi."
+          }
+        ]
+      },
+      "告": {
+        "senses": [
+          {
+            "definitionMs": "Memberitahu, mengumumkan, melaporkan atau membuat aduan."
+          }
+        ]
+      },
+      "歌": {
+        "senses": [
+          {
+            "definitionMs": "Lagu atau nyanyian."
+          }
+        ]
+      },
+      "馆": {
+        "senses": [
+          {
+            "definitionMs": "Bangunan, kedai atau tempat yang menyediakan perkhidmatan tertentu."
+          }
+        ]
+      },
+      "贵": {
+        "senses": [
+          {
+            "definitionMs": "Mahal atau bernilai tinggi; juga mulia atau kata hormat bagi milik orang lain."
+          }
+        ]
+      },
+      "国": {
+        "senses": [
+          {
+            "definitionMs": "Negara atau bangsa."
+          }
+        ]
+      },
+      "过": {
+        "senses": [
+          {
+            "definitionMs": "Melepasi, menyeberangi atau melalui sesuatu tempat."
+          },
+          {
+            "definitionMs": "Partikel aspek yang menunjukkan seseorang pernah mengalami atau melakukan sesuatu."
+          }
+        ]
+      },
+      "孩": {
+        "senses": [
+          {
+            "definitionMs": "Anak atau kanak-kanak; bentuk terikat yang lazimnya digunakan dalam kata majmuk."
+          }
+        ]
+      },
+      "汉": {
+        "senses": [
+          {
+            "definitionMs": "Etnik Han; bahasa Cina; Dinasti Han; dalam konteks tertentu juga bermaksud lelaki."
+          }
+        ]
+      },
+      "号": {
+        "senses": [
+          {
+            "definitionMs": "Nombor, tarikh, nama atau tanda."
+          },
+          {
+            "definitionMs": "Melolong atau menangis dengan kuat."
+          }
+        ]
+      },
+      "候": {
+        "senses": [
+          {
+            "definitionMs": "Menunggu; bertanya khabar; juga merujuk kepada musim atau keadaan iklim."
+          }
+        ]
+      },
+      "话": {
+        "senses": [
+          {
+            "definitionMs": "Pertuturan, kata-kata, bahasa atau perbualan."
+          }
+        ]
+      },
+      "坏": {
+        "senses": [
+          {
+            "definitionMs": "Buruk atau rosak; juga bermaksud menjadi rosak atau tidak berfungsi."
+          }
+        ]
+      },
+      "欢": {
+        "senses": [
+          {
+            "definitionMs": "Gembira, ceria atau berasa senang hati."
+          }
+        ]
+      },
+      "机": {
+        "senses": [
+          {
+            "definitionMs": "Mesin atau mekanisme; juga pesawat, peluang atau perkara penting bergantung pada konteks."
+          }
+        ]
+      },
+      "几": {
+        "senses": [
+          {
+            "definitionMs": "Berapa banyak; beberapa atau sejumlah kecil."
+          },
+          {
+            "definitionMs": "Hampir atau nyaris berlaku."
+          }
+        ]
+      },
+      "记": {
+        "senses": [
+          {
+            "definitionMs": "Mencatat, merekod, menghafal atau mengingati sesuatu."
+          }
+        ]
+      },
+      "假": {
+        "senses": [
+          {
+            "definitionMs": "Palsu atau tidak tulen."
+          },
+          {
+            "definitionMs": "Cuti atau pelepasan daripada kerja atau pengajian."
+          }
+        ]
+      },
+      "间": {
+        "senses": [
+          {
+            "definitionMs": "Di antara atau dalam kalangan; juga bilik."
+          },
+          {
+            "definitionMs": "Jeda atau jarak pemisah antara dua perkara."
+          }
+        ]
+      },
+      "见": {
+        "senses": [
+          {
+            "definitionMs": "Melihat, bertemu atau berjumpa dengan seseorang."
+          },
+          {
+            "definitionMs": "Muncul atau menjadi kelihatan."
+          }
+        ]
+      },
+      "教": {
+        "senses": [
+          {
+            "definitionMs": "Mengajar atau memberikan tunjuk ajar."
+          },
+          {
+            "definitionMs": "Pendidikan, pengajaran atau agama."
+          }
+        ]
+      },
+      "叫": {
+        "senses": [
+          {
+            "definitionMs": "Menjerit, memanggil, menyuruh atau meminta; juga digunakan untuk menyatakan nama seseorang."
+          }
+        ]
+      },
+      "觉": {
+        "senses": [
+          {
+            "definitionMs": "Merasai, menyedari atau mempunyai tanggapan tentang sesuatu."
+          },
+          {
+            "definitionMs": "Tidur atau satu tempoh tidur."
+          }
+        ]
+      },
+      "介": {
+        "senses": [
+          {
+            "definitionMs": "Memperkenalkan; berada di antara; juga berkaitan perisai atau cangkerang dalam kata tertentu."
+          }
+        ]
+      },
+      "今": {
+        "senses": [
+          {
+            "definitionMs": "Sekarang atau masa kini; hari atau tahun semasa."
+          }
+        ]
+      },
+      "进": {
+        "senses": [
+          {
+            "definitionMs": "Masuk, bergerak ke dalam, mara atau membuat kemajuan."
+          }
+        ]
+      },
+      "京": {
+        "senses": [
+          {
+            "definitionMs": "Ibu kota atau bandar besar; juga nama keluarga Jing."
+          }
+        ]
+      },
+      "净": {
+        "senses": [
+          {
+            "definitionMs": "Bersih atau tulen; sepenuhnya, hanya atau bersih selepas ditolak sesuatu."
+          }
+        ]
+      },
+      "九": {
+        "senses": [
+          {
+            "definitionMs": "Angka sembilan."
+          }
+        ]
+      },
+      "就": {
+        "senses": [
+          {
+            "definitionMs": "Kemudian, terus atau hanya; sebaik sahaja; juga bermaksud mendekati atau mengambil sesuatu tugas."
+          }
+        ]
+      },
+      "考": {
+        "senses": [
+          {
+            "definitionMs": "Menguji, memeriksa, menduduki peperiksaan atau mengesahkan sesuatu."
+          }
+        ]
+      },
+      "渴": {
+        "senses": [
+          {
+            "definitionMs": "Dahaga; juga menginginkan atau mendambakan sesuatu dengan kuat."
           }
         ]
       }
