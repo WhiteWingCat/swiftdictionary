@@ -1,6 +1,6 @@
 # SwiftDictionary Update 3.0.0 — Final Development Plan
 
-**Status:** Owner-approved U3.0 plan, updated 2026-11-27. Phase 0/1 validation and Phase 2/3 staging implementation are complete. Malay Quiz and Malay Flashcards are enabled in isolated staging; the 93-entry Malay Daily Discovery catalogue and structured Daily Learning rendering fixes are in place. The latest application head is `e19731b683297a4e3d96d17331bfc713a0f9b149`; the English lesson practice translation resolver has been restored and the synthetic Quiz topic fixture widened after CI exposed random no-repeat exhaustion. U3.0 architecture and Cloudflare routing checks pass on the latest relevant test head; U2.7 browser and PostgreSQL, U2.6 ACL, U2.9 English Dictionary, U3.0 architecture and Cloudflare routing now pass; U2.3 PostgreSQL/Auth/Chromium and U2.5 static checks pass; U2.5 Chromium remains in progress and Quiz DB/Auth remains queued/pending. Target-Malay practice translations for English/Chinese lessons and Quiz remain incomplete; English/Chinese Flashcard support remains partial (73 English/124 Chinese explicit glosses) pending full dictionary translation generation. The generation trigger was pushed, but its output is not yet verified. Do not mark the full matrix passed. Malay content remains machine-assisted draft except the owner-authorised staging Quiz release; human linguistic review, staging OAuth and owner desktop/mobile acceptance remain open. PR #20 remains draft/unmerged; production remains untouched. See the latest [continuation and CI recovery archive](conversation-archive/2026-11-27-u3-continuation-latest-ci-recovery.md).
+**Status:** Owner-approved U3.0 staging preview is available. The latest application branch is feature/update-3.0-phase-0-audit, currently at 0d9f847a928a5b10c26668868f8606595be2b834. The staging Supabase project ivatvkfrtifgfheeaelj is healthy; all U3.0 staging migrations through 20261127190000 are applied. Malay course content includes 72 permanent lessons, 60 Daily Topics, 60 Daily Applications, 93 Daily Discovery entries, 240 approved staging Quiz questions (120 each for Malay→English and Malay→Simplified Chinese) and 650 Malay Dictionary Flashcard entries. Complete machine-assisted Dictionary translation coverage is available for 1,316 English headwords / 1,931 senses and 725 Chinese headwords / 825 senses (2,041 headwords / 2,756 senses); content remains draft pending human Malaysian Standard Malay review. Dashboard Malay favourites, Malay Collections lookup, Daily History labels and Flashcards course-switch mode preservation are implemented. Flashcards now uses the full generated Dictionary Malay corpus as a fallback, with cache-busting version ms13; the static Flashcards job and Cloudflare routing guard pass on the latest change, while Chromium and the remaining cross-version workflows are still queued/running. Remaining content gaps: Malay target-language prompts/options for English/Chinese lesson practice and English/Chinese Quiz banks. Staging Google OAuth and latest Cloudflare publication are not independently verified. PR #20 remains draft/unmerged; production remains untouched. Preview: [stable branch preview](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev). See the [latest staging handoff](conversation-archive/2026-11-27-u3-staging-preview-handoff.md).
 
 **Production baseline:** SwiftDictionary Update 2.9.1.  
 **Language standard:** Malaysian Standard Malay (Bahasa Melayu Malaysia).  
@@ -1029,3 +1029,62 @@ On latest application commit `e19731b683297a4e3d96d17331bfc713a0f9b149`, the U3.
 The offline dictionary translation generator trigger commit `e19731b` is present, but the generated `data/languages/malay-dictionary-translations.js` remains 0 bytes at last inspection and no generated output commit was found. This is a blocker for claiming full Dictionary-derived Flashcard Malay coverage. Do not proceed on the assumption that the generation succeeded.
 
 Latest status follow-up: U2.3 Chromium browser regression completed successfully on run `45983789272`; U2.5 Chromium job `140454200552` is still running; Quiz DB/Auth run `45983789207` remains queued with no jobs started. Dictionary translation output remains unverified and empty.
+
+
+## 2026-11-27 — staging preview handoff and latest regression
+
+### Current application head and preview
+
+- Application branch: feature/update-3.0-phase-0-audit.
+- Current branch head: 0d9f847a928a5b10c26668868f8606595be2b834.
+- Stable branch preview: https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev
+- Previously owner-tested commit-specific preview: https://593e1f28.swiftdictionary.pages.dev (Cloudflare deployment da5389c).
+- PR #20 remains draft/unmerged. No production migration or deployment is authorised.
+
+### Complete machine-assisted Malay Dictionary translation coverage
+
+The existing offline Argos workflow completed successfully (run 45953123750) and generated a complete translation corpus:
+- English: 1,316 headwords and 1,931 senses.
+- Simplified Chinese: 725 headwords and 825 senses.
+- Total: 2,041 headwords and 2,756 senses; no missing headwords or senses.
+- The 650-entry Malay Dictionary retains English and Simplified Chinese support translations for all 672 senses.
+- 658 English and 499 Chinese sense translations were retained from authored/manual overrides; the remaining senses were generated with Argos en→ms 1.9 and zh→en 1.9 followed by en→ms 1.9.
+- Generated translations are machine_assisted_draft with no reviewer. This is complete machine-assisted coverage, not human linguistic approval.
+
+### Malay learning UI and Flashcards
+
+- Dashboard Favorite Words includes Bahasa Melayu and resolves entries through language content packages.
+- Your Collections resolves Malay saved-word clicks through package-backed dictionary lookup. Opening a saved word synchronises learning-course and Profile translation selectors; Malay is not offered as its own support language while Malay is the active learning course.
+- Daily History separates permanent Lessons from Daily Learning and labels Daily Topic, Daily Application, Daily Discovery and Daily Revision explicitly.
+- Flashcards course switching preserves the equivalent Mixed Recall / Translation Recall mode between English and Chinese.
+- Latest Flashcards fix (a7c04fe84806e191d09519fa774e9cb069d1d037) now checks the full SWIFT_DICTIONARY_MS_TRANSLATIONS.languages[language] corpus before using the smaller curated support-gloss map. The Flashcards bundle cache version is 3.0.0-ms13.
+
+### Staging database verification
+
+Read-only checks against staging project ivatvkfrtifgfheeaelj confirmed ACTIVE_HEALTHY, PostgreSQL 17 and all migrations through 20261127190000_swiftdictionary_update_3_0_malay_daily_catalogue_metadata_alignment. The private learning catalogue has 72 active Malay permanent lessons, 60 Daily Topics, 60 Daily Applications and 93 Daily Discovery records. The private Quiz bank contains 120 approved Malay→English and 120 approved Malay→Simplified Chinese questions. Existing English→Chinese (199 approved) and Chinese→English (145 approved) Quiz banks remain unchanged. The staging project has 629 catalogue rows total. No production project was queried or modified in this check.
+
+### Remaining translation limitations
+
+- English/Chinese permanent lesson reader topic/title/summary/main explanation fields have Malay translations for all 17 lessons in each course. Practice prompts/options are still source-language; the reader should disclose this limitation.
+- English/Chinese Quiz target-Malay packs are not yet available. The Malay-learning Quiz is available in staging with both support-language pairs (120 each).
+- English/Chinese Flashcards now consult the complete Dictionary translation corpus for matching dictionary headwords and retain the 73 English / 124 Chinese curated glosses for non-dictionary fallbacks. Final browser regression is still running; do not claim every phrase/custom card has a Malay gloss until validated.
+
+### Latest CI
+
+Baseline on e19731b683297a4e3d96d17331bfc713a0f9b149 passed U3.0 architecture; Cloudflare routing; U2.3 PostgreSQL/Auth/Chromium; U2.5 Flashcards static/Chromium; U2.6 ACL; U2.7 Chinese PostgreSQL/Chromium; U2.9 English Dictionary; Quiz database foundation and local Supabase Auth/RPC integration, including authenticated Chromium Quiz, signed-out Flashcards/preferences, Lessons allowance, Chinese course switching and local Supabase security-advisor checks.
+
+Latest reruns after the Flashcards ms13 cache-busting change:
+- Flashcards static: passed; Chromium browser job in progress (run 45985581267).
+- Cloudflare build-routing guard: passed (run 45985581075).
+- U3.0 architecture: queued (run 45985581304).
+- U2.9 English Dictionary: running (run 45985581089).
+- U2.3 allowance/Dashboard: queued (run 45985581111).
+- U2.7 Chinese Dictionary: running/queued (run 45985581114).
+- U2.6 ACL: queued (run 45985581145).
+- Quiz DB/Auth/Chromium: running/queued (run 45985581079).
+
+An intermediate attempt failed only because two legacy tests still expected the previous Flashcards cache version ms11; those assertions were updated to ms13. The latest Flashcards static job now passes. Do not report the remaining latest-head jobs as passed until they complete.
+
+### Staging and release controls
+
+Staging Google OAuth redirect for the preview hostname has not been independently verified. The staging security advisor reports leaked-password protection disabled; private-schema RLS-without-policy informational findings are intentional for server-only tables whose access is mediated by authenticated RPCs. Review the staging Auth setting before public launch. Machine-assisted translations remain staging drafts; before production, complete competent human Malaysian Standard Malay review, confirm the exact zh→en Argos model artefact licence, preserve attribution and perform Malaysia Copyright Act 1987 / PDPA 2010 as amended in 2024 and cross-border processing review with qualified counsel.
