@@ -6584,6 +6584,634 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
             "definitionMs": "Sekali lagi, berulang atau berlapis."
           }
         ]
+      },
+      "准": {
+        "senses": [
+          {
+            "definitionMs": "Tepat atau mengikut piawaian; juga bermaksud membenarkan atau pasti."
+          }
+        ]
+      },
+      "子": {
+        "senses": [
+          {
+            "definitionMs": "Anak, anak lelaki atau biji benih."
+          },
+          {
+            "definitionMs": "Akhiran kata nama neutral yang digunakan dalam sesetengah perkataan."
+          }
+        ]
+      },
+      "最": {
+        "senses": [
+          {
+            "definitionMs": "Paling atau pada tahap tertinggi; terbaik atau paling ekstrem."
+          }
+        ]
+      },
+      "昨": {
+        "senses": [
+          {
+            "definitionMs": "Semalam atau berkaitan hari sebelumnya."
+          }
+        ]
+      },
+      "左": {
+        "senses": [
+          {
+            "definitionMs": "Kiri atau bahagian sebelah kiri; juga arah timur dalam penggunaan tradisional."
+          }
+        ]
+      },
+      "作": {
+        "senses": [
+          {
+            "definitionMs": "Melakukan, membuat, menulis atau menggubah sesuatu."
+          },
+          {
+            "definitionMs": "Bengkel atau tempat kerja tangan."
+          }
+        ]
+      },
+      "做": {
+        "senses": [
+          {
+            "definitionMs": "Membuat, menghasilkan atau melakukan sesuatu; juga menjalankan peranan tertentu."
+          }
+        ]
+      },
+      "般": {
+        "senses": [
+          {
+            "definitionMs": "Jenis, golongan, cara atau keadaan."
+          }
+        ]
+      },
+      "板": {
+        "senses": [
+          {
+            "definitionMs": "Papan, kepingan atau plat; juga kayu pemukul pingpong; boleh menggambarkan sikap kaku atau serius."
+          }
+        ]
+      },
+      "办": {
+        "senses": [
+          {
+            "definitionMs": "Mengendalikan, mengurus, mengatur atau menubuhkan sesuatu."
+          }
+        ]
+      },
+      "饱": {
+        "senses": [
+          {
+            "definitionMs": "Makan sehingga kenyang; berasa puas atau penuh."
+          }
+        ]
+      },
+      "报": {
+        "senses": [
+          {
+            "definitionMs": "Melaporkan, memaklumkan atau mengumumkan; juga membalas jasa; surat khabar atau jurnal."
+          }
+        ]
+      },
+      "必": {
+        "senses": [
+          {
+            "definitionMs": "Mesti, semestinya atau pasti."
+          }
+        ]
+      },
+      "变": {
+        "senses": [
+          {
+            "definitionMs": "Berubah, menjadi berbeza atau bertukar bentuk."
+          }
+        ]
+      },
+      "便": {
+        "senses": [
+          {
+            "definitionMs": "Mudah atau sesuai; kemudian atau dalam keadaan itu."
+          },
+          {
+            "definitionMs": "Murah atau tidak mahal."
+          }
+        ]
+      },
+      "遍": {
+        "senses": [
+          {
+            "definitionMs": "Di seluruh tempat; penjodoh bilangan bagi satu tindakan yang dilakukan dari awal hingga akhir."
+          }
+        ]
+      },
+      "表": {
+        "senses": [
+          {
+            "definitionMs": "Permukaan; menunjukkan sesuatu; jadual, borang, meter atau jam."
+          }
+        ]
+      },
+      "部": {
+        "senses": [
+          {
+            "definitionMs": "Kementerian, jabatan, bahagian atau unit; juga penjodoh bilangan bagi karya seperti filem."
+          }
+        ]
+      },
+      "才": {
+        "senses": [
+          {
+            "definitionMs": "Kebolehan atau bakat; hanya atau baru sahaja; kemudian barulah."
+          }
+        ]
+      },
+      "参": {
+        "senses": [
+          {
+            "definitionMs": "Mengambil bahagian atau turut serta."
+          },
+          {
+            "definitionMs": "Ginseng; akar tumbuhan yang digunakan dalam perubatan tradisional."
+          },
+          {
+            "definitionMs": "Tidak sekata atau tidak seragam."
+          }
+        ]
+      },
+      "餐": {
+        "senses": [
+          {
+            "definitionMs": "Hidangan atau waktu makan; juga penjodoh bilangan bagi hidangan."
+          }
+        ]
+      },
+      "层": {
+        "senses": [
+          {
+            "definitionMs": "Lapisan, tingkat, aras atau peringkat; juga penjodoh bilangan bagi lapisan."
+          }
+        ]
+      },
+      "查": {
+        "senses": [
+          {
+            "definitionMs": "Memeriksa, menyiasat atau mencari maklumat."
+          },
+          {
+            "definitionMs": "Nama keluarga Zha."
+          }
+        ]
+      },
+      "超": {
+        "senses": [
+          {
+            "definitionMs": "Melebihi, mengatasi atau melampaui; juga awalan yang bermaksud ultra atau super."
+          }
+        ]
+      },
+      "晨": {
+        "senses": [
+          {
+            "definitionMs": "Waktu pagi, fajar atau awal siang."
+          }
+        ]
+      },
+      "称": {
+        "senses": [
+          {
+            "definitionMs": "Memanggil atau menamakan; menimbang; memuji."
+          },
+          {
+            "definitionMs": "Sesuai, sepadan atau padan."
+          },
+          {
+            "definitionMs": "Alat penimbang atau neraca."
+          }
+        ]
+      },
+      "成": {
+        "senses": [
+          {
+            "definitionMs": "Berjaya, menyiapkan atau menyempurnakan; menjadi atau bertukar menjadi sesuatu."
+          }
+        ]
+      },
+      "楚": {
+        "senses": [
+          {
+            "definitionMs": "Jelas, terang atau tersusun; juga kesakitan dan nama negeri Chu."
+          }
+        ]
+      },
+      "处": {
+        "senses": [
+          {
+            "definitionMs": "Tempat, lokasi atau jabatan."
+          },
+          {
+            "definitionMs": "Tinggal di sesuatu tempat; menangani sesuatu perkara atau bergaul dengan orang lain."
+          }
+        ]
+      },
+      "船": {
+        "senses": [
+          {
+            "definitionMs": "Bot, kapal atau kenderaan air."
+          }
+        ]
+      },
+      "吹": {
+        "senses": [
+          {
+            "definitionMs": "Meniup; memainkan alat muzik tiupan; bercakap besar atau bermegah."
+          }
+        ]
+      },
+      "春": {
+        "senses": [
+          {
+            "definitionMs": "Musim bunga; juga melambangkan keremajaan, cinta atau kehidupan."
+          }
+        ]
+      },
+      "词": {
+        "senses": [
+          {
+            "definitionMs": "Perkataan, ungkapan, ucapan atau lirik; juga bentuk puisi lirik."
+          }
+        ]
+      },
+      "带": {
+        "senses": [
+          {
+            "definitionMs": "Tali pinggang atau reben; kawasan; memakai, membawa, memimpin atau menjaga seseorang."
+          }
+        ]
+      },
+      "单": {
+        "senses": [
+          {
+            "definitionMs": "Satu atau tunggal; senarai, borang atau bil; juga bil pembayaran."
+          },
+          {
+            "definitionMs": "Nama keluarga Shan."
+          },
+          {
+            "definitionMs": "Bacaan yang digunakan dalam gelaran sejarah 单于."
+          }
+        ]
+      },
+      "但": {
+        "senses": [
+          {
+            "definitionMs": "Tetapi, namun atau walau bagaimanapun; juga membawa maksud hanya."
+          }
+        ]
+      },
+      "倒": {
+        "senses": [
+          {
+            "definitionMs": "Menuang atau menterbalikkan sesuatu."
+          },
+          {
+            "definitionMs": "Jatuh, tumbang atau rebah."
+          }
+        ]
+      },
+      "低": {
+        "senses": [
+          {
+            "definitionMs": "Rendah atau di bawah; merendahkan atau menjuntai."
+          }
+        ]
+      },
+      "典": {
+        "senses": [
+          {
+            "definitionMs": "Karya rujukan; petikan sastera; upacara; juga menggadaikan sesuatu."
+          }
+        ]
+      },
+      "掉": {
+        "senses": [
+          {
+            "definitionMs": "Jatuh, terlepas, hilang atau berubah."
+          }
+        ]
+      },
+      "定": {
+        "senses": [
+          {
+            "definitionMs": "Menetapkan, memutuskan atau menempah; juga bermaksud pasti atau mengeras."
+          }
+        ]
+      },
+      "冬": {
+        "senses": [
+          {
+            "definitionMs": "Musim sejuk."
+          }
+        ]
+      },
+      "度": {
+        "senses": [
+          {
+            "definitionMs": "Darjah atau ukuran tahap; juga menghabiskan masa."
+          },
+          {
+            "definitionMs": "Menganggarkan atau menilai sesuatu."
+          }
+        ]
+      },
+      "短": {
+        "senses": [
+          {
+            "definitionMs": "Pendek atau singkat; kekurangan sesuatu atau kelemahan."
+          }
+        ]
+      },
+      "段": {
+        "senses": [
+          {
+            "definitionMs": "Perenggan, bahagian, segmen atau peringkat; penjodoh bilangan bagi tempoh atau panjang tertentu."
+          }
+        ]
+      },
+      "队": {
+        "senses": [
+          {
+            "definitionMs": "Pasukan, kumpulan, skuad atau unit."
+          }
+        ]
+      },
+      "而": {
+        "senses": [
+          {
+            "definitionMs": "Dan, serta, tetapi, namun atau oleh itu; partikel penghubung dalam ayat."
+          }
+        ]
+      },
+      "发": {
+        "senses": [
+          {
+            "definitionMs": "Menghantar, mengeluarkan, menerbitkan atau menyebabkan sesuatu berlaku."
+          },
+          {
+            "definitionMs": "Rambut."
+          }
+        ]
+      },
+      "法": {
+        "senses": [
+          {
+            "definitionMs": "Undang-undang, kaedah, cara atau peraturan; juga merujuk kepada Perancis atau Dharma mengikut konteks."
+          }
+        ]
+      },
+      "份": {
+        "senses": [
+          {
+            "definitionMs": "Bahagian atau bahagian yang diperuntukkan; penjodoh bilangan bagi hadiah, dokumen, laporan dan kontrak."
+          }
+        ]
+      },
+      "封": {
+        "senses": [
+          {
+            "definitionMs": "Menutup atau memeterai; memberikan gelaran; penjodoh bilangan bagi benda yang dimeterai dan surat."
+          }
+        ]
+      },
+      "复": {
+        "senses": [
+          {
+            "definitionMs": "Kembali, menyambung semula, mengulangi, pulih atau membalas; juga bermaksud kompleks atau berganda."
+          }
+        ]
+      },
+      "该": {
+        "senses": [
+          {
+            "definitionMs": "Patut atau seharusnya; mungkin atau mesti; layak menerima sesuatu; sudah tiba giliran."
+          }
+        ]
+      },
+      "改": {
+        "senses": [
+          {
+            "definitionMs": "Mengubah, menukar, membetulkan atau menambah baik sesuatu."
+          }
+        ]
+      },
+      "感": {
+        "senses": [
+          {
+            "definitionMs": "Merasai atau menyentuh perasaan; mempengaruhi; perasaan, emosi atau deria."
+          }
+        ]
+      },
+      "刚": {
+        "senses": [
+          {
+            "definitionMs": "Baru sahaja atau sebentar tadi; keras, teguh atau kuat."
+          }
+        ]
+      },
+      "公": {
+        "senses": [
+          {
+            "definitionMs": "Awam, umum, adil atau saksama; haiwan jantan; juga gelaran bangsawan."
+          }
+        ]
+      },
+      "卡": {
+        "senses": [
+          {
+            "definitionMs": "Kad; menyekat atau tersekat; kalori; juga lori dalam kata pinjaman."
+          }
+        ]
+      },
+      "康": {
+        "senses": [
+          {
+            "definitionMs": "Sihat, aman atau makmur; juga nama keluarga Kang."
+          }
+        ]
+      },
+      "靠": {
+        "senses": [
+          {
+            "definitionMs": "Bersandar pada atau mendekati; bergantung pada, mempercayai atau mengharapkan sesuatu."
+          }
+        ]
+      },
+      "科": {
+        "senses": [
+          {
+            "definitionMs": "Cabang pengajian, jabatan, bidang atau mata pelajaran; juga arahan pentas."
+          }
+        ]
+      },
+      "可": {
+        "senses": [
+          {
+            "definitionMs": "Boleh, mungkin atau berupaya; meluluskan; juga digunakan sebagai kata penguat."
+          }
+        ]
+      },
+      "克": {
+        "senses": [
+          {
+            "definitionMs": "Gram; mengatasi, mengawal atau menundukkan sesuatu."
+          }
+        ]
+      },
+      "刻": {
+        "senses": [
+          {
+            "definitionMs": "Suku jam atau detik; mengukir, memahat atau memotong."
+          }
+        ]
+      },
+      "空": {
+        "senses": [
+          {
+            "definitionMs": "Kosong atau tidak berpenghuni; langit atau udara."
+          },
+          {
+            "definitionMs": "Masa lapang; mengosongkan sesuatu atau menyediakan ruang."
+          }
+        ]
+      },
+      "哭": {
+        "senses": [
+          {
+            "definitionMs": "Menangis, meratap atau tersedu-sedu."
+          }
+        ]
+      },
+      "筷": {
+        "senses": [
+          {
+            "definitionMs": "Penyepit makanan; bentuk terikat yang digunakan dalam perkataan 筷子."
+          }
+        ]
+      },
+      "拉": {
+        "senses": [
+          {
+            "definitionMs": "Menarik atau menyeret; melukis; memainkan alat muzik bertali dengan penggesek; berbual."
+          }
+        ]
+      },
+      "蓝": {
+        "senses": [
+          {
+            "definitionMs": "Biru; juga merujuk kepada tumbuhan nila."
+          }
+        ]
+      },
+      "篮": {
+        "senses": [
+          {
+            "definitionMs": "Bakul atau bekas; juga gelung atau bakul dalam permainan bola keranjang."
+          }
+        ]
+      },
+      "乐": {
+        "senses": [
+          {
+            "definitionMs": "Gembira, ceria atau menikmati sesuatu."
+          },
+          {
+            "definitionMs": "Muzik atau bunyi muzik."
+          }
+        ]
+      },
+      "离": {
+        "senses": [
+          {
+            "definitionMs": "Meninggalkan atau berpisah; jauh daripada; jarak atau pemisahan."
+          }
+        ]
+      },
+      "礼": {
+        "senses": [
+          {
+            "definitionMs": "Hadiah, upacara, adat, kesopanan atau etika."
+          }
+        ]
+      },
+      "理": {
+        "senses": [
+          {
+            "definitionMs": "Sebab, logik atau prinsip; mengurus, mengendalikan atau mengemas; juga sains."
+          }
+        ]
+      },
+      "利": {
+        "senses": [
+          {
+            "definitionMs": "Tajam atau menguntungkan; manfaat, keuntungan atau kelebihan."
+          }
+        ]
+      },
+      "例": {
+        "senses": [
+          {
+            "definitionMs": "Contoh, duluan, peraturan atau kes tertentu."
+          }
+        ]
+      },
+      "脸": {
+        "senses": [
+          {
+            "definitionMs": "Muka atau raut wajah; juga reputasi atau maruah."
+          }
+        ]
+      },
+      "练": {
+        "senses": [
+          {
+            "definitionMs": "Berlatih, melatih atau mengasah sesuatu kemahiran."
+          }
+        ]
+      },
+      "凉": {
+        "senses": [
+          {
+            "definitionMs": "Sejuk atau nyaman."
+          },
+          {
+            "definitionMs": "Membiarkan sesuatu menjadi sejuk atau menganginkannya."
+          }
+        ]
+      },
+      "亮": {
+        "senses": [
+          {
+            "definitionMs": "Terang atau bercahaya; jelas dan kuat dari segi bunyi; menunjukkan sesuatu."
+          }
+        ]
+      },
+      "辆": {
+        "senses": [
+          {
+            "definitionMs": "Penjodoh bilangan bagi kenderaan."
+          }
+        ]
+      },
+      "量": {
+        "senses": [
+          {
+            "definitionMs": "Jumlah, kuantiti atau kapasiti."
+          },
+          {
+            "definitionMs": "Mengukur atau menganggarkan sesuatu."
+          }
+        ]
       }
     }
   }
