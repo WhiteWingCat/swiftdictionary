@@ -32,8 +32,11 @@ for(const relative of files){
   else {
    counts[q.difficulty]++;
    const n=Number(q.question_id.slice(-3));
-   if(n>=13&&n<=48)batchTwo[q.difficulty]++;
-   else if(n<1||n>12)errors.push(at+": question ID is outside batch 01/02 numbering");
+   if(n>=1&&n<=12)batchOne[q.difficulty]++;
+   else if(n>=13&&n<=48)batchTwo[q.difficulty]++;
+   else if(n>=49&&n<=84)batchThree[q.difficulty]++;
+   else if(n>=85&&n<=120)batchFour[q.difficulty]++;
+   else errors.push(at+": question ID is outside batch 01/04 numbering");
   }
   const lesson=map[q.source_lesson_id];
   if(!lesson)errors.push(at+": unmapped source lesson "+q.source_lesson_id);
@@ -51,12 +54,14 @@ for(const relative of files){
   if(prompts.has(normalized))errors.push(at+": duplicate Malay prompt");
   prompts.add(normalized);
  }
- if(Object.values(counts).some(n=>n!==16))errors.push(relative+": expected 16 cumulative questions per difficulty");
- if(Object.values(batchTwo).some(n=>n!==12))errors.push(relative+": batch 02 must contain 36 questions, 12 per difficulty");
+ if(JSON.stringify(counts)!==JSON.stringify({beginner:36,intermediate:36,advanced:48}))errors.push(relative+": expected cumulative counts 36 Beginner, 36 Intermediate, 48 Advanced");
+ if(JSON.stringify(batchOne)!==JSON.stringify({beginner:4,intermediate:4,advanced:4}))errors.push(relative+": batch 01 must contain 12 questions, 4 per difficulty");
+ if(JSON.stringify(batchTwo)!==JSON.stringify({beginner:12,intermediate:12,advanced:12}))errors.push(relative+": batch 02 must contain 36 questions, 12 per difficulty");
+ if(JSON.stringify(batchThree)!==JSON.stringify({beginner:10,intermediate:10,advanced:16}))errors.push(relative+": batch 03 must contain 36 questions (10 Beginner, 10 Intermediate, 16 Advanced)");
+ if(JSON.stringify(batchFour)!==JSON.stringify({beginner:10,intermediate:10,advanced:16}))errors.push(relative+": batch 04 must contain 36 questions (10 Beginner, 10 Intermediate, 16 Advanced)");
  packs.push(pack);
 }
-if(errors.length){console.error(errors.join("
-"));process.exit(1);}
+if(errors.length){console.error(errors.join(String.fromCharCode(10)));process.exit(1);}
 const summary="Malay Quiz draft validated: 120 questions per support language; batches 03 and 04 each add 36 (10 Beginner, 10 Intermediate, 16 Advanced); all remain draft.";
 if(emitSql)console.error(summary);else console.log(summary);
 
