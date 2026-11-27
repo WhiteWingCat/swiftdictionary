@@ -3794,6 +3794,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       words = dictionaryEntriesFor(course);
       render();
       if (typeof renderLessons === "function") renderLessons();
+      if (typeof initialiseDailyLearning === "function" && currentUser) initialiseDailyLearning();
     });
 
     window.SWIFT_LEGACY_CONTENT_DATA = {
