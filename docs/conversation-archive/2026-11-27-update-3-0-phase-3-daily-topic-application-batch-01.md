@@ -17,7 +17,7 @@ Nine new Daily Topics:
 - Intermediate: time and duration; meN- prefix changes; active and passive sentences; prepositions in context.
 - Advanced: paragraph unity and cohesion; arguments, evidence and inference.
 
-Nine new Daily Applications:
+Ten new Daily Applications:
 - Beginner: describe locations at home; arrange a daily schedule; order food; give directions.
 - Intermediate: correct affix usage; summarise a notice; compare viewpoints; write a formal email.
 - Advanced: evaluate source reliability; review argument strength.
@@ -29,9 +29,9 @@ Each record includes Malay, English and Simplified Chinese fields. Applications 
 | Category | Records |
 |---|---:|
 | Daily Topic | 12 |
-| Daily Application | 12 |
+| Daily Application | 13 |
 | Daily Discovery | 93 |
-| Fixed inventory total | 117 |
+| Fixed inventory total | 118 |
 | Daily Revision | Adaptive; not a fixed count |
 
 The 93 Discovery entries are dictionary-derived records, not 93 individually authored topic/application activities.
@@ -47,6 +47,11 @@ The 93 Discovery entries are dictionary-derived records, not 93 individually aut
 
 ## Validation and release boundaries
 
-GitHub Actions was triggered by the test commit. The run was queued when this archive was written: [run 45938639727](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45938639727). Final outcome must be added after it completes.
+The final architecture/content regression workflow passed **45/45 tests** at [run 45938934927](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45938934927). The test log confirmed 12 Topics, 13 Applications and 93 Discovery entries. An earlier run exposed duplicate test execution and a subsequent assertion mismatch; the test harness was corrected to evaluate Daily Learning once and assert the actual inventory before the passing run.
 
 No staging preview, main-branch merge, production deployment or database mutation is authorised. Human Malay editorial review, independent translation review, source verification, item-level rights clearance, and the required Malaysia/international privacy review remain pending before public activation. Draft content was independently composed; no DBP/PRPM protected text was intentionally copied. This is not legal advice or rights clearance.
+
+
+## Validation correction
+
+The first automated run caught a test harness that executed the appended daily expansion block twice. After removing the redundant second evaluation, the verified inventory was 12 Topics and 13 Applications (not 12/12); the final run passed 45/45. The 13 Applications reflect ten new application records added in this batch, rather than nine.
