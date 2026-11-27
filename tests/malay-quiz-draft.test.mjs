@@ -51,3 +51,4 @@ test("Malay Quiz runtime migration keeps answers private and reuses authenticate
  assert.match(sql,/revoke all on function private\.start_my_malay_quiz_impl/);
  assert.match(sql,/grant execute on function private\.start_my_malay_quiz_impl[\s\S]*?to authenticated/);
 });
+
