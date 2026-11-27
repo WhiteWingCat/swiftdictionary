@@ -88,6 +88,8 @@ test("Malay Daily Learning includes all four shared activity categories",()=>{
   assert.ok(daily.applications.filter(x=>x.id.endsWith("-02") || x.id.endsWith("-03")).every(x=>x.questions.every(q=>q.q.ms&&q.q.en&&q.q.zh&&q.options.every(o=>o.ms&&o.en&&o.zh))));
   assert.ok(daily.topics.filter(x=>x.id.endsWith("-03")).every(x=>x.titleEn&&x.titleZh&&x.en&&x.zh&&x.exampleEn&&x.exampleZh));
   assert.ok(daily.applications.filter(x=>x.id.endsWith("-03")).every(x=>x.questions.every(q=>q.options.every(o=>typeof o==="object"&&o.ms&&o.en&&o.zh))));
+  const topicIds=new Set(daily.topics.map(x=>x.topicId));
+  assert.ok(daily.applications.filter(x=>x.id.endsWith("-03")).every(x=>topicIds.has(x.topicId)));
   assert.equal(daily.contentVersion,"u3-ms-daily-0.3.0");
   assert.ok(daily.discovery.every(x=>x.id&&x.word&&x.definition&&x.en&&x.zh));
   assert.equal(new Set(daily.discovery.map(x=>x.id)).size,93);
