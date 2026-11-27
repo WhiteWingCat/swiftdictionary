@@ -5,7 +5,25 @@
 
 begin;
 
-create or replace function private.get_my_malay_quiz_availability_impl()
+c-- Existing Quiz language checks were limited to English and Chinese. Extend only
+-- these language-code checks to include Malay; question-type equality checks
+-- still require a knowledge answer to use its learning language.
+alter table private.quiz_question_bank drop constraint if exists quiz_question_bank_answer_language_code_check;
+alter table private.quiz_question_bank add constraint quiz_question_bank_answer_language_code_check
+ check (answer_language_code = any(array['en'::text,'zh'::text,'ms'::text])) not valid;
+alter table private.quiz_question_bank validate constraint quiz_question_bank_answer_language_code_check;
+
+alter table private.quiz_session_questions drop constraint if exists quiz_session_questions_answer_language_code_snapshot_check;
+alter table private.quiz_session_questions add constraint quiz_session_questions_answer_language_code_snapshot_check
+ check (answer_language_code_snapshot = any(array['en'::text,'zh'::text,'ms'::text])) not valid;
+alter table private.quiz_session_questions validate constraint quiz_session_questions_answer_language_code_snapshot_check;
+
+alter table private.quiz_session_questions drop constraint if exists quiz_session_questions_learning_language_code_snapshot_check;
+alter table private.quiz_session_questions add constraint quiz_session_questions_learning_language_code_snapshot_check
+ check (learning_language_code_snapshot = any(array['en'::text,'zh'::text,'ms'::text])) not valid;
+alter table private.quiz_session_questions validate constraint quiz_session_questions_learning_language_code_snapshot_check;
+
+reate or replace function private.get_my_malay_quiz_availability_impl()
 returns jsonb
 language plpgsql
 security definer
