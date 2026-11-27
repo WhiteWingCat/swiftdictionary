@@ -105,7 +105,7 @@
       const key=source.toLocaleLowerCase("en");
       const matches=entries.filter(entry=>{
         const firstClause=String(entry.definitionEn||"").split(/[;,]/)[0].toLocaleLowerCase("en");
-        const tokens=firstClause.replace(/^(to|a|an|the)\\s+/,"").split(/[^a-z]+/).filter(Boolean);
+        const tokens=firstClause.replace(/^(to|a|an|the)\s+/,"").split(/[^a-z]+/).filter(Boolean);
         return tokens.slice(0,4).includes(key);
       });
       return matches.length===1?matches[0].word:"";
