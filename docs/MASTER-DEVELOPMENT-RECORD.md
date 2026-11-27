@@ -4824,3 +4824,8 @@ One intermediate U3.0 static test run failed because a newly added test assertio
 ### Latest U3.0 static regression checkpoint — 2026-11-27
 
 U3.0 Phase 1 architecture/content regression passed on application head `4edff5a73896f9bc0f87b4bdf3da85714ffba780`, including the 48-question-per-pair Malay validator, the runtime migration security/constraint assertions, and the UI guard that waits for the saved course preference before starting. Run: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45960273133. The Quiz database foundation workflow is still in progress on the same head and must pass its disposable PostgreSQL import and authenticated local Supabase integration stages before runtime acceptance is claimed. No connected staging or production database has been changed.
+
+
+### Course-preference routing compatibility — 2026-11-27
+
+The public three-argument Quiz start wrapper now preserves the existing English/Chinese course-override routing for compatibility, while the Malay path requires the saved learning course to be `ms` and rejects a client attempt to start Malay while the saved course is another language. The Quiz UI waits for its queued course-preference write before requesting a Malay session, preventing a fast course switch from racing the server-side saved-preference check. U3.0 static tests cover this ordering. The generic authenticated save, submit/scoring, active-session, abandon, history and review RPCs remain shared across all learning languages.
