@@ -93,4 +93,7 @@ test("Flashcards derive Malay support from authored dictionary translations and 
  assert.match(js,/malaySupportEnglishCount/);
  assert.match(js,/malaySupportChineseCount/);
  assert.match(js,/SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS\?\.flashcards\?\.\[language\]/);
+ assert.match(js,/exampleMs:word\.exampleMs\|\|row\.exampleMs/);
+ assert.match(js,/mode==="sentence"&&state\.game\?\.translationLanguage==="ms"/);
+ assert.match(js,/Terjemahan Bahasa Melayu:/);
 });
