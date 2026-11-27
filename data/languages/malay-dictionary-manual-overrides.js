@@ -1,4 +1,4 @@
-/* SwiftDictionary U3.0 Malay target-language Dictionary translations.
+/* Hand-authored starter overrides for SwiftDictionary U3.0 Malay target-language Dictionary translations.
  * All entries in this file are machine-assisted drafts for owner review.
  * Keys are exact source headwords; array order follows the source sense order.
  * No DBP/PRPM/Kamus Dewan wording is copied.
