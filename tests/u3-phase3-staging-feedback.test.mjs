@@ -62,7 +62,9 @@ test("English and Chinese Lessons retain their learning-language text and show M
  assert.match(html,/lessonMsTextLookup\.get\(value\.zh\)/);
  assert.match(html,/lessonZh\[x\.id\]\?\.practices/);
  assert.match(html,/lessonMsRecord\(x\)\?\.practices/);
- assert.match(html,/q:translated\?\.q\?\?q\.q/);
+ assert.match(html,/q:practiceValue\(q\.q,translated\?\.q\)/);
+  assert.match(html,/lessonMsPractice\[isChineseCourse\(\)\?"zh":"en"\]\?\.\[x\.id\]/);
+  assert.match(html,/translations:\{\.\.\.\(source\.translations\|\|\{\}\),ms:translated\}/);
  assert.match(html,/options:order\.map\(j=>translated\?\.options\?\.\[j\]\?\?q\.options\[j\]\)/);
 });
 test("Flashcards derive Malay support from authored dictionary translations and avoid blank translated cards",()=>{
