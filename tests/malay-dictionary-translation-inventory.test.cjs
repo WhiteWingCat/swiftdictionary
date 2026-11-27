@@ -49,6 +49,14 @@ test("U3.0 source Dictionary inventories are complete and the Chinese grid catal
 });
 
 test("Malay target-language overlay covers every English and Chinese headword and meaning", () => {
+  const englishRecords = window.SWIFT_DICTIONARY_MS_TRANSLATIONS.languages.en;
+  console.log("MALAY_OVERLAY_DIAGNOSTIC", JSON.stringify({
+    englishCount: english.length,
+    recordCount: Object.keys(englishRecords || {}).length,
+    exactMatches: english.filter(entry => englishRecords?.[entry.word]).length,
+    sampleWords: english.slice(0, 12).map(entry => entry.word),
+    sampleKeys: Object.keys(englishRecords || {}).slice(0, 12)
+  }));
   const englishCoverage = overlay.apply(english, "en");
   const chineseCoverage = overlay.apply(chinese, "zh");
 
