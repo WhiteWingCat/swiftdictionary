@@ -61,12 +61,16 @@ for(const relative of files){
   if(new Set(translations).size!==4)errors.push(at+": translated options must be unique");
   for(const option of q.options){
    if(!option.learning_text?.trim()||!option.translation_text?.trim())errors.push(at+": incomplete bilingual option");
+   if(hasHan(option.learning_text))errors.push(at+": answer option must be in Malay");
    if(option.learning_text.trim().toLocaleLowerCase("ms")===option.translation_text.trim().toLocaleLowerCase(target))errors.push(at+": answer text is duplicated into the support-language field");
+   if(target==="zh"&&!hasHan(option.translation_text))errors.push(at+": Chinese support-language option is missing");
+   if(target==="en"&&hasHan(option.translation_text))errors.push(at+": English support-language option contains Han characters");
   }
   const normalized=q.prompt_learning.toLocaleLowerCase("ms").replace(/[^\p{L}\p{N}]+/gu," ").trim();
   if(prompts.has(normalized))errors.push(at+": duplicate Malay prompt");
   prompts.add(normalized);
   if(target==="zh"&&(!hasHan(q.prompt_translation)||!hasHan(q.explanation_translation)))errors.push(at+": Chinese support prompt/explanation is missing");
+  if(target==="en"&&(hasHan(q.prompt_translation)||hasHan(q.explanation_translation)))errors.push(at+": English support prompt/explanation contains Han characters");
  }
  if(JSON.stringify(counts)!==JSON.stringify({beginner:36,intermediate:36,advanced:48}))errors.push(relative+": expected cumulative counts 36 Beginner, 36 Intermediate, 48 Advanced");
  batches.forEach((b,i)=>{if(JSON.stringify(batchCounts[i])!==JSON.stringify(b.counts))errors.push(relative+": batch "+(i+1)+" difficulty distribution is incorrect");});
@@ -78,7 +82,7 @@ if(packs.length===2){
   const sourceId=q.question_id.replace("quiz-ms-zh-","quiz-ms-en-");
   const en=enById.get(sourceId);
   if(!en){errors.push(q.question_id+": matching English support pack record is missing");continue;}
-  if(q.prompt_learning!==en.prompt_learning||q.explanation_learning!==en.explanation_learning||q.correct_option_id!==en.correct_option_id)errors.push(q.question_id+": Malay prompt/explanation/answer key differs between support packs");
+  if(q.prompt_learning!==en.prompt_learning||q.explanation_learning!==en.explanation_learning||q.correct_option_id!==en.correct_option_id||q.source_lesson_id!==en.source_lesson_id||q.topic_id!==en.topic_id||q.difficulty!==en.difficulty||q.learning_objective_id!==en.learning_objective_id)errors.push(q.question_id+": Malay prompt/explanation/answer key differs between support packs");
   if(JSON.stringify(q.options.map(o=>o.learning_text))!==JSON.stringify(en.options.map(o=>o.learning_text)))errors.push(q.question_id+": Malay answer choices differ between support packs");
  }
 }
