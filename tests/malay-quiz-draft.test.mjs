@@ -6,17 +6,17 @@ import {fileURLToPath} from "node:url";
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const curriculum=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/curriculum-map.ms.json"),"utf8"));
 
-test("Malay Quiz draft banks cover both support languages and the 36-question second batch",()=>{
+test("Malay Quiz draft banks cover both support languages and the 36-question third batch",()=>{
  for(const target of ["en","zh"]){
   const pack=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.ms-"+target+".draft.json"),"utf8"));
   assert.equal(pack.learning_language_code,"ms");
   assert.equal(pack.translation_language_code,target);
   assert.equal(pack.status,"draft");
-  assert.equal(pack.questions.length,48);
+  assert.equal(pack.questions.length,84);
   const ids=new Set();
   for(const level of ["beginner","intermediate","advanced"]){
-   assert.equal(pack.questions.filter(q=>q.difficulty===level).length,16);
-   assert.equal(pack.questions.filter(q=>q.difficulty===level&&Number(q.question_id.slice(-3))>=13).length,12);
+   assert.equal(pack.questions.filter(q=>q.difficulty===level).length,{beginner:26,intermediate:26,advanced:32}[level]);
+   assert.equal(pack.questions.filter(q=>q.difficulty===level&&Number(q.question_id.slice(-3))>=49).length,{beginner:10,intermediate:10,advanced:16}[level]);
   }
   for(const q of pack.questions){
    assert.equal(ids.has(q.question_id),false);ids.add(q.question_id);
