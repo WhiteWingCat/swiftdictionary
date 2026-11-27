@@ -7,7 +7,7 @@
   "batch": 2,
   "editorial_status": "draft",
   "translation_status": "machine_assisted_draft",
-  "notes": "Batches 01–02: 48 original Malay knowledge questions total, 12 Beginner, 12 Intermediate and 12 Advanced in batch 02. Draft only; linguistic review pending.",
+  "notes": "Batches 01–02: 48 original Malay knowledge questions total. Batch 02 adds 36 questions, 12 per difficulty. All records remain draft pending Malaysian Standard Malay and independent support-language review.",
   "questions": [
     {
       "question_id": "quiz-ms-en-b001",
@@ -439,7 +439,46 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b001",
+      "question_id": "quiz-ms-en-b005",
+      "learning_language_code": "ms",
+      "translation_language_code": "en",
+      "source_lesson_id": "ms-a-source-credibility",
+      "topic_id": "ms-topic-source-credibility",
+      "difficulty": "advanced",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Apakah tindakan paling wajar apabila dua sumber memberikan angka yang berbeza tentang perkara yang sama?",
+      "prompt_translation": "What is the most appropriate action when two sources give different figures about the same issue?",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Semak kaedah, tarikh dan sumber data asal.",
+          "translation_text": "Check the method, date and original data source."
+        },
+        {
+          "id": "b",
+          "learning_text": "Pilih angka yang paling besar.",
+          "translation_text": "Choose the largest figure."
+        },
+        {
+          "id": "c",
+          "learning_text": "Abaikan kedua-dua sumber.",
+          "translation_text": "Ignore both sources."
+        },
+        {
+          "id": "d",
+          "learning_text": "Gabungkan angka tanpa menyemak.",
+          "translation_text": "Combine the figures without checking."
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Angka perlu dibandingkan berdasarkan kaedah dan sumber asal yang boleh disemak.",
+      "explanation_translation": "Figures should be compared using verifiable methods and original sources.",
+      "learning_objective_id": "verify-claim-with-source",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-en-b013",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-greetings",
@@ -478,7 +517,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b002",
+      "question_id": "quiz-ms-en-b014",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-personal-information",
@@ -517,7 +556,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b003",
+      "question_id": "quiz-ms-en-b015",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-basic-sentence-order",
@@ -556,7 +595,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b004",
+      "question_id": "quiz-ms-en-b016",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-asking-for-help",
@@ -595,7 +634,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b005",
+      "question_id": "quiz-ms-en-b017",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-community-places",
@@ -634,7 +673,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b006",
+      "question_id": "quiz-ms-en-b018",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-daily-activities",
@@ -673,7 +712,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b007",
+      "question_id": "quiz-ms-en-b019",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-family-and-people",
@@ -712,7 +751,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b008",
+      "question_id": "quiz-ms-en-b020",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-food-and-drink",
@@ -751,7 +790,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b009",
+      "question_id": "quiz-ms-en-b021",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-hobbies-and-free-time",
@@ -790,7 +829,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b010",
+      "question_id": "quiz-ms-en-b022",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-home-and-household",
@@ -829,7 +868,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b011",
+      "question_id": "quiz-ms-en-b023",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-places-and-directions",
@@ -868,7 +907,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b012",
+      "question_id": "quiz-ms-en-b024",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-b-shopping-and-prices",
@@ -907,7 +946,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b014",
+      "question_id": "quiz-ms-en-b025",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-imbuhan-meN",
@@ -946,7 +985,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b015",
+      "question_id": "quiz-ms-en-b026",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-penjodoh-bilangan",
@@ -985,7 +1024,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b016",
+      "question_id": "quiz-ms-en-b027",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-kata-ganda",
@@ -1024,7 +1063,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b017",
+      "question_id": "quiz-ms-en-b028",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-aspek-perbuatan",
@@ -1063,7 +1102,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b018",
+      "question_id": "quiz-ms-en-b029",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-kata-sendi",
@@ -1102,7 +1141,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b019",
+      "question_id": "quiz-ms-en-b030",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-kata-hubung",
@@ -1141,7 +1180,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b020",
+      "question_id": "quiz-ms-en-b031",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-perbandingan",
@@ -1180,7 +1219,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b021",
+      "question_id": "quiz-ms-en-b032",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-kata-penguat",
@@ -1219,7 +1258,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b022",
+      "question_id": "quiz-ms-en-b033",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-ayat-majmuk",
@@ -1258,7 +1297,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b023",
+      "question_id": "quiz-ms-en-b034",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-cause-and-effect",
@@ -1297,7 +1336,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b024",
+      "question_id": "quiz-ms-en-b035",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-conditionals",
@@ -1336,7 +1375,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b025",
+      "question_id": "quiz-ms-en-b036",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-i-relative-clauses",
@@ -1375,7 +1414,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b026",
+      "question_id": "quiz-ms-en-b037",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-ragam-bahasa",
@@ -1414,7 +1453,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b027",
+      "question_id": "quiz-ms-en-b038",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-wacana-penanda",
@@ -1453,7 +1492,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b028",
+      "question_id": "quiz-ms-en-b039",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-penyuntingan",
@@ -1492,7 +1531,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b029",
+      "question_id": "quiz-ms-en-b040",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-ayat-pasif",
@@ -1531,7 +1570,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b030",
+      "question_id": "quiz-ms-en-b041",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-kohesi-wacana",
@@ -1570,7 +1609,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b031",
+      "question_id": "quiz-ms-en-b042",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-hujah-berasas",
@@ -1609,7 +1648,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b032",
+      "question_id": "quiz-ms-en-b043",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-variasi-struktur",
@@ -1648,7 +1687,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b033",
+      "question_id": "quiz-ms-en-b044",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-parafrasa",
@@ -1687,7 +1726,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b034",
+      "question_id": "quiz-ms-en-b045",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-bacaan-kritis",
@@ -1726,7 +1765,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b035",
+      "question_id": "quiz-ms-en-b046",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-argument-structure",
@@ -1765,7 +1804,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b036",
+      "question_id": "quiz-ms-en-b047",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-counterargument-and-rebuttal",
@@ -1804,7 +1843,7 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b037",
+      "question_id": "quiz-ms-en-b048",
       "learning_language_code": "ms",
       "translation_language_code": "en",
       "source_lesson_id": "ms-a-source-credibility",
