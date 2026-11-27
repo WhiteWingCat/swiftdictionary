@@ -88,5 +88,15 @@
         "outcome": "Assess the Malay learning objective: editing agreement and clarity."
       }
     ]
+  },
+  "ms-a-ayat-pasif": {
+    "topic_id": "ms-passive-voice",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "passive-voice-function",
+        "outcome": "Recognise and form passive clauses in appropriate contexts."
+      }
+    ]
   }
 }
