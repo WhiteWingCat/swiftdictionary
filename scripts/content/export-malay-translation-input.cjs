@@ -7,7 +7,7 @@ for (const file of [
   "data/english-expansion.js",
   "data/languages/chinese-dictionary.js",
   "data/chinese-characters.js",
-  "data/languages/malay-dictionary-translations.js"
+  "data/languages/malay-dictionary-manual-overrides.js"
 ]) require(path.resolve(file));
 
 function stableSlug(value, code) {
@@ -54,7 +54,7 @@ function build(code, records, manual) {
 
 // Retain the hand-authored starter batch as higher-quality overrides over offline MT drafts.
 // Keep the source inventory deterministic so the generator can be safely re-run.
-const manual = window.SWIFT_DICTIONARY_MS_TRANSLATIONS || {};
+const manual = window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES || {};
 const en = [
   ...(window.SWIFT_ENGLISH_BASE_DICTIONARY || []),
   ...(window.SWIFT_ENGLISH_EXPANSION || [])
