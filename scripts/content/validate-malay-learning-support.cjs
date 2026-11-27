@@ -3,10 +3,11 @@ const path=require("node:path");
 global.window={};
 require(path.resolve("data/languages/english-lessons.js"));
 require(path.resolve("data/chinese-lessons.js"));
+require(path.resolve("data/chinese-flashcards.js"));
 require(path.resolve("data/languages/malay-learning-support-translations.js"));
 const output=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 if(!output||output.status!=="machine_assisted_draft"||output.targetLanguage!=="ms")throw new Error("Malay learning-support output metadata is invalid");
-let lessonQuestions=0,quizQuestions=0;
+let lessonQuestions=0,quizQuestions=0,flashcardEntries=0;
 for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.SWIFT_CHINESE_LESSONS]]){
   for(const difficulty of ["beginner","intermediate","advanced"]){
     for(const lesson of catalogue[difficulty]||[]){
@@ -27,4 +28,13 @@ for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.
     quizQuestions++;
   }
 }
-console.log(JSON.stringify({lessonPracticeQuestions:lessonQuestions,quizQuestions,status:"PASS"}));
+const input=JSON.parse(fs.readFileSync(path.resolve("tmp/u3-malay-learning-support-input.json"),"utf8"));
+for(const [code,items] of Object.entries(input.flashcards||{})){
+  for(const item of items){
+    const row=output.flashcards?.[code]?.[item.word];
+    if(!row||typeof row.definitionMs!=="string"||!row.definitionMs.trim())throw new Error("Missing Flashcard Malay definition: "+code+"/"+item.word);
+    if(item.example&&(!row.exampleMs||!row.exampleMs.trim()))throw new Error("Missing Flashcard Malay example: "+code+"/"+item.word);
+    flashcardEntries++;
+  }
+}
+console.log(JSON.stringify({lessonPracticeQuestions:lessonQuestions,quizQuestions,flashcardEntries,status:"PASS"}));
