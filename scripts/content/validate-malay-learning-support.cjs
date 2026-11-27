@@ -32,7 +32,8 @@ const input=JSON.parse(fs.readFileSync(path.resolve("tmp/u3-malay-learning-suppo
 for(const [code,items] of Object.entries(input.flashcards||{})){
   for(const item of items){
     const row=output.flashcards?.[code]?.[item.word];
-    if(!row||typeof row.definitionMs!=="string"||!row.definitionMs.trim())throw new Error("Missing Flashcard Malay definition: "+code+"/"+item.word);
+    if(!row)throw new Error("Missing Flashcard Malay support row: "+code+"/"+item.word);
+    if(item.definition&&(!row.definitionMs||!row.definitionMs.trim()))throw new Error("Missing Flashcard Malay definition: "+code+"/"+item.word);
     if(item.example&&(!row.exampleMs||!row.exampleMs.trim()))throw new Error("Missing Flashcard Malay example: "+code+"/"+item.word);
     flashcardEntries++;
   }
