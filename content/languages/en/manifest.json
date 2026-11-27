@@ -77,7 +77,7 @@
       "sourceComposition": "Dictionary-derived English cards plus 25 curated multiword expressions",
       "malaySupportTranslations": {
         "file": "data/languages/malay-flashcard-translations.js",
-        "translatedHeadwords": 62,
+        "translatedHeadwords": 73,
         "status": "machine-assisted-draft",
         "untranslatedCardsExcluded": true
       }
