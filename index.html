@@ -2877,7 +2877,7 @@ async function completeLesson(x){
       return formatTopicName(row.lesson_id);
     }
     function dashboardLanguageLabel(code) {
-      return ({en:"English",zh:"简体中文",ms:"Bahasa Melayu"})[code] || code || "English";
+      return ({en:"English",zh:"简体中文",ms:"Malay"})[code] || window.SWIFT_LANGUAGE_REGISTRY?.get(code)?.name || code || "English";
     }
     function dashboardDailyActivityLabel(type) {
       return ({daily_topic:"Daily Topic",topic:"Daily Topic",daily_application:"Daily Application",application:"Daily Application",daily_discovery:"Daily Discovery",discovery:"Daily Discovery",daily_revision:"Daily Revision",revision:"Daily Revision"})[type] || formatTopicName(type||"Daily activity");
@@ -3054,7 +3054,7 @@ async function completeLesson(x){
         };
         document.getElementById("activeLanguagesList").innerHTML = activeLanguageRows.length ? activeLanguageRows.map(([code,stamp]) => {
           const registeredLanguage=window.SWIFT_LANGUAGE_REGISTRY?.get(code);
-          const label=registeredLanguage?.name ? escapeHTML(registeredLanguage.name) : escapeHTML(code||"English");
+          const label=registeredLanguage ? escapeHTML(code==="zh" ? registeredLanguage.nativeName : registeredLanguage.name) : escapeHTML(code||"English");
           return '<div class="active-language-row"><strong>'+label+'</strong><span>'+escapeHTML(relativeLastActive(stamp))+'</span></div>';
         }).join("") : "No completed learning activity recorded yet.";
         const counts=Object.fromEntries(types.map(type=>[type,completedActivity.filter(row=>row.activity_type===type).length]));
