@@ -2123,6 +2123,8 @@
     };
 function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
 function lessonField(x,key){
+  const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
+  if(isChineseCourse()&&ms&&ms[key]!==undefined)return ms[key];
   if(isChineseCourse())return x[key];
   const z=translationLanguage==="zh"?lessonZh[x.id]:null;
   return z&&z[key]!==undefined?z[key]:x[key];
