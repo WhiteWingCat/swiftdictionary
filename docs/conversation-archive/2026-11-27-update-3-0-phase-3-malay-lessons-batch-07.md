@@ -25,7 +25,7 @@ Each lesson includes multilingual topic/title/summary support, explanations, lea
 
 ## Validation status
 
-The workflow on the content-only commit passed 45/45 tests, but that run preceded the final loader/test-fixture updates. The workflow for the final integration commit is running as [U3.0 architecture regression run 45936474885](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45936474885). Its result is pending at archive time. Do not mark Batch 07 validated until that final run completes successfully. U2.9 English Dictionary QA is also running on the same final integration head.
+The workflow on the content-only commit passed 45/45 tests, but that run preceded the final loader/test-fixture updates. The workflow for the final integration commit is running as [U3.0 architecture regression run 45936478798](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45936478798). Its result is pending at archive time. Do not mark Batch 07 validated until that final run completes successfully. U2.9 English Dictionary QA is also running on the same final integration head.
 
 ## Catalogue count
 
