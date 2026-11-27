@@ -246,3 +246,5 @@ This directory contains structured handover archives for meaningful SwiftDiction
 ## 2026-11-26 — Update 3.0 Phase 2 closeout
 
 - [Malay Dictionary closeout validation checkpoint](2026-11-26-update-3-0-phase-2-closeout-validation.md) — 650-headword package, additional provenance/translation-registry tests, CI results and outstanding human editorial/rights review gates.
+
+- [2026-11-27 — Phase 2 Malay editorial review preparation](2026-11-27-update-3-0-phase-2-editorial-review-preparation.md) — 650-row headword review worksheet, review instructions and outstanding human review gates.
