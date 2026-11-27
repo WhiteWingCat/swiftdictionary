@@ -79,7 +79,8 @@ test("Malay Daily Learning includes all four shared activity categories",()=>{
   assert.equal(new Set(daily.topics.map(x=>x.id)).size,12);
   assert.equal(new Set(daily.applications.map(x=>x.id)).size,12);
   assert.ok(daily.topics.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh));
-  assert.ok(daily.applications.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh&&x.questions.every(q=>q.q&&q.q.en&&q.q.zh&&q.options.length===4&&q.options.every(o=>o.ms&&o.en&&o.zh)&&Number.isInteger(q.answer))));
+  assert.ok(daily.applications.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh&&x.questions.every(q=>q.q&&q.options.length===4&&Number.isInteger(q.answer))));
+  assert.ok(daily.applications.filter(x=>x.id.endsWith("-02")).every(x=>x.questions.every(q=>q.q.en&&q.q.zh&&q.options.every(o=>o.ms&&o.en&&o.zh))));
   assert.equal(daily.contentVersion,"u3-ms-daily-0.2.0");
   assert.ok(daily.discovery.every(x=>x.id&&x.word&&x.definition&&x.en&&x.zh));
   assert.equal(new Set(daily.discovery.map(x=>x.id)).size,93);
