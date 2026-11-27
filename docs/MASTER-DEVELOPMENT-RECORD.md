@@ -4694,3 +4694,17 @@ A database-impact report was added at [U3.0 Phase 3 Database Impact](https://git
 Legal/privacy planning: Phase 3 reuses existing account-bound progress, practice-result, daily-session and allowance mechanisms and introduces no intended new personal-data field or third-party processor. Before public launch, re-check Malaysia PDPA Amendment Act 2024 obligations and current Commissioner guidance for controller registration, DPO, breach notification and cross-border transfers; assess whether the existing privacy notice adequately describes adaptive topic-level review. All dictionary and lesson content rights/provenance remain open until review.
 
 **Phase status:** Phase 3 is in progress. No staging preview, production activation, main merge or deployment has occurred.
+
+
+## 22. Phase 3 Malay Lessons expansion — Batch 02 (2026-11-27)
+
+Expanded the draft Malay permanent Lessons catalogue from 9 to **18 lessons**, balanced across the three difficulty levels (6 Beginner, 6 Intermediate, 6 Advanced). New file: `data/malay-lessons-expansion-02.js`, loaded after `data/malay-lessons.js` and before `js/core/legacy-content-bootstrap.js`.
+
+Content added:
+- Beginner: daily routines; time and days; polite food ordering.
+- Intermediate: aspect markers for ongoing/completed/future actions; prepositions for location/direction/recipients; conjunctions and logical relations.
+- Advanced: active/passive voice including pronoun-specific passive patterns; discourse cohesion, references and discourse markers; evidence-based arguments and fact/opinion distinction.
+
+The Malay manifest now records version `u3-ms-lessons-0.2.0` and lesson counts of 6/6/6. Regression coverage was updated to assert 18 unique lesson IDs and the three difficulty totals. The U3.0 architecture/adapter/content workflow passed **45/45 tests** (run [45932215643](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45932215643), commit `9ee2d59b77e1ac9ded2e4ffa205ee9bbfdb79ac3`).
+
+All Malay content and machine-assisted translations remain draft for the owner's staging review. The test pass confirms syntax, structure, package integration and automated contracts only; it does not validate Malaysian Standard Malay editorial quality or translation accuracy. No staging preview, DB migration, production activation, main merge or deployment occurred. Phase 3 remains in progress.
