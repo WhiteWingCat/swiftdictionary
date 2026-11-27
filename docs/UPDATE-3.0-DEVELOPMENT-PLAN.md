@@ -886,3 +886,8 @@ U3.0 Phase 1 architecture/content regression passed on application head `4edff5a
 ### Course-preference routing compatibility — 2026-11-27
 
 The public three-argument Quiz start wrapper now preserves the existing English/Chinese course-override routing for compatibility, while the Malay path requires the saved learning course to be `ms` and rejects a client attempt to start Malay while the saved course is another language. The Quiz UI waits for its queued course-preference write before requesting a Malay session, preventing a fast course switch from racing the server-side saved-preference check. U3.0 static tests cover this ordering. The generic authenticated save, submit/scoring, active-session, abandon, history and review RPCs remain shared across all learning languages.
+
+
+### Quiz integration CI fixture correction — 2026-11-27
+
+The first full local Supabase integration attempt reached the U3.0 baseline and found that the full Phase 3 Malay catalogue seed also inserts Daily Discovery rotation orders, colliding with the global unique discovery-order index in the isolated Quiz test database. This is unrelated to Malay Quiz question content or runtime. The Quiz workflow now runs the Malay enablement baseline and a Quiz-only fixture containing just the 72 permanent-lesson catalogue rows needed by the Quiz source checks; it deliberately omits Daily Discovery rotation data. The failed run stopped before applying the Malay Quiz runtime migration or executing the new RPC tests. A fresh local Supabase integration run is pending on the corrected workflow. No connected staging data was changed.
