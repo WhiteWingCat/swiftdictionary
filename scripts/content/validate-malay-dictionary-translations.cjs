@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 global.window = {};
-require("./data/languages/malay-dictionary-translations.js");
+require("../../data/languages/malay-dictionary-translations.js");
 const data = window.SWIFT_DICTIONARY_MS_TRANSLATIONS;
 if (!data || data.status !== "machine_assisted_draft" || data.targetLanguage !== "ms") throw new Error("Translation metadata/status missing");
 const expected = { en: { entries: 1316, senses: 1931 }, zh: { entries: 725, senses: 825 } };
