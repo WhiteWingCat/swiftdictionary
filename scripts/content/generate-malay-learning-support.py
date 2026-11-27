@@ -38,15 +38,22 @@ def main():
     install_pair("zh","en")
     en_ms=translator("en","ms")
     zh_en=translator("zh","en")
+    source_cache={}
+    english_to_malay_cache={}
     def translate(value,source):
         value=clean(value)
         if not value:
             return ""
-        if source=="zh":
-            value=clean(zh_en.translate(value))
-        result=clean(en_ms.translate(value))
+        source_key=(source,value)
+        if source_key in source_cache:
+            return source_cache[source_key]
+        intermediate=clean(zh_en.translate(value)) if source=="zh" else value
+        if intermediate not in english_to_malay_cache:
+            english_to_malay_cache[intermediate]=clean(en_ms.translate(intermediate))
+        result=english_to_malay_cache[intermediate]
         if not result:
-            raise RuntimeError("Empty Malay translation for "+value[:80])
+            raise RuntimeError("Empty Malay translation for "+intermediate[:80])
+        source_cache[source_key]=result
         return result
     output={
       "schemaVersion":1,
@@ -105,6 +112,8 @@ def main():
     js="/* Generated Malay learning-support translations. Machine-assisted drafts; human review pending. */\n"
     js+="window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS = "+json.dumps(output,ensure_ascii=False,indent=2)+";\n"
     OUTPUT.write_text(js,encoding="utf-8")
+    counts["unique_source_texts"]=len(source_cache)
+    counts["unique_english_to_malay_texts"]=len(english_to_malay_cache)
     print(json.dumps({"counts":counts,"output_bytes":OUTPUT.stat().st_size,"status":output["status"]},ensure_ascii=False))
 
 if __name__=="__main__":
