@@ -76,12 +76,12 @@ if env CF_PAGES=1 CF_PAGES_BRANCH=main \
   echo "ERROR: production accepted the staging project URL" >&2
   exit 1
 fi
-if env CF_PAGES=1 CF_PAGES_BRANCH=feature/test \
-  SWIFT_SUPABASE_URL=https://ivatvkfrtifgfheeaelj.supabase.co \
-  SWIFT_SUPABASE_PUBLISHABLE_KEY=legacy-anon-key bash build.sh >/dev/null 2>&1; then
-  echo "ERROR: preview accepted a non-publishable key" >&2
-  exit 1
-fi
+write_sample_config
+env CF_PAGES=1 CF_PAGES_BRANCH=feature/test \
+  SWIFT_SUPABASE_URL=https://pzymiesazmpyvnfvsbsc.supabase.co \
+  SWIFT_SUPABASE_PUBLISHABLE_KEY=legacy-anon-key bash build.sh >/dev/null
+grep -q 'ivatvkfrtifgfheeaelj.supabase.co' supabase-config.js
+grep -q 'sb_publishable_preview_test' supabase-config.js
 if env CF_PAGES=1 SWIFT_SUPABASE_URL=https://ivatvkfrtifgfheeaelj.supabase.co \
   SWIFT_SUPABASE_PUBLISHABLE_KEY=sb_publishable_preview_test bash build.sh >/dev/null 2>&1; then
   echo "ERROR: build accepted a missing branch identifier" >&2
