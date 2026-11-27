@@ -2706,9 +2706,9 @@ async function completeLesson(x){
       if (course !== targetCourse) {
         course = targetCourse;
         words = dictionaryEntriesFor(course);
-        syncMalayTargetOptionAvailability();
         document.getElementById("courseSelect").value = course;
         document.getElementById("preferenceLearning").value = course;
+        syncMalayTargetOptionAvailability();
         document.getElementById("translationSelect").value = translationLanguage;
         document.getElementById("preferenceTranslation").value = translationLanguage;
         rememberCoursePreferences();
