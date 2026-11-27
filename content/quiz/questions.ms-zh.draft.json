@@ -166,45 +166,6 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-zh-b005",
-      "learning_language_code": "ms",
-      "translation_language_code": "zh",
-      "source_lesson_id": "ms-b-basic-sentence-order",
-      "topic_id": "ms-basic-sentence-order",
-      "difficulty": "beginner",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Pilih ayat penyata yang lengkap dan tersusun dengan betul.",
-      "prompt_translation": "选择语序正确且完整的陈述句。",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Adik sedang tidur.",
-          "translation_text": "弟弟／妹妹正在睡觉。"
-        },
-        {
-          "id": "b",
-          "learning_text": "Sedang adik tidur.",
-          "translation_text": "正在弟弟／妹妹睡觉。"
-        },
-        {
-          "id": "c",
-          "learning_text": "Tidur sedang adik.",
-          "translation_text": "睡觉正在弟弟／妹妹。"
-        },
-        {
-          "id": "d",
-          "learning_text": "Adik tidur sedang.",
-          "translation_text": "弟弟／妹妹睡觉正在。"
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "Ayat “Adik sedang tidur” mempunyai subjek dan predikat dalam susunan yang lazim.",
-      "explanation_translation": "“Adik sedang tidur”按自然语序包含主语和谓语。",
-      "learning_objective_id": "complete-simple-statements",
-      "release_approved": false
-    },
-    {
       "question_id": "quiz-ms-zh-b006",
       "learning_language_code": "ms",
       "translation_language_code": "zh",
@@ -475,6 +436,45 @@
       "explanation_learning": "Ayat pertama mempunyai susunan subjek, predikat dan keterangan yang jelas.",
       "explanation_translation": "第一句的主语、谓语和时间状语结构清晰。",
       "learning_objective_id": "editing-agreement-and-clarity",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b013",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-a-ayat-pasif",
+      "topic_id": "ms-passive-voice",
+      "difficulty": "advanced",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih ayat pasif yang betul berdasarkan ayat aktif “Siti membaca buku itu.”",
+      "prompt_translation": "根据主动句“Siti membaca buku itu.”，选择正确的被动句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Buku itu dibaca oleh Siti.",
+          "translation_text": "这本书由Siti阅读。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Siti membaca buku itu.",
+          "translation_text": "Siti读这本书。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Siti sedang membaca.",
+          "translation_text": "Siti正在阅读。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Buku itu sangat tebal.",
+          "translation_text": "这本书很厚。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Buku itu dibaca oleh Siti” meletakkan penerima perbuatan sebagai fokus ayat pasif.",
+      "explanation_translation": "“Buku itu dibaca oleh Siti”将动作的承受者作为被动句的重点。",
+      "learning_objective_id": "passive-voice-function",
       "release_approved": false
     }
   ]
