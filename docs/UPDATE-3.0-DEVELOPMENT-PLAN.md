@@ -450,3 +450,14 @@ New Beginner topics: weather and clothing; transport and travel; health-related 
 The batch is loaded after expansion batch 03 and before the shared content bootstrap. The manifest now records `u3-ms-lessons-0.4.0`; structural tests assert 36 unique lessons and 12 at each difficulty, and the workflow syntax-checks the new file. All content and EN/ZH support remain draft for staging review. Automated validation is pending for this commit.
 
 No staging preview, database migration, production activation, main merge or deployment has occurred. Phase 3 remains in progress.
+
+
+## Phase 3 Malay Lessons expansion — Batch 05 (2026-11-27)
+
+Added 9 original draft lessons in `data/malay-lessons-expansion-05.js`, bringing the permanent Malay Lessons catalogue to **45 lessons: 15 Beginner, 15 Intermediate and 15 Advanced**.
+
+New Beginner topics: home and household items; school and learning; feelings and simple opinions. New Intermediate topics: conditional sentences; classifiers and quantifiers; cause-and-effect relationships. New Advanced topics: data and statistical language; policy language and formal correspondence; ethical and inclusive language.
+
+The batch is loaded after expansion batch 04 and before the shared content bootstrap. The manifest now records `u3-ms-lessons-0.5.0`; structural tests assert 45 unique lessons and 15 at each difficulty, and the workflow syntax-checks the new file. Automated validation is pending for this batch. All content and EN/ZH support remain draft for staging review.
+
+No staging preview, database migration, production activation, main merge or deployment has occurred. Phase 3 remains in progress.
