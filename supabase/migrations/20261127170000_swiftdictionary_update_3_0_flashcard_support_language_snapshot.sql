@@ -60,7 +60,7 @@ begin
   elsif p_action='update' then
     if p_card_id is null then raise exception 'Card ID is required' using errcode='22023'; end if;
     update private.flashcard_cards set collection_id=p_collection_id,
-      card_type=p_card_type,translation_language_code=v_translation,dictionary_word=nullif(btrim(p_dictionary_word),'')
+      card_type=p_card_type,translation_language_code=v_translation,dictionary_word=nullif(btrim(p_dictionary_word),''),
       front_text=btrim(p_front_text),back_text=btrim(p_back_text),
       example_text=nullif(btrim(coalesce(p_example_text,'')),''),
       translation_text=nullif(btrim(coalesce(p_translation_text,'')),''),
