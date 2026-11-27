@@ -2131,10 +2131,24 @@ function lessonField(x,key){
 }
 function lessonPractice(x){
   const src=x.practices||[x.practice];
+  // English lessons have a legacy Simplified Chinese practice pack. Keep its
+  // prompt/options aligned by source index while applying the shuffled order.
+  // Malay target practice is selected only when an explicit per-question
+  // translation pack exists; otherwise retain the source-language prompt.
+  const support=translationLanguage==="zh"&&!isChineseCourse()&&!isMalayCourse()
+    ?lessonZh[x.id]?.practices
+    :translationLanguage==="ms"&&!isMalayCourse()
+      ?lessonMsRecord(x)?.practices
+      :null;
   const orders=ls.practiceOptionOrders?.[x.id];
   return src.map((q,i)=>{
+    const translated=support?.[i];
     const order=orders?.[i]||q.options.map((_,j)=>j);
-    return {q:q.q,options:order.map(j=>q.options[j]),answer:order.indexOf(q.answer)};
+    return {
+      q:translated?.q??q.q,
+      options:order.map(j=>translated?.options?.[j]??q.options[j]),
+      answer:order.indexOf(q.answer)
+    };
   });
 }
     function shuffleLessonOptionOrders(x){const src=x.practices||[x.practice],previous=ls.lastPracticeOptionOrders?.[x.id]||[];const orders=src.map((q,i)=>{const base=q.options.map((_,j)=>j);let order=base.slice();for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.length>1&&previous[i]&&order.every((v,j)=>v===previous[i][j])){for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.every((v,j)=>v===previous[i][j]))order.push(order.shift());}return order;});ls.lastPracticeOptionOrders={...(ls.lastPracticeOptionOrders||{}),[x.id]:orders.map(a=>a.slice())};ls.practiceOptionOrders={...(ls.practiceOptionOrders||{}),[x.id]:orders};}
