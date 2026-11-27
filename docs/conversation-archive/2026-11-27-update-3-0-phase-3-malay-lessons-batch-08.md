@@ -29,7 +29,7 @@ The Malay Daily Learning data currently contains **99 authored activity records*
 
 ## Validation
 
-Final U3.0 architecture/content regression is running as [workflow run 45937654497](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45937654497) on commit `b844cc58838baaebb13217ddd41cc23707e0f2b0`. Record the actual result here before calling Batch 08 validated. The earlier passing run on the content-only commit preceded final loader and test changes and is not sufficient for sign-off.
+Final U3.0 architecture/content regression passed **45/45 tests** as [workflow run 45937654497](https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45937654497) on commit `b844cc58838baaebb13217ddd41cc23707e0f2b0`. This run includes the final loader and test changes. It validates automated syntax, integration and structural content contracts, not human linguistic/translation approval or browser/device acceptance.
 
 ## Catalogue count
 
