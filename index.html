@@ -2079,6 +2079,32 @@
     const lessonZh=window.SWIFT_ENGLISH_LESSON_TRANSLATIONS;
     const lessonMs=window.SWIFT_LESSON_TRANSLATIONS_MS||{en:{},zh:{}};
     const lessonMsRecord=x=>lessonMs[isChineseCourse()?"zh":"en"]?.[x.id]||null;
+    const lessonMsTextLookup=new Map();
+    function indexLessonSupportText(source,support){
+      if(source===null||source===undefined||support===null||support===undefined)return;
+      if(Array.isArray(source)){
+        if(Array.isArray(support))source.forEach((value,index)=>indexLessonSupportText(value,support[index]));
+        return;
+      }
+      if(typeof source==="string"&&typeof support==="string"){
+        if(source.trim()&&support.trim())lessonMsTextLookup.set(source,support);
+        return;
+      }
+      if(source&&typeof source==="object"&&typeof support==="string"){
+        for(const key of ["zh","en","ms","text","value"])if(typeof source[key]==="string"&&source[key].trim())lessonMsTextLookup.set(source[key],support);
+        return;
+      }
+      if(source&&typeof source==="object"&&support&&typeof support==="object"){
+        for(const key of Object.keys(support))if(key in source)indexLessonSupportText(source[key],support[key]);
+      }
+    }
+    for(const [code,catalogue] of [["en",lessonData],["zh",window.SWIFT_CHINESE_LESSONS||{}]]){
+      const translations=lessonMs[code]||{};
+      for(const items of Object.values(catalogue||{}))for(const lesson of Array.isArray(items)?items:[]){
+        const translated=translations[lesson.id];
+        if(translated)for(const key of Object.keys(translated))indexLessonSupportText(lesson[key],translated[key]);
+      }
+    }
 
     const lessonTopicIds={
       "Sentence basics":"sentence-basics",
@@ -2097,22 +2123,16 @@
     };
 function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
 function lessonField(x,key){
-  const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
-  if(ms&&ms[key]!==undefined)return ms[key];
   if(isChineseCourse())return x[key];
   const z=translationLanguage==="zh"?lessonZh[x.id]:null;
   return z&&z[key]!==undefined?z[key]:x[key];
 }
 function lessonPractice(x){
-  const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
-  const z=translationLanguage==="zh"&&isEnglishCourse()?lessonZh[x.id]:null;
   const src=x.practices||[x.practice];
-  const translated=ms?.practices||z?.practices||(z?.practice?[z.practice]:null);
   const orders=ls.practiceOptionOrders?.[x.id];
   return src.map((q,i)=>{
-    const options=translated?.[i]?.options||q.options;
-    const order=orders?.[i]||options.map((_,j)=>j);
-    return {q:translated?.[i]?.q||q.q,options:order.map(j=>options[j]),answer:order.indexOf(q.answer)};
+    const order=orders?.[i]||q.options.map((_,j)=>j);
+    return {q:q.q,options:order.map(j=>q.options[j]),answer:order.indexOf(q.answer)};
   });
 }
     function shuffleLessonOptionOrders(x){const src=x.practices||[x.practice],previous=ls.lastPracticeOptionOrders?.[x.id]||[];const orders=src.map((q,i)=>{const base=q.options.map((_,j)=>j);let order=base.slice();for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.length>1&&previous[i]&&order.every((v,j)=>v===previous[i][j])){for(let k=order.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[order[k],order[j]]=[order[j],order[k]];}if(order.every((v,j)=>v===previous[i][j]))order.push(order.shift());}return order;});ls.lastPracticeOptionOrders={...(ls.lastPracticeOptionOrders||{}),[x.id]:orders.map(a=>a.slice())};ls.practiceOptionOrders={...(ls.practiceOptionOrders||{}),[x.id]:orders};}
@@ -2138,21 +2158,22 @@ function lessonRenderText(value){
         return '<span class="lesson-bilingual-block"><span class="lesson-primary-line">'+escapeHTML(value.ms)+'</span>'+(support?'<span class="lesson-selected-translation">'+escapeHTML(support)+'</span>':"")+'</span>';
       }
       if(isChineseCourse()&&value&&typeof value==="object"&&typeof value.zh==="string"){
-        const selected=translationLanguage==="en"
-          ?'<span class="lesson-english-line">'+escapeHTML(value.en||"")+'</span>'
-          :translationLanguage!=="zh"&&value.translations?.[translationLanguage]
-            ?'<span class="lesson-selected-translation">'+escapeHTML(value.translations[translationLanguage])+'</span>':"";
+        const support=translationLanguage==="ms"?(lessonMsTextLookup.get(value.zh)||value.translations?.ms||"")
+          :translationLanguage==="en"?(value.en||"")
+          :value.translations?.[translationLanguage]||"";
+        const selected=support?'<span class="lesson-selected-translation">'+escapeHTML(support)+'</span>':"";
         return '<span class="lesson-bilingual-block"><span class="lesson-chinese-line">'+escapeHTML(value.zh)+'</span><span class="lesson-pinyin-line">'+escapeHTML(value.pinyin||"")+'</span>'+selected+'</span>';
+      }
+      if(typeof value==="string"&&translationLanguage==="ms"&&(isEnglishCourse()||isChineseCourse())){
+        const support=lessonMsTextLookup.get(value)||"";
+        if(support)return '<span class="lesson-bilingual-block"><span class="lesson-primary-line">'+escapeHTML(value)+'</span><span class="lesson-selected-translation">'+escapeHTML(support)+'</span></span>';
       }
       return escapeHTML(value??"");
     }
 function lessonTopicText(x){
-  if(isChineseCourse()){
-    const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
-    return ms?.topic?escapeHTML(ms.topic):lessonRenderText(x.topicDisplay);
-  }
+  if(isChineseCourse())return lessonRenderText(x.topicDisplay||x.topic);
   if(isMalayCourse())return lessonRenderText(x.topic);
-  return escapeHTML(lessonField(x,"topic"));
+  return lessonRenderText(lessonField(x,"topic"));
 }
 async function loadLessonProgress(){
       if(!currentUser||!supabaseClient){ls.progress=[];return;}
