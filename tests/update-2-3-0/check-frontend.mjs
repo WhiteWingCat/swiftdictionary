@@ -102,6 +102,7 @@ if (makeRevisionStart < 0 || makeRevisionEnd < 0) throw new Error("Daily Revisio
 const makeRevisionContent = vm.runInNewContext(
   `const dailyApplications = ${JSON.stringify(curated.applications)};
    const dailyRevisionMaterials = ${JSON.stringify(activityMaterials.dailyRevisionMaterials)};
+   const isMalayLearningCourse = () => false;
    ${dailyScript.slice(makeRevisionStart,makeRevisionEnd)}
    makeRevisionContent;`
 );
@@ -164,7 +165,7 @@ const revisionFunction = dailyScript.slice(revisionStart, revisionEnd);
 const fixedNow = Date.parse("2026-11-10T12:00:00.000Z");
 const RevisionDate = class extends Date { static now() { return fixedNow; } };
 const revisionRunner = vm.runInNewContext(
-  `const dailyApplications = ${JSON.stringify(revisionTopicIds.map(topicId => ({ topicId })))};\n${revisionFunction}\nrevisionCandidates;`,
+  `const dailyApplications = ${JSON.stringify(revisionTopicIds.map(topicId => ({ topicId })))};\nconst isMalayLearningCourse = () => false;\n${revisionFunction}\nrevisionCandidates;`,
   { Date: RevisionDate, Map, Set }
 );
 const revisionRow = (topic_id, correct_count, question_count, daysAgo, id) => ({
