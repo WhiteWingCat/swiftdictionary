@@ -2125,6 +2125,9 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "definitionMs": "Memberikan perhatian kepada seseorang, perkara atau aktiviti tertentu."
+          },
+          {
+            "definitionMs": "Memberikan perhatian kepada seseorang, perkara atau aktiviti tertentu."
           }
         ]
       },
@@ -2722,6 +2725,639 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "definitionMs": "Titik tertentu dalam masa, khususnya ketika keputusan penting perlu dibuat."
+          },
+          {
+            "definitionMs": "Tempat atau titik pertemuan atau persambungan antara dua perkara."
+          }
+        ]
+      },
+      "jurisdiction": {
+        "senses": [
+          {
+            "definitionMs": "Kuasa atau bidang kuasa rasmi untuk membuat keputusan undang-undang atau menguatkuasakan undang-undang."
+          },
+          {
+            "definitionMs": "Kawasan geografi atau perkara yang berada di bawah kawalan sesuatu pihak berkuasa."
+          }
+        ]
+      },
+      "jurisprudence": {
+        "senses": [
+          {
+            "definitionMs": "Teori dan falsafah undang-undang, termasuk sifat serta tafsiran sistem perundangan."
+          }
+        ]
+      },
+      "juxtapose": {
+        "senses": [
+          {
+            "definitionMs": "Meletakkan dua perkara bersebelahan supaya persamaan atau perbezaannya lebih jelas."
+          }
+        ]
+      },
+      "juxtaposition": {
+        "senses": [
+          {
+            "definitionMs": "Tindakan atau hasil meletakkan beberapa perkara berdekatan untuk dibandingkan atau dikontraskan."
+          }
+        ]
+      },
+      "karyogamy": {
+        "senses": [
+          {
+            "definitionMs": "Percantuman dua nukleus sel, khususnya semasa pembiakan seksual kulat dan organisma lain."
+          }
+        ]
+      },
+      "karyotype": {
+        "senses": [
+          {
+            "definitionMs": "Bilangan dan rupa kromosom dalam sel, lazimnya disusun untuk pemeriksaan."
+          }
+        ]
+      },
+      "keratinization": {
+        "senses": [
+          {
+            "definitionMs": "Proses apabila sel mengumpulkan keratin lalu menjadi lebih keras atau memberikan perlindungan."
+          }
+        ]
+      },
+      "keystone": {
+        "senses": [
+          {
+            "definitionMs": "Unsur utama yang menyatukan sesuatu sistem; dalam ekologi, spesies batu penjuru mempunyai pengaruh yang jauh lebih besar terhadap ekosistemnya."
+          }
+        ]
+      },
+      "kindness": {
+        "senses": [
+          {
+            "definitionMs": "Sifat ramah, pemurah dan bertimbang rasa."
+          }
+        ]
+      },
+      "kinematics": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang pergerakan tanpa menumpukan perhatian kepada daya yang menyebabkannya."
+          }
+        ]
+      },
+      "kinetic": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan pergerakan atau tenaga yang dimiliki objek kerana sedang bergerak."
+          }
+        ]
+      },
+      "kinetics": {
+        "senses": [
+          {
+            "definitionMs": "Kajian tentang kadar perubahan, khususnya kadar tindak balas atau pergerakan di bawah pengaruh daya."
+          }
+        ]
+      },
+      "kneel": {
+        "senses": [
+          {
+            "definitionMs": "Merendahkan badan sehingga bertumpu pada satu atau kedua-dua lutut."
+          }
+        ]
+      },
+      "lacunary": {
+        "senses": [
+          {
+            "definitionMs": "Mempunyai ruang kosong, jurang atau bahagian yang tertinggal."
+          }
+        ]
+      },
+      "lacustrine": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan tasik atau terbentuk dalam persekitaran tasik."
+          }
+        ]
+      },
+      "latency": {
+        "senses": [
+          {
+            "definitionMs": "Kelewatan antara sesuatu tindakan atau input dengan tindak balas yang terhasil."
+          }
+        ]
+      },
+      "latent": {
+        "senses": [
+          {
+            "definitionMs": "Wujud tetapi belum kelihatan, aktif atau dizahirkan pada masa ini."
+          }
+        ]
+      },
+      "laugh": {
+        "senses": [
+          {
+            "definitionMs": "Mengeluarkan bunyi dan gerakan yang menunjukkan rasa geli hati atau gembira."
+          },
+          {
+            "definitionMs": "Bunyi atau perbuatan ketawa."
+          }
+        ]
+      },
+      "lean": {
+        "senses": [
+          {
+            "definitionMs": "Menyengetkan atau menyandarkan badan pada sesuatu untuk mendapatkan sokongan; atau condong ke arah tertentu."
+          },
+          {
+            "definitionMs": "Kecenderungan atau pilihan terhadap sesuatu keputusan, gaya atau pendirian."
+          }
+        ]
+      },
+      "lexicography": {
+        "senses": [
+          {
+            "definitionMs": "Amalan dan bidang kajian penyusunan, penyuntingan serta reka bentuk kamus."
+          }
+        ]
+      },
+      "lexicon": {
+        "senses": [
+          {
+            "definitionMs": "Kosa kata sesuatu bahasa, individu, bidang atau perkara."
+          }
+        ]
+      },
+      "liminality": {
+        "senses": [
+          {
+            "definitionMs": "Keadaan berada dalam peringkat peralihan antara dua keadaan, peranan atau tempat."
+          }
+        ]
+      },
+      "lineage": {
+        "senses": [
+          {
+            "definitionMs": "Salasilah keturunan atau rangkaian sejarah yang menjadi asal perkembangan sesuatu perkara."
+          }
+        ]
+      },
+      "linger": {
+        "senses": [
+          {
+            "definitionMs": "Terus berada di sesuatu tempat lebih lama daripada yang perlu atau masih kekal selepas perkara lain berlalu."
+          }
+        ]
+      },
+      "listen": {
+        "senses": [
+          {
+            "definitionMs": "Memberikan perhatian kepada bunyi atau perkara yang diperkatakan oleh seseorang."
+          }
+        ]
+      },
+      "lithification": {
+        "senses": [
+          {
+            "definitionMs": "Proses apabila sedimen longgar berubah menjadi batuan pepejal."
+          }
+        ]
+      },
+      "lithography": {
+        "senses": [
+          {
+            "definitionMs": "Proses pencetakan atau pembentukan corak menggunakan permukaan yang dirawat; dalam pembuatan semikonduktor, proses ini memindahkan corak ke atas bahan."
+          }
+        ]
+      },
+      "lithosphere": {
+        "senses": [
+          {
+            "definitionMs": "Lapisan luar Bumi yang tegar, terdiri daripada kerak Bumi dan bahagian paling atas mantel."
+          }
+        ]
+      },
+      "littoral": {
+        "senses": [
+          {
+            "definitionMs": "Berkaitan kawasan pesisir laut atau tasik."
+          },
+          {
+            "definitionMs": "Kawasan di sepanjang pesisir laut atau tasik."
+          }
+        ]
+      },
+      "locus": {
+        "senses": [
+          {
+            "definitionMs": "Tempat atau kedudukan tertentu; dalam matematik, himpunan titik yang memenuhi syarat tertentu; dalam genetik, kedudukan gen pada kromosom."
+          }
+        ]
+      },
+      "lonely": {
+        "senses": [
+          {
+            "definitionMs": "Berasa sedih kerana keseorangan atau tidak mempunyai hubungan rapat dengan orang lain."
+          }
+        ]
+      },
+      "longitudinal": {
+        "senses": [
+          {
+            "definitionMs": "Melibatkan pemerhatian atau pengukuran yang dikumpulkan sepanjang tempoh yang panjang."
+          }
+        ]
+      },
+      "maintain": {
+        "senses": [
+          {
+            "definitionMs": "Mengekalkan sesuatu dalam keadaan baik atau meneruskannya pada tahap yang sama."
+          }
+        ]
+      },
+      "manage": {
+        "senses": [
+          {
+            "definitionMs": "Berjaya melakukan sesuatu atau bertanggungjawab mengurus sesuatu perkara."
+          }
+        ]
+      },
+      "meaningful": {
+        "senses": [
+          {
+            "definitionMs": "Mempunyai kepentingan, nilai atau tujuan."
+          }
+        ]
+      },
+      "meanwhile": {
+        "senses": [
+          {
+            "definitionMs": "Dalam tempoh yang sama ketika sesuatu perkara lain sedang berlaku."
+          },
+          {
+            "definitionMs": "Tempoh masa antara dua peristiwa; lazimnya digunakan dalam ungkapan 'sementara itu'."
+          }
+        ]
+      },
+      "mention": {
+        "senses": [
+          {
+            "definitionMs": "Merujuk kepada sesuatu secara ringkas tanpa menghuraikannya dengan terperinci."
+          },
+          {
+            "definitionMs": "Rujukan ringkas kepada seseorang atau sesuatu."
+          }
+        ]
+      },
+      "metacognition": {
+        "senses": [
+          {
+            "definitionMs": "Kesedaran dan pengawalan terhadap proses pemikiran serta pembelajaran diri sendiri."
+          }
+        ]
+      },
+      "method": {
+        "senses": [
+          {
+            "definitionMs": "Cara tertentu untuk melakukan sesuatu."
+          }
+        ]
+      },
+      "metonymy": {
+        "senses": [
+          {
+            "definitionMs": "Gaya bahasa yang merujuk kepada sesuatu perkara menggunakan nama perkara lain yang mempunyai hubungan rapat dengannya."
+          }
+        ]
+      },
+      "metrology": {
+        "senses": [
+          {
+            "definitionMs": "Sains pengukuran, termasuk unit, kaedah, ketepatan dan kebolehkesanan ukuran."
+          }
+        ]
+      },
+      "microbiome": {
+        "senses": [
+          {
+            "definitionMs": "Komuniti mikroorganisma serta keseluruhan bahan genetiknya dalam persekitaran tertentu."
+          }
+        ]
+      },
+      "mimesis": {
+        "senses": [
+          {
+            "definitionMs": "Penggambaran atau peniruan aspek dunia sebenar dalam seni atau kesusasteraan."
+          }
+        ]
+      },
+      "mimic": {
+        "senses": [
+          {
+            "definitionMs": "Meniru suara, pergerakan atau tingkah laku seseorang, selalunya untuk menghiburkan atau membuat tiruan."
+          },
+          {
+            "definitionMs": "Individu atau haiwan yang meniru suara, pergerakan atau tingkah laku pihak lain."
+          }
+        ]
+      },
+      "misunderstanding": {
+        "senses": [
+          {
+            "definitionMs": "Kegagalan memahami sesuatu perkara dengan betul."
+          }
+        ]
+      },
+      "mitigation": {
+        "senses": [
+          {
+            "definitionMs": "Tindakan mengurangkan tahap keterukan, kesan atau risiko sesuatu perkara."
+          }
+        ]
+      },
+      "moreover": {
+        "senses": [
+          {
+            "definitionMs": "Selain perkara yang telah dinyatakan; tambahan pula."
+          }
+        ]
+      },
+      "morphogenesis": {
+        "senses": [
+          {
+            "definitionMs": "Proses biologi yang membentuk rupa atau struktur sesuatu organisma."
+          }
+        ]
+      },
+      "motivate": {
+        "senses": [
+          {
+            "definitionMs": "Memberikan sebab atau dorongan kepada seseorang untuk bertindak."
+          }
+        ]
+      },
+      "motivation": {
+        "senses": [
+          {
+            "definitionMs": "Sebab atau dorongan yang membuat seseorang ingin bertindak."
+          }
+        ]
+      },
+      "mourn": {
+        "senses": [
+          {
+            "definitionMs": "Berasa atau menunjukkan kesedihan yang mendalam selepas kematian atau kehilangan besar."
+          }
+        ]
+      },
+      "mumble": {
+        "senses": [
+          {
+            "definitionMs": "Bercakap dengan suara perlahan dan tidak jelas sehingga sukar memahami perkataan yang disebut."
+          },
+          {
+            "definitionMs": "Cara bercakap atau bunyi yang perlahan dan tidak jelas."
+          }
+        ]
+      },
+      "murmur": {
+        "senses": [
+          {
+            "definitionMs": "Bercakap dengan suara rendah dan lembut, selalunya secara perlahan atau kurang jelas."
+          },
+          {
+            "definitionMs": "Bunyi atau suara yang rendah, lembut atau tidak jelas."
+          }
+        ]
+      },
+      "muster": {
+        "senses": [
+          {
+            "definitionMs": "Mengumpulkan atau membangkitkan sesuatu sifat, perasaan atau usaha, selalunya dengan susah payah."
+          }
+        ]
+      },
+      "mutagenesis": {
+        "senses": [
+          {
+            "definitionMs": "Proses yang menyebabkan mutasi genetik terbentuk."
+          }
+        ]
+      },
+      "mutter": {
+        "senses": [
+          {
+            "definitionMs": "Bercakap dengan perlahan dan tidak jelas, selalunya kerana marah atau tidak mahu didengari."
+          },
+          {
+            "definitionMs": "Kata-kata perlahan dan tidak jelas yang lazimnya menunjukkan rasa tidak puas hati."
+          }
+        ]
+      },
+      "mycorrhiza": {
+        "senses": [
+          {
+            "definitionMs": "Hubungan rapat antara kulat dengan akar tumbuhan yang lazimnya memberikan manfaat kepada kedua-dua organisma."
+          }
+        ]
+      },
+      "natural": {
+        "senses": [
+          {
+            "definitionMs": "Wujud secara semula jadi atau kelihatan biasa dan tidak dibuat-buat."
+          }
+        ]
+      },
+      "necessary": {
+        "senses": [
+          {
+            "definitionMs": "Diperlukan atau diwajibkan untuk tujuan tertentu."
+          }
+        ]
+      },
+      "negotiate": {
+        "senses": [
+          {
+            "definitionMs": "Berbincang untuk mencapai persetujuan."
+          }
+        ]
+      },
+      "neoliberalism": {
+        "senses": [
+          {
+            "definitionMs": "Pendekatan politik dan ekonomi yang lazimnya dikaitkan dengan persaingan pasaran, penswastaan dan pengurangan campur tangan kerajaan, walaupun takrifnya berbeza mengikut konteks."
+          }
+        ]
+      },
+      "neoteny": {
+        "senses": [
+          {
+            "definitionMs": "Pengekalan ciri juvenil atau ciri muda sehingga peringkat dewasa."
+          }
+        ]
+      },
+      "nervous": {
+        "senses": [
+          {
+            "definitionMs": "Berasa bimbang atau sedikit takut tentang perkara yang mungkin berlaku."
+          }
+        ]
+      },
+      "neurogenesis": {
+        "senses": [
+          {
+            "definitionMs": "Pembentukan neuron atau sel saraf baharu."
+          }
+        ]
+      },
+      "neuroplasticity": {
+        "senses": [
+          {
+            "definitionMs": "Keupayaan sistem saraf mengubah struktur atau fungsinya melalui perkembangan, pembelajaran atau pengalaman."
+          }
+        ]
+      },
+      "nevertheless": {
+        "senses": [
+          {
+            "definitionMs": "Walaupun begitu; namun demikian."
+          }
+        ]
+      },
+      "nod": {
+        "senses": [
+          {
+            "definitionMs": "Menggerakkan kepala ke bawah dan ke atas, lazimnya untuk menunjukkan persetujuan, kefahaman atau sapaan."
+          },
+          {
+            "definitionMs": "Gerakan kepala yang menunjukkan persetujuan, pengenalan atau sapaan."
+          }
+        ]
+      },
+      "notice": {
+        "senses": [
+          {
+            "definitionMs": "Melihat, mendengar atau menyedari kehadiran seseorang atau sesuatu."
+          },
+          {
+            "definitionMs": "Pengumuman bertulis atau lisan yang menyampaikan maklumat atau amaran."
+          }
+        ]
+      },
+      "observe": {
+        "senses": [
+          {
+            "definitionMs": "Memerhati dengan teliti atau menyedari sesuatu perkara."
+          }
+        ]
+      },
+      "obvious": {
+        "senses": [
+          {
+            "definitionMs": "Mudah dilihat, dikenal pasti atau difahami."
+          }
+        ]
+      },
+      "occasionally": {
+        "senses": [
+          {
+            "definitionMs": "Kadangkala, tetapi tidak kerap."
+          }
+        ]
+      },
+      "ontogeny": {
+        "senses": [
+          {
+            "definitionMs": "Perkembangan sesuatu organisma individu sepanjang hayatnya."
+          }
+        ]
+      },
+      "ontology": {
+        "senses": [
+          {
+            "definitionMs": "Kajian falsafah tentang kewujudan dan jenis perkara yang wujud; dalam bidang pengkomputeran, model formal tentang konsep serta hubungannya."
+          }
+        ]
+      },
+      "operationalize": {
+        "senses": [
+          {
+            "definitionMs": "Mentakrifkan sesuatu konsep melalui prosedur yang boleh diperhatikan atau diukur."
+          }
+        ]
+      },
+      "opinion": {
+        "senses": [
+          {
+            "definitionMs": "Kepercayaan atau pandangan tentang sesuatu perkara yang tidak semestinya merupakan fakta."
+          }
+        ]
+      },
+      "opportunity": {
+        "senses": [
+          {
+            "definitionMs": "Masa atau keadaan yang sesuai untuk melakukan atau mencapai sesuatu."
+          }
+        ]
+      },
+      "option": {
+        "senses": [
+          {
+            "definitionMs": "Salah satu pilihan yang tersedia."
+          }
+        ]
+      },
+      "ordinary": {
+        "senses": [
+          {
+            "definitionMs": "Biasa atau lazim dan tidak istimewa atau luar biasa."
+          }
+        ]
+      },
+      "organize": {
+        "senses": [
+          {
+            "definitionMs": "Menyusun sesuatu atau merancang sesuatu aktiviti."
+          }
+        ]
+      },
+      "otherwise": {
+        "senses": [
+          {
+            "definitionMs": "Dengan cara yang berbeza atau dalam keadaan lain."
+          },
+          {
+            "definitionMs": "Digunakan untuk menyatakan perkara yang akan berlaku jika sesuatu tidak dilakukan atau tidak benar."
+          }
+        ]
+      },
+      "outcome": {
+        "senses": [
+          {
+            "definitionMs": "Hasil akhir sesuatu tindakan atau keadaan."
+          }
+        ]
+      },
+      "overwhelm": {
+        "senses": [
+          {
+            "definitionMs": "Memberikan kesan atau beban yang terlalu kuat sehingga sukar dikendalikan oleh seseorang."
+          }
+        ]
+      },
+      "overwhelmed": {
+        "senses": [
+          {
+            "definitionMs": "Berasa tidak mampu menangani keadaan kerana terlalu banyak perkara perlu diurus."
+          }
+        ]
+      },
+      "pace": {
+        "senses": [
+          {
+            "definitionMs": "Berjalan berulang-alik, selalunya kerana bimbang, tidak sabar atau sedang berfikir."
+          },
+          {
+            "definitionMs": "Kelajuan atau rentak pergerakan atau aktiviti; juga satu langkah ketika berjalan."
           }
         ]
       }
@@ -4676,6 +5312,639 @@ window.SWIFT_DICTIONARY_MS_TRANSLATIONS = {
         "senses": [
           {
             "definitionMs": "Dahaga; juga menginginkan atau mendambakan sesuatu dengan kuat."
+          }
+        ]
+      },
+      "客": {
+        "senses": [
+          {
+            "definitionMs": "Tetamu, pelawat atau pelanggan."
+          }
+        ]
+      },
+      "课": {
+        "senses": [
+          {
+            "definitionMs": "Pelajaran, kelas, kursus atau mata pelajaran; dalam bentuk terikat juga boleh merujuk kepada cukai."
+          }
+        ]
+      },
+      "块": {
+        "senses": [
+          {
+            "definitionMs": "Ketulan atau kepingan; juga penjodoh bilangan bagi kepingan benda dan wang."
+          }
+        ]
+      },
+      "老": {
+        "senses": [
+          {
+            "definitionMs": "Tua atau berusia; berpengalaman atau dihormati; juga awalan mesra dalam sesetengah panggilan."
+          }
+        ]
+      },
+      "累": {
+        "senses": [
+          {
+            "definitionMs": "Letih atau penat."
+          },
+          {
+            "definitionMs": "Mengumpulkan atau bertambah secara beransur-ansur."
+          }
+        ]
+      },
+      "冷": {
+        "senses": [
+          {
+            "definitionMs": "Sejuk atau dingin; juga boleh menggambarkan sikap tidak mesra."
+          }
+        ]
+      },
+      "六": {
+        "senses": [
+          {
+            "definitionMs": "Angka enam."
+          }
+        ]
+      },
+      "楼": {
+        "senses": [
+          {
+            "definitionMs": "Bangunan bertingkat; tingkat atau rumah yang mempunyai beberapa tingkat."
+          }
+        ]
+      },
+      "马": {
+        "senses": [
+          {
+            "definitionMs": "Kuda; juga nama keluarga Ma atau buah kuda dalam catur Cina."
+          }
+        ]
+      },
+      "么": {
+        "senses": [
+          {
+            "definitionMs": "Akhiran untuk soalan atau kata tidak tentu yang bermaksud apa atau bagaimana; juga partikel seruan."
+          }
+        ]
+      },
+      "妹": {
+        "senses": [
+          {
+            "definitionMs": "Adik perempuan."
+          }
+        ]
+      },
+      "名": {
+        "senses": [
+          {
+            "definitionMs": "Nama atau reputasi; juga bermaksud terkenal dan digunakan sebagai penjodoh bilangan bagi orang."
+          }
+        ]
+      },
+      "拿": {
+        "senses": [
+          {
+            "definitionMs": "Mengambil, memegang, membawa, merampas atau menangkap sesuatu."
+          }
+        ]
+      },
+      "奶": {
+        "senses": [
+          {
+            "definitionMs": "Susu; payudara; atau menyusukan bayi."
+          }
+        ]
+      },
+      "男": {
+        "senses": [
+          {
+            "definitionMs": "Lelaki atau jantina lelaki."
+          }
+        ]
+      },
+      "难": {
+        "senses": [
+          {
+            "definitionMs": "Sukar atau susah dilakukan."
+          },
+          {
+            "definitionMs": "Bencana atau malapetaka."
+          }
+        ]
+      },
+      "脑": {
+        "senses": [
+          {
+            "definitionMs": "Otak, fikiran atau inti sesuatu perkara."
+          }
+        ]
+      },
+      "您": {
+        "senses": [
+          {
+            "definitionMs": "Kata ganti nama diri orang kedua yang sopan: anda atau tuan/puan."
+          }
+        ]
+      },
+      "旁": {
+        "senses": [
+          {
+            "definitionMs": "Sisi atau bahagian di sebelah; juga komponen sisi dalam aksara Cina."
+          }
+        ]
+      },
+      "跑": {
+        "senses": [
+          {
+            "definitionMs": "Berlari, melarikan diri atau melakukan urusan dengan berlari."
+          }
+        ]
+      },
+      "朋": {
+        "senses": [
+          {
+            "definitionMs": "Kawan atau sahabat; lazimnya digunakan dalam bentuk gabungan."
+          }
+        ]
+      },
+      "票": {
+        "senses": [
+          {
+            "definitionMs": "Tiket, kertas undi, wang kertas atau baucar."
+          }
+        ]
+      },
+      "七": {
+        "senses": [
+          {
+            "definitionMs": "Angka tujuh."
+          }
+        ]
+      },
+      "期": {
+        "senses": [
+          {
+            "definitionMs": "Tempoh, fasa, peringkat, penggal atau keluaran; juga boleh bermaksud berharap."
+          }
+        ]
+      },
+      "气": {
+        "senses": [
+          {
+            "definitionMs": "Udara atau gas; bau atau cuaca; juga bermaksud memarahi dan tenaga hidup."
+          }
+        ]
+      },
+      "汽": {
+        "senses": [
+          {
+            "definitionMs": "Wap atau stim."
+          }
+        ]
+      },
+      "球": {
+        "senses": [
+          {
+            "definitionMs": "Bola atau sfera; juga permainan atau perlawanan menggunakan bola."
+          }
+        ]
+      },
+      "热": {
+        "senses": [
+          {
+            "definitionMs": "Panas atau haba; memanaskan; juga menunjukkan semangat atau minat yang tinggi."
+          }
+        ]
+      },
+      "认": {
+        "senses": [
+          {
+            "definitionMs": "Mengenali, mengakui atau menerima sesuatu sebagai benar."
+          }
+        ]
+      },
+      "商": {
+        "senses": [
+          {
+            "definitionMs": "Perdagangan atau pedagang; berbincang; juga Dinasti Shang atau hasil bahagi dalam matematik."
+          }
+        ]
+      },
+      "绍": {
+        "senses": [
+          {
+            "definitionMs": "Meneruskan, menyambung atau mewarisi; lazimnya digunakan dalam bentuk terikat."
+          }
+        ]
+      },
+      "什": {
+        "senses": [
+          {
+            "definitionMs": "Apa; kata tanya untuk mengetahui sesuatu perkara."
+          },
+          {
+            "definitionMs": "Pelbagai atau bercampur-campur; digunakan dalam kata seperti 什锦."
+          }
+        ]
+      },
+      "师": {
+        "senses": [
+          {
+            "definitionMs": "Guru, pakar atau mahaguru; juga merujuk kepada model, tentera atau bahagian tentera."
+          }
+        ]
+      },
+      "十": {
+        "senses": [
+          {
+            "definitionMs": "Angka sepuluh."
+          }
+        ]
+      },
+      "时": {
+        "senses": [
+          {
+            "definitionMs": "Masa, jam, tempoh atau musim; juga digunakan untuk bermaksud ketika atau semasa."
+          }
+        ]
+      },
+      "识": {
+        "senses": [
+          {
+            "definitionMs": "Mengetahui, mengenali atau mempunyai pengetahuan."
+          },
+          {
+            "definitionMs": "Mengingati atau menghafal; penggunaan sastera."
+          }
+        ]
+      },
+      "事": {
+        "senses": [
+          {
+            "definitionMs": "Perkara, hal, urusan, kerja atau peristiwa."
+          }
+        ]
+      },
+      "试": {
+        "senses": [
+          {
+            "definitionMs": "Menguji, mencuba atau menjalankan percubaan; juga peperiksaan."
+          }
+        ]
+      },
+      "视": {
+        "senses": [
+          {
+            "definitionMs": "Melihat, memandang atau menganggap sesuatu; juga penglihatan."
+          }
+        ]
+      },
+      "四": {
+        "senses": [
+          {
+            "definitionMs": "Angka empat."
+          }
+        ]
+      },
+      "送": {
+        "senses": [
+          {
+            "definitionMs": "Menghantar, menyampaikan atau memberikan sesuatu; juga menghantar seseorang pergi atau menemani."
+          }
+        ]
+      },
+      "诉": {
+        "senses": [
+          {
+            "definitionMs": "Memberitahu, menyatakan, mengadu atau mengambil tindakan undang-undang."
+          }
+        ]
+      },
+      "太": {
+        "senses": [
+          {
+            "definitionMs": "Terlalu, sangat atau amat; juga bermaksud paling tinggi atau paling besar."
+          }
+        ]
+      },
+      "体": {
+        "senses": [
+          {
+            "definitionMs": "Badan; bentuk, gaya atau sistem; juga mengalami sesuatu."
+          }
+        ]
+      },
+      "条": {
+        "senses": [
+          {
+            "definitionMs": "Jalur, item atau klausa; penjodoh bilangan bagi benda panjang dan nipis."
+          }
+        ]
+      },
+      "同": {
+        "senses": [
+          {
+            "definitionMs": "Sama, bersama atau dengan."
+          },
+          {
+            "definitionMs": "Bacaan yang digunakan dalam perkataan 胡同, yang bermaksud lorong."
+          }
+        ]
+      },
+      "图": {
+        "senses": [
+          {
+            "definitionMs": "Gambar, rajah, lukisan, carta atau peta; juga merancang sesuatu."
+          }
+        ]
+      },
+      "玩": {
+        "senses": [
+          {
+            "definitionMs": "Bermain atau berseronok; juga bermaksud mainan atau mempermainkan sesuatu."
+          }
+        ]
+      },
+      "网": {
+        "senses": [
+          {
+            "definitionMs": "Jaring, rangkaian atau web; juga menangkap menggunakan jaring."
+          }
+        ]
+      },
+      "忘": {
+        "senses": [
+          {
+            "definitionMs": "Lupa, terlepas pandang atau mengabaikan sesuatu."
+          }
+        ]
+      },
+      "文": {
+        "senses": [
+          {
+            "definitionMs": "Bahasa, budaya atau tulisan; juga bermaksud sastera, formal atau lembut."
+          }
+        ]
+      },
+      "五": {
+        "senses": [
+          {
+            "definitionMs": "Angka lima."
+          }
+        ]
+      },
+      "午": {
+        "senses": [
+          {
+            "definitionMs": "Waktu tengah hari; sekitar pukul sebelas pagi hingga satu petang."
+          }
+        ]
+      },
+      "息": {
+        "senses": [
+          {
+            "definitionMs": "Nafas atau rehat; berhenti; juga berita atau faedah wang."
+          }
+        ]
+      },
+      "习": {
+        "senses": [
+          {
+            "definitionMs": "Berlatih, belajar atau membiasakan diri; juga tabiat dan adat."
+          }
+        ]
+      },
+      "洗": {
+        "senses": [
+          {
+            "definitionMs": "Membasuh, mencuci atau mandi; juga memproses foto dan mengocok kad."
+          }
+        ]
+      },
+      "喜": {
+        "senses": [
+          {
+            "definitionMs": "Menyukai, menikmati atau berasa gembira; kegembiraan."
+          }
+        ]
+      },
+      "系": {
+        "senses": [
+          {
+            "definitionMs": "Menghubungkan atau mempunyai kaitan; juga sistem."
+          },
+          {
+            "definitionMs": "Mengikat atau memasang sesuatu supaya tidak terlepas."
+          }
+        ]
+      },
+      "先": {
+        "senses": [
+          {
+            "definitionMs": "Pertama, terlebih dahulu atau lebih awal; buat sementara waktu."
+          }
+        ]
+      },
+      "现": {
+        "senses": [
+          {
+            "definitionMs": "Muncul atau kelihatan; masa kini atau keadaan semasa."
+          }
+        ]
+      },
+      "笑": {
+        "senses": [
+          {
+            "definitionMs": "Ketawa atau tersenyum; juga mentertawakan seseorang."
+          }
+        ]
+      },
+      "些": {
+        "senses": [
+          {
+            "definitionMs": "Beberapa atau sedikit; penjodoh bilangan bagi jumlah yang kecil."
+          }
+        ]
+      },
+      "谢": {
+        "senses": [
+          {
+            "definitionMs": "Mengucapkan terima kasih, meminta maaf atau menolak dengan sopan; juga boleh bermaksud layu."
+          }
+        ]
+      },
+      "新": {
+        "senses": [
+          {
+            "definitionMs": "Baharu, segar atau terkini."
+          }
+        ]
+      },
+      "星": {
+        "senses": [
+          {
+            "definitionMs": "Bintang atau jasad cakerawala; juga satelit."
+          }
+        ]
+      },
+      "行": {
+        "senses": [
+          {
+            "definitionMs": "Berjalan, pergi, bertindak atau boleh diterima."
+          },
+          {
+            "definitionMs": "Baris atau deretan; profesion atau bidang pekerjaan."
+          },
+          {
+            "definitionMs": "Tingkah laku atau kemahiran dalam ungkapan 道行."
+          }
+        ]
+      },
+      "兴": {
+        "senses": [
+          {
+            "definitionMs": "Bangkit, berkembang atau menjadi makmur."
+          },
+          {
+            "definitionMs": "Minat, semangat atau suasana hati."
+          }
+        ]
+      },
+      "休": {
+        "senses": [
+          {
+            "definitionMs": "Berehat, berhenti atau menghentikan sesuatu; juga digunakan sebagai larangan."
+          }
+        ]
+      },
+      "样": {
+        "senses": [
+          {
+            "definitionMs": "Cara, corak, rupa, bentuk, jenis atau keadaan sesuatu."
+          }
+        ]
+      },
+      "爷": {
+        "senses": [
+          {
+            "definitionMs": "Datuk atau lelaki tua yang dihormati."
+          }
+        ]
+      },
+      "页": {
+        "senses": [
+          {
+            "definitionMs": "Halaman atau helaian buku."
+          }
+        ]
+      },
+      "影": {
+        "senses": [
+          {
+            "definitionMs": "Imej, filem, gambar, pantulan atau bayang-bayang."
+          }
+        ]
+      },
+      "用": {
+        "senses": [
+          {
+            "definitionMs": "Menggunakan atau memanfaatkan; memerlukan; juga menunjukkan alat atau kegunaan."
+          }
+        ]
+      },
+      "右": {
+        "senses": [
+          {
+            "definitionMs": "Kanan atau bahagian sebelah kanan; juga merujuk kepada fahaman politik kanan."
+          }
+        ]
+      },
+      "语": {
+        "senses": [
+          {
+            "definitionMs": "Bahasa, pertuturan, kata-kata atau dialek."
+          },
+          {
+            "definitionMs": "Memberitahu atau memaklumkan seseorang; penggunaan sastera."
+          }
+        ]
+      },
+      "元": {
+        "senses": [
+          {
+            "definitionMs": "Unit mata wang; pertama atau asal; asas atau unsur; juga zaman."
+          }
+        ]
+      },
+      "远": {
+        "senses": [
+          {
+            "definitionMs": "Jauh atau terpencil; juga menjauhkan diri daripada sesuatu."
+          }
+        ]
+      },
+      "怎": {
+        "senses": [
+          {
+            "definitionMs": "Bagaimana atau dengan cara apa."
+          }
+        ]
+      },
+      "找": {
+        "senses": [
+          {
+            "definitionMs": "Mencari, mendapatkan atau mengunjungi seseorang; juga memulangkan baki wang."
+          }
+        ]
+      },
+      "着": {
+        "senses": [
+          {
+            "definitionMs": "Partikel yang menunjukkan tindakan sedang berlangsung atau keadaan berterusan."
+          },
+          {
+            "definitionMs": "Menyentuh, terkena, berjaya mencapai sesuatu atau tertidur."
+          },
+          {
+            "definitionMs": "Langkah, helah, kaedah atau rancangan."
+          },
+          {
+            "definitionMs": "Memakai atau mengenakan pakaian; melekatkan atau menggunakan sesuatu."
+          }
+        ]
+      },
+      "真": {
+        "senses": [
+          {
+            "definitionMs": "Benar, nyata atau tulen; benar-benar atau sesungguhnya."
+          }
+        ]
+      },
+      "正": {
+        "senses": [
+          {
+            "definitionMs": "Lurus, betul atau wajar."
+          },
+          {
+            "definitionMs": "Bulan pertama dalam kalendar lunar Cina."
+          }
+        ]
+      },
+      "知": {
+        "senses": [
+          {
+            "definitionMs": "Mengetahui, menyedari atau memahami sesuatu."
+          }
+        ]
+      },
+      "重": {
+        "senses": [
+          {
+            "definitionMs": "Berat, serius atau penting."
+          },
+          {
+            "definitionMs": "Sekali lagi, berulang atau berlapis."
           }
         ]
       }
