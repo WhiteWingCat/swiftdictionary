@@ -109,8 +109,8 @@ begin
       v_selected_index := nullif(v_snapshot->>'selected_option_index','')::integer;
       v_correct_index := nullif(v_snapshot->>'correct_option_index','')::integer;
       if v_snapshot_mode not in ('word','definition','translation','mixed','sentence')
-         or jsonb_typeof(v_snapshot->'card') <> 'object'
-         or jsonb_typeof(v_snapshot->'options') <> 'array'
+         or coalesce(jsonb_typeof(v_snapshot->'card'),'') <> 'object'
+         or coalesce(jsonb_typeof(v_snapshot->'options'),'') <> 'array'
          or jsonb_array_length(v_snapshot->'options') <> 4
          or char_length(btrim(coalesce(v_snapshot->>'prompt',''))) not between 1 and 2000
          or v_correct_index is null or v_correct_index not between 0 and 3
