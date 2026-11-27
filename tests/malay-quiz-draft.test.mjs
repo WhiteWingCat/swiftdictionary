@@ -73,11 +73,26 @@ test("Malay Quiz staging release uses Malay prompts and Malay answer choices",()
   const byId=new Map(pack.questions.map(q=>[q.question_id,q]));
   for(let n=13;n<=48;n++){
    const q=byId.get("quiz-ms-"+target+"-b"+String(n).padStart(3,"0"));
-   assert.ok(q.prompt_learning&&!/^(choose|which|what|where|how|why|select|complete|in the phrase|in the sentence|you arrive|someone says|you are|the claim|two websites|original:)/i.test(q.prompt_learning),q.question_id+" prompt must be Malay");
+   assert.ok(q.prompt_learning&&!/^(choose|which|what|where|how|why|select|complete|in the phrase|in the sentence|you arrive|someone says|you are|the claim|two websites|original:)/i.test(q.prompt_learning)&&!/[\u4e00-\u9fff]/u.test(q.prompt_learning),q.question_id+" prompt must be Malay");
   }
-  for(const n of [19,23,94,102]){
+  for(const n of [19,23,27,94,96,102]){
    const q=byId.get("quiz-ms-"+target+"-b"+String(n).padStart(3,"0"));
    assert.ok(q.options.every(o=>o.learning_text!==o.translation_text),q.question_id+" must not use support-language text as the Malay answer");
   }
+ }
+});
+
+test("Malay English and Chinese packs share identical Malay learning text",()=>{
+ const en=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.ms-en.draft.json"),"utf8"));
+ const zh=JSON.parse(fs.readFileSync(path.join(root,"content/quiz/questions.ms-zh.draft.json"),"utf8"));
+ const zhById=new Map(zh.questions.map(q=>[q.question_id,q]));
+ for(const q of en.questions){
+  const other=zhById.get(q.question_id.replace("quiz-ms-en-","quiz-ms-zh-"));
+  assert.ok(other,q.question_id+" must have a Chinese support pair");
+  assert.equal(other.prompt_learning,q.prompt_learning,q.question_id+" Malay prompt parity");
+  assert.equal(other.explanation_learning,q.explanation_learning,q.question_id+" Malay explanation parity");
+  assert.deepEqual(other.options.map(o=>o.learning_text),q.options.map(o=>o.learning_text),q.question_id+" Malay option parity");
+  assert.ok(other.prompt_translation&&/[\u4e00-\u9fff]/u.test(other.prompt_translation),other.question_id+" needs Chinese prompt translation");
+  assert.ok(other.explanation_translation&&/[\u4e00-\u9fff]/u.test(other.explanation_translation),other.question_id+" needs Chinese explanation translation");
  }
 });
