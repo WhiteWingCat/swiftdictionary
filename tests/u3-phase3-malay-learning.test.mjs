@@ -123,6 +123,7 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   const corrected=context.window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS;
   assert.equal(corrected.status,"model_assisted_malay_draft_pending_editorial_review");
   assert.equal(corrected.quiz.en.length,36);
+  assert.equal(corrected.quiz.zh.length,12);
   for(const id of corrected.quiz.en){
     const row=support.quiz.en[id];
     assert.ok(row,id+" missing from English Quiz Malay support");
@@ -135,6 +136,16 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   }
   assert.match(support.quiz.en["quiz-advanced-001"].promptLearning,/dapatan awal/);
   assert.match(support.quiz.en["quiz-advanced-036"].promptLearning,/kenaikan pangkat/);
+  for(const id of corrected.quiz.zh){
+    const row=support.quiz.zh[id];
+    assert.ok(row,id+" missing from Chinese Quiz Malay support");
+    assert.ok(row.promptLearning?.length>12,id+" prompt is missing");
+    assert.ok(row.explanationLearning?.length>12,id+" explanation is missing");
+    assert.equal(Object.keys(row.options).length,4);
+    const field=id.includes("-translation-")?"translation":"learning";
+    assert.ok(Object.values(row.options).every(option=>option[field]?.trim()),id+" has an untranslated answer option");
+  }
+  assert.match(support.quiz.zh["zh-en-a-connectors-01"].promptLearning,/Kata hubung/);
 });
 
 test("Malay support overrides are loaded after the generated translation inventory",()=>{
