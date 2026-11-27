@@ -6,14 +6,14 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "active",
-  "contentVersion": "u3-ms-quiz-0.5.0",
+  "contentVersion": "u3-ms-flashcards-0.1.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
     "lessons": true,
     "dailyLearning": true,
     "quiz": true,
-    "flashcards": false,
+    "flashcards": true,
     "gridMode": "word",
     "pronunciation": "optional; only populate when reviewed",
     "morphology": "malay-affixation"
@@ -110,8 +110,20 @@
       }
     },
     "flashcards": {
-      "status": "planned",
-      "files": []
+      "status": "staging-ready",
+      "files": [
+        "data/languages/malay-dictionary.js"
+      ],
+      "contentVersion": "u3-ms-flashcards-0.1.0",
+      "cardSource": "dictionary-derived",
+      "sourceEntryCount": 650,
+      "recallModes": [
+        "word",
+        "definition",
+        "mixed",
+        "sentence"
+      ],
+      "editorialStatus": "dictionary content remains draft pending human linguistic review"
     }
   },
   "translationTargets": [
@@ -143,6 +155,7 @@
     "Malay Quiz draft batch 01 adds 12 independently authored questions per support-language pair (4 per difficulty); content remains draft and the Quiz capability stays disabled until the secure backend and approved inventory are complete.",
     "Malay Quiz draft batch 03 adds 36 original questions per support-language pair (10 Beginner, 10 Intermediate, 16 Advanced), bringing each pair to 84 questions: 26 Beginner, 26 Intermediate and 32 Advanced. All remain draft; Quiz capability stays disabled until the preferred bank target and review gates are met.",
     "Malay Quiz draft batch 04 adds 36 original questions per support-language pair (10 Beginner, 10 Intermediate, 16 Advanced), bringing each pair to the preferred inventory target of 36 Beginner, 36 Intermediate and 48 Advanced (120 total). All remain draft; Quiz capability stays disabled pending linguistic approval and staging acceptance.",
-    "Malay Quiz is enabled in the isolated U3.0 staging build only. Its 240 questions passed automated structural, language-field, curriculum-link, unique-option and answer-key consistency checks after targeted corrections. Independent human Malay/translation review is deferred for staging feedback; production remains disabled."
+    "Malay Quiz is enabled in the isolated U3.0 staging build only. Its 240 questions passed automated structural, language-field, curriculum-link, unique-option and answer-key consistency checks after targeted corrections. Independent human Malay/translation review is deferred for staging feedback; production remains disabled.",
+    "Malay Flashcards use the 650-entry Malay Dictionary as a source bank; each card includes existing English and Simplified Chinese support definitions. The feature is enabled in staging only."
   ]
 }
