@@ -439,45 +439,6 @@
       "release_approved": false
     },
     {
-      "question_id": "quiz-ms-en-b013",
-      "learning_language_code": "ms",
-      "translation_language_code": "en",
-      "source_lesson_id": "ms-a-ayat-pasif",
-      "topic_id": "ms-passive-voice",
-      "difficulty": "advanced",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Pilih ayat pasif yang betul berdasarkan ayat aktif “Siti membaca buku itu.”",
-      "prompt_translation": "Choose the correct passive sentence based on the active sentence “Siti membaca buku itu.”",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Buku itu dibaca oleh Siti.",
-          "translation_text": "The book is read by Siti."
-        },
-        {
-          "id": "b",
-          "learning_text": "Siti membaca buku itu.",
-          "translation_text": "Siti reads the book."
-        },
-        {
-          "id": "c",
-          "learning_text": "Siti sedang membaca.",
-          "translation_text": "Siti is reading."
-        },
-        {
-          "id": "d",
-          "learning_text": "Buku itu sangat tebal.",
-          "translation_text": "The book is very thick."
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "“Buku itu dibaca oleh Siti” meletakkan penerima perbuatan sebagai fokus ayat pasif.",
-      "explanation_translation": "“Buku itu dibaca oleh Siti” places the receiver of the action in focus.",
-      "learning_objective_id": "passive-voice-function",
-      "release_approved": false
-    },
-    {
       "question_id": "quiz-ms-en-b001",
       "learning_language_code": "ms",
       "translation_language_code": "en",
@@ -943,45 +904,6 @@
       "explanation_learning": "“Berapakah harga…” is a standard way to ask for a price.",
       "explanation_translation": "“Berapakah harga…” ialah cara biasa untuk bertanya tentang harga.",
       "learning_objective_id": "asking-price",
-      "release_approved": false
-    },
-    {
-      "question_id": "quiz-ms-en-b013",
-      "learning_language_code": "ms",
-      "translation_language_code": "en",
-      "source_lesson_id": "ms-b-time-and-days",
-      "topic_id": "ms-time-and-days",
-      "difficulty": "beginner",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Which phrase correctly refers to eight o’clock?",
-      "prompt_translation": "Frasa manakah yang betul untuk merujuk pukul lapan?",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Pukul lapan",
-          "translation_text": "Eight o’clock"
-        },
-        {
-          "id": "b",
-          "learning_text": "Hari lapan",
-          "translation_text": "Day eight"
-        },
-        {
-          "id": "c",
-          "learning_text": "Lapan kali",
-          "translation_text": "Eight times"
-        },
-        {
-          "id": "d",
-          "learning_text": "Lapan orang",
-          "translation_text": "Eight people"
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "Use “pukul” before a clock time.",
-      "explanation_translation": "Gunakan “pukul” sebelum waktu pada jam.",
-      "learning_objective_id": "time-expression",
       "release_approved": false
     },
     {
@@ -1651,7 +1573,7 @@
       "question_id": "quiz-ms-en-b031",
       "learning_language_code": "ms",
       "translation_language_code": "en",
-      "source_lesson_id": "ms-a-hujah-beras",
+      "source_lesson_id": "ms-a-hujah-berasas",
       "topic_id": "ms-reasoned-argument",
       "difficulty": "advanced",
       "question_type": "knowledge",
@@ -1918,45 +1840,6 @@
       "explanation_learning": "An official agency source is usually the primary reference for its own policy.",
       "explanation_translation": "Laman rasmi agensi berkaitan biasanya menjadi rujukan utama bagi dasar agensi itu.",
       "learning_objective_id": "source-credibility",
-      "release_approved": false
-    },
-    {
-      "question_id": "quiz-ms-en-b038",
-      "learning_language_code": "ms",
-      "translation_language_code": "en",
-      "source_lesson_id": "ms-a-ambiguity-and-precision",
-      "topic_id": "ms-topic-ambiguity-and-precision",
-      "difficulty": "advanced",
-      "question_type": "knowledge",
-      "answer_language_code": "ms",
-      "prompt_learning": "Which sentence gives the clearest instruction without an unclear reference?",
-      "prompt_translation": "Ayat manakah memberikan arahan paling jelas tanpa rujukan yang kabur?",
-      "options": [
-        {
-          "id": "a",
-          "learning_text": "Sila serahkan borang kepada penyelaras sebelum pukul lima.",
-          "translation_text": "Please submit the form to the coordinator before five o’clock."
-        },
-        {
-          "id": "b",
-          "learning_text": "Serahkan kepadanya sebelum itu.",
-          "translation_text": "Give it to them before then."
-        },
-        {
-          "id": "c",
-          "learning_text": "Benda itu perlu dibuat nanti.",
-          "translation_text": "That thing should be done later."
-        },
-        {
-          "id": "d",
-          "learning_text": "Mereka boleh letak di sana.",
-          "translation_text": "They can put it there."
-        }
-      ],
-      "correct_option_id": "a",
-      "explanation_learning": "Naming the item, recipient and deadline removes ambiguity.",
-      "explanation_translation": "Menyatakan dokumen, penerima dan tarikh akhir dengan khusus mengelakkan kekaburan.",
-      "learning_objective_id": "precision-and-ambiguity",
       "release_approved": false
     }
   ]
