@@ -4,8 +4,8 @@
     "difficulty": "beginner",
     "objectives": [
       {
-        "id": "polite-responses",
-        "outcome": "Assess the Malay learning objective: polite responses."
+        "id": "greeting-choice",
+        "outcome": "“Sama-sama” is the conventional reply to thanks."
       }
     ]
   },
@@ -14,8 +14,8 @@
     "difficulty": "beginner",
     "objectives": [
       {
-        "id": "introducing-personal-details",
-        "outcome": "Assess the Malay learning objective: introducing personal details."
+        "id": "residence-statement",
+        "outcome": "“Saya tinggal di…” states where a person lives."
       }
     ]
   },
@@ -24,8 +24,8 @@
     "difficulty": "beginner",
     "objectives": [
       {
-        "id": "complete-simple-statements",
-        "outcome": "Assess the Malay learning objective: complete simple statements."
+        "id": "simple-word-order",
+        "outcome": "The subject “Aina” comes before the verb “membaca” and object “buku”."
       }
     ]
   },
@@ -34,8 +34,8 @@
     "difficulty": "intermediate",
     "objectives": [
       {
-        "id": "meN-prefix-context",
-        "outcome": "Assess the Malay learning objective: meN prefix context."
+        "id": "men-prefix-verb",
+        "outcome": "The root “baca” becomes “membaca” with the meN- prefix."
       }
     ]
   },
@@ -44,8 +44,8 @@
     "difficulty": "intermediate",
     "objectives": [
       {
-        "id": "classifiers-for-animals",
-        "outcome": "Assess the Malay learning objective: classifiers for animals."
+        "id": "animal-classifier",
+        "outcome": "Use “ekor” for animals."
       }
     ]
   },
@@ -55,7 +55,7 @@
     "objectives": [
       {
         "id": "reduplication-meaning",
-        "outcome": "Assess the Malay learning objective: reduplication meaning."
+        "outcome": "“Kanak-kanak” is a reduplicated form referring to children."
       }
     ]
   },
@@ -64,8 +64,8 @@
     "difficulty": "advanced",
     "objectives": [
       {
-        "id": "formal-register-choice",
-        "outcome": "Assess the Malay learning objective: formal register choice."
+        "id": "formal-register",
+        "outcome": "“Tuan/Puan” is a conventional formal salutation."
       }
     ]
   },
@@ -74,8 +74,8 @@
     "difficulty": "advanced",
     "objectives": [
       {
-        "id": "discourse-connector-contrast",
-        "outcome": "Assess the Malay learning objective: discourse connector contrast."
+        "id": "discourse-contrast",
+        "outcome": "“Walau bagaimanapun” signals a contrast or qualification."
       }
     ]
   },
@@ -84,8 +84,8 @@
     "difficulty": "advanced",
     "objectives": [
       {
-        "id": "editing-agreement-and-clarity",
-        "outcome": "Assess the Malay learning objective: editing agreement and clarity."
+        "id": "editing-clarity",
+        "outcome": "“Para peserta” already expresses a plural group; adding “semua” is redundant."
       }
     ]
   },
@@ -94,8 +94,288 @@
     "difficulty": "advanced",
     "objectives": [
       {
-        "id": "passive-voice-function",
-        "outcome": "Recognise and form passive clauses in appropriate contexts."
+        "id": "passive-voice-focus",
+        "outcome": "The object becomes the focus and takes the di- passive form “dibaca”."
+      }
+    ]
+  },
+  "ms-b-asking-for-help": {
+    "topic_id": "ms-topic-asking-for-help",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "polite-help-request",
+        "outcome": "“Boleh saya…” softens a request and makes it polite."
+      }
+    ]
+  },
+  "ms-b-community-places": {
+    "topic_id": "ms-topic-community-places",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "community-place-vocabulary",
+        "outcome": "A library is a place where people can borrow books."
+      }
+    ]
+  },
+  "ms-b-daily-activities": {
+    "topic_id": "ms-topic-daily-activities",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "daily-activity-verb",
+        "outcome": "“Bersarapan” means to have breakfast, an activity before school."
+      }
+    ]
+  },
+  "ms-b-family-and-people": {
+    "topic_id": "ms-family-and-people",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "family-relationship",
+        "outcome": "“Abang” refers to an older brother."
+      }
+    ]
+  },
+  "ms-b-food-and-drink": {
+    "topic_id": "ms-topic-food-and-drink",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "food-order-classifier",
+        "outcome": "“Segelas” is the classifier phrase used for a glassful."
+      }
+    ]
+  },
+  "ms-b-hobbies-and-free-time": {
+    "topic_id": "ms-topic-hobbies-and-free-time",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "hobby-expression",
+        "outcome": "“Hobi saya…” introduces an activity someone enjoys."
+      }
+    ]
+  },
+  "ms-b-home-and-household": {
+    "topic_id": "ms-topic-home-and-household",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "room-vocabulary",
+        "outcome": "“Dapur” is the kitchen."
+      }
+    ]
+  },
+  "ms-b-places-and-directions": {
+    "topic_id": "ms-places-and-directions",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "direction-instruction",
+        "outcome": "“Kiri” means left, so “belok kiri” means turn left."
+      }
+    ]
+  },
+  "ms-b-shopping-and-prices": {
+    "topic_id": "ms-shopping-and-prices",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "asking-price",
+        "outcome": "“Berapakah harga…” is a standard way to ask for a price."
+      }
+    ]
+  },
+  "ms-b-time-and-days": {
+    "topic_id": "ms-time-and-days",
+    "difficulty": "beginner",
+    "objectives": [
+      {
+        "id": "time-expression",
+        "outcome": "Use “pukul” before a clock time."
+      }
+    ]
+  },
+  "ms-i-aspek-perbuatan": {
+    "topic_id": "ms-aspect",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "ongoing-aspect",
+        "outcome": "“Sedang” marks an action in progress."
+      }
+    ]
+  },
+  "ms-i-kata-sendi": {
+    "topic_id": "ms-prepositions",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "location-preposition",
+        "outcome": "“Di” marks a location; “di atas meja” means on the table."
+      }
+    ]
+  },
+  "ms-i-kata-hubung": {
+    "topic_id": "ms-conjunctions",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "contrast-conjunction",
+        "outcome": "“Walaupun” introduces a concession or contrast."
+      }
+    ]
+  },
+  "ms-i-perbandingan": {
+    "topic_id": "ms-comparison",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "comparative-structure",
+        "outcome": "Use “lebih … daripada” to compare two things."
+      }
+    ]
+  },
+  "ms-i-kata-penguat": {
+    "topic_id": "ms-intensifiers",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "intensifier-choice",
+        "outcome": "“Sangat” strengthens the adjective “panas”."
+      }
+    ]
+  },
+  "ms-i-ayat-majmuk": {
+    "topic_id": "ms-compound-sentences",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "compound-clause",
+        "outcome": "“Manakala” can connect two contrasting or parallel clauses."
+      }
+    ]
+  },
+  "ms-i-cause-and-effect": {
+    "topic_id": "ms-topic-cause-and-effect",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "cause-effect-linker",
+        "outcome": "“Oleh itu” introduces a consequence or result."
+      }
+    ]
+  },
+  "ms-i-conditionals": {
+    "topic_id": "ms-topic-conditionals",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "conditional-clause",
+        "outcome": "“Sekiranya” introduces a conditional situation."
+      }
+    ]
+  },
+  "ms-i-relative-clauses": {
+    "topic_id": "ms-topic-relative-clauses",
+    "difficulty": "intermediate",
+    "objectives": [
+      {
+        "id": "relative-clause-marker",
+        "outcome": "“Yang” introduces a relative clause that describes a noun."
+      }
+    ]
+  },
+  "ms-a-kohesi-wacana": {
+    "topic_id": "ms-discourse-cohesion",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "cohesive-reference",
+        "outcome": "Clear pronoun reference links sentences without confusing the reader."
+      }
+    ]
+  },
+  "ms-a-hujah-beras": {
+    "topic_id": "ms-reasoned-argument",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "argument-evidence",
+        "outcome": "Relevant evidence supports a claim and makes an argument more convincing."
+      }
+    ]
+  },
+  "ms-a-variasi-struktur": {
+    "topic_id": "ms-sentence-variation",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "sentence-variation",
+        "outcome": "The fronted location phrase establishes the setting before the main clause."
+      }
+    ]
+  },
+  "ms-a-parafrasa": {
+    "topic_id": "ms-paraphrasing",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "paraphrase-preserve-meaning",
+        "outcome": "A sound paraphrase changes wording but retains the original meaning."
+      }
+    ]
+  },
+  "ms-a-bacaan-kritis": {
+    "topic_id": "ms-critical-reading",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "source-evaluation",
+        "outcome": "Authorship, publication date and traceable evidence help assess reliability."
+      }
+    ]
+  },
+  "ms-a-argument-structure": {
+    "topic_id": "ms-topic-argument-structure",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "argument-structure",
+        "outcome": "A clear argument states a claim, supports it with evidence and explains the link."
+      }
+    ]
+  },
+  "ms-a-counterargument-and-rebuttal": {
+    "topic_id": "ms-topic-counterargument-and-rebuttal",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "counterargument-response",
+        "outcome": "A rebuttal responds to the opposing point with relevant reasoning or evidence."
+      }
+    ]
+  },
+  "ms-a-source-credibility": {
+    "topic_id": "ms-topic-source-credibility",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "source-credibility",
+        "outcome": "An official agency source is usually the primary reference for its own policy."
+      }
+    ]
+  },
+  "ms-a-ambiguity-and-precision": {
+    "topic_id": "ms-topic-ambiguity-and-precision",
+    "difficulty": "advanced",
+    "objectives": [
+      {
+        "id": "precision-and-ambiguity",
+        "outcome": "Naming the item, recipient and deadline removes ambiguity."
       }
     ]
   }
