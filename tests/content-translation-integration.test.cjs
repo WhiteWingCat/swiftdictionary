@@ -18,12 +18,12 @@ test("legacy English lesson translations are wrapped as unverified records",()=>
  assert.equal(record.reviewerId,null);
 });
 
-test("Phase 3 Malay supports Dictionary, Lessons and Daily Learning but not later phases",()=>{
+test("Staging Malay supports Dictionary, Lessons, Daily Learning and Quiz but not Flashcards",()=>{
  packages.createPackage({languageCode:"ms",contentVersion:"u3-ms-phase3-0.1.0"});
  assert.doesNotThrow(()=>packages.requireFeature("ms","dictionary"));
  assert.doesNotThrow(()=>packages.requireFeature("ms","lessons"));
  assert.doesNotThrow(()=>packages.requireFeature("ms","dailyLearning"));
- assert.throws(()=>packages.requireFeature("ms","quiz"),/does not support quiz/);
+ assert.doesNotThrow(()=>packages.requireFeature("ms","quiz"));
  assert.throws(()=>packages.requireFeature("ms","flashcards"),/does not support flashcards/);
 });
 
