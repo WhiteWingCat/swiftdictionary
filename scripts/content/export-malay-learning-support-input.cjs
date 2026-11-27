@@ -6,7 +6,7 @@ require(path.resolve("data/languages/english-lessons.js"));
 require(path.resolve("data/chinese-lessons.js"));
 require(path.resolve("data/chinese-flashcards.js"));
 const flashcardsSource=fs.readFileSync(path.resolve("flashcards.js"),"utf8");
-const phraseMatch=flashcardsSource.match(/const curatedEnglishPhrases\\s*=\\s*(\\[[\\s\\S]*?\\]);\\s*const state/);
+const phraseMatch=flashcardsSource.match(/const curatedEnglishPhrases\s*=\s*(\[[\s\S]*?\]);\s*const state/);
 if(!phraseMatch)throw new Error("Could not extract the curated English Flashcard phrase bank");
 const englishPhrases=vm.runInNewContext(phraseMatch[1]);
 
@@ -50,5 +50,6 @@ fs.mkdirSync("tmp",{recursive:true});
 fs.writeFileSync("tmp/u3-malay-learning-support-input.json",JSON.stringify(payload));
 console.log(JSON.stringify({
   lessons:Object.fromEntries(Object.entries(lessons).map(([k,v])=>[k,{count:v.length,practiceQuestions:v.reduce((n,x)=>n+x.practices.length,0)}])),
-  quiz:Object.fromEntries(Object.entries(quiz).map(([k,v])=>[k,v.length])),\n  flashcards:Object.fromEntries(Object.entries(flashcards).map(([k,v])=>[k,v.length]))
+  quiz:Object.fromEntries(Object.entries(quiz).map(([k,v])=>[k,v.length])),
+  flashcards:Object.fromEntries(Object.entries(flashcards).map(([k,v])=>[k,v.length]))
 }));
