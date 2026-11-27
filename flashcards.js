@@ -112,7 +112,7 @@
       const row=generated[wordKey]||generated[wordKey.toLocaleLowerCase("en")]||
         Object.entries(generated).find(([key])=>key.toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))?.[1]||{};
       return {...word,
-        definitionMs:word.definitionMs||support[word.word]||dictionaryDerivedMalaySupport(word,language),
+        definitionMs:word.definitionMs||support[word.word]||row.definitionMs||dictionaryDerivedMalaySupport(word,language),
         exampleMs:word.exampleMs||row.exampleMs||""
       };
     });
@@ -161,18 +161,19 @@
     function translationFor(word){
     const language=state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en");
     const learning=word.course||state.game?.learningLanguage||course;
+    const customSupport=word._flashCard?.translation_language_code===language?word._flashCard.translation_text:"";
     if(learning==="ms"){
       if(language==="en")return word.definitionEn||word.translationEn||"";
       if(language==="zh")return word.definitionZh||word.translationZh||"";
       return word.definition||"";
     }
     if(learning==="zh"){
-      if(language==="ms")return word.definitionMs||word.translationMs||word._flashCard?.translation_text||"";
-      if(language==="zh")return word.translationZh||word.definition||"";
+      if(language==="ms")return word.definitionMs||word.translationMs||customSupport||"";
+      if(language==="zh")return word.translationZh||word.definition||customSupport||"";
       return cleanEnglishGloss(word.translationEn||word.definition||"");
     }
-    if(language==="ms")return word.definitionMs||word.translationMs||word.headwordMs||word._flashCard?.translation_text||"";
-    if(language==="zh")return word._flashCard?.translation_text||word.definitionZh||"";
+    if(language==="ms")return word.definitionMs||word.translationMs||word.headwordMs||customSupport||"";
+    if(language==="zh")return customSupport||word.definitionZh||"";
     return word.definition||"";
   }
   function dictionaryCard(word){
