@@ -7,7 +7,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const read=p=>fs.readFileSync(path.join(root,p),"utf8");
 test("Malay target option is available for English and Chinese courses, not as a self-translation",()=>{
  const html=read("index.html");
- assert.match(html,/const available=profileLearningCode!=="ms"/);
+ assert.match(html,/const available=activeLearningCode!=="ms"/);
  assert.doesNotMatch(html,/translationSelect:\s*malayDictionaryTargetReady/);
  assert.doesNotMatch(html,/preferenceTranslation:\s*malayDictionaryTargetReady/);
 });
