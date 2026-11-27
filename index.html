@@ -1016,6 +1016,7 @@
   <script src="data/languages/malay-dictionary-translations.js?v=3.0.1"></script>
   <script src="js/core/dictionary-translation-overlay.js?v=3.0.0"></script>
   <script src="data/languages/english-lessons.js?v=3.0.0"></script>
+  <script src="data/languages/malay-lesson-translations.js?v=3.0.0-ms1"></script>
   <script>
     // Starter vocabulary. Add more entries by following this same object structure.
     const englishWords = window.SWIFT_ENGLISH_BASE_DICTIONARY;
@@ -2075,6 +2076,8 @@
     // Update 2.2.0 Lessons Foundation
     const lessonData=window.SWIFT_ENGLISH_LESSONS;
     const lessonZh=window.SWIFT_ENGLISH_LESSON_TRANSLATIONS;
+    const lessonMs=window.SWIFT_LESSON_TRANSLATIONS_MS||{en:{},zh:{}};
+    const lessonMsRecord=x=>lessonMs[isChineseCourse()?"zh":"en"]?.[x.id]||null;
 
     const lessonTopicIds={
       "Sentence basics":"sentence-basics",
@@ -2093,14 +2096,17 @@
     };
 function lessonTopicIdFor(x){return x.topic_id||lessonTopicIds[x.topic]||null;}
 function lessonField(x,key){
+  const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
+  if(ms&&ms[key]!==undefined)return ms[key];
   if(isChineseCourse())return x[key];
   const z=translationLanguage==="zh"?lessonZh[x.id]:null;
   return z&&z[key]!==undefined?z[key]:x[key];
 }
 function lessonPractice(x){
-  const z=isEnglishCourse()&&translationLanguage==="zh"?lessonZh[x.id]:null;
+  const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
+  const z=translationLanguage==="zh"&&isEnglishCourse()?lessonZh[x.id]:null;
   const src=x.practices||[x.practice];
-  const translated=z?.practices||(z?.practice?[z.practice]:null);
+  const translated=ms?.practices||z?.practices||(z?.practice?[z.practice]:null);
   const orders=ls.practiceOptionOrders?.[x.id];
   return src.map((q,i)=>{
     const options=translated?.[i]?.options||q.options;
@@ -2139,6 +2145,14 @@ function lessonRenderText(value){
       }
       return escapeHTML(value??"");
     }
+function lessonTopicText(x){
+  if(isChineseCourse()){
+    const ms=translationLanguage==="ms"?lessonMsRecord(x):null;
+    return ms?.topic?escapeHTML(ms.topic):lessonRenderText(x.topicDisplay);
+  }
+  if(isMalayCourse())return lessonRenderText(x.topic);
+  return escapeHTML(lessonField(x,"topic"));
+}
 async function loadLessonProgress(){
       if(!currentUser||!supabaseClient){ls.progress=[];return;}
       const {data,error}=await supabaseClient.from("lesson_progress")
@@ -2156,7 +2170,7 @@ function lessonTopicKey(x){
       const topics=[...new Set(currentLessons.map(lessonTopicKey).filter(Boolean))];
       topic.innerHTML='<option value="all">All topics</option>'+topics.map(value=>{
         const item=currentLessons.find(x=>lessonTopicKey(x)===value);
-        const label=isChineseCourse()?(item?.topicDisplay?.en||item?.topicDisplay?.zh||value):isMalayCourse()?(item?.topic?.ms||value):value;
+        const label=isChineseCourse()?(translationLanguage==="ms"?(lessonMsRecord(item)?.topic||item?.topicDisplay?.en||value):(item?.topicDisplay?.en||item?.topicDisplay?.zh||value)):isMalayCourse()?(item?.topic?.ms||value):value;
         return '<option value="'+escapeHTML(value)+'">'+escapeHTML(label)+'</option>';
       }).join("");
       if(ls.topic!=="all"&&!topics.includes(ls.topic))ls.topic="all";
@@ -2170,9 +2184,9 @@ function lessonTopicKey(x){
         const status=p?.status==="completed"?"Completed":p?"In progress":"Not started";
         const cls=p?.status==="completed"?"completed":p?"in-progress":"not-started";
         const blocked=!p&&ls.allowanceKnown&&!ls.allowanceUnlimited&&ls.allowanceRemaining<=0;
-        const topicMarkup=isChineseCourse()?lessonRenderText(x.topicDisplay):isMalayCourse()?lessonRenderText(x.topic):escapeHTML(lessonField(x,"topic"));
-        const titleMarkup=isChineseCourse()||isMalayCourse()?lessonRenderText(x.title):escapeHTML(lessonField(x,"title"));
-        const summaryMarkup=isChineseCourse()||isMalayCourse()?lessonRenderText(x.summary):escapeHTML(lessonField(x,"summary"));
+        const topicMarkup=lessonTopicText(x);
+        const titleMarkup=lessonRenderText(lessonField(x,"title"));
+        const summaryMarkup=lessonRenderText(lessonField(x,"summary"));
         const b=document.createElement("button");
         b.className="lesson-card";
         b.dataset.lessonId=x.id;
@@ -2210,7 +2224,7 @@ function lessonTopicKey(x){
           +'<div class="lesson-breakdown">'+(breakdown.parts||[]).map(p=>'<span><strong>'+lessonRenderText(p.text)+'</strong><small>'+lessonRenderText(p.label)+'</small></span>').join("")+'</div>'
         :"";
       const done=progressFor(x.id)?.status==="completed";
-      const topicHtml=isChineseCourse()?lessonRenderText(x.topicDisplay):isMalayCourse()?lessonRenderText(x.topic):escapeHTML(lessonField(x,"topic"));
+      const topicHtml=lessonTopicText(x);
       const keyPoints=lessonExpandableGroup(lessonField(x,"points"),(p,extra)=>'<li class="lesson-key-point lesson-expandable-item"'+(extra?' data-expandable-extra hidden':'')+'><span class="lesson-key-point-label">'+(zh?"重点":"KEY IDEA")+'</span><div class="lesson-key-point-copy">'+lessonRenderText(p)+'</div></li>',zh,"ul");
       const contentBox='<div class="lesson-content-box"><h3>'+(zh?"本课目标":"What you will learn")+'</h3>'+keyPoints+'<h3>'+(zh?"讲解":"Explanation")+'</h3>'+explanationHtml+breakdownHtml+'<h3>'+(zh?"语境例句":"Examples in context")+'</h3>'+examples+'<h3>'+(zh?"常见错误":"Common mistakes")+'</h3><ul>'+lessonField(x,"mistakes").map(m=>'<li>'+lessonRenderText(m)+'</li>').join("")+'</ul></div>';
       const practiceBox='<div class="lesson-practice-box"><h3>'+(zh?"练习":"Practice")+'</h3><p class="lesson-practice-intro">'+(zh?"完成所有题目并答对，才能结束本课。":"Answer each question correctly. You can retry a question at any time.")+'</p><div class="lesson-practice-progress"><span>'+(zh?"练习进度":"Practice progress")+'</span><strong id="lessonPracticeProgress">0 / '+qs.length+' correct</strong></div>'+qs.map((q,i)=>{const compactAnswers=q.options.every(o=>String(o&&typeof o==="object"?(o.zh||o.en||""):o).length<=24);return '<div class="lesson-question" role="group" aria-labelledby="lessonQuestionTitle'+i+'"><h4 class="lesson-question-title" id="lessonQuestionTitle'+i+'">'+(i+1)+'. '+lessonRenderText(q.q)+'</h4><div class="lesson-answer-options'+(compactAnswers?' compact':'')+'">'+q.options.map((o,j)=>'<label><input type="radio" name="lessonAnswer'+i+'" value="'+j+'"> '+lessonRenderText(o)+'</label>').join("")+'</div><button class="secondary-button check-lesson-answer" type="button" data-question="'+i+'">'+(zh?"检查答案":"Check answer")+'</button><p class="lesson-question-feedback" id="lessonAnswerFeedback'+i+'" role="status"></p></div>';}).join("")+'</div>';
