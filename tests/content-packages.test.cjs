@@ -16,9 +16,9 @@ test("content packages preserve language-owned source arrays without mutating th
  assert.equal(p.languageCode,"en");
  assert.equal(entries[0].word,"hello");
 });
-test("planned Malay can be registered as a package without becoming active",()=>{
+test("Phase 3 Malay content package inherits the feature-build active status",()=>{
  const p=packages.createPackage({languageCode:"ms",contentVersion:"3.0.0-draft"});
- assert.equal(p.status,"planned");
+ assert.equal(p.status,"active");
  assert.deepEqual(p.dictionary.entries,[]);
 });
 test("unknown language package is rejected",()=>{
