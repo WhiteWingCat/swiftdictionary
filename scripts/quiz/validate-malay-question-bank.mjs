@@ -72,22 +72,21 @@ if(emitSql){
   rows.push("("+
    [q.question_id,1,"ms",q.translation_language_code,q.source_lesson_id,q.topic_id,q.difficulty,
     q.prompt_learning,q.prompt_translation,JSON.stringify(q.options),q.correct_option_id,
-    q.explanation_learning,q.explanation_translation,"draft", "knowledge","ms",q.learning_objective_id]
-    .map((v,i)=>i===9?quote(v)+"::jsonb":quote(v)).join(",")+
+    q.explanation_learning,q.explanation_translation,"draft","knowledge","ms",q.learning_objective_id]
+    .map((value,i)=>i===9?quote(value)+"::jsonb":quote(value)).join(",")+
    ")");
  }
- console.log("
--- Draft-only Malay Quiz content. Never marks records approved.
-"+
- `insert into private.quiz_question_bank(
- question_id,revision,learning_language_code,translation_language_code,
- source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,options,
- correct_option_id,explanation_learning,explanation_translation,status,question_type,
- answer_language_code,learning_objective_id
-) values
-`+
- rows.join(",
-")+ "
-on conflict(question_id,revision) do nothing;
-");
+ const nl=String.fromCharCode(10);
+ const sql=[
+  "-- Draft-only Malay Quiz content. Never marks records approved.",
+  "insert into private.quiz_question_bank(",
+  " question_id,revision,learning_language_code,translation_language_code,",
+  " source_lesson_id,topic_id,difficulty,prompt_learning,prompt_translation,options,",
+  " correct_option_id,explanation_learning,explanation_translation,status,question_type,",
+  " answer_language_code,learning_objective_id",
+  ") values",
+  rows.join(","+nl),
+  "on conflict(question_id,revision) do nothing;"
+ ].join(nl);
+ console.log(sql);
 }
