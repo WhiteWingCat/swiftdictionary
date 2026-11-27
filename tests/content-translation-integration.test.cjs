@@ -38,7 +38,7 @@ test("English and Chinese package lookup remains language isolated",()=>{
 
 
 test("dictionary package registers Malay support translations when present",()=>{
- const p=packages.createPackage({languageCode:"en",contentVersion:"u3-en-ms-test",content:{dictionary:{entries:[{word:"hello",definition:"A greeting.",definitionMs:"Ucapan sapaan.",senses:[{part:"noun",definition:"A greeting.",definitionMs:"Ucapan sapaan."}]}]}}});
+ const p=packages.createPackage({languageCode:"en",contentVersion:"u3-en-ms-test",content:{dictionary:{entries:[{word:"hello",definition:"A greeting.",definitionMs:"Ucapan sapaan.",headwordMs:"helo",translationStatus:{ms:"machine_assisted_draft"},translationProvenance:"Local machine-assisted draft",senses:[{part:"noun",definition:"A greeting.",definitionMs:"Ucapan sapaan."}]}]}}});
  const entry=p.dictionary.entries[0];
  assert.equal(entry.senses[0].translations.ms,"Ucapan sapaan.");
  assert.equal(entry.headwordTranslations.ms,"helo");
