@@ -68,4 +68,4 @@ jobs:
           node --check daily-learning.js
           node --check scripts/content/validation-core.mjs
       - name: Run all architecture and content regression tests
-        run: node --test tests/*.test.cjs tests/*.test.mjs
+        run: node --test --test-concurrency=1 tests/*.test.cjs tests/*.test.mjs
