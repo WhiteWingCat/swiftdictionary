@@ -344,7 +344,19 @@
       '<button class="flash-secondary" data-action="remove-card" data-value="'+c.id+'">Remove</button></div></div>'
     ).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
   }
-  function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.definition_zh||c.translation_text||c.back_text,definitionCueZh:c.definition_zh||c.translation_text||"",translationEn:c.back_text,translationZh:c.translation_zh||"",definitionMs:c.translation_ms||"",translationMs:c.translation_ms||"",pinyin:c.pinyin||"",examples:c.example_text?[c.example_text]:[],course:c.language_code||"en",_custom:c};}
+  function mapCustomCard(c){
+    const learning=c.language_code||"en",support=c.translation_text||"",supportLanguage=c.translation_language_code||"";
+    return {
+      word:c.front_text,definition:c.back_text,
+      definitionZh:learning==="zh"?(c.back_text||""):(c.definition_zh||""),
+      definitionCueZh:learning==="zh"?(c.back_text||""):(c.definition_zh||""),
+      definitionMs:learning!=="ms"&&supportLanguage==="ms"?support:"",
+      translationEn:learning==="ms"&&supportLanguage==="en"?support:learning==="en"?(c.back_text||""):"",
+      translationZh:learning==="ms"&&supportLanguage==="zh"?support:learning==="zh"?(c.back_text||""):(c.translation_zh||""),
+      translationMs:learning!=="ms"&&supportLanguage==="ms"?support:"",
+      pinyin:c.pinyin||"",examples:c.example_text?[c.example_text]:[],course:learning,_custom:c
+    };
+  }
   function gameDeck(){
     let all=words();
     if(isChineseLanguage(course)){
