@@ -74,7 +74,7 @@
           output.push(registry.register({
             contentId, sourceLanguageCode, targetLanguageCode,
             sourceRevision:1, translationRevision:1,
-            status:sense.translationStatus?.[targetLanguageCode] || "draft",
+            status:sense.translationStatus?.[targetLanguageCode] || entry.translationStatus?.[targetLanguageCode] || "draft",
             provenance:entry.translationProvenance || entry.provenance?.authoringNote || "Dictionary translation source record",
             reviewerId:null,
             content:{ definition:translatedText }
