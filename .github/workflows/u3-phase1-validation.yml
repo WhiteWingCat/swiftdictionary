@@ -53,6 +53,9 @@ jobs:
           node --check js/core/content-packages.js
           node --check js/core/legacy-content-bootstrap.js
           node --check js/core/translation-registry.js
+          node --check js/core/dictionary-translation-overlay.js
+          node --check scripts/content/export-malay-translation-input.cjs
+          node --check scripts/content/validate-malay-dictionary-translations.cjs
           node --check js/languages/adapters.js
           node --check data/languages/malay-dictionary.js
           node --check data/malay-lessons.js
