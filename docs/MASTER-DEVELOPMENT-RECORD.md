@@ -4752,3 +4752,19 @@ Topics added:
 Each lesson includes multilingual topic/title/summary support, explanations, learning points, an example, a common-mistake note and three four-option practice questions. The file is integrated before the shared content bootstrap. The manifest is `u3-ms-lessons-0.5.0`, with 15 lessons at each level. Regression tests now load batch 05 and assert 45 unique IDs and 45 package lessons; the validation workflow syntax-checks the new file.
 
 All Malay content and machine-assisted EN/ZH support remain draft for staging review. Automated validation is pending for this batch. No staging preview, database migration, production activation, main merge or deployment occurred. Phase 3 remains in progress.
+
+
+## 2026-11-27 — Malay Dictionary cross-course translation target and filters
+
+The owner confirmed the intended translation direction:
+- English course → Malay target translation.
+- Simplified Chinese course → Malay target translation.
+- Malay course → existing English and Simplified Chinese support translations remain unchanged.
+
+The source-language inventory on the current U3.0 feature branch is 1,316 English headwords (1,931 senses) and 725 Chinese characters (825 senses). The target coverage is therefore 2,756 meaning-level translations, including separate translations for polysemous entries. The target selector must not expose Malay for English/Chinese Dictionary records until the relevant coverage is complete; missing translations must never silently display source-language text. This is a Dictionary requirement and does not imply that English/Chinese Lessons, Quiz or Flashcards are already translated into Malay.
+
+The Malay Dictionary already has topic categories and part-of-speech metadata. Added malay-category-filters.js to group those existing categories into learner-facing Malay topic filters and separate Malay word-class filters. It preserves the existing Dictionary search and grid matching logic and keeps uncategorised material reachable through “Lain-lain”. Added automated tests for category grouping, word-class matching and page wiring. Local helper-level checks against all 650 Malay records found no entry without a filter category; the broader GitHub Actions regression result for the latest branch commit is still pending verification.
+
+Legal/content review: translations are to be independently authored from SwiftDictionary's existing source definitions. No DBP/PRPM/Kamus Dewan protected text or external dictionary dataset is to be copied. New translations remain machine-assisted drafts pending the owner's staging review. This static content change introduces no new personal-data field or processor; existing Malaysia PDPA and international privacy checks remain release gates.
+
+No Supabase schema/data/Auth/RLS change, staging migration, production database write, merge to main or production deployment was made for the filter implementation. Draft PR #20 remains unmerged. Continue the translation content in analysed batches and expose Malay as a Dictionary target only after complete coverage and regression validation.
