@@ -1471,12 +1471,12 @@
           text.className = "definition-sense-text";
           const senseText = isMalayCourse()
             ? translationLanguage === "zh"
-              ? (sense.definitionZh || item.definitionZh || sense.definition || item.definition || "")
+              ? (sense.definitionZh || item.definitionZh || "Terjemahan bahasa Cina belum tersedia untuk maksud ini.")
               : translationLanguage === "en"
-                ? (sense.definitionEn || item.definitionEn || sense.definition || item.definition || "")
+                ? (sense.definitionEn || item.definitionEn || "English translation is not yet available for this meaning.")
                 : sense.definition
             : translationLanguage === "ms"
-              ? (sense.definitionMs || item.definitionMs || "Malay translation is not yet available for this entry.")
+              ? (sense.definitionMs || item.definitionMs || "Terjemahan bahasa Melayu belum tersedia untuk maksud ini.")
               : translationLanguage === "zh"
                 ? (sense.definitionZh || item.definitionZh || "")
                 : sense.definition;
@@ -1497,12 +1497,12 @@
       } else {
         const definitionText = isMalayCourse()
           ? translationLanguage === "zh"
-            ? (item.definitionZh || item.definition || "")
+            ? (item.definitionZh || "该词条的中文翻译尚未提供。")
             : translationLanguage === "en"
-              ? (item.definitionEn || item.definition || "")
+              ? (item.definitionEn || "English translation is not yet available for this entry.")
               : item.definition
           : translationLanguage === "ms"
-            ? (item.definitionMs || "Malay translation is not yet available for this entry.")
+            ? (item.definitionMs || "Terjemahan bahasa Melayu belum tersedia untuk entri ini.")
             : translationLanguage === "zh"
               ? (commonZhTranslations[item.word.toLowerCase()] || item.definitionZh || `常见语境：${item.definition}`)
               : item.definition;
