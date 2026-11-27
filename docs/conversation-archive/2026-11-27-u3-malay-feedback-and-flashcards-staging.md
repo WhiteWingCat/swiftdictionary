@@ -82,3 +82,10 @@ These gaps remain open; this checkpoint must not be described as complete Malay 
 ## Preview
 
 The stable feature-branch preview alias is [https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev). The latest commit-specific Pages preview must be confirmed from the Cloudflare deployment check before publishing a new commit-specific link.
+
+
+## 2026-11-27 — Flashcard Malay support gloss expansion and regression refresh
+
+The English/Chinese Flashcard support-language map was expanded and wired into the runtime. It now contains **73 English entries** (48 English dictionary headwords plus 25 curated expressions) and **124 Simplified Chinese entries** (100 single-character entries plus 24 phrase entries). The map is machine-assisted draft content pending human review. When Malay is selected as the support language, the Flashcards deck now filters out entries without an explicit Malay gloss and displays the number of translated cards available, rather than showing an incorrect or blank cue. Custom cards without the selected Malay support text are also excluded.
+
+The Flashcards diagnostics report 650 Malay dictionary entries, 73 English→Malay support entries and 124 Chinese→Malay support entries. The browser regression now checks these counts and verifies the Malay course exposes the word, definition, mixed and sentence recall modes, with Malay self-translation disabled. Flashcards static checks and U3.0 architecture/adapter/translation/content-parity regression passed on the latest test head. The Chromium Flashcards browser job was cancelled by workflow concurrency and has been rerun. Cloudflare Pages deployment for application commit `10b31302ab6b2ff68b508caa1be46f6097ee1563` succeeded; stable preview alias remains [feature preview](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev). Quiz Auth/RPC browser and remaining U2.3/U2.6/U2.7/U2.9 cross-version regression checks were queued or running at checkpoint. Full regression remains open until these complete.
