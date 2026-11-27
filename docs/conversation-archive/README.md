@@ -258,3 +258,8 @@ This directory contains structured handover archives for meaningful SwiftDiction
 - [2026-11-27 — U3.0 Phase 3 Malay Lessons expansion, Batch 02](2026-11-27-update-3-0-phase-3-malay-lessons-batch-02.md) — expands the draft curriculum to 18 lessons (6 per difficulty) and records 45/45 passing U3.0 structural/content tests.
 
 | 2026-11-27 | [U3.0 Phase 3 Malay Lessons expansion, Batch 02](2026-11-27-update-3-0-phase-3-malay-lessons-batch-02.md) | Adds 9 topics across Beginner, Intermediate and Advanced; total 18 lessons; 45/45 U3.0 tests pass; human review remains scheduled for staging. |
+
+
+- [2026-11-27 — U3.0 Phase 3 Malay Lessons expansion, Batch 03](2026-11-27-update-3-0-phase-3-malay-lessons-batch-03.md) — expands the draft curriculum to 27 lessons (9 per difficulty); 45/45 U3.0 structural/content tests pass.
+
+| 2026-11-27 | [U3.0 Phase 3 Malay Lessons expansion, Batch 03](2026-11-27-update-3-0-phase-3-malay-lessons-batch-03.md) | Adds family, directions, shopping, comparison, complex sentences, paraphrasing and critical reading topics; 27 lessons total; 45/45 tests pass. |
