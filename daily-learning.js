@@ -385,6 +385,7 @@
   const esc = value => escapeHTML(String(value ?? ""));
   const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING || {topics:[],applications:[],discovery:[]};
   const isChineseLearningCourse = () => snapshot.learningLanguage === "zh";
+  const isMalayLearningCourse = () => snapshot.learningLanguage === "ms";
   const dailyContentFor = language => {
     const packageContent=window.SWIFT_CONTENT_PACKAGES?.get(language)?.dailyLearning;
     if(packageContent){
@@ -400,7 +401,8 @@
   const dailyDiscoveryPool = () => dailyContentFor(snapshot.learningLanguage).discovery || [];
   window.SWIFT_DAILY_LEARNING_CONTENT = {
     en:{topics:dailyTopics,applications:dailyApplications,discovery:dailyDiscoveryVocabulary},
-    zh:chineseDailyLearning
+    zh:chineseDailyLearning,
+    ms:window.SWIFT_MALAY_DAILY_LEARNING || {topics:[],applications:[],discovery:[]}
   };
   const dayOrdinal = day => Math.floor(Date.parse(day + "T00:00:00Z") / 86400000);
   const addDays = day => new Date(Date.parse(day + "T00:00:00Z") + 86400000).toISOString().slice(0,10);
@@ -447,10 +449,11 @@
   const dailyUi = (english, chinese) => translationLanguage === "zh" ? chinese : english;
   function dailyTitle(item) {
     if (translationLanguage === "zh") return item.titleZh || dailyChineseTitles[item.id] || item.title;
-    return isChineseLearningCourse() && item.titleEn ? item.titleEn : item.title;
+    return (isChineseLearningCourse() || isMalayLearningCourse()) && translationLanguage === "en" && item.titleEn ? item.titleEn : item.title;
   }
   function selectedTranslation(item) {
     if (isChineseLearningCourse()) return translationLanguage === "en" && item.en ? '<p class="daily-translation"><strong>English support:</strong> ' + esc(item.en) + '</p>' : "";
+    if (isMalayLearningCourse() && translationLanguage === "en" && item.en) return '<p class="daily-translation"><strong>English support:</strong> ' + esc(item.en) + '</p>';
     if (translationLanguage === "zh" && item.zh) return '<p class="daily-translation"><strong>中文说明：</strong>' + esc(item.zh) + '</p>';
     return "";
   }
@@ -468,7 +471,7 @@
       dailyLearningEyebrow: zh ? "每日练习" : "DAILY PRACTICE",
       dailyLearningHeading: zh ? "每日学习" : "Daily Learning",
       dailyLearningIntro: zh ? "通过个性化活动和全球共享的每日词汇，建立持续学习的习惯。" : "Build consistency with personalised activities and a shared daily dictionary word for everyone.",
-      dailyLearningAllowanceNote: zh ? "每种活动在英语和简体中文课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared between English and Simplified Chinese. Completing an activity in either course uses that activity’s allowance in both courses. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
+      dailyLearningAllowanceNote: zh ? "每种活动在英语和简体中文课程之间共用每日额度。在任一课程中完成活动，都会扣除该活动当天的共用额度。切换课程不会重置额度；已完成的内容仍可免费复习。额度会在你的额度时区午夜重置。" : "Each activity has one daily allowance shared across English, Simplified Chinese and Malay. Completing an activity in any course uses that activity’s shared allowance. Switching courses does not reset it; completed content remains available to review. Allowances reset at midnight in your allowance timezone.",
       dailyPreferencesLegend: zh ? "我的每日活动" : "My daily activities",
       dailyPreferencesHeading: zh ? "我的每日活动" : "My daily activities"
     };
@@ -491,8 +494,8 @@
     const timezone = snapshot.timezone || "UTC";
     const plan = snapshot.plan === "premium" ? "Premium" : "Free";
     status.textContent = dailyUi(
-      "Your daily activities reset at midnight (" + timezone + "). Plan: " + plan + ". Learning course: " + (snapshot.learningLanguage === "zh" ? "Simplified Chinese" : "English") + ".",
-      "每日活动于午夜重置（" + timezone + "）。方案：" + plan + "。学习课程：" + (snapshot.learningLanguage === "zh" ? "简体中文" : "英语") + "。"
+      "Your daily activities reset at midnight (" + timezone + "). Plan: " + plan + ". Learning course: " + (snapshot.learningLanguage === "zh" ? "Simplified Chinese" : snapshot.learningLanguage === "ms" ? "Malay" : "English") + ".",
+      "每日活动于午夜重置（" + timezone + "）。方案：" + plan + "。学习课程：" + (snapshot.learningLanguage === "zh" ? "简体中文" : snapshot.learningLanguage === "ms" ? "马来语" : "英语") + "。"
     );
     if (snapshot.timezoneChangePending) status.textContent += dailyUi(
       " Your preferred timezone (" + snapshot.preferredTimezone + ") will take effect after this allowance day ends.",
@@ -506,6 +509,14 @@
 
   function makeRevisionContent(topicId, contentId, reason) {
     const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
+    if (isMalayLearningCourse()) {
+      const applications = dailyApplicationPool();
+      const source = applications.find(item => item.id === String(contentId || "").split(":")[2] && item.topicId === topicId)
+        || applications.find(item => item.topicId === topicId) || applications[0];
+      if (!source) return null;
+      return {...source,id:contentId,title:"Ulang kaji: "+source.title,titleEn:"Review: "+(source.titleEn || source.title),titleZh:"复习："+(source.titleZh || source.title),
+        body:reason || source.body,questions:(source.questions || []).map(question=>({...question,options:(question.options || []).slice()}))};
+    }
     if (chineseCourse) {
       const applications = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
       const sourceId = String(contentId || "").split(":")[2] || null;
@@ -563,7 +574,7 @@
       .map(row => row.topic_id).filter(Boolean));
     const chineseCourse = typeof isChineseLearningCourse === "function" && isChineseLearningCourse();
     const applicationPool = typeof dailyApplicationPool === "function" ? dailyApplicationPool() : dailyApplications;
-    const topics = chineseCourse
+    const topics = (chineseCourse || isMalayLearningCourse())
       ? [...new Set(applicationPool.map(item => item.topicId).filter(Boolean))]
       : [...new Set([...dailyApplications.map(item => item.topicId),
         "sentence-basics","verb-tenses","nouns-and-articles","everyday-vocabulary",
