@@ -44,3 +44,12 @@ Verified catalogue: 285 unique active rows — 72 permanent lessons, 60 Daily To
 ## Security and privacy
 
 Supabase advisors reported pre-existing private-schema RLS informational notices, disabled leaked-password protection and unused-index notices. No unrelated settings or policies were changed. No new personal-data fields or tracking were introduced. All production systems remain unchanged.
+
+
+## Latest preview refresh
+
+The feature branch documentation refresh generated a second successful Cloudflare Pages deployment. The current branch head is `376db5f0c495c281124335556b8633096d8902c9`.
+
+- Stable branch preview: https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev
+- Latest commit preview: https://ec791600.swiftdictionary.pages.dev
+- U3.0 architecture/content regression passed on this branch head; full cross-version CI and browser checks remain in progress.
