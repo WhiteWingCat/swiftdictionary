@@ -41,7 +41,7 @@ console.log("U2.7.0 Lessons UI structure, expandable content, practice layout, d
 
 assert(!html.includes('daily-learning-heading-mark" aria-hidden="true">✧'));
 assert(!html.includes('permanent-lessons-mark" aria-hidden="true">✦'));
-assert(daily.includes("chineseDailyLearning.applications") && daily.includes("chineseDailyLearning.topics") && daily.includes("chineseDailyLearning.discovery"));
+assert(daily.includes("const chineseDailyLearning = window.SWIFT_CHINESE_DAILY_LEARNING") && daily.includes("const dailyContentFor = language =>") && daily.includes("if (language === \"zh\") return chineseDailyLearning") && daily.includes("const dailyTopicPool = () => dailyContentFor(snapshot.learningLanguage).topics") && daily.includes("const dailyApplicationPool = () => dailyContentFor(snapshot.learningLanguage).applications") && daily.includes("const dailyDiscoveryPool = () => dailyContentFor(snapshot.learningLanguage).discovery"), "Chinese Daily Learning must be selected through the U3.0 language-owned content package.");
 assert(daily.includes("dailyQuestionPrompt(question)") && daily.includes("dailyQuestionOption(option)"));
 assert(daily.includes("window.requestAnimationFrame(() =>"));
 assert(!css.includes("@keyframes dailyDrawerIn") && !css.includes("@keyframes dailyDrawerOut"), "The drawer should use one transition-based motion system.");
