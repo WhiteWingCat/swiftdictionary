@@ -625,3 +625,25 @@ After the preview handoff documentation was refreshed, Cloudflare Pages also con
 - U3.0 architecture/content regression passed on this branch head: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45943196116
 - Cloudflare build-routing guard passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45943196257
 - Broader cross-version and browser regression workflows remain in progress; do not claim full CI acceptance yet.
+
+
+## 2026-11-27 — Cross-course Malay Dictionary translation target and filters
+
+The owner confirmed that Malay must be available as a translation target while studying either English or Simplified Chinese. The Malay course continues to use English and Simplified Chinese as its support-language targets. This is a Dictionary-content requirement: the target selector must not expose Malay until the corresponding Dictionary meanings have real Malay text, and the existing English/Chinese lesson, Quiz and Flashcard translation paths must not be misrepresented as Malay-supported.
+
+Coverage inventory on the U3.0 feature branch:
+- English Dictionary: **1,316 headwords and 1,931 senses**.
+- Simplified Chinese Dictionary: **725 characters and 825 senses**.
+- Translation work therefore covers up to **2,756 meaning-level records**, preserving separate contextual senses.
+
+Implementation requirements:
+- Author Malay translations from SwiftDictionary's existing original-authored English and Chinese Dictionary definitions; do not copy DBP/PRPM/Kamus Dewan entries or import unlicensed third-party dictionary text.
+- Store headword-level and sense-level translations, including separate Malay wording for every existing sense.
+- Mark new translations as machine-assisted drafts; do not claim linguistic approval. Human Malaysian Standard Malay and independent translation review remain part of the owner's staging review.
+- Keep the selector hidden/disabled for a target/course combination until its coverage is complete; never silently substitute the source-language definition for a missing Malay translation.
+- Preserve English and Chinese source text, examples, search, grid rules, saved words and account data.
+- No new personal-data collection, analytics, processor or Supabase schema is required for this static Dictionary-content expansion. Existing Malaysia PDPA and international privacy release checks remain in force.
+
+The Malay Dictionary filter addition reuses its existing category and part metadata. The UI groups the current topic vocabulary into readable Malay topic filters and provides separate word-class filters. Unknown existing categories remain reachable through “Lain-lain”; filtering must not remove any dictionary records or alter search semantics. Dictionary word-grid search remains free and unlimited.
+
+Work stays on feature/update-3.0-phase-0-audit; documentation stays on docs/master-development-record. No main-branch merge, production deployment, production database change or staging database migration is authorised by this scope.
