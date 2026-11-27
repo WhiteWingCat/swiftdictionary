@@ -16,6 +16,6 @@ test("Malay support glosses cover the first curated English and Chinese Flashcar
 
 test("Flashcard decks exclude untranslated words when Malay is the selected support language",()=>{
  const flashcards=fs.readFileSync("flashcards.js","utf8");
- assert.match(flashcards,/addMalayFlashcardSupport\\(items,language\\)/);
- assert.match(flashcards,/all=all\\.filter\\(word=>Boolean\\(translationFor\\(word\\)\\)\\)/);
+ assert.match(flashcards,/addMalayFlashcardSupport\(items,language\)/);
+ assert.match(flashcards,/all=all\.filter\(word=>Boolean\(translationFor\(word\)\)\)/);
 });
