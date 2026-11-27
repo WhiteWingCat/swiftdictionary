@@ -85,7 +85,7 @@
       "runtimeGovernanceIssue": "Source records are marked draft while the legacy runtime currently maps them into the Flashcards deck; reconcile before changing approval state.",
       "malaySupportTranslations": {
         "file": "data/languages/malay-flashcard-translations.js",
-        "translatedHeadwords": 48,
+        "translatedHeadwords": 124,
         "status": "machine-assisted-draft",
         "untranslatedCardsExcluded": true
       }
