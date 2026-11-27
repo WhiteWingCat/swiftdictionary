@@ -1061,24 +1061,12 @@
     let translationLanguage = activeLanguage(storedCoursePreferences.translation_language) ? storedCoursePreferences.translation_language : "en";
     let words = dictionaryEntriesFor(course);
     function syncMalayTargetOptionAvailability() {
-      const profileLearningCode = document.getElementById("preferenceLearning")?.value || course;
-      // Malay is a valid translation selection in every active course.
-      // For the Malay course it resolves to the native Malay wording; English
-      // and Simplified Chinese remain available as support languages.
-      const selectorAvailability = {
-        translationSelect: malayDictionaryTargetReady,
-        preferenceTranslation: malayDictionaryTargetReady
-      };
-      for (const [selectorId, available] of Object.entries(selectorAvailability)) {
-        const option = document.querySelector("#"+selectorId+' option[value="ms"]');
-        if (option) {
-          option.disabled = !available;
-          option.title = available ? "" : !malayDictionaryTargetReady
-            ? "Malay Dictionary translations are still being prepared."
-            : "Choose English or Simplified Chinese as the support language for the Malay course.";
-        }
+      // Translation targets are independent of Dictionary coverage. A course may
+      // have its own translation pack even while Dictionary translations are incomplete.
+      for (const selectorId of ["translationSelect","preferenceTranslation"]) {
+        const option=document.querySelector("#"+selectorId+' option[value="ms"]');
+        if(option){option.disabled=false;option.title="";}
       }
-      if (!selectorAvailability.translationSelect && translationLanguage === "ms") translationLanguage = "en";
     }
     syncMalayTargetOptionAvailability();
     document.getElementById("preferenceLearning")?.addEventListener("change",syncMalayTargetOptionAvailability);
@@ -1692,7 +1680,7 @@
         : null;
       const selector=document.getElementById("translationSelect");
       const requestedLanguage=nextLanguage || selector.value || "en";
-      translationLanguage=requestedLanguage==="ms" && !malayDictionaryTargetReady ? "en" : requestedLanguage;
+      translationLanguage=requestedLanguage;
       syncMalayTargetOptionAvailability();
       selector.value=translationLanguage;
       document.getElementById("preferenceTranslation").value=translationLanguage;
@@ -3248,7 +3236,7 @@ async function completeLesson(x){
       const timezone = document.getElementById("preferenceTimezone").value.trim();
       try {
         if(!activeLanguage(learning)||!activeLanguage(translation))throw new Error("Choose an active learning and translation language.");
-        if(translation==="ms" && !malayDictionaryTargetReady)throw new Error("Malay Dictionary translations are not yet complete.");
+
         new Intl.DateTimeFormat("en-US",{timeZone:timezone});
         status.textContent = "Saving…";
         const [profileSave,prefSave] = await Promise.all([
