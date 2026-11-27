@@ -35,6 +35,9 @@
       pronunciation:{ system:entry.pronunciationSystem || (code === "zh" ? "pinyin" : code === "en" ? "ipa" : "unspecified"), value:entry.pronunciation || entry.phonetic || "" },
       senses, categories:Array.isArray(entry.categories) ? entry.categories : [],
       searchForms:Array.isArray(entry.searchForms) ? entry.searchForms.slice() : [],
+      headwordTranslations:{...(entry.headwordMs ? {ms:entry.headwordMs} : {})},
+      headwordTranslationStatus:entry.translationStatus?.ms || null,
+      translationProvenance:entry.translationProvenance || null,
       morphology:entry.morphology || null, provenance:entry.provenance || null,
       editorialStatus:entry.provenance?.editorialStatus || "legacy-unverified",
       legacySource:entry
@@ -45,6 +48,21 @@
     if (!registry) return [];
     const output = [];
     for (const entry of entries) {
+      for (const targetLanguageCode of ["en","zh","ms"]) {
+        if (targetLanguageCode === sourceLanguageCode) continue;
+        const translatedHeadword = entry.headwordTranslations?.[targetLanguageCode];
+        if (!translatedHeadword) continue;
+        const existing = registry.get(entry.id,sourceLanguageCode,targetLanguageCode);
+        if (existing) { output.push(existing); continue; }
+        output.push(registry.register({
+          contentId:entry.id, sourceLanguageCode, targetLanguageCode,
+          sourceRevision:1, translationRevision:1,
+          status:entry.headwordTranslationStatus || "draft",
+          provenance:entry.translationProvenance || entry.provenance?.authoringNote || "Dictionary headword translation source record",
+          reviewerId:null,
+          content:{headword:translatedHeadword}
+        }));
+      }
       for (const sense of entry.senses || []) {
         for (const targetLanguageCode of ["en","zh","ms"]) {
           if (targetLanguageCode === sourceLanguageCode) continue;
@@ -57,7 +75,7 @@
             contentId, sourceLanguageCode, targetLanguageCode,
             sourceRevision:1, translationRevision:1,
             status:sense.translationStatus?.[targetLanguageCode] || "draft",
-            provenance:entry.provenance?.authoringNote || "Dictionary translation source record",
+            provenance:entry.translationProvenance || entry.provenance?.authoringNote || "Dictionary translation source record",
             reviewerId:null,
             content:{ definition:translatedText }
           }));
