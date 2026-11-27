@@ -1,0 +1,481 @@
+{
+  "schema_version": 1,
+  "content_pack": "swift-quiz-ms-zh-draft-batch-01",
+  "learning_language_code": "ms",
+  "translation_language_code": "zh",
+  "status": "draft",
+  "batch": 1,
+  "editorial_status": "draft",
+  "translation_status": "machine_assisted_draft",
+  "notes": "Initial independently authored Malay Quiz draft batch. Not approved for release; all items require owner Malaysian Standard Malay and support-language review.",
+  "questions": [
+    {
+      "question_id": "quiz-ms-zh-b001",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-b-greetings",
+      "topic_id": "ms-greetings",
+      "difficulty": "beginner",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Anda tiba di kelas pada pukul 8.00 pagi. Apakah sapaan yang paling sesuai?",
+      "prompt_translation": "你早上八点到教室，哪一种问候最合适？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Selamat pagi",
+          "translation_text": "早上好"
+        },
+        {
+          "id": "b",
+          "learning_text": "Selamat malam",
+          "translation_text": "晚安"
+        },
+        {
+          "id": "c",
+          "learning_text": "Selamat tinggal",
+          "translation_text": "再见"
+        },
+        {
+          "id": "d",
+          "learning_text": "Sama-sama",
+          "translation_text": "不客气"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Selamat pagi” digunakan pada waktu pagi.",
+      "explanation_translation": "“Selamat pagi”用于早上。",
+      "learning_objective_id": "greetings-in-context",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b002",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-b-greetings",
+      "topic_id": "ms-greetings",
+      "difficulty": "beginner",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Seseorang mengucapkan “Terima kasih” selepas anda membantunya. Apakah jawapan yang sesuai?",
+      "prompt_translation": "你帮助别人后，对方说“Terima kasih”，你应如何回应？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Sama-sama",
+          "translation_text": "不客气"
+        },
+        {
+          "id": "b",
+          "learning_text": "Apa khabar?",
+          "translation_text": "你好吗？"
+        },
+        {
+          "id": "c",
+          "learning_text": "Selamat pagi",
+          "translation_text": "早上好"
+        },
+        {
+          "id": "d",
+          "learning_text": "Maafkan saya",
+          "translation_text": "请原谅我"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Sama-sama” ialah balasan lazim untuk ucapan terima kasih.",
+      "explanation_translation": "“Sama-sama”是回应感谢的常见说法。",
+      "learning_objective_id": "polite-responses",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b003",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-b-personal-information",
+      "topic_id": "ms-personal-information",
+      "difficulty": "beginner",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih ayat yang menyatakan tempat tinggal seseorang sekarang.",
+      "prompt_translation": "选择说明某人目前居住地点的句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Saya tinggal di Ipoh.",
+          "translation_text": "我住在怡保。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Saya berasal dari Ipoh.",
+          "translation_text": "我来自怡保。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Saya pergi ke Ipoh.",
+          "translation_text": "我要去怡保。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Saya suka Ipoh.",
+          "translation_text": "我喜欢怡保。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Saya tinggal di …” menyatakan tempat seseorang menetap sekarang.",
+      "explanation_translation": "“Saya tinggal di …”表示某人目前居住的地方。",
+      "learning_objective_id": "introducing-personal-details",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b004",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-b-basic-sentence-order",
+      "topic_id": "ms-basic-sentence-order",
+      "difficulty": "beginner",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Dalam ayat “Murid itu membaca buku”, frasa manakah menjadi subjek?",
+      "prompt_translation": "在“Murid itu membaca buku”中，哪一个短语是主语？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Murid itu",
+          "translation_text": "那名学生"
+        },
+        {
+          "id": "b",
+          "learning_text": "membaca",
+          "translation_text": "阅读"
+        },
+        {
+          "id": "c",
+          "learning_text": "buku",
+          "translation_text": "书"
+        },
+        {
+          "id": "d",
+          "learning_text": "membaca buku",
+          "translation_text": "读书"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Murid itu” ialah perkara yang diperkatakan, maka frasa itu subjek.",
+      "explanation_translation": "“Murid itu”是句子谈论的对象，因此是主语。",
+      "learning_objective_id": "subject-predicate-structure",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b005",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-b-basic-sentence-order",
+      "topic_id": "ms-basic-sentence-order",
+      "difficulty": "beginner",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih ayat penyata yang lengkap dan tersusun dengan betul.",
+      "prompt_translation": "选择语序正确且完整的陈述句。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Adik sedang tidur.",
+          "translation_text": "弟弟／妹妹正在睡觉。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Sedang adik tidur.",
+          "translation_text": "正在弟弟／妹妹睡觉。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Tidur sedang adik.",
+          "translation_text": "睡觉正在弟弟／妹妹。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Adik tidur sedang.",
+          "translation_text": "弟弟／妹妹睡觉正在。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Ayat “Adik sedang tidur” mempunyai subjek dan predikat dalam susunan yang lazim.",
+      "explanation_translation": "“Adik sedang tidur”按自然语序包含主语和谓语。",
+      "learning_objective_id": "complete-simple-statements",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b006",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-i-imbuhan-meN",
+      "topic_id": "ms-affixes-meN",
+      "difficulty": "intermediate",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih kata kerja berawalan meN- yang terbentuk dengan betul daripada kata dasar “tulis”.",
+      "prompt_translation": "选择由词根“tulis”正确构成的meN-动词。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "menulis",
+          "translation_text": "书写"
+        },
+        {
+          "id": "b",
+          "learning_text": "metulis",
+          "translation_text": "书写"
+        },
+        {
+          "id": "c",
+          "learning_text": "memtulis",
+          "translation_text": "书写"
+        },
+        {
+          "id": "d",
+          "learning_text": "mengtulis",
+          "translation_text": "书写"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Bentuk standard ialah “menulis”.",
+      "explanation_translation": "标准形式是“menulis”。",
+      "learning_objective_id": "meN-prefix-forms",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b007",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-i-penjodoh-bilangan",
+      "topic_id": "ms-classifiers",
+      "difficulty": "intermediate",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih penjodoh bilangan yang sesuai: “seekor ___”.",
+      "prompt_translation": "选择合适的量词短语：“seekor ___”。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "kucing",
+          "translation_text": "猫"
+        },
+        {
+          "id": "b",
+          "learning_text": "pensel",
+          "translation_text": "铅笔"
+        },
+        {
+          "id": "c",
+          "learning_text": "buku",
+          "translation_text": "书"
+        },
+        {
+          "id": "d",
+          "learning_text": "meja",
+          "translation_text": "桌子"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Ekor” digunakan sebagai penjodoh bilangan bagi haiwan seperti kucing.",
+      "explanation_translation": "“Ekor”用于动物，例如猫。",
+      "learning_objective_id": "classifiers-for-animals",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b008",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-i-kata-ganda",
+      "topic_id": "ms-reduplication",
+      "difficulty": "intermediate",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Apakah fungsi kata ganda “buku-buku” dalam ayat biasa?",
+      "prompt_translation": "重叠形式“buku-buku”通常表示什么？",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Lebih daripada sebuah buku",
+          "translation_text": "不止一本书"
+        },
+        {
+          "id": "b",
+          "learning_text": "Sebuah buku yang kecil",
+          "translation_text": "一本小书"
+        },
+        {
+          "id": "c",
+          "learning_text": "Buku yang baharu",
+          "translation_text": "一本新书"
+        },
+        {
+          "id": "d",
+          "learning_text": "Buku kepunyaan guru",
+          "translation_text": "老师的书"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Penggandaan penuh “buku-buku” lazimnya menandakan bilangan jamak.",
+      "explanation_translation": "完全重叠“buku-buku”通常表示复数。",
+      "learning_objective_id": "reduplication-meaning",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b009",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-i-imbuhan-meN",
+      "topic_id": "ms-affixes-meN",
+      "difficulty": "intermediate",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Lengkapkan ayat dengan bentuk kata kerja yang tepat: “Kakak ___ surat itu.” (tulis)",
+      "prompt_translation": "用正确的动词形式完成句子：“Kakak ___ surat itu.”（写）",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "menulis",
+          "translation_text": "写"
+        },
+        {
+          "id": "b",
+          "learning_text": "menuliskan",
+          "translation_text": "把它写下来"
+        },
+        {
+          "id": "c",
+          "learning_text": "ditulis",
+          "translation_text": "被写"
+        },
+        {
+          "id": "d",
+          "learning_text": "tertulis",
+          "translation_text": "无意中写下"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Dalam ayat aktif ini, “menulis” ialah kata kerja yang sesuai.",
+      "explanation_translation": "在这个主动句中，“menulis”是合适的动词。",
+      "learning_objective_id": "meN-prefix-context",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b010",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-a-ragam-bahasa",
+      "topic_id": "ms-register",
+      "difficulty": "advanced",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Anda menulis e-mel rasmi kepada pihak pentadbiran. Pilih pembuka permintaan yang paling sesuai.",
+      "prompt_translation": "你要给行政部门写正式电邮，选择最合适的请求开头。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Saya ingin memohon maklumat lanjut berkenaan perkara tersebut.",
+          "translation_text": "我谨此申请有关该事项的进一步资料。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Oi, bagi tahu saya pasal benda itu.",
+          "translation_text": "喂，告诉我那件事。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Kau kena jawab sekarang.",
+          "translation_text": "你现在必须回答。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Aku nak tahu benda tu.",
+          "translation_text": "我想知道那件事。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Ungkapan “Saya ingin memohon…” mengekalkan nada formal dan sopan.",
+      "explanation_translation": "“Saya ingin memohon…”保持正式且礼貌的语气。",
+      "learning_objective_id": "formal-register-choice",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b011",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-a-wacana-penanda",
+      "topic_id": "ms-discourse-markers",
+      "difficulty": "advanced",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih penanda wacana yang paling tepat untuk menunjukkan pertentangan: “Cadangan itu menjimatkan kos. ___, pelaksanaannya memerlukan masa.”",
+      "prompt_translation": "选择最适合表示转折的衔接词：“该建议能节省成本。___，其实施需要时间。”",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Walau bagaimanapun",
+          "translation_text": "然而"
+        },
+        {
+          "id": "b",
+          "learning_text": "Selain itu",
+          "translation_text": "此外"
+        },
+        {
+          "id": "c",
+          "learning_text": "Seterusnya",
+          "translation_text": "接下来"
+        },
+        {
+          "id": "d",
+          "learning_text": "Sebagai contoh",
+          "translation_text": "例如"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau bertentangan.",
+      "explanation_translation": "“Walau bagaimanapun”用于引出不同或相反的信息。",
+      "learning_objective_id": "discourse-connector-contrast",
+      "release_approved": false
+    },
+    {
+      "question_id": "quiz-ms-zh-b012",
+      "learning_language_code": "ms",
+      "translation_language_code": "zh",
+      "source_lesson_id": "ms-a-penyuntingan",
+      "topic_id": "ms-editing",
+      "difficulty": "advanced",
+      "question_type": "knowledge",
+      "answer_language_code": "ms",
+      "prompt_learning": "Pilih ayat yang paling jelas dan gramatis untuk laporan rasmi.",
+      "prompt_translation": "选择最清晰、最符合语法的正式报告句子。",
+      "options": [
+        {
+          "id": "a",
+          "learning_text": "Pihak sekolah akan mengadakan mesyuarat pada hari Isnin.",
+          "translation_text": "校方将在星期一举行会议。"
+        },
+        {
+          "id": "b",
+          "learning_text": "Sekolah pihak Isnin mesyuarat akan mengadakan.",
+          "translation_text": "学校方面星期一会议将举行。"
+        },
+        {
+          "id": "c",
+          "learning_text": "Mesyuarat akan pihak sekolah hari Isnin mengadakan.",
+          "translation_text": "会议将校方星期一举行。"
+        },
+        {
+          "id": "d",
+          "learning_text": "Pada Isnin mesyuarat sekolah pihak mengadakan akan.",
+          "translation_text": "在星期一会议学校方面举行将。"
+        }
+      ],
+      "correct_option_id": "a",
+      "explanation_learning": "Ayat pertama mempunyai susunan subjek, predikat dan keterangan yang jelas.",
+      "explanation_translation": "第一句的主语、谓语和时间状语结构清晰。",
+      "learning_objective_id": "editing-agreement-and-clarity",
+      "release_approved": false
+    }
+  ]
+}
