@@ -9,11 +9,9 @@ on:
       - "data/english-expansion.js"
       - "data/languages/chinese-dictionary.js"
       - "data/chinese-characters.js"
-      - "data/languages/malay-dictionary-translations.js"
       - "scripts/content/export-malay-translation-input.cjs"
       - "scripts/content/generate-malay-dictionary-translations.py"
       - "scripts/content/validate-malay-dictionary-translations.cjs"
-      - ".github/workflows/u3-malay-dictionary-translations.yml"
   workflow_dispatch:
 
 permissions:
