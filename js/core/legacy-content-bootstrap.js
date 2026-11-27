@@ -15,8 +15,15 @@
   if (source.zh && typeof chineseLessonData !== "undefined") {
     source.zh.lessons = collectLessons(chineseLessonData);
   }
+  if (window.SWIFT_MALAY_DICTIONARY && window.SWIFT_MALAY_LESSONS) {
+    source.ms = {
+      dictionary: window.SWIFT_MALAY_DICTIONARY,
+      lessons: collectLessons(window.SWIFT_MALAY_LESSONS),
+      dailyLearning: window.SWIFT_MALAY_DAILY_LEARNING || {}
+    };
+  }
   if (!packages) return;
-  for (const code of ["en","zh"]) {
+  for (const code of ["en","zh","ms"]) {
     const data = source[code];
     if (!data) continue;
     const dailyLearning = window.SWIFT_DAILY_LEARNING_CONTENT?.[code] || data.dailyLearning || {};
