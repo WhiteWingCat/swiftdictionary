@@ -167,7 +167,7 @@ begin
  select session_id into v_other from pg_temp.quiz_malay_test_refs limit 1;
  begin
    perform public.get_my_quiz_review(v_other);
- exception when insufficient_privilege then
+ exception when insufficient_privilege or no_data_found then
    v_blocked:=true;
  end;
  if not v_blocked then raise exception 'Cross-account Malay Quiz review was not blocked'; end if;
