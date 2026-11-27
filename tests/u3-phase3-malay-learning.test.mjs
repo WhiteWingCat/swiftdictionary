@@ -71,11 +71,16 @@ test("Malay Lessons has independently authored draft content at all three levels
 });
 
 test("Malay Daily Learning includes all four shared activity categories",()=>{
-  assert.equal(daily.topics.length,3);
-  assert.equal(daily.applications.length,3);
+  assert.equal(daily.topics.length,12);
+  assert.equal(daily.applications.length,12);
   assert.equal(daily.discovery.length,93);
   assert.ok(daily.topics.every(x=>x.id&&x.topicId&&x.title&&x.body));
   assert.ok(daily.applications.every(x=>x.id&&x.topicId&&x.questions?.length));
+  assert.equal(new Set(daily.topics.map(x=>x.id)).size,12);
+  assert.equal(new Set(daily.applications.map(x=>x.id)).size,12);
+  assert.ok(daily.topics.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh));
+  assert.ok(daily.applications.every(x=>x.titleEn&&x.titleZh&&x.example&&x.exampleEn&&x.exampleZh&&x.questions.every(q=>q.q&&q.q.en&&q.q.zh&&q.options.length===4&&q.options.every(o=>o.ms&&o.en&&o.zh)&&Number.isInteger(q.answer))));
+  assert.equal(daily.contentVersion,"u3-ms-daily-0.2.0");
   assert.ok(daily.discovery.every(x=>x.id&&x.word&&x.definition&&x.en&&x.zh));
   assert.equal(new Set(daily.discovery.map(x=>x.id)).size,93);
 });
@@ -90,8 +95,8 @@ test("Malay Lessons can be wrapped in the shared content-package contract",()=>{
   assert.equal(pkg.status,"active");
   assert.equal(pkg.dictionary.entries.length,650);
   assert.equal(pkg.lessons.permanent.length,72);
-  assert.equal(pkg.dailyLearning.topics.length,3);
-  assert.equal(pkg.dailyLearning.applications.length,3);
+  assert.equal(pkg.dailyLearning.topics.length,12);
+  assert.equal(pkg.dailyLearning.applications.length,12);
   assert.equal(pkg.dailyLearning.discovery.length,93);
   assert.equal(pkg.dictionary.translations.length,1344);
   assert.ok(pkg.dictionary.translations.every(x=>x.status==="machine_assisted_draft"));
