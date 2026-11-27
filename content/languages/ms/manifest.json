@@ -5,13 +5,13 @@
   "nativeName": "Bahasa Melayu",
   "locale": "ms-MY",
   "script": "Latn",
-  "status": "planned",
-  "contentVersion": "u3-ms-dict-0.8.0",
+  "status": "active",
+  "contentVersion": "u3-ms-phase3-0.1.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
-    "lessons": false,
-    "dailyLearning": false,
+    "lessons": true,
+    "dailyLearning": true,
     "quiz": false,
     "flashcards": false,
     "gridMode": "word",
@@ -32,12 +32,31 @@
       "provenancePolicy": "item-level original-authored; rights review pending"
     },
     "lessons": {
-      "status": "planned",
-      "files": []
+      "status": "draft",
+      "files": [
+        "data/malay-lessons.js"
+      ],
+      "contentVersion": "u3-ms-lessons-0.1.0",
+      "lessonCounts": {
+        "beginner": 3,
+        "intermediate": 3,
+        "advanced": 3
+      },
+      "editorialStatus": "draft"
     },
     "dailyLearning": {
-      "status": "planned",
-      "files": []
+      "status": "draft",
+      "files": [
+        "data/malay-daily-learning.js"
+      ],
+      "contentVersion": "u3-ms-daily-0.1.0",
+      "catalogueCounts": {
+        "dailyTopic": 3,
+        "dailyApplication": 3,
+        "dailyDiscovery": 8,
+        "dailyRevision": "adaptive"
+      },
+      "editorialStatus": "draft"
     },
     "quiz": {
       "status": "planned",
@@ -68,5 +87,9 @@
     "malaysiaPDPA": "required before public launch",
     "internationalPrivacy": "required for global audience",
     "crossBorderTransfers": "review production Tokyo and staging Singapore data flows"
-  }
+  },
+  "notes": [
+    "Malay is selectable only in the isolated U3.0 feature/staging build; do not enable it in production before owner review and release gates.",
+    "Phase 3 initial content pack contains 9 draft lessons and draft Daily Learning content; owner linguistic/translation review is scheduled during staging review."
+  ]
 }
