@@ -4839,3 +4839,8 @@ The first full local Supabase integration attempt reached the U3.0 baseline and 
 ### First local Supabase migration execution — 2026-11-27
 
 The corrected Quiz-only Malay catalogue fixture allowed the new runtime migration to apply successfully in disposable local Supabase, and the public-function grant verification passed. The first authenticated Malay runtime test then failed at its initial allowance assertion because its test user UUID (`eeee…`) was already used by the legacy Quiz integration suite, so its pre-existing daily Quiz usage made the expected count nonzero. The test now uses six isolated `f0a00000-…` identities that do not overlap the legacy fixtures. This is a test-fixture isolation correction, not a runtime migration failure. The latest Quiz DB workflow rerun is pending. No connected staging or production database was changed.
+
+
+### Start-allowance trigger reuse correction — 2026-11-27
+
+The second isolated-user integration run exposed the actual cause of a count of two: the existing `private.charge_quiz_start_allowance` AFTER INSERT trigger on `private.quiz_sessions` already writes the server-owned `quiz/started` activity event. The first Malay migration draft also inserted that event manually, double-charging each new session. The manual insert has now been removed; Malay session creation relies on the existing trigger exactly once. The test continues to assert one charge on start, no second charge when resuming, no refund on abandon, and no extra charge on submit. The initial reused-user fixture issue was also corrected with isolated test UUIDs. A fresh local Supabase integration run is pending on the updated migration.
