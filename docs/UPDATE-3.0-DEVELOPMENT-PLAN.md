@@ -693,3 +693,12 @@ The last text-only missing-translation fallback change is commit `b70f617b48c460
 The existing branch preview alias is https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev and draft PR #20 remains open and unmerged: https://github.com/WhiteWingCat/swiftdictionary/pull/20. The alias was deployed earlier in Phase 3, but publication of the latest follow-up commit was not independently confirmed. Do not describe the current preview as verified against commit `b70f617` until the latest Cloudflare Pages deployment is confirmed.
 
 Staging Google OAuth and desktop/mobile owner acceptance remain outstanding. The staging project remains `ivatvkfrtifgfheeaelj`; production remains untouched. The user requested a final staging handoff only after the remaining translation work and bug fixes are complete. Therefore this checkpoint is **implementation progress, not Phase 3 exit or final preview handoff**. No merge or production deployment is authorised.
+
+
+### Follow-up browser regression and CI result — 2026-11-27
+
+- Added Playwright coverage for adding a Malay saved word to a collection and opening it with the `ms` course code, plus checks that Dashboard Malay favourites and Malay translation preference options are present. Test file: `tests/browser/u2-9-0-favorite-collections.spec.js`.
+- Test change commit: `718bcfbff4592a0efcc4efaa7234e3e3287c76d5`. No separate CI run for this newest commit was visible at the time of this record.
+- The U2.3 allowance/dashboard workflow completed with a browser job failure: 86 passed, 22 skipped, 1 failed. The failing case was an existing Flashcards course-switch assertion in `tests/browser/update-2-5-0-flashcards.spec.js` (expected “Translation Recall”, received “Word Recall”); it is outside the three Malay fixes and was not changed in this scope. The PostgreSQL 17 migration/allowance job and local Supabase Auth compatibility job passed.
+- The U2.6 ACL workflow completed successfully. U3.0 architecture, Cloudflare build-routing, English Dictionary QA and Chinese Dictionary filter checks also passed on the earlier `ca6b084` commit.
+- No full acceptance claim is made. The newest Malay browser tests and latest branch head require a fresh CI run; the final Cloudflare Pages deployment of the newest branch head is also unconfirmed.
