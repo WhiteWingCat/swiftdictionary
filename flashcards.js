@@ -65,6 +65,13 @@
       const map=(items,kind)=>(items||[]).map(w=>({...w,course:"zh",cardKind:kind,definition:w.translationEn||"",definitionZh:w.definitionCueZh||w.definitionZh||"",examples:(w.sentenceExampleZh||w.exampleZh)?[w.sentenceExampleZh||w.exampleZh]:[],phonetic:w.pinyin||""}));
       return [...map(bank.characters,"characters"),...map(bank.vocabulary,"vocabulary"),...map(bank.phrases,"phrases")].filter(w=>w.word);
     }
+    if(language==="ms"){
+      return (window.SWIFT_MALAY_DICTIONARY||[])
+        .filter(w=>w&&w.word&&w.definition)
+        .map(w=>({...w,course:"ms",cardKind:String(w.part||"").toLowerCase().includes("frasa")?"phrases":"vocabulary",
+          definition:w.definition,definitionEn:w.definitionEn||"",definitionZh:w.definitionZh||"",
+          examples:Array.isArray(w.examples)?w.examples:[],translationEn:w.definitionEn||"",translationZh:w.definitionZh||""}));
+    }
     if(language!=="en")throw new Error("Flashcard content is not available for language: "+language);
     const dictionary=(window.englishWords || (typeof englishWords!=="undefined"?englishWords:[])).filter(w=>w&&w.course==="en"&&w.word&&w.definition);
     const existing=new Set(dictionary.map(w=>String(w.word).trim().toLowerCase()));
@@ -92,8 +99,20 @@
   }
   function translationFor(word){
     const language=state.game?.translationLanguage||translationLanguage;
-    if((word.course||state.game?.learningLanguage||course)==="zh")return language==="zh"?(word.translationZh||""):cleanEnglishGloss(word.translationEn||word.definition||"");
-    return language==="zh"?(word._flashCard?.translation_text||word.definitionZh||word.definition):word.definition;
+    const learning=word.course||state.game?.learningLanguage||course;
+    if(learning==="ms"){
+      if(language==="en")return word.definitionEn||word.translationEn||"";
+      if(language==="zh")return word.definitionZh||word.translationZh||"";
+      return "";
+    }
+    if(learning==="zh"){
+      if(language==="ms")return word.definitionMs||word.translationMs||word._flashCard?.translation_text||"";
+      if(language==="zh")return "";
+      return cleanEnglishGloss(word.translationEn||word.definition||"");
+    }
+    if(language==="ms")return word.definitionMs||word.translationMs||word.headwordMs||word._flashCard?.translation_text||"";
+    if(language==="zh")return word._flashCard?.translation_text||word.definitionZh||"";
+    return "";
   }
   function dictionaryCard(word){
     return {card_type:"dictionary",dictionary_word:word.word,front_text:word.word,back_text:word.definition,
@@ -325,13 +344,19 @@
       '<button class="flash-secondary" data-action="remove-card" data-value="'+c.id+'">Remove</button></div></div>'
     ).join("")+'</div>':'<p class="flash-muted">This collection is empty. Add dictionary words or custom cards.</p>';
   }
-  function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.definition_zh||c.translation_text||c.back_text,definitionCueZh:c.definition_zh||c.translation_text||"",translationEn:c.back_text,translationZh:c.translation_zh||"",pinyin:c.pinyin||"",examples:c.example_text?[c.example_text]:[],course:c.language_code||"en",_custom:c};}
+  function mapCustomCard(c){return {word:c.front_text,definition:c.back_text,definitionZh:c.definition_zh||c.translation_text||c.back_text,definitionCueZh:c.definition_zh||c.translation_text||"",translationEn:c.back_text,translationZh:c.translation_zh||"",definitionMs:c.translation_ms||"",translationMs:c.translation_ms||"",pinyin:c.pinyin||"",examples:c.example_text?[c.example_text]:[],course:c.language_code||"en",_custom:c};}
   function gameDeck(){
     let all=words();
     if(isChineseLanguage(course)){
       if(state.cardSet==="characters")all=all.filter(w=>w.cardKind==="characters");
       else if(state.cardSet==="vocabulary")all=all.filter(w=>w.cardKind==="vocabulary");
       else if(state.cardSet==="phrases")all=all.filter(w=>w.cardKind==="phrases");
+    }else if(course==="ms"){
+      if(state.cardSet==="common")all=all.filter(w=>(w.categories||[]).some(c=>/kehidupan harian|kata fungsi|ungkapan|sapaan/i.test(String(c))));
+      else if(["nouns","verbs","adjectives"].includes(state.cardSet)){
+        const part=state.cardSet==="nouns"?/kata nama/i:state.cardSet==="verbs"?/kata kerja/i:/kata adjektif/i;
+        all=all.filter(w=>part.test(String(w.part||"")));
+      }else if(state.cardSet==="phrases")all=all.filter(w=>String(w.word).trim().includes(" "));
     }else{
       const common=new Set("a an the and or but if because as at by for from in into of on to with about after again all also always am are be been before between big can come could day do down each even every find first get give go good great had has have he her here him his how i if in is it just know like little long look make man many may me more most my new no not now number of old on one only other our out over people place same see she so some take than that the their them then there these they thing think this time up us use very want was way we well were what when where which who will with work would year you your".split(" "));
       if(state.cardSet==="common")all=all.filter(w=>common.has(String(w.word).toLowerCase()));
@@ -524,7 +549,7 @@
         word:card.word,pinyin:card.pinyin||"",definition:card.definition||"",
         definition_cue_zh:card.definitionCueZh||card.definitionZh||"",
         translation_en:card.translationEn||card.definition||"",
-        translation_zh:card.translationZh||"",
+        translation_zh:card.translationZh||"",translation_ms:card.definitionMs||card.translationMs||"",
         example:card.examples?.[0]||"",course:card.course||state.game?.learningLanguage||course
       },
       options:round.options.map((text,i)=>({text,card_key:optionCards[i]?cardKey(optionCards[i]):"",word:optionCards[i]?.word||""})),
@@ -703,7 +728,7 @@
           const cls=i===item.correct_option_index?"is-correct":i===item.selected_option_index&&!item.is_correct?"is-wrong":"";
           return '<li class="'+cls+'">'+escapeHtml(text)+(i===item.selected_option_index?' <small>· '+uiText("Your answer","你的答案")+'</small>':"")+(i===item.correct_option_index?' <small>· '+uiText("Correct answer","正确答案")+'</small>':"")+'</li>';
         }).join("");
-        const translation=data.translation_language_code==="zh"?card.translation_zh:card.translation_en;
+        const translation=data.translation_language_code==="ms"?card.translation_ms:data.translation_language_code==="zh"?card.translation_zh:card.translation_en;
         return '<article class="flash-review-card"><div class="flash-review-card-head"><strong>#'+item.position+' · '+escapeHtml(modeLabel(item.recall_mode))+'</strong><span>'+status+'</span></div><h3>'+escapeHtml(card.word||"")+'</h3>'+(card.pinyin?'<p>'+escapeHtml(card.pinyin)+'</p>':"")+'<p>'+escapeHtml(item.prompt||"")+'</p>'+(translation?'<p class="flash-muted">'+escapeHtml(translation)+'</p>':"")+'<ol>'+options+'</ol>'+(card.example?'<p><em>'+escapeHtml(card.example)+'</em></p>':"")+'</article>';
       }).join("");
     overlayRoot.innerHTML='<div class="flash-modal-backdrop"><section class="flash-modal flash-game-review-modal" role="dialog" aria-modal="true" aria-labelledby="flashGameReviewTitle"><div class="flash-modal-heading"><h2 id="flashGameReviewTitle">'+title+'</h2><button type="button" class="flash-modal-close-top" data-action="close-overlay" aria-label="Close">×</button></div><p class="flash-muted">'+escapeHtml(difficultyLabel(data.difficulty))+' · '+escapeHtml(modeLabel(data.mode))+' · '+Number(data.correct_count||0)+'/'+Number(data.words_seen||0)+' '+uiText("correct","答对")+'</p>'+content+'<div class="flash-modal-actions"><button class="flash-close-button" data-action="close-overlay">'+uiText("Close","关闭")+'</button></div></section></div>';
