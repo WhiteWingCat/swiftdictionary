@@ -7,8 +7,8 @@ test("Malay support glosses cover the first curated English and Chinese Flashcar
  const context={window:{}};
  vm.runInNewContext(fs.readFileSync("data/languages/malay-flashcard-translations.js","utf8"),context);
  const pack=context.window.SWIFT_FLASHCARD_MALAY_SUPPORT;
- assert.equal(Object.keys(pack.en).length,62);
- assert.equal(Object.keys(pack.zh).length,48);
+ assert.equal(Object.keys(pack.en).length,73);
+ assert.equal(Object.keys(pack.zh).length,124);
  assert.equal(pack.metadata.status,"machine_assisted_draft");
  assert.ok(Object.values(pack.en).every(value=>typeof value==="string"&&value.length>0));
  assert.ok(Object.values(pack.zh).every(value=>typeof value==="string"&&value.length>0));
