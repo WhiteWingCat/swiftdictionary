@@ -6,7 +6,7 @@
   "locale": "ms-MY",
   "script": "Latn",
   "status": "active",
-  "contentVersion": "u3-ms-phase3-0.4.0",
+  "contentVersion": "u3-ms-phase3-0.5.0",
   "standard": "Malaysian Standard Malay (Bahasa Melayu Malaysia)",
   "capabilities": {
     "dictionary": true,
@@ -37,17 +37,18 @@
         "data/malay-lessons.js",
         "data/malay-lessons-expansion-02.js",
         "data/malay-lessons-expansion-03.js",
-        "data/malay-lessons-expansion-04.js"
+        "data/malay-lessons-expansion-04.js",
+        "data/malay-lessons-expansion-05.js"
       ],
-      "contentVersion": "u3-ms-lessons-0.4.0",
+      "contentVersion": "u3-ms-lessons-0.5.0",
       "lessonCounts": {
-        "beginner": 12,
-        "intermediate": 12,
-        "advanced": 12
+        "beginner": 15,
+        "intermediate": 15,
+        "advanced": 15
       },
       "editorialStatus": "draft",
-      "totalLessons": 36,
-      "expansionBatches": 4
+      "totalLessons": 45,
+      "expansionBatches": 5
     },
     "dailyLearning": {
       "status": "draft",
@@ -86,7 +87,8 @@
     "Malay Dictionary batch 05 adds 49 additional unique draft headwords; definitions, examples and support translations remain subject to human review.",
     "Malay Dictionary batch 06 adds 110 additional unique draft headwords across family, education, food, qualities, grammar, home, public services and everyday actions; all content remains subject to human review.",
     "Malay Dictionary batch 07 adds 110 additional unique draft headwords across agriculture, household tools and materials, clothing, public facilities, transport infrastructure, environmental care, personal qualities, communication and learning vocabulary; all content remains subject to human linguistic, translation and rights review.",
-    "Malay Dictionary batch 08 adds 204 new unique draft headwords, bringing the catalogue to 650 unique headwords and 672 contextual senses; all definitions, examples and English/Simplified Chinese support translations remain subject to human review."
+    "Malay Dictionary batch 08 adds 204 new unique draft headwords, bringing the catalogue to 650 unique headwords and 672 contextual senses; all definitions, examples and English/Simplified Chinese support translations remain subject to human review.",
+    "Malay Lessons expansion batch 05 adds nine original-authored draft lessons; Malay content and EN/ZH support remain subject to staging review."
   ],
   "legalReview": {
     "malaysiaPDPA": "required before public launch",
