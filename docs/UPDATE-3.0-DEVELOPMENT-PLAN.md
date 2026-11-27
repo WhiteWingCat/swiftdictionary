@@ -614,3 +614,14 @@ Cloudflare Pages confirmed a successful staging preview deployment for applicati
 - Owner desktop/mobile browser acceptance and the planned Malaysian Standard Malay + English/Simplified Chinese translation review remain outstanding.
 
 The staging database and 285 Malay catalogue records were applied and verified on the dedicated staging project only. Production remains untouched.
+
+
+### Preview refresh — latest branch commit 376db5f
+
+After the preview handoff documentation was refreshed, Cloudflare Pages also confirmed a successful deployment for latest application branch commit `376db5f0c495c281124335556b8633096d8902c9`.
+
+- Stable branch preview: https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev
+- Latest commit preview: https://ec791600.swiftdictionary.pages.dev
+- U3.0 architecture/content regression passed on this branch head: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45943196116
+- Cloudflare build-routing guard passed: https://github.com/WhiteWingCat/swiftdictionary/actions/runs/45943196257
+- Broader cross-version and browser regression workflows remain in progress; do not claim full CI acceptance yet.
