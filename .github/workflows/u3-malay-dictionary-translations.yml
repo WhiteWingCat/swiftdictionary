@@ -10,6 +10,7 @@ on:
       - "data/languages/chinese-dictionary.js"
       - "data/languages/malay-dictionary-manual-overrides.js"
       - "data/chinese-characters.js"
+      - ".github/workflows/u3-malay-dictionary-translations.yml"
   workflow_dispatch:
 
 permissions:
