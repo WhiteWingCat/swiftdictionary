@@ -7,7 +7,7 @@
   "batch": 4,
   "editorial_status": "draft",
   "translation_status": "machine_assisted_draft",
-  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting 36 prompt/explanation field reversals and four answer-option language mismatches. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
+  "notes": "120 original Malay knowledge questions. Automated staging release checks passed after correcting language-field reversals, support-language answer-option mismatches and several wording/answer-clarity issues. Source pack remains editorially draft; staging release is owner-authorized with independent human linguistic review deferred. Not approved for production.",
   "questions": [
     {
       "question_id": "quiz-ms-zh-b001",
@@ -2012,28 +2012,28 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "kakak saya",
-          "translation_text": "我的姐姐"
+          "learning_text": "Saudara perempuan saya yang lebih tua",
+          "translation_text": "我的姐姐／年长的姐妹"
         },
         {
           "id": "b",
-          "learning_text": "adik lelaki saya",
-          "translation_text": "我的弟弟"
+          "learning_text": "Saudara lelaki saya yang lebih muda",
+          "translation_text": "我的弟弟／年幼的兄弟"
         },
         {
           "id": "c",
-          "learning_text": "nenek saya",
+          "learning_text": "Nenek saya",
           "translation_text": "我的祖母"
         },
         {
           "id": "d",
-          "learning_text": "bapa saudara saya",
-          "translation_text": "我的叔叔／舅舅"
+          "learning_text": "Bapa saudara saya",
+          "translation_text": "我的叔叔"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kakak” merujuk saudara perempuan yang lebih tua; “saya” menunjukkan pemilikan atau hubungan dengan penutur.",
-      "explanation_translation": "“Kakak”指年长的姐妹，“saya”说明她与说话者的关系。",
+      "explanation_learning": "“Kakak” merujuk kepada saudara perempuan yang lebih tua; “saya” menunjukkan hubungan dengan penutur.",
+      "explanation_translation": "“Kakak”指年长的姐妹，“saya”表示“我的”。",
       "learning_objective_id": "older-sister-term",
       "release_approved": true
     },
@@ -2363,28 +2363,28 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "kanak-kanak",
+          "learning_text": "Golongan anak atau budak",
           "translation_text": "儿童"
         },
         {
           "id": "b",
-          "learning_text": "orang dewasa",
+          "learning_text": "Orang dewasa",
           "translation_text": "成年人"
         },
         {
           "id": "c",
-          "learning_text": "bilik darjah",
+          "learning_text": "Bilik darjah",
           "translation_text": "教室"
         },
         {
           "id": "d",
-          "learning_text": "guru",
+          "learning_text": "Guru",
           "translation_text": "教师"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "“Kanak-kanak” ialah bentuk kata ganda yang merujuk golongan anak atau budak.",
-      "explanation_translation": "“Kanak-kanak”是重叠形式，指儿童。",
+      "explanation_learning": "“Kanak-kanak” merujuk kepada golongan anak atau budak.",
+      "explanation_translation": "“Kanak-kanak”指儿童。",
       "learning_objective_id": "reduplication-meaning",
       "release_approved": true
     },
@@ -2748,8 +2748,8 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Pilih penanda wacana yang paling sesuai untuk memperkenalkan pengecualian terhadap hujah sebelumnya.",
-      "prompt_translation": "选择最适合引出对前述论点作出限定的篇章连接语。",
+      "prompt_learning": "Pilih penanda wacana yang paling sesuai untuk memperkenalkan pertentangan atau batasan terhadap hujah sebelumnya.",
+      "prompt_translation": "选择最适合引出与前文论点形成对比或限定的篇章连接词。",
       "options": [
         {
           "id": "a",
@@ -2774,7 +2774,7 @@
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Walau bagaimanapun” memperkenalkan maklumat yang berbeza atau mengehadkan kenyataan sebelumnya.",
-      "explanation_translation": "“Walau bagaimanapun”引出不同信息，或对前述陈述作出限定。",
+      "explanation_translation": "“Walau bagaimanapun”用于引出与前文不同或对前述说法加以限定的信息。",
       "learning_objective_id": "discourse-connector-contrast",
       "release_approved": true
     },
@@ -3021,33 +3021,33 @@
       "difficulty": "advanced",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Dua ayat berturut-turut bermula dengan “Pihak sekolah”. Apakah suntingan terbaik untuk mempelbagaikan struktur tanpa mengubah maksud?",
-      "prompt_translation": "连续两个句子都以“Pihak sekolah”开头。哪种修改可以在不改变意思的情况下丰富句式？",
+      "prompt_learning": "Ayat asal: “Pihak sekolah mengadakan program membaca. Pihak sekolah turut membuka perpustakaan pada hujung minggu.” Pilih suntingan ayat kedua yang mengelakkan pengulangan subjek tanpa mengubah maksud.",
+      "prompt_translation": "原句：“校方举办了阅读活动。校方也在周末开放图书馆。”选择一种修改第二句的方式，避免重复主语且不改变原意。",
       "options": [
         {
           "id": "a",
-          "learning_text": "Gunakan “Di sekolah” sebagai frasa pendahuluan pada ayat kedua.",
-          "translation_text": "在第二句使用“Di sekolah”作为前置短语。"
+          "learning_text": "Pada hujung minggu, perpustakaan itu turut dibuka oleh pihak sekolah.",
+          "translation_text": "周末，校方也开放了图书馆。"
         },
         {
           "id": "b",
-          "learning_text": "Buang semua kata kerja daripada ayat kedua.",
-          "translation_text": "从第二句删除所有动词。"
+          "learning_text": "Perpustakaan itu ditutup oleh pihak sekolah pada hujung minggu.",
+          "translation_text": "校方在周末关闭了图书馆。"
         },
         {
           "id": "c",
-          "learning_text": "Tukar fakta dalam ayat pertama.",
-          "translation_text": "更改第一句的事实。"
+          "learning_text": "Pihak sekolah menghentikan program membaca pada hujung minggu.",
+          "translation_text": "校方在周末停止了阅读活动。"
         },
         {
           "id": "d",
-          "learning_text": "Ulang kedua-dua ayat dengan susunan yang sama.",
-          "translation_text": "以相同结构重复两个句子。"
+          "learning_text": "Pihak sekolah mengadakan program membaca.",
+          "translation_text": "校方举办了阅读活动。"
         }
       ],
       "correct_option_id": "a",
-      "explanation_learning": "Frasa pendahuluan boleh mempelbagaikan permulaan ayat sambil mengekalkan makna.",
-      "explanation_translation": "前置短语可以丰富句子开头，同时保留原意。",
+      "explanation_learning": "Ayat pasif dengan frasa keterangan di hadapan mengelakkan pengulangan subjek dan mengekalkan makna asal.",
+      "explanation_translation": "将时间状语置于句首并使用被动句式，可以避免重复主语，同时保留原意。",
       "learning_objective_id": "sentence-variation",
       "release_approved": true
     },
