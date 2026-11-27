@@ -2012,29 +2012,29 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "Older sister of the speaker",
-          "translation_text": "Older sister of the speaker"
+          "learning_text": "kakak saya",
+          "translation_text": "my older sister"
         },
         {
           "id": "b",
-          "learning_text": "Younger brother of the speaker",
-          "translation_text": "Younger brother of the speaker"
+          "learning_text": "adik lelaki saya",
+          "translation_text": "my younger brother"
         },
         {
           "id": "c",
-          "learning_text": "Speaker's grandmother",
-          "translation_text": "Speaker's grandmother"
+          "learning_text": "nenek saya",
+          "translation_text": "my grandmother"
         },
         {
           "id": "d",
-          "learning_text": "Speaker's uncle",
-          "translation_text": "Speaker's uncle"
+          "learning_text": "bapa saudara saya",
+          "translation_text": "my uncle"
         }
       ],
       "correct_option_id": "a",
       "explanation_learning": "“Kakak” merujuk saudara perempuan yang lebih tua; “saya” menunjukkan pemilikan atau hubungan dengan penutur.",
       "explanation_translation": "“Kakak” means an older sister; “saya” links the relationship to the speaker.",
-      "learning_objective_id": "family-relationship",
+      "learning_objective_id": "older-sister-term",
       "release_approved": false
     },
     {
@@ -2046,7 +2046,7 @@
       "difficulty": "beginner",
       "question_type": "knowledge",
       "answer_language_code": "ms",
-      "prompt_learning": "Pilih frasa yang betul untuk memesan satu glass air dalam bahasa Melayu.",
+      "prompt_learning": "Pilih frasa yang betul untuk memesan satu gelas air dalam bahasa Melayu.",
       "prompt_translation": "Choose the correct Malay phrase for ordering one glass of water.",
       "options": [
         {
@@ -2346,7 +2346,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Helai” digunakan untuk benda nipis dan leper seperti kertas.",
       "explanation_translation": "“Helai” is used for thin, flat items such as paper.",
-      "learning_objective_id": "classifiers-for-animals",
+      "learning_objective_id": "classifier-for-flat-items",
       "release_approved": false
     },
     {
@@ -2363,22 +2363,22 @@
       "options": [
         {
           "id": "a",
-          "learning_text": "children",
+          "learning_text": "kanak-kanak",
           "translation_text": "children"
         },
         {
           "id": "b",
-          "learning_text": "one adult",
-          "translation_text": "one adult"
+          "learning_text": "orang dewasa",
+          "translation_text": "an adult"
         },
         {
           "id": "c",
-          "learning_text": "a classroom",
+          "learning_text": "bilik darjah",
           "translation_text": "a classroom"
         },
         {
           "id": "d",
-          "learning_text": "a teacher",
+          "learning_text": "guru",
           "translation_text": "a teacher"
         }
       ],
@@ -2463,7 +2463,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Ke” menunjukkan arah atau destinasi pergerakan.",
       "explanation_translation": "“Ke” indicates the direction or destination of movement.",
-      "learning_objective_id": "location-preposition",
+      "learning_objective_id": "destination-preposition",
       "release_approved": false
     },
     {
@@ -2736,7 +2736,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Saya ingin memohon…” ialah bentuk permohonan yang sopan dan formal.",
       "explanation_translation": "“Saya ingin memohon…” is a polite, formal request form.",
-      "learning_objective_id": "formal-register",
+      "learning_objective_id": "formal-application-request",
       "release_approved": false
     },
     {
@@ -2814,7 +2814,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Selain itu” menambah maklumat yang berkaitan dengan perkara sebelumnya.",
       "explanation_translation": "“Selain itu” adds information related to the preceding point.",
-      "learning_objective_id": "discourse-contrast",
+      "learning_objective_id": "additive-discourse-marker",
       "release_approved": false
     },
     {
@@ -2853,7 +2853,7 @@
       "correct_option_id": "a",
       "explanation_learning": "“Para” sudah menandakan kumpulan jamak, maka “semua” tidak diperlukan dalam binaan ini.",
       "explanation_translation": "“Para” already marks a plural group, so “semua” is unnecessary in this construction.",
-      "learning_objective_id": "editing-agreement-and-clarity",
+      "learning_objective_id": "avoid-redundant-plural-marking",
       "release_approved": false
     },
     {
@@ -2892,7 +2892,7 @@
       "correct_option_id": "a",
       "explanation_learning": "Mengulangi nama penerima apabila perlu dapat mengelakkan rujukan kata ganti nama yang kabur.",
       "explanation_translation": "Repeating the recipient's name when necessary avoids ambiguous pronoun references.",
-      "learning_objective_id": "editing-clarity",
+      "learning_objective_id": "editing-pronoun-reference",
       "release_approved": false
     },
     {
