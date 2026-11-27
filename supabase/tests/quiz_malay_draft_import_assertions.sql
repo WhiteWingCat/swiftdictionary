@@ -21,16 +21,16 @@ begin
    and (status<>'draft' or approved_at is not null
      or learning_language_code<>'ms' or answer_language_code<>'ms'
      or question_type<>'knowledge');
- if v_total<>96 or v_en<>48 or v_zh<>48 or v_bad<>0 then
-   raise exception 'Malay Quiz draft import expected 96 total (48 per pair), all draft. Got total %, en %, zh %, invalid %',v_total,v_en,v_zh,v_bad;
+ if v_total<>240 or v_en<>120 or v_zh<>120 or v_bad<>0 then
+   raise exception 'Malay Quiz draft import expected 240 total (120 per pair), all draft. Got total %, en %, zh %, invalid %',v_total,v_en,v_zh,v_bad;
  end if;
  if exists(
    select 1 from private.quiz_question_bank
    where question_id like 'quiz-ms-%'
    group by translation_language_code,difficulty
-   having count(*)<>16
+   having count(*)<>case when difficulty='advanced' then 48 else 36 end
  ) then
-   raise exception 'Malay Quiz draft import must contain 16 questions per difficulty and support language';
+   raise exception 'Malay Quiz draft import must contain 36 Beginner, 36 Intermediate and 48 Advanced questions per support language';
  end if;
 end;
 $assert_malay_quiz_drafts$;
