@@ -32,17 +32,21 @@ test("Malay Discovery catalogue sync preserves the 93 active scheduled entries",
 
 test("Chinese Weak Memory lookup indexes each source bank with a valid card kind",()=>{
  const flashcards=fs.readFileSync("flashcards.js","utf8");
- assert.match(flashcards,/mapChineseReviewItems\(bank\.characters,"characters"\)/);
- assert.match(flashcards,/mapChineseReviewItems\(bank\.vocabulary,"vocabulary"\)/);
- assert.match(flashcards,/mapChineseReviewItems\(bank\.phrases,"phrases"\)/);
- assert.doesNotMatch(flashcards,/cardKind:kind,definition:item\.translationEn/);
+ assert.match(flashcards,/add\\(bank\\.characters,"characters"\\)/);
+ assert.match(flashcards,/add\\(bank\\.vocabulary,"vocabulary"\\)/);
+ assert.match(flashcards,/add\\(bank\\.phrases,"phrases"\\)/);
+ assert.match(flashcards,/cardKind:record\\.cardKind/);
+ assert.match(flashcards,/const item=record\\.item/);
+ assert.doesNotMatch(flashcards,/mapChineseReviewItems/);
 });
 
 test("Quiz course switching waits for the persisted selection and ignores stale switches",()=>{
- assert.match(index,/const requestedCourse=quizEl\("courseSelect"\)\.value\|\|course/);
+ assert.match(index,/window\\.addEventListener\\("swiftdictionary:course-changed",async\\(event\\)=>/);
+ assert.match(index,/const requestedCourse=event\\.detail\\?\\.learningLanguage\\|\\|quizEl\\("courseSelect"\\)\\.value\\|\\|course/);
  assert.match(index,/quizCourseSwitchRequest!==quizCourseSwitchRequestId/);
- assert.match(index,/await quizSyncCoursePreferences\(\)/);
- assert.match(index,/supports\(requestedCourse,"quiz"\)/);
+ assert.match(index,/await preferenceWriteQueue/);
+ assert.match(index,/saved\\.data\\?\\.learning_language!==requestedCourse/);
+ assert.match(index,/supports\\(requestedCourse,"quiz"\\)/);
 });
 
 test("learning help copy reflects the three active learning courses",()=>{
