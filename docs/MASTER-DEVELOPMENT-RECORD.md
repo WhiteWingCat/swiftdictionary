@@ -5210,3 +5210,17 @@ Latest application head: `fc94da1598433d0890afb05a8c7738b7d93055b5`. Pages previ
 On preceding head `3904f69`, Flashcards browser tests passed 37/37, U2.3 SQL/Auth/browser passed, U2.6 ACL passed, U2.7 Chinese passed, U2.9 English passed, U3.0 architecture passed, and the Quiz DB migration/SQL and authenticated Quiz RPC steps passed. The Flashcard partial-review SQL test then gained an explicit cross-account denial assertion; latest head `fc94da1` is rerunning the relevant matrix. U3.0 architecture, U2.6 ACL, U2.7 Chinese, U2.9 English and Cloudflare routing are already green on `fc94da1`; Flashcards, U2.3 and Quiz DB/Auth remain in progress.
 
 Staging migration `swiftdictionary_update_3_0_partial_legacy_flashcard_review` is applied and verified. The two historical Malay games now show partial review of 5 and 4 known missed cards; full snapshot sessions remain fully reviewable. Production remains untouched.
+
+## 2026-11-28 — final U3.0 automated validation checkpoint
+
+Latest application head: `fc94da1598433d0890afb05a8c7738b7d93055b5`; staging preview: [https://0007ac35.swiftdictionary.pages.dev](https://0007ac35.swiftdictionary.pages.dev).
+
+Latest-head automated checks passed for U3.0 architecture, U2.9 English QA, U2.7 Chinese Dictionary, U2.6 ACL, U2.3 allowance/dashboard + Auth + browser, U2.5 Flashcards static/content + Chromium (**37/37**), Quiz DB foundation and one full local Supabase Auth/RPC integration run. That integration includes the new partial-review migration and ownership regression, authenticated Quiz RPC, signed-out Flashcards/Preferences, Lesson allowance notifications, Chinese course/pinyin and local security-advisor checks. Cloudflare Pages and routing guard passed.
+
+The only failed check is the old Cloudflare Workers Builds integration for `swiftdictionary-testing`; current product hosting is Pages and its deployment is green. A duplicate Auth integration run for the same head remained in progress after the successful full run.
+
+Historical Malay Flashcard sessions now expose partial review of 5 and 4 recoverable known missed cards. Missing original prompts/options/answers are explicitly not reconstructed. Full-snapshot sessions remain fully reviewable. Staging migration applied and verified; cross-account denial and private table privilege checks passed.
+
+Remaining owner/release acceptance: manual desktop/mobile preview testing, deployed Google OAuth redirect/account switching/isolation, human Malaysian Standard Malay and independent translation review, corpus/model licensing and attribution, Malaysia Copyright Act and PDPA/cross-border review. PR #20 remains draft/unmerged and production remains untouched. Leaked-password protection is excluded by the owner's instruction.
+
+See [the latest U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md) and [the Nov 28 validation archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md).
