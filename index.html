@@ -4080,7 +4080,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
             let saved=await supabaseClient.from("user_preferences").select("learning_language,translation_language").eq("user_id",preferenceUserId).maybeSingle();
             if(saved.error)throw saved.error;
             if(currentUser?.id!==preferenceUserId||quizCourseSwitchRequest!==quizCourseSwitchRequestId||coursePreferenceSelectionVersion!==requestedSelectionVersion||course!==requestedCourse)return;
-            if(saved.data?.learning_language!==requestedCourse){
+            if(saved.data?.learning_language!==requestedCourse||saved.data?.translation_language!==translationLanguage){
               const write=await supabaseClient.from("user_preferences").upsert({
                 user_id:preferenceUserId,learning_language:requestedCourse,translation_language:translationLanguage,
                 timezone:document.getElementById("preferenceTimezone")?.value||browserTimezone()
@@ -4089,7 +4089,7 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
               saved=await supabaseClient.from("user_preferences").select("learning_language,translation_language").eq("user_id",preferenceUserId).maybeSingle();
               if(saved.error)throw saved.error;
             }
-            if(saved.data?.learning_language!==requestedCourse)throw new Error("The selected learning course could not be saved. Please retry the course switch.");
+            if(saved.data?.learning_language!==requestedCourse||saved.data?.translation_language!==translationLanguage)throw new Error("The selected course and translation preferences could not be saved. Please retry the course switch.");
             if(currentUser?.id!==preferenceUserId||quizCourseSwitchRequest!==quizCourseSwitchRequestId||coursePreferenceSelectionVersion!==requestedSelectionVersion||quizEl("courseSelect").value!==requestedCourse||course!==requestedCourse)return;
             quizPageState.availability=null;
             quizPageState.history=[];
