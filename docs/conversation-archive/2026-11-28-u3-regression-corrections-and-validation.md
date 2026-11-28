@@ -156,3 +156,9 @@ Added a SQL regression asserting that a different authenticated user cannot retr
 Latest application head is `fc94da1598433d0890afb05a8c7738b7d93055b5`; full CI is queued/in progress. The previous `3904f69` head had U3.0 architecture and U2.9 English QA green; its U2.6 ACL run was in progress. The `489435a` head had 37/37 Flashcards browser tests, U2.3 SQL/Auth/browser and the Quiz DB migration/authenticated RPC stages green. The cache-version assertion correction and cross-account SQL regression are included in the newest reruns.
 
 **Malaysia privacy check:** this recovery exposes only the user's own already-recorded weak-memory card keys through the authenticated RPC; it does not introduce new personal-data collection, third-party sharing or direct table access. The owner-scoped function and least-privilege grants remain intact. PDPA 2010 and 2024 amendment/cross-border review remain release-level checks; this additive recovery does not itself approve public release.
+
+## Post-migration Supabase security advisor review
+
+The staging security advisor reported 10 INFO findings for private-schema tables with RLS enabled and no policies, including `flashcard_review_items` and `flashcard_session_items`. This is intentional for the current design: these tables are in the non-API private schema, direct SELECT privileges remain denied to anon/authenticated, and access is through narrowly scoped SECURITY DEFINER RPCs that enforce `auth.uid()`. No broad policies or direct table grants were added. The remediation reference is [Supabase database linter — RLS enabled with no policy](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy).
+
+The advisor also reports the leaked-password protection warning. This remains intentionally excluded by the owner's explicit scope change; do not attempt to enable it or make plan/billing changes unless the owner revisits the decision.
