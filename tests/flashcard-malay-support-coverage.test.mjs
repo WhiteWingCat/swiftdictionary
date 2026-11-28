@@ -76,7 +76,7 @@ test("Malay Flashcard coverage is measured across dictionary, phrase and sentenc
  );
  const add=context.window.__addMalayFlashcardSupport;
  const englishDictionary=add(english,"en");
- const phraseMatch=flashcards.match(/const curatedEnglishPhrases = (\\[[\\s\\S]*?\\n  \\]);/);
+ const phraseMatch=flashcards.match(/const curatedEnglishPhrases = (\[[\s\S]*?\n  \]);/);
  assert.ok(phraseMatch,"Curated English phrase bank must be available");
  vm.runInContext("window.__curatedEnglishPhrases = "+phraseMatch[1]+";",context);
  const existing=new Set(english.map(word=>String(word.word).trim().toLowerCase()));
