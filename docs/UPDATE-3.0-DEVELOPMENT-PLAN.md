@@ -1837,3 +1837,55 @@ The owner explicitly authorised merging after the versioned What's New prompt wa
 - **Cross-device dismissal:** the SQL migration is included in main but has **not** been applied to the production Supabase database. Until it is applied, dismissal is per account/device in local storage; after migration, signed-in dismissal can sync through the existing RLS-protected preference table. No production DB mutation was performed.
 - **Validation caveats:** the current-head architecture run was queued after fixing the Malay lesson test's over-escaped Unicode normalisation regex; no overall current-head CI pass is claimed. Interactive browser/OAuth verification of the new dialog was not available in this session. Machine-assisted Malay content remains draft/unreviewed by a human, as explicitly authorised by the owner.
 - **Remaining release considerations:** source-data provenance and model/corpus licensing/attribution, Malaysia Copyright Act 1987, PDPA 2010 and 2024 amendments, and cross-border processing remain outstanding general legal checks. Leaked-password protection remains excluded by owner instruction.
+
+
+## Live Supabase U3.0 migration rollout — 2026-11-28
+
+**Production database rollout completed and verified** for Live project `pzymiesazmpyvnfvsbsc` (SwiftDictionary, ap-northeast-1). This is a database rollout record, not a statement that PR #21 or the full application release has been merged/deployed.
+
+### Production content and schema
+
+- Registered and activated Malaysian Standard Malay (`ms`).
+- Added 340 Malay learning catalogue records:
+  - 93 active Daily Discovery entries (148 total rows including inactive/stale entries retained rather than deleted).
+  - 60 active Daily Topic entries.
+  - 60 active Daily Application entries.
+  - 72 active permanent lessons.
+- Enabled Malay Quiz runtime and imported **240 unique approved question records**:
+  - 120 Malay → English support-language questions.
+  - 120 Malay → Simplified Chinese support-language questions.
+- Production QA returned zero errors for approval timestamps, question type/answer language, four-option arrays, correct-option IDs, and active lesson/topic mappings.
+- Enabled Malay Flashcard runtime, language snapshots and support-language payload; added the review-persistence repair, snapshot evaluation hardening and partial legacy-review recovery.
+- Applied language-scoped Daily Discovery rotation.
+- Enabled versioned release-note preference keys.
+
+### Missing migration reconciliation
+
+The three prerequisites missing from the main migration directory at the start of the review were added to the corrective migration branch:
+- `20261127044830_swiftdictionary_u3_0_malay_enablement.sql`
+- `20261127044928_swiftdictionary_u3_0_malay_catalog_seed.sql`
+- `20261127044959_swiftdictionary_u3_0_malay_catalog_metadata_fix.sql`
+
+The Malay Quiz content migration was converted from staging-only to production-ready. It contains static learning content only; no staging learner accounts, progress, sessions, or personal data were copied.
+
+### Release-note regex correction
+
+The original release-key pattern used ambiguous double escaping and rejected normal semantic versions. The production constraint was corrected to use a literal dot character class:
+`^release:[0-9]+[.][0-9]+[.][0-9]+$`
+
+Production verification confirmed `release:3.0.0` matches and malformed `release:3x0y0` does not. The SQL regression test `supabase/tests/u3_production_migrations.sql` was executed successfully against production (no assertion exceptions).
+
+### Migration ledger incident
+
+During rollout, the first multi-migration tool batch partially completed before its tool-call limit was reached. Ten runtime/content migrations were then retried in smaller batches. Both executions succeeded; the repeated migrations are idempotent, and final checks confirm no duplicate Malay catalogue rows or Quiz question IDs. The Supabase migration ledger retains both successful application records for those ten migration names. No ledger history was manually deleted or rewritten. This is recorded as an operational audit note.
+
+### CI and release boundary at time of update
+
+- Cloudflare build-routing guard: passed.
+- PostgreSQL 17 ACL regression: passed.
+- PostgreSQL 17 migration/allowance regression: passed.
+- Quiz/Auth integration, allowance/dashboard browser regression and Chinese browser checks were still running at the last inspection; Flashcards browser workflow was pending.
+- PR #21 (`fix/u3-production-supabase-migrations`) remains a draft PR targeting `main`. Production database migrations are applied and verified, but PR #21 has not been merged in this record.
+- No public human linguistic review is claimed. Malay Quiz content is machine-validated; independent human Malaysian Malay editorial review remains waived by owner instruction.
+- Leaked-password protection remains excluded by owner instruction.
+- Existing legal/provenance/licensing and privacy release gates remain outstanding: source/model rights and attribution, Malaysia Copyright Act 1987, PDPA 2010 and 2024 amendments, and cross-border processing.
