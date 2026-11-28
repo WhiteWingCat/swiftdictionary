@@ -136,3 +136,7 @@ A separate full-snapshot session still returns `review_status=full` with all 7 s
 Post-migration privilege verification remains unchanged: anon/authenticated cannot directly SELECT private snapshot or weak-memory tables; anon cannot execute the public game-review RPC; authenticated can execute the owner-scoped RPC. No grants were broadened.
 
 Latest application preview for `489435a`: https://8edf4cb7.swiftdictionary.pages.dev (Cloudflare Pages deploy succeeded). U3.0 architecture passed on `489435a`; U2.3 allowance/dashboard browser + local Auth + SQL suite passed on `489435a`; U2.6 ACL, U2.7 Chinese Dictionary, U2.9 English QA passed on the immediately preceding `b0a177b`. Flashcards Chromium for `489435a` and Quiz DB/Auth integration are still running at this checkpoint. Production remains untouched.
+
+## Cache-busting correction
+
+The partial-review frontend and mock adapter had changed, but their script query versions were still `flashcards.js?v=3.0.0-ms19` and `mock-testing.js?v=2.8.0-r2`. Bumped them to `3.0.0-ms20` and `2.8.0-r3` respectively in `index.html` to prevent stale cached scripts on the branch preview. Latest application head is now `851d0cbd3e73055d3327a86f74b8f2ec53418cfb`; fresh CI and Pages deployment are required for this final cache-bust commit.
