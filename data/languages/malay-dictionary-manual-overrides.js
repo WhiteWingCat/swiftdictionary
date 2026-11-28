@@ -1728,7 +1728,7 @@ window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES = {
       "Tinggal atau menetap di sesuatu tempat; juga bermaksud singgah untuk sementara."
     ],
     "你": [
-      "Kata ganti nama diri orang kedua: kamu atau awak."
+      "Kata ganti nama diri orang kedua yang merujuk kepada orang yang diajak bercakap."
     ],
     "再": [
       "Sekali lagi; juga menunjukkan tindakan seterusnya."
@@ -1765,7 +1765,7 @@ window.SWIFT_DICTIONARY_MS_MANUAL_OVERRIDES = {
       "Mendengar bunyi atau memberikan perhatian kepada sesuatu yang didengar; juga bermaksud mematuhi."
     ],
     "呢": [
-      "Partikel pertanyaan atau penerusan topik yang lazim digunakan dalam bahasa lisan."
+      "Partikel soal atau penerusan topik yang lazim digunakan dalam bahasa lisan."
     ],
     "和": [
       "Dan atau bersama; juga membawa maksud harmoni atau aman.",
