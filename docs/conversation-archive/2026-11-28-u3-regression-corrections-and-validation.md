@@ -116,3 +116,9 @@ Application commits after `75a9d4b`:
 - `b0a177b` — wire migration and regression into the local Supabase CI workflow.
 
 The latest workflow checks on `b0a177b` are queued/in progress; no migration or UI change is accepted until the SQL/Auth and browser workflows pass. The current staging database has not yet received this new migration. No production database was changed.
+
+## Latest browser-test diagnosis — mock panel pointer interception
+
+The deterministic per-card review test initially still timed out. Inspecting the Playwright call log showed the test's click was blocked by the fixed `#swiftMockPanel` overlay intercepting pointer events on the “Review game” button. This was not a review RPC or snapshot persistence failure. The panel is now hidden in both the full per-card review and legacy partial-review browser tests before clicking the game-review control. This follows an existing test pattern already used in the Quiz pagination regression.
+
+Latest application branch head is `489435a51f19b7481671d1f0a708effaff00f28f`. The latest U3.0 architecture, Flashcards, Quiz DB/Auth, U2.3, U2.6, U2.7, U2.9 and Cloudflare checks are queued or in progress; the latest browser result is still pending. Do not claim the fix is verified until the new run completes.
