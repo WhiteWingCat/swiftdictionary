@@ -23,6 +23,7 @@ test("Flashcard decks exclude untranslated words when Malay is the selected supp
  assert.match(flashcards,/const customSupport=word\._flashCard\?\.translation_language_code===language/);
  assert.match(flashcards,/SWIFT_DICTIONARY_MS_TRANSLATIONS\?\.languages\?\.\[language\]/);
  assert.match(flashcards,/generatedEntry\?\.senses\?\.find\(sense=>sense\.definitionMs\)/);
+ assert.equal(flashcards.includes("\\\\s"),false,"Malay glossary tokenisation must use real whitespace regexes, not literal backslash-s");
  // Chinese cards may have curated sentence examples while their original
  // availableModes metadata lists only word/translation. The runtime must
  // explicitly allow Sentence Recall only for reviewed Malay sentence pairs.
