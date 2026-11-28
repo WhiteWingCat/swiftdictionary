@@ -1,3 +1,4 @@
+# U3.0 Malay lexical normalisation revision: 2026-11-28
 import json
 import os
 import re
