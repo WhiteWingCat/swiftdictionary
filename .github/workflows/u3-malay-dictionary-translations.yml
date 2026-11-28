@@ -1,4 +1,4 @@
-name: Generate U3.0 Malay learning-support translation drafts
+name: Generate U3.0 Malay Dictionary translation drafts
 
 on:
   push:
@@ -10,9 +10,8 @@ on:
       - "data/languages/chinese-dictionary.js"
       - "data/languages/malay-dictionary-manual-overrides.js"
       - "data/chinese-characters.js"
-      - "scripts/content/export-malay-learning-support-input.cjs"
-      - "scripts/content/generate-malay-learning-support.py"
-      - "scripts/content/validate-malay-learning-support.cjs"
+      - "scripts/content/generate-malay-dictionary-translations.py"
+      - "scripts/content/validate-malay-dictionary-translations.cjs"
   workflow_dispatch:
 
 permissions:
@@ -24,7 +23,7 @@ concurrency:
 
 jobs:
   generate:
-    name: Generate and validate all English/Chinese to Malay learning translations
+    name: Generate and validate English/Chinese Dictionary Malay translations
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -46,33 +45,20 @@ jobs:
         run: python -m pip install --upgrade argostranslate
       - name: Generate Malay translations locally
         run: python scripts/content/generate-malay-dictionary-translations.py
-      - name: Export lesson practice and Quiz support translation inventory
-        run: node scripts/content/export-malay-learning-support-input.cjs
-      - name: Generate Malay lesson and Quiz support translations
-        run: python scripts/content/generate-malay-learning-support.py
       - name: Validate complete translation coverage
         run: |
           node --check data/languages/malay-dictionary-translations.js
           node scripts/content/validate-malay-dictionary-translations.cjs
-          node --check data/languages/malay-learning-support-translations.js
-          node scripts/content/validate-malay-learning-support.cjs
       - name: Commit generated draft translations
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/languages/malay-dictionary-translations.js data/languages/malay-learning-support-translations.js
+          git add data/languages/malay-dictionary-translations.js
           if git diff --cached --quiet; then
             echo "No translation output changes."
           else
             git commit -m "Generate complete Malay Dictionary translation drafts"
             git fetch origin feature/update-3.0-phase-0-audit
-            if ! git rebase origin/feature/update-3.0-phase-0-audit; then
-              # The companion learning-support workflow may generate the same
-              # support asset concurrently. Preserve the complete output already
-              # on the branch while retaining this run's Dictionary translation file.
-              git checkout --theirs data/languages/malay-learning-support-translations.js
-              git add data/languages/malay-learning-support-translations.js
-              GIT_EDITOR=true git rebase --continue || git rebase --skip
-            fi
+            git rebase origin/feature/update-3.0-phase-0-audit
             git push origin HEAD:feature/update-3.0-phase-0-audit
           fi
