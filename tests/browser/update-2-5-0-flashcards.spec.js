@@ -60,8 +60,14 @@ async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",
   if(waitForPreferences){
     const learningLanguage=await page.locator("#courseSelect").inputValue();
     const translationLanguage=await page.locator("#translationSelect").inputValue();
-    await expect.poll(async()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.learning_language)).toBe(learningLanguage);
-    await expect.poll(async()=>page.evaluate(()=>window.__swiftDictionaryMock.getPreferences()[0]?.translation_language)).toBe(translationLanguage);
+    await expect.poll(async()=>page.evaluate(()=>{
+      const userId=window.__swiftDictionaryMock.activeUser();
+      return window.__swiftDictionaryMock.getPreferences().find(row=>row.user_id===userId)?.learning_language;
+    })).toBe(learningLanguage);
+    await expect.poll(async()=>page.evaluate(()=>{
+      const userId=window.__swiftDictionaryMock.activeUser();
+      return window.__swiftDictionaryMock.getPreferences().find(row=>row.user_id===userId)?.translation_language;
+    })).toBe(translationLanguage);
   }
   await page.locator('[data-action="begin-game"]').click();
   try {
