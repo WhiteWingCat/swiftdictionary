@@ -320,6 +320,21 @@
         {q:"Pilih frasa yang semula jadi.",options:["a honest answer (honest bermula dengan bunyi vokal)","an honest answer (h tidak disebut)","the honest answer in every context (the memerlukan rujukan tertentu)"]},
         {q:"Mengapakah kita menyebut “an hour”?",options:["Huruf h ialah huruf vokal.","Bunyi pertama ialah bunyi vokal kerana h tidak disebut.","Semua perkataan yang bermula dengan h menggunakan an."]},
         {q:"Pilih frasa yang betul: “She packed ___ umbrella.”",options:["a: sebelum bunyi konsonan","an: sebelum bunyi vokal","the: untuk payung tertentu yang telah dikenal pasti"]}
+      ],
+      "b-verb-combinations": [
+        {q:"Pilih frasa yang semula jadi.",options:["make homework: membuat kerja sekolah (padanan tidak lazim)","do homework: menyiapkan kerja sekolah","take homework: mengambil kerja sekolah (bukan padanan yang dimaksudkan)"]},
+        {q:"Kami biasanya ___ bas pada pukul 8 pagi.",options:["catch: menaiki bas","make: membuat","do: melakukan"]},
+        {q:"Selepas belajar selama dua jam, mari kita ___ berehat.",options:["do: melakukan","make: membuat","take: berehat seketika"]},
+        {q:"Pilih gabungan kata yang semula jadi untuk menyediakan hidangan pagi.",options:["make breakfast: menyediakan sarapan","catch breakfast: menangkap sarapan (tidak gramatis)","do breakfast: melakukan sarapan (tidak lazim)"]},
+        {q:"Definisi manakah paling tepat bagi “exciting”?",options:["Menimbulkan minat atau keterujaan yang kuat","Membuat seseorang berasa mengantuk","Dipenuhi orang sehingga ruang menjadi sempit"]},
+        {q:"Pilih kata adjektif yang paling sesuai: “We saw a ___ garden.”",options:["beautiful: cantik; indah","crowded: sesak; penuh orang","delicious: lazat; sedap"]},
+        {q:"Perkataan manakah menggambarkan tempat yang mempunyai ramai orang dan ruang yang terhad?",options:["quiet: sunyi; tidak bising","crowded: sesak; penuh orang","comfortable: selesa"]},
+        {q:"Perkataan manakah menggambarkan makanan yang rasanya sangat enak?",options:["delicious: lazat; sedap","expensive: mahal","exciting: mengujakan"]},
+        {q:"Perkataan manakah menggambarkan sesuatu yang tidak menarik minat anda?",options:["boring: membosankan","exciting: mengujakan","delicious: lazat"]},
+        {q:"Pilih perkataan yang paling sesuai: “Kakitangan itu baik hati dan mesra.” Mereka ialah ___.",options:["friendly: mesra; peramah","crowded: sesak","expensive: mahal"]},
+        {q:"Perkataan manakah bermaksud “berguna untuk sesuatu tujuan”?",options:["useful: berguna","quiet: sunyi","boring: membosankan"]},
+        {q:"Pilih frasa yang semula jadi: “Please ___ attention to the road.”",options:["pay attention: berikan perhatian","make attention: membuat perhatian","do attention: melakukan perhatian"]},
+        {q:"Frasa manakah bermaksud menunaikan apa yang telah dijanjikan?",options:["keep a promise: menepati janji","take a break: berehat seketika","make a mistake: melakukan kesilapan"]}
       ]
     },
     zh: {
@@ -348,6 +363,14 @@
         {q:"Dalam tarikh, aksara manakah bermaksud “bulan”?",options:["bulan","tahun","hari","jam; waktu"]},
         {q:"Apakah susunan tarikh bahasa Cina yang lazim?",options:["tahun, bulan, hari","bulan, hari, tahun","hari, bulan, tahun","tahun, hari, bulan"]},
         {q:"Perkataan manakah bermaksud “esok”?",options:["esok","semalam","hari ini","sekarang"]}
+      ],
+      "zh-b-pronouns-basic-sentences": [
+        {q:"Kata ganti nama manakah bermaksud “saya”?",options:["saya; aku","kamu; awak","dia (lelaki)","dia (perempuan)"]},
+        {q:"Aksara manakah biasanya ditulis untuk kata ganti nama “dia” bagi perempuan?",options:["dia (perempuan)","dia (lelaki)","saya","akhiran penanda jamak"]},
+        {q:"Perkataan manakah bermaksud “kami” atau “kita”?",options:["kami; kita","kamu semua","mereka","kamu"]},
+        {q:"Ayat manakah bermaksud “Saya seorang pelajar”?",options:["Saya seorang pelajar.","Saya sangat pelajar. (tidak gramatis)","Adakah pelajar itu saya?","Saya mempunyai pelajar."]},
+        {q:"Dalam ayat “我是学生”, perkataan manakah menghubungkan seseorang dengan identitinya?",options:["ialah; merupakan","berada di; di","mempunyai","pergi"]},
+        {q:"Ayat manakah bermaksud “Ini buku saya”?",options:["Ini buku saya.","Saya buku ini. (susunan tidak gramatis)","Ini ialah buku saya. (susunan tidak tepat)","Buku saya ini. (susunan tidak tepat)"]}
       ]
     }
   };
