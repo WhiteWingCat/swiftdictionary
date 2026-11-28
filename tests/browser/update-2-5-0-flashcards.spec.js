@@ -728,6 +728,33 @@ test("Flashcards home panels match Lessons and Quiz styling; weak-memory items c
 });
 
 
+test("Weak Memory translation lookups are indexed once across repeated detail renders",async({page})=>{
+  await openMockFlashcards(page);
+  const seeded=await page.evaluate(async()=>{
+    const words=(window.SWIFT_CHINESE_FLASHCARDS?.characters||[]).slice(0,80);
+    if(words.length<80)throw new Error("The Chinese Flashcard fixtures must contain at least 80 characters.");
+    const now=new Date().toISOString();
+    window.__swiftDictionaryMock.seedFlashcardData({
+      reviewItems:words.map(item=>({card_key:"dict:zh:"+String(item.word),mode:"word",incorrect_count:1,last_incorrect_at:now})),
+      history:[]
+    });
+    await window.SwiftDictionaryFlashcards.refreshDashboardData();
+    return words.length;
+  });
+  expect(seeded).toBe(80);
+  await page.locator("#courseSelect").selectOption("zh");
+  await page.locator('[data-action="open-review"]').click();
+  await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await expect(page.locator(".flash-review-item")).toHaveCount(80);
+  await page.locator(".flash-review-entry").first().click();
+  await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+  await page.locator('[data-action="review-tab"][data-value="translation"]').click();
+  await expect(page.locator(".flash-review-modal")).toBeVisible();
+  await page.locator('[data-action="review-tab"][data-value="word"]').click();
+  await page.locator(".flash-review-entry").last().click();
+  await expect(page.locator("#flashReviewDetail .flash-review-detail")).toBeVisible();
+});
+
 test("Weak Memory review renders large lists without repeated dictionary scans",async({page})=>{
   await openMockFlashcards(page);
   const seeded=await page.evaluate(async()=>{
