@@ -145,7 +145,7 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   assert.match(support.lessons.en["b-greetings-polite-expressions"][0].q,/pukul 9 pagi/);
   assert.match(support.lessons.zh["zh-b-places-getting-around"][3].q,/lokasi stesen MRT/);
   assert.match(support.lessons.en["b-places-getting-around"][0].q,/meminjam buku/);
-  assert.match(support.lessons.zh["zh-b-questions-negation"][5].q,/Adakah kamu seorang pelajar/);
+  assert.match(support.lessons.zh["zh-b-questions-negation"][5].q,/Adakah anda seorang pelajar/);
   assert.match(support.lessons.en["i-perfect"][0].q,/masa lampau/);
   assert.match(support.lessons.zh["zh-i-measure-words"][6].q,/kata penggolong/);
   for(const id of corrected.quiz.en){
