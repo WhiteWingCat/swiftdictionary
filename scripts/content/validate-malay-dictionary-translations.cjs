@@ -11,7 +11,7 @@ for (const [language, count] of Object.entries(expected)) {
   const senses = words.reduce((n, word) => n + (entries[word].senses || []).length, 0);
   const missingHeadwords = words.filter(word => !entries[word].headwordMs);
   const missingSenses = words.flatMap(word => (entries[word].senses || []).filter(sense => !sense.definitionMs));
-  const indonesianOnlyTerms = /\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\b/i;
+  const indonesianOnlyTerms = /\b(?:aku|bisa(?!\\s+(?:ular|racun|sengat|beracun))|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\b/i;
   const languageQualityFlags = words.flatMap(word => [
     entries[word].headwordMs,
     ...(entries[word].senses || []).map(sense => sense.definitionMs)
