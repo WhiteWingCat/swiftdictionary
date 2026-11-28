@@ -545,7 +545,13 @@
       const front=String(args.p_front_text||"").trim(),back=String(args.p_back_text||"").trim(),type=args.p_card_type;
       if(!front||front.length>500||!back||back.length>2000||!["dictionary","custom"].includes(type))return {data:null,error:error("Invalid Flashcard content.","22023")};
       if(type==="dictionary"&&(rows.some(row=>row.collection_id===collection.id&&row.card_type==="dictionary"&&String(row.dictionary_word).toLowerCase()===String(args.p_dictionary_word).toLowerCase()&&row.id!==card?.id)))return {data:null,error:error("This dictionary word is already in the collection.","23505")};
-      const values={user_id:user.id,collection_id:collection.id,card_type:type,language_code:"en",dictionary_word:type==="dictionary"?args.p_dictionary_word:null,front_text:front,back_text:back,example_text:args.p_example_text||null,translation_text:args.p_translation_text||null,position:Number(args.p_position)||0,updated_at:now()};
+      const preference=(tables.user_preferences||[]).find(row=>row.user_id===user.id)||{};
+      const values={user_id:user.id,collection_id:collection.id,card_type:type,
+        language_code:preference.learning_language||"en",
+        translation_language_code:preference.translation_language||"zh",
+        dictionary_word:type==="dictionary"?args.p_dictionary_word:null,
+        front_text:front,back_text:back,example_text:args.p_example_text||null,
+        translation_text:args.p_translation_text||null,position:Number(args.p_position)||0,updated_at:now()};
       if(action==="create"){Object.assign(values,{id:"mock-flash-card-"+(++sequence),created_at:now()});rows.push(values);persist(db);return {data:clone(values),error:null};}
       if(!card)return {data:null,error:error("Card not found.","P0002")};
       Object.assign(card,values);persist(db);return {data:clone(card),error:null};
