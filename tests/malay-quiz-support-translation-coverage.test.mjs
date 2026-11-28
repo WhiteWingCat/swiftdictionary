@@ -25,7 +25,10 @@ test("Every approved English Quiz question has a complete Malay prompt, explanat
   assert.ok(row.explanationLearning?.trim(),question.question_id+" missing Malay explanation");
   const optionIds=question.options.map(option=>option.id).sort();
   assert.deepEqual(Object.keys(row.options||{}).sort(),optionIds,question.question_id+" option IDs must remain unchanged");
-  for(const field of [row.promptLearning,row.explanationLearning,...Object.values(row.options).map(option=>option.learning)]){
+  if(question.question_type==="chinese_translation"){
+   for(const optionId of optionIds)assert.ok(row.options[optionId]?.translation?.trim(),question.question_id+" missing Malay translation for Chinese answer option "+optionId);
+  }
+  for(const field of [row.promptLearning,row.explanationLearning,...Object.values(row.options).flatMap(option=>[option.learning,option.translation])]){
    assert.ok(field?.trim(),question.question_id+" contains an empty Malay field");
    assert.doesNotMatch(field,indonesianOnlyTerms,question.question_id+" contains an Indonesian-only lexical form");
   }
