@@ -5063,3 +5063,8 @@ Further test diagnostics (2026-11-28): the Quiz local database migration and exp
 
 
 The branch then received a further 36-question English Quiz Malay correction batch (`fb27ac76`, intermediate questions 007–036 and advanced questions 037–042). The English Quiz override total is now 108 entries including the 36 pre-existing curated entries; 72 of the 163 outstanding approved English questions have been corrected in this continuation, leaving 91 outstanding. Chinese Quiz correction count remains 48 entries including 12 pre-existing entries; 97 of the 133 outstanding approved Chinese questions remain. The architecture regression assertion was updated to validate the expanded English batch.
+
+
+The Flashcard browser test harness now exposes a read-only mock preferences snapshot and waits for the selected learning/translation languages to be persisted before creating a game. The completed-game review test skips that preference wait when it deliberately freezes the page clock, avoiding a test deadlock. The previous 3.0 Chromium run was cancelled during overlapping commits; a fresh run is required to confirm the fix.
+
+The authenticated Quiz browser test's localStorage setup was found to guess the Supabase Auth storage key from the local URL hostname, leaving no auth-token key in the browser and causing account-preference requests to run as anon. The test now obtains the actual storage key from the installed Supabase JS client, stores the disposable signed-in session under that key, reloads the app, and verifies persistence before continuing. This is a test harness correction; the app's RLS remains owner-scoped. Authenticated Chromium verification is pending.
