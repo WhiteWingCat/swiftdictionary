@@ -1439,3 +1439,11 @@ Latest preview: [https://8edf4cb7.swiftdictionary.pages.dev](https://8edf4cb7.sw
 On application head `489435a`, the Flashcards Chromium suite passed **37/37**, including deterministic full per-card review and the new partial legacy review. The Flashcards static/content checks passed. The U2.3 allowance/dashboard, Auth compatibility and browser suite passed on the same head. The Quiz DB workflow passed the SQL migration/test stage (including the new partial-review migration) and authenticated Quiz RPC tests; remaining browser/security advisor steps were still in progress at that checkpoint.
 
 A subsequent cache-bust to `flashcards.js?v=3.0.0-ms20` and `mock-testing.js?v=2.8.0-r3` correctly invalidated cached scripts, but two static tests still expected the previous `ms19` version. Updated both assertions (`tests/update-2-6-0/account-deletion-static.test.mjs` and `tests/update-2-5-0/check-flashcards-page.mjs`). Latest application head is `3904f69`; rerun the full latest-head matrix before acceptance.
+
+### Latest recovery head and regression state — 2026-11-28
+
+Latest application head: `fc94da1598433d0890afb05a8c7738b7d93055b5`. The current Pages preview is [https://0007ac35.swiftdictionary.pages.dev](https://0007ac35.swiftdictionary.pages.dev); branch alias [https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev](https://feature-update-3-0-phase-0-a.swiftdictionary.pages.dev).
+
+On preceding head `3904f69`, the full Flashcards suite passed 37/37, U2.3 allowance/dashboard + Auth + browser passed, U2.6 ACL passed, U2.7 Chinese passed, U2.9 English passed, U3.0 architecture passed and Quiz DB migration/SQL + authenticated Quiz RPC passed its completed steps. A cross-account denial assertion was then added to the Flashcard partial-review SQL test; the current `fc94da1` rerun is in progress to validate that additional test. Current head already has U3.0 architecture, U2.6 ACL, U2.7 Chinese, U2.9 English and Cloudflare routing green; Flashcards Chromium, U2.3, Quiz DB/Auth and remaining checks are still in progress.
+
+The staging partial-review migration is already applied and live-verified. No production database or hosting changes have been made.
