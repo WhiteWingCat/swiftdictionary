@@ -123,3 +123,11 @@ test("content packages register complete translation records in all three course
     assert.equal(record.reviewerId, null);
   }
 });
+
+test("Malay Dictionary generator uses curated glosses for isolated Chinese source text", () => {
+  const exporter = fs.readFileSync(path.join(root, "scripts/content/export-malay-translation-input.cjs"), "utf8");
+  const generator = fs.readFileSync(path.join(root, "scripts/content/generate-malay-dictionary-translations.py"), "utf8");
+  assert.ok(exporter.includes("window.SWIFT_FLASHCARD_MALAY_SUPPORT"));
+  assert.ok(generator.includes('malay_glosses.get("zh", {}).get(source_text, "")'));
+  assert.ok(generator.includes('re.search(r"[\\u3400-\\u9fff]"'));
+});
