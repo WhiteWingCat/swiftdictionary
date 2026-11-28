@@ -298,8 +298,45 @@
       });
     }
   });
+  const lessonCorrections = {
+    en: {
+      "b-sentence": [
+        {q:"Pilih susunan yang lazim bagi ayat penyata mudah.",options:["Kata kerja + subjek + objek","Subjek + kata kerja + objek","Objek + subjek + kata kerja"]},
+        {q:"Dalam ayat “The young artist painted a mural”, perkataan manakah membentuk subjek?",options:["Artis muda itu","melukis","sebuah mural"]},
+        {q:"Pilih ayat yang mengikut susunan subjek–kata kerja–objek yang lazim.",options:["Kanak-kanak itu menanam bunga.","Menanam kanak-kanak itu bunga.","Bunga kanak-kanak itu menanam."]},
+        {q:"Pilih ayat yang betul.",options:["There is three chairs. (tidak gramatis: kata kerja tunggal dengan kata nama jamak)","Terdapat tiga buah kerusi. (there are)","There be three chairs. (bentuk kata kerja tidak tepat)"]},
+        {q:"Pilih soalan yang betul.",options:["Does he works here? (kata kerja selepas does tidak boleh ditambah -s)","Adakah dia bekerja di sini? (Does he work here?)","Do he work here? (kata bantu tidak sepadan dengan he)"]}
+      ]
+    },
+    zh: {
+      "zh-b-pinyin-foundations": [
+        {q:"Suku kata yang manakah menggunakan nada pertama?",options:["ibu (mā)","rami; kebas (má)","kuda (mǎ)","memarahi (mà)"]},
+        {q:"Aksara Cina manakah disebut mǎ dengan nada ketiga?",options:["ibu (mā)","rami; kebas (má)","kuda (mǎ)","memarahi (mà)"]},
+        {q:"Pernyataan manakah paling tepat menerangkan nada kedua?",options:["Suara bermula tinggi kemudian menurun.","Suara menaik dari rendah ke tinggi.","Suara kekal tinggi dan rata.","Suara menurun dengan cepat."]},
+        {q:"Apakah fungsi utama Hanyu Pinyin?",options:["Menandakan sebutan Mandarin.","Menunjukkan urutan goresan aksara Cina.","Menggantikan semua aksara Cina.","Menunjukkan struktur tatabahasa ayat."]},
+        {q:"Dalam “妈妈”, suku kata yang manakah biasanya disebut dengan nada neutral?",options:["Suku kata pertama, mā.","Suku kata kedua, ma.","Kedua-dua suku kata menggunakan nada pertama.","Kedua-dua suku kata menggunakan nada keempat."]},
+        {q:"Apakah ejaan Pinyin bertulis yang standard bagi “你好”?",options:["nǐ hǎo (ejaan standard)","ní hǎo (sebutan perubahan nada)","nǐ hào (nada kedua salah)","nì hǎo (nada pertama salah)"]},
+        {q:"Pernyataan manakah paling tepat tentang nada ketiga?",options:["Ia sentiasa menurun dahulu kemudian menaik sepenuhnya.","Apabila disebut bersendirian atau di hujung frasa, ia lazimnya menurun dahulu kemudian menaik.","Picnya sentiasa kekal tinggi dan rata.","Ia sentiasa menurun dengan cepat."]}
+      ]
+    }
+  };
+  for (const [language, lessons] of Object.entries(lessonCorrections)) {
+    for (const [lessonId, corrections] of Object.entries(lessons)) {
+      const target = pack.lessons?.[language]?.[lessonId];
+      if (!Array.isArray(target)) continue;
+      corrections.forEach((correction, index) => {
+        if (!target[index]) return;
+        target[index].q = correction.q;
+        target[index].options = correction.options.slice();
+      });
+    }
+  }
   window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS = {
     quiz: { en: Object.keys(rows), zh: Object.keys(zhRows) },
+    lessons: {
+      en: Object.values(lessonCorrections.en).reduce((sum, rows) => sum + rows.length, 0),
+      zh: Object.values(lessonCorrections.zh).reduce((sum, rows) => sum + rows.length, 0)
+    },
     status: "model_assisted_malay_draft_pending_editorial_review"
   };
 })();
