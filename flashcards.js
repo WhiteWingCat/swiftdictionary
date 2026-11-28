@@ -504,6 +504,13 @@
         }
         return true;
       }
+      if(mode==="sentence"&&(state.game?.translationLanguage||(typeof translationLanguage!=="undefined"?translationLanguage:"en"))==="ms"){
+        // Chinese catalogue records historically listed only word/translation
+        // modes even when they contained a source sentence. Permit Sentence
+        // Recall only when a manually corrected Malay sentence is present;
+        // never promote generated, unreviewed example translations.
+        return !!(w.exampleMsReviewed&&w.exampleMs&&cueFor(w,mode));
+      }
       return !Array.isArray(w.availableModes)||w.availableModes.includes(mode);
     };
     const seenCards=new Set(),available=deck.filter(w=>{
