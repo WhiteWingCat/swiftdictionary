@@ -62,6 +62,25 @@
   // lookup once and reuse it while rendering/selecting review details instead
   // of rebuilding and translating the full dictionary for every row.
   const reviewWordIndexCache=new Map();
+  // Translation support is also indexed once. The old per-card Object.entries
+  // and Array.some scans made the first Weak Memory open quadratic on large
+  // English/Chinese dictionaries.
+  const flashcardSupportLookupCache=new Map();
+  const flashcardCorrectionSetCache=new Map();
+  function flashcardSupportLookup(language){
+    if(!flashcardSupportLookupCache.has(language)){
+      const source=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.[language]||{};
+      flashcardSupportLookupCache.set(language,new Map(Object.entries(source).map(([key,value])=>[key.toLocaleLowerCase("en"),value])));
+    }
+    return flashcardSupportLookupCache.get(language);
+  }
+  function flashcardCorrectionSet(language){
+    if(!flashcardCorrectionSetCache.has(language)){
+      const source=window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.[language]||[];
+      flashcardCorrectionSetCache.set(language,new Set(source.map(key=>String(key).toLocaleLowerCase("en"))));
+    }
+    return flashcardCorrectionSetCache.get(language);
+  }
   function reviewWordIndex(language){
     if(!reviewWordIndexCache.has(language)){
       const index=new Map();
@@ -121,13 +140,13 @@
   }
   function addMalayFlashcardSupport(items,language){
     const support=window.SWIFT_FLASHCARD_MALAY_SUPPORT?.[language]||{};
-    const generated=window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS?.flashcards?.[language]||{};
+    const generated=flashcardSupportLookup(language);
+    const reviewedExamples=flashcardCorrectionSet(language);
     return items.map(word=>{
       const wordKey=String(word.word||"").trim();
-      const row=generated[wordKey]||generated[wordKey.toLocaleLowerCase("en")]||
-        Object.entries(generated).find(([key])=>key.toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"))?.[1]||{};
-      const exampleMsReviewed=(window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS?.flashcards?.[language]||[])
-        .some(key=>String(key).toLocaleLowerCase("en")===wordKey.toLocaleLowerCase("en"));
+      const normalisedWordKey=wordKey.toLocaleLowerCase("en");
+      const row=generated.get(normalisedWordKey)||{};
+      const exampleMsReviewed=reviewedExamples.has(normalisedWordKey);
       const examples=exampleMsReviewed&&row.exampleEn
         ? [row.exampleEn]
         : (Array.isArray(word.examples)&&word.examples.length?word.examples:(row.exampleEn?[row.exampleEn]:[]));
@@ -1035,7 +1054,11 @@
   attachForms();
   document.getElementById("flashDifficulty")?.addEventListener("change",e=>state.difficulty=e.target.value);
   window.__swiftFlashcardsAuthHydration=Promise.resolve();
-  window.addEventListener("swiftdictionary:content-packages-ready",()=>reviewWordIndexCache.clear());
+  window.addEventListener("swiftdictionary:content-packages-ready",()=>{
+    reviewWordIndexCache.clear();
+    flashcardSupportLookupCache.clear();
+    flashcardCorrectionSetCache.clear();
+  });
   window.addEventListener("swift-auth-updated",()=>{state.game=null;clearTimers();state.ready=false;state.loading=false;state.finishing=false;if(currentUser){window.__swiftFlashcardsAuthHydration=loadData();}else{state.data={collections:[],cards:[],mastery:[],history:[],review_items:[]};window.__swiftFlashcardsAuthHydration=Promise.resolve();}render();});
   if(typeof supabaseClient!=="undefined"&&supabaseClient?.auth?.onAuthStateChange){
     supabaseClient.auth.onAuthStateChange((event,session)=>{
