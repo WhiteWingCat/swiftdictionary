@@ -1889,3 +1889,8 @@ During rollout, the first multi-migration tool batch partially completed before 
 - No public human linguistic review is claimed. Malay Quiz content is machine-validated; independent human Malaysian Malay editorial review remains waived by owner instruction.
 - Leaked-password protection remains excluded by owner instruction.
 - Existing legal/provenance/licensing and privacy release gates remain outstanding: source/model rights and attribution, Malaysia Copyright Act 1987, PDPA 2010 and 2024 amendments, and cross-border processing.
+
+
+### CI follow-up — production Quiz migration guard
+
+The first post-rollout Quiz database workflow passed the Quiz database foundation job and all earlier migration/runtime assertions, but its local Auth/RPC job stopped at an obsolete shell guard that still required the Malay Quiz migration to contain `STAGING-ONLY`. That guard contradicted the intentional production-ready migration conversion. The workflow was corrected to require the production content-release header and assert that `STAGING-ONLY` is absent. A fresh Quiz database workflow was triggered on commit `229b7353efe967ee7a20afed73ddb690f90e71d2`; its result is pending. This was a CI expectation mismatch, not a production database failure.
