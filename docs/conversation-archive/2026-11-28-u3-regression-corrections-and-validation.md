@@ -140,3 +140,11 @@ Latest application preview for `489435a`: https://8edf4cb7.swiftdictionary.pages
 ## Cache-busting correction
 
 The partial-review frontend and mock adapter had changed, but their script query versions were still `flashcards.js?v=3.0.0-ms19` and `mock-testing.js?v=2.8.0-r2`. Bumped them to `3.0.0-ms20` and `2.8.0-r3` respectively in `index.html` to prevent stale cached scripts on the branch preview. Latest application head is now `851d0cbd3e73055d3327a86f74b8f2ec53418cfb`; fresh CI and Pages deployment are required for this final cache-bust commit.
+
+## Cache-version regression assertion corrected
+
+The 6e0 cache-bust commit exposed one additional stale test expectation: `tests/update-2-5-0/check-flashcards-page.mjs` still required `flashcards.js?v=3.0.0-ms19`. Updated it to expect `ms20`. The U2.6 static assertion had already been updated. Latest application head is `3904f69abd13b2a2898354cc4449a3c1b9b32398`; fresh CI and Pages checks are in progress.
+
+The preceding `489435a` Flashcards Chromium suite completed successfully with **37/37 tests passing**, including both the full snapshot review and legacy partial-review browser tests. Its Flashcards static/content job also passed. The 2.3.x allowance/dashboard, Auth compatibility and browser suite passed on that same head. The Quiz DB/Auth integration on `489435a` passed the SQL migration/test stage (including the partial legacy review migration) and authenticated Quiz RPC tests; its remaining browser/security advisor steps were still running at the time of this update.
+
+The `6e0e25a` run then failed only because the page-integration static test still expected the old cache version; the assertion was corrected in `3904f69`. Await the fresh run before marking the latest head green.
