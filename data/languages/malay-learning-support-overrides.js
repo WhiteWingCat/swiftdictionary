@@ -1285,6 +1285,35 @@
       target.exampleEn = correction.exampleEn;
     }
   }
+  // Correct Indonesian-contaminated machine definitions in the Chinese
+  // Flashcard bank. These are support glosses, not changes to source meanings.
+  const flashcardDefinitionCorrectionsZh = {
+    "帮":"Membantu atau memberi bantuan; juga boleh merujuk kepada sekumpulan orang atau kumpulan.",
+    "干":"Kering; juga boleh bermaksud melakukan, mengerjakan atau bekerja.",
+    "客":"Tetamu atau pengunjung; juga boleh merujuk kepada pelanggan.",
+    "马":"Haiwan kuda; juga boleh digunakan sebagai nama keluarga atau merujuk kepada kuda dalam catur.",
+    "拿":"Mengambil, memegang atau membawa sesuatu; juga boleh bermaksud memiliki.",
+    "热":"Bersuhu tinggi atau panas; juga boleh menggambarkan keadaan yang hangat.",
+    "玩":"Bermain atau berhibur; juga boleh merujuk kepada permainan atau gurauan.",
+    "洗":"Membasuh atau mencuci; juga merujuk kepada mencuci kad atau mencuci foto.",
+    "笑":"Senyuman atau perbuatan ketawa; juga boleh bermaksud mengejek.",
+    "爷":"Datuk; juga boleh merujuk kepada lelaki yang lebih tua.",
+    "远":"Jauh dari segi jarak; juga boleh menggambarkan hubungan yang renggang.",
+    "但":"Namun atau tetapi; dalam sesetengah konteks bermaksud hanya.",
+    "低":"Rendah atau pendek; juga boleh merujuk kepada suara yang perlahan atau kedudukan rendah.",
+    "响":"Bunyi atau gema; juga boleh bermaksud berbunyi dengan kuat.",
+    "句":"Ayat atau pernyataan; juga merujuk kepada rangkap atau bait dalam konteks tertentu.",
+    "让":"Memberi laluan atau membenarkan; juga boleh bermaksud menyebabkan seseorang melakukan sesuatu atau digunakan dalam ayat pasif.",
+    "彩":"Warna atau corak berwarna; juga boleh merujuk kepada hadiah atau cabutan bertuah.",
+    "歌曲":"Lagu atau karya muzik yang dinyanyikan.",
+    "图书馆":"Tempat menyimpan buku untuk dibaca, dipinjam atau digunakan untuk belajar.",
+    "饭馆":"Tempat yang menyediakan makanan untuk pelanggan.",
+    "一路平安":"Semoga perjalanan anda selamat."
+  };
+  for (const [word, definitionMs] of Object.entries(flashcardDefinitionCorrectionsZh)) {
+    const target = pack.flashcards?.zh?.[word];
+    if (target) target.definitionMs = definitionMs;
+  }
   window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS = {
     quiz: { en: Object.keys(rows), zh: Object.keys(zhRows) },
     lessons: {
