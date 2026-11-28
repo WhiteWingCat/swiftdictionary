@@ -215,3 +215,33 @@ Latest application change set: `12a4b58715b060702a14045f535c228387b7f3fd` (featu
 The owner has explicitly instructed that human linguistic/editorial/translation review is skipped before this update and will be conducted on the live website. Do not block this update on human review, and do not describe machine-assisted content as human-reviewed or approved. Automated structural, coverage, lexical and answer-quality checks remain mandatory. This instruction does not waive source provenance, exact model/corpus licensing and attribution, Malaysia Copyright Act 1987, PDPA 2010/2024 amendment or cross-border processing requirements before public release.
 
 No production migration, database mutation, merge or production deployment is authorised. Leaked-password protection remains excluded by prior owner instruction.
+
+
+## Final multilingual polish checkpoint — 2026-11-28
+
+Latest application head at this checkpoint: `4c79df15ef64be74bc5829693163fd3cf184647a` on `feature/update-3.0-phase-0-audit`. PR #20 remains draft/unmerged and staging-only.
+
+### Feedback fixes and regression coverage
+
+- Quiz course switching: fixed the user-preference race by delaying the course-scoped cloud saved-word refresh until the selected preference upsert settles. The refresh is ignored if the signed-in account or selected course changed again. The authenticated Quiz browser test now waits for each preference write and checks both the selected course's availability and the persisted `user_preferences.learning_language` across English → Chinese → Malay → English.
+- Weak Memory review: review lists now use lightweight per-language source indexes and stable card-key labels; the full translation-enriched game deck is no longer built just to show the list. Malay translation enrichment is deferred until the learner opens one card's detail. The 80-card English/Chinese browser tests cover large-list rendering and detail navigation. Flashcards cache key is `3.0.0-ms25`.
+
+### Learning-support translation audit
+
+Direct evaluation of the current generated support output plus the correction/override layer produced:
+- Lessons: 112 English practice translations and 112 Chinese practice translations, with zero missing question/options and zero duplicate option sets.
+- Quiz: 229 English and 145 Chinese question support rows, with zero missing prompt/explanation/option strings and zero duplicate option sets in either Malay support field after overrides.
+- Flashcards: 1,341 English and 1,447 Chinese Malay definition rows, with zero missing definitions and zero missing translated examples for source rows requiring examples.
+- The final lexical flag scan returned zero matches for the current Indonesian-only/malformed-form list. Added standardisation for common forms (e.g. `kamu/kau` → `anda`, `karena` → `kerana`, `kursi` → `kerusi`, `pertanyaan` → `soalan`, `film` → `filem`) and corrected remaining duplicate Quiz options with explicit Malay explanations while preserving question/option IDs.
+- These are automated structural and lexical checks, not proof of full semantic correctness. No human editorial/translation review is required before live release per owner instruction; content remains machine-assisted draft/unreviewed.
+
+### Remaining multilingual blocker
+
+The target-language Dictionary translation output `data/languages/malay-dictionary-translations.js` is still empty at this checkpoint. Manual override coverage is 505 English and 429 Chinese headwords, not the complete 1,316 English / 725 Chinese headwords and 2,756 senses. The offline Argos generation workflow has been retriggered by updates to its generator and manual-override inputs, but full generated output and the 100% Dictionary overlay validator are not yet verified. Do not claim that the entire three-language Dictionary translation layer is complete until this output exists and passes its coverage/lexical validator.
+
+### CI and release handling
+
+- U3.0 architecture passed on an earlier feedback-fix head. A later run exposed one stale test expecting the informal pronoun `kamu` after the standardised correction changed it to `anda`; the assertion was updated. Latest-head CI is queued/in progress; no overall CI pass is claimed.
+- The 80-card browser checks, authenticated Quiz course preference persistence test, Flashcards, ACL, Pages routing and Quiz DB/Auth suites must all pass on the final head.
+- Owner instruction: skip human linguistic/editorial review before live launch; the owner will review on the live website. Automated coverage, lexical, distinct-option, source-alignment and runtime checks remain required. Do not describe the draft as human-approved.
+- Production migration/deployment/merge remain unauthorised. Leaked-password protection remains excluded by prior instruction. Licensing, provenance, Malaysia Copyright Act 1987 and PDPA 2010/2024/cross-border processing remain public-release compliance considerations.
