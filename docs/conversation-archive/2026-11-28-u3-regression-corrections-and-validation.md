@@ -122,3 +122,17 @@ The latest workflow checks on `b0a177b` are queued/in progress; no migration or 
 The deterministic per-card review test initially still timed out. Inspecting the Playwright call log showed the test's click was blocked by the fixed `#swiftMockPanel` overlay intercepting pointer events on the “Review game” button. This was not a review RPC or snapshot persistence failure. The panel is now hidden in both the full per-card review and legacy partial-review browser tests before clicking the game-review control. This follows an existing test pattern already used in the Quiz pagination regression.
 
 Latest application branch head is `489435a51f19b7481671d1f0a708effaff00f28f`. The latest U3.0 architecture, Flashcards, Quiz DB/Auth, U2.3, U2.6, U2.7, U2.9 and Cloudflare checks are queued or in progress; the latest browser result is still pending. Do not claim the fix is verified until the new run completes.
+
+## Staging migration applied and RPC verified — 2026-11-28
+
+After the local Supabase workflow completed the new migration/test step successfully, applied `swiftdictionary_update_3_0_partial_legacy_flashcard_review` to the staging project `ivatvkfrtifgfheeaelj` only.
+
+Live RPC verification using the two historical Malay session IDs now returns:
+- the Nov 27 Word Recall game: `review_status=partial`, 5 recoverable missed cards — awan, berita, berkarat, mentega, tiket masuk;
+- the Nov 27 Mixed Recall game: `review_status=partial`, 4 recoverable missed cards — kekal, lintasan, muara, penyangkut.
+
+A separate full-snapshot session still returns `review_status=full` with all 7 saved snapshots. No prompts, answer options, selected answers or correct answers were fabricated for the historical partial sessions.
+
+Post-migration privilege verification remains unchanged: anon/authenticated cannot directly SELECT private snapshot or weak-memory tables; anon cannot execute the public game-review RPC; authenticated can execute the owner-scoped RPC. No grants were broadened.
+
+Latest application preview for `489435a`: https://8edf4cb7.swiftdictionary.pages.dev (Cloudflare Pages deploy succeeded). U3.0 architecture passed on `489435a`; U2.3 allowance/dashboard browser + local Auth + SQL suite passed on `489435a`; U2.6 ACL, U2.7 Chinese Dictionary, U2.9 English QA passed on the immediately preceding `b0a177b`. Flashcards Chromium for `489435a` and Quiz DB/Auth integration are still running at this checkpoint. Production remains untouched.
