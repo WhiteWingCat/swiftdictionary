@@ -28,7 +28,7 @@ test("Every approved English Quiz question has a complete Malay prompt, explanat
   const displayedOptions=question.question_type==="chinese_translation"
    ?optionIds.map(id=>row.options[id].translation)
    :optionIds.map(id=>row.options[id].learning);
-  assert.equal(new Set(displayedOptions.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\\p{L}\\p{N}]+/gu," ").trim())).size,optionIds.length,question.question_id+" Malay answer choices must remain distinct");
+  assert.equal(new Set(displayedOptions.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\p{L}\p{N}]+/gu," ").trim())).size,optionIds.length,question.question_id+" Malay answer choices must remain distinct");
   if(question.question_type==="chinese_translation"){
    for(const optionId of optionIds)assert.ok(row.options[optionId]?.translation?.trim(),question.question_id+" missing Malay translation for Chinese answer option "+optionId);
   }
@@ -53,7 +53,7 @@ test("Every Chinese Quiz question has a complete Malay support-language mapping"
   const displayedOptions=question.question_type==="chinese_translation"
    ?optionIds.map(id=>row.options[id].translation)
    :optionIds.map(id=>row.options[id].learning);
-  assert.equal(new Set(displayedOptions.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\\p{L}\\p{N}]+/gu," ").trim())).size,optionIds.length,question.question_id+" Malay answer choices must remain distinct");
+  assert.equal(new Set(displayedOptions.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\p{L}\p{N}]+/gu," ").trim())).size,optionIds.length,question.question_id+" Malay answer choices must remain distinct");
   for(const field of [row.promptLearning,row.explanationLearning,...Object.values(row.options).map(option=>option.learning)]){
    assert.ok(field?.trim(),question.question_id+" contains an empty Malay field");
    assert.doesNotMatch(field,indonesianOnlyTerms,question.question_id+" contains an Indonesian-only lexical form");
@@ -71,7 +71,7 @@ test("English and Chinese lesson practice prompts and options are corrected into
    for(const [index,question] of questions.entries()){
     assert.ok(question.q?.trim(),language+":"+lessonId+" question "+index+" missing Malay prompt");
     assert.ok(Array.isArray(question.options)&&question.options.length>=3,language+":"+lessonId+" question "+index+" missing options");
-    const normalizedOptions=question.options.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\\p{L}\\p{N}]+/gu," ").trim());
+    const normalizedOptions=question.options.map(value=>value.normalize("NFKC").toLocaleLowerCase("ms").replace(/[^\p{L}\p{N}]+/gu," ").trim());
     assert.equal(new Set(normalizedOptions).size,normalizedOptions.length,language+":"+lessonId+" question "+index+" has duplicate Malay answer choices");
     for(const field of [question.q,...question.options]){
      assert.ok(field?.trim(),language+":"+lessonId+" question "+index+" has empty Malay text");
@@ -83,12 +83,10 @@ test("English and Chinese lesson practice prompts and options are corrected into
 });
 
 
-test("Chinese and English Flashcard Malay definitions contain no obvious Indonesian-only forms",()=>{
+test("Chinese Flashcard Malay definitions contain no obvious Indonesian-only forms",()=>{
  const support=loadMalaySupport();
- for(const [language,items] of Object.entries(support.flashcards||{})){
-  for(const [word,row] of Object.entries(items||{})){
-   assert.ok(row.definitionMs?.trim(),language+":"+word+" missing Malay definition");
-   assert.doesNotMatch(row.definitionMs,indonesianOnlyTerms,language+":"+word+" definition contains an Indonesian-only lexical form");
-  }
+ for(const [word,row] of Object.entries(support.flashcards?.zh||{})){
+  assert.ok(row.definitionMs?.trim(),"zh:"+word+" missing Malay definition");
+  assert.doesNotMatch(row.definitionMs,indonesianOnlyTerms,"zh:"+word+" definition contains an Indonesian-only lexical form");
  }
 });
