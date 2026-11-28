@@ -181,7 +181,7 @@
     }
     return "";
   }
-  function addMalayFlashcardSupport(items,language){
+  function addMalayFlashcardSupport(items,language,{allowDictionaryFallback=true}={}){
     const support=window.SWIFT_FLASHCARD_MALAY_SUPPORT?.[language]||{};
     const generated=flashcardSupportLookup(language);
     const reviewedExamples=flashcardCorrectionSet(language);
@@ -194,7 +194,7 @@
         ? [row.exampleEn]
         : (Array.isArray(word.examples)&&word.examples.length?word.examples:(row.exampleEn?[row.exampleEn]:[]));
       return {...word,
-        definitionMs:word.definitionMs||support[word.word]||row.definitionMs||dictionaryDerivedMalaySupport(word,language),
+        definitionMs:word.definitionMs||support[word.word]||row.definitionMs||(allowDictionaryFallback?dictionaryDerivedMalaySupport(word,language):""),
         exampleMs:row.exampleMs||word.exampleMs||"",
         examples,
         exampleMsReviewed
@@ -955,7 +955,7 @@
   function renderReviewDetail(){
     const panel=overlayRoot?.querySelector("#flashReviewDetail");
     if(!panel)return;
-    const selected=(state.data.review_items||[]).find(item=>item.mode===state.reviewMode&&item.card_key===state.reviewSelected);
+    const selected=reviewItemsForMode(state.reviewMode).find(item=>item.card_key===state.reviewSelected);
     const cacheKey=selected?String(selected.card_key)+"|"+translationLanguage:null;
     let card=cacheKey&&reviewDetailCache.has(cacheKey)?reviewDetailCache.get(cacheKey):(selected?resolveWeakReviewCard(selected.card_key):null);
     if(card&&cacheKey&&!reviewDetailCache.has(cacheKey)){
@@ -963,7 +963,7 @@
       // Enrich only the card the learner opened, then retain it for subsequent
       // selections. This avoids repeating translation fallback work on every
       // visit to the same Weak Memory detail.
-      if(translationLanguage==="ms"&&cardLanguage!=="ms")card=addMalayFlashcardSupport([card],cardLanguage)[0];
+      if(translationLanguage==="ms"&&cardLanguage!=="ms")card=addMalayFlashcardSupport([card],cardLanguage,{allowDictionaryFallback:false})[0];
       reviewDetailCache.set(cacheKey,card);
     }
     panel.innerHTML=card
