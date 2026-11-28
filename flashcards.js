@@ -125,8 +125,22 @@
     }
   }
   function warmWeakMemoryReviewIndex(language=course){
-    const warm=()=>{try{reviewWordIndex(language);}catch(error){console.warn("Weak Memory review index could not be preloaded:",error);}};
-    if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warm,{timeout:1500});
+    // Weak Memory can contain cards from courses other than the currently
+    // selected one. Warm each referenced language before the learner opens a
+    // detail row, and prepare the Malay gloss fallback when Malay is selected.
+    const languages=new Set([language,course]);
+    for(const item of state.data.review_items||[]){
+      const match=String(item.card_key||"").match(/^dict:([a-z]{2,3}):/);
+      languages.add(match?match[1]:(String(item.card_key||"").startsWith("dict:")?"en":null));
+    }
+    languages.delete(null);
+    const warm=()=>{
+      try{
+        for(const code of languages)reviewWordIndex(code);
+        if(translationLanguage==="ms")malayGlossLookup();
+      }catch(error){console.warn("Weak Memory review data could not be preloaded:",error);}
+    };
+    if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warm,{timeout:100});
     else window.setTimeout(warm,0);
   }
   function malayGlossLookup(){
@@ -916,17 +930,24 @@
     const card=reviewCustomCardIndex().get(key);
     return card?mapCustomCard(card):null;
   }
+  const reviewDetailCache=new Map();
   function renderReviewDetail(){
     const panel=overlayRoot?.querySelector("#flashReviewDetail");
     if(!panel)return;
     const selected=(state.data.review_items||[]).find(item=>item.mode===state.reviewMode&&item.card_key===state.reviewSelected);
-    let card=selected?resolveWeakReviewCard(selected.card_key):null;
-    const cardLanguage=card?.course||"en";
-    // Enrich only the card the learner opened, not every row in the review list.
-    if(card&&translationLanguage==="ms"&&cardLanguage!=="ms")card=addMalayFlashcardSupport([card],cardLanguage)[0];
+    const cacheKey=selected?String(selected.card_key)+"|"+translationLanguage:null;
+    let card=cacheKey&&reviewDetailCache.has(cacheKey)?reviewDetailCache.get(cacheKey):(selected?resolveWeakReviewCard(selected.card_key):null);
+    if(card&&cacheKey&&!reviewDetailCache.has(cacheKey)){
+      const cardLanguage=card.course||"en";
+      // Enrich only the card the learner opened, then retain it for subsequent
+      // selections. This avoids repeating translation fallback work on every
+      // visit to the same Weak Memory detail.
+      if(translationLanguage==="ms"&&cardLanguage!=="ms")card=addMalayFlashcardSupport([card],cardLanguage)[0];
+      reviewDetailCache.set(cacheKey,card);
+    }
     panel.innerHTML=card
       ? `<div class="flash-review-detail"><h3>${escapeHtml(card.word)}</h3><p>${escapeHtml(translationFor(card))}</p>${card.examples?.[0]?`<p><em>${escapeHtml(card.examples[0])}</em></p>`:""}</div>`
-      : '<p class="flash-muted">'+uiText("Select an answer to review its meaning and example. Reviewing does not start a game or affect your allowance.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
+      : '<p class="flash-muted">'+uiText("Select an answer to review its meaning and example.","选择答案以查看释义和例句。复习不会开始游戏，也不会消耗每日次数。")+'</p>';
   }
   function openReviewPrompt(){
     state.reviewMode="word";state.reviewSelected=null;state.reviewNotice="";renderReviewPrompt();
@@ -991,7 +1012,7 @@
     const {data,error}=await supabaseClient.rpc("get_my_flashcard_data");
     state.loading=false;
     if(error){state.notice="Flashcards could not load: "+error.message;render();return;}
-    state.data=data||{collections:[],cards:[],mastery:[],history:[],review_items:[]};state.ready=true;render();warmWeakMemoryReviewIndex(course);
+    state.data=data||{collections:[],cards:[],mastery:[],history:[],review_items:[]};reviewDetailCache.clear();state.ready=true;render();warmWeakMemoryReviewIndex(course);
   }
   async function collectionAction(action,id,name){
     const {data,error}=await supabaseClient.rpc("save_my_flashcard_collection",{p_action:action,p_collection_id:id||null,p_name:name||null});
@@ -1130,6 +1151,7 @@
   window.__swiftFlashcardsAuthHydration=Promise.resolve();
   window.addEventListener("swiftdictionary:content-packages-ready",()=>{
     reviewWordIndexCache.clear();
+    reviewDetailCache.clear();
     warmWeakMemoryReviewIndex(course);
     reviewCustomCardsReference=null;
     reviewCustomCardIndexCache.clear();
