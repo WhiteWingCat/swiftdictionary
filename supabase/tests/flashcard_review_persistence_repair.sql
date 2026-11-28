@@ -100,4 +100,45 @@ begin
 end
 $complete$;
 
+
+-- Historical session with summary and weak-memory linkage but no snapshots.
+-- The review RPC must expose only the known missed card and clearly mark it
+-- partial; it must not invent a prompt, options or selected/correct answer.
+reset role;
+insert into private.flashcard_sessions(
+  id,user_id,mode,difficulty,status,words_seen,correct_count,incorrect_count,
+  unanswered_count,started_at,completed_at,duration_seconds,
+  learning_language_code,translation_language_code
+) values(
+  'a2500000-0000-4000-8000-000000000003',
+  'a2500000-0000-4000-8000-000000000002',
+  'word','beginner','completed',10,5,5,0,
+  now()-interval '2 minutes',now()-interval '1 minute',60,'ms','en'
+);
+insert into private.flashcard_review_items(
+  user_id,card_key,mode,incorrect_count,last_incorrect_at,last_session_id
+) values(
+  'a2500000-0000-4000-8000-000000000002',
+  'dict:ms:awan','word',1,now()-interval '1 minute',
+  'a2500000-0000-4000-8000-000000000003'
+);
+
+set local role authenticated;
+do $partial$
+declare v_review jsonb;
+begin
+  v_review:=public.get_my_flashcard_game_review('a2500000-0000-4000-8000-000000000003');
+  if v_review->>'review_status'<>'partial'
+     or coalesce((v_review->>'review_available')::boolean,false) is not true
+     or jsonb_array_length(v_review->'items')<>1
+     or v_review->'items'->0->>'card_key'<>'dict:ms:awan'
+     or v_review->'items'->0->'card'->>'word'<>'awan'
+     or v_review->'items'->0 ? 'selected_answer'
+     or v_review->'items'->0 ? 'correct_answer'
+     or jsonb_array_length(coalesce(v_review->'items'->0->'options','[]'::jsonb))<>0 then
+    raise exception 'Legacy Flashcard review must expose only known missed cards and remain explicitly partial: %',v_review;
+  end if;
+end
+$partial$;
+
 rollback;
