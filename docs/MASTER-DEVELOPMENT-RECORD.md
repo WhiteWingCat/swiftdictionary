@@ -5228,6 +5228,8 @@ See [the latest U3.0 plan](UPDATE-3.0-DEVELOPMENT-PLAN.md) and [the Nov 28 valid
 
 ## 2026-11-28 — latest staging feedback and U3.0 multilingual polish
 
+See [the detailed Quiz course-switch and Weak Memory polish archive](conversation-archive/2026-11-28-u3-quiz-course-switch-and-weak-memory-polish.md).
+
 Latest application checkpoint at time of this record: `c090948b4fcff9ec76aed04ca20a5211ca11532b` on `feature/update-3.0-phase-0-audit`; PR #20 remains draft/unmerged and production remains untouched.
 
 The owner tested the latest staging preview and reported that Quiz course switching refreshed only when switching to English, and Weak Memory review felt slow. Implemented:
