@@ -3992,8 +3992,20 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
       ls.topic="all";
       if(lessonDetailWasOpen){ls.active=null;el("lessonReader").hidden=true;showPage("lessons");}
       applyLearningCourseAvailability();
+      // Quiz availability is course-scoped. Refresh it for every registered
+      // learning language, not only English; wait for the queued preference
+      // write so the server reads the same course the selector now displays.
+      if(location.hash==="#quiz"&&currentUser){
+        const requestedCourse=course;
+        try{
+          if(preferenceWriteQueue)await preferenceWriteQueue;
+          if(course===requestedCourse&&window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz")){
+            await quizLoadHome();
+          }
+        }catch(error){quizStatus("Could not refresh Quiz for the selected course: "+(error.message||""),true);}
+        return;
+      }
       try{await initialiseLessons();}catch(error){el("lessonStatus").textContent=error.message||"Could not refresh lesson progress.";}
-      if(isEnglishCourse()&&location.hash==="#quiz"&&currentUser){quizPageState.loaded=false;initialiseQuizPage();}
     });
 
     // Resolve the requested route immediately; account initialisation must not
