@@ -1419,3 +1419,17 @@ Next: complete latest CI, then apply the additive migration to staging only, ver
 The per-card review browser test's next failure was traced to the fixed mock-control overlay intercepting the click on the “Review game” button. The test now hides `#swiftMockPanel` before clicking game-review controls in both full and partial review tests. This follows an existing pattern already used by the Quiz pagination browser test; no runtime behaviour is being masked.
 
 Latest application head: `489435a51f19b7481671d1f0a708effaff00f28f`. U3.0 architecture regression passed on this head. U2.6 ACL, U2.7 Chinese dictionary and U2.9 English QA passed on preceding `b0a177b`; latest `489435a` runs are queued/in progress. The new partial-review SQL migration is included in the Quiz DB workflow and must pass its local Supabase migration regression before staging application. The migration has not yet been applied to staging.
+
+### Staging partial-review migration applied — 2026-11-28
+
+Local Supabase CI completed the new partial-review migration and SQL regression step successfully. Applied `swiftdictionary_update_3_0_partial_legacy_flashcard_review` to staging project `ivatvkfrtifgfheeaelj` only.
+
+Live RPC verification:
+- Historical Malay Word Recall session now returns partial review with 5 known missed cards: awan, berita, berkarat, mentega, tiket masuk.
+- Historical Malay Mixed Recall session now returns partial review with 4 known missed cards: kekal, lintasan, muara, penyangkut.
+- A full-snapshot Chinese session still returns full review with all 7 snapshots.
+- Private table/RPC privilege checks remain least-privilege; no direct private table grants were added.
+
+The exact prompts, options, selected answers and correct answers from the two historical Malay sessions remain unrecoverable and are not fabricated. The UI labels these as partial and warns that the list may be incomplete.
+
+Latest preview: [https://8edf4cb7.swiftdictionary.pages.dev](https://8edf4cb7.swiftdictionary.pages.dev) for application head `489435a`. U3.0 architecture passed on `489435a`; U2.3 SQL, local Auth and browser suite passed on `489435a`. U2.6 ACL, U2.7 Chinese Dictionary and U2.9 English QA passed on `b0a177b`. Flashcards Chromium and Quiz DB/Auth integration on `489435a` remain in progress. Do not declare the overall matrix complete until they finish and the remaining checks pass.
