@@ -1181,7 +1181,6 @@ test("English and Chinese Quiz render complete Malay support for prompts, option
     });
     expect(coverage).toMatchObject({effective:"ms",count:10,complete:true,explanationInReview:true});
     await expect(page.locator("#quizQuestionArea .quiz-option-copy small")).toHaveCount(4);
-    page.once("dialog",dialog=>dialog.accept());
     await page.locator("#quizAbandon").click();
     await expect(page.locator("#quizHome")).toBeVisible();
   }
