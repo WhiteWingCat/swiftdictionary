@@ -313,6 +313,13 @@
         {q:"Ayat manakah menyatakan fakta umum?",options:["Air mendidih pada suhu 100°C di paras laut (bentuk lampau).","Air mendidih pada suhu 100°C di paras laut (simple present).","Air sedang didih pada suhu 100°C di paras laut (struktur tidak tepat)."]},
         {q:"Pilih ayat negatif yang betul.",options:["Mereka tidak suka kopi (doesn't tidak sepadan dengan they).","Mereka tidak suka kopi (don't + kata kerja asas).","Mereka tidak suka kopi (kata bantu digugurkan)."]},
         {q:"Pilih kedudukan “usually” yang semula jadi dalam ayat.",options:["Dia minum biasanya teh.","Dia biasanya minum teh.","Biasanya dia minum biasanya teh."]}
+      ],
+      "b-articles": [
+        {q:"Pilih frasa yang betul apabila sesuatu kata nama disebut buat kali pertama.",options:["a apple (bunyi awal vokal tidak sepadan dengan a)","an apple (bunyi awal vokal)","the apple in every context (the bukan untuk semua konteks)"]},
+        {q:"Pilih kata sandang yang betul: Dia menunggu ___ bas yang telah kami tempah.",options:["a: kata sandang tak tentu","an: digunakan sebelum bunyi vokal","the: bas tertentu yang sudah dikenal pasti"]},
+        {q:"Pilih frasa yang semula jadi.",options:["a honest answer (honest bermula dengan bunyi vokal)","an honest answer (h tidak disebut)","the honest answer in every context (the memerlukan rujukan tertentu)"]},
+        {q:"Mengapakah kita menyebut “an hour”?",options:["Huruf h ialah huruf vokal.","Bunyi pertama ialah bunyi vokal kerana h tidak disebut.","Semua perkataan yang bermula dengan h menggunakan an."]},
+        {q:"Pilih frasa yang betul: “She packed ___ umbrella.”",options:["a: sebelum bunyi konsonan","an: sebelum bunyi vokal","the: untuk payung tertentu yang telah dikenal pasti"]}
       ]
     },
     zh: {
@@ -333,6 +340,14 @@
         {q:"Ungkapan manakah bermaksud “Selamat tinggal”?",options:["Selamat tinggal","Helo","Selamat pagi","Tumpang tanya"]},
         {q:"Bagaimanakah penutur memperkenalkan namanya sebagai Li Ming?",options:["Nama saya Li Ming.","Siapa nama kamu?","Dia ialah Li Ming.","Saya mengenali Li Ming."]},
         {q:"Ungkapan manakah menyatakan rasa gembira berkenalan dengan seseorang buat kali pertama?",options:["Gembira dapat berkenalan dengan anda.","Apa khabar?","Saya sihat.","Selamat tinggal."]}
+      ],
+      "zh-b-numbers-dates-time": [
+        {q:"Aksara Cina manakah mewakili nombor tujuh?",options:["tujuh","sepuluh","sembilan","tiga"]},
+        {q:"Perkataan manakah bermaksud “hari ini”?",options:["hari ini","esok","semalam","setiap hari"]},
+        {q:"Ungkapan manakah bermaksud hari Isnin?",options:["Isnin","Rabu","Jumaat","Ahad"]},
+        {q:"Dalam tarikh, aksara manakah bermaksud “bulan”?",options:["bulan","tahun","hari","jam; waktu"]},
+        {q:"Apakah susunan tarikh bahasa Cina yang lazim?",options:["tahun, bulan, hari","bulan, hari, tahun","hari, bulan, tahun","tahun, hari, bulan"]},
+        {q:"Perkataan manakah bermaksud “esok”?",options:["esok","semalam","hari ini","sekarang"]}
       ]
     }
   };
