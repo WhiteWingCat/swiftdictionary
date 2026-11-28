@@ -525,7 +525,7 @@
     return '<p class="daily-translation"><strong>'+esc(label)+'</strong> '+esc(support)+'</p>';
   }
   function dailyQuestionPrompt(question) {
-    const source=question?.q??question?.prompt??"";
+    const source=question?.q??question?.prompt??question?.question??question?.stem??question?.title??"";
     const primary=dailyLocalizedText(source,snapshot.learningLanguage,question?.qMs||question?.qEn||question?.qZh||"");
     const candidate=translationLanguage==="ms"?(question?.qMs||dailySupportText(source,"ms"))
       :translationLanguage==="zh"?(question?.qZh||dailySupportText(source,"zh"))
@@ -549,7 +549,7 @@
     return (isChineseLearningCourse()?'<span class="daily-chinese-line">'+esc(primary)+'</span>':esc(primary))+pinyin+translated;
   }
   function dailyQuestionExplanation(question) {
-    const source=question?.explanation??question?.explanationLearning??question?.explanation_learning??"";
+    const source=question?.explanation??question?.explanationLearning??question?.explanation_learning??question?.rationale??question?.feedback??"";
     const primary=dailyLocalizedText(source,snapshot.learningLanguage,"");
     const candidate=translationLanguage==="ms"?(question?.explanationMs||question?.explanation_ms||dailySupportText(source,"ms"))
       :translationLanguage==="zh"?(question?.zh||question?.explanationZh||dailySupportText(source,"zh"))
