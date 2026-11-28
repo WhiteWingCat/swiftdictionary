@@ -68,9 +68,9 @@ test("Malay Flashcard coverage is measured across dictionary, phrase and sentenc
  assert.equal(chineseOverlay.complete,true);
 
  const flashcards=fs.readFileSync("flashcards.js","utf8");
- const helperStart=flashcards.indexOf("function malayGlossLookup()");
+ const helperStart=flashcards.indexOf("const flashcardSupportLookupCache=new Map();");
  const helperEnd=flashcards.indexOf("function words(",helperStart);
- assert.ok(helperStart>=0&&helperEnd>helperStart,"Malay Flashcard support helper block must exist");
+ assert.ok(helperStart>=0&&helperEnd>helperStart,"Malay Flashcard support/index helper block must exist");
  vm.runInContext(
   "let malayGlossLookupCache=null; "+flashcards.slice(helperStart,helperEnd)+"; window.__addMalayFlashcardSupport=addMalayFlashcardSupport;",
   context
