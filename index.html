@@ -4065,10 +4065,17 @@ quizEl("lessonLibrary").hidden=!lessonsSignedIn;
             // The course selector writes through a serial preference queue.
             // Wait for the selected course to reach Supabase before calling
             // course-scoped availability/history/session RPCs.
+            const requestedSelectionVersion=coursePreferenceSelectionVersion;
             if(preferenceWriteQueue)await preferenceWriteQueue;
-            if(quizCourseSwitchRequest!==quizCourseSwitchRequestId||quizEl("courseSelect").value!==requestedCourse)return;
-            await quizSyncCoursePreferences();
-            if(quizCourseSwitchRequest!==quizCourseSwitchRequestId||course!==requestedCourse||!window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz"))return;
+            // The preceding courseSelect handler has already updated the in-memory
+            // course and queued its preference write. Re-reading user_preferences
+            // here can race the just-completed write and restore the previous
+            // course, leaving Quiz showing stale availability/history. The settled
+            // write plus request/version guards are the authoritative hand-off.
+            if(quizCourseSwitchRequest!==quizCourseSwitchRequestId||
+              coursePreferenceSelectionVersion!==requestedSelectionVersion||
+              quizEl("courseSelect").value!==requestedCourse||course!==requestedCourse)return;
+            if(!window.SWIFT_LANGUAGE_REGISTRY?.supports(requestedCourse,"quiz"))return;
             applyLearningCourseAvailability();
             quizApplyPageTranslation();
             await quizLoadHome();
