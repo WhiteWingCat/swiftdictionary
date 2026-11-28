@@ -56,7 +56,14 @@ async function beginRecall(page,mode="word",difficulty="beginner",cardSet="all",
   await page.locator("#flashDifficulty").selectOption(difficulty);
   await page.locator("#flashGameCollection").selectOption(cardSet);
   await page.locator('[data-action="begin-game"]').click();
-  await expect(page.locator(".flash-game")).toBeVisible();
+  try {
+    await expect(page.locator(".flash-game")).toBeVisible();
+  } catch (error) {
+    const notice = await page.locator("#flashNotice").innerText().catch(() => "");
+    const setupTitle = await page.locator("#flashSetupTitle").innerText().catch(() => "");
+    throw new Error("Flashcard game failed to start for mode " + mode +
+      ". Notice: " + notice + ". Setup: " + setupTitle + ". Original: " + error.message);
+  }
 }
 
 test("Mode-specific schedules use fixed 0.2 second reductions and respect caps",async({page})=>{
