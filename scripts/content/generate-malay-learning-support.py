@@ -1,3 +1,4 @@
+# PR-triggered U3.0 translation generation checkpoint — 2026-11-28
 # U3.0 Malay lexical normalisation revision: 2026-11-28
 import json
 import re
