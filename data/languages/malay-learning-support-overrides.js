@@ -1308,7 +1308,14 @@
     "歌曲":"Lagu atau karya muzik yang dinyanyikan.",
     "图书馆":"Tempat menyimpan buku untuk dibaca, dipinjam atau digunakan untuk belajar.",
     "饭馆":"Tempat yang menyediakan makanan untuk pelanggan.",
-    "一路平安":"Semoga perjalanan anda selamat."
+    "一路平安":"Semoga perjalanan anda selamat.",
+    "便":"Mudah atau sesuai; juga boleh bermaksud kemudian atau lalu, bergantung pada konteks.",
+    "红":"Merah; juga boleh melambangkan populariti, kejayaan atau suasana yang menguntungkan dalam ungkapan tertentu.",
+    "情":"Perasaan atau emosi; juga boleh merujuk kepada keadaan, hubungan atau situasi.",
+    "室":"Bilik atau ruang; juga boleh merujuk kepada tempat kerja, institusi atau keluarga dalam kata majmuk.",
+    "庭":"Halaman atau kawasan lapang di dalam atau sekitar bangunan; juga boleh merujuk kepada mahkamah dalam kata majmuk.",
+    "被":"Penanda ayat pasif yang menunjukkan subjek menerima sesuatu tindakan; juga boleh bermaksud selimut.",
+    "并":"Menggabungkan atau menyatukan; juga digunakan untuk menegaskan bahawa sesuatu tidak berlaku atau tidak benar dalam struktur tertentu."
   };
   for (const [word, definitionMs] of Object.entries(flashcardDefinitionCorrectionsZh)) {
     const target = pack.flashcards?.zh?.[word];
