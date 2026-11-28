@@ -82,11 +82,17 @@
     return flashcardCorrectionSetCache.get(language);
   }
   function reviewWordIndex(language){
-    if(!reviewWordIndexCache.has(language)){
+    const bank=window.SWIFT_CHINESE_FLASHCARDS||{};
+    const englishSource=window.englishWords||(typeof englishWords!=="undefined"?englishWords:[]);
+    const sourceRefs=language==="zh"?[bank.characters,bank.vocabulary,bank.phrases]
+      :language==="ms"?[window.SWIFT_MALAY_DICTIONARY]
+      :language==="en"?[englishSource,curatedEnglishPhrases]:[];
+    const cached=reviewWordIndexCache.get(language);
+    if(cached&&cached.sourceRefs.length===sourceRefs.length&&sourceRefs.every((source,index)=>source===cached.sourceRefs[index]))return cached.index;
+    {
       const index=new Map();
       let source=[];
       if(language==="zh"){
-        const bank=window.SWIFT_CHINESE_FLASHCARDS||{};
         const mapChineseReviewItems=(items,cardKind)=>(items||[]).map(item=>({
           ...item,course:"zh",cardKind,definition:item.translationEn||"",
           definitionZh:item.definitionCueZh||item.definitionZh||"",
@@ -104,8 +110,7 @@
             definition:item.definition,definitionEn:item.definitionEn||"",definitionZh:item.definitionZh||"",
             examples:Array.isArray(item.examples)?item.examples:[],translationEn:item.definitionEn||"",translationZh:item.definitionZh||""}));
       }else if(language==="en"){
-        const dictionary=(window.englishWords||(typeof englishWords!=="undefined"?englishWords:[]))
-          .filter(item=>item&&item.course==="en"&&item.word);
+        const dictionary=englishSource.filter(item=>item&&item.course==="en"&&item.word);
         const seen=new Set(dictionary.map(item=>String(item.word).trim().toLocaleLowerCase("en")));
         source=[...dictionary,...curatedEnglishPhrases.filter(item=>!seen.has(item.word.toLocaleLowerCase("en")))];
       }
@@ -115,13 +120,12 @@
         const key=String(item.word||"").trim().toLocaleLowerCase("en");
         if(key&&!index.has(key))index.set(key,item);
       }
-      reviewWordIndexCache.set(language,index);
+      reviewWordIndexCache.set(language,{sourceRefs,index});
+      return index;
     }
-    return reviewWordIndexCache.get(language);
   }
   function warmWeakMemoryReviewIndex(language=course){
-    if(reviewWordIndexCache.has(language))return;
-    const warm=()=>{if(reviewWordIndexCache.has(language))return;try{reviewWordIndex(language);}catch(error){console.warn("Weak Memory review index could not be preloaded:",error);}};
+    const warm=()=>{try{reviewWordIndex(language);}catch(error){console.warn("Weak Memory review index could not be preloaded:",error);}};
     if(typeof window.requestIdleCallback==="function")window.requestIdleCallback(warm,{timeout:1500});
     else window.setTimeout(warm,0);
   }
