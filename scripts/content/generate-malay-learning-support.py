@@ -135,6 +135,7 @@ MALAY_CONNECTOR_FALLBACKS = {
 
 def main():
     data=json.loads(INPUT.read_text(encoding="utf-8"))
+    malay_glosses=data.get("malayGlosses",{})
     argostranslate.package.update_package_index()
     install_pair("en","ms")
     install_pair("zh","en")
@@ -150,6 +151,16 @@ def main():
         if source_key in source_cache:
             return source_cache[source_key]
         intermediate=clean(zh_en.translate(value)) if source=="zh" else value
+        if source=="zh" and re.search(r"[\\u3400-\\u9fff]",intermediate):
+            # Argos occasionally echoes isolated Chinese characters unchanged.
+            # Use the exact authored Malay gloss where available; never pass a
+            # Chinese token through the English→Malay model as if it were English.
+            gloss=clean(malay_glosses.get("zh",{}).get(value,""))
+            if not gloss:
+                raise RuntimeError("Chinese source remained untranslated and has no Malay glossary fallback: "+value[:80])
+            result=normalise_malay(gloss)
+            source_cache[source_key]=result
+            return result
         fallback=MALAY_CONNECTOR_FALLBACKS.get(intermediate.casefold())
         if intermediate not in english_to_malay_cache:
             english_to_malay_cache[intermediate]=normalise_malay(fallback or en_ms.translate(intermediate))
