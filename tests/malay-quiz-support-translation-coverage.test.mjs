@@ -11,7 +11,7 @@ function loadMalaySupport(){
  return context.window.SWIFT_MALAY_LEARNING_SUPPORT_TRANSLATIONS;
 }
 
-const indonesianOnlyTerms=/\b(?:aku|bisa|kantor|nggak|enggak|banget|apotek)\b/i;
+const indonesianOnlyTerms=/\b(?:aku|bisa|kantor|nggak|enggak|banget|apotek|kalimat|bis|bahasan|wournia|ana)\b/i;
 
 test("Every approved English Quiz question has a complete Malay prompt, explanation and option set",()=>{
  const support=loadMalaySupport();
