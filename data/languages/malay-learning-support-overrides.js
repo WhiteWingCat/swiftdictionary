@@ -1097,7 +1097,7 @@
         {q:"Perkataan manakah bermaksud “esok”?",options:["esok","semalam","hari ini","sekarang"]}
       ],
       "zh-b-pronouns-basic-sentences": [
-        {q:"Kata ganti nama manakah bermaksud “saya”?",options:["saya; aku","kamu; awak","dia (lelaki)","dia (perempuan)"]},
+        {q:"Kata ganti nama manakah bermaksud “saya”?",options:["saya","kamu; awak","dia (lelaki)","dia (perempuan)"]},
         {q:"Aksara manakah biasanya ditulis untuk kata ganti nama “dia” bagi perempuan?",options:["dia (perempuan)","dia (lelaki)","saya","akhiran penanda jamak"]},
         {q:"Perkataan manakah bermaksud “kami” atau “kita”?",options:["kami; kita","kamu semua","mereka","kamu"]},
         {q:"Ayat manakah bermaksud “Saya seorang pelajar”?",options:["Saya seorang pelajar.","Saya sangat pelajar. (tidak gramatis)","Adakah pelajar itu saya?","Saya mempunyai pelajar."]},
