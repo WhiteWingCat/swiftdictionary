@@ -5125,3 +5125,20 @@ Read-only staging checks confirm 93 active Malay Daily Discovery catalogue rows 
 At the latest CI checkpoint, U3.0 architecture, Cloudflare routing, English dictionary QA, U2.7 PostgreSQL and U2.3 PostgreSQL migration/allowance checks passed. Flashcard static checks passed. The U2.3 Chromium and Flashcard Chromium suites were still running; the Quiz database rerun including the rotation-slot repair and the new unit-test workflows were queued/pending. The newest workflow head is `c081f7f`; do not declare the full regression matrix green until those runs finish and the per-card review test passes.
 
 **Active completion gates:** finish the current CI matrix; resolve any remaining Flashcard per-card review or authenticated Quiz/RPC failures; verify OAuth redirect and cross-account isolation; complete staging preview and owner desktop/mobile acceptance; complete human Malaysian Standard Malay editorial review, source/model licence and attribution verification, and Malaysia Copyright Act/PDPA/cross-border review before public release. Production remains untouched and PR #20 remains unmerged. Leaked-password protection is deferred at the owner's direction and is not an active U3.0 gate.
+
+## 2026-11-28 — U3.0 regression correction follow-up
+
+The owner requested continued work on remaining U3.0 limitations after explicitly dropping leaked-password protection. That warning is no longer an active gate. No plan upgrade, billing change, Auth workaround, production migration, merge or production deployment was attempted.
+
+Latest application recovery point: `feature/update-3.0-phase-0-audit` at `87734182da7cfc55008bea658dc8b5212001ae3e`. PR #20 remains draft/unmerged. Staging project `ivatvkfrtifgfheeaelj`; production remains untouched.
+
+Corrections applied:
+- Flashcard exact-helper recount: Chinese Malay definitions 895/1,447 (519 characters, 352 vocabulary, 24 phrases); 552 unsupported cards excluded. Updated regression and review audit. Reviewed Malay sentence pairs include 25 English phrase cards and 24 Chinese phrase cards; this is eligibility metadata, not a blanket editorial approval.
+- Quiz override root cause: curated option Malay was copied to `learning` but not the legacy `translation` property, leaving Indonesian/malformed generated strings. The override application now replaces the translation field with an explicit curated Malay variant or the curated Malay learning text fallback.
+- Lesson practice: added the missing third distractor to English `i-perfect` fifth question.
+
+The U3.0 architecture run on `598433b` passed the Flashcard coverage and Lesson option-count corrections but found a further Indonesian legacy translation in `quiz-beginner-017`. The shared Quiz override fallback was then corrected in `8773418`; its latest architecture workflow was queued/running at the time of this record. Cloudflare routing, U2.9 English QA and U2.6 ACL had passed on preceding head `108422e`. Flashcards Chromium, Quiz DB/Auth, U2.3, U2.7 and remaining cross-version checks remain unaccepted until the latest workflows complete.
+
+See [the 2026-11-28 regression corrections and validation archive](conversation-archive/2026-11-28-u3-regression-corrections-and-validation.md) and [the corrected Flashcard coverage audit](review/malay-flashcard-coverage-audit-2026-11-28.md).
+
+Next: verify the latest architecture workflow, then finish Flashcards per-card review/weak-memory persistence, Quiz authenticated DB/RPC/browser tests, the full cross-version matrix, staging OAuth/account isolation and latest Pages preview verification. Keep generated Malay draft content unapproved pending competent human editorial review; complete licensing, Malaysia Copyright Act, PDPA/cross-border and manual desktop/mobile checks before public activation. Leaked-password protection remains excluded by owner decision.
