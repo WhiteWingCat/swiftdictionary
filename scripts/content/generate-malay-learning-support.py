@@ -201,9 +201,12 @@ def main():
         for q in items:
             translated={
               "promptLearning":translate(q["promptLearning"],code),
-              "promptTranslation":translate(q["promptTranslation"],"zh" if code=="en" else "en"),
+              # The paired English/Chinese prompt is the same question. Reuse
+              # one Malay rendering so the secondary support field cannot drift
+              # into a different regional variety or mistranslate the meaning.
+              "promptTranslation":translate(q["promptLearning"],code),
               "explanationLearning":translate(q["explanationLearning"],code),
-              "explanationTranslation":translate(q["explanationTranslation"],"zh" if code=="en" else "en"),
+              "explanationTranslation":translate(q["explanationLearning"],code),
               "options":{}
             }
             for option in q["options"]:
