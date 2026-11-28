@@ -32,6 +32,7 @@ for(const [code,catalogue] of [["en",window.SWIFT_ENGLISH_LESSONS],["zh",window.
   for(const q of sourcePack.questions||[]){
     const row=output.quiz?.[code]?.[q.question_id];
     if(!row||["promptLearning","promptTranslation","explanationLearning","explanationTranslation"].some(k=>typeof row[k]!=="string"||!row[k].trim()))throw new Error("Missing Quiz support translation: "+code+"/"+q.question_id);
+    if(row.promptTranslation!==row.promptLearning||row.explanationTranslation!==row.explanationLearning)throw new Error("Quiz Malay paired prompt/explanation fields must remain semantically aligned: "+code+"/"+q.question_id);
     if(!Array.isArray(q.options)||q.options.some(o=>!row.options?.[o.id]||!row.options[o.id].learning||!row.options[o.id].translation))throw new Error("Incomplete Quiz option support translation: "+code+"/"+q.question_id);
     quizQuestions++;
   }
