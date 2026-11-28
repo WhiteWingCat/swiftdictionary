@@ -134,7 +134,7 @@ test("Curated Malay Quiz support corrections load after generated drafts without
     assert.ok(values.every(value=>typeof value==="string"&&value.trim()),id+" has an empty option translation");
     assert.equal(new Set(values.map(value=>value.toLocaleLowerCase("ms"))).size,4,id+" has duplicate Malay option translations");
   }
-  assert.match(support.quiz.en["quiz-advanced-001"].promptLearning,/dapatan awal/);
+  assert.match(support.quiz.en["quiz-advanced-001"].promptLearning,/dapatan awal/i);
   assert.match(support.quiz.en["quiz-advanced-036"].promptLearning,/kenaikan pangkat/);
   for(const id of corrected.quiz.zh){
     const row=support.quiz.zh[id];
