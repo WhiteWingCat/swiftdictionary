@@ -160,7 +160,7 @@ def main():
         if source == "zh":
             source_text = text
             text = clean(zh_en.translate(source_text))
-            if not text or re.search(r"[\\u3400-\\u9fff]", text):
+            if not text or re.search(r"[\u3400-\u9fff]", text):
                 # Isolated Chinese headwords/definitions are sometimes echoed
                 # unchanged by zh→en. Prefer an exact authored Malay glossary
                 # entry; if none exists, fail rather than invent a translation.
