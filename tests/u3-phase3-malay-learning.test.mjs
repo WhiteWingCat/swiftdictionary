@@ -174,6 +174,12 @@ test("Curated Malay Quiz support corrections load after generated drafts without
   assert.match(support.quiz.zh["zh-en-b-places-getting-around-04"].promptLearning,/lokasi stesen MRT/);
 });
 
+test("All English and Chinese permanent Lesson practice questions have curated Malay corrections",()=>{
+  const corrected=context.window.SWIFT_MALAY_LEARNING_SUPPORT_CORRECTIONS;
+  assert.equal(corrected.lessons.en,112,"English Lesson practice corrections must cover all 112 questions");
+  assert.equal(corrected.lessons.zh,112,"Chinese Lesson practice corrections must cover all 112 questions");
+});
+
 test("Malay support overrides are loaded after the generated translation inventory",()=>{
   const html=read("index.html");
   assert.ok(html.indexOf("malay-learning-support-translations.js")<html.indexOf("malay-learning-support-overrides.js"));
