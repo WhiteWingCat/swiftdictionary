@@ -55,7 +55,7 @@ def normalise_malay(text):
     ]
     for pattern, replacement in replacements:
         value = re.sub(pattern, lambda match: replacement.capitalize() if match.group(0)[:1].isupper() else replacement, value, flags=re.IGNORECASE)
-    if re.search(r"\b(?:aku|bisa|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\b", value, flags=re.IGNORECASE):
+    if re.search(r"\b(?:aku|bisa(?!\s+(?:ular|racun|sengat|beracun))|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan)\b", value, flags=re.IGNORECASE):
         raise RuntimeError("Indonesian-only wording remains after Malay normalisation: " + value)
     return clean(value)
 
