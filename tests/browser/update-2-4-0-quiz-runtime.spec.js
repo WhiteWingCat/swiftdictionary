@@ -721,24 +721,27 @@ test("Changing course during an active Quiz switches to the selected course over
 
 test("Quiz overview refreshes its question bank for every supported learning course", async ({ page }) => {
   await openQuiz(page, freeSession);
-  await selectCourse(page,"zh");
+  await selectCourseAndWaitForSave(page,"zh");
   // The learning course is Chinese, while the selected interface/translation language remains English.
   await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator('[data-quiz-start="beginner"]')).toBeEnabled();
   await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("zh");
+  await expect.poll(()=>page.evaluate(async()=>{const {data}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();return data?.learning_language;})).toBe("zh");
   await expect(page.locator("#quizDifficultyGrid")).toContainText("建立汉字");
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
 
-  await selectCourse(page,"ms");
+  await selectCourseAndWaitForSave(page,"ms");
   await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("ms");
+  await expect.poll(()=>page.evaluate(async()=>{const {data}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();return data?.learning_language;})).toBe("ms");
   await expect(page.locator("#quizDifficultyGrid")).toContainText("日常马来语词汇");
   await expect(page.locator("#quizChineseUnavailable")).toBeHidden();
 
   const quizRequestsBeforeEnglish=await page.evaluate(()=>quizHomeRequestId);
-  await selectCourse(page,"en");
+  await selectCourseAndWaitForSave(page,"en");
   await expect.poll(()=>page.evaluate(()=>quizHomeRequestId)).toBeGreaterThan(quizRequestsBeforeEnglish);
   await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("en");
+  await expect.poll(()=>page.evaluate(async()=>{const {data}=await supabaseClient.from("user_preferences").select("learning_language").eq("user_id",currentUser.id).single();return data?.learning_language;})).toBe("en");
   await expect(page.locator("#quizDifficultyGrid")).toContainText("基础词汇");
   await expect(page.locator("#quizHome")).toBeVisible();
   await expect(page.locator("#preferenceRefreshToast")).toHaveClass(/visible/);
