@@ -49,3 +49,25 @@ The U3.0 architecture test currently fails only because the checked-in support o
 3. Rerun the full cross-version CI matrix, including Quiz course-switch and Flashcard Weak Memory browser tests.
 4. Verify current Pages preview and Google OAuth/account isolation.
 5. Prepare one consolidated U3.0 staging handoff. Human editorial review is deferred to the live website per owner instruction; do not relabel draft content as reviewed.
+
+
+## Latest implementation follow-up — 2026-11-28
+
+Application branch checkpoint: `9eac967b0b4ed859c3b557d88a92ad7f74dc4c6b`.
+
+The earlier course-switch patch was strengthened after considering the case where a learner changes course while a Quiz session or results view is open. On course change, the app now clears the old course-bound local session/result view, invalidates pending overview requests, waits for the preference write queue and then reloads the selected course's Quiz availability. A new browser regression covers Chinese Quiz session → Malay overview → English overview.
+
+Weak Memory received a second performance pass:
+- pre-index generated Malay Flashcard support translations and reviewed-example correction keys rather than scanning `Object.entries`/arrays once per card;
+- retain per-language dictionary lookup maps;
+- cache the custom-card lookup by source-array identity;
+- selecting a Weak Memory item now updates only the detail panel and selection state. It does not rebuild the complete list DOM.
+- cache-bust updated to `flashcards.js?v=3.0.0-ms23`.
+
+Added an 80-card Chinese review regression that navigates between review tabs and details, plus a DOM-preservation assertion for the English 80-card list. Existing 80-card browser coverage remains.
+
+A new automated run exposed the still-incomplete Chinese Malay Flashcard support output: only 895/1,447 runtime definitions resolve, with 603 direct generated Chinese rows. The source exporter now requires exactly 1,341 English and 1,447 Chinese Flashcard source records, and the generated-pack validator requires all corresponding output rows. The learning-support generation workflow is queued/pending; do not close the translation gap until the new output is committed and both the inventory and runtime coverage tests pass.
+
+The Quiz source bank has grown since earlier archive checkpoints: current source counts are 229 English, 145 Chinese, and 120 Malay questions in each support-language pack. Lesson counts remain 17 English / 17 Chinese / 72 Malay, with 112 / 112 / 216 practice questions respectively.
+
+Owner instruction is unchanged and now explicitly overrides older staging-review language in the development plan: human editorial/translation review is deferred to the live website and is not a pre-live gate. All generated text remains machine-assisted draft/unreviewed. Automated content checks remain mandatory. Model licensing, source provenance, Malaysia Copyright Act 1987 and PDPA/cross-border considerations remain public-release checks. Production remains untouched and PR #20 remains unmerged.
