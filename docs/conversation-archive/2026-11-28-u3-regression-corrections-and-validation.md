@@ -95,3 +95,24 @@ On the staging Supabase project `ivatvkfrtifgfheeaelj` (PostgreSQL 17), current 
 All 8 sessions are dated Nov 23–27, 2026; the two Malay sessions on Nov 27 (10:58 and 11:04 UTC) have no per-card snapshots, while the six earlier Chinese sessions have snapshots. Therefore the observed Malay session review issue is real historical data loss in those two completed sessions, not merely a test-only message. The migration's snapshot repair improves future games but cannot reconstruct exact prompts, option ordering, selected answer or correct answer for those already-completed Malay games from summary/mastery counts alone. Do not fabricate per-card review content. The game summary should remain available with an accurate explanation that per-card details were not stored; weak-memory cards from the two sessions are present in the review list.
 
 Read-only privilege checks confirm anon and authenticated have no direct SELECT on private snapshot/review tables; anon cannot execute the public game-review RPC, while authenticated can. Do not add direct table grants or weaken RLS to fix UI issues.
+
+## Historical partial-review recovery implementation — latest checkpoint
+
+The two Nov 27 Malay sessions had 5 and 4 weak-memory rows respectively whose `last_session_id` still points to those sessions. These are known missed cards, but they are not a complete record of all missed cards and do not contain original prompts, answer options, selected answers or correct answers.
+
+Added a safe partial-review path:
+- `flashcards.js` now distinguishes full, partial and unavailable review states. Partial review explicitly says the list may be incomplete and that original prompts/options/answers were not saved; it displays only known missed cards and their recall mode, with no invented answers.
+- New migration `20261128133000_swiftdictionary_update_3_0_partial_legacy_flashcard_review.sql` updates the owner-scoped review RPC. Full snapshot sessions retain their exact prior review output. Snapshotless completed sessions can return only weak-memory entries linked to their `last_session_id`; otherwise review remains unavailable.
+- The disposable SQL regression now seeds a legacy completed session and asserts the RPC returns `review_status='partial'`, known card key and label, and no selected answer, correct answer or answer options.
+- The mock adapter now models the same partial fallback, and a browser regression verifies partial legacy sessions render without inventing answer details.
+- `.github/workflows/quiz-db-foundation.yml` now applies the new migration before running the Flashcard review SQL regression.
+
+Application commits after `75a9d4b`:
+- `6e092cf` — render partial legacy game review.
+- `253f7b7` — add partial legacy review RPC migration.
+- `61f7802` — test SQL partial review behaviour.
+- `90cc375` — mock partial review fallback.
+- `63e20e2` — browser partial review regression.
+- `b0a177b` — wire migration and regression into the local Supabase CI workflow.
+
+The latest workflow checks on `b0a177b` are queued/in progress; no migration or UI change is accepted until the SQL/Auth and browser workflows pass. The current staging database has not yet received this new migration. No production database was changed.
