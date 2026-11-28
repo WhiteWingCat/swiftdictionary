@@ -5012,3 +5012,18 @@ Next required work:
 5. Verify staging Google OAuth redirect and leaked-password protection; complete the Malaysian Standard Malay editorial, model licensing, Copyright Act and PDPA checks before public release.
 
 Do not mark U3.0 complete while these quality and release gates remain open. PR #20 stays draft/unmerged and production remains untouched.
+
+
+## 2026-11-28 — remaining work continuation and latest CI recovery
+
+The owner requested completion of the remaining U3.0 Quiz, Lesson practice, Flashcard Malay coverage and final regression work. The Master Development Record and November 27 continuation/translation-quality/Flashcard-repair archives were reviewed before proceeding.
+
+The application branch remains `feature/update-3.0-phase-0-audit`, latest commit at this checkpoint `f9af1aa5b855f93462022e6feb5b6f34b3c9a4e5`; PR #20 remains draft/unmerged. Staging Supabase `ivatvkfrtifgfheeaelj` is healthy with U3.0 migrations through the Flashcard snapshot evaluation hardening migration. Production remains untouched.
+
+Current content audit reconfirms that 36 English and 12 Chinese Quiz support corrections exist, leaving the requested 163 English and 133 Chinese approved-question translations. Both English and Chinese Lessons have 112 practice questions requiring correction. Flashcard translation audit found 1,341 English and 603 Chinese generated support records, but only 25 English generated standalone definitions are populated; 73 English and 124 Chinese curated glossary keys exist. Generated examples and definitions remain drafts and require Malaysian Standard Malay review. The Flashcard dictionary, phrase, sentence and custom-card coverage is not complete.
+
+Latest CI recovery: the U3.0 architecture test's Malay phrase assertion was case-sensitive although the corrected sentence used an initial capital; this test-only assertion was changed to case-insensitive in `9b44ca9833aebcf8769e807a5ea7e169670d4c7c`. The authenticated Quiz browser test previously expected an English/Chinese-to-Malay session to start even though the runtime deliberately blocks that unsupported language pair. It now asserts the fail-closed message in `f9af1aa5b855f93462022e6feb5b6f34b3c9a4e5`. This is not a translation completion. On that head, U3.0 architecture and Cloudflare routing passed; U2.3/U2.5/U2.6/U2.7/U2.9 and Quiz authenticated reruns were pending/running at the last check. The preceding U2.3 and U2.5 browser runs and Quiz authenticated browser run contained failures; they must be resolved and rerun.
+
+Staging Supabase security advisor still reports leaked-password protection disabled (WARN) and informational private-schema RLS-without-policy findings on server-mediated tables. Verify grants and RPC boundaries; do not add broad policies or expose private tables. No Auth setting change was made. Performance advisor reports unused indexes; no index was removed. OAuth redirect for the current preview hostname remains unverified.
+
+Remaining gates are unchanged: curate the 163/133 Quiz support translations; correct all 112+112 Lesson practice prompt/option/explanation translations; complete Malay Flashcard coverage for dictionary/phrase/sentence/custom cards; resolve and rerun the full cross-version and authenticated browser matrix; verify staging OAuth and leaked-password protection; verify latest Pages deployment; complete real owner desktop/mobile acceptance. Human Malaysian Standard Malay review, exact model licence/attribution verification, Malaysia Copyright Act and PDPA/cross-border review remain mandatory before public release. PR #20 stays draft/unmerged; production untouched. See [the 2026-11-28 continuation archive](conversation-archive/2026-11-28-u3-remaining-work-continuation.md).
