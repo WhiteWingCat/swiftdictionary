@@ -351,6 +351,12 @@
         {q:"Ungkapan manakah digunakan untuk menarik perhatian orang yang tidak dikenali dengan sopan sebelum bertanya?",options:["Maaf, tumpang tanya (excuse me)","Terima kasih (thanks)","Selamat malam (good night)"]},
         {q:"Seseorang membantu anda membawa buku. Apakah yang boleh anda ucapkan?",options:["Pintu keluar (exit)","Terima kasih (thanks)","Selamat petang (good evening)"]},
         {q:"Ungkapan manakah merupakan cara mesra untuk mengucapkan selamat tinggal sambil mendoakan kesejahteraan seseorang?",options:["Selamat tengah hari (good afternoon)","Maaf, tumpang tanya (excuse me)","Jaga diri (take care)"]}
+      ],
+      "b-places-getting-around": [
+        {q:"Ke manakah anda pergi untuk meminjam buku?",options:["Perpustakaan","Hospital","Restoran"]},
+        {q:"Tempat manakah menyediakan rawatan perubatan?",options:["Muzium","Hospital","Pasar"]},
+        {q:"Di manakah penumpang biasanya menaiki kereta api?",options:["Di platform","Di pintu masuk muzium","Di pasar"]},
+        {q:"Perkataan manakah bermaksud tempat untuk keluar dari sesebuah bangunan?",options:["Pintu masuk","Sudut","Pintu keluar"]}
       ]
     },
     zh: {
@@ -401,6 +407,14 @@
         {q:"Ke manakah seseorang biasanya pergi untuk mendapatkan diagnosis dan rawatan apabila sakit atau cedera?",options:["hospital","sekolah","taman","restoran"]},
         {q:"Apakah nama tempat penumpang menunggu kereta api atau pengangkutan awam?",options:["stesen","sekolah","hospital","rumah"]},
         {q:"Ayat manakah digunakan untuk bertanya lokasi stesen MRT?",options:["Di manakah stesen MRT?","Apakah stesen MRT?","Saya pergi ke stesen MRT.","Stesen MRT itu besar."]}
+      ],
+      "zh-b-questions-negation": [
+        {q:"Partikel manakah lazimnya digunakan untuk membentuk soalan ya atau tidak?",options:["吗: partikel soalan ya atau tidak","的: partikel pemilikan atau penerang","了: partikel aspek atau perubahan keadaan","呢: partikel soalan atau kesinambungan"]},
+        {q:"Perkataan manakah bermaksud “apa”?",options:["apa","siapa","di mana","bila"]},
+        {q:"Perkataan manakah bermaksud “siapa”?",options:["siapa","apa","di mana","berapa banyak"]},
+        {q:"Perkataan manakah lazim digunakan untuk menafikan pernyataan umum seperti “Saya tidak menyukainya”?",options:["不: tidak; bukan","吗: partikel soalan","的: partikel pemilikan","在: di; berada di"]},
+        {q:"Ungkapan manakah boleh bermaksud “tidak mempunyai”?",options:["没有: tidak mempunyai","不是: bukan; tidak ialah","不要: tidak mahu; jangan","不会: tidak boleh; tidak akan"]},
+        {q:"Ayat manakah bermaksud “Adakah kamu seorang pelajar?”",options:["Adakah kamu seorang pelajar?","Kamu pelajar jenis apa. (bukan soalan ya atau tidak)","Kamu tidak mempunyai pelajar.","Siapakah pelajar itu."]}
       ]
     }
   };
