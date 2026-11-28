@@ -699,6 +699,26 @@ test("Translation changes on the Quiz overview do not auto-open an unfinished se
   await expect(page.locator("#quizHome")).toBeHidden();
   await expect(page.locator("#quizQuestionCounter")).toHaveText("第 1 题，共 10 题");
 });
+test("Changing course during an active Quiz switches to the selected course overview",async({page})=>{
+  await openQuiz(page,freeSession);
+  await selectCourse(page,"zh");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("zh");
+  await startQuiz(page,"beginner");
+  await expect(page.locator("#quizSession")).toBeVisible();
+
+  await selectCourse(page,"ms");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("ms");
+  await expect(page.locator("#quizSession")).toBeHidden();
+  await expect(page.locator("#quizResults")).toBeHidden();
+  await expect(page.locator("#quizHome")).toBeVisible();
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("日常马来语词汇");
+
+  await selectCourse(page,"en");
+  await expect.poll(()=>page.evaluate(()=>quizPageState.availability?.learning_language_code)).toBe("en");
+  await expect(page.locator("#quizDifficultyGrid")).toContainText("基础词汇");
+  await expect(page.locator("#quizHome")).toBeVisible();
+});
+
 test("Quiz overview refreshes its question bank for every supported learning course", async ({ page }) => {
   await openQuiz(page, freeSession);
   await selectCourse(page,"zh");
