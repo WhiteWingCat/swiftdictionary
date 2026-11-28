@@ -6,6 +6,8 @@
 - [U3.0 Phase 2 Malay Dictionary batch 04](2026-11-26-update-3-0-phase-2-dictionary-batch-04.md) — records 54 additional unique Malaysian Standard Malay headwords, 177 total headwords/199 senses/398 support-translation drafts, CI alias-collision corrections and final 39/39 architecture/content test success; Malay remains inactive and human review is pending.
 # SwiftDictionary conversation archive
 
+- [U3.0 remaining work continuation (2026-11-28)](2026-11-28-u3-remaining-work-continuation.md) — records the current 163/133 Quiz translation and 112+112 Lesson practice gaps, Flashcard Malay coverage audit, failed authenticated/browser regression gates, latest test-only fixes, staging security findings and exact recovery point.
+
 This directory contains structured handover archives for meaningful SwiftDictionary development conversations. The Master Development Record at [`../MASTER-DEVELOPMENT-RECORD.md`](../MASTER-DEVELOPMENT-RECORD.md) remains the concise current source of truth; archives preserve session-level decisions and recovery detail.
 
 ## Archive rules
