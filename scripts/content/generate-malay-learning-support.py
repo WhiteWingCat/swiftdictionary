@@ -36,47 +36,47 @@ def normalise_malay(value):
     text=clean(value)
     # Convert common Indonesian lexical forms and pronoun constructions to
     # Malaysian Standard Malay before the strict residual-term check.
-    text=re.sub(r"\\b(dengan|untuk|kepada|daripada|dari|pada|bersama|milik)mu\\b",
+    text=re.sub(r"\b(dengan|untuk|kepada|daripada|dari|pada|bersama|milik)mu\b",
                 lambda match:match.group(1)+" anda",text,flags=re.IGNORECASE)
     replacements=[
-      (r"\\baku\\b","saya"),
-      (r"\\bkamu\\b|\\bkau\\b","anda"),
-      (r"\\bkhawatir\\b","risau"),
-      (r"\\b(?:halo)\\b","helo"),
-      (r"\\bayolah\\b","ayuh"),
-      (r"\\bayo\\b","mari"),
-      (r"\\bteman\\b","rakan"),
-      (r"\\bketemu\\b","bertemu"),
-      (r"\\bkarena\\b","kerana"),
-      (r"\\bbahwa\\b","bahawa"),
-      (r"\\bberbeda\\b","berbeza"),
-      (r"\\bcoba\\b","cuba"),
-      (r"\\bkapan\\b","bila"),
-      (r"\\bsilakan\\b","sila"),
-      (r"\\baktivitas\\b","aktiviti"),
-      (r"\\bkualitas\\b","kualiti"),
-      (r"\\buniversitas\\b","universiti"),
-      (r"\\bberpikir\\b","berfikir"),
-      (r"\\bpikirkan\\b","fikirkan"),
-      (r"\\bpikir\\b","fikir"),
-      (r"\\bngomong\\b","bercakap"),
-      (r"\\bmembutuhkan\\b","memerlukan"),
-      (r"\\bbutuh\\b","perlu"),
-      (r"\\bkalian\\b","anda semua"),
-      (r"\\bdulu\\b","dahulu"),
-      (r"\\bbisa\\b(?!\\s+(?:ular|racun|sengat|beracun))","dapat"),
-      (r"\\bkantor\\b","pejabat"),
-      (r"\\bkalimat\\b","ayat"),
-      (r"\\bbis\\b","bas"),
-      (r"\\b(?:nggak|enggak)\\b","tidak"),
-      (r"\\bbanget\\b","sangat"),
-      (r"\\bapotek\\b","farmasi"),
-      (r"\\bbahasan\\b","huraian"),
-      (r"\\bANA\\b","sebarang")
+      (r"\baku\b","saya"),
+      (r"\bkamu\b|\bkau\b","anda"),
+      (r"\bkhawatir\b","risau"),
+      (r"\b(?:halo)\b","helo"),
+      (r"\bayolah\b","ayuh"),
+      (r"\bayo\b","mari"),
+      (r"\bteman\b","rakan"),
+      (r"\bketemu\b","bertemu"),
+      (r"\bkarena\b","kerana"),
+      (r"\bbahwa\b","bahawa"),
+      (r"\bberbeda\b","berbeza"),
+      (r"\bcoba\b","cuba"),
+      (r"\bkapan\b","bila"),
+      (r"\bsilakan\b","sila"),
+      (r"\baktivitas\b","aktiviti"),
+      (r"\bkualitas\b","kualiti"),
+      (r"\buniversitas\b","universiti"),
+      (r"\bberpikir\b","berfikir"),
+      (r"\bpikirkan\b","fikirkan"),
+      (r"\bpikir\b","fikir"),
+      (r"\bngomong\b","bercakap"),
+      (r"\bmembutuhkan\b","memerlukan"),
+      (r"\bbutuh\b","perlu"),
+      (r"\bkalian\b","anda semua"),
+      (r"\bdulu\b","dahulu"),
+      (r"\bbisa\b(?!\s+(?:ular|racun|sengat|beracun))","dapat"),
+      (r"\bkantor\b","pejabat"),
+      (r"\bkalimat\b","ayat"),
+      (r"\bbis\b","bas"),
+      (r"\b(?:nggak|enggak)\b","tidak"),
+      (r"\bbanget\b","sangat"),
+      (r"\bapotek\b","farmasi"),
+      (r"\bbahasan\b","huraian"),
+      (r"\bANA\b","sebarang")
     ]
     for pattern,replacement in replacements:
         text=re.sub(pattern,lambda match:replacement.capitalize() if match.group(0)[:1].isupper() else replacement,text,flags=re.IGNORECASE)
-    if re.search(r"\\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana)\\b",text,flags=re.IGNORECASE):
+    if re.search(r"\b(?:aku|kamu|kau|khawatir|halo|ayolah|ayo|teman|ketemu|karena|bahwa|berbeda|coba|kapan|silakan|aktivitas|kualitas|universitas|berpikir|pikir|ngomong|membutuhkan|butuh|kalian|dulu|kantor|kalimat|bis|nggak|enggak|banget|apotek|bahasan|ana)\b",text,flags=re.IGNORECASE):
         raise RuntimeError("Indonesian-only wording remains after Malay normalisation: "+text)
     return clean(text)
 def main():
