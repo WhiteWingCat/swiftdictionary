@@ -398,7 +398,7 @@
   };
   const MALAY_DAILY_DISCOVERY_APPROVED_WORDS = ["ada", "air", "ajar", "anak", "baik", "baca", "bahasa", "bantu", "besar", "boleh", "buku", "datang", "dengan", "kawan", "makan", "minum", "pergi", "rumah", "sekolah", "saya", "tidur", "tolong", "terima-kasih", "untuk", "pejabat", "pekerja", "majikan", "pekerjaan", "wang", "murah", "mahal", "bayaran", "jual", "kedai", "pasar", "pasar-raya", "resit", "bil", "bank", "akaun", "tunai", "pelanggan", "perkhidmatan", "hospital", "klinik", "ubat", "doktor", "jururawat", "polis", "balai-polis", "bomba", "pejabat-pos", "perpustakaan", "universiti", "kolej", "peperiksaan", "soalan", "jawapan", "latihan", "komputer", "telefon", "internet", "surat", "e-mel", "mesyuarat", "cuti", "ribut", "banjir", "kemalangan", "kecemasan", "selamat", "bahaya", "peluang", "tujuan", "sebab", "akibat", "berjaya", "gagal", "kereta", "motosikal", "basikal", "teksi", "tren", "stesen", "lapangan-terbang", "pesawat", "tiket", "perjalanan", "peta", "hotel", "jiran", "kampung", "taman"];
   const malayDailyDiscoverySlug = value => String(value || "")
-    .normalize("NFKD").replace(/[\\u0300-\\u036f]/g,"")
+    .normalize("NFKD").replace(/[\u0300-\u036f]/g,"")
     .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
   const buildMalayDailyDiscoveryPool = () => {
     const dictionary = window.SWIFT_MALAY_DICTIONARY || [];
