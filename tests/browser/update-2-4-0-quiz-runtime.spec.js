@@ -1194,7 +1194,6 @@ test("English and Chinese Quiz render complete Malay support for prompts, option
     await startQuiz(page,"beginner");
     await expect(page.locator("#quizSession")).toBeVisible();
     await expect(page.locator("#quizTranslationNotice")).toBeVisible();
-    await expect(page.locator("#quizTranslationNotice")).toContainText("Bahasa Melayu");
     const coverage=await page.evaluate(()=>{
       const snapshot=quizPageState.session;
       const rows=snapshot.questions.map(question=>quizMalayQuestion(question,snapshot.learning_language_code));
@@ -1202,6 +1201,10 @@ test("English and Chinese Quiz render complete Malay support for prompts, option
       return {
         effective:quizEffectiveTranslationCode(snapshot),
         count:snapshot.questions.length,
+        missingQuestionIds:snapshot.questions.filter(question=>!quizMalayQuestion(question,snapshot.learning_language_code)).map(question=>({
+          question_id:question.question_id,question_type:question.question_type,
+          learning_language_code:question.learning_language_code,source_lesson_id:question.source_lesson_id
+        })),
         complete:rows.every((row,index)=>row?.promptLearning?.trim()&&row?.explanationLearning?.trim()&&snapshot.questions[index].options.every(option=>{
           const translated=quizMalayOption(snapshot.questions[index],option,snapshot.learning_language_code);
           return typeof translated==="string"&&translated.trim();
@@ -1209,7 +1212,9 @@ test("English and Chinese Quiz render complete Malay support for prompts, option
         explanationInReview:rows.some(row=>row?.explanationLearning&&reviewMarkup.includes(quizEscape(row.explanationLearning)))
       };
     });
-    expect(coverage).toMatchObject({effective:"ms",count:10,complete:true,explanationInReview:true});
+    console.log("Malay Quiz session support audit:",JSON.stringify(coverage));
+    expect(coverage).toMatchObject({effective:"ms",count:10,missingQuestionIds:[],complete:true,explanationInReview:true});
+    await expect(page.locator("#quizTranslationNotice")).toContainText("Bahasa Melayu");
     await expect(page.locator("#quizQuestionArea .quiz-option-copy small")).toHaveCount(4);
     await page.locator("#quizAbandon").click();
     await expect(page.locator("#quizHome")).toBeVisible();
